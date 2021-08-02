@@ -1,14 +1,15 @@
 ---
 title: Intégrer un client à Azure Lighthouse
-description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
+description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci par les utilisateurs de votre locataire.
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 7b64a189fdf6b33fada1750b667260989d2827e8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: de0520f7ed8be24ac19b4738828890877456f734
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376218"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078956"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 

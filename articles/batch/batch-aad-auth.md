@@ -2,14 +2,14 @@
 title: Authentifier les services Azure Batch avec Azure Active Directory
 description: Batch prend en charge Azure AD pour l’authentification auprès du service Batch. Apprenez à vous authentifier de deux manières.
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.custom: has-adal-ref
-ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 05/13/2021
+ms.custom: has-adal-ref, subject-rbac-steps
+ms.openlocfilehash: 52e34bb94ab151afcfcdc14d2de55e608d82a139
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180018"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066751"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -114,14 +114,9 @@ Pour l’authentification auprès d’un principal de service, vous devez attrib
 
 1. Dans le portail Azure, accédez au compte Batch utilisé par votre application.
 1. Dans la section **Paramètres** du compte Batch, sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez l’onglet **Attributions de rôles**.
-1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Dans la liste déroulante **Rôle**, choisissez le rôle *Collaborateur* ou *Lecteur* pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle Azure d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
-1. Dans le champ **Sélectionner**, entrez le nom de votre application. Sélectionnez votre application dans la liste, puis sélectionnez **Enregistrer**.
+1. Attribuez le rôle [Contributeur](../role-based-access-control/built-in-roles.md#contributor) ou [Lecteur](../role-based-access-control/built-in-roles.md#reader) à l’application. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Votre application doit maintenant apparaître dans vos paramètres de contrôle d’accès avec un rôle Azure qui lui est attribué.
-
-![Attribuer un rôle Azure à votre application](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>Attribuer un rôle personnalisé
 
@@ -412,4 +407,3 @@ Utilisez les informations d’identification du principal de service pour ouvrir
 - En savoir plus sur les [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) et [Comment créer une application et un principal Azure AD pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md).
 - En savoir plus sur [l’authentification de solutions de gestion Batch avec Active Directory](batch-aad-auth-management.md).
 - Pour obtenir un exemple Python sur le mode de création d’un client Batch authentifié à l’aide d’un jeton Azure AD, consultez l’exemple [Déploiement d’une image Azure Batch personnalisée avec un script Python](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
-

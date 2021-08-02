@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 05/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e565fc2f5b28606ade64027e7d8191ebbcd39b09
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997628"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614827"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procédure : Configurer et activer des stratégies de risque
 
@@ -29,50 +29,78 @@ Comme nous l’avons appris dans l’article précédent, [Stratégies de protec
 
 Ensemble, les deux stratégies automatisent la réponse aux détections de risques dans votre environnement et permettent aux utilisateurs de résoudre eux-mêmes des problèmes quand des risques sont détectés. 
 
-> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
-
-## <a name="prerequisites"></a>Prérequis 
-
-Si votre organisation souhaite autoriser les utilisateurs à résoudre eux-mêmes les problèmes quand des risques sont détectés, les utilisateurs doivent être inscrits à la fois pour la réinitialisation du mot de passe en libre-service et Azure AD Multi-Factor Authentication. Nous vous recommandons [l’activation de l’expérience d’inscription d’informations de sécurité combinée](../authentication/howto-registration-mfa-sspr-combined.md) pour une expérience optimale. Le fait de permettre aux utilisateurs de résoudre eux-mêmes les problèmes les ramène à un état productif plus rapidement, sans nécessiter l’intervention de l’administrateur. Les administrateurs peuvent toujours voir ces événements et les examiner après coup. 
-
 ## <a name="choosing-acceptable-risk-levels"></a>Choix des niveaux de risque acceptables
 
 Les organisations doivent déterminer le niveau de risque consenti lorsqu’elles mettent dans la balance l’expérience utilisateur et la posture de sécurité. 
 
-La recommandation de Microsoft est de définir le seuil de stratégie de risque de l’utilisateur sur **Élevé** et la stratégie de risque de connexion sur **Moyen et supérieur**.
+La recommandation de Microsoft est de définir le seuil de stratégie de risque de l’utilisateur sur **Élevé** et la stratégie de risque de connexion sur **Moyen et supérieur**. Elle consiste également à autoriser les options d’auto-correction. Le choix de bloquer l’accès au lieu d’autoriser les options d’auto-correction, telles que la modification de mot de passe et l’authentification multifacteur, aura un impact sur vos utilisateurs et vos administrateurs. Réfléchissez mûrement à ce choix lorsque vous configurez vos stratégies.
 
-La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les détections de risque **Faible** et **Moyen**. Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise. La sélection d’une seuil **Faible** introduit des interruptions utilisateur supplémentaires, mais renforce la sécurité.
-
-## <a name="exclusions"></a>Exclusions
-
-Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../roles/security-emergency-access.md). Les organisations peuvent déterminer qu’elles doivent exclure les autres comptes de stratégies spécifiques en fonction de la façon dont les comptes sont utilisés. Toutes les exclusions doivent être examinées régulièrement pour déterminer si elles sont toujours applicables.
+La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les détections de risque **Faible** et **Moyen**. Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise. La sélection d’un seuil **Minimum** entraîne davantage d’interruptions utilisateur.
 
 Les [emplacements réseau](../conditional-access/location-condition.md) approuvés qui ont été configurés sont utilisés par Identity Protection dans certaines détections de risques afin de réduire les faux positifs.
 
+### <a name="risk-remediation"></a>Mesures de correction des risques
+
+Les organisations peuvent choisir de bloquer l’accès en cas de détection d’un risque. Le blocage empêche parfois les utilisateurs légitimes de faire ce dont ils ont besoin. Une meilleure solution consiste à autoriser l’auto-correction à l’aide de l’authentification multifacteur (MFA) Azure AD et de la réinitialisation de mot de passe en libre-service (SSPR). 
+
+- En cas de déclenchement d’une stratégie de risque utilisateur : 
+   - Les administrateurs peuvent exiger une réinitialisation de mot de passe sécurisé. Pour ce faire, Azure AD MFA doit avoir été appliqué avant que l’utilisateur ne crée un mot de passe avec SSPR, ce qui réinitialise le risque de l’utilisateur. 
+- En cas de déclenchement d’une stratégie de risque de connexion : 
+   - Azure AD MFA peut être déclenché, ce qui permet à l’utilisateur de prouver qu’il s’agit bien de lui à l’aide de l’une de ses méthodes d’authentification inscrites, ce qui réinitialise le risque de connexion. 
+
+> [!WARNING]
+> Les utilisateurs doivent s’inscrire à Azure AD MFA et SSPR avant de faire face à une situation nécessitant une correction. Les utilisateurs qui ne sont pas inscrits sont bloqués et ont besoin de l’intervention d’un administrateur.
+> 
+> La modification du mot de passe (je connais mon mot de passe et je souhaite le remplacer par un nouveau) en dehors du processus risqué de correction de stratégie utilisateur ne répond pas aux exigences de réinitialisation de mot de passe sécurisé.
+
+## <a name="exclusions"></a>Exclusions
+
+Les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../roles/security-emergency-access.md). Les organisations peuvent avoir besoin d’exclure d’autres comptes de stratégies spécifiques en fonction de la façon dont les comptes sont utilisés. Les exclusions doivent être examinées régulièrement pour déterminer si elles sont toujours applicables.
+
 ## <a name="enable-policies"></a>Activer les stratégies
 
-Pour activer les stratégies de risque utilisateur et de risque de connexion, procédez comme suit.
+Il existe deux emplacements où ces stratégies peuvent être configurées, l’Accès conditionnel et la Protection de l’identité. La configuration à l’aide de stratégies d’accès conditionnel est la méthode préférée, qui fournit davantage de contexte, notamment : 
 
-1. Accédez au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble**.
-1. Sélectionnez **Stratégie de risque utilisateur**.
-   1. Sous **Affectations**
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
-         1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque utilisateur** : la recommandation de Microsoft consiste à définir cette option sur **Élevé**.
-   1. Sous **Contrôles**
-      1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger la modification du mot de passe**.
-   1. **Appliquer la stratégie** - **Activé**
-   1. **Enregistrer** : cette action a pour effet de renvoyer à la page **Vue d’ensemble**.
-1. Sélectionnez **Stratégie de connexion à risque**.
-   1. Sous **Affectations**
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
-         1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque connexion** : la recommandation de Microsoft consiste à définir cette option sur **Moyen ou plus**.
-   1. Sous **Contrôles**
-      1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger l’authentification multifacteur**.
-   1. **Appliquer la stratégie** - **Activé**
-   1. **Save**
+   - des données de diagnostic améliorées ;
+   - l’intégration du mode rapport uniquement ;
+   - la prise en charge de l'API Graph.
+   - Utiliser d’autres attributs d’accès conditionnel dans la stratégie
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+### <a name="user-risk-with-conditional-access"></a>Risque utilisateur avec accès conditionnel
+
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
+   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
+1. Dans **Conditions** > **des risques utilisateur**, définissez **Configurer** sur **Oui**. Dans **Configurer les niveaux de risque des utilisateurs nécessaires à l’application de la stratégie**, sélectionnez **Élevé**, puis **Terminé**.
+1. Dans **Accorder** **les contrôles d’accès** > , sélectionnez **Accorder l’accès**, **Demander la modification du mot de passe**, puis **Sélectionner**.
+1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer votre stratégie.
+
+### <a name="sign-in-risk-with-conditional-access"></a>Risque de connexion avec accès conditionnel
+
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
+   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
+1. Dans **Conditions** > **Risque de connexion**, définissez **Configurer** sur **Oui**. Sous **Sélectionner le niveau de risque de connexion auquel cette stratégie s’applique** 
+   1. Sélectionnez **Haut** et **Moyen**.
+   1. Sélectionnez **Terminé**.
+1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer votre stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

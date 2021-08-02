@@ -2,14 +2,14 @@
 title: Choisir des tailles et des images de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle et quelle version de système d’exploitation choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 ms.custom: seodec18
-ms.openlocfilehash: 6de7decbf40eede74dd7b92f9f1139e1b31450c8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b5314d3672da87ac1d2fadca61046348a369e218
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126252"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789114"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -35,7 +35,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Dv4, Dsv4 | Non pris en charge |
 | Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
 | Eav4, Easv4 | Toutes les tailles |
-| Edv4, Edsv4 |  Toutes les tailles |
+| Edv4, Edsv4 |  Toutes les tailles, à l’exception de Standard_E20d_v4, Standard_E20ds_v4, Standard_E80ids_v4 |
 | Ev4, Esv4 | Non pris en charge |
 | F, Fs | Toutes les tailles |
 | Fsv2 | Toutes les tailles |
@@ -43,7 +43,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | H | Toutes les tailles |
 | HB | Toutes les tailles |
 | HBv2 | Toutes les tailles |
-| HBv3 | Standard_HB120rs_v3 (autres tailles non disponibles pour le moment) |
+| HBv3 | Toutes les tailles |
 | HC | Toutes les tailles |
 | Ls | Toutes les tailles |
 | Lsv2 | Toutes les tailles |
@@ -55,6 +55,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | NCasT4_v3 | Toutes les tailles |
 | ND | Toutes les tailles |
 | NDv2 | Aucune – pas encore disponible |
+| NP | Toutes les tailles |
 | NV | Toutes les tailles |
 | NVv3 | Toutes les tailles |
 | NVv4 | Toutes les tailles |

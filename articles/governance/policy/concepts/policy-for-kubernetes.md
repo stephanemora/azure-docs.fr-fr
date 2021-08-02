@@ -1,15 +1,15 @@
 ---
 title: Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement.
-ms.date: 03/22/2021
+ms.date: 05/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2610d788c18883d7aaffc3f7cae3ab7774eed1fa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a479c6f6bf22f416b3508c08dff5d60a8297d1a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752594"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985019"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Comprendre Azure Policy pour les clusters Kubernetes
 
@@ -130,16 +130,6 @@ Une fois les étapes préalables ci-dessus accomplies, installez le module compl
 
   1. Dans la page principale, sélectionnez le bouton **Activer un module complémentaire**.
 
-     <a name="migrate-from-v1"></a>
-     > [!NOTE]
-     > Si le bouton **Désactiver un module complémentaire** est activé et qu’un message d’avertissement de migration v2 s’affiche, cela signifie que le module complémentaire v1 est installé et doit être supprimé avant d’attribuer des définitions de stratégie v2. Le module complémentaire v1 _obsolète_ sera automatiquement remplacé par le module complémentaire v2 à compter du 24 août
-     > 2020. Les nouvelles versions v2 des définitions de stratégie doivent ensuite être affectées. Pour effectuer la mise à niveau maintenant, procédez comme suit :
-     >
-     > 1. Vérifiez que le module complémentaire v1 est installé sur votre cluster AKS en visitant la page **Stratégies** sur votre cluster AKS et que le cluster AKS affiche le message « The current cluster uses Azure Policy add-on v1... » (Le cluster actuel utilise le module complémentaire v1 Azure Policy).
-     > 1. [Supprimez le module complémentaire](#remove-the-add-on-from-aks).
-     > 1. Cliquez sur le bouton **Activer l’extension** pour installer la version v2 du module complémentaire.
-     > 1. [Affecter des versions v2 de vos définitions de stratégie intégrées v1](#assign-a-built-in-policy-definition)
-
 - Azure CLI
 
   ```azurecli-interactive
@@ -158,17 +148,13 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Enfin, vérifiez que le module complémentaire le plus récent est installé en exécutant cette commande Azure CLI, en remplaçant `<rg>` par le nom de votre groupe de ressources et `<cluster-name>` par le nom de votre cluster AKS : `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. Le résultat doit ressembler à la sortie suivante et la valeur de **config.version** doit être `v2` :
+Enfin, vérifiez que le module complémentaire le plus récent est installé en exécutant cette commande Azure CLI, en remplaçant `<rg>` par le nom de votre groupe de ressources et `<cluster-name>` par le nom de votre cluster AKS : `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. Le résultat doit ressembler à la sortie suivante :
 
 ```output
-"addonProfiles": {
-    "azurepolicy": {
-        "config": {
-            "version": "v2"
-        },
+{
+        "config": null,
         "enabled": true,
         "identity": null
-    },
 }
 ```
 

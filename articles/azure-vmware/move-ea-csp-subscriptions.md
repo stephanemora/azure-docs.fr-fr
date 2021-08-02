@@ -4,12 +4,12 @@ description: Cet article explique comment déplacer un abonnement Azure VMware S
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 0cd06eb72f8ed93cc5a491070baded76f9dc9f6f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145492"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966703"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Déplacer l’abonnement Azure VMware Solution vers un autre abonnement
 
@@ -64,9 +64,7 @@ Le nouvel abonnement s’affiche dans l’onglet Vue d’ensemble du cloud priv�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus :
 
-- [Conseils sur le déplacement de ressources réseau](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
-- [Conseils pour le déplacement de machines virtuelles](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
-- [Conseils de déplacement de ressources App Service](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
-
-
-
+- [Déplacer Azure VMware Solution entre les régions](move-azure-vmware-solution-across-regions.md)
+- [Conseils sur le déplacement de ressources réseau](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
+- [Conseils pour le déplacement de machines virtuelles](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
+- [Conseils de déplacement de ressources App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)

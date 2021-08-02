@@ -3,20 +3,20 @@ title: Limites des ressources vCore des bases de données uniques
 description: Cette page décrit certaines limites de ressources vCore courantes pour une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.subservice: service-overview
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
-ms.date: 04/09/2021
-ms.openlocfilehash: 7f96e6638bd021777d2f4bb888ef70c49c42c716
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 06/04/2021
+ms.openlocfilehash: 4a400417fef8ac89ccf30799f4969ba8f789e260
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313791"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555305"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,10 @@ Cet article détaille les limites de ressources des bases de données uniques da
 * Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : Azure SQL Database](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md).
 * Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](purchasing-models.md).
 
-Chaque réplica en lecture seule a ses propres ressources, comme les vCores, la mémoire, les IOPS de données, TempDB, les workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article.
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+
+Chaque réplica en lecture seule a ses propres ressources, comme les vCores, la mémoire, les E/S par seconde sur les données, TempDB, les workers et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article.
 
 Vous pouvez définir le niveau de service, la taille de calcul (objectif de service) et la quantité de stockage pour une base de données unique en utilisant :
 
@@ -53,14 +56,14 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|0,75-6|1,0-8|
 |Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|2,25-18|3,00-24|
 |Délai minimal-maximal de pause automatique (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Prise en charge de ColumnStore|Oui*|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|Oui <sup>1</sup>|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|512|1 024|1 024|1 024|1536|
-|Taille maximale du journal (Go)|154|307|307|307|461|
+|Taille maximale du journal <sup>2</sup>|154|307|307|307|461|
 |Taille maximale des données TempDB (Go)|32|64|128|192|256|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données \*\*|320|640|1 280|1920|2560|
+|Nombre maximal d’IOPS de données <sup>3</sup>|320|640|1 280|1920|2560|
 |Taux de journalisation maximal (Mbits/s)|4.5|9|18|27|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
@@ -69,8 +72,11 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* Les objectifs de service avec des configurations VCore max plus petites peuvent avoir une mémoire insuffisante pour la création et l’utilisation d’index de banque de colonnes.  Si vous rencontrez des problèmes de performances avec la banque de colonnes, augmentez la configuration VCore max pour augmenter la mémoire maximale disponible.  
-\*\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Les objectifs de service avec des configurations de VCore max plus petites peuvent avoir une mémoire insuffisante pour la création et l’utilisation d’index columnstore.  Si vous rencontrez des problèmes de performances avec le columnstore, augmentez la configuration de VCore max pour accroître la mémoire maximale disponible.  
+
+<sup>2</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>3</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -83,11 +89,11 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|3 072|3 072|3 072|
-|Taille maximale du journal (Go)|461|461|461|922|
+|Taille maximale du journal <sup>1</sup>|461|461|461|922|
 |Taille maximale des données TempDB (Go)|320|384|448|512|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|3200|3840|4480|5120|
+|Nombre maximal d’IOPS de données <sup>2</sup>|3200|3840|4480|5120|
 |Taux de journalisation maximal (Mbits/s)|45|50|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|750|900|1050|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
@@ -96,7 +102,9 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-3"></a>Génération de calcul Gen5 (partie 3)
 
@@ -109,11 +117,11 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|1 024|1 024|1 024|
+|Taille maximale du journal <sup>1</sup>|922|922|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|576|640|768|1 024|1 280|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|12800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|5760|6 400|7680|10240|12800|
 |Taux de journalisation maximal (Mbits/s)|50|50|50|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 350|1500|1800|2 400|3000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
@@ -122,7 +130,9 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Hyperscale - calcul provisionné - Gen4
@@ -141,7 +151,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|4000 |8000 |12 000 |16000 |20000 |24 000 |
+|Nbre max. d’IOPS de disque SSD local <sup>1</sup>|4000 |8000 |12 000 |16000 |20000 |24 000 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
@@ -152,7 +162,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
@@ -168,7 +178,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|224|256|288|320|512|768|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|28000 |32000 |36000 |40000 |64 000 |76 800 |
+|Nbre max. d’IOPS de disque SSD local <sup>1</sup>|28000 |32000 |36000 |40000 |64 000 |76 800 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
@@ -179,7 +189,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Hyperscale - calcul provisionné - Gen5
 
@@ -197,7 +207,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|448|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|8000 |16000 |24 000 |32000 |40000 |48 000 |56 000 |
+|Nbre max. d’IOPS de disque SSD local <sup>1</sup>|8000 |16000 |24 000 |32000 |40000 |48 000 |56 000 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
@@ -208,7 +218,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -224,7 +234,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|64 000 |72 000 |80000 |96 000 |128000 |160 000 |204800 |
+|Nbre max. d’IOPS de disque SSD local <sup>1</sup>|64 000 |72 000 |80000 |96 000 |128000 |160 000 |204800 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
@@ -235,7 +245,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-\* Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
+<sup>1</sup> Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Notes
 
@@ -258,7 +268,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|64|128|192|256|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|14000|28000|42000|44800|
+|Nbre max. d’IOPS de disque SSD local <sup>1</sup>|14000|28000|42000|44800|
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|160|320|480|640|
@@ -268,6 +278,8 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|
 |Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|
 |||
+
+<sup>1</sup> Outre les E/S de disque SSD local, les charges de travail utilisent les E/S de [serveur de pages](service-tier-hyperscale.md#page-server) distant. L’efficacité des IOPS dépend de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance) et [E/S de données dans les statistiques d’utilisation des ressources](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="notes"></a>Notes
 
@@ -291,11 +303,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|
-|Taille maximale du journal (Go)|307|307|461|461|461|922|
+|Taille maximale du journal <sup>1</sup>|307|307|461|461|461|922|
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|320|640|960|1 280|1 600|1920|
+|Nombre maximal d’IOPS de données <sup>2</sup>|320|640|960|1 280|1 600|1920|
 |Taux de journalisation maximal (Mbits/s)|4.5|9|13,5|18|22,5|27|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -304,7 +316,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
@@ -316,11 +330,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|3 072|3 072|4096|4096|
-|Taille maximale du journal (Go)|922|922|922|922|1229|1229|
+|Taille maximale du journal <sup>1</sup>|922|922|922|922|1229|1229|
 |Taille maximale des données TempDB (Go)|224|256|288|320|512|768|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
-|Nombre maximal d’IOPS de données *|2240|2560|2880|3200|5120|7680|
+|Nombre maximal d’IOPS de données <sup>2</sup>|2240|2560|2880|3200|5120|7680|
 |Taux de journalisation maximal (Mbits/s)|31,5|36|40,5|45|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -329,7 +343,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Usage général - calcul provisionné - Gen5
 
@@ -343,11 +359,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|307|461|461|461|922|922|
+|Taille maximale du journal <sup>1</sup>|307|307|461|461|461|922|922|
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|640|1 280|1920|2560|3200|3840|4480|
+|Nombre maximal d’IOPS de données <sup>2</sup>|640|1 280|1920|2560|3200|3840|4480|
 |Taux de journalisation maximal (Mbits/s)|9|18|27|36|45|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -356,7 +372,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -368,11 +386,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|922|1 024|1 024|1 024|1 024|
+|Taille maximale du journal <sup>1</sup>|922|922|922|1 024|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|5120|5760|6 400|7680|10240|12800|12800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|5120|5760|6 400|7680|10240|12800|12800|
 |Taux de journalisation maximal (Mbits/s)|50|50|50|50|50|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -381,7 +399,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Usage général - calcul provisionné - série Fsv2
 
@@ -395,11 +415,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1536|
-|Taille maximale du journal (Go)|336|336|336|336|512|
+|Taille maximale du journal <sup>1</sup>|336|336|336|336|512|
 |Taille maximale des données TempDB (Go)|37|46|56|65|74|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|2560|3200|3840|4480|5120|
+|Nombre maximal d’IOPS de données <sup>2</sup>|2560|3200|3840|4480|5120|
 |Taux de journalisation maximal (Mbits/s)|36|45|50|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|400|500|600|700|800|
 |Nombre maximal de connexions simultanées|800|1 000|1200|1400|1 600|
@@ -409,7 +429,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="fsv2-series-compute-generation-part-2"></a>Génération de calcul de série Fsv2 (partie 2)
 
@@ -421,11 +443,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|1536|1536|3 072|3 072|4096|
-|Taille maximale du journal (Go)|512|512|512|1 024|1 024|1 024|
+|Taille maximale du journal <sup>1</sup>|512|512|512|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|83|93|111|148|167|333|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|11520|12800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|5760|6 400|7680|10240|11520|12800|
 |Taux de journalisation maximal (Mbits/s)|50|50|50|50|50|50|
 |Nombre maximal d’ouvriers simultanés (demandes)|900|1 000|1200|1 600|1800|3600|
 |Nombre maximal de connexions simultanées|1800|2000|2 400|3200|3600|7200|
@@ -435,7 +457,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="general-purpose---provisioned-compute---dc-series"></a>Usage général – Calcul approvisionné – série DC
 
@@ -447,11 +471,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|461|922|922|
+|Taille maximale du journal <sup>1</sup>|307|461|922|922|
 |Taille maximale des données TempDB (Go)|64|128|192|256|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|640|1 280|1920|2560|
+|Nombre maximal d’IOPS de données <sup>2</sup>|640|1 280|1920|2560|
 |Taux de journalisation maximal (Mbits/s)|9|18|27|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|160|320|480|640|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
@@ -460,8 +484,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Vital pour l’entreprise - calcul provisionné - Gen4
 
@@ -479,10 +504,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Stockage In-Memory OLTP (Go)|1|2|3|4|5|6|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
-|Taille maximale du journal (Go)|307|307|307|307|307|307|
+|Taille maximale du journal <sup>1</sup>|307|307|307|307|307|307|
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|1356|1356|1356|1356|1356|1356|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|4 000|8,000|12,000|16 000|20 000|24 000|
+|Nombre maximal d’IOPS de données <sup>2</sup>|4 000|8,000|12,000|16 000|20 000|24 000|
 |Taux de journalisation maximal (Mbits/s)|8|16|24|32|40|48|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1200|
@@ -492,7 +518,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
@@ -505,10 +533,11 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Stockage In-Memory OLTP (Go)|7|8|9.5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
-|Taille maximale du journal (Go)|307|307|307|307|307|307|
+|Taille maximale du journal <sup>1</sup>|307|307|307|307|307|307|
 |Taille maximale des données TempDB (Go)|224|256|288|320|512|768|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|1356|1356|1356|1356|1356|1356|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données |28 000|32 000|36 000|40 000|64 000|76 800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|28 000|32 000|36 000|40 000|64 000|76 800|
 |Taux de journalisation maximal (Mbits/s)|56|64|64|64|64|64|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
 |Nombre maximal de connexions simultanées (requêtes)|1400|1 600|1800|2000|3200|4 800|
@@ -518,7 +547,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---gen5"></a>Vital pour l’entreprise - calcul provisionné - Gen5
 
@@ -532,11 +563,12 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|1,57|3,14|4.71|6,28|8,65|11,02|13,39|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|307|461|461|461|922|922|
+|Taille maximale du journal <sup>1</sup>|307|307|461|461|461|922|922|
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|448|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|4829|4829|4829|4829|4829|4829|4829|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|8000|16 000|24 000|32 000|40 000|48 000|56 000|
+|Nombre maximal d’IOPS de données <sup>2</sup>|8000|16 000|24 000|32 000|40 000|48 000|56 000|
 |Taux de journalisation maximal (Mbits/s)|24|48|72|96|96|96|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1200|1400|
@@ -546,7 +578,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -558,11 +592,12 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|15,77|18,14|20,51|25,25|37,94|52,23|131,64|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
-|Taille maximale du journal (Go)|922|922|922|1 024|1 024|1 024|1 024|
+|Taille maximale du journal <sup>1</sup>|922|922|922|1 024|1 024|1 024|1 024|
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|4829|4829|4829|4829|4829|4829|4829|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|64 000|72 000|80 000|96 000|128 000|160 000|204 800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|64 000|72 000|80 000|96 000|128 000|160 000|204 800|
 |Taux de journalisation maximal (Mbits/s)|96|96|96|96|96|96|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de connexions simultanées|1 600|1800|2000|2 400|3200|4000|8000|
@@ -572,7 +607,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Vital pour l’entreprise - calcul provisionné - série M
 
@@ -586,11 +623,12 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|64|80|96|112|128|150|
 |Taille maximale des données (Go)|512|640|768|896|1 024|1152|
-|Taille maximale du journal (Go)|171|213|256|299|341|384|
+|Taille maximale du journal <sup>1</sup>|171|213|256|299|341|384|
 |Taille maximale des données TempDB (Go)|256|320|384|448|512|576|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|13836|13836|13836|13836|13836|13836|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|12 499|15 624|18 748|21 873|24 998|28 123|
+|Nombre maximal d’IOPS de données <sup>2</sup>|12 499|15 624|18 748|21 873|24 998|28 123|
 |Taux de journalisation maximal (Mbits/s)|48|60|72|84|96|108|
 |Nombre maximal d’ouvriers simultanés (demandes)|800|1 000|1,200|1 400|1 600|1 800|
 |Nombre maximal de connexions simultanées|800|1 000|1,200|1 400|1 600|1 800|
@@ -600,10 +638,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
 
-> [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="m-series-compute-generation-part-2"></a>Génération de calcul de série M (partie 2)
 
@@ -615,11 +652,12 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|172|216|304|704|1768|
 |Taille maximale des données (Go)|1 280|1536|2 048|4096|4096|
-|Taille maximale du journal (Go)|427|512|683|1 024|1 024|
+|Taille maximale du journal <sup>1</sup>|427|512|683|1 024|1 024|
 |Taille maximale des données TempDB (Go)|4096|2 048|1 024|768|640|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|13836|13836|13836|13836|13836|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|31 248|37 497|49 996|99 993|160 000|
+|Nombre maximal d’IOPS de données <sup>2</sup>|31 248|37 497|49 996|99 993|160 000|
 |Taux de journalisation maximal (Mbits/s)|120|144|192|264|264|
 |Nombre maximal d’ouvriers simultanés (demandes)|2 000|2 400|3 200|6 400|12 800|
 |Nombre maximal de connexions simultanées|2 000|2 400|3 200|6 400|12 800|
@@ -629,10 +667,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
 
-> [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="business-critical---provisioned-compute---dc-series"></a>Vital pour l’entreprise – Calcul approvisionné – Série DC
 
@@ -644,11 +681,12 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|1.7|3.7|5.9|8,2|
 |Taille maximale des données (Go)|768|768|768|768|
-|Taille maximale du journal (Go)|230|230|230|230|
+|Taille maximale du journal <sup>1</sup>|230|230|230|230|
 |Taille maximale des données TempDB (Go)|64|128|192|256|
+|[Taille maximale du stockage local](resource-limits-logical-server.md#storage-space-governance) (Go)|1406|1406|1406|1406|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|14000|28000|42000|44800|
+|Nombre maximal d’IOPS de données <sup>2</sup>|14000|28000|42000|44800|
 |Taux de journalisation maximal (Mbits/s)|24|48|72|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|
 |Nombre maximal de connexions simultanées|200|400|600|800|
@@ -658,8 +696,9 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Lecture du Scale-out|Non|Non|Non|Non|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+<sup>1</sup> Pour les valeurs de tailles de données maximales documentées. La réduction de la taille maximale des données réduit proportionnellement la taille maximale du journal.
 
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

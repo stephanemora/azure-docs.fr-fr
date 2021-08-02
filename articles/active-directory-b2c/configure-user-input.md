@@ -8,29 +8,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 06/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 257ba16cf015705b8f6da264d9c25f28cef2ebb1
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: eb700a4432082f75cf1ddf1ce007cee801597948
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443438"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409448"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Ajouter des attributs utilisateur et personnaliser l’entrée utilisateur dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
-
 Dans cet article, vous collectez un nouvel attribut lors de votre parcours d’inscription dans Azure Active Directory B2C (Azure AD B2C). Vous obtenez la ville des utilisateurs, vous la configurez en tant que liste déroulante et vous indiquez si elle doit être obligatoirement fournie.
+
+> [!IMPORTANT]
+> Cet exemple utilise la revendication intégrée « city ». Au lieu de cela, vous pouvez choisir l’un des [attributs intégrés Azure AD B2C](user-profile-attributes.md) pris en charge ou un attribut personnalisé. Pour utiliser un attribut personnalisé, [activez les attributs personnalisés](user-flow-custom-attributes.md). Pour utiliser un autre attribut intégré ou personnalisé, remplacez « city » par l’attribut de votre choix, par exemple l’attribut intégré *jobTitle* ou un attribut personnalisé comme *extension_loyaltyId*.  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -89,7 +86,7 @@ Pour fournir une liste définie de valeurs pour l’attribut Ville :
       "ElementType": "ClaimType",
       "ElementId": "city",
       "TargetCollection": "Restriction",
-      "Override": false,
+      "Override": true,
       "Items": [
         {
           "Name": "Berlin",
@@ -129,10 +126,9 @@ Pour fournir une liste définie de valeurs pour l’attribut Ville :
 
 ::: zone pivot="b2c-custom-policy"
 
-> [!NOTE]
-> Cet exemple utilise la revendication intégrée « city ». Au lieu de cela, vous pouvez choisir l’un des [attributs intégrés Azure AD B2C](user-profile-attributes.md) pris en charge ou un attribut personnalisé. Pour utiliser un attribut personnalisé, [activez les attributs personnalisés](user-flow-custom-attributes.md). Pour utiliser un autre attribut intégré ou personnalisé, remplacez « city » par l’attribut de votre choix, par exemple l’attribut intégré *jobTitle* ou un attribut personnalisé comme *extension_loyaltyId*.  
+## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez collecter les données initiales auprès des utilisateurs par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble de manière interactive des informations provenant directement de l’utilisateur, Identity Experience Framework utilise son [profil technique autodéclaré](self-asserted-technical-profile.md). Dans cet exemple, vous allez :
+Vous pouvez collecter les données initiales auprès des utilisateurs par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C recueille de manière interactive des informations de l’utilisateur, il utilise le [profil technique autodéclaré](self-asserted-technical-profile.md). Dans cet exemple, vous allez :
 
 1. Définir une revendication « city ». 
 1. Demander à l’utilisateur la ville où il vit.
@@ -164,14 +160,24 @@ Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAn
       <DataType>string</DataType>
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
-        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+        <Enumeration Text="Berlin" Value="berlin" />
+        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
   <!-- 
   </ClaimsSchema>
 </BuildingBlocks>-->
+```
+
+Incluez l’attribut [SelectByDefault](claimsschema.md#enumeration) sur un `Enumeration` élément que celui-ci soit sélectionné par défaut lors du premier chargement de la page. Par exemple, pour présélectionner l’élément *London*, modifiez l’élément `Enumeration` comme dans l’exemple suivant :
+
+```xml
+<Restriction>
+  <Enumeration Text="Berlin" Value="berlin" />
+  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="Seattle" Value="seattle" />
+</Restriction>
 ```
 
 ## <a name="add-a-claim-to-the-user-interface"></a>Ajouter une revendication à l’interface utilisateur
@@ -314,15 +320,20 @@ Pour retourner la revendication de ville à l’application par partie de confia
 </RelyingParty>
 ```
 
-## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
+## <a name="upload-and-test-your-updated-custom-policy"></a>Téléchargez et testez votre stratégie personnalisée mise à jour
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-4. Sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés.
-2. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
-3. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
+1. Sélectionnez **Charger une stratégie personnalisée**.
+1. Chargez les fichiers de stratégie que vous avez modifiés.
+
+### <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
+
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Dans la page d’inscription ou de connexion, sélectionnez **S’inscrire maintenant**. Achevez d’entrer les informations utilisateur, dont le nom de la ville, puis cliquez sur **Créer**. Vous devez voir le contenu du jeton qui a été retourné.
 
 ::: zone-end
 
@@ -351,12 +362,69 @@ Le jeton envoyé à votre application inclut la revendication `city`.
   "email": "joe@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
-  "city": "Bellevue"
+  "city": "Berlin"
   ...
 }
 ```
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="optional-localize-the-ui"></a>[Facultatif] Localiser l’interface utilisateur
+
+Azure AD B2C vous permet d’adapter votre stratégie à différentes langues. Pour plus d’informations, découvrez comment [personnaliser l’expérience linguistique](language-customization.md). Pour localiser la page d’inscription, [configurez la liste des langues prises en charge](language-customization.md#set-up-the-list-of-supported-languages) puis [fournissez des étiquettes spécifique de la langue](language-customization.md#provide-language-specific-labels).
+
+> [!NOTE]
+> Lorsque vous utilisez la commande `LocalizedCollection` avec les étiquettes spécifiques de la langue, vous pouvez supprimer la collection `Restriction` de la [définition de revendication](#define-a-claim).
+
+L’exemple suivant montre comment fournir la liste de villes pour l’anglais et l’espagnol. La collection `Restriction` de la revendication *city* est définie avec une liste d’éléments pour l’anglais et l’espagnol. L’attribut [SelectByDefault](claimsschema.md#enumeration) a pour effet de sélectionner un élément par défaut lors du premier chargement de la page.
+   
+```xml
+<!-- 
+<BuildingBlocks>-->
+  <Localization Enabled="true">
+    <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+      <SupportedLanguage>en</SupportedLanguage>
+      <SupportedLanguage>es</SupportedLanguage>
+    </SupportedLanguages>
+    <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlin" Value="Berlin"></Item>
+          <Item Text="London" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+    <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlina" Value="Berlin"></Item>
+          <Item Text="Londres" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+  </Localization>
+<!-- 
+</BuildingBlocks>-->
+```
+
+Après avoir ajouté l’élément localization, [modifiez la définition du contenu avec la localisation](language-customization.md#edit-the-content-definition-with-the-localization). Dans l’exemple suivant, les ressources personnalisées en anglais (en) et en espagnol (es) sont ajoutées à la page d’inscription :
+   
+```xml
+<!-- 
+<BuildingBlocks>
+  <ContentDefinitions> -->
+   <ContentDefinition Id="api.localaccountsignup">
+    <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+    </LocalizedResourcesReferences>
+   </ContentDefinition>
+  <!-- 
+  </ContentDefinitions>
+</BuildingBlocks>-->
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

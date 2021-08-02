@@ -1,20 +1,20 @@
 ---
 title: Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 description: Créez des règles automatisées pour déplacer des données entre les niveaux chaud, froid et archive.
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 04/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 03688ea659d3bd06040b6821bd213b65870e5c6e
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 19a828621f298759b87d8b0d4ca627d3ab7d27c3
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632760"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071278"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 
@@ -86,12 +86,6 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 1. Sélectionnez **Objets blob de base** pour définir les conditions de votre règle. Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas été modifiés depuis 30 jours.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Page Gestion de cycle de vie des objets blob de base du Portail Microsoft Azure":::
-
-   L’option **Dernier accès** est disponible en préversion dans les régions suivantes :
-
-    - France Centre
-    - Est du Canada
-    - Centre du Canada
 
    > [!IMPORTANT]
    > La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
@@ -327,7 +321,7 @@ Les filtres sont les suivants :
 | blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 
 > [!NOTE]
-> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **Canada Centre**, **Canada Est**, **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+> L’index d’objets blob est en préversion publique.  Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Actions de règle
 

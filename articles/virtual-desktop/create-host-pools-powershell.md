@@ -1,24 +1,25 @@
 ---
-title: Créer un pool d’hôtes Windows Virtual Desktop via PowerShell – Azure
-description: Découvrez comment créer un pool d’hôtes dans Windows Virtual Desktop avec des cmdlets PowerShell.
+title: Créer un pool d’hôtes Azure Virtual Desktop via PowerShell – Azure
+description: Découvrez comment créer un pool d’hôtes dans Azure Virtual Desktop à l’aide de cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2c1ce95f9eba8c31b20d8e992fa1880a5d33da8d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 58044b38b78776eca650b52d448ff1477b71e362
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447846"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756109"
 ---
-# <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Windows Virtual Desktop avec PowerShell
+# <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Azure Virtual Desktop à l’aide de PowerShell
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
-Les pools d'hôtes sont des ensembles d'une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop. Chaque pool d’hôtes peut être associé à plusieurs groupes RemoteApp, à un groupe d’applications de bureau et à plusieurs hôtes de session.
+Les pools d’hôtes sont des ensembles d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Azure Virtual Desktop. Chaque pool d’hôtes peut être associé à plusieurs groupes RemoteApp, à un groupe d’applications de bureau et à plusieurs hôtes de session.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -26,7 +27,7 @@ Cet article suppose que vous avez déjà suivi les instructions indiquées dans 
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Utilisez votre client PowerShell pour créer un pool d’hôtes
 
-Exécutez l’applet de commande suivante pour vous connecter à l’environnement Windows Virtual Desktop :
+Exécutez la cmdlet suivante pour vous connecter à l’environnement Azure Virtual Desktop :
 
 ```powershell
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
@@ -61,7 +62,7 @@ Exécutez la commande suivante pour ajouter des utilisateurs Azure Active Direct
 New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-Exécutez la cmdlet suivante pour exporter le jeton d’inscription vers une variable, que vous utiliserez ultérieurement dans [Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Exécutez la cmdlet suivante pour exporter le jeton d’inscription vers une variable, que vous utiliserez ultérieurement dans [Inscrire les machines virtuelles dans le pool d'hôtes Azure Virtual Desktop](#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
 ```powershell
 $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
@@ -69,7 +70,7 @@ $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostP
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Créer les machines virtuelles pour le pool d'hôtes
 
-Vous pouvez maintenant créer une machine virtuelle Azure à joindre à votre pool d’hôtes Windows Virtual Desktop.
+Vous pouvez maintenant créer une machine virtuelle Azure à joindre à votre pool d’hôtes Azure Virtual Desktop.
 
 Vous pouvez créer une machine virtuelle de plusieurs façons :
 
@@ -78,16 +79,16 @@ Vous pouvez créer une machine virtuelle de plusieurs façons :
 - [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
->Si vous déployez une machine virtuelle à l’aide de Windows 7 en tant que système d’exploitation hôte, le processus de création et de déploiement sera un peu différent. Pour plus d'informations, consultez [Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>Si vous déployez une machine virtuelle à l’aide de Windows 7 en tant que système d’exploitation hôte, le processus de création et de déploiement sera un peu différent. Pour plus d’informations, consultez [Déployer une machine virtuelle Windows 7 sur Azure Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 Une fois que vous avez créé vos machines virtuelles hôtes de session, [appliquez une licence Windows à une machine virtuelle hôte de session](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) pour exécuter vos machines virtuelles Windows ou Windows Server sans payer une autre licence.
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Préparer les machines virtuelles pour l'installation des agents Windows Virtual Desktop
+## <a name="prepare-the-virtual-machines-for-azure-virtual-desktop-agent-installations"></a>Préparer les machines virtuelles pour l’installation des agents Azure Virtual Desktop
 
-Avant d'installer les agents Windows Virtual Desktop et d'inscrire les machines virtuelles dans votre pool d’hôtes Windows Virtual Desktop, les opérations suivantes sont requises :
+Avant d’installer les agents Azure Virtual Desktop et d'inscrire les machines virtuelles dans votre pool d’hôtes Azure Virtual Desktop, les opérations suivantes sont requises :
 
-- Vous devez joindre le domaine à la machine. Ainsi, le compte Azure Active Directory des utilisateurs Windows Virtual Desktop entrants est mappé à leur compte Active Directory pour leur permettre d'accéder à la machine virtuelle.
-- Vous devez installer le rôle Hôte de session Bureau à distance (RDSH) si la machine virtuelle exécute un système d’exploitation Windows Server. Le rôle RDSH permet la bonne installation des agents Windows Virtual Desktop.
+- Vous devez joindre le domaine à la machine. Ainsi, le compte Azure Active Directory des utilisateurs Azure Virtual Desktop entrants est mappé à leur compte Active Directory pour leur permettre d’accéder à la machine virtuelle.
+- Vous devez installer le rôle Hôte de session Bureau à distance (RDSH) si la machine virtuelle exécute un système d’exploitation Windows Server. Le rôle RDSH permet la bonne installation des agents Azure Virtual Desktop.
 
 À des fins de jonction de domaine, procédez comme suit sur chaque machine virtuelle :
 
@@ -103,22 +104,22 @@ Avant d'installer les agents Windows Virtual Desktop et d'inscrire les machines 
 >[!IMPORTANT]
 >Nous vous recommandons de ne pas activer de stratégies ou de configurations qui désactivant Windows Installer. Si vous désactivez Windows Installer, le service ne pourra pas installer les mises à jour de l'agent sur vos hôtes de session, et ces derniers ne fonctionneront pas correctement.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop
+## <a name="register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool"></a>Inscrire les machines virtuelles auprès du pool d’hôtes Azure Virtual Desktop
 
-L'inscription des machines virtuelles dans un pool d’hôtes Windows Virtual Desktop est aussi simple que l'installation des agents Windows Virtual Desktop.
+L’inscription de machines virtuelles auprès d’un pool d’hôtes Azure Virtual Desktop est aussi simple que l’installation des agents Azure Virtual Desktop.
 
-Pour inscrire les agents Windows Virtual Desktop, procédez comme suit sur chaque machine virtuelle :
+Pour inscrire les agents Azure Virtual Desktop, procédez comme suit sur chaque machine virtuelle :
 
 1. [Connectez-vous à la machine virtuelle](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) avec les informations d’identification que vous avez indiquées lors de la création de la machine virtuelle.
-2. Téléchargez et installez l'agent Windows Virtual Desktop.
-   - Téléchargez l'[agent Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+2. Téléchargez et installez l’agent Azure Virtual Desktop.
+   - Téléchargez l’[agent Azure Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Exécutez le programme d’installation. Lorsque le programme d’installation vous demande le jeton d’inscription, entrez la valeur obtenue à partir de la cmdlet **Get-AzWvdRegistrationInfo**.
-3. Téléchargez et installez le chargeur de démarrage de l'agent Windows Virtual Desktop.
-   - Téléchargez le [chargeur de démarrage de l'agent Windows Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+3. Téléchargez et installez le chargeur de démarrage de l’agent Azure Virtual Desktop.
+   - Téléchargez le [chargeur de démarrage de l’agent Azure Virtual Desktop](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Exécutez le programme d’installation.
 
 >[!IMPORTANT]
->Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](../security-center/security-center-just-in-time.md). Nous vous recommandons également de ne pas attribuer vos machines virtuelles à une adresse IP publique.
+>Pour contribuer à sécuriser votre environnement Azure Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Azure Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](../security-center/security-center-just-in-time.md). Nous vous recommandons également de ne pas attribuer vos machines virtuelles à une adresse IP publique.
 
 ## <a name="update-the-agent"></a>Mettre à jour l’agent
 
@@ -143,12 +144,12 @@ Pour mettre à jour l’agent :
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
-6. Une fois que vous avez désinstallé ces éléments, vous devez supprimer toutes les associations avec l’ancien pool d’hôtes. Si vous souhaitez réinscrire cet hôte auprès du service, suivez les instructions figurant dans [Inscrire les machines virtuelles dans le pool d'hôtes Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+6. Une fois que vous avez désinstallé ces éléments, vous devez supprimer toutes les associations avec l’ancien pool d’hôtes. Si vous souhaitez réinscrire cet hôte auprès du service, suivez les instructions figurant dans [Inscrire les machines virtuelles dans le pool d'hôtes Azure Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé un pool d'hôtes, vous pouvez le remplir avec RemoteApps. Pour en savoir plus sur la façon de gérer des applications dans Windows Virtual Desktop, consultez le tutoriel Gérer les groupes d’applications.
+Après avoir créé un pool d'hôtes, vous pouvez le remplir avec RemoteApps. Pour en savoir plus sur la façon de gérer des applications dans Azure Virtual Desktop, consultez le tutoriel Gérer les groupes d’applications.
 
 > [!div class="nextstepaction"]
 > [Gérer les groupes d’applications](./manage-app-groups.md)

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 56e855bafa70360711f3e30a7c4527091af7b34c
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 66af0fa248f3ead5755ed3fb27cd3bfd6bb19452
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601221"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060891"
 ---
 # <a name="claims-mapping-policy-type"></a>Type de stratégie de mappage de revendications
 
@@ -33,7 +33,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | Ensemble de revendications | Description |
 |---|---|
 | Ensemble de revendications principal | Sont présents dans chaque jeton, quelle que soit la stratégie. Ces revendications sont également considérées comme restreintes, et ne peuvent pas être modifiées. |
-| Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez omettre ou modifier des revendications de base à l’aide de stratégies de mappage de revendications. |
+| Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez [omettre ou modifier des revendications de base](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) à l’aide de stratégies de mappage de revendications. |
 | Ensemble de revendications restreint | Ne peut pas être modifié à l’aide d’une stratégie. La source de données ne peut pas être modifiée, et aucune transformation n’est appliquée lors de la génération de ces revendications. |
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tableau 1 : Ensemble de revendications restreint JSON Web Token (JWT)
@@ -412,6 +412,6 @@ Les stratégies de mappage de revendications ne s’appliquent pas aux utilisate
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment personnaliser les revendications émises dans des jetons pour une application spécifique dans leur locataire à l’aide de PowerShell, consultez [Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)](active-directory-claims-mapping.md).
+- Pour savoir comment personnaliser les revendications émises dans des jetons pour une application spécifique dans leur locataire à l’aide de PowerShell, consultez [Guide pratique : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire](active-directory-claims-mapping.md).
 - Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)
 - Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire dans les revendications](active-directory-schema-extensions.md).

@@ -1,28 +1,29 @@
 ---
-title: Module PowerShell Windows Virtual Desktop - Azure
-description: Comment installer et configurer le module PowerShell pour Windows Virtual Desktop.
+title: Module PowerShell pour Azure Virtual Desktop – Azure
+description: Guide pratique pour installer et configurer le module PowerShell pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: fdd74a09e49a352d18cf4ceccf406a25bf6dffb3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 029034cd4c4e118cca532509208f08843ca8b7fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445837"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753122"
 ---
-# <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurer le module PowerShell pour Windows Virtual Desktop
+# <a name="set-up-the-powershell-module-for-azure-virtual-desktop"></a>Configuration du module PowerShell pour Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec une intégration Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop avec une intégration Azure Resource Manager.
 
-Le module PowerShell pour Windows Virtual Desktop est intégré au module Azure PowerShell. Cet article vous indique comment configurer le module PowerShell afin de pouvoir exécuter des cmdlets pour Windows Virtual Desktop.
+Le module PowerShell pour Azure Virtual Desktop est intégré au module Azure PowerShell. Cet article explique comment configurer le module PowerShell de façon à pouvoir exécuter des cmdlets pour Azure Virtual Desktop.
 
 ## <a name="set-up-your-powershell-environment"></a>Configurer votre environnement PowerShell
 
-Pour commencer à utiliser le module, commencez par installer la [dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core). Actuellement, les cmdlets Windows Virtual Desktop fonctionnent uniquement avec PowerShell Core.
+Pour commencer à utiliser le module, commencez par installer la [dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core). Actuellement, les cmdlets Azure Virtual Desktop ne fonctionnent qu’avec PowerShell Core.
 
 Ensuite, vous devez installer le module DesktopVirtualization à utiliser dans votre session PowerShell.
 
@@ -136,11 +137,11 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré votre module PowerShell, vous pouvez exécuter des cmdlets pour effectuer toutes sortes d’opérations dans Windows Virtual Desktop. Voici quelques-uns des endroits où vous pouvez utiliser votre module :
+Maintenant que vous avez configuré votre module PowerShell, vous pouvez exécuter des cmdlets pour effectuer toutes sortes d’opérations dans Azure Virtual Desktop. Voici quelques-uns des endroits où vous pouvez utiliser votre module :
 
-- Suivez nos [tutoriels sur Windows Virtual Desktop]() pour configurer votre propre environnement Windows Virtual Desktop.
+- Suivez nos [tutoriels sur Azure Virtual Desktop]() pour configurer votre propre environnement Azure Virtual Desktop.
 - [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
-- [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configuration de la méthode d’équilibrage de charge d’Azure Virtual Desktop](configure-host-pool-load-balancing.md)
 - [Configurer le type d’affectation d’un pool d’hôtes de bureau personnel](configure-host-pool-personal-desktop-assignment-type.md)
 - Et bien plus !
 

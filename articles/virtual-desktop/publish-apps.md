@@ -1,24 +1,25 @@
 ---
-title: Publier des applications intégrées dans Windows Virtual Desktop – Azure
-description: Comment publier des applications intégrées dans Windows Virtual Desktop.
+title: Publier des applications intégrées dans Azure Virtual Desktop – Azure
+description: Explique comment publier des applications intégrées dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 68db8e9d50dff0bb4580476bae990374830a2a1f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fc704b992100430c247260b730929e6bc049b98d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445820"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753068"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publier des applications intégrées dans Windows Virtual Desktop
+# <a name="publish-built-in-apps-in-azure-virtual-desktop"></a>Publier des applications intégrées dans Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/publish-apps-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/publish-apps-2019.md).
 
-Cet article explique comment publier des applications dans votre environnement Windows Virtual Desktop.
+Cet article explique comment publier des applications dans votre environnement Azure Virtual Desktop.
 
 ## <a name="publish-built-in-apps"></a>Publier des applications intégrées
 
@@ -33,7 +34,7 @@ Pour publier une application intégrée :
    ```
 
 >[!NOTE]
-> Windows Virtual Desktop prend uniquement en charge la publication d’applications dont les emplacements d’installation commencent par `C:\Program Files\WindowsApps`.
+> Azure Virtual Desktop prend uniquement en charge la publication d’applications dont les emplacements d’installation commencent par `C:\Program Files\WindowsApps`.
 
 ## <a name="update-app-icons"></a>Mettre à jour les icônes d’application
 
@@ -49,6 +50,6 @@ New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment configurer des flux afin d’organiser le mode d’affichage des applications pour les utilisateurs en consultant l’article [Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop](customize-feed-for-virtual-desktop-users.md).
+- Découvrez comment configurer des flux afin d’organiser le mode d’affichage des applications pour les utilisateurs en consultant l’article [Personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop](customize-feed-for-virtual-desktop-users.md).
 - Découvrez la fonctionnalité d’attachement d’application MSIX en consultant l’article [Configurer l’attachement d’application MSIX](app-attach.md).
 

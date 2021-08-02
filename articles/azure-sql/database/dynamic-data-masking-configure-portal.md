@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: e551925bbd1426256a81ac2ca3f245af7697245b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3aea8f26acfbb0feb9390f5b35c451cda0ac7726
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028010"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017633"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,13 +26,13 @@ Cet article vous montre comment implémenter [le masquage des données dynamique
 > [!NOTE]
 > Cette fonctionnalité ne peut pas être définie à l'aide de SQL Managed Instance (utilisez PowerShell ou l'API REST). Pour plus d’informations, consultez [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
+## <a name="enable-dynamic-data-masking"></a>Activez le masquage des données dynamiques
 
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Accédez à la page des paramètres de la base de données comprenant les données sensibles que vous souhaitez masquer.
-3. Cliquez sur le panneau **Dynamic Data Masking** sous la section **Sécurité** de votre base de données SQL.
+2. Accédez à votre ressource de base de données sur le Portail Azure. 
+3. Sélectionnez le panneau **Dynamic Data Masking** dans la section **Sécurité**. 
 
-   ![Capture d'écran représentant la section Sécurité dans laquelle Dynamic Data Masking est en surbrillance.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![Capture d'écran représentant la section Sécurité dans laquelle Dynamic Data Masking est en surbrillance.](./media/dynamic-data-masking-configure-portal/dynamic-data-masking-in-portal.png)
 
 4. Dans la page de configuration **Masquage des données dynamiques**, certaines colonnes de base de données ont été indiquées par le moteur de recommandations pour le masquage. Pour accepter les recommandations, cliquez simplement sur **Ajouter un masque** pour une ou plusieurs colonnes et un masque est créé en fonction du type par défaut pour cette colonne. Vous pouvez modifier la fonction de masquage en cliquant sur la règle de masquage et en modifiant le format du champ de masquage pour un format différent de votre choix. N'oubliez pas de cliquer sur **Enregistrer** pour enregistrer vos paramètres.
 

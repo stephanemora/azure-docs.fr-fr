@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0d29e55e0bf1a88f5fb787b96b5bc549107fe8f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035099"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469394"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Utilisez la géo-redondance pour concevoir des applications hautement disponibles
 
@@ -148,11 +148,11 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
 
 * Ajoutez un gestionnaire pour l’événement [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) sur l’objet [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
 
-    # <a name="net-v12"></a>[.NET v12](#tab/current)
+    # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/current)
 
     Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+    # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/legacy)
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -166,11 +166,11 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
 
 * Dans la méthode [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
 
-    # <a name="net-v12"></a>[.NET v12](#tab/current)
+    # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/current)
 
     Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+    # <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -233,12 +233,11 @@ Il est important de tester si votre application se comporte comme prévu lorsqu�
 
 Vous pouvez utiliser [Fiddler](https://www.telerik.com/fiddler) pour intercepter et modifier les réponses HTTP dans un script. Ce script peut identifier les réponses provenant de votre point de terminaison principal et remplacer le code d’état HTTP par un code que la bibliothèque cliente de stockage reconnaît comme une erreur renouvelable. Cet extrait de code offre un exemple simple de script Fiddler, qui intercepte les réponses aux demandes de lecture portant sur la table **employeedata** pour retourner un état 502 :
 
-
-# <a name="java-v12"></a>[Java v12](#tab/current)
+# <a name="java-v12-sdk"></a>[SDK Java v12](#tab/current)
 
 Nous travaillons actuellement à la création d’extraits de code reflétant la version 12.x des bibliothèques de client du service Stockage Azure. Pour plus d’informations, consultez [Annonce des bibliothèques de client v12 du service Stockage Azure](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="java-v11"></a>[Java v11](#tab/legacy)
+# <a name="java-v11-sdk"></a>[SDK Java v11](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

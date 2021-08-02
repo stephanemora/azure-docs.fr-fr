@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Anal
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/12/2021
-ms.openlocfilehash: 7b1122c098fc30150699f6c878058d37f74a007f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465814"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755161"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
   
@@ -380,13 +380,9 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 1. Vous y trouvez une vidéo portant le nom `sample-cvr-with-inference-metadata`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
 1. Sélectionnez la vidéo.
 1. Dans la page d’informations de la vidéo, cliquez sur l’icône de **lecture**
-
+1. Pour afficher les métadonnées d’inférence sous forme de cadres englobants sur la vidéo, cliquez sur l’icône de **cadre englobant** (dans le cercle rouge)
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Capture d’écran de la lecture de vidéo":::
-   
-1. Pour afficher les métadonnées d’inférence sous forme de cadres englobants sur la vidéo, cliquez sur l’icône de **cadre englobant**
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Icône de cadre englobant":::
 
 > [!NOTE]
 > Comme la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo représentent le moment où vous avez activé le pipeline en direct et celui où vous l’avez désactivé.

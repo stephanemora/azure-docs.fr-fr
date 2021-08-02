@@ -1,26 +1,24 @@
 ---
 title: Conditions requises pour la certification Edge Secured-Core
-description: Conditions requises pour le programme de certification Edge Secured-Core
+description: Conditions requises pour la certification Edge Secured-Core
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
-ms.openlocfilehash: c52a1fe215223d8aceca19f2f382a999f8b470de
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6a4e969c592e844164d2f031914740e24fdc8f99
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131708"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540255"
 ---
-# <a name="azure-certified-device---edge-secured-core-preview"></a>Azure Certified Device – Edge Secured-Core (préversion) #
-
-## <a name="edge-secured-core-certification-requirements"></a>Conditions requises pour la certification Edge Secured-Core ##
+# <a name="edge-secured-core-certification-requirements-preview"></a>Exigences pour la certification Edge Secured-Core (Préversion) #
 
 Ce document décrit les capacités et les exigences spécifiques aux appareils qui doivent être satisfaites pour obtenir la certification et inscrire un appareil dans le catalogue Azure Certified Device avec l’étiquette Edge Secured-Core.
 
-### <a name="program-purpose"></a>Objet du programme ###
+## <a name="program-purpose"></a>Objet du programme ##
 Edge Secured-Core est une certification incrémentielle du programme Azure Certified Device pour les appareils IoT exécutant un système d’exploitation complet, tel que Linux ou Windows 10 IoT. Ce programme permet aux partenaires de différencier leurs appareils en répondant à un ensemble supplémentaire de critères de sécurité. Les appareils répondant à ces critères permettent de tenir les promesses suivantes :
 1. Identité d’appareil basée sur le matériel 
 2. Apte à appliquer l’intégrité du système 
@@ -28,7 +26,7 @@ Edge Secured-Core est une certification incrémentielle du programme Azure Certi
 4. Assure la protection des données au repos
 5. Assure la protection des données en transit
 6. Agent de sécurité intégré et renforcement de la sécurité
-### <a name="requirements"></a>Configuration requise ###
+## <a name="requirements"></a>Configuration requise ##
 
 ---
 |Nom|SecuredCore.Built-in.Security|

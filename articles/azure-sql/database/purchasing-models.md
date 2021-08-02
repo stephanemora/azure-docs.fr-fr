@@ -1,23 +1,23 @@
 ---
 title: Modèles d’achat
-titleSuffix: Azure SQL Database & Azure SQL Managed Instance
+titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Apprenez-en davantage sur les modèles d’achat disponibles pour Azure SQL Database et Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0c499ad15618d874a99be65f6d3af8d11fd88ec
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92788823"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408944"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Choisir entre les modèles d’achat vCore et DTU – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -156,7 +156,7 @@ Toutefois, dans le large éventail des charges de travail des clients qui s’ex
 
 Par exemple, une application qui est sensible à la latence du réseau peut afficher de meilleures performances sur un matériel Gen5 que sur Un matériel Gen4 en raison de l’utilisation de l’accélération réseau dans Gen5, tandis qu’une application gourmande en opérations d’E/S de lecture peut afficher de meilleures performances sur un matériel Gen4 que sur un matériel Gen5 avec la mémoire haute par ration de cœur sur le matériel de Gen4.
 
-Les clients avec des charges de travail sensibles aux modifications matérielles ou les clients qui souhaitent contrôler le choix de la génération de matériel pour leur base de données peuvent utiliser le modèle [vCore](service-tiers-vcore.md) pour choisir leur génération de matériel lors de la création et de la mise à l’échelle de la base de données. Dans le modèle vCore, les limites de ressources de chaque objectif de service sur chaque génération de matériel sont documentées, tant pour les [bases de données uniques](resource-limits-vcore-single-databases.md) que pour les [pools élastiques](resource-limits-vcore-elastic-pools.md). Pour plus d’informations sur les générations de matériel dans le modèle vCore, consultez [Génération du matériel](./service-tiers-vcore.md#hardware-generations).
+Les clients avec des charges de travail sensibles aux modifications matérielles ou les clients qui souhaitent contrôler le choix de la génération de matériel pour leur base de données peuvent utiliser le modèle [vCore](service-tiers-vcore.md) pour choisir leur génération de matériel lors de la création et de la mise à l’échelle de la base de données. Dans le modèle vCore, les limites de ressources de chaque objectif de service sur chaque génération de matériel sont documentées, tant pour les [bases de données uniques](resource-limits-vcore-single-databases.md) que pour les [pools élastiques](resource-limits-vcore-elastic-pools.md). Pour plus d’informations sur les générations de matériel dans le modèle vCore, consultez [générations de matériel pour SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) ou [générations de matériel pour SQL Managed instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 

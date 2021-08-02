@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: a0644342c417cb06c257372e526fff55df62f9b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 389460e79dbcc9c6ba9480540d7f361382ef5987
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095425"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021084"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -86,28 +86,29 @@ Pour en savoir plus sur les séries prises en charge et les restrictions, consul
 
 | **Série de machines virtuelles prises en charge**  | **Restrictions** | **Catégorie** | **Pris en charge par** |
 |------------|------------|------------|------------|
-| D | Aucun. | Usage général | Clusters et instance de calcul |
-| DDSv4 | Aucun. | Usage général | Clusters et instance de calcul |
-| Dv2 | Aucun. | Usage général | Clusters et instance de calcul |
-| Dv3 | Aucun.| Usage général | Clusters et instance de calcul |
-| DSv2 | Aucun. | Usage général | Clusters et instance de calcul |
-| DSv3 | Aucun.| Usage général | Clusters et instance de calcul |
-| EAv4 | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
-| Ev3 | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
-| FSv2 | Aucun. | Optimisé pour le calcul | Clusters et instance de calcul |
-| H | Aucun. | Calcul haute performance | Clusters et instance de calcul |
-| HB | Nécessite une approbation. | Calcul haute performance | Clusters et instance de calcul |
-| HBv2 | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
-| Service de calcul hôte | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
-| M | Nécessite une approbation. | Mémoire optimisée | Clusters et instance de calcul |
-| NC | Aucun. |  GPU | Clusters et instance de calcul |
-| NC Promo | Aucun. | GPU | Clusters et instance de calcul |
-| NCsv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
-| NCsv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
-| NDs | Nécessite une approbation. | GPU | Clusters et instance de calcul |
-| NDv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
-| NV | Aucun. | GPU | Clusters et instance de calcul |
-| NVv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | Aucun. | Usage général | Clusters et instance de calcul |
+| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | Aucun. | Usage général | Clusters et instance de calcul |
+| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | Aucun.| Usage général | Clusters et instance de calcul |
+| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | Aucun. | Usage général | Clusters et instance de calcul |
+| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Aucun.| Usage général | Clusters et instance de calcul |
+| [EAv4](../virtual-machines/eav4-easv4-series.md) | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
+| [Ev3](../virtual-machines/ev3-esv3-series.md) | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
+| [FSv2](../virtual-machines/fsv2-series.md) | Aucun. | Optimisé pour le calcul | Clusters et instance de calcul |
+| [H](../virtual-machines/h-series.md) | Aucun. | Calcul haute performance | Clusters et instance de calcul |
+| [HB](../virtual-machines/hb-series.md) | Nécessite une approbation. | Calcul haute performance | Clusters et instance de calcul |
+| [HBv2](../virtual-machines/hbv2-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| [HC](../virtual-machines/hc-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| [M](../virtual-machines/m-series.md) | Nécessite une approbation. | Mémoire optimisée | Clusters et instance de calcul |
+| [NC](../virtual-machines/nc-series.md) | Aucun. |  GPU | Clusters et instance de calcul |
+| [NC Promo](../virtual-machines/nc-series.md) | Aucun. | GPU | Clusters et instance de calcul |
+| [NCv2](../virtual-machines/ncv2-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [NCv3](../virtual-machines/ncv3-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [ND](../virtual-machines/nd-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [NDv2](../virtual-machines/ndv2-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [NV](../virtual-machines/nv-series.md) | Aucun. | GPU | Clusters et instance de calcul |
+| [NVv3](../virtual-machines/nvv3-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [NCT4_v3](../virtual-machines/nct4-v3-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| [NDA100_v4](../virtual-machines/nda100-v4-series.md) | Nécessite une approbation. | GPU | Clusters et instance de calcul |
 
 
 Même si Azure Machine Learning prend en charge ces séries de machines virtuelles, elles peuvent ne pas être disponibles dans toutes les régions Azure. Pour vérifier si les séries de machines virtuelles sont disponibles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -117,6 +118,22 @@ Même si Azure Machine Learning prend en charge ces séries de machines virtuell
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
 > * [Kit de développement logiciel (SDK) Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
+
+Si vous utilisez les cibles de calcul avec GPU, il est important de s’assurer que les pilotes CUDA corrects sont installés dans l’environnement d’apprentissage. Pour déterminer la version de CUDA correcte à utiliser, reportez-vous au tableau suivant :
+
+| **Architecture GPU**  | **Séries de machines virtuelles Azure** | **Versions de CUDA prises en charge** |
+|------------|------------|------------|
+| Ampere | NDA100_v4 | 11.0+ |
+| Turing | NCT4_v3 | 10.0+ |
+| Volta | NCv3, NDv2 | 9.0+ |
+| Pascal | NCv2, ND | 9.0+ |
+| Maxwell | NV, NVv3 | 9.0+ |
+| Kepler | NC, NC Promo| 9.0+ |
+
+En plus de vérifier la compatibilité des versions de CUDA avec le matériel, assurez-vous que la version de CUDA est compatible avec la version de l’infrastructure d’apprentissage automatique que vous utilisez : 
+
+- Pour PyTorch, vous pouvez vérifier la compatibilité [ici](https://pytorch.org/get-started/previous-versions/). 
+- Pour Tensorflow, vous pouvez vérifier la compatibilité [ici](https://www.tensorflow.org/install/source#gpu).
 
 ### <a name="compute-isolation"></a>Isolation du calcul
 

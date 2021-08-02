@@ -1,21 +1,22 @@
 ---
-title: FAQ sur Windows Virtual Desktop – Azure
-description: Foire aux questions et meilleures pratiques concernant Windows Virtual Desktop.
+title: FAQ Azure Virtual Desktop - Azure
+description: Questions fréquentes et meilleures pratiques concernant Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 604f7ac3d06ceb9ea981deb6aba4e9f208f06e20
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505295"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757712"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
+# <a name="azure-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Azure Virtual Desktop
 
-Cet article répond à des questions fréquemment posées et décrit les meilleures pratiques concernant Windows Virtual Desktop.
+Cet article répond à des questions fréquentes et décrit les meilleures pratiques concernant Azure Virtual Desktop.
 
 ## <a name="what-are-the-minimum-admin-permissions-i-need-to-manage-objects"></a>Quelles sont les autorisations d’administrateur minimales dont j’ai besoin pour gérer les objets ?
 
@@ -40,7 +41,7 @@ Pour limiter un administrateur à la seule gestion de sessions d’utilisateurs,
 }
 ```
 
-## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Windows Virtual Desktop prend-il en charge les modèles Azure Active Directory fractionnés ?
+## <a name="does-azure-virtual-desktop-support-split-azure-active-directory-models"></a>Azure Virtual Desktop prend-il en charge les modèles Azure Active Directory fractionnés ?
 
 Lorsqu’un utilisateur est affecté à un groupe d’applications, le service effectue une simple attribution de rôle Azure. Par conséquent, le compte Azure Active Directory (AD) de l’utilisateur et l’instance Azure AD du groupe d’applications doivent se trouver au même emplacement. Tous les objets de service, tels que les pools d’hôtes, les groupes d’applications et les espaces de travail, doivent également se trouver dans la même instance Azure AD que le compte de l’utilisateur.
 
@@ -84,23 +85,23 @@ Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
 CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i:1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen modeid:i:2;
 ```
 
-## <a name="does-windows-virtual-desktop-support-guest-users"></a>Windows Virtual Desktop prend-il en charge les utilisateurs invités ?
+## <a name="does-azure-virtual-desktop-support-guest-users"></a>Azure Virtual Desktop prend-il en charge les utilisateurs invités ?
 
-Windows Virtual Desktop ne prend pas en charge les comptes d’utilisateur invité Azure AD. Par exemple, imaginons qu’un groupe d’utilisateurs invités ait des licences Microsoft 365 E3 par utilisateur, Windows E3 par utilisateur ou WIN VDA dans sa propre entreprise, mais que les utilisateurs invités appartiennent au compte Azure AD d’une autre entreprise. L’autre entreprise gérerait les objets utilisateur des utilisateurs invités dans les comptes Azure AD et Active Directory comme des comptes locaux.
+Azure Virtual Desktop ne prend pas en charge les comptes d’utilisateur invité Azure AD. Par exemple, imaginons qu’un groupe d’utilisateurs invités ait des licences Microsoft 365 E3 par utilisateur, Windows E3 par utilisateur ou WIN VDA dans sa propre entreprise, mais que les utilisateurs invités appartiennent au compte Azure AD d’une autre entreprise. L’autre entreprise gérerait les objets utilisateur des utilisateurs invités dans les comptes Azure AD et Active Directory comme des comptes locaux.
 
-Vous ne pouvez pas utiliser vos propres licences au profit d’un tiers. En outre, Windows Virtual Desktop ne prend pas actuellement en charge Microsoft Account (MSA).
+Vous ne pouvez pas utiliser vos propres licences au profit d’un tiers. En outre, Azure Virtual Desktop ne prend pas actuellement en charge Microsoft Account (MSA).
 
 ## <a name="why-dont-i-see-the-client-ip-address-in-the-wvdconnections-table"></a>Pourquoi ne puis-je pas afficher l’adresse IP du client dans la table WVDConnections ?
 
 Actuellement, nous ne disposons pas d’un moyen fiable de collecter les adresses IP du client web, c’est pourquoi nous n’incluons pas cette valeur dans la table.
 
-## <a name="how-does-windows-virtual-desktop-handle-backups"></a>Comment Windows Virtual Desktop gère-t-il les sauvegardes ?
+## <a name="how-does-azure-virtual-desktop-handle-backups"></a>Comment Azure Virtual Desktop gère-t-il les sauvegardes ?
 
 Il existe plusieurs options dans Azure pour gérer les sauvegardes. Vous pouvez utiliser la sauvegarde Azure, Site Recovery et des instantanés.
 
-## <a name="does-windows-virtual-desktop-support-third-party-collaboration-apps"></a>Windows Virtual Desktop prend-il en charge les applications de collaboration tierces ?
+## <a name="does-azure-virtual-desktop-support-third-party-collaboration-apps"></a>Azure Virtual Desktop prend-il en charge les applications de collaboration tierces ?
 
-Windows Virtual Desktop est actuellement optimisé pour Teams. Microsoft ne prend actuellement pas en charge les applications de collaboration tierces telles que Zoom. Les organisations tierces sont chargées de fournir des directives de compatibilité à leurs clients. Windows Virtual Desktop ne prend pas non plus en charge Skype Entreprise.
+Azure Virtual Desktop est actuellement optimisé pour Teams. Microsoft ne prend actuellement pas en charge les applications de collaboration tierces telles que Zoom. Les organisations tierces sont chargées de fournir des directives de compatibilité à leurs clients. Azure Virtual Desktop ne prend pas non plus en charge Skype Entreprise.
 
 ## <a name="can-i-change-from-pooled-to-personal-host-pools"></a>Puis-je passer d’un pool d’hôtes groupé à un pool d’hôtes personnel ?
 
@@ -129,21 +130,21 @@ Ces facteurs peuvent influer sur la limite d’échelle des pools d’hôtes :
 
 - Le nom du préfixe de machine virtuelle et le nombre de machines virtuelles est inférieur à 15 caractères. Pour plus d’informations, consultez [Règles de nommage et restrictions pour les ressources Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
-## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Puis-je gérer des environnements Windows Virtual Desktop à l’aide d’Azure Lighthouse ?
+## <a name="can-i-manage-azure-virtual-desktop-environments-with-azure-lighthouse"></a>Puis-je gérer des environnements Azure Virtual Desktop à l’aide d’Azure Lighthouse ?
 
-Azure Lighthouse ne prend pas entièrement en charge la gestion d’environnements Windows Virtual Desktop. Étant donné qu’Azure Lighthouse ne prend pas actuellement en charge la gestion des utilisateurs sur plusieurs locataires Azure AD, les clients d’Azure Lighthouse doivent toujours se connecter au compte Azure AD que les clients utilisent pour gérer les utilisateurs.
+Azure Lighthouse ne prend pas entièrement en charge la gestion d’environnements Azure Virtual Desktop. Étant donné qu’Azure Lighthouse ne prend pas actuellement en charge la gestion des utilisateurs sur plusieurs locataires Azure AD, les clients d’Azure Lighthouse doivent toujours se connecter au compte Azure AD que les clients utilisent pour gérer les utilisateurs.
 
-Vous ne pouvez pas non plus utiliser les abonnements de bac à sable de fournisseur de solutions Cloud avec le service Windows Virtual Desktop. Pour plus d’informations, consultez [Compte de bac à sable d’intégration](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+Vous ne pouvez pas non plus utiliser les abonnements de bac à sable de fournisseur de solutions Cloud avec le service Azure Virtual Desktop. Pour plus d’informations, consultez [Compte de bac à sable d’intégration](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Enfin, si vous avez activé le fournisseur de ressources à partir du compte propriétaire du fournisseur de solutions Cloud, les comptes client du fournisseur de services Cloud ne peuvent pas modifier le fournisseur de ressources.
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>À quelle fréquence dois-je activer mes machines virtuelles pour éviter des problèmes d’inscription ?
 
-Une fois que vous avez inscrit une machine virtuelle dans un pool hôte au sein du service Windows Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous recommandons de mettre en ligne les machines virtuelles pendant 20 minutes tous les 90 jours afin que les machines puissent actualiser les jetons, mettre à jour l’agent et les composants de la pile côte à côte. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool hôte, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.
+Une fois que vous avez inscrit une machine virtuelle dans un pool d’hôtes au sein du service Azure Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous recommandons de mettre en ligne les machines virtuelles pendant 20 minutes tous les 90 jours afin que les machines puissent actualiser les jetons, mettre à jour l’agent et les composants de la pile côte à côte. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Azure Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool d’hôtes, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Puis-je définir des options de disponibilité lors de la création de pools d’hôtes ?
 
-Oui. Les pools d’hôtes Windows Virtual Desktop ont une option permettant de sélectionner un groupe à haute disponibilité ou des zones de disponibilité lorsque vous créez une machine virtuelle. Ces options de disponibilité sont les mêmes que celles utilisées par Azure Compute. Si vous sélectionnez une zone pour la machine virtuelle que vous créez dans un pool d’hôtes, le paramètre s’applique automatiquement à toutes les machines virtuelles que vous créez dans cette zone. Si vous préférez répartir vos machines virtuelles de pool d’hôtes dans plusieurs zones, vous devez suivre les instructions fournies dans [Ajouter des machines virtuelles avec le portail Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) pour sélectionner manuellement une nouvelle zone pour chaque nouvelle machine virtuelle que vous créez.
+Oui. Les pools d’hôtes Azure Virtual Desktop ont une option permettant de sélectionner un groupe à haute disponibilité ou des zones de disponibilité lorsque vous créez une machine virtuelle. Ces options de disponibilité sont les mêmes que celles utilisées par Azure Compute. Si vous sélectionnez une zone pour la machine virtuelle que vous créez dans un pool d’hôtes, le paramètre s’applique automatiquement à toutes les machines virtuelles que vous créez dans cette zone. Si vous préférez répartir vos machines virtuelles de pool d’hôtes dans plusieurs zones, vous devez suivre les instructions fournies dans [Ajouter des machines virtuelles avec le portail Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) pour sélectionner manuellement une nouvelle zone pour chaque nouvelle machine virtuelle que vous créez.
 
 ## <a name="which-availability-option-is-best-for-me"></a>Quelle est l’option de disponibilité la mieux adaptée à mes besoins ?
 

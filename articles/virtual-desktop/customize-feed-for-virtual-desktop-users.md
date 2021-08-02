@@ -1,28 +1,29 @@
 ---
-title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop - Azure
-description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop avec des applets de commande PowerShell
+title: Personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop - Azure
+description: Comment personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop avec des applets de commande PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/14/2019
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: a2d5a870ee8953a4388e58d21cf941f23434382b
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 24174d7ac9fa33cb1fb3ca6e325537dde346b3c3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447112"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752006"
 ---
-# <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
+# <a name="customize-the-feed-for-azure-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 
 Vous pouvez personnaliser le flux pour que les ressources d’application distante et de Bureau à distance apparaissent de façon reconnaissable pour vos utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous avez déjà téléchargé et installé le module PowerShell pour Windows Virtual Desktop. Si ce n’est pas le cas, suivez les instructions de l’article [Configurer le module PowerShell](powershell-module.md).
+Cet article suppose que vous avez déjà téléchargé et installé le module PowerShell pour Azure Virtual Desktop. Si ce n’est pas le cas, suivez les instructions de l’article [Configurer le module PowerShell](powershell-module.md).
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>Personnaliser le nom d’affichage pour une application distante
 
@@ -103,11 +104,11 @@ Vous pouvez changer le nom d’affichage pour un Bureau à distance publié en d
 
 1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
 
-2. Recherchez **Windows Virtual Desktop**.
+2. Recherchez **Azure Virtual Desktop**.
 
-3. Sous services, sélectionnez **Windows Virtual Desktop**.
+3. Sous Services, sélectionnez **Azure Virtual Desktop**.
 
-4. Dans la page Windows Virtual Desktop, sélectionnez **Groupes d’applications** sur le côté gauche de l’écran, puis sélectionnez le nom du groupe d’applications que vous souhaitez modifier. (Par exemple, si vous souhaitez modifier le nom complet du groupe d’applications de bureau, sélectionnez le groupe d’applications nommé **Desktop**.)
+4. Dans la page Azure Virtual Desktop, sélectionnez **Groupes d’applications** sur le côté gauche de l’écran, puis sélectionnez le nom du groupe d’applications que vous souhaitez modifier. (Par exemple, si vous souhaitez modifier le nom complet du groupe d’applications de bureau, sélectionnez le groupe d’applications nommé **Desktop**.)
 
 5. Sélectionnez **Applications** dans le menu sur le côté gauche de l’écran.
 
@@ -117,7 +118,7 @@ Vous pouvez changer le nom d’affichage pour un Bureau à distance publié en d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Windows Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Windows Virtual Desktop :
+Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Azure Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Azure Virtual Desktop :
 
  * [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-10.md)
  * [Se connecter avec le client web](connect-web.md)

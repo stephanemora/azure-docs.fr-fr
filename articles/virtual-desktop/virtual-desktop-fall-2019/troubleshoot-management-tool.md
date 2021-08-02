@@ -1,24 +1,24 @@
 ---
-title: Outil de gestion Windows Virtual Desktop (classique) – Azure
-description: Résoudre les problèmes rencontrés avec l’outil de gestion Windows Virtual Desktop (classique).
+title: Outil de gestion Azure Virtual Desktop (classique) – Azure
+description: Résoudre les problèmes rencontrés avec l’outil de gestion Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 430ab72a3eb0cd41d707ff0eb5d10d8b97162d53
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f567a42d5363f24178594a5e98678e6794eb224e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444239"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753986"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Résoudre les problèmes de l’outil de gestion Windows Virtual Desktop (classique)
+# <a name="troubleshoot-the-azure-virtual-desktop-classic-management-tool"></a>Résoudre les problèmes de l’outil de gestion Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager.
 
-Cet article décrit les problèmes qui peuvent survenir lors du déploiement de l'outil de gestion Windows Virtual Desktop et explique comment les résoudre.
+Cet article décrit les problèmes qui peuvent survenir lors du déploiement de l'outil de gestion Azure Virtual Desktop et explique comment les résoudre.
 
 ## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Erreur : Les services de l'outil de gestion sont configurés, mais l'installation automatisée échoue
 
@@ -37,7 +37,7 @@ Pour résoudre ce problème :
 
 1. Assurez-vous que l'utilisateur que vous avez créé pour le nom d'utilisateur principal Azure Active Directory possède le niveau d'abonnement « Contributeur ».
 2. Connectez-vous à <portal.azure.com> avec le compte UPN pour vérifier les paramètres du compte et vérifiez que l'authentification multifacteur n'est pas active. Si elle est activée, désactivez-la.
-3. Visitez la page de consentement de Windows Virtual Desktop et vérifiez que le serveur et les applications clientes ont donné leur consentent.
+3. Visitez la page de consentement d’Azure Virtual Desktop et vérifiez que le serveur et les applications clientes ont donné leur consentement.
 4. Passez en revue le tutoriel [Déployer un outil de gestion](manage-resources-using-ui.md) si le problème persiste, puis redéployez l'outil.
 
 ## <a name="error-job-with-specified-id-already-exists"></a>Erreur : La tâche avec l'ID indiqué existe déjà. ID de tâche
@@ -59,5 +59,5 @@ Pour y remédier, déployez l'outil de gestion dans une autre région. Redéploy
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur les procédures d’escalade, consultez [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview-2019.md).
-- Découvrez comment signaler des problèmes rencontrés avec les outils Windows Virtual Desktop dans la section [Modèles ARM pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md).
+- Découvrez comment signaler des problèmes rencontrés avec les outils Azure Virtual Desktop dans la section [Modèles ARM pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md).
 - Pour apprendre à déployer l'outil de gestion, voir [Déployer un outil de gestion](manage-resources-using-ui.md).

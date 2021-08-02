@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/11/2021
-ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/11/2021
+ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309065"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076589"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -22,7 +22,7 @@ Après avoir généré et débogué votre flux de données, vous pouvez le plani
 
 Lors de l’exécution de votre pipeline, vous pouvez superviser celui-ci ainsi que toutes les activités qu’il contient, dont celle du flux de données. Cliquez sur l’icône Superviser dans le panneau de gauche de l’interface utilisateur d’Azure Data Factory. Un écran similaire à celui ci-dessous s’affiche. Les icônes en surbrillance vous permettent d’explorer les activités du pipeline, dont celle du flux de données.
 
-![Capture d’écran montrant les icônes à sélectionner pour les pipelines pour plus d’informations.](media/data-flow/mon001.png "Supervision du flux de données")
+![Capture d’écran montrant les icônes à sélectionner pour les pipelines pour plus d’informations.](media/data-flow/monitor-new-001.png "Supervision du flux de données")
 
 À ce niveau, vous voyez également des statistiques, notamment l’état et le temps d’exécution. L’ID d’exécution au niveau d’une activité diffère de celui au niveau du pipeline. L’ID d’exécution au niveau précédent a trait au pipeline. En cliquant sur les lunettes, vous pouvez obtenir des informations détaillées sur l’exécution de votre flux de données.
 
@@ -32,15 +32,11 @@ Dans l’affichage de surveillance des nœuds sous forme graphique, vous pouvez 
 
 ![Capture d’écran montrant la version en mode affichage uniquement du graphique.](media/data-flow/mon003.png "Supervision du flux de données")
 
-Voici une vidéo de présentation de la surveillance des performances de vos flux de données à partir de l’écran d’analyse ADF :
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
-
 ## <a name="view-data-flow-execution-plans"></a>Afficher les plans d’exécution de flux de données
 
-Quand votre flux de données est exécuté dans Spark, Azure Data Factory détermine les chemins de code optimaux en fonction de l’intégralité de votre flux de données. De plus, les chemins d’exécution peuvent se trouver sur différents nœuds de scale-out et partitions de données. Par conséquent, le graphique de supervision reflète la conception de votre flux, en tenant compte du chemin d’exécution de vos transformations. En sélectionnant des nœuds individuels, vous pouvez voir des « regroupements » représentant du code exécuté simultanément sur le cluster. Les minutages et les chiffres que vous voyez représentent ces groupes par opposition aux étapes individuelles de votre conception.
+Quand votre flux de données est exécuté dans Spark, Azure Data Factory détermine les chemins de code optimaux en fonction de l’intégralité de votre flux de données. De plus, les chemins d’exécution peuvent se trouver sur différents nœuds de scale-out et partitions de données. Par conséquent, le graphique de supervision reflète la conception de votre flux, en tenant compte du chemin d’exécution de vos transformations. En sélectionnant différents nœuds, vous pouvez voir des « phases » représentant du code exécuté simultanément sur le cluster. Les minutages et les chiffres qui apparaissent correspondent à ces groupes ou à ces phases, par opposition aux étapes de votre conception prises individuellement.
 
-![Capture d’écran montrant la page d’un flux de données.](media/data-flow/mon004.png "Supervision du flux de données")
+![Capture d’écran montrant la page d’un flux de données.](media/data-flow/monitor-new-005.png "Supervision du flux de données")
 
 * Lorsque vous sélectionnez l’espace disponible dans la fenêtre de supervision, les statistiques dans le volet inférieur affichent le minutage et le nombre de lignes pour chaque récepteur, ainsi que les transformations ayant conduit aux données du récepteur pour la traçabilité des transformations.
 
@@ -85,6 +81,8 @@ Lorsque vous sélectionnez une icône de transformation de récepteur dans votre
 * Durée pré- et post-SQL : temps passé à exécuter des commandes pré/post-SQL
 * Durée pré-commandes et durée post-commandes : temps passé à exécuter des opérations pré/post pour les sources/récepteurs basés sur des fichiers. Par exemple, déplacement ou suppression de fichiers après le traitement.
 * Durée de la fusion : temps consacré à la fusion du fichier. Les fichiers fusionnés sont utilisés pour les récepteurs basés sur des fichiers lors de l'écriture dans un seul fichier ou lorsque « Nom de fichier en tant que données de colonne » est utilisé. Si le temps consacré à cette métrique est important, évitez d'utiliser ces options.
+* Durée de la phase : temps total passé à l’intérieur de Spark pour réaliser l’opération en tant que phase.
+* Table intermédiaire temporaire : nom de la table temporaire utilisée par les flux de données pour effectuer une copie intermédiaire des données dans la base de données.
   
 ## <a name="error-rows"></a>Lignes d’erreur
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 367d2679b360bfc90d84609384c61c9b66ba3706
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959855"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538324"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
@@ -106,6 +106,10 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Cette commande génère les propriétés du serveur Kerberos Azure AD. Vous pouvez examiner les propriétés pour vérifier que tout est en ordre.
 
+> [!NOTE]
+
+La commande exécutée sur un autre domaine en fournissant les informations d’identification se connecte via NTLM, puis échoue. Solution de contournement si les utilisateurs font partie du groupe de sécurité « Utilisateurs protégés » dans Active Directory : connectez-vous avec un autre utilisateur de domaine dans la zone ADConnect et ne spécifiez pas -domainCredential. Cela entraînerait la consommation du ticket Kerberos de l’utilisateur actuellement connecté. Vous pouvez confirmer cela en exécutant whoami /groups afin de vérifier que l’utilisateur a le privilège requis dans Active Directory pour exécuter la commande ci-dessus.
+ 
 | Propriété | Description |
 | --- | --- |
 | id | ID unique de l’objet contrôleur de domaine AD DS. Cet ID est parfois appelé « emplacement » ou « ID de branche ». |

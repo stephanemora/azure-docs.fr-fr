@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 06/07/2021
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
-ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8dd8e1da81d6c906e29caf155edc8c2b9e44ea9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98027763"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755534"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Flux de modification dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
@@ -78,9 +78,9 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Le flux de modification inclut les opérations d’insertion et de mise à jour apportées aux éléments du conteneur. Vous pouvez capturer des suppressions en définissant un indicateur de « suppression réversible » dans vos éléments (par exemple, vos documents) au lieu d’effectuer des suppressions définitives. Vous pouvez également définir un délai d’expiration fixe pour vos éléments avec la [fonctionnalité de durée de vie](time-to-live.md). Par exemple, vous pouvez définir le délai sur 24 heures et utiliser la valeur de cette propriété pour capturer les suppressions. Avec cette solution, vous devez traiter les modifications dans un intervalle de temps inférieur à la période d’expiration de durée de vie.
 
-* Chaque modification apportée à un élément n’apparaît qu’une seule fois dans le flux de modification. En outre, les clients doivent gérer leur logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, le processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». Consultez [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md).
-
 * Seule la dernière modification d’un élément donné est incluse dans le journal des modifications. Les modifications intermédiaires peuvent ne pas être disponibles.
+
+* Chaque modification incluse dans le journal des modifications n’apparaît qu’une seule fois dans le flux de modification. De plus, les clients doivent gérer la logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, le processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md).
 
 * Le flux de modification est trié par ordre de modification au sein de chaque valeur de clé de partition logique. Il n’existe aucun ordre garanti entre les valeurs de clé de partition.
 

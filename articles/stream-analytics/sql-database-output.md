@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/30/2021
+ms.openlocfilehash: 67919f89167fbdb09bfed8e67dfda5fb49bb9bb0
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013955"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592391"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Sortie dans Azure SQL Database d’Azure Stream Analytics
 
@@ -47,6 +47,10 @@ Le partitionnement doit être activé et est basé sur la clause PARTITION BY de
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
 Vous pouvez configurer la taille maximale de message à l’aide du **Nombre maximal de lots**. La valeur maximale par défaut est 10 000 et la valeur minimale par défaut est de 100 lignes par insertion en bloc. Pour plus d’informations, consultez [Limites d’Azure DNS](../azure-sql/database/resource-limits-logical-server.md). Chaque lot est initialement inséré en bloc avec le nombre de lots maximum. Le lot est divisé de moitié (jusqu’au nombre de lots minimum) en fonction des erreurs renouvelables de SQL.
+
+## <a name="limitation"></a>Limitation
+
+Le certificat SSL auto-signé n’est pas pris en charge lors de la tentative de connexion des travaux ASA à SQL sur la machine virtuelle
 
 ## <a name="next-steps"></a>Étapes suivantes
 

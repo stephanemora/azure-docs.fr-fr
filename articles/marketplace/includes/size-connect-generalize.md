@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7d94bd0a4a9fb50cb211fd227c3022a46beef502
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727117"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527535"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -55,17 +55,39 @@ Une fois que votre machine virtuelle est prête, vous pouvez la capturer dans un
 8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix.
 9. Une fois la validation réussie, sélectionnez **Créer**.
 
-Pour accorder l’accès :
+## <a name="set-the-right-permissions"></a>Définir les autorisations appropriées
 
-1. Accédez à la galerie d’images partagées.
+Si votre compte Espace partenaires est le propriétaire de l’abonnement qui héberge Shared Image Gallery, rien d’autre n’est nécessaire pour les autorisations.
+
+Si vous disposez uniquement d’un accès en lecture à l’abonnement, utilisez l’une des deux options suivantes.
+
+### <a name="option-one--ask-the-owner-to-grant-owner-permission"></a>Option 1 : Demander au propriétaire d’accorder son autorisation
+
+Étapes à suivre pour que le propriétaire accorde son autorisation :
+
+1. Accédez à Shared Image Gallery (SIG).
 2. Sélectionnez **Contrôle d’accès** (IAM) dans le volet gauche.
-3. Sélectionnez **Ajouter** et **Ajouter une attribution de rôle**.
-4. Sélectionnez un **rôle** ou un **propriétaire**.
-5. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal de service**.
-6. Sélectionnez l’adresse e-mail Azure de la personne qui publiera l’image.
-7. Sélectionnez **Enregistrer**.
+3. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**.<br>
+    :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="La fenêtre Ajouter une attribution de rôle s’affiche":::.
+1. Sous **Rôle**, sélectionnez **Propriétaire**.
+1. Pour **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service**.
+1. Pour **Sélectionner**, entrez l’adresse e-mail Azure de la personne qui publiera l’image.
+1. Sélectionnez **Enregistrer**.
 
-:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Affiche la fenêtre Ajouter une attribution de rôle.":::
+### <a name="option-two--run-a-command"></a>Option 2 : Exécuter une commande
+
+Demandez au propriétaire d’exécuter l’une de ces commandes (dans les deux cas, utilisez le SusbscriptionId de l’abonnement où vous avez créé la galerie d’images partagées).
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
 > Vous n’avez pas besoin de générer d’URI de SAP, car vous pouvez désormais publier une image provenant d’une galerie d’images partagées sur Espace partenaires. Toutefois, si vous avez encore besoin de vous référer aux étapes de génération d’un URI de SAP, consultez [Comment générer un URI SAS pour une image de machine virtuelle](../azure-vm-get-sas-uri.md).

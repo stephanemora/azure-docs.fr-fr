@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: dd4d4c1ddea737a1aa2083f7e2801aaee1b4cff7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: bd9e8c2e71f69045078111bd5a4ae7c0edf567aa
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467443"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527367"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervision du service Stockage Blob Azure
 
@@ -542,7 +542,7 @@ Vous pouvez accéder aux journaux envoyés à un espace de travail Log Analytics
 
 Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-Les données sont stockées dans la table **StorageBlobLog**. Les journaux de Data Lake Storage Gen2 n’apparaissent pas dans une table dédiée. Cela est dû au fait que Data Lake Storage Gen2 n’est pas un service. Il s’agit d’un ensemble de fonctionnalités que vous pouvez activer dans votre compte de stockage. Si vous avez activé ces fonctionnalités, les journaux continueront d’apparaître dans la table StorageBlobLogs. 
+Les données sont stockées dans la table **StorageBlobLog**. Les journaux de Data Lake Storage Gen2 n’apparaissent pas dans une table dédiée. Cela est dû au fait que Data Lake Storage Gen2 n’est pas un service. Il s’agit d’un ensemble de fonctionnalités que vous pouvez activer dans votre compte de stockage. Si vous avez activé ces fonctionnalités, les journaux continueront d’apparaître dans la table StorageBlobLog. 
 
 #### <a name="sample-kusto-queries"></a>Exemples de requêtes Kusto
 

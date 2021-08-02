@@ -1,17 +1,17 @@
 ---
-title: Superviser la disponibilité et la réactivité d’un site web - Azure Monitor
+title: Superviser la disponibilité avec des tests Ping d’URL – Azure Monitor
 description: Configurez des tests ping dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 05/25/2021
 ms.reviewer: sdash
-ms.openlocfilehash: eba55212b4b40a364f37d6f86d41a25a1564281a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e7e52cb5db6db5fbd1e73713d3d3558be9e859f0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767326"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968397"
 ---
-# <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
+# <a name="monitor-availability-with-url-ping-tests"></a>Superviser la disponibilité avec des tests Ping d’URL
 
 Le nom « test ping d’URL » prête un peu à confusion. Pour être clair, ces tests n’utilisent nullement le protocole ICMP (Internet Control Message Protocol) pour vérifier la disponibilité de votre site. Au lieu cela, ils se servent de fonctionnalités de requête HTTP plus avancées pour s’assurer qu’un point de terminaison répond bien. Ils mesurent aussi les performances de cette réponse, et permettent de définir des critères de réussite personnalisés combinés à des fonctionnalités plus avancées telles que l’analyse des requêtes dépendantes et l’autorisation de nouvelles tentatives.
 
@@ -64,6 +64,15 @@ Les étiquettes de remplissage suivantes peuvent être utilisées pour l’attri
 | Gouvernement des États-Unis - Texas    | usgov-tx-azr        |
 | USDoD Est     | usgov-ddeast-azr    |
 | US DoD - Centre  | usgov-ddcentral-azr |
+
+### <a name="azure-china"></a>Azure Chine
+
+| Nom d’affichage   | Nom du remplissage     |
+|----------------|---------------------|
+| Chine orientale     | mc-cne-azr          |
+| Chine orientale 2   | mc-cne2-azr         |
+| Chine du Nord    | mc-cnn-azr          |
+| Chine Nord 2  | mc-cnn2-azr         |
 
 #### <a name="azure"></a>Azure
 
@@ -144,4 +153,4 @@ Outre les résultats bruts, vous pouvez examiner deux mesures essentielles de la
 * [Availability alerts](availability-alerts.md) (Alertes de disponibilité)
 * [Tests web à plusieurs étapes](availability-multistep.md)
 * [Dépannage](troubleshoot-availability.md)
-* [Modèle Azure Resource Manager pour les tests web](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Modèle Azure Resource Manager pour les tests web](/azure/templates/microsoft.insights/webtests?tabs=json)

@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: dff0425c119015d69ef994540e03e56dfc2decb6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b77702ea78d9b44da7843d08b2f32adeecfb9383
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744584"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440607"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -26,7 +26,7 @@ Pour créer une image managée, vous devez supprimer les informations personnell
 
 Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux spécialisé à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée](upload-vhd.md).  
 
-Vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure (préversion publique)** pour créer votre image personnalisée ; il suffit de fournir une configuration d’image et le Générateur créera l’image (inutile d’apprendre à utiliser tous les outils, ou de configurer les pipelines de build). Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](../image-builder-overview.md).
+Pour générer votre image personnalisée, vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure**. À cette fin, vous n’avez pas besoin d’apprendre à utiliser des outils ou de configurer des pipelines de build. Vous fournissez une configuration d’image et le Générateur crée l’image. Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](../image-builder-overview.md).
 
 Vous avez besoin des éléments suivants avant de créer une image :
 

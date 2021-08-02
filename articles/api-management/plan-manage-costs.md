@@ -6,13 +6,13 @@ ms.author: apimpm
 ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: ec15f11c6aee82d117210402e4cc4fda114e86a2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581327"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034604"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planifier et gérer les coûts pour la gestion des API
 
@@ -51,11 +51,29 @@ Pour obtenir des détails supplémentaires sur la tarification et les fonctionna
 
 Vous pouvez payer les frais d’API Management avec votre Acompte Azure (anciennement appelé engagement financier). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de la Place de marché Azure.
 
+## <a name="understand-the-full-billing-model"></a>Comprendre le modèle de facturation complet
+
+À mesure que vous utilisez des ressources Azure avec la Gestion des API, vous générez des coûts, ou des compteurs facturables. Les coûts unitaires d’utilisation des ressources Azure varient en fonction des éléments suivants :
+* Intervalles de temps (secondes, minutes, heures et jours)
+* Utilisation des unités (octets, mégaoctets, etc.)
+* Nombre de transactions
+
+### <a name="how-youre-charged-for-api-management"></a>Comment vous êtes facturé pour la Gestion des API
+
+Lorsque vous créez ou utilisez des ressources Azure avec la Gestion des API, vous êtes facturé en fonction des niveaux dans lesquels vous travaillez. En savoir plus sur [le choix du niveau le plus approprié](./api-management-features.md) pour vous.
+
+| Niveaux | Description |
+| ----- | ----------- |
+| Consommation | N’implique aucun coût fixe. Vous êtes facturé en fonction du nombre d’appels d’API au service au-dessus d’un certain seuil. |
+| Développeur, De base, Standard et Premium | Entraînent des coûts mensuels, en fonction du nombre d’[unités](./api-management-capacity.md) et des [passerelles auto-hébergées](./self-hosted-gateway-overview.md). Les passerelles auto-hébergées sont gratuites pour le niveau Développeur. [Mettez à niveau](./upgrade-and-scale.md) vers un autre niveau de service à tout moment. |
+
+Vous pouvez également contracter des frais supplémentaires lorsque vous utilisez d’autres ressources Azure avec la Gestion des API, telles que des réseaux virtuels, des zones de disponibilité et des écritures multirégions. À la fin de votre cycle de facturation, les frais associés à chaque compteur sont additionnés. Votre facture contient une section regroupant tous les coûts de la Gestion des API. Chaque compteur est représenté par un élément de ligne distinct.
+
 ## <a name="monitor-costs"></a>Superviser les coûts
 
-À mesure que vous utilisez des ressources Azure avec la gestion des API, vous générez des coûts. Les coûts unitaires d’utilisation des ressources Azure varient selon les intervalles de temps (secondes, minutes, heures et jours) ou selon l’utilisation d’unités (octets, mégaoctets, etc.). Dès que l’utilisation de la gestion des API démarre, les coûts sont générés et vous pouvez voir les coûts dans [Analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Dès que l’utilisation de la Gestion des API démarre, des coûts sont générés. Vous pouvez afficher les coûts dans l’[analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) ou par l’intermédiaire de la calculatrice de prix Azure.
 
-Quand vous utilisez l’analyse des coûts, vous affichez les coûts de gestion des API dans des graphes et des tableaux pour différents intervalles de temps. Par exemple, par jour, par année ou pour le mois en cours ou le mois précédent. Vous pouvez aussi afficher les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues pour des périodes plus longues pour identifier les tendances des dépenses. Ceci vous permet de voir où des dépassements ont pu se produire. Si vous avez créé des budgets, vous pouvez aussi facilement voir à quel moment ils ont été dépassés.
+Quand vous utilisez l’analyse des coûts, vous affichez les coûts de la Gestion des API dans des graphes et des tableaux pour différents intervalles de temps (jour, mois en cours et précédent, année). Vous pouvez aussi afficher les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues pour des périodes plus longues pour identifier les tendances des dépenses. Ceci vous permet de voir où des dépassements ont pu se produire. Si vous avez créé des budgets, vous pouvez aussi facilement voir à quel moment ils ont été dépassés.
 
 > [!NOTE]
 > Les coûts indiqués dans cet exemple sont fournis à des fins de démonstration uniquement. Vos coûts varient en fonction de l’utilisation des ressources et de la tarification actuelle.
@@ -86,13 +104,6 @@ Vous pouvez créer des budgets avec des filtres pour des ressources ou des servi
 Vous pouvez également [exporter vos données de coûts](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer des analyses supplémentaires des données concernant les coûts. Par exemple, une équipe Finance peut analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
 
 ## <a name="other-ways-to-manage-and-reduce-costs-for-api-management"></a>Autres façons de gérer et de réduire les coûts de gestion des API
-
-### <a name="choose-tier"></a>Choisir un niveau
-
-Passez en revue la [comparaison des fonctionnalités des niveaux de gestion des API Azure](api-management-features.md) pour vous aider à déterminer le niveau de service qui peut être adapté à vos scénarios. Les différents niveaux de service prennent en charge des combinaisons de fonctionnalités et de capacités conçues pour différents cas d’usage, avec des coûts différents. 
-
-* Le niveau de service **Consommation** fournit une option légère, serverless, qui n’implique aucun coût fixe. Vous êtes facturé en fonction du nombre d’appels d’API au service au-dessus d’un certain seuil. La capacité est également mise à l’échelle automatiquement en fonction de la charge sur le service.
-* Les niveaux **Développeur**, **De base**, **Standard** et **Premium** de Gestion des API entraînent des coûts mensuels et fournissent un débit et des ensembles de fonctionnalités plus riches pour les charges de travail d’évaluation et de production. [Mettez à niveau](upgrade-and-scale.md) vers un autre niveau de service à tout moment.
 
 ### <a name="scale-using-capacity-units"></a>Mettre à l’échelle à l’aide d’unités de capacité
 

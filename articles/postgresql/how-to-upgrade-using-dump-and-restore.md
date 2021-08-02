@@ -1,21 +1,24 @@
 ---
-title: Mise à niveau par vidage et restauration - Azure Database pour PostgreSQL - Serveur unique
-description: Décrit les méthodes de mise à niveau hors connexion utilisant la sauvegarde et la restauration de bases de données pour migrer vers une version plus récente d’Azure Database pour PostgreSQL – Serveur unique.
+title: Mise à niveau par vidage et restauration – Azure Database pour PostgreSQL
+description: Décrit les méthodes de mise à niveau hors connexion utilisant la sauvegarde et la restauration de bases de données pour opérer une migration vers une version plus récente d’Azure Database pour PostgreSQL.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/10/2020
-ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: d528d75bd26bf17ca0da20447848d315e2dc9057
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493659"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406874"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Mettre à niveau votre base de données PostgreSQL par vidage et restauration
 
-Vous pouvez mettre à niveau votre serveur PostgreSQL déployé dans Azure Database pour PostgreSQL – Serveur unique en migrant vos bases de données vers un serveur de version principale plus récent à l’aide des méthodes suivantes.
+>[!NOTE]
+> Les concepts expliqués dans cette documentation s’appliquent tant à Azure Database pour PostgreSQL – Serveur unique qu’à Azure Database pour PostgreSQL – Serveur flexible (préversion). 
+
+Vous pouvez mettre à niveau votre serveur PostgreSQL déployé dans Azure Database pour PostgreSQL en migrant vos bases de données vers un serveur de version majeure plus récent à l’aide des méthodes suivantes.
 * Méthode **hors connexion** utilisant les utilitaires PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html), ce qui entraîne un temps d’arrêt pour la migration des données. Ce document traite de cette méthode de mise à niveau/de migration.
 * Méthode **en ligne** utilisant [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). Cette méthode permet de réduire les temps d’arrêt et de maintenir la synchronisation de la base de données cible avec la source, et vous pouvez choisir le moment du basculement. Toutefois, il existe quelques conditions préalables et restrictions à prendre en compte pour l’utilisation de DMS. Pour plus de détails, consultez la [documentation de DMS](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
@@ -41,8 +44,8 @@ Ce guide fournit quelques méthodologies et exemples de migration hors connexion
  
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
-- Une base de données PostgreSQL **source** exécutant la version 9.5, 9.6 ou 10 que vous souhaitez mettre à niveau.
-- Une serveur de base de données PostgreSQL **cible** avec la version principale souhaitée du [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md). 
+- Un serveur de base de données PostgreSQL **source** exécutant une version antérieure du moteur que vous souhaitez mettre à niveau.
+- Un serveur de base de données PostgreSQL **cible** avec la version majeure souhaitée d’[Azure Database pour PostgreSQL – Serveur unique](quickstart-create-server-database-portal.md) ou d’[Azure Database pour PostgreSQL – Serveur flexible](./flexible-server/quickstart-create-server-portal.md). 
 - Un système client PostgreSQL pour exécuter les commandes de sauvegarde et de restauration.
   - Il peut s’agir d’un client Linux ou Windows sur lequel PostgreSQL et les utilitaires de ligne de commande [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) sont installés. 
   - Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com) ou cliquer sur Azure Cloud Shell dans la barre de menus en haut à droite du [portail Azure](https://portal.azure.com). Vous devez vous connecter à votre compte `az login` avant d’exécuter les commandes de vidage et de restauration.
@@ -71,6 +74,9 @@ Dans ce guide, les serveurs source et cible et les noms de base de données suiv
  | Serveur cible (v11) | pg-11.postgres.database.azure.com |
  | Base de données cible | bench5gb |
  | Nom d’utilisateur cible | pg@pg-11 |
+
+>[!NOTE]
+> Le serveur flexible prend en charge PostgreSQL versions 11 et ultérieures. Par ailleurs, le nom d’utilisateur du serveur flexible ne doit pas contenir @<servername>.
 
 ## <a name="upgrade-your-databases-using-offline-migration-methods"></a>Mettre à niveau vos bases de données à l’aide de méthodes de migration hors connexion
 Vous pouvez choisir d’utiliser l’une des méthodes décrites dans cette section pour vos mises à niveau. Vous pouvez utiliser les conseils suivants lors de l’exécution des tâches.
@@ -164,5 +170,5 @@ Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dan
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Une fois que vous êtes satisfait de la fonction de la base de données cible, vous pouvez supprimer votre ancien serveur de base de données. 
-- Si vous souhaitez utiliser le même point de terminaison de base de données que le serveur source, alors après avoir supprimé votre ancien serveur de base de données source, vous pouvez créer un réplica en lecture avec l’ancien nom du serveur de base de données. Une fois l’état stable établi, vous pouvez arrêter le réplica, ce qui permet de promouvoir le réplica du serveur en tant que serveur indépendant. Pour plus d’informations, consultez [Réplication](./concepts-read-replicas.md).
+- Uniquement pour Azure Database pour PostgreSQL – Serveur unique. Si vous souhaitez utiliser le même point de terminaison de base de données que le serveur source, alors après avoir supprimé votre ancien serveur de base de données source, vous pouvez créer un réplica en lecture avec l’ancien nom du serveur de base de données. Une fois l’état de réplication stable établi, vous pouvez arrêter le réplica, ce qui permet de promouvoir le serveur réplica en tant que serveur indépendant. Pour plus d’informations, consultez [Réplication](./concepts-read-replicas.md).
 - Pensez à tester et valider ces commandes dans un environnement de test avant de les utiliser en production.

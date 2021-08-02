@@ -1,23 +1,23 @@
 ---
 title: Effectuer des recherches sur les objets blob JSON
 titleSuffix: Azure Cognitive Search
-description: Analyser les objets blob Azure JSON pour le contenu de texte à l’aide de l’indexeur d’objets blob Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
+description: Analyser les objets blob Azure JSON pour le contenu de texte à l’aide de l’indexeur d’objets blob Recherche cognitive Azure. Les indexeurs automatisent l’ingestion des données pour les sources de données sélectionnées, comme le stockage Blob Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 8156966e9a1c000701a5cc1c68a70c4ee048c738
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0abbf8dc928dc20778d748e16eea5ae8b775282
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259048"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557087"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
-Cet article explique comment [configurer un indexeur d’objets blob](search-howto-indexing-azure-blob-storage.md) pour les objets blob qui se composent de documents JSON. Les objets blob JSON dans le stockage Blob Azure prennent généralement l’une des formes suivantes :
+Cet article explique comment [configurer un indexeur d’objets blob](search-howto-indexing-azure-blob-storage.md) pour les objets blob qui se composent de documents JSON. Les objets blob JSON dans Stockage Blob Azure prennent généralement l’une des formes suivantes :
 
 + Document JSON unique
 + Document JSON contenant un tableau d’éléments JSON bien formés
@@ -41,7 +41,7 @@ Les sections suivantes décrivent plus en détail chacun de ces modes. Si vous n
 
 ## <a name="index-single-json-documents-one-per-blob"></a>Indexer des documents JSON uniques (un par objet blob)
 
-Par défaut, les indexeurs d’objets blob analysent les objets blob JSON en tant que bloc de texte unique, à raison d’un document de recherche pour chaque objet blob dans un conteneur. Si le JSON est structuré, le document de recherche peut refléter cette structure, avec les différents éléments représentés en tant que champs individuels. En guise d’exemple, prenons le document JSON suivant dans Stockage Blob Azure :
+Par défaut, les indexeurs d’objets blob analysent les objets blob JSON en tant que bloc de texte unique, à raison d’un document de recherche pour chaque objet blob dans un conteneur. Si le JSON est structuré, le document de recherche peut refléter cette structure, avec les différents éléments représentés en tant que champs individuels. Par exemple, prenons le document JSON suivant dans Stockage Blob Azure :
 
 ```http
 {

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4958610f2be5aa31a6800203d06dd887191e15
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553236"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538302"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -228,7 +228,7 @@ Si vous souhaitez fournir une valeur par défaut en cas d’entrée manquante, v
 
 | Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| Le type de l’entrée de compétence est incorrect | « L’entrée de compétence requise n’est pas du type attendu `String`. Nom : `text`, source : `/document/merged_content`. »  « L’entrée de compétence requise n’est pas au format attendu. Nom : `text`, source : `/document/merged_content`. »  « Impossible d’effectuer une itération sur le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ».  « Impossible de sélectionner `0` dans le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` » | Certaines compétences attendent des entrées de types particuliers. Par exemple, la [compétence Sentiment](cognitive-search-skill-sentiment.md) attend que `text` soit une chaîne. Si l’entrée spécifie une valeur autre qu’une chaîne, la compétence ne s’exécute pas et ne génère aucune sortie. Assurez-vous que le jeu de données contient des valeurs d’entrée de type uniforme, ou utilisez une [compétence d’API web personnalisée](cognitive-search-custom-skill-web-api.md) pour prétraiter l’entrée. Si vous répétez la compétence sur un tableau, vérifiez que le contexte et l’entrée de la compétence ont `*` aux bons emplacements. Généralement, le contexte et la source d’entrée doivent se terminer par `*` pour des tableaux. |
+| Le type de l’entrée de compétence est incorrect | « L’entrée de compétence requise n’est pas du type attendu `String`. Nom : `text`, source : `/document/merged_content`. »  « L’entrée de compétence requise n’est pas au format attendu. Nom : `text`, source : `/document/merged_content`. »  « Impossible d’effectuer une itération sur le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ».  « Impossible de sélectionner `0` dans le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` » | Certaines compétences attendent des entrées de types particuliers. Par exemple, la [compétence Sentiment](cognitive-search-skill-sentiment-v3.md) attend que `text` soit une chaîne. Si l’entrée spécifie une valeur autre qu’une chaîne, la compétence ne s’exécute pas et ne génère aucune sortie. Assurez-vous que le jeu de données contient des valeurs d’entrée de type uniforme, ou utilisez une [compétence d’API web personnalisée](cognitive-search-custom-skill-web-api.md) pour prétraiter l’entrée. Si vous répétez la compétence sur un tableau, vérifiez que le contexte et l’entrée de la compétence ont `*` aux bons emplacements. Généralement, le contexte et la source d’entrée doivent se terminer par `*` pour des tableaux. |
 | Une entrée de compétence est manquante | « L’entrée de compétence requise est manquante. Nom : `text`, source : `/document/merged_content` » « Valeur manquante `/document/normalized_images/0/imageTags`. »  « Impossible de sélectionner `0` dans un tableau `/document/pages` de longueur `0`. » | Si tous les documents reçoivent cet avertissement, il est hautement probable que les chemins d’entrée contiennent une faute de frappe et vous devriez vérifier attentivement la casse du nom de propriété, un signe `*` manquant ou en trop dans le chemin. Vérifiez aussi que les documents de la source de données définissent les entrées nécessaires. |
 | L’entré du code de la langue de la compétence n’est pas valide | L’entrée de compétence `languageCode` a les codes de langue suivants `X,Y,Z`, dont au moins un n’est pas valide. | Pour plus de détails, voir [ci-dessous](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
@@ -257,7 +257,7 @@ Si vous savez que votre jeu de données contient plusieurs langues et que vous a
 ```
 
 Voici quelques références pour les langues actuellement prises en charge pour chacune des compétences qui peuvent générer ce message d'erreur :
-* [Langues prises en charge pour l'analyse de texte](../cognitive-services/text-analytics/language-support.md) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) et [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Langues prises en charge pour l’Analyse de texte](../cognitive-services/text-analytics/language-support.md) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), [EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md), [SentimentSkill](cognitive-search-skill-sentiment-v3.md) et [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Langues prises en charge par le traducteur](../cognitive-services/translator/language-support.md) (pour [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) - langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`
 

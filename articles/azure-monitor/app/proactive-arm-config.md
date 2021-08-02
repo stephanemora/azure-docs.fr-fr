@@ -6,16 +6,22 @@ author: harelbr
 ms.author: harelbr
 ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f13bc07ce5ae6a11b59b6d18a609ca2ee259964
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726119"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949401"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
-Les règles de détection intelligente dans Application Insights peuvent être gérées et configurées à l’aide de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+>[!NOTE]
+>Vous pouvez effectuer une migration de vos ressources Application Insights vers la détection intelligente des alertes (préversion). La migration crée des règles d’alerte pour les différents modules de détection intelligente. Vous pouvez alors gérer et configurer ces règles comme n’importe quelle autre règle d’alerte Azure Monitor. Vous avez également la possibilité de configurer des groupes d’actions pour ces règles, qui offrent différents moyens d’agir et de déclencher des notifications en cas de nouvelle détection.
+>
+> Pour plus d’informations sur le processus de migration et le comportement de la détection intelligente après la migration, consultez [Migration des alertes de détection intelligente](../alerts/alerts-smart-detections-migration.md).
+> 
+
+Les règles de détection intelligente dans Application Insights peuvent être gérées et configurées à l’aide de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md).
 Cette méthode peut être utilisée lors du déploiement de nouvelles ressources Application Insights avec Azure Resource Manager Automation, ou pour modifier les paramètres des ressources existantes.
 
 ## <a name="smart-detection-rule-configuration"></a>Configuration de règle de détection intelligente
@@ -195,4 +201,3 @@ En savoir plus sur la détection automatique :
 - [Défaillances](./proactive-failure-diagnostics.md)
 - [Fuites de mémoire](./proactive-potential-memory-leak.md)
 - [Anomalies de performance](./proactive-performance-diagnostics.md)
-

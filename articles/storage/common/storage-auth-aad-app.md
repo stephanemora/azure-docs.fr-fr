@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ee77fd8ee7f9b209fa1639c787295e380e8dce0b
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075930"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901994"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -31,7 +31,7 @@ L’exemple d’application offre une expérience de bout en bout montrant comme
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Attribuer un rôle à un principal de sécurité Azure AD
 
-Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle Azure (Azure RBAC) de ce principal de sécurité. Le Stockage Azure définit des rôles intégrés qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle Azure est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consulter [Gestion des droits d’accès aux données Blob et File d’attente Azure avec Azure RBAC](./storage-auth-aad-rbac-portal.md).
+Pour authentifier un principal de sécurité à partir de votre application Stockage Azure, commencez par configurer les paramètres de contrôle d’accès en fonction du rôle Azure (Azure RBAC) de ce principal de sécurité. Le Stockage Azure définit des rôles intégrés qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle Azure est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
 
@@ -127,7 +127,7 @@ Pour envoyer une requête de jeton, vous aurez besoin des valeurs suivantes lors
 
 Pour exécuter l’exemple de code, créez un compte de stockage dans le même abonnement que votre instance Azure Active Directory. Puis créez un conteneur dans ce compte de stockage. L’exemple de code crée un objet blob de blocs dans ce conteneur.
 
-Ensuite, affectez explicitement le rôle **Contributeur aux données Blob du stockage** au compte d’utilisateur sous lequel vous allez exécuter l’exemple de code. Pour connaître les instructions à suivre pour attribuer ce rôle sur le Portail Azure, consulter [Attribution d’un rôle Azure pour l’accès à des données Blob et File d’attente avec le Portail Azure](storage-auth-aad-rbac-portal.md).
+Ensuite, affectez explicitement le rôle **Contributeur aux données Blob du stockage** au compte d’utilisateur sous lequel vous allez exécuter l’exemple de code. Pour savoir comment attribuer ce rôle dans le portail Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > Lorsque vous créez un compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée via Azure AD. Vous devez vous attribuer explicitement un rôle Azure pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente.
@@ -293,5 +293,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Plateforme d’identité Microsoft](../../active-directory/develop/index.yml)
-- [Gestion des droits d’accès aux données de stockage avec Azure RBAC](./storage-auth-aad-rbac-portal.md)
+- [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md) (Authentifier l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure)

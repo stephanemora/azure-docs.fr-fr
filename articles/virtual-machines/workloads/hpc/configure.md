@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/28/2021
+ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7269309a3ed682da4d67e2509508276a3133601e
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 9f80b91695af6350376d5fcd97732e1a056278a9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516863"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413084"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurer et optimiser les machines virtuelles
 
@@ -22,12 +22,13 @@ Cet article donne des conseils sur la configuration et l’optimisation des mach
 ## <a name="vm-images"></a>Images de machine virtuelle
 Sur les machines virtuelles avec InfiniBand, certains pilotes sont nécessaires pour activer la fonction RDMA.
 - Les [images de machine virtuelle CentOS-HPC](#centos-hpc-vm-images) de Place de marché sont préconfigurées avec les pilotes InfiniBand appropriés.
+  - L’image de machine virtuelle CentOS-HPC version 7.9 est également préconfigurée avec les pilotes GPU NVIDIA. 
 - Les [images de machine virtuelle Ubuntu-HPC](#ubuntu-hpc-vm-images) de Place de marché sont préconfigurées avec les pilotes InfiniBand et GPU appropriés.
 
 Ces images de machine virtuelle ont été conçues à partir des images de machine virtuelle CentOS et Ubuntu de base du marketplace. Les scripts utilisés dans la création de ces images de machine virtuelle à partir de leur image CentOS de base de Place de marché se trouvent sur le [référentiel azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 Sur les machines virtuelles de [série N](../../sizes-gpu.md) avec GPU, les pilotes GPU appropriés sont également nécessaires. Ils peuvent être obtenus avec les méthodes suivantes :
-- Utilisez les [images de machine virtuelle Ubuntu-HPC](#ubuntu-hpc-vm-images) qui sont préconfigurées avec les pilotes GPU de Nvidia et la pile logicielle de calcul GPU (CUDA, NCCL).
+- Utilisez les [images de machine virtuelle Ubuntu-HPC](#ubuntu-hpc-vm-images) et la [version d’image de machine virtuelle CentOS-HPC](#centos-hpc-vm-images) version 7.9 qui sont préconfigurées avec les pilotes GPU de Nvidia et la pile logicielle de calcul GPU (CUDA, NCCL).
 - Ajoutez les pilotes GPU par le biais des [extensions de machine virtuelle](../../extensions/hpccompute-gpu-linux.md).
 - Installez les pilotes GPU [manuellement](../../linux/n-series-driver-setup.md).
 - Certaines autres images de machine virtuelle sur Place de marché sont également préinstallées avec les pilotes GPU de Nvidia, y compris certaines images de machine virtuelle de Nvidia.
@@ -36,18 +37,25 @@ En fonction des besoins des charges de travail en matière de distribution et de
 Il est également recommandé de créer des [images de machine virtuelle personnalisées](../../linux/tutorial-custom-images.md) avec une personnalisation et une configuration spécifiques et de les réutiliser.
 
 ### <a name="vm-sizes-supported-by-the-hpc-vm-images"></a>Tailles de machines virtuelles prises en charge par les images de machine virtuelle HPC
+
+#### <a name="infiniband-ofed-support"></a>Prise en charge de InfiniBand OFED
 Les images du marketplace HPC Azure les plus récentes sont fournies avec Mellanox OFED 5.1 et versions ultérieures, qui ne prennent pas en charge les cartes InfiniBand ConnectX3-Pro. Ces images de machine virtuelle prennent uniquement en charge les cartes InfiniBand ConnextX-5 et ultérieures. Cela implique la matrice suivante de prise en charge des tailles de machine virtuelle pour l’OFED InfiniBand dans ces images de machine virtuelle HPC :
 - [Série H](../../sizes-hpc.md) : HB, HC, HBv2, HBv3
 - [Série N](../../sizes-gpu.md) : NDv2, NDv4
 
-Notez que pour la prise en charge du GPU dans les tailles de machine virtuelle de la série N (NDv2 et NDv4), seules les [images de machine virtuelle Ubuntu-HPC](#ubuntu-hpc-vm-images) sont actuellement préconfigurées avec les pilotes GPU de Nvidia et la pile logicielle de calcul GPU (CUDA, NCCL). 
+#### <a name="gpu-driver-support"></a>Prise en charge de pilote GPU
+Actuellement seules les [images de machine virtuelle Ubuntu-HPC](#ubuntu-hpc-vm-images) et les [images de machine virtuelle CentOS-HPC](#centos-hpc-vm-images) version 7.9 sont préconfigurées avec les pilotes GPU de Nvidia et la pile logicielle de calcul GPU (CUDA, NCCL).
 
-Notez également que toutes les tailles de machine virtuelle ci-dessus prennent en charge les machines virtuelles « Gen 2 », bien que certaines plus anciennes prennent également en charge les machines virtuelles « Gen 1 ».
+La prise en charge des tailles de machine virtuelle pour les pilotes GPU dans les images de machine virtuelle HPC prises en charge est la suivante :
+- [Série N](../../sizes-gpu.md) : les tailles de machine virtuelle NDv2 et NDv4 sont prises en charge avec les pilotes GPU NVIDIA et la pile de logiciels de calcul GPU (CUDA, NCCL).
+- Les autres tailles de machine virtuelle « NC » et « ND » de la [série N](../../sizes-gpu.md) sont prises en charge avec les pilotes GPU NVIDIA.
+
+Notez également que toutes les tailles de machine virtuelle ci-dessus prennent en charge les machines virtuelles « Gen 2 », bien que certaines plus anciennes prennent également en charge les machines virtuelles « Gen 1 ». La prise en charge de la version « Gen 2 » est également indiquée par un « 01 » à la fin de l’URN ou de la version de la machine virtuelle.
 
 ### <a name="centos-hpc-vm-images"></a>Images de machine virtuelle CentOS-HPC
 
 #### <a name="sr-iov-enabled-vms"></a>Machines virtuelles compatibles SR-IOV
-Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances), des images de machine virtuelle CentOS-HPC versions 7.6 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, ainsi que les diverses bibliothèques MPI et différents packages de calcul scientifique couramment utilisés.
+Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances), des images de machine virtuelle CentOS-HPC versions 7.6 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, ainsi que les diverses bibliothèques MPI et différents packages de calcul scientifique couramment utilisés. Consultez le [tableau de prise en charge des tailles de machine virtuelle](#vm-sizes-supported-by-the-hpc-vm-images) ci-dessus.
 - Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](/cli/azure/vm/image#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
@@ -55,6 +63,9 @@ Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-
    ```
 - Des scripts utilisés lors de la création des images de machine virtuelle CentOS-HPC version 7.6 et ultérieures à partir d’une image de base CentOS du Marketplace se trouvent sur le [repository azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
 - Pour plus d’informations sur les éléments inclus dans les images de machine virtuelle CentOS-HPC version 7.6 et versions ultérieures et sur la façon de les déployer, consultez cet [article TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+> [!NOTE] 
+> Parmi les images de machine virtuelle CentOS-HPC, actuellement, seules l’image de machine virtuelle 7.9 est préconfigurée avec les pilotes GPU de Nvidia et la pile logicielle de calcul GPU (CUDA, NCCL).
 
 > [!NOTE] 
 > Les tailles de machines virtuelles de série N compatibles SR-IOV avec FDR InfiniBand (p. ex. NCv3 et versions antérieures) peuvent utiliser les versions suivantes d’image de machine virtuelle CentOS-HPC et leurs versions antérieures sur la Place de marché :
@@ -72,7 +83,7 @@ Pour [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-
 > Sur ces images HPC basées sur CentOS pour les machines virtuelles non compatibles SR-IOV, les mises à jour du noyau sont désactivées dans le fichier de configuration **yum** . Cela s’explique par le fait que les pilotes RDMA NetworkDirect Linux sont distribués sous forme de package RPM, et que les mises à jour du pilote peuvent ne pas fonctionner si le noyau est mis à jour.
 
 ### <a name="ubuntu-hpc-vm-images"></a>Images de machine virtuelle Ubuntu-HPC
-Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) avec SR-IOV, des images de machine virtuelle Ubuntu-HPC versions 18.04 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, les pilotes GPU de Nvidia, la pile logicielle de calcul GPU (CUDA, NCCL) et les diverses bibliothèques MPI et les différents packages de calcul scientifique couramment utilisés.
+Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) avec SR-IOV, des images de machine virtuelle Ubuntu-HPC versions 18.04 et 20.04 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, les pilotes GPU de Nvidia, la pile logicielle de calcul GPU (CUDA, NCCL) et les diverses bibliothèques MPI et les différents packages de calcul scientifique couramment utilisés. Consultez le [tableau de prise en charge des tailles de machine virtuelle](#vm-sizes-supported-by-the-hpc-vm-images) ci-dessus.
 - Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](/cli/azure/vm/image#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",

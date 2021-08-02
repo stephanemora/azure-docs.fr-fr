@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d234e57f7c11b0d9f2cd212bde93a8b8e478ef41
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 652551635b84c18020bf928194923d0e6ca86149
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781362"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565269"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versions de mise en page et JavaScript dans Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Pour spécifier la version de la mise en page de vos pages de flux utilisateur, 
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir.
-1. Sélectionnez **Mises en page**. Choisissez un **Nom de disposition**, puis choisissez la **Version de mise en page (préversion)** .
+1. Sélectionnez **Mises en page**. Choisissez un **Nom de disposition**, puis la **Version de mise en page**.
 
 Pour plus d'informations sur les différentes versions de mise en page, consultez le [Journal des modifications des versions de mise en page](page-layout.md).
 

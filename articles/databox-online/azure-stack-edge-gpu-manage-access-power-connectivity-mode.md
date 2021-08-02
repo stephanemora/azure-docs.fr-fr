@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 39990a557315c3fcc79f2b9dab59f25f758ab2bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 21cb737cf6168f44c1e71815d90139a04ba1d37b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443112"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697095"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gérer l’accès, la puissance et le mode de connectivité de votre GPU Azure Stack Edge Pro
 
@@ -37,7 +38,9 @@ Dans cet article, vous apprendrez comment :
 
 L’accès à votre appareil Azure Stack Edge Pro est contrôlé par l’utilisation d’un mot de passe d’appareil. Vous pouvez changer ce mot de passe à l’aide de l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le portail Azure.
 
-L'accès aux données figurant sur les disques de l'appareil est également contrôlé par des clés de chiffrement au repos.
+L'accès aux données figurant sur les disques de l'appareil est également contrôlé par des clés de chiffrement au repos. 
+
+Vous pouvez accéder à l’appareil en ouvrant une session Remote PowerShell sur HTTP ou HTTPS à partir de l’interface utilisateur web locale de l’appareil.
 
 ### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
@@ -96,6 +99,21 @@ Procédez comme suit pour effectuer une rotation des clés de chiffrement au rep
     Enregistrez le fichier de clé `.json` à un emplacement sécurisé. Ce fichier est destiné à faciliter une éventuelle récupération future de l'appareil.
 
     ![Capture d’écran montrant la boîte de dialogue Réinitialisation du mot de passe de l’appareil.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="enable-device-access-via-remote-powershell-over-http"></a>Activer l’accès de l’appareil via Remote PowerShell sur HTTP
+
+Vous pouvez ouvrir une session Remote PowerShell à partir de votre appareil sur HTTP ou HTTPS. Par défaut, vous accédez à l’appareil via une session Remote PowerShell sur HTTPS. Dans des réseaux de confiance, il est acceptable d’activer Remote PowerShell sur HTTP.
+
+Pour activer Remote PowerShell sur HTTP, dans l’interface utilisateur locale, procédez comme suit :
+
+1. Dans l’interface utilisateur locale de votre appareil, dans l’angle supérieur droit de la page, accédez à **Paramètres**.
+1. Sélectionnez **Activer** afin de pouvoir ouvrir une session Remote PowerShell sur HTTP à partir de votre appareil. N’activez ce paramètre que dans des réseaux de confiance.
+
+    ![Capture d’écran montrant le paramètre permettant d’activer Remote PowerShell sur HTTP.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/enable-remote-powershell-http-1.png)
+
+1. Sélectionnez **Appliquer**.
+
+Vous pouvez maintenant vous connecter sur HTTP à l’interface PowerShell de l’appareil. Pour plus de détails, consultez [Connexion à l’interface PowerShell](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
 

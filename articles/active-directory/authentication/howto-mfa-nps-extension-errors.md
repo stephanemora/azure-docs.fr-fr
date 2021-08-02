@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: fa3a2366f007ff1481e7c84f049e606586392037
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b95286169df2960d8e7297a493354b8f01e2f667
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742950"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029690"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Résoudre les messages d'erreur liés à l'extension NPS d'Azure AD Multi-Factor Authentication
 
-Si vous rencontrez des erreurs au niveau de l'extension NPS d'Azure AD Multi-Factor Authentication, utilisez cet article pour les résoudre plus rapidement. Les journaux d’activité d’extension NPS se trouvent dans l’Observateur d’événements sous **Affichages personnalisés** > **Rôles serveur** > **Services de stratégie et d’accès réseau** sur le serveur où l’extension NPS est installée.
+Si vous rencontrez des erreurs au niveau de l'extension NPS d'Azure AD Multi-Factor Authentication, utilisez cet article pour les résoudre plus rapidement. Les journaux d’extension NPS se trouvent dans l’observateur d’événements sous **Journaux des applications et des services** > **Microsoft** > **AzureMfa** > **AuthN** > **AuthZ** sur le serveur où est installée l’extension NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Étapes de résolution des erreurs courantes
 

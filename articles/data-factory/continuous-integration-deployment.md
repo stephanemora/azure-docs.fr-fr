@@ -6,13 +6,14 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: fad2fce019848c752217f15aaba8ba4c28a7c874
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/12/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177339"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971974"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -161,9 +162,15 @@ La tâche Azure Key Vault peut échouer avec une erreur d’accès refusé si le
 
 ### <a name="updating-active-triggers"></a>Mise à jour des déclencheurs actifs
 
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>Si vous n’utilisez pas les dernières versions des modules PowerShell et Data Factory, vous risquez de rencontrer des erreurs de désérialisation lors de l’exécution des commandes. 
+>
+
 Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs actifs. Pour mettre à jour les déclencheurs actifs, vous devez les arrêter manuellement puis les redémarrer après le déploiement. Vous pouvez le faire à l’aide d’une tâche Azure PowerShell :
 
-1.  Dans l’onglet **Tâches** de la version, ajoutez une tâche **Azure Powershell**. Choisissez une tâche de version 4.*. 
+1.  Dans l’onglet **Tâches** de la version, ajoutez une tâche **Azure Powershell**. Choisissez comme version de la tâche la dernière version d’Azure PowerShell. 
 
 1.  Sélectionnez l’abonnement dans lequel se trouve votre fabrique.
 
@@ -618,6 +625,8 @@ N’oubliez pas d’ajouter les scripts Data Factory dans votre pipeline CI/CD a
 
 Si vous n’avez pas configuré Git, vous pouvez accéder aux modèles liés via **Exporter le modèle ARM** dans la liste **Modèle ARM**.
 
+Lorsque vous déployez vos ressources, vous spécifiez que le déploiement est soit une mise à jour incrémentielle, soit une mise à jour complète. La différence entre ces deux modes réside dans la manière dont le Gestionnaire des ressources gère les ressources existantes dans le groupe de ressources qui ne se trouvent pas dans le modèle. Consultez les [Modes de déploiement](../azure-resource-manager/templates/deployment-modes.md).
+
 ## <a name="hotfix-production-environment"></a>Environnement de production de correctif logiciel
 
 Si vous déployez une fabrique en production et détectez un bogue qui doit être corrigé immédiatement, mais que vous ne pouvez pas déployer la branche de collaboration actuelle, vous devrez peut-être déployer un correctif logiciel. Cette approche est également connue sous le nom de QFE (Quick-Fix Engineering).
@@ -687,7 +696,14 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Exemple de script de pré-déploiement et de post-déploiement
 
-L’exemple de script suivant peut être utilisé pour arrêter les déclencheurs avant le déploiement, et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées. Enregistrez le script dans un dépôt git Azure DevOps et référencez-le par le biais d’une tâche Azure PowerShell à l’aide de la version 4.*.
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>Si vous n’utilisez pas les dernières versions des modules PowerShell et Data Factory, vous risquez de rencontrer des erreurs de désérialisation lors de l’exécution des commandes. 
+>
+
+L’exemple de script suivant peut être utilisé pour arrêter les déclencheurs avant le déploiement, et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées. Enregistrez le script dans un dépôt Git Azure DevOps et référencez-le par le biais d’une tâche Azure PowerShell comme la dernière version Azure PowerShell.
+
 
 Lors de l’exécution d’un script de prédéploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script**.
 

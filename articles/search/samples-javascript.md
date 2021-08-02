@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 073095d590e61d9e7e561339c17501f0ccee844d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955939"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018654"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Exemples de code JavaScript pour Recherche cognitive Azure
 
@@ -56,7 +56,8 @@ Les exemples de code de l’équipe Recherche cognitive illustrent les fonctionn
 
 | Exemples | Article |
 |---------|---------|
-| [démarrage rapide](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Code source pour [Démarrage rapide : Créer un index de recherche en JavaScript](search-get-started-javascript.md). Cet article traite du flux de travail de base pour la création, le chargement et l’interrogation d’un index de recherche à l’aide d’exemples de données. |
+| [démarrage rapide](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Code source pour [Démarrage rapide : Créer un index de recherche en JavaScript](search-get-started-javascript.md). Traite du flux de travail de base pour la création, le chargement et l’interrogation d’un index de recherche à l’aide d’exemples de données. |
+| [search-website](https://github.com/azure-samples/azure-search-javascript-samples/tree/master/search-website) | Code source pour le [Tutoriel : Ajouter une recherche à des applications web](tutorial-javascript-overview.md). Illustre une application de recherche de bout en bout qui comprend un client enrichi plus des composants permettant d’héberger l’application et de gérer les requêtes de recherche.|
 
 > [!Tip]
 > Essayez le [navigateur d’exemples](/samples/browse/?languages=javascript&products=azure-cognitive-search) pour rechercher des exemples de code Microsoft dans GitHub, filtrés par produit, par service et par langage.

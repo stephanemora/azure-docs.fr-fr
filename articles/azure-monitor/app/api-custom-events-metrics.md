@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c43ecced4c87deda3e3d92a470d6694dfd1813e2
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 75576056162bf869c20706bed22c31785a8ea2a0
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331517"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060297"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -40,7 +40,7 @@ Si vous n’avez pas encore de référence sur le kit SDK Application Insights :
 
   * [Projet ASP.NET](./asp-net.md)
   * [ASP.NET Core project](./asp-net-core.md)
-  * [Projet Java](./java-get-started.md)
+  * [Projet Java](./java-in-process-agent.md)
   * [Projet Node.js](./nodejs.md)
   * [JavaScript dans chaque page web](./javascript.md)
 * Ajoutez au code de votre périphérique ou de votre serveur web :
@@ -59,7 +59,7 @@ Obtenez une instance de `TelemetryClient` (sauf en JavaScript dans les pages web
 
 Pour les applications [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) et [non HTTP/Worker pour .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected), nous vous recommandons d’obtenir une instance de `TelemetryClient` à partir du conteneur d’injection de dépendances comme expliqué dans la documentation correspondante.
 
-Si vous utilisez Azure Functions v2+ ou Azure WebJobs v3+, consultez ce document : https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Si vous utilisez Azure Functions v2+ ou Azure WebJobs v3+, consultez [ce document](../../azure-functions/functions-monitoring.md).
 
 *C#*
 
@@ -397,7 +397,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
@@ -417,7 +417,7 @@ catch (ex)
 Les Kits de développement logiciel (SDK) interceptent de nombreuses exceptions automatiquement, ce qui vous évite ainsi d’avoir toujours à appeler TrackException explicitement.
 
 * ASP.NET : [écriture d’un code pour intercepter les exceptions](./asp-net-exceptions.md).
-* Java EE : [les exceptions sont interceptées automatiquement](./java-get-started.md#exceptions-and-request-failures).
+* Java EE : [les exceptions sont interceptées automatiquement](./java-in-process-agent.md).
 * JavaScript : les exceptions sont interceptées automatiquement. Si vous souhaitez désactiver la collecte automatique, ajoutez une ligne dans l'extrait de code que vous insérez dans vos pages web :
 
 ```javascript
@@ -458,7 +458,7 @@ Utilisez TrackTrace pour diagnostiquer des problèmes en envoyant une « piste 
 
 Dans .NET, les [Adaptateurs de journaux d’activité](./asp-net-trace-logs.md) utilisent cette API pour envoyer des journaux d’activité tiers au portail.
 
-En Java, pour les [Enregistreurs d’événements standard, comme Log4J ou Logback](./java-trace-logs.md), utilisez les appenders Application Insights Log4j ou Logback afin d’envoyer des journaux d’activité tiers au portail.
+En Java, l’[agent Application Insights Java](java-in-process-agent.md) collecte et envoie automatiquement les journaux au portail.
 
 *C#*
 
@@ -602,11 +602,11 @@ finally
 
 N’oubliez pas que les kits SDK de serveur incluent un [module de dépendance](./asp-net-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C’est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne.
 
-En Java, [l’Agent Java](./java-agent.md) permet de suivre automatiquement certains appels de dépendance.
+En Java, de nombreux appels de dépendance peuvent être suivis automatiquement à l’aide de l’[agent Application Insights Java](java-in-process-agent.md).
 
-Vous utiliserez cet appel si vous souhaitez effectuer le suivi des appels qui ne sont pas interceptés par le système de suivi automatisé, ou si vous ne souhaitez pas installer l'agent.
+Vous utilisez cet appel si vous souhaitez suivre les appels que le suivi automatisé n’intercepte pas.
 
-Pour désactiver le module de suivi des dépendances standard en C#, modifiez [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`. En Java, n’installez pas l’agent Java si vous ne souhaitez pas collecter automatiquement les dépendances standards.
+Pour désactiver le module de suivi des dépendances standard en C#, modifiez [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`. Pour Java, consultez [Suppression d’une télémétrie collectée automatiquement spécifique](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry).
 
 ### <a name="dependencies-in-analytics"></a>Dépendances dans Analytique
 

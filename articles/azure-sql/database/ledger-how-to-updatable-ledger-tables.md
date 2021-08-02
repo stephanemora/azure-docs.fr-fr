@@ -1,6 +1,6 @@
 ---
 title: Créer et utiliser des tables de registre pouvant être mises à jour
-description: Comment créer et utiliser des tables de registre pouvant être mises à jour dans Azure SQL Database
+description: Découvrez comment créer et utiliser des tables de registre pouvant être mises à jour dans Azure SQL Database.
 ms.custom: ''
 ms.date: 05/25/2021
 ms.service: sql-database
@@ -9,30 +9,30 @@ ms.reviewer: vanto
 ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 43af922a23fa4e48a9b9efa7d292b4f03b06b94d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 739523f6d98ea2905f4de5071581c8f4d8484893
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386316"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076417"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>Créer et utiliser des tables de registre pouvant être mises à jour
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le Registre Azure SQL Database est actuellement en **préversion publique**.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
 
-Cet article explique comment créer une [table de registre pouvant être mise à jour](ledger-updatable-ledger-tables.md) dans Azure SQL Database, insérer des valeurs dans votre table de registre pouvant être mise à jour, effectuer des mises à jour des données et afficher les résultats à l’aide de la vue du registre. Nous allons utiliser un exemple d’application bancaire qui suit le solde de ses clients. Notre exemple vous donne un aperçu pratique de la relation entre la table de registre pouvant être mise à jour et la table d’historique correspondante et la vue du registre correspondantes.
+Cet article explique comment créer une [table de registre pouvant être mise à jour](ledger-updatable-ledger-tables.md) dans Azure SQL Database. Ensuite, vous insérerez des valeurs dans votre table de registre pouvant être mise à jour, puis mettrez les données à jour. Enfin, vous visualiserez les résultats en utilisant la vue du registre. Nous utiliserons l’exemple d’une application bancaire qui suit le solde des comptes de ses clients. Notre exemple vous donne un aperçu pratique de la relation entre la table de registre pouvant être mise à jour et la table d’historique correspondante et la vue du registre correspondantes.
 
-## <a name="prerequisite"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
-- Avoir une base de données Azure SQL avec le registre activé. Consultez [Démarrage rapide : Créer une base de données Azure SQL avec le registre activé](ledger-create-a-single-database-with-ledger-enabled.md) si vous n’avez pas encore créé de base de données Azure SQL.
-- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+- Azure SQL Database avec registre activé. Si vous n’avez pas encore créé de base de données dans Azure SQL Database, consultez [Démarrage rapide : Créer une base de données dans Azure SQL Database avec le registre activé](ledger-create-a-single-database-with-ledger-enabled.md).
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
-## <a name="creating-an-updatable-ledger-table"></a>Création d’une table de registre pouvant être mise à jour
+## <a name="create-an-updatable-ledger-table"></a>Créer une table de registre pouvant être mise à jour
 
-Nous allons créer une table de solde de compte avec le schéma suivant.  
+Nous allons créer une table de solde de compte avec le schéma suivant.
 
 | Nom de la colonne | Type de données      | Description                         |
 | ----------- | -------------- | ----------------------------------- |
@@ -44,7 +44,7 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
 > [!IMPORTANT]
 > La création de tables de registre pouvant être mises à jour nécessite l’autorisation **ENABLE LEDGER**. Pour plus d’informations sur les autorisations associées aux tables du registre, consultez [Autorisations](/sql/relational-databases/security/permissions-database-engine#asdbpermissions). 
 
-1. À l’aide de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou d’[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), créez un schéma et une table appelés `[Account].[Balance]`.
+1. Utilisez [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) pour créer un schéma et une table appelés `[Account].[Balance]`.
 
    ```sql
    CREATE SCHEMA [Account]
@@ -66,13 +66,13 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    ```
 
     > [!NOTE]
-    > La spécification de l’argument `LEDGER = ON` est facultative si vous avez activé la base de données du registre lorsque vous avez créé votre instance Azure SQL Database. 
+    > La spécification de l’argument `LEDGER = ON` est facultative si vous avez activé une base de données du registre lorsque vous avez créé votre base de données dans SQL Database.
     >
-    > Dans l’exemple ci-dessus, le système génère les noms des colonnes [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) dans la table, le nom de la [vue du registre](ledger-updatable-ledger-tables.md#ledger-view) et les noms des [colonnes de la vue du registre](ledger-updatable-ledger-tables.md#ledger-view-schema).
+    > Dans l’exemple précédent, le système génère les noms des colonnes [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) dans la table, le nom de la [vue du registre](ledger-updatable-ledger-tables.md#ledger-view) et les noms des [colonnes de la vue du registre](ledger-updatable-ledger-tables.md#ledger-view-schema).
     >
-    > Les noms des colonnes de la vue de registre peuvent être personnalisés au moment de la création de la table à l’aide du paramètre `<ledger_view_option>` avec l’instruction [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true). Les colonnes `GENERATED ALWAYS`, ainsi que le nom de la [table d’historique](ledger-updatable-ledger-tables.md#history-table), peuvent être personnalisés. Pour plus d’informations, consultez [Options de la vue de registre](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) et les exemples correspondants dans [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true##x-creating-a-updatable-ledger-table).
+    > Les noms des colonnes de la vue du registre peuvent être personnalisés quand vous créez la table à l’aide du paramètre `<ledger_view_option>` avec l’instruction [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true). Les colonnes `GENERATED ALWAYS` et le nom de la [table d’historique](ledger-updatable-ledger-tables.md#history-table), peuvent être personnalisés. Pour plus d’informations, consultez [Options de la vue de registre](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) et les exemples correspondants dans [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true##x-creating-a-updatable-ledger-table).
 
-1. Lors de la création de la [table de registre pouvant être mise à jour](ledger-updatable-ledger-tables.md), la table d’historique et la vue du registre correspondantes sont également créées. Exécutez le code T-SQL suivant pour afficher la nouvelle table et la nouvelle vue.
+1. Lors de la création de la [table de registre pouvant être mise à jour](ledger-updatable-ledger-tables.md), la table d’historique et la vue du registre correspondantes sont également créées. Exécutez les commandes T-SQL suivantes pour afficher la nouvelle table et la nouvelle vue.
 
    ```sql
    SELECT 
@@ -87,16 +87,16 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    JOIN sys.schemas vs ON (vs.[schema_id] = v.[schema_id])
    ```
 
-   :::image type="content" source="media/ledger/ledger-updatable-how-to-new-tables.png" alt-text="Interroger les nouvelles tables du registre":::
+   :::image type="content" source="media/ledger/ledger-updatable-how-to-new-tables.png" alt-text="Capture d’écran illustrant l’interrogation de nouvelles tables du registre.":::
 
-1. Insérez un client, `Nick Jones` en tant que nouveau client avec un solde d’ouverture de 50 $.
+1. Insérez le nom de `Nick Jones` en tant que nouveau client avec un solde d’ouverture de 50 USD.
 
    ```sql
    INSERT INTO [Account].[Balance]
    VALUES (1, 'Jones', 'Nick', 50)
    ```
 
-1. Insérez trois nouveaux clients, `John Smith`, `Joe Smith` et `Mary Michaels` en tant que nouveaux clients avec des soldes ouvrants de respectivement 500, 30 et 200 $.
+1. Insérez les noms de `John Smith`, `Joe Smith` et `Mary Michaels` en tant que nouveaux clients avec des soldes d’ouverture de 500 USD, 30 USD et 200 USD respectivement.
 
    ```sql
    INSERT INTO [Account].[Balance]
@@ -105,7 +105,7 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    (4, 'Michaels', 'Mary', 200)
    ```
 
-1. Affichez la table de registre pouvant être mise à jour `[Account].[Balance]`, en spécifiant les colonnes [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) ajoutées à la table.
+1. Affichez la table de registre pouvant être mise à jour `[Account].[Balance]` et spécifiez les colonnes [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) ajoutées à la table.
 
    ```sql
    SELECT * 
@@ -116,12 +116,12 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    FROM [Account].[Balance] 
    ```
 
-   Dans la fenêtre de résultats, vous verrez d’abord les valeurs insérées par vos commandes T-SQL, ainsi que les métadonnées système utilisées pour la traçabilité des données.
+   Dans la fenêtre des résultats, vous verrez d’abord les valeurs insérées par vos commandes T-SQL, ainsi que les métadonnées système utilisées pour la traçabilité des données.
 
-   - `ledger_start_transaction_id` indique l’ID de transaction unique associé à la transaction qui a inséré les données. Étant donné que `John`, `Joe` et `Mary` ont été insérés lors de la même transaction, ils partagent le même ID de transaction.
-   - `ledger_start_sequence_number` indique l’ordre dans lequel les valeurs ont été insérées par la transaction.
+   - La colonne `ledger_start_transaction_id` indique l’ID de transaction unique associé à la transaction qui a inséré les données. Comme `John`, `Joe` et `Mary` ont été insérés lors de la même transaction, ils partagent le même ID de transaction.
+   - La colonne `ledger_start_sequence_number` indique l’ordre dans lequel les valeurs ont été insérées par la transaction.
 
-   :::image type="content" source="media/ledger/sql-updatable-how-to-1.png" alt-text="exemple de table de registre 1":::
+      :::image type="content" source="media/ledger/sql-updatable-how-to-1.png" alt-text="Capture d’écran illustrant l’exemple de table du registre no 1.":::
 
 1. Mettez à jour le solde de `Nick` de `50` à `100`.
 
@@ -130,7 +130,7 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    WHERE [CustomerID] = 1
    ```
 
-1. Copiez le nom unique de votre table d’historique. Vous en aurez besoin à l’étape suivante.
+1. Copiez le nom unique de votre table d’historique. Vous aurez besoin de ces informations à l’étape suivante.
 
    ```sql
    SELECT 
@@ -145,12 +145,12 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    JOIN sys.schemas vs ON (vs.[schema_id] = v.[schema_id])
    ```
 
-   :::image type="content" source="media/ledger/sql-updatable-how-to-2.png" alt-text="exemple de table de registre 2":::
+   :::image type="content" source="media/ledger/sql-updatable-how-to-2.png" alt-text="Capture d’écran illustrant l’exemple de table du registre no 2.":::
 
 1. Affichez la table de registre pouvant être mise à jour `[Account].[Balance]`, ainsi que la table d’historique et la vue du registre correspondantes.
 
    > [!IMPORTANT]
-   > Remplacez `<history_table_name>` par la valeur que vous avez copiée à l’étape précédente.
+   > Remplacez `<history_table_name>` par le nom que vous avez copié à l’étape précédente.
 
    ```sql
    SELECT * 
@@ -170,21 +170,21 @@ Nous allons créer une table de solde de compte avec le schéma suivant.
    ```
 
    > [!TIP]
-   > Nous vous recommandons d’interroger l’historique des modifications à l’aide de la [vue du registre](ledger-updatable-ledger-tables.md#ledger-view), et non de la [table d’historique](ledger-updatable-ledger-tables.md#history-table).
+   > Nous vous recommandons d’interroger l’historique des modifications à l’aide de la [vue du registre](ledger-updatable-ledger-tables.md#ledger-view) et non de la [table d’historique](ledger-updatable-ledger-tables.md#history-table).
 
-1. Le solde du compte `Nick` a été mis à jour avec succès dans la table de registre pouvant être mise à jour avec la valeur `100`.
+1. Le solde du compte de `Nick` a été mis à jour avec succès dans la table de registre pouvant être mise à jour avec la valeur `100`.
 1. La table d’historique affiche maintenant le solde précédent de `50` pour `Nick`.
-1. L’affichage du registre indique que la mise à jour de la table de registre est une opération `DELETE` de la ligne d’origine avec `50`, le solde correspondant à une opération `INSERT` pour une nouvelle ligne avec `100` comme nouveau solde pour `Nick`.
+1. La vue du registre indique que la mise à jour de la table du registre est une opération `DELETE` sur la ligne d’origine contenant `50`. Le solde avec l’opération `INSERT` correspondante d’une nouvelle ligne contenant `100` montre le nouveau solde de `Nick`.
 
-   :::image type="content" source="media/ledger/sql-updatable-how-to-3.png" alt-text="exemple de table de registre 3":::
+   :::image type="content" source="media/ledger/sql-updatable-how-to-3.png" alt-text="Capture d’écran illustrant l’exemple de table du registre no 3.":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Registre de base de données](ledger-database-ledger.md)  
-- [Gestion des synthèses et vérification de base de données](ledger-digest-management-and-database-verification.md)   
+- [Registre de base de données](ledger-database-ledger.md)
+- [Gestion des synthèses et vérification de base de données](ledger-digest-management-and-database-verification.md) 
 - [Tables de registre pouvant être mises à jour](ledger-updatable-ledger-tables.md)
 - [Tables de registre avec ajout uniquement](ledger-append-only-ledger-tables.md) 
 - [Créer et utiliser des tables de registre d’ajout uniquement](ledger-how-to-append-only-ledger-tables.md) 
-- [Comment accéder aux synthèses stockées dans le Registre confidentiel Azure (ACL)](ledger-how-to-access-acl-digest.md)
-- [Comment vérifier une table du registre pour détecter la falsification](ledger-verify-database.md)
+- [Accéder aux synthèses stockées dans Registre confidentiel Azure](ledger-how-to-access-acl-digest.md)
+- [Vérifier une table du registre pour détecter une falsification](ledger-verify-database.md)

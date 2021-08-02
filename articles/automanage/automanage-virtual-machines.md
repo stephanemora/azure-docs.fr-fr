@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: e9e7ca036e9746c434f0c8349ed414509afe215a
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 00ee1b6e9772100cbc4abf9c79260a231bbd27af
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017280"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755138"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Préversion : Azure Automanage pour machines virtuelles
 
@@ -32,6 +32,8 @@ Azure Automanage pour machines virtuelles est un service qui élimine la nécess
 Une fois vos machines virtuelles intégrées avec Azure Automanage, chaque service lié aux bonnes pratiques est configuré selon ses paramètres recommandés. Les meilleures pratiques sont distinctes pour chaque service. Par exemple, dans Sauvegarde Azure, la meilleure pratique peut être de sauvegarder la machine virtuelle quotidiennement et de respecter une période de rétention de six mois.
 
 Le service Azure Automanage surveille également automatiquement la dérive et la corrige en cas de détection. Cela signifie que, si votre machine virtuelle est intégrée au service Azure Automanage, nous allons non seulement la configurer conformément aux meilleures pratiques Azure, mais aussi la surveiller en veillant à ce qu’elle reste conforme à ces meilleures pratiques tout au long de son cycle de vie. Si votre machine virtuelle dévie ou s’écarte de ces bonnes pratiques (par exemple, si un service est débarqué), nous le corrigeons et nous ramenons votre machine à l’état souhaité.
+
+Automanage ne stocke ni ne traite les données client en dehors de la zone géographique où se trouvent vos machines virtuelles. Par exemple, dans la région Asie Sud-Est, Automanage ne stocke ni ne traite les données en dehors de l’Asie Sud-Est.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -187,7 +189,7 @@ Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l�
 Automanage est compatible avec les machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé.
 
 Si vous utilisez l’environnement de production, vous serez également intégré à Sauvegarde Azure. Il existe une condition préalable à l’utilisation d’ADE et de Sauvegarde Azure :
-* Avant d’intégrer votre machine virtuelle avec ADE à l’environnement de production d’Automanage, assurez-vous d’avoir suivi les étapes décrites dans la section **Avant de commencer** de [ce document](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start).
+* Avant d’intégrer votre machine virtuelle avec ADE à l’environnement de production d’Automanage, assurez-vous d’avoir suivi les étapes décrites dans la section **Avant de commencer** de [ce document](../backup/backup-azure-vms-encryption.md#before-you-start).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

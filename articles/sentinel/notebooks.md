@@ -9,15 +9,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 09/06/2020
-ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/19/2021
+ms.openlocfilehash: 1746398147e8f504b9e0c6aafd65507ef6a4b464
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97092188"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749594"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Azure Sentinel repose sur le magasin de données. Il associe des capacités d’interrogation hautes performances, un schéma dynamique et s’adapte aux volumes de données importants. Le portail Azure et tous les outils Azure Sentinel utilisent une API commune pour accéder à ce magasin de données. La même API est également disponible pour les outils externes tels que les notebooks [Jupyter](https://jupyter.org/) et Python. Bien que de nombreuses tâches courantes puissent être effectuées dans le portail, Jupyter étend l’étendue de ce que vous pouvez faire avec ces données. Il combine une programmabilité totale à une vaste collection de bibliothèques pour l’apprentissage automatique, la visualisation et l’analyse des données. Ces attributs transforment Jupyter en un outil essentiel pour les scénarios de recherche et d’enquête relatifs à la sécurité.
 
@@ -41,7 +43,7 @@ Les notebooks Azure Sentinel utilisent de nombreuses bibliothèques Python popul
 - statistiques et calculs numériques
 - Machine Learning et Deep Learning
 
-Nous avons également publié des outils de sécurité open source Jupyter dans un package nommé [msticpy](https://github.com/Microsoft/msticpy/). Ce package est utilisé dans la plupart des notebooks inclus. Les outils de msticpy sont conçus spécialement pour faciliter la création de notebooks pour la recherche et l’investigation, et nous travaillons activement pour vous proposer de nouvelles fonctionnalités et améliorations.
+Nous avons également publié des outils de sécurité open source Jupyter dans un package nommé [msticpy](https://github.com/Microsoft/msticpy/). Ce package est utilisé dans la plupart des notebooks inclus. Les outils de msticpy sont conçus spécialement pour faciliter la création de notebooks pour la recherche et l’investigation, et nous travaillons activement pour vous proposer de nouvelles fonctionnalités et améliorations. Pour plus d’informations, consultez la [documentation des outils de sécurité MSTIC Jupyter et Python](https://msticpy.readthedocs.io/).
 
 Le [référentiel GitHub de la communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel) est l’emplacement de tous les futurs notebooks Azure Sentinel créés par Microsoft ou fournis par la communauté.
 
@@ -111,15 +113,20 @@ Une fois votre déploiement terminé, vous pouvez lancer des blocs-notes dans vo
     > ![lancer le notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 1. Sélectionnez une instance de calcul. Si vous n’avez pas d’instance de calcul, procédez comme suit :
-    1. Sélectionnez le signe plus (+) pour démarrer l’Assistant **Nouvelle instance de calcul**.
+    1. Sélectionnez le signe plus (+) pour démarrer l’Assistant **Création d’une instance de calcul**.
 
         > [!div class="mx-imgBorder"]
         > ![démarrer l’assistant instance de calcul](./media/notebooks/sentinel-azure-notebooks-compute-wizard.png)
 
-    1. Sur la page **Nouvelle instance de calcul**, fournissez les informations requises, puis sélectionnez **Créer**.
+    1. Dans la page **Sélectionner une machine virtuelle**, fournissez les informations demandées, puis sélectionnez **Suivant**.
 
         > [!div class="mx-imgBorder"]
-        > ![créer une instance de calcul](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+        > ![Sélectionner une machine virtuelle d’instance de calcul](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+
+    1. Sur la page **Configurer les paramètres**, fournissez les informations demandées, puis sélectionnez **Créer**.
+    
+        > [!div class="mx-imgBorder"]
+        > ![Configurer les paramètres de l’instance de calcul](./media/notebooks/sentinel-azure-notebooks-compute-settings.png)
 
 1. Une fois votre serveur de bloc-notes créé, dans chaque cellule, sélectionnez l’icône exécuter pour exécuter le code dans les blocs-notes.
 
@@ -144,3 +151,4 @@ Dans cet article, vous avez appris à bien démarrer avec les notebooks Jupyter 
 
 - [Hunt for threats with in Azure Sentinel Preview](hunting.md) (Rechercher des menaces dans Azure Sentinel en préversion)
 - [Keep track of data during hunting](bookmarks.md) (Suivre des données pendant la recherche)
+- [Jupyter, Msticpy et Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)

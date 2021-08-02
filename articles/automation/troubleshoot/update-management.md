@@ -3,22 +3,70 @@ title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5d73f7232afc9dcd6f7e069297efac763c242f7b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164252"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951753"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
-Cet article décrit les problèmes que vous pouvez rencontrer lors du déploiement de la fonctionnalité Update Management sur vos ordinateurs. Il existe un utilitaire de résolution des problèmes qui permet à l’agent Runbook Worker hybride de déterminer le problème sous-jacent. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](update-agent-issues.md) et [Résoudre les problèmes de l’agent de mise à jour Linux](update-agent-issues-linux.md). Pour d’autres problèmes de déploiement de fonctionnalités, voir [Résoudre les problèmes de déploiement de fonctionnalités](onboarding.md).
+Cet article décrit les problèmes que vous pouvez rencontrer lors de l’utilisation de la fonctionnalité Update Management qui permet d’évaluer et de gérer les mises à jour sur vos machines. Il existe un utilitaire de résolution des problèmes de l’agent pour l’agent Runbook Worker hybride, qui permet de déterminer le problème sous-jacent. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](update-agent-issues.md) et [Résoudre les problèmes de l’agent de mise à jour Linux](update-agent-issues-linux.md). Pour d’autres problèmes de déploiement de fonctionnalités, voir [Résoudre les problèmes de déploiement de fonctionnalités](onboarding.md).
 
 >[!NOTE]
 >Si vous rencontrez des problèmes lors du déploiement d’Update Management sur un ordinateur Windows, ouvrez l’observateur d’événements Windows et examinez le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local. Recherchez les événements présentant l’ID d’événement 4502 et les détails d’événement qui contiennent `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-windows-defender-update-always-show-as-missing"></a><a name="windows-defender-update-missing-status"></a>Scénario : La mise à jour de Windows Defender apparaît toujours comme manquante
+
+### <a name="issue"></a>Problème
+
+La mise à jour de définition pour Windows Defender (**KB2267602**) apparaît toujours comme manquante dans une évaluation lorsqu’elle est installée, alors qu’elle s’affiche à jour lors de la vérification dans l’historique de Windows Update.
+
+### <a name="cause"></a>Cause
+
+Les mises à jour de définitions sont publiées plusieurs fois dans une même journée. Par conséquent, vous pouvez voir plusieurs versions de KB2267602 publiées dans l’espace d’une journée, mais avec une version et un ID de mise à jour différents.
+
+L’évaluation d’Update Management s’exécute une fois toutes les 11 heures. Dans cet exemple, à 10H00 du matin, une évaluation s’est exécutée et la version 1.237.316.0 était disponible à ce moment-là. Lorsque vous explorez la table **Updates** de votre espace de travail Log Analytics, la mise à jour de définition 1.237.316.0 affiche un **UpdateState** dont la valeur est **Needed** (Nécessaire). Si un déploiement planifié s’exécute quelques heures plus tard, disons à 13H00, et que la version 1.237.316.0 est toujours disponible, ou qu’une version plus récente l’est, la version la plus récente est installée, ce qui apparaît dans l’enregistrement écrit sur la table **UpdateRunProgress**. En revanche, dans la table **Updates**, la version 1.237.316.0 est toujours affichée comme **Needed**, jusqu’à ce que la prochaine évaluation s’exécute. Lorsque l’évaluation s’exécutera de nouveau, il est possible qu’aucune mise à jour de définition plus récente ne soit disponible, la table **Updates** n’affichera donc pas la version de mise à jour de définition 1.237.316.0 comme manquante, ni la disponibilité d’une version plus récente comme nécessaire. Du fait de la fréquence des mises à jour de définitions, plusieurs versions peuvent être retournées lors de la recherche dans les journaux. 
+
+### <a name="resolution"></a>Résolution
+
+Exécutez la requête de journal suivante pour confirmer que les mises à jour de définitions installées sont correctement signalées. Cette requête retourne l’heure de génération, la version et l’ID de mise à jour de KB2267602 dans la table **Updates**. Remplacez la valeur de *Computer* par le nom complet de la machine.
+
+```kusto
+Update
+| where TimeGenerated > ago(14h) and OSType != "Linux" and (Optional == false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((
+    Heartbeat
+    | where TimeGenerated > ago(12h) and OSType =~ "Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by Computer, SourceComputerId, UpdateID
+| where UpdateState =~ "Needed" and Approved != false and Computer == "<computerName>"
+| render table
+```
+
+Les résultats de votre requête doivent retourner un résultat similaire à ce qui suit :
+
+:::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="Exemple illustrant les résultats de la requête de journal à partir de la table Updates.":::
+
+Exécutez la requête de journal suivante pour obtenir l’heure de génération, la version et l’ID de mise à jour de KB2267602 dans la table **UpdatesRunProgress**. Cette requête nous aide à comprendre si elle a été installée à partir d’Update Management, ou si elle a été installée automatiquement sur la machine depuis Microsoft Update. Vous devez remplacer la valeur de *CorrelationId* par le GUID du travail de runbook (autrement dit, la valeur de la propriété **MasterJOBID** dans le travail de runbook **Patch-MicrosoftOMSComputer**) pour la mise à jour, et *SourceComputerId* par le GUID de la machine.
+
+```kusto
+UpdateRunProgress
+| where OSType!="Linux" and CorrelationId=="<master job id>" and SourceComputerId=="<source computer id>"
+| summarize arg_max(TimeGenerated, Title, InstallationStatus) by UpdateId
+| project TimeGenerated, id=UpdateId, displayName=Title, InstallationStatus
+```
+
+Les résultats de votre requête doivent retourner un résultat similaire à ce qui suit :
+
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="Exemple illustrant les résultats de la requête de journal à partir de la table UpdatesRunProgress":::.
+
+Si la valeur **TimeGenerated** pour les résultats de la requête de journal à partir de la table **Updates** est antérieure à l’horodatage (c’est-à-dire à la valeur de **TimeGenerated**) de l’installation de la mise à jour sur la machine, ou des résultats de la requête de journal à partir de la table **UpdateRunProgress**, attendez la prochaine évaluation. Ensuite, exécutez de nouveau la requête de journal sur la table **Updates**. Soit une mise à jour de KB2267602 n’apparaît pas, soit elle apparaît avec une version plus récente. Toutefois, même après l’évaluation la plus récente, si la même version s’affiche comme **Needed** dans la table **Updates** alors qu’elle est déjà installée, vous devez ouvrir un incident de support Azure.
 
 ## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scénario : Les mises à jour Linux indiquées comme étant en attente et celles qui sont installées varient
 
@@ -290,7 +338,17 @@ Bien que les machines apparaissent bien dans les résultats de la requête Azure
 
 4. Vérifiez que le Worker hybride est présent pour la machine.
 
-5. Si la machine n’est pas configurée en tant que Runbook Worker hybride système, passez en revue les méthodes permettant d’activer la machine dans la section [Activer Update Management](../update-management/overview.md#enable-update-management) de l’article Vue d’ensemble d’Update Management. La méthode à activer est basée sur l’environnement dans lequel la machine s’exécute.
+5. Si la machine n’est pas configurée en tant que Runbook Worker hybride système, passez en revue les moyens permettant d’utiliser l’une des méthodes suivantes :
+
+   - À partir de votre [compte Automation](../update-management/enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure, notamment des serveurs compatibles avec Arc.
+
+   - Utilisation du [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** pour automatiser l’intégration des machines virtuelles Azure.
+
+   - Pour une [machine virtuelle Azure sélectionnée](../update-management/enable-from-vm.md) dans la page **Machine virtuelle** du portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
+
+   - Pour [plusieurs machines virtuelles Azure](../update-management/enable-from-portal.md), sélectionnez-les dans la page **Machines virtuelles** du portail Azure.
+
+   La méthode à activer est basée sur l’environnement dans lequel la machine s’exécute.
 
 6. Répétez les étapes ci-dessus pour toutes les machines qui ne figurent pas dans l’aperçu.
 
@@ -326,7 +384,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Communication bloquée avec le compte Automation
 
-Accédez à [Planification réseau](../update-management/overview.md#ports) pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management.
+Accédez à [Planification réseau](../update-management/plan-deployment.md#ports) pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management.
 
 #### <a name="duplicate-computer-name"></a>Nom d’ordinateur en double
 
@@ -416,7 +474,7 @@ Vous pouvez récupérer d’autres informations par programmation avec l’API R
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../update-management/configure-groups.md) pour vos déploiements de mise à jour. Vous pouvez en outre effectuer les étapes suivantes.
 
-1. Vérifiez que votre ordinateur ou serveur est conforme à la [configuration requise](../update-management/overview.md#system-requirements).
+1. Vérifiez que votre ordinateur ou serveur est conforme à la [configuration requise](../update-management/operating-system-requirements.md).
 2. Vérifiez la connectivité au Runbook Worker hybride à l’aide de l’utilitaire de résolution des problèmes de l’agent Runbook Worker hybride. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scénario : Les mises à jour sont installées sans déploiement
@@ -514,7 +572,7 @@ La fenêtre de maintenance par défaut pour les mises à jour est de 120 minute
 
 Pour comprendre pourquoi cela s’est produit pendant l’exécution d’une mise à jour après qu’elle a démarré avec succès, [vérifiez la sortie du travail](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) de la machine affectée dans l’exécution. Vous trouverez peut-être des messages d’erreur spécifiques provenant de votre machine, effectuer des recherches sur ces erreurs et entreprendre des actions pour les résoudre.  
 
-Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns).
+Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](/rest/api/automation/softwareupdateconfigurationmachineruns).
 
 Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
 
@@ -549,7 +607,7 @@ Si vous voyez un HRESULT, double-cliquez sur l’exception affichée en rouge po
 |Exception  |Résolution ou action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Recherchez le code d’erreur pertinent dans la [liste des codes d’erreur de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) pour obtenir des détails supplémentaires sur la cause de l’exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Ceci indique des problèmes de connectivité réseau. Assurez-vous que votre ordinateur dispose de la connectivité réseau pour Update Management. Consultez la section [Planification réseau](../update-management/overview.md#ports) pour obtenir la liste des ports et des adresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Ceci indique des problèmes de connectivité réseau. Assurez-vous que votre ordinateur dispose de la connectivité réseau pour Update Management. Consultez la section [Planification réseau](../update-management/plan-deployment.md#ports) pour obtenir la liste des ports et des adresses.        |
 |`0x8024001E`| L’opération de mise à jour a échoué, car le service ou le système était en cours d’arrêt.|
 |`0x8024002E`| Le service Windows Update est désactivé.|
 |`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` spécifient le bon serveur WSUS.        |
@@ -615,7 +673,7 @@ Les mises à jour sont souvent remplacées par d’autres mises à jour. Pour pl
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Installation de mises à jour par classification sur Linux
 
-Le déploiement de mises à jour sur Linux par classification (« Mises à jour critiques et de sécurité ») a des limitations importantes, en particulier pour CentOS. Ces limitations sont documentées à la [page Vue d’ensemble d’Update Management](../update-management/overview.md#linux).
+Le déploiement de mises à jour sur Linux par classification (« Mises à jour critiques et de sécurité ») a des limitations importantes, en particulier pour CentOS. Ces limitations sont documentées à la [page Vue d’ensemble d’Update Management](../update-management/overview.md#update-classifications).
 
 ### <a name="kb2267602-is-consistently-missing"></a>L’article KB2267602 est systématiquement manquant
 

@@ -1,26 +1,26 @@
 ---
-title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique) – Azure
-description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique) avec des cmdlets PowerShell.
+title: Personnalisation du flux pour les utilisateurs d’Azure Virtual Desktop (classique) – Azure
+description: Guide pratique pour personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop (classique) avec des cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5653ba4b1bcaab9e7b82dae3fe0842cbc7fb86b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 7a28185d16f0bc7787eccc76a9f4a0a98d5c6a38
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445106"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754148"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop (classique)
+# <a name="customize-feed-for-azure-virtual-desktop-classic-users"></a>Personnalisation du flux pour les utilisateurs d’Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../customize-feed-for-virtual-desktop-users.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../customize-feed-for-virtual-desktop-users.md).
 
 Vous pouvez personnaliser le flux pour que les ressources d’application distante et de Bureau à distance apparaissent de façon reconnaissable pour vos utilisateurs.
 
-Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
+Si ce n’est pas déjà fait, commencez par [télécharger et importer le module PowerShell Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) pour l’utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -72,7 +72,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Windows Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Windows Virtual Desktop :
+Maintenant que vous avez personnalisé le flux pour les utilisateurs, vous pouvez vous connecter à un client Azure Virtual Desktop afin de le tester. Pour cela, passez aux guides pratiques Connexion à Azure Virtual Desktop :
 
  * [Se connecter à partir de Windows 10 ou Windows 7](connect-windows-7-10-2019.md)
  * [Se connecter à partir d’un navigateur web](connect-web-2019.md)

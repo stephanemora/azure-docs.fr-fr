@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 65ee741ee928a4883def68a5c0b6d20beee441c7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fca6e59d3aa5b95db0b9ad28f652226ae2eb30ba
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609205"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556526"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Fonctionnalités de Recherche cognitive Azure
 
@@ -32,7 +32,7 @@ Recherche cognitive Azure fournit un moteur de recherche en texte intégral, un 
 | Catégorie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Fonctionnalités |
 |-------------------|----------|
 |Traitement de l’IA pendant l’indexation | Un [**enrichissement de l’IA**](cognitive-search-concept-intro.md) à des fins d’analyse de texte et d’images peut être appliqué à un pipeline d’indexation afin d’extraire des informations textuelles à partir de contenus bruts. Parmi les [compétences intégrées](cognitive-search-predefined-skills.md), on peut citer la reconnaissance de caractères optiques (ce qui rend possible la recherche de JPEG), la reconnaissance d’entité (identifiant une organisation, un nom ou un emplacement), et la reconnaissance de phrase clé. Vous pouvez aussi [coder des compétences personnalisées](cognitive-search-create-custom-skill-example.md) à attacher au pipeline. Vous pouvez également [intégrer des compétences créées Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
-| Stockage de contenu enrichi pour l’analyse et la consommation dans des scénarios de non-recherche | La [**base de connaissances**](knowledge-store-concept-intro.md) est une autre sortie d’un pipeline d’indexation. Au lieu d’envoyer des termes sous forme de jetons à un index, vous pouvez envoyer des documents enrichis créés par le pipeline d’indexation à une base de connaissances, résidant dans Stockage Blob Azure ou Stockage Table, en fonction de la configuration. Les bases de connaissances sont créées à partir de l’indexation basée sur l’intelligence artificielle (ensembles de compétences). L’objectif d’une base de connaissances est de prendre en charge l’analyse ou le traitement en aval. Grâce aux nouvelles informations et structures d’une base de connaissances, vous pouvez l’associer à un processus de Machine Learning ou vous connecter à partir de Power BI pour explorer les données.<br/><br/> |
+| Stockage de contenu enrichi pour l’analyse et la consommation dans des scénarios de non-recherche | La [**base de connaissances**](knowledge-store-concept-intro.md) est une autre sortie d’un pipeline d’indexation. Au lieu d’envoyer des termes sous forme de jetons à un index, vous pouvez envoyer des documents enrichis créés par le pipeline d’indexation à une base de connaissances, résidant dans Stockage Blob Azure ou Stockage Table, selon la configuration. Les bases de connaissances sont créées à partir de l’indexation basée sur l’intelligence artificielle (ensembles de compétences). L’objectif d’une base de connaissances est de prendre en charge l’analyse ou le traitement en aval. Grâce aux nouvelles informations et structures d’une base de connaissances, vous pouvez l’associer à un processus de Machine Learning ou vous connecter à partir de Power BI pour explorer les données.<br/><br/> |
 | Contenu mis en cache | L’option [**Enrichissement incrémentiel (préversion)**](cognitive-search-incremental-indexing-conceptual.md) limite le traitement uniquement aux documents modifiés par des modifications spécifiques du pipeline, à l’aide du contenu mis en cache pour les parties du pipeline qui ne changent pas. |
 
 ## <a name="query-and-user-experience"></a>Interrogation et expérience de l’utilisateur

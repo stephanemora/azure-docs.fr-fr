@@ -1,24 +1,24 @@
 ---
-title: Gérer des groupes d’applications pour Windows Virtual Desktop avec PowerShell - Azure
-description: Comment gérer des groupes d’applications Windows Virtual Desktop avec PowerShell.
+title: Gérer des groupes d’applications pour Azure Virtual Desktop PowerShell - Azure
+description: Comment gérer des groupes d’applications Azure Virtual Desktop avec PowerShell.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1652048da8084007bc86a6793f14f10b4a1f2e0f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a900d1d92509fab7b777ca5864a51c7699cb294e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446041"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749072"
 ---
 # <a name="manage-app-groups-using-powershell"></a>Gérer des groupes d’applications à l’aide de PowerShell
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objet Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Windows Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
+Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Azure Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 

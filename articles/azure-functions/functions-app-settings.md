@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b1a3563d766f0f4636086024a1f23d157e8e9a06
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: eb595d666641003c813573a70ab7365732e0a386
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228601"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983147"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -18,12 +18,12 @@ Les paramètres d’une application de fonction contiennent les options de confi
 
 Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
-> [!NOTE]  
+> [!NOTE]
 > Vous pouvez utiliser des paramètres d’application pour remplacer les valeurs de paramètres host.json sans avoir à modifier le fichier host.json proprement dit. C’est utile dans des scénarios où vous devez configurer ou modifier des paramètres host.json spécifiques pour un environnement spécifique. Cela vous permet également de modifier les paramètres host.json sans avoir à republier votre projet. Pour plus d’informations, consultez l’[article de référence host.json](functions-host-json.md#override-hostjson-values). Les changements apportés aux paramètres d’application de fonction nécessitent le redémarrage de votre application de fonction.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING`. Lorsque Application Insights s’exécute dans un cloud souverain, utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING`. Pour plus d’informations, consultez [Comment configurer la surveillance de Azure Functions](configure-monitoring.md). 
+Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING`. Lorsque Application Insights s’exécute dans un cloud souverain, utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING`. Pour plus d’informations, consultez [Comment configurer la surveillance de Azure Functions](configure-monitoring.md).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -33,10 +33,10 @@ Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRU
 
 Chaîne de connexion pour Application Insights. Utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING` au lieu de `APPINSIGHTS_INSTRUMENTATIONKEY` dans les cas suivants :
 
-+ lorsque votre application de fonction requiert les personnalisations ajoutées prises en charge à l’aide de la chaîne de connexion. 
++ lorsque votre application de fonction requiert les personnalisations ajoutées prises en charge à l’aide de la chaîne de connexion.
 + Lorsque votre instance d’Application Insights s’exécute dans un cloud souverain, qui requiert un point de terminaison personnalisé.
 
-Pour plus d’informations, consultez [Chaînes de connexion](../azure-monitor/app/sdk-connection-string.md). 
+Pour plus d’informations, consultez [Chaînes de connexion](../azure-monitor/app/sdk-connection-string.md).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -53,7 +53,7 @@ Par défaut, les [proxies Functions](functions-proxies.md) utilisent un raccourc
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-Ce paramètre vérifie si les caractères `%2F` sont décodés en tant que barres obliques dans les paramètres d’itinéraire lorsqu’ils sont réinsérés dans l’URL principale. 
+Ce paramètre vérifie si les caractères `%2F` sont décodés en tant que barres obliques dans les paramètres d’itinéraire lorsqu’ils sont réinsérés dans l’URL principale.
 
 |Clé|Valeur|Description|
 |-|-|-|
@@ -159,7 +159,7 @@ Détermine si la modification est activée dans le portail Azure. Les valeurs va
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-Version du runtime Functions qui héberge votre application de fonction. Un tilde (`~`) suivi d’une version principale signifie que la version la plus récente de cette version principale est utilisée (par exemple, « ~3 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 3.0.12345 »). La valeur par défaut est « ~3 ». La valeur `~1` épingle votre application à la version 1.x du runtime. Pour plus d’informations, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md).
+Version du runtime Functions qui héberge votre application de fonction. Un tilde (`~`) suivi d’une version principale signifie que la version la plus récente de cette version principale est utilisée (par exemple, « ~3 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 3.0.12345 »). La valeur par défaut est « ~3 ». La valeur `~1` épingle votre application à la version 1.x du runtime. Pour plus d’informations, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md). La valeur `~4` vous permet d’exécuter une préversion d’Azure Functions pour utiliser la préversion de .NET 6.0. Pour plus d’informations, consultez la page [Version bêta d’Azure Functions (version 4)](https://aka.ms/functions-dotnet6earlypreview-wiki).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -167,7 +167,7 @@ Version du runtime Functions qui héberge votre application de fonction. Un tild
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-Ce paramètre permet à votre application de fonction de s’exécuter dans un mode compatible avec la version 2.x sur le runtime version 3.x. Utilisez ce paramètre uniquement si vous rencontrez des problèmes lors de la [mise à niveau de votre application de fonction de la version 2.x à la version 3.x du runtime](functions-versions.md#migrating-from-2x-to-3x). 
+Ce paramètre permet à votre application de fonction de s’exécuter dans un mode compatible avec la version 2.x sur le runtime version 3.x. Utilisez ce paramètre uniquement si vous rencontrez des problèmes lors de la [mise à niveau de votre application de fonction de la version 2.x à la version 3.x du runtime](functions-versions.md#migrating-from-2x-to-3x).
 
 >[!IMPORTANT]
 > Ce paramètre doit être considéré uniquement comme une solution de contournement à court terme pendant que vous mettez à jour votre application pour qu’elle s’exécute correctement sur la version 3.x. Ce paramètre est pris en charge tant que le [runtime 2.x est pris en charge](functions-versions.md). Si vous rencontrez des problèmes qui empêchent votre application de s’exécuter sur la version 3.x sans utiliser ce paramètre, veuillez [signaler votre problème](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
@@ -188,7 +188,7 @@ Spécifie le nombre maximal de processus de traitement de langue, avec la valeur
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Runtime du rôle de travail de langage à charger dans l’application de fonction.  Correspond au langage utilisé dans votre application (par exemple, `dotnet`). Depuis la version 2.x du runtime Azure Functions, une application de fonction donnée ne peut prendre en charge qu’un seul langage.   
+Runtime du rôle de travail de langage à charger dans l’application de fonction.  Correspond au langage utilisé dans votre application (par exemple, `dotnet`). Depuis la version 2.x du runtime Azure Functions, une application de fonction donnée ne peut prendre en charge qu’un seul langage.
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -205,11 +205,11 @@ Valeurs valides :
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
-## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod 
+## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod
 
-Contrôle la période de mise à jour en arrière-plan des dépendances gérées pour les applications de fonction PowerShell, avec une valeur par défaut de `7.00:00:00` (hebdomadaire). 
+Contrôle la période de mise à jour en arrière-plan des dépendances gérées pour les applications de fonction PowerShell, avec une valeur par défaut de `7.00:00:00` (hebdomadaire).
 
-Chaque rôle de travail PowerShell lance la vérification des mises à niveau de module dans PowerShell Gallery au démarrage du processus et à chaque `MDMaxBackgroundUpgradePeriod` par la suite. Quand une nouvelle version de module est disponible dans PowerShell Gallery, elle est installée dans le système de fichiers et mise à la disposition des rôles de travail PowerShell. Diminuer cette valeur permet à votre application de fonction d’obtenir plus rapidement les versions de module les plus récentes, mais cela augmente aussi l’utilisation des ressources d’application (E/S réseau, processeur, stockage). Augmenter cette valeur permet de diminuer l’utilisation des ressources d’application, mais retarde aussi la remise des nouvelles versions de module à votre application. 
+Chaque rôle de travail PowerShell lance la vérification des mises à niveau de module dans PowerShell Gallery au démarrage du processus et à chaque `MDMaxBackgroundUpgradePeriod` par la suite. Quand une nouvelle version de module est disponible dans PowerShell Gallery, elle est installée dans le système de fichiers et mise à la disposition des rôles de travail PowerShell. Diminuer cette valeur permet à votre application de fonction d’obtenir plus rapidement les versions de module les plus récentes, mais cela augmente aussi l’utilisation des ressources d’application (E/S réseau, processeur, stockage). Augmenter cette valeur permet de diminuer l’utilisation des ressources d’application, mais retarde aussi la remise des nouvelles versions de module à votre application.
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -219,11 +219,11 @@ Pour plus d’informations, consultez [Gestion des dépendances](functions-refer
 
 ## <a name="mdnewsnapshotcheckperiod"></a>MDNewSnapshotCheckPeriod
 
-Spécifie la fréquence à laquelle chaque rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées. La fréquence par défaut est de `01:00:00` (toutes les heures). 
+Spécifie la fréquence à laquelle chaque rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées. La fréquence par défaut est de `01:00:00` (toutes les heures).
 
-Lorsque les nouvelles versions de module sont installées dans le système de fichiers, chaque rôle de travail PowerShell doit être redémarré. Le redémarrage des rôles de travail PowerShell affecte la disponibilité de votre application, car il peut interrompre l’exécution de la fonction actuelle. Tant que tous les rôles de travail PowerShell n’ont pas redémarré, les appels de fonction peuvent utiliser les anciennes ou nouvelles versions du module. Le redémarrage de tous les rôles de travail PowerShell se termine pendant la période `MDNewSnapshotCheckPeriod`. 
+Lorsque les nouvelles versions de module sont installées dans le système de fichiers, chaque rôle de travail PowerShell doit être redémarré. Le redémarrage des rôles de travail PowerShell affecte la disponibilité de votre application, car il peut interrompre l’exécution de la fonction actuelle. Tant que tous les rôles de travail PowerShell n’ont pas redémarré, les appels de fonction peuvent utiliser les anciennes ou nouvelles versions du module. Le redémarrage de tous les rôles de travail PowerShell se termine pendant la période `MDNewSnapshotCheckPeriod`.
 
-Au cours de chaque `MDNewSnapshotCheckPeriod`, le rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées ou non. Une fois les mises à niveau installées, un redémarrage est initié. Si vous augmentez cette valeur, vous réduisez la fréquence des interruptions dues aux redémarrages. Toutefois, cette augmentation peut également accroître le temps pendant lequel les appels de fonction peuvent utiliser l’ancienne ou la nouvelle version de module, de manière non déterministe. 
+Au cours de chaque `MDNewSnapshotCheckPeriod`, le rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées ou non. Une fois les mises à niveau installées, un redémarrage est initié. Si vous augmentez cette valeur, vous réduisez la fréquence des interruptions dues aux redémarrages. Toutefois, cette augmentation peut également accroître le temps pendant lequel les appels de fonction peuvent utiliser l’ancienne ou la nouvelle version de module, de manière non déterministe.
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -234,9 +234,9 @@ Pour plus d’informations, consultez [Gestion des dépendances](functions-refer
 
 ## <a name="mdminbackgroundupgradeperiod"></a>MDMinBackgroundUpgradePeriod
 
-Période après une précédente vérification de mise à niveau des dépendances gérées avant qu’une autre vérification de mise à niveau ne soit lancée, avec une valeur par défaut de `1.00:00:00` (quotidienne). 
+Période après une précédente vérification de mise à niveau des dépendances gérées avant qu’une autre vérification de mise à niveau ne soit lancée, avec une valeur par défaut de `1.00:00:00` (quotidienne).
 
-Pour éviter des mises à niveau de module excessives lors des fréquents redémarrages des rôles de travail, la vérification des mises à niveau de module n’est pas effectuée si un rôle de travail l’a déjà lancée pendant la dernière période `MDMinBackgroundUpgradePeriod`. 
+Pour éviter des mises à niveau de module excessives lors des fréquents redémarrages des rôles de travail, la vérification des mises à niveau de module n’est pas effectuée si un rôle de travail l’a déjà lancée pendant la dernière période `MDMinBackgroundUpgradePeriod`.
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -246,13 +246,31 @@ Pour plus d’informations, consultez [Gestion des dépendances](functions-refer
 
 ## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
-La valeur de ce paramètre indique une URL d’index des packages personnalisée pour les applications Python. Utilisez ce paramètre lorsque vous devez exécuter une build distante à l’aide de dépendances personnalisées se trouvant dans un index de packages supplémentaire.   
+La valeur de ce paramètre indique une URL d’index des packages personnalisée pour les applications Python. Utilisez ce paramètre lorsque vous devez exécuter une build distante à l’aide de dépendances personnalisées se trouvant dans un index de packages supplémentaire.
 
 |Clé|Exemple de valeur|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
 Pour en savoir plus, consultez [Dépendances personnalisées](functions-reference-python.md#remote-build-with-extra-index-url) dans les informations de référence pour les développeurs Python.
+
+## <a name="python_isolate_worker_dependencies"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+
+La configuration est spécifique aux applications de fonction Python. Elle définit la priorité de l’ordre de chargement des modules. Lorsque vos applications de fonction Python rencontrent des problèmes liés à la collision des modules (par exemple, lorsque vous utilisez protobuf, tensorflow ou grpcio dans votre projet), la configuration de ce paramètre d’application sur `1` devrait résoudre votre problème. par défaut, cette valeur est définie sur `0`.
+
+|Clé|Valeur|Description|
+|---|-----|-----------|
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| Donne la priorité au chargement des bibliothèques Python provenant des dépendances internes du Worker Python. Les bibliothèques tierces définies dans requirements.txt peuvent être mises en mémoire fantôme. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| Donne la priorité au chargement des bibliothèques Python provenant du package d’application défini dans requirements.txt. Cela empêche vos bibliothèques d’entrer en conflit avec les bibliothèques internes du Worker Python. |
+
+## <a name="python_enable_worker_extensions"></a>PYTHON\_ENABLE\_WORKER\_EXTENSIONS
+
+La configuration est spécifique aux applications de fonction Python. Définir cette valeur sur `1` permet au Worker de charger les [extensions du Worker Python](functions-reference-python.md#python-worker-extensions) définies dans requirements.txt. Cela permet à votre application de fonction d’accéder aux nouvelles fonctionnalités fournies par des packages tiers. Cela peut également modifier le comportement de chargement et d’appel des fonctions dans votre application. Vérifiez que l’extension que vous choisissez est digne de confiance, car vous endossez la responsabilité de son utilisation. Azure Functions n’accorde aucune garantie expresse aux extensions. Pour plus d’informations sur l’utilisation d’une extension, consultez la page man ou le document Lisez-moi de l’extension. Par défaut, cette valeur est définie sur `0`.
+
+|Clé|Valeur|Description|
+|---|-----|-----------|
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|0| Désactive toutes les extensions de Worker Python. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|1| Autorise le Worker Python à charger des extensions à partir de requirements.txt. |
 
 ## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
 
@@ -264,7 +282,7 @@ Spécifie le nombre maximal de threads qu’un processus de travail du langage P
 
 ## <a name="scale_controller_logging_enabled"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
-_Ce paramètre est actuellement en préversion._  
+_Ce paramètre est actuellement en préversion._
 
 Ce paramètre contrôle la journalisation à partir du contrôleur d’échelle Azure Functions. Pour plus d’informations, consultez [Journaux du contrôleur d’échelle](functions-monitoring.md#scale-controller-logs).
 
@@ -284,7 +302,7 @@ Chaîne de connexion du compte de stockage dans lequel la configuration et le co
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
@@ -304,19 +322,19 @@ Chemin d’accès au code de l’application et à la configuration de la foncti
 
 Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Lorsque vous utilisez un modèle Azure Resource Manager pour créer une application de fonction pendant le déploiement, n’incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).   
+Lorsque vous utilisez un modèle Azure Resource Manager pour créer une application de fonction pendant le déploiement, n’incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).
 
 ## <a name="website_dns_server"></a>WEBSITE\_DNS\_SERVER
 
-Définit le serveur DNS qu’une application utilise lors de la résolution d’adresses IP. Ce paramètre est souvent requis lors de l’utilisation de certaines fonctionnalités de mise en réseau, telles que des [zones privées Azure DNS](functions-networking-options.md#azure-dns-private-zones) et des [points de terminaison privés](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+Définit le serveur DNS qu’une application utilise lors de la résolution d’adresses IP. Ce paramètre est souvent requis lors de l’utilisation de certaines fonctionnalités de mise en réseau, telles que des [zones privées Azure DNS](functions-networking-options.md#azure-dns-private-zones) et des [points de terminaison privés](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE\_DNS\_SERVER|168.63.129.16|
 
-## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
-Contrôle si l’encodage Brotli est utilisé pour la compression au lieu de la compression gzip par défaut. Lorsque `WEBSITE_ENABLE_BROTLI_ENCODING` est défini sur `1`, l’encodage Brotli est utilisé ; sinon, c’est l’encodage gzip qui est utilisé. 
+Contrôle si l’encodage Brotli est utilisé pour la compression au lieu de la compression gzip par défaut. Lorsque `WEBSITE_ENABLE_BROTLI_ENCODING` est défini sur `1`, l’encodage Brotli est utilisé ; sinon, c’est l’encodage gzip qui est utilisé.
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -331,8 +349,8 @@ Nombre maximal d’instances possibles vers lesquelles l’application peut effe
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Windows uniquement._  
-Définit la version de Node.js à utiliser lors de l’exécution de votre application de fonction sur Windows. Vous devez utiliser un tilde (~) pour que le runtime utilise la dernière version disponible de la version principale ciblée. Par exemple, lorsqu’elle est définie sur `~10`, la dernière version de Node.js 10 est utilisée. Quand une version majeure est ciblée avec un tilde, vous n’avez pas besoin de mettre à jour manuellement la version mineure. 
+_Windows uniquement._
+Définit la version de Node.js à utiliser lors de l’exécution de votre application de fonction sur Windows. Vous devez utiliser un tilde (~) pour que le runtime utilise la dernière version disponible de la version principale ciblée. Par exemple, lorsqu’elle est définie sur `~10`, la dernière version de Node.js 10 est utilisée. Quand une version majeure est ciblée avec un tilde, vous n’avez pas besoin de mettre à jour manuellement la version mineure.
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -350,7 +368,7 @@ Les valeurs valides sont soit une URL qui correspond à l’emplacement d’un f
 
 ## <a name="website_time_zone"></a>WEBSITE\_TIME\_ZONE
 
-Vous permet de définir le fuseau horaire de votre application de fonction. 
+Vous permet de définir le fuseau horaire de votre application de fonction.
 
 |Clé|Système d''exploitation|Exemple de valeur|
 |---|--|------------|
@@ -361,7 +379,7 @@ Vous permet de définir le fuseau horaire de votre application de fonction.
 
 ## <a name="website_vnet_route_all"></a>WEBSITE\_VNET\_ROUTE\_ALL
 
-Indique si tout le trafic sortant de l’application est routé via le réseau virtuel. La valeur de paramètre `1` indique que tout le trafic est acheminé via le réseau virtuel. Vous avez besoin de ce paramètre lorsque vous utilisez des fonctionnalités de l’[intégration du réseau virtuel régional](functions-networking-options.md#regional-virtual-network-integration). Il est également utilisé quand une [passerelle NAT de réseau virtuel est utilisée pour définir une adresse IP sortante statique](functions-how-to-use-nat-gateway.md). 
+Indique si tout le trafic sortant de l’application est routé via le réseau virtuel. La valeur de paramètre `1` indique que tout le trafic est acheminé via le réseau virtuel. Vous avez besoin de ce paramètre lorsque vous utilisez des fonctionnalités de l’[intégration du réseau virtuel régional](functions-networking-options.md#regional-virtual-network-integration). Il est également utilisé quand une [passerelle NAT de réseau virtuel est utilisée pour définir une adresse IP sortante statique](functions-how-to-use-nat-gateway.md).
 
 |Clé|Exemple de valeur|
 |---|------------|

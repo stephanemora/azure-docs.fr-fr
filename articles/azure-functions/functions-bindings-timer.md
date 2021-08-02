@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47d8acd26d1cfa9c41c2cc8770f7c7f81a3e2930
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595989"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592103"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
@@ -322,7 +322,7 @@ Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour l
 | `0 30 9 * Jan Mon` | à 9h30 tous les lundis en janvier |
 
 > [!NOTE]
-> L'expression NCRONTAB nécessite le format à **six champs**. Le sixième champ comprend une valeur correspondant aux secondes qui est placée au début de l'expression. Les expressions cron à cinq champs ne sont pas prises en charge dans Azure.
+> L’expression NCRONTAB prend en charge le format à **cinq champs** et le format à **six champs**. Le sixième champ comprend une valeur correspondant aux secondes qui est placée au début de l'expression.
 
 ### <a name="ncrontab-time-zones"></a>Fuseaux horaires NCRONTAB
 

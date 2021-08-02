@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: a8aae2dc03ba87e9782cdf3952be1bfc4a1aae75
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767038"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061629"
 ---
 # <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (préversion)
 
@@ -114,7 +114,7 @@ L’onglet **Utilisation** permet aux utilisateurs d’approfondir les performan
 
 L’onglet **Tables** affiche les propriétés les plus récentes et l’historique des propriétés des tables du cluster. Vous pouvez voir quelles tables consomment le plus d’espace, suivre l’historique de croissance par taille de table, les données à chaud ainsi que le nombre de lignes dans le temps.
 
-L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations de stratégie de cache particulières sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [principal tableau de bord Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la recherche des requêtes réelles des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
+L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de fenêtre de recherche en arrière des requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations particulières de stratégie de cache sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [tableau de bord principal d’Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la fenêtre de recherche en arrière des requêtes réelles au cours des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
 
 [![Capture d’écran des détails du cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 

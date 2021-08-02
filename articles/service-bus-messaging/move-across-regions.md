@@ -2,14 +2,14 @@
 title: Déplacer un espace de noms Service Bus vers une autre région | Microsoft Docs
 description: Cet article explique comment déplacer un espace de noms Service Bus de la région actuelle vers une autre région.
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 06/08/2021
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a752e845cf4b819e327bc922fc13199b79ab8d3
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88860360"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811438"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Déplacer un espace de noms Service Bus vers une autre région
 Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre espace de noms Service Bus existant d’une région à une autre. Par exemple, vous pouvez créer un espace de noms avec la même configuration à des fins de test. Vous pouvez également créer un espace de noms secondaire dans une autre région dans le cadre de la [planification de la reprise d’activité après sinistre](service-bus-geo-dr.md).
@@ -30,7 +30,7 @@ Pour commencer, exportez un modèle Resource Manager. Ce modèle contient des pa
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Toutes les ressources**, puis sélectionnez votre espace de noms Service Bus.
-3. Sélectionnez **Paramètres** > **Exporter le modèle**.
+3. Dans la page **Espace de noms Service Bus**, sous **Automation** dans le menu de gauche, sélectionnez **Exporter un modèle**. 
 4. Choisissez **Télécharger** dans le panneau **Exporter le modèle**.
 
     :::image type="content" source="./media/move-across-regions/download-template.png" alt-text="Télécharger un modèle Resource Manager":::

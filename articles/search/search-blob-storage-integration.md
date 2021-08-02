@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/14/2021
+ms.openlocfilehash: 6646a2e5a074219df13f3bf373edfc53310c8104
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355293"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556601"
 ---
-# <a name="search-over-azure-blob-storage-content"></a>Rechercher dans le contenu du Stockage Blob Azure
+# <a name="search-over-azure-blob-storage-content"></a>Rechercher dans le contenu Stockage Blob Azure
 
-La recherche dans les différents types de contenu enregistrés dans le Stockage Blob Azure peut constituer un problème difficile à résoudre. Cet article examine le flux de travail de base pour l’extraction de contenu et de métadonnées de blobs et leur envoi à un index de recherche dans le service Recherche cognitive Azure. L’index obtenu peut être interrogé à l’aide d’une recherche en texte intégral.
+La recherche dans les différents types de contenu enregistrés dans Stockage Blob Azure peut constituer un problème difficile à résoudre. Cet article examine le flux de travail de base pour l’extraction de contenu et de métadonnées de blobs et leur envoi à un index de recherche dans le service Recherche cognitive Azure. L’index obtenu peut être interrogé à l’aide d’une recherche en texte intégral.
 
 > [!NOTE]
 > Vous êtes déjà familiarisé avec le flux de travail et la composition ? Votre prochaine étape est [Comment configurer un indexeur de blobs](search-howto-indexing-azure-blob-storage.md).
@@ -26,9 +26,9 @@ La recherche dans les différents types de contenu enregistrés dans le Stockage
 
 Le service Recherche cognitive Azure est un service de recherche qui prend en charge les charges de travail d’indexation et de requête sur des index définis par l’utilisateur qui contiennent votre contenu pouvant faire l’objet d’une recherche à distance hébergé dans le cloud. Colocaliser votre contenu pouvant faire l’objet d’une recherche avec le moteur de requête est une nécessité pour offrir aux utilisateurs les performances qu’ils attendent eu égard au délai d’affichage des résultats des requêtes de recherche.
 
-Le service Recherche cognitive s’intègre avec le service Stockage Blog Azure au niveau de la couche d’indexation. Le contenu de votre blob est ainsi importé sous forme de documents de recherche indexés dans des *index inversés* et d’autres structures de requête qui prennent en charge les requêtes de texte en forme libre et les expressions de filtre. Le contenu de votre blob étant indexé dans un index de recherche, vous pouvez utiliser la panoplie complète des fonctionnalités de requête du service Recherche cognitive Azure pour trouver des informations dans le contenu de votre blob.
+Le service Recherche cognitive s’intègre avec Stockage Blob Azure au niveau de la couche d’indexation. Le contenu de votre blob est ainsi importé sous forme de documents de recherche indexés dans des *index inversés* et d’autres structures de requête qui prennent en charge les requêtes de texte en forme libre et les expressions de filtre. Le contenu de votre blob étant indexé dans un index de recherche, vous pouvez utiliser la panoplie complète des fonctionnalités de requête du service Recherche cognitive Azure pour trouver des informations dans le contenu de votre blob.
 
-Les entrées sont vos objets blob, dans un même conteneur, dans Stockage Blob Azure. Les objets blob peuvent correspondre à pratiquement tout type de données texte. Si vos blobs contiennent des images, vous pouvez ajouter l’[enrichissement par IA à l’indexation d’objets blob](search-blob-ai-integration.md) pour créer et extraire du texte des images.
+Les entrées correspondent à vos objets blob, dans un même conteneur, dans Stockage Blob Azure. Les objets blob peuvent correspondre à pratiquement tout type de données texte. Si vos blobs contiennent des images, vous pouvez ajouter l’[enrichissement par IA à l’indexation d’objets blob](search-blob-ai-integration.md) pour créer et extraire du texte des images.
 
 La sortie est toujours un index Recherche cognitive Azure, utilisé pour la recherche, l’extraction et l’exploration rapides de texte dans les applications clientes. Au milieu se trouve l’architecture proprement dite du pipeline d’indexation. Le pipeline est basé sur la fonctionnalité d’*indexeur*, décrite plus loin dans cet article.
 
@@ -36,7 +36,7 @@ Une fois créé et rempli, l’index existe indépendamment de votre conteneur d
 
 ## <a name="required-resources"></a>Ressources nécessaires
 
-Vous avez besoin des services Recherche cognitive Azure et Stockage Blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
+Vous devez disposer des services Recherche cognitive Azure et Stockage Blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
 
 Vous pouvez commencer directement dans votre page du portail des comptes Stockage. Dans la page de navigation de gauche, sous **Service Blob**, cliquez sur **Ajouter Recherche cognitive Azure** pour créer un nouveau service ou en sélectionner un existant. 
 
@@ -51,6 +51,10 @@ Dans Stockage Azure, les objets blob sont indexés à l’aide de l’[indexeur 
 Un indexeur effectue le « craquage de document » en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Si vos objets blob contiennent des images, celles-ci sont ignorées si vous n’[ajoutez pas l’enrichissement par IA](search-blob-ai-integration.md). L’indexation standard s’applique uniquement au contenu texte.
 
 L’indexeur d’objets blob est assorti de paramètres de configuration et prend en charge le suivi des modifications si les données sous-jacentes fournissent suffisamment d’informations. Vous trouverez des informations supplémentaires sur les fonctionnalités de base dans [Indexeur de stockage d’objets blob de Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md).
+
+### <a name="supported-access-tiers"></a>Niveaux d’accès pris en charge
+
+Les [niveaux d’accès](../storage/blobs/storage-blob-storage-tiers.md) au service Stockage Blob sont chaud, froid et archive. Les indexeurs ne peuvent accéder qu’aux niveaux chaud et froid. 
 
 ### <a name="supported-content-types"></a>Types de contenu pris en charge
 

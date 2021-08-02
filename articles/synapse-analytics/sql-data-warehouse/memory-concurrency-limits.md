@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 04/04/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fb0ad93fb4a1269b4cca02b114c0427f0c44a31b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd628c649d379e60ddf8ec772e1cf708f3e50d1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96455345"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540283"
 ---
 # <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de mémoire et de concurrence du pool SQL dédié dans Azure Synapse Analytics
 
 Consultez les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure Synapse Analytics.  
+
+> [!NOTE]
+> Les groupes de charges de travail de la gestion des charges de travail offrent davantage de flexibilité pour la configuration des ressources par requête et concurrence que les classes de ressources statiques ou dynamiques.  Pour plus d’informations, consultez [Groupes de charge de travail](sql-data-warehouse-workload-isolation.md) et la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql).
 
 ## <a name="data-warehouse-capacity-settings"></a>Paramètres de la capacité de l’entrepôt de données
 
@@ -131,5 +134,7 @@ Quand il n’y a pas suffisamment d’emplacements de concurrence libres pour d�
 
 Pour plus d’informations sur la façon de tirer parti des classes de ressources pour optimiser davantage votre charge de travail, voir les articles suivants :
 
+* [Groupes de charges de travail de la gestion des charges de travail](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md)
 * [Analyse de votre charge de travail](analyze-your-workload.md)

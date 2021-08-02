@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2021
+ms.date: 05/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 9115c31b3eb24e9d0e3afd5984ea60308c424a77
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 846eb51c85a00a90b5565064ffa106e4fc69e56c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786750"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059631"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutoriel : Créer des règles d’analytique personnalisées pour détecter des menaces
 
@@ -86,7 +86,7 @@ Sous l'onglet **Définir la logique de la règle**, vous pouvez soit écrire une
 
 > [!IMPORTANT]
 > Les fonctionnalités d'enrichissement des alertes sont actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
-    
+
 - Utilisez la section de configuration **Mappage d'entités** pour mapper les paramètres de vos résultats de requête avec des entités reconnues par Azure Sentinel. Les entités enrichissent les résultats des règles (alertes et incidents) avec des informations essentielles qui constituent la base de tout processus d'investigation et des actions correctives ultérieures. Il s'agit également des critères qui vous permettent de regrouper les alertes en incidents sous l’onglet **Paramètres des incidents**.
 
     Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).
@@ -96,6 +96,10 @@ Sous l'onglet **Définir la logique de la règle**, vous pouvez soit écrire une
 - Utilisez la section de configuration **Détails personnalisés** pour extraire les éléments des données d'événement de votre requête et les faire apparaître dans les alertes produites par cette règle, ce qui vous donne une visibilité immédiate sur le contenu des événements dans vos alertes et incidents.
 
     Apprenez-en davantage sur la présentation de détails personnalisés dans les alertes, et consultez les [instructions complètes](surface-custom-details-in-alerts.md).
+
+- Utilisez la section de configuration **Détails de l’alerte** pour adapter les détails de la présentation de l’alerte à son contenu réel. Les détails de l’alerte vous permettent, par exemple, d’afficher l’adresse IP ou le nom de compte d’un attaquant dans le titre même de l’alerte, afin qu’il apparaisse dans votre file d’attente d’incidents, ce qui vous donne une image plus complète et plus claire de votre contexte de menaces.
+
+    Consultez les instructions complètes sur la [personnalisation des détails de votre alerte](customize-alert-details.md).
 
 ### <a name="query-scheduling-and-alert-threshold"></a>Planification des requêtes et seuil d'alerte
 
@@ -119,11 +123,11 @@ Sous l'onglet **Définir la logique de la règle**, vous pouvez soit écrire une
         > Pour savoir pourquoi ce délai est nécessaire et comment il permet de résoudre ce problème, consultez l'excellent billet de blog de Ron Marsiano, « [Gestion du délai d'ingestion dans les règles d'alerte planifiées d'Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) ».
 
 - Utilisez la section **Seuil d'alerte** pour définir le niveau de sensibilité de la règle. Par exemple, affectez la valeur **Est supérieur à** au paramètre **Générer une alerte quand le nombre de résultats de la requête**, puis entrez le nombre 1000 pour que la règle génère une alerte uniquement si la requête retourne plus de 1000 résultats à chaque exécution. Ce champ est obligatoire. Par conséquent, si vous ne souhaitez pas définir de seuil (en d'autres termes, si vous souhaitez que votre alerte enregistre chaque événement), entrez 0 dans le champ numérique.
-    
+
 ### <a name="results-simulation"></a>Simulation des résultats
 
 Dans la zone **Simulation des résultats**, sur la partie droite de l'Assistant, sélectionnez **Tester avec les données actuelles**. Azure Sentinel affiche le graphique des résultats (événements de journal) qui seraient générés par la requête en fonction de la planification actuellement définie sur la base des 50 dernières exécutions. Si vous modifiez la requête, resélectionnez **Tester avec les données actuelles** pour mettre le graphe à jour. Le graphe montre le nombre de résultats sur la période définie, laquelle est déterminée par les paramètres de la section **Planification de la requête**.
-  
+
 Voici à quoi peut ressembler la simulation des résultats pour la requête de la capture d’écran ci-dessus. Le côté gauche est l’affichage par défaut, et le côté droit est ce que vous voyez lorsque vous pointez sur un point dans le temps sur le graphe.
 
 :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Captures d’écran de simulation des résultats":::
@@ -134,15 +138,25 @@ Si vous constatez que votre requête déclenche un trop grand nombre d'alertes o
 
 > [!IMPORTANT]
 > La fonctionnalité de regroupement des événements est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
-    
+
 - Sous **Regroupement d’événements**, choisissez l’une des deux façons de gérer le regroupement d’**événements** dans **alertes** : 
 
     - **Regrouper tous les événements dans une seule alerte** (paramètre par défaut). La règle génère une alerte à chaque exécution, tant que la requête retourne plus de résultats que le **seuil d’alerte** spécifié au-dessus. L’alerte comprend un résumé de tous les événements retournés dans les résultats. 
 
     - **Déclencher une alerte pour chaque événement**. La règle génère une alerte pour chaque événement renvoyé par la requête. Cela est utile si vous souhaitez que les événements s’affichent individuellement ou si vous souhaitez les regrouper selon certains paramètres (par utilisateur, nom d’hôte ou autre chose). Vous pouvez définir ces paramètres dans la requête.
-    
+
         Actuellement, le nombre d’alertes qu’une règle peut générer est plafonné à 20. Si, dans une règle particulière, l'option **Regroupement des événements** est définie sur **Déclencher une alerte pour chaque événement**, et si la requête de la règle renvoie plus de 20 événements, les 19 premiers événements génèrent chacun une alerte unique, et la 20e alerte résume l'ensemble des événements renvoyés. En d'autres termes, la 20e alerte correspond à ce qui serait généré sous l'option **Regrouper tous les événements dans une seule alerte**.
 
+        Si vous choisissez cette option, Azure Sentinel ajoute un nouveau champ, **OriginalQuery**, aux résultats de la requête. Voici une comparaison entre le champ de **Query** existant et le nouveau champ :
+
+        | Nom du champ | Contient | L’exécution de la requête dans ce champ<br>a pour résultat… |
+        | - | :-: | :-: |
+        | **Requête** | L’enregistrement compressé de l’événement qui a généré cette instance de l’alerte | L’événement qui a généré cette instance de l’alerte |
+        | **OriginalQuery** | La requête d’origine telle qu’elle est écrite dans la règle&nbsp;analytique | L’événement le plus récent dans la période d’exécution de la requête, qui correspond aux paramètres définis par la requête |
+        |
+
+        En d’autres termes, le champ **OriginalQuery** se comporte comme le champ **Query** se comporte en règle générale. L’intérêt de ce champ supplémentaire est qu’il résout le problème décrit par le premier élément de la section [Résolution des problèmes](#troubleshooting) ci-dessous.
+ 
     > [!NOTE]
     > Quelle est la différence entre les **événements** et les **alertes** ?
     >
@@ -163,12 +177,14 @@ Sous l’onglet **Incident Settings**, vous pouvez choisir si et comment Azure S
 > [!IMPORTANT]
 > L'onglet Paramètres des incidents est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
+Par exemple :
+
 :::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Définir les paramètres de création d’incident et de regroupement d’alertes":::
 
 ### <a name="incident-settings"></a>Paramètres de l’incident
 
 Dans la section **Paramètres des incidents**, le paramètre **Créer des incidents à partir d'alertes déclenchées par cette règle analytique** est **Activé** par défaut, ce qui signifie qu'Azure Sentinel crée un incident distinct à partir de chaque alerte déclenchée par la règle.
-    
+
 - Si vous ne souhaitez pas que cette règle entraîne la création d’incidents (par exemple, si cette règle vise uniquement à collecter des informations pour une analyse future), affectez-lui la valeur **Désactivé**.
 
 - Si vous souhaitez créer un incident unique à partir d'un groupe d'alertes, au lieu d'en créer un seul par alerte, consultez la section suivante.
@@ -177,15 +193,17 @@ Dans la section **Paramètres des incidents**, le paramètre **Créer des incide
 
 Dans la section **Regroupement des alertes**, si vous souhaitez qu’un seul incident soit généré à partir d’un groupe de jusqu’à 150 alertes similaires ou récurrentes, définissez l’option **Regrouper les alertes déclenchées par cette règle analytique en un seul incident par** sur **Activé**, puis définissez les paramètres suivants.
 
+
 - **Limiter le groupe aux alertes créées dans la période de temps sélectionnée** : Déterminez le délai d’exécution dans lequel les alertes similaires ou récurrentes vont être regroupées. Toutes les alertes correspondantes dans ce délai d’exécution génèrent collectivement un incident ou un ensemble d’incidents (en fonction des paramètres de regroupement ci-dessous). Les alertes situées en dehors de ce délai d’exécution génèrent un incident ou un ensemble d’incidents distinct.
 
 - **Regrouper les alertes déclenchées par cette règle analytique en un seul incident par** : Choisissez la base sur laquelle les alertes sont regroupées :
 
-    - **Regrouper les alertes en un seul incident si toutes les entités correspondent** : Les alertes sont regroupées si elles partagent des valeurs identiques pour chacune des entités mappées (définies sous l’onglet Définir la logique de la règle ci-dessus). Il s'agit du paramètre recommandé.
-
-    - **Regrouper toutes les alertes déclenchées par cette règle en un seul incident** : Toutes les alertes générées par cette règle sont regroupées même si elles ne partagent pas de valeurs identiques.
-
-    - **Regrouper les alertes en un seul incident si les entités sélectionnées correspondent** : Les alertes sont regroupées si elles partagent des valeurs identiques pour certaines des entités mappées (que vous pouvez sélectionner dans la liste déroulante). Vous pouvez utiliser ce paramètre si, par exemple, vous souhaitez créer des incidents distincts en fonction des adresses IP sources ou cibles.
+    | Option | Description |
+    | ------- | ---------- |
+    | **Regrouper les alertes en un seul incident si toutes les entités correspondent** | Les alertes sont regroupées si elles partagent des valeurs identiques pour chacune des entités mappées (spécifiées sous l’onglet [Définir la logique de la règle](#define-the-rule-query-logic-and-configure-settings) ci-dessus). Il s'agit du paramètre recommandé. |
+    | **Regrouper toutes les alertes déclenchées par cette règle en un seul incident** | Toutes les alertes générées par cette règle sont regroupées même si elles ne partagent pas de valeurs identiques. |
+    | **Regrouper les alertes en un seul incident si les entités et les détails sélectionnés correspondent** | Les alertes sont regroupées si elles partagent des valeurs identiques pour toutes les entités mappées, les détails d’alerte et les détails personnalisés, sélectionnés dans les listes déroulantes respectives.<br><br>Vous pouvez utiliser ce paramètre si vous souhaitez, par exemple, créer des incidents distincts en fonction des adresses IP source ou cible, ou si vous préférez regrouper des alertes qui correspondent à une entité et une gravité particulières.<br><br>**Remarque** : Lorsque vous sélectionnez cette option, vous devez avoir au moins un champ ou un type d’entité sélectionné pour la règle. Dans le cas contraire, la validation de la règle échoue et la règle n’est pas créée. |
+    |
 
 - **Rouvrir les incidents correspondants fermés** : Si un incident a été résolu et fermé et que, par la suite, une autre alerte est générée, qui devrait être associée à cet incident, définissez ce paramètre sur **Activé** si vous voulez que l’incident fermé soit rouvert, ou laissez-le défini sur **Désactivé** si vous voulez que l’alerte crée un autre incident.
     
@@ -213,6 +231,10 @@ Dans la section **Regroupement des alertes**, si vous souhaitez qu’un seul inc
 > [!NOTE]
 > Les alertes générées dans Azure Sentinel sont disponibles via [Microsoft Graph Security](/graph/security-concept-overview). Pour plus d’informations, consultez la [documentation sur les alertes Microsoft Graph Security](/graph/api/resources/security-api-overview).
 
+## <a name="export-the-rule-to-an-arm-template"></a>Exporter la règle vers un modèle ARM
+
+Si vous souhaitez empaqueter votre règle pour qu’elle soit gérée et déployée comme code, vous pouvez facilement [Exporter la règle vers un modèle Azure Resource Manager (ARM)](import-export-analytics-rules.md). Vous pouvez également importer des règles à partir de fichiers modèles afin de les afficher et de les modifier dans l’interface utilisateur.
+
 ## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="issue-no-events-appear-in-query-results"></a>Problème : Aucun événement ne s’affiche dans les résultats de la requête
@@ -220,6 +242,9 @@ Dans la section **Regroupement des alertes**, si vous souhaitez qu’un seul inc
 Si le **regroupement d’événements** a la valeur **Déclencher une alerte pour chaque événement**, dans certains scénarios, lorsque vous affichez les résultats de la requête ultérieurement (par exemple, en cas de retour aux alertes d’un incident), il est possible qu’aucun résultat de requête ne s’affiche. Cela est dû au fait que la connexion de l’événement à l’alerte est effectuée par le hachage des informations de l’événement particulier et l’inclusion du hachage dans la requête. Si les résultats de la requête ont changé depuis la génération de l’alerte, le hachage n’est plus valide et aucun résultat ne s’affiche. 
 
 Pour afficher les événements, supprimez manuellement la ligne avec le hachage de la requête de la règle, puis exécutez la requête.
+
+> [!NOTE]
+> Ce problème a été résolu par l’ajout d’un nouveau champ, **OriginalQuery**, au résultat lorsque cette option de regroupement d’événements est sélectionnée. Consultez la [Description](#event-grouping-and-rule-suppression) ci-dessus.
 
 ### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problème : Une règle planifiée n'a pas été exécutée, ou le préfixe AUTO DISABLED (Désactivée automatiquement) a été ajouté à son nom
 

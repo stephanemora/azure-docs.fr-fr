@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0158c9f5b9debf0c47978e816951e25634621645
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608637"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070882"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel
 
@@ -32,7 +32,7 @@ Les équipes SIEM/SOC sont généralement submergées d’alertes de sécurité 
 
 Beaucoup, voire la plupart, de ces alertes et incidents sont conformes à des modèles récurrents qui peuvent être traités par des ensembles d’actions de correction spécifiques et définies.
 
-Un playbook est un ensemble de ces actions de correction qui peuvent être exécutées à partir d’Azure Sentinel en tant que routine. Un playbook peut vous aider à automatiser et orchestrer votre réponse aux menaces. Il peut être exécuté manuellement ou configuré pour s’exécuter automatiquement en réponse à des alertes ou des incidents spécifiques, lorsqu’il est déclenché par une règle d’analyse ou une règle d’automatisation, respectivement.
+Un playbook est un ensemble de ces actions de correction qui peuvent être exécutées à partir d’Azure Sentinel en tant que routine. Un playbook peut vous aider à [**automatiser et orchestrer votre réponse aux menaces**](tutorial-respond-threats-playbook.md). Il peut être exécuté manuellement ou configuré pour s’exécuter automatiquement en réponse à des alertes ou des incidents spécifiques, lorsqu’il est déclenché par une règle analytique ou une règle d’automatisation, respectivement.
 
 Les playbooks sont créés et appliqués au niveau de l’abonnement, mais l’onglet **Playbooks** (dans le nouveau panneau **Automatisation**) affiche tous les playbooks disponibles dans les abonnements sélectionnés.
 
@@ -210,13 +210,17 @@ Pour les playbooks qui sont déclenchés par la création d’un incident et qui
 - À partir de l’onglet **Règles d’automatisation** dans le panneau **Automatisation**, créez une nouvelle règle d’automatisation et spécifiez les conditions appropriées et les actions souhaitées. Cette règle d’automatisation sera appliquée à toutes les règles d’analyse qui remplissent les conditions spécifiées.
 
     > [!NOTE]
+    > **Les règles d’automatisation Azure Sentinel ont besoin d’autorisations pour exécuter des playbooks.**
+    >
     > Pour exécuter un playbook à partir d’une règle d’automatisation, Azure Sentinel utilise un compte de service spécifiquement autorisé à le faire. L’utilisation de ce compte (par opposition à votre compte d’utilisateur) augmente le niveau de sécurité du service et permet à l’API de règles d’automatisation de prendre en charge les cas d’utilisation CI/CD.
     >
-    > Ce compte doit disposer d’autorisations explicites sur le groupe de ressources dans lequel se trouve le playbook. À ce stade, toute règle d’automatisation sera en mesure d’exécuter n’importe quel playbook dans ce groupe de ressources.
+    > Ce compte doit disposer d’autorisations explicites (sous la forme du rôle **Contributeur Automatisation Azure Sentinel**) sur le groupe de ressources où se trouve le playbook. À ce stade, toute règle d’automatisation sera en mesure d’exécuter n’importe quel playbook dans ce groupe de ressources.
     >
-    > Lorsque vous ajoutez l’action **Exécuter le playbook** à une règle d’automatisation, une liste déroulante de playbooks s’affiche. Les playbooks pour lesquels Azure Sentinel n’a pas d’autorisations s’affichent comme étant non disponibles (« grisés »). Vous pouvez accorder l’autorisation à Azure Sentinel immédiatement en sélectionnant le lien **Gérer les autorisations des playbooks**.
+    > Lorsque vous ajoutez l’action **Exécuter le playbook** à une règle d’automatisation, une liste déroulante de playbooks s’affiche pour votre sélection. Les playbooks pour lesquels Azure Sentinel n’a pas d’autorisations s’affichent comme étant non disponibles (« grisés »). Vous pouvez accorder l’autorisation à Azure Sentinel immédiatement en sélectionnant le lien **Gérer les autorisations des playbooks**.
     >
     > Dans un scénario à plusieurs locataires ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)), vous devez définir les autorisations sur le locataire dans lequel le playbook se trouve, même si la règle d’automatisation qui appelle le playbook est dans un locataire différent. Pour ce faire, vous devez disposer des autorisations de **propriétaire** sur le groupe de ressources du playbook.
+    >
+    > Il existe un seul scénario concernant un **fournisseur MSSP (Managed Security Service Provider)** , dans lequel un fournisseur de services, alors qu’il est connecté à son propre locataire, crée une règle d’automatisation sur l’espace de travail d’un client à l’aide d’[Azure Lighthouse](../lighthouse/index.yml). Cette règle d’automatisation appelle ensuite un playbook appartenant au locataire du client. Dans ce cas, Azure Sentinel doit recevoir des autorisations sur **_les deux locataires_ *_. Dans le locataire client, vous les accordez dans le panneau _* Gérer les autorisations du playbook**, comme dans le scénario multilocataire classique. Pour accorder les autorisations appropriées dans le locataire du fournisseur de services, vous devez ajouter une délégation Azure Lighthouse supplémentaire qui accorde des droits d’accès à l’application **Azure Security Insights** avec le rôle **Contributeur Automatisation Azure Sentinel** sur le groupe de ressources où se trouve le playbook. [Découvrez comment ajouter cette délégation](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 Consultez les [instructions complètes pour la création de règles d’automatisation](tutorial-respond-threats-playbook.md#respond-to-incidents).
 

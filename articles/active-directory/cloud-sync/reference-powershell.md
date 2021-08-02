@@ -11,12 +11,12 @@ ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa358b0c9d7747584deabe761160d3bcbcde8feb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12eebf9c43dff9b3a83458051f5a3980b5afcbe0
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593178"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888983"
 ---
 # <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Module PowerShell AADCloudSyncTools pour la synchronisation cloud Azure AD Connect
 
@@ -45,7 +45,7 @@ Pour installer et utiliser le module AADCloudSyncTools, effectuez les étapes su
 5. Vous devez maintenant voir des informations sur le module.
 6. Ensuite, pour installer les composants requis pour le module AADCloudSyncTools, exécutez la commande suivante : `Install-AADCloudSyncToolsPrerequisites`
 7. Lors de la première exécution, le module PoweShellGet est installé s’il n’est pas présent. Pour charger le nouveau module PowershellGet, fermez la fenêtre PowerShell et ouvrez une nouvelle session PowerShell avec des privilèges administratifs. 
-8. Importez de nouveau le module conformément à l’étape 3.
+8. Importez de nouveau le module suivant l’étape 2.
 9. Exécutez `Install-AADCloudSyncToolsPrerequisites` pour installer les modules MSAL et AzureAD.
 11. Toutes les éléments prérequis doivent être correctement installés ![Installer le module](media/reference-powershell/install-1.png)
 

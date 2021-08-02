@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e8ea30ddfcaeff1a177a14a0b1d911d14b76b4
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504404"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526059"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
@@ -49,8 +49,6 @@ Vous pouvez afficher les plans de service disponibles, y compris les licences in
 
 1. Sélectionnez **Azure Active Directory**, puis **Licences**.
 
-    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Page Licences, indiquant le nombre de services achetés et de licences affectées":::
-
 1. Sélectionnez **Tous les produits** pour afficher la page Tous les produits et les valeurs **Total**, **Assigné**, **Disponible** et **Arrive bientôt à expiration** pour vos plans de licence.
 
     :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="Page de services, avec les plans de licence de service, et les informations de licence associées":::
@@ -72,11 +70,9 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 1. Dans la page **Produits**, sélectionnez le nom du plan de licence que vous souhaitez affecter à l’utilisateur.
 
-    ![Page de services, avec un plan de licence de service en surbrillance](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. Une fois que vous avez sélectionné le plan de licence, sélectionnez **Affecter**.
 
-1. Dans la page de vue d’ensemble du plan de licence, sélectionnez **Affecter**.
-
-    ![Page de services, avec l’option Affecter en surbrillance](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![Page Services avec la sélection du plan de licence et les options Affecter encadrées](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez affecter la licence.
 

@@ -1,38 +1,38 @@
 ---
-title: Configurer le proxy de centre de distribution de clés Kerberos pour Windows Virtual Desktop – Azure
-description: Comment configurer un pool d’hôtes Windows Virtual Desktop pour utiliser un proxy de centre de distribution de clés Kerberos.
+title: Configuration du proxy Centre de distribution de clés Kerberos pour Azure Virtual Desktop – Azure
+description: Guide pratique pour configurer un pool d’hôtes Azure Virtual Desktop de façon à utiliser un proxy Centre de distribution de clés Kerberos.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 74fc1eeabe8af754d3ac5809818b6d648453ee45
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 55c68902cebbb6832a9c09c5390d9f43d381bf21
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108732721"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757550"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurer un proxy de centre de distribution de clés Kerberos
 
-Les clients soucieux de la sécurité, tels que les organisations financières ou gouvernementales, se connectent souvent à l’aide de cartes à puces. Les cartes à puces permettent de sécuriser les déploiements en exigeant une authentification multifacteur (MFA). Toutefois, pour la partie RDP d’une session de Windows Virtual Desktop, les cartes à puces nécessitent une connexion directe, ou « ligne de vue », avec un contrôleur de domaine Active Directory (AD) pour l’authentification Kerberos. Sans cette connexion directe, les utilisateurs ne peuvent pas se connecter automatiquement au réseau de l’organisation à partir de connexions distantes. Les utilisateurs dans un déploiement de Windows Virtual Desktop peuvent utiliser le service proxy KDC pour acheminer ce trafic d’authentification et se connecter à distance. Le proxy KDC permet l’authentification pour le protocole Bureau à distance d’une session de Windows Virtual Desktop, permettant à l’utilisateur de se connecter en toute sécurité. Il est ainsi beaucoup plus facile de travailler à domicile, et certains scénarios de récupération d’urgence peuvent se dérouler plus facilement.
+Les clients soucieux de la sécurité, tels que les organisations financières ou gouvernementales, se connectent souvent à l’aide de cartes à puces. Les cartes à puces permettent de sécuriser les déploiements en exigeant une authentification multifacteur (MFA). Toutefois, pour la partie RDP (Remote Desktop Protocol) d’une session Azure Virtual Desktop, les cartes à puces exigent une connexion directe, ou « ligne de vue », avec un contrôleur de domaine Active Directory (AD) pour l’authentification Kerberos. Sans cette connexion directe, les utilisateurs ne peuvent pas se connecter automatiquement au réseau de l’organisation à partir de connexions distantes. Les utilisateurs de déploiements Azure Virtual Desktop peuvent utiliser le service proxy KDC pour proxyser ce trafic d’authentification et se connecter à distance. Le proxy KDC permet l’authentification d’une session Azure Virtual Desktop suivant le protocole RDP. L’utilisateur peut ainsi se connecter en toute sécurité. Il est ainsi beaucoup plus facile de travailler à domicile, et certains scénarios de récupération d’urgence peuvent se dérouler plus facilement.
 
-Toutefois, la configuration du proxy KDC implique généralement l’attribution du rôle Passerelle Windows Server dans Windows Server 2016 ou une version ultérieure. Comment utiliser un rôle Services Bureau à distance pour vous connecter à Windows Virtual Desktop ? Pour répondre à cette question, examinons rapidement les composants.
+Toutefois, la configuration du proxy KDC implique généralement l’attribution du rôle Passerelle Windows Server dans Windows Server 2016 ou une version ultérieure. Comment utiliser un rôle Services Bureau à distance pour se connecter à Azure Virtual Desktop ? Pour répondre à cette question, examinons rapidement les composants.
 
-Le service Windows Virtual Desktop doit être authentifié sur deux composants :
+Deux des composants du service Azure Virtual Desktop doivent être authentifiés :
 
-- Le flux du client Windows Virtual Desktop qui donne aux utilisateurs une liste des ordinateurs de bureau ou applications disponibles auxquels ils ont accès. Ce processus d’authentification se déroule dans Azure Active Directory, ce qui signifie que ce composant n’est pas l’objet de cet article.
+- Le flux du client Azure Virtual Desktop qui donne aux utilisateurs la liste des ordinateurs de bureau et des applications disponibles auxquels ils ont accès. Ce processus d’authentification se déroule dans Azure Active Directory, ce qui signifie que ce composant n’est pas l’objet de cet article.
 - La session RDP qui résulte de la sélection par un utilisateur de l’une de ces ressources disponibles. Ce composant utilise l’authentification Kerberos et requiert un proxy KDC pour les utilisateurs distants.
 
-Cet article vous montre comment configurer le flux dans le client Windows Virtual Desktop dans le portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
+Cet article explique comment configurer le flux dans le client Azure Virtual Desktop sur le Portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## <a name="requirements"></a>Configuration requise
 
-Pour configurer un hôte de session Windows Virtual Desktop avec un proxy KDC, vous avez besoin des éléments suivants :
+Pour configurer un hôte de session Azure Virtual Desktop avec un proxy KDC, vous avez besoin des éléments suivants :
 
 - Un accès au portail Azure et à un compte Administrateur Azure.
 - Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé. Actuellement, le client Web n’est pas pris en charge.
-- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
+- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configuration du rôle Passerelle des services Bureau à distance pour Azure Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 - Le système d’exploitation de l’ordinateur doit être Windows Server 2016 ou une version ultérieure.
 
 Une fois que vous avez vérifié que vous répondez à ces exigences, vous êtes prêt à commencer.
@@ -43,12 +43,9 @@ Pour configurer le proxy de KDC :
 
 1. Connectez-vous au portail Azure en tant qu’administrateur.
 
-2. Accédez à la page Windows Virtual Desktop.
+2. Accédez à la page Azure Virtual Desktop.
 
 3. Sélectionnez le pool d’hôtes pour lequel vous souhaitez activer le proxy de KDC, puis sélectionnez **Propriétés RDP**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Capture d’écran de la page du portail Azure montrant un utilisateur sélectionnant des pools d’hôtes, le nom de l’exemple de pool d’hôtes, puis les propriétés RDP.](media/rdp-properties.png)
 
 4. Sélectionnez l’onglet **Avancé**, puis entrez une valeur au format suivant sans espaces :
 

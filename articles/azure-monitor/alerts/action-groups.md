@@ -3,14 +3,14 @@ title: Créer et gérer des groupes d’actions sur le Portail Azure
 description: Découvrez comment créer et gérer des groupes d’action sur le Portail Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: ae170fc500f8682a6c090b654fdfd0325b8eb49e
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795399"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060315"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -160,6 +160,8 @@ Lors de la configuration du *rôle ARM d’e-mail*, vous devez vous assurer que 
 ### <a name="function"></a>Fonction
 Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md). Pour gérer une demande, votre point de terminaison doit gérer le verbe HTTP POST.
 
+Lors de la définition de l’action Function, la clé d’accès et le point de terminaison httptrigger de Function sont enregistrés dans la définition de l’action. Par exemple : https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. Si vous modifiez la clé d’accès de la fonction, vous devrez supprimer et recréer l’action Function dans le groupe d’actions.
+
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 
 ### <a name="itsm"></a>ITSM
@@ -304,12 +306,14 @@ La tarification pour les pays/régions pris en charge est indiquée dans la [pag
 | 351 | Portugal |
 | 1 | Porto Rico |
 | 40 | Roumanie |
+| 7  | Russie  |
 | 65 | Singapour |
 | 27 | Afrique du Sud |
 | 82 | Corée du Sud |
 | 34 | Espagne |
 | 41 | Suisse |
 | 886 | Taïwan |
+| 971 | UAE    |
 | 44 | Royaume-Uni |
 | 1 | États-Unis |
 

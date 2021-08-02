@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c71ae3378c1d5d6304b506f2d5a4dbaa9b15e8e
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91306359"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111855023"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
 La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Microsoft 365 ou Azure AD.
@@ -69,7 +69,7 @@ De plus, `-SupportMultipleDomain` s’assure que le système AD FS inclut la val
 
 Ainsi, pendant l’authentification auprès d’Azure AD ou de Microsoft 365, l’élément IssuerUri du jeton de l’utilisateur est employé pour localiser le domaine dans Azure AD. Si aucune correspondance ne peut être trouvée, l’authentification échoue.
 
-Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans les émissions AD FS du jeton a la valeur `http://bmcontoso.com/adfs/services/trust`. Cet élément correspond à la configuration Azure AD et donc l’authentification réussit.
+Par exemple, si l’UPN d’un utilisateur est bsimon@bmcontoso.com, l’élément IssuerUri dans le jeton émis par AD FS a la valeur `http://bmcontoso.com/adfs/services/trust`. Cet élément correspond à la configuration Azure AD et donc l’authentification réussit.
 
 Vous trouverez ci-dessous la règle de revendication personnalisée qui implémente cette logique :
 

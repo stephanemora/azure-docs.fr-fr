@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 06/08/2021
+ms.openlocfilehash: c7cc9ba4cddb21dd68af4a4e3253361e1e3e62fd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801585"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754886"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
@@ -122,14 +122,22 @@ Certains outils et certaines langues imposent des exigences supplémentaires en 
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Recherche par caractères génériques
 
-Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (`*`) ou un caractère générique unique (`?`). Par exemple, une expression de requête `search=alpha*` retourne « alphanumérique » ou « alphabétique ». Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
+Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (`*`) ou un caractère générique unique (`?`). La syntaxe Lucene complète prend en charge la correspondance de préfixe, d’infixe et de suffixe. 
 
-La syntaxe Lucene complète prend en charge la correspondance de préfixe, d’infixe et de suffixe. Toutefois, si tout ce dont vous avez besoin est la correspondance de préfixe, vous pouvez utiliser la syntaxe simple (la correspondance de préfixe est prise en charge dans les deux).
+Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
 
-La correspondance de suffixe, où `*` ou `?` précède la chaîne (comme dans `search=/.*numeric./`), ou la correspondance d’infixe nécessite une syntaxe Lucene complète ainsi que les barres obliques `/` délimiteurs d’expressions régulières. Vous ne pouvez pas utiliser un signe * ou ? comme premier caractère d’un terme, ou dans un terme, sans `/`. 
+| Type d’affixe | Description et exemples |
+|------------|--------------------------|
+| prefix | Le fragment de terme vient devant `*` ou `?` .  Par exemple, une expression de requête `search=alpha*` retourne « alphanumérique » ou « alphabétique ». La mise en correspondance de préfixe est prise en charge tant dans la syntaxe simple que dans la syntaxe complète. |
+| suffix | Le terme fragment vient derrière `*` ou `?`, avec une barre oblique pour délimiter la construction. Par exemple, `search=/.*numeric./` retourne « alphanumeric ». |
+| Infixe  | Les fragments de terme encadrent `*` ou `?`.  Par exemple, `search=/.non*al./` retourne « non ordinal » et « non cardinal ». |
+
+Vous pouvez combiner plusieurs opérateurs dans une seule expression. Par exemple, `980?2*` trouve à « 98072-1222 » et « 98052-1234 », où `?` correspond à un caractère unique (obligatoire) et `*` aux caractères d’une longueur arbitraire qui suivent.
+
+La correspondance de suffixe et d’infixe requiert les délimiteurs barre oblique `/` d’expression régulière. En général, lors de l’écriture de code, vous ne pouvez pas utiliser un symbole * ou ? comme premier caractère d’un terme, ou dans un terme, sans `/`. Dans certains outils, tels que Postman ou le portail Azure, l’échappement est intégré et vous pouvez souvent exécuter une requête sans entrer le délimiteur.
 
 > [!NOTE]  
-> En règle générale, les critères spéciaux sont lents ; vous préférerez donc peut-être explorer d’autres méthodes, telles que la tokenisation Edge n-Gram qui crée des jetons pour les séquences de caractères d’un terme. L’index sera plus grand, mais les requêtes pourront s’exécuter plus rapidement, en fonction de la construction du modèle et de la longueur des chaînes que vous indexez.
+> En règle générale, les critères spéciaux sont lents ; vous préférerez donc peut-être explorer d’autres méthodes, telles que la tokenisation Edge n-Gram qui crée des jetons pour les séquences de caractères d’un terme. Avec une segmentation du texte en unités lexicales n-gram, l’index est plus grand, mais les requêtes peuvent s’exécuter plus rapidement, en fonction de la construction du modèle et de la longueur des chaînes que vous indexez.
 >
 
 ### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Impact d’un analyseur sur les requêtes génériques

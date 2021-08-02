@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 035215bf9350243f667c4883786a923a172cb89c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 42326cd4080fe6737fd14f8dc2c5a2028c20077f
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126558"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854537"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Connexions AD FS dans Azure AD avec Connect Health - préversion
 
@@ -28,7 +28,7 @@ Les connexions AD FS peuvent désormais être intégrées dans le rapport de con
 L’agent Connect Health pour AD FS met en corrélation plusieurs ID d’événements à partir d’AD FS, en fonction de la version du serveur, afin de fournir des informations sur la requête et les détails de l’erreur en cas d’échec de la requête. Ces informations sont corrélées avec le schéma de rapport de connexion Azure AD et affichées dans l’expérience utilisateur de rapport de connexion Azure AD. En plus du rapport, un nouveau flux Log Analytics est disponible avec les données d’AD FS et un nouveau modèle de classeur Azure Monitor. Le modèle peut être utilisé et modifié pour une analyse approfondie des scénarios tels que les verrouillages de compte AD FS, les tentatives de mot de passe incorrectes et les pics de tentatives de connexion inattendues.
 
 ## <a name="prerequisites"></a>Prérequis
-* Azure AD Connect Health pour AD FS, installé et mis à niveau vers la dernière version.
+* Azure AD Connect Health pour AD FS, installé et mis à niveau vers la dernière version (3.1.95.0 ou version ultérieure).
 * Rôle de lecteur de rapports ou d’administrateur général pour afficher les connexions Azure AD
 
 ## <a name="what-data-is-displayed-in-the-report"></a>Quelles données sont affichées dans le rapport ?

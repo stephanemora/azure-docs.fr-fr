@@ -5,21 +5,19 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/04/2021
+ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 4162fe12ff54f16cd5f982f6a576905227c9a107
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107821041"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528314"
 ---
-## <a name="disk-level-bursting"></a>Bursting de disque
-
 ### <a name="on-demand-bursting-preview"></a>Bursting à la demande (préversion)
 
-Les disques utilisant le modèle de bursting à la demande peuvent pousser leurs capacités au-delà des cibles prévues à l’origine, aussi souvent que leur charge de travail l’exige et dans la limite de la capacité de bursting maximale. Par exemple, pour un disque P30 de 1 Tio, l’IOPS configurée est de 5 000 IOPS. Lorsque le bursting de disque est activé sur ce disque, vos charges de travail peuvent générer des E/S sur ce disque dans la limite des performances de bursting maximales, soit 30 000 IOPS et 1 000 Mbits/s.
+Les disques SSD Premium utilisant le modèle de bursting à la demande peuvent pousser leurs capacités au-delà des cibles prévues à l’origine, aussi souvent que leur charge de travail l’exige et dans la limite de la capacité de bursting maximale. Par exemple, pour un disque P30 de 1 Tio, l’IOPS configurée est de 5 000 IOPS. Lorsque le bursting de disque est activé sur ce disque, vos charges de travail peuvent générer des E/S sur ce disque dans la limite des performances de bursting maximales, soit 30 000 IOPS et 1 000 Mbits/s.
 
 Si vous souhaitez que vos charges de travail dépassent fréquemment les capacités de performances prévues, le bursting de disque n’est pas la solution la plus rentable. Dans ce cas, nous vous recommandons de changer le niveau de performance de votre disque et de passer à un [niveau supérieur](../articles/virtual-machines/disks-performance-tiers.md) pour améliorer les performances de base. Consultez les détails de vos factures et analysez-les par rapport au modèle de trafic de vos charges de travail.
 
@@ -33,7 +31,7 @@ Avant d’activer le bursting à la demande, vous devez comprendre les points su
 
 #### <a name="billing"></a>Facturation
 
-Les disques utilisant le modèle de bursting à la demande sont facturés selon un forfait horaire d’activation de bursting et des frais de transaction s’appliquent à toutes les transactions de bursting qui dépassent les capacités cibles configurées. Les frais de transaction sont facturés à l’aide du modèle de paiement à l’utilisation en fonction des E/S de disque non mises en cache, y compris les lectures et les écritures qui dépassent les capacités cibles configurées. Voici un exemple de modèles de trafic de disque sur une heure de facturation :
+Les disques SSD Premium utilisant le modèle de bursting à la demande sont facturés selon un forfait horaire d’activation de bursting et des frais de transaction s’appliquent à toutes les transactions de bursting qui dépassent les capacités cibles configurées. Les frais de transaction sont facturés à l’aide du modèle de paiement à l’utilisation en fonction des E/S de disque non mises en cache, y compris les lectures et les écritures qui dépassent les capacités cibles configurées. Voici un exemple de modèles de trafic de disque sur une heure de facturation :
 
 Configuration du disque : SSD Premium – 1 Tio (P30), bursting de disque activé.
 
@@ -64,7 +62,7 @@ Pour activer le bursting à la demande, consultez [Activer le bursting à la dem
 
 ### <a name="credit-based-bursting"></a>Bursting basé sur les crédits
 
-Le bursting basé sur les crédits est également disponible pour les tailles de disque P20 et inférieures dans toutes les régions des clouds Azure publics, gouvernementaux et en Chine. Par défaut, le bursting de disque est activé par défaut sur tous les déploiements nouveaux et existants des tailles de disque prises en charge. Le bursting au niveau des machines virtuelles utilise uniquement le bursting basé sur les crédits.
+Pour les disques SSD Premium, le bursting basé sur les crédits est disponible pour les tailles de disque P20 et plus petites. Pour les disques SSD Standard, le bursting basé sur les crédits est disponible pour les tailles de disque E30 et plus petites. Pour les disques SSD Standard et Premium, le bursting basé sur les crédits est disponible dans toutes les régions des clouds Azure public, Azure Government et Azure China 21Vianet. Par défaut, le bursting de disque est activé par défaut sur tous les déploiements nouveaux et existants des tailles de disque prises en charge. Le bursting au niveau des machines virtuelles utilise uniquement le bursting basé sur les crédits.
 
 ## <a name="virtual-machine-level-bursting"></a>Bursting au niveau des machines virtuelles
 

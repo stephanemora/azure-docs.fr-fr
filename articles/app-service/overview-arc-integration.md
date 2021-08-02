@@ -3,12 +3,12 @@ title: App Service sur Azure Arc
 description: Introduction à l’intégration d’App Service avec Azure arc pour opérateurs Azure.
 ms.topic: article
 ms.date: 05/03/2021
-ms.openlocfilehash: 8119d983a891ac6a671920c745d6395f4418ce24
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bbdb7fb1426a5c63e579929806caa1b2008f11eb
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384854"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590087"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>App Service, Functions et Logic Apps sur Azure Arc (préversion)
 
@@ -26,19 +26,19 @@ Dans la plupart des cas, les développeurs d’applications n’ont besoin de sa
 
 ## <a name="public-preview-limitations"></a>Limitations de la version préliminaire publique
 
-Les limitations de préversion publique suivantes s’appliquent aux environnements Kubernetes App Service. Elles seront mises à jour quand des distributions supplémentaires seront validées et quand d’autres régions seront prises en charge.
+Les limitations de préversion publique suivantes s’appliquent aux environnements Kubernetes App Service. Elles seront mises à jour à mesure que des modifications seront rendues disponibles.
 
-| Limitation                                              | Détails                                                                          |
-|---------------------------------------------------------|----------------------------------------------------------------------------------|
-| Régions Azure prises en charge                                 | USA Est, Europe Ouest                                                             |
-| Distributions Kubernetes validées                      | Azure Kubernetes Service                                                         |
-| Fonctionnalité : mise en réseau                                     | [Non disponible (dépend de la mise en réseau du cluster)](#are-networking-features-supported) |
-| Fonctionnalité : identités managées                             | [Non disponible](#are-managed-identities-supported)                               |
-| Fonctionnalité : références de coffre de clés                           | Non disponible (dépend d’identités managées)                                    |
-| Fonctionnalité : extraire des images d’ACR avec une identité managée     | Non disponible (dépend d’identités managées)                                    |
-| Fonctionnalité : modification dans le portail pour Functions et Logic Apps | Non disponible                                                                    |
-| Fonctionnalité : publication FTP                                 | Non disponible                                                                    |
-| Journaux d’activité                                                    | Log Analytics doit être configuré avec l’extension de cluster, pas par site            |
+| Limitation                                              | Détails                                                                               |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Régions Azure prises en charge                                 | USA Est, Europe Ouest                                                                  |
+| Exigence de mise en réseau du cluster                          | Doit prendre en charge le type de service `LoadBalancer` et fournir une adresse IP statique adressable publiquement |
+| Fonctionnalité : mise en réseau                                     | [Non disponible (dépend de la mise en réseau du cluster)](#are-networking-features-supported)      |
+| Fonctionnalité : identités managées                             | [Non disponible](#are-managed-identities-supported)                                    |
+| Fonctionnalité : références de coffre de clés                           | Non disponible (dépend d’identités managées)                                         |
+| Fonctionnalité : extraire des images d’ACR avec une identité managée     | Non disponible (dépend d’identités managées)                                         |
+| Fonctionnalité : modification dans le portail pour Functions et Logic Apps | Non disponible                                                                         |
+| Fonctionnalité : publication FTP                                 | Non disponible                                                                         |
+| Journaux d’activité                                                    | Log Analytics doit être configuré avec l’extension de cluster, pas par site                 |
 
 ## <a name="pods-created-by-the-app-service-extension"></a>Pod créés par l’extension App Service
 
@@ -74,6 +74,7 @@ Une seule ressource d’environnement Kubernetes peut être créée dans un empl
 - [Les fonctionnalités réseau sont-elles prises en charge ?](#are-networking-features-supported)
 - [Les identités gérées sont-elles prises en charge ?](#are-managed-identities-supported)
 - [Quels journaux sont collectés ?](#what-logs-are-collected)
+- [Que dois-je faire si une erreur d’inscription du fournisseur s’affiche ?](#what-do-i-do-if-i-see-a-provider-registration-error)
 
 ### <a name="how-much-does-it-cost"></a>Quel est son coût ?
 
@@ -108,6 +109,10 @@ Non. Les applications ne peuvent pas recevoir d’identités managées lors de l
 Les journaux des composants système et de vos applications sont écrits dans une sortie standard. Il est possible de collecter les deux types de journaux à des fins d’analyse à l’aide d’outils Kubernetes standard. Vous pouvez également configurer l’extension de cluster App Service avec un [espace de travail Log Analytics](../azure-monitor/logs/log-analytics-overview.md) afin d’envoyer tous les journaux à cet espace de travail.
 
 Par défaut, les journaux des composants système sont envoyés à l’équipe Azure. Les journaux des applications ne sont pas envoyés. Vous pouvez empêcher le transfert de ces journaux en définissant `logProcessor.enabled=false` comme paramètre de configuration d’extension. Cela a également pour effet de désactiver le transfert de l’application vers votre espace de travail Log Analytics. La désactivation du processeur de journal peut avoir un impact sur le temps nécessaire pour les cas de support, et vous serez invité à collecter les journaux de la sortie standard via d’autres moyens.
+
+### <a name="what-do-i-do-if-i-see-a-provider-registration-error"></a>Que dois-je faire si une erreur d’inscription du fournisseur s’affiche ?
+
+Lors de la création d’une ressource d’environnement Kubernetes, certains abonnements peuvent recevoir un message d’erreur indiquant qu’Aucun fournisseur de ressources inscrit n’a été trouvé. Les détails de l’erreur peuvent inclure un ensemble d’emplacements et de versions d’API considérés comme valides. Dans ce cas, il se peut que l’abonnement doive être réinscrit auprès du fournisseur Microsoft.Web. Cette opération n’a aucune incidence sur les applications ou API existantes. Pour vous réinscrire, dans Azure CLI, exécutez la commande `az provider register --namespace Microsoft.Web --wait`. Réexécutez ensuite la commande d’environnement Kubernetes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

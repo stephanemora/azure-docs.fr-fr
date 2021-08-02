@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 393163cadf1907ac5bbb769ea2644bea190773ed
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: d8e8daba3806ad651f66324f362eb2573111dd80
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794319"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112070900"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -102,11 +102,12 @@ Cet article explique comment créer un volume NFS. Pour les volumes SMB, consul
 
 3. Cliquez sur **Protocole**, puis effectuez les actions suivantes :  
     * Sélectionnez **NFS** comme type de protocole pour le volume.   
-    * Spécifiez le **chemin du fichier** à utiliser pour créer le chemin d’exportation du nouveau volume. Le chemin d’exportation est utilisé pour monter le volume et y accéder.
 
-        Le nom du chemin du fichier peut contenir seulement des lettres, des chiffres et des traits d’union (« - »). Il doit comprendre entre 16 et 40 caractères. 
-
-        Le chemin d’accès du fichier doit être unique au sein de chaque abonnement et chaque région. 
+    * Spécifiez un **chemin de fichier** unique pour le volume. Ce chemin est utilisé lorsque vous créez des cibles de montage. Les exigences concernant ce chemin sont les suivantes :   
+        - Il doit être unique au sein de chaque sous-réseau de la région. 
+        - Il doit commencer par un caractère alphabétique.
+        - Il doit contenir uniquement des lettres, des chiffres ou des tirets (`-`). 
+        - La longueur totale ne doit pas dépasser 80 caractères.
 
     * Sélectionnez la version de NFS (**NFSv3** ou **NFSv4.1**) du volume.  
 

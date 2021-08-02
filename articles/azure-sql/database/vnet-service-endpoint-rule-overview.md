@@ -10,13 +10,13 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 11/14/2019
-ms.openlocfilehash: 67e807e948caf1fec014457814c1b7f105630f9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/26/2021
+ms.openlocfilehash: b1748de761ad5180e2ddb670f31874620e4c5ae8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784422"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971999"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 
@@ -182,7 +182,7 @@ La technologie PolyBase et l’instruction COPY sont couramment utilisées pour 
 
 ### <a name="sql-database-blob-auditing"></a>Audit de blobs SQL Database
 
-L’audit d’objets blob transfère des journaux d’audit à votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service de réseau virtuel, la connectivité entre SQL Database et le compte de stockage est arrêtée.
+L’audit Azure SQL peut écrire des journaux d’audit SQL dans votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service de réseau virtuel, consultez l’article expliquant comment [écrire un audit dans un compte de stockage derrière un réseau virtuel et un pare-feu](./audit-write-storage-account-behind-vnet-firewall.md).
 
 ## <a name="add-a-virtual-network-firewall-rule-to-your-server"></a>Ajouter une règle de pare-feu de réseau virtuel à votre serveur
 
