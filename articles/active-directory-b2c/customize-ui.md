@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ecece3a00a788b67f6c831804bf5b00372fef93d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba24afb329b5d588ab7a71976f56f50eb475b04b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99056762"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575405"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -36,6 +36,9 @@ La personnalisation de l'interface utilisateur qu'Azure Active Directory B2C (Az
 ## <a name="overview"></a>Vue d’ensemble
 
 Azure AD B2C fournit différents modèles intégrés pour vous permettre de donner un aspect professionnel aux pages de votre interface utilisateur. Ces modèles de page peuvent également servir de point de départ à votre propre personnalisation, à l'aide de la fonctionnalité [Marque de société](#company-branding).
+
+> [!NOTE]
+> Les navigateurs pris en charge pour le modèle classique sont les versions actuelles et précédentes d’Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox et Safari. Les modèles Ocean Blue et Slate Gray peuvent avoir une prise en charge limitée avec les anciennes versions de navigateur, comme Internet Explorer 11 et 10. Nous vous recommandons de tester votre application avec les navigateurs que vous avez l’intention de prendre en charge.
 
 ### <a name="ocean-blue"></a>Bleu océan
 

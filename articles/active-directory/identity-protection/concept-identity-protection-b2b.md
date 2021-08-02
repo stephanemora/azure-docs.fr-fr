@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c00090ec6b63f41a92beb485433d4667fc85860
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 357a9f7e3e498a477d6cadf3742e11696eafa896
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108766013"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786547"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilisateurs Identity Protection et B2B
 
@@ -65,8 +65,8 @@ Le risque de l’utilisateur pour les utilisateurs de la collaboration B2B est �
 Il existe des limitations dans l’implémentation d’Identity Protection pour les utilisateurs de la collaboration B2B dans un répertoire de ressources, car leur identité existe dans leur répertoire de départ. Les limitations principales sont les suivantes :
 
 - Si un utilisateur invité déclenche la stratégie de risque de l’utilisateur Identity Protection pour forcer la réinitialisation du mot de passe, **il sera bloqué**. Ce bloc est dû à l’impossibilité de réinitialiser les mots de passe dans le répertoire des ressources.
-- **Les utilisateurs invités n’apparaissent pas dans le rapport utilisateurs à risque**. Cette perte de visibilité est due à l’évaluation des risques se produisant dans le répertoire de départ de l’utilisateur B2B.
-- Les administrateurs **ne peuvent pas ignorer ou corriger un utilisateur à risque de la collaboration B2B** dans leur répertoire de ressources. Cette perte de fonctionnalité est due au fait que les administrateurs du répertoire de ressources n’ont pas accès au répertoire de départ de l’utilisateur B2B.
+- **Les utilisateurs invités n’apparaissent pas dans le rapport utilisateurs à risque**. Cette imitation est due à l’évaluation des risques se produisant dans le répertoire de départ de l’utilisateur B2B.
+- Les administrateurs **ne peuvent pas ignorer ou corriger un utilisateur à risque de la collaboration B2B** dans leur répertoire de ressources. Cette imitation est due au fait que les administrateurs du répertoire de ressources n’ont pas accès au répertoire de départ de l’utilisateur B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>Pourquoi ne puis-je pas corriger les utilisateurs à risque de la collaboration B2B dans mon annuaire ?
 

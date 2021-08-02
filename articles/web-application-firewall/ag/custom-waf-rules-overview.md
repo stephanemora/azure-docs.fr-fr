@@ -7,12 +7,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 9a5f64687937479d65f94010bbe4f0a5f1cf5ca2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: dcce15618159b9d6a06a513435f0e091e02a2b2c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548221"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411249"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Règles personnalisées du pare-feu d’applications web v2 sur Azure Application Gateway
 
@@ -22,7 +23,7 @@ Les règles personnalisées vous permettent de créer vos propres règles évalu
 
 Par exemple, vous pouvez bloquer toutes les demandes à partir d’une adresse IP de la plage 192.168.5.4/24. Dans cette règle, l’opérateur est *IPMatch*, matchValues correspond à la plage d’adresses IP (192.168.5.4/24) et l’action consiste à bloquer le trafic. Vous définissez également le nom et la priorité de la règle.
 
-Les règles personnalisées prennent en charge l’utilisation de la logique de composition pour établir des règles plus avancées répondant à vos besoins de sécurité. Par exemple, (Condition 1 **et** Condition 2) **ou** Condition 3). Cet exemple signifie que si la Condition 1 **et** la Condition 2 sont remplies, **ou** si la Condition 3 est remplie, le pare-feu d’applications web doit effectuer l’action spécifiée dans la règle personnalisée.
+Les règles personnalisées prennent en charge l’utilisation de la logique de composition pour établir des règles plus avancées répondant à vos besoins de sécurité. Par exemple, ((Condition 1 **et** Condition 2) **ou** Condition 3). Cet exemple signifie que si la Condition 1 **et** la Condition 2 sont remplies, **ou** si la Condition 3 est remplie, le pare-feu d’applications web doit effectuer l’action spécifiée dans la règle personnalisée.
 
 Différentes conditions de correspondance au sein de la même règle sont toujours composées à l’aide de **et**. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement si un certain navigateur est utilisé.
 

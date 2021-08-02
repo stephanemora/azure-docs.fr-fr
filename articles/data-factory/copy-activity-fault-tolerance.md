@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb3a7b66d27fcf7669d3d2f863f104a46387e90f
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390961"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902480"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -132,7 +132,7 @@ Colonne | Description
 -------- | -----------  
 Timestamp | Timestamp lorsqu’Azure Data Factory ignore le fichier.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+OperationName | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Noms des fichiers à ignorer.
 Message | Informations supplémentaires permettant d’expliquer la raison pour laquelle le fichier est ignoré.
 
@@ -246,7 +246,7 @@ Dans l’exemple de fichier journal ci-dessus, vous pouvez voir qu’une ligne �
 
 ## <a name="copying-tabular-data-legacy"></a>Copie des données tabulaires (héritées) :
 
-Voici la méthode héritée permettant d’activer la tolérance de panne pour la copie de données tabulaires uniquement. Si vous créez un pipeline ou une activité, nous vous conseillons de démarrer plutôt à partir d’[ici](#copying-tabular-data).
+Voici l’approche héritée permettant d’activer la tolérance de panne pour la copie de données tabulaires uniquement. Si vous créez un pipeline ou une activité, nous vous conseillons de démarrer plutôt à partir d’[ici](#copying-tabular-data).
 
 ### <a name="configuration"></a>Configuration
 L’exemple suivant fournit une définition JSON pour configurer l’omission des lignes incompatibles dans le cadre de l’activité de copie :

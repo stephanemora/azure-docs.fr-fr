@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: 89123da71dc47d3fb302ab6c82e26baf3df94357
-  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+  ms.openlocfilehash: 98e0983c84e543dd67301f057cb3f50e8f66d441
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/09/2021
-  ms.locfileid: "111757621"
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113033350"
 landingContent:
 - title: À propos d’Azure Virtual Desktop
   linkLists:
@@ -52,17 +52,19 @@ landingContent:
       url: ./virtual-desktop-fall-2019/create-validation-host-pool-2019.md
     - text: Configurer des alertes de service
       url: ./virtual-desktop-fall-2019/set-up-service-alerts-2019.md
-- title: Se connecter à Azure Virtual Desktop
+- title: Azure Virtual Desktop pour les utilisateurs
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Client Windows Desktop
-      url: connect-windows-7-10.md
-    - text: Client web
-      url: connect-web.md
-    - text: Client Android
-      url: connect-android.md
-    - text: Client macOS
-      url: connect-macos.md
-    - text: Client iOS
-      url: connect-ios.md
+    - text: Se connecter avec le Bureau Windows
+      url: ./user-documentation/connect-windows-7-10.md
+    - text: Se connecter avec le client web
+      url: ./user-documentation/connect-web.md
+    - text: Se connecter avec Android
+      url: ./user-documentation/connect-android.md
+    - text: Se connecter avec macOS
+      url: ./user-documentation/connect-macos.md
+    - text: Se connecter avec iOS
+      url: ./user-documentation/connect-ios.md
+    - text: Se connecter avec Linux ou des clients légers
+      url: ./user-documentation/linux-overview.md

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11ddb2e76123c1181efffea3ef66a517bb5124a2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207372"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077677"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -44,7 +44,7 @@ Azure Disk Encryption n’est pas disponible non plus sur les [machines virtuell
 
 | Machine virtuelle | Mémoire minimale requise |
 |--|--|
-| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
+| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est de 4 Go ou moins | 8 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est supérieure à 4 Go | L’utilisation du système de fichiers racine * 2. Par exemple, une utilisation du système de fichiers racine de 16 Go nécessite au moins 32 Go de RAM |
 
@@ -102,9 +102,13 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Disque de données uniquement |
 
 > [!NOTE]
-> La nouvelle implémentation d’Azure Disk Encryption est prise en charge pour les disques de système d’exploitation et de données RHEL pour les images avec Paiement à l’utilisation de RHEL7.  
+> La nouvelle implémentation d’Azure Disk Encryption est prise en charge pour les disques de système d’exploitation et de données RHEL pour les images avec Paiement à l’utilisation de RHEL7.
 >
 > ADE est également pris en charge pour les images Gold Bring-Your-Own-Subscription de RHEL, mais uniquement **après** que l’abonnement ait été inscrit. Pour plus d’informations, consultez [Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> 
+> La prise en charge ADE pour un type d’offre spécifique ne dépasse pas la date de fin de vie fournie par l’éditeur. 
+> 
+> La solution ADE héritée (utilisant des informations d’identification AAD) n’est pas recommandée pour les nouvelles machines virtuelles et n’est pas compatible avec les versions RHEL ultérieures à RHEL 7.8.
 
 ## <a name="additional-vm-requirements"></a>Configuration requise supplémentaire pour les machines virtuelles
 

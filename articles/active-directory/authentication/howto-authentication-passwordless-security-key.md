@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba71fb0dd543780ebfb8783ed937a14e2afbe417
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3373c1f9a82f79782ed1758fd09c83bcfbe6fc03
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467304"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963714"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
@@ -32,7 +32,6 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 - WebAuthN nécessite Windows 10 version 1903 ou plus**
 
 Pour utiliser des clés de sécurité pour la connexion aux services et applications web, vous devez disposer d’un navigateur qui prend en charge le protocole WebAuthN. Il s’agit notamment de Microsoft Edge, Chrome, Firefox et Safari.
-
 
 ## <a name="prepare-devices"></a>Préparer les appareils
 
@@ -65,11 +64,32 @@ Il existe certains paramètres facultatifs pour la gestion des clés de sécurit
 **Général**
 
 - **Autoriser la configuration du libre-service** doit rester défini sur **Oui**. Si la valeur est non, vos utilisateurs ne seront pas en mesure d’inscrire une clé FIDO via le portail MySecurityInfo, même s’il est activé par la stratégie des méthodes d’authentification.  
-- Si la valeur du paramètre **Appliquer l’attestation** est **Oui**, les métadonnées de clé de sécurité FIDO doivent être publiées et vérifiées auprès du service de métadonnées FIDO Alliance et également passer d’autres tests de validation par Microsoft. Pour plus d’informations, consultez [Qu’est-ce qu’une clé de sécurité compatible Microsoft ?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- Si la valeur du paramètre **Appliquer l’attestation** est **Oui**, les métadonnées de clé de sécurité FIDO doivent être publiées et vérifiées auprès du service de métadonnées FIDO Alliance et également passer d’autres tests de validation par Microsoft. Pour plus d’informations, consultez [Qu’est-ce qu’une clé de sécurité compatible Microsoft ?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
 
 **Stratégie de restriction de clé**
 
 - La valeur de **Appliquer les restrictions de clé** doit être définie sur **Oui** uniquement si votre organisation souhaite autoriser ou interdire certaines clés de sécurité FIDO, identifiées par leur AAGuids. Vous pouvez utiliser votre fournisseur de clés de sécurité pour déterminer les AAGuid de leurs appareils. Si la clé est déjà inscrite, l’AAGUID peut également être retrouvé en consultant les détails de la méthode d’authentification de la clé par utilisateur. 
+
+
+## <a name="disable-a-key"></a>Désactiver une clé 
+
+Pour supprimer une clé FIDO2 associée à un compte d’utilisateur, supprimez la clé de la méthode d’authentification de l’utilisateur.
+
+1. Connectez-vous au portail Azure AD et recherchez le compte d’utilisateur à partir duquel la clé de la porte doit être supprimée.
+1. Sélectionnez **Méthodes d’authentification** > cliquez avec le bouton droit sur **Clé de sécurité FIDO2**, puis cliquez sur **Supprimer**. 
+
+    ![Voir les détails de la méthode d'authentification](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
+
+## <a name="security-key-authenticator-attestation-guid-aaguid"></a>GUID d’attestation de l’authentificateur de clé de sécurité (AAGUID)
+
+La spécification FIDO2 requiert que chaque fournisseur de clé de sécurité fournisse un GUID d’attestation d’authentificateur (AAGUID) lors de l’attestation. Un AAGUID est un identificateur 128 bits indiquant le type de clé, comme la marque et le modèle. 
+
+>[!NOTE]
+>Le fabricant doit s’assurer que le AAGUID est identique sur toutes les clés substantiellement identiques effectuées par ce fabricant, et différentes (avec une forte probabilité) des AAGUID de tous les autres types de clés. Pour garantir cela, les AAGUID pour un type donné de clé de sécurité doivent être générés de manière aléatoire. Pour plus d’informations, consultez [Authentification Web : API pour accéder aux informations d’identification de la clé publique - Niveau 2 (w3.org)](https://w3c.github.io/webauthn/).
+
+Vous pouvez obtenir votre AAGUID de deux manières. Vous pouvez demander à votre fournisseur de clés de sécurité ou afficher les détails de la méthode d’authentification de la clé par utilisateur.
+
+![Afficher AAGUID pour la clé de sécurité](media/howto-authentication-passwordless-deployment/security-key-aaguid-details.png)
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Inscription des utilisateurs et gestion des clés de sécurité FIDO2
 
@@ -110,7 +130,7 @@ L’approvisionnement et déprovisionnement de clés de sécurité par l’admin
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 
-Nous travaillons sur la prise en charge d’une fonctionnalité qui permet la modification de l’UPN sur les appareils joints à Azure AD et à Azure AD Hybride. Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en tenir compte. La solution consiste à réinitialiser l’appareil, et l’utilisateur doit s’inscrire de nouveau.
+Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en tenir compte. La solution pour un utilisateur avec une clé de sécurité FIDO2 consiste à se connecter à MySecurityInfo, à supprimer l’ancienne clé et à en ajouter une nouvelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

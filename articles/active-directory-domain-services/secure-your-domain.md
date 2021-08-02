@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/27/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 367657b803ce50cd923c08b4b7b58dc3f945e1f4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748981"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613250"
 ---
 # <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Renforcer un domaine géré des services de domaine Azure Active Directory
 
@@ -47,7 +47,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
 1. Choisissez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Sur le côté gauche, sélectionnez **Paramètres de sécurité**.
-1. Cliquez sur **Désactiver** pour les paramètres suivants :
+1. Cliquez sur **Activer** ou **Désactiver** pour les paramètres suivants :
    - **Mode TLS 1.2 uniquement**
    - **Authentification NTLM**
    - **Synchronisation de mot de passe NTLM à partir d’un emplacement local**
@@ -55,6 +55,15 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressour
    - **Protection Kerberos**
 
    ![Capture d’écran des paramètres de sécurité pour désactiver les chiffrements faibles et la synchronisation du hachage de mot de passe NTLM](media/secure-your-domain/security-settings.png)
+
+## <a name="assign-azure-policy-compliance-for-tls-12-usage"></a>Affecter la conformité Azure Policy pour l’utilisation de TLS 1.2
+
+En plus des **paramètres de sécurité**, Microsoft Azure stratégie a un paramètre de **conformité** pour appliquer l’utilisation du protocole TLS 1.2. La stratégie n’a aucun impact tant qu’elle n’est pas affectée. Quand la stratégie est affectée, elle apparaît en **Conformité** :
+
+- Si l’affectation est **Audit**, la conformité indique si l’instance de Azure AD DS est conforme.
+- Si l’attribution est **Refusée**, la conformité empêche la création d’une instance d’Azure AD DS si TLS 1.2 n’est pas requis et empêche toute mise à jour d’une instance Azure AD DS jusqu’à ce que TLS 1.2 soit requis.
+
+![Capture d’écran des paramètres de conformité](media/secure-your-domain/policy-tls.png)
 
 ## <a name="use-powershell-to-harden-your-domain"></a>Utiliser PowerShell pour renforcer votre domaine
 

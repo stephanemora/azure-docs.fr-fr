@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Documentation sur Azure Virtual Desktop pour les utilisateurs
+summary: Connexion simplifiée à Azure Virtual Desktop.
+metadata:
+  title: Documentation utilisateur sur Azure Virtual Desktop
+  description: Avec Azure Virtual Desktop, vous pouvez utiliser Windows 10 Entreprise dans le cloud.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 09025c9bd7d12791f61496463e02cc8866fa9d37
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113034139"
+landingContent:
+- title: Se connecter avec le client Windows Desktop
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client Windows Desktop
+      url: connect-windows-7-10.md
+- title: Se connecter avec le client Microsoft Store
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client Microsoft Store
+      url: connect-microsoft-store.md
+- title: Se connecter avec le client web
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client web
+      url: connect-web.md
+- title: Se connecter avec le client macOS
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client macOS
+      url: connect-macos.md
+- title: Se connecter avec le client iOS
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client iOS
+      url: connect-ios.md
+- title: Se connecter avec le client Android
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec le client Android
+      url: connect-android.md
+- title: Se connecter avec Linux ou des clients légers
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour se connecter avec Linux ou des clients légers
+      url: linux-overview.md

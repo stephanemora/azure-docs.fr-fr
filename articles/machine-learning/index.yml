@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentation Azure Machine Learning
-summary: Découvrez comment entraîner et déployer des modèles, et gérer le cycle de vie du machine learning avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
+summary: Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.
 metadata:
   title: Documentation Azure Machine Learning
-  description: Découvrez comment entraîner et déployer des modèles, et gérer le cycle de vie du machine learning avec Azure Machine Learning. Des tutoriels, des exemples de code, des informations de référence sur les API, etc., vous montrent comment.
+  description: Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,55 +11,81 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 06/11/2021
+  ms.date: 07/09/21
   ms.custom: jordan-changes
-  ms.openlocfilehash: 8ca3c770daa74b2f9f8f8dfd2edd0e22b6659538
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: a6c9062be083260dd7a492363cb0dd79b2f37cdf
+  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112030068"
+  ms.lasthandoff: 07/10/2021
+  ms.locfileid: "113595900"
 landingContent:
-- title: 'Bien démarrer : Entraîner des modèles'
+- title: Bien démarrer
   linkLists:
-  - linkListType: tutorial
+  - linkListType: overview
+    links:
+    - text: Qu'est-ce que Azure Machine Learning ?
+      url: overview-what-is-azure-ml.md
+  - linkListType: quickstart
     links:
     - text: Configurer des ressources
       url: quickstart-create-resources.md
+  - linkListType: tutorial
+    links:
     - text: Entraîner avec le SDK Python
       url: tutorial-1st-experiment-hello-world.md
     - text: Entraîner avec l’interface CLI v2 (préversion)
       url: how-to-train-cli.md
-- title: Autres options d’entraînement de modèles
+- title: Entraîner des modèles
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Optimiser les modèles avec des balayages d’hyperparamètres
+    - text: Optimiser les hyperparamètres pour l’entraînement de modèle
       url: how-to-tune-hyperparameters.md
-    - text: Créer des pipelines ML multi-étapes
+    - text: Créer des pipelines à partir de composants réutilisables
       url: how-to-create-machine-learning-pipelines.md
+  - linkListType: tutorial
+    links:
     - text: Entraîner avec AutoML
       url: tutorial-first-experiment-automated-ml.md
-    - text: Entraîner avec un concepteur
-      url: tutorial-designer-automobile-price-train-score.md
+    - text: Exécuter le code d’entraînement dans le cloud (préversion de CLI v2)
+      url: how-to-train-cli.md
 - title: Déployer des modèles
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Déploiement d’un modèle
       url: how-to-deploy-and-where.md
-    - text: Scoring en ligne managé (préversion)
+    - text: Scoring en temps réel avec des points de terminaison managés (préversion)
       url: how-to-deploy-managed-online-endpoints.md
-    - text: Scoring en lot managé (préversion)
+    - text: Scoring par lots avec des points de terminaison managés (préversion)
       url: how-to-use-batch-endpoint.md
-- title: Gérer le cycle de vie du ML
+- title: Gérer le cycle de vie du ML (MLOps)
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Gestion, traçabilité et supervision des modèles
+      url: concept-model-management-and-deployment.md
   - linkListType: how-to-guide
     links:
-    - text: Suivre les expériences ML
+    - text: Suivre, superviser et analyser les exécutions d’entraînement
       url: how-to-track-monitor-analyze-runs.md
-    - text: Gestion du cycle de vie du ML (MLOps)
-      url: concept-model-management-and-deployment.md
+    - text: DevOps pour un pipeline d’ingestion des données
+      url: how-to-cicd-data-ingestion.md
+- title: Sécurité pour les projets ML
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sécurité et gouvernance d’entreprise
+      url: concept-enterprise-security.md
+  - linkListType: tutorial
+    links:
+    - text: Créer un espace de travail sécurisé
+      url: tutorial-create-secure-workspace.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter à la source de données
+      url: how-to-access-data.md
 - title: Documents de référence
   linkLists:
   - linkListType: reference
@@ -68,13 +94,21 @@ landingContent:
       url: /python/api/overview/azure/ml/
     - text: API REST
       url: /rest/api/azureml/
-    - text: Interface CLI de Machine Learning
+    - text: Machine Learning avec CLI v2
       url: /cli/azure/ml
-- title: Recherche de Studio (classique)
+- title: Ressources
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Exemples de code du SDK Python
+      url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+    - text: Exemples de code CLI v2 (préversion)
+      url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
+- title: Vous cherchez ML Studio (classique) ?
   linkLists:
   - linkListType: overview
     links:
-    - text: Accéder à Studio (classique)
+    - text: Documentation sur ML Studio (classique)
       url: classic/index.yml
-    - text: Studio (classique) ou le studio
+    - text: Azure Machine Learning ou Studio (classique)
       url: overview-what-is-machine-learning-studio.md

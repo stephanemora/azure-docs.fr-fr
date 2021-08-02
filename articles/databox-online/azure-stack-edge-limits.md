@@ -1,6 +1,6 @@
 ---
-title: Limites d’Azure Stack Edge Pro | Microsoft Docs
-description: Découvrez les limites et les tailles recommandées lorsque vous déployez et exploitez Azure Stack Edge Pro, notamment les limites de service, les limites d’appareil et les limites de stockage.
+title: Limites d’Azure Stack Edge Pro FPGA | Microsoft Docs
+description: Découvrez les limites et les tailles recommandées lorsque vous déployez et exploitez Azure Stack Edge Pro FPGA, notamment les limites de service, les limites d’appareil et les limites de stockage.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f10b6e1a621f9851ba5654f01a621551cf25f6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91992765"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080953"
 ---
-# <a name="azure-stack-edge-pro-limits"></a>Limites d’Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-limits"></a>Limites d’Azure Stack Edge Pro avec FPGA
 
-Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Stack Edge Pro. 
+Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Stack Edge Pro FPGA. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limites du service Azure Stack Edge
 
@@ -25,7 +25,7 @@ Tenez compte de ces limites quand vous déployez et utilisez votre solution Micr
 
 ## <a name="azure-stack-edge-device-limits"></a>Limites de l’appareil Azure Stack Edge
 
-Le tableau suivant décrit les limites de l’appareil Azure Stack Edge Pro. 
+Le tableau suivant décrit les limites de l’appareil Azure Stack Edge Pro FPGA. 
 
 Le tableau suivant décrit les limites de l’appareil Azure Stack Edge.
 
@@ -57,4 +57,4 @@ Le tableau suivant décrit les limites de l’appareil Azure Stack Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Préparer le déploiement d’Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
+- [Préparer le déploiement d’Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)

@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 8d2271fefa6d7044a216a3566290f34be964ddb2
-  ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+  ms.openlocfilehash: 53ebfd52d2e55aa8f30f7638cd9998e83c257439
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102449643"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112199427"
 landingContent:
 - title: À propos d’Azure Sentinel
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: Qu’est-ce qu’Azure Sentinel ?
       url: overview.md
+    - text: Ressources utiles
+      url: resources.md
+  - linkListType: whats-new
+    links:
     - text: Nouveautés d’Azure Sentinel
       url: whats-new.md
 - title: Bien démarrer
@@ -33,53 +37,107 @@ landingContent:
     links:
     - text: Intégrer Azure Sentinel
       url: quickstart-onboard.md
-    - text: Obtenir une visibilité des alertes
-      url: quickstart-get-visibility.md
   - linkListType: how-to-guide
     links:
     - text: Connecter des données à Azure Sentinel
       url: connect-data-sources.md
-- title: Connecter des sources de données supplémentaires
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Connecter Azure Active Directory
-      url: connect-azure-active-directory.md
-    - text: Connecter Azure Information Protection
-      url: connect-azure-information-protection.md
-    - text: Connecter AWS
-      url: connect-aws.md
-    - text: Connecter Palo Alto Networks
-      url: connect-paloalto.md
-    - text: Connecter la Threat Intelligence
-      url: connect-threat-intelligence.md
-- title: Utiliser plusieurs locataires
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Guide pratique pour activer la prise en charge de plusieurs locataires dans Azure Sentinel
-      url: multiple-tenants-service-providers.md
-- title: Savoir ce qui se passe dans votre environnement
-  linkLists:
   - linkListType: tutorial
     links:
-    - text: Superviser vos données
-      url: tutorial-monitor-your-data.md
     - text: Investiguer les incidents
       url: tutorial-investigate-cases.md
+  - linkListType: learn
+    links:
+    - text: Créer des requêtes KQL pour Azure Sentinel
+      url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+- title: Collecter les données
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Normalisation et analyse des données
+      url: normalization.md
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter Microsoft 365 Defender
+      url: connect-microsoft-365-defender.md
+    - text: Créer un connecteur personnalisé
+      url: create-custom-connector.md
+    - text: Connecter la Threat Intelligence
+      url: connect-threat-intelligence.md
+    - text: Superviser l’intégrité des connecteurs
+      url: monitor-data-connector-health.md
+    - text: Intégrer Azure Data Explorer
+      url: store-logs-in-azure-data-explorer.md
   - linkListType: reference
     links:
-    - text: Workbooks Azure Sentinel couramment utilisés
-      url: top-workbooks.md
-- title: Détecter les menaces
+    - text: Informations de référence sur les schémas de source de données
+      url: data-source-schema-reference.md
+    - text: Mappage de champs du journal CEF
+      url: cef-name-mapping.md
+    - text: Schéma de normalisation du réseau
+      url: normalization-schema.md
+- title: Informations sur les menaces
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Importer le renseignement sur les menaces dans Azure Sentinel
+      url: import-threat-intelligence.md
+    - text: Intégrations du renseignement sur les menaces
+      url: threat-intelligence-integration.md
   - linkListType: tutorial
     links:
     - text: Utiliser l’analytique intégrée pour détecter les menaces
       url: tutorial-detect-threats-built-in.md
     - text: Créer des règles de détection personnalisées
       url: tutorial-detect-threats-custom.md
-- title: Automatiser la prévention des menaces
+  - linkListType: how-to-guide
+    links:
+    - text: Connecter la Threat Intelligence
+      url: connect-threat-intelligence.md
+  - linkListType: reference
+    links:
+    - text: Informations de référence sur les entités
+      url: entities-reference.md
+- title: Détection de menaces
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Analytique du comportement des entités et des utilisateurs (UEBA)
+      url: identify-threats-with-entity-behavior-analytics.md
+    - text: Anomalies SOC-ML
+      url: soc-ml-anomalies.md
+  - linkListType: reference
+    links:
+    - text: Enrichissements UEBA
+      url: ueba-enrichments.md
+- title: Chasse des menaces
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Être à l’affût des menaces
+      url: hunting.md
+  - linkListType: how-to-guide
+    links:
+    - text: Repérer avec Jupyter Notebooks
+      url: notebooks.md
+    - text: Repérer avec des signets
+      url: bookmarks.md
+    - text: Repérer avec le livestream
+      url: livestream.md
+- title: Étudier
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Superviser vos données
+      url: tutorial-monitor-your-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Investiguer avec UEBA
+      url: investigate-with-ueba.md
+  - linkListType: reference
+    links:
+    - text: Classeurs Azure Sentinel courants
+      url: top-workbooks.md
+- title: Réponse
   linkLists:
   - linkListType: tutorial
     links:
@@ -87,11 +145,19 @@ landingContent:
       url: tutorial-respond-threats-playbook.md
     - text: Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
       url: notebooks.md
-- title: Être proactif pour la détection des menaces
+  - linkListType: concept
+    links:
+    - text: Règles d’automatisation
+      url: automate-incident-handling-with-automation-rules.md
+    - text: Playbooks
+      url: automate-responses-with-playbooks.md
+- title: Utiliser plusieurs locataires
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Connecter la Threat Intelligence
-      url: connect-threat-intelligence.md
-    - text: Être à l’affût des menaces
-      url: hunting.md
+    - text: Gérer plusieurs locataires
+      url: multiple-tenants-service-providers.md
+    - text: Utiliser les incidents dans plusieurs espaces de travail
+      url: multiple-workspace-view.md
+    - text: Gérer votre propriété intellectuelle
+      url: mssp-protect-intellectual-property.md

@@ -5,16 +5,16 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: be8a8dbe94404141781af4abf6cc8ec5bb9c2712
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0119d9b1938698ed27d9c1539c1366859d0fc7f9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060616"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411950"
 ---
-# <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Comment créer une appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
+# <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Comment créer une appliance virtuelle réseau dans un hub Azure Virtual WAN
 
 Cet article vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une **appliance virtuelle réseau** (NVA) dans Azure. Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur Virtual WAN, consultez la [présentation de Virtual WAN](virtual-wan-about.md).
 
@@ -34,7 +34,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Votre réseau virtuel n’a pas de passerelle de réseau virtuel. Si votre réseau virtuel dispose d’une passerelle (VPN ou ExpressRoute), vous devez supprimer toutes les passerelles. Cette configuration nécessite que les réseaux virtuels soient connectés à la passerelle hub Virtual WAN.
 
-* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
+* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses que vous connectez à vos sites locaux. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -99,4 +99,4 @@ Dans cette étape, vous allez créer une appliance virtuelle réseau dans le hub
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Virtual WAN, consultez la page de [présentation de Virtual WAN](virtual-wan-about.md).
-* Pour en savoir plus sur les NVA dans un hub Virtual WAN, consultez [À propos de l’appliance virtuelle réseau dans le hub Virtual WAN (préversion)](about-nva-hub.md).
+* Pour en savoir plus sur les NVA dans un hub Virtual WAN, consultez [À propos de l’appliance virtuelle réseau dans le hub Virtual WAN](about-nva-hub.md).

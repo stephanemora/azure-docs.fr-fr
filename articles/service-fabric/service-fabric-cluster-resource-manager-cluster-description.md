@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bb012c1f0cb60e590cb38fc9e362e400439b24b3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92911764"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479801"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 
@@ -349,7 +349,7 @@ Service Fabric s’attend dans certains cas à ce que des charges de travail par
 * Une charge de travail doit être exécutée sur un matériel spécifique pour des raisons d’isolation de sécurité, de performances ou de mise à l’échelle
 * Une charge de travail doit être isolée des autres charges de travail pour des raisons de stratégie ou de consommation de ressources
 
-Pour prendre en charge ces types de configurations, Service Fabric inclut des balises que vous pouvez appliquer aux nœuds. Ces balises sont appelés *propriétés de nœud*. Les *contraintes de placement* sont les instructions associées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Les contraintes de placement définissent là où les services doivent s’exécuter. L’ensemble de contraintes est extensible. N’importe quelle paire clé/valeur peut fonctionner.
+Pour prendre en charge ces types de configurations, Service Fabric inclut des balises que vous pouvez appliquer aux nœuds. Ces balises sont appelés *propriétés de nœud*. Les *contraintes de placement* sont les instructions associées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Les contraintes de placement définissent là où les services doivent s’exécuter. L’ensemble de contraintes est extensible. N’importe quelle paire clé/valeur peut fonctionner. À partir de Service Fabric 8,1, les propriétés de nœud peuvent être mises à jour de manière dynamique, sans interruption de l’exécution des charges de travail.
 
 ![Différentes charges de travail pour une disposition de cluster][Image5]
 
@@ -473,7 +473,7 @@ Comme pour les contraintes de placement et les propriétés de nœud, Service Fa
 
 ## <a name="capacity"></a>Capacité
 
-Si vous désactiviez toutes les fonctions d’*équilibrage* des ressources, Service Fabric Cluster Resource Manager serait tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble.
+Si vous désactiviez toutes les fonctions d’*équilibrage* des ressources, Service Fabric Cluster Resource Manager serait tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble. À partir de Service Fabric 8,1, les capacités de nœud peuvent être mises à jour de manière dynamique, sans interruption de l’exécution des charges de travail.
 
 La capacité et la consommation au niveau du service sont toutes deux exprimées en termes de métriques. Par exemple, pour une métrique nommée « ClientConnections », un nœud peut avoir une capacité de 32 768. Les autres nœuds peuvent avoir d’autres limites. Un service s’exécutant sur ce nœud peut indiquer qu’il consomme actuellement 32 256 de la métrique « ClientConnections ».
 

@@ -4,14 +4,15 @@ description: Cet article explique comment supprimer votre compte Automation dans
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 04/15/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: d088f3adc391068de5e337c10ab52dc3d3a2dd07
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 00401c7afd4fff1fcea7c5097d31ccf440e09049
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535545"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572504"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Guide pratique pour supprimer votre compte Azure Automation
 
@@ -22,7 +23,7 @@ La suppression de votre compte Azure Automation peut s’effectuer à l’aide 
 * Supprimer le groupe de ressources contenant le compte Automation
 * Supprimer le groupe de ressources contenant le compte Automation et l’espace de travail Azure Monitor Log Analytics lié si :
 
-    * Le compte et l’espace de travail sont dédiés à la prise en charge d’Update Management, de Suivi des modifications et inventaire, et/ou de Start/Stop VMs during off-hours.
+    * Le compte et l’espace de travail sont dédiés à la prise en charge d’Update Management, de Suivi des modifications et Inventaire, et/ou de Start/Stop VMs during off-hours.
     * Le compte est dédié au traitement de l’automatisation et intégré à un espace de travail pour l’envoi des flux de tâches et de l’état des tâches de runbook.
 
 * Dissocier l’espace de travail Log Analytics du compte Automation et supprimer le compte Automation
@@ -30,8 +31,11 @@ La suppression de votre compte Azure Automation peut s’effectuer à l’aide 
 
 Cet article explique comment supprimer entièrement votre compte Automation par le biais du portail Azure, à l’aide d’Azure PowerShell, d’Azure CLI ou de l’API REST.
 
+## <a name="prerequisite"></a>Prérequis
+Vérifiez qu’aucun [Verrou de gestionnaire des ressources](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources, ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Si vous avez déployé la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Supprimez tous les verrous avant de supprimer le compte Automation.
+
 > [!NOTE]
-> Avant de continuer, vérifiez qu’aucun [Verrou de gestionnaire des ressources](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Si vous avez déployé la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Tous les verrous doivent être supprimés pour que vous puissiez supprimer le compte Automation.
+> Si vous recevez un message d’erreur semblable à celui-ci : `The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`, votre compte Automation est lié à un espace de travail Log Analytics avec les fonctionnalités Update Management et/ou Change Tracking et Inventaire activées. Pour plus d’informations, consultez [Supprimer un compte Automation de capacité partagée](#delete-a-shared-capability-automation-account), ci-dessous.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Supprimer le groupe de ressources dédié
 
@@ -105,7 +109,7 @@ Pour supprimer votre compte Automation lié à un espace de travail Log Analyti
 
 3. Sélectionnez **Accéder à l’espace de travail**.
 
-4. Cliquez sur **Solutions** sous **Général**.
+4. Sélectionnez **Solutions** sous **Général**.
 
 5. Dans la page Solutions, sélectionnez l’un des éléments suivants en fonction des fonctionnalités déployées dans le compte :
 

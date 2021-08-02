@@ -1,18 +1,18 @@
 ---
 title: Guide de démarrage rapide pour l’ajout d’indicateurs de fonctionnalités à Spring Boot avec Azure App Configuration
 description: Ajouter des indicateurs de fonctionnalités aux applications Spring Boot et les gérer à l’aide d’Azure App Configuration
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 08/06/2020
-ms.author: alkemper
+ms.date: 06/25/2021
+ms.author: mametcal
 ms.custom: devx-track-java
-ms.openlocfilehash: e931b974fc48d07237b2698e7782c48be20745d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f683f570fe085753f1ebd81b859b86f70b1e9e49
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930708"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037739"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -58,18 +58,16 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
 1. Ouvrez le fichier *pom.xml* dans un éditeur de texte, puis ajoutez ce qui suit à la liste de `<dependencies>` :
 
-    **Spring Cloud 1.1.x**
-
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.1.5</version>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+        <version>2.0.0-beta.2</version>
     </dependency>
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.5</version>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-feature-management-web</artifactId>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -77,27 +75,9 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
     </dependency>
     ```
 
-    **Spring Cloud 1.2.x**
-
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.2.7</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.7</version>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-    ```
-
-> [!Note]
-> Il existe une bibliothèque de gestion des fonctionnalités non web qui n’a pas de dépendance envers spring-web. Consultez la [documentation](https://github.com/microsoft/spring-cloud-azure) de GitHub pour connaître les différences.
+> [!NOTE]
+> * Si vous devez prendre en charge une version antérieure de Spring Boot, consultez notre [ancienne bibliothèque appconfiguration](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) et notre [ancienne bibliothèque d’indicateurs de fonctionnalités](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
+> * Il existe une bibliothèque de gestion des fonctionnalités non web qui n’a pas de dépendance envers spring-web. Consultez la [documentation](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-spring-cloud-feature-management) de GitHub pour connaître les différences.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
@@ -163,7 +143,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
 
-    import com.microsoft.azure.spring.cloud.feature.manager.FeatureManager;
+    import com.azure.spring.cloud.feature.manager.FeatureManager;
     import org.springframework.web.bind.annotation.GetMapping;
 
 

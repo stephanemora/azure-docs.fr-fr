@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 057f80049b13a265925f2d6f24a008d1e1e04c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eac9154d4308700eaa6ea8faf0bf94fabc80bce4
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102637021"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982517"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gérer le calcul sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -144,4 +144,4 @@ Les adresses IP du service externe Kubernetes sont utilisées pour accéder aux 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [résoudre les problèmes liés à votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md).
+- Découvrez comment [Résoudre les problèmes avec IoT Edge survenant sur votre appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-troubleshoot-iot-edge.md).
