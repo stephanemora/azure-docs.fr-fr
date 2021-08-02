@@ -1,33 +1,29 @@
 ---
-title: Implémenter des styles dynamiques pour les cartes d’intérieur Azure Maps Creator (préversion)
-description: Découvrez comment implémenter des styles dynamiques pour les cartes d’intérieur Creator (préversion).
+title: Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur Azure Maps
+description: Découvrez comment implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85b64f52fc1832ec1d25767c1cdfef8977d96fe8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726311"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030320"
 ---
-# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur Creator (préversion)
+# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
-> [!IMPORTANT]
-> Les services Azure Maps Creator sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Le [service État de caractéristique](/rest/api/maps/featurestate) du Créateur Azure Maps permet d’appliquer des styles basés sur les propriétés dynamiques des caractéristiques de données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de caractéristique](/rest/api/maps/featurestate) et le [module web Intérieur](how-to-use-indoor-module.md).
+Vous pouvez utiliser le [service État de la fonctionnalité](/rest/api/maps/v2/feature-state) d’Azure Maps Creator pour appliquer des styles basés sur les propriétés dynamiques des caractéristiques des données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de la fonctionnalité](/rest/api/maps/v2/feature-state) et le [module web Intérieur](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
-3. [Créer une ressource Creator (préversion)](how-to-manage-creator.md)
+3. [Créer une ressource de Créateur](how-to-manage-creator.md)
 4. Téléchargez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Créez une carte d’intérieur](tutorial-creator-indoor-maps.md) pour obtenir un ID `tilesetId` et un ID `statesetId`.
 6. Générez une application web en suivant les étapes décrites dans [comment utiliser le module Cartes d’intérieur](how-to-use-indoor-module.md).
@@ -36,17 +32,17 @@ Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vo
 
 ## <a name="implement-dynamic-styling"></a>Implémenter l’application de style dynamique
 
-Une fois les prérequis réunis, vous devez disposer d’une application web simple configurée avec votre clé d’abonnement et vos ID `tilesetId` et `statesetId`.
+Après avoir rempli les conditions préalables, vous devez disposer d’une application web simple configurée avec votre clé d’abonnement et vos identificateurs `tilesetId` et `statesetId`.
 
 ### <a name="select-features"></a>Sélectionner les caractéristiques
 
-Pour implémenter l’application de style dynamique, une caractéristique telle qu’une salle de réunion ou de conférence doit être référencée par sa caractéristique `id`. Vous utiliserez la caractéristique `id` pour mettre à jour la propriété dynamique, ou *état*, de cette caractéristique. Pour afficher les fonctionnalités définies dans un jeu de données, vous pouvez utiliser l’une des méthodes suivantes :
+Pour implémenter l’application de style dynamique, une caractéristique, telle qu’une salle de réunion ou de conférence, doit être référencée par sa caractéristique `id`. Vous utilisez la caractéristique `id` pour mettre à jour la propriété dynamique ou l’*état* de cette caractéristique. Pour afficher les fonctionnalités définies dans un jeu de données, vous pouvez utiliser l’une des méthodes suivantes :
 
-* API WFS (service de caractéristique web). Des jeux de données peuvent être interrogés à l’aide de l’API de service de caractéristique web. L’API de service de caractéristique web suit les caractéristiques de l’API Open Geospatial Consortium. L’API de service de caractéristique web est utile pour interroger des caractéristiques à l’intérieur d’un jeu de données. Par exemple, vous pouvez utiliser le service de caractéristique web pour rechercher toutes les salles de réunion de taille moyenne d’un bâtiment et d’un étage donnés.
+* API WFS (service de caractéristique web). Vous pouvez utiliser l’[API WFS](/rest/api/maps/v2/wfs) pour interroger des jeux de données. L’API de service de caractéristique web suit les [caractéristiques de l’API Open Geospatial Consortium](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). L’API de service de caractéristique web est utile pour interroger des caractéristiques à l’intérieur d’un jeu de données. Par exemple, vous pouvez utiliser WFS pour rechercher toutes les salles de réunion de taille moyenne d’un bâtiment et d’un étage particuliers.
 
-* Implémentez du code personnalisé qui permet à un utilisateur de sélectionner des caractéristiques sur une carte à l’aide de votre application Web. Dans cet article, nous allons utiliser cette option.  
+* Implémentez du code personnalisé qu’un utilisateur peut utiliser pour sélectionner des caractéristiques sur une carte à l’aide de votre application web. Nous utilisons cette option dans cet article.  
 
-Le script suivant implémente l’événement de clic de souris. Le code récupère la caractéristique `id` en fonction du point cliqué. Dans votre application, vous pouvez insérer le code sous votre bloc de code du Gestionnaire d’intérieur. Exécutez votre application et vérifiez la console pour obtenir l’`id` de caractéristique du point cliqué.
+Le script suivant implémente l’événement de clic de souris. Le code récupère la caractéristique `id` en fonction du point cliqué. Dans votre application, vous pouvez insérer le code après le bloc de code du gestionnaire d’intérieur. Exécutez votre application, puis consultez la console pour obtenir l’`id` de caractéristique du point cliqué.
 
 ```javascript
 /* Upon a mouse click, log the feature properties to the browser's console. */
@@ -64,21 +60,41 @@ map.events.add("click", function(e){
 
 Le tutoriel [Créer une carte d’intérieur](tutorial-creator-indoor-maps.md) a configuré le stateset de caractéristique pour accepter les mises à jour d’état pour `occupancy`.
 
-Dans la section suivante, nous allons définir l’*état* d’occupation du bureau `UNIT26` sur `true`. tandis le bureau `UNIT27` est défini sur `false`.
+Dans la section suivante, nous allons définir l’*état* d’occupation du bureau `UNIT26` sur `true` et du bureau `UNIT27` sur `false`.
 
 ### <a name="set-occupancy-status"></a>Définir l’état d’occupation
 
  Nous allons maintenant mettre à jour l’état des deux bureaux, `UNIT26` et `UNIT27` :
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **New** (Nouveau).
 
-2. Utilisez l’[API d’états de mise à jour de caractéristique](/rest/api/maps/featurestate/updatestatespreview) pour mettre à jour l’état. Transmettez l’ID de stateset, et `UNIT26` pour l’une des deux unités. Ajoutez votre clé d’abonnement Azure Maps. Voici l’URL d’une requête **POST** pour mettre à jour l’état :
+2. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.
+
+3. Sélectionnez **Nouveau**.
+
+4. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande).
+
+5. Entrez un **Request name** (Nom de demande) pour la demande, par exemple *POST Data Upload*.
+
+6. Sélectionnez la collection que vous avez créée, puis **Save** (Enregistrer).
+
+7. Entrez l’URL suivante pour l’[API des états de mise à jour des fonctionnalités](/rest/api/maps/v2/feature-state/update-states) (remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale et `statesetId` par le `statesetId`) :
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST**, écrivez le code JSON brut suivant avec les mises à jour de caractéristique. La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique. Transmettez le `keyName` « occupé » pour mettre à jour sa valeur.
+8. Sélectionnez l’onglet **En-têtes**.
+
+9. Dans le champ **KEY** (CLÉ), sélectionnez `Content-Type`. Dans le champ **VALUE** (VALEUR), sélectionnez `application/json`.
+
+     :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Informations sur l’onglet En-têtes pour la création de stateset.":::
+
+10. Sélectionnez l’onglet **Corps** .
+
+11. Dans les listes déroulantes, sélectionnez **raw** (brut) et **JSON**.
+
+12. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
 
     ```json
     {
@@ -86,13 +102,22 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
             {
                 "keyName": "occupied",
                 "value": true,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }
     ```
 
-4. Répétez les étapes 2 et 3 en utilisant `UNIT27` avec le code JSON suivant.
+    >[!IMPORTANT]
+    >La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique.
+
+13. Modifiez l’URL que vous avez utilisée à l’étape 7 en remplaçant `UNIT26` par `UNIT27` :
+
+    ```http
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+14. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
 
     ``` json
     {
@@ -100,7 +125,7 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
             {
                 "keyName": "occupied",
                 "value": false,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }
@@ -108,7 +133,9 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualiser des styles dynamiques sur une carte
 
-L’application web que vous avez précédemment ouverte dans un navigateur doit maintenant refléter l’état mis à jour des caractéristiques de carte. `UNIT27`(142) doit apparaître en vert et `UNIT26`(143) doit en rouge.
+L’application web que vous avez précédemment ouverte dans un navigateur doit maintenant refléter l’état mis à jour des caractéristiques de carte :
+- Le bureau `UNIT27` (142) doit apparaître en vert.
+- Le bureau `UNIT26` (143) doit apparaître en rouge.
 
 ![Salle libre en vert et salle occupée en rouge](./media/indoor-map-dynamic-styling/room-state.png)
 
@@ -119,7 +146,7 @@ L’application web que vous avez précédemment ouverte dans un navigateur doit
 Pour en savoir plus, consultez :
 
 > [!div class="nextstepaction"]
-> [Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)
+> [Créateur pour cartes d’intérieur](creator-indoor-maps.md)
 
 Consultez les références des API mentionnées dans cet article :
 

@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe8024650909ef3f48057c572fba2a70f2d611e2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594299"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796390"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -37,10 +37,10 @@ La sécurisation de l’accès privilégié nécessite d’apporter des modifica
 * Processus, pratiques d’administration et gestion des connaissances
 * Composants techniques telles que les défenses d’hôte, les protections de compte et la gestion des identités
 
-Sécurisez votre accès privilégié d’une manière gérée et déclarée dans les services Microsoft importants à vos yeux. Si vous disposez de comptes administrateur locaux, suivez les conseils relatifs à l’accès privilégié local et hybride géré dans Active Directory prodigués dans [Sécurisation de l’accès privilégié](/windows-server/identity/securing-privileged-access/securing-privileged-access).
+Sécurisez votre accès privilégié d’une manière gérée et déclarée dans les services Microsoft importants à vos yeux. Si vous disposez de comptes administrateur locaux, suivez l’aide relative à l’accès privilégié local et hybride géré dans Active Directory prodiguée dans [Sécurisation de l’accès privilégié](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> Les conseils de cet article font principalement référence aux fonctionnalités d’Azure Active Directory incluses dans les plans Azure Active Directory Premium P1 et P2. Azure Active Directory Premium P2 est inclus dans la suite EMS E5 et la suite Microsoft 365 E5. Ces conseils supposent que votre organisation dispose déjà de licences Azure AD Premium P2 pour vos utilisateurs. Si vous ne disposez pas de ces licences, certains conseils peuvent ne pas s’appliquer à votre organisation. Dans cet article, l’expression « administrateur général » est synonyme d’« administrateur d’entreprise » ou d’« administrateur client ».
+> L’aide fournie dans cet article fait principalement référence aux fonctionnalités d’Azure Active Directory incluses dans les plans Azure AD Premium P1 et P2. Azure AD Premium P2 est inclus dans la suite EMS E5 et la suite Microsoft 365 E5. Ces conseils supposent que votre organisation dispose déjà de licences Azure AD Premium P2 pour vos utilisateurs. Si vous ne disposez pas de ces licences, certains conseils peuvent ne pas s’appliquer à votre organisation. Dans cet article, l’expression « administrateur général » est synonyme d’« administrateur d’entreprise » ou d’« administrateur client ».
 
 ## <a name="develop-a-roadmap"></a>Créer une feuille de route
 
@@ -52,7 +52,7 @@ Microsoft vous recommande de créer et de suivre une feuille de route pour sécu
 
 * Étape 2 (2-4 semaines) : Atténuer les techniques d’attaque les plus fréquemment utilisées
 
-* Étape 3 (1-3 mois) : Gagner en visibilité et disposer d’un contrôle total sur l’activité administrative
+* Étape 3 (1 à 3 mois) : Gagner en visibilité et disposer d’un contrôle total sur l’activité administrative
 
 * Étape 4 (six mois et plus) : Continuer à créer des défenses pour renforcer votre plateforme de sécurité
 
@@ -82,7 +82,7 @@ Après avoir activé Azure AD Privileged Identity Management :
 
 4. Ouvrez Privileged Identity Management à partir de la liste **Tous les services** et épinglez-le à votre tableau de bord.
 
-Assurez-vous que la première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié**. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
+Assurez-vous que la première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié**. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôle d’annuaire Azure AD des utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identifier et classer les comptes dans des rôles à privilèges élevés
 
@@ -95,7 +95,7 @@ Après avoir activé Azure AD Privileged Identity Management, affichez les utili
 
 Si vous ne disposez pas d’Azure AD Privileged Identity Management dans votre organisation, vous pouvez utiliser l’[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Commencez avec le rôle d’administrateur général, car celui-ci dispose des mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée. Ces autorisations sont acquises, quelle que soit leur provenance : Centre d’administration Microsoft 365, Portail Azure ou module Azure AD pour Microsoft PowerShell.
 
-Supprimez les comptes qui ne sont plus nécessaires dans ces rôles. Ensuite, classez les comptes restants qui sont affectés aux rôles d’administrateur :
+Supprimez les comptes qui ne sont plus nécessaires dans ces rôles. Ensuite, classez les comptes restants qui sont affectés aux rôles Administrateur :
 
 * Affectés à des utilisateurs administratifs, mais également utilisés à des fins non administratives (par exemple, courrier personnel)
 * Affectés à des utilisateurs administratifs et dédiés à des fins exclusivement administratives
@@ -112,9 +112,9 @@ Des comptes d’accès d’urgence permettent de restreindre les accès privilé
 
 Évaluez les comptes qui sont affectés ou éligibles pour le rôle d’administrateur général. Si vous ne voyez aucun compte uniquement cloud utilisant le domaine \*.onmicrosoft.com (conçu pour l’accès d’urgence), créez-en. Pour plus d’informations, consultez [Managing emergency access administrative accounts in Azure AD](security-emergency-access.md) (Gestion des comptes d’administration de l’accès d’urgence dans Azure AD).
 
-#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activez l’authentification multifacteur et inscrivez tous les autres comptes d’administrateur non fédérés mono-utilisateurs hautement privilégiés.
+#### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-administrator-accounts"></a>Activez l’authentification multifacteur et inscrivez tous les autres comptes administrateur non fédérés mono-utilisateurs à privilèges élevés.
 
-Exigez Azure AD Multi-Factor Authentication (MFA) lors de la connexion de tous les utilisateurs individuels auxquels sont affectés un ou plusieurs rôles d’administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur de services Exchange et Administrateur de services SharePoint. Suivez le guide pour activer [l’authentification multifacteur (MFA) pour vos comptes Administrateur](../authentication/howto-mfa-userstates.md) et vérifier que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations aux étapes 2 et 3 du guide [Protéger l’accès aux données et services dans Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exigez Azure AD Multifactor Authentication lors de la connexion pour tous les utilisateurs individuels auxquels sont affectés de manière permanente un ou plusieurs rôles Administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur Exchange et Administrateur SharePoint. Suivez le guide pour activer [Azure AD Multifactor Authentication pour vos comptes administrateur](../authentication/howto-mfa-userstates.md) et vérifier que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations aux étapes 2 et 3 du guide [Protéger l’accès aux données et services dans Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Étape 2 : Atténuer les attaques fréquemment utilisées
 
@@ -124,20 +124,20 @@ L’étape 2 de la feuille de route vise à atténuer les techniques d’attaqu
 
 ### <a name="general-preparation"></a>Préparation générale
 
-#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Inventorier les services, propriétaires et administrateurs
+#### <a name="conduct-an-inventory-of-services-owners-and-administrators"></a>Inventorier les services, propriétaires et administrateurs
 
 Avec la prolifération des appareils personnels (BYOD) et du télétravail, ainsi que la croissance de la connectivité sans fil, il est essentiel de surveiller qui se connecte à votre réseau. Un audit de sécurité peut révéler la présence sur votre réseau d’appareils, d’applications et de programmes que votre organisation ne prend pas en charge et qui constituent un risque élevé. Pour plus d’informations, consultez [Présentation de la gestion et surveillance de la sécurité Azure](../../security/fundamentals/management-monitoring-overview.md). Veillez à inclure toutes les tâches suivantes dans votre processus d’inventaire.
 
 * Identifiez les utilisateurs disposant de rôles d’administrateur et les services où ils peuvent gérer.
-* Azure AD PIM vous permet d’identifier les utilisateurs au sein votre organisation, qui disposent d’un accès administrateur à Azure AD.
-* En plus des rôles définis dans Azure AD, Microsoft 365 inclut un ensemble de rôles d’administrateur que vous pouvez affecter aux utilisateurs de votre organisation. Chaque rôle d’administrateur correspond à des fonctions d’entreprise courantes et fournit aux personnes de votre organisation des autorisations pour effectuer des tâches spécifiques dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com). Utilisez le Centre d’administration Microsoft 365 pour déterminer quels sont les utilisateurs de votre organisation qui disposent d’un accès administrateur à Microsoft 365, y compris via des rôles non gérés dans Azure AD. Pour plus d’informations, consultez [À propos des rôles d’administrateur Microsoft 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) et [Pratiques de sécurité pour Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Azure AD PIM vous permet d’identifier les utilisateurs au sein votre organisation qui disposent d’un accès administrateur à Azure AD.
+* En plus des rôles définis dans Azure AD, Microsoft 365 inclut un ensemble de rôles Administrateur que vous pouvez attribuer aux utilisateurs de votre organisation. Chaque rôle Administrateur correspond à des fonctions métier courantes et fournit aux personnes de votre organisation des autorisations pour effectuer des tâches spécifiques dans le [centre d’administration Microsoft 365](https://admin.microsoft.com). Utilisez le centre d’administration Microsoft 365 pour déterminer quels sont les utilisateurs de votre organisation qui disposent d’un accès administrateur à Microsoft 365, y compris via des rôles non gérés dans Azure AD. Pour plus d’informations, consultez [À propos des rôles Administrateur Microsoft 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) et [Pratiques de sécurité pour Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Inventoriez le services dont votre organisation dépend, tels qu’Azure, Intune ou Dynamics 365.
 * Assurez-vous que vos comptes utilisés à des fins d’administration présentent les caractéristiques suivantes :
 
   * disposent d’adresses e-mail professionnelles ;
   * sont inscrits à Azure AD Multi-Factor Authentication ou utilisent une authentification multifacteur localement.
 * Demandez aux utilisateurs leur justification d’entreprise d’accès administrateur.
-* Supprimez l’accès administrateur pour les personnes et les services n’en ayant pas besoin.
+* Supprimez l’accès administrateur pour les personnes et les services qui n’en ont pas besoin.
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identifier les comptes Microsoft dans des rôles d’administrateur à basculer vers des comptes professionnels ou scolaires
 
@@ -148,7 +148,7 @@ Si vos administrateurs généraux initiaux ont réutilisé leurs informations d�
 Les comptes de courrier personnels étant régulièrement hameçonnés par des pirates informatiques, ils constituent un risque qui rend les adresses de courrier personnelles inacceptables pour des comptes Administrateur général. Pour dissocier les risques liés à Internet des privilèges administratifs, créez un compte dédié pour chaque utilisateur disposant de tels privilèges.
 
 * Veillez à créer des comptes distincts que les utilisateurs peuvent utiliser pour accomplir les tâches d’un administrateur général.
-* Assurez-vous que vos administrateurs généraux n’ouvrent pas d’e-mails ou n’exécutent pas de programmes accidentellement avec leurs comptes Administrateur.
+* Assurez-vous que vos administrateurs généraux n’ouvrent pas d’e-mails ou n’exécutent pas de programmes accidentellement avec leurs comptes administrateur.
 * Veillez à ce que la messagerie de ces comptes soit transférée vers une boîte aux lettres professionnelle.
 * Les comptes Administrateur général (et autres groupes privilégiés) doivent être des comptes cloud uniquement sans lien avec les instances Active Directory locales.
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection est un outil de surveillance et de signalement bas�
 
 #### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Obtenir votre Niveau de sécurité Microsoft 365 (si vous utilisez Microsoft 365)
 
-Niveau de sécurité examine vos paramètres et activités pour les services Microsoft 365 que vous utilisez, et les compare à une base de référence établie par Microsoft. Vous obtenez un score reflétant votre degré d’alignement sur les meilleures pratiques de sécurité. Toute personne disposant des autorisations d’administrateur pour un abonnement Microsoft 365 Business Standard ou Enterprise peut accéder au Niveau de sécurité en visitant la page [https://securescore.office.com](https://securescore.office.com/).
+Niveau de sécurité examine vos paramètres et activités pour les services Microsoft 365 que vous utilisez, et les compare à une base de référence établie par Microsoft. Vous obtenez un score reflétant votre degré d’alignement sur les meilleures pratiques de sécurité. Toute personne disposant des autorisations d’administrateur pour un abonnement Microsoft 365 Business Standard ou Entreprise peut accéder au Niveau de sécurité en visitant la page [https://securescore.office.com](https://securescore.office.com/).
 
 #### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Passer en revue l’aide Microsoft 365 en matière de sécurité et de conformité (si vous utilisez Microsoft 365)
 
@@ -186,7 +186,7 @@ Le [plan de sécurité et de conformité](https://support.office.com/article/Pla
 
 #### <a name="configure-microsoft-365-activity-monitoring-if-using-microsoft-365"></a>Configurer la supervision de l’activité Microsoft 365 (si vous utilisez Microsoft 365)
 
-Supervisez les utilisateurs de Microsoft 365 dans votre organisation afin d’identifier les membres du personnel qui disposent d’un compte d’administrateur mais qui n’ont pas besoin d’accéder à Microsoft 365 car ils ne se connectent pas à ces portails. Pour plus d’informations, consultez [Rapports d’activité dans le Centre d’administration Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Supervisez les utilisateurs de Microsoft 365 dans votre organisation afin d’identifier les membres du personnel qui disposent d’un compte administrateur, mais qui n’ont pas besoin d’accéder à Microsoft 365, car ils ne se connectent pas à ces portails. Pour plus d’informations, consultez [Rapports d’activité dans le Centre d’administration Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Définir des propriétaires de plan de réponse d’incident/d’urgence
 
@@ -196,7 +196,7 @@ La mise en place d’une capacité de réponse aux incidents efficace nécessite
 
 Si votre organisation Azure Active Directory est synchronisée avec un Active Directory local, suivez les conseils de la [Feuille de route de l’accès privilégié sécurisé](/windows-server/identity/securing-privileged-access/securing-privileged-access) : Cette étape comprend les opérations suivants :
 
-* création de comptes administrateur distincts pour les utilisateurs qui doivent effectuer des tâches administratives locales :
+* création de comptes administrateur distincts pour les utilisateurs qui doivent effectuer des tâches administratives locales ;
 * déploiement de stations de travail disposant d’un accès privilégié pour les administrateurs Active Directory ;
 * création de mots de passe d’administrateur local uniques pour les stations de travail et les serveurs.
 
@@ -206,9 +206,9 @@ Si votre organisation Azure Active Directory est synchronisée avec un Active Di
 
 Utilisez le portail Enterprise et le portail Azure pour identifier les abonnements de votre organisation qui hébergent des applications de production.
 
-#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Supprimer les comptes Microsoft des rôles Administrateur
+#### <a name="remove-microsoft-accounts-from-administrator-roles"></a>Supprimer des comptes Microsoft de rôles Administrateur
 
-Vous ne devez pas utiliser de comptes Microsoft d’autres programmes, tels que Xbox Live et Outlook, en tant que comptes administrateur pour les abonnements de votre organisation. Supprimez le statut administratif de tous les comptes Microsoft, et remplacez-les par des comptes professionnels ou scolaires Azure Active Directory (par exemple, chris@contoso.com). Pour l’administration, servez-vous sur de comptes authentifiés dans Azure AD et non dans d’autres services.
+Vous ne devez pas utiliser de comptes Microsoft d’autres programmes, tels que Xbox Live et Outlook, en tant que comptes administrateur pour les abonnements de votre organisation. Supprimez le statut administratif de tous les comptes Microsoft et remplacez-les par des comptes professionnels ou scolaires Azure AD (par exemple, chris@contoso.com). À des fins administratives, dépendez des comptes authentifiés auprès d’Azure AD et non auprès d’autres services.
 
 #### <a name="monitor-azure-activity"></a>Surveiller l’activité Azure
 
@@ -220,9 +220,9 @@ Le Journal d’activité Azure fournit un historique des événements au niveau 
 
 Préparez des stratégies d’accès conditionnel pour les applications locales et hébergées dans le cloud. Si vous disposez d’appareils rattachés à l’espace de travail des utilisateurs, obtenez plus d’informations dans [Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration](../../active-directory-b2c/overview.md).
 
-## <a name="stage-3-take-control-of-admin-activity"></a>Étape 3 : Contrôler l’activité administrative
+## <a name="stage-3-take-control-of-administrator-activity"></a>Étape 3 : Prendre le contrôle de l’activité administrative
 
-![Étape 3 Contrôler l’activité administrative](./media/security-planning/stage-three.png)
+![Étape 3 : Prendre le contrôle de l’activité administrative](./media/security-planning/stage-three.png)
 
 L’étape 3 s’ajoute aux atténuations de l’étape 2 et doit être implémentée dans un délai approximatif de 1 à 3 mois. Cette étape de la feuille de route d’accès privilégié sécurisé comprend les composants suivants.
 
@@ -230,14 +230,14 @@ L’étape 3 s’ajoute aux atténuations de l’étape 2 et doit être implé
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Effectuer une vérification de l’accès des utilisateurs de rôles d’administrateur
 
-Le fait que de plus en plus d’utilisateurs en entreprise bénéficient d’un accès privilégié via des services cloud peut conduire à une plateforme non managée. Aujourd’hui, des utilisateurs peuvent devenir des administrateurs généraux pour Microsoft 365, des administrateurs d’abonnements Azure, ou disposer d’un accès administrateur à des machines virtuelles ou via des applications SaaS.
+Le fait que de plus en plus d’utilisateurs en entreprise bénéficient d’un accès privilégié via des services cloud peut conduire à une plateforme non managée. Aujourd’hui, des utilisateurs peuvent devenir des administrateurs généraux pour Microsoft 365 ou des administrateurs d’abonnements Azure ou disposer d’un accès administrateur à des machines virtuelles ou via des applications SaaS.
 
-Votre organisation doit amener tous les employés à gérer les transactions commerciales ordinaires en tant qu’utilisateurs non privilégiés, et ne leur accorder de droits d’administrateur qu’en cas de besoin. Procédez à des révisions d’accès pour identifier et confirmer les utilisateurs éligibles pour activer des privilèges d’administrateur.
+Votre organisation doit amener tous les employés à gérer les transactions commerciales ordinaires en tant qu’utilisateurs non privilégiés et ne leur accorder de droits d’administrateur qu’en cas de besoin. Procédez à des révisions d’accès pour identifier et confirmer les utilisateurs pour lesquels il est possible d’activer les privilèges d’administrateur.
 
 Nous vous recommandons :
 
-1. Déterminez quels utilisateurs sont des administrateurs Azure AD, accordez un accès administrateur à la demande juste-à-temps, ainsi que les contrôles de sécurité en fonction du rôle.
-2. Affectez un autre rôle aux utilisateurs ne disposant d’aucune justification précise à l’accès administrateur (si aucun rôle n’est éligible, supprimez-les).
+1. de déterminer quels utilisateurs sont des administrateurs Azure AD et d’accorder un accès administrateur à la demande juste-à-temps, ainsi que des contrôles de sécurité basée sur les rôles ;
+2. d’attribuer un autre rôle aux utilisateurs qui ne disposent d’aucune justification précise pour l’accès administrateur (si aucun rôle n’est approprié, supprimez-les).
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Poursuivre le lancement d’une authentification renforcée pour tous les utilisateurs
 
@@ -266,15 +266,15 @@ Le National Institute of Standards and Technology (NIST) fournit des instruction
 
 Pour Azure Active Directory, utilisez la fonctionnalité [Gestion des identités privilégiées Azure Active Directory](../privileged-identity-management/pim-configure.md). L’activation à durée limitée de rôles privilégiés vous permet de :
 
-* Activer des privilèges administratifs pour effectuer une tâche spécifique
+* Activer des privilèges d’administrateur pour effectuer une tâche spécifique
 * Appliquer MFA pendant le processus d’activation
 * Utiliser des alertes pour informer les administrateurs de modifications hors-bande
 * Permettre à des utilisateurs de conserver leur accès privilégié pendant une période préconfigurée
-* Autoriser les administrateurs de la sécurité à :
+* Permettre aux administrateurs de sécurité de :
 
   * Détecter toutes les identités privilégiées
   * Consulter les rapports d’audit
-  * Créer des révisions d’accès afin d’identifier tous les utilisateurs éligibles pour l’activation de privilèges d’administrateur
+  * Créer des révisions d’accès afin d’identifier tous les utilisateurs pour lesquels il est possible d’activer des privilèges d’administrateur
 
 Si vous utilisez déjà Azure AD Privileged Identity Management, ajustez la plage de temps des privilèges à durée limitée si nécessaire (par exemple, les fenêtres de maintenance).
 
@@ -284,7 +284,7 @@ Nous vous recommandons d’identifier tous les utilisateurs détenteurs d’info
 
 #### <a name="complete-a-roles-review-assessment-for-microsoft-365-roles-if-using-microsoft-365"></a>Effectuer une évaluation de révision des rôles pour les rôles Microsoft 365 (si vous utilisez Microsoft 365)
 
-Évaluez si tous les utilisateurs administrateurs se trouvent dans les rôles appropriés (supprimez et réaffectez en fonction de cette évaluation).
+Évaluez si tous les utilisateurs administrateurs ont les bons rôles (supprimez et réattribuez en fonction de cette évaluation).
 
 #### <a name="review-the-security-incident-management-approach-used-in-microsoft-365-and-compare-with-your-own-organization"></a>Passer en revue l’approche de gestion des incidents de sécurité utilisée dans Microsoft 365 et comparer avec votre organisation
 
@@ -311,7 +311,7 @@ L’[Azure Security Center](../../security-center/security-center-introduction.m
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventorier vos comptes privilégiés dans des machines virtuelles hébergées
 
-Le plus souvent, vous n’avez pas besoin d’accorder à des utilisateurs des autorisations d’accès illimitées à l’ensemble de vos abonnements ou ressources Azure. Utilisez des rôles d’administrateur Azure AD pour accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour accomplir leur travail. Par exemple, vous pouvez utiliser des rôles d’administrateur Azure AD pour permettre à un administrateur de gérer uniquement les machines virtuelles dans un abonnement, et à un autre de gérer uniquement les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure](../../active-directory-b2c/overview.md).
+Le plus souvent, vous n’avez pas besoin d’accorder à des utilisateurs des autorisations d’accès illimitées à l’ensemble de vos abonnements ou ressources Azure. Utilisez des rôles Administrateur Azure AD pour accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour accomplir leur travail. Par exemple, vous pouvez utiliser des rôles Administrateur Azure AD pour permettre à un administrateur de gérer uniquement les machines virtuelles d’un abonnement et à un autre de gérer uniquement les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure](../../active-directory-b2c/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implémenter PIM pour les rôles d’administrateur Azure AD
 
@@ -359,7 +359,7 @@ L’Étape 4 de la feuille de route doit être implémentée à partir du sixi�
 
 La sécurisation des accès privilégiés est importante pour offrir des assurances en matière de sécurité pour vos ressources d’entreprise. Elle doit cependant d’inscrire dans un programme de sécurité complet qui offre des assurances de sécurité continues. Ce programme doit inclure des éléments tels que les suivants :
 
-* Stratégie
+* Policy
 * Opérations
 * Sécurité des informations
 * Serveurs
@@ -370,7 +370,7 @@ La sécurisation des accès privilégiés est importante pour offrir des assuran
 
 Pour gérer les comptes d’accès privilégiés, nous vous recommandons d’adopter les pratiques suivantes :
 
-* Assurez-vous que les administrateurs accomplissent leurs tâches quotidiennes en tant qu’utilisateurs sans privilèges.
+* Assurez-vous que les administrateurs accomplissent leurs tâches quotidiennes en tant qu’utilisateurs non privilégiés.
 * N’accordez que l’accès privilégié nécessaire, et retirez-le ensuite (juste-à-temps).
 * Conservez les journaux d’activité d’audit relatifs aux comptes privilégiés.
 
@@ -380,9 +380,9 @@ Cette dernière étape de la feuille de route d’accès privilégié sécurisé
 
 ### <a name="general-preparation"></a>Préparation générale
 
-#### <a name="review-admin-roles-in-azure-ad"></a>Examiner les rôles d’administrateur dans Azure AD
+#### <a name="review-administrator-roles-in-azure-ad"></a>Examiner les rôles Administrateur dans Azure AD
 
-Déterminez si les rôles d’administrateur Azure AD intégrés actuels sont toujours à jour et assurez-vous que les utilisateurs ne sont assignés qu’à ceux dont ils ont besoin. Azure AD vous permet d’affecter des administrateurs distincts à l’exercice de fonctions différentes. Pour plus d’informations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](permissions-reference.md).
+Déterminez si les rôles Administrateur Azure AD intégrés actuels sont toujours d’actualité et assurez-vous que les utilisateurs ne sont assignés qu’à ceux dont ils ont besoin. Azure AD vous permet d’affecter des administrateurs distincts à l’exercice de fonctions différentes. Pour plus d’informations, consultez [Rôles intégrés Azure AD](permissions-reference.md).
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Passer en revue les utilisateurs administrateurs d’appareils joints Azure AD
 
@@ -431,7 +431,7 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 **Q :** Que faire si je n’ai pas encore implémenté de composants d’accès sécurisé ?
 
-**Réponse :** Définissez au minimum deux comptes de secours, affectez MFA à vos comptes Administrateur privilégiés et séparez les comptes d’utilisateurs des comptes Administrateur général.
+**Réponse :** Définissez au minimum deux comptes de secours, activez l’authentification multifacteur sur vos comptes administrateur privilégiés et séparez les comptes d’utilisateurs des comptes Administrateur général.
 
 **Q :** Après une violation, quel est le problème à traiter en premier ?
 
@@ -449,19 +449,19 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 **Réponse :** Les administrateurs doivent toujours effectuer leurs tâches quotidiennes en tant qu’utilisateurs « non privilégiés » standard.
 
-**Q :** Quelles sont les bonnes pratiques pour créer des comptes administrateur dans Azure AD ?
+**Q :** Quelles sont les meilleures pratiques pour créer des comptes administrateur dans Azure AD ?
 
 **Réponse :** Réservez l’accès privilégié pour des tâches administratives spécifiques.
 
 **Q :** Quels outils permettent de réduire l’accès administrateur permanent ?
 
-**Réponse :** Privileged Identity Management (PIM) et les rôles d’administrateur Azure AD.
+**Réponse :** Privileged Identity Management (PIM) et les rôles Administrateur Azure AD.
 
-**Q :** Quelle est la position de Microsoft sur la synchronisation des comptes administrateur avec Azure AD ?
+**Q :** Quelle est la position de Microsoft en ce qui concerne la synchronisation des comptes administrateur avec Azure AD ?
 
-**Réponse :** Des comptes administrateur de niveau 0 sont utilisés uniquement pour les comptes AD locaux. Ces comptes ne sont généralement pas synchronisés avec Azure AD dans le cloud. Les comptes administrateur de niveau 0 incluent les comptes, groupes et autres ressources exerçant un contrôle administratif direct ou indirect sur la forêt, les domaines, les contrôleurs de domaine et les ressources Active Directory locaux.
+**Réponse :** Des comptes administrateur de niveau 0 sont utilisés uniquement pour les comptes AD locaux. Ces comptes ne sont généralement pas synchronisés avec Azure AD dans le cloud. Les comptes administrateur de niveau 0 incluent les comptes, groupes et autres ressources exerçant un contrôle administratif direct ou indirect sur la forêt, les domaines, les contrôleurs de domaine et les ressources Active Directory locaux.
 
-**Q :** Comment empêcher les administrateurs d’accorder un accès administrateur aléatoire dans le portail ?
+**Q :** Comment empêcher les administrateurs d’attribuer un accès administrateur aléatoire dans le portail ?
 
 **Réponse :** Utilisez des comptes non privilégiés pour tous les utilisateurs et la plupart des administrateurs. Commencez par définir l’empreinte de l’organisation afin de déterminer les comptes administrateur qui doivent être privilégiés. Surveillez également les nouveaux utilisateurs administratifs créés.
 

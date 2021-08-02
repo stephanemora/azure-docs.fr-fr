@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130860"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953634"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -164,7 +164,7 @@ Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification uniq
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy Azure AD App](../manage-apps/application-proxy.md) pour permettre un accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy Azure AD App](../app-proxy/application-proxy.md) pour permettre un accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
@@ -185,6 +185,11 @@ Les appareils joints à AD Azure ne prennent pas en charge les applications loca
 La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
 À partir de la mise à jour de Windows 10 2004, les utilisateurs peuvent également utiliser le Bureau à distance à partir d’un appareil Windows 10 inscrit auprès d’Azure AD pour se connecter à un appareil joint à Azure AD. 
+
+### <a name="radius-and-wi-fi-authentication"></a>Authentification RADIUS et Wi-Fi
+
+Actuellement, les appareils avec jointure Azure AD ne prennent pas en charge l’authentification RADIUS pour la connexion aux points d’accès Wi-Fi, car RADIUS repose sur la présence d’un objet informatique local. Comme alternative, vous pouvez utiliser des certificats envoyés (push) par le biais d’Intune ou des informations d’identification d’utilisateur pour vous authentifier auprès du Wi-Fi. 
+
 
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
 **Remarque** : Les appareils joints à Azure AD ne peuvent pas être déployés à l’aide de l’outil de préparation du système (Sysprep) ou d’outils d’imagerie similaires.

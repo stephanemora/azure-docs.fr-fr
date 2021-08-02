@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51536db7fe0bc1ae723327f17b2b5e8303c07e83
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 602f766429045d91748c0f0873744fe1d35b621d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315882"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467010"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Générer un certificat auto-signé Azure Application Gateway avec une autorité de certification racine personnalisée
 
@@ -50,20 +50,21 @@ Créez votre certificat d’autorité de certification racine à l’aide d’Op
 
 ### <a name="create-the-root-key"></a>Créer la clé racine
 
-1. Connectez-vous à l’ordinateur sur lequel OpenSSL est installé et exécutez la commande suivante. Cela crée une clé protégée par mot de passe.
+1. Connectez-vous à l’ordinateur sur lequel OpenSSL est installé et exécutez la commande suivante. Cela crée une clé chiffrée.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. À l’invite, tapez un mot de passe fort. Par exemple, contenant au moins neuf caractères, dont des majuscules, minuscules, chiffres et symboles.
-
+   
 ### <a name="create-a-root-certificate-and-self-sign-it"></a>Créer un certificat racine et le signer automatiquement
 
 1. Utilisez les commandes suivantes pour générer la requête de signature de certificat et le certificat.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
-
+   ```
+   
+   ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
    Les commandes précédentes créent le certificat racine. Vous utiliserez ceci pour signer votre certificat de serveur.

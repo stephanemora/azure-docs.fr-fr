@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 608f9bb63082be132769964a14142996eb9b3564
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 437b6621687597e56c63b9afb146c67657650e71
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755564"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569275"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -138,8 +138,10 @@ Choisissez l’un des guides suivants pour configurer l’environnement FCI adap
 - [Configurer FCI avec un partage de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [Configurer FCI avec des espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
-Pour plus d’informations, consultez une présentation de [FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [Configurations HADR prise en charge](hadr-cluster-best-practices.md). 
 
-Si vous souhaitez en savoir plus, veuillez consulter : 
-- [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)

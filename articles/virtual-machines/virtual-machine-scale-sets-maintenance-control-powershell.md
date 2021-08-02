@@ -7,21 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b804536c54cce64ace2605999c7cc28cef357a4d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91974836"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072322"
 ---
-# <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Aperçu : Contrôle de maintenance pour les mises à niveau d’images de système d’exploitation sur les groupes de machines virtuelles identiques Azure à l’aide de PowerShell
+# <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Contrôle de maintenance pour les mises à niveau d’images de système d’exploitation sur les groupes de machines virtuelles identiques Azure à l’aide de PowerShell
 
 Le contrôle de maintenance vous permet de choisir quand appliquer automatiquement les mises à niveau d’images de système d’exploitation invité à vos groupes de machines virtuelles identiques. Cette rubrique traite des options de contrôle de maintenance d’Azure PowerShell. Pour plus d’informations sur l’utilisation du contrôle de maintenance, consultez [Contrôle maintenance pour les groupes de machines virtuelles identiques Azure](virtual-machine-scale-sets-maintenance-control.md).
-
-> [!IMPORTANT]
-> Le contrôle de maintenance des mises à niveau d’images de système d’exploitation sur les groupes de machines virtuelles identiques Azure est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="enable-the-powershell-module"></a>Activer le module PowerShell
@@ -112,12 +108,10 @@ New-AzConfigurationAssignment `
 
 ## <a name="enable-automatic-os-upgrade"></a>Activez les mises à niveau automatiques du système d’exploitation
 
-Vous pouvez activer les mises à niveau automatiques du système d’exploitation pour chaque groupe de machines virtuelles identiques qui utilisera le contrôle de maintenance. Pour obtenir des mises à niveau automatiques du système d’exploitation sur votre groupe de machines virtuelles identiques, consultez le document [Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). 
+Vous pouvez activer les mises à niveau automatiques du système d’exploitation pour chaque groupe de machines virtuelles identiques qui utilisera le contrôle de maintenance. Pour obtenir des mises à niveau automatiques du système d’exploitation sur votre groupe de machines virtuelles identiques, consultez [Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrir la maintenance et les mises à jour pour les machines virtuelles s’exécutant dans Azure.
-
 > [!div class="nextstepaction"]
-> [Maintenance et mises à jour](maintenance-and-updates.md)
+> [Découvrir la maintenance et les mises à jour pour les machines virtuelles s’exécutant dans Azure](maintenance-and-updates.md)

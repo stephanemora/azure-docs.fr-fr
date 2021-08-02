@@ -4,19 +4,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Utilisez des licences SQL Server existantes pour recevoir des remises sur Azure SQL Database et SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
-ms.openlocfilehash: b5f85e0dcb8ca70d5773b8f1c3b53e0b449ef013
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8557c24b1f6ef46559f57d09c6e273dd4041272
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779198"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018168"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,8 +33,8 @@ Dans le niveau de calcul approvisionné du modèle d’achat vCore, vous pouvez 
 Avec Azure Hybrid Benefit, vous pouvez choisir de payer uniquement pour l’infrastructure Azure sous-jacente en utilisant votre licence SQL Server existante pour le moteur de base de données SQL Server lui-même (tarif de calcul de base) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence SQL Server (tarif avec licence comprise).
 
 Vous pouvez choisir ou changer votre modèle de licence dans le portail Azure : 
-- Pour les nouvelles bases de données, lors de la création, sélectionnez **Configurer la base de données** sous l’onglet **De base** et sélectionnez l’option permettant de réaliser des économies.
-- Pour les bases de données existantes, sélectionnez **Configurer** dans le menu **Paramètres** et sélectionnez l’option permettant de réaliser des économies.
+- Pour les nouvelles bases de données, sélectionnez **Configurer la base de données** dans l’onglet **Informations de base** lors de la création et sélectionnez l’option **Réaliser des économies**.
+- Pour les bases de données existantes, sélectionnez **Calcul + stockage** dans le menu **Paramètres** et sélectionnez l’option **Réaliser des économies**.
 
 Vous pouvez également configurer une base de données nouvelle ou existante à l’aide de l’une des API suivantes :
 

@@ -4,12 +4,12 @@ description: BYOK (Bring Your Own Keys) pour chiffrer les disques de données et
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: c5c555d7eb5142f5f41f65b24f754c65450a2713
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6007294476321e1155219aae0664732ee4f921e0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776188"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476243"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>BYOK (Bring Your Own Keys) avec des disques Azure dans Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Le stockage Azure chiffre toutes les données dans un compte de stockage au repo
 
 ## <a name="limitations"></a>Limites
 * La prise en charge du chiffrement de disque de données est limitée aux clusters AKS exécutant Kubernetes 1.17 et les versions ultérieures.
-* Le chiffrement du système d’exploitation et du disque de données avec des clés gérées par le client ne peut être activé que lors de la création d’un cluster AKS.
+* Le chiffrement du disque de système d’exploitation avec des clés managées par le client ne peut être activé que lors de la création d’un cluster AKS.
 
 ## <a name="prerequisites"></a>Prérequis
 * Vous devez activer la suppression réversible et la protection contre le vidage pour *Azure Key Vault* lors de l’utilisation de Key Vault pour chiffrer des disques managés.

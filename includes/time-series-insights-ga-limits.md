@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9af31fb52a888148f33268a30c37609a5e8f2cd3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96027423"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110487572"
 ---
 Ce qui suit résume les limites clés dans Azure Time Series Insights Gen1.
 
@@ -24,13 +24,13 @@ Les vitesses et capacités d’entrée des références (SKU) S1 et S2 offrent u
 
 | Capacité de la référence (SKU) S1 | Débit d’entrée | Capacité de stockage maximale
 | --- | --- | --- |
-| 1 | 1 Go (1 millions d’événements) par jour | 30 Go (30 millions d’événements) par mois |
-| 10 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) par mois |
+| 1 | 1 Go (1 millions d’événements) par jour | 30 Go (30 millions d’événements) |
+| 10 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) |
 
 | Capacité de la référence (SKU) S2 | Débit d’entrée | Capacité de stockage maximale
 | --- | --- | --- |
-| 1 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) par mois |
-| 10 | 100 Go (100 millions d’événements) par jour | 3 To (3 milliards d’événements) par mois |
+| 1 | 10 Go (10 millions d’événements) par jour | 300 Go (300 millions d’événements) |
+| 10 | 100 Go (100 millions d’événements) par jour | 3 To (3 milliards d’événements) |
 
 > [!NOTE]
 > Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, une référence SKU S1 avec la capacité 2 prend en charge 2 Go (2 millions) d’événements par débit d’entrée par jour et 60 Go (60 millions d’événements) par mois.

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 4ece05601efb515b3eab0f884aeff3d8add1bed0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7371bc023cc13278c0d1382ac1ac60ee42a39f0b
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128898"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809137"
 ---
-# <a name="source-control-in-azure-synapse-studio"></a>Contrôle de code source dans Azure Synapse Studio
+# <a name="source-control-in-synapse-studio"></a>Contrôle de code source dans Synapse Studio
 
-Par défaut, Azure Synapse Studio crée directement par rapport au service Synapse. Si vous avez besoin de collaboration à l’aide de Git pour le contrôle de code source, Synapse Studio vous permet d’associer votre espace de travail à un référentiel Git, Azure DevOps ou GitHub. 
+Par défaut, Synapse Studio crée le code directement pour le service Synapse. Si vous avez besoin de collaboration à l’aide de Git pour le contrôle de code source, Synapse Studio vous permet d’associer votre espace de travail à un référentiel Git, Azure DevOps ou GitHub. 
 
 Cet article explique comment configurer et utiliser un espace de travail Synapse avec le référentiel Git activé. Nous mettons également en évidence quelques bonnes pratiques et un guide de dépannage.
 
 > [!NOTE]
-> L’intégration Git d’Azure Synapse Studio n’est pas disponible dans le cloud Azure Government.
+> L’intégration Git de Synapse Studio n’est pas disponible dans le cloud Azure Government.
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configurer le référentiel Git dans Synapse Studio 
 
@@ -176,7 +176,7 @@ Par défaut, Synapse Studio génère les modèles d’espace de travail et les e
 }
 ```
 
-Azure Synapse Studio ne peut avoir qu’une seule branche de publication à la fois. Quand vous spécifiez une nouvelle branche de publication, la branche de publication précédente n’est pas supprimée. Si vous souhaitez la supprimer, faites-le manuellement.
+Synapse Studio peut avoir une seule branche de publication à la fois. Quand vous spécifiez une nouvelle branche de publication, la branche de publication précédente n’est pas supprimée. Si vous souhaitez la supprimer, faites-le manuellement.
 
 
 ### <a name="publish-code-changes"></a>Publier les modifications de code

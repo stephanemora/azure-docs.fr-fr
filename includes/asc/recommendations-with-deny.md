@@ -2,26 +2,26 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/21/2021
+ms.date: 06/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7433dd53346141147f8d7f0c7bdb1b3b076d152
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803560"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112084015"
 ---
+- [Activer si nécessaire] Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
+- [Activer si nécessaire] Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)
+- [Activer si nécessaire] Les comptes Cognitive Services doivent activer le chiffrement des données avec une clé gérée par le client (CMK)
+- [Activer si nécessaire] Les registres de conteneurs doivent être chiffrés avec une clé gérée par le client (CMK)
 - L’accès aux comptes de stockage avec configurations de pare-feu et de réseau virtuel doit être limité
 - Les variables de compte Automation doivent être chiffrées
 - Azure Cache pour Redis doit se trouver dans un réseau virtuel
-- Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
-- Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)
 - Azure Spring Cloud doit utiliser l’injection de réseau
-- Les comptes Cognitive Services doivent activer le chiffrement des données avec une clé gérée par le client (CMK)
 - Les limites de mémoire et du processeur du conteneur doivent être appliquées
 - Les images conteneur doivent être déployées à partir de registres approuvés uniquement
-- Les registres de conteneurs doivent être chiffrés avec une clé gérée par le client (CMK)
 - Tout conteneur avec une élévation des privilèges doit être évité
 - Éviter les conteneurs partageant des espaces de noms d’hôte sensibles
 - Les conteneurs doivent écouter uniquement sur les ports autorisés

@@ -5,16 +5,14 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 04/12/2021
+ms.date: 05/24/2021
 ms.author: rogarana
 ms.custom: references_regions
-ms.openlocfilehash: db04f271c78083bed7e80c507ba22a8911ef2516
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b060752282654644ecf84f1ac9a1f2378f4a3724
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327588"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486383"
 ---
-SMB Multichannel pour les partages de fichiers Azure est actuellement disponible uniquement dans les régions suivantes :
-- LRS : disponible dans toutes les régions, à l’exception des régions gouvernementales et souveraines.
-- ZRS : France Centre.
+SMB Multichannel pour les partages de fichiers Azure est disponible dans toutes les régions du cloud public où les partages de fichiers premium sont disponibles (redondances LRS et ZRS).

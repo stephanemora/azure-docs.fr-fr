@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd47a623700c495a571bc4ca6b949d1a2229178a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655099"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469158"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -85,9 +85,9 @@ Une fois que vous avez ouvert une demande d’accès en attente d’approbation,
 
 1. Cliquez sur **Soumettre** pour soumettre votre décision.
 
-    Si une stratégie est configurée avec plusieurs approbateurs, un seul approbateur doit prendre une décision concernant l’approbation en attente. Une fois qu’un approbateur a rendu sa décision concernant la demande d’accès, celle-ci est terminée et n’est plus disponible pour les autres approbateurs. Les autres approbateurs peuvent voir la décision et l’approbateur qui est intervenu dans leur portail Mon Accès. À ce stade, seule l’approbation en une étape est prise en charge.
+    Si une stratégie est configurée avec plusieurs approbateurs dans une phase, un seul approbateur doit prendre une décision concernant l’approbation en attente. Une fois qu’un approbateur a rendu sa décision concernant la demande d’accès, celle-ci est terminée et n’est plus disponible pour les autres approbateurs. Les autres approbateurs peuvent voir la décision et l’approbateur qui est intervenu dans leur portail Mon Accès.
 
-    Si aucun des approbateurs configurés ne peut approuver ou refuser la demande d’accès, celle-ci expire après la période définie. L’utilisateur est averti que sa demande d’accès a expiré et qu’il doit la soumettre à nouveau.
+    Si aucun des approbateurs configurés dans une phase ne peut approuver ou refuser la demande d’accès, celle-ci expire après la période définie. L’utilisateur est averti que sa demande d’accès a expiré et qu’il doit la soumettre à nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

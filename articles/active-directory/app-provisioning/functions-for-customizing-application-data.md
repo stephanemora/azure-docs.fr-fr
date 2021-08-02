@@ -2,8 +2,8 @@
 title: Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans l’approvisionnement des applications Azure Active Directory
 description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory. Contient une liste de références de fonctions.
 services: active-directory
-author: mtillman
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c5d2023ebc26aca0e6d1a14f43a94d2d3e3dd87
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3cd910cac906af54e039e38c9ccdd9d563cd9b8c
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782952"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570312"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 
@@ -369,7 +369,7 @@ Retourne True si l’attribut est absent ou s’il s’agit d’une chaîne vide
 | **index** |Obligatoire |Integer | Index d’un élément dans la chaîne à valeurs multiples|
 
 **Exemple :** 
-`Item([proxyAddresses], 1)` retourne le deuxième élément dans l’attribut à valeurs multiples.
+`Item([proxyAddresses], 1)` retourne le premier élément dans l’attribut à valeurs multiples. Index 0 ne doit pas être utilisé. 
 
 ---
 ### <a name="join"></a>Join

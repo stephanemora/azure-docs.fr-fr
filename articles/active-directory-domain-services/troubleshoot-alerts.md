@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 06/07/2021
 ms.author: justinha
-ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8ed66f1c6a7b52015778239e1d8afc2af2f6d06
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092881"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744752"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes courantes et résolutions dans Azure Active Directory Domain Services
 
@@ -138,7 +138,8 @@ Cette alerte est générée quand l’une de ces ressources requises est supprim
 1. Dans la page d’intégrité, sélectionnez l’alerte avec l’ID *AADDS109*.
 1. L’alerte a un horodatage correspondant au moment où elle a été initialement détectée. Si cet horodatage est inférieur à quatre heures, la plateforme Azure peut être en mesure de recréer automatiquement la ressource et de résoudre l’alerte par elle-même.
 
-    Si l’alerte a plus de 4 heures, le domaine managé est dans un état irrécupérable. [Supprimez le domaine managé](delete-aadds.md), puis [créez un domaine managé de remplacement](tutorial-create-instance.md).
+    Il peut arriver, pour différentes raisons, que l’alerte date de plus de quatre heures. Si c’est le cas, vous pouvez [supprimer le domaine managé](delete-aadds.md), puis [créer un domaine managé de remplacement](tutorial-create-instance.md) afin d’appliquer une correction immédiate, ou vous pouvez ouvrir une demande de support pour corriger l’instance. Selon la nature du problème, le support peut avoir besoin de faire une restauration à partir d’une sauvegarde.
+
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110 : Le sous-réseau associé à votre domaine managé est plein
 

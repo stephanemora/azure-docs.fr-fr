@@ -6,16 +6,16 @@ ms.date: 03/16/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 020278bf6e5a823f6b3caa22d03f4b5dd003c0d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b5db7861a3488fb71e709d17679e8d54911b0c9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608582"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069181"
 ---
 # <a name="configuring-jmx-metrics"></a>Configuration des métriques JMX
 
-L’agent Java Application Insights 3.0 collecte certaines des métriques JMX par défaut mais, dans de nombreux cas, cela ne suffit pas. Ce document décrit l’option de configuration de JMX en détail.
+Application Insights Java 3.x collecte certaines des métriques JMX par défaut mais, dans de nombreux cas, cela ne suffit pas. Ce document décrit l’option de configuration de JMX en détail.
 
 ## <a name="how-do-i-collect-additional-jmx-metrics"></a>Comment faire pour collecter des métriques JMX supplémentaires ?
 

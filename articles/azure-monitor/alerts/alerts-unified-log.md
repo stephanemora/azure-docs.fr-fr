@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a72d27584441e853c6eeeb732df2691fd347857e
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 2744a1dd36751175e7bd421210bdb5b92b53dfe5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664525"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456918"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -26,7 +26,7 @@ Les alertes de journal sont l’un des types d’alerte pris en charge dans [Ale
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../essentials/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser l’[article d’exemples de requêtes d’alerte](../logs/example-queries.md) dans Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou pour [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md).
+Les alertes de journal exécutent des requêtes sur les données Log Analytics. Vous devez d'abord [collecter les données de journal](../essentials/resource-logs.md), puis les interroger pour détecter les problèmes. Vous pouvez utiliser l’[article d’exemples de requêtes d’alerte](../logs/queries.md) dans Log Analytics pour en savoir plus sur ce que vous pouvez découvrir ou pour [commencer à écrire votre propre requête](../logs/log-analytics-tutorial.md).
 
 [Contributeur de surveillance Azure](../roles-permissions-security.md) est un rôle courant qui est nécessaire pour créer, modifier et mettre à jour les alertes de journal. Des droits d'accès et d'exécution de requêtes sont également nécessaires pour les journaux de ressources. Un accès partiel aux journaux de ressources peut faire échouer des requêtes ou renvoyer des résultats partiels. [Découvrez-en plus sur la configuration des alertes de journal dans Azure](./alerts-log.md).
 
@@ -180,11 +180,11 @@ Par exemple, si votre règle [**Précision d'agrégation**](#aggregation-granula
 
 ## <a name="state-and-resolving-alerts"></a>État et résolution des alertes
 
-Les alertes de journal peuvent être avec ou sans état (actuellement en préversion lors de l’utilisation de l’API).
+Les alertes de journal peuvent être sans état ou avec état (actuellement en préversion).
 
 Les alertes sans état se déclenchent à chaque fois que la condition est remplie, même si elles ont déjà été déclenchées. Vous pouvez [marquer l’alerte comme fermée](../alerts/alerts-managing-alert-states.md) une fois l’instance d’alerte résolue. Vous pouvez également désactiver des actions pour les empêcher de se déclencher pendant un certain temps après le déclenchement d'une règle d'alerte. Dans Application Insights et les espaces de travail Log Analytics, on parle de **Supprimer les alertes**. Dans tous les autres types de ressources, il s'agit de **Mettre les actions en sourdine**. 
 
-Consultez cet exemple d'évaluation d'alerte :
+Consultez cet exemple d’évaluation d’alerte sans état :
 
 | Temps    | Évaluation de la condition de journal | Résultats 
 | ------- | ----------| ----------| ------- 
@@ -193,7 +193,7 @@ Consultez cet exemple d'évaluation d'alerte :
 | 00:15 | true  | L’alerte se déclenche et les groupes d’actions sont appelés. Nouvel état d'alerte ACTIF.
 | 00:20 | false | L'alerte ne se déclenche pas. Aucune action n’est appelée. L'état d'alerte précédent reste ACTIF.
 
-Les alertes avec état se déclenchent une fois par incident et se résolvent. Lorsque vous créez ou mettez à jour des règles d’alerte de journal, ajoutez l’indicateur `autoMitigate` avec une valeur `true` de type `Boolean`, sous la section `properties`. Vous pouvez utiliser cette fonctionnalité dans les versions d’API suivantes : `2018-04-16` et `2020-05-01-preview`.
+Les alertes avec état se déclenchent une fois par incident et se résolvent. Cette fonctionnalité est actuellement en préversion dans le cloud public Azure. Vous pouvez définir cette option à l’aide de **Résoudre automatiquement les alertes** dans la section Détails de l’alerte.
 
 ## <a name="location-selection-in-log-alerts"></a>Sélection de l’emplacement dans les alertes de journal
 

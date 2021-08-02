@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 374fa4db4441dc82f9d14eef9cdd7589a9a82fad
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c615c3b57d0c4ebfdbffdc1461f2289d4b8c4256
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126846"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438267"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -137,6 +137,9 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 > [!WARNING]
 > Pour désactiver l’évaluation continue de l’accès, sélectionnez **Activer l’aperçu**, puis **Désactiver l’aperçu** et sélectionnez **Enregistrer**.
 
+> [!NOTE]
+>Vous pouvez interroger Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) pour vérifier la configuration de l’évaluation continue de l’accès dans votre locataire. Une réponse HTTP 200 et le corps de réponse associé indiquent si l’évaluation continue de l’accès est activée ou désactivée dans votre locataire. L’évaluation continue de l’accès n’est pas configurée si Microsoft Graph renvoie une réponse HTTP 404.
+
 ![Activation de la préversion de l’évaluation continue de l’accès dans le portail Azure](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
 ## <a name="troubleshooting"></a>Dépannage
@@ -191,4 +194,6 @@ La fréquence de connexion sera respectée avec ou sans EAC.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Annonce de l’évaluation de l’accès continu](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Annonce de l’évaluation de l’accès continu](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Guide pratique pour utiliser des API dotées d’Évaluation continue de l’accès dans vos applications](../develop/app-resilience-continuous-access-evaluation.md)
+- [Contestations liées aux revendications, demandes de revendications, et fonctionnalités clientes](../develop/claims-challenge.md)

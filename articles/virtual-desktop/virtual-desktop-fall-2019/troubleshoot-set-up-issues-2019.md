@@ -1,28 +1,28 @@
 ---
-title: Création d’un pool d’hôtes et d’un locataire Windows Virtual Desktop (classique) – Azure
-description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement client Windows Virtual Desktop (classique).
+title: Création d’un locataire et d’un pool d’hôtes Azure Virtual Desktop (classique) – Azure
+description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement de locataire Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 12be4611f0583c6da630b9e5a0e4b5a82ebfa650
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3b8843d90f9e3cab43b6ec34fadd002e8bc5b475
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444273"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751701"
 ---
-# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Windows Virtual Desktop (classique)
+# <a name="tenant-and-host-pool-creation-in-azure-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../troubleshoot-set-up-issues.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../troubleshoot-set-up-issues.md).
 
-Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Windows Virtual Desktop et de l’infrastructure associée du pool d’hôtes de la session.
+Cet article décrit les problèmes pouvant survenir lors de la configuration initiale du locataire Azure Virtual Desktop et de l’infrastructure de pool d’hôtes de la session associée.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Windows Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
+Pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté, consultez le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisition de l’image Windows 10 Entreprise multisession
 
@@ -31,9 +31,9 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran de la sélection de Windows 10 Entreprise pour postes de travail virtuels, version 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Création d’un locataire Windows Virtual Desktop
+## <a name="creating-azure-virtual-desktop-tenant&quot;></a>Création d’un locataire Azure Virtual Desktop
 
-Cette section décrit les problèmes potentiels lors de la création du locataire Windows Virtual Desktop.
+Cette section décrit les problèmes pouvant survenir lors de la création du locataire Azure Virtual Desktop.
 
 ### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Erreur : AADSTS650052 L’application a besoin d’accéder à un service.
 
@@ -47,9 +47,9 @@ configuration of your service subscriptions.650052 Message The app needs access 
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
-**Cause :** Consentement non accordé à Windows Virtual Desktop dans l’instance Azure Active Directory.
+**Cause :** Consentement non accordé à Azure Virtual Desktop dans l’instance Azure Active Directory.
 
-**Correctif :** [Suivez ce guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) pour donner votre consentement.
+**Correctif :** [Suivez ce guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) pour donner votre consentement.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 
@@ -78,13 +78,13 @@ Exemple d’erreur brute :
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran de l’attribution du rôle TenantCreator](../media/TenantCreatorRoleAssigned.png)
 
-## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Création de machines virtuelles hôtes de la session Windows Virtual Desktop
+## <a name="creating-azure-virtual-desktop-session-host-vms"></a>Création de machines virtuelles hôtes de session Azure Virtual Desktop
 
-Vous pouvez créer des machines virtuelles hôtes de la session de plusieurs manières, mais l’équipe Windows Virtual Desktop aide uniquement à résoudre les problèmes de provisionnement de machines virtuelles liés à l’offre de la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Pour plus d’informations, consultez [Problèmes d’utilisation de Windows Virtual Desktop - Provisionner un pool d’hôtes - Offre de la Place de marché Azure](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
+Il existe différents moyens de créer des machines virtuelles hôtes de session. Cependant, l’équipe Azure Virtual Desktop ne gère que les problèmes de provisionnement de machines virtuelles liés à l’offre de la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Pour plus d’informations, consultez [Problèmes d’utilisation d’Azure Virtual Desktop – Provisionnement d’un pool d’hôtes – Offre de la Place de marché Azure](#issues-using-azure-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
-## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problèmes d’utilisation de l’offre Windows Virtual Desktop - Provision a host pool de la Place de marché Azure
+## <a name="issues-using-azure-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problèmes d’utilisation d’Azure Virtual Desktop – Provisionnement d’un pool d’hôtes – Offre de la Place de marché Azure
 
-Le modèle Windows Virtual Desktop - Provision a host pool est accessible à partir de la Place de marché Azure.
+Le modèle Azure Virtual Desktop – Provisionnement d’un pool d’hôte est accessible sur la Place de marché Azure.
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erreur : Quand vous cliquez sur le lien GitHub, le message « Créer un compte gratuit » s’affiche
 
@@ -97,7 +97,7 @@ Le modèle Windows Virtual Desktop - Provision a host pool est accessible à par
 
 **Cause 2 :** L’abonnement utilisé fait partie d’un locataire fournisseur de services cloud (CSP) Microsoft.
 
-**Correctif 2 :** Accédez à l’emplacement GitHub de l’étape **Créer et approvisionner un nouveau pool d’hôtes Windows Virtual Desktop**, puis suivez les instructions ci-après :
+**Correctif 2 :** Accédez à l’emplacement GitHub de l’étape **Créer et provisionner un nouveau pool d’hôtes Azure Virtual Desktop**, puis suivez ces instructions :
 
 1. Cliquez avec le bouton droit sur **Déployer sur Azure**, puis sélectionnez **Copier l’adresse du lien**.
 2. Ouvrez le **Bloc-notes** et collez-y le lien.
@@ -192,11 +192,11 @@ Pour corriger cela, effectuez les actions suivantes :
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du message d’échec du déploiement indiquant l’échec du provisionnement du terminal](../media/7aaf15615309c18a984673be73ac969a.png)
 
-**Cause 1 :** Erreur temporaire au niveau de l’environnement Windows Virtual Desktop.
+**Cause 1 :** Erreur temporaire dans l’environnement Azure Virtual Desktop.
 
 **Cause 2 :** Erreur temporaire au niveau de la connexion.
 
-**Correctif :** Vérifiez que l’environnement Windows Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell-2019.md).
+**Correctif :** vérifiez que l’environnement Azure Virtual Desktop est sain en vous connectant avec PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell-2019.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
@@ -366,13 +366,13 @@ Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed 
 The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
-**Cause :** L’attribution de rôle de l’administrateur du locataire Windows Virtual Desktop spécifié n’est pas valide.
+**Cause :** L’attribution de rôle de l’administrateur du locataire Azure Virtual Desktop spécifié n’est pas valide.
 
-**Correctif :** L’utilisateur ayant créé le locataire Windows Virtual Desktop doit se connecter à Windows Virtual Desktop PowerShell et attribuer à l’utilisateur en question une attribution de rôle. Si vous exécutez les paramètres du modèle Azure Resource Manager GitHub, suivez les instructions ci-après en utilisant des commandes PowerShell :
+**Correctif :** L’utilisateur ayant créé le locataire Azure Virtual Desktop doit se connecter à Azure Virtual Desktop PowerShell et affecter à l’utilisateur en question une attribution de rôle. Si vous exécutez les paramètres du modèle Azure Resource Manager GitHub, suivez les instructions ci-après en utilisant des commandes PowerShell :
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
+New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
 ### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Erreur : L’utilisateur nécessite Azure AD Multi-Factor Authentication (MFA)
@@ -386,18 +386,18 @@ Exemple d’erreur brute :
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Cause :** L’administrateur du locataire Windows Virtual Desktop spécifié doit se connecter à l’aide d’Azure AD Multi-Factor Authentication (MFA).
+**Cause :** L’administrateur du locataire Azure Virtual Desktop spécifié doit se connecter avec Azure AD Multi-Factor Authentication (MFA).
 
-**Correctif :** Créez un principal de service et attribuez-lui un rôle pour votre locataire Windows Virtual Desktop en suivant la procédure décrite dans l’article [Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell](create-service-principal-role-powershell.md). Après avoir vérifié que vous pouvez vous connecter à Windows Virtual Desktop avec le principal du service, réexécutez l’offre de la Place de marché Azure ou le modèle Azure Resource Manager GitHub, selon la méthode que vous utilisez. Suivez les instructions ci-après pour saisir les paramètres adaptés à votre méthode.
+**Correctif :** Créez un principal de service et attribuez-lui un rôle sur votre locataire Azure Virtual Desktop suivant la procédure décrite dans [Tutoriel : Création de principaux de service et d’attributions de rôles avec PowerShell](create-service-principal-role-powershell.md). Après avoir vérifié que vous pouvez vous connecter à Azure Virtual Desktop avec le principal de service, réexécutez l’offre de la Place de marché Azure ou le modèle Azure Resource Manager GitHub, selon la méthode que vous utilisez. Suivez les instructions ci-après pour saisir les paramètres adaptés à votre méthode.
 
-Si vous exécutez l’offre de la Place de marché Azure, renseignez les paramètres ci-après pour vous authentifier correctement auprès de Windows Virtual Desktop :
+Si vous exécutez l’offre de la Place de marché Azure, indiquez la valeur des paramètres suivants pour vous authentifier auprès d’Azure Virtual Desktop :
 
-- Propriétaire des Services Bureau à distance du locataire Windows Virtual Desktop : Principal du service
+- Propriétaire des Services Bureau à distance du locataire Azure Virtual Desktop : Principal de service
 - ID d’application : identification d’application du principal de service que vous avez créé
 - Mot de passe/Confirmer le mot de passe : secret de mot de passe que vous avez généré pour le principal du service
 - ID de locataire Azure AD : ID de locataire Azure AD du principal de service que vous avez créé
 
-Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres ci-après pour vous authentifier correctement auprès de Windows Virtual Desktop :
+Si vous exécutez le modèle Azure Resource Manager GitHub, indiquez la valeur des paramètres suivants pour vous authentifier auprès d’Azure Virtual Desktop :
 
 - Nom d’utilisateur principal (UPN) de l’administrateur du locataire ou ID d’application : identification d’application du principal de service que vous avez créé
 - Mot de passe d’administrateur du locataire : secret de mot de passe que vous avez généré pour le principal du service
@@ -406,18 +406,18 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erreur : vmSubnet n’est pas disponible lors de la configuration des réseaux virtuels
 
-**Cause :** Dans le modèle Marketplace Windows Virtual Desktop, l’interface utilisateur affiche uniquement les sous-réseaux qui ont au moins autant d’adresses IP disponibles que le nombre total de machines virtuelles spécifiées dans le modèle. Le nombre réel d’adresses IP disponibles sur le sous-réseau doit être égal au nombre de nouvelles machines virtuelles déployées, mais il ne peut pas être calculé par l’interface utilisateur actuelle.
+**Cause :** Dans le modèle de la Place de marché Azure Virtual Desktop, l’interface utilisateur n’affiche que les sous-réseaux qui possèdent au moins autant d’adresses IP disponibles que le nombre total de machines virtuelles spécifié dans le modèle. Le nombre réel d’adresses IP disponibles sur le sous-réseau doit être égal au nombre de nouvelles machines virtuelles déployées, mais il ne peut pas être calculé par l’interface utilisateur actuelle.
 
 **Correctif :** Vous pouvez spécifier un sous-réseau avec au moins autant d’adresses IP disponibles que le nombre de machines virtuelles ajoutées en n’utilisant pas l’interface utilisateur de la Place de marché. Pour cela, vous pouvez spécifier le nom du sous-réseau dans le paramètre « **existingSubnetName** » quand vous [redéployez un déploiement existant](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [déployez à l’aide du modèle ARM sous-jacent à partir de GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview-2019.md).
-- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration-2019.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection-2019.md).
+- Pour une vue d’ensemble de la résolution des problèmes d’Azure Virtual Desktop et des procédures d’escalade, consultez [Vue d’ensemble de la résolution des problèmes, commentaires et support](troubleshoot-set-up-overview-2019.md).
+- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Azure Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration-2019.md).
+- Pour résoudre les problèmes de connexion client Azure Virtual Desktop, consultez [Connexions au service Azure Virtual Desktop](troubleshoot-service-connection-2019.md).
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](../troubleshoot-client.md).
-- Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup-2019.md).
+- Pour résoudre les problèmes d’utilisation de PowerShell avec Azure Virtual Desktop, consultez [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
+- Pour plus d’informations sur le service, consultez [Environnement Azure Virtual Desktop](environment-setup-2019.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../../azure-resource-manager/templates/deployment-history.md).

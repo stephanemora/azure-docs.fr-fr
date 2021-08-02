@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: bc7b1a0742e79c3c84bf533e75467b5def2706b4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 1ad358c428f80e2e8bebcecf73cc89ddd5c37bc7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277723"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454412"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -42,7 +42,7 @@ Vous pouvez spécifier un nom et une version de clé, ou simplement un nom de cl
 Media Services prend automatiquement en charge le chiffrement double. Pour les données au repos, la première couche de chiffrement utilise une clé gérée par le client ou une clé gérée par Microsoft en fonction du paramètre `AccountEncryption` sur le compte.  La deuxième couche de chiffrement des données au repos est fournie automatiquement à l’aide d’une clé gérée par Microsoft distincte. Pour en savoir plus sur le double chiffrement, consultez [Double chiffrement Azure](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> Le chiffrement double est activé automatiquement sur le compte Media Services. Toutefois, vous devez configurer séparément la clé gérée par le client et le chiffrement double sur votre compte de stockage. Voir [Chiffrement du stockage](../../storage/common/storage-service-encryption.md).
+> Le chiffrement double est activé automatiquement sur le compte Media Services. Toutefois, vous devez configurer séparément la clé gérée par le client et le chiffrement double sur votre compte de stockage. Pour plus d’informations, consultez [Chiffrement du stockage](../../storage/common/storage-service-encryption.md).
 
 ## <a name="tutorials"></a>Tutoriels
 

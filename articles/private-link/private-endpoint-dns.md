@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 0e37e6740613c7d025a461b1b3f1497880a50124
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 36d45cf5b972feaecb8563f28e931cb344dcc36d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634560"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080378"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuration DNS des points de terminaison privés Azure
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser les options suivantes pour configurer vos paramètres DNS p
 - **Utilisez votre redirecteur DNS (facultatif)** . Vous pouvez utiliser votre redirecteur DNS pour remplacer la résolution DNS par une ressource de liaison privée. Créez une règle de transfert DNS pour utiliser une zone DNS privée sur votre [serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) hébergé dans un réseau virtuel.
 
 > [!IMPORTANT]
-> Il n'est pas recommandé de remplacer une zone utilisée activement pour résoudre des points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
+> Il n’est pas recommandé de remplacer une zone utilisée activement pour résoudre des points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
 
 ## <a name="azure-services-dns-zone-configuration"></a>Configuration de la zone DNS des services Azure
 Azure crée un enregistrement de nom canonique (CNAME) DNS sur le DNS public. L’enregistrement CNAME redirige la résolution vers le nom de domaine privé. Vous pouvez remplacer la résolution par l’adresse IP privée de vos points de terminaison privés. 
@@ -139,7 +139,7 @@ Vous pouvez étendre ce modèle à plusieurs réseaux virtuels appairés associ�
 > Une seule zone DNS privée est requise pour cette configuration. La création de plusieurs zones portant le même nom pour différents réseaux virtuels nécessiterait des opérations manuelles pour fusionner les enregistrements DNS.
 
 > [!IMPORTANT]
-> Si vous utilisez un point de terminaison privé dans un modèle hub-and-spoke d’un autre abonnement, réutilisez la même zone DNS privée sur le hub.
+> Si vous utilisez un point de terminaison privé dans un modèle hub-and-spoke d’un autre abonnement ou même au sein du même abonnement, reliez les mêmes zones DNS privées à tous les spokes et réseaux virtuels hub contenant des clients qui nécessitent une résolution DNS à partir des zones.
 
 Dans ce scénario, il existe une topologie de réseau [hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Les réseaux spoke partagent un point de terminaison privé. Les réseaux virtuels spoke sont liés à la même zone DNS privée. 
 
@@ -147,7 +147,7 @@ Dans ce scénario, il existe une topologie de réseau [hub-and-spoke](/azure/arc
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Charges de travail locales à l’aide d’un redirecteur DNS
 
-Pour que les charges de travail locales puissent résoudre le nom de domaine complet (FQDN) d’un point de terminaison privé, utilisez un redirecteur DNS pour résoudre la [zone DNS publique](#azure-services-dns-zone-configuration) du service Azure dans Azure.
+Pour que les charges de travail locales puissent résoudre le nom de domaine complet (FQDN) d’un point de terminaison privé, utilisez un redirecteur DNS pour résoudre la [zone DNS publique](#azure-services-dns-zone-configuration) du service Azure dans Azure. Un [redirecteur DNS](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) est une machine virtuelle fonctionnant sur le réseau virtuel lié à la zone DNS privée qui peut envoyer par proxy des requêtes DNS provenant d’autres réseaux virtuels ou d’un emplacement local. Cela est nécessaire, car la requête doit provenir du réseau virtuel à Azure DNS. Voici quelques options pour les proxys DNS : Windows exécutant des services DNS, Linux exécutant des services DNS et [Pare-feu Azure](../firewall/dns-settings.md).
 
 Le scénario suivant concerne un réseau local qui a un redirecteur DNS dans Azure. Ce redirecteur résout les requêtes DNS par le biais d’un redirecteur au niveau du serveur vers le DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) fourni par Azure. 
 

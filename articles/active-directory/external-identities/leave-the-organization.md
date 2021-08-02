@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc07e038ef382a44c4672b2d63c49d8f5a961cda
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 239778455f049822bd92a92c811fcacad270ae3e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486312"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076507"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Quitter une organisation en tant qu’utilisateur invité
 
@@ -29,19 +29,17 @@ Un utilisateur invité Azure Active Directory (Azure AD) B2B peut décider de qu
 
 Pour quitter une organisation, procédez comme suit.
 
-1. Accédez à la page Profil Panneau d’accès en effectuant l’une des étapes suivantes :
-   
-   - Dans le [portail Azure](https://portal.azure.com), cliquez sur votre nom dans le coin supérieur droit et sélectionnez **Afficher le compte**.
-   - Ouvrez votre [Panneau d’accès](https://myapps.microsoft.com), cliquez sur votre nom dans le coin supérieur droit, puis sur **Organisations** et sélectionnez **Voir le compte**.
- 
- 
-2. Sélectionnez **Gérer les organisations**.
-  ![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/leave-the-organization/manage-organizations.png) 
-  
-3. Sous **Organisations**, recherchez l’organisation que vous voulez quitter, puis sélectionnez **Quitter l’organisation**.
+1. Accédez à votre page **Mon compte** en procédant de l’une des manières suivantes :
+- Si vous utilisez un compte professionnel ou scolaire, accédez à https://myaccount.microsoft.com et connectez-vous.
+- Si vous utilisez un compte personnel, accédez à https://myapps.microsoft.com et connectez-vous, puis cliquez sur l’icône de votre compte dans le coin supérieur droit et sélectionnez **Afficher le compte**.
+   > [!NOTE]
+   > Quand vous utilisez un compte personnel, une autre option consiste à accéder directement à la page Mon compte en ajoutant le nom du locataire ou l’ID de locataire à l’URL, par exemple : `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` ou `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`.
+
+2. Sous **Organisations**, recherchez l’organisation que vous voulez quitter, puis sélectionnez **Quitter l’organisation**.
 
    ![Capture d’écran montrant l’option Quitter l’organisation dans l’interface utilisateur](media/leave-the-organization/leave-org.png)
-4. Lorsque vous êtes invité à confirmer votre choix, sélectionnez **Quitter**.
+3. Lorsque vous êtes invité à confirmer votre choix, sélectionnez **Quitter**.
+
 > [!NOTE]
    > Vous ne pouvez pas quitter votre organisation d’origine.
 

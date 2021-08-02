@@ -1,15 +1,15 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 05/01/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44fb92287eada08a573d6ff70cea5d33612cfa23
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d860ea4af08c8982e2205bb98c82b5475734d35c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751892"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099169"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -88,7 +88,7 @@ Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegr
 
 Les résultats d’une requête Resource Graph sont fournis aux formats _Table_  et _ObjectArray_ . Le format est configuré avec le paramètre **resultFormat** dans le cadre des options de requête. Le format _Table_ est la valeur par défaut du paramètre **resultFormat**.
 
-Les résultats de l’interface Azure CLI sont fournis au format JSON par défaut. Les résultats dans Azure PowerShell prennent la forme d’un objet **PSCustomObject** par défaut. Cependant, ils peuvent être convertis rapidement au format JSON à l’aide de l’applet de commande `ConvertTo-Json`. Pour les autres kits SDK, les résultats de la requête peuvent être configurés pour sortir au format _ObjectArray_.
+Les résultats de l’interface Azure CLI sont fournis au format JSON par défaut. Les résultats dans Azure PowerShell sont un objet **PSResourceGraphResponse**. Cependant, ils peuvent être convertis rapidement au format JSON à l’aide de la cmdlet `ConvertTo-Json` sur la propriété **Données**. Pour les autres kits SDK, les résultats de la requête peuvent être configurés pour sortir au format _ObjectArray_.
 
 ### <a name="format---table"></a>Format - Table
 

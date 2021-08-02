@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 3db9f8d895b4c13b5f969859f422e7b566722ffc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6b9bf8aea031b7dce88fbaa096d8e5996e1d6f57
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783068"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189763"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Intégration d’Azure Active Directory géré par AKS
 
@@ -188,6 +188,115 @@ Si vous souhaitez accéder au cluster, suivez les étapes décrites [ici][access
 
 Certains scénarios non interactifs, tels que les pipelines d’intégration continue, ne sont pas possibles avec kubectl. Utilisez [`kubelogin`](https://github.com/Azure/kubelogin) pour accéder au cluster à l’aide d’une connexion non interactive avec le principal de service.
 
+## <a name="disable-local-accounts-preview"></a>Désactiver les comptes locaux (préversion)
+
+Lors du déploiement d’un cluster AKS, les comptes locaux sont activés par défaut. Même lors de l’activation de l’intégration RBAC ou Azure Active Directory, l’accès à `--admin` existe toujours, essentiellement comme une option d’accès par porte dérobée ne pouvant pas être auditée. Dans cette optique, AKS offre aux utilisateurs la possibilité de désactiver les comptes locaux via un indicateur, `disable-local`. Un champ `properties.disableLocalAccounts` a également été ajouté à l’API de cluster géré pour indiquer si la fonctionnalité a été activée sur le cluster.
+
+> [!NOTE]
+> Sur les clusters sur lesquels l’intégration Azure AD est activée, les utilisateurs qui appartiennent à un groupe spécifié par `aad-admin-group-object-ids` disposeront toujours d’un accès via des informations d’identification non-administrateur. Sur les clusters sans intégration Azure AD activée et pour lesquels `properties.disableLocalAccounts` est définie sur true, l’obtention d’informations d’identification échouera à la fois pour l’utilisateur et l’administrateur.
+
+### <a name="register-the-disablelocalaccountspreview-preview-feature"></a>Inscrire la fonctionnalité d’évaluation `DisableLocalAccountsPreview`
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Pour utiliser un cluster AKS sans comptes locaux, vous devez activer l’indicateur de fonctionnalité `DisableLocalAccountsPreview` sur votre abonnement. Vérifiez que vous utilisez bien la dernière version de l’interface de ligne de commande Azure et l’extension `aks-preview`.
+
+Inscrivez l’indicateur de fonctionnalité `DisableLocalAccountsPreview` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="create-a-new-cluster-without-local-accounts"></a>Créer un nouveau cluster sans comptes locaux
+
+Pour créer un nouveau cluster AKS sans comptes locaux, utilisez la commande [az aks create][az-aks-create] avec l’indicateur `disable-local` :
+
+```azurecli-interactive
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+```
+
+Dans la sortie, assurez-vous que les comptes locaux ont été désactivés en vérifiant que le champ `properties.disableLocalAccounts` est défini sur true :
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+La tentative d’obtenir des informations d’identification de l’administrateur échouera avec un message d’erreur indiquant que la fonctionnalité empêche l’accès :
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### <a name="disable-local-accounts-on-an-existing-cluster"></a>Désactiver les comptes locaux sur un cluster existant
+
+Pour désactiver les comptes locaux sur un cluster AKS existant, utilisez la commande [az aks update][az-aks-update] avec l’indicateur `disable-local` :
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+```
+
+Dans la sortie, assurez-vous que les comptes locaux ont été désactivés en vérifiant que le champ `properties.disableLocalAccounts` est défini sur true :
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": true,
+    ...
+}
+```
+
+La tentative d’obtenir des informations d’identification de l’administrateur échouera avec un message d’erreur indiquant que la fonctionnalité empêche l’accès :
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+```
+
+### <a name="re-enable-local-accounts-on-an-existing-cluster"></a>Réactiver les comptes locaux sur un cluster existant
+
+AKS offre également la possibilité de réactiver les comptes locaux sur un cluster existant avec l’indicateur `enable-local` :
+
+```azurecli-interactive
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --enable-local
+```
+
+Dans la sortie, assurez-vous que les comptes locaux ont été réactivés en vérifiant que le champ `properties.disableLocalAccounts` est défini sur false :
+
+```output
+"properties": {
+    ...
+    "disableLocalAccounts": false,
+    ...
+}
+```
+
+La tentative d’accès aux informations d’identification d’administrateur réussira :
+
+```azurecli-interactive
+az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
+
+Merged "<cluster-name>-admin" as current context in C:\Users\<username>\.kube\config
+```
+
 ## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Utiliser l’accès conditionnel avec Azure AD et AKS
 
 Lorsque vous intégrez Azure AD à votre cluster AKS, vous pouvez également utiliser l’[accès conditionnel][aad-conditional-access] pour contrôler l’accès à votre cluster.
@@ -327,3 +436,7 @@ Assurez-vous que l’administrateur du groupe de sécurité a donné à votre co
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update

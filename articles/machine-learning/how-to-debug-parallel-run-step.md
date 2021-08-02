@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: 6c486b5085ee5e3152367229944b7782f04dc854
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: aaacc12f6a577fd0a2ff0150d22902bb6e7d6cc1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204456"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753392"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Résolution des problèmes de ParallelRunStep
 
@@ -31,10 +31,14 @@ Pour obtenir des conseils généraux sur la résolution des problèmes liés à 
 ##  <a name="script-requirements"></a>Configuration requise pour le script
 
 Le script d'une étape `ParallelRunStep` *doit contenir* deux fonctions :
-- `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global. Cette fonction est appelée une seule fois au début du processus.
+- `init()` : utilisez cette fonction pour toute préparation coûteuse ou commune en vue d’un traitement ultérieur. Par exemple, utilisez-la pour charger le modèle dans un objet global. Cette fonction est appelée une seule fois au début du processus.
+    > [!NOTE]
+    > Si votre méthode `init` crée un répertoire de sortie, spécifiez que `exist_ok=True`. La méthode `init` est appelée à partir de chaque processus Worker sur chaque nœud sur lequel le travail est en cours d’exécution.
 -  `run(mini_batch)`: cette fonction s’exécute pour chaque instance de `mini_batch`.
     -  `mini_batch` : `ParallelRunStep` va appeller la méthode d’exécution, et passer une liste ou un `DataFrame` Pandas en tant qu’argument à la méthode. Chaque entrée de mini_batch sera un chemin de fichier si l’entrée est un `FileDataset`, ou un `DataFrame` Pandas si l’entrée est un `TabularDataset`.
     -  `response` : la méthode run() doit retourner un `DataFrame` Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de l’exécution d’une entrée dans le mini-lot d’entrée. Vérifiez que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper l’entrée au résultat de la sortie de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie, mais pas nécessairement dans l’ordre. Vous devez utiliser une clé dans la sortie pour la mapper à l’entrée.
+        > [!NOTE]
+        > Un élément de sortie est attendu pour un élément d’entrée.  
 
 ```python
 %%writefile digit_identification.py
@@ -97,7 +101,7 @@ file_path = os.path.join(script_dir, "<file_name>")
     - Pour `FileDataset`, il s’agit du nombre de fichiers avec une valeur minimale de `1`. Vous pouvez combiner plusieurs fichiers dans un mini-lot.
     - Pour `TabularDataset`, il s’agit de la taille des données. Par exemple, il peut s’agir des valeurs `1024`, `1024KB`, `10MB` ou `1GB`. `1MB` est la valeur recommandée. Le mini-lot de `TabularDataset` ne franchira jamais les limites du fichier. Par exemple, si vous avez des fichiers .csv de différentes tailles, le plus petit fichier aura une taille de 100 Ko et le plus grand une taille de 10 Mo. Si vous définissez `mini_batch_size = 1MB`, les fichiers dont la taille est inférieure à 1 Mo seront traités ensemble comme un mini-lot. Les fichiers dont la taille est supérieure à 1 Mo seront répartis dans plusieurs mini-lots.
         > [!NOTE]
-        > Impossible de partitionner les TabularDatasets sauvegardés par SQL. 
+        > Impossible de partitionner les TabularDatasets sauvegardés par SQL. Les TabularDatasets provenant d’un seul fichier Parquet et d’un seul groupe de lignes ne peuvent pas être partitionnés.
 
 - `error_threshold`: nombre d’échecs d’enregistrement pour `TabularDataset` et d’échecs de fichiers pour `FileDataset` qui doivent être ignorés pendant le traitement. Si le nombre d’erreurs présentes dans la totalité de l’entrée dépasse cette valeur, le travail est annulé. Le seuil d’erreur concerne la totalité de l’entrée et non le mini-lot envoyé à la méthode `run()`. La plage est la suivante : `[-1, int.max]`. La partie `-1` indique qu’il faut ignorer tous les échecs au cours du traitement.
 - `output_action`: l’une des valeurs suivantes indique comment la sortie sera organisée :
@@ -107,13 +111,22 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `source_directory`: chemins des dossiers qui contiennent tous les fichiers à exécuter sur la cible de calcul (facultatif).
 - `compute_target`: Seul `AmlCompute` est pris en charge.
 - `node_count`: nombre de nœuds de calcul à utiliser pour l’exécution du script utilisateur.
-- `process_count_per_node`: nombre de processus par nœud. La bonne pratique consiste à définir la valeur sur le nombre de GPU ou d’UC dont dispose un nœud (facultatif ; la valeur par défaut est `1`).
+- `process_count_per_node` : le nombre de processus Worker par nœud pour exécuter le script d’entrée en parallèle. Pour un ordinateur GPU, la valeur par défaut est 1. Pour un ordinateur UC, la valeur par défaut est le nombre de cœurs par nœud. Un processus Worker appellera `run()` de manière répétée en transmettant le mini lot qu’il obtient. Le nombre total de processus Worker dans votre travail est `process_count_per_node * node_count`, qui détermine le nombre maximal de `run()` à exécuter en parallèle.  
 - `environment`: définition de l’environnement Python. Vous pouvez la configurer de manière à utiliser un environnement Python existant ou un environnement temporaire. La définition est également chargée de définir les dépendances d’application nécessaires (facultatif).
 - `logging_level`: Verbosité du journal. Les valeurs permettant d’augmenter le niveau de verbosité sont les suivantes : `WARNING`, `INFO` et `DEBUG`. (Facultatif ; la valeur par défaut est `INFO`.)
 - `run_invocation_timeout`: délai d’attente de l’appel de la méthode `run()`, en secondes. (Facultatif ; la valeur par défaut est `60`.)
 - `run_max_try`: nombre maximal de tentatives de `run()` pour un mini-lot. `run()` a échoué si une exception est levée, ou si rien n’est retourné lorsque `run_invocation_timeout` est atteint (facultatif ; la valeur par défaut est `3`). 
 
 Vous pouvez spécifier `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` et `run_max_try` en tant que `PipelineParameter` ; ainsi, lorsque vous soumettez à nouveau une exécution de pipeline, vous pouvez ajuster les valeurs des paramètres. Dans cet exemple, vous utilisez `PipelineParameter` pour `mini_batch_size` et `Process_count_per_node`, puis vous modifiez ces valeurs quand vous soumettez à nouveau une exécution. 
+
+#### <a name="cuda-devices-visibility"></a>Visibilité des appareils CUDA
+Pour les cibles de calcul équipées de GPU, la variable d’environnement `CUDA_VISIBLE_DEVICES` est définie dans les processus Worker. Dans AmlCompute, vous pouvez trouver le nombre total de périphériques GPU dans la variable d’environnement `AZ_BATCHAI_GPU_COUNT_FOUND`, qui est définie automatiquement. Si vous souhaitez que chaque processus Worker ait un GPU dédié, définissez `process_count_per_node` égal au nombre de périphériques GPU sur un ordinateur. Chaque processus Worker attribuera un index unique à `CUDA_VISIBLE_DEVICES`. Si un processus Worker s’arrête pour une raison quelconque, le prochain processus Worker qui démarre utilisera l’index GPU libéré.
+
+Si le nombre total de périphériques GPU est inférieur à `process_count_per_node`, les processus Worker se voient attribuer un index GPU jusqu’à ce que tous aient été utilisés. 
+
+Si le nombre total de périphériques GPU est 2 et que `process_count_per_node = 4`, par exemple, le processus 0 et le processus 1 auront les index 0 et 1. Les processus 2 et 3 n’auront pas de variable d’environnement. Pour une bibliothèque qui utilise cette variable d’environnement pour l’attribution des GPU, les processus 2 et 3 n’auront pas de GPU et n’essaieront pas d’acquérir des périphériques GPU. Si le processus 0 s’arrête, il libère l’index GPU 0. Le processus suivant, à savoir le processus 4, se verra attribuer l’index GPU 0.
+
+Pour plus d’informations, consultez [CUDA Pro Tip: Control GPU Visibility with CUDA_VISIBLE_DEVICES](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/).
 
 ### <a name="parameters-for-creating-the-parallelrunstep"></a>Paramètres de création de l'étape ParallelRunStep
 
@@ -224,6 +237,7 @@ Si aucun `stdout` ou `stderr` n’est spécifié, un sous-processus hérite du p
 ### <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>Comment écrire dans un fichier pour qu’il apparaisse dans le portail ?
 Les fichiers dans le dossier `logs` sont chargés et s’affichent dans le portail.
 Vous pouvez accéder au dossier `logs/user/entry_script_log/<node_id>` comme ci-dessous et composer le chemin du fichier en vue de l’écriture :
+
 ```python
 from pathlib import Path
 def init():
@@ -234,11 +248,30 @@ def init():
     fil_path = Path(folder) / "<file_name>"
 ```
 
-### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Comment puis-je passer une entrée supplémentaire, par exemple un ou des fichiers contenant une table de recherche, à tous mes collaborateurs ?
+### <a name="how-do-i-write-a-file-to-the-output-directory-and-then-view-it-in-the-portal"></a>Comment puis-je écrire un fichier dans le répertoire de sortie, puis l’afficher dans le portail ?
+
+Vous pouvez obtenir le répertoire de sortie à l’aide de la classe `EntryScript` et y écrire. Pour afficher les fichiers écrits, dans l’affichage Exécution de l’étape du portail Azure Machine Learning, sélectionnez l’onglet **Sorties + journaux d’activité**. Sélectionnez le lien **Sorties de données**, puis effectuez les étapes décrites dans la boîte de dialogue. 
+
+Utilisez `EntryScript` dans votre script d’entrée comme dans l’exemple suivant :
+
+```python
+from pathlib import Path
+from azureml_user.parallel_run import EntryScript
+
+def run(mini_batch):
+    output_dir = Path(entry_script.output_dir)
+    (Path(output_dir) / res1).write...
+    (Path(output_dir) / res2).write...
+```
+
+### <a name="how-can-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Comment puis-je transmettre une entrée supplémentaire, par exemple un ou des fichiers contenant une table de choix, à tous mes collaborateurs ?
 
 L’utilisateur peut passer des données de référence au script à l’aide du paramètre side_inputs de ParalleRunStep. Tous les jeux de données fournis en tant que side_inputs seront montés sur chaque nœud Worker. L’utilisateur peut récupérer l’emplacement du montage en passant l’argument.
 
-Construisez un [Jeu de données](/python/api/azureml-core/azureml.core.dataset.dataset) contenant les données de référence, spécifiez un chemin de montage local et inscrivez-le auprès de votre espace de travail. Transmettez-le au paramètre `side_inputs` de votre `ParallelRunStep`. En outre, vous pouvez ajouter son chemin dans la section `arguments` pour accéder facilement à son chemin monté :
+Construisez un [Jeu de données](/python/api/azureml-core/azureml.core.dataset.dataset) contenant les données de référence, spécifiez un chemin de montage local et inscrivez-le auprès de votre espace de travail. Transmettez-le au paramètre `side_inputs` de votre `ParallelRunStep`. En outre, vous pouvez ajouter son chemin d’accès dans la section `arguments` pour accéder facilement à son chemin monté.
+
+> [!NOTE]
+> Utilisez FileDatasets uniquement pour side_inputs. 
 
 ```python
 local_path = "/tmp/{}".format(str(uuid.uuid4()))
@@ -264,7 +297,6 @@ labels_path = args.labels_dir
 ```
 
 ### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Comment utiliser des jeux de données d’entrée avec l’authentification du principal du service ?
-
 L’utilisateur peut passer des jeux de données d’entrée avec l’authentification du principal du service utilisée dans l’espace de travail. L’utilisation d’un tel jeu de données dans ParallelRunStep nécessite que le jeu de données soit inscrit pour pouvoir construire une configuration ParallelRunStep.
 
 ```python
@@ -284,6 +316,38 @@ default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore
 ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
+
+## <a name="how-to-check-progress-and-analyze-it"></a>Comment vérifier la progression et l’analyser
+Cette section explique comment vérifier la progression d’un travail ParallelRunStep et rechercher la cause d’un comportement inattendu.
+
+### <a name="how-to-check-job-progress"></a>Comment vérifier la progression d’un travail ?
+Outre l’examen de l’état général du StepRun, vous pouvez consulter le nombre de mini-lots planifiés ou traités et la progression de la génération de la sortie dans `~/logs/job_progress_overview.<timestamp>.txt`. Le fichier est mis à jour quotidiennement : vous pouvez consulter celui dont le timestamp est le plus élevé pour obtenir les informations les plus récentes.
+
+### <a name="what-should-i-check-if-there-is-no-progress-for-a-while"></a>Que dois-je vérifier s’il n’y a aucune progression pendant un certain temps ?
+Vous pouvez accéder à `~/logs/sys/errror` pour voir s’il y a une exception. S’il n’y en a pas, il est probable que votre script d’entrée prenne beaucoup de temps. Vous pouvez imprimer les informations relatives à la progression dans votre code pour localiser la partie qui prend du temps ou vous pouvez ajouter `"--profiling_module", "cProfile"` à la section `arguments` de `ParallelRunStep` pour générer un fichier de profil nommé `<process_name>.profile` sous le dossier `~/logs/sys/node/<node_id>`.
+
+### <a name="when-will-a-job-stop"></a>Quand un travail s’arrête-t-il  ?
+S’il n’est pas annulé, le travail s’arrêtera avec l’état :
+- Terminé. Si tous les mini-lots ont été traités et que la sortie a été générée pour le mode `append_row`.
+- Échec. Si `error_threshold` dans [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunconfig) est dépassé ou si une erreur système s’est produite pendant le travail.
+
+### <a name="where-to-find-the-root-cause-of-failure"></a>Où trouver la cause racine de l’échec ?
+Vous pouvez suivre la piste dans `~logs/job_result.txt` pour rechercher la cause et le journal détaillé des erreurs.
+
+### <a name="will-node-failure-impact-the-job-result"></a>La défaillance d’un nœud aura-t-elle un impact sur le résultat du travail ?
+Non, à condition que d’autres nœuds soient disponibles dans le cluster de calcul désigné. L’orchestrateur démarrera un nouveau nœud en remplacement, et ParallelRunStep est résilient à une telle opération.
+
+### <a name="what-happens-if-init-function-in-entry-script-fails"></a>Que se passe-t-il si la fonction `init` du script d’entrée échoue ?
+ParallelRunStep dispose d’un mécanisme de nouvelle tentative pendant un certain temps afin de permettre la récupération en cas de problèmes temporaires sans retarder trop longtemps l’échec du travail. Le mécanisme est le suivant :
+1. Si, après le démarrage d’un nœud, `init` sur tous les agents continue d’échouer, nous arrêterons les tentatives après `3 * process_count_per_node` échecs.
+2. Si, après le démarrage du travail, `init` sur tous les agents de tous les nœuds continue d’échouer, nous arrêterons les tentatives si le travail dure plus de deux minutes et qu’il y a `2 * node_count * process_count_per_node` échecs.
+3. Si tous les agents sont bloqués sur `init` pendant plus de `3 * run_invocation_timeout + 30` secondes, le travail échoue en raison d’une absence de progression sur une période trop longue.
+
+### <a name="what-will-happen-on-outofmemory-how-can-i-check-the-cause"></a>Que se passe-t-il en cas d’erreur OutOfMemory ? Comment puis-je en vérifier la cause ?
+ParallelRunStep indique que la tentative actuelle de traitement du mini-lot est en échec et tente de redémarrer le processus qui a échoué. Vous pouvez vérifier `~logs/perf/<node_id>` pour rechercher le processus gourmand en mémoire.
+
+### <a name="why-do-i-have-a-lot-of-processnnn-files"></a>Pourquoi ai-je un grand nombre de fichiers processNNN ?
+ParallelRunStep démarre de nouveaux processus Worker en remplacement de ceux qui se sont arrêtés anormalement, et chaque processus génère un fichier `processNNN` comme journal. Toutefois, si le processus a échoué en raison d’une exception survenue pendant la fonction `init` du script utilisateur et que l’erreur s’est répétée continuellement sur `3 * process_count_per_node` tentatives, aucun nouveau processus Worker ne sera démarré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 03f19d1922c011c1b5304b66488e9fa8de703bf9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 76c18d7b11a4ac48a7ebaa77f0ae683b8de9ca44
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478300"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422207"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 
@@ -20,6 +20,11 @@ Vous pouvez utiliser le modèle Hyperledger Fabric sur Azure Kubernetes Service 
 
 - d’utiliser Hyperledger Fabric et les composants d’un réseau blockchain Hyperledger Fabric ;
 - de déployer et configurer un réseau de consortium Hyperledger Fabric sur Azure Kubernetes Service pour vos scénarios de production.
+
+>[!IMPORTANT] 
+>
+>Le modèle prend en charge Azure Container Service version 1.18.x et les versions inférieures uniquement. En raison de la [mise à jour récente dans Kubernetes](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/) pour l’environnement d’exécution sous-jacent qui passe de Docker à « basé sur un conteneur », les conteneurs de code chaîné ne sont pas fonctionnels. Les clients doivent passer à l’exécution du code chaîné externe en tant que service, ce qui est possible uniquement sur HLF 2.2x. Tant que AKS v1.18.x n’est pas pris en charge par Azure, il est possible de déployer ce modèle en suivant les étapes [ci-dessous.](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service)
+
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -80,7 +85,7 @@ Pour bien démarrer avec le déploiement des composants du réseau Hyperledger F
     - **Disque managé** : Instance du service Disques managés Azure qui offre un magasin persistant pour le registre et pour la base de données d’état du monde du nœud homologue.
     - **Adresse IP publique** : Point de terminaison du cluster AKS déployé pour communiquer avec le cluster.
 
-    Entrez les informations suivantes : 
+    Entrez les informations suivantes :
 
     ![Capture d’écran montrant l’onglet Paramètres du cluster AKS.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -149,7 +154,7 @@ Toutes les variables d’environnement respectent la convention de nommage des r
 
 #### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>Définir des variables d’environnement pour le client de l’organisation de l’ordonnanceur
 
-```bash
+```azurecli
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
 ORDERER_ORG_RESOURCE_GROUP=<ordererOrgResourceGroup>
 ORDERER_ORG_NAME=<ordererOrgName>
@@ -159,7 +164,7 @@ CHANNEL_NAME=<channelName>
 
 #### <a name="set-environment-variables-for-the-peer-organizations-client"></a>Définir des variables d’environnement pour le client de l’organisation homologue
 
-```bash
+```azurecli
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
 PEER_ORG_RESOURCE_GROUP=<peerOrgResourceGroup>
 PEER_ORG_NAME=<peerOrgName>
@@ -171,7 +176,7 @@ En fonction du nombre d’organisations homologues dans votre consortium, vous d
 
 #### <a name="set-environment-variables-for-an-azure-storage-account"></a>Définir des variables d’environnement pour un compte de stockage Azure
 
-```bash
+```azurecli
 STORAGE_SUBSCRIPTION=<subscriptionId>
 STORAGE_RESOURCE_GROUP=<azureFileShareResourceGroup>
 STORAGE_ACCOUNT=<azureStorageAccountName>
@@ -181,7 +186,7 @@ STORAGE_FILE_SHARE=<azureFileShareName>
 
 Utilisez les commandes suivantes pour créer un compte de stockage Azure. Si vous avez déjà un compte de stockage Azure, ignorez cette étape.
 
-```bash
+```azurecli
 az account set --subscription $STORAGE_SUBSCRIPTION
 az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
@@ -189,14 +194,14 @@ az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $ST
 
 Utilisez les commandes suivantes pour créer un partage de fichiers dans le compte de stockage Azure. Si vous avez déjà un partage de fichiers, ignorez cette étape.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
 Utilisez les commandes suivantes pour générer une chaîne de connexion pour un partage de fichiers Azure.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
@@ -209,15 +214,15 @@ Utilisez les commandes suivantes pour extraire le profil de connexion de l’org
 
 Pour l’organisation de l’ordonnanceur :
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
-./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME   
+./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
 Pour l’organisation homologue :
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf connectionProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
@@ -225,41 +230,41 @@ Pour l’organisation homologue :
 
 ### <a name="create-a-channel"></a>Créer un canal
 
-À partir du client de l’organisation de l’ordonnanceur, utilisez la commande suivante pour créer un canal qui contient uniquement l’organisation de l’ordonnanceur.  
+À partir du client de l’organisation de l’ordonnanceur, utilisez la commande suivante pour créer un canal qui contient uniquement l’organisation de l’ordonnanceur.
 
-```bash
+```azurecli
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
 ### <a name="add-a-peer-organization-for-consortium-management"></a>Ajouter une organisation homologue pour la gestion de consortium
 
 >[!NOTE]
-> Avant de commencer toute opération de consortium, vérifiez que vous avez terminé la configuration initiale de l’application cliente.  
+> Avant de commencer toute opération de consortium, vérifiez que vous avez terminé la configuration initiale de l’application cliente.
 
-Exécutez les commandes suivantes dans l’ordre indiqué pour ajouter une organisation homologue dans un canal et un consortium : 
+Exécutez les commandes suivantes dans l’ordre indiqué pour ajouter une organisation homologue dans un canal et un consortium :
 
-1.  À partir du client de l’organisation homologue, chargez le fournisseur de services managés de l’organisation homologue sur le stockage Azure.
+1.    À partir du client de l’organisation homologue, chargez le fournisseur de services managés de l’organisation homologue sur le stockage Azure.
 
-      ```bash
+      ```azurecli
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  À partir du client de l’organisation de l’ordonnanceur, téléchargez le fournisseur de services managés de l’organisation homologue depuis le stockage Azure. Ensuite, émettez la commande permettant d’ajouter l’organisation homologue dans le canal et le consortium.
+2.    À partir du client de l’organisation de l’ordonnanceur, téléchargez le fournisseur de services managés de l’organisation homologue depuis le stockage Azure. Ensuite, émettez la commande permettant d’ajouter l’organisation homologue dans le canal et le consortium.
 
-      ```bash
+      ```azurecli
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  À partir du client de l’organisation de l’ordonnanceur, chargez le profil de connexion de l’ordonnanceur sur le stockage Azure afin que l’organisation homologue puisse se connecter aux nœuds de l’ordonnanceur à l’aide de ce profil de connexion.
+3.    À partir du client de l’organisation de l’ordonnanceur, chargez le profil de connexion de l’ordonnanceur sur le stockage Azure afin que l’organisation homologue puisse se connecter aux nœuds de l’ordonnanceur à l’aide de ce profil de connexion.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  À partir du client de l’organisation homologue, téléchargez le profil de connexion de l’organisation de l’ordonnanceur depuis le stockage Azure. Exécutez ensuite la commande pour ajouter des nœuds homologues dans le canal.
+4.    À partir du client de l’organisation homologue, téléchargez le profil de connexion de l’organisation de l’ordonnanceur depuis le stockage Azure. Exécutez ensuite la commande pour ajouter des nœuds homologues dans le canal.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
@@ -273,7 +278,7 @@ De même, pour ajouter d’autres organisations homologues dans le canal, mettez
 >[!NOTE]
 > Avant d’exécuter cette commande, vérifiez que l’organisation homologue est ajoutée au canal à l’aide des commandes de gestion de consortium.
 
-```bash
+```azurecli
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
@@ -285,48 +290,48 @@ De même, pour ajouter d’autres organisations homologues dans le canal, mettez
 ## <a name="chaincode-management-commands"></a>Commandes de gestion des codes chaînés
 
 >[!NOTE]
-> Avant de commencer toute opération de code chaîné, vérifiez que vous avez terminé la configuration initiale de l’application cliente.  
+> Avant de commencer toute opération de code chaîné, vérifiez que vous avez terminé la configuration initiale de l’application cliente.
 
 ### <a name="set-the-chaincode-specific-environment-variables"></a>Définir les variables d’environnement propres au code chaîné
 
-```bash
+```azurecli
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
-USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
-CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
+USER_IDENTITY="admin.$ORGNAME"
+# If you are using chaincode_example02 then set CC_NAME="chaincode_example02"
+CC_NAME=<chaincodeName>
+# If you are using chaincode_example02 then set CC_VERSION="1" for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
-# Default value is 'golang'  
-CC_LANG=<chaincodeLanguage>  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'
+# Default value is 'golang'
+CC_LANG=<chaincodeLanguage>
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
-CC_PATH=<chaincodePath>  
-# Channel on which chaincode will be instantiated/invoked/queried  
-CHANNEL_NAME=<channelName>  
+# If you are using chaincode_example02 to validate then CC_PATH="/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go"
+CC_PATH=<chaincodePath>
+# Channel on which chaincode will be instantiated/invoked/queried
+CHANNEL_NAME=<channelName>
 ```
 
-### <a name="install-chaincode"></a>Installer un code chaîné  
+### <a name="install-chaincode"></a>Installer un code chaîné
 
-Exécutez la commande suivante pour installer un code chaîné sur l’organisation homologue.  
+Exécutez la commande suivante pour installer un code chaîné sur l’organisation homologue.
 
-```bash
-./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
+```azurecli
+./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
 
 ```
-La commande installe un code chaîné sur tous les nœuds homologues de l’organisation homologue définie dans la variable d’environnement `ORGNAME`. Si votre canal contient au moins deux organisations homologues et que vous voulez installer un code chaîné sur toutes, exécutez cette commande séparément pour chaque organisation homologue.  
+La commande installe un code chaîné sur tous les nœuds homologues de l’organisation homologue définie dans la variable d’environnement `ORGNAME`. Si votre canal contient au moins deux organisations homologues et que vous voulez installer un code chaîné sur toutes, exécutez cette commande séparément pour chaque organisation homologue.
 
-Procédez comme suit :  
+Procédez comme suit :
 
-1.  Définissez `ORGNAME` et `USER_IDENTITY` en fonction de `peerOrg1` et exécutez la commande `./azhlf chaincode install`.  
-2.  Définissez `ORGNAME` et `USER_IDENTITY` en fonction de `peerOrg2` et exécutez la commande `./azhlf chaincode install`.  
+1.    Définissez `ORGNAME` et `USER_IDENTITY` en fonction de `peerOrg1` et exécutez la commande `./azhlf chaincode install`.
+2.    Définissez `ORGNAME` et `USER_IDENTITY` en fonction de `peerOrg2` et exécutez la commande `./azhlf chaincode install`.
 
-### <a name="instantiate-chaincode"></a>Instancier un code chaîné  
+### <a name="instantiate-chaincode"></a>Instancier un code chaîné
 
-À partir de l’application cliente homologue, exécutez la commande suivante pour instancier un code chaîné sur le canal.  
+À partir de l’application cliente homologue, exécutez la commande suivante pour instancier un code chaîné sur le canal.
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
@@ -336,7 +341,7 @@ Vous pouvez également transmettre le fichier JSON de configuration de la collec
 
 Par exemple :
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
@@ -345,34 +350,34 @@ La partie `<collectionConfigJSONFilePath>` correspond au chemin du fichier JSON 
 Transmettez `<transientArgs>` en tant que JSON valide dans un format de chaîne. Échappez les caractères spéciaux. Par exemple : `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’ordonnanceur, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. Le code chaîné est alors instancié sur tous les nœuds homologues et sur toutes les organisations homologues dans le canal.  
+> Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’ordonnanceur, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. Le code chaîné est alors instancié sur tous les nœuds homologues et sur toutes les organisations homologues dans le canal.
 
-### <a name="invoke-chaincode"></a>Appeler un code chaîné  
+### <a name="invoke-chaincode"></a>Appeler un code chaîné
 
-À partir du client de l’organisation homologue, exécutez la commande suivante pour appeler la fonction du code chaîné :  
+À partir du client de l’organisation homologue, exécutez la commande suivante pour appeler la fonction du code chaîné :
 
-```bash
-./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
+```azurecli
+./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>
 ```
 
-Transmettez le nom de la fonction d’appel et la liste des arguments séparés par des espaces dans `<invokeFunction>` et `<invokeFuncArgs>`, respectivement. En poursuivant avec l’exemple de code chaîné chaincode_example02.go, pour effectuer l’opération d’appel, définissez `<invokeFunction>` sur `invoke` et `<invokeFuncArgs>` sur `"a" "b" "10"`.  
+Transmettez respectivement le nom de la fonction d’appel et la liste des arguments séparés par des espaces dans `<invokeFunction>` et `<invokeFuncArgs>`. En poursuivant avec l’exemple de code chaîné chaincode_example02.go, pour effectuer l’opération d’appel, définissez `<invokeFunction>` sur `invoke` et `<invokeFuncArgs>` sur `"a" "b" "10"`.
 
 >[!NOTE]
-> Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’ordonnanceur, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. L’état du monde est alors mis à jour sur tous les nœuds homologues de toutes les organisations homologues dans le canal.  
+> Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’ordonnanceur, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. L’état du monde est alors mis à jour sur tous les nœuds homologues de toutes les organisations homologues dans le canal.
 
 
-### <a name="query-chaincode"></a>Interroger un code chaîné  
+### <a name="query-chaincode"></a>Interroger un code chaîné
 
-Exécutez la commande suivante pour interroger le code chaîné :  
+Exécutez la commande suivante pour interroger le code chaîné :
 
-```bash
-./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
+```azurecli
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>
 ```
 Les homologues d’endossement sont des homologues dans lesquels un code chaîné est installé, qui est appelé pour l’exécution de transactions. Vous devez définir `<endorsingPeers>` de sorte à y inclure les noms de nœuds homologues de l’organisation homologue actuelle. Listez les homologues d’endossement d’une combinaison donnée de code chaîné et de canal en les séparant par des espaces. Par exemple : `-p "peer1" "peer3"`.
 
-Si vous utilisez *azhlfTool* pour installer du code chaîné, transmettez tous les noms de nœuds homologues en tant que valeur à l’argument d’homologue d’endossement. Le code chaîné est installé sur chaque nœud homologue de cette organisation. 
+Si vous utilisez *azhlfTool* pour installer du code chaîné, transmettez tous les noms de nœuds homologues en tant que valeur à l’argument d’homologue d’endossement. Le code chaîné est installé sur chaque nœud homologue de cette organisation.
 
-Transmettez le nom de la fonction de requête et la liste des arguments séparés par des espaces dans `<queryFunction>` et `<queryFuncArgs>`, respectivement. Là encore, en prenant comme référence le code chaîné chaincode_example02.go, pour interroger la valeur de « a » dans l’état du monde, définissez `<queryFunction>` sur `query` et `<queryArgs>` sur `"a"`.  
+Transmettez respectivement le nom de la fonction de requête et la liste des arguments séparés par des espaces dans `<queryFunction>` et `<queryFuncArgs>`. En prenant à nouveau comme référence le code chaîné chaincode_example02.go, pour interroger la valeur de « a » dans l’état du monde, définissez `<queryFunction>` sur `query` et `<queryArgs>` sur « a ».
 
 ## <a name="troubleshoot"></a>Dépanner
 
@@ -380,7 +385,7 @@ Transmettez le nom de la fonction de requête et la liste des arguments séparé
 
 Exécutez les commandes suivantes pour rechercher la version de votre déploiement de modèle. Définissez des variables d’environnement selon le groupe de ressources où le modèle a été déployé.
 
-```bash
+```azurecli
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 ```
@@ -417,8 +422,8 @@ Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnal
 
 Échangez avec les ingénieurs Microsoft et les experts de la communauté Azure Blockchain :
 
-- [Page Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) 
-   
+- [Page Microsoft Q&A](/answers/topics/azure-blockchain-workbench.html)
+
   Le support d’ingénierie pour les modèles blockchain est limité aux problèmes de déploiement.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

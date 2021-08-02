@@ -1,22 +1,22 @@
 ---
 title: Développer un pool d’hôtes existant avec de nouveaux hôtes de session – Azure
-description: Comment développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop.
+description: Guide pratique pour développer un pool d’hôtes existant avec de nouveaux hôtes de session dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9c73d7434a002a5efc7d058095eb9743a7f3ebf8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 446052190df59f6dc53ac6a39cd4bc120752fa41
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446823"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757730"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 
 À mesure que vous intensifiez l’utilisation au sein de votre pool d’hôtes, il se peut que vous deviez développer votre pool d’hôtes existant avec de nouveaux hôtes de session pour gérer la nouvelle charge.
 
@@ -41,7 +41,7 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
 
 1. Connectez-vous au portail Azure.
 
-2. Recherchez et sélectionnez **Windows Virtual Desktop**.
+2. Recherchez et sélectionnez **Azure Virtual Desktop**.
 
 3. Dans le menu sur le côté gauche de l’écran, sélectionnez **Pools d’hôtes**, puis sélectionnez le nom du pool d’hôtes auquel vous souhaitez ajouter des machines virtuelles.
 
@@ -71,7 +71,7 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Windows Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
+Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Azure Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
 
 - [Se connecter avec le client Windows Desktop](./connect-windows-7-10.md)
 - [Se connecter avec le client web](./connect-web.md)

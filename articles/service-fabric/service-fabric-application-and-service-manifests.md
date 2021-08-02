@@ -3,12 +3,12 @@ title: Description des services et applications Azure Service Fabric
 description: Explique l’utilisation de manifestes pour décrire les services et les applications Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a04f94dfcd1ee4592e281ebd75efb0a8d0133a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86248218"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476541"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -182,6 +182,7 @@ For more information about other features supported by application manifests, re
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Empaquetez une application](service-fabric-package-apps.md) et préparez-la pour le déploiement.
+- [Utilisez StartupServices.xml dans une application](service-fabric-startupservices-model.md).
 - [Déployer et supprimer des applications](service-fabric-deploy-remove-applications.md).
 - [Configurer les paramètres et les variables d’environnement pour différentes instances d’application](service-fabric-manage-multiple-environment-app-configuration.md).
 - [Configurer les stratégies de sécurité pour votre application](service-fabric-application-runas-security.md).

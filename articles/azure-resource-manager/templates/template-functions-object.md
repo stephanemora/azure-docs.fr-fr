@@ -2,13 +2,13 @@
 title: Fonctions de modèle - objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des objets.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: aa52cee2236ac3eab5090b1caad27b6cbf516c7a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920444"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959623"
 ---
 # <a name="object-functions-for-arm-templates"></a>Fonctions d’objet pour les modèles ARM
 
@@ -22,8 +22,6 @@ Resource Manager fournit plusieurs fonctions pour vous permettre d’utiliser de
 * [length](#length)
 * [null](#null)
 * [union](#union)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## <a name="contains"></a>contains
 
@@ -45,8 +43,6 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) suivant montre comment utiliser contains avec différents types :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -101,31 +97,6 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -141,7 +112,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `createObject(key1, value1, key2, value2, ...)`
 
-Crée un objet à partir des clés et des valeurs. La fonction `createObject` n’est pas prise en charge par Bicep.  Créez un objet en utilisant `{}`.
+Crée un objet à partir des clés et des valeurs.
+
+La fonction `createObject` n’est pas prise en charge par Bicep.  Créez un objet en utilisant `{}`. Consultez [Objets](../bicep/data-types.md#objects).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -162,8 +135,6 @@ Objet avec chaque paire de clé et valeur.
 
 L’exemple suivant crée un objet à partir de différents types de valeurs.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -178,26 +149,6 @@ L’exemple suivant crée un objet à partir de différents types de valeurs.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output newObject object = {
-  'intProp': 1
-  'stringProp': 'abc'
-  'boolProp': true
-  'arrayProp': [
-    'a'
-    'b'
-    'c'
-  ]
-  'objectProp': {
-    'key1': 'value1'
-  }
-}
-```
-
----
 
 La sortie de l’exemple précédent avec les valeurs par défaut est un objet nommé `newObject` avec la valeur suivante :
 
@@ -230,8 +181,6 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) suivant vérifie si un tableau, un objet et une chaîne sont vides.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -270,20 +219,6 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -313,8 +248,6 @@ Tableau ou objet avec les éléments communs.
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) suivant indique comment utiliser intersection avec des tableaux et des objets :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -361,35 +294,6 @@ Tableau ou objet avec les éléments communs.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
-}
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-param secondArray array = [
-  'two'
-  'three'
-]
-
-output objectOutput object = intersection(firstObject, secondObject)
-output arrayOutput array = intersection(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -424,8 +328,6 @@ Vous pouvez également utiliser [null()](#null) pour obtenir une valeur null.
 ### <a name="example"></a>Exemple
 
 L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) suivant montre comment utiliser la fonction json. Notez que vous pouvez transmettre **null** pour un objet vide.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -496,28 +398,6 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param jsonEmptyObject string = 'null'
-param jsonObject string = '{\'a\': \'b\'}'
-param jsonString string = '\'test\''
-param jsonBoolean string = 'true'
-param jsonInt string = '3'
-param jsonArray string = '[[1,2,3]]'
-param concatValue string = 'demo value'
-
-output emptyObjectOutput bool = empty(json(jsonEmptyObject))
-output objectOutput object = json(jsonObject)
-output stringOutput string =json(jsonString)
-output booleanOutput bool = json(jsonBoolean)
-output intOutput int = json(jsonInt)
-output arrayOutput array = json(jsonArray)
-output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -549,8 +429,6 @@ Un entier.
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) suivant montre comment utiliser length avec un tableau et une chaîne :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -600,32 +478,6 @@ Un entier.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-      'propD-1': 'sub'
-      'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -638,7 +490,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `null()`
 
-Retourne la valeur NULL. La fonction `null` n’est pas disponible dans Bicep. Utilisez plutôt le mot clé `null`.
+Retourne la valeur NULL.
+
+La fonction `null` n’est pas disponible dans Bicep. Utilisez plutôt le mot clé `null`.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -651,8 +505,6 @@ Valeur qui correspond toujours à null.
 ### <a name="example"></a>Exemple
 
 L’exemple suivant utilise la fonction null.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -667,14 +519,6 @@ L’exemple suivant utilise la fonction null.
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output emptyOutput bool = empty(null)
-```
-
----
 
 La sortie de l’exemple précédent est :
 
@@ -703,8 +547,6 @@ Objet ou tableau.
 ### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) suivant montre comment utiliser intersection avec des tableaux et des objets :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -751,38 +593,6 @@ Objet ou tableau.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
-}
-
-param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'three'
-  'four'
-]
-
-output objectOutput object = union(firstObject, secondObject)
-output arrayOutput array = union(firstArray, secondArray)
-```
-
----
-
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
 | Nom | Type | Valeur |
@@ -792,4 +602,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](./syntax.md).

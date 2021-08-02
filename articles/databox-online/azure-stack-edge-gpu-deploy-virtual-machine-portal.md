@@ -1,25 +1,25 @@
 ---
-title: Déployer une machine virtuelle sur votre appareil Azure Stack Edge Pro via le portail Azure
-description: Découvrez comment déployer des machines virtuelles sur Azure Stack Edge Pro via le portail Azure.
+title: Déployer des machines virtuelles sur votre appliance Azure Stack Edge Pro GPU via le portail Azure
+description: Découvrez comment déployer des machines virtuelles sur votre appliance Azure Stack Edge Pro GPU via le portail Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 68f0ee86d0882f0a8e44f5af926af4a92d824082
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79cc482d5bbd32cd4ba4efbce692d32ecc0cad8e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758288"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081314"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Déployer des machines virtuelles sur Azure Stack Edge Pro avec GPU via le portail Azure
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Vous pouvez créer et gérer des machines virtuelles sur un appareil Azure Stack Edge à l’aide du portail Azure, des modèles, des cmdlets Azure PowerShell et via des scripts Azure CLI ou Python. Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge à l’aide du portail Azure. 
+Vous pouvez créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro GPU à l’aide du portail Azure, de modèles et de cmdlets Azure PowerShell, ainsi que via des scripts Azure CLI ou Python. Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro GPU à l’aide du portail Azure. 
 
 > [!IMPORTANT] 
 > Nous vous recommandons d’activer l’authentification multifacteur pour l’utilisateur qui gère les machines virtuelles déployées sur votre appareil à partir du cloud.
@@ -48,28 +48,30 @@ Voici une synthèse globale du workflow de déploiement :
 
 Avant de commencer à créer et à gérer des machines virtuelles sur votre appareil via le portail Azure, assurez-vous de ce qui suit :
 
-1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer l’appareil Azure Stack Edge Pro](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer un appareil Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. Vous avez activé une interface réseau pour le calcul. Cette adresse IP d’interface réseau sert à créer un commutateur virtuel pour le déploiement de la machine virtuelle. Dans l’interface utilisateur locale de votre appareil, accédez à **Calcul**. Sélectionnez l’interface réseau que vous allez utiliser pour créer un commutateur virtuel.
 
         > [!IMPORTANT] 
         > Vous ne pouvez configurer qu’un seul port pour le calcul.
 
-    1. Activez le calcul sur l’interface réseau. Azure Stack Edge Pro crée et gère un commutateur virtuel correspondant à cette interface réseau.
+    1. Activez le calcul sur l’interface réseau. Le GPU Azure Stack Edge Pro crée et gère un commutateur virtuel correspondant à cette interface réseau.
 
 1. Vous avez accès à un disque dur virtuel Windows ou Linux que vous utiliserez pour créer l’image de la machine virtuelle que vous souhaitez créer.
 
 ## <a name="deploy-a-vm"></a>Déployer une machine virtuelle
 
-Pour créer une machine virtuelle sur votre appareil Azure Stack Edge, procédez comme suit.
+Pour créer une machine virtuelle sur votre appareil Azure Stack Edge Pro GPU, procédez comme suit.
 
 ### <a name="add-a-vm-image"></a>Ajouter une image de machine virtuelle
 
-1. Chargez de disque dur virtuel sur un compte de stockage Azure. Suivez la procédure décrite dans [Charger un disque dur virtuel à l’aide de l’Explorateur Stockage Azure](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
+1. Chargez de disque dur virtuel sur un compte de stockage Azure. Suivez les étapes décrites dans [Chargement à l’aide de l’Explorateur Stockage](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
-1. Dans le portail Azure, accédez à la ressource Azure Stack Edge de votre appareil Azure Stack Edge. Accédez à **Computing en périphérie** > **Machines virtuelles**.
+   Pour plus d’informations sur la préparation du disque dur virtuel, consultez [Préparer une image généralisée à partir d’un disque dur virtuel Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
-    ![Capture d’écran montrant le computing en périphérie et les machines virtuelles.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+1. Dans le portail Azure, accédez à la ressource Azure Stack Edge de votre appareil. Accédez à **Services Edge** > **Machines virtuelles**.
+
+    ![Capture d’écran montrant Edge Services et Machines virtuelles.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
 1. Sélectionnez **Machines virtuelles** pour accéder à la page **Vue d’ensemble**. Sélectionnez **Activer** pour activer la gestion cloud des machines virtuelles.
 
@@ -131,7 +133,7 @@ Suivez la procédure ci-dessous pour créer une machine virtuelle après avoir c
     |Taille     | Effectuez une sélection parmi les [Tailles de machine virtuelle prises en charge](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nom d’utilisateur     | Utilisez le nom d’utilisateur par défaut, **azureuser**, pour la connexion de l’administrateur à la machine virtuelle.        |
     |Type d'authentification    | Sélectionnez une clé publique SSH ou un mot de passe défini par l’utilisateur.       |
-    |Mot de passe     | Entrez un mot de passe de connexion à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité ](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)définies.        |
+    |Mot de passe     | Entrez un mot de passe de connexion à la machine virtuelle. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)définies.        |
     |Confirmer le mot de passe    | Entrez de nouveau le mot de passe.        |
 
 
@@ -189,9 +191,11 @@ Suivez la procédure ci-dessous pour créer une machine virtuelle après avoir c
 
     ![Capture d’écran qui montre la sélection de la nouvelle machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
-    Sélectionnez la machine virtuelle pour afficher les détails correspondants. 
+    Sélectionnez la machine virtuelle pour afficher les détails correspondants.
 
     ![Capture d’écran montrant les détails de la machine virtuelle.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+
+    Vous allez utiliser l’adresse IP de l’interface réseau pour vous connecter à la machine virtuelle.
 
 ## <a name="connect-to-a-vm"></a>Se connecter à une machine virtuelle
 
@@ -211,4 +215,4 @@ Suivez ces étapes pour vous connecter à une machine virtuelle Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment administrer votre appareil Azure Stack Edge Pro, consultez [Administrer un appareil Azure Stack Edge Pro avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Pour savoir comment administrer votre appareil Azure Stack Edge Pro GPU, consultez [Administrer un appareil Azure Stack Edge Pro GPU avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md).

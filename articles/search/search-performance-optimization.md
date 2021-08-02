@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 493f6759f63f023572f38647076e04425acf9d6a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 169f0b76e1009931d51339fe6b058ca24608af30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581525"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061045"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilité et continuité opérationnelle dans Recherche cognitive Azure
 
@@ -44,15 +44,19 @@ Vous pouvez utiliser des zones de disponibilité avec le service Recherche cogni
 Le service Recherche cognitive Azure prend actuellement en charge les zones de disponibilité pour les services de recherche de niveau standard ou supérieurs qui ont été créés dans l’une des régions suivantes :
 
 + Australie Est (créée le 30 janvier 2021 ou ultérieurement)
++ Brésil Sud (créé le 2 mai 2021 ou ultérieurement)
 + Canada Centre (créée le 30 janvier 2021 ou ultérieurement)
 + USA Centre (créée le 4 décembre 2020 ou ultérieurement)
 + USA Est (créée le 27 janvier 2021 ou ultérieurement)
 + USA Est 2 (créée le 30 janvier 2021 ou ultérieurement)
 + France Centre (créée le 23 octobre 2020 ou ultérieurement)
++ Allemagne Centre-Ouest (créé le 3 mai 2021 ou ultérieurement)
 + Japon Est (créée le 30 janvier 2021 ou ultérieurement)
 + Europe Nord (créée le 28 janvier 2021 ou ultérieurement)
++ USA Centre Sud (créé le 30 avril 2021 ou ultérieurement)
 + Asie Sud-Est (créée le 31 janvier 2021 ou ultérieurement)
 + Royaume-Uni Sud (créée le 30 janvier 2021 ou ultérieurement)
++ US Gov Virginie (créé le 30 avril 2021 ou ultérieurement)
 + Europe Ouest (créée le 29 janvier 2021 ou ultérieurement)
 + USA Ouest 2 (créée le 30 janvier 2021 ou ultérieurement)
 

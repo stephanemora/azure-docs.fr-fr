@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/7/2021
+ms.date: 5/20/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9b217f9911d9a1e3ab3bfcabde5955764314cc7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1cd716ea74f1e16e448f312d007bbd4d90f232d5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787596"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461739"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,13 +25,14 @@ Les versions prises en charge de l'agent Azure File Sync sont les suivantes :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
+| Version v12.1 – [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 20 mai 2021 | Prise en charge |
 | Mise en production V12 – [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 mars 2021 | Prise en charge |
 | Version V11.3 : [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 avril 2021 | Prise en charge |
 | Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge |
 | Mise en production V 11.1 – [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Prise en charge |
-| Version V10.1 : [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
-| Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
-| Version V10 : [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 9 avril 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
+| Version V10.1 : [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge – La version de l’agent a expiré le 28 juin 2021 |
+| Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge – La version de l’agent a expiré le 28 juin 2021 |
+| Version V10 : [KB4522409](https://support.microsoft.com/help/4522409)| 10.0.0.0 | 9 avril 2020 | Prise en charge – La version de l’agent a expiré le 28 juin 2021 |
 
 ## <a name="unsupported-versions"></a>Versions non prises en charge
 Les versions suivantes de l'agent Azure File Sync ont expiré et ne sont plus prises en charge :
@@ -49,6 +50,14 @@ Les versions suivantes de l'agent Azure File Sync ont expiré et ne sont plus pr
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-12100"></a>Version de l’agent 12.1.0.0
+Les notes de publication suivantes concernent la version 12.1.0.0 de l’agent Azure File Sync publiée le 20 mai 2021. Ces notes s’ajoutent aux notes de publication de la version 12.0.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus 
+La version de l’agent v12.0 comportait deux bogues qui ont été résolus dans cette version :
+- La mise à jour automatique de l’agent ne peut pas à mettre à jour l’agent vers une version ultérieure.
+- Le script FileSyncErrorsReport.ps1 ne fournit pas la liste des erreurs par élément.
 
 ## <a name="agent-version-12000"></a>Version de l’agent 12.0.0.0
 Les notes de publication suivantes concernent la version 12.0.0.0 de l’agent Azure File Sync publiée le 26 mars 2021.

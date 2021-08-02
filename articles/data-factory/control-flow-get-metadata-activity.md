@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: e4715802f7b284bd9e6ce9a41b44c3750c33c260
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482756"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062809"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
@@ -30,7 +30,9 @@ L’activité d’obtention des métadonnées sélectionne un jeu de données en
 | Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | taille<br>(fichier) | created<br>(fichier/dossier) | lastModified<sup>1</sup><br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<sup>2</sup><br/>(fichier) | columnCount<sup>2</sup><br>(fichier) | exists<sup>3</sup><br>(fichier/dossier) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Stockage compatible Amazon S3](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [stockage d’objets blob Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
@@ -40,12 +42,12 @@ L’activité d’obtention des métadonnées sélectionne un jeu de données en
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 <sup>1</sup> Métadonnées `lastModified` :
-- Pour Amazon S3 et Google Cloud Storage, `lastModified` s’applique au compartiment et à la clé, mais pas au dossier virtuel, et `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel. 
+- Pour Amazon S3, le stockage compatible Amazon S3, Google Cloud Storage et Oracle Cloud Storage, `lastModified` s’applique au compartiment et à la clé, mais pas au dossier virtuel, et `exists` s’applique au compartiment et à la clé, mais pas au préfixe ni au dossier virtuel. 
 - Pour le stockage Blob Azure, `lastModified` s’applique au conteneur et au blob, mais pas au dossier virtuel.
 
 <sup>2</sup> Les métadonnées `structure` et `columnCount` ne sont pas pris en charge lors de l’obtention de métadonnées à partir de fichiers binaires, JSON ou XML.
 
-<sup>3</sup> Métadonnées `exists` : pour Amazon S3 et Google Cloud Storage, `exists` s’applique au compartiment et à la clé, mais pas au préfixe ou au dossier virtuel.
+<sup>3</sup> Métadonnées `exists` : pour Amazon S3, le stockage compatible Amazon S3, Google Cloud Storage et Oracle Cloud Storage, `exists` s’applique au compartiment et à la clé, mais pas au préfixe ni au dossier virtuel.
 
 Notez les points suivants :
 

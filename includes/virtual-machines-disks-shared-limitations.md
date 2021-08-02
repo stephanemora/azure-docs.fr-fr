@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 06/11/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 22a1a4b99717df32a40ea69ebb65a3a8e14ee2b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19b9cfc6ad6467b2779abb3561899fd3bd8d037e
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102511042"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112042133"
 ---
 L’activation de disques partagés est disponible uniquement pour un sous-ensemble de types de disques. Seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Chaque disque managé pour lequel la fonctionnalité Disques partagés est activée est soumis aux limitations suivantes, selon le type disque :
 
@@ -25,6 +25,7 @@ Quand vous partagez des disques Ultra, ils présentent les limitations suppléme
 
 - Limités à la prise en charge d’Azure Resource Manager ou des kits SDK. 
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](/windows-server/failover-clustering/clustering-requirements).
+- Seul le [chiffrement côté serveur](../articles/virtual-machines/disk-encryption.md) est pris en charge. [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) n’est pas pris en charge pour le moment.
 
 Les disques Ultra partagés sont disponibles dans toutes les régions qui prennent en charge les disques Ultra par défaut, et vous n’avez pas besoin de vous inscrire pour pouvoir les utiliser.
 
@@ -38,7 +39,8 @@ Les disques Ultra partagés sont disponibles dans toutes les régions qui prenne
 - Lorsque des [groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups.md) sont utilisés, toutes les machines virtuelles qui se partagent un disque doivent faire partie du même groupe de placement de proximité.
 - Seuls les disques de base peuvent être utilisés avec certaines versions de la fonctionnalité Cluster de basculement de Windows Server. Pour plus d’informations, consultez [Configuration matérielle requise pour le clustering de basculement et options de stockage](/windows-server/failover-clustering/clustering-requirements).
 - La prise en charge d’Azure Site Recovery n’est pas encore disponible.
-- Le service Sauvegarde Azure est disponible via une [Sauvegarde des disques Azure (préversion)](../articles/backup/disk-backup-overview.md).
+- Le service Sauvegarde Azure est disponible via [Sauvegarde des disques Azure](../articles/backup/disk-backup-overview.md).
+- Seul le [chiffrement côté serveur](../articles/virtual-machines/disk-encryption.md) est pris en charge. [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) n’est pas pris en charge pour le moment.
 
 #### <a name="regional-availability"></a>Disponibilité régionale
 

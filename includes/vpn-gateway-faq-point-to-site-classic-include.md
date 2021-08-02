@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/06/2018
+ms.date: 05/28/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 727f2ce99518bb303639eca03c3690abf2e8b343
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76309026"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110720603"
 ---
 Ce FAQ s’applique aux connexions P2S qui utilisent le modèle de déploiement classique.
 
@@ -35,7 +35,7 @@ Non. La prise en charge est limitée aux versions de système d’exploitation W
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN ma configuration point à site peut-elle comporter ?
 
-La quantité de points de terminaison de client VPN dépend de la référence SKU et du protocole de votre passerelle.
+Le nombre de points de terminaison de client VPN dépend de la SKU et du protocole de votre passerelle.
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Puis-je utiliser ma propre AC racine PKI interne pour une connectivité point à site ?

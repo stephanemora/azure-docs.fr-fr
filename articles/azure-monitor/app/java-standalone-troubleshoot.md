@@ -4,12 +4,12 @@ description: Découvrez comment résoudre les problèmes liés à l’agent Java
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9bcd0ead2516b040a5a5aee4a7fae042a5f678a2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: cea6e93999477f7f33daaf5440e161a0da6fb2a2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449985"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027836"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guide de résolution des problèmes : Azure Monitor Application Insights pour Java
 
@@ -17,7 +17,7 @@ Dans cet article, nous aborderons certains des problèmes courants que vous pouv
 
 ## <a name="check-the-self-diagnostic-log-file"></a>Vérifier le fichier journal de diagnostic automatique
 
-Par défaut, l’agent Java 3.0 pour Application Insights produit un fichier journal nommé `applicationinsights.log` dans le même répertoire que le fichier `applicationinsights-agent-3.0.3.jar`.
+Par défaut, Application Insights Java 3.x produit un fichier journal nommé `applicationinsights.log` dans le même répertoire que le fichier `applicationinsights-agent-3.1.1.jar`.
 
 Ce fichier journal est le premier endroit où chercher des indications sur le problème rencontré.
 
@@ -27,7 +27,9 @@ Si la JVM ne parvient pas à démarrer et indique l’erreur « Erreur lors de 
 
 ## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Mettre à niveau à partir du Kit de développement logiciel (SDK) Application Insights pour Java 2.x
 
-Si vous utilisez déjà le Kit de développement logiciel (SDK) Application Insights pour Java 2.x dans votre application, vous pouvez continuer à l’utiliser. L’agent Java 3.0 le détecte. Pour plus d’informations, consultez [Mettre à niveau à partir du Kit de développement logiciel (SDK) Java 2.x](./java-standalone-upgrade-from-2x.md).
+Si vous utilisez déjà le Kit de développement logiciel (SDK) Application Insights pour Java 2.x dans votre application, vous pouvez continuer à l’utiliser.
+L’agent Application Insights Java 3.x le détecte, puis capture et met en corrélation toutes les données de télémétrie personnalisées que vous envoyez via le SDK 2.x, en empêchant toute collecte automatique effectuée par le SDK 2.x afin d’éviter d’avoir des données de télémétrie en double.
+Pour plus d’informations, consultez [Mettre à niveau à partir du Kit de développement logiciel (SDK) Java 2.x](./java-standalone-upgrade-from-2x.md).
 
 ## <a name="upgrade-from-application-insights-java-30-preview"></a>Mise à niveau à partir d’Application Insights pour Java 3.0 Preview
 

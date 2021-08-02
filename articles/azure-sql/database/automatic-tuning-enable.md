@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 03/03/2021
-ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77dfee73496dda4bf1f6f3616fe9ac5846e6766c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558276"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591743"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Pour activer le réglage automatique au niveau du serveur ou de la base de donn�
 - Commandes [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
-> Pour Azure SQL Managed Instance, l’option prise en charge FORCE_LAST_GOOD_PLAN peut être configurée par le biais de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) uniquement. La configuration basée sur le portail Azure et les options de réglage automatique des index décrites dans cet article ne s’appliquent pas à Azure SQL Managed Instance.
+> Pour Azure SQL Managed Instance, l’option prise en charge FORCE_LAST_GOOD_PLAN ne peut être configurée que par le biais de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management). La configuration basée sur le portail Azure et les options de réglage automatique des index décrites dans cet article ne s’appliquent pas à Azure SQL Managed Instance.
 
 > [!NOTE]
 > La configuration des options de réglage automatique par le biais du modèle ARM (Azure Resource Manager) n’est pas prise en charge pour l’instant.

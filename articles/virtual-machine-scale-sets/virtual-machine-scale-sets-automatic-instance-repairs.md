@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: e1505a1a901472f0ce1a93ae71ba8ea0364b7b8d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: af63d27f60c3e3fa8f6aa95cd30d1f93114d4078
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754152"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031166"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Réparations automatiques d’instances pour les groupes de machines virtuelles identiques Azure
 
@@ -38,7 +38,7 @@ Pour les instances marquées comme non saines, des réparations automatiques son
 
 **Nombre maximal d'instances dans le groupe identique**
 
-Cette fonction n'est actuellement disponible que pour les groupes identiques composés d'un maximum de 500 instances. Le groupe identique peut être déployé en tant que groupe à placement unique ou groupe à placements multiples, mais le nombre d'instances ne peut pas être supérieur à 200 si les réparations automatiques d'instances sont activées pour le groupe identique.
+Cette fonction n'est actuellement disponible que pour les groupes identiques composés d'un maximum de 500 instances. Le groupe identique peut être déployé comme groupe de placement unique ou comme groupe de placements multiples. Cependant, le nombre d’instances ne peut pas dépasser 500 si les réparations automatiques d’instances y sont activées.
 
 **Version d’API**
 

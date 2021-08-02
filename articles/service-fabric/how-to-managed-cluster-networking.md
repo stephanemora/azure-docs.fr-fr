@@ -3,12 +3,12 @@ title: Configurer les paramètres réseau pour les clusters Service Fabric manag
 description: Découvrez comment configurer votre cluster Service Fabric géré pour les règles de groupe de sécurité réseau, l’accès aux ports RDP, les règles d’équilibrage de charge, etc.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 67bcdccbd3a54fc0e05b2516aaf5633ddddb1f00
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5164a7e3aeb1e82700bd5c5bc4d44e55de64421b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060973"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895594"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configurer les paramètres réseau pour les clusters Service Fabric managés
 
@@ -91,7 +91,7 @@ Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servic
 
 ## <a name="rdp-ports"></a>Ports RDP
 
-Par défaut, les clusters Service Fabric gérés n’autorisent pas l’accès aux ports RDP. Vous pouvez ouvrir des ports RDP sur Internet en définissant la propriété suivante sur une ressource de cluster Service Fabric géré.
+Par défaut, les clusters Service Fabric gérés ne permettent pas l’accès aux ports RDP. Vous pouvez ouvrir des ports RDP sur Internet en définissant la propriété suivante sur une ressource de cluster Service Fabric géré.
 
 ```json
 "allowRDPAccess": true
@@ -117,6 +117,28 @@ Lorsque la propriété allowRDPAccess est définie sur true, la règle NSG suiva
     }
 }
 ```
+
+Les clusters Service Fabric gérés créent automatiquement des règles NAT de trafic entrant pour chaque instance dans un type de nœud. Pour rechercher les mappages de port permettant d’atteindre des instances spécifiques (nœuds de cluster), procédez comme suit :
+
+À l’aide du portail Azure, recherchez les règles NAT de trafic entrant créées par le cluster géré pour le protocole RDP (Remote Desktop Protocol).
+
+1. Accédez au groupe de ressources du cluster géré dans votre abonnement, nommé au format suivant : SFC_{cluster-id}.
+
+2. Sélectionnez l’équilibreur de charge pour le cluster avec le format suivant : LB-{cluster-name}.
+
+3. Sur la page de votre équilibreur de charge, sélectionnez Règles NAT de trafic entrant. Examinez les règles NAT de trafic entrant pour confirmer le mappage du port frontend du trafic entrant au port cible pour un nœud. 
+
+   La capture d’écran suivante montre les règles NAT de trafic entrant pour trois différents types de nœuds :
+
+   ![Règles NAT entrantes][Inbound-NAT-Rules]
+
+   Par défaut, pour les clusters Windows, le port frontend se trouve dans la plage 50000 et plus et le port cible est le port 3389, qui correspond au service RDP sur le nœud cible.
+
+4. Connectez-vous à distance au nœud (instance de groupe identique) spécifique. Vous pouvez utiliser le nom d’utilisateur et le mot de passe que vous avez définis lors de la création du cluster ou de toutes autres informations d’identification que vous avez configurées.
+
+La capture d’écran suivante illustre l’utilisation de Remote Desktop Connection pour se connecter au nœud d’applications (Instance 0) dans un cluster Windows :
+
+![Connexion Bureau à distance][sfmc-rdp-connect]
 
 ## <a name="clientconnection-and-httpgatewayconnection-ports"></a>Ports ClientConnection et HttpGatewayConnection
 
@@ -151,7 +173,7 @@ Une règle NSG par défaut est ajoutée pour permettre au fournisseur de ressour
 
 ### <a name="nsg-rule-sfmc_allowservicefabricgatewayports"></a>Règle NSG : SFMC_AllowServiceFabricGatewayPorts
 
-Il s’agit d’une règle NSG facultative permettant d’autoriser l’accès à clientConnectionPort et à httpGatewayPort à partir d’Internet. Elle permet aux clients d’accéder à SFX, de se connecter au cluster avec PowerShell et d’utiliser les points de terminaison d’API du cluster Service Fabric depuis l’extérieur.
+Cette règle facultative permet aux clients d’accéder à SFX, de se connecter au cluster à l’aide de PowerShell et d’utiliser les points de terminaison de l’API du cluster Service Fabric à partir d’Internet en ouvrant les ports d’équilibrage de charge pour clientConnectionPort et httpGatewayPort.
 
 >[!NOTE]
 >Cette règle n’est pas ajoutée s’il existe une règle personnalisée avec les mêmes valeurs d’accès, de direction et de protocole pour le même port. Vous pouvez remplacer cette règle par des règles NSG personnalisées.
@@ -180,7 +202,7 @@ Il s’agit d’une règle NSG facultative permettant d’autoriser l’accès �
 
 ## <a name="load-balancer-ports"></a>Ports d’équilibreur de charge
 
-Les clusters Service Fabric gérés créent une règle NSG dans la plage de priorités par défaut pour tous les ports d’équilibrage de charge configurés dans la section « loadBalancingRules » sous les propriétés *ManagedCluster*. Cette règle ouvre les ports d’équilibrage de charge pour le trafic entrant à partir d’Internet.
+Les clusters Service Fabric gérés créent une règle NSG dans la plage de priorités par défaut pour tous les ports d’équilibrage de charge configurés dans la section « loadBalancingRules » sous les propriétés *ManagedCluster*. Cette règle ouvre les ports d’équilibrage de charge pour le trafic entrant à partir d’Internet.  
 
 >[!NOTE]
 >Cette règle est ajoutée dans la plage de priorités facultative et peut être remplacée en ajoutant des règles NSG personnalisées.
@@ -208,7 +230,7 @@ Les clusters Service Fabric gérés créent une règle NSG dans la plage de prio
 
 ## <a name="load-balancer-probes"></a>Sondes d’équilibreur de charge
 
-Les clusters Service Fabric gérés créent automatiquement des sondes d’équilibreur de charge pour les ports de passerelle de l’infrastructure, ainsi que tous les ports configurés dans la section « loadBalancingRules » des propriétés du cluster géré.
+Les clusters Service Fabric gérés créent automatiquement des sondes d’intégrité d’équilibreur de charge pour les ports de passerelle de la structure, ainsi que tous les ports configurés dans la section « loadBalancingRules » des propriétés du cluster géré.
 
 ```json
 {
@@ -270,3 +292,8 @@ Les clusters Service Fabric gérés créent automatiquement des sondes d’équi
 [Options de configuration du cluster Service Fabric géré](how-to-managed-cluster-configuration.md)
 
 [Vue d’ensemble des clusters Service Fabric gérés](overview-managed-cluster.md)
+
+<!--Image references-->
+[Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
+[sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
+

@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de la récupération d’urgence des machine
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles Azure vers une région secondaire à l’aide d’Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: fe3424b8905569076a1fe6e4d29352581db3bec8
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: a6b8177ea0abc3a2406937373fc6569b42ffd053
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665029"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960962"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -266,9 +266,11 @@ Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en c
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Prise en charge |
 Interface de stockage NVMe | Non pris en charge
+Chiffrement sur l’hôte | Prise en charge | [Cliquez ici](../virtual-machines/disks-enable-host-based-encryption-portal.md) pour créer une machine virtuelle avec un chiffrement de bout en bout à l’aide du chiffrement sur l’hôte.
 Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.
 Chiffrement au repos (CMK) | Prise en charge | Les clés HSM et logicielles sont prises en charge pour les disques managés
 Double chiffrement au repos | Prise en charge | En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/disk-encryption.md) et [Linux](../virtual-machines/disk-encryption.md).
+Chiffrement FIPS | Non prise en charge
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Pris en charge pour les machines virtuelles avec des disques managés. | Les machines virtuelles utilisant des disques non managés ne sont pas prises en charge. <br/><br/> Les clés protégées par HSM ne sont pas prises en charge. <br/><br/> Le chiffrement de volumes individuels sur un seul disque n’est pas pris en charge. <br><br> Problème connu avec l’activation de la réplication. [En savoir plus.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotation de clé SAS | Non pris en charge | Si la clé SAS pour les comptes de stockage fait l’objet d’une rotation, le client doit désactiver et réactiver la réplication. |

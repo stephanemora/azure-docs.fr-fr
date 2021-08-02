@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2021
+ms.date: 05/13/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7151c110fd50f7485aa0b130832aace4f3143ad9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5915d8628254f24343571c1adc254c548558415
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750989"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077700"
 ---
 - Cette fonctionnalité est actuellement prise en charge uniquement pour les disques SSD Premium.
 - Vous devez libérer votre machine virtuelle ou détacher votre disque d'une machine virtuelle en cours d'exécution avant de pouvoir modifier le niveau du disque.
@@ -22,9 +22,13 @@ ms.locfileid: "101750989"
 
 ## <a name="change-performance-tier-without-downtime-preview"></a>Changer le niveau de performance d’un disque sans temps d’arrêt (préversion)
 
-Normalement, vous devez désallouer votre machine virtuelle ou détacher votre disque pour changer votre niveau de performance. Cependant, si vous activez cette fonctionnalité en préversion, vous n’êtes pas obligé de désallouer votre machine virtuelle ou de détacher votre disque pour changer le niveau. Vous pouvez vous inscrire à la préversion [ici](https://aka.ms/liveperftiersignup).
+Normalement, vous devez désallouer votre machine virtuelle ou détacher votre disque pour changer votre niveau de performance. Cependant, si vous activez cette fonctionnalité en préversion, vous n’êtes pas obligé de désallouer votre machine virtuelle ou de détacher votre disque pour changer le niveau.
 
 La préversion a les limitations suivantes :
-- Disponible seulement dans la région EastUS2EUAP.
-- Non disponible actuellement pour les disques partagés
-- Doit utiliser des modèles Azure Resource Manager avec l’API `2020-12-01` pour changer les niveaux de performance sans temps d’arrêt.
+- Disponible uniquement dans la région USA Centre-Ouest.
+- Non disponible actuellement pour les disques partagés.
+- Doit utiliser l’une des méthodes suivantes pour modifier le niveau sans temps d’arrêt :
+    - Des modèles Azure Resource Manager avec l’API `2020-12-01` pour changer les niveaux de performance sans temps d’arrêt.
+    - Accès au portail Azure par l’intermédiaire du lien suivant : [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
+    - Dernière version d’Azure CLI.
+- Non disponible actuellement avec le module Azure PowerShell.

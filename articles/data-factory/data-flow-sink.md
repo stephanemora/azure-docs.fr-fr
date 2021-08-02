@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/06/2021
-ms.openlocfilehash: ee5ccd377ccfe65a061f3fda8967a90501737953
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 8996e7a30756877b5329ef959b86529bdfcbd943
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632652"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789659"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -47,10 +47,11 @@ Le flux de données de mappage suit une approche basée sur l’extraction, le c
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[Common Data Model](format-common-data-model.md#sink-properties)<br>[Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
 | [Azure Database pour MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Base de données Azure pour PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
-| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
+| [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
 Les paramètres spécifiques à ces connecteurs se trouvent dans l’onglet **Paramètres**. Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs.
 
@@ -88,6 +89,8 @@ Par exemple, si je spécifie une seule colonne clé de `column1` dans un récept
 
 > [!NOTE]
 > Un récepteur de cache doit se trouver dans un flux de données complètement indépendant de toute transformation qui y fait référence par le biais d’une recherche dans le cache. Un récepteur de cache doit également être le premier récepteur écrit. 
+
+**Écrire dans la sortie de l’activité** Le récepteur mis en cache peut éventuellement écrire vos données de sortie dans l’entrée de l’activité de pipeline suivante. Cela vous permettra de transmettre rapidement et facilement des données de votre activité de flux de données sans avoir à conserver les données dans un magasin de données.
 
 ## <a name="field-mapping"></a>Mappages de champs
 

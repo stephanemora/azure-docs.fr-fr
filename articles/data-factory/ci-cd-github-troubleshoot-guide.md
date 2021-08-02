@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/27/2021
-ms.openlocfilehash: e5745f195fe7620aeb7ffe009c13c52cd5f02e62
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228633"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060855"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -234,6 +234,27 @@ La section suivante est incorrecte, car le dossier package.json n’est pas vali
 DataFactory doit être inclus dans customCommand :
  *’run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName’* . Veillez à ce que le fichier YAML généré pour une phase supérieure possède les artefacts JSON requis.
 
+### <a name="git-repository-or-purview-connection-disconnected"></a>Connexion au référentiel Git ou à Purview déconnectée
+
+#### <a name="issue"></a>Problème
+Lors du déploiement de votre fabrique de données, votre connexion au référentiel Git ou à Purview est déconnectée.
+
+#### <a name="cause"></a>Cause
+Si l’option **Inclure dans le modèle  ARM** est sélectionnée pour le déploiement des paramètres globaux, votre fabrique est incluse dans le modèle ARM. Par conséquent, d’autres propriétés de fabrique seront supprimées lors du déploiement.
+
+#### <a name="resolution"></a>Résolution
+Désélectionnez l’option **Inclure dans le modèle ARM** et déployez les paramètres globaux avec PowerShell, comme décrit dans Paramètres globaux dans CI/CD. 
+ 
+### <a name="extra--left--displayed-in-published-json-file"></a>« [ » gauche supplémentaire affiché dans le fichier JSON publié
+
+#### <a name="issue"></a>Problème
+Lors de la publication d’ADF avec DevOps,un « [ » gauche supplémentaire est affiché. ADF ajoute automatiquement un caractère « [ » gauche supplémentaire dans ARMTemplate dans DevOps. 
+
+#### <a name="cause"></a>Cause
+Étant donné que « [ » est un caractère réservé pour ARM, un « [ » supplémentaire est ajouté automatiquement pour échapper « [ ».
+
+#### <a name="resolution"></a>Résolution
+Il s’agit d’un comportement normal lors du processus de publication d’ADF pour CI/CD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e1d639d65752e777fca04035863dbc78c94062e4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589801"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089251"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack"></a>Exécuter Azure Stream Analytics sur Azure Stack 
 

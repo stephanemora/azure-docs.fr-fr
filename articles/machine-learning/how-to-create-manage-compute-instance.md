@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: db6414ecf4b1b5fcbdf52d59c0c79b72998e610a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c678c36ff653d8975f7a0fe1a82395c3093758f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375213"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458549"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -163,8 +163,19 @@ Les arguments de script peuvent être référencés dans le script sous la forme
 Si votre script effectue une opération spécifique à azureuser, par exemple l’installation de l’environnement Conda ou du noyau Jupyter, vous devez le placer dans le bloc *sudo -u azureuser* comme suit.
 
 ```shell
-sudo -u azureuser -i <<'EOF'
+#!/bin/bash
 
+set -e
+
+# This script installs a pip package in compute instance azureml_py38 environment
+
+sudo -u azureuser -i <<'EOF'
+# PARAMETERS
+PACKAGE=numpy
+ENVIRONMENT=azureml_py38 
+conda activate "$ENVIRONMENT"
+pip install "$PACKAGE"
+conda deactivate
 EOF
 ```
 Veuillez noter que *sudo -u azureuser* modifie le répertoire de travail actuel en */home/azureuser*. Vous ne pouvez pas non plus accéder aux arguments du script dans ce bloc.
@@ -208,6 +219,7 @@ Dans un [modèle](https://github.com/Azure/azure-quickstart-templates/tree/maste
     }
 }
 ```
+La propriété *scriptData* ci-dessus spécifie l’emplacement du script de création dans le partage de fichiers Notebooks, comme *Users/admin/testscript.sh*. *scriptArguments* est facultatif ci-dessus et spécifie les arguments pour le script de création.
 
 Il est également possible d’insérer le script inline pour un modèle Resource Manager.  La commande shell peut faire référence à toutes les dépendances chargées dans le partage de fichiers des notebooks.  Lorsque vous utilisez une chaîne inline, le répertoire de travail du script est */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
 

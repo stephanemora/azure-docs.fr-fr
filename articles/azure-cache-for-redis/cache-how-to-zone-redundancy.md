@@ -6,17 +6,20 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c355939191e6da9a9408edde02deac97d69c9bbf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b61e1e0b185355c06d10648f267895e819162318
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084427"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969712"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Activer la redondance de zone pour Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache redondante interzone à l’aide du portail Azure.
 
 Les niveaux Standard, Premium et Entreprise d’Azure Cache pour Redis offrent une redondance intégrée en hébergeant chaque cache sur deux machines virtuelles dédiées. Même si ces machines virtuelles se trouvent dans des [domaines d’erreur et de mise à jour Azure](../virtual-machines/availability.md) distincts et hautement disponibles, elles sont sensibles aux défaillances au niveau du centre de données. Azure Cache pour Redis prend également en charge la redondance de zone dans ses niveaux Premium et Entreprise. Un cache redondant interzone s’exécute sur des machines virtuelles distribuées dans plusieurs [zones de disponibilité](../availability-zones/az-overview.md). Il offre une plus grande résilience et disponibilité.
+
+> [!NOTE]
+> Le transfert de données entre Zones de disponibilité Azure est facturé aux [tarifs de bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) standard.
 
 ## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
@@ -51,7 +54,7 @@ Pour créer un cache, procédez comme suit :
 1. Conservez les paramètres par défaut pour les autres options. 
 
     > [!NOTE]
-    > La prise en charge de la redondance de zone fonctionne uniquement avec les caches qui ne sont pas regroupés en cluster ni géorépliqués. En outre, elle ne prend pas en charge les liaisons privées, la mise à l’échelle, la persistance des données ou l’importation/exportation.
+    > La redondance de zone ne prend pas en charge la persistance AOF et ne fonctionne pas actuellement avec la géoréplication.
     >
 
 1. Cliquez sur **Créer**. 
@@ -61,6 +64,29 @@ Pour créer un cache, procédez comme suit :
     > [!NOTE]
     > Les zones de disponibilité ne peuvent pas être modifiées après la création du cache.
     >
+
+## <a name="zone-redundancy-faq"></a>FAQ sur la redondance de zone
+
+- [Pourquoi ne puis-je pas activer la redondance de zone lors de la création d’un cache Premium ?](#why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache)
+- [Pourquoi ne puis-je pas sélectionner les trois zones pendant la création du cache ?](#why-cant-i-select-all-three-zones-during-cache-create)
+- [Puis-je mettre à jour mon cache Premium existant pour utiliser la redondance de zone ?](#can-i-update-my-existing-premium-cache-to-use-zone-redundancy)
+- [Combien coûte la réplication de mes données entre Zones de disponibilité Azure ?](#how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones)
+
+### <a name="why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache"></a>Pourquoi ne puis-je pas activer la redondance de zone lors de la création d’un cache Premium ?
+
+La redondance de zone est disponible uniquement dans les régions Azure qui disposent de la fonctionnalité Zones de disponibilité. Consultez [Régions Azure avec Zones de disponibilité](../availability-zones/az-region.md#azure-services-supporting-availability-zones) pour obtenir la liste la plus récente.
+
+### <a name="why-cant-i-select-all-three-zones-during-cache-create"></a>Pourquoi ne puis-je pas sélectionner les trois zones pendant la création du cache ?
+
+Un cache Premium a un nœud principal et un nœud de réplica par défaut. Pour configurer la redondance de zone pour plus de deux zones de disponibilité, vous devez ajouter d’[autres réplicas](cache-how-to-multi-replicas.md) au cache que vous créez.
+
+### <a name="can-i-update-my-existing-premium-cache-to-use-zone-redundancy"></a>Puis-je mettre à jour mon cache Premium existant pour utiliser la redondance de zone ?
+
+Non, cela n’est pas pris en charge à l’heure actuelle.
+
+### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones"></a>Combien coûte la réplication de mes données entre Zones de disponibilité Azure ?
+
+Lors de l’utilisation de la redondance de zone, configurée avec plusieurs zones de disponibilité, les données sont répliquées du nœud de cache principal d’une zone vers les autres nœuds d’une ou de plusieurs autres zones. Les frais de transfert de données correspondent au coût de sortie du réseau des données se déplaçant dans les zones de disponibilité sélectionnées. Pour plus d'informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.

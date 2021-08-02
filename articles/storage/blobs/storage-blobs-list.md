@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9dbcb4aba8b1c25aa7f00850d71872c9f58b94a9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046940"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462029"
 ---
 # <a name="list-blobs-with-azure-storage-client-libraries"></a>Lister les objets blob avec les bibliothèques de clients Stockage Azure
 
@@ -24,14 +24,14 @@ Lorsque vous listez les objets blob de votre code, vous pouvez spécifier un cer
 
 Pour lister les objets blob dans un compte de stockage, appelez l’une des méthodes suivantes :
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync)
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -43,7 +43,7 @@ Pour lister les objets blob dans un conteneur, appelez l’une des méthodes sui
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Kit SDK Python v12](#tab/python)
 
 - [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
@@ -61,15 +61,15 @@ Pour filtrer la liste de blobs, spécifiez une chaîne pour le paramètre `prefi
 
 Vous pouvez retourner des métadonnées d’objet blob avec les résultats.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Spécifiez la valeur de **Metadata** pour l’énumération [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits).
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Spécifiez la valeur de **Metadata** pour l’énumération [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Le stockage Azure inclut des métadonnées avec chaque objet blob retourné. Vous n’avez donc pas besoin d’appeler l’une des méthodes **FetchAttributes** dans ce contexte pour récupérer les métadonnées des objets blob.
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Kit SDK Python v12](#tab/python)
 
 Spécifiez `metadata` pour le paramètre `include=` au moment de l’appel de [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
@@ -97,11 +97,11 @@ L’exemple suivant liste les objets blob dans le conteneur spécifié à l’ai
 
 Si vous avez activé la fonctionnalité d’espace de noms hiérarchique sur votre compte, les répertoires ne sont pas virtuels. Au lieu de cela, ce sont des objets concrets et indépendants. Par conséquent, les répertoires apparaissent dans la liste sous forme d’objets blob de longueur nulle.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 Si une opération de liste retourne plus de 5 000 objets blob, ou si le nombre d’objets blob disponibles dépasse le nombre que vous avez spécifié, le stockage Azure retourne un *jeton de continuation* avec la liste d’objets blob. Un jeton de continuation est une valeur opaque que vous pouvez utiliser pour récupérer le jeu de résultats suivant à partir du stockage Azure.
 
@@ -147,7 +147,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Kit SDK Python v12](#tab/python)
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
 
@@ -171,7 +171,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 Lorsque vous appelez une opération de création de liste hiérarchique, le stockage Azure retourne les répertoires virtuels et les objets blob figurant au premier niveau de la hiérarchie.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
 Pour répertorier les objets blob de façon hiérarchique, appelez la méthode [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy), ou [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync).
 
@@ -179,7 +179,7 @@ L’exemple suivant liste les objets blob dans le conteneur spécifié à l’ai
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
 
 La propriété [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de chaque répertoire virtuel est définie pour que vous puissiez passer le préfixe dans un appel récursif afin de récupérer le répertoire suivant.
 
@@ -240,7 +240,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
-# <a name="python-v12"></a>[Python v12](#tab/python)
+# <a name="python-v12-sdk"></a>[Kit SDK Python v12](#tab/python)
 
 Pour lister les objets blob de manière hiérarchique, appelez la méthode [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-).
 

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 25dfad48d3782c50797c855a0a8cbfded6581e0e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 573868d8dc637afcab1970d0e41ed2ed0830808d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788010"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538849"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
@@ -232,9 +232,13 @@ Quand vous **montez** un jeu de données, vous attachez les fichiers référenc�
 
 Lorsque vous **téléchargez** un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. 
 
+> [!NOTE]
+> Le nom du chemin de téléchargement ne doit pas dépasser 255 caractères alphanumériques pour le système d’exploitation Windows. Pour le système d’exploitation Linux, le nom du chemin de téléchargement ne doit pas dépasser 4 096 caractères alphanumériques. En outre, pour le système d’exploitation Linux, le nom de fichier (qui est le dernier segment du chemin de téléchargement `/path/to/file/{filename}`) ne doit pas dépasser 255 caractères alphanumériques.
+
 Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente à la diffusion en continu des données à partir des services de stockage. Si la taille de vos données dépasse la taille du disque de calcul, le téléchargement n’est pas possible. Pour ce scénario, nous recommandons un montage, car seuls les fichiers de données utilisés par votre script sont chargés au moment du traitement.
 
 Le code suivant monte `dataset` dans le répertoire Temp dans le chemin `mounted_path`
+
 
 ```python
 import tempfile
@@ -289,29 +293,45 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-* **Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : 
+**Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : 
   * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
   * Si vous utilisez `azureml-sdk<1.12.0`, effectuez une mise à niveau vers la version la plus récente.
   * Si vous avez des règles de trafic sortant NSG, assurez-vous qu’il existe une règle de trafic sortant qui autorise tout le trafic pour l’étiquette de service `AzureResourceMonitor`.
 
-### <a name="overloaded-azurefile-storage"></a>Stockage Fichier Azure surchargé
+### <a name="azurefile-storage"></a>Stockage AzureFile
 
-Si vous recevez une erreur `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, appliquez les solutions de contournement suivantes.
+**Impossible de charger les Fichiers projet dans le répertoire de travail d’AzureFile, car le stockage est surchargé** :
 
-Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions. Vous pouvez également répartir la charge de travail entre deux espaces de travail.
+* Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions.
+
+* Une autre option consiste à fractionner la charge de travail entre deux espaces de travail différents.
+
+**ConfigException : Impossible de créer une connexion à AzureFileService en raison d’informations d’identification manquantes. Une clé de compte ou un jeton SAP doit être lié au magasin de blobs de l’espace de travail par défaut.**
+
+Pour vous assurer que vos informations d’identification d’accès au stockage sont liées à l’espace de travail et au magasin de données de fichiers associé, procédez comme suit :
+
+1. Accédez à votre espace de travail dans le [portail Azure](https://ms.portal.azure.com).
+1. Sélectionnez le lien vers le stockage sur la page **Vue d’ensemble** de l’espace de travail.
+1. Sur la page du stockage, sélectionnez **Clés d’accès** dans le menu latéral gauche. 
+1. Copiez la clé.
+1. Accédez à [Azure Machine Learning studio](https://ml.azure.com) pour votre espace de travail.
+1. Dans le studio, sélectionnez la magasin de données de fichiers pour lequel vous souhaitez fournir des informations d’authentification. 
+1. Sélectionnez **Mettre à jour l’authentification**.
+1. Collez la clé des étapes précédentes. 
+1. Sélectionnez **Enregistrer**. 
 
 ### <a name="passing-data-as-input"></a>Passer des données en tant qu’entrée
 
-*  **Type d’erreur : FileNotFound: Pas de fichier ou de répertoire correspondant** : Cette erreur se produit si le chemin d’accès au fichier que vous fournissez n’est pas l’emplacement du fichier. Vous devez vous assurer que la façon dont vous faites référence au fichier est cohérente avec l’emplacement où vous avez monté votre jeu de données sur votre cible de calcul. Pour garantir un état déterministe, nous vous recommandons d’utiliser le chemin d’accès abstrait lors du montage d’un jeu de données sur une cible de calcul. Par exemple, dans le code suivant, nous montons le jeu de données sous la racine du système de fichiers de la cible de calcul, `/tmp`. 
+**Type d’erreur : FileNotFound: Pas de fichier ou de répertoire correspondant** : Cette erreur se produit si le chemin d’accès au fichier que vous fournissez n’est pas l’emplacement du fichier. Vous devez vous assurer que la façon dont vous faites référence au fichier est cohérente avec l’emplacement où vous avez monté votre jeu de données sur votre cible de calcul. Pour garantir un état déterministe, nous vous recommandons d’utiliser le chemin d’accès abstrait lors du montage d’un jeu de données sur une cible de calcul. Par exemple, dans le code suivant, nous montons le jeu de données sous la racine du système de fichiers de la cible de calcul, `/tmp`. 
     
-    ```python
-    # Note the leading / in '/tmp/dataset'
-    script_params = {
-        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
-    } 
-    ```
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
 
-    Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données.
+Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

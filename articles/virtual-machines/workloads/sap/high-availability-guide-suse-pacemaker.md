@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2021
+ms.date: 05/13/2021
 ms.author: radeltch
-ms.openlocfilehash: e0ebc527f1eb0aa3ed014957633b89c407952364
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743198"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100033"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -660,7 +660,7 @@ sudo crm configure property stonith-timeout=900
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuration Pacemaker pour les événements planifiés Azure
 
-Azure propose des [événements planifiés](../../linux/scheduled-events.md). Les événements planifiés sont fournis via le service de métadonnées et permettent à l'application de préparer des événements tels que l'arrêt d'une machine virtuelle, le redéploiement d'une machine virtuelle, etc. L'agent de ressource **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervise les événements planifiés Azure. Si des événements sont détectés, l’agent tente d'arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour y parvenir, des ressources Pacemaker supplémentaires doivent être configurées. 
+Azure propose des [événements planifiés](../../linux/scheduled-events.md). Les événements planifiés sont fournis via le service de métadonnées et permettent à l'application de préparer des événements tels que l'arrêt d'une machine virtuelle, le redéploiement d'une machine virtuelle, etc. L'agent de ressource **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervise les événements planifiés Azure. Si des événements sont détectés et que l’agent de ressource détermine qu’un autre nœud de cluster est disponible, l’agent azure-events place le nœud de cluster cible en mode veille, afin de forcer le cluster à migrer les ressources à partir de la machine virtuelle avec des [événements planifiés Azure](../../linux/scheduled-events.md) en attente. Pour y parvenir, des ressources Pacemaker supplémentaires doivent être configurées. 
 
 1. **[A]** Vérifiez que le package de l’agent **azure-events** est déjà installé et à jour. 
 

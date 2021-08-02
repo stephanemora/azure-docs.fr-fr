@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4e6b30e6b6df02bac366e2907f33fd2bda13716f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: c55ca73d63fb380dece0350de482dcc9087bd315
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789800"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744806"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -26,7 +26,7 @@ La recherche sémantique est une collection de fonctionnalités de requête qui 
 La recherche sémantique est une fonctionnalité Premium. Nous vous recommandons cet article pour vous familiariser avec le sujet, mais si vous préférez commencer sans plus attendre, procédez comme suit :
 
 1. [Vérifiez les exigences régionales et de niveau de service](#availability-and-pricing).
-1. [Inscrivez-vous au programme en préversion](https://aka.ms/SemanticSearchPreviewSignup).
+1. [Inscrivez-vous au programme en préversion](https://aka.ms/SemanticSearchPreviewSignup). Le traitement de la demande peut prendre jusqu’à deux jours ouvrables.
 1. Une fois accepté, créez ou modifiez des requêtes pour renvoyer [des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
 1. Ajoutez quelques propriétés de requête supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
 1. Vous pouvez également inclure une propriété de [vérification orthographique](speller-how-to-add.md) pour optimiser la précision et le rappel.
@@ -72,13 +72,23 @@ Les résultats sont ensuite réévalués en fonction de la [similitude conceptue
 
 Pour utiliser les fonctionnalités sémantiques dans des requêtes, vous devez apporter de petites modifications à la [requête de recherche](semantic-how-to-query-request.md), mais aucune configuration ni réindexation supplémentaire n’est nécessaire.
 
+## <a name="semantic-capabilities-and-limitations"></a>Fonctionnalités et limitations sémantiques
+
+La recherche sémantique étant une technologie assez récente, il est important de définir des attentes quant à ce qu’elle peut et ne peut pas faire.
+
+Elle améliore la qualité des résultats de recherche de deux manières. Tout d’abord, la promotion de documents sémantiquement plus proches de l’intention de la requête d’origine est un avantage significatif. Deuxièmement, les résultats sont plus rapidement exploitables quand des légendes, voire des réponses, figurent sur la page. À tout moment, le moteur utilise un contenu existant. Les modèles linguistiques utilisés dans la recherche sémantique sont conçus pour extraire une chaîne intacte qui ressemble à une réponse, mais ne tentent pas de composer une nouvelle chaîne en guise de réponse à une requête, ou de légende pour un document correspondant.
+
+La recherche sémantique n’étant pas un moteur logique, elle n’infère pas d’informations à partir d’éléments de contenu au sein d’un document ou d’un corpus de documents. Par exemple, si une requête cherche des « hôtels situés dans le désert » sans fournir la moindre indication géographique, le moteur ne trouve aucun hôtel situé en Arizona ou au Nevada, même si ces deux États ont des hôtels et des déserts. De même, si la requête comprend la clause « au cours des 5 dernières années », le moteur ne calcule pas un intervalle de temps en fonction de la date du jour.
+
+Dans le service Recherche cognitive, les mécanismes qui peuvent être utiles pour les scénarios ci-dessus incluent des [cartes de synonymes](search-synonyms.md) qui vous permettent de créer des associations entre des termes apparemment différents, ou des [filtres de date](search-query-odata-filter.md) spécifiés sous la forme d’une expression OData.
+
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La recherche sémantique est disponible via [l’enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup). Dans le cadre du lancement de la préversion, du 2 mars à début juin, des fonctionnalités sémantiques sont proposées gratuitement.
+La recherche sémantique est disponible via [l’enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup). Dans le cadre du lancement de la préversion, du 2 mars à début juillet, des fonctionnalités sémantiques sont proposées gratuitement.
 
 | Fonctionnalité | Niveau | Région | Inscription | Tarification projetée |
 |---------|------|--------|---------------------|-------------------|
-| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | À compter du 1er juin, la tarification prévue est de 500 USD par mois pour les 250 000 premières requêtes et de 2 USD par tranche de 1 000 requêtes supplémentaires.  |
+| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | À compter de début juin, la tarification prévue est de 500 USD par mois pour les 250 000 premières requêtes, puis de 2 USD par tranche de 1 000 requêtes supplémentaires.  |
 | Vérification orthographique | Quelconque | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | Aucun (gratuit) |
 
 Il existe un [enregistrement d’inscription](https://aka.ms/SemanticSearchPreviewSignup) pour les fonctionnalités sémantiques et la vérification orthographique. 
@@ -91,4 +101,4 @@ Vous trouverez des informations de tarification détaillées sur la [page de tar
 
 [Inscrivez-vous](https://aka.ms/SemanticSearchPreviewSignup) à la préversion sur un service de recherche conforme aux exigences de niveau et de région indiquées dans la section précédente.
 
-Lorsque votre service est prêt, [créez une requête sémantique](semantic-how-to-query-request.md) pour voir le classement sémantique en action.
+Le traitement de la demande peut prendre jusqu’à deux jours ouvrables. Une fois votre service prêt, [créez une requête sémantique](semantic-how-to-query-request.md) pour voir le classement sémantique en action.

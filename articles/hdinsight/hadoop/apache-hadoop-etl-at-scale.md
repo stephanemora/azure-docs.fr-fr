@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: f11b31ba698c193029834caada2e5c4cf3ef2902
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1621acb66e62b03418b59f184ba4e7fa031a164
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866639"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472107"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -63,7 +63,7 @@ Plusieurs blobs peuvent être répartis sur plusieurs serveurs afin d’offrir u
 
 Stockage Azure comprend une couche API WebHDFS pour le stockage d’objets blob. Tous les services de HDInsight peuvent accéder aux fichiers dans Stockage Blob Azure pour le nettoyage et le traitement des données. Ce processus est similaire à la manière dont ces services utiliseraient Hadoop Distributed Files System (HDFS).
 
-Les données sont généralement ingérées dans Stockage Azure à l’aide de PowerShell, du Kit de développement logiciel (SDK) Stockage Azure ou d’AZCopy.
+Les données sont généralement ingérées dans Stockage Azure à l’aide de PowerShell, du kit SDK Stockage Azure ou d’AzCopy.
 
 ### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 

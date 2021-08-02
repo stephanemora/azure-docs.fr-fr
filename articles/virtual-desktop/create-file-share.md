@@ -1,21 +1,21 @@
 ---
 title: Créer un partage de fichiers Azure Files avec un contrôleur de domaine - Azure
-description: Configurez un conteneur de profil FSLogix sur un partage de fichiers Azure dans un pool hôte Windows Virtual Desktop existant avec votre domaine Active Directory.
+description: Configurez un conteneur de profil FSLogix sur un partage de fichiers Azure dans un pool hôte Azure Virtual Desktop existant avec votre domaine Active Directory.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e859da6b3ac38ddb89c998d172c39f2549455aaa
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ab9a70dccdeff6ed16eb3f25e9dc78fb274b2449
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447928"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746930"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure Files et AD DS
 
-Dans cet article, vous allez apprendre à créer un partage de fichiers Azure authentifié par un contrôleur de domaine sur un pool hôte Windows Virtual Desktop existant. Vous pouvez utiliser ce partage de fichiers pour stocker les profils de stockage.
+Dans cet article, vous allez découvrir comment créer un partage de fichiers Azure authentifié par un contrôleur de domaine sur un pool hôte Azure Virtual Desktop existant. Vous pouvez utiliser ce partage de fichiers pour stocker les profils de stockage.
 
 Ce processus utilise Active Directory Domain Services (AD DS), qui est un service d’annuaire local. Si vous recherchez des informations sur la création d’un conteneur de profil FSLogix avec Azure AD DS, consultez [Créer un conteneur de profil FSLogix avec Azure Files](create-profile-container-adds.md).
 
@@ -39,8 +39,8 @@ Pour installer un compte de stockage :
 
     - Créez un groupe de ressources.
     - Entrez un nom unique pour votre compte de stockage.
-    - Pour **Emplacement**, nous vous recommandons de choisir le même emplacement que le pool d’hôtes Windows Virtual Desktop.
-    - Pour **Performances**, sélectionnez **Standard**. (En fonction de vos besoins en E/S par seconde. Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).)
+    - Pour **Emplacement**, nous vous recommandons de choisir le même emplacement que le pool d’hôtes Azure Virtual Desktop.
+    - Pour **Performances**, sélectionnez **Standard**. (En fonction de vos besoins en E/S par seconde. Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Azure Virtual Desktop](store-fslogix-profile.md).)
     - Pour **Type de compte**, sélectionnez **StorageV2** ou **FileStorage** (disponible uniquement si le niveau de performance est Premium).
     - Pour **Réplication**, sélectionnez **Stockage localement redondant (LRS)** .
 
@@ -75,11 +75,11 @@ Ensuite, vous devez activer l’authentification Active Directory (AD). Pour act
      > [!div class="mx-imgBorder"]
      > ![Une capture d’écran de la page Configuration avec Azure Active Directory (AD) activé.](media/active-directory-enabled.png)
 
-## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Attribuer des autorisations Azure RBAC aux utilisateurs Windows Virtual Desktop
+## <a name="assign-azure-rbac-permissions-to-azure-virtual-desktop-users"></a>Attribuer des autorisations Azure RBAC aux utilisateurs Azure Virtual Desktop
 
 Tous les utilisateurs qui doivent disposer de profils FSLogix stockés sur le compte de stockage doivent se voir attribuer le rôle Contributeur de partage SMB des données des fichiers de stockage.
 
-Les utilisateurs qui se connectent aux hôtes de session Windows Virtual Desktop ont besoin d’autorisations d’accès pour accéder à votre partage de fichiers. L’octroi de l’accès à un partage de fichiers Azure implique la configuration des autorisations au niveau du partage et au niveau NTFS, comme pour un partage Windows traditionnel.
+Les utilisateurs qui se connectent aux hôtes de session Azure Virtual Desktop ont besoin d’autorisations d’accès pour accéder à votre partage de fichiers. L’octroi de l’accès à un partage de fichiers Azure implique la configuration des autorisations au niveau du partage et au niveau NTFS, comme pour un partage Windows traditionnel.
 
 Pour configurer les autorisations au niveau du partage, attribuez à chaque utilisateur un rôle disposant des autorisations d’accès appropriées. Les autorisations peuvent être attribuées à des utilisateurs individuels ou à un groupe Azure AD. Pour en savoir plus, consultez [Assigner des autorisations d’accès à une identité](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
@@ -167,7 +167,7 @@ Pour configurer vos autorisations NTFS :
 
     Les *Utilisateurs Autorité NT\Utilisateurs authentifiés* et *BUILTIN\Users* disposent de certaines autorisations par défaut. Ces autorisations par défaut permettent à ces utilisateurs de lire les conteneurs de profils d’autres utilisateurs. Toutefois, les autorisations décrites dans [Configurer les autorisations de stockage à utiliser avec les conteneurs de profils et les conteneurs Office](/fslogix/fslogix-storage-config-ht) ne permettent pas aux utilisateurs de lire les conteneurs de profils d’autres utilisateurs.
 
-4. Exécutez les commandes suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès à leurs conteneurs de profils par d’autres utilisateurs.
+4. Exécutez les commandes suivantes pour permettre à vos utilisateurs Azure Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès à leurs conteneurs de profils par d’autres utilisateurs.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -194,7 +194,7 @@ Cette section vous indique comment configurer une machine virtuelle avec FSLogix
 
 Pour configurer FSLogix sur vos machines virtuelles hôtes de session :
 
-1. RDP vers la machine virtuelle hôte de session du pool hôte Windows Virtual Desktop.
+1. Établissez une connexion RDP vers la machine virtuelle hôte de session du pool d’hôtes Azure Virtual Desktop.
 
 2. [Téléchargez et installez FSLogix](/fslogix/install-ht).
 
@@ -220,7 +220,7 @@ Si l’utilisateur s’est connecté précédemment, il dispose d’un profil lo
 
 Pour vérifier vos autorisations sur votre session :
 
-1. Démarrez une session sur Windows Virtual Desktop.
+1. Démarrez une session sur Azure Virtual Desktop.
 
 2. Ouvrez le portail Azure.
 

@@ -1,26 +1,26 @@
 ---
-title: Équilibrage de charge du pool d’hôtes Windows Virtual Desktop – Azure
-description: En savoir plus sur les méthodes d’équilibrage de charge de pool d’hôtes pour un environnement Windows Virtual Desktop.
+title: Équilibrage de charge du pool d’hôtes Azure Virtual Desktop – Azure
+description: Découvrez les méthodes d’équilibrage de charge de pool d’hôtes pour un environnement Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed0cf568ca8d011beb7150f23c0187bbe262d5f0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 54cbd03283814fd21a95dfe7578173f3481c4cd8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446772"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757604"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
 
-Windows Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
+Azure Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
 
-Les méthodes d’équilibrage de charge suivantes sont disponibles dans Windows Virtual Desktop :
+Les méthodes d’équilibrage de charge suivantes sont disponibles dans Azure Virtual Desktop :
 
 - L’équilibrage de charge de largeur permet de distribuer uniformément les sessions utilisateur sur les hôtes de session d’un pool d’hôtes.
 - L’équilibrage de charge de profondeur permet de saturer un hôte de session avec les sessions utilisateur d’un pool d’hôtes. Dès que la première session a atteint son seuil limite de sessions, l’équilibreur de charge dirige les nouvelles connexions utilisateur vers l’hôte de session suivant du pool d’hôtes jusqu’à ce qu’il atteigne sa limite et ainsi de suite.

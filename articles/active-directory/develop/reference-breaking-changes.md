@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 3/30/2021
+ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8efc5f44c1383ebcde397b810ba69c547afd692f
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167581"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555447"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -35,21 +35,23 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Résolution de bogue : Azure AD n’encodera plus l’URL du paramètre d’état à deux reprises.
+### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>L’expérience utilisateur du flux de code d’appareil inclut désormais une invite de confirmation d’application
 
-**Date d’effet** : mars 2021
+**Date d’effet** : juin 2021
 
-**Points de terminaison impactés** : v1.0 et v2.0 
+**Points de terminaison impactés** : v2.0 et v1.0
 
-**Protocole impacté** : Tous les flux qui visitent le point de terminaison `/authorize` (flux de code d’autorisation et flux implicite)
+**Protocole affecté**: le [flux de code d’appareil](v2-oauth2-device-code.md)
 
-Un bogue a été trouvé et résolu dans la réponse d’autorisation d’Azure AD. Lors de l’étape `/authorize` de l’authentification, le paramètre `state` de la demande est inclus dans la réponse, afin de préserver l’état de l’application et d’empêcher les attaques CSRF. Azure AD a incorrectement codé l’URL du paramètre `state` avant de l’insérer dans la réponse, où elle a été encodée une fois de plus.  En conséquence, les applications ne rejetaient pas correctement la réponse d’Azure AD. 
+Pour améliorer la sécurité, le flux de code d’appareil a été mis à jour pour ajouter une invite destinée à confirmer que l’utilisateur se connecte bien à l’application prévue. Cet ajout vise à prévenir les attaques par hameçonnage.
 
-Azure AD ne codera plus ce paramètre deux fois, ce qui permettra aux applications d’analyser correctement le résultat. Cette modification sera appliquée à toutes les applications. 
+L’invite qui s’affiche ressemble à ceci :
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="Nouvelle invite, lecture « Essayez-vous de vous connecter à l’interface de ligne de commande Azure ? »":::
 
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L’accès conditionnel se déclenchera uniquement pour les étendues demandées explicitement
 
-**Date d’effet** : mai 2021, avec un lancement progressif à partir d’avril. 
+**Date d’effet** : août 2021, avec un lancement progressif à partir d’avril. 
 
 **Points de terminaison impactés** : v2.0
 
@@ -71,8 +73,19 @@ Si l’application demande ensuite `scope=files.readwrite`, l’accès condition
 
 Si l’application émet ensuite une dernière demande pour l’une des trois étendues (par exemple, `scope=tasks.read`), Azure AD déterminera que l’utilisateur a déjà satisfait aux stratégies d’accès conditionnel nécessaires pour `files.readwrite` et émettre de nouveau un jeton incluant les trois autorisations. 
 
-
 ## <a name="may-2020"></a>Mai 2020
+
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Résolution de bogue : Azure AD n’encodera plus le paramètre d’état dans l’URL à deux reprises.
+
+**Date d’effet** : mars 2021
+
+**Points de terminaison impactés** : v1.0 et v2.0
+
+**Protocole impacté** : Tous les flux qui visitent le point de terminaison `/authorize` (flux de code d’autorisation et flux implicite)
+
+Un bogue a été trouvé et résolu dans la réponse d’autorisation d’Azure AD. Lors de l’étape `/authorize` de l’authentification, le paramètre `state` de la demande est inclus dans la réponse, afin de préserver l’état de l’application et d’empêcher les attaques CSRF. Azure AD a incorrectement codé l’URL du paramètre `state` avant de l’insérer dans la réponse, où elle a été encodée une fois de plus.  En conséquence, les applications ne rejetaient pas correctement la réponse d’Azure AD. 
+
+Azure AD ne codera plus ce paramètre deux fois, ce qui permettra aux applications d’analyser correctement le résultat. Cette modification sera appliquée à toutes les applications. 
 
 ### <a name="azure-government-endpoints-are-changing"></a>Les points de terminaison Azure Government changent
 

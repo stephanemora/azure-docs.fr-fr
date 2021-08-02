@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 05/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2865138aeca012d30692e708a61e459492f03ccc
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750696"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457473"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -28,8 +28,13 @@ ms.locfileid: "109750696"
 
 Le [parcours d’inscription et de connexion](add-sign-up-and-sign-in-policy.md) permet aux utilisateurs de réinitialiser leur mot de passe à l’aide du lien **Vous avez oublié votre mot de passe ?** . Le flux de réinitialisation du mot de passe est constitué des étapes suivantes :
 
-1. Dans la page d’inscription et de connexion, l’utilisateur clique sur le lien **Vous avez oublié votre mot de passe ?** . Azure AD B2C lance le flux de réinitialisation du mot de passe. 
-2. L’utilisateur fournit et vérifie son adresse e-mail avec un code unique horodaté.
+1. Dans la page d’inscription et de connexion, l’utilisateur clique sur le lien **Vous avez oublié votre mot de passe ?** . Azure AD B2C lance le flux de réinitialisation du mot de passe.
+2. L’utilisateur fournit son adresse e-mail et sélectionne **Envoyer le code de vérification**. Azure AD B2C envoie alors un code de vérification à l’utilisateur.
+
+* L’utilisateur doit ouvrir sa boîte e-mail et copier le code de vérification. L’utilisateur entre ensuite le code de vérification sur la page de réinitialisation de mot de passe Azure AD B2C, puis il sélectionne **Vérifier le code**.
+
+> [!NOTE]
+> Une fois l’e-mail vérifié, l’utilisateur peut toujours sélectionner **Modifier l’e-mail**, taper l’autre adresse e-mail et répéter la vérification de l’e-mail depuis le début.
 3. L’utilisateur peut ensuite entrer un nouveau mot de passe.
 
 ![Flux de réinitialisation de mot de passe](./media/add-password-reset-policy/password-reset-flow.png)

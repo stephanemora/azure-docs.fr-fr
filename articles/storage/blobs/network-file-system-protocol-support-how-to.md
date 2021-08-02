@@ -1,5 +1,5 @@
 ---
-title: Monter du stockage blob Azure à l’aide du protocole NFS 3.0 (préversion) | Microsoft Docs
+title: Monter le service Stockage Blob Azure à l’aide du protocole NFS 3.0 (préversion) | Microsoft Docs
 description: Découvrez comment monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un client qui s’exécute localement à l’aide du protocole NFS 3.0.
 author: normesta
 ms.subservice: blobs
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
-ms.openlocfilehash: bf6b06ba7cc7f547f752ffa7877fca186ba4465e
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: d184569fd28e23b14ff3cb24a0c8e68477b9842d
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713783"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888731"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
-Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
+Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le service Stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le service Stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Étape 1 : Inscrivez la fonctionnalité de protocole NFS 3.0 avec votre abonnement
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Ouvrez une fenêtre de commande PowerShell. 
 
@@ -50,14 +52,54 @@ Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine 
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
    ```
+   
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Ouvrez une fenêtre de terminal.
+
+2. Connectez-vous à votre abonnement Azure avec la commande `az login` et suivez les instructions à l’écran.
+
+   ```azurecli-interactive
+   az login
+   ```
+   
+3. Enregistrez la fonctionnalité `AllowNFSV3` à l’aide de la commande suivante.
+
+   ```azurecli-interactive
+   az feature register --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+   ```
+
+   Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+4. Inscrivez le fournisseur de ressources en utilisant la commande suivante :
+    
+   ```azurecli-interactive
+   az provider register -n Microsoft.Storage --subscription <subscription-id>
+   ```
+
+   Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+---
 
 ## <a name="step-2-verify-that-the-feature-is-registered"></a>Étape 2 : Vérifier que l’appareil est enregistré 
 
 L’approbation d’inscription peut prendre jusqu’à une heure. Pour vérifier que l’inscription est terminée, utilisez les commandes suivantes.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+```
+
+Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+---
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Étape 3 : Créez un réseau virtuel Azure (Vnet)
 
@@ -82,10 +124,10 @@ Au fur et à mesure que vous configurez le compte, choisissez les valeurs suivan
 
 |Paramètre | Niveau de performance Premium | Niveau de performance Standard  
 |----|---|---|
-|Emplacement|Toutes les régions disponibles |L’une des régions suivantes : Australie Est, Corée Centre, USA Est et USA Centre Sud   
-|Performances|Premium| standard
+|Emplacement|Toutes les régions disponibles |Toutes les régions disponibles    
+|Performances|Premium| Standard
 |Type de compte|BlockBlobStorage| Universel v2
-|Réplication|Stockage localement redondant (LRS)| Stockage localement redondant (LRS)
+|Réplication|Stockage localement redondant (LRS)| Stockage localement redondant (LRS), Stockage redondant interzone (ZRS)
 |Méthode de connectivité|Point de terminaison public (réseaux sélectionnés) pour point de terminaison privé |Point de terminaison public (réseaux sélectionnés) pour point de terminaison privé
 |Transfert sécurisé requis|Désactivé|Désactivé
 |Espace de noms hiérarchique|activé|activé
@@ -136,4 +178,4 @@ Créez un répertoire sur votre système Linux, puis montez un conteneur dans le
 
 ## <a name="see-also"></a>Voir aussi
 
-[Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md)
+[Prise en charge du protocole NFS (Network File System) 3.0 dans le service Stockage Blob Azure (préversion)](network-file-system-protocol-support.md)

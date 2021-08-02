@@ -2,14 +2,14 @@
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 00ca0579ee47ae38e40e966c818acfb7b48f6c5f
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015588"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890302"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -49,6 +49,12 @@ Azure applique automatiquement les correctifs de sécurité pour les nœuds Linu
 ### <a name="windows-server-nodes"></a>Nœuds Windows Server
 
 Pour les nœuds Windows Server, Windows Update n’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le cluster ou le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+
+### <a name="are-there-additional-security-threats-relevant-to-aks-that-customers-should-be-aware-of"></a>Existe-t-il d’autres menaces de sécurité relatives à AKS que les clients doivent connaître ?
+
+Microsoft fournit des conseils sur les actions supplémentaires possibles pour sécuriser vos charges de travail à l’aide de services comme [Azure Security Center](https://azure.microsoft.com/services/security-center/). La liste suivante répertorie les menaces de sécurité supplémentaires liées à AKS et Kubernetes que les clients doivent connaître :
+
+* [Nouvelles cibles de campagne à grande échelle Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - 8 juin 2021
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 
@@ -199,7 +205,7 @@ Bien qu’AKS dispose de mécanismes de résilience capable de gérer une telle 
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Puis-je utiliser des extensions de machine virtuelle personnalisées ?
 
-L’agent Log Analytics est pris en charge, car il s’agit d’une extension gérée par Microsoft. Sinon, non, AKS est un service géré et la manipulation des ressources IaaS n’est pas prise en charge. Pour installer des composants personnalisés, utilisez les mécanismes et les API Kubernetes. Par exemple, utilisez des DaemonSets pour installer les composants nécessaires.
+Non, AKS est un service géré et la manipulation des ressources IaaS n’est pas prise en charge. Pour installer des composants personnalisés, utilisez les mécanismes et les API Kubernetes. Par exemple, utilisez des DaemonSets pour installer les composants nécessaires.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS stocke-t-il des données client en dehors de la région du cluster ?
 
@@ -277,6 +283,9 @@ spec:
 
 Le problème a été résolu par Kubernetes v1.20. Pour plus d’informations, consultez [Kubernetes 1.20 : Contrôle granulaire des modifications d’autorisation de volume](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/).
 
+## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>Puis-je utiliser des bibliothèques cryptographiques FIPS avec des déploiements sur AKS ?
+
+Les nœuds compatibles FIPS sont actuellement disponibles en préversion sur les pools de nœuds basés sur Linux. Pour plus d’informations, consultez [Ajouter un pool de nœuds compatibles FIPS (préversion)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
 
 <!-- LINKS - internal -->
 

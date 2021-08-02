@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: baanders
-ms.openlocfilehash: fc18bd3e7c62d699fd7c081e835ff33ea543e891
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 6ddfc07fca5d316aa31f4053b21cd8437e121dd9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108759914"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473827"
 ---
 Pour être en mesure d’effectuer toutes les étapes qui suivent, vous devez disposer d’un [rôle dans votre abonnement](../articles/role-based-access-control/rbac-and-directory-admin-roles.md) qui dispose des autorisations suivantes :
 * Créer et gérer des ressources Azure
@@ -20,7 +20,7 @@ Les rôles communs qui répondent à cette exigence sont **Propriétaire**, **Ad
 
 Pour consulter votre rôle dans l’abonnement, accédez à la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure (vous pouvez utiliser ce lien ou rechercher **Abonnements** dans la barre de recherche du portail). Recherchez le nom de l’abonnement que vous utilisez et affichez votre rôle dans la colonne **Mon rôle** :
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Vue de la page Abonnements dans le portail Azure, affichant l’utilisateur en tant que propriétaire" lightbox="../articles/digital-twins/media/how-to-set-up-instance/portal/subscriptions-role.png":::
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Capture d’écran de la page Abonnements dans le portail Azure, montrant l’utilisateur en tant que propriétaire." lightbox="../articles/digital-twins/media/how-to-set-up-instance/portal/subscriptions-role.png":::
 
 Si vous constatez que la valeur est **Contributeur** ou un autre rôle qui ne dispose pas des autorisations requises décrites ci-dessus, vous pouvez contacter l’utilisateur de votre abonnement qui *en dispose* (par exemple, le propriétaire de l’abonnement ou l’administrateur du compte) et procéder de l’une des façons suivantes :
 * Demandez-leur d’effectuer les étapes d’attribution de rôle en votre nom.

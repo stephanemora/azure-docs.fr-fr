@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 5ffb6c1796431e4f04274a74cfc777adc6e60f1c
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 534efc4723c0a526bd8d607299bbf3ec4effaa86
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804139"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895007"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
 
@@ -33,6 +33,9 @@ Pour configurer la géoréplication entre deux caches, les conditions préalable
 - La taille du cache lié secondaire est supérieure ou égale à celle du cache lié principal.
 - Les deux caches sont créés et en cours d'exécution.
 
+> [!NOTE]
+> Le transfert de données entre les régions Azure est facturé aux [tarifs de bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) standard.
+
 Certaines fonctionnalités ne sont pas prises en charge par la géoréplication :
 
 - La persistance n'est pas prise en charge par la géoréplication.
@@ -42,7 +45,7 @@ Certaines fonctionnalités ne sont pas prises en charge par la géoréplication�
 
 Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
 
-- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter qu’à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lèvera des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire génère de telles erreurs. 
+- Le cache lié secondaire est en lecture seule. Il n’est pas possible d’y écrire des données. Si vous choisissez de lire à partir de l’instance géographique secondaire, il est important de noter que, à chaque fois qu’une synchronisation complète des données se produit entre les instances principale et secondaire (lors de la mise à jour de l’instance géographique principale ou secondaire et lors de certains scénarios de redémarrage), l’instance géographique secondaire lève des erreurs (indiquant qu’une synchronisation complète des données est en cours) sur toute opération Redis, jusqu’à la fin de la synchronisation complète des données. Les applications qui lisent depuis une instance géographique secondaire doivent être générées pour revenir à l’instance géographique principale chaque fois que l’instance géographique secondaire génère de telles erreurs. 
 - Toutes les données présentes dans le cache lié secondaire avant l’ajout du lien sont supprimées. Toutefois, en cas de suppression ultérieure de la géoréplication, les données répliquées restent dans le cache lié secondaire.
 - Vous ne pouvez pas procéder à la [mise à l'échelle](cache-how-to-scale.md) d'un seul des deux caches lorsque ceux-ci sont liés.
 - Vous ne pouvez pas [modifier le nombre de partitions](cache-how-to-premium-clustering.md) si le clustering est activé pour le cache.
@@ -152,7 +155,7 @@ Oui, la géoréplication de caches dans des réseaux virtuels est prise en charg
   - Si les réseaux virtuels se trouvent dans la même région, vous pouvez les connecter via un [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) ou une [connexion de passerelle VPN de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
   - Si les réseaux virtuels se trouvent dans des régions différentes, la géoréplication à l’aide du peering de réseau virtuel est prise en charge, mais une machine virtuelle cliente dans VNET 1 (région 1) ne pourra pas accéder au cache dans VNET 2 (région 2) via son nom DNS en raison d’une contrainte liée aux équilibreurs de charge internes de base. Pour plus d'informations sur les contraintes liées au peering de réseaux virtuels, consultez [Réseau virtuel - Peering - Exigences et contraintes](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La solution recommandée est d'utiliser une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
   
-[Ce modèle Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) vous permet de déployer rapidement deux caches géorépliqués dans un réseau virtuel connecté avec une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
+[Ce modèle Azure](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/) vous permet de déployer rapidement deux caches géorépliqués dans un réseau virtuel connecté avec une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Quelle est la planification de réplication pour la géoréplication Redis ?
 

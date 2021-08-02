@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 785741c029fa3b44fffca5140906689f478fb247
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397618"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081224"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuration de l’infrastructure Application Gateway
 
@@ -35,7 +35,13 @@ Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle 
 
 Application Gateway (référence SKU Standard ou WAF) peut prendre en charge jusqu’à 32 instances (32 adresses IP d’instance + 1 IP frontale privée + 5 réservées pour Azure). Par conséquent, une taille de sous-réseau minimale de /26 est recommandée.
 
-Application Gateway (référence SKU Standard_v2 ou WAF_v2) peut prendre en charge jusqu’à 125 instances (125 adresses IP d’instance + 1 IP frontale privée + 5 réservées pour Azure). Par conséquent, une taille de sous-réseau minimale de /24 est recommandée.
+Application Gateway (référence SKU Standard_v2 ou WAF_v2) peut prendre en charge jusqu’à 125 instances (125 adresses IP d’instance + 1 IP frontale privée + 5 réservées pour Azure). Une taille de sous-réseau minimale de /24 est recommandée.
+
+> [!IMPORTANT]
+> Bien qu’un sous-réseau /24 ne soit pas obligatoire pour le déploiement de la référence SKU Application Gateway v2, il est fortement recommandé. Cela permet de s’assurer qu’Application Gateway v2 dispose d’un espace suffisant pour l’expansion de la mise à l’échelle automatique et les mises à niveau de maintenance. Vous devez vous assurer que le sous-réseau Application Gateway v2 dispose d’un espace d’adressage suffisant pour accueillir le nombre d’instances nécessaires pour traiter le trafic maximal attendu. Si vous spécifiez le nombre maximal d’instances, le sous-réseau doit pouvoir accueillir au moins autant d’adresses. Pour planifier la capacité en fonction du nombre d’instances, consultez [Détails du nombre d’instances](understanding-pricing.md#instance-count).
+
+> [!TIP]
+> Il est possible de modifier le sous-réseau d’une instance Application Gateway existante au sein du même réseau virtuel. Vous pouvez le faire en utilisant Azure PowerShell ou Azure CLI. Pour plus d’informations, consultez [Foire aux questions sur Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 

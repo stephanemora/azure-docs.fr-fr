@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
-ms.openlocfilehash: 19b4b7407468b19419e2f85193b1f8fb6ace39c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359402"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572349"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interopérabilité des fonctionnalités avec un groupe de disponibilité (AG) et un écouteur de DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,6 +27,13 @@ Certaines fonctionnalités de SQL Server reposent sur un nom de réseau virtuel 
 
 Cet article décrit les fonctionnalités et l’interopérabilité de SQL Server avec l’écouteur de DNN du groupe de disponibilité. 
 
+## <a name="behavior-differences"></a>Différences de comportement
+
+Il existe des différences de comportement entre les fonctionnalités de l’écouteur VNN et de l’écouteur DNN : 
+
+- **Temps de basculement** : le temps de basculement est plus court lors de l’utilisation d’un écouteur DNN, car il n’est pas nécessaire d’attendre que l’équilibreur de charge réseau détecte l’événement de défaillance et change son routage. 
+- **Connexions existantes** : les connexions à une *base de données spécifique* au sein d’un groupe de disponibilité de basculement qui bascule se ferment, mais d’autres connexions au réplica principal restent ouvertes puisque le DNN reste en ligne pendant le processus de basculement. Ce comportement diffère de l’environnement VNN traditionnel, où toutes les connexions au réplica principal se ferment généralement quand le groupe de disponibilité bascule, que l’écouteur est mis hors connexion et que le réplica principal passe au rôle secondaire. Lors de l’utilisation d’un écouteur DNN, il peut être nécessaire d’ajuster les chaînes de connexion d’application pour garantir que les connexions sont redirigées vers le nouveau réplica principal après un basculement.
+- **Transactions ouvertes** : les transactions ouvertes sur une base de données dans un groupe de disponibilité de basculement se ferment et sont restaurées, et vous devez vous reconnecter *manuellement*. Par exemple, dans SQL Server Management Studio, fermez la fenêtre de requête et ouvrez-en une nouvelle. 
 
 ## <a name="client-drivers"></a>Pilotes clients
 
@@ -125,8 +132,10 @@ Configurez le serveur lié à l’aide du nom et du port d’écouteur de DNN d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez les pages suivantes : 
+Pour en savoir plus, consultez :
 
-- [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Groupe de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 

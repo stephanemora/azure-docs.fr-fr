@@ -1,24 +1,24 @@
 ---
-title: Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique) – Azure
-description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique).
+title: Déployer une machine virtuelle Windows 7 sur Azure Virtual Desktop (classique) – Azure
+description: Découvrez comment configurer et déployer une machine virtuelle Windows 7 sur Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2659e14490cf7d0aab32d8783a744478027f0a58
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 1b7c78ab9a518649d205bb9dc92c86d7bb71bcea
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444936"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744626"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop (classique)
+# <a name="deploy-a-windows-7-virtual-machine-on-azure-virtual-desktop-classic"></a>Déployer une machine virtuelle Windows 7 sur Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer les objets Azure Resource Manager Windows Virtual Desktop introduits dans la version actuelle de Windows Virtual Desktop, consultez [cet article](../deploy-windows-7-virtual-machine.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer les objets Azure Resource Manager Azure Virtual Desktop introduits dans la version actuelle d’Azure Virtual Desktop, consultez [cet article](../deploy-windows-7-virtual-machine.md).
 
-Le processus de déploiement d’une machine virtuelle Windows 7 sur Windows Virtual Desktop diffère légèrement de celui des machines virtuelles exécutant des versions ultérieures de Windows. Ce guide vous explique comment déployer Windows 7.
+Le processus de déploiement d’une machine virtuelle Windows 7 sur Azure Virtual Desktop diffère légèrement de celui des machines virtuelles exécutant des versions ultérieures de Windows. Ce guide vous explique comment déployer Windows 7.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -26,9 +26,9 @@ Avant de commencer, suivez les instructions de l'article [Créer un pool d’hô
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configurer une machine virtuelle Windows 7
 
-Une fois les conditions préalables passées en revue, vous êtes prêt à configurer votre machine virtuelle Windows 7 à des fins de déploiement sur Windows Virtual Desktop.
+Après avoir répondu aux prérequis, vous êtes prêt à configurer votre machine virtuelle Windows 7 pour la déployer sur Azure Virtual Desktop.
 
-Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
+Pour configurer une machine virtuelle Windows 7 sur Azure Virtual Desktop :
 
 1. Connectez-vous au portail Azure et recherchez l’image Windows 7 Entreprise ou téléchargez votre propre image personnalisée Windows 7 Entreprise (x64).
 2. Déployez une ou plusieurs machines virtuelles avec Windows 7 Entreprise en tant que système d’exploitation hôte. Vérifiez que les machines virtuelles autorisent le protocole RDP (Remote Desktop Protocol) (port TCP/3389).
@@ -47,15 +47,15 @@ Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
      ```
 
 12. Suivez les instructions [ici](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) pour obtenir un jeton d’inscription.
-13. [Téléchargez l’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-14. [Téléchargez le gestionnaire d’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-15. Ouvrez le programme d’installation de l’agent Windows Virtual Desktop et suivez les instructions. Quand vous y êtes invité, spécifiez la clé d’inscription que vous avez créée à l’étape 12.
-16. Ouvrez l’Agent Manager Windows Virtual Desktop et suivez les instructions.
+13. [Téléchargez l’agent Azure Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Téléchargez Azure Virtual Desktop Agent Manager pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+15. Ouvrez le programme d’installation de l’agent Azure Virtual Desktop et suivez les instructions. Quand vous y êtes invité, spécifiez la clé d’inscription que vous avez créée à l’étape 12.
+16. Ouvrez Azure Virtual Desktop Agent Manager et suivez les instructions.
 17. Si vous le souhaitez, bloquez le port TCP/3389 pour supprimer l’accès direct à la machine virtuelle via le protocole RDP (Remote Desktop Protocol).
 18. Confirmez éventuellement que votre .NET Framework est au moins à la version 4.7.2. Cela est particulièrement important si vous créez une image personnalisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre déploiement Windows Virtual Desktop est maintenant prêt à l’emploi. [Téléchargez la dernière version du client Windows Virtual Desktop](https://aka.ms/wvd/clients/windows) pour commencer.
+Votre déploiement Azure Virtual Desktop est maintenant prêt à l’emploi. [Téléchargez la dernière version du client Azure Virtual Desktop](https://aka.ms/wvd/clients/windows) pour commencer.
 
-Pour obtenir la liste des problèmes connus et les instructions de dépannage pour Windows 7 sur Windows Virtual Desktop, consultez l'article [Résoudre les problèmes de machines virtuelles Windows 7 dans Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
+Pour obtenir la liste des problèmes connus et les instructions de dépannage pour Windows 7 sur Azure Virtual Desktop, consultez notre article [Résoudre les problèmes des machines virtuelles Windows 7 dans Azure Virtual Desktop](troubleshoot-windows-7-vm.md).

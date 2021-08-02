@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cdf4277c1177f0a963e7b7bb05813d47d2c1f57
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670695"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814331"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -44,7 +44,7 @@ Le serveur d’historique Apache Spark est l’interface utilisateur web pour le
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark à partir du nœud Données
 
-1. Dans votre bloc-notes Azure Synapse Studio, sélectionnez **Serveur d’historique Spark** dans la cellule de sortie de l’exécution du travail ou dans le panneau d’état au bas du document du bloc-notes. Sélectionnez **Détails de la session**.
+1. Dans votre bloc-notes Synapse Studio, sélectionnez **Serveur d’historique Spark** dans la cellule de sortie de l’exécution du travail ou dans le panneau d’état au bas du document du bloc-notes. Sélectionnez **Détails de la session**.
 
    ![Lancer le serveur d’historique Spark 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Lancer le serveur d’historique Spark")
 

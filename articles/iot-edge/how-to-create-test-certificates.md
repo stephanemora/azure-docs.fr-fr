@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea7d44cc704e6937a0d3f396b8eea3f298a02931
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 724c02f56b49957934deefe9f4733cda57620987
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772312"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019986"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -119,7 +119,7 @@ Dans cette section, vous clonez le dépôt IoT Edge et exécutez les scripts.
 
 ### <a name="set-up-on-linux"></a>Configurer sur Linux
 
-Pour créer des certificats de démonstration sur un appareil Windows, vous devez cloner les scripts de génération et les configurer pour qu’ils s’exécutent localement dans bash.
+Pour créer des certificats de démonstration sur un appareil Linux, vous devez cloner les scripts de génération et les configurer pour qu’ils s’exécutent localement dans bash.
 
 1. Clonez le référentiel Git IoT Edge, qui contient des scripts pour générer des certificats de démonstration.
 
@@ -362,7 +362,7 @@ Votre appareil IoT a également besoin d’une copie de ses certificats d’appa
 
 ### <a name="ca-signed-certificates"></a>Certificats signés par une autorité de certification
 
-Lorsque vous authentifiez un appareil IoT avec des certificats auto-signés, vous devez charger le certificat d’autorité de certification racine de votre solution vers IoT Hub.
+Lorsque vous authentifiez un appareil IoT avec des certificats signés par une autorité de certification, vous devez charger le certificat d’autorité de certification racine de votre solution vers IoT Hub.
 Ensuite, vous effectuez une vérification pour prouver à IoT Hub que vous êtes propriétaire du certificat d’autorité de certification racine.
 Enfin, vous utilisez le même certificat d’autorité de certification racine pour créer des certificats d’appareil à placer sur votre appareil IoT afin qu’il puisse s’authentifier avec IoT Hub.
 

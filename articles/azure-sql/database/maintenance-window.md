@@ -3,19 +3,19 @@ title: Fenêtre de maintenance
 description: Découvrez comment configurer la fenêtre de maintenance Azure SQL Database et Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 04/28/2021
-ms.openlocfilehash: ab3da3ba8764ced53f3dcd936d56a24e73cfd8a2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/02/2021
+ms.openlocfilehash: 765c6c79bf28ad01ab0253e85affd5d4cd95ed78
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736448"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031904"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Pour les mises à jour de maintenance, vous pouvez choisir une heure adaptée à
 * En semaine, de 22 h 00 à 6 h 00 heure locale, du lundi au jeudi
 * Fenêtre week-end, de 22h00 à 6h00 heure locale, du vendredi au dimanche
 
-Une fois que la fenêtre de maintenance est sélectionnée et que la configuration du service est terminée, les maintenances planifiées auront lieu uniquement pendant la fenêtre de maintenance de votre choix.   
+Une fois que la fenêtre de maintenance est sélectionnée et que la configuration du service est terminée, les maintenances planifiées auront lieu uniquement pendant la fenêtre de maintenance de votre choix. Si les événements de maintenance se terminent généralement dans une seule fenêtre, certains d’entre eux peuvent s’étendre sur deux ou plusieurs fenêtres adjacentes.   
 
 > [!Important]
 > Dans de rares cas où un ajournement d’action pourrait avoir un impact sérieux, comme l’application d’un correctif de sécurité critique, la fenêtre de maintenance configurée peut être temporairement remplacée. 
@@ -84,12 +84,14 @@ Le choix d’une fenêtre de maintenance autre que celle par défaut est actuell
 - USA Est
 - USA Est 2
 - Asie Est
+- Allemagne Centre-Ouest
 - Japon Est
 - NorthCentral US
 - Europe Nord
 - USA Centre Sud
 - Asie Sud-Est
 - Sud du Royaume-Uni
+- Ouest du Royaume-Uni
 - Europe Ouest
 - USA Ouest
 - USA Ouest 2
@@ -108,7 +110,7 @@ Pour plus d'informations sur la stratégie de connexion client dans Azure SQL Ma
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Considérations relatives à Azure SQL Managed Instance
 
-Azure SQL Managed Instance est un ensemble de composants de service hébergés sur un groupe dédié de machines virtuelles isolées qui s'exécutent dans le sous-réseau virtuel du client. Ces machines virtuelles forment [un ou plusieurs clusters virtuels](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) qui peuvent héberger plusieurs instances managées. La fenêtre de maintenance qui est configurée sur les instances d’un sous-réseau peut influencer le nombre de clusters virtuels présents dans le sous-réseau, ainsi que la distribution des instances entre les clusters virtuels. Vous devrez alors prendre en compte plusieurs choses.
+Azure SQL Managed Instance est un ensemble de composants de service hébergés sur un groupe dédié de machines virtuelles isolées qui s'exécutent dans le sous-réseau virtuel du client. Ces machines virtuelles forment [un ou plusieurs clusters virtuels](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) qui peuvent héberger plusieurs instances managées. La fenêtre de maintenance configurée sur les instances d’un sous-réseau peut influencer le nombre de clusters virtuels dans le sous-réseau, la distribution des instances entre les clusters virtuels et les opérations de gestion des clusters virtuels. Vous devrez alors prendre en compte plusieurs choses.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>La configuration de la fenêtre de maintenance est une opération longue 
 Toutes les instances qui sont hébergées dans un cluster virtuel partagent la même fenêtre de maintenance. Par défaut, toutes les instances managées sont hébergées dans le cluster virtuel avec la fenêtre de maintenance par défaut. Si vous spécifiez une autre fenêtre de maintenance pour l’instance managée lors de sa création ou après celle-ci, cela signifie qu’elle doit être placée dans le cluster virtuel avec la fenêtre de maintenance correspondante. S’il n’existe pas de cluster virtuel de ce type dans le sous-réseau, vous devez d’abord en créer un pour l’instance. L’ajout d’une instance supplémentaire dans un cluster virtuel existant peut nécessiter le redimensionnement de ce cluster. Les deux opérations contribuent à la durée de configuration de la fenêtre de maintenance d’une instance managée.
@@ -125,6 +127,10 @@ La configuration et la modification de la fenêtre de maintenance entraînent la
 
 > [!Important]
 >  Vérifiez que le groupe de sécurité réseau et les règles de pare-feu ne bloquent pas le trafic des données après la modification. 
+
+### <a name="serialization-of-virtual-cluster-management-operations"></a>Sérialisation des opérations de gestion des clusters virtuels
+Les opérations relatives au cluster virtuel, comme les mises à niveau de service et le redimensionnement du cluster virtuel (ajout ou suppression de nœuds de calcul inutiles) sont sérialisées. En d’autres termes, une nouvelle opération de gestion de cluster virtuel ne peut pas démarrer tant que la précédente n’est pas terminée. Si la fenêtre de maintenance se ferme avant que la mise à niveau de service ou l’opération de maintenance en cours ne soit terminée, toute autre opération de gestion de cluster virtuel soumise entre-temps sera mise en attente jusqu’à ce que la fenêtre de maintenance suivante s’ouvre et que la mise à niveau de service ou l’opération de maintenance soit terminée. Il n’est pas courant qu’une opération de maintenance prenne plus de temps qu’une seule fenêtre par cluster virtuel, mais cela peut arriver dans le cas d’opérations de maintenance très complexes.
+La sérialisation des opérations de gestion des clusters virtuels est un comportement général qui s’applique également à la stratégie de maintenance par défaut. Une fois la planification de la fenêtre de maintenance configurée, la période entre deux fenêtres adjacentes peut être de quelques jours. Les opérations soumises peuvent également être mises en attente pendant quelques jours si l’opération de maintenance s’étend sur deux fenêtres. Ce cas est très rare, mais la création de nouvelles instances ou le redimensionnement des instances existantes (si des nœuds de calcul supplémentaires sont nécessaires) peuvent être bloqués pendant cette période.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

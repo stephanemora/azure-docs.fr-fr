@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9cb84d15c12ae823462291b2e7008653306b2b55
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e514154b650ec2baaa8ebc547d54ad744ed1971b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773716"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888479"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -147,7 +147,7 @@ Le tableau suivant décrit les champs de l’onglet **Avancé**.
 | Sécurité | Activer le transfert sécurisé | Facultatif | Activez le transfert sécurisé pour exiger que les demandes entrantes vers ce compte de stockage soient effectuées uniquement via HTTPS (par défaut). Recommandé pour une sécurité optimale. Pour plus d’informations, voir [Exiger un transfert sécurisé pour garantir des connexions sécurisées](storage-require-secure-transfer.md). |
 | Sécurité | Activer le chiffrement d’infrastructure | Facultatif | Par défaut, le chiffrement de l’infrastructure n’est pas activé. Activez le chiffrement de l’infrastructure pour chiffrer vos données au niveau du service et de l’infrastructure. Pour plus d’informations, consultez [Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données](infrastructure-encryption-enable.md). |
 | Sécurité | Activer l’accès public aux objets blob | Facultatif | Lorsqu’il est activé, ce paramètre permet à un utilisateur disposant des autorisations appropriées d’activer l’accès public anonyme à un conteneur dans le compte de stockage (par défaut). La désactivation de ce paramètre empêche tout accès public anonyme au compte de stockage. Pour en savoir plus, consultez la section [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-prevent.md) (Empêcher l’accès en lecture publique anonyme aux conteneurs et aux objets blob).<br> <br> Activer l’accès public au blob ne rend pas ses données accessibles au public, à moins que l’utilisateur n’effectue l’étape supplémentaire consistant à configurer explicitement le paramètre d’accès public du conteneur. |
-| Sécurité | Activer l’accès de clé de compte de stockage (préversion) | Facultatif | Lorsqu’il est activé, ce paramètre permet aux clients d’autoriser les demandes au compte de stockage à l’aide des clés d’accès du compte ou d’un compte Azure Active Directory (Azure AD - par défaut). La désactivation de ce paramètre empêche l’autorisation avec les clés d’accès du compte. Pour plus d’informations, consultez [Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)](shared-key-authorization-prevent.md). |
+| Sécurité | Activer l’accès de clé de compte de stockage (préversion) | Facultatif | Lorsqu’il est activé, ce paramètre permet aux clients d’autoriser les demandes au compte de stockage à l’aide des clés d’accès du compte ou d’un compte Azure Active Directory (Azure AD - par défaut). La désactivation de ce paramètre empêche l’autorisation avec les clés d’accès du compte. Pour plus d’informations, consultez [Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure](shared-key-authorization-prevent.md). |
 | Sécurité | Version TLS minimale | Obligatoire | Sélectionnez la version minimale requise du protocole TLS (Transport Layer Security) pour les demandes entrantes adressées au compte de stockage. La valeur par défaut est TLS version 1.2. Lorsqu’elle est définie sur la valeur par défaut, les requêtes entrantes effectuées à l’aide de TLS 1.0 ou TLS 1.1 sont rejetées. Pour plus d’informations, consultez [Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Activer l’espace de noms hiérarchique | Facultatif | Pour utiliser ce compte de stockage pour les charges de travail Azure Data Lake Storage Gen2, configurez un espace de noms hiérarchique. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Stockage d'objets blob | Activer le partage de fichiers réseau (NFS) v3 (préversion) | Facultatif | NFS v3 assure la compatibilité du système de fichiers Linux au niveau du stockage des objets, et permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. Pour plus d’informations, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](../blobs/network-file-system-protocol-support.md). |
@@ -217,11 +217,11 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-Pour activer un espace de noms hiérarchique pour le compte de stockage afin d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez le paramètre `-EnableHierarchicalNamespace $True` sur l’appel à la commande **New-AzStorageAccount**.
+Pour activer un espace de noms hiérarchique pour le compte de stockage afin d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), définissez le paramètre `EnableHierarchicalNamespace' parameter to ` sur True sur l’appel à la commande **New-AzStorageAccount**.
 
-Le tableau suivant indique les valeurs à utiliser pour les paramètres `-SkuName` et `-Kind` pour créer un type particulier de compte de stockage avec la configuration de redondance souhaitée.
+Le tableau suivant indique les valeurs à utiliser pour les paramètres `SkuName` et `Kind` pour créer un type particulier de compte de stockage avec la configuration de redondance souhaitée.
 
-| Type de compte de stockage | Configurations de redondance prises en charge | Valeur pour le paramètre -Kind | Valeurs possibles pour le paramètre -SkuName | Prend en charge l’espace de noms hiérarchique |
+| Type de compte de stockage | Configurations de redondance prises en charge | Valeurs prises en charge pour le paramètre Kind | Valeurs prises en charge pour le paramètre SkuName | Prend en charge l’espace de noms hiérarchique |
 |--|--|--|--|--|
 | Usage général v2 Standard | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Oui |
 | Objets blob de blocs Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Oui |
@@ -259,11 +259,11 @@ az storage account create \
   --kind StorageV2
 ```
 
-Pour activer un espace de noms hiérarchique pour le compte de stockage afin d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez le paramètre `--enable-hierarchical-namespace true` sur l’appel à la commande **az storage account create**. La création d’un espace de noms hiérarchique requiert Azure CLI version 2.0.79 ou ultérieure.
+Pour activer un espace de noms hiérarchique pour le compte de stockage afin d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), définissez le paramètre `enable-hierarchical-namespace` sur `true` sur l’appel à la commande **az storage account create**. La création d’un espace de noms hiérarchique requiert Azure CLI version 2.0.79 ou ultérieure.
 
-Le tableau suivant indique les valeurs à utiliser pour les paramètres `-sku` et `-kind` pour créer un type particulier de compte de stockage avec la configuration de redondance souhaitée.
+Le tableau suivant indique les valeurs à utiliser pour les paramètres `sku` et `kind` pour créer un type particulier de compte de stockage avec la configuration de redondance souhaitée.
 
-| Type de compte de stockage | Configurations de redondance prises en charge | Valeur pour le paramètre -kind | Valeurs possibles pour le paramètre -sku | Prend en charge l’espace de noms hiérarchique |
+| Type de compte de stockage | Configurations de redondance prises en charge | Valeurs prises en charge pour le paramètre kind | Valeurs prises en charge pour le paramètre sku | Prend en charge l’espace de noms hiérarchique |
 |--|--|--|--|--|
 | Usage général v2 Standard | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Oui |
 | Objets blob de blocs Premium | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Oui |
@@ -274,7 +274,7 @@ Le tableau suivant indique les valeurs à utiliser pour les paramètres `-sku` e
 
 # <a name="template"></a>[Modèle](#tab/template)
 
-Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
+Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -306,10 +306,9 @@ Pour savoir comment modifier ce modèle ou en créer de nouveaux, consultez :
 
 ## <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage
 
-La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient. En général, cette opération ne peut pas être annulée. La récupération d'un compte de stockage n'est possible que dans certaines circonstances et elle n'est pas garantie. Pour plus d'informations, consultez [Récupérer un compte de stockage supprimé](storage-account-recover.md).
+La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient. Veillez à sauvegarder toutes les données que vous souhaitez conserver avant de supprimer le compte.
 
-> [!WARNING]
-> Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Il n'est généralement pas possible de restaurer un compte de stockage supprimé ou de récupérer les ressources qu'il contenait avant la suppression.
+Dans certains cas, un compte de stockage supprimé peut être récupéré, mais la récupération n’est pas garantie. Pour plus d'informations, consultez [Récupérer un compte de stockage supprimé](storage-account-recover.md).
 
 Si vous essayez de supprimer un compte de stockage associé à une machine virtuelle Azure, vous pouvez obtenir une erreur indiquant que le compte de stockage est toujours en cours d’utilisation. Pour obtenir de l’aide sur la résolution de cette erreur, consultez [Résoudre les erreurs liées à la suppression de compte de stockage](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 

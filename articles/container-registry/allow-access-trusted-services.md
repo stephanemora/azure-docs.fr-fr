@@ -3,12 +3,12 @@ title: Accéder à un registre ayant un accès réseau restreint à l’aide du 
 description: Activer une instance de service Azure de confiance pour accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint pour tirer (pull) ou envoyer (push) des images
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 77ea904e73df1b423c99e6039c4e0756fcade34e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785867"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474980"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint (préversion)
 
@@ -45,7 +45,7 @@ Les instances des services suivants peuvent accéder à un registre de conteneur
 |Azure Container Registry | [Importer des images à partir d’un registre de conteneurs Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
-> Actuellement, l’activation du paramètre Autoriser les services approuvés ne permet pas aux instances d’autres services Azure gérés, notamment App Service, Azure Container Instances et Azure Security Center, d’accéder à un registre de conteneurs ayant un accès réseau restreint.
+> Actuellement, l’activation du paramètre Autoriser les services approuvés ne permet pas aux instances d’autres services Azure managés, notamment App Service, Azure Container Instances et Azure Security Center, d’accéder à un registre de conteneurs ayant un accès réseau restreint.
 
 ## <a name="allow-trusted-services---cli"></a>Autoriser les services approuvés – CLI
 

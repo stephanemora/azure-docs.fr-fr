@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf169a84268a24fd1cc50cd67386d359f9d726a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100097"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097873"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Approvisionner le débit standard (manuel) sur un conteneur Azure Cosmos - API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,9 +31,9 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
-   * Entrez un ID de conteneur.
-   * Entrez une valeur de clé de partition (par exemple `/ItemID`).
-   * Entrez un débit que vous voulez provisionner (par exemple, 1 000 unités de requête).
+   * Entrez un **ID de conteneur**.
+   * Entrez une valeur de **clé de partition** (par exemple `/ItemID`).
+   * Sélectionnez le débit **Mise à l’échelle automatique** ou **Manuel**, puis entrez le **Débit de conteneur** requis (par exemple, 1000 RU/s). Entrez un débit que vous voulez provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Capture d’écran de Data Explorer, avec l’option Nouvelle collection mise en évidence":::

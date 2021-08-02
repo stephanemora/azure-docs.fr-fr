@@ -8,27 +8,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e585624cac534634f4927fcbb61993ca98aab4a6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98742945"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085885"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Attribuer un rôle à un groupe de Cloud dans Azure Active Directory
 
 Cette section décrit comment un administrateur informatique peut attribuer le rôle Azure Active Directory (Azure AD) à un groupe de Azure AD.
 
-## <a name="using-azure-ad-admin-center"></a>Utilisation du Centre d’administration Azure AD
+## <a name="prerequisites"></a>Prérequis
+
+- Licence Azure AD Premium P1 ou P2
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureADPreview (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
+
+## <a name="azure-portal"></a>Portail Azure
 
 L’attribution d’un groupe à un rôle Azure AD est similaire à l’affectation d’utilisateurs et de principaux de service, à ceci près que seuls les groupes qui sont assignables par rôle peuvent être utilisés. Dans le Portail Azure, seuls les groupes qui sont assignables par rôle sont affichés.
 
-1. Connectez-vous au [centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
+1. Connectez-vous au [Centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 
 1. Sélectionnez **Azure Active Directory** > **rôles et administrateurs**, puis sélectionnez le rôle que vous souhaitez attribuer.
 
@@ -44,7 +53,7 @@ L’attribution d’un groupe à un rôle Azure AD est similaire à l’affectat
 
 Pour plus d’informations sur l’affectation d’autorisations de rôles, consultez [Attribuer des rôles administrateur et non administrateur aux utilisateurs](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## <a name="using-powershell"></a>Utilisation de PowerShell
+## <a name="powershell"></a>PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Créer un groupe assignable à un rôle
 
@@ -64,7 +73,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
-## <a name="using-microsoft-graph-api"></a>Utilisation de l’API Microsoft Graph
+## <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 ### <a name="create-a-group-that-can-be-assigned-azure-ad-role"></a>Créer un groupe assignable à un rôle Azure AD
 

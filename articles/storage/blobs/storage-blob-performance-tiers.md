@@ -1,19 +1,19 @@
 ---
 title: Niveaux de performance du service de stockage d’objets blob de blocs – Stockage Azure
 description: Décrit la différence entre les niveaux de performance Premium et Standard pour le stockage d’objets blob de blocs Azure.
-author: twooley
-ms.author: twooley
-ms.date: 11/12/2019
+author: normesta
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 93e6fcc11703fc24d97bc19ab9cc0d2129ff666f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: faf26ce78e0d6137c93e150d31bd49b9e72b6b8b
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143320"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655099"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveaux de performance du stockage d’objets blob de blocs
 
@@ -26,14 +26,14 @@ Le service de stockage d'objets blob de blocs Azure offre deux niveaux de perfor
 
 Les considérations suivantes s'appliquent aux différents niveaux de performance :
 
-| Domaine |Niveau de performance Standard  |Niveau de performance Premium  |
-|---------|---------|---------|
-|Disponibilité des régions     |   Toutes les régions      | Dans [certaines régions](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|[Types de compte de stockage](../common/storage-account-overview.md#types-of-storage-accounts) pris en charge     |     Usage général v2, BlobStorage, Usage général v1    |    BlockBlobStorage     |
-|Prend en charge les [objets blob de blocs à débit élevé](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Oui, avec une taille de PutBlock ou PutBlob supérieure à 4 Mio     |    Oui, avec une taille de PutBlock ou PutBlob supérieure à 256 Kio    |
-|Redondance     |     Voir [Types de compte de stockage](../common/storage-account-overview.md#types-of-storage-accounts)   |  Prend actuellement en charge uniquement le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+| Domaine | Niveau de performance Standard | Niveau de performance Premium |
+|--|--|--|
+| Disponibilité des régions | Toutes les régions | Dans [certaines régions](https://azure.microsoft.com/global-infrastructure/services/?products=storage) |
+| [Types de compte de stockage](../common/storage-account-overview.md#types-of-storage-accounts) pris en charge | Usage général v2, usage général v1, blob hérité | Objet blob de blocs Premium |
+| Prend en charge les [objets blob de blocs à débit élevé](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) | Oui, avec une taille de PutBlock ou PutBlob supérieure à 4 Mio | Oui, avec une taille de PutBlock ou PutBlob supérieure à 256 Kio |
+| Redondance | Voir [Types de compte de stockage](../common/storage-account-overview.md#types-of-storage-accounts) | Prend actuellement en charge uniquement le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div> |
 
-<div id="zone-redundant-storage"><sup>1</sup>Le stockage redondant interzone (ZRS) est disponible dans certaines régions pour les comptes de stockage d’objets blob de blocs avec niveau de performance Premium.</div>
+<div id="zone-redundant-storage"><sup>1</sup>Le stockage redondant interzone (ZRS) est disponible dans certaines régions pour les comptes de stockage d’objets blob de blocs Premium.</div>
 
 En ce qui concerne les coûts, le niveau de performance Premium offre une tarification optimisée pour les applications aux taux de transaction élevés afin de [réduire le coût total de stockage](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) pour ces charges de travail.
 
@@ -63,7 +63,7 @@ Le niveau de performance Standard prend en charge différents [niveaux d'accès]
 
 ## <a name="migrate-from-standard-to-premium"></a>Migrer de Standard à Premium
 
-Vous ne pouvez pas convertir un compte de stockage avec niveau de performance Standard existant en compte de stockage d’objets blob de blocs avec un niveau de performance Premium. Pour migrer vers un compte de stockage avec niveau de performance Premium, vous devez créer un compte BlockBlobStorage et migrer les données vers le nouveau compte. Pour plus d’informations, consultez la rubrique [Créer un compte BlockBlobStorage](../common/storage-account-create.md).
+Vous ne pouvez pas convertir un compte de stockage avec niveau de performance Standard existant en compte de stockage d’objets blob de blocs avec un niveau de performance Premium. Pour migrer vers un compte de stockage avec niveau de performance Premium, vous devez créer un compte d’objets blob de blocs et migrer les données vers le nouveau compte. Pour plus d’informations, consultez la rubrique [Créer un compte BlockBlobStorage](../common/storage-account-create.md).
 
 Pour copier des blobs entre des comptes de stockage, vous pouvez utiliser la dernière version de l’outil en ligne de commande [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data). D’autres outils tels qu’Azure Data Factory sont également disponibles pour le déplacement et la transformation des données.
 

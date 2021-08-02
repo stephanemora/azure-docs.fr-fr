@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3e9baedafb436bc92f734bf39519918686cec58d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2e54eb0ea8166b32dd4bcc794bfcf401d9196884
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124470"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469242"
 ---
 # <a name="azure-storage-migration-overview"></a>Présentation de la migration de données Stockage Azure
 
@@ -37,7 +37,9 @@ La migration des données non structurées comprend les scénarios suivants :
 
 L’intégralité d’une migration se compose de plusieurs phases : détection, évaluation et migration.
 
-![Diagramme illustrant les phases de détection, d’évaluation et de migration](./media/storage-migration-overview/migration-phases.png)
+| Découverte | Évaluation | Migration |
+| --------- | ---------- | --------- |
+| – Détecter les sources à migrer | – Évaluer le service cible applicable <br> – Considérations techniques par rapport au coût | – Migration initiale <br> – Resynchronisation <br> – Basculement final |
 
 #### <a name="discovery-phase"></a>Phase de détection
 

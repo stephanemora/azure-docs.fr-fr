@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4e667cd8509e73624d7ef14d978480897d6636f0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8649c342b237a321c3c47510644451ceb3581fe
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202314"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467920"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -28,7 +28,7 @@ Security Center s’intègre à votre application de fonction dans le portail. I
 
 ### <a name="log-and-monitor"></a>Journal et surveillance
 
-Pour détecter les attaques, il existe une solution qui consiste à utiliser l’activité de surveillance des activités et l’analytique des journaux d'activité. Functions s’intègre à Application Insights pour collecter des données de journal, de performances et d’erreur pour votre application de fonction. Application Insights détecte automatiquement les anomalies de performance et intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre la manière dont vos fonctions sont utilisées. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+Pour détecter les attaques, une solution consiste à utiliser la supervision des activités et l’analytique des journaux d’activité. Functions s’intègre à Application Insights pour collecter des données de journal, de performances et d’erreur pour votre application de fonction. Application Insights détecte automatiquement les anomalies de performance et intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre la manière dont vos fonctions sont utilisées. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 Functions s’intègre également aux journaux d’activité d’Azure Monitor pour vous permettre de consolider les journaux des applications de fonction avec des événements système pour faciliter l’analyse. Vous pouvez utiliser les paramètres de diagnostic pour configurer l’exportation en continu des journaux d’activité et des métriques de la plateforme pour vos fonctions vers la destination de votre choix, par exemple un espace de travail Log Analytics. Pour en savoir plus, consultez [Monitorage d’Azure Functions avec Azure Monitor Logs](functions-monitor-log-analytics.md). 
 

@@ -1,0 +1,145 @@
+### YamlMime:FAQ
+metadata:
+  title: Forum Aux Questions Azure Data Catalog
+  description: Forum Aux Questions sur Azure Data Catalog, y compris sur les fonctionnalités de détection de source de données, d’annotation et de gestion.
+  author: JasonWHowell
+  ms.author: jasonh
+  ms.service: data-catalog
+  ms.topic: conceptual
+  ms.date: 08/01/2019
+  ms.openlocfilehash: fae90eb2a1a05200a67a6e246710e4adfc5c564c
+  ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/06/2021
+  ms.locfileid: "111907344"
+title: Forum Aux Questions Azure Data Catalog
+summary: >
+  [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
+
+  Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Qu’est-ce qu’Azure Data Catalog ?
+    answer: >
+      Data Catalog est un service entièrement géré, hébergé par Microsoft Azure, qui sert de système d’inscription et de détection des sources de données d’entreprise. Grâce à Data Catalog, les utilisateurs (analystes, scientifiques des données et développeurs) peuvent inscrire, découvrir, comprendre et consommer les sources de données.
+  - question: >
+      Quels sont les défis clients que ce service permet de résoudre ?
+    answer: >
+      Data Catalog résout les problèmes de découverte des sources de données et des « données cachées », de façon à ce que les utilisateurs puissent découvrir et comprendre les sources de données d’entreprise.
+  - question: >
+      Quel est le public cible ?
+    answer: >
+      Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
+
+
+      * Les développeurs de données et les professionnels de l’analytique et du décisionnel : personnes chargées de produire des données et du contenu d’analytique que d’autres utiliseront.
+
+      * Les gestionnaires de données : personnes qui disposent de connaissances sur les données, ce qu’elles signifient et comment elles sont censées être utilisées.
+
+      * Les consommateurs de données : personnes qui doivent être en mesure de découvrir, de comprendre et de se connecter facilement aux données dont elles ont besoin pour effectuer leur travail à l’aide de l’outil de leur choix.
+
+      * L’équipe informatique centrale : personnes qui doivent rendre détectables des centaines de sources de données pour les utilisateurs professionnels et qui ont besoin de superviser l’utilisation des données et les personnes utilisant ces données.
+  - question: >
+      Quelle est la disponibilité du service par région ?
+    answer: >
+      Les services Data Catalog sont actuellement disponibles dans les centres de données suivants :
+
+
+      * USA Ouest
+
+      * USA Est
+
+      * Europe Ouest
+
+      * Europe Nord
+
+      * Australie Est
+
+      * Asie Sud-Est
+  - question: >
+      Quelles est la limite en termes de nombre de ressources de données ?
+    answer: >
+      L’édition gratuite de Data Catalog est limitée à 5 000 ressources de données inscrites.
+
+
+      L’édition Standard de Data Catalog prend en charge jusqu’à 100 000 ressources de données inscrites.
+
+
+      Tout objet inscrit dans Data Catalog, y compris les tableaux, vues, fichiers et rapports, est comptabilisé comme une ressource de données.
+  - question: >
+      Quels sont les types de sources et de ressources de données pris en charge ?
+    answer: >
+      Pour obtenir la liste des sources de données prises en charge, consultez [Sources de données prises en charge par Azure Data Catalog](data-catalog-dsr.md).
+  - question: >
+      Comment demander la prise en charge d’une autre source de données ?
+    answer: >
+      Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+  - question: >
+      Pourquoi l’erreur « Catalog already exists » (Ce catalogue existe déjà) s’affiche-t-elle quand j’essaie de créer un catalogue ?
+    answer: "Lorsque vous achetez Office 365 E5 avec une licence Power BI Pro, Microsoft crée automatiquement un catalogue par défaut dans la région de l'abonnement. Ce catalogue utilise la référence SKU gratuite. La licence utilisateur Office 365 / Power BI est gérée dans la page Administration. \n\nCependant, ce type de catalogue de données n’inclut pas d'option **Administrateur** et n'est pas visible dans le portail **Azure**. Vous ne pouvez pas supprimer ce type de catalogue de données. De même, vous n'êtes pas autorisé à renommer le catalogue de données et vous ne pouvez pas le déplacer vers une autre région. \n\nLes comptes d’utilisateurs auxquels une licence Power BI Pro a été attribuée automatiquement ont accès au catalogue de données en raison du contrat de licence lorsqu'ils se sont inscrits à Office 365 E5 avec la licence Power BI Pro. Ce type d'utilisateur dispose d’un accès complet aux ressources du catalogue de données sans privilèges d'administration. Ce type d’utilisateur ne fait *pas* partie du rôle **Utilisateur de catalogue** dans Azure Data Catalog.\n"
+  - question: >
+      Comment démarrer avec Data Catalog ?
+    answer: >
+      La meilleure façon de commencer est de consulter la section [Prise en main de Data Catalog](data-catalog-get-started.md). Cet article présente de bout en bout les fonctionnalités intégrées au service.
+  - question: >
+      Comment inscrire mes données ?
+    answer: "Pour inscrire vos données dans Data Catalog :\n1. Dans le portail Azure Data Catalog, dans la zone **Publier**, démarrez l’outil d’inscription Azure Data Catalog. \n2. Dans l’outil d'inscription de la source de données Data Catalog, connectez-vous avec les mêmes identifiants que ceux utilisés pour accéder au portail Data Catalog.\n3. Sélectionnez la source de données et les ressources spécifiques que vous souhaitez inscrire.\n"
+  - question: >
+      Quelles propriétés sont extraites pour les ressources de données qui sont inscrites ?
+    answer: "Les propriétés spécifiques diffèrent selon la source de données, mais en général le service de publication Data Catalog extrait les informations suivantes :\n\n* Nom de la ressource\n* Type de ressource\n* Description de la ressource\n* Noms de l’attribut/de la colonne\n* Types de données de l'attribut/de la colonne\n* Description de l’attribut/de la colonne\n\n> [!IMPORTANT]\n> L’inscription de ressources de données auprès de Data Catalog n’a pas pour effet de déplacer ou de copier vos données dans le cloud. L’inscription de ressources à partir d’une source de données copie les métadonnées des ressources vers Azure, mais les données restent dans l’emplacement de la source de données existante. La seule exception à cette règle est quand vous décidez de charger des enregistrements ou un profil de données de la version préliminaire lors de l’inscription de ressources. Lors de l’inclusion d’une version préliminaire, jusqu’à 20 enregistrements sont copiés à partir de chaque ressource et stockés sous forme d’instantané dans Data Catalog. Lorsque vous incluez un profil de données, les informations d’agrégation sont calculées et incluses dans les métadonnées stockées dans le catalogue. Les informations d’agrégation peuvent inclure la taille des tables, le pourcentage de valeurs null par colonne ou les valeurs minimales, maximales et moyennes pour les colonnes. \n>\n>\n\n> [!NOTE]\n> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Cette propriété n’est pas prise en charge avec SQL Azure. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).\n>\n>\n"
+  - question: >
+      Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans le catalogue ?
+    answer: >
+      Après avoir inscrit des ressources auprès de Data Catalog, il peut s’écouler un délai de 5 à 10 secondes avant qu’elles apparaissent dans le portail Data Catalog.
+  - question: >
+      Comment annoter et enrichir les métadonnées pour mes ressources de données inscrites ?
+    answer: >
+      La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail Data Catalog, puis à entrer les valeurs dans le volet des propriétés ou du schéma de l’objet sélectionné.
+
+
+      Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs que vous fournissez dans le service de publication Data Catalog s’appliquent à toutes les ressources inscrites à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour des annotations supplémentaires, sélectionnez le bouton **Afficher le portail** dans le dernier écran de l'outil d'inscription de la source de données Data Catalog.
+  - question: >
+      Comment supprimer mes objets de données inscrits ?
+    answer: >
+      Vous pouvez supprimer un objet de Data Catalog en sélectionnant l’objet dans le portail, puis en cliquant sur le bouton **Supprimer**. La suppression de l’objet supprime ses métadonnées de Data Catalog, mais n’affecte pas la source de données sous-jacente.
+  - question: >
+      Qu’est-ce qu’un expert ?
+    answer: >
+      Un expert est une personne qui a un point de vue éclairé sur un objet de données. Un objet peut avoir plusieurs experts. Il n’est pas nécessaire que l’expert soit le « propriétaire » d’un objet ; il s’agit simplement d’une personne qui sait comment les données peuvent et doivent être utilisées.
+  - question: >
+      Comment partager des informations avec l’équipe Data Catalog si je rencontre des problèmes ?
+    answer: >
+      Pour signaler des problèmes, partager des informations et poser des questions, accédez au [forum Q&A Azure Data Catalog](/answers/topics/azure-data-catalog.html) ou ouvrez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  - question: >
+      Le catalogue fonctionne-t-il avec une autre source de données qui m’intéresse ?
+    answer: >
+      Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
+  - question: >
+      Quelles sont les autorisations dont j’ai besoin pour inscrire des ressources auprès de Data Catalog ?
+    answer: >
+      Pour exécuter l’outil de référencement pour Data Catalog, vous avez besoin d’autorisations sur la source de données qui vous permet de lire les métadonnées de la source. Pour inclure également un aperçu, vous devez disposer des autorisations qui vous permettent de lire les données à partir des objets en cours d’inscription.
+
+
+      Data Catalog permet également aux administrateurs de catalogue d'empêcher certains utilisateurs et groupes d'ajouter des métadonnées au catalogue. Pour plus d’informations, consultez [Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données](data-catalog-how-to-secure-catalog.md).
+  - question: >
+      Data Catalog sera-t-il également disponible pour un déploiement local ?
+    answer: >
+      Data Catalog est un service cloud qui peut fonctionner avec des sources de données cloud et locales, offrant ainsi une solution de détection de sources de données hybrides. Aucune version du service Data Catalog s’exécutant localement n’est actuellement prévue.
+  - question: >
+      Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que j’inscris ?
+    answer: "Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog). \n\nSi vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](/rest/api/datacatalog/).\n"
+  - question: >
+      Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
+    answer: >
+      Sélectionnez les ressources de données dans Data Catalog, puis cliquez sur le bouton **Appropriation**. Les propriétaires de ressources de données dans Data Catalog peuvent modifier les paramètres de visibilité pour autoriser tous les utilisateurs à découvrir les ressources leur appartenant, ou pour limiter la visibilité à des utilisateurs spécifiques. Pour plus d’informations, consultez [Gérer les ressources de données dans Azure Data Catalog](data-catalog-how-to-manage.md).
+  - question: >
+      Comment mettre à jour l’inscription d’une ressource de données pour que les modifications apportées dans la source de données soient reflétées dans le catalogue ?
+    answer: >
+      Pour mettre à jour les métadonnées pour les ressources de données qui sont déjà inscrites dans le catalogue, réinscrivez simplement la source de données qui contient les ressources. Les modifications apportées à la source de données, telles que l’ajout ou la suppression de colonnes de tables ou de vues, sont actualisées dans le catalogue, mais les annotations fournies par les utilisateurs sont conservées.
+  - question: >
+      Il n’y a pas de réponse à ma question ici. Où puis-je en trouver une ?
+    answer: Accédez au [forum Q&A Azure Data Catalog](/answers/topics/azure-data-catalog.html).

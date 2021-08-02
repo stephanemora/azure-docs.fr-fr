@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/02/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4d5c1a1493a7ea2aac0945dae14fc4c547ad86c9
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952257"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409916"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
@@ -57,6 +57,11 @@ Toutes les 48 heures, Azure examine votre configuration de sécurité et compare
 Chaque suggestion est évaluée en fonction de votre configuration Azure AD. Si vous utilisez des produits tiers pour mettre en œuvre une suggestion de meilleure pratique, vous pouvez indiquer cette configuration dans les paramètres d’une action d’amélioration. Vous avez la possibilité de définir les suggestions à ignorer si elles ne s’appliquent pas à votre environnement. Les suggestions ignorées ne sont pas prises en compte dans le calcul de votre degré de sécurisation.
 
 ![Ignorer ou marquer une action comme étant couverte par un tiers](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+
+- **À traiter** : vous reconnaissez que l’action d’amélioration est nécessaire et vous planifiez de la traiter ultérieurement. Cet état s’applique également aux actions détectées comme étant effectuées partiellement, mais pas entièrement.
+- **Planifié** : des plans concrets sont en place pour réaliser l’action d’amélioration.
+- **Risque accepté** : un juste équilibre doit être trouvé entre la sécurité et la convivialité. Certaines recommandations peuvent ne pas convenir à votre environnement. Si c’est le cas, vous pouvez choisir d’accepter le risque, ou le risque restant, et de ne pas mettre en œuvre l’action d’amélioration. Vous ne recevez aucun point, mais l’action n’est plus visible dans la liste des actions d’amélioration. Vous pouvez afficher cette action dans l’historique ou l’annuler à tout moment.
+- **Résolu par un tiers** et **Résolu via une autre atténuation** : l’action d’amélioration a déjà été traitée par une application ou un logiciel tiers, ou par un outil interne. Vous obtenez les points correspondant à l’action, de sorte que votre score reflète mieux votre posture de sécurité globale. Si un outil tiers ou interne ne couvre plus le contrôle, vous pouvez choisir un autre état. N’oubliez pas que Microsoft ne peut pas voir si les actions sont implémentées quand l’action d’amélioration est marquée comme ayant l’un de ces états.
 
 ## <a name="how-does-it-help-me"></a>En quoi cela peut-il m’aider ?
 

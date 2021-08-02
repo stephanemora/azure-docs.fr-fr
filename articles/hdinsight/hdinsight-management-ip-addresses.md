@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 5f694dec6deffde9efb32fefbab91ae3b7a44a2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 002e224fc64943ab29876ca47d7f5d337bc1230d
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99490858"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020220"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -53,39 +53,39 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 
 | Country | Région | Adresses IP sources autorisées | Destination autorisée | Sens |
 | ---- | ---- | ---- | ---- | ----- |
-| Asia | Asie Est | 23.102.235.122</br>52.175.38.134 | \*:443 | Trafic entrant |
-| &nbsp; | Asie Sud-Est | 13.76.245.160</br>13.76.136.249 | \*:443 | Trafic entrant |
-| Australie | Australie Est | 104.210.84.115</br>13.75.152.195 | \*:443 | Trafic entrant |
-| &nbsp; | Sud-Australie Est | 13.77.2.56</br>13.77.2.94 | \*:443 | Trafic entrant |
-| Brésil | Brésil Sud | 191.235.84.104</br>191.235.87.113 | \*:443 | Trafic entrant |
-| Canada | Est du Canada | 52.229.127.96</br>52.229.123.172 | \*:443 | Trafic entrant |
-| &nbsp; | Centre du Canada | 52.228.37.66</br>52.228.45.222 |\*: 443 | Trafic entrant |
-| Chine | Chine du Nord | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Trafic entrant |
-| &nbsp; | Chine orientale | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Trafic entrant |
-| &nbsp; | Chine Nord 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Trafic entrant |
-| &nbsp; | Chine orientale 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Trafic entrant |
-| Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | \*:443 | Trafic entrant |
-| &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | \*:443 | Trafic entrant |
-| France | France Centre| 20.188.39.64</br>40.89.157.135 | \*:443 | Trafic entrant |
-| Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | \*:443 | Trafic entrant |
-| &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132</br>51.5.144.101 | \*:443 | Trafic entrant |
-| Inde | Inde centrale | 52.172.153.209</br>52.172.152.49 | \*:443 | Trafic entrant |
-| &nbsp; | Inde Sud | 104.211.223.67<br/>104.211.216.210 | \*:443 | Trafic entrant |
-| Japon | Japon Est | 13.78.125.90</br>13.78.89.60 | \*:443 | Trafic entrant |
-| &nbsp; | OuJapon Est | 40.74.125.69</br>138.91.29.150 | \*:443 | Trafic entrant |
-| Corée du Sud | Centre de la Corée | 52.231.39.142</br>52.231.36.209 | \*:443 | Trafic entrant |
-| &nbsp; | Corée du Sud | 52.231.203.16</br>52.231.205.214 | \*:443 | Trafic entrant
-| Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
-| &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | \*:443 | Trafic entrant |
-| États-Unis | USA Centre | 13.89.171.122</br>13.89.171.124 | \*:443 | Trafic entrant |
-| &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | \*:443 | Trafic entrant |
-| &nbsp; | USA Est 2 | 20.44.16.8/29</br>20.49.102.48/29 | \*:443 | Trafic entrant |
-| &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | \*:443 | Trafic entrant |
-| &nbsp; | Centre-USA Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
-| &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | \*:443 | Trafic entrant |
-| &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Trafic entrant |
-| &nbsp; | Émirats arabes unis Nord | 65.52.252.96</br>65.52.252.97 | \*:443 | Trafic entrant |
-| &nbsp; | Émirats arabes unis Centre | 20.37.76.96</br>20.37.76.99 | \*:443 | Trafic entrant |
+| Asia | Asie Est | 23.102.235.122<br>52.175.38.134 | \*:443 | Trafic entrant |
+| &nbsp; | Asie Sud-Est | 13.76.245.160<br>13.76.136.249 | \*:443 | Trafic entrant |
+| Australie | Australie Est | 104.210.84.115<br>13.75.152.195 | \*:443 | Trafic entrant |
+| &nbsp; | Sud-Australie Est | 13.77.2.56<br>13.77.2.94 | \*:443 | Trafic entrant |
+| Brésil | Brésil Sud | 191.235.84.104<br>191.235.87.113 | \*:443 | Trafic entrant |
+| Canada | Est du Canada | 52.229.127.96<br>52.229.123.172 | \*:443 | Trafic entrant |
+| &nbsp; | Centre du Canada | 52.228.37.66<br>52.228.45.222 |\*: 443 | Trafic entrant |
+| Chine | Chine du Nord | 42.159.96.170<br>139.217.2.219<br>42.159.198.178<br>42.159.234.157 | \*:443 | Trafic entrant |
+| &nbsp; | Chine orientale | 42.159.198.178<br>42.159.234.157<br>42.159.96.170<br>139.217.2.219 | \*:443 | Trafic entrant |
+| &nbsp; | Chine Nord 2 | 40.73.37.141<br>40.73.38.172 | \*:443 | Trafic entrant |
+| &nbsp; | Chine orientale 2 | 139.217.227.106<br>139.217.228.187 | \*:443 | Trafic entrant |
+| Europe | Europe Nord | 52.164.210.96<br>13.74.153.132 | \*:443 | Trafic entrant |
+| &nbsp; | Europe Ouest| 52.166.243.90<br>52.174.36.244 | \*:443 | Trafic entrant |
+| France | France Centre| 20.188.39.64<br>40.89.157.135 | \*:443 | Trafic entrant |
+| Allemagne | Centre de l’Allemagne | 51.4.146.68<br>51.4.146.80 | \*:443 | Trafic entrant |
+| &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132<br>51.5.144.101 | \*:443 | Trafic entrant |
+| Inde | Inde centrale | 52.172.153.209<br>52.172.152.49 | \*:443 | Trafic entrant |
+| &nbsp; | Inde Sud | 104.211.223.67<br>104.211.216.210 | \*:443 | Trafic entrant |
+| Japon | Japon Est | 13.78.125.90<br>13.78.89.60 | \*:443 | Trafic entrant |
+| &nbsp; | OuJapon Est | 40.74.125.69<br>138.91.29.150 | \*:443 | Trafic entrant |
+| Corée du Sud | Centre de la Corée | 52.231.39.142<br>52.231.36.209 | \*:443 | Trafic entrant |
+| &nbsp; | Corée du Sud | 52.231.203.16<br>52.231.205.214 | \*:443 | Trafic entrant
+| Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110<br>51.141.7.20 | \*:443 | Trafic entrant |
+| &nbsp; | Sud du Royaume-Uni | 51.140.47.39<br>51.140.52.16 | \*:443 | Trafic entrant |
+| États-Unis | USA Centre | 13.89.171.122<br>13.89.171.124 | \*:443 | Trafic entrant |
+| &nbsp; | USA Est | 13.82.225.233<br>40.71.175.99 | \*:443 | Trafic entrant |
+| &nbsp; | USA Est 2 | 20.44.16.8/29<br>20.49.102.48/29 | \*:443 | Trafic entrant |
+| &nbsp; | Centre-Nord des États-Unis | 157.56.8.38<br>157.55.213.99 | \*:443 | Trafic entrant |
+| &nbsp; | Centre-USA Ouest | 52.161.23.15<br>52.161.10.167 | \*:443 | Trafic entrant |
+| &nbsp; | USA Ouest | 13.64.254.98<br>23.101.196.19 | \*:443 | Trafic entrant |
+| &nbsp; | USA Ouest 2 | 52.175.211.210<br>52.175.222.222 | \*:443 | Trafic entrant |
+| &nbsp; | Émirats arabes unis Nord | 65.52.252.96<br>65.52.252.97 | \*:443 | Trafic entrant |
+| &nbsp; | Émirats arabes unis Centre | 20.37.76.96<br>20.37.76.99 | \*:443 | Trafic entrant |
 
 Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](../azure-government/compare-azure-government-global-azure.md).
 

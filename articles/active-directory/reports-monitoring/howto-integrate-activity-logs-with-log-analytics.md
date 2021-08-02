@@ -4,7 +4,7 @@ description: Découvrez comment intégrer des journaux d’activité Azure Activ
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/11/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c29b631d3002f0c79fb2dd1b1f26dfa65051368c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591134"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018952"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor
 
@@ -63,7 +63,11 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 ## <a name="licensing-requirements"></a>Exigences en termes de licence
 
-Une licence Azure AD Premium P1 ou P2 est nécessaire pour utiliser cette fonctionnalité. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+Un locataire Azure AD Premium P1 ou P2 est nécessaire pour utiliser cette fonctionnalité. Vous pouvez trouver le type de licence de votre locataire sur la page **[Vue d’ensemble](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** dans **Azure Active Directory**.
+
+![Informations sur le locataire](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
+ 
+Si vous souhaitez connaître la durée de stockage des données d’activité dans un locataire Premium, consultez : [Pendant combien de temps les données sont-elles conservées par Azure AD ?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## <a name="send-logs-to-azure-monitor"></a>Envoyer des journaux à Azure Monitor
 

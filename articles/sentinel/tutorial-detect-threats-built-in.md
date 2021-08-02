@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2021
+ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: ba757474ab24006b7b8b514bda085522bd353ea8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 95158fc5aa9d768e7174bc3c72736614efa7f57c
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312669"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371650"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutoriel : Détection des menaces prête à l’emploi
 
@@ -54,7 +54,9 @@ Basée sur la technologie Fusion, la détection avancée des attaques en plusieu
 >
 > Pour les détections en préversion, consultez [Détection avancée des attaques multiphases dans Azure Sentinel](fusion.md).
 
-### <a name="machine-learning-behavioral-analytics"></a>Analytique comportementale du Machine Learning
+En outre, le moteur de fusion peut désormais établir une corrélation entre les alertes produites par des [règles analytiques planifiées](#scheduled) et celles d’autres systèmes, ce qui a pour effet de générer des incidents de haute fidélité.
+
+### <a name="machine-learning-ml-behavioral-analytics"></a>Analytique comportementale du Machine Learning
 
 Ces modèles sont basés sur des algorithmes de Machine Learning appartenant à Microsoft. Vous ne pouvez donc pas voir la logique interne de leur fonctionnement et du moment de leur exécution. Comme la logique est cachée et donc non personnalisable, vous ne pouvez créer qu’une seule règle avec chaque modèle de ce type.
 
@@ -63,9 +65,18 @@ Ces modèles sont basés sur des algorithmes de Machine Learning appartenant à 
 >
 > - En créant et en activant des règles basées sur des modèles d’analytique du comportement de Machine Learning, **vous autorisez Microsoft à copier les données ingérées en dehors de la zone géographique de votre espace de travail Azure Sentinel**, le cas échéant, en vue de leur traitement par des moteurs et modèles de Machine Learning.
 
+### <a name="anomaly"></a>Anomalie
+
+Les modèles de règle d’anomalie utilisent SOC-ML (Machine Learning) pour détecter des types spécifiques de comportement anormal. Chaque règle a ses propres paramètres et seuils, adaptés au comportement en cours d’analyse. Si vous ne pouvez ni modifier ni ajuster la configuration de la règle, vous pouvez la dupliquer, puis modifier et affiner sa copie. Vous pouvez ensuite exécuter celle-ci en mode **Distribution de version d’évaluation** en même temps que l’original en mode **production**, comparer les résultats, puis basculer la copie en mode **production** quand son réglage vous convient. Apprenez-en davantage sur [SOC-ML](soc-ml-anomalies.md) et sur l’[utilisation des règles d’anomalie](work-with-anomaly-rules.md).
+
+> [!IMPORTANT]
+> Les modèles de règle d’anomalie sont actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
 ### <a name="scheduled"></a>Planifié
 
 Les règles d’analytique planifiées sont basées sur des requêtes intégrées écrites par des experts en sécurité de Microsoft. Vous pouvez voir la logique de la requête et y apporter des changements. Vous pouvez utiliser le modèle de règles planifiées et personnaliser la logique des requêtes et les paramètres de planification pour créer de nouvelles règles.
+
+Plusieurs nouveaux modèles de règle d’analyse planifiée produisent des alertes que le moteur de fusion met en corrélation avec des alertes d’autres systèmes afin de produire des incidents de haute fidélité. Pour plus de détails, consultez [Détection avancée des attaques en plusieurs étapes](fusion.md#configure-scheduled-analytics-rules-for-fusion-detections).
 
 > [!TIP]
 > Les options de planification de règle incluent la configuration de la règle pour qu’elle s’exécute chaque nombre spécifié de minutes, d’heures ou de jours, l’horloge démarrant lorsque vous activez la règle.
@@ -82,6 +93,10 @@ Les règles d’analytique planifiées sont basées sur des requêtes intégrée
 1. Cliquer sur le bouton **Créer une règle** ouvre l’Assistant Création de règles en fonction du modèle sélectionné. Tous les détails sont remplis automatiquement et, grâce aux modèles **Planifié** ou **Sécurité Microsoft**, vous pouvez personnaliser la logique et les autres paramètres de règle pour mieux répondre à vos besoins spécifiques. Vous pouvez répéter ce processus pour créer des règles supplémentaires basées sur le modèle intégré. Après avoir suivi jusqu’au bout les étapes de l’Assistant Création de règles, vous aurez terminé la création d’une règle basée sur le modèle. Les nouvelles règles s’affichent dans l’onglet **Règles actives**.
 
     Pour plus d’informations sur la personnalisation de vos règles dans l’Assistant Création de règles, consultez [Didacticiel : Créer des règles d’analytique personnalisées pour détecter des menaces](tutorial-detect-threats-custom.md).
+
+## <a name="export-rules-to-an-arm-template"></a>Exporter des règles vers un modèle ARM
+
+Vous pouvez facilement [exporter votre règle vers un modèle Azure Resource Manager (ARM)](import-export-analytics-rules.md) si vous souhaitez gérer et déployer vos règles en tant que code. Vous pouvez également importer des règles à partir de fichiers modèles afin de les afficher et de les modifier dans l’interface utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

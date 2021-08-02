@@ -7,44 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 05/27/2021
+ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722427"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539359"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Retourner une réponse sémantique dans Recherche cognitive Azure
 
 > [!IMPORTANT]
-> Le recherche sémantique est disponible en préversion publique, uniquement via l’API REST en préversion. Les fonctionnalités en préversion sont proposées telles quelles, sous des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), et ne sont pas garanties d’avoir la même implémentation lors de la mise à la disposition générale. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
+> La fonctionnalité de recherche sémantique en préversion publique est sujette à des [Conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Elle est disponible via le portail Azure, une API REST en préversion et des kits de développement logiciel (SDK) bêta. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarification](semantic-search-overview.md#availability-and-pricing).
 
-Lors de la formulation d’une [requête sémantique](semantic-how-to-query-request.md), vous pouvez éventuellement extraire le contenu des documents de correspondance supérieure qui « répondent » directement à la requête. Une ou plusieurs réponses peuvent être incluses, et vous pouvez ensuite les afficher sur une page de recherche pour améliorer l’expérience utilisateur de votre application.
+En appelant [le classement sémantique et les légendes](semantic-how-to-query-request.md), vous pouvez extraire des documents correspondant le mieux à votre requête du contenu « répondant » directement à celle-ci. Une ou plusieurs réponses peuvent être incluses, et vous pouvez ensuite les afficher sur une page de recherche pour améliorer l’expérience utilisateur de votre application.
 
-Dans cet article, vous allez apprendre à demander une réponse sémantique, à dépaqueter la réponse et découvrir les caractéristiques de contenu les plus propices à la production de réponses de haute qualité.
+Cet article explique comment demander une réponse sémantique et dépaqueter la réponse, et décrit les caractéristiques de contenu les plus propices à la production de réponses de qualité.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Toutes les conditions préalables qui s’appliquent aux [requêtes sémantiques](semantic-how-to-query-request.md) s’appliquent également aux réponses, y compris le niveau de service et la région.
+Tous les prérequis qui s’appliquent aux [requêtes sémantiques](semantic-how-to-query-request.md#prerequisites) s’appliquent également aux réponses, y compris [le niveau de service et la région](semantic-search-overview.md#availability-and-pricing).
 
-+ La logique de requête doit inclure les paramètres de requête sémantique, ainsi que le paramètre « answers ». Les paramètres requis sont décrits dans cet article.
++ La logique de requête doit inclure les paramètres de requête sémantique « queryType=semantic », ainsi que le paramètre « answers ». Les paramètres requis sont décrits dans cet article.
 
-+ Les chaînes de requête entrées par l’utilisateur doivent être formulées dans un langage ayant les caractéristiques d’une question (quoi, où, quand, comment).
++ Les chaînes de requête saisie par l’utilisateur doivent être reconnaissables en tant que questions (quoi, où, quand, comment).
 
-+ Les documents de recherche doivent contenir du texte ayant les caractéristiques d’une réponse, et ce texte doit exister dans un des champs indiqués dans « searchFields ». Par exemple, dans le cas d’une requête « qu’est-ce qu’une table de hachage », si aucun des champs de recherche ne contient de passages incluant « une table de hachage est... », il est peu probable qu’une réponse soit retournée.
++ Les documents de recherche dans l’index doivent contenir du texte présentant les caractéristiques d’une réponse, et ce texte doit exister dans un des champs répertoriés dans « searchFields ». Par exemple, dans le cas d’une requête « qu’est-ce qu’une table de hachage », si aucun des champs de recherche ne contient de un passage incluant « Une table de hachage est... », il est peu probable qu’une réponse soit retournée.
 
 ## <a name="what-is-a-semantic-answer"></a>Qu’est-ce qu’une réponse sémantique ?
 
 Une réponse sémantique est une sous-structure d’une [réponse à une requête sémantique](semantic-how-to-query-request.md). Elle se compose d’un ou de plusieurs passages textuels d’un document de recherche, formulés comme une réponse à une requête qui ressemble à une question. Pour qu’une réponse soit renvoyée, des expressions ou des phrases doivent exister dans un document de recherche ayant les caractéristiques de langage d’une réponse, et la requête elle-même doit être posée comme une question.
 
-Le service Recherche cognitive utilise un modèle de compréhension par lecture automatique pour choisi la meilleur réponse. Le modèle produit un ensemble de réponses potentielles à partir du contenu disponible, et quand il atteint un niveau de confiance suffisamment élevé, il propose une réponse.
+Le service Recherche cognitive utilise un modèle de compréhension par lecture automatique pour choisi la meilleur réponse. Le modèle produit un ensemble de réponses potentielles à partir du contenu disponible et, quand il atteint un niveau de confiance suffisamment élevé, il propose une réponse.
 
 Les réponses sont retournées sous la forme d’un objet indépendant de niveau supérieur dans la charge utile de réponse à la requête que vous pouvez choisir de rendre sur les pages de recherche, ainsi que les résultats de la recherche. Structurellement, il s’agit d’un élément de tableau dans la réponse, qui comprend du texte, une clé de document et un score de confiance.
 
 <a name="query-params"></a>
 
-## <a name="how-to-request-semantic-answers-in-a-query"></a>Comment demander des réponses sémantiques dans une requête
+## <a name="how-to-specify-answers-in-a-query-request"></a>Comment spécifier des « réponses » dans une demande de requête
 
 Pour renvoyer une réponse sémantique, la requête doit inclure les paramètres sémantiques « queryType », « queryLanguage », « searchFields » et « answers ». La spécification du paramètre « answers » ne garantit pas que vous obtiendrez une réponse, mais la requête doit inclure ce paramètre pour que le traitement de la réponse soit appelé.
 
@@ -61,11 +61,15 @@ Le paramètre « searchFields » est crucial pour renvoyer une réponse de hau
 }
 ```
 
-+ Une chaîne de requête ne doit pas être null et doit être formulée comme question. Dans cette préversion, les constantes « queryType » et « queryLanguage » doivent être définies exactement comme dans l’exemple.
++ Une chaîne de requête ne doit pas être null et doit être formulée comme question.
 
-+ Le paramètre « searchFields » détermine les champs qui fournissent des jetons au modèle d’extraction. Les mêmes champs qui produisent des légendes produisent également des réponses. Pour obtenir des conseils précis sur la façon de définir ce champ de manière à ce qu’il fonctionne tant pour les légendes que pour les réponses, consultez [Définir searchFields](semantic-how-to-query-request.md#searchfields). 
++ Le paramètre « queryType » (type de requête) doit être « semantic » (sémantique).
 
-+ Pour « answers », la construction de paramètre est `"answers": "extractive"`, où le nombre de réponses par défaut retourné est un. Vous pouvez augmenter le nombre de réponses en ajoutant un chiffre, comme dans l’exemple ci-dessus, jusqu’à cinq.  Le fait que vous ayez besoin de plusieurs réponses dépend de l’expérience utilisateur de votre application et de la façon dont vous souhaitez afficher les résultats.
++ Le paramètre « queryLanguage » (langue de requête) doit être l’une des valeurs de la [liste des langues prises en charge (API REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
++ Le paramètre « searchFields » (champs de recherche) détermine les champs qui fournissent des jetons, ou segments de texte, au modèle d’extraction. Les mêmes champs qui produisent des légendes produisent également des réponses. Pour obtenir des conseils précis sur la façon de définir ce champ de manière à ce qu’il fonctionne tant pour les légendes que pour les réponses, consultez [Définir searchFields](semantic-how-to-query-request.md#searchfields). 
+
++ Pour « answers », la construction de paramètre est `"answers": "extractive"`, où le nombre de réponses par défaut retourné est un. Vous pouvez augmenter le nombre de réponses en ajoutant une valeur de `count`, comme dans l’exemple ci-dessus, jusqu’à cinq.  Le fait que vous ayez besoin de plusieurs réponses dépend de l’expérience utilisateur de votre application et de la façon dont vous souhaitez afficher les résultats.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Décomposer une réponse à partir du résultat reçu
 
@@ -108,7 +112,10 @@ Pour la requête « How do clouds form », la réponse suivante est renvoyée�
                 "North America",
                 "Vancouver"
             ]
+    ]
         }
+}
+
 ```
 
 ## <a name="tips-for-producing-high-quality-answers"></a>Conseils pour la génération de réponses de haute qualité

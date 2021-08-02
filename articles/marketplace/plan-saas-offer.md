@@ -1,5 +1,5 @@
 ---
-title: Planifier une offre SaaS pour la place de marché commerciale Microsoft
+title: Planifier une offre SaaS pour la place de marché commerciale Microsoft – Place de marché Azure
 description: Explique comment planifier une nouvelle offre de SaaS (Software as a service) pour référencement ou vente dans Microsoft AppSource, la Place de marché Azure, ou par le biais du programme de fournisseur de solutions cloud (CSP) à l’aide du programme de la place de marché commerciale Microsoft dans l’Espace partenaires Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2021
-ms.openlocfilehash: b9b2270034853832f6795203dfaa60b6809a89ba
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/25/2021
+ms.openlocfilehash: 92edc1e2e2ae1e359cfd951a239e30d506d2452c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138946"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692014"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -49,15 +49,13 @@ L’option de référencement _Me contacter_ n’est assortie d’aucune exigenc
 
 Les options de référencement _Obtenir maintenant (gratuit)_ ,  _Essai gratuit_ et _Vendre via Microsoft_ sont assortie des exigences techniques suivantes :
 
-- Votre application SaaS doit être une solution mutualisée.
-- Vous pouvez activer les Comptes Microsoft (MSA) et [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) pour l’authentification des utilisateurs.
-- Vous devez créer une page d’arrivée. Une fois que l’utilisateur a acheté votre offre, il est dirigé vers la page d’arrivée. Cela lui permet d’effectuer tout approvisionnement ou toute configuration supplémentaire requis. Pour des conseils sur la création de la page d’arrivée, consultez les articles suivants :
+- Vous devez activer les Comptes Microsoft (MSA) et [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) pour l’authentification des acheteurs sur votre site. Vous devez permettre aux acheteurs disposant d’un compte Azure AD de se connecter à votre application en utilisant Azure AD avec une authentification unique (SSO).
+- Vous devez créer une page d’arrivée offrant une expérience de connexion et d’intégration fluide pour un client ayant acheté votre offre. La page d’arrivée l’aidera à effectuer tout approvisionnement ou toute configuration supplémentaires requis. Pour des conseils sur la création de la page d’arrivée, consultez les articles suivants :
   - [Créer la page d'accueil de votre offre SaaS avec transaction dans la Place de marché commerciale](azure-ad-transactable-saas-landing-page.md)
   - [Créer la page d'accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale](azure-ad-free-or-trial-landing-page.md)
 
 Ces exigences techniques supplémentaires s’appliquent uniquement à l’option de référencement _Vendre via Microsoft_ (pouvant faire l’objet d’une transaction) :
 
-- Azure AD avec la gestion de l’identité et l’authentification unique (SSO) est requis pour l’utilisateur acheteur qui accède à la page de destination. Pour des instructions détaillées, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la place de marché commerciale](azure-ad-saas.md).
 - Vous devez utiliser les [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) pour l’intégration avec la Place de marché Azure et Microsoft AppSource. Vous devez exposer un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte d’utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. Des diagrammes et des explications détaillées décrivant l’utilisation des champs collectés sont disponibles dans la documentation des [API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Vous devez créer au moins un plan pour votre offre. Votre plan est facturé en fonction du modèle de tarification que vous sélectionnez avant la publication : _forfaitaire_ ou _par utilisateur_. Vous trouverez des détails supplémentaires sur les [plans](#plans) plus loin dans cet article.
 - Le client peut annuler votre offre à tout moment.
@@ -114,12 +112,12 @@ Si votre offre Saas est *à la fois* une solution informatique (Place de march�
 | Facturation à l’usage | Plan public | Plan privé | Disponible sur : |
 |---|---|---|---|
 | Oui             | Oui         | Non           | Place de marché Azure et Portail Azure |
-| Oui             | Oui         | Oui          | Place de marché Azure et portail Azure * |
+| Oui             | Oui         | Oui          | Place de marché Azure et Portail Azure* |
 | Oui             | Non          | Oui          | Portail Azure uniquement |
 | Non              | Non          | Oui          | Portail Azure uniquement |
 |||||
 
-&#42; Le plan privé de l’offre est disponible uniquement via le portail Azure.
+&#42; Le plan privé de l’offre ne sera disponible que via le portail Azure.
 
 Par exemple, une offre avec facturation à l’usage et un plan privé uniquement (aucun plan public) est achetée par les clients du portail Azure. En savoir plus sur les [offres privées dans le marketplace commercial de Microsoft](private-offers.md).
 
@@ -149,12 +147,13 @@ L’intégration avec Microsoft 365 permet à votre offre SaaS de fournir une e
 Pour les produits liés, la recherche sur AppSource retourne un résultat qui comprend à la fois l’offre SaaS et tous les compléments liés. Le client peut naviguer entre les pages des détails sur le produit de l’offre SaaS et les compléments liés. Les administrateurs informatiques peuvent réviser et déployer l’offre SaaS et les compléments liés au cours du même processus via une expérience intégrée et connectée dans le centre d’administration Microsoft 365. Pour plus d’informations, consultez [Tester et déployer des applications Microsoft 365 - Administrateur Microsoft 365](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
 
 ### <a name="microsoft-365-integration-support-limitations"></a>Limitations de la prise en charge de l’intégration Microsoft 365
+
 La détection d’une seule solution E2E est prise en charge sur AppSource dans tous les cas. Toutefois, le déploiement simplifié de la solution E2E, comme décrit ci-dessus, via le centre d’administration Microsoft 365 n’est pas pris en charge dans les scénarios suivants :
 
+   - Offres « Me contacter » référencées uniquement. 
    - Le même complément est lié à plusieurs offres SaaS.
    - L’offre SaaS est liée à des compléments, mais elle ne s’intègre pas à Microsoft Graph et aucun ID d’application AAD n’est fourni.
   - L’offre SaaS est liée à des compléments, mais l’ID d’application AAD fourni pour l’intégration Microsoft Graph est partagé entre plusieurs offres SaaS.
-
  
 ## <a name="offer-listing-details"></a>Détails du référencement de l’offre
 
@@ -198,7 +197,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 
     Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML compris. Pour obtenir plus d’astuces, consultez [Rédiger une bonne description d’application](/windows/uwp/publish/write-a-great-app-description).
 
-- **Instructions de prise en main** : si vous choisissez de vendre votre offre par via Microsoft (offre pouvant faire l’objet d’une transaction), ce champ est obligatoire. Ces instructions aident les clients à se connecter à votre offre SaaS. Vous pouvez ajouter jusqu’à 3 000 caractères de texte et des liens vers une documentation en ligne plus détaillée.
+- **Instructions de prise en main** : si vous choisissez de vendre votre offre par via Microsoft (offre négociable), ce champ est obligatoire. Ces instructions aident les clients à se connecter à votre offre SaaS. Vous pouvez ajouter jusqu’à 3 000 caractères de texte et des liens vers une documentation en ligne plus détaillée.
 - **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans les magasins en ligne. Vous n’avez pas besoin d’inclure le **Nom** et la **Description** l’offre : ce texte est inclus automatiquement dans la recherche.
 - **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
 - **Informations de contact** : Vous devez fournir les contacts suivants de votre organisation :
@@ -221,12 +220,12 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 
 - **Média – Captures d’écran** : vous devez ajouter au moins une et cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
   - 1280 x 720 pixels
-  - Fichier .png
+  - Type de fichier PNG
   - Doit inclure une légende
 - **Média – Vidéos** (facultatif) : vous pouvez ajouter jusqu’à quatre vidéos avec les exigences suivantes, qui présentent votre offre :
   - Nom
   - URL : doit être hébergée sur YouTube ou Vimeo uniquement.
-  - Miniature : fichier .png 1280 x 720
+  - Miniature : fichier PNG 1280 x 720
 
 > [!Note]
 > Pour être publiées sur la place de marché commerciale, votre offre doit respecter les [stratégies de certification de la place de marché commerciale](/legal/marketplace/certification-policies#100-general) et les [stratégies SaaS](/legal/marketplace/certification-policies#1000-software-as-a-service-saas).
@@ -321,7 +320,7 @@ Vous pouvez opter pour des canaux marketing et de vente pris en charge par Micro
 
 - **Revendre via des fournisseurs de solutions cloud** : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations sur ce programme, consultez [Programme des fournisseurs de solutions Cloud](cloud-solution-providers.md).
 
-- **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur l’éligibilité à la co-vente, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option de co-vente sur Espace partenaires](./co-sell-configure.md).
+- **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur l’éligibilité à la co-vente, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option de co-vente sur Espace partenaires](co-sell-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

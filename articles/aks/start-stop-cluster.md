@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 2d3c946bc2f98b0c06fe33dcaaa77a5399f6d56b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782726"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111808922"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Arrêter et démarrer un cluster Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,7 @@ Lorsque vous utilisez la fonctionnalité de démarrage/arrêt du cluster, les re
 - Cette fonctionnalité est uniquement prise en charge pour les clusters supportés par des groupes de machines virtuelles identiques.
 - L’état du cluster d’un cluster AKS arrêté est conservé pendant 12 mois au maximum. Si votre cluster est arrêté pendant plus de 12 mois, l’état du cluster ne peut pas être récupéré. Pour plus d’informations, consultez les [Stratégies de support pour AKS](support-policies.md).
 - Vous pouvez uniquement démarrer ou supprimer un cluster AKS arrêté. Pour effectuer une opération telle qu’une mise à l’échelle ou une mise à niveau, commencez par démarrer votre cluster.
+- Les PrivateEndpoints provisionnés par le client qui sont liés à un cluster privé doivent être supprimés et recréés quand vous démarrez un cluster AKS arrêté.
 
 ## <a name="stop-an-aks-cluster"></a>Arrêter un cluster AKS
 
@@ -83,6 +84,9 @@ Vous pouvez vérifier à quel moment votre cluster a démarré à l’aide de la
 ```
 
 Si `provisioningState` affiche `Starting`, cela signifie que votre cluster n’a pas encore été complètement démarré.
+
+> [!NOTE]
+> Si vous utilisez le programme de mise à l’échelle automatique de cluster, quand vous redémarrez votre cluster, le nombre de nœuds actuel peut ne pas être compris entre les valeurs de plage minimale et maximale que vous avez définies. Il s’agit du comportement attendu. Le cluster démarre avec le nombre de nœuds dont il a besoin pour exécuter ses charges de travail, et ce nombre n’est pas impacté par les paramètres de votre programme de mise à l’échelle automatique. Lorsque votre cluster effectue des opérations de mise à l’échelle, les valeurs minimale et maximale ont un impact sur votre nombre de nœuds actuel, et le cluster finit par atteindre et rester dans la plage souhaitée, jusqu’à ce que vous l’arrêtiez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

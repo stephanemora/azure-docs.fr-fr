@@ -4,16 +4,16 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez comment effectuer plusieurs tâches courantes de science des données à l’aide de la Data Science Virtual Machine Linux.
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/17/2020
-ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517669"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071881"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Ubuntu sur Azure
 
@@ -29,7 +29,6 @@ Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants re
 
 * [**Instance Ubuntu de Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Ubuntu](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](dsvm-ubuntu-intro.md#x2go).
-* Pour une expérience de défilement plus fluide, dans le navigateur web Firefox de la DSVM, basculez l'indicateur `gfx.xrender.enabled`dans `about:config`. [Plus d’informations](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de régler `mousewheel.enable_pixel_scrolling` sur `False`. [Plus d’informations](https://support.mozilla.org/questions/981140)
 
 ## <a name="download-the-spambase-dataset"></a>Télécharger le jeu de données spambase
 
@@ -70,7 +69,7 @@ Le jeu de données possède plusieurs types de statistiques pour chaque e-mail :
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Explorer le jeu de données à l’aide de R Open
 
-Nous allons examiner les données et découvrir certaines fonctionnalités de base du Machine Learning avec R. La Data Science VM est fournie avec [Microsoft R Open](https://mran.revolutionanalytics.com/open/) préinstallé. Les bibliothèques mathématiques multithread dans cette version préinstallée de R offrent de meilleures performances que les versions monothread. R Open fournit également la reproductibilité à l’aide d’une capture instantanée du référentiel du package CRAN.
+Nous allons examiner les données et découvrir certaines fonctionnalités de base du Machine Learning avec R. La machine DSVM M est fournie avec CRAN R préinstallé.
 
 Pour récupérer des copies des exemples de code utilisés dans cette procédure pas à pas, utilisez git pour cloner le référentiel Azure-Machine-Learning-Data-Science. Git est préinstallé sur la DSVM. Depuis la ligne de commande git, exécutez :
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd890c8e8d72609d109fa466e260dd7315fd553b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027140"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441219"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
@@ -69,7 +69,7 @@ Dans la plupart des scénarios, la fonctionnalité se comporte comme des circuit
 
 ## <a name="circuit-skus"></a>Références SKU de circuit
 
-ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct 100 Gbits/s prennent également en charge les références SKU de circuit **40 Gbits/s** et **100 Gbits/s. La bande passante des paires de ports physiques est de **100 Gbits/s ou 10 Gbits/s**, et ils peuvent disposer de plusieurs circuits virtuels. Tailles des circuits :
+ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct 100 Gbits/s prennent également en charge les références SKU des circuits **40 Gbits/s** et **100 Gbits/s**. La bande passante des paires de ports physiques est de **100 Gbits/s ou 10 Gbits/s**, et ils peuvent disposer de plusieurs circuits virtuels. Tailles des circuits :
 
 | **ExpressRoute Direct 100 Gbits/s** | **ExpressRoute Direct 10 Gbits/s** | 
 | --- | --- |

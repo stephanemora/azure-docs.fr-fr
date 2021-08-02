@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.custom: na
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 19d2ea7b042cb6b28936bbfe92764b497ad4487c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7ca6fdf685da74b8b0e10875a2bd16d66a7b4c60
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769576"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020298"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Créer un ICF avec un partage de fichiers premium (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Les partages de fichiers Premium sont des partages de fichiers à faible latence
 Pour plus d’informations, consultez une présentation de [ICF avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et les [meilleures pratiques de cluster](hadr-cluster-best-practices.md). 
 
 > [!NOTE]
-> Il est maintenant possible d’effectuer un lift-and-shift de votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
+> Il est maintenant possible de déplacer votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,24 +46,21 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 ## <a name="mount-premium-file-share"></a>Monter le partage de fichiers Premium
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). et accédez à votre compte de stockage.
-1. Accédez à **Partages de fichiers** sous **Service de fichiers** et sélectionnez le partage de fichiers premium que vous souhaitez utiliser pour votre stockage SQL.
+1. Accédez à **Partages de fichiers** sous **Stockage de données**, puis sélectionnez le partage de fichiers Premium que vous souhaitez utiliser pour votre stockage SQL.
 1. Sélectionnez **Connecter** pour afficher la chaîne de connexion de votre partage de fichiers.
-1. Sélectionnez la lettre de lecteur que vous souhaitez utiliser dans la liste déroulante, puis copiez les deux blocs de code dans le Bloc-notes.
+1. Dans la liste déroulante, sélectionnez la lettre de lecteur que vous souhaitez utiliser, choisissez **Clé de compte de stockage** comme méthode d’authentification, puis copiez le bloc de code dans un éditeur de texte comme le Bloc-notes.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copiez les deux commandes PowerShell à partir du portail de connexion au partage de fichiers":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copie de la commande PowerShell sur le portail de connexion au partage de fichiers":::
 
 1. Utilisez le protocole bureau distant (RDP) pour établir une connexion à la machine virtuelle SQL Server à l’aide du compte que votre instance de cluster de basculement SQL Server utilisera pour le compte de service.
 1. Ouvrez une console de commande PowerShell d’administration.
-1. Exécutez les commandes que vous avez enregistrées précédemment lorsque vous travailliez dans le portail.
-1. Accédez au partage avec l’Explorateur de fichiers ou la boîte de dialogue **Exécuter** (touche logo Windows + r). Utilisez le chemin d’accès réseau `\\storageaccountname.file.core.windows.net\filesharename`. Par exemple : `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
-
+1. Exécutez la commande que vous avez copiée dans votre éditeur de texte sur le portail de partage de fichiers.
+1. Accédez au partage avec l’Explorateur de fichiers ou la boîte de dialogue **Exécuter** (Windows+R sur votre clavier). Utilisez le chemin d’accès réseau `\\storageaccountname.file.core.windows.net\filesharename`. Par exemple : `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 1. Créez au moins un dossier sur le partage de fichiers auquel vous venez de vous connecter afin d’y placer vos fichiers de données SQL.
 1. Répétez ces étapes sur chaque machine virtuelle SQL Server qui fera partie du cluster.
 
   > [!IMPORTANT]
   > - Envisagez d’utiliser un partage de fichiers distinct pour les fichiers de sauvegarde pour préserver les opérations d’entrée/sortie par seconde (IOPS) et d’espace de ce partage pour les fichiers de données et les fichiers journaux. Vous pouvez utiliser un partage de fichiers Premium ou Standard pour les fichiers de sauvegarde.
-  > - Si vous utilisez Windows 2012 R2 ou une version antérieure, suivez les mêmes étapes pour monter le partage de fichiers que vous allez utiliser comme témoin de partage de fichiers. 
-  > 
 
 
 ## <a name="add-windows-cluster-feature"></a>Ajouter une fonctionnalité de cluster Windows
@@ -86,34 +83,6 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-## <a name="validate-cluster"></a>Valider le cluster
-
-Validez le cluster dans l’interface utilisateur ou avec PowerShell.
-
-Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
-
-1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
-1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
-1. Sélectionnez **Suivant**.
-1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
-1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
-1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests**, sélectionnez tous les tests à l’exception de **Stockage** et **Espaces de stockage direct**, comme illustré ici :
-
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Sélectionner les tests de validation du cluster":::
-
-1. Sélectionnez **Suivant**.
-1. Sous **Confirmation**, sélectionnez **Suivant**.
-
-L’assistant **Valider une configuration** exécute les tests de validation.
-
-Pour valider le cluster avec PowerShell, exécutez le script suivant à partir d’une session PowerShell d’administrateur sur l’une des machines virtuelles :
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
-
-Après avoir validé le cluster, créez le cluster de basculement.
 
 
 ## <a name="create-failover-cluster"></a>Créer un cluster de basculement
@@ -145,10 +114,39 @@ Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en
 
 ---
 
-
 ## <a name="configure-quorum"></a>Configurer un quorum
 
-Configurez la solution de quorum qui répond le mieux aux besoins de votre entreprise. Vous pouvez configurer un [Témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), un [Témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness) ou un [Témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-cluster-best-practices.md#quorum). 
+Bien que le témoin de disque constitue l’option de quorum la plus résiliente, il exige un disque partagé Azure qui impose certaines limitations à l’instance de cluster de basculement lorsqu’il est configuré avec des partages de fichiers Premium. Par conséquent, le témoin cloud reste la solution de quorum recommandée dans ce type de configuration de cluster pour SQL Server sur des machines virtuelles Azure. Sinon, configurez un témoin de partage de fichiers. 
+
+Si vous disposez d’un nombre pair de votes dans le cluster, configurez la [solution de quorum](hadr-cluster-quorum-configure-how-to.md) la plus adaptée aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
+
+## <a name="validate-cluster"></a>Valider le cluster
+
+Validez le cluster dans l’interface utilisateur ou avec PowerShell.
+
+Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
+
+1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
+1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
+1. Sélectionnez **Suivant**.
+1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
+1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
+1. Sélectionnez **Suivant**.
+1. Sous **Sélection des tests**, sélectionnez tous les tests à l’exception de **Stockage** et **Espaces de stockage direct**, comme illustré ici :
+
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Sélectionner les tests de validation du cluster":::
+
+1. Sélectionnez **Suivant**.
+1. Sous **Confirmation**, sélectionnez **Suivant**.
+
+L’assistant **Valider une configuration** exécute les tests de validation.
+
+Pour valider le cluster avec PowerShell, exécutez le script suivant à partir d’une session PowerShell d’administrateur sur l’une des machines virtuelles :
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
 
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
@@ -208,9 +206,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurer la connectivité 
 
-Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 CU2+ (ou version ultérieure) et Windows Server 2016 (ou version ultérieure), vous pouvez utiliser la fonctionnalité de [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
-Pour plus d’informations sur les options de connectivité des clusters, consultez [Acheminer les connexions HADR vers SQL Server sur des machines virtuelles Azure](hadr-cluster-best-practices.md#connectivity). 
+Vous pouvez configurer un nom de réseau virtuel ou un nom de réseau distribué pour une instance de cluster de basculement. [Passez en revue les différences entre les deux](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn), puis déployez un [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [nom de réseau virtuel](failover-cluster-instance-vnn-azure-load-balancer-configure.md) pour votre instance de cluster de basculement.
 
 ## <a name="limitations"></a>Limites
 
@@ -226,8 +222,10 @@ Si vous ne l’avez pas déjà fait, configurez la connectivité à votre ICF av
 
 Si les partages de fichiers Premium ne sont pas la solution de stockage ICF appropriée, envisagez de créer votre ICF à l’aide des [Disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou [Espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) à la place. 
 
-Pour plus d’informations, consultez une présentation de [ICF avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [meilleures pratiques de configuration de cluster](hadr-cluster-best-practices.md). 
+Pour en savoir plus, consultez :
 
-Pour plus d'informations, consultez les pages suivantes : 
-- [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
+

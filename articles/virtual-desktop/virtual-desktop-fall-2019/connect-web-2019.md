@@ -1,24 +1,24 @@
 ---
-title: Connecter un client web Windows Virtual Desktop (classique) - Azure
-description: Explique comment se connecter à Windows Virtual Desktop (classique) à l’aide du client web.
+title: Connecter un client web Azure Virtual Desktop (classique) - Azure
+description: Explique comment se connecter à Azure Virtual Desktop (classique) à l’aide du client web.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0ea095a8ed902b9636b0cb8026f86eb3a0882460
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: e604e5de1a5abd46961c0ec447f7d3fb29aa3b49
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445191"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749954"
 ---
-# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Se connecter à Windows Virtual Desktop (classique) avec le client web
+# <a name="connect-to-azure-virtual-desktop-classic-with-the-web-client"></a>Se connecter à Azure Virtual Desktop (classique) avec le client web
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../connect-web.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../connect-web.md).
 
-Le client web vous permet d’accéder à vos ressources Windows Virtual Desktop à partir d’un navigateur web sans processus d’installation fastidieux.
+Le client web vous permet d’accéder à vos ressources Azure Virtual Desktop à partir d’un navigateur web sans processus d’installation fastidieux.
 
 >[!NOTE]
 >Le client web ne prend pas en charge les systèmes d’exploitation mobiles.
@@ -37,13 +37,13 @@ Tous les navigateurs HTML5 doivent fonctionner, et nous prenons officiellement e
 
 ## <a name="access-remote-resources-feed"></a>Accéder au flux de ressources distantes
 
-Dans un navigateur, accédez au client web de Windows Virtual Desktop à l’adresse <https://rdweb.wvd.microsoft.com/webclient> et connectez-vous avec votre compte d’utilisateur.
+Dans un navigateur, accédez au client web d’Azure Virtual Desktop sur <https://rdweb.wvd.microsoft.com/webclient> et connectez-vous avec votre compte d’utilisateur.
 
 >[!NOTE]
->Si vous utilisez Windows Virtual Desktop avec l’intégration dans Azure Resource Manager, connectez-vous à vos ressources à l’adresse <https://rdweb.wvd.microsoft.com/arm/webclient> à la place.
+>Si vous utilisez Azure Virtual Desktop avec l’intégration dans Azure Resource Manager, connectez-vous à vos ressources sur <https://rdweb.wvd.microsoft.com/arm/webclient> à la place.
 
 >[!NOTE]
->Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
+>Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Azure Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
 Une fois que vous êtes connecté, une liste de ressources apparaît. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans l’onglet **Toutes les ressources**.
 

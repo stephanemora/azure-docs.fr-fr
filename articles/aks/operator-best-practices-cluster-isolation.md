@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: e51689d33711f127f775c63c9d7fc8ad4c901604
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3b6295c1f1ae424c77c32876e32609a7d492e07d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105168"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461636"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’isolation de clusters dans Azure Kubernetes Service (AKS)
 
@@ -72,7 +72,7 @@ La séparation logique des clusters fournit généralement une densité de pod s
 
 Actuellement, les environnements Kubernetes ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Dans un environnement multilocataire, plusieurs locataires travaillent sur une infrastructure partagée commune. Si tous les locataires ne peuvent pas être approuvés, vous aurez besoin d’une planification supplémentaire pour empêcher les locataires d’avoir un impact sur la sécurité et le service des autres.
 
-Des fonctionnalités de sécurité supplémentaires, telles que les *stratégies de sécurité de pod* ou le RBAC Kubernetes pour les nœuds, bloquent efficacement les attaques. Pour une véritable sécurité lors de l’exécution de charges de travail multi-locataires hostiles, vous ne devez faire confiance qu’à un hyperviseur. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. 
+Des fonctionnalités de sécurité supplémentaires, comme le contrôle d’accès RBAC Kubernetes pour les nœuds, bloquent efficacement les codes malveillants exploitant une faille de sécurité. Pour une véritable sécurité lors de l’exécution de charges de travail multi-locataires hostiles, vous ne devez faire confiance qu’à un hyperviseur. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. 
 
 Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
 

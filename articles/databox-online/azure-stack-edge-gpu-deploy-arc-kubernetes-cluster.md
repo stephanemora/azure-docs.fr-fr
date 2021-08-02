@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 06/11/2021
 ms.author: alkohli
-ms.openlocfilehash: c845f5d5daf79a51b7d3f3305a4f005cabe6886d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9eef9a99dbf27100fdb6e1fd731ace380f7ba4fb
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372996"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072844"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Arc sur un cluster Kubernetes sur votre appareil avec GPU Azure Stack Edge Pro
 
@@ -142,16 +142,18 @@ Pour configurer le cluster Kubernetes pour la gestion d’Azure Arc, procédez c
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
+    Ajoutez le paramètre `CloudEnvironment` si vous utilisez un cloud autre qu’Azure public. Vous pouvez définir ce paramètre sur `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD` et `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
     > - Pour déployer Azure Arc sur votre appareil, vous devez utiliser une [Région prise en charge pour Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
     > - Utilisez la commande `az account list-locations` pour connaître le nom exact de l'emplacement à transmettre dans la cmdlet `Set-HcsKubernetesAzureArcAgent`. Les noms d'emplacement ne comportent généralement pas d'espaces.
+    > - `ClientId` et `ClientSecret` sont des paramètres obligatoires. `ClientSecret` est une chaîne sécurisée.
     
     Voici un exemple :
    
     ```powershell
     [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b&quot; -ClientSecret &quot;<password>"
-        [10.128.44.240]: PS>
+    [10.128.44.240]: PS>
     ```
     
     Dans le portail Azure, une ressource doit être créée avec le nom que vous avez fourni dans la commande précédente.

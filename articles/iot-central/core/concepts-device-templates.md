@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: ecd99a21c4d92eeddaa84661424980f6d40d1ae2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ab209cd3fb598c0c9ad4df359578d956aca7077b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760874"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088729"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -33,7 +33,9 @@ Un modèle d’appareil comprend les sections suivantes :
 
 ## <a name="device-models"></a>Modèles d’appareils
 
-Un modèle d’appareil définit la manière dont un appareil interagit avec votre application IoT Central. Le développeur de l’appareil doit s’assurer que l’appareil implémente les comportements définis dans le modèle d’appareil afin qu’IoT Central puisse surveiller et gérer l’appareil. Un modèle d’appareil est constitué d’une ou plusieurs _interfaces_ pouvant chacune définir une collection de types de _télémétries_, des _propriétés d’appareil_ et des _commandes_. Un développeur de solutions peut importer un fichier JSON définissant le modèle d’appareil dans un modèle d’appareil, ou utiliser l’interface utilisateur web dans IoT Central pour créer ou modifier un modèle d’appareil. Les modifications apportées à un modèle d’appareil à l’aide de l’interface utilisateur web nécessitent que le modèle d’appareil fasse l’objet d’une [gestion des versions](./howto-version-device-template.md).
+Un modèle d’appareil définit la manière dont un appareil interagit avec votre application IoT Central. Le développeur de l’appareil doit s’assurer que l’appareil implémente les comportements définis dans le modèle d’appareil afin qu’IoT Central puisse surveiller et gérer l’appareil. Un modèle d’appareil est constitué d’une ou plusieurs _interfaces_ pouvant chacune définir une collection de types de _télémétries_, des _propriétés d’appareil_ et des _commandes_. Un développeur de solutions peut importer un fichier JSON définissant le modèle d’appareil dans un modèle d’appareil, ou utiliser l’interface utilisateur web dans IoT Central pour créer ou modifier un modèle d’appareil.
+
+Pour en savoir plus sur la modification d’un modèle d’appareil, consultez [Modifier un modèle d’appareil existant](howto-edit-device-template.md)
 
 Un développeur de solutions peut également exporter un fichier JSON contenant le modèle d’appareil. Un développeur d’appareils peut utiliser ce document JSON pour comprendre comment l’appareil doit communiquer avec l’application IoT Central.
 

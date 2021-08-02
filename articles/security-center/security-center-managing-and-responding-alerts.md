@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df8b4534c6da446bd4ceeb18acf70036cd63f83c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099333"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061179"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -27,7 +27,7 @@ Cette rubrique montre comment afficher et traiter les alertes du Security Center
 Les détections avancées qui déclenchent des alertes de sécurité sont uniquement disponibles avec Azure Defender. Un essai gratuit est disponible. Pour effectuer la mise à niveau, consultez [activer Azure Defender](enable-azure-defender.md).
 
 ## <a name="what-are-security-alerts"></a>Que sont les alertes de sécurité ?
-Le Centre de sécurité collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure, du réseau et des solutions partenaires connectées, telles que les solutions de protection des points de terminaison et des pare-feu, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier.
+Security Center collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure, du réseau et des solutions de partenaires connectées, telles que les solutions de pare-feu et de protection des points de terminaison, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée des alertes de sécurité est affichée dans Security Center, ainsi que les informations dont vous avez besoin pour investiguer rapidement le problème et les mesures à prendre pour remédier à une attaque.
 
 Pour en savoir plus sur les différents types d’alertes, consultez [Alertes de sécurité – guide de référence](alerts-reference.md).
 

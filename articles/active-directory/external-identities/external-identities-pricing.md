@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2083df29754a8791848fd125136b04d1d7a06fb3
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713213"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467146"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
 
@@ -64,7 +64,9 @@ Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un loca
 7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement**, puis un **Groupe de ressources**. Ensuite, sélectionnez **Appliquer**.
 
    > [!NOTE]
-   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici**.
+   >
+   > * Vos 50 000 premiers utilisateurs actifs mensuels sont gratuits pour les fonctionnalités Premium P1 et Premium P2. Pour déterminer le nombre total d’utilisateurs actifs mensuels, nous combinons les utilisateurs actifs mensuels de tous vos locataires (Azure AD et Azure AD B2C) qui sont associés au même abonnement.
+    >* Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici**.
 
     ![Sélectionner un abonnement et un groupe de ressources](media/external-identities-pricing/link-subscription-resource.png)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: bd35af7ac6602bba7e23bd10eda2f2b0fdff71db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 41cc4c174028ff23cdcc248c6b10d746e5669349
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379751"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751232"
 ---
 # <a name="set-up-devops-deployment-for-single-tenant-azure-logic-apps"></a>Configurer le déploiement DevOps pour Azure Logic Apps monolocataire
 
@@ -23,7 +23,7 @@ Cet article explique comment déployer un projet d’application logique monoloc
 
 - Un projet d’application logique monolocataire créé avec [Visual Studio Code et l’extension Azure Logic Apps (standard)](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-  Si vous ne disposez pas déjà d’un projet ou d’une infrastructure d’application logique, vous pouvez utiliser les exemples de projets inclus pour déployer un exemple d’application et d’infrastructure, en fonction des options de source et de déploiement que vous préférez utiliser. Pour plus d’informations sur ces exemples de projets et les ressources incluses pour exécuter l’exemple d’application logique, consultez [Déployer votre infrastructure](#deploy-infrastructure).
+  Si vous n’avez pas encore configuré votre projet ou votre infrastructure d’application logique, vous pouvez utiliser les exemples de projets inclus pour déployer un exemple d’application et d’infrastructure, en fonction des options de source et de déploiement que vous préférez utiliser. Pour plus d’informations sur ces exemples de projets et les ressources incluses pour exécuter l’exemple d’application logique, consultez [Déployer votre infrastructure](#deploy-infrastructure).
 
 - Si vous souhaitez effectuer un déploiement sur Azure, vous avez besoin d’une ressource **Application logique (standard)** existante créée dans Azure. Pour créer rapidement une ressource d’application logique vide, consultez [Créer des workflows d’application logique monolocataire - Portail](create-single-tenant-workflows-azure-portal.md).
 
@@ -115,14 +115,13 @@ Après avoir poussé votre projet d’application logique vers votre dépôt sou
 
 ### <a name="build-your-project"></a>Générer votre projet
 
-Pour configurer un pipeline de build basé sur le type de projet de votre application logique, suivez les actions correspondantes :
+Pour configurer un pipeline de build basé sur le type de projet de votre application logique, effectuez les actions correspondantes répertoriées dans le tableau suivant :
 
-* Basé sur NuGet : la structure de projet NuGet est basée sur le .NET Framework. Pour générer ces projets, veillez à suivre les étapes de génération de .NET Standard. Pour plus d’informations, consultez la documentation [Créer un package NuGet avec MSBuild](/nuget/create-packages/creating-a-package-msbuild).
-
-* Basé sur un bundle : le projet d’extension basé sur un bundle n’est pas propre à un langage et ne nécessite aucune étape de génération propre au langage. Vous pouvez utiliser n’importe quelle méthode pour compresser vos fichiers projet.
-
-  > [!IMPORTANT]
-  > Assurez-vous que le fichier. zip comprend tous les dossiers de workflow, les fichiers de configuration, tels que host.json, connections.json et tout autre fichier associé.
+| Type de projet | Description et étapes |
+|--------------|-----------------------|
+| Basé sur NuGet | La structure de projet NuGet est basée sur .NET Framework. Pour générer ces projets, veillez à suivre les étapes de génération de .NET Standard. Pour plus d’informations, consultez la documentation [Créer un package NuGet avec MSBuild](/nuget/create-packages/creating-a-package-msbuild). |
+| Basé sur un lot | Le projet d’extension basé sur un lot n’est pas propre à un langage et ne nécessite aucune étape de génération propre au langage. Vous pouvez utiliser n’importe quelle méthode pour compresser vos fichiers projet. <p><p>**Important** : Assurez-vous que votre fichier .zip contient les véritables artefacts de build, y compris tous les dossiers de flux de travail, les fichiers config tels que host.json, connections.json et tout autre fichier connexe. |
+|||
 
 ### <a name="release-to-azure"></a>Publier sur Azure
 
@@ -135,48 +134,146 @@ Pour configurer un pipeline de mise en production qui effectue le déploiement s
 
 Pour les déploiements GitHub, vous pouvez déployer votre application logique avec [GitHub Actions](https://docs.github.com/actions), par exemple, l’action GitHub dans Azure Functions. Pour effectuer cette action, vous devez transmettre les informations suivantes :
 
-* Votre artefact de build
-* Nom d’application logique à utiliser pour le déploiement
-* Votre profil de publication
+- Nom d’application logique à utiliser pour le déploiement
+- Fichier zip qui contient vos véritables artefacts de build, y compris tous les dossiers de flux de travail, les fichiers config tels que host.json, connections.json et tout autre fichier connexe.
+- Votre [profil de publication](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), qui est utilisé pour l’authentification
 
 ```yaml
 - name: 'Run Azure Functions Action'
   uses: Azure/functions-action@v1
   id: fa
   with:
-   app-name: {your-logic-app-name}
-   package: '{your-build-artifact}.zip'
-   publish-profile: {your-logic-app-publish-profile}
+   app-name: 'MyLogicAppName'
+   package: 'MyBuildArtifact.zip'
+   publish-profile: 'MyLogicAppPublishProfile'
 ```
 
 Pour plus d’informations, consultez la documentation [Livraison continue avec GitHub Actions](../azure-functions/functions-how-to-github-actions.md).
 
 #### <a name="azure-devops"></a>[Azure DevOps](#tab/azure-devops)
 
-Pour les déploiements Azure DevOps, vous pouvez déployer votre application logique en utilisant la [tâche de déploiement d’application de fonction Azure](/devops/pipelines/tasks/deploy/azure-function-app) dans Azure Pipelines. Pour effectuer cette action, vous devez transmettre les informations suivantes :
+Pour les déploiements Azure DevOps, vous pouvez déployer votre application logique en utilisant la [tâche de déploiement d’application de fonction Azure](/azure/devops/pipelines/tasks/deploy/azure-function-app?view=azure-devops&preserve-view=true) dans Azure Pipelines. Pour effectuer cette action, vous devez transmettre les informations suivantes :
 
-* Votre artefact de build
-* Nom d’application logique à utiliser pour le déploiement
-* Votre profil de publication
+- Nom d’application logique à utiliser pour le déploiement
+- Fichier zip qui contient vos véritables artefacts de build, y compris tous les dossiers de flux de travail, les fichiers config tels que host.json, connections.json et tout autre fichier connexe.
+- Votre [profil de publication](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), qui est utilisé pour l’authentification
 
 ```yaml
 - task: AzureFunctionApp@1
   displayName: 'Deploy logic app workflows'
   inputs:
-     azureSubscription: '{your-service-connection}'
+     azureSubscription: 'MyServiceConnection'
      appType: 'workflowapp'
-     appName: '{your-logic-app-name}'
-     package: '{your-build-artifact}.zip'
+     appName: 'MyLogicAppName'
+     package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'
 ```
 
-Pour plus d’informations, consultez la documentation [Déployer une fonction Azure avec Azure Pipelines](/devops/pipelines/targets/azure-functions-windows).
+Pour plus d’informations, consultez la documentation [Déployer une fonction Azure avec Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows).
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Si vous utilisez d’autres outils de déploiement, vous pouvez déployer votre application logique avec les commandes Azure CLI pour Azure Logic Apps monolocataire. Par exemple, pour déployer votre artefact compressé sur un groupe de ressources Azure, exécutez la commande CLI suivante :
+Si vous utilisez d’autres outils de déploiement, vous pouvez déployer votre application logique monolocataire à l’aide de l’interface de ligne de commande Azure. Avant de commencer, vous devez disposer des éléments suivants :
 
-`az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip`
+- Extension Azure CLI la plus récente installée sur votre ordinateur local.
+
+  - Si vous n’êtes pas équipé de cette extension, consultez le [guide d’installation de votre système d’exploitation ou de votre plateforme](/cli/azure/install-azure-cli).
+
+  - Si vous n’êtes pas sûr de disposer de la dernière version, suivez les [étapes pour vérifier votre environnement et la version de l’interface CLI](#check-environment-cli-version).
+
+- Extension Azure Logic Apps monolocataire (Standard) *en préversion* pour Azure CLI.
+
+  Si vous n’avez pas cette extension, suivez les [étapes pour l’installer](#install-logic-apps-cli-extension). Bien qu’Azure Logic Apps monolocataire soit mis à la disposition générale, l’extension Azure Logic Apps monolocataire pour Azure CLI est encore en préversion.
+
+- Groupe de ressources Azure à utiliser pour le déploiement de votre application logique.
+
+  Si vous ne disposez pas de ce groupe de ressources, suivez les [étapes pour le créer](#create-resource-group).
+
+- Compte de stockage Azure à utiliser avec votre application logique pour la conservation des données et de l’historique des exécutions.
+
+  Si vous ne disposez pas de ce compte de stockage, suivez les [étapes pour en créer un](/cli/azure/storage/account#az_storage_account_create).
+
+<a name="check-environment-cli-version"></a>
+
+##### <a name="check-environment-and-cli-version"></a>Vérifier l’environnement et la version de l’interface CLI
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Dans un terminal ou une fenêtre de commande, vérifiez que votre abonnement est actif en exécutant la commande [`az login`](/cli/azure/authenticate-azure-cli) :
+
+   ```azurecli-interactive
+   az login
+   ```
+
+1. Dans un terminal ou une fenêtre de commande, vérifiez votre version d’Azure CLI en exécutant la commande `az` avec le paramètre obligatoire suivant :
+
+   ```azurecli-interactive
+   az --version
+   ```
+
+1. Si vous ne disposez pas de la dernière version d’Azure CLI, mettez à jour votre installation en suivant le [guide d’installation pour votre système d’exploitation ou votre plateforme](/cli/azure/install-azure-cli).
+
+   Pour plus d’informations sur la dernière version, consultez les [notes de publication les plus récentes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+
+<a name="install-logic-apps-cli-extension"></a>
+
+##### <a name="install-azure-logic-apps-standard-extension-for-azure-cli"></a>Installer l’extension Azure Logic Apps (Standard) pour Azure CLI
+
+Installez l’extension Azure Logic Apps monolocataire (Standard) *en préversion* pour Azure CLI en exécutant la commande `az extension add` avec les paramètres obligatoires suivants :
+
+```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+<a name="create-resource-group"></a>
+
+#### <a name="create-resource-group"></a>Créer un groupe de ressources
+
+Si vous n’avez pas encore configuré un groupe de ressources pour votre application logique, créez-en un en exécutant la commande `az group create`. À moins que vous n’ayez déjà défini un abonnement par défaut pour votre compte Azure, veillez à utiliser le paramètre `--subscription` avec le nom ou l’identificateur de votre abonnement. Sinon, vous n’avez pas besoin d’utiliser le paramètre `--subscription`.
+
+> [!TIP]
+> Pour définir un abonnement par défaut, exécutez la commande suivante et remplacez `MySubscription` par le nom ou l’identificateur de votre abonnement.
+>
+> `az account set --subscription MySubscription`
+
+Par exemple, la commande suivante crée un groupe de ressources nommé `MyResourceGroupName` à l’aide de l’abonnement Azure nommé `MySubscription` à l’emplacement `eastus` :
+
+```azurecli
+az group create --name MyResourceGroupName 
+   --subscription MySubscription 
+   --location eastus
+```
+
+Si votre groupe de ressources est correctement créé, la sortie affiche la valeur de `provisioningState` comme étant `Succeeded` :
+
+```output
+<...>
+   "name": "testResourceGroup",
+   "properties": {
+      "provisioningState": "Succeeded"
+    },
+<...>
+```
+
+<a name="deploy-logic-app"></a>
+
+##### <a name="deploy-logic-app"></a>Déployer l’application logique
+
+Pour déployer votre artefact compressé sur un groupe de ressources Azure, exécutez la commande `az logicapp deployment` avec les paramètres obligatoires suivants :
+
+> [!IMPORTANT]
+> Assurez-vous que votre fichier zip contient les artefacts de votre projet à la racine. Ces artefacts comprennent tous les dossiers de flux de travail, les fichiers config tels que host.json, connections.json et tout autre fichier associé. N’ajoutez pas de dossiers supplémentaires ni ne placez d’artefacts dans des dossiers qui n’existent pas déjà dans la structure de votre projet. Par exemple, cette liste montre un exemple de structure de fichier MyBuildArtifacts.zip :
+>
+> ```output
+> MyStatefulWorkflow1-Folder
+> MyStatefulWorkflow2-Folder
+> connections.json
+> host.json
+> ```
+
+```azurecli-interactive
+az logicapp deployment source config-zip --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --src MyBuildArtifact.zip
+```
 
 ---
 
@@ -188,7 +285,7 @@ Pour obtenir des exemples qui montrent comment implémenter un pipeline de dépl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [déploiement DevOps pour Azure Logic Apps monolocataire](devops-deployment-single-tenant-azure-logic-apps.md)
+- [déploiement DevOps pour Azure Logic Apps monolocataire](devops-deployment-single-tenant-azure-logic-apps.md)
 
 Nous aimerions que vous nous fassiez part de votre expérience avec Azure Logic Apps monolocataire.
 

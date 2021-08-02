@@ -4,12 +4,12 @@ description: En savoir plus sur les étapes requises pour mettre à niveau votre
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 329cfed646a2dbc2a417c1468895de62088058f6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316692"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077299"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
@@ -41,7 +41,7 @@ Le processus de migration est **permanent et ne peut pas être inversé**. Une f
 
 Si vous n’avez pas besoin de migrer une ressource existante et que vous souhaitez plutôt créer une ressource de Application Insights basée sur un espace de travail, utilisez le [Guide de création de ressources basé sur l’espace de travail](create-workspace-resource.md).
 
-## <a name="pre-requisites"></a>Conditions préalables 
+## <a name="pre-requisites"></a>Conditions préalables
 
 - Un espace de travail Log Analytics avec le mode de contrôle d’accès défini sur le **`use resource or workspace permissions`** paramètre. 
 
@@ -76,6 +76,9 @@ Une fois votre ressource migrée, les informations correspondantes de l’espace
 ![Nom de l’espace de travail](./media/create-workspace-resource/workspace-name.png)
 
 Le fait de cliquer sur le texte du lien bleu vous permet d’accéder à l’espace de travail Log Analytics associé dans lequel vous pouvez tirer parti du nouvel environnement de requête de l’espace de travail unifié.
+
+> [!NOTE]
+> Après avoir migré vers une ressource Application Insights basée sur un espace de travail, nous vous recommandons d’utiliser la [limite quotidienne de l’espace de travail](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) pour limiter l’ingestion et les coûts au lieu de la limite d’Application Insights.
 
 ## <a name="understanding-log-queries"></a>Comprendre les requêtes de journal
 

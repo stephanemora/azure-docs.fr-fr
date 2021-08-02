@@ -4,19 +4,19 @@ description: Décrit comment valider un point de terminaison HTTP, puis recevoir
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93494bc35099c2ef9cbc93ed6713d8a2608f2c4c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023711"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473436"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
 Cet article décrit comment [valider un point de terminaison HTTP](webhook-event-delivery.md) pour recevoir des événements à partir d’un abonnement à des événements, puis désérialiser des événements. Cet article utilise une fonction d’Azure à des fins de démonstration, mais les mêmes concepts s’appliquent quel que soit l’emplacement où l’application est hébergée.
 
 > [!NOTE]
-> Il est **fortement** recommandé d’utiliser un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) lors du déclenchement d’une fonction d’Azure avec Event Grid. L’utilisation d’un déclencheur Webhook générique ici est démonstrative.
+> Il est recommandé d’utiliser un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) lors du déclenchement d’une fonction d’Azure avec Event Grid. Il offre une intégration plus simple et plus rapide entre Event Grid et Azure Functions. Toutefois, notez que le déclencheur Event Grid d’Azure Functions ne prend pas en charge le scénario dans lequel le code hébergé doit contrôler le code d’état HTTP retourné à Event Grid. Compte tenu de cette limitation, votre code s’exécutant sur une fonction Azure n’est pas en mesure de retourner une erreur 5XX pour initier une nouvelle tentative de remise d’événements par Event Grid, par exemple.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 161000f2860a1153424a628a2b303f3717f828da
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ec0f439e8ad098e1fe2d14c3f61f98b387edf625
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275938"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477204"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Guide pratique pour utiliser le Stockage Files d’attente à partir de Node.js
 
@@ -42,7 +42,7 @@ La [bibliothèque de client Stockage Azure pour JavaScript](https://github.com/A
 
 1. Utilisez une interface de ligne de commande telle que PowerShell (Windows), Terminal (Mac) ou Bash (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d’application.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 1. Tapez `npm install @azure/storage-queue` dans la fenêtre de commande.
 
@@ -60,7 +60,7 @@ La [bibliothèque de client Stockage Azure pour JavaScript](https://github.com/A
 
 À l’aide de votre éditeur de code, ajoutez le code suivant au début du fichier JavaScript dans lequel vous avez l’intention d’utiliser des files d’attente.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ImportStatements":::
 
@@ -74,7 +74,7 @@ var azure = require('azure-storage');
 
 ## <a name="how-to-create-a-queue"></a>Création d’une file d’attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Le code suivant obtient la valeur d’une variable d’environnement appelée `AZURE_STORAGE_CONNECTION_STRING` et l’utilise pour créer un objet [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient). Cet objet est ensuite utilisé pour créer un [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) qui vous permet d’utiliser une file d’attente spécifique.
 
@@ -108,7 +108,7 @@ Si la file d’attente est créée, `result.created` a la valeur true. Si la fil
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Pour ajouter un message à une file d’attente, appelez la méthode [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-).
 
@@ -132,7 +132,7 @@ queueSvc.createMessage('myqueue', "Hello, World", function(error, results, respo
 
 Vous pouvez lire furtivement les messages dans la file d’attente sans les supprimer de la file d’attente en appelant la méthode `peekMessages`.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Par défaut, [`peekMessages`](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) lit furtivement un seul message. L’exemple suivant lit les cinq premiers messages de la file d’attente. Si moins de cinq messages sont visibles, seuls les messages visibles sont retournés.
 
@@ -160,7 +160,7 @@ L’appel de `peekMessages` lorsqu’il n’y a aucun message dans la file d’a
 
 L’exemple suivant met à jour le texte d’un message.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Modifiez le contenu d'un message placé dans la file d’attente en appelant [`updateMessage`](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
@@ -196,7 +196,7 @@ La suppression d’un message de la file d’attente se fait en deux étapes :
 
 L’exemple suivant récupère un message, puis le supprime.
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Pour récupérer un message, appelez la méthode [`receiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). Cet appel rend les messages invisibles dans la file d’attente, et aucun autre client ne peut les traiter. Lorsque votre application a traité un message, appelez [`deleteMessage`](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) pour supprimer le message de la file d’attente.
 
@@ -232,7 +232,7 @@ L’utilisation de `getMessages` lorsqu’il n’y a aucun message dans la file 
 
 ## <a name="additional-options-for-dequeuing-messages"></a>Options supplémentaires pour la suppression des messages dans la file d'attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Il existe deux méthodes pour personnaliser l'extraction d'un message d'une file d'attente :
 
@@ -273,7 +273,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 
 ## <a name="how-to-get-the-queue-length"></a>Obtention de la longueur de la file d’attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 La méthode [`getProperties`](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) renvoie des métadonnées sur la file d’attente, notamment le nombre approximatif de messages en attente dans la file d’attente.
 
@@ -295,7 +295,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 
 ## <a name="how-to-list-queues"></a>Liste des files d’attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Pour récupérer une liste de files d’attente, appelez [`QueueServiceClient.listQueues`](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix). Pour récupérer une liste filtrée à l’aide d’un préfixe spécifique, définissez [options.prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) dans votre appel à `listQueues`.
 
@@ -319,7 +319,7 @@ Si aucune file d’attente ne peut être renvoyée, transmettez `result.continua
 
 ## <a name="how-to-delete-a-queue"></a>Suppression d'une file d'attente
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[Kit SDK JavaScript v12](#tab/javascript)
 
 Pour supprimer une file d'attente et tous les messages qu’elle contient, appelez la méthode [`DeleteQueue`](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) sur l’objet `QueueClient`.
 

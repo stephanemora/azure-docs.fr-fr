@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419589"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538287"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
@@ -90,7 +90,7 @@ Si la propriété *imageAction* est définie sur une valeur autre que « none 
 
 ## <a name="image-related-skills"></a>Compétences liées à l’image
 
-Il existe deux compétences cognitives intégrées qui prennent des images en tant qu’entrée : la [reconnaissance optique des caractères](cognitive-search-skill-ocr.md) et l’[analyse d’image](cognitive-search-skill-image-analysis.md). 
+Pour accepter des images en tant qu’entrées, vous pouvez utiliser une compétence personnalisée ou des compétences intégrées. Les compétences intégrées sont l’[OCR](cognitive-search-skill-ocr.md) et l’[Analyse d’image](cognitive-search-skill-image-analysis.md). 
 
 Actuellement, ces compétences fonctionnent uniquement avec des images générées à partir de l’étape de décodage du document. Par conséquent, la seule entrée prise en charge est `"/document/normalized_images"`.
 
@@ -102,6 +102,21 @@ La [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
 
 La [compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md) extrait du texte de fichiers image, par exemple, aux formats JPG, PNG et bitmap. Elle peut extraire du texte ainsi que des informations de disposition. Les informations de disposition fournissent des rectangles englobants pour chacune des chaînes identifiées.
 
+### <a name="custom-skills"></a>Compétences personnalisées
+
+Des images peuvent également être transmises et retournées dans des compétences personnalisées. L’ensemble de compétences encode en base64 l’image transmise dans la compétence personnalisée. Pour utiliser l’image dans la compétence personnalisée, définissez `/document/normalized_images/*/data` comme entrée dans la compétence personnalisée. Dans votre code de compétence personnalisée, décodez en base64 la chaîne avant de la convertir en image. Pour retourner une image à l’ensemble de compétences, encodez-la en base64 au préalable.
+
+ L’image est retournée en tant qu’objet avec les propriétés suivantes.
+
+```json
+ { 
+  "$type": "file", 
+  "data": "base64String" 
+ }
+```
+
+Le référentiel d’[exemples Python pour Recherche Azure](https://github.com/Azure-Samples/azure-search-python-samples) présente un exemple complet implémenté en Python d’une compétence personnalisée qui enrichit les images.
+
 ## <a name="embedded-image-scenario"></a>Scénario d’image incorporée
 
 Un scénario courant implique la création d’une chaîne comprenant tous les contenus d’un fichier, tant le texte que le texte d’origine de l’image, en procédant comme suit :  
@@ -112,7 +127,8 @@ Un scénario courant implique la création d’une chaîne comprenant tous les c
 
 L’exemple suivant de jeu de jeu de compétences crée un champ *merged_text* comprenant le contenu textuel de votre document. Il inclut également le texte obtenu par reconnaissance optique des caractères de chacune des images incorporées. 
 
-#### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
+### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -213,13 +229,15 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
             return original;
         }
 ```
+
 ## <a name="passing-images-to-custom-skills"></a>Passage d’images aux compétences personnalisées
 
 Pour les scénarios où vous avez besoin d’une compétence personnalisée pour travailler sur les images, vous pouvez faire passer des images à la compétence personnalisée et faire en sorte qu’elle retourne du texte ou des images. [L’exemple Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) de traitement d’image illustre le workflow. L’ensemble de compétences suivant provient de l’exemple.
 
 L’ensemble de compétences suivant prend l’image normalisée (obtenue lors du craquage de document) et génère des tranches de l’image.
 
-#### <a name="sample-skillset"></a>Exemple d’ensemble de compétences
+### <a name="sample-skillset"></a>Exemple d’ensemble de compétences
+
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -253,7 +271,7 @@ L’ensemble de compétences suivant prend l’image normalisée (obtenue lors d
 }
 ```
 
-#### <a name="custom-skill"></a>Compétence personnalisée
+### <a name="custom-skill"></a>Compétence personnalisée
 
 La compétence personnalisée elle-même est externe à l’ensemble de compétences. Dans ce cas, il s’agit d’un code Python qui effectue une boucle complète sur le lot d’enregistrements des requêtes au format de la compétence personnalisée, puis convertit la chaîne encodée en Base64 en une image.
 
@@ -268,6 +286,7 @@ for value in values:
   jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
   # you now have an image to work with
 ```
+
 Comme pour le retour d’une image, une chaîne encodée en Base64 est retournée dans un objet JSON avec une propriété `$type` de `file`.
 
 ```python
@@ -286,6 +305,7 @@ def base64EncodeImage(image):
 ```
 
 ## <a name="see-also"></a>Voir aussi
+
 + [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer)
 + [Compétence d'analyse d'image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)

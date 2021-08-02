@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 05/25/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: f04a0ca4222ec86e793bf935247029fa78f1acf1
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627921"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494349"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -105,6 +105,13 @@ Sur la plateforme d’identités Microsoft (requêtes adressées au point de ter
 Le jeton d’accès est valide pendant une courte durée : il arrive généralement à expiration en une heure. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, en fonction du type d’application, l’utilisateur peut devoir entrer à nouveau ses informations d’identification ou accepter une nouvelle fois les autorisations.
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page [Référence sur le protocole de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
+
+## <a name="incremental-and-dynamic-consent"></a>Consentement incrémentiel et dynamique
+Avec le point de terminaison de la Plateforme d’identités Microsoft, vous pouvez ignorer les autorisations statiques définies dans les informations d’inscription de l’application du portail Azure et demander à la place des autorisations de façon incrémentielle.  Vous pouvez demander dès le départ un ensemble minimal d’autorisations, puis en demander plus ultérieurement quand le client utilise des fonctionnalités d’application supplémentaires. Pour cela, vous pouvez spécifier les étendues dont votre application a besoin à tout moment en incluant les nouvelles étendues dans le paramètre `scope` quand vous [demandez un jeton d’accès](#requesting-individual-user-consent), sans qu’il soit nécessaire de les définir au préalable dans les informations d’inscription de l’application. Si l’utilisateur n’a pas encore consenti aux nouvelles étendues ajoutées à la demande, il est invité à donner son consentement seulement aux nouvelles autorisations. Consentement incrémentiel ou dynamique, s’applique uniquement aux autorisations déléguées et pas aux permissions d’application.
+
+En permettant à l’application de demander des autorisations de façon dynamique grâce au paramètre `scope`, les développeurs maîtrisent totalement l’expérience de vos utilisateurs. Vous pouvez aussi anticiper l’expérience de consentement et demander toutes les autorisations dans une même demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez les demander à l’utilisateur de façon incrémentielle quand il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
+
+Quand il est recueilli pour le compte d’une organisation, le [consentement de l’administrateur](#using-the-admin-consent-endpoint) nécessite encore les autorisations statiques inscrites pour l’application. Par conséquent, vous devez définir ces autorisations pour les applications dans le portail d’inscription des applications si vous avez besoin qu’un administrateur donne son consentement pour le compte de toute l’organisation. Ainsi, les cycles nécessaires à l’administrateur de l’organisation pour configurer l’application sont réduits.
 
 ## <a name="requesting-individual-user-consent"></a>Demande de consentement d’utilisateur individuel
 

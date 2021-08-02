@@ -1,6 +1,6 @@
 ---
-title: Configurer le plan de récupération d’urgence Windows Virtual Desktop - Azure
-description: Comment configurer un plan de continuité d'activité et reprise d'activité pour le déploiement de Windows Virtual Desktop.
+title: Configuration du plan de reprise d’activité d’Azure Virtual Desktop – Azure
+description: Guide pratique pour configurer un plan de continuité d’activité et reprise d’activité dans un déploiement Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 18089bc00e9d02087acb149511fbc2c55077c153
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446925"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757892"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Configurer un plan de continuité d’activité et la reprise d’activité (BCDR)
 
 Pour garantir la sécurité des données de votre organisation, vous devrez peut-être adopter une stratégie de continuité d'activité et reprise d'activité (BCDR). Une stratégie BCDR solide permet aux applications et à la charge de travail de fonctionner pendant les interruptions de service planifiées et non planifiées.
 
-Windows Virtual Desktop propose BCDR pour le service Windows Virtual Desktop afin de préserver les métadonnées client pendant les pannes. Lorsqu’une panne se produit dans une région, les composants de l’infrastructure de service basculent vers l’emplacement secondaire et continuent de fonctionner normalement. Vous pouvez toujours accéder aux métadonnées relatives au service, et les utilisateurs peuvent toujours se connecter aux hôtes disponibles. Les connexions de l’utilisateur final resteront en ligne tant que l’environnement ou les hôtes du locataire resteront accessibles.
+Le service Azure Virtual Desktop propose une fonctionnalité de BCDR pour préserver les métadonnées client en cas d’interruption. Lorsqu’une panne se produit dans une région, les composants de l’infrastructure de service basculent vers l’emplacement secondaire et continuent de fonctionner normalement. Vous pouvez toujours accéder aux métadonnées relatives au service, et les utilisateurs peuvent toujours se connecter aux hôtes disponibles. Les connexions de l’utilisateur final resteront en ligne tant que l’environnement ou les hôtes du locataire resteront accessibles.
 
 Pour vous assurer que les utilisateurs peuvent toujours se connecter pendant une panne de région, vous devez répliquer leurs machines virtuelles à un autre emplacement. En cas de panne, le site principal bascule vers les machines virtuelles répliquées dans l’emplacement secondaire. Les utilisateurs peuvent continuer à accéder aux applications à partir de l’emplacement secondaire sans interruption. En plus de la réplication de machine virtuelle, vous devez conserver les identités utilisateur accessibles à l’emplacement secondaire. Si vous utilisez des conteneurs de profils, vous devrez également les répliquer. Enfin, assurez-vous que vos applications d’entreprise qui reposent sur les données de l’emplacement principal peuvent basculer avec le reste des données.
 
@@ -40,17 +40,17 @@ Tout d’abord, vous devez répliquer vos machines virtuelles vers l’emplaceme
 
 Nous vous recommandons d’utiliser [Azure Site Recovery](../site-recovery/site-recovery-overview.md) pour gérer la réplication de machines virtuelles dans d’autres emplacements Azure, comme décrit dans [Architecture de récupération d’urgence Azure vers Azure](../site-recovery/azure-to-azure-architecture.md). Nous vous recommandons d’utiliser Azure Site Recovery pour les pools d’hôtes personnels, car Azure Site Recovery prend en charge à la fois [les SKU serveur et ceux basés sur le client](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
-Si vous utilisez Azure Site Recovery, vous n’avez pas besoin d’inscrire ces machines virtuelles manuellement. L’agent Windows Virtual Desktop de la machine virtuelle secondaire utilise automatiquement le dernier jeton de sécurité pour se connecter à l’instance de service la plus proche. La machine virtuelle (hôte de session) dans l’emplacement secondaire devient automatiquement une partie du pool d’hôtes. L’utilisateur final doit se reconnecter en cours de route, mais en dehors de cela, aucune autre opération manuelle n’est nécessaire.
+Si vous utilisez Azure Site Recovery, vous n’avez pas besoin d’inscrire ces machines virtuelles manuellement. L’agent Azure Virtual Desktop de la machine virtuelle secondaire utilise automatiquement le dernier jeton de sécurité pour se connecter à l’instance de service la plus proche. La machine virtuelle (hôte de session) dans l’emplacement secondaire devient automatiquement une partie du pool d’hôtes. L’utilisateur final doit se reconnecter en cours de route, mais en dehors de cela, aucune autre opération manuelle n’est nécessaire.
 
 S’il existe des connexions utilisateur existantes pendant la panne, avant que l’administrateur puisse démarrer le basculement vers la région secondaire, vous devez mettre fin aux connexions utilisateur dans la région actuelle.
 
-Pour déconnecter les utilisateurs dans Windows Virtual Desktop (classique), exécutez cette applet de commande :
+Pour déconnecter les utilisateurs dans Azure Virtual Desktop (classique), exécutez cette cmdlet :
 
 ```powershell
 Invoke-RdsUserSessionLogoff
 ```
 
-Pour déconnecter des utilisateurs dans la version intégrée à Azure de Windows Virtual Desktop, exécutez cette applet de commande :
+Pour déconnecter les utilisateurs dans la version intégrée à Azure d’Azure Virtual Desktop, exécutez cette cmdlet :
 
 ```powershell
 Remove-AzWvdUserSession
@@ -84,7 +84,7 @@ Si vous utilisez des conteneurs de profils, l’étape suivante consiste à rép
    - Azure NetApp Files
    - Cloud Cache pour la réplication
 
-Pour davantage d’informations, consultez [Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).
+Pour plus d’informations, consultez [Options de stockage des conteneurs de profils FSLogix dans Azure Virtual Desktop](store-fslogix-profile.md).
 
 Si vous configurez la récupération d’urgence pour les profils, vous avez le choix entre les options suivantes :
 

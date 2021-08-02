@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 9936d1f9ce99103a2217d4b6adcc1ded6c403811
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 6f732f7c59f76c99d82d5c4f7b062532c60a5a78
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737242"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164025"
 ---
 Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil sont différentes.
 
@@ -82,7 +82,7 @@ Suivez cette procédure pour effectuer une connexion distante depuis un client W
     [1HXQG13.wdshcsso.com]: PS>
     ```
 
-Lorsque vous utilisez l’option `-UseSSL`, vous utilisez la communication à distance via PowerShell sur *https*. Nous vous recommandons de toujours utiliser le *protocole HTTPS* pour vous connecter à distance via PowerShell.
+Lorsque vous utilisez l’option `-UseSSL`, vous utilisez la communication à distance via PowerShell sur *https*. Nous vous recommandons de toujours utiliser le *protocole HTTPS* pour vous connecter à distance via PowerShell. Dans les réseaux approuvés, la communication à distance via PowerShell sur http est acceptable. Vous activez d’abord PowerShell à distance sur http dans l’interface utilisateur locale. Vous pouvez ensuite vous connecter à l’interface PowerShell de l’appareil à l’aide de la procédure précédente sans l’option `-UseSSL`.
 
 Si vous n’utilisez pas les certificats (nous vous recommandons fortement de les utiliser !), vous pouvez ignorer la vérification de la validation du certificat en utilisant les options de session : `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
 

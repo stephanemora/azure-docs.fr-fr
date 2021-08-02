@@ -1,18 +1,18 @@
 ---
-title: Qu'est-ce qu’une version d'évaluation ? Marketplace commercial Microsoft
-description: Description de la fonctionnalité Version d’évaluation du marketplace
+title: Qu’est-ce qu’une version d’évaluation dans Microsoft AppSource ?
+description: Explication de la fonctionnalité de version d’évaluation de Microsoft AppSource.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 06/19/2020
-ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 12/08/2020
+ms.openlocfilehash: 5fba64beff10f59be42776cc87cf6f37922295dd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818887"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949068"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
@@ -61,7 +61,7 @@ Ce modèle de déploiement contient toutes les ressources Azure constituant votr
 Une version d’évaluation hébergée simplifie la configuration en permettant à Microsoft d’héberger et de gérer le service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation. Si vous disposez d’une offre sur Microsoft AppSource, créez votre version d’évaluation pour vous connecter à une instance Dynamics AX/CRM. Vous pouvez utiliser les types d’offres AppSource suivants :
 
 - Utilisez [Dynamics 365 pour Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md) pour un système d’engagement des clients tel que les ventes, le service, le service de projet et le service sur le terrain.
-- Utilisez [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) pour un système de planification des ressources d’entreprise dans le domaine des finances et des opérations, comme les finances, les opérations, la fabrication et la chaîne logistique.
+- Utilisez [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) pour un système de planification des ressources d’entreprise dans le domaine des finances et des opérations, comme les finances, les opérations, la fabrication et la chaîne logistique.
 
 ### <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 
@@ -94,6 +94,6 @@ Ressources supplémentaires pour version d’évaluation :
 - [Test drive des meilleures pratiques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Configuration technique de la version d’évaluation](test-drive-technical-configuration.md)

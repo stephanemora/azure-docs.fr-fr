@@ -12,29 +12,31 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 27c2ab96106bbfcc05b8fa12daf9b6f7b816c5c7
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: e6bc27674cadc8798afa3f9f9297b0d573d7ce64
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579983"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071050"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Créer et gérer des connexions Active Directory pour Azure NetApp Files
 
-Plusieurs fonctionnalités d’Azure NetApp Files requièrent une connexion Active Directory.  Par exemple, vous devez disposer d’une connexion Active Directory pour pouvoir créer un [volume SMB](azure-netapp-files-create-volumes-smb.md) ou un [volume à double protocole](create-volumes-dual-protocol.md).  Cet article explique comment créer et gérer des connexions Active Directory pour Azure NetApp Files.
+Plusieurs fonctionnalités d’Azure NetApp Files requièrent une connexion Active Directory.  Par exemple, vous devez disposer d’une connexion Active Directory pour pouvoir créer un [volume SMB](azure-netapp-files-create-volumes-smb.md), un [volume Kerberos NFSv4.1](configure-kerberos-encryption.md) ou un [volume à deux protocoles](create-volumes-dual-protocol.md).  Cet article explique comment créer et gérer des connexions Active Directory pour Azure NetApp Files.
 
 ## <a name="before-you-begin"></a>Avant de commencer  
 
-Vous devez déjà avoir configuré un pool de capacité.   
-[Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)   
-Un sous-réseau doit être délégué à Azure NetApp Files.  
-[Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* Vous devez déjà avoir configuré un pool de capacité. Consultez [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
+* Un sous-réseau doit être délégué à Azure NetApp Files. Consultez [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="requirements-for-active-directory-connections"></a>Configuration requise pour les connexions Active Directory
 
- La configuration requise pour les connexions Active Directory est la suivante : 
+* Vous ne pouvez configurer qu’une seule connexion Active Directory (AD) par abonnement et par région.   
+
+    Azure NetApp Files ne prend pas en charge plusieurs connexions AD dans une seule et même *région*, même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même abonnement si les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts.  
+
+    La connexion AD est visible uniquement via le compte NetApp dans lequel elle est créée. Toutefois, vous pouvez activer la fonctionnalité « AD partagé » pour permettre aux comptes NetApp qui dépendent du même abonnement et de la même région d’utiliser un serveur AD créé dans l’un des comptes NetApp. Consultez [Mapper plusieurs comptes NetApp d’un même abonnement et d’une même région à une connexion AD](#shared_ad). Lorsque vous activez cette fonctionnalité, la connexion AD devient visible dans tous les comptes NetApp associés au même abonnement et à la même région. 
 
 * Le compte d’administrateur que vous utilisez doit avoir la capacité de créer des comptes d’ordinateur dans le chemin de l’unité d’organisation (UO) que vous allez spécifier.  
 
@@ -134,6 +136,8 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
 1. À partir de votre compte NetApp, cliquez sur **Connexions Active Directory**, puis sur **Rejoindre**.  
 
+    Azure NetApp Files ne prend en charge qu’une seule connexion Active Directory dans la même région et le même abonnement. Si Active Directory est déjà configuré par un autre compte NetApp dans le même abonnement et la même région, vous ne pouvez pas configurer et joindre un autre répertoire Active Directory à partir de votre compte NetApp. Cependant, vous pouvez activer la fonctionnalité « AD partagé » pour autoriser le partage d’une configuration Active Directory par plusieurs comptes NetApp au sein du même abonnement et de la même région. Consultez [Mapper plusieurs comptes NetApp d’un même abonnement et d’une même région à une connexion AD](#shared_ad).
+
     ![Connexions Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
 2. Dans la fenêtre Joindre Active Directory, entrez les informations suivantes, en fonction des services de domaine que vous voulez utiliser :  
@@ -166,8 +170,10 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         ![Rejoindre Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **Chiffrement AES**   
-        Sélectionnez cette case à cocher si vous voulez activer le chiffrement AES pour un volume SMB. Voir [Configuration requise pour les connexions Active Directory](#requirements-for-active-directory-connections) pour les exigences. 
-
+        Cochez cette case si vous souhaitez activer le chiffrement AES pour l’authentification AD ou si vous avez besoin du [chiffrement pour les volumes SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
+        
+        Voir [Configuration requise pour les connexions Active Directory](#requirements-for-active-directory-connections) pour les exigences.  
+  
         ![Chiffrement AES Active Directory](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
         La fonctionnalité de **Chiffrement AES** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
@@ -243,7 +249,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription.  
 
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
@@ -255,6 +261,28 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
     ![Connexions Active Directory créées](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
+## <a name="map-multiple-netapp-accounts-in-the-same-subscription-and-region-to-an-ad-connection"></a><a name="shared_ad"></a>Mapper plusieurs comptes NetApp d’un même abonnement et d’une même région à une connexion AD  
+
+La fonctionnalité « AD partagé » permet à tous les comptes NetApp de partager une connexion Active Directory (AD) créée par l’un des comptes NetApp appartenant au même abonnement et à la même région. Par exemple, grâce à cette fonctionnalité, tous les comptes NetApp du même abonnement et de la même région peuvent utiliser la configuration AD commune pour créer un [volume SMB](azure-netapp-files-create-volumes-smb.md), un [volume Kerberos NFSv4.1](configure-kerberos-encryption.md) ou un [volume à deux protocoles](create-volumes-dual-protocol.md). Avec cette fonctionnalité, la connexion AD est visible sur tous les comptes NetApp associés au même abonnement et à la même région.   
+
+Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Vous devez inscrire la fonctionnalité avant de l’utiliser pour la première fois. Après l’inscription, la fonctionnalité est activée et fonctionne en arrière-plan. Aucun contrôle de l’interface utilisateur n’est nécessaire. 
+
+1. Inscrivez la fonctionnalité : 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+
+2. Vérifiez l’état d’inscription de la fonctionnalité : 
+
+    > [!NOTE]
+    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    ```
+Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+ 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 * [Créer un volume SMB](azure-netapp-files-create-volumes-smb.md)

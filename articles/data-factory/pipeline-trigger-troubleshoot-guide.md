@@ -7,12 +7,12 @@ ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: d9827eab8c9d6187c78a979591f2c7ee0cad99e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aaaa9f2e82bb8db0ce4851359d7fb97d475f4e98
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741884"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812732"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -190,6 +190,16 @@ Des messages d’erreur liés à de longues files d’attente peuvent apparaîtr
 * Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](./data-flow-troubleshoot-guide.md).
 * Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](./data-factory-troubleshoot-guide.md).
 * Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](./ssis-integration-runtime-management-troubleshoot.md)
+
+### <a name="error-message---codebadrequest-messagenull"></a>Message d’erreur : "code":"BadRequest", "message":"null"
+
+**Cause**
+
+Il s’agit d’une erreur de l’utilisateur, car la charge utile JSON qui atteint management.azure.com est corrompue. Aucun journal ne sera stocké, car l’appel de l’utilisateur n’a pas atteint la couche de service ADF.
+
+**Résolution :**
+
+Effectuez le traçage réseau de votre appel d’API à partir du portail ADF à l’aide des **outils de développement** du navigateur Edge ou Chrome. Vous verrez la charge utile JSON incriminée, qui peut être due à des caractères spéciaux (par exemple $), des espaces et d’autres types d’entrées utilisateur. Une fois que vous avez corrigé l’expression de la chaîne, vous continuez avec les autres appels d’utilisation d’ADF dans le navigateur.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

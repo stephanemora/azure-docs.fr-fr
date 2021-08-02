@@ -13,18 +13,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a3015fa2c078232ca9c37c2b0ce0ded313c859
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d037f93b1381fcd7f1816104f6fd7b2e1200c852
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480830"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438933"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
 
-Azure Active Directory (Azure AD) introduit une préversion publique dans laquelle vous pouvez attribuer un groupe cloud à des rôles intégrés Azure AD. Grâce à cette fonctionnalité, vous pouvez utiliser des groupes pour accorder un accès administrateur dans Azure AD avec le minimum d’effort de la part de vos administrateurs généraux et administrateurs de rôle privilégié.
+Azure Active Directory (Azure AD) introduit une préversion publique dans laquelle vous pouvez attribuer un groupe cloud à des rôles intégrés Azure AD. Grâce à cette fonctionnalité, vous pouvez utiliser des groupes pour accorder un accès administrateur dans Azure AD avec le minimum d’effort de la part de vos Administrateurs généraux et Administrateurs de rôle privilégié.
 
-Examinez cet exemple : Contoso a recruté des personnes pour toutes les zones géographiques afin de gérer et réinitialiser les mots de passe des employés de son organisation Azure AD. Au lieu de demander à un Administrateur de rôle privilégié ou à un Administrateur général d’attribuer le rôle Administrateur de mot de passe à chaque personne individuellement, il peut créer un groupe Contoso_Helpdesk_Administrators et l’attribuer au rôle. Lorsque des personnes rejoignent le groupe, elles se voient attribuer le rôle indirectement. Votre workflow de gouvernance actuel peut ensuite prendre en charge le processus d’approbation et l’audit de l’appartenance du groupe pour s’assurer que seuls les utilisateurs légitimes sont membres du groupe et donc affectés au rôle Administrateur de mot de passe.
+Examinez cet exemple : Contoso a recruté des personnes pour toutes les zones géographiques afin de gérer et réinitialiser les mots de passe des employés de son organisation Azure AD. Plutôt que de demander à un Administrateur de rôle privilégié ou à un Administrateur général d’attribuer le rôle Administrateur du support technique à chaque personne individuellement, il peut créer un groupe Contoso_Helpdesk_Administrators et l’attribuer au rôle. Lorsque des personnes rejoignent le groupe, elles se voient attribuer le rôle indirectement. Votre workflow de gouvernance actuel peut ensuite prendre en charge le processus d’approbation et l’audit de l’appartenance du groupe pour s’assurer que seuls les utilisateurs légitimes sont membres du groupe et donc affectés au rôle Administrateur du support technique.
 
 ## <a name="how-this-feature-works"></a>Principe de la fonctionnalité
 
@@ -37,14 +37,14 @@ Si vous ne souhaitez pas que les membres du groupe disposent d’un accès perma
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Avantages de la création d’un groupe spécial pour l’attribution d’un rôle
 
-Si un rôle est attribué à un groupe, tout administrateur informatique qui peut gérer l’appartenance au groupe peut également gérer indirectement l’appartenance à ce rôle. Par exemple, supposons qu’un groupe Contoso_User_Administrators est affecté au rôle Administrateur de compte d’utilisateur. Un Administrateur Exchange qui peut modifier l’appartenance au groupe peut s’ajouter au groupe Contoso_User_Administrators et devenir ainsi un Administrateur de compte d’utilisateur. Comme vous pouvez le voir, un administrateur peut élever ses privilèges d’une manière que vous n’aviez pas prévue.
+Si un rôle est attribué à un groupe, tout administrateur informatique qui peut gérer l’appartenance au groupe peut également gérer indirectement l’appartenance à ce rôle. Par exemple, supposons qu’un groupe Contoso_User_Administrators est affecté au rôle Administrateur d’utilisateurs. Un Administrateur Exchange qui peut modifier l’appartenance au groupe peut s’ajouter au groupe Contoso_User_Administrators et devenir ainsi Administrateur d’utilisateurs. Comme vous pouvez le voir, un administrateur peut élever ses privilèges d’une manière que vous n’aviez pas prévue.
 
 Azure AD vous permet de protéger un groupe affecté à un rôle à l’aide d’une nouvelle propriété appelée isAssignableToRole pour les groupes. Seuls les groupes cloud dont la propriété isAssignableToRole a la valeur « true » au moment de la création peuvent être affectés à un rôle. Cette propriété est non modifiable ; une fois qu’un groupe a été créé avec cette propriété définie sur « true », il ne peut pas être modifié. Vous ne pouvez pas définir la propriété sur un groupe existant. Nous avons conçu la manière dont les groupes sont affectés aux rôles afin d’éviter des violations potentielles :
 
-- Seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent créer un groupe assignable à un rôle (avec la propriété « isAssignableToRole » activée).
+- Seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent créer un groupe attribuable à un rôle (avec la propriété « isAssignableToRole » activée).
 - Il ne peut pas s’agir d’un groupe dynamique Azure AD ; autrement dit, il doit avoir le type d’appartenance « Assigned ». L’alimentation automatisée de groupes dynamiques peut entraîner l’ajout d’un compte indésirable au groupe et don son affectation au rôle.
-- Par défaut, seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent gérer l’appartenance à un groupe assignable à un rôle, mais vous pouvez déléguer la gestion des groupes assignables à un rôle en leur ajoutant des propriétaires de groupe.
-- Pour empêcher une élévation des privilèges, les informations d’identification des membres et propriétaires d’un groupe assignable à un rôle ne peuvent être modifiées que par un Administrateur d’authentification privilégié ou un Administrateur général.
+- Par défaut, seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent gérer l’appartenance à un groupe attribuable à un rôle, mais vous pouvez déléguer la gestion des groupes attribuables à un rôle en leur ajoutant des propriétaires de groupe.
+- Pour empêcher une élévation des privilèges, seul un Administrateur de rôle privilégié ou un Administrateur général peut modifier les informations d’identification ou réinitialiser l’authentification multifacteur pour les membres et propriétaires d’un groupe attribuable à un rôle.
 - Aucune imbrication. Un groupe ne peut pas être ajouté en tant que membre d’un groupe assignable à un rôle.
 
 ## <a name="limitations"></a>Limites
@@ -66,9 +66,9 @@ Les scénarios suivants ne sont pas pris en charge pour le moment :
 
 Nous travaillons à corriger ces problèmes.
 
-## <a name="required-license-plan"></a>Plan de licence obligatoire
+## <a name="license-requirements"></a>Conditions de licence :
 
-Pour utiliser cette fonctionnalité, vous devez disposer d’une licence Azure AD Premium P1 dans votre organisation Azure AD. Afin d’utiliser également Privileged Identity Management pour l’activation de rôle juste-à-temps, vous devez disposer d’une licence Azure AD Premium P2. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des plans Gratuit et Premium](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses).
+L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. En outre, l’utilisation de Privileged Identity Management à des fins d’activation de rôle juste-à-temps requiert une licence Azure AD Premium P2. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

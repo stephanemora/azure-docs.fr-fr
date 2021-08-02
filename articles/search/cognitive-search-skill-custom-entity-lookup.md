@@ -8,18 +8,29 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 0f233bdff54822037d15fde9ac62e34193794ad3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 68e4949fe0ef0b10018cd3827e259028c37d5b5c
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110306"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019086"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill"></a>Compétence cognitive Recherche d’entité personnalisée
 
 La compétence **Recherche d'entité personnalisée** recherche du texte dans une liste de mots et d'expressions personnalisée et définie par l'utilisateur. À l'aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes.  
 
-Cette compétence n'est pas liée à une API Cognitive Services et peut être utilisée gratuitement pendant toute la durée de la préversion. Vous devez néanmoins [joindre une ressource Cognitive Services](./cognitive-search-attach-cognitive-services.md) pour passer outre la limite d'enrichissement quotidienne. La limite quotidienne s'applique à l'accès gratuit à Cognitive Services via Recherche cognitive Azure.
+Cette compétence n’est pas liée à une API de Cognitive Services. Vous devez néanmoins [joindre une ressource Cognitive Services](./cognitive-search-attach-cognitive-services.md) pour passer outre la limite d'enrichissement quotidienne. La limite quotidienne s'applique à l'accès gratuit à Cognitive Services via Recherche cognitive Azure.
+
+## <a name="pricing-details"></a>Détails de la tarification
+
+Les enregistrements texte correspondent au nombre d’unités de 1 000 caractères dans un document qui est fourni en entrée à la compétence.
+
+|  Niveau tarifaire  |        Price  |
+|--------------|----------------------|
+| 0 à 500 000 enregistrements texte | 1 USD par unité de 1 000 enregistrements texte |
+| 0,5 million à 2,5 millions d’enregistrements texte | 0,75 USD par unité de 1 000 enregistrements texte |
+| 2,5 millions à 10 millions d’enregistrements texte | 0,30 USD par unité de 1 000 enregistrements texte |
+| Plus de 10 millions d’enregistrements texte | 0,25 USD par unité de 1 000 enregistrements texte |
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -308,4 +319,4 @@ Cet avertissement s’affiche si le nombre de correspondances détectées est su
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
-+ [Compétence de reconnaissance d'entités (pour rechercher des entités bien connues)](cognitive-search-skill-entity-recognition.md)
++ [Compétence de reconnaissance d'entités (pour rechercher des entités bien connues)](cognitive-search-skill-entity-recognition-v3.md)

@@ -2,13 +2,13 @@
 title: Gérer les sauvegardes de partage de fichiers Azure avec l'interface de ligne de commande Azure
 description: Découvrez comment utiliser l'interface de ligne de commande Azure pour gérer et superviser les partages de fichiers Azure sauvegardés par Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: e389f5cde12734ef4bf0be4ecfba69ba33f5e030
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/10/2021
+ms.openlocfilehash: 9ddee7e0e7595d4606d077f33362344fe582d9a8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773600"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902966"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gérer les sauvegardes de partage de fichiers Azure avec l'interface de ligne de commande Azure
 
@@ -88,6 +88,98 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
     "type": "Microsoft.RecoveryServices/vaults/backupJobs"
   }
 ]
+```
+## <a name="create-policy"></a>Créer une stratégie
+
+Vous pouvez créer une stratégie de sauvegarde en exécutant la commande [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest&preserve-view=true#az_backup_policy_create) avec les paramètres suivants :
+
+- --backup-management-type – Azure Storage
+- --workload-type - AzureFileShare
+- --name : nom de la stratégie
+- --policy : fichier JSON contenant les détails appropriés pour la planification et la conservation
+- --resource-group : groupe de ressources du coffre
+- --vault-name : nom du coffre
+
+**Exemple**
+
+```azurecli-interactive
+az backup policy create --resource-group azurefiles --vault-name azurefilesvault --name schedule20 --backup-management-type AzureStorage --policy samplepolicy.json --workload-type AzureFileShare
+
+```
+
+**Exemple JSON (samplepolicy.json)**
+
+```json
+{
+  "eTag": null,
+  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupPolicies/schedule20",
+  "location": null,
+  "name": "schedule20",
+  "properties": {
+    "backupManagementType": "AzureStorage",
+    "protectedItemsCount": 0,
+    "retentionPolicy": {
+      "dailySchedule": {
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      },
+      "monthlySchedule": null,
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "weeklySchedule": null,
+      "yearlySchedule": null
+    },
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunDays": null,
+      "scheduleRunFrequency": "Daily",
+      "scheduleRunTimes": [
+        "2020-01-05T08:00:00+00:00"
+      ],
+      "scheduleWeeklyFrequency": 0
+    },
+    "timeZone": "UTC",
+    "workLoadType": “AzureFileShare”
+  },
+  "resourceGroup": "azurefiles",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+}
+```
+
+Une fois la stratégie créée, la sortie de la commande affiche le code JSON associé que vous avez passé en paramètre lors de l’exécution de la commande.
+
+Vous pouvez modifier les sections schedule et retention de la stratégie selon vos besoins.
+
+**Exemple**
+
+Si vous souhaitez conserver la sauvegarde du premier dimanche de chaque mois pendant deux mois, mettez à jour monthlySchedule comme suit :
+
+```json
+"monthlySchedule": {
+        "retentionDuration": {
+          "count": 2,
+          "durationType": "Months"
+        },
+        "retentionScheduleDaily": null,
+        "retentionScheduleFormatType": "Weekly",
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Sunday"
+          ],
+          "weeksOfTheMonth": [
+            "First"
+          ]
+        },
+        "retentionTimes": [
+          "2020-01-05T08:00:00+00:00"
+        ]
+      }
+
 ```
 
 ## <a name="modify-policy"></a>Modifier la stratégie

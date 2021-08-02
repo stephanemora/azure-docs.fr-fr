@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e1d7bba91ca9283b00432a06e24d1b8beaa49fc
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370438"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811312"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -58,6 +58,10 @@ login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentific
 *.automation.ext.azure.com | Autorise l’activation de la mise à niveau automatique de l’agent de mobilité pour un élément répliqué via le portail
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Connectivité sortante à l’aide d’étiquettes de service
+
+Outre le contrôle des URL, vous pouvez également utiliser des étiquettes de service pour contrôler la connectivité. Pour ce faire, vous devez d’abord créer un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/network-security-group-how-it-works) dans Azure. Une fois qu’il est créé, vous devez utiliser nos étiquettes de service existantes et créer une règle de groupe de sécurité réseau pour autoriser l’accès aux services Azure Site Recovery. 
+
+Par rapport au contrôle de la connectivité à l’aide d’adresses IP, l’avantage d’utiliser des étiquettes de service pour contrôler la connectivité est qu’il n’existe aucune dépendance dure sur une adresse IP particulière pour rester connecté à nos services. Dans un tel scénario, si l’adresse IP de l’un de nos services change, la réplication en cours n’est pas affectée pour vos machines. En revanche, une dépendance vis-à-vis d’adresses IP codées en dur entraîne un état critique de la réplication et expose vos systèmes à des risques. De plus, les étiquettes de service garantissent une sécurité, une stabilité et une résilience accrues par rapport aux adresses IP codées en dur.
 
 Quand vous utilisez un groupe de sécurité réseau pour contrôler la connectivité sortante, ces étiquettes de services doivent être autorisées.
 

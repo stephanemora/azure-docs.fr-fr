@@ -1,14 +1,15 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
-description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
+description: Découvrez comment superviser toute l’activité de la délégation Azure Lighthouse sur votre locataire gérant.
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 4280e83ef0fc44310aabc2d8d5d9e04044322d4d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2472e7519a6c45ff62fb0c0280f0886b4aa0ff4d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786152"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077697"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 

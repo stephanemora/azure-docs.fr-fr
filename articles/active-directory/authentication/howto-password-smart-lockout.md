@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce0916d4107fdcf97875d1c6a428bbfa75164a65
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255371"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068503"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -24,7 +24,7 @@ Le verrouillage intelligent empêche les personnes malveillantes de deviner vos 
 
 ## <a name="how-smart-lockout-works"></a>Fonctionnement du verrouillage intelligent
 
-Par défaut, le verrouillage intelligent empêche les tentatives de connexion au compte pendant une minute après 10 tentatives infructueuses. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps. Afin de minimiser les moyens dont dispose un attaquant pour contourner ce comportement, nous ne divulguons pas le rythme auquel la période de verrouillage s’allonge au fil des tentatives de connexion infructueuses.
+Par défaut, le verrouillage intelligent verrouille le compte et empêche les tentatives de connexion pendant une minute après 10 échecs de tentatives pour les locataires publics Azure et après 3 échecs pour les locataires Azure US Government. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps. Afin de minimiser les moyens dont dispose un attaquant pour contourner ce comportement, nous ne divulguons pas le rythme auquel la période de verrouillage s’allonge au fil des tentatives de connexion infructueuses.
 
 Le verrouillage intelligent suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
 
@@ -73,7 +73,7 @@ Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre orga
 1. Recherchez et sélectionnez *Azure Active Directory*, puis sélectionnez **Sécurité** > **Méthodes d’authentification** > **Protection par mot de passe**.
 1. Définissez le **Seuil de verrouillage**, c’est-à-dire le nombre d’échecs de connexions autorisé avant qu’un compte ne soit verrouillé.
 
-    La valeur par défaut est de 10.
+    La valeur par défaut est 10 pour les locataires publics Azure et 3 pour les locataires Azure US Government.
 
 1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage.
 

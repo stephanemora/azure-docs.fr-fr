@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 44fa4fb953399622d75f0239d3e7d626557629f7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0c91f81c1909819f3a5b8d8475ccdd676132dd13
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744692"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477479"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrer vers des partages de fichiers Azure
 
@@ -45,7 +45,7 @@ La fidélité des fichiers dans une migration peut être définie comme la capac
 
 - Stocker toutes les informations de fichier applicables sur la source.
 - Transférer des fichiers avec l'outil de migration.
-- Stocker des fichiers dans le stockage cible de la migration.
+- Stocker des fichiers dans le stockage cible de la migration. </br> Enfin, la cible des guides de migration sur cette page est un ou plusieurs partages de fichiers Azure. Prenez en compte cette [liste de fonctionnalités/fidélité des fichiers que les partages de fichiers Azure ne prennent pas en charge](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 Pour garantir une migration sans accroc, identifiez [le meilleur outil de copie selon vos besoins](#migration-toolbox) et associez une cible de stockage à votre source.
 
@@ -57,7 +57,7 @@ Un utilisateur d’Active Directory, qui est son contrôleur de domaine local, p
 
 L’autre flux de données est l’aspect principal de la fidélité des fichiers qui ne peut actuellement pas être stocké sur un fichier dans un partage de fichiers Azure. Il est conservé localement quand Azure File Sync est utilisé.
 
-En savoir plus sur l’[authentification Azure AD](storage-files-identity-auth-active-directory-enable.md) et l’[authentification Azure AD DS](storage-files-identity-auth-active-directory-domain-service-enable.md) pour les partages de fichiers Azure.
+En savoir plus sur [l’authentification Active Directory locale](storage-files-identity-auth-active-directory-enable.md) et [l’authentification Azure AD DS](storage-files-identity-auth-active-directory-domain-service-enable.md) pour les partages de fichiers Azure.
 
 ## <a name="migration-guides"></a>Guides de migration
 
@@ -85,8 +85,8 @@ Les scénarios sans lien n’ont pas encore de guide de migration. Consultez ré
 | Windows Server 2012 et versions antérieures | <ul><li>Via DataBox et Azure File Sync vers un système d’exploitation serveur récent</li><li>Via le service de migration de stockage vers un serveur récent avec Azure File Sync, puis téléchargement</li></ul> | <ul><li>Via le service de migration de stockage vers un serveur récent avec Azure File Sync</li><li>[Via RoboCopy vers un partage de fichiers Azure monté](storage-files-migration-robocopy.md)</li></ul> |
 | NAS (Network-attached storage) | <ul><li>[Via un chargement Azure File Sync](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy vers un partage de fichiers Azure monté](storage-files-migration-robocopy.md)</li></ul> |
 | Linux/Samba | <ul><li>[Azure File Sync et RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>[Via RoboCopy vers un partage de fichiers Azure monté](storage-files-migration-robocopy.md)</li></ul> |
-| Microsoft Azure StorSimple Cloud Appliance 8100 ou StorSimple Cloud Appliance 8600 | <ul><li>[Via le service cloud de migration des données dédié](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Via le service cloud de migration des données dédié](storage-files-migration-storsimple-8000.md)</li></ul> |
-| StorSimple Cloud Appliance 1200 | <ul><li>[Via Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
+| Appareils Microsoft Azure StorSimple série 8100 ou 8600 | <ul><li>[Via le service cloud de migration des données dédié](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Via le service cloud de migration des données dédié](storage-files-migration-storsimple-8000.md)</li></ul> |
+| Appliance virtuelle StorSimple 1200 | <ul><li>[Via Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## <a name="migration-toolbox"></a>Boîte à outils de migration
 
@@ -119,9 +119,9 @@ Le tableau suivant classe les outils Microsoft et leurs aptitudes actuelles pour
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Pris en charge. Les partages de fichiers Azure peuvent être montés comme lecteurs réseau. | Fidélité totale.* |
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Intégré en natif dans les partages de fichiers Azure. | Fidélité totale.* |
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Service de migration de stockage | Pris en charge de façon indirecte. Les partages de fichiers Azure peuvent être montés comme lecteurs réseau sur des serveurs cibles SMS. | Fidélité totale.* |
-|![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy </br>Version : 10.6 | Pris en charge. | Ne prend pas en charge la copie de liste de contrôle d’accès source, sinon fidélité optimale. * </br>[Apprendre à utiliser AzCopy avec des partages de fichiers Azure](../common/storage-use-azcopy-files.md) |
 |![Oui, recommandé](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Pris en charge. | Le service DataBox prend entièrement en charge les métadonnées. |
-|![Pas vraiment recommandé](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorateur de stockage Azure </br>Version 1.14 | Pris en charge. | Ne copie pas les ACL. Prend en charge les timestamps.  |
+|![Pas vraiment recommandé](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>version la plus récente | Pris en charge mais pas entièrement recommandé. | Ne prend pas en charge les copies différentielles à grande échelle. La fidélité des fichiers peut être réduite. </br>[Apprendre à utiliser AzCopy avec des partages de fichiers Azure](../common/storage-use-azcopy-files.md) |
+|![Pas vraiment recommandé](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorateur de stockage Azure </br>version la plus récente | Prise en charge mais non recommandée. | La fidélité des fichiers est perdue en grande partie, par exemple les ACL. Prend en charge les timestamps. |
 |![Non recommandé](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Pris en charge. | Ne copie pas les métadonnées. |
 |||||
 

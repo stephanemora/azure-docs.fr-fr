@@ -2,13 +2,13 @@
 title: Flux de travail et ressources du service Batch
 description: Découvrez les fonctionnalités du service Batch et de son flux de travail de haut niveau du point de vue du développement.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: c525b635bbda4284c876fa092c285e884a33db73
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85965210"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006992"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Flux de travail et ressources du service Batch
 
@@ -17,7 +17,7 @@ Dans cette vue d’ensemble des principaux composants du service Azure Batch, no
 Que vous développiez une application ou un service de calcul distribué émettant des appels [d’API REST](/rest/api/batchservice/) directs, ou que vous utilisiez un autre [Kit de développement logiciel (SDK) Batch](batch-apis-tools.md#batch-service-apis), vous utiliserez bon nombre des ressources et fonctionnalités présentées ici.
 
 > [!TIP]
-> Pour une présentation plus poussée du service Batch, consultez l’article [Notions de base d’Azure Batch](batch-technical-overview.md). Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
+> Pour une présentation plus poussée du service Batch, consultez l’article [Présentation d’Azure Batch](batch-technical-overview.md). Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="basic-workflow"></a>Flux de travail de base
 

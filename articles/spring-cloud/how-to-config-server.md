@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 773ae30cd888e76793bd65f8f31a8c110b128c01
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e4e4701b535e5363d0eb64f377fe4dccc3a3dd7d
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135218"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653593"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
@@ -246,6 +246,40 @@ Azure Spring Cloud peut accéder aux référentiels Git publics, sécurisés par
 
 Vous pouvez sélectionner le bouton **Réinitialiser** qui apparaît sous l’onglet **Serveur de configuration** pour effacer complètement vos paramètres existants. Supprimez les paramètres du serveur de configuration si vous voulez connecter votre instance de serveur de configuration à une autre source, par exemple, pour passer de GitHub à Azure DevOps.
 
+## <a name="config-server-refresh"></a>Actualisation du serveur de configuration
+Lorsque les propriétés sont modifiées, les services qui les consomment doivent être avertis pour que des changements puissent être apportés. La solution par défaut pour la configuration de Spring Cloud consiste à déclencher manuellement [l’événement d’actualisation](https://spring.io/guides/gs/centralized-configuration/), ce qui n’est pas toujours possible en présence de nombreuses instances d’application. Vous pouvez également, dans Azure Spring Cloud, actualiser automatiquement les valeurs à partir du serveur de configuration en permettant au client de configuration d’interroger les modifications en fonction d’une actualisation interne.
+
+- Tout d’abord, ajoutez spring-cloud-starter-azure-spring-cloud-client dans la section dependency de pom.xml.
+
+  ```xml
+  <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+      <version>2.4.0</version>
+  </dependency>
+  ```
+
+- Ensuite, activez auto-refresh et définissez l’intervalle d’actualisation approprié dans application.yml. Dans cet exemple, le client interroge les modifications de configuration toutes les 5 secondes. Il s’agit de la valeur minimale de l’intervalle d’actualisation.
+Par défaut, auto-refresh est défini sur false, et refresh-interval sur 60 secondes.
+
+  ``` yml
+  spring:
+    cloud:
+      config:
+        auto-refresh: true
+        refresh-interval: 5
+  ```
+
+- Enfin, ajoutez @refreshScope dans votre code. Dans cet exemple, la variable connectTimeout est automatiquement actualisée toutes les 5 secondes.
+
+  ``` java
+  @RestController
+  @RefreshScope
+  public class HelloController {
+      @Value("${timeout:4000}")
+      private String connectTimeout;    
+  }
+  ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

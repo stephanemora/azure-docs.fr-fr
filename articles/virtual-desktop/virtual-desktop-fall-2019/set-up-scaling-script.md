@@ -1,26 +1,27 @@
 ---
-title: Mettre à l’échelle des hôtes de session Azure Automation Windows Virtual Desktop (classique) - Azure
-description: Explique comment mettre automatiquement à l’échelle des hôtes de session Windows Virtual Desktop (classique) avec Azure Automation.
+title: Mettre à l’échelle des hôtes de session Azure Virtual Desktop (classique) avec Azure Automation – Azure
+description: Explique comment mettre automatiquement à l’échelle des hôtes de session Azure Virtual Desktop (classique) avec Azure Automation.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 907871a85680202a4a8b5f73b4454a9b2f2fe103
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 781ac1e84fb742908ca020806b04135f35b3a65d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444307"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751826"
 ---
-# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Mettre à l’échelle des hôtes de session Windows Virtual Desktop (classique) à l’aide d’Azure Automation
+# <a name="scale-azure-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Mettre à l’échelle des hôtes de session Azure Virtual Desktop (classique) à l’aide d’Azure Automation
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop d’Azure Resource Manager.
 
-Vous pouvez réduire le coût total de déploiement de Windows Virtual Desktop en procédant à la mise à l'échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
+Vous pouvez réduire le coût total de déploiement d’Azure Virtual Desktop en effectuant une mise à l’échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
 
-Cet article présente l’outil de mise à l’échelle créé avec le compte Azure Automation et l’application logique Azure pour procéder à la mise à l’échelle automatique des machines virtuelles hôtes de session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
+Cet article présente l’outil de mise à l’échelle généré avec le compte Azure Automation et l’application logique Azure, qui opère une mise à l’échelle automatique des machines virtuelles hôtes de session dans votre environnement Azure Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
 
 ## <a name="how-the-scaling-tool-works"></a>Fonctionnement de l'outil de mise à l'échelle
 
@@ -48,7 +49,7 @@ Si vous affectez la valeur zéro au paramètre *LimitSecondsToForceLogOffUser*, 
 
 À tout moment, le travail prend également en compte le paramètre *MaxSessionLimit* du pool d’hôtes pour déterminer si le nombre actuel de sessions est supérieur à 90 % de la capacité maximale. Si c’est le cas, le travail démarre des machines virtuelles hôtes de session supplémentaires.
 
-Le travail s'exécute périodiquement sur la base d'un intervalle de périodicité défini. Vous pouvez modifier cet intervalle en fonction de la taille de votre environnement Windows Virtual Desktop, mais n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps ; vous devez donc tenir compte de ce délai. Nous vous recommandons de définir l'intervalle de périodicité sur : Toutes les 15 minutes.
+Le travail s'exécute périodiquement sur la base d'un intervalle de périodicité défini. Vous pouvez modifier cet intervalle en fonction de la taille de votre environnement Azure Virtual Desktop, mais n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps donc vous devez tenir compte. Nous vous recommandons de définir l'intervalle de périodicité sur : Toutes les 15 minutes.
 
 Cela dit, l'outil présente également les limitations suivantes :
 
@@ -63,8 +64,8 @@ Cela dit, l'outil présente également les limitations suivantes :
 
 Avant de commencer à configurer l'outil de mise à l'échelle, assurez-vous que vous disposez de ce qui suit :
 
-- Un [locataire Windows Virtual Desktop et un pool d'hôtes](create-host-pools-arm-template.md)
-- Machines virtuelles du pool d'hôtes de session configurées et inscrites auprès du service Windows Virtual Desktop
+- [Locataire Azure Virtual Desktop et un pool d’hôtes](create-host-pools-arm-template.md)
+- Machines virtuelles de pool d’hôtes de session configurées et inscrites auprès du service Azure Virtual Desktop
 - Un utilisateur doté d'un [accès Contributeur](../../role-based-access-control/role-assignments-portal.md) sur un abonnement Azure
 
 L'ordinateur que vous utilisez pour déployer l'outil doit disposer de ce qui suit :
@@ -150,11 +151,11 @@ Pour créer un compte d’identification dans votre compte Azure Automation :
 
 6. Au terme du processus, une ressource nommée **AzureRunAsConnection** est créée dans le compte Azure Automation spécifié. Sélectionnez **Compte d’identification Azure**. La ressource de connexion contient l'ID de l'application, l'ID du locataire, l'ID de l'abonnement et l'empreinte du certificat. Mémorisez l'ID de l'application car vous en aurez besoin plus tard. Vous pouvez également trouver les mêmes informations dans la page **Connexions**. Pour accéder à cette page, dans le volet situé à gauche de la fenêtre, sélectionnez **Connexions** dans la section **Ressources partagées**, puis cliquez sur la ressource de connexion nommée **AzureRunAsConnection**.
 
-### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Créer une attribution de rôle dans Windows Virtual Desktop
+### <a name="create-a-role-assignment-in-azure-virtual-desktop"></a>Créer une attribution de rôle dans Azure Virtual Desktop
 
-Vous devez ensuite créer une attribution de rôle pour permettre à **AzureRunAsConnection** d’interagir avec Windows Virtual Desktop. Veillez à utiliser PowerShell afin de vous connecter avec un compte qui dispose des autorisations nécessaires pour créer des attributions de rôle.
+Vous devez ensuite créer une attribution de rôle pour permettre à **AzureRunAsConnection** d’interagir avec Azure Virtual Desktop. Veillez à utiliser PowerShell afin de vous connecter avec un compte qui dispose des autorisations nécessaires pour créer des attributions de rôle.
 
-Si ce n'est déjà fait, commencez par télécharger et importer le [module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell. Exécutez les applets de commande PowerShell suivantes pour vous connecter à Windows Virtual Desktop et afficher vos locataires.
+Si ce n’est déjà fait, commencez par télécharger et importer le [module PowerShell Azure Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell. Exécutez les cmdlets PowerShell suivantes pour vous connecter à Azure Virtual Desktop et afficher vos locataires.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -165,7 +166,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-Lorsque vous trouvez le locataire contenant les pools d’hôtes que vous souhaitez mettre à l’échelle, suivez les instructions fournies dans [Créer un compte d’identification Azure Automation](#create-an-azure-automation-run-as-account) pour recueillir l’ID d’application **AzureRunAsConnection** et utilisez le nom du locataire Windows Virtual Desktop que vous avez obtenu à l’aide de l’applet de commande précédente dans l’applet de commande suivante pour créer l’attribution de rôle :
+Lorsque vous trouvez le locataire contenant les pools d’hôtes que vous souhaitez mettre à l’échelle, suivez les instructions fournies dans [Créer un compte d’identification Azure Automation](#create-an-azure-automation-run-as-account) pour recueillir l’ID d’application **AzureRunAsConnection** et utilisez le nom du locataire Azure Virtual Desktop que vous avez obtenu à l’aide de la cmdlet précédente dans la cmdlet suivante pour créer l’attribution de rôle :
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -183,7 +184,7 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
     Login-AzAccount
     ```
 
-3. Exécutez l’applet de commande suivante pour télécharger le script de création de l’application logique Azure :
+3. Exécutez l’applet de commande suivante pour télécharger le script de création de l’application logique Azure.
 
     ```powershell
     New-Item -ItemType Directory -Path "C:\Temp" -Force
@@ -193,7 +194,7 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
     Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
     ```
 
-4. Exécutez l’applet de commande suivante pour vous connecter à Windows Virtual Desktop avec un compte disposant des autorisations de Propriétaire ou de Contributeur des Services Bureau à distance.
+4. Exécutez la cmdlet suivante pour vous connecter à Azure Virtual Desktop avec un compte disposant des autorisations de Propriétaire ou Contributeur des Services Bureau à distance.
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

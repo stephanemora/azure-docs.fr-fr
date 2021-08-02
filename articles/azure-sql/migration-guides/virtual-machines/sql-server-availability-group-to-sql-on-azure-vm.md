@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 96ee2422bad6e15e37e01c33d2724300a7a8f230
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2819a5a927562d92153e5ef08a73a976c91a9363
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776703"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954617"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Migrer un groupe de disponibilité vers SQL Server sur une machine virtuelle Azure
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 > * Reconfigurer un groupe de disponibilité Always On. 
 
 
-Ce guide utilise l’approche de migration basée sur un agent d’Azure Migrate, qui traite les serveurs ou machines virtuelles comme des serveurs physiques. Lors de la migration de machines physiques, l’outil Azure Migrate : Migration du serveur utilise la même architecture de réplication que la fonctionnalité de reprise d’activité après sinistre basée sur un agent du service Azure Site Recovery, et certains des composants utilisés partagent la même base de code. Certains contenus peuvent être liés à la documentation Site Recovery.
+Ce guide utilise l’approche de migration basée sur un agent d’Azure Migrate, qui traite les serveurs ou machines virtuelles comme des serveurs physiques. Lors de la migration de machines physiques, l’outil Azure Migrate : Server Migration utilise la même architecture de réplication que la fonctionnalité de récupération d’urgence basée sur un agent du service Azure Site Recovery, et certains des composants utilisés partagent la même base de code. Certains contenus peuvent être liés à la documentation Site Recovery.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -39,7 +39,7 @@ Avant de commencer ce tutoriel, vous devez respecter les prérequis suivants :
 
 1. Un abonnement Azure. Créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/), si nécessaire. 
 1. Installer le [module `Az` Azure PowerShell](/powershell/azure/install-az-ps). 
-1. Télécharger les [exemples de scripts PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/SQL%20Migration) à partir du dépôt GitHub.
+1. Télécharger les [exemples de scripts PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/SQL%20Migration) à partir du référentiel GitHub.
 
 ## <a name="prepare-azure"></a>Préparer Azure
 
@@ -48,8 +48,8 @@ Préparez Azure pour la migration avec l’[outil Migration de serveur](../../..
 |**Tâche** | **Détails**|
 |--- | ---
 |**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](../../../migrate/create-manage-projects.md).|
-|**Vérifier les autorisations pour votre compte Azure** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire sur l’abonnement Azure, des autorisations pour inscrire des applications AAD (Azure Active Directory) et des autorisations Administrateur de l’accès utilisateur sur l’abonnement Azure pour créer un coffre de clés, créer une machine virtuelle et écrire sur un disque managé Azure. |
-|**Configurer un réseau virtuel Azure** | [Configurez](/virtual-network/manage-virtual-network.md#create-a-virtual-network) un réseau virtuel Azure. Quand vous effectuez une réplication sur Azure, des machines virtuelles Azure sont créées et jointes au réseau virtuel Azure que vous avez spécifié lors de la configuration de la migration.|
+|**Vérifier les autorisations pour votre compte Azure** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire sur l’abonnement Azure, des autorisations pour inscrire des applications AAD (Azure Active Directory) et des autorisations Administrateur de l’accès utilisateur sur l’abonnement Azure pour créer un coffre de clés, créer une machine virtuelle et écrire sur un disque managé Azure. |
+|**Configurer un réseau virtuel Azure** | [Configurez](../../../virtual-network/virtual-networks-overview.md) un réseau virtuel Azure. Quand vous effectuez une réplication sur Azure, des machines virtuelles Azure sont créées et jointes au réseau virtuel Azure que vous avez spécifié lors de la configuration de la migration.|
 
 
 Pour vérifier que vous disposez des autorisations appropriées, procédez comme suit : 
@@ -86,7 +86,7 @@ Azure Migrate : Server Migration utilise une appliance de réplication pour ré
 
 Préparez le déploiement de l’appliance comme suit :
 
-- Créez un ordinateur Windows Server 2016 pour héberger l’appliance de réplication. Passez en revue la [configuration requise pour l’ordinateur](../../../migrate/migrate-replication-appliance.md#appliance-requirements).
+- Créez un ordinateur Windows Server 2016 pour héberger l’appliance de réplication. Passez en revue la [configuration requise pour l’ordinateur](../../../migrate/migrate-replication-appliance.md#appliance-requirements).
 - L’appliance de réplication utilise MySQL. Passez en revue les [options](../../../migrate/migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
 - Passez en revue les URL Azure nécessaires à l’appliance de réplication pour accéder aux clouds [publics](../../../migrate/migrate-replication-appliance.md#url-access) et du [secteur public](../../../migrate/migrate-replication-appliance.md#azure-government-url-access).
 - Examinez les conditions d’accès aux [ports](../../../migrate/migrate-replication-appliance.md#port-access) pour l’appliance de réplication.
@@ -98,7 +98,7 @@ Préparez le déploiement de l’appliance comme suit :
 
 Pour télécharger le programme d’installation de l’appliance de réplication, procédez comme suit : 
 
-1. Dans le projet Azure Migrate > **Serveurs**, dans **Azure Migrate : Migration du serveur**, sélectionnez **Découvrir**.
+1. Dans le projet Azure Migrate > **Serveurs**, dans **Azure Migrate : Server Migration**, sélectionnez **Découvrir**.
 
     ![Détection des machines virtuelles](../../../migrate/media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -120,7 +120,7 @@ Pour télécharger le programme d’installation de l’appliance de réplicatio
 
    -  « guest » comme nom convivial
    -  « username » comme nom d’utilisateur
-   -  « password » comme mot de passe du compte. 
+   -  « password » comme mot de passe du compte 
    
    Vous allez utiliser ce compte factice lors de la phase Activer la réplication. 
 
@@ -138,7 +138,7 @@ Pour installer le service Mobility, procédez comme suit :
 
 1. Connectez-vous à l’appliance de réplication.
 1. Accédez au dossier **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-1. Recherchez le programme d’installation correspondant à la version du système d’exploitation de la machine. Vérifiez quels sont les [systèmes d’exploitation pris en charge](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+1. Recherchez le programme d’installation correspondant à la version du système d’exploitation de la machine. Vérifiez quels sont les [systèmes d’exploitation pris en charge](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 1. Copiez le fichier du programme d’installation sur la machine qui doit faire l’objet d’une migration.
 1. Vérifiez que vous disposez de la phrase secrète qui a été générée lorsque vous avez déployé l’appliance.
     - Stockez le fichier dans un fichier texte temporaire sur la machine.
@@ -146,7 +146,7 @@ Pour installer le service Mobility, procédez comme suit :
     - Ne regénérez pas la phrase secrète. Si vous la regénérez, la connectivité sera perdue et vous devrez réinscrire l’appliance de réplication.
     - Dans le paramètre */Platform*, spécifiez *VMware* pour les machines VMware et les machines physiques. 
 
-1. Connectez-vous à l’ordinateur et extrayez le contenu du fichier du programme d’installation dans un dossier local (par exemple, C:\temp). Exécutez-le dans une invite de commandes d’administration : 
+1. Connectez-vous à l’ordinateur et extrayez le contenu du fichier du programme d’installation dans un dossier local (par exemple, C:\temp). Exécutez ce qui suit dans une invite de commandes d’administration : 
 
     ```
     ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
@@ -167,7 +167,7 @@ Pour installer le service Mobility, procédez comme suit :
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```
 
-Après l’installation, il peut s’écouler un certain temps avant que les machines découvertes apparaissent dans Azure Migrate : Migration du serveur. À mesure que des machines virtuelles sont découvertes, le nombre de **Serveurs découverts** augmente.
+Après l’installation, il peut s’écouler un certain temps avant que les machines découvertes apparaissent dans Azure Migrate : Server Migration. À mesure que des machines virtuelles sont découvertes, le nombre de **Serveurs découverts** augmente.
 
 ![Serveurs découverts](../../../migrate/media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -189,7 +189,7 @@ Pour créer l’équilibreur de charge, procédez comme suit :
 
 **En-tête de colonne** | **Description**
 --- | ---
-NewIP | Spécifiez l’adresse IP dans le réseau virtuel Azure (ou sous-réseau) pour chaque ressource dans le fichier CSV.
+NewIP | Spécifiez l’adresse IP dans le réseau virtuel Azure (ou sous-réseau) pour chaque ressource dans le fichier CSV.
 ServicePort | Spécifiez le port de service à utiliser par chaque ressource dans le fichier CSV. Pour la ressource en cluster SQL, utilisez la même valeur pour le port de service que pour le port de la sonde dans le fichier CSV. Pour les autres rôles de cluster, les valeurs par défaut utilisées sont 1433, mais vous pouvez continuer à utiliser les numéros de port définis dans votre configuration actuelle. 
 
 
@@ -246,7 +246,7 @@ Pour répliquer des machines, procédez comme suit :
     - Chiffrement double avec des clés gérées par la plateforme et des clés gérées par le client
 
     > [!NOTE]
-    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](https://go.microsoft.com/fwlink/?linkid=2151800) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
+    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
 1. Dans **Azure Hybrid Benefit** :
 
@@ -284,20 +284,20 @@ La réplication se déroule dans l’ordre suivant :
 
 Vous pouvez suivre l’état du travail dans les notifications du portail.
 
-Vous pouvez superviser l’état de la réplication en sélectionnant **Réplication de serveurs** dans **Azure Migrate : Migration du serveur**.
+Vous pouvez superviser l’état de la réplication en sélectionnant **Réplication de serveurs** dans **Azure Migrate : Server Migration**.
 ![Superviser la réplication](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
 
 ## <a name="migrate-vms"></a>Migrer des machines virtuelles
 
-Une fois les machines répliquées, elles sont prêtes pour la migration. Pour migrer vos serveurs, suivez ces étapes : 
+Une fois les machines répliquées, elles sont prêtes pour la migration. Pour migrer vos serveurs, procédez comme suit : 
 
 
 1. Dans le projet Azure Migrate > **Serveurs** > **Azure Migrate : Server Migration**, sélectionnez **Réplication de serveurs**.
 
     ![Réplication de serveurs](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. Pour vous assurer que le serveur migré est synchronisé avec le serveur source, arrêtez le service SQL Server sur chaque réplica du groupe de disponibilité, en commençant par les réplicas secondaires (dans **Gestionnaire de configuration SQL Server** > **Services) tout en veillant à ce que les disques hébergeant les données SQL soient en ligne.   
+2. Pour vous assurer que le serveur migré est synchronisé avec le serveur source, arrêtez le service SQL Server sur chaque réplica du groupe de disponibilité, en commençant par les réplicas secondaires (dans **Gestionnaire de configuration SQL Server** > **Services**) tout en veillant à ce que les disques hébergeant les données SQL soient en ligne.   
 3. Dans **Réplication des machines** > sélectionnez le nom du serveur > **Vue d’ensemble**, assurez-vous que l’horodatage de la dernière synchronisation est le suivant : vous avez arrêté le service SQL Server sur les serveurs à migrer avant de passer à l’étape suivante. Ce processus doit prendre quelques minutes seulement. 
 2. Dans **Réplication des machines**, cliquez avec le bouton droit sur la machine virtuelle > **Migrer**.
 3. Dans **Migrer** > **Arrêter les machines virtuelles et effectuer une migration planifiée sans perte de données**, sélectionnez **Non** > **OK**.
@@ -313,7 +313,7 @@ Une fois les machines répliquées, elles sont prêtes pour la migration. Pour m
 Une fois vos machines virtuelles migrées, reconfigurez le cluster. Suivez les étapes ci-dessous : 
 
 1. Arrêtez les serveurs migrés dans Azure.
-1.  Ajoutez les machines migrées au pool de back-ends de l’équilibreur de charge. Accédez à **Équilibreur de charge** > **Pools de back-ends** > sélectionnez le pool de back-ends > **Ajouter des machines migrées**. 3. Démarrez les serveurs migrés dans Azure et connectez-vous à n’importe quel nœud. 
+1.  Ajoutez les machines migrées au pool principal de l’équilibreur de charge. Accédez à **Équilibreur de charge** > **Pools de back-ends** > sélectionnez le pool de back-ends > **Ajouter des machines migrées**. 3. Démarrez les serveurs migrés dans Azure et connectez-vous à n’importe quel nœud. 
 1. Copiez le fichier `ClusterConfig.csv` et exécutez le script `Update-ClusterConfig.ps1` en passant le fichier CSV en tant que paramètre. Cela permet de garantir que les ressources de cluster sont mises à jour avec la nouvelle configuration pour que le cluster fonctionne dans Azure. 
 
    ```powershell
@@ -328,7 +328,7 @@ Votre groupe de disponibilité Always On est prêt.
     - Arrête la réplication pour l’ordinateur local.
     - Supprime l’ordinateur du nombre **Réplication de serveurs** dans Azure Migrate : Server Migration.
     - Nettoie les informations d’état de réplication pour la machine.
-2. Installez l’agent [Windows](/virtual-machines/extensions/agent-windows.md) de machine virtuelle Azure sur les machines migrées.
+2. Installez l’agent [Windows](../../../virtual-machines/extensions/agent-windows.md) de machine virtuelle Azure sur les machines migrées.
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
@@ -339,12 +339,12 @@ Votre groupe de disponibilité Always On est prêt.
 ## <a name="post-migration-best-practices"></a>Bonnes pratiques après la migration
 
 - Pour SQL Server :
-    -  Installez l’[extension SQL Server IaaS Agent](../../virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) pour automatiser la gestion et les tâches d’administration. 
-    - [Optimisez](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md) les performances de SQL Server sur les machines virtuelles Azure. 
-    - Prenez connaissance des [prix](../../virtual-machines/windows/pricing-guidance.md#free-licensed-sql-server-editions) de SQL Server sur Azure. 
+    -  Installez l’[extension SQL Server IaaS Agent](../../virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) pour automatiser les tâches de gestion et d’administration. 
+    - [Optimisez](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md) les performances de SQL Server sur les machines virtuelles Azure. 
+    - Prenez connaissance de la [tarification](../../virtual-machines/windows/pricing-guidance.md#free-licensed-sql-server-editions) de SQL Server sur Azure. 
 - Pour une meilleure résilience :
-    - Sécurisez les données en sauvegardant les machines virtuelles Azure avec le [service de sauvegarde Azure](../../../backup/quick-backup-vm-portal.md). 
-    - Maintenez les charges de travail en cours d’exécution et disponibles en permanence en répliquant des machines virtuelles Azure vers une région secondaire avec [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+    - Sécurisez les données en sauvegardant les machines virtuelles Azure avec le [service Sauvegarde Azure](../../../backup/quick-backup-vm-portal.md). 
+    - Maintenez les charges de travail en cours d’exécution et disponibles en permanence en répliquant les machines virtuelles Azure vers une région secondaire avec [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Pour renforcer la sécurité :
     - Verrouillez et limitez l’accès du trafic entrant avec l’[administration juste-à-temps d’Azure Security Center](../../../security-center/security-center-just-in-time.md).
     - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../../../virtual-network/network-security-groups-overview.md).

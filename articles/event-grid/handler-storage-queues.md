@@ -3,12 +3,12 @@ title: File d’attente de stockage en tant que gestionnaire d’événements po
 description: Décrit comment utiliser des files d’attente de stockage Azure en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c8b7a111c29fe11cc11ee191d78ae2a5f13610
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91270183"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421731"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>File d’attente de stockage en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et le **Stockage File d’attente Azure** est l’un d’eux. 
@@ -71,7 +71,7 @@ Consultez le tutoriel suivant pour obtenir un exemple d’utilisation d’un Sto
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination"></a>File d’attente de stockage en tant que destination de lettres mortes
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination"></a>File d’attente de stockage en tant que gestionnaire d’événements avec une destination de lettres mortes
 
 ```json
 {
@@ -101,7 +101,7 @@ Consultez le tutoriel suivant pour obtenir un exemple d’utilisation d’un Sto
 }
 ```
 
-### <a name="storage-queue-as-a-deadletter-destination---managed-identity"></a>File d’attente de stockage en tant que destination de lettres mortes : identité managée
+### <a name="storage-queue-as-the-event-handler-with-a-deadletter-destination---managed-identity"></a>File d’attente de stockage en tant que gestionnaire d’événements avec une destination de lettres mortes - identité managée
 
 ```json
 {

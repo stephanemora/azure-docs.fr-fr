@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: cb91d269f6b166510db54637d17d776e71137408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 247ae926dde9b07b1d627621c456333282f00a42
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456161"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060042"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Mapper des champs de données à des entités dans Azure Sentinel 
 
@@ -41,17 +41,23 @@ La procédure détaillée ci-dessous fait partie de l’Assistant Création de r
 
 1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Analytique**.
 
-1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer &#10132; Règle de requête planifiée** en haut de l’écran.
+1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer > Règle de requête planifiée** en haut de l’écran.
 
-1. Cliquez sur l’onglet **Définir la logique de la règle**.
+1. Cliquez sur l’onglet **Définir la logique de la règle**. 
 
-    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Mapper des champs à des entités":::
+1. Dans la section **Enrichissement des alertes (préversion)** , développez **Mappage d’entités**.
 
-1. Dans la section **Amélioration des alertes**, sous **Mappage d’entités**, sélectionnez un type d’entité dans la liste déroulante **Type d’entité**.
+    :::image type="content" source="media/map-data-fields-to-entities/alert-enrichment.png" alt-text="Développer le mappage d’entités":::
+
+1. Dans la section **Mappage d’entités** maintenant développée, sélectionnez un type d’entité dans la liste déroulante **Type d’entité**.
+
+    :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Choisir un type d’entité":::
 
 1. Sélectionnez un **identificateur** pour l’entité. Les identificateurs sont des attributs d’une entité qui peuvent l’identifier suffisamment. Choisissez-en un dans la liste déroulante **Identificateur**, puis choisissez un champ de données dans la liste déroulante **Valeur** qui correspondra à l’identificateur. À quelques exceptions près, la liste **Valeur** est renseignée avec les champs de données de la table définie comme objet de la requête de règle.
 
     Vous pouvez définir **jusqu’à trois identificateurs** pour une entité donnée. Certains identificateurs sont obligatoires, d’autres facultatifs. Vous devez choisir au moins un identificateur obligatoire, sinon un message d’avertissement vous signale quels identificateurs sont obligatoires. Pour de meilleurs résultats (pour une identification unique maximale), vous devez utiliser des **identificateurs forts** dans la mesure du possible. Par ailleurs, l’utilisation de plusieurs identificateurs forts autorisera une plus grande corrélation entre les sources de données. Consultez la liste complète des [entités et identificateurs](entities-reference.md) disponibles.
+
+    :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Mapper des champs à des entités":::
 
 1. Cliquez sur **Ajouter une nouvelle entité** pour mapper plus d’entités. Vous pouvez mapper **jusqu’à cinq entités** dans une même règle analytique. Vous pouvez également mapper plusieurs entités du même type. Par exemple, vous pouvez mapper deux entités **IP** ; une à partir d’un champ d’*adresse IP source* et une autre à partir d’un champ d’*adresse IP de destination*. De cette façon, vous pouvez les suivre toutes les deux.
 
@@ -76,4 +82,4 @@ La procédure détaillée ci-dessous fait partie de l’Assistant Création de r
 
 Dans ce document, vous avez découvert comment mapper des champs de données à des entités dans des règles analytiques Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
-- Apprenez-en davantage sur les [entités dans Azure Sentinel](entities-in-azure-sentinel.md).
+- Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).

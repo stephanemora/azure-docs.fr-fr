@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: dff35243db327d2b224855e1f65e8e98296d8c8e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fc66f79e09021a10c2dde3cc973cd608baeedc32
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752262"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061611"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -261,7 +261,7 @@ Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](./l
 
 > [!IMPORTANT]
 > - La méthode recommandée pour révoquer l’accès à vos données consiste à désactiver votre clé ou à supprimer la stratégie d’accès dans votre coffre de clés.
-> - La définition du `type` de `identity` du cluster sur « None » révoque également l’accès à vos données, mais cette approche n’est pas recommandée, car vous ne pouvez pas annuler la révocation lors du rappel de `identity` dans le cluster sans ouvrir de demande de support.
+> - La définition de `identity` `type` du cluster sur `None` révoque également l’accès à vos données, mais cette approche n’est pas recommandée, car vous ne pouvez pas l’annuler sans contacter le support.
 
 Le stockage de cluster respecte toujours les modifications des autorisations de clé en maximum une heure. Il devient alors indisponible. Toutes les nouvelles données ingérées dans les espaces de travail liés à votre cluster sont définitivement supprimées. Les données deviennent donc inaccessibles et les requêtes adressées à ces espaces de travail échouent. Les données précédemment ingérées restent dans le stockage tant que votre cluster et vos espaces de travail ne sont pas supprimés. Les données inaccessibles sont régies par la stratégie de conservation des données et sont vidées à la fin de la durée de conservation. Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) pour optimiser l’utilisation du moteur de requête. Elles sont supprimées lors d’une opération de révocation de clé et deviennent inaccessibles.
 
@@ -427,7 +427,7 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
   - Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le chiffrement double pour les clusters. », vous pouvez toujours créer le cluster sans le double chiffrement en ajoutant `"properties": {"isDoubleEncryptionEnabled": false}` dans le corps de la demande REST.
   - Le paramètre de double chiffrement ne peut pas être modifié une fois le cluster créé.
 
-  - Si votre cluster est défini avec une identité managée attribuée par l’utilisateur, la définition de `UserAssignedIdentities` avec `None` interrompt le cluster et empêche l’accès à vos données, mais vous ne pouvez pas annuler la révocation et activer le cluster sans ouvrir la demande de support. Cette limitation ne s’applique pas à l’identité managée attribuée par le système.
+  - La définition de `identity` `type` du cluster sur `None` accusé de réception révoque également l’accès à vos données, mais cette approche n’est pas recommandée, car vous ne pouvez pas l’annuler sans contacter le support. La méthode recommandée pour révoquer l’accès à vos données est la [révocation de clé](#key-revocation).
 
   - Vous ne pouvez pas utiliser une clé gérée par le client avec une identité managée affectée par l’utilisateur si votre coffre de clés se trouve dans Azure Private Link (réseau virtuel). Dans ce scénario, vous pouvez utiliser une identité managée affectée par le système.
 

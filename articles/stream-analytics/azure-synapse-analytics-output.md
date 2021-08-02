@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 7e85df8ae67624a253a9fb617629d7355109c210
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c61f378dd9121c727fc245d177e11921a8a8e26
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019599"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094381"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Sortie Azure Synapse Analytics à partir d’Azure Stream Analytics
 
@@ -21,7 +21,8 @@ Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de
 
 La table de pool SQL dédié doit être présente pour vous permettre de l'ajouter en tant qu'entrée à votre tâche Stream Analytics. Le schéma de table doit correspondre aux champs et aux types dans la sortie de votre travail. 
 
-Pour utiliser Azure Synapse en tant que sortie, assurez-vous que le compte de stockage est configuré. Accédez aux paramètres du compte de stockage pour configurer le compte de stockage. Seuls les types de compte de stockage prenant en charge les tables sont autorisés : Usage général V2 et Usage général V1 Sélectionnez le niveau Standard uniquement. Le niveau Premium n’est pas pris en charge.
+> [!NOTE] 
+> Pour utiliser Azure Synapse Analytics comme sortie, assurez-vous que le compte de stockage est configuré au niveau du travail, et pas au niveau de la sortie. Pour modifier les paramètres du compte de stockage, dans le menu **Configurer** du travail Stream Analytics, accédez à **Paramètres du compte de stockage**. Utilisez uniquement les types de compte de stockage qui prennent en charge les tables : universel v2 et universel v1. Choisissez uniquement le niveau standard. Le niveau Premium n’est pas pris en charge dans ce scénario.
 
 ## <a name="output-configuration"></a>Configuration de la sortie
 

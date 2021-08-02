@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 1f28ee0cb174c02ba05d93ac0c8eba309bfc3872
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 314e2cf6991a33fb50ee14b9e54f9d47069dc20c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739814"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027890"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -39,14 +39,14 @@ Vous trouverez plus de détails, ainsi que des options de configuration supplém
 
 ## <a name="configuration-file-path"></a>Chemin d'accès au fichier de configuration
 
-Par défaut, Application Insights Java 3.0 s’attend à ce que le fichier de configuration soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.0.3.jar`.
+Par défaut, Application Insights Java 3.x s’attend à ce que le fichier config soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.1.1.jar`.
 
 Vous pouvez spécifier votre propre chemin d’accès au fichier de configuration à l’aide d'un des éléments suivants :
 
 * variable d’environnement `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, ou
 * propriété système Java `applicationinsights.configuration.file`
 
-Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.0.3.jar`.
+Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.1.1.jar`.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 
@@ -331,7 +331,8 @@ Vous pouvez également supprimer ces instrumentations à l’aide de ces variabl
 
 ## <a name="heartbeat"></a>Heartbeat
 
-Par défaut, Application Insights Java 3.0 envoie une métrique de pulsation toutes les 15 minutes. Si vous utilisez la métrique de pulsation pour déclencher des alertes, vous pouvez augmenter la fréquence de cette pulsation :
+Par défaut, Application Insights Java 3.x envoie une métrique de pulsation toutes les 15 minutes.
+Si vous utilisez la métrique de pulsation pour déclencher des alertes, vous pouvez augmenter la fréquence de cette pulsation :
 
 ```json
 {
@@ -346,7 +347,7 @@ Par défaut, Application Insights Java 3.0 envoie une métrique de pulsation to
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
-Si votre application se trouve derrière un pare-feu et n’est pas en mesure de se connecter directement à Application Insights (voir [Adresses IP utilisées par Application Insights](./ip-addresses.md)), vous pouvez configurer Application Insights Java 3.0 pour utiliser un proxy HTTP :
+Si votre application se trouve derrière un pare-feu et n’est pas en mesure de se connecter directement à Application Insights (voir [Adresses IP utilisées par Application Insights](./ip-addresses.md)), vous pouvez configurer Application Insights Java 3.x pour utiliser un proxy HTTP :
 
 ```json
 {
@@ -357,7 +358,7 @@ Si votre application se trouve derrière un pare-feu et n’est pas en mesure de
 }
 ```
 
-Application Insights Java 3.0 respecte également les variables globales `https.proxyHost` et `https.proxyPort` si elles sont définies (et `http.nonProxyHosts` si nécessaire).
+Application Insights Java 3.x respecte également les propriétés système `https.proxyHost` et `https.proxyPort` globales si elles sont définies (et `http.nonProxyHosts` le cas échéant).
 
 ## <a name="metric-interval"></a>Intervalle de métrique
 
@@ -401,11 +402,11 @@ Le paramètre s’applique à toutes ces métriques :
 
 ## <a name="self-diagnostics"></a>Autodiagnostics
 
-La fonctionnalité « Autodiagnostics » fait référence à la journalisation interne à partir d’Application Insights Java 3.0.
+La fonctionnalité « Autodiagnostics » fait référence à la journalisation interne à partir d’Application Insights Java 3.x.
 
 Elle permet de détecter et de diagnostiquer des problèmes liés à Application Insights.
 
-Par défaut, Application Insights Java 3.0 se connecte au niveau `INFO` au fichier `applicationinsights.log` et à la console, ce qui correspond à la configuration suivante :
+Par défaut, Application Insights Java 3.x se connecte au niveau `INFO` au fichier `applicationinsights.log` et à la console, ce qui correspond à la configuration suivante :
 
 ```json
 {
@@ -425,7 +426,7 @@ Par défaut, Application Insights Java 3.0 se connecte au niveau `INFO` au fichi
 
 `level` peut être `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` ou `TRACE`.
 
-`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.0.3.jar`.
+`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.1.1.jar`.
 
 `maxSizeMb` est la taille maximale du fichier journal avant son remplacement.
 

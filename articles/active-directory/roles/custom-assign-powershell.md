@@ -8,46 +8,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0fb81a4daa57b473e8b2b4b937426eafbf903d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60517714e0aa19a2cf465c22c6511b0c89648942
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014534"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792440"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
 Cet article explique comment créer une attribution de rôle à l’échelle de l’organisation dans Azure Active Directory (Azure AD). L’attribution d’un rôle à l’échelle de l’organisation accorde l’accès à l’ensemble de l’organisation Azure AD. Pour créer une attribution de rôle avec une étendue d’une seule ressource Azure AD, consultez [Comment créer un rôle personnalisé et l’affecter à l’étendue de la ressource](custom-create.md). Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles).
 
-Pour plus d'informations sur les rôles d'administrateur Azure AD, consultez [Attribuer des rôles d'administrateur dans Azure Active Directory](permissions-reference.md).
+Pour plus d’informations sur les rôles Azure AD, consultez [Rôles intégrés Azure AD](permissions-reference.md).
 
-## <a name="required-permissions"></a>Autorisations requises
+## <a name="prerequisites"></a>Prérequis
 
-Connectez-vous à votre organisation Azure AD à l’aide d’un compte administrateur d’entreprise pour attribuer ou supprimer des rôles.
+- Licence Azure AD Premium P1 ou P2
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureADPreview (avec PowerShell)
 
-## <a name="prepare-powershell"></a>Préparer PowerShell
-
-Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
-
-``` PowerShell
-Import-Module -Name AzureADPreview
-```
-
-Pour vérifier que le module est prêt à l’emploi, faites correspondre la version retournée par la commande suivante à celle répertoriée ici :
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
-```
-
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne du [module de préversion Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou l’Afficheur Graph](prerequisites.md).
 
 ## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Affecter un rôle d’annuaire à un utilisateur ou à un principal de service avec une étendue de ressource
 

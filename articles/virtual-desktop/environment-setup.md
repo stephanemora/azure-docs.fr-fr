@@ -1,35 +1,35 @@
 ---
-title: Environnement Windows Virtual Desktop - Azure
-description: Découvrez les éléments de base d’un environnement Windows Virtual Desktop, tels que les pools d’hôtes et les groupes d’applications.
+title: Environnement Azure Virtual Desktop – Azure
+description: Découvrez les éléments de base d’un environnement Azure Virtual Desktop, comme les pools d’hôtes et les groupes d’applications.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2c598be641ee09773e4d56ebc485e6a2fbe49191
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: bc854669c5d724da92c19c19a01f56ebe91f78ee
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446873"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757784"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Environnement Windows Virtual Desktop
+# <a name="azure-virtual-desktop-environment"></a>Environnement Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/environment-setup-2019.md).
 
-Windows Virtual Desktop est un service qui offre aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et à leurs applications distantes. Cette rubrique fournit des informations supplémentaires sur la structure générale de l’environnement Windows Virtual Desktop.
+Azure Virtual Desktop est un service qui offre aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et à leurs applications distantes RemoteApps. Cette rubrique fournit des informations supplémentaires sur la structure générale de l’environnement Azure Virtual Desktop.
 
 ## <a name="host-pools"></a>Pools hôtes
 
-Un pool hôte est une collection de machines virtuelles Azure qui s’inscrivent auprès de Windows Virtual Desktop en tant qu’hôtes de session lorsque vous exécutez l’agent Windows Virtual Desktop. Pour que l’expérience utilisateur soit cohérente, toutes les machines virtuelles hôtes de session dans un pool hôte doivent provenir de la même image.
+Un pool hôte est une collection de machines virtuelles Azure qui s’inscrivent auprès d’Azure Virtual Desktop en tant qu’hôtes de session quand vous exécutez l’agent Azure Virtual Desktop. Pour que l’expérience utilisateur soit cohérente, toutes les machines virtuelles hôtes de session dans un pool hôte doivent provenir de la même image.
 
 Il existe deux types de pools hôtes :
 
 - Personnel, où chaque hôte de session est affecté à des utilisateurs individuels.
 - Mis en pool, où les hôtes de session peuvent accepter des connexions de tout utilisateur autorisé à un groupe d’applications au sein du pool hôte.
 
-Vous pouvez définir des propriétés supplémentaires sur le pool hôte pour modifier son comportement d’équilibrage de charge, le nombre de sessions que chaque hôte de session peut prendre, et ce que l’utilisateur peut faire sur les hôtes de session dans le pool hôte quand il est connecté à leurs sessions Windows Virtual Desktop. Vous contrôlez les ressources publiées pour les utilisateurs au travers de groupes d’applications.
+Vous pouvez définir des propriétés supplémentaires sur le pool hôte pour modifier son comportement d’équilibrage de charge et pour déterminer le nombre de sessions pour chaque hôte de session ainsi que les opérations que l’utilisateur peut exécuter sur les hôtes de session dans le pool hôte quand il est connecté à leurs sessions Azure Virtual Desktop. Vous contrôlez les ressources publiées pour les utilisateurs au travers de groupes d’applications.
 
 ## <a name="app-groups"></a>Groupes d’applications
 
@@ -47,19 +47,19 @@ Pour publier des ressources pour des utilisateurs, vous devez affecter ceux-ci �
 
 ## <a name="workspaces"></a>Workspaces
 
-Un espace de travail est un regroupement logique de groupes d’applications dans le Windows Virtual Desktop. Chaque groupe d’applications Windows Virtual Desktop doit être associé à un espace de travail pour que les utilisateurs puissent voir les applications et les bureaux distants qui y sont publiés.
+Un espace de travail est un regroupement logique de groupes d’applications dans Azure Virtual Desktop. Chaque groupe d’applications Azure Virtual Desktop doit être associé à un espace de travail pour que les utilisateurs puissent voir les applications et les bureaux distants qui y sont publiés.
 
 ## <a name="end-users"></a>Utilisateurs finaux
 
-Une fois que vous avez affecté des utilisateurs à leurs groupes d’applications, ces utilisateurs peuvent se connecter à un déploiement Windows Virtual Desktop avec n’importe lequel des clients Windows Virtual Desktop.
+Une fois que vous avez attribué des utilisateurs à leurs groupes d’applications, ces utilisateurs peuvent se connecter à un déploiement Azure Virtual Desktop avec n’importe lequel des clients Azure Virtual Desktop.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur l’accès délégué et sur la manière d’attribuer des rôles aux utilisateurs en consultant [Accès délégué dans Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Apprenez-en davantage sur l’accès délégué et sur la manière d’attribuer des rôles aux utilisateurs en consultant [Accès délégué dans Azure Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Pour savoir comment configurer votre pool d’hôtes Windows Virtual Desktop, consultez [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md).
+Pour découvrir comment configurer votre pool d’hôtes Azure Virtual Desktop, consultez [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md).
 
-Pour savoir comment vous connecter à un Windows Virtual Desktop, voir les articles suivants :
+Pour découvrir comment vous connecter à Azure Virtual Desktop, consultez les articles suivants :
 
 - [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-10.md)
 - [Se connecter avec un navigateur web](connect-web.md)

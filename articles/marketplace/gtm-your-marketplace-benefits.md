@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 3f94b22d4f439769b27d38943603f7c726bfc40d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f0f75a305a411e49a29124599dfa90aa0aee9056
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468405"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004275"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
 Vous avez publié une offre sur le marketplace commercial de Microsoft, et vous souhaitez maintenant qu’elle se vende bien. Nous vous proposons les avantages (commerciaux, techniques et marketing) dont vous avez besoin pour accélérer la croissance de votre offre.
 
-Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
+Une fois que votre offre est active sur Microsoft AppSource ou Place de marché Azure, accédez à [Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165457) pour accéder à vos avantages marketing, commerciaux et techniques éligibles et les activer. Les avantages de la place de marché se cumulent en fonction de l’engagement et des ventes de votre place de marché commerciale. Plus vous vous engagez, plus vous recevez en retour.
 
 ## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -38,10 +38,10 @@ Vous bénéficierez d’une aide pour comprendre les ressources disponibles et m
 
 Vous trouverez une description détaillée de tous les avantages du programme dans cette [présentation du programme Marketplace Rewards](https://aka.ms/marketplacerewards).
 
-## <a name="getting-started-is-easy"></a>Pour commencer en toute simplicité :
+## <a name="getting-started-is-easy"></a>Pour commencer en toute simplicité
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
-2. Accédez à [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
+2. Accédez à [Marketplace Rewards](https://go.microsoft.com/fwlink/?linkid=2165388) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
 3. Pour activer les avantages marketing et commerciaux, attribuez un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
 4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
     1. Sélectionnez un utilisateur dans la liste. Si l’utilisateur que vous souhaitez attribuer ne figure pas dans la liste, vous pouvez ajouter de nouveaux utilisateurs dans **Paramètres du compte**.
@@ -50,7 +50,7 @@ Vous trouverez une description détaillée de tous les avantages du programme da
     1. Une fois que vous avez mis à jour le contact marketing, sélectionnez **Activer** pour l’avantage que vous souhaitez commencer à utiliser. Une fois que vous avez activé un avantage, votre contact marketing sera contacté par un membre de l’équipe Récompenses dans un délai d’une semaine.
 
 > [!NOTE]
-> Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, envoyez un ticket de support à l’équipe [Aide et support](https://aka.ms/marketplacepublishersupport).
+> Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, envoyez un ticket de support à l’équipe [Aide et support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur le marketplace commercial. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.
 

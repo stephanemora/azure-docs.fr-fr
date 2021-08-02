@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 05/25/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a01b826f99b7bbfc864ad2a6f2913f4f4a9f3e54
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8a854e17c8a28b335f8c4e8c67bd5f27cb360789
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072258"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110464610"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,7 +48,8 @@ Voici quelques exemples de stratégies d’indexation au [format JSON](index-pol
     }
 ```
 
-Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
+Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus). Si vous essayez de définir ces propriétés, elles sont automatiquement supprimées de votre stratégie d’indexation.
+
 
 ```json
     {
@@ -102,7 +103,8 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
     }
 ```
 
-Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus).
+Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet de définir manuellement les valeurs par défaut de ```kind```, ```dataType``` et ```precision```. Il n’est plus nécessaire de définir explicitement ces propriétés. Vous devez les omettre entièrement dans votre stratégie d’indexation (comme indiqué dans l’exemple ci-dessus). Si vous essayez de définir ces propriétés, elles sont automatiquement supprimées de votre stratégie d’indexation.
+
 
 ```json
     {

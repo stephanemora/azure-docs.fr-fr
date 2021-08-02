@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afcd4eb8327ff806e76b635d8be3715d93b15ed6
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310895"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407702"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Créer un PostgreSQL Hyperscale activé par Azure Arc à l’aide d’Azure Data Studio
 
@@ -66,6 +66,7 @@ Vous pouvez maintenant implémenter l’étape suivante.
 1. Acceptez la déclaration de confidentialité et les termes du contrat de licence, puis cliquez sur **Sélectionner** en bas
 1. Dans le panneau Déployer le groupe de serveurs PostgreSQL Hyperscale - Azure Arc, entrez les informations suivantes :
    - Entrez un nom pour le groupe de serveur
+   - Nombre de nœuds Worker
    - Entrez et confirmez un mot de passe pour l'utilisateur administrateur de _postgres_ du groupe de serveurs
    - Sélectionnez la classe de stockage appropriée pour les données
    - Sélectionnez la classe de stockage appropriée pour les journaux
@@ -76,6 +77,29 @@ Vous pouvez maintenant implémenter l’étape suivante.
 Cela démarre la création du groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc sur le contrôleur de données.
 
 Votre création ne devrait prendre que quelques minutes.
+
+### <a name="important-parameters-you-should-consider"></a>Paramètres importants à prendre en compte :
+
+- **Nombre de nœuds Worker** que vous souhaitez déployer pour effectuer un scale-out et potentiellement obtenir de meilleures performances. Avant de continuer, lisez les [concepts relatifs à Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). Le tableau ci-dessous indique la plage des valeurs prises en charge et le type de déploiement Postgres obtenu avec ces valeurs. Par exemple, si vous souhaitez déployer un groupe de serveurs avec 2 nœuds Worker, indiquez 2. Cette opération crée trois pods, un pour le nœud coordinateur/l’instance et deux pour les nœuds Worker/instances (un pour chacun des Workers).
+
+
+
+|Vous devez avoir   |Forme du groupe de serveurs que vous allez déployer   |Nombre de nœuds Worker à indiquer   |Notes   |
+|---|---|---|---|
+|Forme de Postgres avec scale-out pour répondre aux besoins de scalabilité de vos applications.   |3 instances Postgres ou plus, 1 est coordinateur, n sont des workers avec n >=2.   |n, avec n>=2.   |L’extension Citus qui fournit la fonctionnalité Hyperscale est chargée.   |
+|Forme de base de Postgres Hyperscale permettant la validation fonctionnelle de votre application à un coût minimal. Non valide pour la validation des performances et de la scalabilité. En fonction de vos besoins, vous devez utiliser l’un des types de déploiement décrit ci-dessus.   |1 instance Postgres qui est à la fois coordinateur et Worker.   |0 et ajoutez Citus à la liste des extensions à charger.   |L’extension Citus qui fournit la fonctionnalité Hyperscale est chargée.   |
+|Instance simple de Postgres prête pour un scale-out quand vous en avez besoin.   |1 instance Postgres. La sémantique pour le coordinateur et le Worker n’est pas encore déterminée. Pour effectuer un scale-out après le déploiement, modifiez la configuration, augmentez le nombre de nœuds Worker et distribuez les données.   |0   |L’extension Citus qui fournit la fonctionnalité Hyperscale est présente dans votre déploiement, mais elle n’est pas encore chargée.   |
+|   |   |   |   |
+
+Si vous indiquez 1 Worker, le déploiement fonctionne mais nous vous déconseillons de l’utiliser. Ce déploiement vous apporte peu de valeur. Cette configuration vous permet d’obtenir 2 instances de Postgres : 1 coordinateur et 1 Worker. Avec cette configuration, vous n’effectuez pas le scale-out des données, car vous déployez un seul Worker. Par conséquent, le niveau de performances et de scalabilité n’augmente pas. La prise en charge de ce déploiement sera supprimée dans une version ultérieure.
+
+- **Les classes de stockage** que vous souhaitez que votre groupe de serveurs utilise. Il est important de définir la classe de stockage juste au moment où vous déployez un groupe de serveurs, car cette opération ne peut pas être modifiée après le déploiement. Si vous deviez modifier la classe de stockage après le déploiement, vous auriez besoin d’extraire les données, de supprimer votre groupe de serveurs, de créer un nouveau groupe de serveurs et d’importer les données. Vous pouvez spécifier les classes de stockage à utiliser pour les données, les journaux et les sauvegardes. Par défaut, si vous n’indiquez pas de classes de stockage, les classes de stockage du contrôleur de données sont utilisées.
+    - Pour définir la classe de stockage pour les données, indiquez le paramètre `--storage-class-data` ou `-scd` suivi du nom de la classe de stockage.
+    - Pour définir la classe de stockage pour les données, indiquez le paramètre `--storage-class-logs` ou `-scl` suivi du nom de la classe de stockage.
+    - Pour définir la classe de stockage pour les sauvegardes : dans cette préversion de PostgreSQL Hyperscale avec Azure Arc, il existe deux façons de définir des classes de stockage en fonction des types d’opérations de sauvegarde/restauration que vous souhaitez effectuer. Nous nous efforçons actuellement de simplifier cette expérience. Vous indiquez soit une classe de stockage, soit un montage de revendication de volume. Un montage de revendication de volume est une paire constituée d’une revendication de volume persistant existante (dans le même espace de noms) et du type de volume (et des métadonnées facultatives selon le type de volume), séparés par le signe deux-points. Le volume persistant est monté dans chaque pod pour le groupe de serveurs PostgreSQL.
+        - Si vous souhaitez planifier uniquement des restaurations complètes de bases de données, définissez le paramètre `--storage-class-backups` ou `-scb` suivi du nom de la classe de stockage.
+        - Si vous envisagez d’effectuer à la fois des restaurations complètes de bases de données et des restaurations dans le temps, définissez le paramètre `--volume-claim-mounts` ou `-vcm` suivi du nom d’une revendication de volume et d’un type de volume.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Gérer votre groupe de serveurs à l’aide d’Azure Data Studio](manage-postgresql-hyperscale-server-group-with-azure-data-studio.md)
@@ -91,7 +115,7 @@ Votre création ne devrait prendre que quelques minutes.
 
     > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
 
-- [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)
+- [Effectuer un scale-out de votre groupe de serveurs Azure Database pour PostgreSQL Hyperscale](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)
 - [Modèle de ressources Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
