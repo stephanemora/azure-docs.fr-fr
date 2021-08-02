@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 1214cfaa0d534edc47cdcadd98ab0a3ead4d2f46
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 856cef0da55b12e808565d25ffe2ac92db4762eb
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985631"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238111"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>Démarrage rapide : Créer une réponse automatique à une alerte de sécurité spécifique en utilisant un modèle ARM
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resourc
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+[![Déployer dans Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -62,7 +62,7 @@ Pour d’autres modèles de démarrage rapide Security Center, consultez ces [mo
 
 - **Portail** :
 
-  [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+  [![Déployer dans Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
   Pour plus d’informations sur cette option de déploiement, consultez [Utiliser un bouton de déploiement pour étendre des modèles à partir du dépôt GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
@@ -73,7 +73,7 @@ Utilisez le portail Azure pour vérifier que l’automatisation du workflow a é
 1. Dans le [Portail Azure](https://portal.azure.com), ouvrez **Security Center**.
 1. Dans la barre de menus supérieure, sélectionnez l’icône de filtre, puis sélectionnez l’abonnement spécifique sur lequel vous avez déployé la nouvelle automatisation du workflow.
 1. Dans la barre latérale de Security Center, ouvrez **Automation du workflow** et recherchez votre nouvelle automatisation.
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Liste des automatisations configurées" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Liste des automatisations configurées." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Si vous comptez de nombreuses automatisations de workflow dans votre abonnement, utilisez l’option **filtrer par nom**.
 
@@ -84,7 +84,7 @@ Lorsque vous n’en avez plus besoin, supprimez l’automatisation du workflow p
 1. Dans le [Portail Azure](https://portal.azure.com), ouvrez **Security Center**.
 1. Dans la barre de menus supérieure, sélectionnez l’icône de filtre, puis sélectionnez l’abonnement spécifique sur lequel vous avez déployé la nouvelle automatisation du workflow.
 1. Dans la barre latérale de Security Center, ouvrez **Automation du workflow** et recherchez l’automatisation à supprimer.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Étapes de suppression d’une automatisation de workflow" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Procédure de suppression d’une automatisation de workflow." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Activez la case à cocher de l’élément à supprimer.
 1. Dans la barre d’outils, sélectionnez **Supprimer**.
 

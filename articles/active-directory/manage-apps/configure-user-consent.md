@@ -2,22 +2,22 @@
 title: Configurer le consentement de l’utilisateur final pour une application à l’aide d’Azure AD
 description: Apprenez à gérer comment et quand les utilisateurs peuvent donner leur consentement pour des applications qui auront accès aux données de votre organisation.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
-ms.author: iangithinji
+ms.date: 06/01/2021
+ms.author: mtillman
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 59a7799ce7c0c1fd8261324351f425e76e3b4d44
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374435"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075967"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurer le consentement de l’utilisateur final pour une application
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Évolution du consentement en fonction des risques
 
-La réaffectation du consentement en fonction des risques contribue à réduire l’exposition des utilisateurs aux applications malveillantes qui font des [demandes de consentement illicites](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Si Microsoft détecte une demande de consentement de l’utilisateur final à risque, la demande nécessitera une « évolution » vers le consentement de l’administrateur à la place. Cette fonctionnalité est activée par défaut, mais elle entraînera un changement de comportement uniquement lorsque le consentement de l’utilisateur final sera activé.
+La réaffectation du consentement en fonction des risques contribue à réduire l’exposition des utilisateurs aux applications malveillantes qui font des [demandes de consentement illicites](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Par exemple, les demandes de consentement pour les applications mutualisées nouvellement inscrites qui ne sont pas [vérifiées par l’éditeur](../develop/publisher-verification-overview.md) et qui nécessitent des autorisations autres que celles de base sont considérées comme risquées. Si Microsoft détecte une demande de consentement de l’utilisateur final à risque, la demande nécessitera une « évolution » vers le consentement de l’administrateur à la place. Cette fonctionnalité est activée par défaut, mais elle entraînera un changement de comportement uniquement lorsque le consentement de l’utilisateur final sera activé.
 
 Quand une demande de consentement à risque est détectée, l’invite de consentement affiche un message indiquant que l’approbation de l’administrateur est requise. Si le [flux de travail de demande de consentement de l’administrateur](configure-admin-consent-workflow.md) est activé, l’utilisateur peut envoyer la demande à un administrateur pour révision ultérieure, directement à partir de l’invite de consentement. S’il n’est pas activé, le message suivant s’affiche :
 

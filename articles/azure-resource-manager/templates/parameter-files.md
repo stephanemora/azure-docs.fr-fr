@@ -2,18 +2,18 @@
 title: Créer un fichier de paramètres
 description: Créer un fichier de paramètres pour transmettre des valeurs pendant le déploiement d’un modèle d’Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 05/11/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50404df278da22352344bbd12e139cc86f0a0615
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 8b7d9afc91462ec3dc61b25135460e347b121e5c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321642"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960285"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
-Au lieu de passer des paramètres en tant que valeurs inline dans votre script, vous pouvez utiliser un fichier JSON qui contient les valeurs des paramètres. Cet article explique comment créer un fichier de paramètres que vous utilisez avec un modèle JSON ou un fichier Bicep.
+Au lieu de passer des paramètres en tant que valeurs inline dans votre script, vous pouvez utiliser un fichier JSON qui contient les valeurs des paramètres. Cet article explique comment créer un fichier de paramètres que vous utilisez avec un modèle JSON.
 
 ## <a name="parameter-file"></a>Fichier de paramètres
 
@@ -62,9 +62,7 @@ Pour plus d’informations sur l’utilisation de valeurs d’un coffre de clés
 
 ## <a name="define-parameter-values"></a>Définissez des valeurs de paramètre
 
-Pour déterminer comment définir les noms et les valeurs des paramètres, ouvrez votre modèle JSON ou Bicep. Consultez la section Paramètres du modèle. Les exemples suivants illustrent les paramètres des modèles JSON et Bicep.
-
-# <a name="json"></a>[JSON](#tab/json)
+Pour déterminer comment définir les noms et les valeurs des paramètres, ouvrez votre modèle JSON ou et vérifiez la section `parameters`. L’exemple suivant montre les paramètres d’un modèle JSON.
 
 ```json
 "parameters": {
@@ -84,23 +82,6 @@ Pour déterminer comment définir les noms et les valeurs des paramètres, ouvre
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-@maxLength(11)
-param storagePrefix string
-
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-])
-param storageAccountType string = 'Standard_LRS'
-```
-
----
 
 Dans le fichier de paramètres, le premier détail à noter est le nom de chaque paramètre. Les noms de paramètres dans votre fichier de paramètres doivent correspondre aux noms de paramètres de votre modèle.
 
@@ -217,7 +198,7 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure CLI](./deploy-cli.md#parameters). Pour déployer des fichiers _.bicep_, vous devez disposer d’Azure CLI version 2.20 ou ultérieure.
+Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure CLI](./deploy-cli.md#parameters).
 
 À partir d’Azure PowerShell vous transmettez un fichier de paramètres local à l’aide du paramètre `TemplateParameterFile`.
 
@@ -227,7 +208,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](./deploy-powershell.md#pass-parameter-values). Pour déployer des fichiers _.bicep_, vous devez disposer d’Azure PowerShell version 5.6.0 ou ultérieure.
+Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](./deploy-powershell.md#pass-parameter-values).
 
 > [!NOTE]
 > Il n’est pas possible d’utiliser un fichier de paramètres avec le panneau de modèle personnalisé dans le portail.
@@ -253,5 +234,5 @@ Si votre modèle inclut un paramètre utilisant le même nom que l’un des para
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la façon de définir des paramètres dans un modèle, consultez [Paramètres dans les modèles ARM](template-parameters.md).
+- Pour plus d’informations sur la façon de définir des paramètres dans un modèle, consultez [Paramètres dans les modèles ARM](./parameters.md).
 - Pour plus d’informations sur l’utilisation de valeurs d’un coffre de clés, consultez la page [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](key-vault-parameter.md).

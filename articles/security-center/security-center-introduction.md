@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: fb505c42cda53db549cd5187972ad6fabfdf7ca4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b700cd6a9b17abcd86cfb31b1d2c65fefe226d79
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137090"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237407"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -64,11 +64,11 @@ Azure Security Center vous permet de renforcer votre posture de sécurité. Cela
 
 Garantir la sécurité de vos charges de travail est une règle de base en matière de sécurité, et cela commence par la mise en place de stratégies de sécurité personnalisées. Étant donné que toutes les stratégies dans Security Center reposent sur des contrôles Azure Policy, vous obtenez l’éventail complet et la flexibilité totale offerts par une **solution de stratégie de niveau international**. Dans Security Center, vous pouvez définir vos stratégies de façon qu’elles s’exécutent sur des groupes d’administration, dans l’ensemble des abonnements et même pour un locataire.
 
-:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Page Gestion des stratégies":::
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Page Gestion des stratégies.":::
 
 Security Center vous aide à **identifier les abonnements Shadow IT**. En examinant les abonnements étiquetés **non couverts** de votre tableau de bord, vous pouvez savoir immédiatement quels sont les abonnements nouvellement créés et vous assurer qu’ils sont couverts par vos stratégies, en plus d’être protégés par Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Tableau de bord de stratégie Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Tableau de bord de stratégie Security Center.":::
 
 ### <a name="continuous-assessments"></a>Évaluations continues
 
@@ -76,13 +76,13 @@ Security Center détecte en continu les nouvelles ressources déployées dans vo
 
 Pour vous aider à comprendre l’importance de chaque recommandation pour votre posture de sécurité globale, Security Center regroupe les recommandations en contrôles de sécurité et ajoute une valeur de **degré de sécurisation** à chaque contrôle. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Degré de sécurisation de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Degré de sécurisation de Security Center.":::
 
 ### <a name="network-map"></a>Mappage réseau
 
 L’un des outils les plus puissants fournis par Security Center pour surveiller en continu l’état de votre réseau est le **mappage réseau**. Le mappage vous permet de visualiser la topologie de vos charges de travail, afin que vous puissiez vérifier que chaque nœud est bien configuré. Vous pouvez voir de quelle façon vos nœuds sont connectés, ce qui vous permet de bloquer les connexions indésirables qui pourraient simplifier l’accès d’un attaquant à votre réseau.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappage réseau Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappage réseau Security Center.":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimiser et améliorer la sécurité en configurant les contrôles recommandés
@@ -93,7 +93,7 @@ De cette façon, Security Center vous permet non seulement de définir des strat
 
 Les recommandations vous aident à réduire la surface d’attaque de chacune de vos ressources. Cela inclut les machines virtuelles Azure, les serveurs autres qu’Azure et les services PaaS Azure comme les comptes Stockage et SQL, entre autres, où chaque type de ressource est évalué différemment et a ses propres normes.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemple de recommandation Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemple de recommandation Security Center.":::
 
 ## <a name="protect-against-threats"></a>Vous protéger contre les menaces
 

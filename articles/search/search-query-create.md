@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53428a0185b003e22fd0ad68001b2b1588f994b1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951502"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750746"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Création de requêtes dans Recherche cognitive Azure
 
@@ -23,9 +23,9 @@ Si vous générez une requête pour la première fois, cet article décrit les a
 
 Il s’agit d’une requête en lecture seule sur la collection de documents d’un index de recherche unique. Elle spécifie un paramètre de recherche qui contient l’expression de requête, composée de termes, d’expressions entre guillemets et d’opérateurs.
 
-Des paramètres supplémentaires fournissent davantage de définition à la requête et à la réponse. Par exemple, « searchFields » limite l’exécution des requêtes à des champs spécifiques, « select » spécifie les champs qui sont retournés dans les résultats, et « count » retourne le nombre de correspondances trouvées dans l’index.
+Des paramètres supplémentaires sur la requête fournissent davantage de définition à la requête et à la réponse. Par exemple, « searchFields » limite l’exécution des requêtes à des champs spécifiques, « select » spécifie les champs qui sont retournés dans les résultats, et « count » retourne le nombre de correspondances trouvées dans l’index.
 
-L’exemple suivant donne une idée générale d’une demande de requête en indiquant un sous-ensemble des paramètres disponibles. Pour plus d’informations sur la composition des requêtes, consultez [Types de requêtes et compositions](search-query-overview.md) et [Rechercher dans des documents (REST)](/rest/api/searchservice/search-documents).
+L’exemple suivant donne une idée générale d’une demande de requête en indiquant certains des paramètres disponibles. Pour plus d’informations sur la composition des requêtes, consultez [Types de requêtes et compositions](search-query-overview.md) et [Rechercher dans des documents (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -45,7 +45,7 @@ Vous aurez besoin d’un outil, tel que le portail Azure ou Postman, ou du code 
 
 ### <a name="permissions"></a>Autorisations
 
-Toute opération, y compris les demandes de requête, fonctionnera sous une [clé API d’administration](search-security-api-keys.md), mais les demandes de requête peuvent éventuellement utiliser une [clé API de requête](search-security-api-keys.md#create-query-keys). Les clés API de requête sont vivement recommandées. Vous pouvez en créer jusqu’à 50 par service et affecter des clés différentes à différentes applications.
+Une demande de requête requiert des autorisations de lecture, accordées via une clé API passée dans l’en-tête. Toute opération, y compris les demandes de requête, fonctionnera sous une [clé API d’administration](search-security-api-keys.md), mais les demandes de requête peuvent éventuellement utiliser une [clé API de requête](search-security-api-keys.md#create-query-keys). Les clés API de requête sont vivement recommandées. Vous pouvez en créer jusqu’à 50 par service et affecter des clés différentes à différentes applications.
 
 Dans le portail Azure, l’accès aux outils, aux assistants et aux objets requiert l’appartenance au rôle Contributeur ou supérieur sur le service. 
 
