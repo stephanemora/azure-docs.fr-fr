@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les fournisseurs de services
-description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
+description: Dans le portail Azure, es clients peuvent afficher des informations sur les fournisseurs de services Azure Lighthouse, les offres de fournisseurs de services et les ressources déléguées.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: f6ee5fb154d75ff715acf99c5184cd1652ccdb80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23fe84132b3c2dbee584f452b14503adfdb6db7d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555582"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080918"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 

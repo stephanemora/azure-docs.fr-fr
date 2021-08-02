@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: ebc8405a2afe9a6e2d802b68c59142f6fbf01de5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d5e9b449aaff6bb14283184c2182d0e9de2ef0c5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288109"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407558"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
 
@@ -80,7 +80,18 @@ Les principaux paramètres à prendre en compte sont les suivants :
 
 - **Version du moteur PostgreSQL** que vous souhaitez déployer : par défaut, il s’agit de la version 12. Pour déployer la version 12, vous pouvez omettre ce paramètre ou passer l’un des paramètres suivants : `--engine-version 12` ou `-ev 12`. Pour déployer la version 11, indiquez `--engine-version 11` ou `-ev 11`.
 
-- **Nombre de nœuds Worker** que vous souhaitez déployer pour effectuer un scale-out et potentiellement obtenir de meilleures performances. Avant de continuer, lisez les [concepts relatifs à Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). Pour indiquer le nombre de nœuds Worker à déployer, utilisez le paramètre `--workers` ou `-w` suivi d’un entier supérieur ou égal à 2. Par exemple, si vous souhaitez déployer un groupe de serveurs avec 2 nœuds Worker, indiquez `--workers 2` ou `-w 2`. Cette opération crée trois pods, un pour le nœud coordinateur/l’instance et deux pour les nœuds Worker/instances (un pour chacun des Workers).
+- **Nombre de nœuds Worker** que vous souhaitez déployer pour effectuer un scale-out et potentiellement obtenir de meilleures performances. Avant de continuer, lisez les [concepts relatifs à Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). Pour indiquer le nombre de nœuds Worker à déployer, utilisez le paramètre `--workers` ou `-w` suivi d’un entier. Le tableau ci-dessous indique la plage des valeurs prises en charge et le type de déploiement Postgres obtenu avec ces valeurs. Par exemple, si vous souhaitez déployer un groupe de serveurs avec 2 nœuds Worker, indiquez `--workers 2` ou `-w 2`. Cette opération crée trois pods, un pour le nœud coordinateur/l’instance et deux pour les nœuds Worker/instances (un pour chacun des Workers).
+
+
+
+|Vous devez avoir   |Forme du groupe de serveurs que vous allez déployer   |paramètre-w à utiliser   |Notes   |
+|---|---|---|---|
+|Une forme de Postgres avec scale-out pour répondre aux besoins de scalabilité de vos applications.   |3 instances Postgres ou plus, 1 est coordinateur, n sont des Workers avec n>=2.   |Utilisez-w n, avec n>= 2.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
+|Une forme de base de Postgres Hyperscale permettant la validation fonctionnelle de votre application à un coût minimal. Non valide pour la validation des performances et de la scalabilité. Pour cela, vous devez utiliser le type de déploiement décrit ci-dessus.   |1 instance Postgres qui est à la fois coordinateur et Worker.   |Utilisez -w 0 et chargez l’extension Citus. Utilisez les paramètres suivants si vous opérez le déploiement à partir de la ligne de commande :-w 0--extensions Citus.   |L’extension Citus qui fournit la capacité Hyperscale est chargée.   |
+|Une instance simple de Postgres prête pour un scale-out quand vous en avez besoin.   |1 instance Postgres. La sémantique du coordinateur et du Worker n’est pas encore déterminée. Pour effectuer un scale-out après le déploiement, modifiez la configuration, augmentez le nombre de nœuds Worker et distribuez les données.   |Utilisez -w 0 ou ne spécifiez pas -w.   |L’extension Citus qui fournit la capacité Hyperscale est présente dans votre déploiement, mais elle n’est pas encore chargée.   |
+|   |   |   |   |
+
+Si vous l’utilisation de -w 1 fonctionne, nous vous déconseillons de l’utiliser. Ce déploiement vous apporte peu de valeur. Cette configuration vous permet d’obtenir 2 instances de Postgres : 1 coordinateur et 1 Worker. Avec cette configuration, vous n’effectuez pas le scale-out des données, car vous déployez un seul Worker. Par conséquent, le niveau de performances et de scalabilité n’augmente pas. La prise en charge de ce déploiement sera supprimée dans une version ultérieure.
 
 - **Les classes de stockage** que vous souhaitez que votre groupe de serveurs utilise. Il est important de définir la classe de stockage juste au moment où vous déployez un groupe de serveurs, car cette opération ne peut pas être modifiée après le déploiement. Si vous deviez modifier la classe de stockage après le déploiement, vous auriez besoin d’extraire les données, de supprimer votre groupe de serveurs, de créer un nouveau groupe de serveurs et d’importer les données. Vous pouvez spécifier les classes de stockage à utiliser pour les données, les journaux et les sauvegardes. Par défaut, si vous n’indiquez pas de classes de stockage, les classes de stockage du contrôleur de données sont utilisées.
     - Pour définir la classe de stockage pour les données, indiquez le paramètre `--storage-class-data` ou `-scd` suivi du nom de la classe de stockage.
@@ -234,7 +245,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Connectez-vous à votre instance de PostgreSQL Hyperscale avec Azure Arc : lisez [Obtenir des points de terminaison de connexion et des chaînes de connexion](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
+- Connectez-vous à votre instance PostgreSQL Hyperscale avec Azure Arc : lisez [Obtenir des points de terminaison de connexion et des chaînes de connexion](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Lisez les concepts et les guides pratiques d’Azure Database pour PostgreSQL Hyperscale pour distribuer vos données sur plusieurs nœuds PostgreSQL Hyperscale et tirer parti d’une amélioration potentielle des performances :
     * [Nœuds et tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Déterminer le type d’application](../../postgresql/concepts-hyperscale-app-type.md)
@@ -246,7 +257,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* Dans les documents ci-dessus, ignorez les sections **Se connecter au portail Azure** et **Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)** . Implémentez les étapes restantes dans votre déploiement Azure Arc. Ces sections sont spécifiques à Azure Database pour PostgreSQL Hyperscale (Citus) proposé en tant que service PaaS dans le cloud Azure, mais les autres parties des documents s’appliquent directement à votre PostgreSQL Hyperscale activé pour Azure Arc.
 
-- [Effectuer un scale-out de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc](scale-out-postgresql-hyperscale-server-group.md)
+- [Effectuer un scale-out de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)
 - [Développement des revendications de volume persistant](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modèle de ressources Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

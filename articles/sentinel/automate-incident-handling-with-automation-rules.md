@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 5ef5f465cbb8dfd044482bfad1eb72f1aa78df39
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783726"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072669"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation
 
@@ -42,7 +42,7 @@ Les règles d’automatisation sont constituées de plusieurs composants :
 
 Les règles d’automatisation sont déclenchées par la création d’un incident. 
 
-Pour révision : les incidents sont créés à partir d’alertes déclenchées par des règles d’analytique, dont il existe quatre types, comme expliqué dans le tutoriel [Détecter les menaces avec des règles d’analytique intégrées dans Azure Sentinel](tutorial-detect-threats-built-in.md).
+Pour révision : les incidents sont créés à partir d’alertes déclenchées par des règles d’analytique. Il existe plusieurs types de règles, comme l’explique le tutoriel [Détection des menaces avec des règles d’analytique intégrées dans Azure Sentinel](tutorial-detect-threats-built-in.md).
 
 ### <a name="conditions"></a>Conditions
 
@@ -62,7 +62,7 @@ Vous pouvez définir des actions peuvent à exécuter quand les conditions (voir
 
 - Ajout d’une étiquette à un incident : cela est utile pour classer les incidents par objet, par attaquant ou par tout autre dénominateur commun.
 
-En outre, vous pouvez définir une action pour exécuter un [playbook](tutorial-respond-threats-playbook.md) afin de prendre des mesures de réponse plus complexes, notamment impliquant des systèmes externes. Seuls les playbooks activés par le [déclencheur d’incident](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) sont disponibles pour utilisation dans des règles d’automatisation. Vous pouvez définir une action pour inclure plusieurs playbooks ou des combinaisons de playbooks et d’autres actions, ainsi que l’ordre dans lequel ils s’exécuteront.
+Vous pouvez également définir une action [**exécuter un playbook**](tutorial-respond-threats-playbook.md) pour prendre des mesures de réponse plus complexes, notamment impliquant des systèmes externes. **Seuls** les playbooks activés par le [**déclencheur d’incident**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) sont utilisables dans des règles d’automatisation. Vous pouvez définir une action pour inclure plusieurs playbooks ou des combinaisons de playbooks et d’autres actions, ainsi que l’ordre dans lequel ils s’exécuteront.
 
 ### <a name="expiration-date"></a>Date d'expiration
 
@@ -132,12 +132,27 @@ Pour qu’une règle d’automatisation exécute un playbook, ce compte doit dis
 
 Quand vous configurez une règle d’automatisation et ajoutez l’action **Exécuter le playbook**, une liste déroulante de playbooks s’affiche. Les playbooks sur lesquels Azure Sentinel n’a pas d’autorisation apparaissent indisponibles (« grisés »). Vous pouvez accorder une autorisation Azure Sentinel aux groupes de ressources du playbook sur place en sélectionnant le lien **Gérer les autorisations des playbooks**.
 
-> [!NOTE]
-> **Autorisations dans une architecture mutualisée**
->
-> Les règles d’automatisation prennent entièrement en charge les déploiements dans plusieurs espaces de travail et mutualisés (dans le cas d’un déploiement mutualisé, à l’aide d’[Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
->
-> Par conséquent, si votre déploiement d’Azure Sentinel utilise une architecture mutualisée (par exemple, si vous êtes un fournisseur de services de sécurité managés -MSSP-), vous pouvez faire en sorte qu’une règle d’automatisation dans un locataire exécute un playbook résidant dans un autre locataire, mais les autorisations pour que Sentinel exécute les playbooks doivent être définies dans le locataire où les playbooks résident, non dans celui où les règles d’automatisation sont définies.
+#### <a name="permissions-in-a-multi-tenant-architecture"></a>Autorisations dans une architecture mutualisée
+
+Les règles d’automatisation prennent entièrement en charge les déploiements [multi-locataires](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) sur plusieurs espaces de travail (avec [Azure Lighthouse](../lighthouse/index.yml) dans le cas d’un déploiement multi-locataire).
+
+Par conséquent, si votre déploiement d’Azure Sentinel utilise une architecture multi-locataire, vous pouvez faire en sorte qu’une règle d’automatisation située dans un locataire exécute un playbook qui se trouve dans un autre locataire. Cependant, les autorisations permettant à Sentinel d’exécuter les playbooks doivent être établies dans le locataire où résident les playbooks, et non dans celui où les règles d’automatisation sont définies.
+
+Dans le cas précis d’un fournisseur de services de sécurité gérée (où le locataire d’un fournisseur de services gère un espace de travail Azure Sentinel dans le locataire d’un client), deux scénarios particuliers doivent être pris en compte :
+
+- **Une règle d’automatisation créée dans le locataire du client est configurée pour exécuter un playbook situé dans le locataire du fournisseur de services.** 
+
+    Cette approche est normalement utilisée pour protéger la propriété intellectuelle dans le playbook. Rien de spécial n’est nécessaire pour que ce scénario fonctionne. Lorsque vous définissez une action de playbook dans votre règle d’automatisation et que vous arrivez à la phase où vous accordez des autorisations Azure Sentinel sur le groupe de ressources dans lequel se trouve le playbook (à l’aide du panneau **Gérer les autorisations du playbook**), les groupes de ressources appartenant au locataire du fournisseur de services figurent parmi les choix possibles. [Consultez l’ensemble du processus décrit ici](tutorial-respond-threats-playbook.md#respond-to-incidents).
+
+- **Une règle d’automatisation créée dans l’espace de travail du client (avec connexion au locataire du fournisseur de services) est configurée pour exécuter un playbook situé dans le locataire du client.**
+
+    Cette configuration est utilisée lorsqu’il n’est pas nécessaire de protéger la propriété intellectuelle. Pour que ce scénario fonctionne, les autorisations d’exécution du playbook doivent être accordées à Azure Sentinel dans ***les deux locataires** _. Dans le locataire du client, vous pouvez les octroyer dans le panneau _ *Gérer les autorisations du playbook** (cf. scénario ci-dessus). Pour accorder les autorisations appropriées dans le locataire du fournisseur de services, vous devez ajouter une délégation Azure Lighthouse supplémentaire qui accorde des droits d’accès à l’application **Azure Security Insights** avec le rôle **Contributeur d’automatisation Azure Sentinel** sur le groupe de ressources où se trouve le playbook.
+
+    Le scénario ressemble à ceci :
+
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Architecture des règles d’automatisation multi-locataires":::
+
+    Pour mettre en place cette configuration, consultez [nos instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 ## <a name="creating-and-managing-automation-rules"></a>Création et gestion de règles d’automatisation
 

@@ -9,23 +9,25 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: fc04655db898902a93c4e404f51d15393db3d92e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ff6e4f0a3c2b79f63376a480986f15014d20f9ae
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785256"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565353"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
 Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md).
 
-> [!WARNING]
-> L’accès au stockage des données derrière un pare-feu est pris en charge uniquement dans les premières expériences de code. L’utilisation d’[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) pour accéder aux données derrière un pare-feu n’est pas prise en charge. Pour travailler avec le stockage de données sur un réseau privé avec Studio, vous devez d’abord [configurer un réseau virtuel](../virtual-network/quick-create-portal.md) et [autoriser Studio à accéder aux données stockées au sein d’un réseau virtuel](how-to-enable-studio-virtual-network.md).
-
 ## <a name="azure-firewall"></a>Pare-feu Azure
+
+> [!IMPORTANT]
+> Le service Pare-feu Azure permet de sécuriser les _ressources du réseau virtuel Azure_. D’autres services Azure, tels que les comptes Stockage Azure, présentent des paramètres de pare-feu qui leur sont propres et _s’appliquent au point de terminaison public de cette instance de service spécifique_. Les informations contenues dans ce document sont spécifiques au Pare-feu Azure.
+> 
+> Pour plus d’informations sur les paramètres de pare-feu d’instance de service, consultez [Utiliser Studio dans un réseau virtuel](how-to-enable-studio-virtual-network.md#firewall-settings).
 
 Lorsque vous utilisez le pare-feu Azure, utilisez __DNAT (Destination Network Address Translation )__ afin de créer des règles NAT pour le trafic entrant. Pour le trafic sortant, créez des règles de type __réseau__ et/ou __application__. Ces regroupements de règles sont décrits plus en détail dans [Quels sont les concepts de Pare-feu Azure ?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
@@ -107,6 +109,18 @@ Pour plus d’informations, consultez l’article [Créer un pool Azure Batch da
 
 1. Pour restreindre l’accès aux modèles déployés sur Azure Kubernetes Service (AKS), consultez [Limiter le trafic de sortie dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
 
+### <a name="diagnostics-for-support"></a>Diagnostics pour la prise en charge
+
+S’il vous faut collecter des informations de diagnostic dans le cadre du support Microsoft, procédez comme suit :
+
+1. Ajoutez une __règle de réseau__ pour autoriser le trafic vers et depuis la balise `AzureMonitor`.
+1. Ajoutez des __règles d’application__ pour les hôtes suivants. Sélectionnez __http, https__ pour __Protocol:Port__ pour ces hôtes :
+
+    + **dc.applicationinsights.azure.com**
+    + **dc.applicationinsights.microsoft.com**
+    + **dc.services.visualstudio.com**
+
+    Pour obtenir la liste des adresses IP des hôtes Azure Monitor, consultez [Adresses IP utilisées par Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## <a name="other-firewalls"></a>Autres pare-feu
 
 Les instructions de cette section sont génériques, car chaque pare-feu dispose de sa propre terminologie et de configurations spécifiques. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
@@ -148,7 +162,7 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | Instance de calcul | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> Votre pare-feu doit autoriser la communication avec \*.instances.azureml.ms sur le port __TCP__ __18881__.
+> Votre pare-feu doit autoriser la communication avec \*.instances.azureml.ms sur les ports __TCP__ __18881, 443 et 8787__.
 
 **Ressources associées utilisées par Azure Machine Learning**
 
@@ -167,6 +181,8 @@ En outre, utilisez les informations du [tunneling forcé](how-to-secure-training
 
 Pour plus d’informations sur la restriction de l’accès aux modèles déployés sur Azure Kubernetes Service (AKS), consultez [Limiter le trafic de sortie dans Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
 
+> [!TIP]
+> Si vous collaborez avec le Support Microsoft pour collecter des informations de diagnostic, vous devez autoriser le trafic sortant vers les adresses IP utilisées par les hôtes Azure Monitor. Pour obtenir la liste des adresses IP des hôtes Azure Monitor, consultez [Adresses IP utilisées par Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### <a name="python-hosts"></a>Hôtes Python
 
 Les hôtes de cette section sont utilisés pour installer les packages Python. Ils sont requis lors du développement, de l’entraînement et du déploiement. 

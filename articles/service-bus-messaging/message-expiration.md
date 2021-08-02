@@ -3,12 +3,12 @@ title: Azure Service Bus - Expiration des messages
 description: Cet article traite de l'expiration et de la durée de vie des messages Azure Service Bus. Passé ce délai, le message n’est plus remis.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d41cb7a5e04753989c0e65e8afb8d74a11cd1af2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952318"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614878"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 La charge utile dans un message, ou une commande ou demande transmise par un message à un destinataire, est presque toujours soumise à une forme de délai d’expiration au niveau de l’application. Passé ce délai, le contenu n’est plus remis, ou l’opération demandée n’est plus exécutée.
@@ -27,9 +27,9 @@ Une durée de vie extrêmement faible de l’ordre de quelques millisecondes ou 
 Tous les messages envoyés vers une file d’attente ou une rubrique sont soumis à un délai d’expiration par défaut qui est défini au niveau de l’entité. Ce délai peut également être défini dans le portail lors de la création, puis ajusté ultérieurement. Le délai d’expiration par défaut est utilisé pour tous les messages envoyés à l’entité où la propriété time-to-live n’est pas définie explicitement. Le délai d’expiration par défaut fait également office de plafond pour la valeur time-to-live. Les messages qui ont un délai d’expiration time-to-live plus long que le délai par défaut sont ajustés silencieusement à la valeur time-to-live de message par défaut avant d’être mis en file attente.
 
 > [!NOTE]
-> La valeur time-to-live par défaut d’un message réparti est la plus grande valeur possible pour un entier de 64 bits unique, sauf spécification contraire.
+> La valeur par défaut de la durée de vie d’un message réparti correspond à la plus grande valeur possible d’un entier signé de 64 bits, sauf indication contraire.
 >
-> Pour les entités de messagerie (files d’attente et rubriques), le délai d’expiration par défaut est également la valeur la plus grande possible pour un entier de 64 bits pour les niveaux Standard et Premium de Service Bus. Pour le niveau **de base**, le délai d’expiration par défaut est de **14 jours** (qui est également le délai d’expiration maximal).
+> Pour les entités de message (files d’attente et rubriques), le délai d’expiration par défaut est également égal à la valeur la plus grande possible d’un entier signé de 64 bits pour les niveaux Standard et Premium de Service Bus. Pour le niveau **de base**, le délai d’expiration par défaut est de **14 jours** (qui est également le délai d’expiration maximal).
 
 Les messages expirés peuvent être envoyés vers une [file d’attente de lettres mortes](service-bus-dead-letter-queues.md). Vous pouvez configurer ce paramètre par programmation ou à l’aide du portail Azure. Si l’option reste désélectionnée, les messages expirés sont supprimés. La distinction entre les messages expirés déplacés vers la file d’attente de lettres mortes et les autres messages de lettres mortes est possible en évaluant la propriété [motif de lettres mortes](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que le répartiteur stocke dans la section des propriétés utilisateur. 
 

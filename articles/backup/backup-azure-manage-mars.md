@@ -3,13 +3,13 @@ title: Gérer et surveiller les sauvegardes de l’agent MARS
 description: Découvrez comment gérer et surveiller les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 04/29/2021
-ms.openlocfilehash: 5e495a5a5750ce2a2375000d208d9856ce68d803
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.date: 06/08/2021
+ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516683"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902939"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -201,6 +201,34 @@ Nous vous recommandons de configurer votre logiciel antivirus comme suit pour é
 
 >[!NOTE]
 >Bien que l’exclusion de ces chemins soit suffisante pour la plupart des logiciels antivirus, certains peuvent continuer d’interférer avec les opérations de l’agent MARS. Si vous constatez des défaillances inattendues, désinstallez temporairement le logiciel antivirus et vérifiez si le problème disparaît. Si cela résout le problème, contactez l’éditeur de votre logiciel antivirus pour savoir comment configurer convenablement son produit.
+
+## <a name="monitor-using-backup-reports"></a>Surveillance avec Rapports de sauvegarde
+
+La Sauvegarde Azure offre une solution de création de rapports qui utilise les journaux Azure Monitor et les classeurs Azure. Pour commencer, vous devez avoir [configuré la fonctionnalité Rapports de sauvegarde](configure-reports.md) pour votre coffre. Dès que c’est fait, les données arrivent dans l’espace de travail et peuvent être interrogées à l’aide des rapports de sauvegarde.
+
+Pour surveiller l’utilisation des données de sauvegarde et l’attrition quotidienne, procédez comme suit :
+
+1. Accédez au volet **Vue d’ensemble** du coffre et cliquez sur **Rapports de sauvegarde**.
+
+1. Sous la section **Vue d’ensemble** du panneau **Rapport de sauvegarde**, sélectionnez l’espace de travail Log Analytics configuré. 
+
+1. Définissez le filtre des rapports **Solution de sauvegarde** sur **Agent de sauvegarde Azure** pour afficher uniquement les sauvegardes de l’agent MARS. 
+
+   Définissez le **Nom de l’abonnement**, **l’Emplacement du coffre** et le **Nom du coffre**, le cas échéant.
+ 
+    ![Définition du filtre des rapports Solution de sauvegarde.](./media/backup-azure-manage-mars/set-report-filter-backup-solution.png)
+
+1. Pour afficher l’utilisation par entité facturée, accédez à l’onglet **Utilisation**. 
+
+   Le nombre total d’instances protégées facturées et les données d’utilisation du stockage s’affichent. Vous pouvez également consulter les informations de tendances.
+ 
+    ![Affichage de l’utilisation par entité facturée.](./media/backup-azure-manage-mars/view-usage-by-billed-entity.png)
+
+1. Pour afficher la moyenne des données de sauvegarde ajoutées par les travaux de sauvegarde pour chaque volume du serveur protégé, accédez à l’onglet **Travaux**. 
+ 
+    ![Affichage de la moyenne des données de sauvegarde.](./media/backup-azure-manage-mars/view-average-backup-data.png)
+
+Découvrez les [autres onglets des rapports](configure-reports.md) et comment recevoir ces [rapports par e-mail](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

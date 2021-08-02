@@ -6,12 +6,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 05/25/2021
-ms.openlocfilehash: 5fbf0d8f713785c7ec37e48fbf78e6d95a21ca4b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 5bbdcd8032fbb4d20af2e681bf703c3d62985fe0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379574"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971627"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Prévoir et gérer les coûts d’Azure Logic Apps
 
@@ -59,7 +59,7 @@ Voici d’autres ressources qui entraînent des coûts lorsque vous les créez p
 
 #### <a name="storage-operations-and-costs"></a>Opérations et coûts de stockage
 
-Azure Logic Apps utilise [Stockage Azure](/storage) pour toutes les opérations de stockage. Avec Azure Logic Apps multilocataire, l’utilisation et les coûts du stockage sont attachés à l’application logique. [La conservation des données et la consommation du stockage](../logic-apps/logic-apps-pricing.md#data-retention) accumulent les coûts selon un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing). Par exemple, les entrées et les sorties de l’historique des exécutions sont conservées dans un stockage en arrière-plan, qui diffère des ressources de stockage que vous créez, gérez et auxquelles vous accédez indépendamment à partir de votre application logique.
+Azure Logic Apps utilise [Stockage Azure](../storage/index.yml) pour toutes les opérations de stockage. Avec Azure Logic Apps multilocataire, l’utilisation et les coûts du stockage sont attachés à l’application logique. [La conservation des données et la consommation du stockage](../logic-apps/logic-apps-pricing.md#data-retention) accumulent les coûts selon un [modèle de tarification fixe](../logic-apps/logic-apps-pricing.md#fixed-pricing). Par exemple, les entrées et les sorties de l’historique des exécutions sont conservées dans un stockage en arrière-plan, qui diffère des ressources de stockage que vous créez, gérez et auxquelles vous accédez indépendamment à partir de votre application logique.
 
 Avec Azure Logic Apps monolocataire, vous pouvez utiliser votre propre [compte de stockage](../azure-functions/storage-considerations.md#storage-account-requirements) Azure. Cette possibilité vous offre davantage de contrôle et de flexibilité sur vos données Logic Apps. Quand des workflows *avec état* exécutent leurs opérations, le runtime Azure Logic Apps effectue les transactions de stockage. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail. Les coûts de stockage changent en fonction du contenu de votre workflow. Les différents déclencheurs, actions et charges utiles entraînent des opérations et des besoins de stockage différents. Les transactions de stockage suivent le [modèle de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Les coûts de stockage sont listés séparément dans votre facture Azure.
 
@@ -121,13 +121,13 @@ Les coûts unitaires d’utilisation des ressources varient selon les intervalle
 
 Une fois que vous avez commencé à engranger des coûts pour les ressources qui sont créées ou qui commencent dans Azure, vous pouvez passer en revue et superviser ces coûts de l’une des manières suivantes :
 
-* [Superviser les exécutions d’applications logiques et la consommation de stockage](#monitor-billing-metrics) à l’aide d’Azure Monitor
+* [Superviser les exécutions d’applications logiques et l’utilisation du stockage](#monitor-billing-metrics) à l’aide d’Azure Monitor
 
 * Exécuter une [analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) à l’aide d’[Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <a name="monitor-billing-metrics"></a>
 
-### <a name="monitor-logic-app-executions-and-storage-consumption"></a>Superviser les exécutions d’applications logiques et la consommation de stockage
+### <a name="monitor-logic-app-executions-and-storage-usage"></a>Superviser les exécutions d’applications logiques et l’utilisation du stockage
 
 À l’aide d’Azure Monitor, vous pouvez afficher ces métriques pour une application logique spécifique :
 

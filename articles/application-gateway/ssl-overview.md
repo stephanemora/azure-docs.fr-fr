@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0800373919ba95f48d30b9fe6eb5e7f8eb99a82a
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96001284"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111422063"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway
 
@@ -107,7 +107,7 @@ Les certificats d’authentification ont été déconseillés et remplacés par 
 >
 > Pour qu’un certificat TLS/SSL soit approuvé, ce certificat du serveur principal doit avoir été émis par une autorité de certification connue. Si le certificat n’a pas été émis par une autorité de certification approuvée, le service Application Gateway vérifie si le certificat de l’autorité de certification émettrice a été émis par une autorité de certification approuvée, et ainsi de suite jusqu’à ce qu’une autorité de certification approuvée soit détectée (auquel cas une connexion sécurisée est établie) ou qu’aucune autorité de certification approuvée ne soit trouvée (auquel cas le service Application Gateway marque le serveur principal comme étant non sain). Par conséquent, il est recommandé que le certificat de serveur principal contienne à la fois les autorités de certification racines et intermédiaires.
 
-- Si le certificat est auto-signé ou signé par des intermédiaires inconnus, un certificat racine approuvé doit être défini pour pouvoir activer le protocole TLS de bout en bout dans la référence SKU v2. Le service Application Gateway communique uniquement avec des serveurs principaux dont le certificat racine du certificat de serveur correspond à une des entrées de la liste des certificats racines approuvés dans le paramètre HTTP de serveur principal associé au pool.
+- Si le certificat de serveur principal est auto-signé ou signé par une autorité de certification/des intermédiaires inconnus, vous devez charger un certificat racine approuvé pour pouvoir activer le protocole TLS de bout en bout dans Application Gateway v2. Application Gateway ne communique qu’avec les serveurs principaux dont le certificat racine du certificat de serveur correspond à l’un de ceux de la liste des certificats racines approuvés dans le paramètre HTTP du serveur principal associé au pool.
 
 - En plus de la concordance du certificat racine, le service Application Gateway v2 vérifie si le paramètre Host spécifié dans le paramètre HTTP de serveur principal correspond à celui du nom commun présenté par le certificat TLS/SSL du serveur principal. Lorsque vous tentez d’établir une connexion TLS au serveur principal, le service Application Gateway v2 définit l’extension SNI d’indication du nom de serveur sur l’hôte spécifié dans le paramètre HTTP de serveur principal.
 

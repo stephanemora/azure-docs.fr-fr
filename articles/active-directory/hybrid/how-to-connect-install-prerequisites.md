@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108f81be678eb666b6f79ebbecc93f7bc88dc1d6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: afb12328a02a08bfcde4c431ff584a85dc48d31e
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107909"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613644"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -231,7 +231,7 @@ Le tableau suivant présente la configuration minimale requise pour l’ordinate
 | Moins de 10 000 |1,6 GHz |4 Go |70 Go |
 | Entre 10 000 et 50 000 |1,6 GHz |4 Go |70 Go |
 | Entre 50 000 et 100 000 |1,6 GHz |16 Go |100 Go |
-| Dans les systèmes comportant 100 000 objets ou plus, la version complète de SQL Server est requise. | | | |
+| À partir de 100 000 objets, la version complète de SQL Server est requise. Pour des raisons de performance, il est préférable de l’installer localement. | | | |
 | Entre 100 000 et 300 000 |1,6 GHz |32 Go |300 Go |
 | Entre 300 000 et 600 000 |1,6 GHz |32 Go |450 Go |
 | Plus de 600 000 |1,6 GHz |32 Go |500 Go |

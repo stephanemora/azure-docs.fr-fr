@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: a497e5bc9d04577f4b4f9d373aa68d07b5a08043
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b375ad72d3ef459635c4a786391ef7b9836d8a99
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905051"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411581"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Activer Azure Defender pour serveurs SQL Server sur des machines 
 
@@ -40,15 +40,23 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 
 Pour activer ce plan :
 
-[Étape 1. Approvisionnez l’agent Log Analytics sur l’hôte de votre serveur SQL Server : ](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
+[Étape 1 : Installer l’extension de l’agent](#step-1-install-the-agent-extension)
 
-[Étape 2. Activez le plan facultatif dans la page de tarification et de paramètres de Security Center : ](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
+[Étape 2 : Approvisionner l’agent Log Analytics sur l’hôte de votre serveur SQL Server :](#step-2-provision-the-log-analytics-agent-on-your-sql-servers-host)
+
+[Étape 3 : Activer le plan facultatif dans la page de tarification et de paramètres de Security Center :](#step-3-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
 
-### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Étape 1. Provisionnez l’agent Log Analytics sur l’hôte du serveur SQL :
+### <a name="step-1-install-the-agent-extension"></a>Étape 1. Installer l’extension de l’agent
+
+- **SQL Server sur une machine virtuelle Azure** : inscrivez votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, comme expliqué dans [Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).
+
+- **SQL Server sur Azure Arc** : installez l’agent Azure Arc en suivant les méthodes d’installation décrites dans la [documentation relative à Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
+
+### <a name="step-2-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Étape 2. Provisionnez l’agent Log Analytics sur l’hôte du serveur SQL :
 
 - **SQL Server sur une machine virtuelle Azure** : si votre ordinateur SQL est hébergé sur une machine virtuelle Azure, vous pouvez [provisionner automatiquement l'agent de Log Analytics <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Vous pouvez également suivre la procédure manuelle pour [intégrer vos machines virtuelles Azure Stack Hub](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
-- **SQL Server sur Azure Arc** : si votre serveur SQL Server est géré par des serveurs avec [Azure Arc](../azure-arc/index.yml), vous pouvez déployer l’agent Log Analytics en suivant la recommandation Security Center « L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows (préversion) ». Vous pouvez également suivre les méthodes d’installation décrites dans la [Documentation Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
+- **SQL Server sur Azure Arc** : si votre serveur SQL Server est géré par des serveurs avec [Azure Arc](../azure-arc/index.yml), vous pouvez déployer l’agent Log Analytics en suivant la recommandation Security Center « L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows (préversion) ».
 
 - **SQL Server local** : si votre serveur SQL Server est hébergé sur une machine Windows locale sans Azure Arc, vous disposez de deux options pour la connecter à Azure :
     
@@ -57,7 +65,7 @@ Pour activer ce plan :
     - **Connecter la machine Windows sans Azure Arc** : si vous choisissez de connecter un serveur SQL Server exécuté sur une machine Windows sans utiliser Azure Arc, suivez les instructions dans [Connecter des machines Windows à Azure Monitor](../azure-monitor/agents/agent-windows.md).
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Étape 2. Activez le plan facultatif dans la page de tarification et des paramètres de Security Center :
+### <a name="step-3-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Étape 3. Activez le plan facultatif dans la page de tarification et des paramètres de Security Center :
 
 1. Dans le menu de Security Center, ouvrez la page **Tarification et paramètres**.
 
@@ -86,7 +94,7 @@ Les alertes sont générées en cas de détection de tentatives d’accès ou d�
 
 ## <a name="explore-and-investigate-security-alerts"></a>Explorer et examiner les alertes de sécurité
 
-Les alertes Azure Defender pour SQL sont disponibles sur la page des alertes de Security Center, sous l'onglet Sécurité de la ressource, dans le [tableau de bord Azure Defender](azure-defender-dashboard.md) ou via le lien direct des messages d'alerte.
+Les alertes Azure Defender pour SQL sont disponibles sur la page des alertes de Security Center, sur la page Sécurité de la machine, dans le [tableau de bord Azure Defender](azure-defender-dashboard.md) ou via le lien direct des messages d'alerte.
 
 1. Pour afficher les alertes, sélectionnez **Alertes de sécurité** dans le menu de Security Center et sélectionnez une alerte.
 

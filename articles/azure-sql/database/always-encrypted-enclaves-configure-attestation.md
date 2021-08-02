@@ -10,13 +10,14 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: a51aa15e1338380d4b4179e7fb8899273750c374
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 05/01/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107178"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662519"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurer Azure Attestation pour votre serveur logique Azure SQL
 
@@ -31,18 +32,10 @@ Afin d’utiliser Azure Attestation pour l’attestation des enclaves Intel SGX 
 
 1. Créer un [fournisseur d’attestation](../../attestation/basic-concepts.md#attestation-provider) et le configurer selon la stratégie d’attestation recommandée.
 
-2. Accorder à votre serveur logique Azure SQL l’accès à votre fournisseur d’attestation.
+2. Déterminez l’URL d’attestation et partagez-la avec les administrateurs d’applications.
 
 > [!NOTE]
 > La configuration de l’attestation est la responsabilité de l’administrateur d’attestation. Consultez [Rôles et responsabilités lors de la configuration des enclaves SGX et de l’attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
-
-## <a name="requirements"></a>Conditions requises
-
-Le serveur logique Azure SQL et le fournisseur d’attestation doivent appartenir au même locataire Azure Active Directory. Les interactions entre locataires ne sont pas prises en charge. 
-
-Une identité Azure AD doit être assignée au serveur logique Azure SQL. En tant qu’administrateur d’attestation, vous devez obtenir l’identité Azure AD du serveur auprès de l’administrateur Azure SQL Database pour ce serveur. Vous utiliserez l’identité pour accorder l’accès au serveur au fournisseur d’attestation. 
-
-Pour obtenir des instructions sur la création d’un serveur avec une identité ou l’attribution d’une identité à un serveur existant à l’aide de PowerShell et Azure CLI, consultez [Attribuer une identité Azure AD à votre serveur](transparent-data-encryption-byok-configure.md#assign-an-azure-active-directory-azure-ad-identity-to-your-server).
 
 ## <a name="create-and-configure-an-attestation-provider"></a>Créer et configurer un fournisseur d’attestation
 
@@ -92,62 +85,21 @@ Pour obtenir des instructions sur la création d’un fournisseur d’attestatio
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>Déterminer l’URL d’attestation pour votre stratégie d’attestation
 
-Une fois que vous avez configuré une stratégie d’attestation, vous devez partager l’URL d’attestation, en référençant la stratégie, avec les administrateurs d’applications qui utilisent Always Encrypted avec enclaves sécurisées dans Azure SQL Database. Les administrateurs d’applications ou/et les utilisateurs d’applications devront configurer leurs applications avec l’URL d’attestation afin de pouvoir exécuter des instructions qui utilisent des enclaves sécurisées.
-
-### <a name="use-powershell-to-determine-the-attestation-url"></a>Utiliser PowerShell pour déterminer l’URL d’attestation
-
-Utilisez le script suivant pour déterminer votre URL d’attestation :
-
-```powershell
-$attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
-Write-Host "Your attestation URL is: " $attestationUrl 
-```
+Une fois que vous avez configuré une stratégie d’attestation, vous devez partager l’URL d’attestation avec les administrateurs d’applications qui utilisent Always Encrypted avec enclaves sécurisées dans Azure SQL Database. L’URL d’attestation est le `Attest URI` du fournisseur d’attestation contenant la stratégie d’attestation, qui ressemble à ceci : `https://MyAttestationProvider.wus.attest.azure.net`.
 
 ### <a name="use-azure-portal-to-determine-the-attestation-url"></a>Utiliser le portail Azure pour déterminer l’URL d’attestation
 
-1. Dans le volet de vue d’ensemble de votre fournisseur d’attestation, copiez la valeur de la propriété de l’URI d’attestation dans le presse-papiers. Un URI d’attestation doit ressembler à ceci : `https://MyAttestationProvider.us.attest.azure.net`.
+Dans le volet de vue d’ensemble de votre fournisseur d’attestation, copiez la valeur de la propriété `Attest URI` dans le presse-papiers. 
 
-2. Ajoutez le code suivant à l’URI d’attestation : `/attest/SgxEnclave`. 
+### <a name="use-powershell-to-determine-the-attestation-url"></a>Utiliser PowerShell pour déterminer l’URL d’attestation
 
-L’URL d’attestation obtenue doit ressembler à ceci : `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave`
-
-## <a name="grant-your-azure-sql-logical-server-access-to-your-attestation-provider"></a>Accorder à votre serveur logique Azure SQL l’accès à votre fournisseur d’attestation
-
-Pendant le flux de travail d’attestation, le serveur logique Azure SQL contenant votre base de données appelle le fournisseur d’attestation pour soumettre une demande d’attestation. Pour que le serveur logique Azure SQL puisse envoyer des demandes d’attestation, le serveur doit disposer d’une autorisation pour l’action `Microsoft.Attestation/attestationProviders/attestation/read` sur le fournisseur d’attestation. La méthode recommandée pour accorder l’autorisation consiste à ce que l’administrateur du fournisseur d’attestation attribue l’identité Azure AD du serveur au rôle Lecteur d’attestation pour le fournisseur d’attestation ou le groupe de ressources qui le contient.
-
-### <a name="use-azure-portal-to-assign-permission"></a>Utiliser le portail Azure pour attribuer l’autorisation
-
-Pour attribuer l’identité d’un serveur Azure SQL au rôle Lecteur d’attestation pour un fournisseur d’attestation, suivez les instructions générales dans [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md). Quand vous êtes dans le volet **Ajouter une attribution de rôle** :
-
-1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Lecteur d’attestation**.
-1. Dans le champ **Sélectionner**, entrez le nom de votre serveur Azure SQL pour le rechercher.
-
-Voir l’exemple dans la capture d’écran ci-dessous.
-
-![attribution de rôle de lecteur d’attestation](./media/always-encrypted-enclaves/attestation-provider-role-assigment.png)
-
-> [!NOTE]
-> Pour qu’un serveur s’affiche dans le volet **Ajouter une attribution de rôle**, le serveur doit avoir une identité Azure AD attribuée, consultez [Spécifications](#requirements).
-
-### <a name="use-powershell-to-assign-permission"></a>Utiliser PowerShell pour attribuer une autorisation
-
-1. Recherchez votre serveur logique Azure SQL.
+Utilisez la cmdlet `Get-AzAttestation` pour récupérer les propriétés du fournisseur d’attestation, notamment AttestURI.
 
 ```powershell
-$serverResourceGroupName = "<server resource group name>"
-$serverName = "<server name>" 
-$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-```
- 
-2. Attribuez au serveur le rôle Lecteur d’attestation pour le groupe de ressources contenant votre fournisseur d’attestation.
-
-```powershell
-$attestationResourceGroupName = "<attestation provider resource group name>"
-New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
+Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName
 ```
 
-Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
+Pour plus d’informations, consultez [Créer et gérer un fournisseur d’attestation](../../attestation/quickstart-powershell.md#create-and-manage-an-attestation-provider).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

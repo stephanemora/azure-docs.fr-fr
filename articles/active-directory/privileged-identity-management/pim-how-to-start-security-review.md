@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/27/2021
+ms.date: 05/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60473d034820627605616c0bc280f1f105f4b3e5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cdd4fe2f749f36fe0016e0cba71093cd6083dda8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124100"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110783782"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management
 
@@ -32,17 +32,17 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] Pour plus d’informations sur les licences pour PIM, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
+> Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
 
 ## <a name="prerequisites"></a>Prérequis
 
-[Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator)
+[Administrateur général](../roles/permissions-reference.md#global-administrator)
 
 ## <a name="open-access-reviews"></a>Ouvrir les révisions d’accès
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’utilisateur doté du rôle Administrateur général.
 
-2. Sélectionnez **Identity Governance**
+2. Sélectionnez **Identity Governance**.
  
 3. Sélectionnez **Rôles Azure AD** sous **Azure Active Directory Privileged Identity Management**.
  
@@ -73,16 +73,16 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 12. Sous **Réviser l’appartenance au rôle**, sélectionnez les rôles Azure AD privilégiés à réviser. 
 
     > [!NOTE]
-    > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
     > - Pour les rôles associés à des groupes, l’accès à chaque groupe lié au rôle en cours de révision est examiné dans le cadre de la révision d’accès.
     Si vous créez une révision d’accès des **rôles Azure AD**, l’exemple suivant présente une liste Révision d’appartenance.
 
-    ![Volet Révision d’appartenance répertoriant les rôles Azure AD que vous pouvez sélectionner](./media/pim-how-to-start-security-review/review-membership.png)
+    > [!NOTE]
+    > La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
 
-    Si vous créez une révision d’accès des **rôles de ressource Azure**, l’image suivant présente une liste Révision d’appartenance.
+1. Dans **type d’affectation**, étendez la révision en fonction de la façon dont le rôle a été affecté au principal. Choisissez **(Préversion) Affectations éligibles uniquement** pour passer en revue les affectations éligibles (quel que soit l’état d’activation quand l’évaluation est créée) ou **(Préversion) Affectations actives uniquement** pour passer en revue les affectations actives. Choisissez **toutes les affectations actives et éligibles** pour passer en revue toutes les affectations, quel que soit le type.
 
-    ![Volet Révision d’appartenance répertoriant les rôles de ressource Azure que vous pouvez sélectionner](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
+     ![Liste des réviseurs des types d’affectation](./media/pim-how-to-start-security-review/assignment-type-select.png)
 
 13. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
 

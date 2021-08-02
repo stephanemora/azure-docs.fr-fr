@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: e56867b66e963239a62a13876fee78f4075ea65b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0592af3d5f73476b1dd479fde2651be07ba8aa33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744314"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949800"
 ---
 # <a name="np-series"></a>Série NP 
 Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) pour accélérer les charges de travail, notamment l’inférence machine learning, le transcodage vidéo et la recherche de base de données et Analytics. Les machines virtuelles de la série NP sont également alimentées par des processeurs Intel Xeon 8171M (Skylake) avec une vitesse d’horloge de Turbo de 3,2 GHz.
@@ -41,15 +41,15 @@ Génération de machine virtuelle prise en charge : Génération 1<br>
 
 **Q :** Comment demander un quota pour les machines virtuelles NP ?
 
-**R :** Veuillez suivre cette page pour [augmenter les limites par série de machines virtuelles](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Les machines virtuelles NP sont disponibles dans les régions USA Est, USA Ouest 2, Europe Ouest et Asie Sud-Est.
+**R :** Veuillez suivre cette page pour [augmenter les limites par série de machines virtuelles](../azure-portal/supportability/per-vm-quota-requests.md). Les machines virtuelles NP sont disponibles dans les régions USA Est, USA Ouest 2, Europe Ouest et Asie Sud-Est.
 
 **Q :** Quelle version de Vitis dois-je utiliser ? 
 
-**R :** Xilinx recommande [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
+**R :** Xilinx recommande [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html). Vous pouvez également utiliser les options de la place de marché de machines virtuelles de développement (machine virtuelle de développement Vitis 2020.2 pour Ubuntu 18.04 et CentOS 7.8).
 
 **Q :** Ai-je besoin d’utiliser des machines virtuelles NP pour développer ma solution ? 
 
-**R :** Non, vous pouvez la développer en local, puis la déployer sur le cloud. Veillez à suivre la [documentation d'attestation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) pour déployer sur des machines virtuelles NP. 
+**R :** Non, vous pouvez la développer en local, puis la déployer sur le cloud. Veillez à suivre la [documentation d'attestation](./field-programmable-gate-arrays-attestation.md) pour déployer sur des machines virtuelles NP. 
 
 **Q :** Quel fichier renvoyé par l'attestation dois-je utiliser lors de la programmation de mon FPGA dans une machine virtuelle NP ?
 
@@ -122,11 +122,22 @@ Installez les packages suivants :
 
 **R :** Vous pouvez ignorer ce message. 
 
-**Q :** Quelles sont les différences entre les machines virtuelles locale (OnPrem) et les machines virtuelles NP en ce qui concerne XRT ? 
+**Q :** Quelles sont les différences entre les machines virtuelles locales (OnPrem) et les machines virtuelles NP ?
 
-**R :** Sur Azure, la plateforme XDMA 2.1 prend uniquement en charge les fonctionnalités de conservation des données Host_Mem(SB) et DDR. 
+**R :**  
+<br>
+<b>- À propos de XOCL/XCLMGMT : </b>
+<br>
+Sur des machines virtuelles Azure NP, seul le point de terminaison de rôle (ID de périphérique 5005), qui utilise le pilote XOCL, est présent.
 
-Pour activer Host_Mem(SB) (1 Go de RAM) : sudo xbutil host_mem --enable --size 1g 
+Sur un FPGA local, tant le point de terminaison de gestion (ID de périphérique 5004) que le point de terminaison de rôle (ID de périphérique 5005), qui utilisent respectivement les pilotes XCLMGMT et XOCL, sont présents.
+
+<br>
+<b>- À propos de XRT : </b>
+<br>
+Sur des machines virtuelles Azure, la plateforme XDMA 2.1 prend en charge uniquement les fonctionnalités de conservation des données Host_Mem(SB) et DDR. 
+<br>
+Pour activer Host_Mem(SB) (jusqu’à 1 Go de RAM) : sudo xbutil host_mem --enable --size 1g 
 
 Pour désactiver Host_Mem(SB) : sudo xbutil host_mem --disable 
 

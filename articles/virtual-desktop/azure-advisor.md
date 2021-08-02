@@ -1,23 +1,23 @@
 ---
-title: Intégrer Windows Virtual Desktop à Azure Advisor - Azure
-description: Découvrez comment utiliser Azure Advisor dans votre déploiement Windows Virtual Desktop.
+title: Intégration d’Azure Advisor à Azure Virtual Desktop – Azure
+description: Découvrez comment utiliser Azure Advisor dans votre déploiement Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b141d3829e9d98cb793d2038e93331804d2e6b8f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 25bdeb3db8872550a4f1f03e7165cd24653272c1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448285"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745346"
 ---
-# <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Utiliser Azure Advisor avec Windows Virtual Desktop
+# <a name="use-azure-advisor-with-azure-virtual-desktop"></a>Utilisation d’Azure Advisor avec Azure Virtual Desktop
 
 Azure Advisor peut aider les utilisateurs à résoudre eux-mêmes des problèmes courants sans avoir à ouvrir des cas de support. Les recommandations limitent le recours aux demandes d’aide, ce qui vous fait faire des économies de temps et d’argent.
 
-Cet article explique comment configurer Azure Advisor dans votre déploiement Windows Virtual Desktop pour aider vos utilisateurs.
+Cet article explique comment configurer Azure Advisor dans un déploiement Azure Virtual Desktop pour aider les utilisateurs.
 
 ## <a name="what-is-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -56,7 +56,7 @@ Quand vous sélectionnez une catégorie, vous accédez à la page des recommanda
 
 - N’ignorez pas les recommandations tant que vous n’avez pas compris pourquoi elles s’affichent et que vous n’avez pas écarté tout risque d’impact négatif pour vos utilisateurs ou vous-même. Sélectionnez toujours **En savoir plus** pour prendre connaissance du problème. Si vous résolvez un problème en suivant les instructions fournies dans Azure Advisor, ce problème est automatiquement retiré de la liste. Il vaut mieux résoudre les problèmes plutôt que différer sans cesse leur traitement.
 
-- Dès que vous rencontrez un problème dans Windows Virtual Desktop, commencez par consulter Azure Advisor. Azure Advisor vous donnera des instructions pour résoudre le problème ou, à défaut, il vous redirigera vers une ressource utile.
+- Lorsque vous rencontrez un problème dans Azure Virtual Desktop, commencez toujours par vérifier Azure Advisor. Azure Advisor vous donnera des instructions pour résoudre le problème ou, à défaut, il vous redirigera vers une ressource utile.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

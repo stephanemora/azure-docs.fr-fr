@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a46d77b088d854bdd6ee8781b545d1236f357853
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765914"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071476"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
-La réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD) permet aux utilisateurs de changer ou de réinitialiser leur mot de passe sans intervention d’un administrateur ou d’un agent du support technique. Si le compte d’un utilisateur est verrouillé ou si ce dernier oublie son mot de passe, il peut suivre des invites afin de se débloquer et de reprendre son travail. Cette fonctionnalité réduit les appels au support technique et la perte de productivité quand l’utilisateur ne parvient pas à se connecter à son appareil ou à une application.
+La réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD) permet aux utilisateurs de changer ou de réinitialiser leur mot de passe sans intervention d’un administrateur ou d’un agent du support technique. Si le compte d’un utilisateur est verrouillé ou si ce dernier oublie son mot de passe, il peut suivre des invites afin de se débloquer et de reprendre son travail. Cette fonctionnalité réduit les appels au support technique et la perte de productivité quand l’utilisateur ne parvient pas à se connecter à son appareil ou à une application. Nous vous recommandons de regarder cette vidéo sur [la façon d’activer et de configurer SSPR dans Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 > [!IMPORTANT]
 > Cet article conceptuel explique à un administrateur le fonctionnement de la réinitialisation de mot de passe en libre-service. Si vous êtes un utilisateur final déjà inscrit pour la réinitialisation de mot de passe en libre-service, et si vous devez récupérer votre compte, accédez à [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -105,7 +105,7 @@ Les méthodes d’authentification suivantes sont disponibles pour SSPR :
 * Code de l’application mobile
 * E-mail
 * Téléphone mobile
-* Téléphone de bureau
+* Téléphone de bureau (réservé aux locataires disposant d’abonnements payants)
 * Questions de sécurité
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont inscrit une méthode d’authentification que l’administrateur a activée.

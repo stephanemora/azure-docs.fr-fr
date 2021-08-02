@@ -3,15 +3,15 @@ title: Démarrer une machine virtuelle lors de la connexion – Azure
 description: Comment configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 05500ded7512b54446d153e37233e4889b3107ff
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949185"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752132"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Démarrer une machine virtuelle lors de la connexion (préversion)
 
@@ -22,11 +22,11 @@ ms.locfileid: "107949185"
 La fonctionnalité Démarrer la machine virtuelle à la connexion (préversion) vous permet de réduire les coûts en permettant aux utilisateurs finaux d’activer leurs machines virtuelles uniquement quand ils en ont besoin. Vous pouvez ensuite désactiver les machines virtuelles lorsqu’elles ne sont pas nécessaires.
 
 >[!NOTE]
->Windows Virtual Desktop (classique) ne prend pas en charge cette fonctionnalité.
+>Azure Virtual Desktop (classique) ne prend pas en charge cette fonctionnalité.
 
 ## <a name="requirements-and-limitations"></a>Conditions requises et limitations :
 
-Vous ne pouvez activer la fonctionnalité de démarrage de machine virtuelle lors de la connexion que pour des pools d’hôtes personnels. Pour en savoir plus sur les pools d’hôtes personnels, consultez [Environnement Windows Virtual Desktop](environment-setup.md#host-pools).
+Vous pouvez activer la fonctionnalité Démarrer une machine virtuelle lors de la connexion pour des pools d’hôtes personnels ou mis en pool à l’aide de PowerShell et du portail Azure.
 
 Les clients Bureau à distance prenant en charge la fonctionnalité de démarrage de machine virtuelle lors de la connexion sont les suivants :
 
@@ -37,11 +37,9 @@ Les clients Bureau à distance prenant en charge la fonctionnalité de démarrag
 
 Vous pouvez trouver des annonces sur les mises à jour et la prise en charge de client sur le [Forum Tech Community](https://aka.ms/wvdtc).
 
-Le cloud Azure Government ne prend actuellement pas en charge Démarrer la machine virtuelle à la connexion.
-
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Créer un rôle personnalisé pour démarrer une machine virtuelle lors de la connexion
 
-Avant de pouvoir configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion, vous devez attribuer à votre machine virtuelle un rôle RBAC (contrôle d’accès en fonction du rôle) personnalisé. Ce rôle permet à Windows Virtual Desktop de gérer les machines virtuelles incluses dans votre abonnement. Vous pouvez également utiliser ce rôle pour activer des machines virtuelles, vérifier leur état et rapporter des informations de diagnostic. Pour en savoir plus sur ce que fait chaque rôle, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
+Avant de pouvoir configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion, vous devez attribuer à votre machine virtuelle un rôle RBAC (contrôle d’accès en fonction du rôle) personnalisé. Ce rôle permet à Azure Virtual Desktop de gérer les machines virtuelles incluses dans votre abonnement. Vous pouvez également utiliser ce rôle pour activer des machines virtuelles, vérifier leur état et rapporter des informations de diagnostic. Pour en savoir plus sur ce que fait chaque rôle, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 
@@ -63,7 +61,7 @@ Pour utiliser le portail Azure afin d’attribuer un rôle personnalisé pour d�
 
 5. Lorsque vous avez terminé, sélectionnez **OK**.
 
-Ensuite, vous devez attribuer le rôle pour accorder l’accès à Windows Virtual Desktop.
+Ensuite, vous devez attribuer le rôle pour accorder l’accès à Azure Virtual Desktop.
 
 Pour attribuer le rôle personnalisé :
 
@@ -71,13 +69,13 @@ Pour attribuer le rôle personnalisé :
 
 2. Sélectionnez le site que vous venez de créer.
 
-3. Dans la barre de recherche, entrez et sélectionnez **Windows Virtual Desktop**.
+3. Dans la barre de recherche, entrez et sélectionnez **Azure Virtual Desktop**.
 
       >[!NOTE]
-      >Il se peut que deux applications s’affichent si vous avez déployé Windows Virtual Desktop (classique). Attribuez le rôle aux deux applications que vous voyez.
+      >Il se peut que deux applications s’affichent si vous avez déployé Azure Virtual Desktop (classique). Attribuez le rôle aux deux applications que vous voyez.
       >
       > [!div class="mx-imgBorder"]
-      > ![Capture d’écran de l’onglet Contrôle d’accès (IAM). Dans la barre de recherche, Windows Virtual Desktop et Windows Virtual Desktop (classique) sont mis en évidence en rouge.](media/add-role-assignment.png)
+      > ![Capture d’écran de l’onglet Contrôle d’accès (IAM). Dans la barre de recherche, Azure Virtual Desktop et Azure Virtual Desktop (classique) sont mis en évidence en rouge.](media/add-role-assignment.png)
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>Créer un rôle personnalisé avec un modèle JSON
 
@@ -114,6 +112,8 @@ Si vous utilisez un fichier JSON pour créer le rôle personnalisé, l’exemple
 
 La fonctionnalité de démarrage de machine virtuelle lors de la connexion est un paramètre de pool d’hôtes. Si vous souhaitez qu’un groupe d’utilisateurs spécifique utilise cette fonctionnalité, veillez à n’attribuer le rôle requis qu’aux utilisateurs que vous souhaitez ajouter.
 
+Pour les postes de travail personnels, la fonctionnalité active uniquement une machine virtuelle existante que le service a déjà affectée ou qu’il va affecter à un utilisateur. Dans un scénario de pool d’hôtes mis en pool, le service active uniquement une machine virtuelle quand aucune n’est activée. La fonctionnalité active uniquement des machines virtuelles supplémentaires lorsque la première machine virtuelle atteint la limite de session.
+
 >[!IMPORTANT]
 > Vous ne pouvez configurer cette fonctionnalité que dans des pools d’hôtes existants. Cette fonctionnalité n’est pas disponible lorsque vous créez un pool d’hôtes.
 
@@ -123,12 +123,9 @@ Pour utiliser le portail Azure afin de configurer l'option Démarrer la machine 
 
 1. Ouvrez votre navigateur web et accédez au [portail Azure](https://portal.azure.com).
 
-2. Sur le portail Azure, accédez à **Windows Virtual Desktop**.
+2. Dans le portail Azure, accédez à **Azure Virtual Desktop**.
 
-3. Sélectionnez **Pools d'hôtes**, puis recherchez le pool d'hôtes qui contient les bureaux personnels auxquels vous avez attribué le rôle.
-
-   >[!NOTE]
-   > Le pool d'hôtes dans lequel vous configurez cette fonctionnalité doit contenir des bureaux personnels auxquels des rôles ont directement été attribués. Si les bureaux du pool d'hôtes ne sont pas correctement configurés, le processus de configuration ne fonctionnera pas.
+3. Sélectionnez **Pools d’hôtes**, puis accédez au pool d’hôtes dans lequel vous souhaitez activer le paramètre.
 
 4. Dans le pool d'hôtes, sélectionnez **Propriétés**. Sous **Démarrer la machine virtuelle à la connexion**, sélectionnez **Oui**, puis sélectionnez **Enregistrer** pour appliquer le paramètre instantanément.
 
@@ -161,9 +158,11 @@ Dans des sessions classiques, le temps nécessaire à un utilisateur pour se con
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Si la fonctionnalité rencontre des problèmes, nous vous suggérons d’utiliser la [fonctionnalité de diagnostics](diagnostics-log-analytics.md) de Windows Virtual Desktop pour identifier les problèmes. Si vous recevez un message d’erreur, soyez particulièrement attentif au contenu du message et copiez le nom de l’erreur quelque part pour référence.
+Si la fonctionnalité rencontre des problèmes, nous vous suggérons d’utiliser la [fonctionnalité de diagnostics](diagnostics-log-analytics.md) d’Azure Virtual Desktop pour identifier les problèmes. Si vous recevez un message d’erreur, soyez particulièrement attentif au contenu du message et copiez le nom de l’erreur quelque part pour référence.
 
-Vous pouvez également utiliser [Azure Monitor pour Windows Virtual Desktop](azure-monitor.md) pour obtenir des suggestions sur la façon de résoudre les problèmes.
+Vous pouvez également utiliser [Azure Monitor pour Azure Virtual Desktop](azure-monitor.md) pour obtenir des suggestions sur la façon de résoudre les problèmes.
+
+Si la machine virtuelle n’est pas active, vous devez vérifier l’intégrité de la machine virtuelle que vous avez essayé d’activer avant de faire quoi que ce soit d’autre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

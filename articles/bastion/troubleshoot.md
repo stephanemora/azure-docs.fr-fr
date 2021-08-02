@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes d’Azure Bastion | Microsoft Docs
-description: Dans cet article, découvrez comment résoudre les problèmes liés à Azure Bastion.
+description: Découvrez comment résoudre les problèmes d’Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: bf6cde94374133e10b077ac799be0b85ae02bcb7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 740b228855a11623600d8724eeff7ad865538e74
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773392"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004184"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Dépanner Azure Bastion
 
@@ -24,7 +24,7 @@ Cet article explique comment résoudre les problèmes liés à Azure Bastion.
 
 **R :** Si vous créez un groupe de sécurité réseau et l’appliquez à *AzureBastionSubnet*, vérifiez que vous avez ajouté les règles requises au groupe de sécurité réseau. Pour obtenir la liste des règles requises, consultez [Utiliser l’accès au groupe de sécurité réseau et Azure Bastion](./bastion-nsg.md). Si vous n’ajoutez pas ces règles, la création/mise à jour du groupe de sécurité réseau échouera.
 
-Un exemple de règles de groupe de sécurité réseau est disponible à des fins de référence dans le [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-azure-bastion-nsg/).
+Un exemple de règles de groupe de sécurité réseau est disponible à des fins de référence dans le [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
 Pour plus d’informations, consultez [Guide pour les groupes de sécurité réseau pour Azure Bastion](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Impossible d’utiliser ma clé SSH avec Azure Bastion
@@ -67,7 +67,7 @@ The key's randomart image is:
 
 **Q :** Je ne parviens pas à me connecter à ma machine virtuelle Windows jointe à un domaine.
 
-**R :** Azure bastion prend en charge la connexion de machines virtuelles jointes à un domaine pour la connexion au domaine par nom d’utilisateur uniquement. Lorsque vous spécifiez les informations d’identification du domaine dans le portail Azure, utilisez le format UPN (username@domain) au lieu du format *domaine\nom d’utilisateur* pour vous connecter. Cela est pris en charge pour les machines virtuelles jointes à un domaine ou hybrides (à la fois jointes à un domaine et jointes à Azure AD). Cela n’est pas pris en charge pour les machines virtuelles jointes à Azure AD uniquement.
+**R :** Azure Bastion ne prend en charge la connexion de machines virtuelles jointes à un domaine que pour la connexion au domaine par nom d’utilisateur/mot de passe. Lorsque vous spécifiez les informations d’identification du domaine dans le portail Azure, utilisez le format UPN (username@domain) au lieu du format *domaine\nom d’utilisateur* pour vous connecter. Cela est pris en charge pour les machines virtuelles jointes à un domaine ou hybrides (à la fois jointes à un domaine et jointes à Azure AD). Cela n’est pas pris en charge pour les machines virtuelles jointes à Azure AD uniquement.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problèmes de transfert de fichiers
 
@@ -77,7 +77,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Écran noir dans le portail Azure
 
-**Q :** Lorsque j’essaie de me connecter à l’aide d’Azure Bastion, je ne peux pas me connecter à la machine virtuelle cible et j’obtiens un écran noir dans le portail Azure.
+**Q :** Je ne parviens pas à me connecter à la machine virtuelle cible avec Azure Bastion et j’obtiens un écran noir sur le Portail Azure.
 
 **R :** Cela se produit lorsqu’il y a un problème de connectivité réseau entre votre navigateur web et Azure Bastion (votre pare-feu Internet client peut bloquer le trafic WebSocket ou un problème similaire) ou entre Azure Bastion et votre machine virtuelle cible. La plupart des cas comprennent un groupe de sécurité réseau appliqué soit à AzureBastionSubnet, soit au sous-réseau de votre machine virtuelle cible qui bloque le trafic RDP/SSH dans votre réseau virtuel. Autorisez le trafic WebSocket sur le pare-feu Internet de votre client et vérifiez les groupes de sécurité réseau du sous-réseau de votre machine virtuelle cible.
 

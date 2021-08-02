@@ -3,21 +3,21 @@ title: Gérer les environnements de service d’intégration dans Azure Logic Ap
 description: Vérifiez l’intégrité du réseau et gérez les applications logiques, les connexions, les connecteurs personnalisés et les comptes d’intégration dans votre environnement de service d’intégration pour Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, jonfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4cc844cc12383d5ccc3a3a12f48431d34b4872d
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92676109"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984821"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gérez votre environnement de service d’intégration dans Azure Logic Apps
 
 Cet article explique comment effectuer des tâches de gestion pour votre [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), par exemple :
 
-* gérer les ressources telles que les applications logiques, les connexions, les comptes d’intégration et les connecteurs dans votre ISE.
+* Gérer les ressources (applications logiques multi-locataires, connexions, comptes d’intégration, connecteurs, etc.) de l’environnement ISE.
 
 * Vérifier l’intégrité du réseau de votre ISE.
 

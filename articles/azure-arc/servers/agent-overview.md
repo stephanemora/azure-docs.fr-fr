@@ -1,22 +1,25 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 05/10/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31316fae541464d9b1c25b303593948b7e45b5b3
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3d5c3640147a9c23fb05c0156edf012815466189
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713879"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538218"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
-L’agent Connected Machine des serveurs activés par Azure Arc vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
+L’agent Connected Machine des serveurs avec Azure Arc vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
 >[!NOTE]
 >À partir de la version générale des serveurs Azure Arc activés en septembre 2020, toutes les versions préliminaires d’Azure Connected Machine Agent (les agents dont la version est inférieure à 1.0) sont **déconseillées** d’ici le **2 février 2021**.  Ce délai d’exécution vous permet d’effectuer une mise à niveau vers la version 1 0 ou une version ultérieure avant que les agents prédéfinis ne soient plus en mesure de communiquer avec le service Azure Arc activé.
+
+>[!NOTE]
+> L’[agent Azure Monitor](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), actuellement en préversion, ne remplace pas l’agent Connected Machine. Il remplace en revanche l’agent Log Analytics, l’extension Diagnostics et l’agent Telegraf pour les machines Windows et Linux. Pour plus d’informations, consultez la documentation Azure Monitor sur le nouvel agent.
 
 ## <a name="agent-component-details"></a>Détails du composant Agent
 
@@ -83,7 +86,7 @@ Les serveurs activés pour Arc prennent en charge l’installation de l’agent 
 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine :
 
-- Windows Server 2008 R2, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
 - Ubuntu 16.04, 18.04 et 20.04 LTS (x64)
 - CentOS Linux 7 et 8 (x64)
 - SUSE Linux Enterprise Server (SLES) 12 et 15 (x64)
@@ -93,6 +96,17 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 > [!WARNING]
 > Le nom d’hôte Linux ou le nom de l’ordinateur Windows ne peuvent pas contenir de mots réservés ni de marques dans le nom. Dans le cas contraire, la tentative d’inscription de la machine connectée auprès d’Azure se solde par un échec. Consultez [Résoudre les erreurs de nom de ressource réservé](../../azure-resource-manager/templates/error-reserved-resource-name.md) pour obtenir la liste des mots réservés.
+
+> [!NOTE]
+> Alors que les serveurs avec Arc prennent en charge Amazon Linux, les composants suivants ne prennent pas en charge cette distribution :
+> * Agents utilisés par Azure Monitor (à savoir, Log Analytics et Dependency Agent)
+> * Azure Automation Update Management
+> * Insights de machine virtuelle
+
+### <a name="software-requirements"></a>Configuration logicielle requise
+
+* .NET Framework 4.6 ou version ultérieure est requis. [Téléchargez .NET Framework](/dotnet/framework/install/guide-for-developers).
+* Windows PowerShell 5.1 est requis. [Téléchargez Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="required-permissions"></a>Autorisations requises
 
@@ -133,6 +147,7 @@ Balises de service :
 * AzureTrafficManager
 * AzureResourceManager
 * AzureArcInfrastructure
+* Stockage
 
 URL :
 
@@ -144,7 +159,7 @@ URL :
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Service d’identité hybride|
-|`www.office.com`|Office 365|
+|`*.blob.core.windows.net`|Source de téléchargement pour les extensions de serveurs avec Arc|
 
 Les agents de préversion (version 0.11 et antérieure) nécessitent également l’accès aux URL suivantes :
 
@@ -279,7 +294,7 @@ Une fois l’agent Connected Machine pour Linux installé, les modifications de 
     |Nom du service |Nom complet |Nom du processus |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Service Azure Connected Machine Agent |himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
-    |gcad.servce |Service Arc GC |gc_linux_service |Analyse la configuration de l’état souhaité de la machine. |
+    |gcad.service |Service Arc GC |gc_linux_service |Analyse la configuration de l’état souhaité de la machine. |
     |extd.service |Service d’extension |gc_linux_service | Installe les extensions requises ciblant la machine.|
 
 * Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.

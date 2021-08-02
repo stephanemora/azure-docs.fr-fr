@@ -1,21 +1,22 @@
 ---
-title: Supprimer un pool d’hôtes Windows Virtual Desktop – Azure
-description: Comment supprimer un pool d’hôtes dans Windows Virtual Desktop.
+title: Suppression d’un pool d’hôtes Azure Virtual Desktop – Azure
+description: Guide pratique pour supprimer un pool d’hôtes dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 3693a82a0d9c9544ed6a14d4596d544725125bd3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: e4621799389e738bd03e75f84f5c1706f90d69d3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447044"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751952"
 ---
 # <a name="delete-a-host-pool"></a>Supprimer un pool d’hôtes
 
-Tous les pools d’hôtes créés dans Windows Virtual Desktop sont attachés à des hôtes de session et à des groupes d’applications. Pour supprimer un pool d’hôtes, vous devez supprimer les groupes d’applications et les hôtes de session qui lui sont associés. La suppression d’un groupe d’applications est relativement simple, mais celle d’un hôte de session est plus complexe. Lorsque vous supprimez un hôte de session, vous devez vous assurer qu’il n’a pas de session utilisateur active. Toutes les sessions utilisateur sur l’hôte de la session doivent être fermées pour éviter que les utilisateurs ne perdent des données.
+Tous les pools d’hôtes créés dans Azure Virtual Desktop sont attachés à des hôtes de session et à des groupes d’applications. Pour supprimer un pool d’hôtes, vous devez supprimer les groupes d’applications et les hôtes de session qui lui sont associés. La suppression d’un groupe d’applications est relativement simple, mais celle d’un hôte de session est plus complexe. Lorsque vous supprimez un hôte de session, vous devez vous assurer qu’il n’a pas de session utilisateur active. Toutes les sessions utilisateur sur l’hôte de la session doivent être fermées pour éviter que les utilisateurs ne perdent des données.
 
 ## <a name="delete-a-host-pool-with-powershell"></a>Supprimer un pool d’hôtes à l’aide de PowerShell
 
@@ -39,7 +40,7 @@ Pour supprimer un pool d’hôtes dans le portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Recherchez et sélectionnez **Windows Virtual Desktop**.
+2. Recherchez et sélectionnez **Azure Virtual Desktop**.
 
 3. Sélectionnez **Pools d’hôtes** dans le menu sur le côté gauche de la page, puis sélectionnez le nom du pool d’hôtes que vous souhaitez supprimer.
 
@@ -65,5 +66,5 @@ Pour savoir comment créer un pool d’hôtes, consultez les articles suivants 
 Pour savoir comment configurer les paramètres du pool d’hôtes, consultez les articles suivants :
 
 - [Personnaliser les propriétés de RDP pour un pool d’hôtes](customize-rdp-properties.md)
-- [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configuration de la méthode d’équilibrage de charge d’Azure Virtual Desktop](configure-host-pool-load-balancing.md)
 - [Configurer le type d’affectation d’un pool d’hôtes de bureau personnel](configure-host-pool-personal-desktop-assignment-type.md)

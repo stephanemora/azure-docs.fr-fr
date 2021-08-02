@@ -4,15 +4,15 @@ description: Découvrez comment résoudre des problèmes d’expérience utilisa
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/03/2020
+ms.date: 06/01/2020
 ms.author: ceespino
 ms.reviewer: susabat
-ms.openlocfilehash: c6b4ae3f1a55af3340620c7ce8e3988e1437a649
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3739fd5f758d0d41b5c6f9b5caf10edb2987073a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903845"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784421"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Résoudre des problèmes d’expérience utilisateur dans Azure Data Factory
 
@@ -70,45 +70,53 @@ Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser q
 
 ## <a name="connection-failed-on-adf-ux"></a>Échec de la connexion dans l’expérience utilisateur ADF
 
-Parfois, dans l’expérience utilisateur ADF, vous pouvez voir des erreurs « Échec de la connexion » similaires à la capture d’écran ci-dessous après avoir cliqué sur **Tester la connexion**, **Aperçu**, etc.
+Parfois, une erreur « Échec de la connexion » s’affiche dans l’interface utilisateur d’ADF, similaire à la capture d’écran ci-dessous, lorsque vous cliquez sur **Tester la connexion**, **Aperçu**, etc. Cela signifie qu’ADF n’a pas pu effectuer l’opération parce qu’il ne peut pas se connecter au service ADF à partir de votre ordinateur.
 
 ![Échec de la connexion](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
-Dans ce cas, vous pouvez d’abord essayer la même opération avec le mode de navigation InPrivate dans votre navigateur.
+Pour résoudre le problème, vous pouvez commencer par essayer d’effectuer la même opération en activant le mode de navigation InPrivate dans votre navigateur.
 
-Si cela ne fonctionne toujours pas, dans le navigateur, appuyez sur F12 pour ouvrir **Outils de développement**. Accédez à l’onglet **Réseau**, cochez **Désactiver le cache**, recommencez l’opération qui a échoué et recherchez la requête ayant échoué (en rouge).
+Si ça ne fonctionne toujours pas, recherchez le **nom du serveur** dans le message d’erreur (**dpnortheurope.svc.datafactory.azure.com** dans cet exemple), puis saisissez le **nom du serveur** directement dans la barre d’adresses de votre navigateur. 
 
-![Requête ayant échoué](media/data-factory-ux-troubleshoot-guide/failed-request.png)
+- Si le navigateur affiche une erreur 404, cela signifie généralement que tout est correct de votre côté (client) et que le problème se situe du côté du service ADF. Créez un ticket de support avec l’**ID d’activité** mentionné dans le message d’erreur.
 
-Recherchez ensuite le **nom d’hôte** (dans ce cas, **dpnortheurope.svc.datafactory.azure.com**) à partir de **l’URL de requête** de la requête ayant échoué.
+    ![Ressource introuvable](media/data-factory-ux-troubleshoot-guide/status-code-404.png)
 
-Tapez le **nom d’hôte** directement dans la barre d’adresses de votre navigateur. Si la mention 404 s’affiche dans le navigateur, cela signifie généralement que tout est correct côté client et que le problème se trouve au niveau du service ADF. Envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+- Si vous ne voyez pas d’erreur 404 mais une erreur similaire à celle ci-dessous dans le navigateur, cela signifie généralement qu’il y a un problème côté client. Suivez les étapes de dépannage.
 
-![Ressource introuvable](media/data-factory-ux-troubleshoot-guide/status-code-404.png)
+    ![Erreur côté client](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Si vous voyez une erreur similaire à celle ci-dessous dans le navigateur, cela signifie généralement qu’il y a un problème côté client. Suivez les étapes de dépannage.
-
-![Erreur côté client](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
-
-Ouvrez **l’invite de commandes** et tapez **nslookup dpnortheurope.svc.datafactory.azure.com**. Une réponse normale doit ressembler à ce qui suit :
+Pour résoudre le problème, ouvrez l’**invite de commandes**, puis tapez `nslookup dpnortheurope.svc.datafactory.azure.com`. Une réponse normale doit ressembler à ce qui suit :
 
 ![Réponse de la commande 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
-Si vous voyez une réponse DNS normale, contactez votre support informatique local pour vérifier les paramètres de pare-feu afin de savoir si la connexion HTTPS à ce nom d’hôte est bloquée ou non. Si le problème ne peut pas être résolu, envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+- Si vous voyez une réponse DNS normale, contactez votre support informatique local pour vérifier les paramètres de pare-feu afin de savoir si la connexion HTTPS à ce nom d’hôte est bloquée ou non. Si le problème n’est pas résolu, créez un ticket de support mentionnant l’**ID d’activité** indiqué dans le message d’erreur.
 
-Si autre chose s’affiche, cela signifie généralement qu’il y a un problème avec votre serveur DNS lors de la résolution du nom DNS. En règle générale, la modification du fournisseur de services Internet (ISP) ou du DNS (par exemple, sur Google DNS 8.8.8.8) peut être une solution de contournement possible. Si le problème persiste, vous pouvez essayer **nslookup datafactory.azure.com** et **nslookup azure.com** pour voir à quel niveau votre résolution DNS a échoué et envoyer toutes les informations à votre support informatique local ou à votre fournisseur de services Internet pour résoudre le problème. S’ils pensent que le problème se trouve toujours du côté de Microsoft, envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+- Si autre chose s’affiche, cela signifie généralement que votre serveur DNS a rencontré un problème lors de la résolution du nom DNS. En règle générale, la modification du fournisseur de services Internet (ISP) ou du DNS (par exemple, sur Google DNS 8.8.8.8) peut être une solution de contournement. Si le problème persiste, vous pouvez essayer d’exécuter les commandes `nslookup datafactory.azure.com` et `nslookup azure.com` pour voir à quel niveau votre résolution DNS a échoué et envoyer toutes les informations à votre support informatique local ou à votre fournisseur de services Internet pour résoudre le problème. S’ils pensent que le problème se situe toujours du côté de Microsoft, créez un ticket de support mentionnant l’**ID d’activité** indiqué dans le message d’erreur.
 
-![Réponse de la commande 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
+    ![Réponse de la commande 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
 
 ## <a name="change-linked-service-type-in-datasets"></a>Modifier le type de service lié dans les jeux de données
 
 Le jeu de données de format de fichier peut être utilisé avec tous les connecteurs basés sur des fichiers. Par exemple, vous pouvez configurer un jeu de données Parquet sur Azure Blob ou Azure Data Lake Storage Gen2. Notez que chaque connecteur prend en charge différents jeux de paramètres liés au magasin de données sur l’activité, et avec un modèle d’application différent. 
 
-Dans l’interface utilisateur de création ADF, lorsque vous utilisez un jeu de données de format de fichier dans une activité (notamment les activités Copy, Lookup, GetMetadata, Delete) et que dans le jeu de données, vous souhaitez pointer vers un service lié de type différent de celui de la version actuelle (par exemple, passer du système de fichiers à ADLS Gen2), le message d’avertissement suivant s’affiche. Pour vous assurer qu’il s’agit d’un commutateur approprié, à la suite de votre consentement, les pipelines et les activités qui font référence à ce jeu de données sont modifiés pour utiliser également le nouveau type, et tous les paramètres de magasin de données existants incompatibles avec le nouveau type sont effacés car ils ne s’appliquent plus.
+Dans l’interface utilisateur de création ADF, lorsque vous utilisez un jeu de données de format de fichier dans une activité (Copy, Lookup, GetMetadata ou Delete) et que, dans le jeu de données, vous souhaitez pointer vers un service lié d’un type différent du type actuel (par exemple, passer du système de fichiers à ADLS Gen2), le message d’avertissement suivant devrait s’afficher. Pour vous assurer qu’il s’agit d’un commutateur approprié, à la suite de votre consentement, les pipelines et les activités qui font référence à ce jeu de données sont modifiés pour utiliser également le nouveau type, et tous les paramètres de magasin de données existants incompatibles avec le nouveau type sont effacés car ils ne s’appliquent plus.
 
 Pour en savoir plus sur les paramètres de stockage de données pris en charge pour chaque connecteur, vous pouvez accéder à l’article du connecteur correspondant-> propriétés de l’activité de copie pour afficher la liste détaillée des propriétés. Consultez [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).
 
 ![Message d'avertissement](media/data-factory-ux-troubleshoot-guide/warning-message.png)
+
+## <a name="could-not-load-resource-while-opening-pipeline"></a>Impossible de charger la ressource lors de l’ouverture du pipeline 
+
+Quand l’utilisateur accède au pipeline à l’aide de l’outil de création de l’interface utilisateur graphique d’ADF, le message d’erreur ressemble à ceci : « Impossible de charger la ressource ’xxxxxx’. Assurez-vous qu’il n’existe aucune erreur dans le JSON et que des ressources référencées existent. État : TypeError : impossible de lire la propriété ’xxxxx’ de non défini, Raison possible : TypeError : impossible de lire la propriété ’xxxxxxx’ de non défini. »
+
+La source du message d’erreur est un fichier JSON décrivant le pipeline. Cela se produit quand le client utilise une intégration git et que les fichiers JSON du pipeline sont endommagés pour une raison quelconque. Vous verrez une erreur (point rouge avec x) à gauche du nom du pipeline, comme ci-dessous.
+
+![Erreur JSON du pipeline](media/data-factory-ux-troubleshoot-guide/pipeline-json-error.png)
+
+La solution consiste à corriger les fichiers JSON, puis à rouvrir le pipeline à l’aide de l’outil de création.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

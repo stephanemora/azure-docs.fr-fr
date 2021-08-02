@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom:
 - device-developer
-ms.openlocfilehash: 683ec2b75cad36e4f4745b74ec3207bde9af9ac3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a3cbfa17d3b063ddcef90820dc31a080a768cbcd
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760946"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493760"
 ---
 # <a name="best-practices-for-device-development"></a>Meilleures pratiques relatives pour le développement d’appareil
 
@@ -56,6 +56,38 @@ Si l’appareil reçoit l’une des erreurs suivantes quand il se connecte, il d
 - Erreur interne 500 du service.
 
 Pour en savoir plus sur les codes d’erreur des appareils, consultez [Résolution des problèmes de connexion d’appareils](troubleshoot-connection.md).
+
+## <a name="test-failover-capabilities"></a>Fonctionnalités de test de basculement
+
+Azure CLI vous permet de tester les fonctionnalités de basculement du code client de votre appareil. Le principe de la commande CLI consiste à basculer temporairement l’inscription de l’appareil vers un autre hub IoT interne. Vous pouvez vous assurer que le basculement de l’appareil a fonctionné en vérifiant que l’appareil envoie toujours des données de télémétrie et répond aux commandes de votre application IoT Central.
+
+Pour effectuer le test de basculement de votre appareil, exécutez la commande suivante :
+
+```azurecli
+az iot central device manual-failover \
+    --app-id {Application ID of your IoT Central application} \
+    --device-id {Device ID of the device you're testing} \
+    --ttl-minutes {How to wait before moving the device back to it's original IoT hub}
+```
+
+> [!TIP]
+> Pour trouver **l’ID d’application**, accédez à **Administration > Votre application** dans votre application IoT Central.
+
+Si la commande réussit, la sortie se présente ainsi :
+
+```output
+Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+{
+  "hubIdentifier": "6bd4...bafa",
+  "message": "Success! This device is now being failed over. You can check your device'’'s status using 'iot central device registration-info' command. The device will revert to its original hub at Tue, 18 May 2021 11:03:45 GMT. You can choose to failback earlier using device-manual-failback command. Learn more: https://aka.ms/iotc-device-test"
+}
+```
+
+Pour plus d’informations sur la commande CLI, consultez [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+
+Vous pouvez maintenant vérifier que les données de télémétrie de l’appareil atteignent toujours votre application IoT Central.
+
+Pour voir un exemple de code d’appareil qui gère les basculements dans différents langages de programmation, consultez [Clients haute disponibilité IoT](https://github.com/iot-for-all/iot-central-high-availability-clients).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

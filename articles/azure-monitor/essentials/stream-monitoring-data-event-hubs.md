@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 7592935afadc88c4b9e0e5f3c5f9c83d42c63209
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e73c0e1796aee132e97c2510964bfa699a080ffc
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768738"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535664"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmettre en continu des données de surveillance Azure à un Event Hub ou à un partenaire externe
 
@@ -50,9 +50,9 @@ Le routage de vos données de supervision vers un hub d’événements avec Azur
 | Outil | Hébergé dans Azure | Description |
 |:---|:---| :---|
 |  IBM QRadar | Non | Le module DSM Microsoft Azure et Microsoft Azure Event Hub Protocol sont disponibles au téléchargement sur le [site Web du support IBM](https://www.ibm.com/support). Pour en savoir plus sur l’intégration à Azure, consultez [Configuration du module DSM QRadar](https://www.ibm.com/docs/en/dsm?topic=options-configuring-microsoft-azure-event-hubs-communicate-qradar). |
-| Splunk | Non | [Le module complémentaire Microsoft Azure pour Splunk](https://splunkbase.splunk.com/app/3757/) est un projet open source disponible dans Splunkbase. <br><br> Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk, par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk, vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk en utilisant [Azure Functions pour Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), déclenché par les nouveaux messages dans le hub d’événements. |
+| Splunk | Non | [Le module complémentaire Splunk pour Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/) est un projet open source disponible dans Splunkbase. <br><br> Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk, par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk, vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk en utilisant [Azure Functions pour Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), déclenché par les nouveaux messages dans le hub d’événements. |
 | sumologic | Non | Les instructions de configuration de SumoLogic pour consommer les données d’un hub d’événements sont disponibles dans [Collecter des journaux pour une application d’audit Azure à partir d’un hub d’événements](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Non | Le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| ArcSight | Non | Le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Serveur syslog | Non | Si vous voulez envoyer en streaming des données Azure Monitor directement vers un serveur syslog, vous pouvez utiliser une [solution basée sur une fonction Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | Non| Les instructions permettant de configurer LogRhythm pour collecter les journaux à partir d’un Event Hub sont disponibles [ici](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Oui | Pour plus d’informations, consultez [Bien démarrer avec la supervision et la journalisation en utilisant Logz.io pour les applications Java exécutées sur Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).

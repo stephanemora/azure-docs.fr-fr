@@ -2,13 +2,13 @@
 title: Sauvegarde des Disques managés Azure
 description: Découvrez comment sauvegarder des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/27/2021
+ms.openlocfilehash: c47499c371a9eccfd97224344a48c166d0e1f811
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110625"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653628"
 ---
 # <a name="back-up-azure-managed-disks"></a>Sauvegarder les disques managés Azure
 
@@ -81,6 +81,13 @@ Un coffre Sauvegarde est une entité de stockage dans Azure qui contient les don
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 
+- La sauvegarde sur disque Azure ne prend en charge que la sauvegarde de niveau opérationnel. La copie des sauvegardes dans le niveau de stockage coffre n’est pas disponible actuellement. Le paramètre de redondance de stockage du coffre de sauvegarde (LRS/GRS) ne s’applique pas aux sauvegardes stockées dans le niveau opérationnel.
+Les instantanés incrémentiels sont stockés dans le stockage HDD Standard, quel que soit le type de stockage du disque parent. Pour plus de fiabilité, ils sont par défaut placés dans un [stockage redondant interzone](../storage/common/storage-redundancy.md) (ZRS, Zone-Redundant Storage) dans les régions qui le prennent en charge.
+
+- La sauvegarde sur disque Azure prend en charge la sauvegarde entre abonnements. Elle effectue la restauration avec le coffre de sauvegarde dans un abonnement et le disque source dans un autre. La sauvegarde et la restauration inter-régions, en revanche, ne sont pas prises en charge. Le coffre de sauvegarde et les disques à sauvegarder peuvent ainsi se trouver dans le même abonnement ou dans des abonnements différents. Toutefois, le disque de sauvegarde et le disque à sauvegarder doivent se trouver dans la même région.
+
+- Vous ne pouvez pas modifier le groupe de ressources d’instantané affecté à une instance de sauvegarde lorsque vous configurez la sauvegarde d’un disque. 
+
 Le coffre Sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Il est nécessaire, pour configurer la sauvegarde des disques managés, que l’identité managée du coffre Sauvegarde dispose d’un ensemble d’autorisations sur les disques sources et les groupes de ressources dans lesquels les instantanés sont créés et gérés.
 
 Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Pour plus d’informations, consultez [Identités managées](../active-directory/managed-identities-azure-resources/overview.md).
@@ -110,9 +117,26 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
 
    - Vous pouvez utiliser ce groupe de ressources pour stocker des instantanés sur plusieurs disques en cours ou en attente de sauvegarde.  
 
-   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Par conséquent, choisissez le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. Pour plus d’informations, consultez [Instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
+   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Par conséquent, choisissez le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. En savoir plus sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
 
-   Pour attribuer un rôle, procédez comme suit :
+   - Vous ne pouvez pas modifier le groupe de ressources d’instantané affecté à une instance de sauvegarde lorsque vous configurez la sauvegarde d’un disque.
+
+   - Au cours d’une opération de sauvegarde, le service Sauvegarde Azure crée un compte de stockage dans le groupe de ressources d’instantané où sont stockés les instantanés. Un seul compte de stockage est créé par groupe de ressources d’instantané. Il est réutilisé sur toutes les instances de sauvegarde sur disque qui utilisent le même groupe de ressources comme groupe de ressources d’instantané.
+     
+     - Les instantanés ne sont pas stockés dans le compte de stockage. Les instantanés incrémentiels du disque managé constituent des ressources ARM qui sont créées sur le groupe de ressources et non dans un compte de stockage. 
+     
+     - Le compte de stockage est utilisé pour stocker les métadonnées de chaque point de récupération. Le service Sauvegarde Azure crée un conteneur d’objets blob par instance de sauvegarde sur disque. Un objet blob de blocs est créé pour chaque point de récupération afin de stocker les métadonnées le décrivant (par exemple l’abonnement, l’ID du disque, ses attributs, etc.). Ces métadonnées occupent un petit espace (quelques Kio).
+     
+     - Le compte de stockage est créé avec l’option RA-GZRS si la région prend en charge la redondance de zone, et avec l’option RA-GRS sinon.<br>Si une stratégie existante arrête la création d’un compte de stockage sur l’abonnement ou le groupe de ressources avec redondance GRS, le compte de stockage est créé avec l’option LRS. Le compte de stockage créé est **v2 universel**, les objets blob de blocs étant stockés sur le niveau chaud dans le conteneur d’objets blob. 
+     
+     - Le nombre de points de récupération est déterminé par la stratégie de sauvegarde utilisée pour configurer la sauvegarde de l’instance de sauvegarde sur disque. Les objets blob de blocs plus anciens sont supprimés selon le processus de garbage collection, à mesure que les points de récupération les plus anciens correspondants sont élagués.
+   
+   - N’appliquez pas de verrous de ressources ni de stratégies au groupe de ressources d’instantané ni au compte de stockage créé par le service Sauvegarde Azure. Le service crée et gère les ressources du groupe de ressources d’instantané affecté à une instance de sauvegarde lors de la configuration de la sauvegarde d’un disque. Le compte de stockage et les ressources qu’il contient sont créés par le service. Ils ne doivent être ni supprimés ni déplacés.
+
+     >[!NOTE]
+     >Si un compte de stockage est supprimé, les sauvegardes échouent, de même que la restauration pour tous les points de récupération existants.
+
+Pour attribuer un rôle, procédez comme suit :
 
    1. Accédez au groupe de ressources, par exemple *SnapshotRG*, qui se trouve dans le même abonnement que le disque à sauvegarder.
 

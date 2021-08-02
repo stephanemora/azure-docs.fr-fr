@@ -1,0 +1,137 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
+  description: Trouvez des réponses aux questions courantes sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure.
+  ms.reviewer: vijayts
+  ms.topic: conceptual
+  ms.date: 05/07/2021
+  ms.openlocfilehash: 0c53b52f38103790ae5439e33d81c268756b5eec
+  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "111907236"
+title: Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
+summary: >
+  Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service [Sauvegarde Azure](backup-overview.md).
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Puis-je utiliser Sauvegarde Azure pour une machine virtuelle IaaS et SQL Server sur la même machine ?
+    answer: >
+      Oui, vous pouvez disposer de la sauvegarde de machine virtuelle et de la sauvegarde SQL sur la même machine virtuelle. Dans ce cas, nous déclenchons en interne une sauvegarde de copie uniquement sur la machine virtuelle afin de ne pas tronquer les journaux.
+  - question: >
+      La solution retente-t-elle ou corrige-t-elle automatiquement les sauvegardes ?
+    answer: >
+      Dans certaines circonstances, le service Sauvegarde Azure déclenche des sauvegardes correctives. La correction automatique peut intervenir pour l'une des six conditions mentionnées ci-dessous :
+
+
+      - Si une sauvegarde de fichier journal ou différentielle échoue en raison d’une erreur de validation de LSN, la sauvegarde de fichier journal ou différentielle suivante se transforme en sauvegarde complète.
+
+      - Si aucune sauvegarde complète n’a eu lieu avant une sauvegarde de fichier journal ou différentielle, cette sauvegarde de fichier journal ou différentielle se transforme en sauvegarde complète.
+
+      - Si la dernière sauvegarde complète jusqu'à une date et une heure est antérieure à 15 jours, la sauvegarde de fichier journal ou différentielle suivante se transforme en sauvegarde complète.
+
+      - Tous les travaux de sauvegarde annulés en raison d’une mise à niveau d’extension sont redéclenchés une fois la mise à niveau terminée et l’extension démarrée.
+
+      - Si vous choisissez de remplacer la base de données lors de la restauration, la sauvegarde de fichier journal ou différentielle suivante échoue et une sauvegarde complète est déclenchée.
+
+      - Si une sauvegarde complète est requise pour redéfinir les chaînes de fichier journal en raison d’une modification du modèle de récupération de base de données, cette sauvegarde est déclenchée lors de la planification suivante.
+  - question: >
+      Puis-je annuler une tâche de sauvegarde à réparation automatique ?
+    answer: >
+      Non, il n’est pas possible d’annuler une tâche à réparation automatique. Toutefois, vous pouvez la désactiver en procédant comme suit :
+
+
+      1. Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez ou modifiez le fichier **ExtensionSettingsOverrides.json**.
+
+      1. Dans le fichier **ExtensionSettingsOverrides.json**, définissez *{"EnableAutoHealer": false}*.
+
+      1. Enregistrer les modifications et fermez le fichier.
+
+      1. Sur l’instance SQL Server, ouvrez **Gestionnaire des tâches**, puis redémarrez le service **AzureWLBackupCoordinatorSvc**.
+  - question: >
+      Puis-je contrôler le nombre de sauvegardes pouvant être exécutées simultanément sur le serveur SQL ?
+    answer: >
+      Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s’exécute pour minimiser l’impact sur une instance SQL Server. Pour modifier ce paramètre :
+
+
+      1. Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez le fichier *ExtensionSettingsOverrides.json*.
+
+      2. Dans le fichier *ExtensionSettingsOverrides.json*, remplacez la valeur du paramètre **DefaultBackupTasksThreshold** par une valeur inférieure (par exemple, 5). <br>
+        `{"DefaultBackupTasksThreshold": 5}`
+      <br>
+
+      La valeur par défaut de DefaultBackupTasksThreshold est **20**.
+
+
+      3. Enregistrer vos modifications et fermez le fichier.
+
+      4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+       Si cette méthode est utile quand l’application de sauvegarde consomme beaucoup de ressources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) offre un moyen plus générique de spécifier des limites quant aux quantités de ressources (processeur, E/S physiques et mémoire) utilisables par les requêtes d’application entrantes.
+
+      > [!NOTE]
+
+      > Dans l’expérience utilisateur, vous pouvez continuer et planifier autant de sauvegardes que vous le souhaitez à un moment donné. Toutefois, elles seront traitées dans une fenêtre glissante, par exemple de 5, conformément à l’exemple ci-dessus.
+  - question: >
+      Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
+    answer: >
+      Conformément aux limites SQL, vous pouvez exécuter une sauvegarde de copie uniquement sur un réplica secondaire. En revanche, la sauvegarde complète n’est pas autorisée.
+  - question: >
+      Puis-je protéger des groupes de disponibilité en local ?
+    answer: >
+      Non. Sauvegarde Azure protège les bases de données SQL Server s'exécutant dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, l’AG peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Sauvegarde Azure protège uniquement les nœuds s'exécutant dans la même région Azure que le coffre Recovery Services.
+  - question: >
+      Puis-je protéger des groupes de disponibilité dans plusieurs régions ?
+    answer: >
+      Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre. Si votre groupe de disponibilité SQL Server Always On s’étend sur plusieurs régions Azure, configurez la sauvegarde à partir de la région où se trouve le nœud principal. La Sauvegarde Azure peut découvrir et protéger toutes les bases de données du groupe de disponibilité en fonction de votre préférence de sauvegarde. Si votre préférence de sauvegarde n’est pas satisfaite, les sauvegardes échouent et vous recevez l’alerte d’échec.
+  - question: >
+      La réussite des travaux de sauvegarde génère-t-elle des alertes ?
+    answer: >
+      Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](backup-azure-monitoring-built-in-monitor.md). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser la [supervision à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+  - question: >
+      Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
+    answer: >
+      Le menu **Travaux de sauvegarde** affiche toutes les opérations planifiées et à la demande, à l’exception des sauvegardes de fichiers journaux planifiées qui peuvent s’avérer particulièrement fréquentes. Pour les travaux de journalisation planifiés, utilisez [Surveillance à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+  - question: >
+      Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
+    answer: "Oui, la [protection automatique](backup-sql-server-database-azure-vms.md#enable-auto-protection) le permet.  \n"
+  - question: >
+      Si je supprime une base de données d’une instance protégée automatiquement, qu'advient-il des sauvegardes ?
+    answer: "Si une base de données est supprimée d’une instance protégée automatiquement, les sauvegardes de cette base de données sont toujours essayées. Cela implique que la base de données supprimée devient défectueuse sous **Éléments de sauvegarde** mais reste protégée.\n\nPour ne plus protéger cette base de données, utilisez **Arrêter la sauvegarde** avec **Supprimer des données** sur cette base de données.  \n"
+  - question: >
+      Si j'arrête une opération de sauvegarde d'une base de données protégée automatiquement, comment se comportera-t-elle ?
+    answer: >
+      Si vous choisissez d'**arrêter la sauvegarde en conservant les données**, aucune nouvelle sauvegarde n'interviendra et les points de récupération existants resteront intacts. La base de données sera toujours considérée comme protégée et s'affichera sous les **éléments de sauvegarde**.
+
+
+      Si vous choisissez d'**arrêter la sauvegarde avec suppression des données**, aucune nouvelle sauvegarde n'interviendra et les points de récupération existants seront également supprimés. La base de données sera considérée comme non protégée et s'affichera sous l'instance dans Configurer une sauvegarde. Cela étant, contrairement à d’autres bases de données non protégées pouvant être sélectionnées manuellement ou protégées automatiquement, cette base de données sera grisée et ne pourra pas être sélectionnée. Le seul moyen de re-protéger cette base de données consiste à désactiver la protection automatique sur l’instance. Vous pouvez maintenant sélectionner cette base de données et configurer la protection ou réactiver la protection automatique sur l'instance.
+  - question: >
+      Si je modifie le nom de la base de données après qu'elle a été protégée, comment se comportera-t-elle ?
+    answer: >
+      Une base de données renommée est traitée en tant que nouvelle base de données. Par conséquent, le service gère cette situation comme si la base de données était introuvable, et les sauvegardes échouent.
+
+
+      Vous pouvez sélectionner la base de données renommée et configurer la protection. Si la protection automatique est activée sur l’instance, la base de données renommée sera automatiquement détectée et protégée.
+  - question: >
+      Pourquoi ne puis-je pas voir une base de données ajoutée pour une instance protégée automatiquement ?
+    answer: >
+      Une base de données que vous [ajoutez à une instance protégée automatiquement](backup-sql-server-database-azure-vms.md#enable-auto-protection) n’apparaît pas immédiatement sous les éléments protégés. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Cela étant, pour détecter et protéger les nouvelles bases de données immédiatement, vous pouvez exécuter manuellement une détection en sélectionnant **Redécouvrir les bases de données**, comme l’illustre l’image suivante :
+
+        ![Détecter manuellement une base de données qui vient d'être ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
+  - question: >
+      Puis-je protéger des bases de données sur des machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé ?
+    answer: >
+      Oui, vous pouvez protéger les bases de données sur les machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé.
+  - question: >
+      Puis-je protéger les bases de données pour lesquelles l’option TDE (Transparent Data Encryption) est activée, et les base de données resteront-elles chiffrées tout au long du processus de sauvegarde ?
+    answer: >
+      Oui. Le service Sauvegarde Azure prend en charge la sauvegarde de bases de données SQL Server ou de serveur avec le chiffrement TDE activé. La sauvegarde prend en charge le chiffrement [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) avec des clés gérées par Azure, ou avec des clés gérées par le client (BYOK).  Le processus de sauvegarde n’effectuant pas de chiffrement SQL, la base de données reste chiffrée lors de la sauvegarde.
+  - question: >
+      Le service Sauvegarde Azure effectue-t-il une opération de somme de contrôle sur le flux de données ?
+    answer: >
+      Nous effectuons une opération de somme de contrôle sur le flux de données. Toutefois, cette opération ne doit pas être confondue avec une [somme de contrôle SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+
+      La sauvegarde de la charge de travail Azure calcule la somme de contrôle sur le flux de données et la stocke explicitement au cours de l’opération de sauvegarde. Ce flux de somme de contrôle est ensuite pris comme référence et vérifié avec la somme de contrôle du flux de données pendant l’opération de restauration pour s’assurer que les données sont cohérentes.
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\nDécouvrez comment [sauvegarder une base de données SQL Server](backup-azure-sql-database.md) s'exécutant sur une machine virtuelle Azure."

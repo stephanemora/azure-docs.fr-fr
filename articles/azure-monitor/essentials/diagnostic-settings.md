@@ -5,13 +5,13 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 60ac56cfda026871afa1725bbd54625b7ce7585e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/09/2021
+ms.openlocfilehash: bb820be289aa2ddcec2183094e819083dde8c1d8
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789192"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902784"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](./platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](./data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -199,7 +199,7 @@ Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[
 ## <a name="create-using-azure-policy"></a>Créer à l’aide d’Azure Policy
 Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Pour plus d’informations, consultez [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
 
-## <a name="metric-category-is-not-supported-error"></a>Erreur de catégorie de métrique non prise en charge
+## <a name="error-metric-category-is-not-supported"></a>Erreur : La catégorie de métrique n’est pas prise en charge
 Lors du déploiement d’un paramètre de diagnostic, vous recevez le message d’erreur suivant :
 
    « La catégorie de métrique « *xxxx* » n’est pas prise en charge »
@@ -216,7 +216,9 @@ Le problème est dû à une modification récente de l’API sous-jacente. Les c
 
 Si vous recevez cette erreur, mettez à jour vos déploiements en y remplaçant tous les noms de catégories de métriques par « AllMetrics » pour résoudre le problème. Si le déploiement cumulait déjà plusieurs catégories, une seule catégorie avec la référence « AllMetrics » doit être conservée. Si vous continuez à rencontrer le problème, contactez le support technique Azure via le portail Azure. 
 
+## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>Erreur : Le paramètre disparaît en raison de la présence de caractères non ASCII dans resourceID
 
+Les paramètres de diagnostic ne prennent pas en charge les resourceID comportant des caractères non ASCII (par exemple Preproducción). Or, il n’est pas possible de renommer des ressources dans Azure. La seule option consiste donc à créer une nouvelle ressource sans caractères non ASCII. Si les caractères se trouvent dans le nom d’un groupe de ressources, vous pouvez déplacer les ressources dans un nouveau groupe. Sinon, vous devez recréer la ressource. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,13 @@ ms.topic: troubleshooting
 ms.date: 4/20/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b88d63f86c863b5f1c050e293912cb6628d50b00
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 633926710e4f6b92e2cd19aaf852135c07929966
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140026"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677127"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -36,9 +37,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 
 Examinez le fichier installer.log pour déterminer la cause de l’échec de l’installation.
 
-<a id="agent-installation-gpo"></a>**L’installation de l’agent échoue avec l’erreur : L’Assistant Agent de synchronisation de stockage s’est terminé prématurément**
+<a id="agent-installation-gpo"></a>**L’installation de l’agent échoue avec l’erreur : L’Assistant Agent de synchronisation de stockage s’est terminé prématurément**
 
-Dans le journal d’installation de l’agent, l’erreur suivante est enregistrée :
+Dans le journal d’installation de l’agent, l’erreur suivante est consignée :
 
 ```
 CAQuietExec64:  + CategoryInfo          : SecurityError: (:) , PSSecurityException
@@ -46,7 +47,7 @@ CAQuietExec64:  + FullyQualifiedErrorId : UnauthorizedAccess
 CAQuietExec64:  Error 0x80070001: Command line returned an error.
 ```
 
-Ce problème se produit si la [stratégie d’exécution de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) est configurée à l’aide d’une stratégie de groupe et que le paramètre de stratégie est « Autoriser uniquement les scripts signés ». Tous les scripts inclus avec l’agent Azure File Sync sont signés. L’installation de l’agent Azure File Sync échoue car le programme d’installation effectue l’exécution du script à l’aide du paramètre Contourner la stratégie d’exécution.
+Ce problème se produit si la [stratégie d’exécution de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) est configurée à l’aide d’une stratégie de groupe et que le paramètre de stratégie est « Autoriser uniquement les scripts signés ». Tous les scripts inclus avec l’agent Azure File Sync sont signés. L’installation de l’agent Azure File Sync échoue, car le programme d’installation exécute le script avec le paramètre de stratégie Contourner l’exécution.
 
 Pour résoudre ce problème, désactivez temporairement le paramètre de stratégie de groupe [Activer l’exécution des scripts](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) sur le serveur. Une fois l’installation de l’agent terminée, vous pouvez réactiver le paramètre de stratégie de groupe.
 
@@ -358,6 +359,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Le fichier ou le répertoire a été ignoré, mais sera synchronisé au cours de la prochaine session de synchronisation. Si cette erreur est signalée lors du téléchargement de l’élément, il est plus que probable que le nom du fichier ou du répertoire n’est pas valide. | Aucune action n’est requise si cette erreur est signalée lors du chargement du fichier. Si l’erreur est signalée lors du téléchargement du fichier, renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](?tabs=portal1%252cazure-portal#handling-unsupported-characters). |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La création d’un fichier ou d’un répertoire ne peut pas être synchronisée, car l’élément existe déjà dans la destination et la synchronisation n’a pas connaissance de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications s’est exécutée sur la destination et que la synchronisation a connaissance de ce nouvel élément. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](?tabs=portal1%252cazure-portal#-2134351810) dans le guide de dépannage. |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Le fichier est chiffré par une solution non prise en charge (comme NTFS EFS). | Déchiffrez le fichier et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, consultez la section [Chiffrement](file-sync-planning.md#encryption) du guide de planification. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers de réplication en lecture seule DFS-R. Consultez le [guide de planification](file-sync-planning.md#distributed-file-system-dfs) pour plus d’informations. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Le fichier est en attente de suppression. | Aucune action requise. Le fichier est supprimé une fois que tous les descripteurs de fichiers ouverts sont fermés. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | Le fichier ne peut pas être synchronisé, car les paramètres du pare-feu et du réseau virtuel sur le compte de stockage sont activés et le serveur n’a pas accès au compte de stockage. | Ajoutez l’adresse IP ou le réseau virtuel du serveur en suivant les étapes décrites dans la section [Configurer les paramètres de pare-feu et de réseau virtuel](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings) du Guide de déploiement. |
@@ -377,12 +379,12 @@ Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync
 
 | Jeu de caractères | Nombre de caractères |
 |---------------|-----------------|
-| 0x00000000-0x0000001F (caractères de contrôle) | 32 |
+| 0x00000000 - 0x0000001F (caractères de contrôle) | 32 |
 | 0x0000FDD0 - 0x0000FDDD (formulaire de présentation arabe-a) | 14 |
 | <ul><li>0x00000022 (guillemets)</li><li>0x0000002A (astérisque)</li><li>0x0000002F (barre oblique)</li><li>0x0000003A (deux-points)</li><li>0x0000003C (inférieur à)</li><li>0x0000003E (supérieur à)</li><li>0x0000003F (point d’interrogation)</li><li>0x0000005C (barre oblique inverse)</li><li>0x0000007C (barre verticale)</li></ul> | 9 |
-| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x0010FFFE-0x0010FFFF = 2 (non-caractère)</li></ul> | 8 |
+| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x0010FFFE - 0x0010FFFF = 2 (non-caractère)</li></ul> | 8 |
 | <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6 |
-| 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (spécial) | 4 |
+| 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (spéciaux) | 4 |
 | Fichiers ou répertoires se terminant par un point | 1 |
 
 ### <a name="common-sync-errors"></a>Erreurs de synchronisation courantes

@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/26/2021
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 4fe60a119626dca51f5dd4f38a81f6a2ef99c83c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6051e659502a9dbccf653a2b5009affe343b9df4
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743720"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539186"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Fonctions de chaîne (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,9 +22,9 @@ Les fonctions de chaîne vous permettent d’effectuer des opérations sur des c
 
 ## <a name="functions"></a>Fonctions
 
-Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur de type chaîne, une valeur numérique ou une valeur booléenne :
-  
-| Fonction système                                 | Utilisation de l’index        | Utilisation de l'index dans les requêtes avec les [fonctions d'agrégation scalaires](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Notes                                                      |
+Les fonctions scalaires ci-dessous effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur de type chaîne, une valeur numérique ou une valeur booléenne. La colonne **Utilisation de l’index** suppose, le cas échéant, que vous comparez la fonction système de chaîne à une autre valeur avec un filtre d’égalité.
+
+| Fonction système                                 | Utilisation de l’index        | [Utilisation de l’index dans les requêtes avec les fonctions d’agrégation scalaires](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Notes                                                      |
 | ----------------------------------------------- | ------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
 | [CONCAT](sql-query-concat.md)                   | Analyse complète          | Analyse complète                                              |                                                              |
 | [CONTAINS](sql-query-contains.md)               | Analyse complète de l'index    | Analyse complète                                              |                                                              |

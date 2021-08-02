@@ -1,25 +1,25 @@
 ---
 title: 'Créer et installer des fichiers config de client VPN P2S : authentification par certificat'
 titleSuffix: Azure VPN Gateway
-description: Découvrez comment créer et installer des fichiers de configuration de client VPN Windows, Linux, Linux (strongSwan) et macOS X pour l’authentification par certificat P2S.
+description: Découvrez comment générer et installer des fichiers config de client VPN pour Windows, Linux (strongSwan) et macOS. Cet article s’applique aux configurations de passerelle VPN P2S utilisant l’authentification par certificat.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 06/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: 239166c872578b310fe8eb0393a7a37f4d25129f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 80425670d40a32c229d6c9cf5aceab9a37072962
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202548"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558829"
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
+# <a name="generate-and-install-vpn-client-configuration-files-for-p2s-certificate-authentication"></a>Générer et installer des fichiers config de client VPN pour l’authentification par certificat P2S
 
-Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les fichiers de configuration fournissent les paramètres nécessaires à un client natif Windows, Mac IKEv2 VPN ou à des clients Linux pour une connexion point à site à un réseau virtuel qui utilise une authentification par certificat Azure native.
+Lorsque vous vous connectez à un réseau virtuel Azure à l’aide d’une connexion point à site et d’une authentification par certificat, vous utilisez le client VPN installé de façon native sur le système d’exploitation à partir duquel vous vous connectez. Tous les paramètres de configuration nécessaires aux clients VPN sont contenus dans un fichier config zip de client VPN. Les paramètres du fichier zip vous aident à configurer facilement les clients VPN pour Windows, Mac IKEv2 VPN ou Linux.
 
-Les fichiers de configuration du client sont spécifiques à la configuration VPN du réseau virtuel. Si vous apportez des modifications à la configuration du VPN en point à site après avoir généré les fichiers de configuration du client VPN, comme le type de protocole ou d’authentification du VPN, veillez à générer de nouveaux fichiers de configuration du client VPN pour vos appareils utilisateurs.
+Les fichiers config du client VPN que vous générez sont spécifiques à la configuration de la passerelle VPN P2S pour le réseau virtuel. Si des modifications ont été apportées à la configuration du VPN de point à site après avoir généré les fichiers (modifications apportées au type de protocole VPN ou au type d’authentification, par exemple), vous devez générer les nouveaux fichiers config du client VPN et appliquer la nouvelle configuration à tous les clients VPN que vous souhaitez connecter.
 
 * Pour plus d’informations sur les connexions point à site, consultez [À propos des VPN point à site](point-to-site-about.md).
 * Pour obtenir des instructions sur OpenVPN, consultez [Configurer OpenVPN pour P2S](vpn-gateway-howto-openvpn.md) et [Configurer des clients OpenVPN](vpn-gateway-howto-openvpn-clients.md).
@@ -30,8 +30,6 @@ Les fichiers de configuration du client sont spécifiques à la configuration VP
 
 ## <a name="generate-vpn-client-configuration-files"></a><a name="generate"></a>Générer les fichiers de configuration du client VPN
 
-Avant de commencer, veillez à ce que tous les utilisateurs qui se connectent disposent d’un certificat valide installer sur l’appareil utilisateur. Pour plus d’informations sur l’installation d’un certificat client, consultez [Installer un certificat client](point-to-site-how-to-vpn-client-install-azure-cert.md).
-
 Vous pouvez générer des fichiers de configuration client à l’aide de PowerShell, ou en utilisant le portail Azure. L’une ou l’autre des méthodes retourne le même fichier zip. Décompressez le fichier pour afficher les dossiers suivants :
 
 * Les dossiers **WindowsAmd64** et **WindowsX86**, dans lesquels se trouvent respectivement les packages de programme d’installation pour Windows 32 bits et Windows 64 bits. Le package d’installation **WindowsAmd64** est pour tous les clients Windows 64 bits pris en charge, pas seulement Amd.
@@ -40,11 +38,11 @@ Vous pouvez générer des fichiers de configuration client à l’aide de PowerS
 ### <a name="generate-files-using-the-azure-portal"></a><a name="zipportal"></a>Générer les fichiers à l’aide du portail Azure
 
 1. Dans le portail Azure, accédez à la passerelle du réseau virtuel auquel vous souhaitez vous connecter.
-1. Dans la page de passerelle de réseau virtuel, sélectionnez **Configuration de point à site**.
+1. Dans la page correspondant à la passerelle de réseau virtuel, sélectionnez **Configuration de point à site** pour ouvrir la page Configuration de point à site.
+1. En haut de la page Configuration de point à site, sélectionnez **Télécharger le client VPN**. Cela ne permet pas de télécharger le logiciel du client VPN mais de générer le package de configuration utilisé pour configurer les clients VPN. La génération du package de configuration du client prend quelques minutes.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Télécharger le client VPN":::
-1. En haut de la page Configuration de point à site, sélectionnez **Télécharger le client VPN**. La génération du package de configuration du client prend quelques minutes.
-1. Votre navigateur indique qu’un fichier zip de configuration du client est disponible. Il porte le même nom que votre passerelle. Décompressez le fichier pour afficher les dossiers.
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Téléchargez la configuration du client VPN.":::
+1. Une fois le package de configuration généré, votre navigateur indique qu’un fichier config zip de client est disponible. Il porte le même nom que votre passerelle. Décompressez le fichier pour afficher les dossiers.
 
 ### <a name="generate-files-using-powershell"></a><a name="zipps"></a>Générer des fichiers à l’aide de PowerShell
 
@@ -62,7 +60,7 @@ Vous pouvez générer des fichiers de configuration client à l’aide de PowerS
 
 [!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
-## <a name="mac-os-x"></a><a name="installmac"></a>Mac (OS X)
+## <a name="mac-macos"></a><a name="installmac"></a>Mac (macOS)
 
  Vous devez configurer manuellement le client VPN IKEv2 natif sur chaque Mac qui se connectera à Azure. Azure ne fournit pas de fichier mobileconfig pour l’authentification par certificat Azure native. Le dossier **Générique** contient toutes les informations dont vous avez besoin pour la configuration. Si vous ne voyez pas le dossier Générique dans votre téléchargement, il est probable qu’IKEv2 n’était pas sélectionné comme type de tunnel. Notez que la référence SKU de base de passerelle VPN ne prend pas en charge IKEv2. Une fois IKEv2 sélectionné, générez à nouveau le fichier zip pour récupérer le dossier Générique.<br>Ce dossier contient les fichiers suivants :
 

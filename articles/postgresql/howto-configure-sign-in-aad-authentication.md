@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/23/2020
-ms.openlocfilehash: 729879bb472786165b21a47a7baf058294a4db1f
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 05/26/2021
+ms.openlocfilehash: 03f0ab53b4d2db74a18073808295e12fe5adaaaa
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961521"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494781"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
 
@@ -32,6 +32,7 @@ Pour définir l’administrateur Azure AD (vous pouvez utiliser un utilisateur o
 
 > [!IMPORTANT]
 > Lorsque vous définissez l’administrateur, un nouvel utilisateur est ajouté au serveur Azure Database pour PostgreSQL avec les autorisations d’administrateur complètes. L’utilisateur Administrateur Azure AD dans Azure Database pour PostgreSQL aura le rôle `azure_ad_admin`.
+> Un seul administrateur Azure AD peut être créé par serveur PostgreSQL et la sélection d’un autre administrateur remplacera l’administrateur Azure AD existant configuré pour le serveur. Vous pouvez spécifier un groupe Azure AD plutôt qu’un utilisateur individuel pour avoir plusieurs administrateurs. 
 
 Un seul administrateur Azure AD peut être créé par serveur PostgreSQL et la sélection d’un autre administrateur remplacera l’administrateur Azure AD existant configuré pour le serveur. Vous pouvez spécifier un groupe Azure AD plutôt qu’un utilisateur individuel pour avoir plusieurs administrateurs. Notez que vous vous connecterez alors avec le nom du groupe à des fins d’administration.
 
@@ -45,12 +46,10 @@ Nous avons conçu l’intégration Azure AD pour qu’elle fonctionne avec des o
 
 Pour le moment, nous avons testé les clients suivants :
 
-- psql CommandLine (utilisez la variable PGPASSWORD pour transmettre le jeton, voir ci-dessous)
+- psql CommandLine (utiliser la variable PGPASSWORD pour passer le jeton, voir l’étape 3 pour plus d’informations)
 - Azure Data Studio (utilisant l’extension PostgreSQL)
 - Autres clients basés sur libpq (par exemple, frameworks d’application courants et ORM)
-
-> [!NOTE]
-> N’oubliez pas que l’utilisation du jeton Azure AD avec pgAdmin n’est pas prise en charge actuellement, à cause de la limitation de codage en dur de 256 caractères pour les mots de passe (que le jeton dépasse).
+- PgAdmin (désactiver l’option Se connecter maintenant lors de la création du serveur, voir l’étape 4 pour plus d’informations)
 
 Voici les étapes nécessaires à l’authentification d’un utilisateur ou d’une application avec Azure AD :
 
@@ -58,7 +57,9 @@ Voici les étapes nécessaires à l’authentification d’un utilisateur ou d�
 
 Vous pouvez poursuivre dans Azure Cloud Shell, une machine virtuelle Azure ou sur votre ordinateur local. Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
 
-### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
+## <a name="authenticate-with-azure-ad-as-a-single-user"></a>S’authentifier auprès d’Azure AD en tant qu’utilisateur unique
+
+### <a name="step-1-login-to-the-users-azure-subscription"></a>Étape 1 : Se connecter à l’abonnement Azure de l’utilisateur
 
 Commencez par vous authentifier auprès d’Azure AD à l’aide de l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell.
 
@@ -104,10 +105,8 @@ Une fois l’authentification réussie, Azure AD retourne un jeton d’accès :
 
 Le jeton est une chaîne de base 64 qui code toutes les informations relatives à l’utilisateur authentifié et qui est ciblée vers le service Azure Database pour PostgreSQL.
 
-> [!NOTE]
-> La validité du jeton d’accès est comprise entre 5 minutes et 60 minutes. Nous vous recommandons d’obtenir le jeton d’accès juste avant de lancer la connexion à Azure Database pour PostgreSQL.
 
-### <a name="step-3-use-token-as-password-for-logging-in-with-postgresql"></a>Étape 3 : Utiliser un jeton comme mot de passe pour la connexion avec PostgreSQL
+### <a name="step-3-use-token-as-password-for-logging-in-with-client-psql"></a>Étape 3 : Utiliser un jeton comme mot de passe pour la connexion avec psql client
 
 Lors de la connexion, vous devez utiliser le jeton d’accès comme mot de passe utilisateur PostgreSQL.
 
@@ -134,17 +133,92 @@ Vous pouvez désormais établir une connexion avec Azure Database pour PostgreSQ
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+### <a name="step-4-use-token-as-a-password-for-logging-in-with-pgadmin"></a>Étape 4 : Utiliser un jeton en tant que mot de passe pour la connexion avec PgAdmin
+
+Pour vous connecter en utilisant un jeton Azure AD avec pgAdmin, procédez comme suit :
+1. Désactivez l’option Se connecter maintenant lors de la création du serveur.
+2. Entrez les détails du serveur sous l’onglet Connexion, puis enregistrez.
+3. Dans le menu du navigateur, cliquez sur Se connecter au serveur Azure Database pour PostgreSQL.
+4. Entrez le jeton mot de passe AD quand vous y êtes invité.
+
 
 Considérations importantes à prendre en compte lors de la connexion :
 
-* `user@tenant.onmicrosoft.com` est le nom de l’utilisateur ou du groupe Azure AD auquel vous essayez de vous connecter
-* Ajoutez toujours le nom du serveur après le nom de groupe/utilisateur Azure AD (par exemple, `@mydb`)
-* Veillez à utiliser exactement la façon dont le nom d’utilisateur ou de groupe Azure AD est épelé
-* Les noms d’utilisateurs et de groupes Azure AD respectent la casse
-* Quand vous vous connectez en tant que groupe, utilisez uniquement le nom du groupe (par exemple, `GroupName@mydb`)
-* Si le nom contient des espaces, utilisez `\` avant chaque espace pour le placer dans une séquence d’échappement
+* `user@tenant.onmicrosoft.com` est le nom de l’utilisateur Azure AD 
+* Veillez à l’orthographier exactement de la même façon que l’utilisateur Azure, car les noms d’utilisateurs et de groupes Azure AD sont sensibles à la casse.
+* Si le nom contient des espaces, insérez `\` devant chaque espace pour l’échapper.
+* La validité du jeton d’accès est comprise entre 5 minutes et 60 minutes. Nous vous recommandons d’obtenir le jeton d’accès juste avant de lancer la connexion à Azure Database pour PostgreSQL.
 
+Vous vous êtes authentifié auprès de votre serveur Azure Database pour PostgreSQL via l’authentification Azure AD.
+
+## <a name="authenticate-with-azure-ad-as-a-group-member"></a>S’authentifier avec Azure AD en tant que membre d’un groupe
+
+### <a name="step-1-create-azure-ad-groups-in-azure-database-for-postgresql"></a>Étape 1 : Créer des groupes Azure AD dans Azure Database pour PostgreSQL
+
+Pour permettre à un groupe Azure AD d’accéder à votre base de données, utilisez le même mécanisme que pour les utilisateurs, mais spécifiez à la place le nom du groupe :
+
+Exemple :
+
+```
+CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+```
+Lors de la connexion, les membres du groupe utilisent leurs jetons d’accès personnels, mais se connectent avec le nom du groupe spécifié comme nom d’utilisateur.
+
+### <a name="step-2-login-to-the-users-azure-subscription"></a>Étape 2 : Se connecter à l’abonnement Azure de l’utilisateur
+
+Authentifiez-vous auprès d’Azure AD avec l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell. L’utilisateur doit être membre du groupe Azure AD.
+
+```
+az login
+```
+
+### <a name="step-3-retrieve-azure-ad-access-token"></a>Étape 3 : Récupérer un jeton d’accès Azure AD
+
+Appelez l’outil Azure CLI pour obtenir un jeton d’accès pour l’utilisateur authentifié auprès d’Azure AD à l’étape 2 afin d’accéder à Azure Database pour PostgreSQL.
+
+Exemple (pour le cloud public) :
+
+```azurecli-interactive
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+```
+
+La valeur de la ressource ci-dessus doit être spécifiée exactement comme indiqué. Pour les autres clouds, la valeur de la ressource peut être recherchée à l’aide de ce qui suit :
+
+```azurecli-interactive
+az cloud show
+```
+
+Pour Azure CLI version 2.0.71 et les versions ultérieures, la commande peut être spécifiée dans la version plus pratique suivante pour tous les clouds :
+
+```azurecli-interactive
+az account get-access-token --resource-type oss-rdbms
+```
+
+Une fois l’authentification réussie, Azure AD retourne un jeton d’accès :
+
+```json
+{
+  "accessToken": "TOKEN",
+  "expiresOn": "...",
+  "subscription": "...",
+  "tenant": "...",
+  "tokenType": "Bearer"
+}
+```
+
+### <a name="step-4-use-token-as-password-for-logging-in-with-psql-or-pgadmin-see-above-steps-for-user-connection"></a>Étape 4 : Utiliser un jeton en tant que mot de passe pour la connexion avec psql ou PgAdmijetonn (voir les étapes ci-dessus pour la connexion utilisateur)
+
+Considérations importantes concernant la connexion en tant que membre d’un groupe :
+* groupname@mydb est le nom du groupe Azure AD sous lequel vous tentez de vous connecter
+* Ajoutez toujours le nom du serveur après le nom de groupe/utilisateur Azure AD (par exemple, @mydb)
+* Veillez à orthographier le nom de groupe Azure AD avec exactitude.
+* Les noms d’utilisateurs et de groupes Azure AD respectent la casse
+* Quand vous vous connectez en tant que groupe, utilisez uniquement le nom du groupe (par exemple, GroupName@mydb), non l’alias d’un membre de celui-ci.
+* Si le nom contient des espaces, insérez une barre oblique inverse (\) devant chaque espace pour l’échapper.
+* La validité du jeton d’accès est comprise entre 5 minutes et 60 minutes. Nous vous recommandons d’obtenir le jeton d’accès juste avant de lancer la connexion à Azure Database pour PostgreSQL.
+  
 Vous êtes maintenant authentifié auprès de votre serveur PostgreSQL à l’aide de l’authentification Azure AD.
+
 
 ## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Création d’utilisateurs Azure AD dans Azure Database pour PostgreSQL
 
@@ -163,18 +237,6 @@ CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
 
 > [!NOTE]
 > L’authentification d’un utilisateur par le biais d’Azure AD ne donne pas à l’utilisateur des autorisations d’accès aux objets dans la base de données Azure Database pour PostgreSQL. Vous devez accorder manuellement les autorisations requises à l’utilisateur.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Création de groupes Azure AD dans Azure Database pour PostgreSQL
-
-Pour permettre à un groupe Azure AD d’accéder à votre base de données, utilisez le même mécanisme que pour les utilisateurs, mais spécifiez à la place le nom du groupe :
-
-**Exemple :**
-
-```sql
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-Lors de la connexion, les membres du groupe utilisent leurs jetons d’accès personnels, mais se connectent avec le nom du groupe spécifié comme nom d’utilisateur.
 
 ## <a name="token-validation"></a>Validation du jeton
 

@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: cf15d6f669718cca8b99d67a7912d3959d9c191f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/08/2021
+ms.openlocfilehash: 523a87c3adb77c55440392381ebe43ea24627c14
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732503"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756626"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Préparer des données avec data wrangling
 
@@ -37,13 +37,19 @@ L’autre méthode se trouve dans le volet d’activités du canevas du pipeline
 
 ## <a name="author-a-power-query-data-wrangling-activity"></a>Créer une activité de data wrangling Power Query
 
-Ajoutez un **jeu de données source** pour votre composition (« mash-up ») Power Query. Vous pouvez choisir un jeu de données existant ou en créer un. Vous pouvez également sélectionner un jeu de données récepteur. Vous pouvez choisir un ou plusieurs jeux de données sources, mais un seul récepteur est autorisé à ce stade. Choisir un jeu de données récepteur est facultatif, mais au moins un jeu de données source est requis.
+Ajoutez un **jeu de données source** pour votre composition (« mash-up ») Power Query. Vous pouvez choisir un jeu de données existant ou en créer un. Après avoir enregistré votre mashup, vous pouvez ajouter l’activité de data wrangling de Power Query à votre pipeline, puis sélectionner un jeu de données récepteur pour indiquer à ADF où placer vos données. Vous pouvez choisir un ou plusieurs jeux de données sources, mais un seul récepteur est autorisé à ce stade. Choisir un jeu de données récepteur est facultatif, mais au moins un jeu de données source est requis.
 
 ![Wrangling](media/wrangling-data-flow/tutorial4.png)
 
 Cliquez sur **Créer** pour ouvrir l’éditeur mashup Power Query Online.
 
-![Capture d’écran montrant le bouton Créer qui ouvre l’éditeur mashup Power Query Online.](media/wrangling-data-flow/tutorial5.png)
+Vous allez commencer par choisir une source de jeu de données pour l’éditeur de mashup.
+
+![Source de Power Query.](media/wrangling-data-flow/pq-new-source.png)
+
+Une fois que vous avez terminé la génération de votre Power Query, vous pouvez l’enregistrer et ajouter le mashup en tant qu’activité à votre pipeline. C’est à ce moment-là que vous allez définir les propriétés du jeu de données de récepteur.
+
+![Récepteur de Power Query.](media/wrangling-data-flow/pq-new-sink.png)
 
 Créez votre wrangling Power Query à l’aide d’une préparation des données sans code. Pour obtenir la liste des fonctions disponibles, consultez les [fonctions de transformation](wrangling-functions.md). ADF convertit le script M en script de flux de données afin que vous puissiez exécuter votre Power Query à grande échelle à l’aide de l’environnement Spark de flux de données Azure Data Factory.
 
@@ -53,7 +59,7 @@ Créez votre wrangling Power Query à l’aide d’une préparation des données
 
 Pour déboguer un pipeline d’activité Power Query, cliquez sur **Déboguer** dans le canevas du pipeline. Une fois que vous avez publié votre pipeline, la commande **Déclencher maintenant** effectue une exécution à la demande du dernier pipeline publié. Des pipelines Power Query peuvent être planifiés avec tous les déclencheurs Azure Data Factory existants.
 
-![Capture d’écran montrant comment ajouter une activité de data wrangling Power Query.](media/wrangling-data-flow/tutorial3.png)
+![Capture d’écran montrant comment ajouter une activité de data wrangling Power Query.](media/data-flow/pq-activity-001.png)
 
 Accédez à l’onglet **Analyse** pour visualiser la sortie de l’exécution d’une activité Power Query déclenchée.
 

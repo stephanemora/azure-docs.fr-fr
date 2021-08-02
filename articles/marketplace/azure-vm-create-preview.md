@@ -1,20 +1,20 @@
 ---
 title: Ajouter un public en version préliminaire pour une offre de machine virtuelle sur la Place de marché Azure
-description: Découvrez comment ajouter un public en version préliminaire pour une offre de machine virtuelle sur la Place de marché Azure.
+description: Ajoutez une audience en préversion pour une offre de machine virtuelle sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 854d0fa9b34d495f03a0c3c6203ceb227e4712d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ca53a950aeaaf888dead6c1e134f63fe7cea04c
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629510"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111524955"
 ---
-# <a name="how-to-add-a-preview-audience-for-a-virtual-machine-offer"></a>Comment ajouter un public en version préliminaire pour une offre de machine virtuelle
+# <a name="add-a-preview-audience-for-a-virtual-machine-offer"></a>Ajout d’une audience en préversion pour une offre de machine virtuelle
 
 Dans la page **Aperçu** (sélectionnée dans le menu de navigation gauche de l’Espace partenaires), sélectionnez un **Public de préversion** restreint en vue de valider votre offre avant de la publier plus largement en ligne sur la Place de marché commerciale.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 4154d73cbf7a82c78dcc8ea30f11b8d984dd6af0
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 40c94b367f827d727e1d255f677e26b5b17fd95b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896672"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440931"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hyperparamètre optimisant un modèle avec Azure Machine Learning
 
@@ -430,7 +430,7 @@ Vous pouvez visualiser toutes vos exécutions d’optimisation des hyperparamèt
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Graphique des métriques de l’optimisation des hyperparamètres":::
 
-- **Graphique des coordonnées parallèles** : cette visualisation montre la corrélation entre les performances de la métrique principale et les valeurs individuelles des hyperparamètres. Le graphique est interactif via le déplacement des axes (cliquez sur l’étiquette d’un axe et faites-la glisser) et la mise en surbrillance des valeurs d’un axe spécifique (cliquez sur un axe et opérez un glissement vertical le long de ce dernier pour mettre en surbrillance une plage de valeurs souhaitées).
+- **Graphique des coordonnées parallèles** : cette visualisation montre la corrélation entre les performances de la métrique principale et les valeurs individuelles des hyperparamètres. Le graphique est interactif via le déplacement des axes (cliquez sur l’étiquette d’un axe et faites-la glisser) et la mise en surbrillance des valeurs d’un axe spécifique (cliquez sur un axe et opérez un glissement vertical le long de ce dernier pour mettre en surbrillance une plage de valeurs souhaitées). Le graphe des coordonnées parallèles comprend sur la partie la plus à droite un axe qui représente la meilleure valeur métrique correspondant aux hyperparamètres définis pour cette instance d’exécution. Cet axe permet de projeter de façon plus lisible la légende de gradient du graphe sur les données.
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Graphique des coordonnées parallèles de l’optimisation des hyperparamètres":::
 

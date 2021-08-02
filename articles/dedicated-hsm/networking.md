@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 14f7a88e756123b807852d78b6511939b81fd9db
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cd87d2261ab89b521829d1049a0c17db125a14f3
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126054"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063411"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -41,10 +41,9 @@ Avant de configurer un appareil HSM dédié, les clients devront d’abord crée
 
 Les sous-réseaux segmentent le réseau virtuel en espaces d’adressage distincts utilisables par les ressources Azure que vous placez dedans. Les modules HSM dédiés sont déployés dans un sous-réseau du réseau virtuel. Chaque appareil HSM dédié déployé dans le sous-réseau du client reçoit une adresse IP privée provenant de ce sous-réseau. Le sous-réseau dans lequel l’appareil HSM est déployé doit être explicitement délégué au service : Microsoft.HardwareSecurityModules/dedicatedHSMs. Cette opération octroie au service HSM certaines autorisations pour le déploiement dans le sous-réseau. La délégation à des modules HSM dédiés impose certaines restrictions de stratégie sur le sous-réseau. Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont actuellement pas pris en charge sur les sous-réseaux délégués. Par conséquent, lorsqu’un sous-réseau est délégué à des modules HSM dédiés, il peut uniquement servir à déployer des ressources HSM. Le déploiement de toute autre ressource client dans le sous-réseau échouera.
 
-
 ### <a name="expressroute-gateway"></a>Passerelle ExpressRoute
 
-L’architecture actuelle exige la configuration d’une passerelle ER dans le sous-réseau des clients, où un appareil HSM doit être placé pour permettre l’intégration de cet appareil HSM dans Azure. Cette passerelle ER ne peut pas être utilisée pour connecter des emplacements locaux aux appareils HSM clients dans Azure.
+L’architecture actuelle exige la configuration d’une [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) dans le sous-réseau des clients, où un appareil HSM doit être placé pour permettre l’intégration de cet appareil HSM dans Azure. Cette [passerelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) ne peut pas être utilisée pour connecter des emplacements locaux aux appareils HSM clients dans Azure.
 
 ## <a name="connecting-your-on-premises-it-to-azure"></a>Connexion de votre environnement informatique local à Azure
 
@@ -105,7 +104,7 @@ Cette conception de mise en réseau requiert les éléments suivants :
 
 L’ajout de la solution de proxy NVA permet également de placer logiquement un pare-feu NVA dans le hub de transit/DMZ devant la carte réseau HSM, fournissant ainsi les stratégies default-deny nécessaires. Dans notre exemple, nous utiliserons le pare-feu Azure à cet effet et nous aurons besoin des éléments suivants en place :
 1. Un pare-feu Azure déployé dans le sous-réseau « AzureFirewallSubnet » dans le réseau virtuel hub DMZ.
-2. Une table de routage avec un UDR qui dirige le trafic destiné au point de terminaison privé Azure ILB vers le pare-feu Azure. Cette table de routage sera appliquée au GatewaySubnet où réside la passerelle virtuelle ExpressRoute du client.
+2. Une table de routage avec un UDR qui dirige le trafic destiné au point de terminaison privé Azure ILB vers le pare-feu Azure. Cette table de routage sera appliquée au GatewaySubnet où réside la [passerelle virtuelle ExpressRoute](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) du client.
 3. Des règles de sécurité réseau dans le pare-feu Azure pour autoriser le transfert entre une plage source approuvée et le point de terminaison privé Azure ILB écoutant sur le port TCP 1792. Cette logique de sécurité ajoutera la stratégie « default-deny » nécessaire au service Dedicated HSM. Cela signifie que seules les plages d’adresses IP sources approuvées seront autorisées dans le service Dedicated HSM. Toutes les autres plages seront supprimées.  
 4. Une table de routage avec un UDR qui dirige le trafic destiné au réseau local vers le pare-feu Azure. Cette table de routage sera appliquée au sous-réseau proxy NVA. 
 5. Un NSG appliqué au sous-réseau proxy NVA pour approuver uniquement la plage de sous-réseaux du pare-feu Azure comme source et autoriser uniquement le transfert vers l’adresse IP de la carte réseau HSM sur le port TCP 1792. 
@@ -141,7 +140,7 @@ Il existe deux architectures que vous pouvez utiliser comme alternative à Globa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Forum Aux Questions (FAQ)](faq.md)
+- [Forum Aux Questions (FAQ)](faq.yml)
 - [Prise en charge](supportability.md)
 - [Haute disponibilité](high-availability.md)
 - [Sécurité physique](physical-security.md)

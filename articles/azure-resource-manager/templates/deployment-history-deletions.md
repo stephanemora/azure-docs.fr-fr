@@ -2,14 +2,14 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/04/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e2920eb1daa626b6a817b2fe3b388e8c531f12e4
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: eaffae3ea5e901719969632cb1f889c8914978a0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751615"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963349"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
@@ -17,23 +17,21 @@ Chaque fois que vous déployez un modèle, les informations concernant le déplo
 
 Azure Resource Manager supprime automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur. Cette modification a été implémentée le 6 août 2020.
 
-**Les suppressions automatiques sont prises en charge pour les déploiements de groupes de ressources. À l’heure actuelle, les déploiements dans l’historique de déploiement pour [abonnement](deploy-to-subscription.md), [groupe d’administration](deploy-to-management-group.md) et [locataire](deploy-to-tenant.md) ne sont pas automatiquement supprimés.**
+**Les suppressions automatiques sont prises en charge pour les déploiements de groupes de ressources et d’abonnements. À l’heure actuelle, les déploiements de [groupes d’administration](deploy-to-management-group.md) et de [locataires](deploy-to-tenant.md) qui figurent dans l’historique ne sont pas supprimés automatiquement.**
 
 > [!NOTE]
 > La suppression d'un déploiement de l'historique n'a aucun impact sur les ressources déployées.
 
 ## <a name="when-deployments-are-deleted"></a>Lors de la suppression des déploiements
 
-Les déploiements sont supprimés de votre historique lorsque vous dépassez 775 déploiements. Azure Resource Manager supprime les déploiements jusqu’à ce que l’historique soit à 750. Les déploiements les plus anciens sont toujours supprimés en premier.
+Les déploiements sont supprimés de votre historique lorsque vous dépassez 700 déploiements. Azure Resource Manager en supprime jusqu’à ce que l’historique descende à 600. Les déploiements les plus anciens sont toujours supprimés en premier.
 
-:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Suppressions de l’historique de déploiement":::
+:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Diagramme de la suppression de l’historique de déploiement.":::
 
-> [!NOTE]
-> Le nombre de départ (775) et le nombre de fin (750) sont susceptibles d’être modifiés.
->
+> [!IMPORTANT]
 > Si votre groupe de ressources est déjà à la limite de 800, le prochain déploiement échoue avec une erreur. Le processus de suppression automatique démarre immédiatement. Vous pouvez réessayer votre déploiement après une brève attente.
 
-En plus des déploiements, vous déclenchez également des suppressions lorsque vous exécutez l’[opération de simulation](template-deploy-what-if.md) ou validez un déploiement.
+En plus des déploiements, vous déclenchez également des suppressions lorsque vous exécutez l’[opération de simulation](./deploy-what-if.md) ou validez un déploiement.
 
 Lorsque vous donnez à un déploiement le même nom qu’un autre dans l’historique, vous réinitialisez sa place dans l’historique. Le déploiement passe au rang le plus récent dans l’historique. Vous pouvez également réinitialiser le rang d’un déploiement lorsque vous [restaurer ce déploiement](rollback-on-error.md) après une erreur.
 

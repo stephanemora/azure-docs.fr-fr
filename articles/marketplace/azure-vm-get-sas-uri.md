@@ -1,5 +1,5 @@
 ---
-title: Générer un URI de SAS pour une image de machine virtuelle – Place de marché Azure
+title: Génération d’un URI SAS pour une image de machine virtuelle
 description: Générez un URI de signature d’accès partagé (SAP) pour des disques durs virtuels (VHD) dans Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 04/21/2021
-ms.openlocfilehash: 0f7d63a1213b6fe6625f16f33f18680b7a9e6bcb
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 1935d64db958112a7b6951abb81e3bd4d7119bda
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906833"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525747"
 ---
-# <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Comment générer un URI SAS pour une image de machine virtuelle
+# <a name="generate-a-sas-uri-for-a-vm-image"></a>Génération d’un URI SAS pour une image de machine virtuelle
 
 > [!NOTE]
-> Vous n’avez pas besoin d’un URI SAS pour publier votre machine virtuelle. Il vous suffit de partager une image dans l’Espace partenaires. Reportez-vous à [Créer une machine virtuelle à l’aide d’une base approuvée](./azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](./azure-vm-create-using-own-image.md).
+> Vous n’avez pas besoin d’un URI SAS pour publier votre machine virtuelle. Il vous suffit de partager une image dans l’Espace partenaires. Reportez-vous à [Créer une machine virtuelle à l’aide d’une base approuvée](azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](azure-vm-create-using-own-image.md).
 
 La génération d’URI de SAS pour vos disques durs virtuels impose les exigences suivantes :
 
@@ -173,6 +173,6 @@ Vérifiez l’URI de SAS avant de le publier dans l’Espace partenaires afin d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous rencontrez des problèmes, consultez la page [Messages d’échec SAS de machine virtuelle](azure-vm-sas-failure-messages.md).
+- Si vous rencontrez des problèmes, consultez [Messages d’échec SAS de machine virtuelle](azure-vm-sas-failure-messages.md).
 - [Se connecter à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
 - [Créer une offre de machine virtuelle sur la Place de marché Azure](azure-vm-create.md)

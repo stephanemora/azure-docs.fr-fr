@@ -2,22 +2,22 @@
 title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/6/2021
-ms.author: iangithinji
+ms.date: 6/2/2021
+ms.author: mtillman
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ae7a6fec007818da584dc7e22658890dd2bea6
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517043"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082232"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -29,7 +29,7 @@ Grâce aux restrictions liées au locataire, les organisations peuvent spécifie
 
 Cet article se concentre sur les restrictions liées au locataire pour Microsoft 365, mais la fonctionnalité protège toutes les applications qui dirigent l’utilisateur vers Azure AD à des fins d’authentification unique. Si vous utilisez des applications SaaS avec un locataire Azure AD différent du locataire utilisé par votre Microsoft 365, vérifiez que tous les locataires nécessaires sont autorisés (par ex. dans les scénarios de collaboration B2B). Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-En outre, la fonctionnalité des restrictions liées au locataire prend désormais en charge [le blocage de l’utilisation de toutes les applications grand public Microsoft](#blocking-consumer-applications-public-preview) (applications MSA) comme OneDrive, Hotmail et Xbox.com.  Cette option utilise un en-tête distinct pour le point de terminaison `login.live.com` et est détaillée à la fin du document.
+En outre, la fonctionnalité des restrictions liées au locataire prend désormais en charge [le blocage de l’utilisation de toutes les applications grand public Microsoft](#blocking-consumer-applications) (applications MSA) comme OneDrive, Hotmail et Xbox.com.  Cette option utilise un en-tête distinct pour le point de terminaison `login.live.com` et est détaillée à la fin du document.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -197,7 +197,7 @@ En fonction des capacités de votre infrastructure de proxy, vous pourriez être
 
 Pour obtenir des informations spécifiques, consultez la documentation de votre serveur proxy.
 
-## <a name="blocking-consumer-applications-public-preview"></a>Blocage des applications grand public (préversion publique)
+## <a name="blocking-consumer-applications"></a>Blocage des applications grand public
 
 Les applications de Microsoft qui prennent en charge les comptes de consommateurs et les comptes d’entreprises, comme [OneDrive](https://onedrive.live.com/) ou [Microsoft Learn](/learn/), peuvent parfois être hébergées sur la même URL.  Cela signifie que les utilisateurs qui doivent accéder à cette URL à des fins professionnelles peuvent également y accéder à des fins personnelles, ce qui n’est peut-être pas autorisé dans le cadre de vos règles de fonctionnement.
 

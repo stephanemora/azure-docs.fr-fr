@@ -5,23 +5,23 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82166ca69db6dc2dc1b7562e23078609b01cb2ed
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578526"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756020"
 ---
 # <a name="azure-functions-custom-handlers"></a>Gestionnaires personnalisés Azure Functions
 
-Chaque application Functions est exécutée par un gestionnaire propre au langage. Même si Azure Functions prend en charge un grand nombre de [gestionnaires de langage](./supported-languages.md) par défaut, dans certains cas, vous souhaiterez peut-être utiliser d’autres langages ou runtimes.
+Chaque application Functions est exécutée par un gestionnaire propre au langage. Même si Azure Functions comprend par défaut de nombreux [gestionnaires de langage](./supported-languages.md), vous devrez peut-être dans certains cas utiliser d’autres langages ou runtimes.
 
 Les gestionnaires personnalisés sont des serveurs web légers qui reçoivent des événements de l’hôte Functions. Tout langage qui prend en charge les primitives HTTP peut implémenter un gestionnaire personnalisé.
 
 Les gestionnaires personnalisés sont particulièrement adaptés dans les cas où vous voulez :
 
-- Implémenter une application de fonction dans un langage qui n’est pas actuellement pris en charge, comme Go ou Rust.
-- Implémenter une application de fonction dans un langage qui n’est pas actuellement pris en charge, comme Deno.
+- implémenter une application de fonction dans un langage non fourni comme Go ou Rust ;
+- implémenter une application de fonction dans un runtime qui ne figure pas par défaut comme Deno.
 
 Avec les gestionnaires personnalisés, vous pouvez utiliser des [déclencheurs et des liaisons d’entrée et de sortie](./functions-triggers-bindings.md) via des [bundles d’extension](./functions-bindings-register.md).
 

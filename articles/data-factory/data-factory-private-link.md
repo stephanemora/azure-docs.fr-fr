@@ -6,13 +6,13 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: f84d7d7a02b75723f78cfbed9ee23e19ebea9a15
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 06/10/2021
+ms.openlocfilehash: 9d41ff8d2b0bfd1e83f15366e152398f5de8ccf9
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481676"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020964"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link pour Azure Data Factory
 
@@ -63,7 +63,7 @@ L’activation du service Private Link pour chacun des canaux de communication p
    > La connexion à Azure Data Factory via un point de terminaison privé s’applique uniquement au runtime d’intégration auto-hébergé dans la fabrique de données. Elle n’est pas prise en charge dans Synapse.
 
 > [!WARNING]
-> Quand vous créez un service lié, vérifiez que vos informations d’identification sont stockées dans un coffre de clés Azure. Sinon, les informations d’identification ne fonctionnent pas quand vous activez Private Link dans Azure Data Factory.
+> Si vous activez Private Link dans Azure Data Factory et bloquez simultanément l’accès public, assurez-vous que lorsque vous créez un service lié, vos informations d’identification sont stockées dans un coffre de clés Azure. Dans le cas contraire, les informations d’identification ne fonctionneront pas.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
 Quand vous créez un point de terminaison privé, l’enregistrement de la ressource DNS CNAME pour la fabrique de données est mis à jour avec un alias dans un sous-domaine avec le préfixe « privatelink ». Par défaut, nous créons également une [zone DNS privée](../dns/private-dns-overview.md) correspondant au sous-domaine « privatelink », avec les enregistrements de ressource DNS A pour les points de terminaison privés.
@@ -92,26 +92,152 @@ Pour plus d’informations sur la configuration de votre propre serveur DNS pour
 - [Configuration DNS pour les points de terminaison privés](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
-## <a name="set-up-private-link-for-azure-data-factory"></a>Configurer Azure Private Link pour Azure Data Factory
-Vous pouvez créer des points de terminaison privés via le [portail Azure](../private-link/create-private-endpoint-portal.md).
+## <a name="set-up-a-private-endpoint-link-for-azure-data-factory"></a>Configurer un lien de point de terminaison privé pour Azure Data Factory
 
-Vous pouvez choisir de connecter votre runtime d’intégration auto-hébergé à Azure Data Factory via un point de terminaison public ou privé. 
+Dans cette section, vous allez configurer un lien de point de terminaison privé pour Azure Data Factory.
 
-![Capture d’écran du blocage de l’accès public du runtime d’intégration auto-hébergé.](./media/data-factory-private-link/disable-public-access-shir.png)
+Vous pouvez choisir de connecter votre runtime d'intégration auto-hébergé à Azure Data Factory via un point de terminaison public ou privé au cours de l’étape de création de la fabrique de données, comme indiqué ici : 
 
+:::image type="content" source="./media/data-factory-private-link/disable-public-access-shir.png" alt-text="Capture d’écran du blocage de l’accès public du runtime d’intégration auto-hébergé.":::
 
-Vous pouvez également accéder à votre fabrique de données Azure dans le portail Azure et créer un point de terminaison privé, comme indiqué ici :
+Après la création, vous pouvez à tout moment modifier cette sélection dans le panneau Mise en réseau de la page du portail de fabrique de données.  Après y avoir activé les points de terminaison privés, vous devez également ajouter un point de terminaison privé pour la fabrique de données.
 
-![Capture d’écran du volet « Connexions des points de terminaison privés » pour la création d’un point de terminaison privé.](./media/data-factory-private-link/create-private-endpoint.png)
+Un point de terminaison privé requiert un réseau virtuel et un sous-réseau pour le lien, de même qu’une machine virtuelle dans le sous-réseau. Elle sera utilisée pour exécuter le runtime d'intégration auto-hébergé, en se connectant via le lien de point de terminaison privé.
 
-À l’étape des **ressources**, sélectionnez **Microsoft.Datafactory/factories** comme **type de ressource**. Et si vous souhaitez créer un point de terminaison privé pour les communications de commande entre le runtime d’intégration auto-hébergé et le service Azure Data Factory, sélectionnez **datafactory** comme **sous-ressource cible**.
+### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
+En l’absence de réseau virtuel existant à utiliser avec votre lien de point de terminaison privé, vous devez en créer un et attribuer un sous-réseau.  
 
-![Capture d’écran du volet « Connexions des points de terminaison privés » pour la sélection de la ressource.](./media/data-factory-private-link/private-endpoint-resource.png)
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
+2. En haut à gauche de l’écran, sélectionnez **Créer une ressource > Réseau > Réseau virtuel**, ou recherchez **Réseau virtuel** à partir de la zone de recherche.
+
+3. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
+
+    | **Paramètre**          | **Valeur**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Détails du projet**  |                                                                 |
+    | Abonnement     | Sélectionner votre abonnement Azure                                  |
+    | Groupe de ressources   | Sélectionner un groupe de ressources pour votre réseau virtuel |
+    | **Détails de l’instance** |                                                                 |
+    | Nom             | Entrer un nom pour votre réseau virtuel |
+    | Région           | IMPORTANT : sélectionner la même région que celle utilisée par votre point de terminaison privé |
+
+4. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
+
+5. Sous l’onglet **Adresses IP**, entrez les informations suivantes :
+
+    | Paramètre            | Valeur                      |
+    |--------------------|----------------------------|
+    | Espace d’adressage IPv4 | Entrez **10.1.0.0/16** |
+
+6. Sous **Nom de sous-réseau**, sélectionnez le mot **par défaut**.
+
+7. Dans **Modifier le sous-réseau**, entrez les informations suivantes :
+
+    | Paramètre            | Valeur                      |
+    |--------------------|----------------------------|
+    | Nom du sous-réseau | Entrer un nom pour votre sous-réseau |
+    | Plage d’adresses de sous-réseau | Entrez **10.1.0.0/24** |
+
+8. Sélectionnez **Enregistrer**.
+
+9. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer**.
+
+10. Sélectionnez **Create** (Créer).
+
+### <a name="create-a-virtual-machine-for-the-self-hosted-integration-runtime-shir"></a>Créer une machine virtuelle pour le runtime d'intégration auto-hébergé
+Vous devez également créer ou attribuer une machine virtuelle existante pour exécuter le runtime d'intégration auto-hébergé dans le nouveau sous-réseau créé ci-dessus.
+
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**, ou recherchez **Machine virtuelle** dans la zone de recherche.
+   
+2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
+
+    | Paramètre | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Détails du projet** |  |
+    | Abonnement | Sélectionner votre abonnement Azure |
+    | Groupe de ressources | Sélectionner un groupe de ressources |
+    | **Détails de l’instance** |  |
+    | Nom de la machine virtuelle | Entrez un nom pour la machine virtuelle |
+    | Région | Sélectionnez la région utilisée ci-dessus pour votre réseau virtuel |
+    | Options de disponibilité | Sélectionnez **Aucune redondance d’infrastructure requise**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter - Gen1** (ou toute autre image Windows prenant en charge le runtime d'intégration auto-hébergé) |
+    | Instance Azure Spot | Sélectionnez **Non** |
+    | Taille | Choisissez la taille de la machine virtuelle ou acceptez le paramètre par défaut |
+    | **Compte administrateur** |  |
+    | Nom d’utilisateur | Entrez un nom d’utilisateur |
+    | Mot de passe | Entrez un mot de passe |
+    | Confirmer le mot de passe | Entrez à nouveau le mot de passe |
+
+3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
+  
+4. Sous l’onglet Réseau, sélectionnez ou entrez :
+
+    | Paramètre | Value |
+    |-|-|
+    | **Interface réseau** |  |
+    | Réseau virtuel | Sélectionnez le réseau virtuel que vous avez créé ci-dessus. |
+    | Subnet | Sélectionnez le sous-réseau créé ci-dessus. |
+    | Adresse IP publique | Sélectionnez **Aucun**. |
+    | Groupe de sécurité réseau de la carte réseau | **De base**|
+    | Aucun port d’entrée public | Sélectionnez **Aucun**. |
+   
+5. Sélectionnez **Revoir + créer**. 
+  
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+### <a name="create-the-private-endpoint"></a>Créer le point de terminaison privé 
+Enfin, vous devez créer le point de terminaison privé dans votre fabrique de données.
+
+1. Sur la page du portail Azure correspondant à votre fabrique de données, sélectionnez le panneau **Mise en réseau** et l’onglet **Connexions des points de terminaison privés**, puis **+ Point de terminaison privé**. 
+
+:::image type="content" source="./media/data-factory-private-link/create-private-endpoint.png" alt-text="Capture d’écran du volet « Connexions des points de terminaison privés » pour la création d’un point de terminaison privé.":::
+
+2. Sous l’onglet **Général** de **Créer un point de terminaison privé**, entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Détails du projet** | |
+    | Abonnement | Sélectionnez votre abonnement |
+    | Resource group | Sélectionner un groupe de ressources |
+    | **Détails de l’instance** |  |
+    | Nom  | Entrez un nom pour votre point de terminaison |
+    | Région | Sélectionnez la région du réseau virtuel créé ci-dessus |
+
+3. Sélectionnez l’onglet **Ressource** ou le bouton **Suivant : Ressource** en bas de la page.
+    
+4. Dans **Ressource**, entrez ou sélectionnez ces informations :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | Méthode de connexion | Sélectionnez **Se connecter à une ressource Azure dans mon répertoire** |
+    | Abonnement | Sélectionnez votre abonnement |
+    | Type de ressource | Sélectionnez **Microsoft.Datafactory/factories** |
+    | Ressource | Sélectionner votre fabrique de données |
+    | Sous-ressource cible | Si vous souhaitez utiliser le point de terminaison privé pour les communications de commande entre le runtime d’intégration auto-hébergé et le service Azure Data Factory, sélectionnez **datafactory** comme **sous-ressource cible**. Si vous souhaitez utiliser le point de terminaison privé pour la création et la surveillance de la fabrique de données dans votre réseau virtuel, sélectionnez **portail** comme **sous-ressource cible**.|
+
+5. Sélectionnez l’onglet **Configuration** ou le bouton **Suivant : Configuration** en bas de l’écran.
+
+6. Dans **Configuration**, entrez ou sélectionnez les informations suivantes :
+
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Mise en réseau** |  |
+    | Réseau virtuel | Sélectionnez le réseau virtuel que vous avez créé ci-dessus. |
+    | Subnet | Sélectionnez le sous-réseau créé ci-dessus. |
+    | **Intégration à un DNS privé** |  |
+    | Intégrer à une zone DNS privée | Conservez la valeur par défaut **Oui**. |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Zones DNS privées | Conservez la valeur par défaut de **(Nouveau) privatelink.azurewebsites.net**.
+    
+
+7. Sélectionnez **Revoir + créer**.
+
+8. Sélectionnez **Create** (Créer).
 
 > [!NOTE]
 > La désactivation de l’accès au réseau public s’applique uniquement au runtime d’intégration auto-hébergé, pas à Azure Integration Runtime ni au runtime d’intégration SSIS (SQL Server Integration Services).
-
-Si vous souhaitez créer un point de terminaison privé pour la création et la surveillance de la fabrique de données dans votre réseau virtuel, sélectionnez **portail** comme **sous-ressource cible**.
 
 > [!NOTE]
 > Vous pouvez toujours accéder au portail Azure Data Factory par le biais d’un réseau public après avoir créé un point de terminaison privé pour le portail.

@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
+- devx-track-azurepowershell
 ms.date: 07/15/2020
-ms.openlocfilehash: dd4e5838c97d6a2e86f67bb40457b797462183d9
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 61b011a7df52b4df29c23a8e443f8bad6d72240a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785472"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676991"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -36,7 +37,13 @@ Avantages de l’utilisation du réseau virtuel managé :
 - Le réseau virtuel managé ainsi que les points de terminaison privés managés assurent une protection contre l’exfiltration des données. 
 
 > [!IMPORTANT]
->Actuellement, le réseau virtuel managé est uniquement pris en charge dans la même région qu’Azure Data Factory.
+>Actuellement, le réseau virtuel managé n’est pris en charge que dans la même région qu’Azure Data Factory.
+
+> [!Note]
+>Le réseau virtuel managé d’Azure Data Factory étant toujours en préversion publique, il ne bénéficie d’aucune garantie adossée à un SLA.
+
+> [!Note]
+>Le runtime d’intégration Azure public existant ne peut pas basculer vers le runtime d’intégration Azure dans un réseau virtuel managé Azure Data Factory, et inversement.
  
 
 ![Architecture de réseau virtuel managé ADF](./media/managed-vnet/managed-vnet-architecture-diagram.png)
@@ -73,6 +80,11 @@ Seule une instance de point de terminaison privé managé dans un état approuv�
 Les options de création interactive sont utilisées pour des fonctionnalités telles que tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir un schéma et afficher un aperçu des données. Vous pouvez activer la création interactive lors de la création ou de la modification d’un runtime d’intégration Azure figurant dans un réseau virtuel géré par ADF. Le service back-end pré-allouera le calcul pour les fonctionnalités de création interactive. Sinon, le calcul sera alloué chaque fois qu’une opération interactive sera exécutée, ce qui prendra plus de temps. La durée de vie (TTL) pour la création interactive est de 60 minutes, ce qui signifie qu’elle sera automatiquement désactivée 60 minutes après de la dernière opération de création interactive.
 
 ![Création interactive](./media/managed-vnet/interactive-authoring.png)
+
+## <a name="activity-execution-time-using-managed-virtual-network"></a>Durée de l’activité en utilisant un réseau virtuel managé
+En raison de sa conception, le runtime d’intégration Azure dans un réseau virtuel managé passe plus de temps en file d’attente qu’un runtime d’intégration Azure public. En effet, comme nous ne réservons pas de nœud de calcul par fabrique de données, il y a un temps de préchauffage (ou mise en route) avant le démarrage de chaque activité, qui se produit principalement au niveau de la jointure de réseau virtuel plutôt que du runtime d’intégration Azure. Pour les activités autres que de copie, dont les activités de pipeline et les activités externes, une durée de vie (TTL) de 60 minutes est appliquée lorsque vous les déclenchez pour la première fois. Dans cette durée de vie, le temps en file d’attente est plus court, car le nœud est déjà préchauffé. 
+> [!NOTE]
+> L’activité de copie ne prend pas encore en compte la durée de vie.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Créer un réseau virtuel managé via Azure PowerShell
 ```powershell
@@ -120,7 +132,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 ### <a name="supported-data-sources"></a>Sources de données prises en charge
-Les sources de données suivantes sont prises en charge pour établir une connexion via une liaison privée à partir d’un réseau virtuel managé ADF.
+Les sources de données ci-dessous prennent en charge les points de terminaison privés natifs, et peuvent être connectées via une liaison privée à partir d’un réseau virtuel managé ADF.
 - Stockage Blob Azure (ne comprend pas de compte de stockage V1)
 - Stockage Table Azure (ne comprend pas de compte de stockage V1)
 - Azure Files (ne comprend pas de compte de stockage V1)
@@ -134,6 +146,16 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Database pour MySQL
 - Azure Database pour PostgreSQL
 - Azure Database for MariaDB
+- Azure Machine Learning
+
+> [!Note]
+> Vous pouvez toujours accéder à toutes les sources de données prises en charge par Data Factory via un réseau public.
+
+> [!NOTE]
+> Étant donné qu’Azure SQL Managed Instance ne prend pas en charge actuellement le point de terminaison privé natif, vous pouvez y accéder à partir d’un réseau virtuel managé à l’aide d’un service lié privé et d’un équilibreur de charge. Consultez le tutoriel [Guide pratique pour accéder à une instance managée Microsoft Azure SQL à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé](tutorial-managed-virtual-network-sql-managed-instance.md).
+
+### <a name="on-premises-data-sources"></a>Sources de données locales
+Pour accéder à des sources de données locales à partir d’un réseau virtuel managé en utilisant un point de terminaison privé, consultez le tutoriel [Guide pratique pour accéder à un serveur SQL Server local à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Le réseau virtuel managé Azure Data Factory est disponible dans les régions Azure suivantes :
 - Australie Est
@@ -143,12 +165,15 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Est du Canada
 - Inde centrale
 - USA Centre
+- Asie Est
 - USA Est
 - USA Est 2
 - France Centre
+- Allemagne Centre-Ouest
 - Japon Est
 - OuJapon Est
 - Centre de la Corée
+- Centre-Nord des États-Unis
 - Europe Nord
 - Norvège Est
 - Afrique du Sud Nord

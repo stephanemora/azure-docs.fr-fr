@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ed1bb0a91504c871cd82777f1759d6dca95f1ab
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521439"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903362"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -31,13 +31,15 @@ Développez des fonctions sur votre ordinateur local et publiez-les sur Azure à
 
 ## <a name="core-tools-versions"></a>Versions de Core Tools
 
-Il existe trois versions d’Azure Functions Core Tools. La version que vous utilisez dépend de votre environnement de développement local, du [choix du langage](supported-languages.md) et du niveau de prise en charge requis :
+Il existe trois versions d’Azure Functions Core Tools<sup>*</sup>. La version à utiliser dépend de l’environnement de développement local, du [choix de la langue](supported-languages.md) et du niveau de prise en charge requis :
 
 + [**Version 3.x/2.x**](#v2) : Prend en charge la [version 3.x ou 2.x du runtime Azure Functions](functions-versions.md). Ces versions prennent en charge [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) et [Linux](?tabs=linux#v2) et utilisent des gestionnaires de package spécifiques à la plateforme ou npm pour l’installation.
 
 + **Version 1.x** : Prend en charge la version 1.x du runtime Azure Functions. Cette version des outils est uniquement prise en charge sur les ordinateurs Windows et est installée à partir d’un [package npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
 Vous ne pouvez installer qu’une seule version de Core Tools sur un ordinateur donné. Sauf indication contraire, les exemples de cet article concernent la version 3.x.
+
+<sup>*</sup> Une version expérimentale d’Azure Functions est disponible. Elle permet d’utiliser les fonctions C# de la préversion de .NET 6.0. Pour plus d’informations, consultez la page [Préversion d’Azure Functions v4](https://aka.ms/functions-dotnet6earlypreview-wiki).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -336,7 +338,7 @@ Pour exécuter un projet Functions, exécutez l’hôte Functions. L’hôte act
 # <a name="c"></a>[C\#](#tab/csharp)
 
 ```
-func start --build
+func start
 ```
 
 # <a name="java"></a>[Java](#tab/java)
@@ -369,11 +371,7 @@ npm start
 ---
 
 >[!NOTE]  
-> La version 1. x du runtime Functions requiert la commande `host`, comme dans l’exemple suivant :
->
-> ```
-> func host start
-> ```
+> La version 1.x du runtime Functions, en revanche, exige `func host start`. 
 
 `func start` prend en charge les options suivantes :
 

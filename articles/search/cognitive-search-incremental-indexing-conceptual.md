@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: d17577d7e138c4c04b7f386cb166e765c0e2e10c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f3d9d9481821902246721c5c27ed99451f323ba3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733100"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539814"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enrichissement incrémentiel et mise en cache dans Recherche cognitive Azure
 
@@ -42,7 +42,7 @@ L’enrichissement incrémentiel ajoute un cache au pipeline d’enrichissement.
 Physiquement, le cache est stocké dans un conteneur d’objets blob de votre compte de stockage Azure. Le cache utilise également le stockage table pour un enregistrement interne des mises à jour de traitement. Tous les index d’un service de recherche peuvent partager le même compte de stockage pour le cache de l’indexeur. Chaque indexeur se voir affecté un identificateur de cache unique et non modifiable au conteneur qu’il utilise.
 
 > [!NOTE]
-> Le cache de l’indexeur requiert un compte de stockage à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+> Le cache de l’indexeur requiert un compte de stockage à usage général. Pour plus d’informations, consultez les [différents types de comptes de stockage](/storage/common/storage-account-overview#types-of-storage-accounts).
 
 ## <a name="cache-configuration"></a>Configuration du cache
 
@@ -118,6 +118,30 @@ Dans ce cas, vous pouvez utiliser les [compétences de réinitialisation](/rest/
 ### <a name="reset-documents"></a>Réinitialiser les documents
 
 La [réinitialisation d'un indexeur](/rest/api/searchservice/reset-indexer) entraîne le retraitement de tous les documents du corpus de recherche. Dans les scénarios où seuls quelques documents doivent être retraités et où la source de données ne peut pas être mise à jour, utilisez [Réinitialiser les documents (préversion)](/rest/api/searchservice/preview-api/reset-documents) pour forcer le retraitement de documents spécifiques. Lorsqu'un document est réinitialisé, l'indexeur invalide le cache de ce document et le document est retraité en le lisant à partir de la source de données. Pour plus d'informations, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
+
+Pour réinitialiser des documents spécifiques, la charge utile de la demande contient la liste des clés de document telles qu’elles sont lues à partir de l’index. Selon la façon dont l’API est appelée, la demande ajoute, remplace ou met en file d’attente la liste des clés :
+
++ En appelant l’API plusieurs fois avec des clés différentes, les nouvelles clés sont ajoutées à la liste des clés de document à réinitialiser. 
+
++ Si vous appelez l’API avec le paramètre de chaîne de requête `overwrite` défini sur true, la liste actuelle des clés de document à réinitialiser est remplacée par la charge utile de la demande.
+
++ Si vous appelez uniquement l’API, les clés de document sont ajoutées à la file d’attente du travail effectué par l’indexeur. Lorsque l’indexeur est appelé par la suite (de manière planifiée ou à la demande), il donne la priorité au traitement de la réinitialisation des clés de document par rapport à toute autre modification provenant de la source de données.
+
+L’exemple suivant illustre une demande de réinitialisation de document :
+
+```http
+POST https://[search service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "documentKeys" : [
+        "key1",
+        "key2",
+        "key3"
+    ]
+}
+```
 
 ## <a name="change-detection"></a>Détection des changements
 

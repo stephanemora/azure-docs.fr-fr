@@ -3,12 +3,12 @@ title: S’authentifier avec un principal de service
 description: Fournir un accès aux images de votre registre de conteneurs privé à l’aide d’un principal du service Azure Active Directory.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7d64f63de3227394d1f69b2049f0a58dda35e6e6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285533"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440715"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -28,10 +28,12 @@ Par exemple, configurez votre application web pour utiliser un principal de serv
 
 ## <a name="when-to-use-a-service-principal"></a>Quand utiliser un principal de service
 
-Vous devez utiliser un principal de service pour fournir l’accès au registre dans les **scénarios sans affichage**. Autrement dit, pour toute application, service ou script qui doit envoyer ou extraire des images conteneur de manière automatisée ou sans assistance. Par exemple :
+Vous devez utiliser un principal de service pour fournir l’accès au registre dans les **scénarios sans affichage**. En d’autres termes, cela concerne toutes les applications, tous les services et tous les scripts qui doivent envoyer ou extraire des images conteneur de manière automatisée ou sans assistance. Par exemple :
 
-  * *Pull* : Déployer des conteneurs d’un registre à des systèmes d’orchestration, y compris Kubernetes, DC/OS et Docker Swarm. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes, tels que [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml), etc.
+  * *Pull* : Déployer des conteneurs d’un registre à des systèmes d’orchestration, y compris Kubernetes, DC/OS et Docker Swarm. Vous pouvez également procéder à des extractions des registres de conteneurs vers des services Azure connexes, par exemple [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml) et [Service Fabric](../service-fabric/index.yml).
 
+    > [!TIP]
+    > Un principal de service est recommandé dans plusieurs [scénarios Kubernetes](authenticate-kubernetes-options.md) pour extraire des images à partir d’un registre de conteneurs Azure. Avec Azure Kubernetes Service (AKS), vous pouvez également utiliser un mécanisme automatisé pour vous authentifier auprès d’un registre cible en activant [l’identité managée](../aks/cluster-container-registry-integration.md) du cluster. 
   * *Push* : Générer des images conteneur et les envoyer (push) à un registre en utilisant des solutions d’intégration et de livraison continues, comme Azure Pipelines ou Jenkins.
 
 Pour un accès individuel à un registre, par exemple quand vous extrayez manuellement une image conteneur vers votre station de travail de développement, nous vous recommandons d'utiliser votre propre [identité Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) pour accéder au registre (par exemple avec [az acr login][az-acr-login]).
@@ -55,7 +57,7 @@ Une fois que vous disposez d’un principal de service auquel vous avez accordé
 Chaque valeur est au format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
+> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset).
 >
 
 ### <a name="use-credentials-with-azure-services"></a>Utiliser les informations d’identification avec les services Azure
@@ -95,6 +97,19 @@ az acr login --name myregistry
 
 L’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier votre session auprès du registre.
 
+## <a name="create-service-principal-for-cross-tenant-scenarios"></a>Création d’un principal de service dans les scénarios inter-locataires
+
+Un principal de service peut également être utilisé dans les scénarios Azure qui impliquent d’extraire des images d’un registre de conteneurs situé dans une instance Azure Active Directory (locataire) vers un service ou une application situé dans une autre. Supposons qu’une organisation exécute une application dans le locataire A qui doit extraire une image d’un registre de conteneurs partagé dans le locataire B.
+
+Pour créer un principal de service capable de s’authentifier auprès d’un registre de conteneurs dans un scénario inter-locataire, elle doit procéder comme suit :
+
+*  Créer une [application multi-locataire](../active-directory/develop/single-and-multi-tenant-apps.md) (principal de service) dans le locataire A 
+* Provisionner l’application dans le locataire B
+* Autoriser le principal de service à effectuer des extractions à partir du registre dans le locataire B
+* Mettre à jour le service ou l’application dans le locataire A pour que l’authentification s’effectue avec le nouveau principal de service
+
+Pour voir un exemple de cette procédure, consultez [Extraction d’images d’un registre de conteneurs Azure vers un cluster AKS situé dans un autre locataire AD](authenticate-aks-cross-tenant.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [Vue d’ensemble de l’authentification](container-registry-authentication.md) pour d’autres scénarios d'authentification avec un registre de conteneurs Azure.
@@ -106,6 +121,6 @@ L’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login`
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

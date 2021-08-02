@@ -1,5 +1,5 @@
 ---
-title: Présentation de l’attachement d’application MSIX Windows Virtual Desktop - Azure
+title: Vue d’ensemble de l’attachement d’application MSIX Azure Virtual Desktop – Azure
 description: Qu’est-ce que l’attachement d’application MSIX ? Consultez cet article pour le découvrir.
 services: virtual-desktop
 author: Heidilohr
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cdbb7574f9da5ea6cd0695b74c269d8e1b88b7f4
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444069"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751574"
 ---
 # <a name="what-is-msix-app-attach"></a>Qu’est-ce que l’attachement d’application MSIX ?
 
 MSIX est un nouveau format d’empaquetage qui offre de nombreuses fonctionnalités destinées à améliorer l’expérience d’empaquetage pour toutes les applications Windows. Pour en savoir plus sur MSIX, consultez la [Présentation de MSIX](/windows/msix/overview).
 
-L’attachement d’application MSIX permet de fournir des applications MSIX à des machines physiques et virtuelles. Toutefois, l’attachement d’application MSIX est différent du MSIX normal, car il est spécialement destiné à Windows Virtual Desktop. Cet article décrit ce qu’est l’attachement d’application MSIX et ce qu’il peut faire pour vous.
+L’attachement d’application MSIX permet de fournir des applications MSIX à des machines physiques et virtuelles. Il est toutefois différent du format MSIX normal, car il est spécialement conçu pour Azure Virtual Desktop. Cet article décrit ce qu’est l’attachement d’application MSIX et ce qu’il peut faire pour vous.
 
-## <a name="application-delivery-options-in-windows-virtual-desktop"></a>Options de livraison d’application dans Windows Virtual Desktop
+## <a name="application-delivery-options-in-azure-virtual-desktop"></a>Options de distribution d’applications dans Azure Virtual Desktop
 
-Vous pouvez fournir des applications dans Windows Virtual Desktop par le biais d’une des méthodes suivantes :
+Il existe plusieurs moyens de distribuer des applications dans Azure Virtual Desktop :
 
 - Placer des applications dans une image principale
 - Utiliser des outils comme SCCM ou Intune pour la gestion centralisée
@@ -32,7 +32,7 @@ Vous pouvez fournir des applications dans Windows Virtual Desktop par le biais d
 
 ## <a name="what-does-msix-app-attach-do"></a>Que fait l’attachement d’application MSIX ?
 
-Dans un déploiement Windows Virtual Desktop, l’attachement d’application MSIX peut :
+Dans un déploiement Azure Virtual Desktop, l’attachement d’application MSIX permet d’effectuer différentes actions :
 
 - Créer une séparation entre les données utilisateur, le système d’exploitation et les applications à l’aide de [conteneurs MSIX](/windows/msix/msix-container).
 - Éliminer le besoin de réempaquetage lors de la livraison d’applications de manière dynamique.

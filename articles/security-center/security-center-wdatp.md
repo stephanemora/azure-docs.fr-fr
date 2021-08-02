@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 06/10/2021
 ms.author: memildin
-ms.openlocfilehash: 58a616953afd15bd4098eaf7ec96838137d110c5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: df7d3d880161895b6cc883a15f7adf2def839a53
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764780"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062259"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -89,7 +89,7 @@ Vérifiez que votre machine est conforme aux conditions requises pour Defender p
 
 ### <a name="enable-the-integration"></a>Activer l’intégration
 1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**, puis l’abonnement que vous souhaitez modifier.
-1. Sélectionnez **Détection des menaces**.
+1. Sélectionnez **Intégrations**.
 1. Sélectionnez **Autoriser Microsoft Defender for Endpoint à accéder à mes données**, puis **Enregistrer**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Activer l’intégration entre Azure Security Center et la solution EDR de Microsoft, Microsoft Defender for Endpoint":::
@@ -126,11 +126,25 @@ Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
     > [!TIP]
     > L’alerte est déclenchée avec la gravité **Informations**.
 
-## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>FAQ relative à la solution Microsoft Defender for Endpoint intégrée de Security Center
+## <a name="faq---security-centers-integration-with-microsoft-defender-for-endpoint"></a>FAQ : Intégration de Security Center à Microsoft Defender pour point de terminaison
 
+- [Qu’est-ce que l’extension «MDE.Windows» qui s’exécute sur ma machine ?](#whats-this-mdewindows-extension-running-on-my-machine)
 - [Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
 - [Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [Comment basculer dessus à partir d’un outil EDR tiers ?](#how-do-i-switch-from-a-third-party-edr-tool)
+
+### <a name="whats-this-mdewindows-extension-running-on-my-machine"></a>Qu’est-ce que l’extension «MDE.Windows» qui s’exécute sur ma machine ?
+
+Auparavant, Microsoft Defender pour point de terminaison était approvisionné par l’agent Log Analytics. Lorsque [nous avons étendu la prise en charge de manière à inclure Windows Server 2019](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga), nous avons également ajouté une extension pour effectuer l’intégration automatique. 
+
+Security Center déploie automatiquement l’extension MDE.Windows sur les machines exécutant :
+
+- Windows Server 2019 
+- Windows 10 Virtual Desktop (WVD)
+- D’autres versions de Windows Server si Security Center ne reconnaît pas la version du système d’exploitation (par exemple, lorsqu’une image de machine virtuelle personnalisée est utilisée). Dans ce cas, Microsoft Defender pour point de terminaison continue d’être approvisionné par l’agent Log Analytics.
+
+> [!TIP]
+> Si vous supprimez l’extension MDE.Windows, elle ne supprime pas Microsoft Defender pour point de terminaison. Pour plus d’informations, consultez [Retirer des serveurs Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide).
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?
 Defender for Endpoint est inclus sans coût supplémentaire avec **Azure Defender pour les serveurs**. Vous pouvez également l’acheter séparément pour 50 machines ou plus.
@@ -138,7 +152,9 @@ Defender for Endpoint est inclus sans coût supplémentaire avec **Azure Defende
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?
 Si vous disposez déjà d’une licence pour Microsoft Defender for Endpoint, vous n’aurez pas à payer pour cette partie de votre licence Azure Defender.
 
-Pour valider votre remise, contactez l’équipe du support technique Security Center, et fournissez l’ID d’espace de travail, la région et les informations de licence nécessaires pour chaque licence concernée.
+Pour demander votre remise, contactez l’équipe de support de Security Center et fournissez l’ID d’espace de travail, la région et le nombre de licences Microsoft Defender for Endpoint qui sont appliquées sur les ordinateurs de l’espace de travail donné.
+
+La remise est effective à compter de la date d’approbation et ne sera pas rétroactive.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Comment basculer dessus à partir d’un outil EDR tiers ?
 Pour plus d’informations sur le basculement à partir d’une solution de point de terminaison non Microsoft, accédez à la documentation Microsoft Defender for Endpoint : [Vue d’ensemble de la migration](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

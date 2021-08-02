@@ -1,23 +1,23 @@
 ---
 title: Blobs modifiés et supprimés
 titleSuffix: Azure Cognitive Search
-description: Après la création d’index de recherche initial qui importe à partir du Stockage Blob Azure, l’indexation suivante peut récupérer uniquement les blobs modifiés ou supprimés. Cet article explique cela en détail.
+description: Après création d’un index de recherche initial qui importe à partir du service Stockage Blob Azure, l’indexation qui suit peut récupérer uniquement les blobs modifiés ou supprimés. Cet article explique cela en détail.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383532"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558959"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Détection des modifications et des suppressions dans l’indexation d’objets blob (Recherche cognitive Azure)
 
-Après avoir créé un index de recherche initial, vous souhaiterez peut-être que les travaux de l’indexeur récupèrent uniquement les documents nouveaux et changés. Pour le contenu de recherche en provenance du Stockage Blob Azure, la détection des modifications se produit automatiquement lorsque vous utilisez une planification pour déclencher l’indexation. Par défaut, le service réindexe uniquement les blobs modifiés, déterminés par l’horodateur `LastModified`. Contrairement à d’autres sources de données prises en charge par les indexeurs de recherche, les blobs ont toujours un horodateur, ce qui évite d’avoir à configurer manuellement une stratégie de détection des modifications.
+Après avoir créé un index de recherche initial, vous souhaiterez peut-être que les travaux de l’indexeur récupèrent uniquement les documents nouveaux et changés. Pour le contenu de recherche en provenance du service Stockage Blob Azure ou d’Azure Data Lake Storage Gen2, la détection des modifications se produit automatiquement lorsque vous utilisez une planification pour déclencher l’indexation. Par défaut, le service réindexe uniquement les blobs modifiés, déterminés par l’horodateur `LastModified`. Contrairement à d’autres sources de données prises en charge par les indexeurs de recherche, les blobs ont toujours un horodateur, ce qui évite d’avoir à configurer manuellement une stratégie de détection des modifications.
 
 Bien que la détection des modifications soit acquise, la détection des suppressions ne l’est pas. Si vous souhaitez détecter des documents supprimés, veillez à adopter une approche de « suppression réversible ». Si vous supprimez complètement les objets blob, les documents correspondants ne seront pas supprimés de l’index de recherche.
 
@@ -26,9 +26,12 @@ Il existe deux façons d’implémenter l’approche de suppression réversible�
 + Suppression réversible native de blobs (préversion), décrite ci-après
 + [Suppression réversible à l’aide de métadonnées personnalisées](#soft-delete-using-custom-metadata)
 
+> [!NOTE] 
+> Azure Data Lake Storage Gen2 permet le changement de nom des répertoires. Quand un répertoire est renommé, les horodateurs des objets blob qu’il contient ne sont pas mis à jour. Par conséquent, l’indexeur ne réindexe pas ces objets blob. Si vous avez besoin que les objets blob d’un répertoire soient réindexés après le changement de nom de celui-ci parce que leurs URL ont changé, vous devez mettre à jour l’horodateur `LastModified` pour tous les objets blob dans l’annuaire afin que l’indexeur sache les réindexer lors d’une exécution ultérieure. Les répertoires virtuels dans le service Stockage Blob Azure ne pouvant pas être modifiés, ils ne rencontrent pas ce problème.
+
 ## <a name="native-blob-soft-delete-preview"></a>Suppression réversible native de blobs (préversion)
 
-Pour cette approche de la détection de la suppression, Recherche cognitive s’appuie sur la fonctionnalité de [suppression réversible native de blobs](../storage/blobs/soft-delete-blob-overview.md) dans le stockage Blob Azure pour déterminer si les objets blob ont migré vers un état de suppression réversible. Quand des objets blob sont détectés dans cet état, un indexeur de recherche utilise ces informations pour supprimer le document correspondant de l’index.
+Pour cette approche de la détection de la suppression, le service Recherche cognitive s’appuie sur la fonctionnalité de [suppression réversible native de blobs](../storage/blobs/soft-delete-blob-overview.md) du service Stockage Blob Azure pour déterminer si les objets blob ont migré vers un état de suppression réversible. Quand des objets blob sont détectés dans cet état, un indexeur de recherche utilise ces informations pour supprimer le document correspondant de l’index.
 
 > [!IMPORTANT]
 > La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](./search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
@@ -36,7 +39,7 @@ Pour cette approche de la détection de la suppression, Recherche cognitive s’
 ### <a name="prerequisites"></a>Prérequis
 
 + [Activez la suppression réversible pour les objets blob](../storage/blobs/soft-delete-blob-enable.md).
-+ Les objets blob doivent se trouver dans un conteneur de stockage Blob Azure. La stratégie de suppression réversible native de blobs de Recherche cognitive n’est pas prise en charge pour les objets blob à partir d’Azure Data Lake Storage Gen2.
++ Les blobs doivent se trouver dans un conteneur du service Stockage Blob Azure. La stratégie de suppression réversible native de blobs de Recherche cognitive n’est pas prise en charge pour les objets blob à partir d’Azure Data Lake Storage Gen2.
 + Les clés de document des documents de votre index doivent être mappées sur une propriété blob ou des métadonnées blob.
 + Vous devez utiliser l’API REST en préversion (`api-version=2020-06-30-Preview`) pour configurer la prise en charge de la suppression réversible.
 
@@ -97,7 +100,7 @@ Vous devez suivre des étapes dans le stockage Blob et dans Recherche cognitive,
     }
     ```
 
-1. Une fois que l’indexeur a traité le blob et supprimé le document de l’index, vous pouvez supprimer le blob du Stockage Blob Azure.
+1. Une fois que l’indexeur a traité le blob et supprimé le document de l’index, vous pouvez supprimer le blob dans le service Stockage Blob Azure.
 
 ### <a name="reindexing-undeleted-blobs-using-custom-metadata"></a>Réindexation de blobs dont la suppression a été annulée (à l’aide de métadonnées personnalisées)
 

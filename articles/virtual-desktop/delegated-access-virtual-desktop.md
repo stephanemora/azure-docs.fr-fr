@@ -1,26 +1,27 @@
 ---
-title: Accès délégué dans Windows Virtual Desktop - Azure
-description: Découvrez comment déléguer des fonctionnalités d’administration lors d'un déploiement de Windows Virtual Desktop, avec exemples.
+title: Accès délégué dans Azure Virtual Desktop – Azure
+description: Découvrez comment déléguer des capacités d’administration sur un déploiement Azure Virtual Desktop, avec des exemples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 6dabdbc34bc1be23ee840dfa2a35eb962a6f9aae
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2367a2840e64956d3dfca41ce8ee5e31c9f354c7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447061"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751988"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Accès délégué dans Windows Virtual Desktop
+# <a name="delegated-access-in-azure-virtual-desktop"></a>Accès délégué dans Azure Virtual Desktop
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
 
-Windows Virtual Desktop dispose d’un modèle d’accès délégué qui vous permet de définir les droits d’accès d’un utilisateur particulier en lui attribuant un rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Le modèle d’accès délégué de Windows Virtual Desktop est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôle spécifique et leurs composants, consultez [la vue d’ensemble du contrôle d'accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md).
+Azure Virtual Desktop dispose d’un modèle d’accès délégué qui permet de définir les droits d’accès d’un utilisateur particulier en lui attribuant un rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Le modèle d’accès délégué d’Azure Virtual Desktop est basé sur le modèle RBAC d’Azure. Pour en savoir plus sur les attributions de rôle spécifique et leurs composants, consultez [la vue d’ensemble du contrôle d'accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md).
 
-L’accès délégué de Windows Virtual Desktop prend en charge les valeurs suivantes pour chaque élément de l’attribution de rôle :
+L’accès délégué d’Azure Virtual Desktop prend en charge les valeurs suivantes pour chaque élément de l’attribution de rôle :
 
 * Principal de sécurité
     * Utilisateurs
@@ -36,9 +37,9 @@ L’accès délégué de Windows Virtual Desktop prend en charge les valeurs sui
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets Azure PowerShell pour les attributions de rôles
 
-Avant de commencer, veillez à suivre les instructions figurant dans [Configurer le module PowerShell](powershell-module.md) pour configurer le module PowerShell Windows Virtual Desktop, si ce n’est pas déjà fait.
+Avant de commencer, veillez à suivre les instructions figurant dans [Configuration du module PowerShell](powershell-module.md) pour configurer le module PowerShell Azure Virtual Desktop, si ce n’est pas déjà fait.
 
-Windows Virtual Desktop utilise le contrôle d’accès en fonction du rôle (RBAC) Azure pendant la publication de groupes d’applications vers des utilisateurs ou des groupes d’utilisateurs. Le rôle d’utilisateur Virtualisation du Bureau est attribué à l’utilisateur ou au groupe d’utilisateurs et l’étendue correspond au groupe d’applications. Ce rôle donne à l’utilisateur un accès spécial aux données sur le groupe d’applications.
+Azure Virtual Desktop utilise le contrôle d’accès en fonction du rôle (RBAC, Role-Based Access Control) Azure pendant la publication de groupes d’applications auprès d’utilisateurs ou de groupes d’utilisateurs. Le rôle d’utilisateur Virtualisation du Bureau est attribué à l’utilisateur ou au groupe d’utilisateurs et l’étendue correspond au groupe d’applications. Ce rôle donne à l’utilisateur un accès spécial aux données sur le groupe d’applications.
 
 Exécutez la cmdlet suivante pour ajouter des utilisateurs Azure Active Directory à un groupe d’applications :
 
@@ -58,4 +59,4 @@ Pour obtenir une liste plus complète des cmdlets PowerShell que chaque rôle pe
 
 Pour obtenir la liste complète des rôles pris en charge dans RBAC Azure, consultez [Rôles intégrés Azure](../role-based-access-control/built-in-roles.md).
 
-Pour obtenir des instructions et savoir comment configurer un environnement Bureau virtuel Windows, consultez [Environnement dans Windows Virtual Desktop](environment-setup.md).
+Pour savoir comment configurer un environnement Azure Virtual Desktop, consultez [Environnement Azure Virtual Desktop](environment-setup.md).

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 5a65480cbfa279614250ddeaf7d565b112333a05
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 45efa0e955040931516924a1a8a8576a1a8bf12f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285553"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744500"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -61,7 +61,7 @@ En cas de perte ou de vol de l'appareil d'un utilisateur, vous pouvez bloquer le
 
 ### <a name="block-a-user"></a>Bloquer un utilisateur
 
-Pour bloquer un utilisateur, effectuez les étapes suivantes :
+Pour bloquer un utilisateur, suivez la procédure ci-dessous ou regardez [cette courte vidéo](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be).
 
 1. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 1. Sélectionnez **Ajouter** pour bloquer un utilisateur.

@@ -1,31 +1,30 @@
 ---
-title: Actions ou applications cloud dans une stratégie d’accès conditionnel - Azure Active Directory
-description: Que sont les actions ou les applications cloud dans une stratégie d’accès conditionnel Azure AD ?
+title: Applications, actions et contexte d’authentification cloud dans une stratégie d’accès conditionnel – Azure Active Directory
+description: Que sont les applications, les actions et le contexte d’authentification cloud dans une stratégie d’accès conditionnel Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 05/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f179ba02a47617a931906bb2b7575eb2bb3963d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 99da9afc9afb3c6eb19caf696c6b9802aed6a2dd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750606"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953669"
 ---
-# <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
+# <a name="conditional-access-cloud-apps-actions-and-authentication--context"></a>Accès conditionnel : applications, actions et contexte d’authentification cloud
 
-Les applications cloud ou les actions représentent un signal clé dans une stratégie d’accès conditionnel. Les stratégies d’accès conditionnel permettent aux administrateurs d’affecter des contrôles à des applications ou des actions spécifiques.
+Les applications, les actions et le contexte d’authentification cloud sont des signaux clés dans une stratégie d’accès conditionnel. Les stratégies d’accès conditionnel permettent aux administrateurs d’affecter des contrôles à des applications, à des actions ou à un contexte d’authentification spécifiques.
 
-- Les administrateurs peuvent choisir à partir de la liste des applications qui comprend des applications Microsoft intégrées et des [application Azure AD intégrée](../manage-apps/what-is-application-management.md), entre autres des applications de la galerie et hors galerie ainsi que des applications publiées via le [proxy d’application](../manage-apps/what-is-application-proxy.md).
-- Les administrateurs peuvent choisir de définir une stratégie qui n’est pas basée sur une application cloud, mais sur une action de l’utilisateur. Nous prenons en charge deux actions de l’utilisateur
-   - Inscrire des informations de sécurité (préversion) pour appliquer des contrôles dans le cadre de l’[expérience combinée d’enregistrement des informations de sécurité](../authentication/howto-registration-mfa-sspr-combined.md) 
-   - Inscrire ou joindre des appareils (préversion) pour appliquer des contrôles quand des utilisateurs [inscrivent](../devices/concept-azure-ad-register.md) ou [joignent](../devices/concept-azure-ad-join.md) des appareils à Azure AD. 
+- Les administrateurs peuvent choisir à partir de la liste des applications qui comprend des applications Microsoft intégrées et des [application Azure AD intégrée](../manage-apps/what-is-application-management.md), entre autres des applications de la galerie et hors galerie ainsi que des applications publiées via le [proxy d’application](../app-proxy/what-is-application-proxy.md).
+- Les administrateurs peuvent choisir de définir une stratégie non basée sur une application cloud mais sur une [action utilisateur](#user-actions) telle que **Inscrire des informations de sécurité** ou **Inscrire ou joindre des appareils (préversion)** , autorisant l’accès conditionnel à appliquer des contrôles autour de ces actions.
+- Les administrateurs peuvent utiliser un [contexte d’authentification](#authentication-context-preview) pour fournir une couche supplémentaire de sécurité à l’intérieur des applications. 
 
 ![Définir une stratégie d’accès conditionnel et spécifier des applications cloud](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -71,7 +70,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Réseau privé virtuel (VPN)
 - Windows Defender ATP
 
-Les applications disponibles pour l’accès conditionnel ont suivi un processus d’intégration et de validation. Cela n’inclut pas toutes les applications Microsoft, car nombre d’entre elles sont des services principaux non censés être régis par une stratégie directement appliquée. Si vous recherchez une application manquante, vous pouvez contacter l’équipe d’application spécifique ou formuler une demande sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+Les applications disponibles pour l’accès conditionnel ont suivi un processus d’intégration et de validation. Cette liste n’inclut pas toutes les applications Microsoft, car nombre d’entre elles sont des services principaux non censés être régis par une stratégie qui leur est directement appliquée. Si vous recherchez une application manquante, vous pouvez contacter l’équipe d’application spécifique ou formuler une demande sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 
@@ -116,11 +115,11 @@ L’application Gestion Microsoft Azure comprend plusieurs services sous-jacents
 > [!NOTE]
 > L’application Gestion Microsoft Azure s’applique à Azure PowerShell, qui appelle l’API Azure Resource Manager. Elle ne s’applique pas à Azure AD PowerShell, qui appelle Microsoft Graph.
 
-## <a name="other-applications"></a>Autres applications
+### <a name="other-applications"></a>Autres applications
 
 Outre les applications Microsoft, les administrateurs peuvent ajouter aux stratégies d’accès conditionnel n’importe quelle application inscrite auprès d’Azure AD. Parmi celles-ci : 
 
-- Des applications publiées via le [proxy d’application Azure AD](../manage-apps/what-is-application-proxy.md)
+- Des applications publiées via le [proxy d’application Azure AD](../app-proxy/what-is-application-proxy.md)
 - [Des applications ajoutées à partir de la galerie](../manage-apps/add-application-portal.md)
 - [Des applications personnalisées qui ne se trouvent pas dans la galerie](../manage-apps/view-applications-portal.md)
 - [Des applications héritées qui sont publiées par le biais de réseaux et de contrôleurs de livraison d’applications](../manage-apps/secure-hybrid-access.md)
@@ -139,10 +138,42 @@ Les actions utilisateur sont des tâches qui peuvent être effectuées par un ut
    - `Require multi-factor authentication` est le seul contrôle d’accès disponible avec cette action utilisateur. Tous les autres sont désactivés. Cette restriction empêche les conflits avec les contrôles d’accès qui dépendent d’Azure AD Device Registration ou ne s’y appliquent pas. 
    - Les conditions `Client apps` et `Device state` ne sont pas disponibles avec cette action de l’utilisateur, car elles dépendent de l’inscription d’appareil Azure AD pour appliquer les stratégies d’accès conditionnel.
    - Quand une stratégie d’accès conditionnel est activée avec cette action utilisateur, vous devez définir **Azure Active Directory** > **Appareils** > **Paramètres d’appareil** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` sur **Non**. Dans le cas contraire, la stratégie d’accès conditionnel avec cette action d’utilisateur n’est pas appliquée correctement. Pour plus d’informations sur ce paramètre d’appareil, consultez [Configuration des paramètres d’appareil](../devices/device-management-azure-portal.md#configure-device-settings). 
-   
+
+## <a name="authentication-context-preview"></a>Contexte d’authentification (préversion)
+
+Un contexte d’authentification permet de renforcer la sécurité des données et des actions dans des applications. Il peut s’agir de vos propres applications personnalisées, d’applications métier personnalisées, d’applications telles que SharePoint, ou d’applications protégées par Microsoft Cloud App Security (MCAS). 
+
+Par exemple, une organisation peut conserver dans des sites SharePoint des fichiers tels que le menu du déjeuner ou sa recette secrète de sauce barbecue. Tout le monde peut avoir accès au site du menu du déjeuner, mais les utilisateurs qui ont accès au site de la recette secrète de sauce barbecue peuvent être tenus d’y accéder à partir d’un appareil géré et d’accepter des conditions d’utilisation spécifiques.
+
+### <a name="configure-authentication-contexts"></a>Configurer des contextes d’authentification
+
+Les contextes d’authentification sont gérés dans le portail Azure sous **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Contexte d’authentification**.
+
+![Gérer un contexte d’authentification dans le portail Azure](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
+
+> [!WARNING]
+> * La suppression de définitions de contexte d’authentification n’est pas possible pendant la période de préversion. 
+> * La préversion est limitée à 25 définitions de contexte d’authentification dans le portail Azure.
+
+Créez de nouvelles définitions de contexte d’authentification en sélectionnant **Nouveau contexte d’authentification** dans le portail Azure. Configurez les attributs suivants :
+
+- Le **Nom d’affichage** est le nom utilisé pour identifier le contexte d’authentification dans Azure AD et dans les applications qui utilisent des contextes d’authentification. Nous recommandons de choisir des noms utilisables dans des ressources, comme « appareils de confiance », afin de réduire le nombre de contextes d’authentification requis. Le fait de disposer d’un ensemble de contextes réduit limite le nombre de redirections et offre une meilleure expérience utilisateur final.
+- La **Description** fournit des informations supplémentaires sur les stratégies. Elle est utilisée par les administrateurs Azure AD et les personnes qui appliquent des contextes d’authentification à des ressources.
+- La case à cocher **Publier sur les applications**, quand elle est activée, publie le contexte d’authentification sur les applications et rend celle-ci disponibles pour affectation. Si elle n’est pas activée, le contexte d’authentification n’est pas disponible pour les ressources en aval. 
+- L’ **ID**, en lecture seule, est utilisé dans des jetons et des applications pour des définitions de contexte d’authentification spécifiques d’une demande. Il est indiqué ici à des fins de résolution des problèmes et de développement. 
+
+Les administrateurs peuvent ensuite sélectionner des contextes d’authentification publiés dans leurs stratégies d’accès conditionnel sous **Affectations** > **Applications ou actions cloud** > **Contexte d’authentification**.
+
+### <a name="tag-resources-with-authentication-contexts"></a>Étiqueter des ressources avec des contextes d’authentification 
+
+Pour plus d’informations sur l’utilisation d’un contexte d’authentification dans des applications, consultez les articles suivants.
+
+- [SharePoint Online](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
+- Applications personnalisées
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Accès conditionnel : Conditions](concept-conditional-access-conditions.md)
-
 - [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 - [Dépendances des applications clientes](service-dependencies.md)

@@ -7,16 +7,16 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/25/2021
-ms.openlocfilehash: 5efc48d348e9cfceab590bcfba8c621e7721376f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 50ab34a73a7709a47efdf6904acf005cd5db9da5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107059"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753590"
 ---
 # <a name="access-and-track-your-secure-score"></a>Accéder et suivre votre score de sécurisation
 
-Vous pouvez connaître votre niveau de sécurité global, ainsi que votre niveau de sécurité par abonnement, via le portail Azure ou par programmation comme décrit dans les sections suivantes :
+Vous pouvez connaître votre niveau de sécurité global et votre niveau de sécurité par abonnement sur le Portail Azure ou programmatiquement.
 
 > [!TIP]
 > Pour une explication détaillée de la façon dont vos scores sont calculés, consultez [Calculs : comprendre votre score](secure-score-security-controls.md#calculations---understanding-your-score).
@@ -98,7 +98,7 @@ La page Classeurs du Security Center inclut un rapport prêt à l’emploi pour 
 Si vous êtes un utilisateur Power BI avec un compte Pro, vous pouvez utiliser le tableau de bord Power BI **Score sécurisé au fil du temps** pour suivre votre score sécurisé au fil du temps et examiner les modifications.
 
 > [!TIP]
-> Ce tableau de bord, ainsi que d’autres outils permettant de travailler par programmation avec un score sécurisé, sont disponibles dans le domaine dédié de la communauté Azure Security Center sur GitHub : https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+> Ce tableau de bord ainsi que d’autres outils permettant de travailler programmatiquement avec le niveau de sécurité sont disponibles dans la partie dédiée de la communauté Azure Security Center sur GitHub : https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score.
 
 Le tableau de bord contient les deux rapports suivants pour vous aider à analyser votre état de sécurité :
 

@@ -6,18 +6,21 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c3bcfea0e703de28c79048380f8389fa93014b3
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109486"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585337"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configurer la géoréplication active pour les instances Azure Cache pour Redis Enterprise (préversion)
 
 Dans cet article, vous allez voir comment configurer un cache Azure avec géoréplication active à l’aide du portail Azure.
 
-La géoréplication active regroupe deux instances (ou plus) Azure Cache pour Redis Enterprise dans un même cache qui s’étend sur plusieurs régions Azure. Toutes les instances agissent comme des instances principales locales. Une application détermine quelle(s) instance(s) utiliser pour les demandes de lecture et d’écriture.
+La géoréplication active regroupe deux instances Azure Cache pour Redis Enterprise dans un même cache qui s’étend sur plusieurs régions Azure. Les deux instances agissent comme des instances principales locales. Une application détermine quelle(s) instance(s) utiliser pour les demandes de lecture et d’écriture.
+
+> [!NOTE]
+> Le transfert de données entre régions Azure est facturé aux [tarifs de bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) standard.
 
 ## <a name="create-or-join-an-active-geo-replication-group"></a>Créer ou rejoindre un groupe de géoréplication active
 

@@ -3,16 +3,16 @@ title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
 ms.date: 03/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8a243f0a2130e0ec2ebafe726f48e07c148807c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd0672523329b17b0e101d5abb16700254b8a918
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016081"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441327"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
-Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../essentials/metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](./alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
+Les alertes de métrique dans Azure Monitor fonctionnent en complément des métriques multidimensionnelles. Il peut s’agir de [métriques de la plateforme](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), de [métriques personnalisées](../essentials/metrics-custom-overview.md), de [journaux d’activité courants d’Azure Monitor convertis en métriques](./alerts-metric-logs.md) et de métriques Application Insights. Les alertes de métrique vérifient à intervalles réguliers que les conditions d’une ou de plusieurs séries chronologiques de métriques sont remplies et vous avertissent quand c’est le cas. Les alertes de métrique sont par défaut avec état ; autrement dit, elles n’envoient des notifications que lorsque l’état change (déclenché, résolu). Pour les rendre sans état, consultez [Déclenchement des alertes de métrique à chaque fois qu’une condition est remplie](alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 ## <a name="how-do-metric-alerts-work"></a>Fonctionnement des alertes de métrique
 
@@ -130,8 +130,6 @@ L’allongement des périodes passées à vérifier et le nombre de violations p
 > - Règle d’alerte métrique qui surveille plusieurs ressources : quand une ressource est ajoutée à l’étendue
 > - Règle d’alerte métrique qui surveille une métrique qui n’est pas émise en continu (métrique éparse) : lorsque la métrique est émise après une période de plus de 24 heures pendant laquelle elle n’a pas été émise
 
-
-
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
 Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. 
@@ -174,7 +172,6 @@ Pour les alertes de métrique, vous êtes généralement informé en moins de 5�
 ## <a name="supported-resource-types-for-metric-alerts"></a>Types de ressources pris en charge pour les alertes de métrique
 
 Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

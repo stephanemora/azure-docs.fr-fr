@@ -7,21 +7,28 @@ ms.author: mathoma
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
+ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/25/2021
-ms.openlocfilehash: ba33373cb89e5d1faba0a9dc66233fc363e9e47d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 512d502dc5877c15086d69f96643d4251dfc167b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755654"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078687"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les modifications apportées à la documentation en lien avec les nouvelles fonctionnalités et les améliorations introduites dans les mises en production récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="may-2021"></a>Mai 2021
+
+| Modifications | Détails |
+| --- | --- |
+| **Actualisation du contenu de haute disponibilité et récupération d'urgence** | Nous avons actualisé et amélioré notre contenu de haute disponibilité et récupération d’urgence (HADR). Il existe désormais une [Vue d’ensemble du cluster de basculement Windows Server](hadr-windows-server-failover-cluster-overview.md), ainsi qu’un quorum consolidé pour [la configuration](hadr-cluster-quorum-configure-how-to.md) des machines virtuelles SQL Server.  En outre, nous avons amélioré les [meilleures pratiques en matière de cluster](hadr-cluster-best-practices.md) à l’aide de recommandations de paramètres plus complètes adoptées dans le cloud.| 
 
 
 ## <a name="april-2021"></a>Avril 2021
@@ -104,5 +111,5 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Approvisionner SQL Server une machine virtuelle Linux](../linux/sql-vm-create-portal-quickstart.md)
-* [Forum Aux Questions (Linux)](../linux/frequently-asked-questions-faq.md)
+* [Forum Aux Questions (Linux)](../linux/frequently-asked-questions-faq.yml)
 * [Documentation relative à SQL Server sur Linux](/sql/linux/sql-server-linux-overview)

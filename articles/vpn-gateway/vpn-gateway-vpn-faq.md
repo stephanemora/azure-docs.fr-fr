@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/07/2021
 ms.author: yushwang
-ms.openlocfilehash: 2c2730025d39f03824489c6f46ae625de49ea0cf
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753540"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746606"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -57,6 +57,12 @@ Les configurations **Site à site** (tunnel VPN IPsec/IKE) se trouvent entre vot
 Les configurations **Point à site** (VPN sur SSTP) vous permettent de vous connecter à partir d’un seul ordinateur depuis n’importe où et vers n’importe quel emplacement sur votre réseau virtuel. Ces connexions utilisent le client VPN fourni avec Windows. Dans le cadre de la configuration point à site, vous installez un certificat et un package de configuration client VPN qui contient les paramètres permettant à votre ordinateur de se connecter à une machine virtuelle ou à une instance de rôle au sein du réseau virtuel. Cela est très intéressant lorsque vous souhaitez vous connecter à un réseau virtuel mais que vous ne vous trouvez pas en local. Il s’agit également d’une solution intéressante lorsque vous n’avez pas accès au matériel VPN ou à une adresse IPv4 externe, tous deux étant nécessaires à une connexion site à site.
 
 Vous pouvez configurer votre réseau virtuel pour utiliser la connexion site à site et point à site simultanément, à condition de créer votre connexion site à site à l’aide d’un type de réseau privé virtuel basé sur un itinéraire pour votre passerelle. Les types de réseau privé virtuel basé sur un itinéraire sont appelés des passerelles dynamiques dans le modèle de déploiement classique.
+
+## <a name="privacy"></a><a name="privacy"></a>Confidentialité
+
+### <a name="does-the-vpn-service-store-customer-data"></a>Le service VPN stocke-t-il des données client ?
+
+Non.
 
 ## <a name="virtual-network-gateways"></a><a name="gateways"></a>Passerelles de réseau virtuel
 
@@ -176,17 +182,13 @@ Nous prenons en charge les serveurs de routage et d’accès distant (RRAS) Wind
 
 D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'elles sont conformes aux implémentations IPsec standard. Contactez le fournisseur du logiciel pour obtenir des instructions de configuration et de prise en charge.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Comment faire modifier le type d’authentification pour mes connexions de point à site ?
-
-Vous pouvez modifier la méthode d’authentification pour vos connexions point à site en accédant à la section **Configuration de point à site** sous la passerelle VPN et en cochant la case d’option souhaitée. Les options actuelles sont **Certificat Azure, Authentification RADIUS et Azure Active Directory**. Notez que les clients actuels **peuvent ne pas être en mesure de se connecter** après la modification jusqu’à ce que le nouveau profil ait été téléchargé et configuré sur le client.
-
-## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Point à site utilisant l’authentification par certificat Azure native
+## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>Point à site : authentification par certificat
 
 Cette section s’applique au modèle de déploiement Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>Point à site utilisant l’authentification RADIUS
+## <a name="point-to-site---radius-authentication"></a><a name="P2SRADIUS"></a>Point à site : authentification RADIUS
 
 Cette section s’applique au modèle de déploiement Resource Manager.
 
@@ -222,7 +224,7 @@ Oui, mais vous devez configurer BGP sur les deux tunnels, au même emplacement.
 
 ### <a name="does-azure-vpn-gateway-honor-as-path-prepending-to-influence-routing-decisions-between-multiple-connections-to-my-on-premises-sites"></a>La passerelle VPN Azure respecte-t-elle les préfixes de chemin AS pour influencer les décisions de routage entre plusieurs connexions à mes sites locaux ?
 
-Oui, la passerelle VPN Azure respecte les préfixes de chemin AS pour faciliter les décisions de routage lorsque le protocole BGP est activé. Un chemin AS plus court sera préférable dans la sélection du chemin BGP.
+Oui, la passerelle VPN Azure respecte les préfixes de chemin AS pour faciliter les décisions de routage lorsque le protocole BGP est activé. Un chemin AS plus court est préférable dans la sélection du chemin BGP.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>Puis-je utiliser des réseaux VPN point à site avec mon réseau virtuel comportant plusieurs tunnels VPN ?
 

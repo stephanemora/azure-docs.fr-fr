@@ -3,14 +3,14 @@ title: Géorépliquer un registre
 description: Prenez en main la création et la gestion d’un registre de conteneurs Azure géorépliqué, ce qui permet au registre de servir plusieurs régions grâce à des réplicas régionaux multimaîtres. La géoréplication est une fonctionnalité disponible pour le niveau de service Premium.
 author: stevelas
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 06/09/2021
 ms.author: stevelas
-ms.openlocfilehash: d36cf1c5ed8c916962ae0b621548a593d2fe0a97
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: b60de8dd9dc4ba5b66594fe6d75caa43ef0017b5
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331841"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029654"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -25,8 +25,8 @@ Un registre géorépliqué offre les avantages suivants :
 * Résilience du registre en cas de panne régionale
 
 > [!NOTE]
-> Si vous devez conserver les copies des images de conteneur dans plusieurs registres de conteneurs Azure, Azure Container Registry prend également en charge l'[importation d'images](container-registry-import-images.md). Par exemple, dans un flux de travail DevOps, vous pouvez importer une image entre un registre de développement et un registre de production, sans devoir utiliser les commandes Docker.
->
+> * Si vous devez conserver les copies des images de conteneur dans plusieurs registres de conteneurs Azure, Azure Container Registry prend également en charge l'[importation d'images](container-registry-import-images.md). Par exemple, dans un flux de travail DevOps, vous pouvez importer une image entre un registre de développement et un registre de production, sans devoir utiliser les commandes Docker.
+> * Si vous souhaitez déplacer un registre vers une autre région Azure plutôt que géorépliquer le registre, consultez [Déplacer manuellement un registre de conteneurs vers une autre région](manual-regional-move.md).
 
 ## <a name="example-use-case"></a>Exemple de cas d’usage
 Contoso dispose d’un site web de présence publique situé aux États-Unis, au Canada et en Europe. Pour alimenter ces marchés avec du contenu local et à proximité du réseau, Contoso exécute des clusters [Azure Kubernetes Service](../aks/index.yml) (AKS) dans les régions USA Ouest, USA Est, Canada Centre et Europe Ouest. Déployée en tant qu’image Docker, l’application de site web utilise le même code et la même image dans toutes les régions. Le contenu, local pour cette région, est récupéré à partir d’une base de données qui est configurée de façon unique dans chaque région. Chaque déploiement régional possède sa propre configuration unique pour les ressources, telles que la base de données locale.
@@ -58,15 +58,18 @@ La fonctionnalité de géoréplication d’Azure Container Registry permet de b�
 
 * Gérer un registre unique dans toutes les régions : `contoso.azurecr.io`
 * Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
-* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. ACR réplique uniquement les couches uniques, ce qui réduit le transfert de données entre les régions. 
+* Envoyer (push) vers un registre unique, tandis qu’ACR gère automatiquement la géoréplication. ACR réplique uniquement les couches uniques, ce qui réduit le transfert de données entre les régions. 
 * Configurez des [webhooks](container-registry-webhook.md) régionaux pour vous avertir des événements dans des réplicas spécifiques.
 * Fournissez un registre hautement disponible qui résiste aux pannes régionales.
 
 Azure Container Registry prend également en charge les [zones de disponibilité](zone-redundancy.md) pour créer un registre de conteneurs Azure résilient et à haute disponibilité dans une région Azure. La combinaison de zones de disponibilité pour la redondance au sein d’une région et de la géoréplication dans plusieurs régions améliore la fiabilité et les performances d’un registre.
 
+> [!IMPORTANT]
+> Un registre géorépliqué peut devenir indisponible si certaines interruptions se produisent dans la région d’origine du registre, à savoir la région dans laquelle le registre a été initialement déployé.
+
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
 
-La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez également gérer la géoréplication à l’aide d’outils, notamment des commandes [az acr replication](/cli/azure/acr/replication) dans Azure CLI, ou déployer un registre activé pour la géoréplication avec un [modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
+La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez également gérer la géoréplication à l’aide d’outils, notamment des commandes [az acr replication](/cli/azure/acr/replication) dans Azure CLI, ou déployer un registre activé pour la géoréplication avec un [modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/).
 
 La géoréplication est une fonctionnalité disponible pour les [registres Premium](container-registry-skus.md). Si votre registre n’est pas encore Premium, vous pouvez passer de la formule De base ou Standard à Premium dans le [portail Azure](https://portal.azure.com) :
 

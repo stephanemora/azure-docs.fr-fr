@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 01/14/2020
+ms.date: 06/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b93da489d1d2cbaa96ea8ed99b096ea8b7af45e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f1b9ceb41300d8a53d192602812f1e3c04017609
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746150"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371460"
 ---
-# <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
+# <a name="restrict-guest-access-permissions-in-azure-active-directory"></a>Restreindre les autorisations d’accès invité dans Azure Active Directory
 
-Azure Active Directory (Azure AD) offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes au sein de leur organisation dans Azure AD. Les utilisateurs invités sont définis par défaut sur un niveau d’autorisation limité dans Azure AD, tandis que les utilisateurs membres disposent de l’ensemble complet d’autorisations utilisateur par défaut. Cette préversion d’un nouveau niveau d’autorisation des utilisateurs invités dans les paramètres de collaboration externe de l’organisation Azure AD offre un accès encore plus restreint. Les choix d’accès invité possibles sont maintenant les suivants :
+Azure Active Directory (Azure AD) offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes au sein de leur organisation dans Azure AD. Les utilisateurs invités sont définis par défaut sur un niveau d’autorisation limité dans Azure AD, tandis que les utilisateurs membres disposent de l’ensemble complet d’autorisations utilisateur. Ce nouveau niveau d’autorisation des utilisateurs invités dans les paramètres de collaboration externe de l’organisation Azure AD offre un accès encore plus restreint. Les niveaux d’accès invité possibles sont les suivants :
 
 Niveau d’autorisation         | Niveau d’accès | Valeur
 ----------------         | ------------ | -----
