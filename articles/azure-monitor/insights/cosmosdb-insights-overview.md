@@ -1,20 +1,20 @@
 ---
-title: Surveiller Azure Cosmos DB avec Azure Monitor pour Cosmos DB | Microsoft Docs
-description: Cet article décrit la fonctionnalité Azure Monitor pour Cosmos DB, qui fournit aux propriétaires de Cosmos DB une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes Cosmos DB.
+title: Superviser Azure Cosmos DB avec Cosmos DB Insights d’Azure Monitor | Microsoft Docs
+description: Cet article décrit la fonctionnalité Cosmos DB Insights d’Azure Monitor, qui fournit aux propriétaires de Cosmos DB une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes Cosmos DB.
 author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6666e43e1dc3461bf7e0cc5849d26c1a8fef70e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725760"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095083"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorer Azure Monitor pour Azure Cosmos DB
+# <a name="explore-azure-monitor-cosmos-db-insights"></a>Explorer Azure Monitor Cosmos DB Insights
 
-Azure Monitor pour Azure Cosmos DB fournit une vue de l’ensemble des performances, des échecs, de la capacité et de l’intégrité opérationnelle pour toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée. Cet article vous aidera à comprendre les avantages de cette nouvelle expérience de surveillance et comment vous pouvez modifier et adapter l’expérience en fonction des besoins uniques de votre organisation.   
+Cosmos DB Insights fournit une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée. Cet article vous aidera à comprendre les avantages de cette nouvelle expérience de surveillance et comment vous pouvez modifier et adapter l’expérience en fonction des besoins uniques de votre organisation.   
 
 ## <a name="introduction"></a>Introduction
 
@@ -147,7 +147,7 @@ Pour développer ou réduire toutes les vues déroulantes dans le classeur, sél
 
 ![Icône de développement de classeur](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personnaliser Azure Monitor pour Azure Cosmos DB
+## <a name="customize-cosmos-db-insights"></a>Personnaliser Cosmos DB Insights
 
 Dans la mesure où cette expérience s’appuie sur des modèles de classeur Azure Monitor, vous avez la possibilité de **Personnaliser** > **Modifier** et **Enregistrer** une copie de votre version modifiée dans un classeur personnalisé. 
 

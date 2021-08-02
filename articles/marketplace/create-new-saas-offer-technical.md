@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter des détails techniques pour votre offre SaaS dans l’Espace partenaires Microsoft
-description: Découvrez comment fournir des détails techniques pour votre offre SaaS pour la place de marché commerciale de Microsoft.
+title: Ajouter des détails techniques pour une offre SaaS sur la Place de marché Azure
+description: Fournissez des détails techniques sur une offre SaaS sur la Place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 28c0be40387f411286230f94c19fa23a80e650af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 236a7729a8be0fb1ad20be28efd7b45f5796c1dd
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746401"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615160"
 ---
-# <a name="how-to-add-technical-details-for-your-saas-offer"></a>Comment ajouter des détails techniques pour votre offre SaaS
+# <a name="add-technical-details-for-a-saas-offer"></a>Ajouter des détails techniques pour une offre SaaS
 
 Cet article explique comment entrer des détails techniques qui permettent à la place de marché commerciale de Microsoft de se connecter à votre solution. Cette connexion permet d’approvisionner votre offre pour le client, s’il choisit de l’acquérir et de la gérer. Pour plus d’informations sur ces paramètres, consultez [Informations techniques](plan-saas-offer.md#technical-information).
 
@@ -44,4 +44,4 @@ Avant de passer à l’onglet suivant, sélectionnez **Enregistrer le brouillon*
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment créer des plans pour votre offre SaaS](create-new-saas-offer-plans.md).
+- [Créer des plans pour une offre SaaS](create-new-saas-offer-plans.md)

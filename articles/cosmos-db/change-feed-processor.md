@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 06/09/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daecd065779919defc66d9668a6d5d7b972d60be
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93340224"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891983"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,6 +69,9 @@ Le cycle de vie normal d’une instance d’hôte est le suivant :
 ## <a name="error-handling"></a>Gestion des erreurs
 
 Le processeur de flux de modification résiste aux erreurs de code utilisateur. Cela signifie que si votre implémentation de délégué a une exception non gérée (étape #4), le thread qui traite ce lot de modifications particulier sera arrêté et un nouveau thread sera créé. Le nouveau thread vérifie le dernier point dans le temps du magasin de baux pour cette plage de valeurs de clé de partition, et redémarre à partir de là, en envoyant efficacement le même lot de modifications au délégué. Ce comportement se poursuit jusqu’à ce que votre délégué traite correctement les modifications et c’est la raison pour laquelle le processeur de flux de modification a une garantie « au moins une fois », car si le code de délégué lève une exception, il relance ce lot.
+
+> [!NOTE]
+> Il n’existe qu’un seul scénario dans lequel un lot de modifications ne sera pas retenté. Si l’échec se produit lors de la première exécution du délégué, le magasin de bail n’a aucun état enregistré précédent à utiliser pour la nouvelle tentative. Dans ces cas-là, la nouvelle tentative utilise la [configuration de démarrage initiale](#starting-time), qui peut inclure ou non le dernier lot.
 
 Pour empêcher votre processeur de flux de modification de « se bloquer » en relançant continuellement le même lot de modifications, vous devez ajouter une logique dans votre code de délégué pour écrire des documents, en cas d’exception, dans une file d’attente de lettres mortes. Cette conception garantit que vous pouvez effectuer le suivi des modifications non traitées tout en continuant à traiter les futures modifications. La file d’attente de lettres mortes peut être un autre conteneur Cosmos. Le magasin de données exact n’a pas d’importance. Il suffit juste que les modifications non traitées soient conservées.
 

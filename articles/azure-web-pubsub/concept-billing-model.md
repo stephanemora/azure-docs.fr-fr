@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.openlocfilehash: 0d1ba3de5686e161fbd118f78bd4734034dbc1bb
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c7a7aaa47d40c9d49065f71bc9bebc998adbfc12
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166926"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410474"
 ---
 # <a name="billing-model-of-azure-web-pubsub-service"></a>Modèle de facturation du service Azure Web PubSub
 
@@ -60,7 +60,7 @@ Pour la facturation, seul le trafic sortant est compté.
 
 Par exemple, imaginez que vous disposez d’une application avec le service Azure Web PubSub et Azure Functions. Un utilisateur diffuse 4 ko de données à 10 connexions dans un groupe. Il en résulte 4 ko en amont du service à la fonction et 40 ko du service diffusé aux 10 connexions.
 
-> Trafic sortant pour la facturation = 4 ko + 40 ko = 44 ko
+> Trafic sortant pour la facturation = 4 Ko (trafic en amont) + 4 Ko * 10 (diffusion du service vers les clients) = 44 Ko
 
 > Équivalence en nombre de messages = 44 ko/2 ko = 22
 

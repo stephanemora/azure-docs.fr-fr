@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 69c4129feacf36b6b98cdcd7c2f4f5f36d7839b2
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 72cd1f4940edae175fd37b4855a5056d954ff765
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831921"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967166"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -24,10 +24,12 @@ ms.locfileid: "107831921"
 
 Dans cet article, vous allez utiliser des outils en ligne de commande pour créer une fonction Java qui répond aux requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement serverless d’Azure Functions.
 
-Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure.
+Si Maven n’est pas votre outil de développement préféré, consultez nos tutoriels similaires destinés aux développeurs Java :
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Visual Studio Code](create-first-function-vs-code-java.md)
 
-> [!NOTE]
-> Si Maven n’est pas votre outil de développement préféré, consultez nos tutoriels similaires destinés aux développeurs Java utilisant [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) et [Visual Studio Code](create-first-function-vs-code-java.md).
+Le fait de suivre ce guide de démarrage rapide entraîne une faible dépense de quelques cents USD tout au plus dans votre compte Azure.
 
 ## <a name="configure-your-local-environment"></a>Configurer votre environnement local
 

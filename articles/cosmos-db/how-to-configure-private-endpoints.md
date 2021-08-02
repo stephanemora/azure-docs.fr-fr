@@ -4,15 +4,15 @@ description: Découvrez comment configurer Azure Private Link pour accéder à u
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/08/2021
 ms.author: thweiss
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 034eb35eeef975be23cc318aa797282008d71728
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 633148279332c8d2b30cae525dfa7cc6b14f849e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936901"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744302"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -651,7 +651,7 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 Comme décrit dans la section précédente, et à moins que des règles de pare-feu spécifiques n’aient été définies, l’ajout d’un point de terminaison privé rend votre compte Azure Cosmos accessible via des points de terminaison privés uniquement. Cela signifie que le compte Azure Cosmos peut être atteint à partir du trafic public, après sa création et avant l’ajout d’un point de terminaison privé. Pour vous assurer que l’accès au réseau public est désactivé avant même la création de points de terminaison privés, vous pouvez définir l’indicateur `publicNetworkAccess` sur `Disabled` pendant la création du compte. Notez que cet indicateur est prioritaire sur toute règle de réseau virtuel ou d’adresse IP ; tout le trafic public et de réseau virtuel est bloqué lorsque l’indicateur est défini sur `Disabled`, même si l’adresse IP source ou le réseau virtuel est autorisé dans la configuration du pare-feu.
 
-Pour voir un exemple d’utilisation de cet indicateur, consultez [ce modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/).
+Pour voir un exemple d’utilisation de cet indicateur, consultez [ce modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/cosmosdb-private-endpoint/).
 
 ## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Ajout de points de terminaison privés à un compte Cosmos existant sans temps d’arrêt
 
@@ -688,7 +688,7 @@ Les limitations suivantes s’appliquent lorsque vous utilisez Private Link avec
 
 * Lorsque vous utilisez Private Links avec un compte Azure Cosmos à travers une connexion en mode direct, vous ne pouvez utiliser que le protocole TCP. Le protocole HTTP n’est pas pris en charge actuellement.
 
-* Lorsque vous utilisez l’API Azure Cosmos DB pour les comptes MongoDB, un point de terminaison privé est pris en charge pour les comptes sur le serveur version 3.6 uniquement (c’est-à-dire les comptes utilisant le point de terminaison au format `*.mongo.cosmos.azure.com`). Private Link n’est pas pris en charge pour les comptes sur le serveur version 3.2 (c’est-à-dire les comptes utilisant le point de terminaison au format `*.documents.azure.com`). Pour utiliser Private Link, vous devez migrer les anciens comptes vers la nouvelle version.
+* Lorsque vous utilisez l’API Azure Cosmos DB pour les comptes MongoDB, un point de terminaison privé est pris en charge pour les comptes sur le serveur version 3.6 ou supérieure (c’est-à-dire les comptes utilisant le point de terminaison au format `*.mongo.cosmos.azure.com`). Private Link n’est pas pris en charge pour les comptes sur le serveur version 3.2 (c’est-à-dire les comptes utilisant le point de terminaison au format `*.documents.azure.com`). Pour utiliser Private Link, vous devez migrer les anciens comptes vers la nouvelle version.
 
 * Quand vous utilisez un compte API Azure Cosmos DB pour MongoDB avec Private Link, les outils/bibliothèques doivent prendre en charge l’identification du nom de service (SNI) ou passer le paramètre `appName` de la chaîne de connexion pour pouvoir se connecter correctement. Il se peut que certains outils/bibliothèques plus anciens ne soient pas compatibles avec la fonctionnalité Private Link.
 

@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0c95535c80425abb8bdc904132581531b8cdd24e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763916"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029060"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -146,6 +146,53 @@ ContainerInstanceLog_CL
 | where (ContainerGroup_s == "mycontainergroup001")
 | where (TimeGenerated > ago(1h))
 ```
+
+## <a name="log-schema"></a>Schéma du journal
+
+> [!NOTE]
+> Certaines des colonnes répertoriées ci-dessous existent uniquement dans le cadre du schéma et aucune donnée n’est émise dans les journaux. Ces colonnes sont dénotées ci-dessous avec une description « Vide ».
+
+### <a name="containerinstancelog_cl"></a>ContainerInstanceLog_CL
+
+|Colonne|Type|Description|
+|-|-|-|
+|Computer|string|Vide|
+|ContainerGroup_s|string|Nom du groupe de conteneurs associé à l’enregistrement|
+|ContainerID_s|string|Identificateur unique pour le conteneur associé à l’enregistrement|
+|ContainerImage_s|string|Nom de l’image de conteneur associée à l’enregistrement|
+|Location_s|string|Emplacement de la ressource associée à l’enregistrement|
+|Message|string|Le cas échéant, le message du conteneur|
+|OSType_s|string|Nom du système d’exploitation sur lequel le conteneur est basé|
+|RawData|string|Vide|
+|ResourceGroup|string|Nom du groupe de ressources auquel l’enregistrement est associé|
+|Source_s|string|Nom du composant de journalisation, « LoggingAgent »|
+|SubscriptionId|string|Un identificateur unique de l’abonnement auquel l’enregistrement est associé|
+|TimeGenerated|DATETIME|Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement|
+|Type|string|Le nom de la table|
+|_ResourceId|string|Un identificateur unique de la ressource à laquelle l’enregistrement est associé|
+|_SubscriptionId|string|Un identificateur unique de l’abonnement auquel l’enregistrement est associé|
+
+### <a name="containerevent_cl"></a>ContainerEvent_CL
+
+|Colonne|Type|Description|
+|-|-|-|
+|Computer|string|Vide|
+|ContainerGroupInstanceId_g|string|Identificateur unique pour le groupe de conteneurs associé à l’enregistrement|
+|ContainerGroup_s|string|Nom du groupe de conteneurs associé à l’enregistrement|
+|ContainerName_s|string|Le nom du conteneur associé à l’enregistrement|
+|Count_d|real|Nombre de fois où l’événement s’est produit depuis la dernière interrogation|
+|FirstTimestamp_t|DATETIME|Horodatage de la première fois que l’événement s’est produit|
+|Location_s|string|Emplacement de la ressource associée à l’enregistrement|
+|Message|string|Le cas échéant, le message du conteneur|
+|OSType_s|string|Nom du système d’exploitation sur lequel le conteneur est basé|
+|RawData|string|Vide|
+|Reason_s|string|Vide|
+|ResourceGroup|string|Le nom du groupe de ressources auquel l’enregistrement est associé|
+|SubscriptionId|string|Un identificateur unique de l’abonnement auquel l’enregistrement est associé|
+|TimeGenerated|DATETIME|Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement|
+|Type|string|Le nom de la table|
+|_ResourceId|string|Un identificateur unique de la ressource à laquelle l’enregistrement est associé|
+|_SubscriptionId|string|Un identificateur unique de l’abonnement auquel l’enregistrement est associé|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,13 +2,13 @@
 title: Résolution des échecs de Sauvegarde sur disque Azure
 description: Découvrez comment résoudre des échecs de Sauvegarde sur disque Azure
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/08/2021
+ms.openlocfilehash: a749c87949d53781dc810148d01cc5d179d70f77
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107242"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754112"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Résolution des échecs de Sauvegarde sur disque Azure
 
@@ -172,6 +172,12 @@ Message d’erreur : Impossible de démarrer l’opération, car le nombre maxim
 
 Action recommandée : Attendez la fin de l’exécution de la sauvegarde précédente.
 
+### <a name="error-code-usererrormissingsubscriptionregistration"></a>Code d’erreur : UserErrorMissingSubscriptionRegistration
+
+Message d’erreur : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ».
+
+Action recommandée : Le fournisseur de ressources requis n’a pas été inscrit pour votre abonnement. Inscrivez l’espace de noms des fournisseurs de ressources (_Microsoft.Compute_ et _Microsoft.Storage_) en suivant les étapes de la [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Matrice de prise en charge de sauvegarde de disques Azure](disk-backup-support-matrix.md)
+[Matrice de prise en charge de sauvegarde de disques Azure](disk-backup-support-matrix.md)

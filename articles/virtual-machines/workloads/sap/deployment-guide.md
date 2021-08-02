@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 981050280890f2c060fb82995296e8b450beb5bc
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695513"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586558"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -71,8 +71,8 @@ ms.locfileid: "101695513"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli]:/cli/azure/install-classic-cli
+[azure-cli-2]:/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -128,6 +128,8 @@ ms.locfileid: "101695513"
 [deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (Vérification de la préparation à la nouvelle extension Azure pour SAP)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Contrôle d’intégrité de la configuration de l’extension Azure pour SAP)
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (Contrôle d’intégrité de la configuration de la nouvelle extension Azure pour SAP)
+
+
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Résolution des problèmes liés à l’extension Azure pour SAP)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (Résolution des problèmes liés à la nouvelle extension Azure pour SAP)
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Résolution des problèmes liés à l’extension Azure pour SAP – Contacter le support)
@@ -962,9 +964,8 @@ La sortie du script comprend les informations suivantes :
 
 #### <a name="azure-cli-for-linux-vms"></a><a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Interface de ligne de commande Azure pour machines virtuelles Linux
 
-Pour installer l’extension Azure pour SAP à l’aide d’Azure CLI :
-
-   1. Installez l’interface de ligne de commande Azure Classic comme décrit dans [Installer l’interface de ligne de commande Azure Classic][azure-cli].
+1. Pour installer Azure Extension pour SAP à l’aide d’Azure CLI :
+   1. Installez [Azure Classic CLI][azure-cli].
    1. Connectez-vous à votre compte Azure :
 
       ```console
@@ -977,28 +978,27 @@ Pour installer l’extension Azure pour SAP à l’aide d’Azure CLI :
       azure config mode arm
       ```
 
-   1. Activez l’extension Azure pour SAP :
+   1. Activez l’extension :
 
       ```console
       azure vm enable-aem <resource-group-name> <vm-name>
       ```
 
-1. Installer avec Azure CLI 2.0
-
-   1. Installez Azure CLI 2.0, comme décrit dans [Installer Azure CLI 2.0][azure-cli-2].
+1. Pour installer Azure CLI AEM Extension à l’aide d’Azure CLI 2.0 :
+   1. Installez [Azure CLI 2.0][azure-cli-2]. Veillez à utiliser au moins la version 2.19.1 ou ultérieure (utilisez la version la plus récente).
    1. Connectez-vous à votre compte Azure :
 
       ```azurecli
       az login
       ```
 
-   1. Installer l’extension Azure CLI AEM
-  
+   1. Installez l’extension AEM Azure CLI. Veillez à utiliser la version 0.2.2 ou une version ultérieure.
+    
       ```azurecli
       az extension add --name aem
       ```
   
-   1. Installez l’extension avec
+   1. Activez l’extension :
   
       ```azurecli
       az vm aem set -g <resource-group-name> -n <vm name>
@@ -1024,7 +1024,7 @@ Pour installer l’extension Azure pour SAP à l’aide d’Azure CLI :
 La nouvelle extension de machine virtuelle pour SAP utilise une identité managée affectée à la machine virtuelle pour accéder aux données de surveillance et de configuration de la machine virtuelle. Pour installer la nouvelle extension à l’aide de PowerShell, vous devez d’abord attribuer à la machine virtuelle une identité de ce type, à laquelle vous accordez l’accès à toutes les ressources utilisées par cette machine virtuelle, par exemple les disques et les interfaces réseau.
 
 > [!NOTE]
-> Des privilèges de propriétaire sur le groupe de ressources ou certaines ressources (machine virtuelle, disques de données, etc.) sont nécessaires pour suivre les étapes ci-dessous.
+> Des privilèges de propriétaire sur le groupe de ressources ou certaines ressources (machine virtuelle, disques de données, etc.) sont nécessaires pour suivre les étapes ci-dessous
 
 1. Veillez à utiliser la version 7.21 PL 47 ou une version ultérieure de l’agent hôte SAP.
 1. Désinstallez la version actuelle de l’extension de machine virtuelle pour SAP. L’installation des deux versions de l’extension de machine virtuelle pour SAP sur la même machine virtuelle n’est pas prise en charge.
@@ -1042,28 +1042,27 @@ La nouvelle extension de machine virtuelle pour SAP utilise une identité manag�
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configuration de la nouvelle extension Azure pour SAP avec Azure CLI
 
-La nouvelle extension de machine virtuelle pour SAP utilise une identité managée affectée à la machine virtuelle pour accéder aux données de surveillance et de configuration de la machine virtuelle. Pour installer la nouvelle extension à l’aide d’Azure CLI, vous devez d’abord attribuer à la machine virtuelle une identité de ce type, à laquelle vous accordez l’accès à toutes les ressources utilisées par cette machine virtuelle, par exemple les disques et les interfaces réseau.
+La nouvelle extension de machine virtuelle pour SAP utilise une identité managée affectée à la machine virtuelle pour accéder aux données de surveillance et de configuration de la machine virtuelle. Pour installer la nouvelle extension à l’aide d’Azure CLI, vous devez d’abord attribuer à la machine virtuelle une identité de ce type, à laquelle vous accordez l’accès à toutes les ressources utilisées par cette machine virtuelle, par exemple, les disques et les interfaces réseau.
 
 > [!NOTE]
-> Des privilèges de propriétaire sur le groupe de ressources ou certaines ressources (machine virtuelle, disques de données, etc.) sont nécessaires pour suivre les étapes ci-dessous.
+> Des privilèges de propriétaire sur le groupe de ressources ou certaines ressources (machine virtuelle, disques de données, etc.) sont nécessaires pour suivre les étapes ci-dessous
 
-1. Veillez à utiliser la version 7.21 PL 47 ou une version ultérieure de l’agent hôte SAP.
-1. Désinstallez la version actuelle de l’extension de machine virtuelle pour SAP. L’installation des deux versions de l’extension de machine virtuelle pour SAP sur la même machine virtuelle n’est pas prise en charge.
-1. Installez Azure CLI 2.0, comme décrit dans [Installer Azure CLI 2.0][azure-cli-2].
-
+1. Veillez à utiliser l’Agent Hôte SAP 7.21 PL 47 ou une version ultérieure.
+1. Veillez à désinstaller la version actuelle de l’extension de machine virtuelle pour SAP. Vous ne pouvez pas installer les deux versions de l’extension de machine virtuelle pour SAP sur la même machine virtuelle n’est pas prise en charge. 
+1. Installez la dernière version de [Azure CLI 2.0][azure-cli-2] (version 2.19.1 ou ultérieure).
 1. Connectez-vous à votre compte Azure :
 
    ```azurecli
    az login
    ```
 
-1. Installez l’extension Azure CLI AEM. Veillez à utiliser la version 0.2.0 ou ultérieure.
+1. Installez l’extension AEM Azure CLI. Veillez à utiliser la version 0.2.2 ou une version ultérieure.
   
    ```azurecli
    az extension add --name aem
    ```
   
-1. Installer la nouvelle extension avec
+1. Activez la nouvelle extension :
   
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension

@@ -4,16 +4,16 @@ description: Découvrez comment diagnostiquer et résoudre des exceptions introu
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 22cce2c620d23ab477de5d92bb8c6d4f5ef5a493
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b9a78c1adeb5aa833c7c60be1dc4e553ae7d5393
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425122"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110538842"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,6 +37,12 @@ Il existe plusieurs instances de client SDK et la lecture a eu lieu avant l’é
 #### <a name="solution"></a>Solution :
 1. La cohérence de compte par défaut pour Azure Cosmos DB est la cohérence de session. Lorsqu’un élément est créé ou mis à jour, la réponse retourne un jeton de session qui peut être transmis entre les instances de SDK pour garantir que la demande de lecture lit à partir d’un réplica avec cette modification.
 1. Affectez au [niveau de cohérence](./consistency-levels.md) un [niveau plus fort](./consistency-levels.md).
+
+### <a name="reading-throughput-for-a-container-or-database-resource"></a>Lire le débit d'un conteneur ou d'une base de données
+Utilisation de PowerShell ou d'Azure CLI, et réception d'un message d'erreur de type *introuvable*.
+
+#### <a name="solution"></a>Solution :
+Le débit peut être approvisionné au niveau de la base de données, du conteneur ou des deux. En cas d'erreur de type *introuvable*, essayez de lire le débit de la base de données parente ou du conteneur enfant.
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Combinaison de la clé de partition et de l’ID non valide
 La combinaison de la clé de partition et de l’ID n’est pas valide.
