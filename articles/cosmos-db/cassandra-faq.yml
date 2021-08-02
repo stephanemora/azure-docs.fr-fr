@@ -44,7 +44,7 @@ summary: >
 
   ## <a name="other-frequently-asked-questions"></a>Autres questions fréquentes
 sections:
-- name: Généralités
+- name: Général
   questions:
   - question: >
       Quelle version de protocole l’API Cassandra prend-elle en charge ?

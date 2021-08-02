@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
-ms.openlocfilehash: e4be6e297fafb3184224806f0bde4db468ce3b79
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 92e7f2af175182886dbc5904c5a50b485ca87d64
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788178"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681189"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -191,6 +192,9 @@ Voici les détails relatifs aux actions et aux arguments de l'application :
     2. Éventuellement, sélectionnez **Afficher la clé d’authentification** pour afficher le texte de la clé.
 
     3. Sélectionnez **Inscription**.
+
+> [!NOTE]
+> Les notes de publication sont disponibles sur la [page de téléchargement du runtime d’intégration Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="service-account-for-self-hosted-integration-runtime"></a>Compte de service du runtime d'intégration auto-hébergé
 
