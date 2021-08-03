@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: c4720cbfea072561e5413afd54407b7b0a7878ba
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229645"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757064"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)
 
 Cette page explique les principes qui sous-tendent la fonctionnalité d’accès aux machines virtuelles juste-à-temps (JAT) d’Azure Security Center et la logique qui sous-tend la recommandation.
 
-Pour savoir comment appliquer l’accès JAT à vos machines virtuelles à l’aide du portail Azure (Security Center ou Machines virtuelles Microsoft Azure) ou par programmation, consultez [Comment sécuriser vos ports de gestion à l’aide de l’accès JAT](security-center-just-in-time.md).
+Pour savoir comment appliquer l’accès JAT à vos machines virtuelles sur le Portail Azure (Security Center ou Machines virtuelles Azure) ou programmatiquement, consultez [Guide pratique pour sécuriser des ports de gestion avec l’accès JAT](security-center-just-in-time.md).
 
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>Risque inhérent à des ports de gestion ouverts sur une machine virtuelle

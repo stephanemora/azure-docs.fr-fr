@@ -5,23 +5,31 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 04/20/2018
+ms.date: 06/01/2021
 ms.author: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: fb6875b56b4cde41323984fd8495974d11db7f99
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ab44e9710fc4a0a86d3225b11f7755400bca0b79
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784086"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853295"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Utiliser cloud-init pour mettre à jour et installer des packages dans une machine virtuelle Linux sur Azure
 Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour mettre à jour des packages sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>Mettre à jour une machine virtuelle avec cloud-init
-Pour des raisons de sécurité, configurez une machine virtuelle pour appliquer les dernières mises à jour au premier démarrage. Étant donné que cloud-init fonctionne sur différentes distributions Linux, il est inutile de spécifier `apt` ou `yum` pour le gestionnaire de package. Vous définissez plutôt `package_upgrade` et laissez le processus cloud-init déterminer le mécanisme approprié pour la distribution en cours d’utilisation. Ce flux de travail vous permet d’utiliser les mêmes scripts cloud-init sur toutes les distributions.
+Pour des raisons de sécurité, configurez une machine virtuelle pour appliquer les dernières mises à jour au premier démarrage. Étant donné que cloud-init fonctionne sur différentes distributions Linux, il est inutile de spécifier `apt` ou `yum` pour le gestionnaire de package. Vous définissez plutôt `package_upgrade` et laissez le processus cloud-init déterminer le mécanisme approprié pour la distribution en cours d’utilisation. 
 
-Pour voir le processus de mise à niveau en action, créez dans l’interpréteur de commandes actif un fichier nommé *cloud_init_upgrade.txt* et collez-y la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_upgrade.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne.  
+Pour cet exemple, nous utilisons Azure Cloud Shell. Pour afficher le processus de mise à niveau en action, créez un fichier nommé *cloud_init_upgrade.txt* et collez-y la configuration suivante. 
+
+Sélectionnez le bouton **Essayer** dans le bloc de code ci-dessous pour ouvrir Cloud Shell. Pour créer le fichier et afficher une liste des éditeurs disponibles dans Cloud Shell, tapez ce qui suit :
+
+```azurecli-interactive
+sensible-editor cloud_init_upgrade.txt 
+```
+
+Copiez le texte ci-dessous et collez-le dans le fichier `cloud_init_upgrade.txt`. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne.  
 
 ```yaml
 #cloud-config
@@ -30,13 +38,13 @@ packages:
 - httpd
 ```
 
-Avant de déployer cette image, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+Avant le déploiement, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maintenant, créez une machine virtuelle avec [az vm create](/cli/azure/vm) et spécifiez le fichier cloud-init avec `--custom-data cloud_init_upgrade.txt` comme suit :
+Maintenant, créez une machine virtuelle avec [az vm create](/cli/azure/vm) et spécifiez le fichier cloud-init avec le paramètre `--custom-data` comme suit :
 
 ```azurecli-interactive 
 az vm create \

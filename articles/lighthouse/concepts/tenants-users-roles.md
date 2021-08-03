@@ -1,14 +1,14 @@
 ---
 title: Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
-description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
+description: Découvrez comment les locataires, les utilisateurs et les rôles Azure Active Directory peuvent être utilisés dans les scénarios Azure Lighthouse.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40b446063e828c694925ecfe5f530f570b162f32
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: bcb3c250d0973174e7356bd489b84938238af6e7
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786930"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074824"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 

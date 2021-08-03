@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 25deccdd190e13d3f0ade319c7a8243e20847ee6
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 328dd2145cb72de929c421e8688cd35db435ca30
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071047"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075301"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
 
@@ -44,7 +44,9 @@ Le moteur Logstash est constitué de trois composants :
 - Plug-ins de sortie : envoi personnalisé des données collectées et traitées vers diverses destinations.
 
 > [!NOTE]
-> - Azure Sentinel prend uniquement en charge son propre plug-in de sortie (fourni). La version actuelle de ce plug-in est v1.0.0, publiée le 25/08/2020. Il ne prend pas en charge les plug-ins de sortie Azure Sentinel tiers, ni aucun autre plug-in Logstash de quelque type que ce soit.
+> - Microsoft prend en charge uniquement le plug-in de sortie Logstash fourni par Azure Sentinel abordé ici. La version actuelle de ce plug-in est v1.0.0, publiée le 25/08/2020. Vous pouvez [ouvrir un ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) pour tous les problèmes concernant le plug-in de sortie.
+>
+> - Microsoft ne prend pas en charge les plug-ins de sortie Logstash tiers pour Azure Sentinel, ni aucun autre plug-in Logstash de quelque type que ce soit.
 >
 > - Le plug-in de sortie Logstash d’Azure Sentinel ne prend en charge que les **versions Logstash de 7.0 à 7.9**.
 

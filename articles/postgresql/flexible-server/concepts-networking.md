@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: b7019ac01666243d0d11bcfa80e0e96865482fc5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 06/04/2021
+ms.openlocfilehash: fbc9a4c3d315588c069a144cbcfd96cfc2d0b892
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756410"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559929"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -46,6 +46,8 @@ Les caractéristiques suivantes s’appliquent si vous choisissez d’utiliser l
 * Le serveur a un nom de domaine complet (FQDN). Pour la propriété du nom d’hôte dans les chaînes de connexion, nous vous recommandons d’utiliser le nom de domaine complet plutôt qu’une adresse IP.
 * Les deux options contrôlent l’accès au niveau du serveur, pas au niveau de la base de données ni de la table. Vous pouvez utiliser les propriétés des rôles de PostgreSQL pour contrôler l’accès à la base de données, à la table et à d’autres objets.
 
+>[!NOTE]
+> Étant donné qu’Azure Database pour PostgreSQL est un service de base de données managée, les utilisateurs ne disposent pas d’un accès à l’hôte ou au système d’exploitation pour afficher ou modifier les fichiers de configuration tels que `pg_hba.conf`. Le contenu du fichier est automatiquement mis à jour en fonction des paramètres réseau.
 
 ## <a name="private-access-vnet-integration"></a>Accès privé (intégration au réseau virtuel)
 L’accès privé avec intégration au réseau virtuel offre des communications privées et sécurisées à votre serveur flexible PostgreSQL.
@@ -68,27 +70,31 @@ Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels 
 
    Votre serveur flexible PostgreSQL doit se trouver sur un sous-réseau **délégué** réservé à l’usage de serveur flexible PostgreSQL. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver sur le sous-réseau délégué. Pour déléguer un sous-réseau, affectez à sa propriété de délégation la valeur Microsoft.DBforPostgreSQL/flexibleServers.
 
+   > [!IMPORTANT]
+   > Les noms comportant `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` et `GatewaySubnet` sont des noms réservés dans Azure. Veillez à ne pas les utiliser comme nom de sous-réseau.
+
 * **Groupes de sécurité réseau (NSG)**  : les règles de sécurité dans les groupes de sécurité réseau permettent de filtrer le type de trafic qui peut circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel. Pour plus d’informations, consultez la documentation [Vue d’ensemble des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
-* **Intégration de zone DNS privée** : l’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. Pour plus d’informations, consultez [la documentation relative aux zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-overview).
+* **Intégration de zone DNS privée** : l’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. Pour plus d’informations, consultez [la documentation relative aux zones DNS privées](../../dns/private-dns-overview.md).
 
 Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ### <a name="integration-with-custom-dns-server"></a>Intégration avec un serveur DNS personnalisé
 
-Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. L’adresse IP du redirecteur doit être [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) et le serveur DNS personnalisé doit être à l’intérieur du réseau virtuel. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
+Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. L’adresse IP du redirecteur doit être [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). Le serveur DNS personnalisé doit se trouver à l’intérieur du réseau virtuel ou être accessible via le paramètre de serveur DNS du réseau virtuel. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
 
 ### <a name="private-dns-zone-and-vnet-peering"></a>Zone DNS privée et appairage de réseaux virtuels
 
 Les paramètres de zone DNS privée et l’appairage de réseaux virtuels sont indépendants les uns des autres.
 
-* Par défaut, une nouvelle zone DNS privée est approvisionnée automatiquement par serveur à l’aide du nom de serveur fourni. Toutefois, si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](https://docs.microsoft.com/azure/dns/private-dns-overview).
-* Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Consultez la documentation [Lier le réseau virtuel](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+* Par défaut, une nouvelle zone DNS privée est approvisionnée automatiquement par serveur à l’aide du nom de serveur fourni. Toutefois, si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](../../dns/private-dns-overview.md).
+* Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Consultez la documentation [Lier le réseau virtuel](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
-> Les noms de zone DNS privée qui se terminent par `private.postgres.database.azure.com` peuvent seulement être liés.
+> Les noms de zone DNS privée qui se terminent par `postgres.database.azure.com` peuvent seulement être liés.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scénarios de réseau virtuel non pris en charge
+
 * Point de terminaison public (ou adresse IP publique ou DNS) : un serveur flexible déployé sur un réseau virtuel ne peut pas avoir de point de terminaison public.
 * Une fois le serveur flexible déployé sur un réseau virtuel et un sous-réseau, vous ne pouvez pas le déplacer vers un autre réseau virtuel ou sous-réseau. Vous ne pouvez pas déplacer le réseau virtuel vers un autre groupe de ressources ou abonnement.
 * Il est impossible d’augmenter la taille d’un sous-réseau (espaces d’adressage) une fois qu’il existe des ressources sur ce sous-réseau.
@@ -96,6 +102,7 @@ Les paramètres de zone DNS privée et l’appairage de réseaux virtuels sont 
 
 
 ## <a name="public-access-allowed-ip-addresses"></a>Accès public (adresses IP autorisées)
+
 Les caractéristiques de la méthode d’accès public sont les suivantes :
 * Seules les adresses IP que vous autorisez peuvent accéder à votre serveur flexible PostgreSQL. Par défaut, aucune adresse IP n’est autorisée. Vous pouvez ajouter des adresses IP lors de la création du serveur ou par la suite.
 * Votre serveur PostgreSQL a un nom DNS résolvable publiquement.

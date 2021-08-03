@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 3a6afa0fadf5a84ad938b0b0cec321c0e17adeff
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e26434ae1ff2f9d8829d3665807f7d9916233833
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317520"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792235"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Répliquer des données via ExpressRoute avec Azure Migrate : migration de serveur
 
@@ -87,7 +87,7 @@ Seul un compte de stockage v2 universel offre la possibilité de créer des poin
 1. Sous **Confirmer la mise à niveau**, entrez le nom de votre compte.
 1. Sélectionnez **Mettre à niveau** en bas de la page.
 
-   ![Capture d’écran montrant comment mettre à niveau un compte de stockage.](./media/replicate-using-expressroute/upgrade-storage-account.png)
+   ![Capture d’écran montrant comment mettre à niveau un compte de stockage.](./media/replicate-using-expressroute/upgrade-storage-account.png) 
 
 ### <a name="create-a-private-endpoint-for-the-storage-account"></a>Créer un point de terminaison privé pour le compte de stockage
 
@@ -148,7 +148,27 @@ Pour créer manuellement une zone DNS privée, procédez comme suit :
     1. Sur la page **Ajouter un jeu d’enregistrements**, ajoutez une entrée pour le nom FQDN et l’adresse IP privée sous la forme d’un enregistrement de type A.
 
 > [!Important]
-> Des paramètres DNS supplémentaires peuvent se révéler nécessaires pour résoudre l’adresse IP privée du point de terminaison privé du compte de stockage à partir de l’environnement source. Pour connaître la configuration DNS nécessaire, consultez [Configuration DNS du point de terminaison privé Azure](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+> Des paramètres DNS supplémentaires peuvent se révéler nécessaires pour résoudre l’adresse IP privée du point de terminaison privé du compte de stockage à partir de l’environnement source. Pour connaître la configuration DNS nécessaire, consultez [Configuration DNS du point de terminaison privé Azure](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).  
+
+### <a name="verify-network-connectivity-to-the-storage-account"></a>Vérification de la connectivité réseau au compte de stockage
+
+Pour valider la connexion de liaison privée, effectuez une résolution DNS du point de terminaison de la ressource du compte de stockage de cache sur la machine virtuelle locale qui héberge l’appliance Azure Migrate. Vérifiez que vous obtenez une adresse IP privée.
+
+Voici un exemple illustrant la résolution DNS du compte de stockage de cache. 
+
+- Entrez nslookup _nom-compte-stockage_.blob.core.windows.nett. Remplacez <nom-compte-stockage> par le nom du compte de stockage de cache créé par Azure Migrate.  
+
+    Vous recevrez un message similaire à celui ci :  
+
+   ![Exemple de résolution DNS](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
+
+- L’adresse IP privée 10.1.0.5 est retournée pour le compte de stockage. Cette adresse doit appartenir au point de terminaison privé du compte de stockage. 
+
+Si la résolution DNS est incorrecte, procédez comme suit :  
+
+- **Conseil :** Vous pouvez mettre à jour manuellement les enregistrements DNS de votre environnement source en modifiant le fichier d’hôtes DNS sur votre appliance locale avec le lien FQDN du compte de stockage (_nom-compte-stockage_.blob.core.windows.net) et l’adresse IP privée associée. Cette option n’est recommandée qu’à des fins de test. 
+- Si vous utilisez un DNS personnalisé, vérifiez vos paramètres DNS personnalisés et confirmez que la configuration DNS est correcte. Pour obtenir de l’aide, consultez [Vue d’ensemble du point de terminaison privé : configuration DNS](../private-link/private-endpoint-overview.md#dns-configuration). 
+- Si vous utilisez des serveurs DNS fournis par Azure, utilisez ce guide comme référence pour la [résolution avancée des problèmes](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone).   
 
 ## <a name="replicate-data-by-using-an-expressroute-circuit-with-microsoft-peering"></a>Réplication des données à l’aide d’un circuit ExpressRoute avec peering Microsoft
 
@@ -181,7 +201,7 @@ Pour configurer la liste de contournement du proxy sur le serveur de configurati
 1. Téléchargez [l’outil PsExec](/sysinternals/downloads/psexec) pour accéder au contexte de l’utilisateur système.
 1. Ouvrez Internet Explorer dans le contexte de l’utilisateur système en exécutant la ligne de commande suivante : `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
 1. Ajoutez des paramètres de proxy dans Internet Explorer.
-1. Dans la liste de contournement, ajoutez l’URL du Stockage Azure : *.blob.core.windows.net.
+1. Dans la liste de contournement, ajoutez les URL *.blob.core.windows.net, *.hypervrecoverymanager.windowsazure.com et *.backup.windowsazure.com. 
 
 Les règles de contournement ci-dessus garantissent que le trafic de réplication peut transiter par ExpressRoute, tandis que la communication de gestion peut accéder à Internet via le proxy.
 

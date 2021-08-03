@@ -1,6 +1,6 @@
 ---
 title: Utilisation d’un partage de fichiers Azure avec Windows | Microsoft Docs
-description: Apprenez à utiliser des partages de fichiers Azure avec Windows et Windows Server. Utilisez des partages de fichiers Azure avec SMB 3.0 sur des installations Windows exécutées localement ou sur des machines virtuelles Azure.
+description: Apprenez à utiliser des partages de fichiers Azure avec Windows et Windows Server. Utilisez des partages de fichiers Azure avec SMB 3.x sur des installations Windows exécutées localement ou sur des machines virtuelles Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,34 +8,35 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31df90823591298a13dba725b7215031cad4bf8d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789786"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064807"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
 
-Pour utiliser un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.0. 
+Pour utiliser un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.x. 
 
 Vous pouvez utiliser des partages de fichiers Azure sur une installation Windows en cours d’exécution dans une machine virtuelle Azure ou localement. Le tableau suivant illustre les versions du système d’exploitation qui prennent en charge l’accès aux partages de fichiers dans un environnement donné :
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Oui | Oui |
-| Windows 10<sup>1</sup> | SMB 3.0 | Oui | Oui |
-| Canal semestriel Windows Server<sup>2</sup> | SMB 3.0 | Oui | Oui |
-| Windows Server 2016 | SMB 3.0 | Oui | Oui |
+| Windows Server 2019 | SMB 3.1.1 | Oui | Oui |
+| Windows 10<sup>1</sup> | SMB 3.1.1 | Oui | Oui |
+| Canal semestriel Windows Server<sup>2</sup> | SMB 3.1.1 | Oui | Oui |
+| Windows Server 2016 | SMB 3.1.1 | Oui | Oui |
+| Windows 10, version 1507 | SMB 3.0 | Oui | Oui |
 | Windows 8.1 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 R2 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 | SMB 3.0 | Oui | Oui |
 | Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1803, 1809, 1903, 1909 et 2004.  
-<sup>2</sup>Windows Server, versions 1809, 1903, 1909, 2004.  
+<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004 et 20H2  
+<sup>2</sup>Windows Server, versions 2004 et 20H2.  
 <sup>3</sup>Le support Microsoft standard pour Windows 7 et Windows Server 2008 R2 a pris fin. Il est possible d’acheter du support supplémentaire pour les mises à jour de sécurité par l’intermédiaire du [Programme des correctifs de sécurité étendus (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates) uniquement. Nous vous recommandons vivement de procéder à la migration de ces systèmes d’exploitation.
 
 > [!Note]  

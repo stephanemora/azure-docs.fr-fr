@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
-description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
+description: Azure Lighthouse vous aide à gérer efficacement Azure Sentinel sur des ressources client déléguées.
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702519"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077823"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 

@@ -1,22 +1,22 @@
 ---
 title: Comprendre le routage des messages IoT Hub | Microsoft Docs
 description: 'Guide du développeur : Comment utiliser le routage de messages pour envoyer des messages appareil-à-cloud. Inclut des informations sur l’envoi de données de télémétrie et d’autres données.'
-author: ash2017
-manager: briz
+author: nehsin
+manager: mehmet.kucukgoz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: asrastog
+ms.date: 05/14/2021
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: c9c0b2807962aaddc2f3b6cef6a261084b21714c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: d7f6030e8d4d2807084d212713df8630f2d7a17a
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715769"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191723"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -24,7 +24,7 @@ ms.locfileid: "109715769"
 
 Le routage des messages vous permet d’envoyer des messages de vos appareils vers des services cloud de façon automatisée, évolutive et fiable. Le routage des messages peut être utilisé pour : 
 
-* **L’envoi des événements et des messages relatifs à la télémétrie des appareils**, c’est-à-dire les événements de cycle de vie des appareils, les événements de modification des jumeaux d’appareil et les événements de modification des jumeaux numériques aux points de terminaison intégrés et aux de points de terminaison personnalisés. Découvrez plus d’informations sur les [points de terminaison de routage](#routing-endpoints). Pour en savoir plus sur les événements envoyés par les appareils IoT Plug-and-Play, consultez [Comprendre les jumeaux numériques IoT Plug-and-Play](../iot-pnp/concepts-digital-twin.md).
+* **L’envoi des événements et des messages relatifs à la télémétrie des appareils**, c’est-à-dire les événements de cycle de vie des appareils, les événements de modification des jumeaux d’appareil, les événements de modification des jumeaux numériques et les événements d’état de la connexion de l’appareil aux points de terminaison intégrés et aux points de terminaison personnalisés. Découvrez plus d’informations sur les [points de terminaison de routage](#routing-endpoints). Pour en savoir plus sur les événements envoyés par les appareils IoT Plug-and-Play, consultez [Comprendre les jumeaux numériques IoT Plug-and-Play](../iot-pnp/concepts-digital-twin.md).
 
 * **Le filtrage des données avant leur routage vers différents points de terminaison** en appliquant des requêtes avancées. Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Découvrez plus d’informations sur l’utilisation de [requêtes dans le routage des messages](iot-hub-devguide-routing-query-syntax.md).
 
@@ -120,15 +120,24 @@ Utilisez les tutoriels suivants pour découvrir comment lire les messages à par
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 
-La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
+La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré. 
 
 Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
 
 ## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
 
-En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils et des événements de modification du jumeau numérique. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Enfin, dans le cadre d’[Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des routes avec une source de données définie sur les **événements de modification du jumeau numérique** et IoT Hub envoie des messages chaque fois qu’une propriété de jumeau numérique est définie ou changée, qu’un jumeau numérique est remplacé ou quand un événement de modification se produit pour le jumeau d’appareil sous-jacent.
+En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil, des événements du cycle de vie des appareils, des événements de modification du jumeau numérique et des événements d’état de la connexion de l’appareil. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. Dans le cadre [d’Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), un développeur peut créer des routes avec une source de données définie sur les **événements de modification du jumeau numérique**. IoT Hub envoie des messages chaque fois qu’une propriété de jumeau numérique est définie ou modifiée, qu’un jumeau numérique est remplacé ou quand un événement de modification se produit pour le jumeau d’appareil sous-jacent. Enfin, si une route est créée avec la source de données définie sur **Événements d’état de la connexion de l’appareil**, IoT Hub envoie un message qui indique si l’appareil a été connecté ou déconnecté.
+
 
 [IoT Hub s’intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d’appareils et prendre en charge les intégrations en temps réel ainsi que l’automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
+
+## <a name="limitations-for-device-connection-state-events"></a>Limitations pour les événements d’état de connexion de l’appareil
+
+Pour recevoir des événements d’état de connexion de l’appareil, un appareil doit appeler une opération *d’envoi de données de télémétrie appareil-à-cloud* ou de *réception de message cloud-à-appareil* avec IoT Hub. Toutefois, si un appareil utilise le protocole AMQP pour se connecter à IoT Hub, il est recommandé d’effectuer une opération *réception de message cloud-à-appareil*. Sinon, les notifications d’état de la connexion peuvent être retardées de quelques minutes. Si votre appareil se connecte via le protocole MQTT, IoT Hub maintient la liaison cloud-à-appareil ouverte. Pour ouvrir la liaison cloud-à-appareil pour AMQP, appelez [l’API Receive Async](/rest/api/iothub/device/receivedeviceboundnotification).
+
+La liaison appareil-à-cloud reste ouverte tant que l’appareil envoie des données de télémétrie.
+
+Si la connexion de l’appareil est intermittente, c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment, IoT Hub n’envoie pas chaque état de connexion unique, mais publie l’état de connexion actuel pris à un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
 
 ## <a name="testing-routes"></a>Test des routes
 

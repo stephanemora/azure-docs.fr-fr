@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 448784987f3304303a1bd47c2038440db5cdd194
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91540521"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063231"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Compétence cognitive Détection PII
 
@@ -41,16 +41,17 @@ Les paramètres respectent la casse et sont tous facultatifs.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Code de langue du texte d’entrée. Pour le moment, seul `en` est pris en charge. |
+| `defaultLanguageCode` | (Facultatif) Code de langue à appliquer aux documents qui ne spécifient pas explicitement une langue.  Si le code de langue par défaut n’est pas spécifié, l’anglais (en) est utilisé comme code de langue par défaut. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/text-analytics/language-support.md). |
 | `minimumPrecision` | Valeur comprise entre 0.0 et 1.0. Si le score de confiance (dans la sortie `piiEntities`) est inférieur à la valeur `minimumPrecision` définie, l’entité n’est pas retournée ou masquée. L’option par défaut est 0.0. |
-| `maskingMode` | Paramètre qui fournit différentes façons de masquer les informations personnelles détectées dans le texte d'entrée. Les options suivantes sont prises en charge : <ul><li>`none` (par défaut) : Aucun masquage n'intervient et la sortie `maskedText` n'est pas renvoyée. </li><li> `redact` : Supprime les entités détectées du texte d'entrée et ne remplace pas les valeurs supprimées. Dans ce cas, le décalage dans la sortie `piiEntities` est lié au texte d'origine, et non au texte masqué. </li><li> `replace` : Remplace les entités détectées par le caractère spécifié dans le paramètre `maskingCharacter`. Le caractère est répété sur la longueur de l’entité détectée afin que les décalages correspondent correctement à la fois au texte d’entrée et au `maskedText` de sortie.</li></ul> |
-| `maskingCharacter` | Caractère utilisé pour masquer le texte si le paramètre `maskingMode` est défini sur `replace`. Les options suivantes sont prises en charge : `*` (par défaut), `#`, `X`. Ce paramètre peut uniquement être `null` si `maskingMode` n’est pas défini sur `replace`. |
+| `maskingMode` | Paramètre qui fournit différentes façons de masquer les informations personnelles détectées dans le texte d'entrée. Les options suivantes sont prises en charge : <ul><li>`none` (par défaut) : Aucun masquage n'intervient et la sortie `maskedText` n'est pas renvoyée. </li><li> `replace` : Remplace les entités détectées par le caractère spécifié dans le paramètre `maskingCharacter`. Le caractère est répété sur la longueur de l’entité détectée afin que les décalages correspondent correctement à la fois au texte d’entrée et au `maskedText` de sortie.</li></ul> <br/> Au cours de la préversion de PIIDetectionSkill, l’option `maskingMode` `redact` était également prise en charge, ce qui permettait de supprimer entièrement les entités détectées sans remplacement. Depuis, l’option `redact` a été dépréciée et n’est plus prise en charge dans la compétence. |
+| `maskingCharacter` | Caractère utilisé pour masquer le texte si le paramètre `maskingMode` est défini sur `replace`. L’option suivante est prise en charge : `*` (par défaut). Ce paramètre peut uniquement être `null` si `maskingMode` n’est pas défini sur `replace`. <br/><br/> Au cours de la préversion de PIIDetectionSkill, des options `maskingCharacter` supplémentaires `X` et `#` ont été prises en charge. Depuis, les options `X` et `#` ont été dépréciées et ne sont plus prises en charge dans la compétence. |
+| `modelVersion`   | (Facultatif) Version du modèle à utiliser lors de l’appel du service Analyse de texte. Si rien n’est spécifié, c’est la version la plus récente qui est utilisée par défaut. Nous vous recommandons de ne pas spécifier cette valeur, sauf nécessité absolue. Pour plus d’informations, consultez [Contrôle de version de modèle dans l’API Analyse de texte](../cognitive-services/text-analytics/concepts/model-versioning.md). |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
 | Nom d’entrée      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | facultatif. La valeur par défaut est `en`.  |
+| `languageCode`    | Chaîne indiquant la langue des enregistrements. Si ce paramètre n’est pas spécifié, le code de langue par défaut est utilisé pour l’analyse des enregistrements. <br/>Voir la [Liste complète des langues prises en charge](../cognitive-services/text-analytics/language-support.md).  |
 | `text`          | Texte à analyser.          |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence

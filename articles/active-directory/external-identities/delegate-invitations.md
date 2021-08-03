@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 06/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd3ef3ed0ad072bb0e9284892fa5455660d1c40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645821"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963617"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -51,19 +51,16 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 
    - **L’accès utilisateur invité est limité aux propriétés et aux appartenances de ses propres objets d’annuaire (le plus restrictif)**  : Avec ce paramètre, les invités ne peuvent accéder qu’à leurs propres profils. Les invités ne sont pas autorisés à voir les profils, groupes ou appartenances à des groupes d’autres utilisateurs.
 
-
 5. Sous **Paramètres d’invitation d’invités**, choisissez les paramètres appropriés :
 
     ![Paramètres d’invitation d’invités](./media/delegate-invitations/guest-invite-settings.png)
 
-   - **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** : Pour autoriser les administrateurs et utilisateurs ayant le rôle « Inviteur d’invités » à inviter des invités, définissez cette stratégie sur **Oui**.
-
-   - **Les membres peuvent inviter** : pour autoriser des membres autres que des administrateurs de votre annuaire à inviter des invités, définissez cette stratégie sur **Oui**.
-
-   - **Les invités peuvent inviter** : pour autoriser les invités à en inviter d’autres, définissez cette stratégie sur **Oui**.
-
-   > [!NOTE]
-   > Si **Les membres peuvent inviter** est défini sur **Non** et **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** est défini sur **Oui**, les utilisateurs du rôle **Inviteur d’invité** pourront toujours inviter des utilisateurs.
+   - **Toute personne de l’organisation peut inviter des utilisateurs invités, y compris des invités et des non administrateurs (option la plus inclusive)**  : Pour permettre aux invités de l’organisation d’inviter d’autres invités, y compris ceux qui ne sont pas membres de l’organisation, sélectionnez cette case d’option.
+   - **Les utilisateurs membres et les utilisateurs affectés à des rôles Administrateur spécifiques peuvent inviter des utilisateurs invités, y compris des invités disposant d’autorisations de membre** : Pour permettre aux utilisateurs membres et aux utilisateurs ayant des rôles Administrateur spécifiques d’inviter des invités, sélectionnez cette case d’option.
+   - **Seuls les utilisateurs affectés à des rôles Administrateur spécifiques peuvent inviter des utilisateurs invités** : Pour autoriser uniquement les utilisateurs ayant des rôles Administrateur à inviter des invités, sélectionnez cette case d’option. Les rôles Administrateur sont les suivants : [Administrateur général](../roles/permissions-reference.md#global-administrator), [Administrateur d’utilisateurs](../roles/permissions-reference.md#user-administrator) et [Inviteur](../roles/permissions-reference.md#guest-inviter).
+   - **Aucune personne dans l’organisation ne peut inviter des utilisateurs invités, y compris les administrateurs (option la plus restrictive)**  : Pour empêcher toute personne dans l’organisation d’inviter des invités, sélectionnez cette case d’option.
+     > [!NOTE]
+     > Si **Les membres peuvent inviter** est défini sur **Non** et **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** est défini sur **Oui**, les utilisateurs du rôle **Inviteur d’invité** pourront toujours inviter des utilisateurs.
 
 6. Sous **Envoi d’un code secret à usage unique par e-mail pour les invités**, choisissez les paramètres appropriés (pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail](one-time-passcode.md)) :
 
@@ -101,5 +98,4 @@ Consultez les articles suivants sur Azure AD B2B Collaboration :
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Ajouter des utilisateurs invités B2B Collaboration sans invitation](add-user-without-invite.md)
-- [Ajout d’un utilisateur B2B Collaboration à un rôle](add-guest-to-role.md)
-
+- [Ajout d’un utilisateur B2B Collaboration à un rôle](./add-users-administrator.md)

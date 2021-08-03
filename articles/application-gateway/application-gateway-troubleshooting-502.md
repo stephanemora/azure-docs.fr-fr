@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 23afe1e91a07277a3b6e583fcf5d767a843ef4e5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2f1892ab7cafae0b344026ed73a801ca30f4d9ee
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320472"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111421541"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
@@ -131,7 +131,7 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 
 ### <a name="cause"></a>Cause
 
-À réception d’une requête de l’utilisateur, la passerelle d’application applique les règles configurées à la demande et achemine cette demande à une instance de pool principal. Application Gateway observe un temps d’attente (configurable) pour recevoir une réponse de l’instance de serveur principal. Par défaut, cet intervalle est de **20** secondes. Si la passerelle d’application ne reçoit pas de réponse de l’application principale dans cet intervalle, la requête de l’utilisateur reçoit une erreur 502.
+À réception d’une requête de l’utilisateur, la passerelle d’application applique les règles configurées à la demande et achemine cette demande à une instance de pool principal. Application Gateway observe un temps d’attente (configurable) pour recevoir une réponse de l’instance de serveur principal. Par défaut, cet intervalle est de **20** secondes. Dans Application Gateway v1, si la passerelle d’application ne reçoit pas de réponse de l’application principale dans cet intervalle, la requête de l’utilisateur reçoit une erreur 502.  Dans Application Gateway v2, si la passerelle d’application ne reçoit pas de réponse de l’application principale dans cet intervalle, la requête est tentée sur un deuxième membre du pool back-end.  Si la deuxième requête échoue, la demande de l’utilisateur reçoit une erreur 502.
 
 ### <a name="solution"></a>Solution
 

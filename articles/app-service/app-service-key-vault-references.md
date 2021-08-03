@@ -3,15 +3,15 @@ title: Utiliser des références Key Vault
 description: Découvrez comment configurer Azure App Service et Azure Functions pour leur faire utiliser des références Azure Key Vault. Mettez les secrets Key Vault à la disposition de votre code d’application.
 author: mattchenderson
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0ca620d50706f10081e955cf206fcf8c06ae5fd4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064932"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578113"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -77,7 +77,7 @@ Si aucune version n’est spécifiée dans la référence, l’application utili
 
 Les références Key Vault peuvent servir de valeurs pour les [Paramètres d’application](configure-common.md#configure-app-settings), ce qui vous permet de garder des secrets dans Key Vault au lieu de la configuration de site. Les paramètres d’application sont chiffrés au repos de manière sécurisée, mais si vous avez besoin de fonctionnalités de gestion des secrets, ils doivent être gardés dans Key Vault.
 
-Afin d’utiliser une référence Key Vault pour un paramètre d’application, définissez la référence comme valeur du paramètre. Votre application peut référencer le secret par le biais de sa clé comme d’habitude. Le code n’a pas besoin d’être modifié.
+Pour utiliser une référence Key Vault pour un [paramètre d’application](configure-common.md#add-or-edit), définissez la référence comme valeur du paramètre. Votre application peut référencer le secret par le biais de sa clé comme d’habitude. Le code n’a pas besoin d’être modifié.
 
 > [!TIP]
 > La plupart des paramètres d’application qui utilisent des références Key Vault doivent être marqués comme des paramètres d’emplacement, car vous devez avoir des coffres distincts pour chaque environnement.
@@ -161,8 +161,8 @@ Voici à quoi peut ressembler un exemple de pseudo-modèle d’application de fo
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').tenantId]",
-                        "objectId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
@@ -179,7 +179,7 @@ Voici à quoi peut ressembler un exemple de pseudo-modèle d’application de fo
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2015-05-01-preview').key1)]"
+                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2019-09-01').key1)]"
                     }
                 },
                 {
@@ -191,7 +191,7 @@ Voici à quoi peut ressembler un exemple de pseudo-modèle d’application de fo
                         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
                     ],
                     "properties": {
-                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2019-09-01').InstrumentationKey]"
                     }
                 }
             ]

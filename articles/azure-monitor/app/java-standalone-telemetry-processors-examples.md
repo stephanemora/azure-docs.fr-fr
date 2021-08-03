@@ -6,17 +6,17 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5d704ed2213a77873780a005823f25541e6563d0
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734585"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895343"
 ---
 # <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Exemples de processeurs de télémétrie - Azure Monitor Application Insights pour Java
 
 Cet article fournit des exemples de processeurs de télémétrie dans Application Insights pour Java. Vous trouverez des exemples pour les configurations d’inclusion et d’exclusion. Vous y trouverez également des exemples pour les processeurs d’attributs et les processeurs d’étendue.
-## <a name="include-and-exclude-samples"></a>Exemples d’inclusion et d’exclusion
+## <a name="include-and-exclude-span-samples"></a>Exemples d’inclusion et d’exclusion d’étendues
 
 Dans cette section, vous allez apprendre à inclure et exclure des étendues. Vous verrez également comment exclure plusieurs étendues et appliquer un traitement sélectif.
 ### <a name="include-spans"></a>Inclure des étendues
@@ -104,7 +104,7 @@ Cette étendue ne correspond pas aux propriétés d’exclusion et les actions d
 Cette section montre comment exclure des étendues pour un processeur d’attributs. Les étendues correspondant aux propriétés ne sont pas traitées par ce processeur.
 
 Une correspondance requiert que les conditions suivantes soient remplies :
-* Un attribut (par exemple `env` ou `dev`) doit exister dans l’étendue.
+* Il faut qu’un attribut (par exemple `env` avec la valeur `dev`) existe dans l’étendue.
 * L’étendue doit avoir un attribut qui a la clé `test_request`.
 
 Les étendues suivantes correspondent aux propriétés d’exclusion et les actions du processeur ne sont pas appliquées.
@@ -202,11 +202,12 @@ Ces étendues ne correspondent pas aux propriétés d’inclusion et les actions
   }
 }
 ```
+
 ## <a name="attribute-processor-samples"></a>Exemples de processeurs d’attributs
 
 ### <a name="insert"></a>Insérer
 
-L’exemple suivant insère le nouvel attribut `{"attribute1": "attributeValue1"}` dans des étendues où la clé `attribute1` n’existe pas.
+L’exemple suivant insère le nouvel attribut `{"attribute1": "attributeValue1"}` dans des étendues et des journaux où la clé `attribute1` n’existe pas.
 
 ```json
 {
@@ -230,7 +231,7 @@ L’exemple suivant insère le nouvel attribut `{"attribute1": "attributeValue1"
 
 ### <a name="insert-from-another-key"></a>Insérer à partir d’une autre clé
 
-L’exemple suivant utilise la valeur de l’attribut `anotherkey` pour insérer le nouvel attribut `{"newKey": "<value from attribute anotherkey>"}` dans des étendues où la clé `newKey` n’existe pas. Si l’attribut `anotherkey` n’existe pas, aucun nouvel attribut n’est inséré dans les étendues.
+L’exemple suivant utilise la valeur de l’attribut `anotherkey` pour insérer le nouvel attribut `{"newKey": "<value from attribute anotherkey>"}` dans des étendues et des journaux où la clé `newKey` n’existe pas. Si l’attribut `anotherkey` n’existe pas, aucun nouvel attribut n’est inséré dans les étendues et journaux.
 
 ```json
 {
@@ -254,7 +255,7 @@ L’exemple suivant utilise la valeur de l’attribut `anotherkey` pour insérer
 
 ### <a name="update"></a>Update
 
-L’exemple suivant met à jour l’attribut avec la valeur `{"db.secret": "redacted"}`. Il met à jour l’attribut `boo` en utilisant la valeur de l’attribut `foo`. Les étendues qui n’ont pas l’attribut `boo` ne changent pas.
+L’exemple suivant met à jour l’attribut avec la valeur `{"db.secret": "redacted"}`. Il met à jour l’attribut `boo` en utilisant la valeur de l’attribut `foo`. Les étendues et journaux qui ne possèdent pas l’attribut `boo` ne changent pas.
 
 ```json
 {
@@ -477,6 +478,66 @@ L’exemple suivant montre comment modifier le nom d’étendue en `{operation_w
             ]
           }
         }
+      }
+    ]
+  }
+}
+```
+
+
+## <a name="log-processor-samples"></a>Exemples de processeurs de journaux
+
+### <a name="extract-attributes-from-a-log-message-body"></a>Extraction des attributs du corps d’un message de journal
+
+Supposons que le corps du message de journal d’entrée soit `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. L’exemple suivant donne en sortie le corps du message `Starting PetClinicApplication on WorkLaptop with PID {PIDVALUE} (C:\randompath\target\classes started by userx in C:\randompath)`. Il ajoute le nouvel attribut `PIDVALUE=27984` au journal.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^Starting PetClinicApplication on WorkLaptop with PID (?<PIDVALUE>\\d+) .*"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### <a name="masking-sensitive-data-in-log-message"></a>Masquage de données sensibles dans un message de journal
+
+L’exemple suivant montre comment masquer les données sensibles dans le corps d’un message de journal à l’aide du processeur de journaux et du processeur d’attributs.
+Supposons que le corps du message de journal d’entrée soit `User account with userId 123456xx failed to login`. Le processeur de journaux remplace le corps du message de sortie par `User account with userId {redactedUserId} failed to login`. Le processeur d’attributs, lui, supprime le nouvel attribut `redactedUserId` qui a été ajouté à l’étape précédente.
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "body": {
+          "toAttributes": {
+            "rules": [
+              "^User account with userId (?<redactedUserId>\\d+) .*"
+            ]
+          }
+        }
+      },
+      {
+        "type": "attribute",
+        "actions": [
+          {
+            "key": "redactedUserId",
+            "action": "delete"
+          }
+        ]
       }
     ]
   }

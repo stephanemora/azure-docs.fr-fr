@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590229"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075195"
 ---
 # <a name="connect-your-domain-name-server"></a>Connecter votre serveur de noms de domaine
 
 > [!IMPORTANT]
 > Le connecteur de données DNS dans Azure Sentinel est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette fonctionnalité est fournie sans contrat de niveau de service et n’est pas recommandée pour des charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!CAUTION]
+> L’activation de la solution DNS peut entraîner une utilisation élevée du processeur sur la machine cible. Comme indiqué ci-dessus, ce connecteur n’est pas recommandé pour une utilisation dans un environnement de production. Nous travaillons actuellement pour fournir une version stable de ce connecteur en disponibilité générale.
 
 Vous pouvez vous connecter n’importe quel serveur DNS (Domain Name Server) s’exécutant sous Windows à Azure Sentinel. Pour cela, vous devez installer un agent sur l’ordinateur DNS. À l’aide des journaux DNS, vous pouvez obtenir des informations sur la sécurité, les performances et les opérations dans l’infrastructure DNS de votre organisation, en collectant, analysant et mettant en corrélation des analyses et des journaux d’audit, ainsi que d’autres des données connexes des serveurs DNS.
 

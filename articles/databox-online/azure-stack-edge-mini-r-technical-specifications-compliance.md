@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8f48a007069c243442888f47ed75deb75b271df6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1f57e7f25a9e34a88c9ae279083a2cf1d9be2ff1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108759830"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099421"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Spécifications techniques de l’appareil Azure Stack Edge Mini R
 
@@ -54,7 +54,7 @@ L’appareil Azure Stack Edge Mini R a 1 disque de données et 1 disque de déma
 |    Capacité totale (données uniquement)              |    1 To                                                |
 |    Capacité utilisable totale*                  |    ~ 750 Go                                            |
 
-**Une partie de l’espace est réservé à un usage interne.*
+*Une partie de l’espace est réservé à un usage interne.*
 
 ## <a name="network"></a>Réseau
 
@@ -62,15 +62,11 @@ L’appareil Azure Stack Edge Mini R présente les caractéristiques suivantes 
 
 |Caractéristique         |Valeur                                                               |
 |----------------------|--------------------------------------------------------------------|
-|Interfaces réseau    |2 SFP+ de 10 Gbits/s <br> Affichés sous le nom PORT 3 et PORT 4 dans l’interface utilisateur locale     |
-|Interfaces réseau    |2 RJ45 de 1 Gbits/s <br> Affichés sous le nom PORT 1 et PORT 2 dans l’interface utilisateur locale      |
+|Interfaces réseau    |2 SFP+ de 10 Gbits/s <br> Affichés sous le nom PORT 3 et PORT 4 dans l’interface utilisateur locale    |
+|Interfaces réseau    |2 RJ45 de 1 Gbits/s <br> Affichés sous le nom PORT 1 et PORT 2 dans l’interface utilisateur locale     |
 |Wi-Fi                 |802.11ac                                                            |
 
-|Caractéristique  |Valeur  |
-|---------|---------|
-|Interfaces réseau    |2 x 10 GbE SFP+ <br> Affichés sous le nom PORT 3 et PORT 4 dans l’interface utilisateur locale           |
-|Interfaces réseau    |2 x 1 GbE RJ45 <br> Affichés sous le nom PORT 1 et PORT 2 dans l’interface utilisateur locale          |
-|Wi-Fi   |802.11ac         |
+## <a name="routers-and-switches"></a>Routeurs et commutateurs
 
 Les routeurs et commutateurs suivants sont compatibles avec les interfaces réseau SPF+ de 10 Gbits/s (ports 3 et 4) sur vos appareils Azure Stack Edge Mini R :
 
@@ -85,7 +81,7 @@ Les routeurs et commutateurs suivants sont compatibles avec les interfaces rése
 
 ## <a name="transceivers-cables"></a>Transmetteurs, câbles
 
-Les transmetteurs et câbles SFP+ (10 Gbits/s) cuivre suivants sont vivement recommandés pour les utiliser avec des appareils Azure Stack Edge Mini R. Les câbles à fibre optique compatibles peuvent être utilisés avec les interfaces réseau SFP+ (ports 3 et 4), mais ils n’ont pas été testés. 
+Les transmetteurs et câbles SFP+ (10 Gbits/s) cuivre suivants sont vivement recommandés pour les utiliser avec des appareils Azure Stack Edge Mini R. Les câbles à fibre optique compatibles peuvent être utilisés avec les interfaces réseau SFP+ (ports 3 et 4), mais ils n’ont pas été testés.
 
 |Type de transmetteur SFP+ |Câbles pris en charge    | Notes |
 |----------------------|--------------------|-------|
@@ -108,7 +104,6 @@ Le tableau suivant présente les spécifications du bloc d’alimentation :
 L’appareil Azure Stack Edge Mini R inclut également une batterie intégrée qui est chargée par le bloc d’alimentation.
 
 Une [batterie de type 2590](https://www.bren-tronics.com/bt-70791ck.html) supplémentaire peut être utilisée avec la batterie intégrée pour prolonger le temps d’utilisation de l’appareil entre les charges. Cette batterie doit être conforme à toutes les réglementations relatives à la sécurité, au transport et à l’environnement applicables dans le pays d’utilisation.
-
 
 | Caractéristique            | Valeur      |
 |--------------------------|------------|

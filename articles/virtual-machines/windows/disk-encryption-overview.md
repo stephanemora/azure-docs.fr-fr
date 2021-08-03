@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e95f770a3335d66eae0a690e148c4d6ddc22d5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555327"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748568"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption pour les machines virtuelles Windows
 
@@ -64,6 +64,9 @@ L’activation d’Azure Disk Encryption nécessite que les machines virtuelles 
 Azure Disk Encryption utilise le protecteur de clé externe BitLocker pour les machines virtuelles Windows. Pour les machines virtuelles jointes à un domaine, n’envoyez (push) pas de stratégies de groupe qui appliquent des protecteurs de Module de plateforme sécurisée (TPM). Pour en savoir plus sur la stratégie de groupe pour « Autoriser BitLocker sans un module de plateforme sécurisée », consultez [Informations de référence sur la stratégie de groupe BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 La stratégie BitLocker sur les machines virtuelles jointes à un domaine avec stratégie de groupe personnalisée doit inclure le paramètre suivant : [Configurer le stockage par les utilisateurs des informations de récupération BitLocker -> Autoriser une clé de récupération de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). En cas d'incompatibilité des paramètres de la stratégie de groupe personnalisée de BitLocker, Azure Disk Encryption échouera. Sur les machines dont le paramètre de stratégie était incorrect, il peut être nécessaire d’appliquer la nouvelle stratégie, de forcer la mise à jour de cette dernière (gpupdate.exe /force), puis de procéder à un redémarrage.
+
+> [!WARNING]
+> Azure Disk Encryption **ne stocke pas de clés de récupération**. Si le paramètre de sécurité [Ouverture de session interactive : seuil de verrouillage du compte d’ordinateur](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) est activé, vous ne pouvez récupérer les machines qu’en fournissant une clé de récupération via la console série. Vous trouverez des instructions pour vous assurer que les stratégies de récupération appropriées sont activées dans le [plan du guide de récupération BitLocker](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
 
 Azure Disk Encryption échoue si la stratégie de groupe au niveau du domaine bloque l’algorithme AES-CBC, qui est utilisé par BitLocker.
 

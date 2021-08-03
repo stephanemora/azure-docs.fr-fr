@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 28325a1bbda1b2d4a4bb060ae3e79057275ee42a
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 804166beebf4f12e246a27122bd44c611972a488
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582048"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437997"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Conseils pour améliorer les performances dans Recherche cognitive Azure
 
@@ -24,7 +24,7 @@ Cet article est un ensemble de conseils et de meilleures pratiques qui sont souv
 
 ## <a name="index-size-and-schema"></a>Taille et schéma de l’index
 
-Les requêtes s’exécutent plus rapidement sur des index plus petits. Cela est dû en partie au fait qu’il y a moins de champs à analyser, mais aussi à la façon dont le système met en cache le contenu pour les futures requêtes. Après la première requête, une partie du contenu reste en mémoire, où il est recherché plus efficacement. La taille de l’index ayant tendance à croître au fil du temps, une meilleure pratique consiste à réexaminer régulièrement la composition de l’index, tant au niveau du schéma que des documents, afin de rechercher des possibilités de réduction du contenu. Toutefois, si l’index est bien dimensionné, la seule autre calibration que vous pouvez effectuer est d’augmenter la capacité : soit en [ajoutant des réplicas](search-capacity-planning.md#adjust-capacity), soit en mettant à niveau le niveau de service. La section [« Conseil : Mettez à jour vers le niveau Standard S2 »]](#tip-upgrade-to-a-standard-s2-tier) vous montre comment décider d’effectuer un scale-up ou un scale-out.
+Les requêtes s’exécutent plus rapidement sur des index plus petits. Cela est dû en partie au fait qu’il y a moins de champs à analyser, mais aussi à la façon dont le système met en cache le contenu pour les futures requêtes. Après la première requête, une partie du contenu reste en mémoire, où il est recherché plus efficacement. La taille de l’index ayant tendance à croître au fil du temps, une meilleure pratique consiste à réexaminer régulièrement la composition de l’index, tant au niveau du schéma que des documents, afin de rechercher des possibilités de réduction du contenu. Toutefois, si l’index est bien dimensionné, la seule autre calibration que vous pouvez effectuer est d’augmenter la capacité : soit en [ajoutant des réplicas](search-capacity-planning.md#adjust-capacity), soit en mettant à niveau le niveau de service. La section [« Conseil : effectuez une mise à niveau vers un niveau standard S2 »](#tip-upgrade-to-a-standard-s2-tier) explique comment décider d’effectuer un scale-up ou un scale-out.
 
 La complexité du schéma peut également nuire aux performances de l’indexation et des requêtes. L’attribution excessive de champs entraîne des limitations et des besoins de traitement. L’indexation et l’interrogation des [types complexes](search-howto-complex-data-types.md) prennent plus de temps. Les sections suivantes explorent chaque condition.
 

@@ -1,30 +1,30 @@
 ---
-title: Analytique des journaux de diagnostic Windows Virtual Desktop (classique) – Azure
-description: Comment utiliser l’analytique des journaux d’activité avec la fonctionnalité de diagnostic de Windows Virtual Desktop (classique).
+title: Analytique des journaux de diagnostic Azure Virtual Desktop (classique) – Azure
+description: Comment utiliser l’analytique des journaux d’activité avec la fonctionnalité de diagnostic d’Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9cfa50e13756692295c84b02d02dd71228b16eb9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 5c1bdadf92d72ebec7ffa122b3c49c5878e2d2b8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444997"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745166"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Windows Virtual Desktop (classique)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-azure-virtual-desktop-classic"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../diagnostics-log-analytics.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../diagnostics-log-analytics.md).
 
-Windows Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur d’identifier les problèmes via une seule interface. Cette fonctionnalité consigne les informations de diagnostic chaque fois qu'une personne à qui un rôle Windows Virtual Desktop a été attribué utilise le service. Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. Chaque journal d'activités se divise en trois grandes catégories :
+Azure Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur d’identifier les problèmes via une seule interface. Cette fonctionnalité consigne les informations de diagnostic chaque fois qu’une personne à qui un rôle Azure Virtual Desktop a été attribué utilise le service. Chaque journal contient des informations sur le rôle Azure Virtual Desktop impliqué dans l’activité, les éventuels messages d’erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l’utilisateur. La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. Chaque journal d'activités se divise en trois grandes catégories :
 
 - Activités d’ajout de flux : lorsqu’un utilisateur essaie de se connecter à son flux via des applications Bureau à distance Microsoft.
 - Activités de connexion : lorsqu’un utilisateur essaie de se connecter à un ordinateur de bureau ou à RemoteApp via des applications Bureau à distance Microsoft.
 - Activités de gestion : lorsqu’un administrateur effectue des opérations de gestion sur le système, telles que la création de pools d’hôte, l’attribution d’utilisateurs à des groupes d’applications et la création d’attributions de rôles.
 
-Les connexions qui n’atteignent pas Windows Virtual Desktop ne figureront pas dans les résultats de diagnostic, car le service de rôle de diagnostics fait partie de Windows Virtual Desktop. Des problèmes de connexion à Windows Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
+Les connexions qui n’atteignent pas Azure Virtual Desktop ne figureront pas dans les résultats de diagnostic, car le service de rôle de diagnostics fait partie d’Azure Virtual Desktop. Des problèmes de connexion à Azure Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
 
 ## <a name="why-you-should-use-log-analytics"></a>Pourquoi vous devriez utiliser Log Analytics
 
@@ -43,9 +43,9 @@ Ces informations vous seront nécessaires plus loin dans le processus de configu
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Envoyer (push) les données de diagnostic à votre espace de travail
 
-Vous pouvez envoyer (push) les données de diagnostic de votre locataire Windows Virtual Desktop à Log Analytics pour votre espace de travail. Vous pouvez configurer cette fonctionnalité dès la création de votre locataire en liant votre espace de travail à votre locataire, ou vous pouvez la configurer plus tard avec un locataire existant.
+Vous pouvez envoyer (push) les données de diagnostic de votre locataire Azure Virtual Desktop à votre espace de travail Log Analytics. Vous pouvez configurer cette fonctionnalité dès la création de votre locataire en liant votre espace de travail à votre locataire, ou vous pouvez la configurer plus tard avec un locataire existant.
 
-Pour lier votre locataire à votre espace de travail Log Analytics pendant que vous configurez votre nouveau locataire, exécutez l’applet de commande suivante pour vous connecter à Windows Virtual Desktop avec votre compte utilisateur TenantCreator :
+Pour lier votre locataire à votre espace de travail Log Analytics pendant que vous configurez votre nouveau locataire, exécutez la cmdlet suivante pour vous connecter à Azure Virtual Desktop avec votre compte d’utilisateur TenantCreator :
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com

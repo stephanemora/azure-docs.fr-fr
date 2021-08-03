@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/08/2021
+ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb3bc0e34ad596c39aebb49124bb72d0b3efe6f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103907"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457490"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C
 
@@ -48,7 +48,7 @@ Vous pouvez inclure l’ID de corrélation dans vos jetons de Azure AD B2C. Pour
 1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
-1. Ajoutez la revendication de ville à l’élément **ClaimsSchema**.  
+1. Ajoutez la revendication de l’ID de corrélation à l’élément **ClaimsSchema**.  
 
     ```xml
     <!-- 
@@ -63,7 +63,7 @@ Vous pouvez inclure l’ID de corrélation dans vos jetons de Azure AD B2C. Pour
     </BuildingBlocks>-->
     ```
 
-1. Ouvrez le fichier de la partie de confiance de votre stratégie. Exemple de fichier : <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. Après un parcours utilisateur réussi, la revendication de sortie est ajoutée au jeton et envoyée à l’application. Modifiez l’élément de profil technique dans la section de la partie de confiance pour ajouter la ville en tant que revendication de sortie.
+1. Ouvrez le fichier de la partie de confiance de votre stratégie. Exemple de fichier : <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em>. Après un parcours utilisateur réussi, la revendication de sortie est ajoutée au jeton et envoyée à l’application. Modifiez l’élément de profil technique dans la section de la partie de confiance pour ajouter `correlationId` en tant que revendication de sortie.
  
     ```xml
     <RelyingParty>

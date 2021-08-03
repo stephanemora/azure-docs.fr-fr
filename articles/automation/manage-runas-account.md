@@ -3,19 +3,25 @@ title: Gérer un compte d'identification Azure Automation
 description: Cet article explique comment gérer votre compte d’identification Azure Automation avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: ''
-ms.date: 04/29/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ba7ae8218b730408361b6787517b72f2fb5c33b
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278629"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059677"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
-Les comptes d’identification d’Azure Automation assurent l’authentification pour la gestion des ressources sur le modèle de déploiement Azure Resource Manager ou Azure Classic à l’aide de runbooks Automation et d’autres fonctionnalités Automation. Cet article aide à gérer un compte d’identification ou un compte d’identification Classic.
+Les comptes d’identification d’Azure Automation assurent l’authentification pour la gestion des ressources sur le modèle de déploiement Azure Resource Manager ou Azure Classic à l’aide de runbooks Automation et d’autres fonctionnalités Automation. 
+
+Dans cet article, nous abordons la gestion d’un compte d’identification ou d’un compte d’identification Classic, notamment :
+
+   * Comment renouveler un certificat auto-signé
+   * Comment renouveler un certificat auprès d’une autorité de certification d’entreprise ou tierce
+   * Gérer les autorisations pour le compte d’identification
 
 Pour plus d’informations sur l’authentification des comptes Azure Automation et des conseils relatifs aux scénarios d’automatisation des processus, consultez [Vue d’ensemble de l’authentification des comptes Automation](automation-security-overview.md).
 
@@ -29,7 +35,7 @@ Lorsque vous renouvelez le certificat auto-signé, le certificat valide en cours
 >Si vous pensez que le compte d’identification a été compromis, vous pouvez supprimer et recréer le certificat auto-signé.
 
 >[!NOTE]
->Si vous avez configuré votre compte d’identification pour utiliser un certificat émis par votre autorité de certification d’entreprise ou tierce, et que vous utilisez l’option permettant de renouveler un certificat auto-signé, le certificat d’entreprise est remplacé par un certificat auto-signé.
+>Si vous avez configuré votre compte d’identification pour utiliser un certificat émis par votre autorité de certification d’entreprise ou une autorité de certification tierce, et que vous utilisez l’option permettant de renouveler un certificat auto-signé, le certificat d’entreprise est remplacé par un certificat auto-signé. Pour renouveler votre certificat dans ce cas, consultez [Renouveler un certificat d’entreprise ou tiers](#renew-an-enterprise-or-third-party-certificate).
 
 Effectuez les étapes suivantes pour renouveler le certificat auto-signé.
 
@@ -46,6 +52,31 @@ Effectuez les étapes suivantes pour renouveler le certificat auto-signé.
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renouvellement du certificat pour le compte d’identification.":::
 
 1. Pour suivre la progression du renouvellement du certificat, accédez à l’onglet **Notifications** du menu.
+
+## <a name="renew-an-enterprise-or-third-party-certificate"></a>Renouveler un certificat d’entreprise ou tiers
+
+Chaque certificat possède une date d’expiration intégrée. Si le certificat que vous avez affecté au compte d’identification a été émis par une autorité de certification, vous devez effectuer une autre série d’étapes pour configurer le compte d’identification avec le nouveau certificat avant son expiration. Vous pouvez le renouveler à tout moment avant qu’il n’expire.
+
+1. Importez le certificat renouvelé en suivant les étapes indiquées à la section [Créer un certificat](./shared-resources/certificates.md#create-a-new-certificate). Automation requiert la configuration suivante pour le certificat :
+
+   * Spécifiez le fournisseur **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marqué comme exportable
+   * Configuré pour utiliser l’algorithme SHA256
+   * Enregistré au format `*.pfx` ou `*.cer`. 
+
+   Une fois le certificat importé, notez ou copiez la valeur de **l’empreinte** du certificat. Cette valeur est utilisée pour mettre à jour les propriétés de connexion d’identification avec le nouveau certificat. 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
+1. Recherchez et sélectionnez **Comptes Automation**.
+
+1. Dans la page Comptes Automation, sélectionnez votre compte Automation dans la liste.
+
+1. Dans le volet gauche, sélectionnez **Connexions**.
+
+1. Dans la page **Connexions**, sélectionnez **AzureRunAsConnection** et mettez à jour **l’empreinte du certificat** avec la nouvelle empreinte du certificat.
+
+1. Sélectionnez **Enregistrer** pour valider vos modifications.
 
 ## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>Octroi des autorisations de compte d’identification dans d’autres abonnements
 

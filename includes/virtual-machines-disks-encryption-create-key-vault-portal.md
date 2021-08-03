@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/23/2020
+ms.date: 05/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6cf40e7b384c9b0e88db679f9de8ac9bbba1607
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88815468"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "112078764"
 ---
 La configuration des clés gérées par le client pour vos disques vous oblige à créer des ressources dans un ordre particulier si vous les utilisez pour la première fois. Tout d’abord, vous devez créer et configurer un Azure Key Vault.
 
@@ -49,6 +49,13 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
 
     ![Capture d’écran du panneau Créer une clé qui apparaît une fois que le bouton Générer/importer est sélectionné](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
+### <a name="add-an-azure-rbac-role"></a>Ajouter un rôle RBAC Azure
+
+Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez ajouter un rôle RBAC Azure afin de pouvoir utiliser votre coffre de clés Azure avec votre jeu de chiffrement de disque.
+
+1. Sélectionnez **Contrôle d’accès (IAM)** et ajoutez un rôle.
+1. Ajoutez les rôles **Administrateur de coffre de clés**, **Propriétaire** ou **Contributeur**.
+
 ## <a name="set-up-your-disk-encryption-set"></a>Configuration du jeu de chiffrement de disque
 
 1. Recherchez **Ensembles de chiffrement de disque** et sélectionnez-le.
@@ -68,11 +75,3 @@ La configuration des clés gérées par le client pour vos disques vous oblige �
 1. Sélectionnez **Vérifier + créer**, puis **Créer**.
 
     ![Capture d’écran du panneau de création du chiffrement de disque. Indique l’abonnement, le groupe de ressources, le nom du jeu de chiffrement de disque, la région et le coffre de clés + sélecteur de clé.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
-
-1. Ouvrez le jeu de chiffrement de disque une fois qu’il est créé et sélectionnez l’alerte qui s’affiche.
-
-    ![Capture d’écran de la fenêtre contextuelle d’alerte : « Pour associer un disque, une image ou un instantané à ce jeu de chiffrement de disque, vous devez octroyer des autorisations au coffre de clés. » Sélectionnez cette alerte pour continuer](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
-
-    Deux notifications doivent s’afficher et s’effectuer correctement. Cela vous permet d’utiliser le chiffrement de disque défini avec votre coffre de clés.
-
-    ![Capture d’écran de l’autorisation et de l’attribution de rôle réussie pour votre coffre de clés.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)

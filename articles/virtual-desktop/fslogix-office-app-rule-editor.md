@@ -1,17 +1,17 @@
 ---
-title: Installer des conteneurs d’applications FSLogix pour Microsoft Office dans Windows Virtual Desktop – Azure
-description: Guide pratique pour utiliser l’éditeur de règles d’application pour créer un conteneur d’application FSLogix avec Office dans Windows Virtual Desktop.
+title: Installer des conteneurs d’applications FSLogix pour Microsoft Office dans Azure Virtual Desktop – Azure
+description: Comment utiliser l’éditeur de règles d’application pour créer un conteneur d’applications FSLogix avec Office dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a144adcfbf6c7cefc6b946f95bdb734868de801f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4e145e8ff578d7e8663e45aa550906a1594f5228
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446806"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757658"
 ---
 # <a name="install-microsoft-office-using-fslogix-application-containers"></a>Installer Microsoft Office à l’aide de conteneurs d’applications FSLogix
 
@@ -22,7 +22,7 @@ Voici pourquoi l’utilisation d’un conteneur d’application FSLogix peut per
 - Le déchargement de vos applications Office sur un conteneur d’application réduit les exigences concernant la taille de votre lecteur C.
 - Les instantanés ou les sauvegardes de votre machine virtuelle nécessitent moins de ressources.
 - Le fait de disposer d’un pipeline automatisé via la mise à jour d’une seule image facilite la mise à jour de vos machines virtuelles.
-- Vous avez besoin d’une seule image pour installer Office (et d’autres applications) sur toutes les machines virtuelles de votre déploiement Windows Virtual Desktop.
+- Vous avez besoin d’une seule image pour installer Office (et d’autres applications) sur toutes les machines virtuelles de votre déploiement Azure Virtual Desktop.
 
 Cet article vous montre comment configurer un conteneur d’application FSLogix avec Office.
 
@@ -40,7 +40,7 @@ Pour configurer l’éditeur de règles, vous avez besoin des éléments suivant
 Pour installer Office sur votre disque VHD ou VHDX, activez le protocole Bureau à distance (RDP) dans votre machine virtuelle, puis suivez les instructions fournies dans [Installation d’Office sur une image principale de disque VHD](install-office-on-wvd-master-image.md). Lors de l’installation, assurez-vous que vous utilisez [les licences correctes](overview.md#requirements).
 
 >[!NOTE]
->Windows Virtual Desktop requiert l’activation de l’ordinateur de partage (SCA).
+>Azure Virtual Desktop nécessite l’activation de l’ordinateur de partage (SCA).
 
 ## <a name="install-fslogix"></a>Installer FSLogix
 

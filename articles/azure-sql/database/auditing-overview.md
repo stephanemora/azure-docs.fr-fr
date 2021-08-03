@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/02/2021
+ms.date: 06/14/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754016"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061557"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Vous pouvez utiliser l’audit SQL Database pour :
 - **L'analyse** des rapports. Vous pouvez repérer les événements suspects, les activités inhabituelles et les tendances.
 
 > [!IMPORTANT]
-> L’audit pour Azure SQL Database et Azure Synapse est optimisé pour la disponibilité et les performances. En cas de très haute activité ou de charge réseau élevée, Azure SQL Database ou Azure Synapse permet aux opérations de se poursuivre et peut ne pas enregistrer certains événements audités.
+> L’audit pour Azure SQL Database, Azure Synapse et Azure SQL Managed Instance est optimisé pour la disponibilité et les performances. En cas de très forte activité ou de charge réseau élevée, Azure SQL Database, Azure Synapse et Azure SQL Managed Instance permettent aux opérations de se poursuivre et peuvent ne pas enregistrer certains événements audités.
 
 ### <a name="auditing-limitations"></a>Limitations de l’audit
 

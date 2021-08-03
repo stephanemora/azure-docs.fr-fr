@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fcbf6cd22b67f2e3776c78b166da5733e606542
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996710"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078345"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 
@@ -105,11 +105,11 @@ Les écritures d’application utilisant l’API Microsoft Graph d’Azure AD n�
  >[!NOTE]
  >Les écritures sont immédiatement répliquées sur le réplica secondaire pour lequel les lectures de la session logique ont été émises.
 
-#### <a name="backup-protection"></a>Protection de la sauvegarde
+#### <a name="service-level-backup"></a>Sauvegarde au niveau du service
 
-Le répertoire implémente les suppressions récupérables, plutôt que les suppressions définitives, pour les utilisateurs et les clients afin de faciliter la récupération en cas de suppression accidentelle par un client. Si votre administrateur client supprime accidentellement des utilisateurs, il peut facilement annuler son action et restaurer les utilisateurs supprimés.
-
-Azure AD implémente les sauvegardes quotidiennes de toutes les données et peut, par conséquent, restaurer avec autorité les données dans le cas de suppressions logiques ou de corruptions. Le niveau de données employant des codes de correction d’erreur, il peut détecter les erreurs et corriger automatiquement certains types d’erreurs de disque.
+Azure AD implémente la sauvegarde quotidienne des données du répertoire et peut utiliser ces sauvegardes pour restaurer les données en cas de problème à l’échelle du service.
+ 
+Le répertoire implémente également des suppressions réversibles au lieu de suppressions définitives pour certains types d’objets. L’administrateur client peut annuler toute suppression accidentelle de ces objets dans les 30 jours. Pour plus d’informations, consultez l’[API pour restaurer des objets supprimés](/graph/api/directory-deleteditems-restore).
 
 #### <a name="metrics-and-monitors"></a>Métriques et supervision
 

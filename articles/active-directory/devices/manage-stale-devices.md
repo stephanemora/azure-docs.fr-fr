@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/02/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392176dca67bcf12cf8e5125deba43740b28d087
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: abc3c8123450c7962d25eb7112638a296d09fc01
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802141"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809674"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -103,7 +103,7 @@ Pour nettoyer Azure AD :
 >* La suppression d’appareils dans votre service AD local ou Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). Pour plus d’informations, reportez-vous à la section sur la [suppression de l’inscription sur le client](faq.yml).
 >* La suppression d’un appareil Windows 10 uniquement dans Azure AD resynchronise l’appareil à partir de votre service local à l’aide d’Azure AD Connect, mais en tant que nouvel objet avec l’état « En attente ». Une nouvelle inscription est nécessaire sur l’appareil.
 >* La suppression d’appareils Windows 10/Server 2016 de l’étendue de synchronisation supprime l’appareil Azure AD. Si vous l’ajoutez de nouveau à l’étendue de synchronisation, un nouvel objet est placé avec l’état « En attente ». Une réinscription de l’appareil est nécessaire.
->* Si vous n’utilisez pas Azure AD Connect pour la synchronisation des appareils Windows 10 (par exemple, en utilisant uniquement AD FS pour l’inscription), vous devez gérer le cycle de vie de la même façon que pour les appareils Windows 7/8.
+>* Si vous n’utilisez pas Azure AD Connect pour la synchronisation des appareils Windows 10 (par exemple en utilisant uniquement AD FS pour l’inscription), vous devez gérer le cycle de vie de la même façon que pour les appareils Windows 7/8.
 
 ### <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -153,8 +153,8 @@ Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} 
 À l’aide des mêmes commandes, nous pouvons diriger la sortie vers la commande set pour désactiver les appareils de plus d’un certain âge.
 
 ```powershell
-$dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
 ```
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir

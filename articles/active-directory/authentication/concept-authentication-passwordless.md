@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3ce98a55057b90f26cdc91d52a514fe4bb3c9e
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 981402a2b0558514b26b5a4240dde3db7c9c193a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517691"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068643"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -141,11 +141,12 @@ Les fournisseurs suivants offrent des clés de sécurité FIDO2 de différents f
 | Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
 | GoTrustID Inc. | [https://www.gotrustid.com/idem-key](https://www.gotrustid.com/idem-key) |
 | Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
+| Nymi | [https://www.nymi.com/product](https://www.nymi.com/product) |
 
 > [!NOTE]
 > Si vous achetez des clés de sécurité NFC et que vous prévoyez de les utiliser, vous devez disposer d’un lecteur NFC pris en charge pour la clé de sécurité. Le lecteur NFC n’est pas une exigence ou une limitation Azure. Pour obtenir la liste des lecteurs NFC pris en charge, contactez le fournisseur de votre clé de sécurité NFC.
 
-Si vous êtes fournisseur et que vous voulez que votre appareil figure dans la liste des appareils pris en charge, contactez [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
+Si vous êtes fournisseur et que vous souhaitez que votre appareil figure dans cette liste des appareils pris en charge, consultez nos conseils sur la façon de [devenir fournisseur de clés de sécurité FIDO2 compatibles Microsoft](https://docs.microsoft.com/security/zero-trust/isv/fido2-hardware-vendor).
 
 Pour prendre en main les clés de sécurité FIDO2, procédez comme suit :
 

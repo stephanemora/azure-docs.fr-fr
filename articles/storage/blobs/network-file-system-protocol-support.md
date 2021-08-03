@@ -1,5 +1,5 @@
 ---
-title: Prise en charge de Network File System 3.0 dans le stockage d’objets blob Azure (préversion) | Microsoft Docs
+title: Prise en charge de Network File System 3.0 dans Stockage Blob Azure (préversion) | Microsoft Docs
 description: Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur qui s’exécute localement.
 author: normesta
 ms.subservice: blobs
@@ -9,19 +9,19 @@ ms.date: 04/28/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f50255510d5f4716f181a8e2b51cb5fa3998062d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 709f4ed6fb57dc11d4a2b8672f253664835f20e3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715079"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965018"
 ---
-# <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
+# <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans Stockage Blob Azure (préversion)
 
 Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge assure la compatibilité du système de fichiers Linux au niveau du stockage des objets, et permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. 
 
 > [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Les comptes de stockage GPV2 avec performances de niveau Standard sont pris en charge dans les régions suivantes : Australie Est, Corée Centre, USA Est et USA Centre Sud. La préversion prend également en charge les objets blobs de blocs avec niveau de performances Premium dans toutes les régions publiques.
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Il prend en charge les comptes de stockage GPV2 avec des performances de niveau standard et les comptes de stockage d’objets blob de blocs avec un niveau de performances Premium dans toutes les régions publiques.
 
 Il a toujours été difficile d’exécuter des charges de travail héritées à grande échelle, telles que HPC (High Performance Computing), dans le cloud. L’une des raisons est que les applications utilisent souvent des protocoles de fichiers traditionnels tels que NFS ou SMB (Server Message Block) pour accéder aux données. En outre, les services de stockage cloud natifs sont axés sur le stockage d’objets qui ont un espace de noms plat et des métadonnées étendues, plutôt que des systèmes de fichiers qui fournissent un espace de noms hiérarchique et des opérations de métadonnées efficaces. 
 
@@ -106,19 +106,19 @@ L’état des éléments figurant dans ce tableau évolue au fil du temps, car l
 
 | Fonctionnalité Stockage | Premium | standard |Fonctionnalité Stockage | Premium | standard |
 |-----------------|---------|----------|----------------|---------|----------|
-| [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)  | ✔️ |  ⛔ | [API REST Azure Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ |    ⛔ |
-| [Niveaux d’accès du Stockage Blob Azure](storage-blob-storage-tiers.md) |    ✔️ |    ⛔ | [Étiquettes d’index d’objet blob](storage-blob-index-how-to.md) |   ⛔ | ⛔ |
-| [Gestion de cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md) | ✔️  |   ⛔ | [Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |   ⛔ |
-|  [Inventaire des objets blob du Stockage Azure](blob-inventory.md) |  ✔️  |   ⛔ | [Modifier le flux](storage-blob-change-feed.md) |    ⛔ | ⛔ |
-| [Azure Monitor](monitor-blob-storage.md) |    ✔️ |    ⛔ | [Contrôle de version des blobs](versioning-enable.md) | ⛔ |   ⛔ |
-| [Instantanés d’objet blob](snapshots-overview.md) | ✔️  |   ⛔ | [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md) | ⛔ |    ⛔ |
-| [Points de terminaison privés](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Intégration à la Sauvegarde Azure](/azure/backup/blob-backup-overview) | ⛔ |    ⛔ |
-| [Points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |  ⛔ | [Suppression réversible des conteneurs](soft-delete-container-overview.md) |   ⛔ | ⛔ |
-| [Règles de pare-feu](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ⛔ | [Suppression réversible pour les objets blob](soft-delete-blob-overview.md) | ⛔ | ⛔ |
-| [Désactivation de l’autorisation Shared Key](../common/shared-key-authorization-prevent.md)  | ✔️ |    ⛔ | [Suivi de l’heure du dernier accès pour la gestion de cycle de vie](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) |  ⛔|  ⛔ |
-| [Clés gérées par le client pour le chiffrement du stockage Azure](../common/customer-managed-keys-overview.md) |   ✔️ |    ⛔ | [Clés fournies par le client pour le chiffrement du Stockage Azure](encryption-customer-provided-keys.md)  |  ⛔ | ⛔ |
-| [Stockage Blob immuable](storage-blob-immutable-storage.md) | ✔️    | ⛔ | [Hébergement de sites web statiques](storage-blob-static-website.md) | ⛔  |    ⛔ |
-| [Objets blob d’ajout](storage-blobs-introduction.md#blobs) | ✔️   |  ⛔ | [Objets blob de pages](storage-blobs-introduction.md#blobs) | ⛔ | ⛔ |
+| [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)  | ✔️ |  ✔️ | [API REST Azure Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) | ✔️ |  ✔️ |
+| [Niveaux d’accès de Stockage Blob Azure](storage-blob-storage-tiers.md) |    ✔️ |    ✔️ | [Étiquettes d’index d’objet blob](storage-blob-index-how-to.md) |  ⛔ | ⛔ |
+| [Gestion de cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md) | ✔️  |   ✔️ | [Journalisation Azure Storage Analytics](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |  ⛔ |
+|  [Inventaire des objets blob du Stockage Azure](blob-inventory.md) |  ✔️  |   ✔️ | [Modifier le flux](storage-blob-change-feed.md) |   ⛔ | ⛔ |
+| [Azure Monitor](monitor-blob-storage.md) |    ✔️ |    ✔️ | [Contrôle de version des blobs](versioning-enable.md) | ⛔ |  ⛔ |
+| [Instantanés d’objet blob](snapshots-overview.md) | ✔️  |   ✔️ | [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md) | ⛔ |   ⛔ |
+| [Points de terminaison privés](../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ✔️ | [Intégration à la Sauvegarde Azure](../../backup/blob-backup-overview.md) | ⛔ | ⛔ |
+| [Points de terminaison de service](../../virtual-network/virtual-network-service-endpoints-overview.md) | ✔️  |  ✔️ | [Suppression réversible des conteneurs](soft-delete-container-overview.md) |  ⛔ | ⛔ |
+| [Règles de pare-feu](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json) | ✔️  | ✔️ | [Suppression réversible pour les objets blob](soft-delete-blob-overview.md) |    ⛔ | ⛔ |
+| [Désactivation de l’autorisation Shared Key](../common/shared-key-authorization-prevent.md)  | ✔️ |    ✔️ | [Suivi de l’heure du dernier accès pour la gestion de cycle de vie](storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-date-preview) | ⛔|  ⛔ |
+| [Clés gérées par le client pour le chiffrement du stockage Azure](../common/customer-managed-keys-overview.md) |   ✔️ |    ✔️ | [Clés fournies par le client pour le chiffrement du Stockage Azure](encryption-customer-provided-keys.md)  | ⛔ | ⛔ |
+| [Stockage Blob immuable](storage-blob-immutable-storage.md) | ✔️    | ✔️ | [Hébergement de sites web statiques](storage-blob-static-website.md) |    ⛔  |    ⛔ |
+| [Objets blob d’ajout](storage-blobs-introduction.md#blobs) | ✔️   |  ✔️ | [Objets blob de pages](storage-blobs-introduction.md#blobs) | ⛔ |    ⛔ |
 | [Sécurité d’Azure Active Directory (AD)](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ | ⛔ | [Étendues de chiffrement](encryption-scope-overview.md)  |    ⛔ | ⛔ |
 | [Réplication d'objets blob de blocs](object-replication-overview.md) | ⛔  |   ⛔ | [Basculement de compte géré par le client](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |    ⛔ |
 | [Événements de stockage Blob](storage-blob-event-overview.md)| ⛔ |    ⛔ 
@@ -129,8 +129,6 @@ L’état des éléments figurant dans ce tableau évolue au fil du temps, car l
 - La prise en charge NFS 3.0 ne peut pas être activée sur les comptes de stockage existants.
 
 - Une fois activée, la prise en charge NFS 3.0 ne peut pas être désactivée dans un compte de stockage.
-
--  Les fichiers ne peuvent être affichés ni sur le Portail Azure ni dans l’Explorateur Stockage Azure. Pour voir la liste des fichiers et répertoires, [montez un conteneur de Stockage Blob avec le protocole NFS 3.0](network-file-system-protocol-support-how-to.md) ou utilisez [l’API REST du service Blob](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="nfs-30-features-not-yet-supported"></a>Fonctionnalités NFS 3.0 pas encore prises en charge
 
@@ -166,4 +164,4 @@ Une transaction n’est pas facturée pendant la préversion. La tarification de
 
 - Pour démarrer, consultez [Monter le stockage Blob sur Linux à l’aide du protocole NFS (Network File System) 3.0 (préversion)](network-file-system-protocol-support-how-to.md).
 
-- Pour optimiser les performances, consultez [Considérations relatives aux performances de NFS (Network File System 3.0) dans Stockage Blob Azure (préversion)](network-file-system-protocol-support-performance.md).
+- Pour optimiser les performances, consultez [Considérations relatives aux performances de NFS (Network File System) 3.0 dans Stockage Blob Azure (préversion)](network-file-system-protocol-support-performance.md).

@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 6f7e74a4e3a0ad208ea832798748adf7a15dfc89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 955e79040f84f395849ab13103fd4c22693a9913
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417722"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164127"
 ---
 La gestion d'un contenu audio compressé est implémentée à l’aide de [GStreamer](https://gstreamer.freedesktop.org). Pour une raison liée à la gestion des licences, les fichiers binaires GStreamer ne sont pas compilés et liés avec le Kit de développement logiciel (SDK) Speech. À la place, vous devez utiliser les fichiers binaires prédéfinis pour Android. Pour télécharger les bibliothèques prédéfinies, voir [Installation pour le développement Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` est obligatoire. Assurez-vous que tous les plug-ins GStreamer (à partir du fichier Android.mk ci-dessous) sont liés dans `libgstreamer_android.so`. Lorsque vous utilisez le dernier Kit de développement logiciel (SDK) Speech (1.16.0 et versions ultérieures) avec GStreamer version 1.18.3, `libc++_shared.so` doit également être présent à partir d’Android NDK.
+`libgstreamer_android.so` est obligatoire. Assurez-vous que tous les plug-ins GStreamer (à partir du fichier Android.mk ci-dessous) sont liés dans `libgstreamer_android.so`. Lorsque vous utilisez la version la plus récente du Kit de développement logiciel (SDK) Speech (1.16 et ultérieure) avec GStreamer version 1.18.3, Android NDK requiert également la présence de `libc++_shared.so`.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \

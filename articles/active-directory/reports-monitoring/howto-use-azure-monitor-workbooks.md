@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/30/2019
+ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cde3940f09d3612ebe6411804fe4780e5bcfc18
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588044"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469195"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -36,13 +36,13 @@ Vous voulez...
 
 - Avez-vous besoin de comprendre l’impact des stratégies d’accès conditionnel dans votre locataire ?
 
-- Aimeriez-vous passer en revue les requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources ?
+- Souhaitez-vous passer en revue les requêtes de journal de connexion, avec un classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources ?
 
-- Souhaitez-vous acquérir une compréhension plus approfondie des détails du classeur par condition, afin que l’impact d’une stratégie puisse être contextualisé par condition, y compris la plateforme de l’appareil, l’état de l’appareil, l’application cliente, le risque à la connexion, l’emplacement et l’application ?
+- Souhaitez-vous acquérir une compréhension plus approfondie de l’accès conditionnel avec détails du classeur par condition, afin que l’impact d’une stratégie puisse être contextualisé par condition, notamment la plateforme de l’appareil, l’état de l’appareil, l’application cliente, le risque à la connexion, l’emplacement et l’application ?
 
-- Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
+- Archiver et générer un rapport sur plus d’un an de rôle d’application historique et [activité d’attribution de package d’accès](../governance/entitlement-management-logs-and-reporting.md) ?
 
-- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
 
 
 
@@ -298,4 +298,5 @@ Pour vous aider à résoudre les problèmes de connexion, Azure Monitor vous fou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).
+* [Créer des rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).
+* [Créer des requêtes Azure Monitor personnalisées à l’aide d’Azure PowerShell](../governance/entitlement-management-logs-and-reporting.md).

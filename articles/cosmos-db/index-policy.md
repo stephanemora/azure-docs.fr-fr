@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: bd77d8fe2e934ebfe9d4fad994e8aa9c6644ef8e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 20798fc438f037ca7372822ea8bd54117b8936ee
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165656"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456566"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -97,7 +97,7 @@ Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer l
 
 - `dataType` peut être `String` ou `Number`. Cela indique les types de propriétés JSON qui seront indexées.
 
-Lorsqu’elles ne sont pas spécifiées, ces propriétés ont les valeurs par défaut suivantes :
+Il n’est plus nécessaire de définir ces propriétés. Lorsqu’elles ne sont pas spécifiées, ces propriétés ont les valeurs par défaut suivantes :
 
 | **Nom de la propriété**     | **Valeur par défaut** |
 | ----------------------- | -------------------------------- |

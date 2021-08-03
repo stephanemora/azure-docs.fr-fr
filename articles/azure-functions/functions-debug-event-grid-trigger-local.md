@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7483a097b188b9f96221a13964992c7b02332258
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 240b721d71ef53ad6f43f076f1d5db0e29b556a4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891964"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970927"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Débogage local lors du déclenchement de fonctions Azure Event Grid
 
@@ -19,7 +19,7 @@ Cet article montre comment déboguer une fonction locale qui gère un événemen
 ## <a name="prerequisites"></a>Prérequis
 
 - Créer ou utiliser une application de fonction existante
-- Créer ou utiliser un compte de stockage existant
+- Créez ou utilisez un compte de stockage existant. L’abonnement aux notifications Event Grid peut être défini sur des comptes de stockage Azure pour `BlobStorage`, `StorageV2` ou [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 - Télécharger [ngrok](https://ngrok.com/) pour permettre à Azure d’appeler une fonction locale
 
 ## <a name="create-a-new-function"></a>Créer une fonction

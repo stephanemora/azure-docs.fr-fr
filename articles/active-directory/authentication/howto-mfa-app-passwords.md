@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac603cef478b821d1fea72fce22004fc72860914
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743103"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744464"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure AD Multi-Factor Authentication avec des applications héritées à l'aide de mots de passe d'application
 
@@ -81,7 +81,7 @@ Dans ce scénario, vous utilisez les informations d’identification suivantes :
 
 ## <a name="allow-users-to-create-app-passwords"></a>Permettre aux utilisateurs de créer des mots de passe d’application
 
-Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’application. La fonctionnalité des mots de passe d’application doit être activée avant qu’un utilisateur ne puisse les utiliser. Pour permettre aux utilisateurs de créer des mots de passe d’application, suivez ces étapes :
+Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’application. La fonctionnalité des mots de passe d’application doit être activée avant qu’un utilisateur ne puisse les utiliser. Pour permettre aux utilisateurs de créer des mots de passe d’application, **l’administrateur doit** effectuer ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Recherchez et sélectionnez **Azure Active Directory**, puis choisissez **Utilisateurs**.
@@ -101,7 +101,9 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 
 Lorsque les utilisateurs procèdent à leur inscription initiale à Azure AD Multi-Factor Authentication, vous avez la possibilité de créer des mots de passe d'application à la fin du processus d'inscription.
 
-Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour plus d'informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d'application dans Azure AD Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour obtenir plus d’informations ainsi que les étapes détaillées à suivre par les utilisateurs, consultez les ressources suivantes :
+* [Que sont les mots de passe d’application dans Azure AD Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+* [Créer des mots de passe d’application à partir de la page Informations de sécurité](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

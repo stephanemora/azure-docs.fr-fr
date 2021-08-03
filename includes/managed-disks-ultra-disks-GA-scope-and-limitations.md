@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1d4b6c8d442d1a0d6e9451b314ee95ae50c20ede
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: a95f83dbfa0574aa88b964538f329c7d9075a50b
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891484"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111594276"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -62,8 +62,8 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
     - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [M](../articles/virtual-machines/m-series.md)
+    - [Mv2](../articles/virtual-machines/mv2-series.md)
     - [HBv2](../articles/virtual-machines/hbv2-series.md)
     - [HB](../articles/virtual-machines/hb-series.md)
     - [HC](../articles/virtual-machines/hc-series.md)
@@ -79,7 +79,7 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
 - Ils sont disponibles uniquement comme disques de données. 
 - Ils prennent en charge la taille de secteur physique de 4k par défaut. La taille de secteur 512E est proposée en disponibilité générale (aucune inscription requise). La plupart des applications sont compatibles avec les tailles de secteur de 4k mais certaines nécessitent des tailles de secteur de 512 octets. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques natifs 4k. Pour les versions antérieures d’Oracle DB, la taille de secteur de 512 octets est requise.
 - Ils peuvent être créés seulement comme des disques vides.
-- Ils ne prennent pas en charge les instantanés de disque, les images de machine virtuelle, les groupes à haute disponibilité, les hôtes dédiés Azure ou Azure Disk Encryption.
+- Ils ne prennent pas en charge les instantanés de disque, l’exportation de disque, le changement de type de disque, les images de machine virtuelle, les groupes à haute disponibilité, Azure Dedicated Host ni Azure Disk Encryption.
 - Ils ne prennent pas en charge l’intégration aux services Sauvegarde Azure ou Azure Site Recovery.
 - Ils prennent uniquement en charge les lectures non mises en cache et les écritures non mises en cache.
 - À l’heure actuelle, le nombre limite d’IOPS sur les machines virtuelles en disponibilité générale est de 80 000.

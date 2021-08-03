@@ -3,20 +3,20 @@ title: Limites de ressources DTU pour les bases de données uniques
 description: Cette page décrit certaines limites de ressources DTU courantes pour des bases de données uniques dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
-ms.date: 04/09/2021
-ms.openlocfilehash: 3afc2a1e3b279e7c4fd350e96787454e01e01f79
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
+ms.openlocfilehash: aecf872bcac77c94090d374cc18415eba6323b61
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303217"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689808"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107303217"
 Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat DTU.
 
 * Pour connaître les limites du modèle d’achat DTU pour les bases de données uniques sur un serveur, consultez [Vue d’ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
-* Pour les limites de ressources du modèle d’achat DTU d’Azure SQL Database, consultez [limites de ressources DTU pour les bases de données uniques](resource-limits-dtu-single-databases.md) et celles pour les [pools élastiques](resource-limits-dtu-elastic-pools.md).
+* Pour connaître les limites de ressources du modèle d’achat DTU d’Azure SQL Database, consultez les [limites de ressources DTU pour les bases de données uniques](resource-limits-dtu-single-databases.md) et celles pour les [pools élastiques](resource-limits-dtu-elastic-pools.md).
 * Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : Azure SQL Database](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md).
 * Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](purchasing-models.md).
 
@@ -114,8 +114,11 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 
 > [!IMPORTANT]
 > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre et Allemagne Nord-Est. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+
 > [!NOTE]
 > Pour les limites `tempdb`, consultez [Limites tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+> 
+> Pour plus d’informations sur les limites de stockage au niveau de service Premium, consultez [Gouvernance de l’espace de stockage](resource-limits-logical-server.md#storage-space-governance).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
