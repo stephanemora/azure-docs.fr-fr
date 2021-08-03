@@ -1,14 +1,14 @@
 ---
 title: Offres de services managés dans la Place de marché Azure
-description: Les offres de services gérés vous permettent de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
+description: Proposez à vos clients des services de gestion Azure Lighthouse par le biais d’offres de services gérés sur la Place de marché Azure.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 056efee8b8bb7a1e32619cc46c0f2665e5463343
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: df3cd76d840e37e711bdd92d93c2499d701afef9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788640"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074770"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 

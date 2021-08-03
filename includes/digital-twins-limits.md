@@ -5,19 +5,19 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 2a6cff1aa93c4f3ac4f95fd176e1b1e42736d8f4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 460176dd8c86abc59d2f82948a6a35655b9eef84
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763345"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530622"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
 Le tableau suivant liste les limites opérationnelles d’Azure Digital Twins. 
 
 > [!TIP]
-> Pour pouvoir appliquer les recommandations de modélisation dans le cadre de ces limites opérationnelles, consultez [Bonnes pratiques en matière de conception de modèles](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
+> Pour pouvoir appliquer les recommandations de modélisation dans le cadre de ces limites fonctionnelles, consultez [Meilleures pratiques de modélisation](../articles/digital-twins/concepts-models.md#modeling-best-practices).
 
 | Domaine | Fonctionnalité | Limite par défaut | Ajustable ? |
 | --- | --- | --- | --- |

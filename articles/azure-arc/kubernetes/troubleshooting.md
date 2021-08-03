@@ -2,18 +2,18 @@
 title: Résoudre les problèmes courants liés à Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2020
+ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Résolution des problèmes courants liés aux clusters Kubernetes avec Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: f0b02e5b4e58cda246751b16542a0a2ac587e7b6
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c05e82b084e49958a8c99bc755bdf954b708d69e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289621"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795079"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Résolution des problèmes liés à Kubernetes avec Azure Arc
 
@@ -201,11 +201,323 @@ Lorsque vous connectez votre cluster à Azure Arc ou lorsque vous activez la fo
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-L’avertissement ci-dessus est émis lorsque vous avez utilisé un principal de service pour vous connecter à Azure et que ce principal de service ne dispose pas des autorisations nécessaires pour obtenir les informations de l’application utilisée par le service Azure Arc. Exécutez les commandes suivantes pour accorder les autorisations requises :
+L’avertissement ci-dessus est émis lorsque vous avez utilisé un principal de service pour vous connecter à Azure et que ce principal de service ne dispose pas des autorisations nécessaires pour obtenir les informations de l’application utilisée par le service Azure Arc. Pour empêcher cette erreur, exécutez les étapes suivantes :
 
-```console
-az ad app permission add --id <service-principal-app-id> --api 00000002-0000-0000-c000-000000000000 --api-permissions 3afa6a7d-9b1a-42eb-948e-1650a849e176=Role
-az ad app permission admin-consent --id <service-principal-app-id>
-```
+1. Récupérez l’ID d’objet de l’application Azure AD utilisée par le service Azure Arc :
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. Utilisez la valeur `<objectId>` de l’étape ci-dessus pour activer la fonctionnalité Emplacements personnalisés sur le cluster :
+    - Si vous activez la fonctionnalité Emplacements personnalisés dans le cadre de la connexion du cluster à Azure Arc, exécutez la commande suivante :
+
+        ```console
+        az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
+        ```
+
+    - Si vous activez la fonctionnalité Emplacements personnalisés sur un cluster Kubernetes avec Azure Arc existant, exécutez la commande suivante :
+
+        ```console
+        az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+        ```
 
 Une fois que les autorisations ci-dessus sont accordées, vous pouvez [activer la fonctionnalité d’emplacement personnalisé](custom-locations.md#enable-custom-locations-on-cluster) sur le cluster.
+
+## <a name="arc-enabled-open-service-mesh"></a>Open Service Mesh avec Azure Arc
+
+Les étapes de dépannage suivantes fournissent une aide concernant la validation du déploiement de tous les composants de l’extension Open Service Mesh sur votre cluster.
+
+### <a name="1-check-osm-controller-deployment"></a>1. Vérifier le **déploiement** du contrôleur OSM
+```bash
+kubectl get deployment -n arc-osm-system --selector app=osm-controller
+```
+
+Si le contrôleur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+osm-controller   1/1     1            1           59m
+```
+
+### <a name="2-check-the-osm-controller-pod"></a>2. Vérifier le **pod** du contrôleur OSM
+```bash
+kubectl get pods -n arc-osm-system --selector app=osm-controller
+```
+
+Si le contrôleur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
+osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
+```
+
+Même si un contrôleur a été _expulsé_ à un moment donné, un autre est `READY 1/1` et `Running` avec `0` redémarrage.
+Si la colonne `READY` indique un résultat différent de `1/1`, le maillage de services est en panne.
+La colonne `READY` avec `0/1` indique que le conteneur du plan de contrôle se bloque. Nous devons récupérer les journaux. Consultez la section `Get OSM Controller Logs from Azure Support Center` ci-dessous.
+La colonne `READY` avec un nombre supérieur à 1 après le signe `/` indique que des side-cars sont installés. Le contrôleur OSM ne fonctionnera probablement pas si des side-cars lui sont attachés.
+
+### <a name="3-check-osm-controller-service"></a>3. Vérifier le **service** du contrôleur OSM
+```bash
+kubectl get service -n arc-osm-system osm-controller
+```
+
+Si le contrôleur OSM est sain, vous obtiendrez la sortie suivante :
+```
+NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
+osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67m
+```
+
+> Remarque : Le `CLUSTER-IP` sera différent. Les `NAME` et `PORT(S)` du service doivent être identiques à ceux affichés dans la sortie.
+
+### <a name="4-check-osm-controller-endpoints"></a>4. Vérifier les **points de terminaison** du contrôleur OSM
+```bash
+kubectl get endpoints -n arc-osm-system osm-controller
+```
+
+Si le contrôleur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME             ENDPOINTS                              AGE
+osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
+```
+
+Si le cluster de l’utilisateur n’a pas de `ENDPOINTS` pour `osm-controller`, cela indique que le plan de contrôle n’est pas sain. Cela peut être dû à un plantage du pod du contrôleur OSM ou au fait qu’il n’a jamais été déployé correctement.
+
+### <a name="5-check-osm-injector-deployment"></a>5. Vérifier le **déploiement** de l’injecteur OSM
+```bash
+kubectl get deployments -n arc-osm-system osm-injector
+```
+
+Si l’injecteur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+osm-injector   1/1     1            1           73m
+```
+
+### <a name="6-check-osm-injector-pod"></a>6. Vérifier le **pod** de l’injecteur OSM
+```bash
+kubectl get pod -n arc-osm-system --selector app=osm-injector
+```
+
+Si l’injecteur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
+```
+
+La colonne `READY` doit être `1/1`. Toute autre valeur indiquerait un pod osm-injector non sain.
+
+### <a name="7-check-osm-injector-service"></a>7. Vérifier le **service** de l’injecteur OSM
+```bash
+kubectl get service -n arc-osm-system osm-injector
+```
+
+Si l’injecteur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
+```
+
+Vérifiez que l’adresse IP indiquée pour le service `osm-injector` est `9090`. Il ne doit y avoir aucun `EXTERNAL-IP`.
+
+### <a name="8-check-osm-injector-endpoints"></a>8. Vérifier les **points de terminaison** de l’injecteur OSM
+```bash
+kubectl get endpoints -n arc-osm-system osm-injector
+```
+
+Si l’injecteur OSM est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME           ENDPOINTS           AGE
+osm-injector   10.240.1.172:9090   75m
+```
+
+Pour qu’OSM fonctionne, il doit y avoir au moins un point de terminaison pour `osm-injector`. L’adresse IP de vos points de terminaison d’injecteur OSM sera différente. Le port `9090` doit être le même.
+
+
+### <a name="9-check-validating-and-mutating-webhooks"></a>9. Vérifier les webhooks **Validating** et **Mutating** :
+```bash
+kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
+```
+
+Si le webhook Validating est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME              WEBHOOKS   AGE
+arc-osm-webhook-osm   1      81m
+```
+
+```bash
+kubectl get MutatingWebhookConfiguration --selector app=osm-controller
+```
+
+
+Si le webhook Mutating est sain, vous obtiendrez une sortie similaire à la sortie suivante :
+```
+NAME              WEBHOOKS   AGE
+arc-osm-webhook-osm   1      102m
+```
+
+Recherchez le service et le pack de l’autorité de certification du webhook **Validating** :
+```
+kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+Un webhook Validating bien configuré aura la sortie suivante :
+```json
+{
+  "name": "osm-config-validator",
+  "namespace": "arc-osm-system",
+  "path": "/validate-webhook",
+  "port": 9093
+}
+```
+
+Recherchez le service et le pack de l’autorité de certification du webhook **Mutating** :
+```bash
+kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
+```
+
+Un webhook Mutating bien configuré aura la sortie suivante :
+```
+{
+  "name": "osm-injector",
+  "namespace": "arc-osm-system",
+  "path": "/mutate-pod-creation",
+  "port": 9090
+}
+```
+
+
+Vérifiez si le contrôleur OSM a donné au webhook Validating (or Mutating) un pack d’autorité de certification à l’aide de la commande suivante :
+
+```bash
+kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+```bash
+kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
+```
+
+Exemple de sortie :
+```bash
+1845
+```
+Le nombre dans la sortie indique le nombre d’octets ou la taille du pack de l’autorité de certification. S’il est vide, égal à 0 ou inférieur à 1000, cela signifie que le pack de l’autorité de certification n’est pas correctement approvisionné. Sans un pack de l’autorité de certification correct, le webhook Validating génère une erreur et vous interdit d’apporter des modifications au ConfigMap `osm-config` dans l’espace de noms `arc-osm-system`.
+
+Examinons un exemple d’erreur lorsque le pack de l’autorité de certification est incorrect :
+- Une tentative de modification du ConfigMap `osm-config` :
+  ```bash
+  kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
+  ```
+- Sortie d’erreur :
+  ```bash
+  Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.arc-osm-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
+  ```
+
+Utilisez l’une des solutions de contournement suivantes lorsque la configuration du webhook **Validating** a un certificat incorrect :
+- Option 1. Redémarrer le contrôleur OSM. Cette option permet de redémarrer le contrôleur OSM. Au démarrage, il remplacera le pack de l’autorité de certification des webhooks Mutating et Validating.
+  ```bash
+  kubectl rollout restart deployment -n arc-osm-system osm-controller
+  ```
+
+- Option 2. Supprimer le webhook Validating. La suppression du webhook Validating invalide les mutations du ConfigMap `osm-config`. Tous les patchs seront concernés. Il peut être nécessaire de redémarrer le contrôleur OSM pour réécrire rapidement le pack de l’autorité de certification.
+   ```bash
+   kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm
+   ```
+
+- Option 3. Supprimer et corriger. La commande suivante permet de supprimer le webhook Validating, ce qui vous permet d’ajouter des valeurs et de tenter immédiatement d’appliquer un patch.
+  ```bash
+  kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm; kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
+  ```
+
+
+### <a name="10-check-the-osm-config-configmap"></a>10. Vérifier le **ConfigMap** `osm-config`
+
+>[!Note]
+>Le contrôleur OSM ne requiert pas que le ConfigMap `osm-config` soit présent dans l’espace de noms `arc-osm-system`. Le contrôleur a des valeurs par défaut raisonnables pour la configuration et peut fonctionner sans lui.
+
+Vérifiez son existence :
+```bash
+kubectl get ConfigMap -n arc-osm-system osm-config
+```
+
+Vérifiez le contenu du ConfigMap `osm-config` :
+```bash
+kubectl get ConfigMap -n arc-osm-system osm-config -o json | jq '.data'     
+```
+Vous obtiendrez la sortie suivante :
+```json
+{
+  "egress": "false",
+  "enable_debug_server": "false",
+  "enable_privileged_init_container": "false",
+  "envoy_log_level": "error",
+  "permissive_traffic_policy_mode": "true",
+  "prometheus_scraping": "true",
+  "service_cert_validity_duration": "24h",
+  "tracing_enable": "false",
+  "use_https_ingress": "false",
+}
+```
+
+Référez-vous à la [documentation relative au ConfigMap OSM](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) pour comprendre les valeurs du ConfigMap `osm-config`.
+
+### <a name="11-check-namespaces"></a>11. Vérifier les espaces de noms
+
+>[!Note]
+>L’espace de noms arc-osm-system ne fait jamais partie d’un maillage de services et n’est jamais étiqueté ou annoté avec les clés ou valeurs ci-dessous.
+
+Nous utilisons la commande `osm namespace add` pour joindre des espaces de noms à un maillage de services donné.
+Lorsqu’un espace de noms kubernetes fait partie du maillage, les conditions suivantes doivent être remplies :
+
+Affichez les annotations de l’espace de noms `bookbuyer` :
+```bash
+kc get namespace bookbuyer -o json | jq '.metadata.annotations'
+```
+
+L’annotation suivante doit être présente :
+```
+{
+  "openservicemesh.io/sidecar-injection": "enabled"
+}
+```
+
+
+Affichez les étiquettes de l’espace de noms `bookbuyer` :
+```bash
+kc get namespace bookbuyer -o json | jq '.metadata.labels'
+```
+
+L’étiquette suivante doit être présente :
+```
+{
+  "openservicemesh.io/monitored-by": "osm"
+}
+```
+Notez que si vous n’utilisez pas l’interface CLI `osm`, vous pouvez également ajouter manuellement ces annotations à vos espaces de noms. Si un espace de noms n’est pas annoté avec `"openservicemesh.io/sidecar-injection": "enabled"` ou n’a pas l’étiquette `"openservicemesh.io/monitored-by": "osm"`, l’injecteur OSM n’ajoutera pas les side-cars Envoy.
+
+>[!Note]
+>Une fois que `osm namespace add` est appelé, seuls les **nouveaux** pods sont injectés avec un side-car Envoy. Les pods existants doivent être redémarrés à l’aide de la commande `kubectl rollout restard deployment`.
+
+
+### <a name="12-verify-the-smi-crds"></a>12. Vérifier les CRD SMI
+Vérifiez si le cluster possède les CRD requis :
+```bash
+kubectl get crds
+```
+
+Assurez-vous que le CRD correspondent à la même version en amont d’OSM. Par exemple, si vous utilisez la version 0.8.4, assurez-vous que les CRD correspondent à celles qui sont disponibles dans la branche de mise en production v0.8.4 du [projet OSS d’OSM](https://docs.openservicemesh.io/). Référez-vous aux [notes de publication d’OSM](https://github.com/openservicemesh/osm/releases).
+
+Obtenez les versions des CRD installées à l’aide de la commande suivante :
+```bash
+for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
+    kubectl get crd $x -o json | jq -r '(.metadata.name, "----" , .spec.versions[].name, "\n")'
+done
+```
+
+S’il manque des CRD, utilisez les commandes suivantes pour les installer sur le cluster. Veillez à remplacer la version dans la commande.
+```bash
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/access.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/specs.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/split.yaml
+```

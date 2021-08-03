@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 339bbd7edf48737113de360812165dc8148c5b93
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: cbc5ff51a576cf2c784192bc33b06018c6f116c8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375863"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472090"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Règles de trafic sortant Azure Load Balancer
 
@@ -45,6 +45,9 @@ Les règles de trafic sortant vous permettent de déterminer :
      * S’il existe des connexions de longue durée avec les KeepAlive, réservez les ports inactifs pour les connexions de longue durée pendant jusqu’à 120 minutes. Supposer que les connexions obsolètes sont abandonnées et les mettre en production les ports en 4 minutes pour les nouvelles connexions 
 * **La réinitialisation TCP au terme du délai d’inactivité.**
      * Lors de l’expiration des connexions inactives, est-ce que nous envoyons un RST TCP au client et au serveur afin qu’ils sachent que le flux est abandonné ?
+
+>[!Important]
+> Quand un pool principal est configuré par adresse IP, il se comporte comme un Load Balancer de base avec l’option sortant par défaut activée. Pour une configuration et des applications sécurisées par défaut avec des besoins sortants exigeants, configurez le pool principal par carte réseau.
 
 ## <a name="outbound-rule-definition"></a>Définition de règle de trafic sortant
 

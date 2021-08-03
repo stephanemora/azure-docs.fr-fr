@@ -4,12 +4,12 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7dbe0a75ce2079bdec752f7fee0c3e97e3ae2ffa
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d42834252416a2aeed40db5fe307cd97f1bbada9
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767346"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007298"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
@@ -21,30 +21,6 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 
 > [!IMPORTANT]
 > Les disques Ultra Azure requièrent des pools de nœuds déployés dans des zones de disponibilité et des régions qui prennent en charge ces disques, ainsi que des séries de machines virtuelles spécifiques uniquement. Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="register-the-enableultrassd-preview-feature"></a>Inscrire la fonctionnalité d’évaluation `EnableUltraSSD`
-
-Pour créer un cluster AKS qui utilise un pool de nœuds pouvant exploiter les disques Ultra, vous devez activer l’indicateur de fonctionnalité `EnableUltraSSD` sur votre abonnement.
-
-Inscrivez l’indicateur de fonctionnalité `EnableUltraSSD` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
-```
-
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
-```
-
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
@@ -64,7 +40,7 @@ az extension update --name aks-preview
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Créer un cluster qui peut utiliser des disques Ultra
 
-Créez un cluster AKS capable d’exploiter des disques Ultra à l’aide des commandes CLI suivantes. Utilisez l’indicateur `--aks-custom-headers` pour définir la fonctionnalité `EnableUltraSSD`.
+Créez un cluster AKS capable d’exploiter des disques Ultra à l’aide des commandes CLI suivantes. Utilisez l’indicateur `--enable-ultra-ssd` pour définir la fonctionnalité `EnableUltraSSD`.
 
 Créez un groupe de ressources Azure :
 
@@ -77,20 +53,20 @@ Créez le cluster AKS avec prise en charge des Disques Ultra.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-Si vous souhaitez créer des clusters sans prise en charge des disques Ultra, vous pouvez le faire en omettant le paramètre `--aks-custom-headers` personnalisé.
+Si vous souhaitez créer des clusters sans prise en charge des Disques Ultra, omettez le paramètre `--enable-ultra-ssd`.
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Activer les disques Ultra sur un cluster existant
 
-Vous pouvez activer les disques Ultra sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster qui prend en charge les disques Ultra. Configurez un nouveau pool de nœuds pour utiliser des disques Ultra à l’aide de l’indicateur `--aks-custom-headers`.
+Vous pouvez activer les disques Ultra sur les clusters existants en ajoutant un nouveau pool de nœuds à votre cluster qui prend en charge les disques Ultra. Configurez un nouveau pool de nœuds pour utiliser des disques Ultra à l’aide de l’indicateur `--enable-ultra-ssd`.
 
 ```azurecli
-az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
-Si vous souhaitez créer des pools de nœuds sans la prise en charge des disques Ultra, vous pouvez le faire en omettant le paramètre `--aks-custom-headers` personnalisé.
+Si vous souhaitez créer des pools de nœuds sans prise en charge des Disques Ultra, omettez le paramètre `--enable-ultra-ssd`.
 
 ## <a name="use-ultra-disks-dynamically-with-a-storage-class"></a>Utiliser des disques Ultra de manière dynamique avec une classe de stockage
 

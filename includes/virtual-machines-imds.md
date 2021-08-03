@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 49704de9eb4a392b552429180da98568cafa210f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 669304159a525248dbd4f9d1c3f7b34660274b74
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157640"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110487284"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -40,13 +40,13 @@ Voici un exemple de code permettant de récupérer toutes les métadonnées d’
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
 ---
@@ -99,14 +99,14 @@ Les points de terminaison peuvent prendre en charge les paramètres obligatoires
 Les points de terminaison IMDS prennent en charge les paramètres de chaîne de requête HTTP. Exemple : 
 
 ```
-http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
+http://169.254.169.254/metadata/instance/compute?api-version=2021-01-01&format=json
 ```
 
 Spécifie les paramètres :
 
 | Nom | Valeur |
 |------|-------|
-| `api-version` | `2019-06-04`
+| `api-version` | `2021-01-01`
 | `format` | `json`
 
 Les demandes comportant des noms de paramètres de requête en double sont rejetées.
@@ -248,6 +248,7 @@ Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la
 - 2020-10-01
 - 2020-12-01
 - 2021-01-01
+- 2021-02-01
 
 ### <a name="swagger"></a>Fichier Swagger
 
@@ -370,7 +371,7 @@ Décomposition du schéma :
 
 **Profil de stockage**
 
-Le profil de stockage d’une machine virtuelle est divisé en trois catégories : référence de l’image, disque du système d’exploitation et disques de données.
+Le profil de stockage d’une machine virtuelle est divisé en trois catégories : la référence de l’image, le disque de système d’exploitation et les disques de données, plus un objet supplémentaire pour le disque temporaire local.
 
 L’objet de référence d’image contient les informations suivantes sur l’image du système d’exploitation :
 
@@ -413,6 +414,13 @@ Données | Description |
 | `vhd` | Disque dur virtuel
 | `writeAcceleratorEnabled` | Indique si writeAccelerator est activé ou non sur le disque
 
+L’objet de disque de ressources contient la taille du [disque temporaire local](../articles/virtual-machines/managed-disks-overview.md#temporary-disk) attaché à la machine virtuelle, le cas échéant, en kilo-octets.
+S’il n’existe [aucun disque temporaire local pour la machine virtuelle](../articles/virtual-machines/azure-vms-no-temp-disk.md), cette valeur est 0. 
+
+| Données | Description | Version introduite |
+|------|-------------|--------------------|
+| `resourceDisk.size` | Taille du disque temporaire local de la machine virtuelle (en ko) | 2021-02-01
+
 **Réseau**
 
 | Données | Description | Version introduite |
@@ -438,7 +446,8 @@ Lorsque vous créez une machine virtuelle, vous pouvez spécifier un jeu de donn
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text"
+[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData))
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -709,6 +718,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -810,6 +822,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "uri": ""
             },
             "writeAcceleratorEnabled": "false"
+        },
+        "resourceDisk": {
+            "size": "4096"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",

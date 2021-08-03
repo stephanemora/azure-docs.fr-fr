@@ -1,19 +1,19 @@
 ---
 title: Configurer des règles NAT de VPN pour votre passerelle
 titleSuffix: Azure Virtual WAN
-description: Découvrez comment configurer des règles NAT pour votre passerelle VPN VWAN
+description: Découvrez comment configurer des règles NAT pour votre passerelle VPN VWAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6fbee31f015953bd7e65648ea273e3ca84686115
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc6c9f6c7c69f92c66706678dd27e082412afa3e
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431214"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539169"
 ---
 # <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway---preview"></a>Configurer des règles NAT pour votre passerelle VPN de Virtual WAN – Préversion
 
@@ -27,13 +27,17 @@ Vous pouvez configurer votre passerelle VPN de Virtual WAN avec des règles NAT 
 Cette configuration utilise une table de flux pour router le trafic d’une adresse IP externe (hôte) vers une adresse IP interne associée à un point de terminaison à l’intérieur d’un réseau virtuel (machine virtuelle, ordinateur, conteneur, etc.).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagramme montrant une architecture.":::
+   
+Pour utiliser la traduction d’adresses réseau (NAT), les périphériques VPN doivent utiliser des sélecteurs de trafic Any-To-Any (générique). Les sélecteurs de trafic basés sur des stratégies (étroits) ne sont pas pris en charge conjointement à la configuration NAT.
 
 ## <a name="configure-nat-rules"></a><a name="rules"></a>Configurer les règles NAT
 
 Vous pouvez configurer et afficher des règles NAT sur les paramètres de votre passerelle VPN à tout moment.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Capture d’écran montrant la modification de règles.":::
+> [!NOTE]
+> La NAT site à site n’est pas prise en charge avec les connexions VPN site à site où des sélecteurs de trafic basés sur des stratégies sont utilisés.
 
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Capture d’écran montrant comment modifier des règles."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 1. Accédez à votre hub virtuel.
 1. Sélectionnez **VPN (site à site)** .
 1. Sélectionnez **Règles NAT (Modifier)** .
@@ -42,84 +46,124 @@ Vous pouvez configurer et afficher des règles NAT sur les paramètres de votre 
    * **Nom :** nom unique de votre règle NAT.
    * **Type :** Statique. Une NAT statique un-à-un établit une relation un-à-un entre une adresse interne et une adresse externe.
    * **Mode :** IngressSnat ou EgressSnat.  
-      * Le mode IngressSnat (également appelé NAT de source d’entrée) s’applique au trafic entrant dans la passerelle VPN de site à site du hub Azure.
-      * Le mode EgressSnat (également appelé NAT de source de sortie) s’applique au trafic sortant de la passerelle VPN de site à site du hub Azure.
+      * Le mode IngressSnat (également appelé NAT de source d’entrée) s’applique au trafic entrant dans la passerelle VPN de site à site du hub Azure. 
+      * Le mode EgressSnat (également appelé NAT de source de sortie) s’applique au trafic sortant de la passerelle VPN de site à site du hub Azure. 
    * **InternalMapping :** plage de préfixes d’adresse des adresses IP sources sur le réseau interne qui sera mappé à un ensemble d’adresses IP externes. En d’autres termes, votre plage de préfixe d’adresse avant NAT.
    * **ExternalMapping :** plage de préfixes d’adresse des adresses IP de destination sur le réseau externe auquel les adresses IP sources seront mappées. En d’autres termes, votre plage de préfixe d’adresse après NAT.
-   * **Connexion de lien :** Ressource de connexion qui connecte virtuellement un site VPN à la passerelle VPN de site à site du hub Azure.
+   * **Connexion de liaison :** ressource de connexion qui connecte virtuellement un site VPN à la passerelle VPN site à site du hub Azure Virtual WAN.
+ 
+> [!NOTE]
+> Si vous souhaitez que la passerelle VPN site à site publie des préfixes d’adresse traduits (**ExternalMapping**) via BGP, cliquez sur le bouton **Activer la traduction BGP**, grâce auquel le site local apprendra automatiquement la plage après NAT des règles de sortie et le site Azure (hub Virtual WAN, réseaux virtuels connectés, branches VPN et ExpressRoute) apprendra automatiquement la plage après NAT des règles d’entrée. Notez que le paramètre **Activer la traduction BGP** est appliqué à toutes les règles NAT sur la passerelle VPN site à site du hub Virtual WAN. 
 
-### <a name="configuration-considerations"></a><a name="considerations"></a>Considérations relatives à la configuration
+## <a name="example-configurations"></a><a name="examples"></a>Exemples de configurations
 
-* La taille du sous-réseau pour le mappage interne et externe doit être la même pour la NAT statique un-à-un.
-* Veillez à modifier le site VPN dans le portail Azure pour ajouter des préfixes **ExternalMapping** dans le champ « Espace d’adressage privé ». Actuellement, les sites pour lesquels le protocole BGP est activé doivent s’assurer que l’annonceur BGP local (paramètres BGP de l’appareil) inclut une entrée pour les préfixes de mappage externes.
+### <a name="ingress-snat-bgp-enabled-vpn-site"></a>SNAT d’entrée (site VPN avec BGP)
 
-## <a name="examples-and-verification"></a><a name="examples"></a>Exemples et vérification
+Les **règles SNAT d’entrée** sont appliquées aux paquets qui entrent dans Azure via la passerelle VPN site à site de Virtual WAN. Dans ce scénario, vous voulez connecter deux branches VPN de site à site à Azure. Site VPN 1 se connecte via Liaison A, et Site VPN 2 se connecte via Liaison B. Chaque site a le même espace d’adressage 10.30.0.0/24.
 
-### <a name="ingress-mode-nat"></a>NAT en mode d’entrée
-
-Les règles NAT en mode d’entrée sont appliquées aux paquets qui entrent dans Azure via la passerelle VPN de site à site de Virtual WAN. Dans ce scénario, vous voulez connecter deux branches VPN de site à site à Azure. Le Site VPN 1 se connecte via Link 1, et le Site VPN 2 se connecte via Link 2. Chaque site a l’espace d’adressage 192.169.1.0/24.
+Dans cet exemple, nous allons traduire l’adresse réseau de site1 vers 127.30.0.0.0/24. Les réseaux virtuels spoke et autres branches de Virtual WAN apprendront automatiquement cet espace d’adressage après NAT. 
 
 Le diagramme suivant présente le résultat final projeté :
 
-:::image type="content" source="./media/nat-rules-vpn-gateway/ingress.png" alt-text="Diagramme montrant la NAT en mode d’entrée.":::
+:::image type="content" source="./media/nat-rules-vpn-gateway/diagram-bgp.png" alt-text="Diagramme montrant la NAT en mode Entrée pour les sites avec BGP.":::
 
 1. Spécifiez une règle NAT.
 
-   Spécifiez une règle NAT pour garantir que la passerelle VPN de site à site est en mesure de faire la distinction entre les deux branches avec des espaces d’adressage qui se chevauchent (comme 192.168.1.0/24). Dans cet exemple, nous nous concentrons sur Link 1 pour le Site VPN 1.
+   Spécifiez une règle NAT pour garantir que la passerelle VPN site à site est en mesure de faire la distinction entre les deux branches avec des espaces d’adressage qui se chevauchent (comme 10.30.0.0/24). Dans cet exemple, nous nous concentrons sur Liaison A pour Site VPN 1.
 
-   La règle NAT suivante peut être configurée et associée au Link 1 de l’une des branches. Étant donné qu’il s’agit d’une règle NAT statique, les espaces d’adressage d’InternalMapping et d’ExternalMapping contiennent le même nombre d’adresses IP.
+   La règle NAT suivante peut être configurée et associée à Liaison A. Étant donné qu’il s’agit d’une règle NAT statique, les espaces d’adressage des plages **InternalMapping** et **ExternalMapping** contiennent le même nombre d’adresses IP.
 
-   * **Nom :** IngressRule01
+   * **Nom :** ingressRule01
    * **Type :** Statique
    * **Mode :** IngressSnat
-   * **InternalMapping :** 192.168.1.0/24
-   * **ExternalMapping :** 10.1.1.0/24
-   * **Connexion de lien :** Link 1
+   * **InternalMapping :** 10.30.0.0/24
+   * **ExternalMapping :** 172.30.0.0/24
+   * **Connexion de liaison :** Liaison A
 
-1. Publiez la valeur ExternalMapping appropriée.
+ 2.  Basculez le paramètre **Traduction d’itinéraires BGP** sur « Activer ».
 
-   Dans cette étape, vérifiez que votre passerelle VPN de site à site publie l’espace d’adressage ExternalMapping approprié sur le reste de vos ressources Azure. Les instructions sont différentes selon que le protocole BGP est activé ou non.
+       :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Capture d’écran montrant comment activer la traduction BGP.":::
 
-   **Exemple 1 : Le protocole BGP est activé**
 
-   * Vérifiez que le haut-parleur BGP local situé sur le Site VPN 1 est configuré pour publier l’espace d’adressage 10.1.1.0/24.
-   * Pendant cette période de préversion, les sites pour lesquels le protocole BGP est activé doivent garantir que l’annonceur BGP local (paramètres BGP de l’appareil) inclut une entrée pour les préfixes de mappage externes.
+3. Vérifiez que la passerelle VPN site à site peut être associée à l’homologue BGP local.
 
-   **Exemple 2 : Le protocole BGP n’est pas activé**
+      Dans cet exemple, la **règle NAT d’entrée** doit traduire 10.30.0.132 en 127.30.0.132. Pour ce faire, cliquez sur « Modifier le site VPN » pour configurer l’adresse BGP de Liaison A du site VPN pour refléter cette adresse d’homologue BGP traduite (127.30.0.132). 
 
-   * Accédez à la ressource Hub virtuel qui contient la passerelle VPN de site à site. Dans la page de hub virtuel, sous **Connectivité**, sélectionnez **VPN (site à site)** .
-   * Sélectionnez le site VPN connecté au hub Virtual WAN via Link 1. Sélectionnez **Modifier le site**, puis entrez 10.1.1.0/24 comme espace d’adressage privé pour le site VPN.
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Capture d’écran montrant comment modifier l’adresse IP de l’homologue BGP."lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
-     :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site.png" alt-text="Capture d’écran montrant la page Modifier le site VPN.":::
+ 
+
+### <a name="considerations-if-the-vpn-site-connects-via-bgp"></a><a name="considerations"> </a>Considérations relatives à la connexion du site VPN via BGP
+* La taille du sous-réseau pour le mappage interne et externe doit être la même pour la NAT statique un-à-un.
+* Si la **traduction BGP** est activée, la passerelle VPN site à site publiera automatiquement la plage **ExternalMapping** des **règles NAT de sortie** vers le site local, ainsi que la plage **ExternalMapping** des **règles NAT d’entrée** vers Azure (hub Virtual WAN, réseaux virtuels spoke connectés, connexions VPN/ExpresRoute). Si la **traduction BGP** est désactivée, les itinéraires traduits ne sont pas publiés automatiquement sur le site local. Ainsi, le locuteur BGP local doit être configuré pour publier la plage après NAT (**ExternalMapping**) des règles **NAT d’entrée** associées à cette connexion de liaison de site VPN. De même, un itinéraire pour la plage après NAT (**ExternalMapping**) des **règles NAT de sortie** doit être appliqué sur l’appareil local.
+* La passerelle VPN site à site traduit automatiquement l’adresse IP de l’homologue BGP local **si** celle-ci est contenue dans la plage **InternalMapping** d’une **règle NAT d’entrée**. Par conséquent, l’**adresse BGP de la connexion de liaison** du site VPN doit refléter l’adresse traduite par la NAT (qui fait partie de la plage ExternalMapping). 
+
+    Par exemple, si l’adresse IP BGP locale est 10.30.0.133 et qu’il existe une **règle NAT d’entrée** qui traduit 10.30.0.0/24 en 127.30.0.0/24, l’**adresse BGP de la connexion de liaison** du site VPN doit être configurée pour être l’adresse traduite (127.30.0.133).
+
+ 
+### <a name="ingress-snat-vpn-site-with-statically-configured-routes"></a>SNAT d’entrée (site VPN avec itinéraires configurés statiquement)
+
+Les **règles SNAT d’entrée** sont appliquées aux paquets qui entrent dans Azure via la passerelle VPN site à site de Virtual WAN. Dans ce scénario, vous voulez connecter deux branches VPN de site à site à Azure. Site VPN 1 se connecte via Liaison A, et Site VPN 2 se connecte via Liaison B. Chaque site a le même espace d’adressage 10.30.0.0/24.
+
+Dans cet exemple, nous allons traduire l’adresse réseau de Site VPN 1 en 127.30.0.0.0/24. Toutefois, comme le site VPN n’est pas connecté à la passerelle VPN site à site via BGP, les étapes de configuration sont légèrement différentes de celles de l’exemple avec BGP. 
+
+   :::image type="content" source="./media/nat-rules-vpn-gateway/diagram-static.png" alt-text="Capture d’écran montrant les configurations de diagramme pour les sites VPN qui utilisent le routage statique.":::
+
+
+1. Spécifiez une règle NAT.
+
+    Spécifiez une règle NAT pour garantir que la passerelle VPN site à site est en mesure de faire la distinction entre les deux branches avec le même espace d’adressage 10.30.0.0/24. Dans cet exemple, nous nous concentrons sur Liaison A pour Site VPN 1.
+
+    La règle NAT suivante peut être configurée et associée à Liaison A de l’une des branches de Site VPN 1. Étant donné qu’il s’agit d’une règle NAT statique, les espaces d’adressage des plages **InternalMapping** et **ExternalMapping** contiennent le même nombre d’adresses IP.
+
+    * **Nom** : IngressRule01
+    * **Type** : Statique
+    * **Mode** : IngressSnat
+    * **InternalMapping** : 10.30.0.0/24
+    * **ExternalMapping** : 172.30.0.0/24
+    * **Connexion de liaison** : Liaison A
+
+2. Modifiez le champ « Espace d’adressage privé » de Site VPN 1 pour vous assurer que la passerelle VPN site à site apprend la plage après NAT (172.30.0.0/24).
+
+   * Accédez à la ressource Hub virtuel qui contient la passerelle VPN de site à site. Dans la page de hub virtuel, sous Connectivité, sélectionnez VPN (site à site) .
+
+   * Sélectionnez le site VPN connecté au hub Virtual WAN via Liaison A. Sélectionnez « Modifier le site » et entrez 172.30.0.0/24 comme espace d’adressage privé pour le site VPN. 
+
+   :::image type="content" source="./media/nat-rules-vpn-gateway/vpn-site-static.png" alt-text="Capture d’écran montrant comment modifier l’espace d’adressage privé d’un site VPN" lightbox="./media/nat-rules-vpn-gateway/vpn-site-static.png":::
+
+### <a name="considerations-if-vpn-sites-are-statically-configured-not-connected-via-bgp"></a><a name="considerationsnobgp"></a>Considérations relatives à la configuration statique des sites VPN (non connectés via BGP)
+* La taille du sous-réseau pour le mappage interne et externe doit être la même pour la NAT statique un-à-un.
+* Modifiez le site VPN dans le portail Azure pour ajouter les préfixes de la plage **ExternalMapping** des **règles NAT d’entrée** dans le champ « Espace d’adressage privé ». 
+* Pour les configurations impliquant des **règles NAT de sortie**, une stratégie de routage ou un itinéraire statique avec la plage **ExternalMapping** de la **règle NAT de sortie** doivent être appliqués sur l’appareil local.
 
 ### <a name="packet-flow"></a>Flux de paquets
 
-Dans cet exemple, un appareil local veut atteindre un réseau virtuel spoke. Le flux de paquets se présente comme suit, avec les traductions NAT en gras.
+Dans les exemples précédents, un appareil local souhaite atteindre une ressource dans un réseau virtuel spoke. Le flux de paquets se présente comme suit, avec les traductions NAT en gras.
 
 1. Le trafic en provenance d’un emplacement local est lancé.
-   * Adresse IP source : **192.168.1.1**
-   * Adresse IP de destination : 30.0.0.1
+   * Adresse IP source : **10.30.0.4**
+   * Adresse IP de destination : 10.200.0.4
 1. Le trafic entre dans la passerelle de site à site et est traduit à l’aide de la règle NAT, puis envoyé au spoke.
-   * Adresse IP source : **10.1.1.1**
-   * Adresse IP de destination : 30.0.0.1
+   * Adresse IP source : **172.30.0.4**
+   * Adresse IP de destination : 10.200.0.4
 1. La réponse du spoke est lancée.
-   * Adresse IP source : 30.0.0.1
-   * Adresse IP de destination : **10.1.1.1**
+   * Adresse IP source : 10.200.0.4
+   * Adresse IP de destination : **172.30.0.4**
 1. Le trafic entre dans la passerelle VPN de site à site et la traduction est inversée et envoyée à l’emplacement local.
-   * Adresse IP source : 30.0.0.1
-   * Adresse IP de destination : **192.168.1.1**
+   * Adresse IP source : 10.200.0.4
+   * Adresse IP de destination : **10.30.0.4**
 
 ### <a name="verification-checks"></a>Contrôles de vérification
 
-Cette section présente les contrôles permettant de vérifier que votre configuration est correctement définie.
+Cette section présente les contrôles permettant de vérifier que votre configuration est correctement définie. 
 
 #### <a name="validate-defaultroutetable-rules-and-routes"></a>Valider DefaultRouteTable, les règles et les routes
 
-Dans Virtual WAN, les branches sont associées à **DefaultRouteTable**, ce qui implique que toutes les connexions de branche découvrent les routes qui sont renseignées dans DefaultRouteTable. La règle NAT dotée du préfixe de mappage externe s’affiche dans les routes effectives de DefaultRouteTable.
+Dans Virtual WAN, les branches sont associées à **DefaultRouteTable**, ce qui implique que toutes les connexions de branche découvrent les routes qui sont renseignées dans DefaultRouteTable. La règle NAT dotée du préfixe traduit s’affiche dans les itinéraires effectifs de DefaultRouteTable.
 
-Exemple :
+Dans l’exemple précédent :
 
-* **Préfixe :** 10.1.1.0/24  
+* **Préfixe :** 172.30.0.0/24  
 * **Type du tronçon suivant :** VPN_S2S_Gateway
 * **Tronçon suivant :** Ressource VPN_S2S_Gateway
 
@@ -127,11 +171,22 @@ Exemple :
 
 Cet exemple s’applique aux ressources des réseaux virtuels qui sont associés à DefaultRouteTable.
 
-Les **routes effectives** sur les cartes d’interface réseau d’une machine virtuelle qui se trouve dans un réseau virtuel Spoke connecté au hub Virtual WAN doivent également contenir les préfixes d’adresse de la valeur **ExternalMapping** des règles NAT.
+Les **itinéraires effectifs** sur les cartes réseau de toute machine virtuelle qui se trouve dans un réseau virtuel spoke connecté au hub Virtual WAN doivent également contenir les préfixes d’adresse de la plage **ExternalMapping** spécifiée dans la **règle NAT d’entrée**. 
 
-#### <a name="validate-bgp-advertisements"></a>Valider les publications BGP
+L’appareil local doit également contenir des itinéraires pour les préfixes contenus dans la plage **ExternalMapping** des **règles NAT de sortie**. 
 
-Si le protocole BGP est configuré sur la connexion au site VPN, vérifiez le haut-parleur BGP local pour garantir qu’il publie une entrée pour les préfixes de mappage externes.
+####  <a name="common-configuration-patterns"></a>Modèles de configuration courants 
+
+> [!NOTE]
+> La NAT site à site n’est pas prise en charge avec les connexions VPN site à site où des sélecteurs de trafic basés sur des stratégies sont utilisés.
+
+Le tableau suivant présente les modèles de configuration courants qui surviennent lors de la configuration de différents types de règles NAT sur la passerelle VPN site à site.  
+
+| Type de site VPN | Règles NAT d’entrée | Règles NAT de sortie
+|--- |--- | ---|
+|Site VPN avec itinéraires configurés statiquement |Modifiez le paramètre « Espace d’adressage privé » du site VPN pour contenir la plage **ExternalMapping** de la règle NAT.| Appliquez des itinéraires pour la plage **ExternalMapping** de la règle NAT sur l’appareil local.|
+|Site VPN (avec traduction BGP)|Placez l’adresse **ExternalMapping** de l’homologue BGP dans l’adresse BGP de la connexion de liaison du site VPN.  | Aucune considération particulière. |
+| Site VPN (sans traduction BGP) | Assurez-vous que le locuteur BGP local publie les préfixes dans la plage **ExternalMapping** de la règle NAT. Placez également l’adresse ExternalMapping de l’homologue BGP dans l’adresse BGP de la connexion de liaison du site VPN.| Appliquez des itinéraires pour la plage **ExternalMapping** de la règle NAT sur l’appareil local.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

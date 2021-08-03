@@ -11,17 +11,129 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/30/2021
+ms.date: 6/14/2021
 ms.author: gunnarc
-ms.openlocfilehash: bdf729d3f5842953be6cf87b7dcaab38582711fc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a516fd1706fdd07ad3c28a0a9e3058de5603cd40
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736125"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078633"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="june-2021-guest-os"></a>Système d’exploitation invité, juin 2021
+
+>[!NOTE] 
+
+>Le système d’exploitation invité de juin est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de juin. Cette liste est susceptible d’être modifiée. 
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-06 |  [5003646]  |  Dernière mise à jour cumulative (LCU) | 6.32 | 8 juin 2021 |
+|  Version 21-06 |  [4580325]  |  Mise à jour de Flash | 3.98, 4.91, 5.56, 6.32 | 13 octobre 2020 |
+|  Version 21-06 |  [5003636]  |  Mises à jour cumulatives d’IE | 2.111, 3.98, 4.91 | 8 juin 2021 |
+|  Version 21-06 |  [5003638]  |  Dernière mise à jour cumulative (LCU) | 5.56 | 8 juin 2021 |
+|  Version 21-06 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2.111 | 13 octobre 2020 |
+|  Version 21-06 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2.111 | 13 octobre 2020 |
+|  Version 21-06 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4,91 | 13 octobre 2020 |
+|  Version 21-06 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4,91 | 13 octobre 2020 |
+|  Version 21-06 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3,98 | 13 octobre 2020 |
+|  Version 21-06 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3,98 | 13 octobre 2020 |
+|  Version 21-06 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.32 | 9 février 2021 |
+|  Version 21-06 |  [5003667]  |  Correctif cumulatif mensuel  | 2.111 | 8 juin 2021 |
+|  Version 21-06 |  [5003697]  |  Correctif cumulatif mensuel  | 3,98 | 8 juin 2021 |
+|  Version 21-06 |  [5003671]  |  Correctif cumulatif mensuel  | 4,91 | 8 juin 2021 |
+|  Version 21-06 |  [5001401]  |  Mise à jour de la pile de maintenance  | 3,98 | 13 avril 2021 |
+|  Version 21-06 |  [5001403]  |  Mise à jour de la pile de maintenance  | 4,91 | 13 avril 2021 |
+|  Version 21-06 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4,91 | 19 août 2020 |
+|  Version 21-06 |  [5001402]  |  Mise à jour de la pile de maintenance  | 5.56 | 13 avril 2021 |
+|  Version 21-06 |  [4592510]  |  Mise à jour de la pile de maintenance  | 2.111 | 8 décembre 2020 |
+|  Version 21-06 |  [5003711]  |  Mise à jour de la pile de maintenance  | 6.32 | 8 juin 2021 |
+|  Version 21-06 |  [4494175]  |  Microcode  | 5.56 | 1er septembre 2020 |
+|  Version 21-06 |  [4494174]  |  Microcode  | 6.32 | 1er septembre 2020 |
+|  Version 21-06 |  [4052623]  |  Mise à jour de la plateforme de logiciel anti-programme malveillant de Microsoft Defender | 6.32, 5.56 | 13 mai 2021 |
+
+[5003646]: https://support.microsoft.com/kb/5003646
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003636]: https://support.microsoft.com/kb/5003636
+[5003638]: https://support.microsoft.com/kb/5003638
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003667]: https://support.microsoft.com/kb/5003667
+[5003697]: https://support.microsoft.com/kb/5003697
+[5003671]: https://support.microsoft.com/kb/5003671
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[4052623]: https://support.microsoft.com/kb/4052623
+
+## <a name="may-2021-guest-os"></a>Système d’exploitation invité, mai 2021
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-05 |  [5003171]  |  Dernière mise à jour cumulative (LCU) | [6.31] | 11 mai 2021 |
+|  Version 21-05 |  [4580325]  |  Mise à jour de Flash | [3.97], [4.90], [5.55], [6.31] | 13 octobre 2020 |
+|  Version 21-05 |  [5003165]  |  Mises à jour cumulatives d’IE | [2.110], [3.97], [4.90] | 11 mai 2021 |
+|  Version 21-05 |  [5003197]  |  Dernière mise à jour cumulative (LCU) | [5.55] | 11 mai 2021 |
+|  Version 21-05 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.110] | 13 octobre 2020 |
+|  Version 21-05 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2.110] | 13 octobre 2020 |
+|  Version 21-05 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4.90] | 13 octobre 2020 |
+|  Version 21-05 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4.90] | 13 octobre 2020 |
+|  Version 21-05 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3.97] | 13 octobre 2020 |
+|  Version 21-05 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3.97] | 13 octobre 2020 |
+|  Version 21-05 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6.31] | 9 février 2021 |
+|  Version 21-05 |  [5003233]  |  Correctif cumulatif mensuel  | [2.110] | 11 mai 2021 |
+|  Version 21-05 |  [5003208]  |  Correctif cumulatif mensuel  | [3.97] | 11 mai 2021 |
+|  Version 21-05 |  [5003209]  |  Correctif cumulatif mensuel  | [4.90] | 11 mai 2021 |
+|  Version 21-05 |  [5001401]  |  Mise à jour de la pile de maintenance  | [3.97] | 13 avril 2021 |
+|  Version 21-05 |  [5001403]  |  Mise à jour de la pile de maintenance  | [4.90] | 13 avril 2021 |
+|  Version 21-05 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4.90] | 19 août 2020 |
+|  Version 21-05 |  [5001402]  |  Mise à jour de la pile de maintenance  | [5.55] | 13 avril 2021 |
+|  Version 21-05 |  [4592510]  |  Mise à jour de la pile de maintenance  | [2.110] | 8 décembre 2020 |
+|  Version 21-05 |  [5003243]  |  Mise à jour de la pile de maintenance  | [6.31] | 11 mai 2021 |
+|  Version 21-05 |  [4494175]  |  Microcode  | [5.55] | 1er septembre 2020 |
+|  Version 21-05 |  [4494174]  |  Microcode  | [6.31] | 1er septembre 2020 |
+
+[5003171]: https://support.microsoft.com/kb/5003171
+[4580325]: https://support.microsoft.com/kb/4580325
+[5003165]: https://support.microsoft.com/kb/5003165
+[5003197]: https://support.microsoft.com/kb/5003197
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5003233]: https://support.microsoft.com/kb/5003233
+[5003208]: https://support.microsoft.com/kb/5003208
+[5003209]: https://support.microsoft.com/kb/5003209
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5003243]: https://support.microsoft.com/kb/5003243
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.110]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.97]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.90]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.55]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.31]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="april-2021-guest-os"></a>Système d’exploitation invité, avril 2021
 

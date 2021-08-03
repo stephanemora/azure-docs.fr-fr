@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d3dec6dd3095cb357a6c6b5fa1d18c6d948b782
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606332"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556583"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Effectuer une mise à niveau vers la version 9 du SDK .NET Recherche Azure
 
@@ -41,7 +41,7 @@ La version 9 d’Azure Search .NET SDK est basée sur la version du 06/05/2019 d
 * L’[enrichissement par IA](cognitive-search-concept-intro.md) est la capacité à extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées pour enrichir le contenu et ainsi faciliter les recherches dans un index de Recherche Azure.
 * La prise en charge de [types complexes](search-howto-complex-data-types.md) vous permet de modéliser presque n’importe quelle structure JSON imbriquée dans un index Recherche Azure.
 * La fonctionnalité [Autocomplétion](search-add-autocomplete-suggestions.md) fournit une alternative à l’API **Suggestion** pour implémenter le comportement de recherche au cours de la frappe. L’autocomplétion « termine » le mot ou l’expression que l’utilisateur est en train de taper.
-* Le [mode d’analyse JsonLines](search-howto-index-json-blobs.md), inclus dans l’indexation des objets Blob Azure, crée un document de recherche par entité JSON, séparé par un saut de ligne.
+* Le [mode d’analyse JsonLines](search-howto-index-json-blobs.md), inclus dans l’indexation des objets blob, crée un document de recherche par entité JSON séparée par un saut de ligne.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>Nouvelles fonctionnalités d’évaluation dans la version 8.0-preview
 La version 8.0-preview du SDK .NET Recherche Azure cible l’API version 2017-11-11-Preview. Cette version inclut toutes les fonctionnalités de la version 9, plus :

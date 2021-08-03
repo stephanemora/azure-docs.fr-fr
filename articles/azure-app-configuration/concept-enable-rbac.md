@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5efe15ba6dafd80ca91a1d45f75ebcc85513c9dd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aad92516841be1fc8552bbea8fc6b256cd080160
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748425"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028988"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoriser l’accès à Azure App Configuration Azure avec Azure Active Directory
 Outre l’utilisation du Hash-based Message Authentication Code (HMAC), Azure App Configuration prend en charge l’utilisation de Azure Active Directory (Azure AD) pour autoriser les requêtes d’instances d’App Configuration.  Azure AD vous permet d’utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité.  Un utilisateur, une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) ou un [principal du service d’application](../active-directory/develop/app-objects-and-service-principals.md) peuvent être des principaux de sécurité.  Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -28,14 +28,14 @@ L’étape d’autorisation exige qu’un ou plusieurs rôles Azure soient attri
 ## <a name="assign-azure-roles-for-access-rights"></a>Attribuer des rôles Azure pour les droits d’accès
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
-Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès est limité à la ressource App Configuration. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès est limité à la ressource App Configuration. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-built-in-roles-for-azure-app-configuration"></a>Rôles Azure intégrés pour Azure App Configuration
-Azure fournit les rôles Azure intégrés suivants pour autoriser l’accès aux données App Configuration à l’aide d’Azure AD et d’OAuth :
+Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès aux données App Configuration à l’aide d’Azure AD :
 
 - **Propriétaire des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture/écriture/suppression aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.
 - **Lecteur des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.
-- **Collaborateur** : Utilisez ce rôle pour gérer la ressource App Configuration. Alors que les données d’App Configuration sont accessibles à l’aide de clés d’accès, ce rôle n’accorde pas l’accès aux données avec Azure AD.
+- **Contributeur** ou **Propriétaire** : Utilisez ce rôle pour gérer la ressource App Configuration. Il accorde l’accès aux clés d’accès de la ressource. Alors que les données d’App Configuration sont accessibles à l’aide de clés d’accès, ce rôle n’accorde pas l’accès aux données avec Azure AD.
 - **Lecteur** : Utilisez ce rôle pour accorder un accès en lecture à la ressource App Configuration. Cela n’accorde pas l’accès aux clés d’accès de la ressource ni aux données stockées dans App Configuration.
 
 > [!NOTE]

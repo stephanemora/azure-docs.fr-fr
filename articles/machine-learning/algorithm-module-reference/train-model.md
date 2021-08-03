@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2021
-ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/10/2021
+ms.openlocfilehash: 4bbb85593d41b56ba465f577c3be35de43ba610a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562764"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468611"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -75,9 +75,16 @@ Actuellement, le module **Effectuer l’apprentissage du modèle** prend en char
 
 - Régression linéaire
 - Régression de réseau neuronal
+- Régression d’arbre de décision optimisé
+- Régression de forêt d’arbres décisionnels
+- Régression de Poisson
 - Régression logistique à deux classes
 - Machine à vecteurs de support à deux classes
+- Arbre de décision optimisé à deux classes
+- Forêt d’arbres décisionnels à deux classes
 - Forêt d’arbres de décision multiclasse
+- Régression logistique multiclasse
+- Réseau neuronal multiclasse
 
 Pour générer des explications de modèle, vous pouvez sélectionner **Vrai** dans la liste déroulante de l’option **Explication de modèle** dans le module Effectuer l’apprentissage du modèle. Par défaut, elle est définie sur Faux dans le module **Effectuer l’apprentissage du modèle**. Notez que la génération d’explications nécessite un coût de calcul supplémentaire.
 

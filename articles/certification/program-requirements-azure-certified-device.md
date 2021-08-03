@@ -1,20 +1,20 @@
 ---
-title: Exigences relatives à Azure Certified Device
-description: Exigences du programme Azure Certified Device
+title: Exigences de certification Azure Certified Device
+description: Exigences de certification Azure Certified Device
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 5acbd4a9cc48841999716cfd9c52d72ccad733b4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 8e68cf180927e000c93c4c2d73d25d4ae6ccf0f8
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712817"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538143"
 ---
-# <a name="azure-certified-device-requirements"></a>Exigences relatives à Azure Certified Device 
+# <a name="azure-certified-device-certification-requirements"></a>Exigences de certification Azure Certified Device 
 (anciennement IoT Hub)
 
 Ce document décrit les capacités spécifiques des appareils qui seront représentées dans le catalogue Azure Certified Device. Une capacité est un attribut unique de l’appareil qui peut être une implémentation logicielle ou une combinaison d’implémentations logicielles et matérielles. 

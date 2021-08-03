@@ -1,20 +1,20 @@
 ---
-title: Créer une offre de machine virtuelle Azure à partir d’une base approuvée, Place de marché Azure
-description: Découvrez comment créer une offre de machine virtuelle à partir d’une base approuvée.
+title: Créer une offre de machine virtuelle Azure à partir d’une base approuvée
+description: Découvrez comment créer une offre de machine virtuelle à partir d’une base approuvée (Place de marché Azure).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 19ae4b929964aaeb971bef75a2a620e40e4667f5
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 23fc6f6f6a62230e2cfc710c1c738eb42d6cc115
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727165"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527534"
 ---
-# <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Création d’une machine virtuelle à l’aide d’une base approuvée
+# <a name="create-a-virtual-machine-using-an-approved-base"></a>Créer une machine virtuelle à l’aide d’une base approuvée
 
 Cet article explique comment utiliser Azure pour créer une machine virtuelle contenant un système d’exploitation préconfiguré et approuvé. Si ce n'est pas compatible avec votre solution, il est possible de [créer et de configurer une machine virtuelle locale](azure-vm-create-using-own-image.md) à l'aide d'un système d'exploitation approuvé.
 

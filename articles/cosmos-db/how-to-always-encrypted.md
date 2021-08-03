@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: d8aaa34fe2e81515866c047c6a171b1bdb58ff3f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 884626bd5b0cbbf6fb24bf0e3da3b7776e720f77
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385699"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071638"
 ---
 # <a name="use-client-side-encryption-with-always-encrypted-for-azure-cosmos-db-preview"></a>Utiliser le chiffrement côté client avec Always Encrypted pour Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -80,6 +80,8 @@ Le service Azure Cosmos DB ne voit jamais le texte brut des propriétés chiffr�
 - **Chiffrement déterministe** : génère toujours la même valeur chiffrée pour une valeur de texte brut et une configuration de chiffrement données. L’utilisation du chiffrement déterministe permet aux requêtes d’appliquer des filtres d’égalité sur les propriétés chiffrées. Toutefois, elle peut permettre aux attaquants de deviner des informations sur les valeurs chiffrées en examinant les séquences dans la propriété chiffrée. C’est particulièrement vrai si l’ensemble de valeurs chiffrées possibles est restreint, par exemple Vrai/Faux ou Région Nord/Sud/Est/Ouest.
 
 - **Chiffrement aléatoire** : utilise une méthode qui chiffre les données de manière moins prévisible. Le chiffrement aléatoire est plus sécurisé, mais il empêche de filtrer les requêtes sur les propriétés chiffrées.
+
+Consultez [Génération du vecteur d’initialisation (IV)](/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv) pour en savoir plus sur le chiffrement déterministe et aléatoire dans Always Encrypted.
 
 ## <a name="setup-azure-key-vault"></a>Configurer Azure Key Vault
 

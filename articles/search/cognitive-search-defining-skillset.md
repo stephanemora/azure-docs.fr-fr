@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec7f9a874bff6eaa0e23f5fb926bf031f2b059d
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935447"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555968"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
@@ -84,7 +84,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     },
@@ -110,11 +110,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -144,11 +144,11 @@ L’élément suivant du jeu de compétences est un tableau de compétences. Vou
 
 ## <a name="add-built-in-skills"></a>Ajouter des compétences prédéfinies
 
-Examinons la première compétence, qui est la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) prédéfinie :
+Examinons la première compétence, qui est la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md) prédéfinie :
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -161,7 +161,7 @@ Examinons la première compétence, qui est la [compétence de reconnaissance d�
       "outputs": [
         {
           "name": "organizations",
-          "targetName": "organizations"
+          "targetName": "orgs"
         }
       ]
     }
@@ -169,19 +169,21 @@ Examinons la première compétence, qui est la [compétence de reconnaissance d�
 
 * Chaque compétence prédéfinie dispose des propriétés `odata.type`, `input` et `output`. Les propriétés propres à une compétence fournissent des informations supplémentaires applicables à cette compétence. Pour la reconnaissance d’entité, `categories` est une entité parmi un ensemble fixe de types d’entité que le modèle préformé peut reconnaître.
 
-* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la compétence ci-dessus, le contexte représente l’ensemble du document, ce qui implique que la compétence de reconnaissance d’entité est appelée une fois par document. Les sorties sont également générées à ce niveau. Plus spécifiquement, les ```"organizations"``` sont générées en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ces informations qui viennent d’être créées sous la forme ```"/document/organizations"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
+* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la compétence ci-dessus, le contexte représente l’ensemble du document, ce qui implique que la compétence de reconnaissance d’entité est appelée une fois par document. Les sorties sont également générées à ce niveau. La compétence renvoie une propriété appelée ```organizations``` et capturée sous la forme ```orgs```. Plus spécifiquement, ```"orgs"``` est maintenant ajouté en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ce nouvel enrichissement sous la forme ```"/document/orgs"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
 
-* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La compétence (reconnaissance d’entité) fonctionne sur le champ *contenu* de chaque document. Il s’agit d’un champ standard créé par l’indexeur des objets blob Azure. 
+* Les sorties d’une compétence peuvent être en conflit avec les sorties d’une autre compétence. En présence de plusieurs compétences renvoyant une propriété ```result```, vous pouvez utiliser la propriété ```targetName``` des sorties de compétence pour capturer une sortie JSON nommée depuis une compétence dans une propriété différente.
 
-* La compétence possède une sortie appelée ```"organizations"```. Les sorties existent uniquement pendant le traitement. Pour chaîner cette sortie à l’entrée d’une compétence en aval, référencez la sortie en tant que ```"/document/organizations"```.
+* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La compétence (reconnaissance d’entité) fonctionne sur le champ *contenu* de chaque document. Il s’agit d’un champ standard créé par l’indexeur d’objets blob Azure. 
 
-* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Par exemple :
+* La compétence présente une sortie appelée ```"organizations"``` et capturée dans une propriété ```orgs```. Les sorties existent uniquement pendant le traitement. Pour chaîner cette sortie à l’entrée d’une compétence en aval, référencez la sortie en tant que ```"/document/orgs"```.
+
+* Pour un document particulier, la valeur de ```"/document/orgs"``` est un tableau des organisations extraites du texte. Par exemple :
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Certaines situations demandent de référencer chaque élément d’un tableau séparément. Par exemple, vous souhaitez transmettre chaque élément de ```"/document/organizations"``` séparément à une autre compétence (par exemple, l’enrichisseur personnalisé Recherche d’entités Bing). Vous pouvez faire référence à chaque élément du tableau en ajoutant un astérisque dans le chemin d’accès : ```"/document/organizations/*"``` 
+Certaines situations demandent de référencer chaque élément d’un tableau séparément. Par exemple, vous souhaitez transmettre chaque élément de ```"/document/orgs"``` séparément à une autre compétence (par exemple, l’enrichisseur personnalisé Recherche d’entités Bing). Vous pouvez faire référence à chaque élément du tableau en ajoutant un astérisque dans le chemin d’accès : ```"/document/orgs/*"``` 
 
 La deuxième compétence correspondant à l’extraction de la tendance suit le même modèle que le premier enrichisseur. Elle dispose de l’entrée ```"/document/content"```, et retourne un score de tendance pour chaque instance de contenu. Comme vous n’avez pas défini le champ ```"context"``` explicitement, la sortie (mySentiment) est maintenant un enfant de ```"/document"```.
 
@@ -215,11 +217,11 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/organizations/*",
+      "context": "/document/orgs/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/organizations/*"
+          "source": "/document/orgs/*"
         }
       ],
       "outputs": [
@@ -233,9 +235,9 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
 
 Cette définition est une [compétence personnalisée](cognitive-search-custom-skill-web-api.md) qui appelle une API web dans le cadre du processus d'enrichissement. Pour chaque organisation identifiée par la reconnaissance d’entité, cette compétence appelle une API web pour rechercher la description de cette organisation. L’orchestration du moment auquel appeler l’API web et du traitement des informations reçues est gérée en interne par le moteur d’enrichissement. Toutefois, l’initialisation nécessaire pour appeler cette API personnalisée doit être indiquée dans le fichier JSON (par exemple, l’URI, les en-têtes HTTP et les entrées attendus). Pour obtenir des conseils sur la création d’une API web personnalisée pour le pipeline d’enrichissement, consultez [Guide pratique pour définir une interface personnalisée](cognitive-search-custom-skill-interface.md).
 
-Notez que le champ « contexte » contient la valeur ```"/document/organizations/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée *pour chaque* organisation sous ```"/document/organizations"```. 
+Notez que le champ « contexte » contient la valeur ```"/document/orgs/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée *pour chaque* organisation sous ```"/document/orgs"```. 
 
-La sortie, dans ce cas une description de société, est générée pour chaque organisation identifiée. Lorsque vous faites référence à la description d’une étape en aval (par exemple, dans l’extraction d’expressions clés), vous utilisez le chemin d’accès ```"/document/organizations/*/description"``` pour ce faire. 
+La sortie, dans ce cas une description de société, est générée pour chaque organisation identifiée. Lorsque vous faites référence à la description d’une étape en aval (par exemple, dans l’extraction d’expressions clés), vous utilisez le chemin d’accès ```"/document/orgs/*/description"``` pour ce faire. 
 
 ## <a name="add-structure"></a>Ajouter une structure
 

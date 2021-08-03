@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 05/06/2021
 ms.author: juliako
-ms.openlocfilehash: 486b57659c3fa28b0a61293970bcc418c3b3b6dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d67d8dba31a453f4a42982519d619f294d47e04f
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385636"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813816"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Notes de publication de Video Analyzer for Media
 
@@ -29,7 +29,33 @@ Cet article vise à vous informer sur les derniers développements d’Azure Vid
 * Résolution des bogues
 * Fonctionnalités dépréciées
 
-## <a name="aprilmay-2021"></a>Avril/mai 2021
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="new-source-languages-support-for-speech-to-text-stt-translation-and-search"></a>Prise en charge de nouvelles langues sources pour la reconnaissance vocale, la traduction et la recherche
+
+Video Analyzer for Media prend désormais en charge la reconnaissance vocale, la traduction et la recherche dans les langues suivantes : chinois (cantonais) [« zh-HK »] ; néerlandais (Pays-Bas) [« Nl-NL »] ; tchèque [« Cs-CZ »] ; polonais [« Pl-PL »] ; suédois (Suède) [« Sv-SE »] ; norvégien [« nb-NO »] ; finnois [« fi-FI »] ; français canadien [« fr-CA »] ; thaï [« th-TH »] ; arabe : (Émirats Arabes Unis) [« ar-AE », « ar-EG »], (Irak) [« ar-IQ »], (Jordanie) [« ar-JO »], (Koweït) [« ar-KW »], (Liban) [« ar-LB »], (Oman) [« ar-OM »], (Qatar) [« ar-QA »], (Autorité palestinienne) [« ar-PS »], (Syrie) [« ar-SY »] ; et turc [« TR-TR »]. 
+
+Ces langues sont disponibles dans l’API et sur le site web de Video Analyzer for Media. Sélectionnez la langue dans la liste déroulante sous **Langue source de la vidéo**.
+
+### <a name="new-theme-for-azure-video-analyzer-for-media"></a>Nouveau thème pour Azure Video Analyzer for Media
+
+Un nouveau thème est disponible, « Azure », ainsi que les thèmes « Clair » et « Sombre ». Pour sélectionner un thème, cliquez sur l’icône en forme d’engrenage dans le coin supérieur droit du site web, puis recherchez les thèmes sous **Paramètres utilisateur**.
+ 
+### <a name="new-open-source-code-you-can-leverage"></a>Nouveau code open source dont vous pouvez tirer profit 
+
+Trois nouveaux projets GitHub sont disponibles dans notre [référentiel GitHub](https://github.com/Azure-Samples/media-services-video-indexer) :
+
+* Code pour vous aider à tirer parti de la nouvelle [personnalisation des widgets](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets).
+* Solution pour vous aider à ajouter une [recherche personnalisée](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) à vos vidéothèques.
+* Solution pour vous aider à ajouter la [déduplication](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) à vos vidéothèques.
+ 
+### <a name="new-option-to-toggle-bounding-boxes-for-observed-people-on-the-player"></a>Nouvelle option permettant d’activer ou de désactiver les rectangles englobants (pour les personnes observées) sur le lecteur  
+
+Lorsque vous indexez une vidéo par l’intermédiaire de nos paramètres vidéo avancés, vous pouvez voir nos nouvelles capacités de personnes observées.
+
+Si des personnes sont détectées dans votre fichier multimédia, vous pouvez activer un rectangle englobant sur la personne détectée par le biais du lecteur multimédia.
+
+## <a name="april-2021"></a>Avril 2021
 
 Le service Video Indexer a été renommé en Azure Video Analyzer for Media.
 
@@ -98,7 +124,7 @@ Le rôle Propriétaire du compte a été ajouté à Video Analyzer for Media. Vo
 > [!NOTE]
 > Cette fonctionnalité n’est disponible que pour les comptes en version d’essai. 
 
-Video Analyzer for Media détecte maintenant les effets audio suivants dans les segments non vocaux du contenu : coup de feu, éclat de verre, alarme, sirène, explosion, aboiement, hurlement, rire, réactions de foule (encouragements, applaudissements et huées) et silence. 
+Video Analyzer for Media détecte maintenant les effets audio suivants dans les segments non vocaux du contenu : coup de feu, éclat de verre, alarme, sirène, explosion, aboiement, hurlement, rire, réactions de foule (encouragements, applaudissements et huées) et silence. 
 
 La fonctionnalité des effets audio récemment ajoutée est disponible lors de l’indexation de votre fichier en choisissant le prégéglage **Option avancée** -> **Audio avancé** (sous l’indexation Vidéo + audio). L’indexation Standard inclut uniquement le **silence** et les **réactions de foule**. 
 

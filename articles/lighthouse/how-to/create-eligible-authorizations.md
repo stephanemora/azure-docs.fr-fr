@@ -1,18 +1,18 @@
 ---
 title: Créer des autorisations éligibles
 description: Lorsque vous intégrez des clients à Azure Lighthouse, vous pouvez permettre aux utilisateurs de votre locataire de gestion d’élever leur rôle en flux tendu, selon leurs besoins.
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f220574a2fb84fcf4e7a6e4933bcfbf61d882091
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 938b0ae8f2d105d79237164287b00ec4fdf4d607
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385983"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060743"
 ---
 # <a name="create-eligible-authorizations"></a>Créer des autorisations éligibles
 
-Lorsque vous intégrez des clients à Azure Lighthouse, vous pouvez créer des autorisations pour octroyer des rôles intégrés spécifiques à Azure aux utilisateurs de votre locataire de gestion. Vous pouvez également créer des autorisations éligibles qui utilisent [Azure Active Directory Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) pour permettre aux utilisateurs de votre locataire de gestion d’élever temporairement leur rôle. Cela vous permet d’octroyer des autorisations supplémentaires en flux tendu. Ainsi, les utilisateurs ayant besoin d’autorisations spécifiques pour effectuer une tâche peuvent bénéficier de ces autorisations le temps d’effectuer leur tâche.
+Lorsque vous intégrez des clients à Azure Lighthouse, vous pouvez créer des autorisations pour octroyer des rôles intégrés spécifiques à Azure aux utilisateurs de votre locataire de gestion. Vous pouvez également créer des autorisations éligibles qui utilisent [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) pour permettre aux utilisateurs de votre locataire de gestion d’élever temporairement leur rôle. Cela vous permet d’accorder des autorisations supplémentaires en juste-à-temps. Ainsi, les utilisateurs peuvent en bénéficier pendant une durée définie.
 
 La création d’autorisations éligibles vous permet de réduire le nombre d’attributions permanentes de rôles privilégiés à des utilisateurs, ce qui contribue à réduire les risques de sécurité liés aux accès privilégiés attribués aux utilisateurs de votre locataire.
 
@@ -31,7 +31,7 @@ Cette licence EMS E5 ou Azure AD Premium P2 doit être détenue par le locataire
 
 Les coûts supplémentaires associés à un rôle éligible s’appliquent uniquement pendant la période durant laquelle l’utilisateur élève son accès jusqu’à ce rôle.
 
-Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements).
+Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 ## <a name="how-eligible-authorizations-work"></a>Fonctionnement des autorisations éligibles
 
@@ -45,7 +45,7 @@ Les administrateurs du locataire de gestion peuvent passer en revue toutes les a
 
 Lorsque vous créez une autorisation éligible, vous définissez trois éléments : l’utilisateur, le rôle et la stratégie d’accès.
 
-- L’**utilisateur** peut être un utilisateur individuel dans le locataire de gestion ou un groupe Azure AD, toujours dans le locataire de gestion. Si un groupe est défini, tous les membres de ce groupe seront en mesure d’élever leur accès individuel au rôle par la stratégie d’accès. Vous ne pouvez pas utiliser les autorisations éligibles avec les principaux de service.
+- **L’utilisateur** peut correspondre à un utilisateur individuel ou à un groupe Azure AD dans le locataire de gestion. Si un groupe est défini, tous les membres de ce groupe seront en mesure d’élever leur accès individuel au rôle par la stratégie d’accès. Vous ne pouvez pas utiliser les autorisations éligibles avec les principaux de service.
 - Le **rôle** peut être n’importe quel rôle Azure intégré pris en charge pour la gestion des ressources déléguées Azure, à l’exception du rôle Administrateur de l’accès utilisateur.
 - La **stratégie d’accès** définit les exigences en matière d’authentification multifacteur (ou « MFA » pour « Multi-Factor Authorization ») et la durée pendant laquelle un utilisateur pourra endosser le rôle avant que ce dernier n’expire. La durée maximale que vous pouvez spécifier pour n’importe quel rôle est de 8 heures.
 
@@ -59,7 +59,6 @@ Pour intégrer votre client à Azure Lighthouse, vous utilisez un [modèle Azure
 > Bien que vous puissiez également intégrer des clients à l’aide d’offres Managed Service dans la Place de marché Azure, vous ne pouvez pas inclure actuellement des autorisations éligibles dans ces offres.
 
 Pour inclure des autorisations éligibles lors de l’intégration d’un client, utilisez l’un des modèles de la [section delegated-resource-management-eligible-authorizations de notre référentiel d’exemples](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations) (contenu en anglais).
-
 
 |Pour intégrer ceci (avec des autorisations éligibles)  |Utiliser ce modèle Azure Resource Manager  |Et modifier ce fichier de paramètres |
 |---------|---------|---------|
@@ -233,7 +232,7 @@ Dans le paramètre `eligibleAuthorizations`, le `principalId` spécifie l’ID d
 > [!IMPORTANT]
 > Veillez à inclure le même `principalId` dans la section `authorizations` de votre modèle avec un rôle différent de l’autorisation éligible, tel que le rôle Lecteur (ou tout autre rôle intégré Azure qui inclut l’accès Lecteur). Dans le cas contraire, l’utilisateur ne pourra pas élever son rôle dans le portail Azure.
 
-Le `roleDefinitionId` contient l’ID de définition de rôle pour un [rôle intégré Azure](/azure/role-based-access-control/built-in-roles) que l’utilisateur peut utiliser en flux tendu.
+Le `roleDefinitionId` contient l’ID de définition de rôle pour un [rôle intégré Azure](../../role-based-access-control/built-in-roles.md) que l’utilisateur peut utiliser en flux tendu.
 
 Le `justInTimeAccessPolicy` spécifie deux éléments :
 
@@ -247,12 +246,14 @@ Le `justInTimeAccessPolicy` spécifie deux éléments :
 
 Lorsque vous avez intégré un client à Azure Lighthouse, tous les rôles éligibles que vous avez inclus seront disponibles pour l’utilisateur spécifié (ou pour les utilisateurs des groupes spécifiés).
 
-Chaque utilisateur peut élever son accès à tout moment en visitant la page **Mes clients** du portail Azure, en sélectionnant une délégation, puis en sélectionnant le bouton **Gérer les rôles éligibles**. Après cela, ils peuvent suivre les [étapes pour activer le rôle](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) dans Azure AD Privileged Identity Management.
+Chaque utilisateur peut à tout moment élever son accès. Pour cela, il doit accéder à la page **Mes clients** du Portail Azure et sélectionner une délégation, puis **Gérer les rôles éligibles**. Après cela, ils peuvent suivre les [étapes pour activer le rôle](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) dans Azure AD Privileged Identity Management.
+
+:::image type="content" source="../media/manage-eligible-roles.png" alt-text="Capture d’écran montrant le bouton Gérer les rôles éligibles sur le Portail Azure.":::
 
 Lorsque le rôle éligible a été activé, il sera attribué à l’utilisateur durant toute la période spécifiée dans l’autorisation éligible. Après cette période, l’utilisateur ne sera plus en mesure d’utiliser ce rôle, sauf s’il répète le processus d’élévation et élève de nouveau son accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [intégrer des clients à Azure Lighthouse en utilisant des modèles ARM](onboard-customer.md).
-- Obtenez plus d’informations sur [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+- Obtenez plus d’informations sur [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).
 - Obtenez plus d’informations sur [les locataires, les utilisateurs et les rôles dans Azure Lighthouse](../concepts/tenants-users-roles.md).

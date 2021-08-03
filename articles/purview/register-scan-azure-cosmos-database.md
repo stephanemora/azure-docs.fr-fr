@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 91005835a407cd097d7c5de3de02a48959b4cbfd
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 23825bd3ab41891f775f26e2ee2b052e3a041401
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750768"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560098"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Inscription et analyse d’Azure Cosmos DB (API SQL)
 
@@ -39,7 +39,7 @@ Si la méthode d’authentification sélectionnée est **Clé de compte**, vous 
 
 1. Accédez à votre compte Cosmos DB sur le Portail Azure. 
 1. Sélectionnez **Paramètres** > **Clés**. 
-1. Copiez votre *clé* et enregistrez-la quelque part pour la suite.
+1. Copiez une clé PRIMAIRE ou SECONDAIRE à partir des *clés en lecture-écriture* ou des *clés en lecture seule*, puis enregistrez-la quelque part pour les étapes suivantes.
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
 1. Sélectionnez **+ Générer/importer**, puis entrez le **nom** et la **valeur** comme *clé* de votre compte Azure Cosmos DB.
@@ -67,11 +67,38 @@ Sur l’écran **Inscrire des sources (Azure Cosmos DB (API SQL))** , procédez 
 4. Sélectionnez une collection ou créez-en une (facultatif).
 5. Sélectionnez **Inscrire** pour inscrire la source de données.
 
-
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source de données Azure Cosmos DB que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données. 
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/set-up-scan-cosmos.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des bases de données spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmos-database-scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

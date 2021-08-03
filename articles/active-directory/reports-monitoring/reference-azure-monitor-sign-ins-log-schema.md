@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/12/2021
+ms.date: 05/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bad8ae86827144269e816a6c2e01d6af3f4d88ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9bc861ffdc2c8671f062bb41499c8ffee1123d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225416"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965624"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -151,8 +151,8 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | OperationVersion | - | Version d’API REST demandée par le client. |
 | Category | - | Pour les connexions, cette valeur est toujours *SignIn*. | 
 | TenantId | - | GUID de locataire associé aux journaux d’activité. |
-| ResultType | - | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
-| ResultSignature | - | Contient le code d’erreur éventuel de l’opération de connexion. |
+| ResultType | - | Le résultat de l’opération de connexion peut être `0` en cas de réussite ou un *code d’erreur* en cas d’échec. | 
+| ResultSignature | - | Cette valeur est toujours *None*. |
 | ResultDescription | Non applicable ou vide | Fournit la description de l’erreur pour l’opération de connexion. |
 | riskDetail | riskDetail | Fournit le motif de l’état spécifique d’un utilisateur à risque, d’une connexion ou d’une détection d’événement à risque. Les valeurs possibles sont : `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. La valeur `none` signifie qu’aucune action n’a été effectuée sur l’utilisateur ou la connexion jusqu’à présent. <br>**Remarque :** Les détails de cette propriété nécessitent une licence Azure AD Premium P2. Les autres licences retournent la valeur `hidden`. |
 | riskEventTypes | riskEventTypes | Types de détections d’événements à risque associés à la connexion. Les valeurs possibles sont : `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` et `unknownFutureValue`. |
@@ -171,5 +171,5 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpréter le schéma des journaux d’audit dans Azure Monitor](./overview-reports.md)
 * [En savoir plus sur les journaux de la plateforme Azure](../../azure-monitor/essentials/platform-logs-overview.md)

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 8824ea38121b8f440f1b0ef1f07737f46e8b7295
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: d1bb111bbaa909c52261a0dbafe6d6e0a24390ac
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732881"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007259"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -63,7 +63,7 @@ Les machines virtuelles déployées sur des hôtes avec des domaines d’erreur 
 
 Vous pouvez utiliser ces deux fonctionnalités ensemble pour obtenir une isolation des erreurs encore plus étendue. Dans ce cas, vous allez spécifier la zone de disponibilité et le nombre de domaines d’erreur pour chaque groupe hôte, attribuer un domaine d’erreur à chacun de vos hôtes dans le groupe et affecter une zone de disponibilité à chacune de vos machines virtuelles.
 
-L’exemple de modèle Resource Manager, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour diffuser des hôtes et obtenir une résilience maximale dans une région.
+L’[exemple de modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) utilise les zones et les domaines d’erreur pour diffuser des hôtes et obtenir une résilience maximale dans une région.
 
 
 ## <a name="manual-vs-automatic-placement"></a>Sélection élective manuelle ou automatique
@@ -176,6 +176,6 @@ Azure surveille et gère l’état d’intégrité de vos hôtes. Les états sui
 
 - Vous pouvez déployer un hôte dédié à l’aide d’[Azure PowerShell](./windows/dedicated-hosts-powershell.md), du [portail](./dedicated-hosts-portal.md) et d’[Azure CLI](./linux/dedicated-hosts-cli.md).
 
-- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
+- Il existe un [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) qui utilise à la fois les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également économiser sur les coûts grâce à une [instance réservée d’ordinateurs Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 05/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9a31fe8046e6bb0a933ade78ee2c7f4b208767a7
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a6952679ad2497a059b6ad043ef5e1e23fea0236
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028347"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744068"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Pour autoriser la connexion des utilisateurs avec un compte Azure AD d’une org
 
 Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant le locataire Azure AD de votre organisation. Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
 1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
@@ -114,7 +114,7 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` à pa
 1. Sous **Fournisseurs d’identité sociale**, sélectionnez **Contoso Azure AD**.
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
-1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`. 
 1. Sélectionnez le bouton **Exécuter le flux d’utilisateur**.
 1. Dans la page d’inscription ou de connexion, sélectionnez **Contoso Azure AD** pour vous connecter avec un compte Contoso Azure AD.
 

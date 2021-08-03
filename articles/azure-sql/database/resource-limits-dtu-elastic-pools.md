@@ -7,16 +7,16 @@ ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: reference
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: 906d34a91736d28f0da4a5ba34b7114fbe410adb
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fbbd345e6b2832d8b992ea42a8a2c1fb33615af7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306634"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689956"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107306634"
 Cet article détaille les limites de ressources des bases de données Azure SQL Database qui se trouvent dans un pool élastique suivant le modèle d'achat DTU.
 
 * Pour connaître les limites du modèle d’achat DTU pour les bases de données uniques sur un serveur, consultez [Vue d’ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
-* Pour les limites de ressources du modèle d’achat DTU d’Azure SQL Database, consultez [limites de ressources DTU pour les bases de données uniques](resource-limits-dtu-single-databases.md) et celles pour les [pools élastiques](resource-limits-dtu-elastic-pools.md).
+* Pour connaître les limites de ressources du modèle d’achat DTU d’Azure SQL Database, consultez les [limites de ressources DTU pour les bases de données uniques](resource-limits-dtu-single-databases.md) et celles pour les [pools élastiques](resource-limits-dtu-elastic-pools.md).
 * Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : Azure SQL Database](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md).
 * Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](purchasing-models.md).
 
@@ -161,6 +161,8 @@ Si toutes les DTU d’un pool élastique sont utilisées, chaque base de donnée
 
 > [!NOTE]
 > Pour les limites `tempdb`, consultez [Limites tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+>
+> Pour plus d’informations sur les limites de stockage au niveau de service Premium, consultez [Gouvernance de l’espace de stockage](resource-limits-logical-server.md#storage-space-governance).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool
 

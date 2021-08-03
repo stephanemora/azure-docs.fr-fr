@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/14/2020
-ms.author: akjosh
+ms.date: 6/8/2021
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609139"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032660"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
 
@@ -64,7 +64,7 @@ Les paramètres suivants déterminent les types de versions d’images qu’elle
 
 - État de système d’exploitation : vous pouvez définir l’état du système d’exploitation sur la valeur [Généralisée ou Spécialisée](#generalized-and-specialized-images). Ce champ doit obligatoirement être renseigné.
 - Système d’exploitation : Windows ou Linux. Ce champ doit obligatoirement être renseigné.
--   Génération d’Hyper-V : spécifiez si l’image a été créée à partir d’un disque dur virtuel Hyper-V de génération 1 ou de [génération 2](generation-2.md). Par défaut, il s’agit de génération 1.
+- Génération d’Hyper-V : spécifiez si l’image a été créée à partir d’un disque dur virtuel Hyper-V de génération 1 ou de [génération 2](generation-2.md). Par défaut, il s’agit de génération 1.
 
 
 Voici d’autres paramètres qui peuvent être configurés sur votre définition d’image de sorte à faciliter le suivi de vos ressources :
@@ -72,7 +72,7 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 - Description : elle vous permet de fournir des informations plus détaillées sur la raison pour laquelle la définition d’image a été créée. Par exemple, vous avez peut-être besoin d’une définition d’image pour le serveur principal sur lequel l’application est préinstallée.
 - CLUF : il peut être utilisé pour pointer vers un contrat de licence utilisateur final spécifique à la définition d’image.
 - Notes de publication et déclaration de confidentialité : stockez des notes de publication et des déclarations de confidentialité dans le stockage Azure et fournissez un URI permettant d’y accéder dans la définition d’image.
-- Date de fin de vie : indiquez une date de fin de vie pour la définition d’image afin de pouvoir utiliser l’automatisation pour supprimer les anciennes définitions d’image.
+- Date de fin de vie : établissez une date de fin de vie par défaut pour toutes les versions d’images de la définition d’image. Les dates de fin de vie sont fournies à titre d’information. Les utilisateurs peuvent toujours créer des machines virtuelles à partir d’images et de versions dont la date de fin de vie est dépassée.
 - Étiquette : vous pouvez ajouter des étiquettes lorsque vous créez votre définition d’image. Pour en savoir plus sur les étiquettes, voir [Organisation des ressources Azure à l’aide d’étiquettes](../azure-resource-manager/management/tag-resources.md).
 - Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 - Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
@@ -88,7 +88,7 @@ Les propriétés d’une version d’image sont les suivantes :
 - Numéro de version. Il est utilisé comme nom de la version d’image. Son format est toujours : MajorVersion.MinorVersion.Patch. Si vous spécifiez d’utiliser la **dernière** image lors de la création d’une machine virtuelle, la dernière image est choisie en fonction de la valeur la plus élevée de MajorVersion, de MinorVersion, puis de Patch. 
 - Source. La source peut être une machine virtuelle, un disque managé, une capture instantanée, une image managée ou une autre version de l’image. 
 - Exclure de la plus récente. Vous pouvez empêcher l’utilisation d’une version comme version la plus récente de l’image. 
-- Date de fin de vie. Date à partir de laquelle des machines virtuelles ne peuvent pas être créées à partir de cette image.
+- Date de fin de vie. Indiquez la date de fin de vie de la version de l’image. Les dates de fin de vie sont fournies à titre d’information. Les utilisateurs peuvent toujours créer des machines virtuelles à partir de versions dont la date de fin de vie est dépassée.
 
 
 ## <a name="generalized-and-specialized-images"></a>Images généralisées et spécialisées
@@ -120,7 +120,7 @@ Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier 
 ## <a name="scaling"></a>Mise à l'échelle
 La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
 
-Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.   Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images ou régions ne sont jamais les mêmes, mais nous vous invitons à suivre les règles suivantes sur la création de réplicas dans une région :
+Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.   Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images et les régions ne sont jamais les mêmes. Voici néanmoins la recommandation générale à suivre pour créer des réplicas dans une région :
 
 - Pour les déploiements qui ne concernent pas des groupes de machines virtuelles identiques : pour chaque lot de 20 machines virtuelles que vous créez simultanément, nous vous recommandons de ne garder qu’un réplica. Par exemple, si vous créez 120 machines virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de conserver au moins 6 réplicas de votre image. 
 - Pour les déploiements de groupes de machines virtuelles identiques : pour chaque déploiement de groupe identique avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Ainsi, si vous créez 5 groupes identiques simultanément, chacun doté de 600 instances de VM utilisant la même image dans une seule région, nous vous suggérons de conserver au moins 5 réplicas de votre image. 
@@ -159,8 +159,8 @@ Les images peuvent également être partagées à grande échelle, même entre l
 
 ## <a name="billing"></a>Facturation
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
--   Coûts du stockage de chaque réplica. Le coût de stockage est facturé en tant qu’instantané et calculé sur la base de la taille occupée par la version de l’image, du nombre de réplicas de la version de l’image et du nombre de régions dans lesquelles la version est répliquée. 
--   Coûts de sortie de réseau pour la réplication de la première version d’image de la région source vers les régions répliquées. Les réplicas suivants sont gérés au sein de la région, donc aucun coût supplémentaire n’est prévu. 
+- Coûts du stockage de chaque réplica. Le coût de stockage est facturé en tant qu’instantané et calculé sur la base de la taille occupée par la version de l’image, du nombre de réplicas de la version de l’image et du nombre de régions dans lesquelles la version est répliquée. 
+- Coûts de sortie de réseau pour la réplication de la première version d’image de la région source vers les régions répliquées. Les réplicas suivants sont gérés au sein de la région, donc aucun coût supplémentaire n’est prévu. 
 
 Par exemple, imaginez que vous ayez une image d’un disque de système d’exploitation de 127 Go, qui occupe seulement 10 Go de stockage, et un disque de données vide de 32 Go. La taille occupée par chaque image est seulement de 10 Go. L’image est répliquée dans trois régions et chaque région a deux réplicas. Il y aura six instantanés au total, chacun utilisant 10 Go. Le coût de stockage de chaque instantané vous sera facturé conformément à la taille occupée de 10 Go. Vous paierez des frais de sortie du réseau pour la copie du premier réplica vers les deux régions supplémentaires. Pour plus d’informations sur les tarifs des instantanés dans chaque région, consultez [Tarifs des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). Pour plus d’informations sur la sortie du réseau, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -198,10 +198,10 @@ Les SDK suivants prennent en charge la création de galeries d’images partagé
 
 Vous pouvez créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 
-- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions 
 
@@ -228,7 +228,7 @@ Pour lister toutes les ressources de galerie d’images partagées de différent
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources**.
-1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
+1. Sélectionnez tous les abonnements dont vous voulez lister l’ensemble des ressources.
 1. Recherchez des ressources de type **Galerie d’images partagée**.
   
 Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
@@ -291,7 +291,7 @@ Deux méthodes vous permettent de spécifier le nombre de réplicas de version d
 1. Le nombre de réplicas régionaux, qui spécifie le nombre de réplicas que vous voulez créer par région. 
 2. Le nombre de réplicas communs, qui est le nombre par défaut par région si le nombre de réplicas régionaux n’est pas spécifié. 
 
-Pour spécifier le nombre de réplicas régionaux, passez l’emplacement avec le nombre de réplicas à créer dans cette région : « USA Centre Sud=2». 
+Pour spécifier le nombre de réplicas régionaux, indiquez l’emplacement ainsi que le nombre de réplicas à créer dans cette région : « South Central US=2». 
 
 Si le nombre de réplicas régionaux n’est pas spécifié avec chaque emplacement, le nombre de réplicas par défaut est le nombre de réplicas communs que vous avez spécifié. 
 
@@ -315,7 +315,7 @@ Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiq
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?
 
-Oui, vous pouvez mettre à jour la référence d’image de groupe identique à partir d’une image managée vers une image de galerie d’images partagées, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images.
+Oui, vous pouvez mettre à jour la référence d’une image de groupe identique en passant d’une image managée à une image Shared Image Gallery, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images.
 
 ## <a name="troubleshoot-shared-image-gallery-issues"></a>Résoudre les problèmes de Shared Image Gallery
 Si vous rencontrez des problèmes lors de l’exécution d’opérations sur les ressources Shared Image Gallery, consultez la liste des erreurs courantes dans le [guide de résolution des problèmes](troubleshooting-shared-images.md).

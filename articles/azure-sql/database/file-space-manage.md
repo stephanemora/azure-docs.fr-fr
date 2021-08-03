@@ -3,20 +3,20 @@ title: Gestion de l'espace de fichiers dans Azure SQL Database
 description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et mises en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou mise en pool, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 12/22/2020
-ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: fb5ee8b096f64faa47756642b4e94bae429fb879
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99096489"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591257"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gérer l'espace de fichier des bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ La surveillance de l’utilisation de l’espace de fichiers et la réduction de
 
 ### <a name="monitoring-file-space-usage"></a>Surveillance de l’utilisation de l’espace de fichiers
 
-La plupart des métriques d’espace de stockage affichées dans le portail Azure et les API suivantes mesurent seulement la taille des pages de données utilisées :
+La plupart des métriques d’espace de stockage affichées dans les API suivantes mesurent seulement la taille des pages de données utilisées :
 
 - API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](/powershell/module/az.monitor/get-azmetric) PowerShell
 - T-SQL : [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
@@ -52,8 +52,15 @@ Cependant, les API suivantes mesurent aussi la taille de l’espace alloué pour
 
 Azure SQL Database ne réduit pas automatiquement les fichiers de données pour récupérer l'espace alloué inutilisé en raison de l'impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space).
 
-> [!NOTE]
-> Contrairement aux fichiers de données, Azure SQL Database réduit automatiquement les fichiers journaux dans la mesure où cette opération n'affecte pas les performances de la base de données.
+### <a name="shrinking-transaction-log-file"></a>Réduction du fichier journal de transactions
+
+Contrairement aux fichiers de données, Azure SQL Database réduit automatiquement le fichier journal de transactions afin d’éviter une utilisation excessive de l’espace, qui peut entraîner des erreurs d’insuffisance d’espace. Il n’est généralement pas nécessaire pour les clients de réduire le fichier journal de transactions.
+
+Dans les niveaux de service Premium et Critique pour l’entreprise, si le journal de transactions devient volumineux, il peut contribuer considérablement à la l’utilisation du stockage local jusqu’à la limite de [stockage local maximal](resource-limits-logical-server.md#storage-space-governance). Si l’utilisation du stockage local est proche de la limite, les clients peuvent choisir de réduire le journal des transactions à l’aide de la commande [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql), comme dans l’exemple suivant. Cela libère le stockage local dès la fin de la commande, sans attendre l’opération de réduction automatique périodique.
+
+```tsql
+DBCC SHRINKFILE (2);
+```
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Appréhender les types d’espace de stockage d’une base de données
 
@@ -61,7 +68,7 @@ Il est essentiel d’appréhender les quantités d’espace de stockage suivante
 
 |Quantité pour une base de données|Définition|Commentaires|
 |---|---|---|
-|**Espace de données utilisé**|La quantité d’espace utilisée pour stocker les données de la base de données dans des pages de 8 Ko.|En général, l’espace utilisé augmente (diminue) lors des insertions (suppressions). Dans certains cas, l’espace utilisé ne change pas lors des insertions ou suppressions selon la quantité et le modèle des données impliquées dans l’opération et dans toute fragmentation éventuelle. Par exemple, la suppression d’une ligne dans chaque page de données ne diminue pas forcément l’espace utilisé.|
+|**Espace de données utilisé**|Quantité d’espace utilisée pour stocker les données de la base de données.|En général, l’espace utilisé augmente (diminue) lors des insertions (suppressions). Dans certains cas, l’espace utilisé ne change pas lors des insertions ou suppressions selon la quantité et le modèle des données impliquées dans l’opération et dans toute fragmentation éventuelle. Par exemple, la suppression d’une ligne dans chaque page de données ne diminue pas forcément l’espace utilisé.|
 |**Espace de données alloué**|La quantité d’espace de fichiers formatés mise à disposition pour stocker les données de la base de données.|La quantité d’espace allouée augmente automatiquement, mais ne diminue jamais après les suppressions. Ce comportement garantit que les insertions ultérieures seront plus rapides, car l’espace n’aura pas besoin d’être reformaté.|
 |**Espace de données alloué mais non utilisé**|La différence entre la quantité d’espace de données allouée et la quantité d’espace de données utilisée.|Cette quantité représente la quantité maximale d’espace libre qui peut être récupérée par la réduction des fichiers de données de la base de données.|
 |**Taille maximale des données**|La quantité maximale d’espace qui peut être utilisée pour le stockage des données de la base de données.|La quantité d’espace de données allouée ne peut pas croître au-delà de la taille maximale des données.|
@@ -223,21 +230,22 @@ Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](/sql/t
 
 ### <a name="auto-shrink"></a>Réduction automatique
 
-Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique réduit la complexité de la gestion des fichiers, et elle a moins d’impact sur les performances des bases de données que `SHRINKDATABASE` ou `SHRINKFILE`.  La réduction automatique peut s’avérer particulièrement utile pour la gestion des pools élastiques avec de nombreuses bases de données.  Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que `SHRINKDATABASE` et `SHRINKFILE`.
-Par défaut, la réduction automatique est désactivée, comme recommandé pour la plupart des bases de données. Pour plus d’informations, consultez [Considérations relatives à AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique a pour effet de réduire la complexité de la gestion des fichiers, et a moins d’impact sur les performances des bases de données que les commandes `SHRINKDATABASE` ou `SHRINKFILE`. La réduction automatique peut être particulièrement utile pour gérer des pools élastiques avec de nombreuses bases de données qui connaissent une croissance et une réduction significatives de l’espace utilisé. Cependant, elle peut être moins efficace pour récupérer de l’espace de fichiers que `SHRINKDATABASE` et `SHRINKFILE`.
 
-Pour activer la réduction automatique, changez le nom de la base de données dans la commande suivante.
+Par défaut, la réduction automatique est désactivée, ce qui est recommandé pour la plupart des bases de données. S’il est nécessaire d’activer la réduction automatique, il est recommandé de la désactiver une fois les objectifs de gestion de l’espace atteints, au lieu de la conserver indéfiniment. Pour plus d’informations, consultez [Considérations relatives à AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
+Pour activer la réduction automatique, exécutez la commande suivante dans votre base de données (et non pas dans la base de données master).
 
 ```sql
--- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON;
+-- Enable auto-shrink for the current database.
+ALTER DATABASE CURRENT SET AUTO_SHRINK ON;
 ```
 
 Pour plus d’informations sur cette commande, consultez les options de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ### <a name="rebuild-indexes"></a>Reconstruire des index
 
-Une fois les fichiers de données d’une base de données sont réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Une fois les fichiers de données réduits, les index peuvent devenir fragmentés et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la maintenance des index, consultez [Optimiser la maintenance des index pour améliorer les performances des requêtes et réduire la consommation des ressources](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

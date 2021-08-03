@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 5a7b8c2f76abc9dd41894280e7cf610d0cae85ea
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90929805"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554866"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Gérer la haute disponibilité avec redondance interzone dans Serveur flexible
 
@@ -95,6 +95,46 @@ Suivez ces étapes pour désactiver la haute disponibilité de votre serveur fle
 5.  Cliquez sur le bouton **Désactiver la haute disponibilité** pour désactiver la haute disponibilité.
 
 6.  Une notification indique que la désactivation du déploiement à haute disponibilité est en cours.
+
+## <a name="forced-failover"></a>basculement forcé
+
+Suivez ces étapes pour forcer le basculement de votre serveur principal vers le serveur flexible de secours. Le serveur principal est alors immédiatement arrêté et un basculement vers le serveur de secours est déclenché. Cette procédure est utile dans certains cas, notamment pour tester la durée de basculement de votre charge de travail à la suite d’une panne imprévue.
+
+1.  Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur flexible existant pour lequel la fonctionnalité de haute disponibilité est déjà activée.
+2.  Dans la page du serveur flexible, cliquez surHaute disponibilité dans le panneau avant pour ouvrir la page de haute disponibilité.
+3.  Vérifiez la zone de disponibilité principale et la zone de disponibilité de secours
+4.  Cliquez sur Basculement forcé pour lancer la procédure de basculement manuel. Une fenêtre contextuelle vous informe du temps d’arrêt potentiel jusqu’à la fin du basculement. Lisez le message, puis cliquez sur OK.
+5.  Une notification indique que le basculement est en cours.
+6.  Une fois le basculement vers le serveur de secours réussi, une notification s’affiche.
+7.  Vérifiez la nouvelle zone de disponibilité principale et la zone de disponibilité de secours.
+    
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-forced-failover.png" alt-text="Basculement forcé à la demande"::: 
+
+>[!IMPORTANT] 
+> * N’effectuez pas de basculements consécutifs sans pause. Attendez au moins 15-20 minutes entre chaque basculement, ce qui permettra également au nouveau serveur de secours d’être entièrement établi.
+>
+> * La durée d’ensemble de l’opération indiquée dans le portail peut être plus longue que le temps d’arrêt réel subi par l’application. Mesurez le temps d’arrêt du point de vue de l’application. 
+
+## <a name="planned-failover"></a>Basculement planifié
+
+Suivez ces étapes pour effectuer un basculement planifié de votre serveur principal vers le serveur flexible de secours. Le serveur de secours est alors préparé, puis le basculement est effectué. Le temps d’arrêt est minimal, car un basculement approprié est effectué vers le serveur de secours. Cette approche est utile dans certaines situations, par exemple pour ramener le serveur principal dans la zone de disponibilité préférée après un événement de basculement.
+1.  Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur flexible existant pour lequel la fonctionnalité de haute disponibilité est déjà activée.
+2.  Dans la page du serveur flexible, cliquez surHaute disponibilité dans le panneau avant pour ouvrir la page de haute disponibilité.
+3.  Vérifiez la zone de disponibilité principale et la zone de disponibilité de secours
+4.  Cliquez sur Basculement planifié pour lancer la procédure de basculement manuel. Une fenêtre contextuelle vous informe du processus à suivre. Lisez le message, puis cliquez sur OK.
+5.  Une notification indique que le basculement est en cours.
+6.  Une fois le basculement vers le serveur de secours réussi, une notification s’affiche.
+7.  Vérifiez la nouvelle zone de disponibilité principale et la zone de disponibilité de secours.
+        :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-planned-failover.png" alt-text="Basculement planifié à la demande"::: 
+
+>[!IMPORTANT] 
+>
+> * N’effectuez pas de basculements consécutifs sans pause. Attendez au moins 15-20 minutes entre chaque basculement, ce qui permettra également au nouveau serveur de secours d’être entièrement établi.
+>
+> * Il est recommandé d’effectuer un basculement planifié lorsque l’activité est faible.
+>
+> * La durée d’ensemble de l’opération peut être plus longue que le temps d’arrêt réel subi par l’application. Mesurez le temps d’arrêt du point de vue de l’application.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

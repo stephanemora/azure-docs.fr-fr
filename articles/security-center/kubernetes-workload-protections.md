@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 06/14/2021
 ms.author: memildin
-ms.openlocfilehash: 1a6a9080a8957b56d12eca289a500fd45f0e709b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310816"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062295"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -33,14 +33,14 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 
 ## <a name="availability"></a>Disponibilité
 
-|Aspect|Détails|
-|----|:----|
-|État de sortie :|Disponibilité générale (GA)|
-|Prix :|Gratuit|
-|Rôles et autorisations obligatoires :|**Propriétaire** ou **Administrateur de la sécurité** pour modifier une attribution<br>**Lecteur** pour afficher les recommandations|
-|Configuration requise pour l’environnement :|Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
-|||
+| Aspect                          | Détails                                                                                                                                      |
+|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
+| État de sortie :                  | Disponibilité générale (GA)                                                                                                                    |
+| Prix :                        | Gratuit                                                                                                                                         |
+| Rôles et autorisations obligatoires : | **Propriétaire** ou **Administrateur de la sécurité** pour modifier une attribution<br>**Lecteur** pour afficher les recommandations                                              |
+| Configuration requise pour l’environnement :       | Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge |
+| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov) |
+|                                 |                                                                                                                                              |
 
 
 ## <a name="set-up-your-workload-protection"></a>Configurer la protection de votre charge de travail
@@ -69,7 +69,7 @@ Pour configurer les recommandations, installez le **module complémentaire Azure
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Page de détails de recommandation pour **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
 
-### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Étape 2 : Afficher et configurer le bundle de 13 recommandations
+### <a name="step-2-view-and-configure-the-bundle-of-recommendations"></a>Étape 2 : Afficher et configurer le bundle de recommandations
 
 1. Environ 30 minutes après l’installation du module complémentaire, Security Center affiche l’état d’intégrité des clusters pour les recommandations suivantes, chacune dans le contrôle de sécurité approprié, comme indiqué ci-dessous :
 
@@ -253,5 +253,5 @@ Dans cet article, vous avez appris à configurer la protection d’une charge de
 Pour d’autres informations connexes, consultez les pages suivantes : 
 
 - [Recommandations de Security Center pour le calcul](recommendations-reference.md#recs-compute)
-- [Alertes pour le niveau du cluster AKS](alerts-reference.md#alerts-akscluster)
+- [Alertes pour le niveau du cluster AKS](alerts-reference.md#alerts-k8scluster)
 - [Alertes pour niveau de l’hôte du conteneur](alerts-reference.md#alerts-containerhost)

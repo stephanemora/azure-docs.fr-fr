@@ -1,17 +1,17 @@
 ---
 title: Diagnostic des problèmes de performances graphiques dans le Bureau à distance - Azure
-description: Cet article décrit comment utiliser les compteurs graphiques RemoteFX dans les sessions de protocole Bureau à distance pour diagnostiquer les problèmes de performances liés aux graphiques dans Windows Virtual Desktop.
+description: Cet article décrit comment utiliser les compteurs graphiques RemoteFX dans les sessions de protocole Bureau à distance pour diagnostiquer les problèmes de performances liés aux graphiques dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fc1bb9d6dbdb024fba6544c25951ba94384132b0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 86d5aa82aaf51d0d2407799050f92a04a12c4a58
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445734"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752924"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
 
@@ -100,6 +100,6 @@ Si les ressources client sont à l’origine du goulot d’étranglement, essaye
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop](configure-vm-gpu.md).
+- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération GPU pour un environnement Azure Virtual Desktop](configure-vm-gpu.md).
 - Pour découvrir une vue d’ensemble de la résolution des problèmes et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
 - Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).

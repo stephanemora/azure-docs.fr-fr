@@ -2,13 +2,13 @@
 title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération copy et les tableaux dans un modèle Azure Resource Manager (modèle ARM) pour déployer un même type de ressource plusieurs fois.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 05/07/2021
+ms.openlocfilehash: 305a05f10683c879e9f002f02aa6d00edbb43d0a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479965"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954651"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Itération de ressource dans les modèles ARM
 
@@ -19,8 +19,6 @@ Vous pouvez également utiliser copy loop avec les éléments [properties](copy-
 Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](conditional-resource-deployment.md).
 
 ## <a name="syntax"></a>Syntaxe
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Ajoutez l’élément `copy` à la section resources de votre modèle pour déployer plusieurs instances de la ressource. L’élément `copy` utilise le format général suivant :
 
@@ -36,39 +34,6 @@ Ajoutez l’élément `copy` à la section resources de votre modèle pour dépl
 La propriété `name` est toute valeur qui identifie la boucle. La propriété `count` spécifie le nombre d’itérations que vous souhaitez pour le type de ressource.
 
 Utilisez les propriétés `mode` et `batchSize` pour spécifier si les ressources sont déployées en parallèle ou en séquence. Ces propriétés sont décrites dans [Série ou parallèle](#serial-or-parallel).
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
-
-- Itération sur un tableau :
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Itération sur les éléments d’un tableau
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
-    <resource-properties>
-  }]
-  ```
-
-- Utilisation de l’index de boucle
-
-  ```bicep
-  @batchSize(<number>)
-  resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
-    <resource-properties>
-  }]
-  ```
-
----
 
 ## <a name="copy-limits"></a>Limites de copie
 
@@ -88,8 +53,6 @@ Soyez prudent lorsque vous utilisez un [déploiement en mode complet](deployment
 ## <a name="resource-iteration"></a>Itération de ressource
 
 L’exemple suivant crée le nombre de comptes de stockage spécifiés dans le paramètre `storageCount`.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -131,7 +94,7 @@ Crée les noms suivants :
 
 - storage0
 - storage1
-- storage2.
+- storage2
 
 Pour décaler la valeur d’index, vous pouvez passer une valeur dans la fonction `copyIndex()`. Le nombre d’itérations est toujours spécifié dans l’élément copy, mais la valeur de `copyIndex` est décalée en fonction de la valeur spécifiée. Si bien que l’exemple suivant :
 
@@ -147,29 +110,7 @@ Crée les noms suivants :
 
 L’opération copy se révèle utile lorsque vous travaillez avec des tableaux, car vous pouvez itérer sur chaque élément du tableau. Utilisez la fonction `length` sur le tableau pour spécifier le nombre d’itérations, et `copyIndex` pour récupérer l’index actuel dans le tableau.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageCount int = 2
-
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
-  name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
-Notez que l’index `i` est utilisé pour créer le nom de ressource du compte de stockage.
-
----
-
 L’exemple suivant crée un compte de stockage par nom fourni dans le paramètre.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -206,28 +147,6 @@ L’exemple suivant crée un compte de stockage par nom fourni dans le paramètr
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param storageNames array = [
-  'contoso'
-  'fabrikam'
-  'coho'
-]
-
-resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for name in storageNames: {
-  name: concat(name, uniqueString(resourceGroup().id))
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
----
-
 Si vous souhaitez retourner des valeurs à partir des ressources déployées, vous pouvez utiliser l’[élément copy dans la section outputs](copy-outputs.md).
 
 ## <a name="serial-or-parallel"></a>Série ou parallèle
@@ -235,10 +154,6 @@ Si vous souhaitez retourner des valeurs à partir des ressources déployées, vo
 Par défaut, Resource Manager crée les ressources en parallèle. Il n’applique aucune limite au nombre de ressources déployées en parallèle, à l’exception de la limite totale de 800 ressources dans le modèle. L’ordre de création n’est pas garanti.
 
 Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
-
-Par exemple, pour déployer en série des comptes de stockage deux à la fois, utilisez :
-
-# <a name="json"></a>[JSON](#tab/json)
 
 Pour déployer en série plusieurs instances d’une ressource, affectez à `mode` la valeur **serial** et à `batchSize` le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
 
@@ -273,25 +188,6 @@ La valeur de `batchSize` ne peut pas dépasser la valeur de `count` dans l’él
 
 La propriété `mode` accepte également **parallel**, qui est la valeur par défaut.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Pour déployer en série plusieurs instances d’une ressource, définissez la valeur `batchSize` [decorator](./bicep-file.md#resource-and-module-decorators) sur le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
-
-```bicep
-@batchSize(2)
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, 4): {
-  name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  properties: {}
-}]
-```
-
----
-
 ## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
 
 Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que l’on définit en général comme imbriquée dans une autre ressource, vous devez au contraire la créer sous la forme d’une ressource de premier niveau. Vous définissez la relation avec la ressource parente par le biais des propriétés type et name.
@@ -320,9 +216,7 @@ Pour créer plusieurs jeux de données, déplacez-le en dehors de la fabrique de
 
 Pour établir une relation parent/enfant avec une instance de la fabrique de données, fournissez un nom pour le jeu de données incluant le nom de la ressource parente. Utilisez le format : `{parent-resource-name}/{child-resource-name}`.
 
-L’exemple ci-après illustre l’implémentation :
-
-# <a name="json"></a>[JSON](#tab/json)
+L’exemple suivant illustre l’implémentation.
 
 ```json
 "resources": [
@@ -345,22 +239,6 @@ L’exemple ci-après illustre l’implémentation :
 }]
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
-  name: "exampleDataFactory"
-  ...
-}
-
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = [for i in range(0, 3): {
-  name: 'exampleDataFactory/exampleDataset${i}'
-  ...
-}
-```
-
----
-
 ## <a name="example-templates"></a>Exemples de modèles
 
 Les exemples suivants montrent des scénarios courants de création de plusieurs instances d’une ressource ou d’une propriété.
@@ -373,7 +251,7 @@ Les exemples suivants montrent des scénarios courants de création de plusieurs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour définir des dépendances sur les ressources créées dans une boucle de copie, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](define-resource-dependency.md).
+- Pour définir des dépendances sur les ressources créées dans une boucle de copie, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
 - Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM](template-tutorial-create-multiple-instances.md).
 - Pour lire un module Microsoft Learn qui aborde la copie des ressources, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - Pour connaître les autres utilisations de la boucle de copie, consultez :

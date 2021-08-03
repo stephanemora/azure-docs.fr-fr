@@ -6,35 +6,31 @@ ms.author: duau
 ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: de8405477611d62b8a46e8b6b645887cc4d30099
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/18/2021
+ms.openlocfilehash: c4a2113a5aa95c1bacf7be0f4b376b9377412371
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784239"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971685"
 ---
 # <a name="plan-and-manage-costs-for-azure-expressroute"></a>Planifier et gérer les coûts pour Azure ExpressRoute
 
-Cet article explique comment planifier et gérer les coûts pour ExpressRoute. Vous devez d’abord utiliser la calculatrice de prix Azure pour planifier les coûts ExpressRoute avant d’ajouter des ressources pour le service aux coûts estimés. Ensuite, lorsque vous ajoutez les ressources Azure, passez en revue les coûts estimés. 
+Cet article explique comment planifier et gérer les coûts d’Azure ExpressRoute. Vous devez d’abord utiliser la calculatrice de prix Azure pour planifier les coûts ExpressRoute avant d’ajouter des ressources pour le service aux coûts estimés. Ensuite, lorsque vous ajoutez les ressources Azure, passez en revue les coûts estimés. 
 
-Une fois que vous avez commencé à utiliser des ressources ExpressRoute, utilisez les fonctionnalités de Cost Management pour définir des budgets et superviser les coûts. Vous pouvez également passer en revue les coûts prévus et déterminer les tendances des dépenses pour identifier les domaines où vous pourriez agir. 
-
-Gardez à l’esprit que les coûts d’ExpressRoute ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment planifier et gérer les coûts d’ExpressRoute. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers.
+Une fois que vous avez commencé à utiliser des ressources Azure ExpressRoute, utilisez les fonctionnalités de Cost Management pour définir des budgets et surveiller les coûts. Vous pouvez également passer en revue les coûts prévus et déterminer les tendances des dépenses pour identifier les domaines où vous pourriez agir. Les coûts pour Azure ExpressRoute ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment planifier et gérer les coûts d’Azure ExpressRoute. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés dans votre abonnement Azure, y compris les services tiers.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Analyse des coûts dans Cost Management prend en charge la plupart des types de compte Azure, mais pas tous. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour un compte Azure. 
-
-Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Analyse des coûts dans Cost Management prend en charge la plupart des types de compte Azure, mais pas tous. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour un compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## <a name="local-vs-standard-vs-premium"></a>Local ou Stratégies de routage sur une machine virtuelle Standard ou Premium
 
-ExpressRoute a trois références SKU de circuit différentes : [*Local*](./expressroute-faqs.md#expressroute-local), *Standard* et [*Premium*](./expressroute-faqs.md#expressroute-premium). La façon dont vous êtes facturé pour votre utilisation d’ExpressRoute varie en fonction de ces trois types de références SKU. Avec la référence SKU Local, vous êtes automatiquement facturé avec un forfait de données illimité. Avec la référence SKU Standard et Premium, vous pouvez choisir entre un forfait de données limité ou illimité. Toutes les données d’entrée sont gratuites, sauf lors de l’utilisation du module complémentaire Global Reach. Il est important de comprendre les types de références SKU et le forfait de données qui conviennent le mieux à votre charge de travail pour optimiser les coûts et le budget.
+Azure ExpressRoute a trois références SKU de circuit différentes : [*Local*](./expressroute-faqs.md#expressroute-local), *Standard* et [*Premium*](./expressroute-faqs.md#expressroute-premium). La façon dont vous êtes facturé pour votre utilisation d’ExpressRoute varie en fonction de ces trois types de références SKU. Avec la référence SKU Local, vous êtes automatiquement facturé avec un forfait de données illimité. Avec la référence SKU Standard et Premium, vous pouvez choisir entre un forfait de données limité ou illimité. Toutes les données d’entrée sont gratuites, sauf lors de l’utilisation du module complémentaire Global Reach. Il est important de comprendre les types de références SKU et le forfait de données qui conviennent le mieux à votre charge de travail pour optimiser les coûts et le budget.
 
-## <a name="estimate-costs"></a>Estimer les coûts
+## <a name="estimate-costs-before-using-azure-expressroute"></a>Estimer les coûts avant d’utiliser Azure ExpressRoute
 
-Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer un circuit ExpressRoute. 
+Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour estimer les coûts avant de créer un circuit Azure ExpressRoute. 
 
 1. Sur la gauche, sélectionnez **Mise en réseau**, puis **Azure ExpressRoute** pour commencer. 
 
@@ -66,12 +62,24 @@ Si vous utilisez une passerelle ExpressRoute pour lier un réseau virtuel au cir
 
 ## <a name="understand-the-full-billing-model-for-expressroute"></a>Comprendre le modèle de facturation complet pour ExpressRoute
 
-ExpressRoute s’exécute sur l’infrastructure Azure qui accumule les coûts avec ExpressRoute lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
+Azure ExpressRoute s’exécute sur l’infrastructure Azure qui engendre des coûts en même temps qu’ExpressRoute lorsque vous déployez la nouvelle ressource. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées. 
 
 ### <a name="costs-that-typically-accrue-with-expressroute"></a>Coûts qui s’accumulent généralement avec ExpressRoute
 
-Lorsque vous créez un circuit ExpressRoute, vous pouvez choisir de créer une passerelle ExpressRoute pour lier votre réseau virtuel au circuit. Les passerelles sont facturées à un tarif horaire plus le coût d’un circuit ExpressRoute. Consultez [Tarification d’ExpressRoute](https://azure.microsoft.com/en-us/pricing/details/expressroute) et sélectionnez Passerelles ExpressRoute pour afficher les tarifs des différentes références SKU de passerelle.
+#### <a name="expressroute"></a>ExpressRoute
+
+Lorsque vous créez un circuit ExpressRoute, vous pouvez choisir de créer une passerelle ExpressRoute pour relier vos réseaux virtuels au circuit. Les passerelles ExpressRoute sont facturées à un tarif horaire auquel s’ajoute le coût d’un circuit ExpressRoute. Consultez [Tarification d’ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) et sélectionnez Passerelles ExpressRoute pour afficher les tarifs des différentes références SKU de passerelle.
+
+Le transfert de données entrantes est inclus dans le coût mensuel du circuit ExpressRoute pour les trois références SKU. Le transfert de données sortantes est uniquement inclus pour un plan de données illimité. Pour un plan de facturation à l’usage, le transfert de données sortantes est facturé par Go utilisé en fonction du numéro de zone de la [localisation du Peering](expressroute-locations-providers.md#partners).
+
+#### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+ExpressRoute Direct a des frais de port mensuels qui incluent les frais de circuit pour les circuits ExpressRoute de la référence SKU Local et Standard. Pour les circuits de la référence SKU Premium, des frais de circuit supplémentaires sont facturés. Le transfert de données sortantes est facturé par Go utilisé en fonction du numéro de zone de la localisation du Peering. Les frais de transfert de données sortantes s’appliquent uniquement aux références SKU Standard et Premium.
  
+#### <a name="expressroute-global-reach"></a>Service Global Reach d’ExpressRoute
+
+ExpressRoute Global Reach est un module complémentaire que vous pouvez activer pour ExpressRoute et ExpressRoute Direct pour relier les circuits ExpressRoute entre eux. Le transfert de données entrantes et sortantes est facturé par Go utilisé en fonction du numéro de zone de la localisation du Peering.
+
 ### <a name="costs-might-accrue-after-resource-deletion"></a>Coûts qui peuvent s’accumuler après la suppression de la ressource
 
 Si vous avez une passerelle ExpressRoute, après avoir supprimé le circuit ExpressRoute, vous êtes toujours facturé pour le coût jusqu’à ce que vous la supprimiez.
@@ -117,7 +125,7 @@ Vous pouvez également [exporter vos données de coûts](../cost-management-bill
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus en détail comment fonctionnent les tarifs avec Azure ExpressRoute. Voir [Vue d’ensemble de la tarification Azure ExpressRoute](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+- Découvrez plus en détail comment fonctionnent les tarifs avec Azure ExpressRoute. Voir [Vue d’ensemble de la tarification Azure ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Découvrez comment [éviter des coûts imprévus](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
