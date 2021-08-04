@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/27/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5741ab0207d5631aab4abd594f5ff557ebfe23b
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 82db4939b6f980e1d9fb9a82a6cd255bb10c04cb
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110658157"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126347"
 ---
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans **Rechercher dans les ressources, services et documents (G+/)** , tapez *réseau virtuel*.
@@ -47,7 +47,7 @@ ms.locfileid: "110658157"
 
 1. Dans l’onglet **Sécurité**, conservez les valeurs par défaut pour le moment :
 
-   - **Protection DDoS** : De base
+   - **Protection DDoS** : Désactivée
    - **Pare-feu** : Désactivé
 1. Sélectionnez **Vérifier + créer** pour vérifier les paramètres de réseau virtuel.
 1. Une fois les paramètres vérifiés, sélectionnez **Créer**.

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 07/08/2021
 ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: bdaa61aa45c357e95e35196a5be7774f0af95ec0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae7c9ee5357e09dcf7c33cd2ae3111cce15b6641
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202332"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721197"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -27,7 +27,7 @@ Une passerelle de réseau virtuel est composée de deux machines virtuelles ou p
 
 Quand vous configurez une passerelle de réseau virtuel, vous configurez un paramètre qui spécifie le type de passerelle. Le type de passerelle détermine la manière dont la passerelle de réseau virtuel est utilisée et les actions qu’elle exécute. Le type de passerelle « Vpn » spécifie que le type de passerelle de réseau virtuel créé est une « passerelle VPN ». Ceci la distingue d’une passerelle ExpressRoute, qui utilise un type de passerelle différent. Un réseau virtuel peut avoir deux passerelles de réseau virtuel : une passerelle VPN et une passerelle ExpressRoute. Pour plus d’informations, consultez [Types de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 
-La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes. Lors de la création d’une passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées sur le sous-réseau de la passerelle et configurées avec les paramètres que vous spécifiez. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur OpenVPN, IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
+La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Lors de la création d’une passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées sur le sous-réseau de la passerelle et configurées avec les paramètres que vous spécifiez. Après avoir créé une passerelle VPN, vous pouvez créer une connexion de tunnel IPsec/IKE VPN entre cette passerelle VPN et une autre (de réseau virtuel à réseau virtuel), ou créer une connexion de tunnel IPsec/IKE VPN intersite entre la passerelle VPN et un périphérique VPN local (de site à site). Vous pouvez également créer une connexion VPN de point à site (VPN sur OpenVPN, IKEv2 ou SSTP), ce qui vous permet de vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple une salle de conférence ou votre domicile.
 
 ## <a name="configuring-a-vpn-gateway"></a><a name="configuring"></a>Configuration d’une passerelle VPN
 
@@ -82,6 +82,7 @@ Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
-- Consultez les [Limites du service et de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.
+- [Tutoriel : Créer et gérer une passerelle VPN](tutorial-create-gateway-portal.md).
+- [Module Learn : Connecter votre réseau local à Azure avec une passerelle VPN](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
+- [Limites du service et de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+

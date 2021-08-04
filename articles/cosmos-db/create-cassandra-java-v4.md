@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 6c5371a98900e000b15cde669fcfaea4a7c676b4
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: cda3ad4cd6ecf0c7a72a3dfb05aae2a6541dd43b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112240204"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710246"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Créer une application Java pour gérer les données de l’API Cassandra d’Azure Cosmos DB (pilote v4)
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -36,6 +36,9 @@ Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte d’
 - [Kit de développement Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Faites pointer la variable d’environnement `JAVA_HOME` vers le dossier dans lequel le JDK est installé.
 - [Archive binaire Maven](https://maven.apache.org/download.cgi). Sur Ubuntu, exécutez `apt-get install maven` pour installer Maven.
 - [Git](https://www.git-scm.com/downloads). Sur Ubuntu, exécutez `sudo apt-get install git` pour installer Git.
+
+> [!NOTE]
+> Ceci est un simple guide de démarrage rapide qui utilise la [version 4](https://github.com/datastax/java-driver/tree/4.x) du pilote open source Apache Cassandra pour Java. Dans la plupart des cas, vous devez être en mesure de connecter une application Java existante dépendante d’Apache Cassandra à l’API Cassandra d’Azure Cosmos DB sans aucune modification de votre code existant. Nous vous recommandons cependant d’ajouter notre [extension Java personnalisée](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1), qui comprend des stratégies personnalisées de nouvelle tentative et d’équilibrage de charge ainsi que des paramètres de connexion recommandés pour une meilleure expérience globale. Ceci permet de gérer la [limitation du débit](manage-scale-cassandra.md#handling-rate-limiting-429-errors) et le basculement au niveau de l’application dans Azure Cosmos DB quand c’est nécessaire. Vous trouverez un exemple complet qui implémente l’extension [ici](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4).
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 

@@ -8,29 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 07/12/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f79c9cb7381f2325de2efca5e20b37c60ab72013
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756470"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652468"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
 
+## <a name="july-2021"></a>Juillet 2021
+
+### <a name="ga-release-updates"></a>Mises à jour de la version en disponibilité générale
+
+* Disponibilité générale de [Analyse de texte pour le médical](how-tos/text-analytics-for-health.md?tabs=ner) pour les conteneurs et pour l’API hébergée (/health).
+* Disponibilité générale pour [Exploration des opinions](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* Disponibilité générale pour [Extraction et rédaction des informations d’identification personnelle](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* Disponibilité générale pour [Point de terminaison asynchrone (`/analyze`)](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Exemples de [guides de démarrage rapide](quickstarts/client-libraries-rest-api.md) mis à jour avec le nouveau SDK. 
+
 ## <a name="june-2021"></a>Juin 2021
 
 ### <a name="general-api-updates"></a>Mises à jour générales de l’API
 
-* Nouvelle version de modèle `2021-06-01` pour l’extraction d’expressions clés, qui ajoute la prise en charge du chinois simplifié.
+* Nouveau modèle-version `2021-06-01` pour l’extraction d’expressions clés basée sur des transformateurs. Il offre :
+  * Prise en charge de 10 langues (Latin et CJC). 
+  * Extraction améliorée d’expressions clés.
 * La version du modèle `2021-06-01` pour [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) v3.x, qui fournit 
   * Amélioration de la qualité de l’intelligence artificielle et extension de la prise en charge linguistique à la catégorie d’entité *Compétence*. 
   * Ajout de la prise en charge de l’espagnol, du français, de l’allemand, de l’italien et du portugais pour la catégorie d’entité *Compétence*.
-* Mise à disposition des opérations asynchrones et de l’Analyse de texte pour l’intégrité dans toutes les régions 
+* Opération asynchrone (/analyze) et Analyse de texte pour le médical (préversion non contrôlée) disponibles dans toutes les régions. 
 
 ### <a name="text-analytics-for-health-updates"></a>Analyse de texte pour des mises à jour de l’intégrité
 
@@ -40,7 +52,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
     * 14 nouveaux types de relations,
     * Détection d’assertion étendue aux nouveaux types d’entités, et
     * Prise en charge de la liaison pour le type d’entité ALLERGEN
-
+* Nouvelle image pour le conteneur Analyse de texte pour le médical avec l’étiquette `3.0.016230002-onprem-amd64` et la version de modèle `2021-05-15`. Ce conteneur est disponible en téléchargement auprès de Microsoft Container Registry.
  
 ## <a name="may-2021"></a>Mai 2021
 

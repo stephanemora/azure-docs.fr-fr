@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/13/2021
+ms.date: 07/26/2021
 ms.custom: generated
-ms.openlocfilehash: fdd0cf6b97855dd5e7f56882fa49908a45eff1b6
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 37e90491b45f30ef8572d58e87968a1593febd95
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113758795"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726924"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
@@ -275,6 +275,7 @@ Service Azure : principal
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Support/register/action | Inscrit le fournisseur de ressources de support |
+> | Microsoft.Support/lookUpResourceId/action | Recherche l’ID de ressource pour le type de ressource |
 > | Microsoft.Support/checkNameAvailability/action | Vérifie que le nom est valide et qu'il n'est pas utilisé pour le type de ressource |
 > | Microsoft.Support/operationresults/read | Obtient le résultat de l’opération asynchrone |
 > | Microsoft.Support/operations/read | Répertorie toutes les opérations disponibles sur le fournisseur de ressources Microsoft.Support |
@@ -3065,6 +3066,7 @@ Service Azure : [Container Instances](../container-instances/index.yml)
 > | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Obtient les journaux d’activité pour un conteneur spécifique. |
 > | Microsoft.ContainerInstance/containerGroups/detectors/read | Répertorier les détecteurs de groupe de conteneurs |
 > | Microsoft.ContainerInstance/containerGroups/operationResults/read | Obtenir le résultat d’une opération asynchrone |
+> | Microsoft.ContainerInstance/containerGroups/outboundNetworkDependenciesEndpoints/read | Répertorier les détecteurs de groupe de conteneurs |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour le groupe de conteneurs. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour le groupe de conteneurs. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour le groupe de conteneurs. |
@@ -3100,6 +3102,9 @@ Service Azure : [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/queueBuild/action | Crée une nouvelle build basée sur les paramètres de requête, et l’ajoute à la file d’attente de builds. |
 > | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Obtenir l’emplacement de l’url de chargement de la source pour un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/scheduleRun/action | Planifie une exécution par rapport à un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/agentpools/read | Obtient un pool d’agents pour un registre de conteneurs ou une liste de tous les pool d’agents. |
+> | Microsoft.ContainerRegistry/registries/agentpools/write | Crée ou met à jour un pool d’agents pour un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/agentpools/delete | Supprime un pool d’agents pour un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action | Répertorie tous les états de file d’attente d’un pool d’agents pour un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Supprimer l’artefact dans un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/builds/read | Obtient les propriétés de la build spécifiée ou affiche toutes les builds pour le registre de conteneurs spécifié. |
@@ -3114,14 +3119,27 @@ Service Azure : [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Crée ou met à jour une étape de génération dans une tâche de génération avec les paramètres spécifiés. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Supprime une étape de génération dans une tâche de génération. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Répertorie les arguments de build pour une étape de génération, y compris les arguments de secret. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/read | Obtient les propriétés du registre connecté spécifié ou liste tous les registres connectés pour le registre de conteneurs spécifié. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/write | Crée ou met à jour un registre connecté pour un registre de conteneurs avec les paramètres spécifiés. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/delete | Supprime un registre connecté d’un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Obtient les propriétés du filtre Event Grid spécifié ou répertorie tous les filtres Event Grid pour le registre de conteneurs spécifié. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Crée ou met à jour un filtre Event Grid pour un registre de conteneurs avec les paramètres spécifiés. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Supprime un filtre Event Grid d’un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/read | Obtient les propriétés du pipeline d’exportation spécifié ou liste tous les pipeline d’exportation pour le registre de conteneurs spécifié. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/write | Crée ou met à jour un pipeline d’exportation pour un registre de conteneurs avec les paramètres spécifiés. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/delete | Supprime un pipeline d’exportation d’un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/read | Obtient les propriétés du pipeline d’importation spécifié ou liste tous les pipeline d’importation pour le registre de conteneurs spécifié. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/write | Crée ou met à jour un pipeline d’importation pour un registre de conteneurs avec les paramètres spécifiés. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/delete | Supprime un pipeline d’importation d’un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/listPolicies/read | Afficher les stratégies pour le registre de conteneurs spécifié |
 > | Microsoft.ContainerRegistry/registries/listUsages/read | Affiche les utilisations du quota pour le registre de conteneurs spécifié. |
 > | Microsoft.ContainerRegistry/registries/metadata/read | Obtient les métadonnées d’un référentiel spécifique pour un registre de conteneurs |
 > | Microsoft.ContainerRegistry/registries/metadata/write | Met à jour les métadonnées d’un référentiel pour un registre de conteneurs |
 > | Microsoft.ContainerRegistry/registries/operationStatuses/read | Obtient un état d’opération asynchrone du registre |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/read | Obtient les propriétés de l’exécution de pipeline spécifiée ou liste toutes les exécution de pipeline pour le registre de conteneurs spécifié. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/write | Crée ou met à jour une exécution de pipeline pour un registre de conteneurs avec les paramètres spécifiés. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/delete | Supprime une exécution de pipeline d’un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/operationStatuses/read | Obtient l’état de l’opération asynchrone d’une exécution de pipeline. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/validate/action | Valide le proxy de connexion de point de terminaison privé (NRP uniquement) |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/read | Obtient le proxy de connexion de point de terminaison privé (NRP uniquement) |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/write | Crée le proxy de connexion de point de terminaison privé (NRP uniquement) |
@@ -3147,6 +3165,9 @@ Service Azure : [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/scopeMaps/delete | Supprime un mappage d’étendue d’un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read | Obtient un état de l’opération asynchrone du mappage d’étendue. |
 > | Microsoft.ContainerRegistry/registries/sign/write | Envoie ou tire des métadonnées d’approbation du contenu pour un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/taskruns/read | Obtient une exécution de tâche pour un registre de conteneurs ou liste toutes les exécutions de tâche. |
+> | Microsoft.ContainerRegistry/registries/taskruns/write | Créez ou mettez à jour une exécution de tâche pour un registre de conteneurs. |
+> | Microsoft.ContainerRegistry/registries/taskruns/delete | Supprime une exécution de tâche d’un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/taskruns/listDetails/action | Répertorie tous les détails d’une exécution de tâche pour un registre de conteneurs. |
 > | Microsoft.ContainerRegistry/registries/tasks/read | Obtient une tâche pour un registre de conteneurs, ou répertorie toutes les tâches. |
 > | Microsoft.ContainerRegistry/registries/tasks/write | Crée ou met à jour une tâche pour un registre de conteneurs. |
@@ -3188,10 +3209,13 @@ Service Azure : [Azure Kubernetes Service (AKS)](../aks/index.yml)
 > | Microsoft.ContainerService/managedClusters/read | Obtient un cluster géré |
 > | Microsoft.ContainerService/managedClusters/write | Crée ou met à jour un cluster géré |
 > | Microsoft.ContainerService/managedClusters/delete | Supprime un cluster géré |
+> | Microsoft.ContainerService/managedClusters/start/action | Démarre un cluster managé |
+> | Microsoft.ContainerService/managedClusters/stop/action | Arrête un cluster managé |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
 > | Microsoft.ContainerService/managedClusters/listClusterMonitoringUserCredential/action | Répertorie les informations d’identification clusterMonitoringUser d’un cluster managé |
 > | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Réinitialiser le profil du principal de service d’un cluster managé |
+> | Microsoft.ContainerService/managedClusters/resolvePrivateLinkServiceId/action | Résout l’ID du service de liaison privée d’un cluster managé |
 > | Microsoft.ContainerService/managedClusters/resetAADProfile/action | Réinitialiser le profil AAD d’un cluster managé |
 > | Microsoft.ContainerService/managedClusters/rotateClusterCertificates/action | Fait pivoter les certificats d’un cluster managé |
 > | Microsoft.ContainerService/managedClusters/runCommand/action | Exécute la commande émise par l’utilisateur sur le serveur kubernetes managé. |
@@ -5109,9 +5133,6 @@ Service Azure : [Explorateur de données Azure](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/read | Lit un proxy de connexion de point de terminaison privé |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/write | Écrit un proxy de connexion de point de terminaison privé |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/delete | Supprime un proxy de connexion de point de terminaison privé |
-> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/read | Lit un proxy de connexion de point de terminaison privé |
-> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/write | Écrit un proxy de connexion de point de terminaison privé |
-> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/delete | Supprime un proxy de connexion de point de terminaison privé |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/read | Lit une connexion de point de terminaison privé |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/write | Écrit une connexion de point de terminaison privé |
 > | Microsoft.Kusto/Clusters/PrivateLinkResources/read | Lit des ressources de liaison privée |
@@ -5260,6 +5281,7 @@ Service Azure : [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Supprimer toutes les connexions de point de terminaison privé pour un hub de liaison privée |
 > | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Obtenir la liste des ressources de liaison privée |
 > | Microsoft.Synapse/resourceGroups/operationStatuses/read | Lire l’état de l’opération asynchrone |
+> | Microsoft.Synapse/SKUs/read | Lit une ressource de référence SKU. |
 > | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Remplacer toutes les règles de pare-feu IP pour l’espace de travail |
 > | Microsoft.Synapse/workspaces/write | Créer ou mettre à jour tous les espaces de travail |
 > | Microsoft.Synapse/workspaces/read | Lire tous les espaces de travail |
@@ -5312,6 +5334,11 @@ Service Azure : [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/kustoPools/Start/action | Démarre le cluster. |
 > | Microsoft.Synapse/workspaces/kustoPools/Stop/action | Arrête le cluster. |
 > | Microsoft.Synapse/workspaces/kustoPools/CheckNameAvailability/action | Vérifie la disponibilité du nom du cluster. |
+> | Microsoft.Synapse/workspaces/kustoPools/ListLanguageExtensions/action | Répertorie les extensions de langage. |
+> | Microsoft.Synapse/workspaces/kustoPools/AddLanguageExtensions/action | Ajoute des extensions de langage. |
+> | Microsoft.Synapse/workspaces/kustoPools/RemoveLanguageExtensions/action | Supprime des extensions de langage. |
+> | Microsoft.Synapse/workspaces/kustoPools/DetachFollowerDatabases/action | Détache les bases de données du suiveur. |
+> | Microsoft.Synapse/workspaces/kustoPools/ListFollowerDatabases/action | Liste les bases de données du suiveur. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/read | Lit une ressource de base de données. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/write | Écrit une ressource de base de données. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/delete | Supprime une ressource de base de données. |
@@ -5328,9 +5355,8 @@ Service Azure : [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/read | Lit un proxy de connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/write | Écrit un proxy de connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/delete | Supprime un proxy de connexion de point de terminaison privé |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnections/read | Lit une connexion de point de terminaison privé |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnections/write | Écrit une connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/kustoPools/PrivateLinkResources/read | Lit des ressources de liaison privée |
+> | Microsoft.Synapse/workspaces/kustoPools/SKUs/read | Lit une ressource de référence SKU du cluster. |
 > | Microsoft.Synapse/workspaces/libraries/read | Lire les artefacts de bibliothèque |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Mettre à jour les paramètres de contrôle SQL des identités managées sur l’espace de travail |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Obtenir les paramètres de contrôle SQL des identités managées |
@@ -5339,6 +5365,8 @@ Service Azure : [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Créer ou mettre à jour une connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/read | Lire toute connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/delete | Supprime une connexion de point de terminaison privé |
+> | Microsoft.Synapse/workspaces/PrivateEndpointConnections/read | Lit une connexion de point de terminaison privé |
+> | Microsoft.Synapse/workspaces/PrivateEndpointConnections/write | Écrit une connexion de point de terminaison privé |
 > | Microsoft.Synapse/workspaces/privateLinkResources/read | Obtenir la liste des ressources de liaison privée |
 > | Microsoft.Synapse/workspaces/recoverableSqlpools/read | Obtient les pools SQL Analytics récupérables, qui sont les ressources représentant les géosauvegardes de pools SQL Analytics |
 > | Microsoft.Synapse/workspaces/restorableDroppedSqlPools/read | Obtient un pool SQL supprimé qui peut être restauré |
@@ -5766,11 +5794,11 @@ Service Azure : [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVision/whitelist/read | Obtient une liste d’utilisateurs figurant sur la liste verte et dotés de capacités spécifiques |
 > | Microsoft.CognitiveServices/accounts/CustomVision/whitelist/write | Met à jour ou crée un utilisateur dans la liste verte avec des capacités spécifiques |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/action | Crée un nouveau point de terminaison vocal. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/models/action | Crée un nouveau modèle vocal. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/action | Crée un nouveau test vocal. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/action | Crée une nouvelle synthèse. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/action | Les jeux de données LongAudio et AudioOnly tirent parti de la fonctionnalité de transcription par lots de la reconnaissance vocale. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/models/action | Crée un nouveau modèle vocal. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/action | Crée une évaluation. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/projects/action | Crée un projet. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/action | Crée un jeu d’entraînement. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/api/common/v3.0-beta1/features/read | Obtient une liste des fonctionnalités autorisées. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/delete | Supprime le jeu de données vocal avec l’ID donné. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/read | Obtient un ou plusieurs jeux de données. |
@@ -5778,11 +5806,13 @@ Service Azure : [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/upload/action | Charge des données et crée un nouvel objet de données vocales. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/audioonly/action | Charge le jeu de données vocal uniquement avec l’audio. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/longaudio/action | Charge le jeu de données vocal avec de l’audio long et des scripts. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/trainingset/action | Affecte une importation de données à un jeu d’entraînement spécifique. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/files/read | Obtient les fichiers du jeu de données identifié par l’ID donné. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/locales/read | Obtient la liste des paramètres régionaux pris en charge pour les importations de données vocales personnalisées. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/longaudiolocales/read | Obtient la liste des paramètres régionaux pris en charge pour les importations de données audio long ou audio uniquement. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/personalvoicerecordingscript/read | Obtient le script d’enregistrement vocal personnel. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/project/read | Obtient la liste des jeux de données pour le projet spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/discount/read | Obtient la remise pour l’entraînement du modèle neuronal. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/delete | Supprime le point de terminaison vocal spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/read | Obtient un ou plusieurs points de terminaison |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/write | Met à jour le nom et la description du point de terminaison identifié par l’ID donné. |
@@ -5794,17 +5824,24 @@ Service Azure : [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/project/read | Obtient la liste des points de terminaison pour le projet spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/resume/write | Reprend un point de terminaison vocal existant. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/suspend/write | Interrompt un point de terminaison vocal existant. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/delete | Supprime le test vocal spécifié. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/audios/read | Obtient les détails du test vocal spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/delete | Supprime l’évaluation spécifiée. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/read | Obtient les détails d’une ou plusieurs évaluations |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/audios/read | Obtient les détails de l’évaluation spécifiée. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/files/read | Obtient les fichiers de l’évaluation identifiée par l’ID donné. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/project/read | Obtient la liste des évaluations pour le projet spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/tests/delete | Supprime le test vocal spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/tests/batchdelete/action | Supprime les tests vocaux spécifiés de l’évaluation donnée. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/delete | Supprime la tâche de synthèse audio longue spécifiée. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/read | Obtient une ou plusieurs synthèses audio longues. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/write | Met à jour les détails mutables de la synthèse audio longue identifiée par son ID. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/voices/read | Obtient une liste des voix prises en charge pour la synthèse audio longue. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/delete | Supprime le modèle vocal avec l’ID donné. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/read | Obtient un ou plusieurs modèles vocaux. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/write | Met à jour les métadonnées du modèle vocal identifié par l’ID donné. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/copy/action | Cette méthode peut être utilisée pour copier un modèle d’un emplacement à un autre. Si l’abonnement cible |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/withtest/action | Crée un nouvel objet de modèle vocal. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/saveas/action | Cette méthode peut être utilisée pour copier un modèle avec un nouveau nom et une nouvelle description. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/models/evaluations/read | Obtient les détails du test vocal du modèle spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/models/evaluations/read | Obtient les détails des évaluations du modèle spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/locales/read | Obtient la liste des paramètres régionaux pris en charge pour les modèles vocaux personnalisés. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/locales/crosslingual/read | Obtient la liste des paramètres régionaux pris en charge pour les modèles vocaux multilingues personnalisés. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/project/read | Obtient la liste des modèles pour le projet spécifié. |
@@ -5819,16 +5856,13 @@ Service Azure : [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/upload/action | Charge des données et crée un nouvel objet d’autorisation d’orateur vocal. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/project/read | Obtient la liste des autorisations d’orateur pour le projet spécifié. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/template/read | Obtient le modèle d’autorisation des paramètres régionaux donnés. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/delete | Supprime le test vocal spécifié. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/read | Obtient les détails d’un ou de plusieurs tests vocaux |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/files/read | Obtient les fichiers du test vocal identifié par l’ID donné. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/model/read | Obtient les détails du test vocal du modèle spécifié. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/project/read | Obtient la liste des tests vocaux pour le projet spécifié. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/delete | Supprime la tâche de synthèse vocale spécifiée. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/read | Obtient une ou plusieurs synthèses vocales. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/write | Met à jour les détails mutables de la synthèse vocale identifiée par son ID. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/paginated/read | Obtient la liste des synthèses vocales sous l’abonnement sélectionné avec le résultat paginé. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/voices/read | Obtient la liste des voix prises en charge pour la synthèse hors connexion. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/delete | Supprime le jeu d’entraînement spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/write | Met à jour le jeu d’entraînement existant. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/files/read | Obtient les fichiers du jeu d’entraînement identifié par l’ID donné. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/project/read | Obtient la liste des jeux d’entraînement pour le projet spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterance/delete | Supprime l’énoncé spécifié. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterances/batchdelete/action | Supprime les énoncés spécifiés d’un jeu d’entraînement donné. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterances/read | Obtient les énoncés du jeu d’entraînement spécifié. |
 > | Microsoft.CognitiveServices/accounts/EntitySearch/search/action | Obtient les entités et résultats de lieux d'une requête donnée. |
 > | Microsoft.CognitiveServices/accounts/Face/detect/action | Détectez les visages humains dans une image, retournez des rectangles de visage et éventuellement des faceId, des points de repère et des attributs. |
 > | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | En fonction du faceId de la requête, recherche les visages similaires à partir d’un tableau de faceId, d’une liste de visages ou d’une grande liste de visages. faceId |
@@ -6515,6 +6549,8 @@ Service Azure : [Service Machine Learning](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/notebooks/storage/read | Obtient les fichiers de notebooks pour un espace de travail |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/storage/write | Écrit des fichiers dans le stockage de l’espace de travail |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete | Supprime des fichiers du stockage de l’espace de travail |
+> | Microsoft.MachineLearningServices/workspaces/notebooks/storage/upload/action | Charge des fichiers dans le stockage de l’espace de travail |
+> | Microsoft.MachineLearningServices/workspaces/notebooks/storage/download/action | Télécharge des fichiers depuis le stockage de l’espace de travail |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/read | Obtient les machines virtuelles du notebook pour un espace de travail particulier |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/write | Modifier l’état d’une machine virtuelle de notebook |
 > | Microsoft.MachineLearningServices/workspaces/notebooks/vm/delete | Supprime une machine virtuelle de notebook |
@@ -6699,6 +6735,15 @@ Service Azure : [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning S
 > | Microsoft.Devices/IotHubs/statistics/read | Lit les statistiques des services et des appareils |
 > | Microsoft.Devices/IotHubs/twins/read | Lit un jumeau d’appareil ou de module |
 > | Microsoft.Devices/IotHubs/twins/write | Écrit un jumeau d’appareil ou de module |
+> | Microsoft.Devices/provisioningServices/attestationmechanism/details/action | Récupère les détails du mécanisme d’attestation |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/read | Lit les groupes d’inscription |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/write | Écrit des groupes d’inscription |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/delete | Supprime des groupes d’inscriptions |
+> | Microsoft.Devices/provisioningServices/enrollments/read | Lit les inscriptions |
+> | Microsoft.Devices/provisioningServices/enrollments/write | Écrit des inscriptions |
+> | Microsoft.Devices/provisioningServices/enrollments/delete | Supprime des inscriptions |
+> | Microsoft.Devices/provisioningServices/registrationStates/read | Lit les états d’inscription |
+> | Microsoft.Devices/provisioningServices/registrationStates/delete | Supprime les états d’inscription |
 
 ### <a name="microsoftdeviceupdate"></a>Microsoft.DeviceUpdate
 
@@ -7749,6 +7794,7 @@ Service Azure : [Services de domaine Azure Active Directory](../active-director
 > | Microsoft.AAD/domainServices/oucontainer/read | Lire les conteneurs d’unité d’organisation |
 > | Microsoft.AAD/domainServices/oucontainer/write | Écrire le conteneur d’unité d’organisation |
 > | Microsoft.AAD/domainServices/oucontainer/delete | Supprimer le conteneur d’unité d’organisation |
+> | Microsoft.AAD/domainServices/OutboundNetworkDependenciesEndpoints/read | Obtient les points de terminaison réseau de toutes les dépendances sortantes |
 > | Microsoft.AAD/locations/operationresults/read |  |
 > | Microsoft.AAD/Operations/read |  |
 
@@ -8022,42 +8068,21 @@ Service Azure : [Centre de sécurité](../security-center/index.yml)
 > | Microsoft.Security/deviceSecurityGroups/read | Obtient des groupes de sécurité d’appareils IoT |
 > | Microsoft.Security/informationProtectionPolicies/read | Obtient les stratégies de protection des informations pour la ressource |
 > | Microsoft.Security/informationProtectionPolicies/write | Met à jour les stratégies de protection des informations pour la ressource |
-> | Microsoft.Security/iotDefenderSettings/read | Obtient les paramètres de Defender pour IoT |
-> | Microsoft.Security/iotDefenderSettings/write | Crée ou met à jour les paramètres de Defender pour IoT |
-> | Microsoft.Security/iotDefenderSettings/delete | Supprime les paramètres de Defender pour IoT |
-> | Microsoft.Security/iotDefenderSettings/PackageDownloads/action | Obtient des informations sur les packages de Defender pour IoT téléchargeables |
-> | Microsoft.Security/iotDefenderSettings/DownloadManagerActivation/action | Télécharger un fichier d’activation du gestionnaire avec les données de quota d’abonnement |
 > | Microsoft.Security/iotSecuritySolutions/write | Crée ou met à jour des solutions de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/delete | Supprime des solutions de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/read | Obtient des solutions de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient un modèle d’analytique de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types d’alerte IoT. |
-> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types d’alerte IoT. |
-> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les alertes IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les alertes IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types de recommandations. |
-> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types de recommandations. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les recommandations IoT. |
-> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les recommandations IoT. |
-> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les appareils |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/read | Obtient des alertes agrégées IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/dismiss/action | Ignore des alertes agrégées IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedRecommendations/read | Obtient des suggestions agrégées IoT |
-> | Microsoft.Security/iotSensors/read | Obtient les capteurs IoT |
-> | Microsoft.Security/iotSensors/write | Crée ou met à jour des capteurs IoT |
-> | Microsoft.Security/iotSensors/delete | Supprime les capteurs IoT |
-> | Microsoft.Security/iotSensors/DownloadActivation/action | Télécharge le fichier d’activation pour les capteurs IoT |
-> | Microsoft.Security/iotSensors/TriggerTiPackageUpdate/action | Déclenche la mise à jour du package de renseignement sur les menaces |
-> | Microsoft.Security/iotSensors/DownloadResetPassword/action | Télécharge un fichier de réinitialisation de mot de passe pour des capteurs IoT |
-> | Microsoft.Security/iotSite/read | Obtient le site IoT |
-> | Microsoft.Security/iotSite/write | Crée ou met à jour un site IoT |
-> | Microsoft.Security/iotSite/delete | Supprime le site IoT |
 > | Microsoft.Security/locations/read | Obtient l’emplacement des données de sécurité |
 > | Microsoft.Security/locations/alerts/read | Obtient toutes les alertes de sécurité disponibles |
 > | Microsoft.Security/locations/alerts/dismiss/action | Ignore une alerte de sécurité. |
 > | Microsoft.Security/locations/alerts/activate/action | Active une alerte de sécurité |
-> | Microsoft.Security/locations/alerts/resolve/action | Résoudre une alerte de sécurité |
-> | Microsoft.Security/locations/alerts/simulate/action | Simuler une alerte de sécurité |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Obtient les stratégies d’accès réseau immédiat. |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Crée une stratégie d’accès réseau immédiat ou met à jour une stratégie d’accès réseau immédiat existante. |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Supprimer la stratégie d’accès réseau juste-à-temps |
@@ -8072,10 +8097,6 @@ Service Azure : [Centre de sécurité](../security-center/index.yml)
 > | Microsoft.Security/pricings/read | Obtient les paramètres de tarification pour l’étendue |
 > | Microsoft.Security/pricings/write | Met à jour les paramètres de tarification pour l’étendue |
 > | Microsoft.Security/pricings/delete | Supprime les paramètres de tarification pour l’étendue |
-> | Microsoft.Security/secureScoreControlDefinitions/read | Obtenir la définition du contrôle de niveau de sécurité |
-> | Microsoft.Security/secureScoreControls/read | Obtenir le contrôle de niveau de sécurité calculé pour votre abonnement |
-> | Microsoft.Security/secureScores/read | Obtenir le niveau de sécurité calculé pour votre abonnement |
-> | Microsoft.Security/secureScores/secureScoreControls/read | Obtenir le contrôle de niveau de sécurité calculé pour votre calcul de niveau de sécurité |
 > | Microsoft.Security/securityContacts/read | Obtient le contact de sécurité |
 > | Microsoft.Security/securityContacts/write | Met à jour le contact de sécurité |
 > | Microsoft.Security/securityContacts/delete | Supprime le contact de sécurité |
@@ -8260,6 +8281,9 @@ Service Azure : [Azure Lab Services](../lab-services/index.yml)
 > | Microsoft.DevTestLab/labs/schedules/write | Ajouter ou modifier des planifications. |
 > | Microsoft.DevTestLab/labs/schedules/Execute/action | Exécuter une planification. |
 > | Microsoft.DevTestLab/labs/schedules/ListApplicable/action | Répertorier toutes les planifications applicables. |
+> | Microsoft.DevTestLab/labs/secrets/delete | Supprime les secrets du labo. |
+> | Microsoft.DevTestLab/labs/secrets/read | Lit les secrets du labo. |
+> | Microsoft.DevTestLab/labs/secrets/write | Ajoute ou modifie des secrets du labo. |
 > | Microsoft.DevTestLab/labs/serviceRunners/delete | Supprimer des exécuteurs de service. |
 > | Microsoft.DevTestLab/labs/serviceRunners/read | Lire des exécuteurs de service. |
 > | Microsoft.DevTestLab/labs/serviceRunners/write | Ajouter ou modifier des exécuteurs de service. |
@@ -9011,7 +9035,9 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/AutoscaleSettings/Delete | Supprimer un paramètre de mise à l'échelle automatique |
 > | Microsoft.Insights/AutoscaleSettings/Read | Lire un paramètre de mise à l'échelle automatique |
 > | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Montée en puissance entamée |
+> | Microsoft.Insights/AutoscaleSettings/PredictiveScaleup/Action | Mise à l’échelle prédictive - Scale-up lancé |
 > | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Descente en puissance entamée |
+> | Microsoft.Insights/AutoscaleSettings/PredictiveScaleupResult/Action | Mise à l’échelle prédictive - Scale-up terminé |
 > | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Montée en puissance accomplie |
 > | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Descente en puissance accomplie |
 > | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Lire un paramètre de diagnostic de ressource |
@@ -9530,11 +9556,12 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesLogonLogoff/read | Lit les données de la table AADDomainServicesLogonLogoff |
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | Lit les données de la table AADDomainServicesPolicyChange |
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | Lit les données de la table AADDomainServicesPrivilegeUse |
-> | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesSystemSecurity/read | Lit les données de la table AADDomainServicesSystemSecurity |
 > | Microsoft.OperationalInsights/workspaces/query/AADManagedIdentitySignInLogs/read | Lit les données de la table AADManagedIdentitySignInLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AADNonInteractiveUserSignInLogs/read | Lit les données de la table AADNonInteractiveUserSignInLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AADProvisioningLogs/read | Lit les données de la table AADProvisioningLogs |
+> | Microsoft.OperationalInsights/workspaces/query/AADRiskyUsers/read | Lit les données de la table AADRiskyUsers |
 > | Microsoft.OperationalInsights/workspaces/query/AADServicePrincipalSignInLogs/read | Lit les données de la table AADServicePrincipalSignInLogs |
+> | Microsoft.OperationalInsights/workspaces/query/AADUserRiskEvents/read | Lit les données de la table AADUserRiskEvents |
 > | Microsoft.OperationalInsights/workspaces/query/ABSBotRequests/read | Lire les données de la table ABSBotRequests |
 > | Microsoft.OperationalInsights/workspaces/query/ABSChannelToBotRequests/read | Lire les données de la table ABSChannelToBotRequests |
 > | Microsoft.OperationalInsights/workspaces/query/ABSDependenciesRequests/read | Lire les données de la table ABSDependenciesRequests |
@@ -9562,6 +9589,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageExecutionDataStatistics/read | Lit les données de la table ADFSSISPackageExecutionDataStatistics |
 > | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Lit les données de la table ADFTriggerRun |
 > | Microsoft.OperationalInsights/workspaces/query/ADPAudit/read | Lit les données de la table ADPAudit |
+> | Microsoft.OperationalInsights/workspaces/query/ADPDiagnostics/read | Lit les données de la table ADPDiagnostics |
 > | Microsoft.OperationalInsights/workspaces/query/ADPRequests/read | Lit les données de la table ADPRequests |
 > | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Lire les données de la table ADReplicationResult |
 > | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Lire les données de la table ADSecurityAssessmentRecommendation |
@@ -9582,8 +9610,17 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterEvent/read | Lit les données de la table AmlComputeClusterEvent |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterNodeEvent/read | Lit les données de la table AmlComputeClusterNodeEvent |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeCpuGpuUtilization/read | Lit les données de la table AmlComputeCpuGpuUtilization |
+> | Microsoft.OperationalInsights/workspaces/query/AmlComputeInstanceEvent/read | Lit les données de la table AmlComputeInstanceEvent |
 > | Microsoft.OperationalInsights/workspaces/query/AmlComputeJobEvent/read | Lit les données de la table AmlComputeJobEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlDataLabelEvent/read | Lit les données de la table AmlDataLabelEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlDataSetEvent/read | Lit les données de la table AmlDataSetEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlDataStoreEvent/read | Lit les données de la table AmlDataStoreEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlDeploymentEvent/read | Lit les données de la table AmlDeploymentEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlInferencingEvent/read | Lit les données de la table AmlInferencingEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlModelsEvent/read | Lit les données de la table AmlModelsEvent |
 > | Microsoft.OperationalInsights/workspaces/query/AmlOnlineEndpointConsoleLog/read | Lire les données de la table AmlOnlineEndpointConsoleLog |
+> | Microsoft.OperationalInsights/workspaces/query/AmlPipelineEvent/read | Lit les données de la table AmlPipelineEvent |
+> | Microsoft.OperationalInsights/workspaces/query/AmlRunEvent/read | Lit les données de la table AmlRunEvent |
 > | Microsoft.OperationalInsights/workspaces/query/AmlRunStatusChangedEvent/read | Lit les données de la table AmlRunStatusChangedEvent |
 > | Microsoft.OperationalInsights/workspaces/query/Anomalies/read | Lit des données à partir de la table d’anomalies |
 > | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLogs/read | Lire les données de la table ApiManagementGatewayLogs |
@@ -9601,7 +9638,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AppPlatformSystemLogs/read | Lit les données de la table AppPlatformSystemLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppRequests/read | Lit les données de la table AppRequests |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceAntivirusScanAuditLogs/read | Lit les données de la table AppServiceAntivirusScanAuditLogs |
-> | Microsoft.OperationalInsights/workspaces/query/AppServiceAntivirusScanLogs/read | Lire les données de la table AppServiceAntivirusScanLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceAppLogs/read | Lit les données de la table AppServiceAppLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceAuditLogs/read | Lit les données de la table AppServiceAuditLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceConsoleLogs/read | Lit les données de la table AppServiceConsoleLogs |
@@ -9616,6 +9652,8 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | Lit les données de la table AutoscaleEvaluationsLog |
 > | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Lit les données de la table AutoscaleScaleActionsLog |
 > | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | Lit les données de la table AWSCloudTrail |
+> | Microsoft.OperationalInsights/workspaces/query/AWSGuardDuty/read | Lit les données de la table AWSGuardDuty |
+> | Microsoft.OperationalInsights/workspaces/query/AWSVPCFlow/read | Lit les données de la table AWSVPCFlow |
 > | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Lire les données de la table AzureActivity |
 > | Microsoft.OperationalInsights/workspaces/query/AzureActivityV2/read | Lit les données de la table AzureActivityV2 |
 > | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Lire les données de la table AzureAssessmentRecommendation |
@@ -9629,7 +9667,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/BehaviorAnalytics/read | Lit les données de la table BehaviorAnalytics |
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | Lit les données de la table BlockchainApplicationLog |
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Lit les données de la table BlockchainProxyLog |
-> | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Lire les données de la table BoundPort |
 > | Microsoft.OperationalInsights/workspaces/query/CDBCassandraRequests/read | Lit les données de la table CDBCassandraRequests |
 > | Microsoft.OperationalInsights/workspaces/query/CDBControlPlaneRequests/read | Lit les données de la table CDBControlPlaneRequests |
 > | Microsoft.OperationalInsights/workspaces/query/CDBDataPlaneRequests/read | Lire les données de la table CDBDataPlaneRequests |
@@ -9660,7 +9697,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | Lit les données de la table DatabricksSecrets |
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | Lit les données de la table DatabricksSQLPermissions |
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | Lit les données de la table DatabricksSSH |
-> | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | Lit les données de la table DatabricksTables |
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | Lit les données de la table DatabricksWorkspace |
 > | Microsoft.OperationalInsights/workspaces/query/dependencies/read | Lit les données de la table des dépendances |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Lire les données de la table DeviceAppCrash |
@@ -9684,10 +9720,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/DeviceRegistryEvents/read | Lire les données de la table DeviceRegistryEvents |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | Lire les données de la table DeviceSkypeHeartbeat |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | Lire les données de la table DeviceSkypeSignIn |
-> | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | Lire les données de la table DeviceSleepState |
-> | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | Lire les données de la table DHAppFailure |
 > | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | Lire les données de la table DHAppReliability |
-> | Microsoft.OperationalInsights/workspaces/query/DHCPActivity/read | Lit les données de la table DHCPActivity |
 > | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | Lire les données de la table DHDriverReliability |
 > | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | Lire les données de la table DHLogonFailures |
 > | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | Lire les données de la table DHLogonMetrics |
@@ -9710,7 +9743,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/FunctionAppLogs/read | Lit les données de la table FunctionAppLogs |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariClusterAlerts/read | Lire les données de la table HDInsightAmbariClusterAlerts. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariSystemMetrics/read | Lire les données de la table HDInsightAmbariSystemMetrics. |
-> | Microsoft.OperationalInsights/workspaces/query/HDInsightGatewayAuditLogs/read | Lire les données de la table HDInsightGatewayAuditLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightHadoopAndYarnLogs/read | Lire les données de la table HDInsightHadoopAndYarnLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightHadoopAndYarnMetrics/read | Lire les données de la table HDInsightHadoopAndYarnMetrics. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightHBaseLogs/read | Lire les données de la table HDInsightHBaseLogs. |
@@ -9729,7 +9761,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkBlockManagerEvents/read | Lire les données de la table HDInsightSparkBlockManagerEvents. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkEnvironmentEvents/read | Lire les données de la table HDInsightSparkEnvironmentEvents. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkExecutorEvents/read | Lire les données de la table HDInsightSparkExecutorEvents. |
-> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkExtraEvents/read | Lire les données de la table HDInsightSparkExtraEvents. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkJobEvents/read | Lire les données de la table HDInsightSparkJobEvents. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkLogs/read | Lire les données de la table HDInsightSparkLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkSQLExecutionEvents/read | Lire les données de la table HDInsightSparkSQLExecutionEvents. |
@@ -9744,7 +9775,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Lit les données de la table HuntingBookmark |
 > | Microsoft.OperationalInsights/workspaces/query/IdentityInfo/read | Lire les données de la table IdentityInfo |
 > | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Lire les données de la table IISAssessmentRecommendation |
-> | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Lire les données de la table InboundConnection |
 > | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | Lit les données de la table InsightsMetrics |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Lire des données à partir de la table IntuneAuditLogs |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneDeviceComplianceOrg/read | Lit les données de la table IntuneDeviceComplianceOrg |
@@ -9771,48 +9801,15 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/MADevice/read | Lire les données de la table MADevice |
 > | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | Lire les données à partir de la table MADeviceNotEnrolled |
 > | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | Lire les données de la table MADeviceNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | Lire les données de la table MADevicePnPHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | Lire les données de la table MADevicePnPHealthAlternativeVersions |
-> | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | Lire les données de la table MADevicePnPHealthIssues |
 > | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | Lire les données de la table MADeviceReadiness |
 > | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | Lire les données de la table MADriverInstanceReadiness |
 > | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | Lire les données de la table MADriverReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | Lire les données de la table MAOfficeAddin |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinEntityHealth/read | Lire les données de la table MAOfficeAddinEntityHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | Lire les données de la table MAOfficeAddinHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | Lit les données de la table MAOfficeAddinHealthEventNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | Lire les données de la table MAOfficeAddinHealthIssues |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | Lire les données de la table MAOfficeAddinInstance |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | Lire les données de la table MAOfficeAddinInstanceReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | Lire les données de la table MAOfficeAddinReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | Lire les données de la table MAOfficeApp |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppCrashesNRT/read | Lit les données de la table MAOfficeAppCrashesNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | Lire les données de la table MAOfficeAppHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | Lire les données de la table MAOfficeAppInstance |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | Lire les données de la table MAOfficeAppInstanceHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | Lire les données de la table MAOfficeAppReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | Lit les données de la table MAOfficeAppSessionsNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | Lire les données de la table MAOfficeBuildInfo |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Lire les données de la table MAOfficeCurrencyAssessment |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Lire les données de la table MAOfficeCurrencyAssessmentDailyCounts |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Lire les données de la table MAOfficeDeploymentStatus |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | Lire les données de la table MAOfficeDeploymentStatusNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | Lit les données de la table MAOfficeMacroErrorNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | Lire les données de la table MAOfficeMacroGlobalHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Lire les données de la table MAOfficeMacroHealth |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Lire les données de la table MAOfficeMacroHealthIssues |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Lire les données de la table MAOfficeMacroIssueInstanceReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | Lire les données de la table MAOfficeMacroIssueReadiness |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | Lire les données de la table MAOfficeMacroSummary |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | Lire les données de la table MAOfficeSuite |
-> | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | Lire les données de la table MAOfficeSuiteInstance |
 > | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | Lire les données de la table MAProposedPilotDevices |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | Lire les données de la table MAWindowsBuildInfo |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | Lire les données de la table MAWindowsCurrencyAssessment |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | Lire les données de la table MAWindowsCurrencyAssessmentDailyCounts |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Lire les données de la table MAWindowsDeploymentStatus |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Lire les données de la table MAWindowsDeploymentStatusNRT |
-> | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Lire les données de la table MAWindowsSysReqInstanceReadiness |
 > | Microsoft.OperationalInsights/workspaces/query/McasShadowItReporting/read | Lire les données de la table McasShadowItReporting |
 > | Microsoft.OperationalInsights/workspaces/query/MCCEventLogs/read | Lire les données de la table MCCEventLogs |
 > | Microsoft.OperationalInsights/workspaces/query/MCVPOperationLogs/read | Lire les données de la table MCVPOperationLogs |
@@ -9826,12 +9823,10 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Lire les données de la table NetworkMonitoring |
 > | Microsoft.OperationalInsights/workspaces/query/NetworkSessions/read | Lire les données de la table NetworkSessions |
 > | Microsoft.OperationalInsights/workspaces/query/NWConnectionMonitorDestinationListenerResult/read | Lit les données de la table NWConnectionMonitorDestinationListenerResult |
-> | Microsoft.OperationalInsights/workspaces/query/NWConnectionMonitorDNSResult/read | Lit les données de la table NWConnectionMonitorDNSResult |
 > | Microsoft.OperationalInsights/workspaces/query/NWConnectionMonitorPathResult/read | Lit les données de la table NWConnectionMonitorPathResult |
 > | Microsoft.OperationalInsights/workspaces/query/NWConnectionMonitorTestResult/read | Lit les données de la table NWConnectionMonitorTestResult |
 > | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Lire les données de la table OfficeActivity |
 > | Microsoft.OperationalInsights/workspaces/query/Operation/read | Lire les données de la table de Operation |
-> | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Lire les données de la table OutboundConnection |
 > | Microsoft.OperationalInsights/workspaces/query/Perf/read | Lire les données de la table Perf |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsTenant/read | Lire les données de la table PowerBIDatasetsTenant |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsTenantPreview/read | Lire les données de la table PowerBIDatasetsTenantPreview |
@@ -9868,7 +9863,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Lire les données de la table SQLAssessmentRecommendation |
 > | Microsoft.OperationalInsights/workspaces/query/SqlAtpStatus/read | Lit les données de la table SqlAtpStatus |
 > | Microsoft.OperationalInsights/workspaces/query/SqlDataClassification/read | Lit les données de la table SqlDataClassification |
-> | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Lire les données de la table SQLQueryPerformance |
 > | Microsoft.OperationalInsights/workspaces/query/SQLSecurityAuditEvents/read | Lire les données de la table SQLSecurityAuditEvents |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Lit les données de la table SqlVulnerabilityAssessmentResult |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentScanStatus/read | Lecture des données depuis la table SqlVulnerabilityAssessmentScanStatus |
@@ -9882,11 +9876,8 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayApiRequests/read | Lit les données de la table SynapseGatewayApiRequests |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayEvents/read | Lire les données de la table SynapseGatewayEvents |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationActivityRuns/read | Lire les données de la table SynapseIntegrationActivityRuns |
-> | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationActivityRunsEnded/read | Lit les données de la table SynapseIntegrationActivityRunsEnded |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationPipelineRuns/read | Lire les données de la table SynapseIntegrationPipelineRuns |
-> | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationPipelineRunsEnded/read | Lit les données de la table SynapseIntegrationPipelineRunsEnded |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationTriggerRuns/read | Lire les données de la table SynapseIntegrationTriggerRuns |
-> | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationTriggerRunsEnded/read | Lit les données de la table SynapseIntegrationTriggerRunsEnded |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseRBACEvents/read | Lire les données de la table SynapseRBACEvents |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseRbacOperations/read | Lit les données de la table SynapseRbacOperations |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseSqlPoolDmsWorkers/read | Lit les données de la table SynapseSqlPoolDmsWorkers |
@@ -9895,7 +9886,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SynapseSqlPoolSqlRequests/read | Lit les données de la table SynapseSqlPoolSqlRequests |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseSqlPoolWaits/read | Lit les données de la table SynapseSqlPoolWaits |
 > | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Lire les données de la table de Syslog |
-> | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Lire les données de la table SysmonEvent |
 > | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Lire les données de n’importe quel journal personnalisé |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | Lit les données de la table ThreatIntelligenceIndicator |
 > | Microsoft.OperationalInsights/workspaces/query/TSIIngress/read | Lit les données de la table TSIIngress |
@@ -9905,7 +9895,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/UADriver/read | Lire les données de la table UADriver |
 > | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | Lire les données de la table UADriverProblemCodes |
 > | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | Lire les données de la table UAFeedback |
-> | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | Lire les données de la table UAHardwareSecurity |
 > | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | Lire les données de la table UAIESiteDiscovery |
 > | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | Lire les données de la table UAOfficeAddIn |
 > | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | Lire les données de la table UAProposedActionPlan |
@@ -9922,7 +9911,6 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | Lire les données de la table VMConnection |
 > | Microsoft.OperationalInsights/workspaces/query/VMProcess/read | Lit les données de la table VMProcess |
 > | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | Lire les données de la table W3CIISLog |
-> | Microsoft.OperationalInsights/workspaces/query/W3CIISLogV2/read | Lit les données de la table W3CIISLogV2 |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | Lire les données de la table WaaSDeploymentStatus |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | Lire les données de la table WaaSInsiderStatus |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | Lire les données de la table WaaSUpdateStatus |
@@ -10011,7 +9999,23 @@ Service Azure : [Azure Advisor](../advisor/index.yml)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
+> | Microsoft.Advisor/generateRecommendations/action | Obtient l’état de génération de recommandations |
+> | Microsoft.Advisor/register/action | Inscrit l’abonnement pour Microsoft Advisor |
+> | Microsoft.Advisor/unregister/action | Désinscrit l’abonnement pour le Microsoft Advisor |
 > | Microsoft.Advisor/advisorScore/read | Obtient les données de score pour l’abonnement donné |
+> | Microsoft.Advisor/configurations/read | Obtenir des configurations |
+> | Microsoft.Advisor/configurations/write | Crée/met à jour la configuration |
+> | Microsoft.Advisor/generateRecommendations/read | Obtient l’état de génération de recommandations |
+> | Microsoft.Advisor/metadata/read | Get Metadata |
+> | Microsoft.Advisor/operations/read | Obtient les opérations pour le Microsoft Advisor |
+> | Microsoft.Advisor/recommendations/read | Lit les recommandations |
+> | Microsoft.Advisor/recommendations/available/action | La nouvelle recommandation est disponible dans Microsoft Advisor |
+> | Microsoft.Advisor/recommendations/suppressions/read | Obtient les suppressions |
+> | Microsoft.Advisor/recommendations/suppressions/write | Crée/met à jour des suppressions |
+> | Microsoft.Advisor/recommendations/suppressions/delete | Supprime la suppression |
+> | Microsoft.Advisor/suppressions/read | Obtient les suppressions |
+> | Microsoft.Advisor/suppressions/write | Crée/met à jour des suppressions |
+> | Microsoft.Advisor/suppressions/delete | Supprime la suppression |
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -10249,6 +10253,7 @@ Service Azure : [Batch](../batch/index.yml)
 > | Microsoft.Batch/batchAccounts/certificates/delete | Supprime un certificat d’un compte Batch |
 > | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | Annule la suppression manquée d’un certificat sur un compte Batch |
 > | Microsoft.Batch/batchAccounts/operationResults/read | Obtient les résultats d’une opération de compte Batch de longue durée |
+> | Microsoft.Batch/batchAccounts/outboundNetworkDependenciesEndpoints/read | Liste les points de terminaison de dépendance de réseau sortant pour un compte Batch |
 > | Microsoft.Batch/batchAccounts/poolOperationResults/read | Obtient les résultats d’une opération de pool de longue durée sur un compte Batch |
 > | Microsoft.Batch/batchAccounts/pools/read | Répertorie les pools sur un compte Batch ou obtient les propriétés d’un pool |
 > | Microsoft.Batch/batchAccounts/pools/write | Crée un pool sur un compte Batch ou met à jour un pool existant |
@@ -10261,7 +10266,9 @@ Service Azure : [Batch](../batch/index.yml)
 > | Microsoft.Batch/batchAccounts/privateLinkResources/read | Obtient les propriétés d’une ressource de liaison privée ou répertorie les ressources de liaison privée sur un compte Batch |
 > | Microsoft.Batch/locations/checkNameAvailability/action | Vérifie que le nom de compte est valide et qu’il n’est pas utilisé |
 > | Microsoft.Batch/locations/accountOperationResults/read | Obtient les résultats d’une opération de compte Batch de longue durée |
+> | Microsoft.Batch/locations/cloudServiceSkus/read | Liste les tailles de machine virtuelle du service cloud prises en charge par Batch à l’emplacement donné |
 > | Microsoft.Batch/locations/quotas/read | Obtient les quotas Batch de l’abonnement spécifié au niveau de la région Azure spécifiée |
+> | Microsoft.Batch/locations/virtualMachineSkus/read | Liste les tailles de machine virtuelle des machines virtuelles prises en charge par Batch à l’emplacement donné |
 > | Microsoft.Batch/operations/read | Répertorie les opérations disponibles sur le fournisseur de ressources Microsoft.Batch |
 > | **DataAction** | **Description** |
 > | Microsoft.Batch/batchAccounts/jobs/read | Répertorie les travaux sur un compte Batch ou obtient les propriétés d’un travail |
@@ -10278,26 +10285,11 @@ Service Azure : [Cost Management + Facturation](../cost-management-billing/inde
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.Billing/billingAccounts/read |  |
-> | Microsoft.Billing/billingAccounts/listInvoiceSectionsWithCreateSubscriptionPermission/action |  |
-> | Microsoft.Billing/billingAccounts/write |  |
-> | Microsoft.Billing/billingAccounts/confirmTransition/action |  |
-> | Microsoft.Billing/billingAccounts/agreements/read |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/read |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/read |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/validateDeleteInvoiceSectionEligibility/write |  |
-> | Microsoft.Billing/billingAccounts/billingProfiles/validateDeleteBillingProfileEligibility/write |  |
 > | Microsoft.Billing/billingAccounts/billingSubscriptions/downloadDocuments/action | Télécharge la facture à l’aide du lien de téléchargement de la liste |
-> | Microsoft.Billing/billingAccounts/policies/read |  |
-> | Microsoft.Billing/billingAccounts/policies/write |  |
+> | Microsoft.Billing/billingPeriods/read |  |
+> | Microsoft.Billing/billingProperty/read |  |
 > | Microsoft.Billing/billingProperty/write |  |
 > | Microsoft.Billing/invoices/read |  |
-> | Microsoft.Billing/invoices/download/action | Télécharge la facture à l’aide du lien de téléchargement de la liste |
-> | Microsoft.Billing/operations/read |  |
 
 ### <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -10574,6 +10566,9 @@ Service Azure : [Azure Arc](../azure-arc/index.yml)
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read | Lit toutes les privateEndpointConnections Azure Arc |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/write | Écrit une privateEndpointConnections Azure Arc |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/delete | Supprime une privateEndpointConnections Azure Arc |
+> | **DataAction** | **Description** |
+> | Microsoft.HybridCompute/machines/login/action | Se connecte à la machine Azure Arc comme utilisateur normal |
+> | Microsoft.HybridCompute/machines/loginAsAdmin/action | Se connecte à une machine Azure Arc avec des privilèges d’administrateur Windows ou d’utilisateur root Linux |
 
 ### <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -10996,83 +10991,83 @@ Service Azure : [Site Recovery](../site-recovery/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Inscrit un abonnement pour le fournisseur de ressources spécifié |
-> | Microsoft.RecoveryServices/Locations/backupCrossRegionRestore/action | Déclencher la restauration interrégion. |
-> | Microsoft.RecoveryServices/Locations/backupCrrJob/action | Obtenir les détails du travail de restauration interrégionale dans la région secondaire pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Locations/backupCrrJobs/action | Répertorier les travaux de restauration interrégionale dans la région secondaire pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/Locations/backupStatus/action | Vérifie l’état de la sauvegarde pour les coffres Recovery Services |
-> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Valide des fonctionnalités |
+> | microsoft.recoveryservices/Locations/backupCrossRegionRestore/action | Déclencher la restauration interrégion. |
+> | microsoft.recoveryservices/Locations/backupCrrJob/action | Obtenir les détails du travail de restauration interrégionale dans la région secondaire pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Locations/backupCrrJobs/action | Répertorier les travaux de restauration interrégionale dans la région secondaire pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
+> | microsoft.recoveryservices/Locations/backupStatus/action | Vérifie l’état de la sauvegarde pour les coffres Recovery Services |
+> | microsoft.recoveryservices/Locations/backupValidateFeatures/action | Valide des fonctionnalités |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp est une opération interne utilisée par le service. |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | L’action Vérifier la disponibilité du nom de ressource est une API permettant de vérifier si le nom de ressource est disponible |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp est une opération interne utilisée par le service. |
-> | Microsoft.RecoveryServices/Locations/backupAadProperties/read | Obtenir les propriétés AAD d’authentification dans la troisième région pour la restauration interrégionale. |
-> | Microsoft.RecoveryServices/Locations/backupCrrOperationResults/read | Retourne le résultat de l’opération de restauration interrégionale du coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Locations/backupCrrOperationsStatus/read | Retourne l’état de l’opération de restauration interrégionale du coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Créer un élément protégé de sauvegarde. |
-> | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Renvoie la liste de tous les éléments protégés. |
+> | microsoft.recoveryservices/Locations/backupAadProperties/read | Obtenir les propriétés AAD d’authentification dans la troisième région pour la restauration interrégionale. |
+> | microsoft.recoveryservices/Locations/backupCrrOperationResults/read | Retourne le résultat de l’opération de restauration interrégionale du coffre Recovery Services. |
+> | microsoft.recoveryservices/Locations/backupCrrOperationsStatus/read | Retourne l’état de l’opération de restauration interrégionale du coffre Recovery Services. |
+> | microsoft.recoveryservices/Locations/backupProtectedItem/write | Créer un élément protégé de sauvegarde. |
+> | microsoft.recoveryservices/Locations/backupProtectedItems/read | Renvoie la liste de tous les éléments protégés. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/operations/read | Retourne la liste d’opérations pour un fournisseur de ressources |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Travaux d’exportation |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Renvoie les informations relatives au code PIN de sécurité pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Valider l’opération sur l’élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupJobsExport/action | Travaux d’exportation |
+> | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Renvoie les informations relatives au code PIN de sécurité pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupValidateOperation/action | Valider l’opération sur l’élément protégé. |
 > | Microsoft.RecoveryServices/Vaults/write | L’opération de création de coffre entraîne la création d’une ressource Azure de type « coffre ». |
 > | Microsoft.RecoveryServices/Vaults/read | L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ». |
 > | Microsoft.RecoveryServices/Vaults/delete | L’opération de suppression de coffre supprime la ressource Azure de type « coffre » spécifiée. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Renvoie la configuration pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Met à jour la configuration pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/read | Obtient la configuration de chiffrement de la ressource de sauvegarde. |
-> | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/write | Met à jour la configuration de chiffrement de la ressource de sauvegarde |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retourne tous les serveurs d’administration de sauvegarde inscrits auprès du coffre. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Actualise la liste de conteneurs. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Créer une intention de protection de sauvegarde |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Créer une intention de protection de sauvegarde |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crée une intention de protection de sauvegarde. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Renvoie l’état de l’opération. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationsStatus/read | Renvoie l’état de l’opération. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obtient tous les conteneurs protégeables |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Supprime le conteneur enregistré |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Recherche les charges de travail dans un conteneur |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Renvoie tous les conteneurs inscrits. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Crée un conteneur inscrit |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obtient tous les éléments figurant dans un conteneur |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtient les résultats de l’opération effectuée sur le conteneur de protection. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Obtient l’état de l’opération effectuée sur le conteneur de protection. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Effectue la sauvegarde d’un élément protégé. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Supprime un élément protégé. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Renvoie des détails d’objet de l’élément protégé. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/action | Obtenir les points de récupération recommandés pour déplacer vers un autre niveau |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Créer un élément protégé de sauvegarde. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtient les résultats de l’opération effectuée sur les éléments protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Renvoie l’état de l’opération effectuée sur les éléments protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Obtenir AccessToken pour la restauration interrégionale. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/move/action | Déplacer le point de récupération vers un autre niveau |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Approvisionner la récupération d’éléments instantanée pour l’élément protégé. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obtenir les points de récupération des éléments protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurer les points de récupération des éléments protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Révoquer la récupération d’éléments instantanée pour l’élément protégé. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Annuler le travail. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Renvoie tous les objets de travail. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Renvoie le résultat de l’opération de travail. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationsStatus/read | Retourne l’état de l’opération de travail. |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Renvoie le résultat de l’opération de sauvegarde pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Renvoie l’état de l’opération de sauvegarde pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Supprimer une stratégie de protection. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Renvoie toutes les stratégies de protection. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Crée une stratégie de protection. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtenir les résultats de l’opération de stratégie. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obtenir l’état de l’opération de stratégie. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Renvoie la liste de tous les éléments pouvant être protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Renvoie la liste de tous les éléments protégés. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Renvoie tous les conteneurs appartenant à l’abonnement. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
-> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete | L'opération Supprimer un proxy ResourceGuard supprime la ressource Azure spécifiée de type « Proxy ResourceGuard » |
-> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read | L'opération Obtenir un proxy ResourceGuard obtient un objet représentant la ressource Azure de type « Proxy ResourceGuard » |
-> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read | Obtient la liste des proxies ResourceGuard d'une ressource |
-> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action | L'opération Déverrouiller la suppression du proxy ResourceGuard déverrouille la prochaine opération de suppression critique |
-> | Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write | L'opération Créer un proxy ResourceGuard crée une ressource Azure de type « Proxy ResourceGuard » |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Renvoie la configuration de stockage pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Met à jour la configuration de stockage pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupconfig/read | Renvoie la configuration pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupconfig/write | Met à jour la configuration pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/read | Obtient la configuration de chiffrement de la ressource de sauvegarde. |
+> | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/write | Met à jour la configuration de chiffrement de la ressource de sauvegarde |
+> | microsoft.recoveryservices/Vaults/backupEngines/read | Retourne tous les serveurs d’administration de sauvegarde inscrits auprès du coffre. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Actualise la liste de conteneurs. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | Créer une intention de protection de sauvegarde |
+> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | Créer une intention de protection de sauvegarde |
+> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | Crée une intention de protection de sauvegarde. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Renvoie l’état de l’opération. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/operationsStatus/read | Renvoie l’état de l’opération. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Obtient tous les conteneurs protégeables |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Supprime le conteneur enregistré |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Recherche les charges de travail dans un conteneur |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | Renvoie tous les conteneurs inscrits. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | Crée un conteneur inscrit |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Obtient tous les éléments figurant dans un conteneur |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtient les résultats de l’opération effectuée sur le conteneur de protection. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Obtient l’état de l’opération effectuée sur le conteneur de protection. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Effectue la sauvegarde d’un élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Supprime un élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Renvoie des détails d’objet de l’élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/action | Obtenir les points de récupération recommandés pour déplacer vers un autre niveau |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Créer un élément protégé de sauvegarde. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtient les résultats de l’opération effectuée sur les éléments protégés. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Renvoie l’état de l’opération effectuée sur les éléments protégés. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Obtenir AccessToken pour la restauration interrégionale. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/move/action | Déplacer le point de récupération vers un autre niveau |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Approvisionner la récupération d’éléments instantanée pour l’élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obtenir les points de récupération des éléments protégés. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurer les points de récupération des éléments protégés. |
+> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Révoquer la récupération d’éléments instantanée pour l’élément protégé. |
+> | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Annuler le travail. |
+> | microsoft.recoveryservices/Vaults/backupJobs/read | Renvoie tous les objets de travail. |
+> | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Renvoie le résultat de l’opération de travail. |
+> | microsoft.recoveryservices/Vaults/backupJobs/operationsStatus/read | Retourne l’état de l’opération de travail. |
+> | microsoft.recoveryservices/Vaults/backupOperationResults/read | Renvoie le résultat de l’opération de sauvegarde pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupOperations/read | Renvoie l’état de l’opération de sauvegarde pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupPolicies/delete | Supprimer une stratégie de protection. |
+> | microsoft.recoveryservices/Vaults/backupPolicies/read | Renvoie toutes les stratégies de protection. |
+> | microsoft.recoveryservices/Vaults/backupPolicies/write | Crée une stratégie de protection. |
+> | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | Obtenir les résultats de l’opération de stratégie. |
+> | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | Obtenir l’état de l’opération de stratégie. |
+> | microsoft.recoveryservices/Vaults/backupProtectableItems/read | Renvoie la liste de tous les éléments pouvant être protégés. |
+> | microsoft.recoveryservices/Vaults/backupProtectedItems/read | Renvoie la liste de tous les éléments protégés. |
+> | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Renvoie tous les conteneurs appartenant à l’abonnement. |
+> | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/delete | L'opération Supprimer un proxy ResourceGuard supprime la ressource Azure spécifiée de type « Proxy ResourceGuard » |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Obtient la liste des proxies ResourceGuard d'une ressource |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | L'opération Obtenir un proxy ResourceGuard obtient un objet représentant la ressource Azure de type « Proxy ResourceGuard » |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/unlockDelete/action | L'opération Déverrouiller la suppression du proxy ResourceGuard déverrouille la prochaine opération de suppression critique |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/write | L'opération Créer un proxy ResourceGuard crée une ressource Azure de type « Proxy ResourceGuard » |
+> | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Renvoie la configuration de stockage pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Met à jour la configuration de stockage pour le coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’identification du coffre/de la ressource. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
@@ -11081,14 +11076,14 @@ Service Azure : [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Résout l’alerte. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Obtient la configuration de notification du coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configure les notifications par e-mail au coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/delete | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, contactez le support technique Microsoft. |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/read | Obtient tous les conteneurs protégeables |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/validate/action | Obtient tous les conteneurs protégeables |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/write | Obtient tous les conteneurs protégeables |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Obtient tous les conteneurs protégeables |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/delete | Supprime les requêtes de point de terminaison privé. Cet appel est effectué par l’administrateur de secours. |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/write | Approuve ou rejette les requêtes de point de terminaison privé. Cet appel est effectué par l’administrateur de secours. |
-> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/operationsStatus/read | Retourne l’état de l’opération pour une connexion de point de terminaison privé. |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/delete | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, contactez le support technique Microsoft. |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/read | Obtient tous les conteneurs protégeables |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/validate/action | Obtient tous les conteneurs protégeables |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/write | Obtient tous les conteneurs protégeables |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Obtient tous les conteneurs protégeables |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnections/delete | Supprime les requêtes de point de terminaison privé. Cet appel est effectué par l’administrateur de secours. |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnections/write | Approuve ou rejette les requêtes de point de terminaison privé. Cet appel est effectué par l’administrateur de secours. |
+> | microsoft.recoveryservices/Vaults/privateEndpointConnections/operationsStatus/read | Retourne l’état de l’opération pour une connexion de point de terminaison privé. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | L’opération d’inscription d’un conteneur de service peut être utilisée pour inscrire un conteneur avec Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | L’opération d’obtention de conteneurs peut être utilisée pour obtenir les conteneurs inscrits pour une ressource. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | L’opération d’annulation de l’inscription d’un conteneur peut être utilisée pour annuler l’inscription d’un conteneur. |
@@ -11211,7 +11206,7 @@ Service Azure : [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | Lire tout  |
 > | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | Crée ou mettre à jour tout  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Lire des serveurs vCenter. |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
+> | microsoft.recoveryservices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Lire des utilisations de coffre. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 

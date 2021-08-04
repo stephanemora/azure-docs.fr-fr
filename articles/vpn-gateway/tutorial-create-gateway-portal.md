@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: d0723d4a5e77fe9bcf52f515a1310dfc270338f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202566"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721831"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide du portail Azure
 
@@ -50,7 +50,7 @@ Créez un réseau virtuel à l’aide des valeurs suivantes :
 
 ## <a name="create-a-vpn-gateway"></a><a name="VNetGateway"></a>Créer une passerelle VPN
 
-Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
+Dans cette étape, vous créez la passerelle de réseau virtuel (passerelle VPN) de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
 Créez une passerelle de réseau virtuel à l’aide des valeurs suivantes :
 
@@ -58,16 +58,17 @@ Créez une passerelle de réseau virtuel à l’aide des valeurs suivantes :
 * **Région :** USA Est
 * **Type de passerelle :** VPN
 * **Type de VPN :** basé sur la route
-* **SKU :** VpnGw1
-* **Génération :** Génération1
+* **Référence SKU :** VpnGw2
+* **Génération :** Génération 2
 * **Réseau virtuel :** VNet1
 * **Plage d’adresses du sous-réseau de passerelle :** 10.1.255.0/27
 * **Adresse IP publique :** Création
 * **Nom de l'adresse IP publique :** VNet1GWpip
-* **Activer le mode actif/actif :** Désactivé
-* **Configurer BGP :** Désactivé
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+La création et le déploiement complets d’une passerelle peuvent prendre 45 minutes ou plus. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 

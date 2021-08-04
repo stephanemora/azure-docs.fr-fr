@@ -6,13 +6,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/28/2021
-ms.openlocfilehash: 83c2e42db4cc3e1a287341592f4917afce7309e2
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/21/2021
+ms.openlocfilehash: f035f1dce7639d8d90ca3edbe3e6cc548b68cf2a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204222"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439895"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Tutoriel : Création d’une connexion de site à site dans le portail Azure
 
@@ -68,8 +68,8 @@ Créez une passerelle VPN à l’aide des valeurs suivantes :
 * **Région :** USA Est
 * **Type de passerelle :** VPN
 * **Type de VPN :** basé sur la route
-* **SKU :** VpnGw1
-* **Génération :** Génération1
+* **Référence SKU :** VpnGw2
+* **Génération :** Génération 2
 * **Réseau virtuel :** VNet1
 * **Plage d’adresses du sous-réseau de passerelle :** 10.1.255.0/27
 * **Adresse IP publique :** Création
@@ -77,7 +77,10 @@ Créez une passerelle VPN à l’aide des valeurs suivantes :
 * **Activer le mode actif/actif :** Désactivé
 * **Configurer BGP :** Désactivé
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
