@@ -5,18 +5,18 @@ description: Azure SQL Database et Azure SQL Managed Instance créent automatiqu
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma, stevestein, danil
+ms.reviewer: mathoma, danil
 ms.date: 03/10/2021
-ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5aa0f079ed22d101e17e55d9880aaab7ae1715ff
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609921"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901364"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -50,7 +50,7 @@ Pour une base de données SQL, la redondance du stockage de sauvegarde peut êtr
 > Pour le moment, le stockage redondant interzone est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La redondance configurable du stockage de sauvegarde pour Azure SQL Database est actuellement disponible uniquement en préversion publique dans la région Brésil Sud et mise à la disposition générale dans la région Azure Asie Sud-Est. Le niveau Hyperscale ne propose pas encore cette fonctionnalité. 
+> La redondance configurable du stockage de sauvegarde pour Azure SQL Database est actuellement disponible uniquement en préversion publique dans toutes les régions Azure et mise à la disposition générale dans la région Azure Asie Sud-Est. Le niveau Hyperscale ne propose pas encore cette fonctionnalité. 
 
 ### <a name="backup-usage"></a>Utilisation de la sauvegarde
 
@@ -372,7 +372,7 @@ Pour plus d’informations, consultez [API REST de conservation des sauvegardes]
 ## <a name="configure-backup-storage-redundancy"></a>Configuration de la redondance du stockage de sauvegarde
 
 > [!NOTE]
-> La redondance de stockage configurable pour les sauvegardes de SQL Managed Instance ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour SQL Database, la préversion publique de cette fonctionnalité est actuellement disponible dans la région Brésil Sud ; la version est en disponibilité générale dans la région Azure Asie Sud-Est. 
+> La redondance de stockage configurable pour les sauvegardes de SQL Managed Instance ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Pour SQL Database, la préversion publique de cette fonctionnalité est actuellement disponible dans toutes les régions Azure ; la version est en disponibilité générale dans la région Azure Asie Sud-Est. 
 
 La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être réglé que lors de la création de l'instance. Pour une base de données SQL, elle peut être définie lors de la création de la base de données ou être mise à jour pour une base de données existante. La valeur par défaut est le stockage géoredondant. Pour connaître les différences de tarification entre le stockage de sauvegarde redondant localement, redondant dans une zone et géoredondant, consultez la page [Tarification Managed instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

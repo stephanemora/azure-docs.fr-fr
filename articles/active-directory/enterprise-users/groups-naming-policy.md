@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 06/11/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365699"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027476"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
@@ -70,19 +70,19 @@ Règles de liste de mots bloqués :
 ### <a name="roles-and-permissions"></a>Rôles et autorisations
 
 Pour configurer la stratégie de nommage, l’un des rôles suivants est nécessaire :
+
 - Administrateur général
 - Administrateur de groupe
-- Enregistreur de répertoire
+- Enregistreur d’annuaire
 
-
-Certains administrateurs peuvent être exemptés de ces stratégies dans toutes les charges de travail et tous les points de terminaison de groupe. Ils peuvent ainsi créer des groupes en utilisant des mots bloqués et avec leurs propres conventions de nommage. Les rôles d’administrateur exemptés de la stratégie de nommage de groupes sont indiqués ci-dessous.
+Certains rôles d’administrateur sont exemptés de ces stratégies dans toutes les charges de travail et tous les points de terminaison de groupe. Ils peuvent ainsi créer des groupes en utilisant des mots bloqués et leur propre convention d’affectation de noms. Les rôles d’administrateur dispensés de la stratégie d’affectation de noms de groupes sont les suivants :
 
 - Administrateur général
-- Administrateur d’utilisateurs
+- Administrateur d'utilisateurs
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurer une stratégie d’attribution de noms dans le portail Azure
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur de groupe.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte Administrateur de groupe.
 1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
     ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)

@@ -1,27 +1,27 @@
 ---
-title: Analytique des journaux d'activité Windows Virtual Desktop - Azure
-description: Comment utiliser l’analytique des journaux d’activité avec la fonctionnalité de diagnostic de Windows Virtual Desktop.
+title: Analytique des journaux de diagnostic Azure Virtual Desktop – Azure
+description: Guide pratique pour utiliser l’analytique des journaux d’activité avec la fonctionnalité de diagnostic d’Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 98f9ffdfa7addd8689b01332b88261311a525c81
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: caaaded204fbc433a77d7f5a9ccf6a356195e5b9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469326"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757910"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
-Windows Virtual Desktop utilise [Azure Monitor](../azure-monitor/overview.md) pour la supervision et les alertes, comme de nombreux autres services Azure. Les administrateurs peuvent ainsi identifier les problèmes par le biais d’une interface unique. Le service crée des journaux d’activité pour les actions des utilisateurs et des administrateurs. Chaque journal d’activité se divise en les catégories suivantes :
+Azure Virtual Desktop utilise [Azure Monitor](../azure-monitor/overview.md) pour la supervision et les alertes, comme de nombreux autres services Azure. Les administrateurs peuvent ainsi identifier les problèmes par le biais d’une interface unique. Le service crée des journaux d’activité pour les actions des utilisateurs et des administrateurs. Chaque journal d’activité se divise en les catégories suivantes :
 
 - Activités de gestion :
-    - Effectue le suivi de la réussite des tentatives de modification des objets Windows Virtual Desktop à l’aide d’API ou de PowerShell. Par exemple, une personne peut-elle créer un pool d’hôtes avec PowerShell ?
+    - Les tentatives de modification des objets Azure Virtual Desktop avec des API ou PowerShell réussissent-elles ? Par exemple, une personne peut-elle créer un pool d’hôtes avec PowerShell ?
 - Flux :
     - Les utilisateurs parviennent-ils à s’abonner aux espaces de travail ?
     - Les utilisateurs voient-ils toutes les ressources publiées dans le client Bureau à distance ?
@@ -34,9 +34,9 @@ Windows Virtual Desktop utilise [Azure Monitor](../azure-monitor/overview.md) po
 - Points de contrôle :
     - Étapes spécifiques dans la durée de vie d’une activité qui ont été atteintes. Par exemple, au cours d’une session, un utilisateur a fait l’objet d’un équilibrage de charge sur un hôte particulier, puis a été connecté pendant une connexion, et ainsi de suite.
 
-Les connexions qui n’atteignent pas Windows Virtual Desktop ne figureront pas dans les résultats de diagnostic, car le service de rôle de diagnostics fait partie de Windows Virtual Desktop. Des problèmes de connexion à Windows Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
+Les connexions qui n’atteignent pas Azure Virtual Desktop ne figurent pas dans les résultats de diagnostic, car le service de rôle de diagnostic fait partie d’Azure Virtual Desktop. Des problèmes de connexion à Azure Virtual Desktop peuvent survenir lorsque l’utilisateur rencontre des problèmes de connectivité au réseau.
 
-Azure Monitor vous permet d’analyser les données Windows Virtual Desktop et de consulter les compteurs de performances des machines virtuelles, le tout au sein du même outil. Cet article met l’accent sur l’activation des diagnostics pour votre environnement Windows Virtual Desktop.
+Azure Monitor vous permet d’analyser les données Azure Virtual Desktop et d’examiner les compteurs de performances des machines virtuelles, le tout au sein du même outil. Cet article explique plus en détail comment activer les diagnostics dans un environnement Azure Virtual Desktop.
 
 >[!NOTE]
 >Pour savoir comment superviser vos machines virtuelles dans Azure, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Veillez également à [passer en revue les seuils des compteurs de performances](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) pour mieux comprendre votre expérience utilisateur sur l’hôte de session.
@@ -55,15 +55,15 @@ Après avoir créé votre espace de travail, suivez les instructions de la secti
 
 Ces informations vous seront nécessaires plus loin dans le processus de configuration.
 
-Veillez à passer en revue la gestion des autorisations pour Azure Monitor afin d’activer l’accès aux données pour les personnes qui supervisent et gèrent votre environnement Windows Virtual Desktop. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](../azure-monitor/roles-permissions-security.md).
+Veillez à examiner la gestion des autorisations pour Azure Monitor afin d’activer l’accès aux données pour les personnes qui supervisent et gèrent votre environnement Azure Virtual Desktop. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Envoyer (push) les données de diagnostic à votre espace de travail
 
-Vous pouvez envoyer (push) les données de diagnostic de vos objets Windows Virtual Desktop à Log Analytics pour votre espace de travail. Vous pouvez configurer cette fonctionnalité immédiatement au moment où vous créez vos objets.
+Vous pouvez envoyer (push) les données de diagnostic de vos objets Azure Virtual Desktop à Log Analytics pour votre espace de travail. Vous pouvez configurer cette fonctionnalité immédiatement au moment où vous créez vos objets.
 
 Pour configurer Log Analytics pour un nouvel objet :
 
-1. Connectez-vous au portail Azure et accédez à **Windows Virtual Desktop**.
+1. Connectez-vous au Portail Azure et accédez à **Azure Virtual Desktop**.
 
 2. Accédez à l’objet (par exemple, un pool d’hôtes, un groupe d’applications ou un espace de travail) pour lequel vous souhaitez capturer des journaux et des événements.
 
@@ -97,7 +97,7 @@ Vous pouvez accéder aux espaces de travail Log Analytics sur le portail Azure o
 
 3. Sous Services, sélectionnez **Espaces de travail Log Analytics**.
 
-4. Dans la liste, sélectionnez l’espace de travail que vous avez configuré pour votre objet Windows Virtual Desktop.
+4. Dans la liste, sélectionnez l’espace de travail que vous avez configuré pour votre objet Azure Virtual Desktop.
 
 5. Une fois dans votre espace de travail, sélectionnez **Journaux**. Vous pouvez filtrer votre liste de menu avec la fonction **Rechercher**.
 
@@ -114,7 +114,7 @@ Vous pouvez accéder aux espaces de travail Log Analytics sur le portail Azure o
 5. Vous êtes prêt à interroger les diagnostics. Toutes les tables de diagnostics ont un préfixe « WVD ».
 
 >[!NOTE]
->Pour plus d’informations sur les tables stockées dans les journaux d’activité d’Azure Monitor, consultez la [documentation de référence sur les données d’Azure Monitor](/azure/azure-monitor/reference/). Toutes les tables relatives à Windows Virtual Desktop sont étiquetées « WVD ».
+>Pour plus d’informations sur les tables stockées dans les journaux d’activité d’Azure Monitor, consultez la [documentation de référence sur les données d’Azure Monitor](/azure/azure-monitor/reference/). Toutes les tables relatives à Azure Virtual Desktop sont étiquetées « WVD ».
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadence d’envoi des événements de diagnostic
 
@@ -131,7 +131,7 @@ Les rapports Log Analytics ne portent que sur les états intermédiaires suivant
 Accédez à des exemples de requêtes par le biais de l’interface utilisateur d’Azure Monitor Log Analytics :
 1. Accédez à votre espace de travail Log Analytics, puis sélectionnez **Journaux**. L’interface utilisateur de l’exemple de requête s’affiche automatiquement.
 1. Changez le filtre en **Catégorie**.
-1. Sélectionnez **Windows Virtual Desktop** pour examiner les requêtes disponibles.
+1. Sélectionnez **Azure Virtual Desktop** pour examiner les requêtes disponibles.
 1. Sélectionnez **Exécuter** pour exécuter la requête sélectionnée.
 
 Pour plus d’informations sur l’interface de l’exemple de requête, consultez [Requêtes enregistrées dans Azure Monitor Log Analytics](../azure-monitor/logs/queries.md).

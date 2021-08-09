@@ -1,6 +1,6 @@
 ---
-title: FAS sur l’attachement d’application MSIX Windows Virtual Desktop – Azure
-description: Forum aux questions sur l’attachement d’application MSIX pour Windows Virtual Desktop.
+title: FAQ sur l’attachement d’application MSIX Azure Virtual Desktop – Azure
+description: Questions fréquentes (FAQ) sur l’attachement d’application MSIX pour Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1277e053e9a9eb6e54eb11a9ede42ca28d99d073
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cf9770fd58a7cbd75d4647284d3ee84042c7e187
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141304"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754616"
 ---
-# <a name="msix-app-attach-faq"></a>FAS sur l’attachement d’application MSIX
+# <a name="msix-app-attach-faq"></a>FAQ sur l’attachement d’application MSIX
 
-Cet article répond aux questions fréquemment posées sur l’attachement d’application MSIX pour Windows Virtual Desktop.
+Cet article répond aux questions fréquemment posées sur l’attachement d’application MSIX pour Azure Virtual Desktop.
 
 ## <a name="whats-the-difference-between-msix-and-msix-app-attach"></a>Quelle est la différence entre MSIX et l’attachement d’application MSIX ?
 
@@ -27,9 +27,9 @@ MSIX est un format d’empaquetage pour les applications, tandis que l’attache
 
 L’attachement d’application MSIX n’utilise pas FSLogix. En revanche, l’attachement d’application MSIX et FSLogix sont conçus pour fonctionner ensemble afin de fournir une expérience utilisateur transparente.
 
-## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Puis-je utiliser l’attachement d’application MSIX en dehors de Windows Virtual Desktop ?
+## <a name="can-i-use-the-msix-app-attach-outside-of-azure-virtual-desktop"></a>Est-ce que je peux utiliser l’attachement d’application MSIX en dehors d’Azure Virtual Desktop ?
 
-Les API sur lesquelles repose l’attachement d’application MSIX sont disponibles pour Windows 10 Entreprise. Ces API peuvent être utilisées en dehors de Windows Virtual Desktop. Toutefois, il n’existe aucun plan de gestion pour l’attachement d’application MSIX en dehors de Windows Virtual Desktop.
+Les API sur lesquelles repose l’attachement d’application MSIX sont disponibles pour Windows 10 Entreprise. Ces API peuvent être utilisées en dehors d’Azure Virtual Desktop. Toutefois, il n’existe aucun plan de gestion pour l’attachement d’application MSIX en dehors d’Azure Virtual Desktop.
 
 ## <a name="how-do-i-get-an-msix-package"></a>Comment obtenir un package MSIX ?
 
@@ -43,9 +43,9 @@ Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 ou 
 
 L’attachement d’application MSIX fait partie de Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 ou ultérieure. Les deux systèmes d’exploitation sont actuellement mis à la disposition générale. 
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Puis-je utiliser l’attachement d’application MSIX en dehors de Windows Virtual Desktop ?
+## <a name="can-i-use-msix-app-attach-outside-of-azure-virtual-desktop"></a>Est-ce que je peux utiliser l’attachement d’application MSIX en dehors d’Azure Virtual Desktop ?
 
-MSIX et l’attachement d’application MSIX font partie de Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 et ultérieures. Actuellement, nous ne proposons aucun logiciel de gestion pour l’attachement d’application MSIX en dehors de Windows Virtual Desktop.
+MSIX et l’attachement d’application MSIX font partie de Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 et ultérieures. Actuellement, nous ne proposons aucun logiciel de gestion pour l’attachement d’application MSIX en dehors d’Azure Virtual Desktop.
 
 ## <a name="can-i-run-two-versions-of-the-same-application-at-the-same-time"></a>Puis-je exécuter simultanément deux versions de la même application ?
 
@@ -58,6 +58,10 @@ Oui. L’attachement d’application MSIX ne prend pas en charge la mise à jour
 ## <a name="how-do-permissions-work-with-msix-app-attach"></a>Comment fonctionnent les autorisations avec l’attachement d’application MSIX ?
 
 Toutes les machines virtuelles d’un pool hôte qui utilise l’attachement d’application MSIX doivent avoir des autorisations de lecture sur le partage de fichiers où sont stockées les images MSIX. Si le pool utilise également Azure Files, il doit disposer à la fois du contrôle d’accès en fonction du rôle (RBAC) et des autorisations New Technology File System (NTFS).
+
+## <a name="how-many-users-can-use-an-msix-image-handle"></a>Combien d’utilisateurs peuvent utiliser un handle d’image MSIX ?
+
+L’attachement d’application MSIX monte les images MSIX par ordinateur, et non par utilisateur. Le nombre d’utilisateurs pouvant utiliser un handle d’image MSIX est basé sur la taille du système de fichiers et du débit du réseau de l’ordinateur. De plus, Azure Files a une limite de 2 000 handles ouverts par fichier. 
 
 ## <a name="can-i-use-azure-active-directory-domain-services-azure-ad-ds-with-msix-app-attach"></a>Puis-je utiliser Azure Active Directory Domain Services (Azure AD DS) avec l’attachement d’application MSIX ?
 
@@ -73,7 +77,7 @@ Oui. Vous pouvez effectuer une nouvelle copie intermédiaire d’applications, c
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>L’attachement d’application MSIX prend-il en charge les certificats auto-signés ?
 
-Oui. Vous devez installer le certificat auto-signé sur toutes les machines virtuelles hôtes de session où l’attachement d’application MSIX est utilisé pour héberger l’application auto-signée.
+Oui. Vous devez installer le certificat auto-signé sur toutes les machines virtuelles hôtes de session où l’attachement d’application MSIX est utilisé pour héberger l’application auto-signée. Découvrez comment créer un certificat auto-signé dans [Créer un certificat pour la signature de package](/windows/msix/package/create-certificate-package-signing).
 
 ## <a name="what-applications-can-i-repackage-to-msix"></a>Quelles applications puis-je repackager dans MSIX ?
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 05/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5273d2aedd1382146b83197afb48c5120dcbb11
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108767740"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955089"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -25,7 +25,7 @@ Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’uti
 
    > [!IMPORTANT]
    > - **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
-   > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md), qui est maintenant en disponibilité générale.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Acceptation et connexion via un point de terminaison commun
 
@@ -59,6 +59,20 @@ Lorsque vous ajoutez un utilisateur invité à votre annuaire en [utilisant le p
 2. L’invité sélectionne **Accepter l’invitation** dans l’e-mail.
 3. L’invité utilise ses propres informations d’identification pour se connecter à votre répertoire. Si l’invité n’a pas de compte qui peut être fédéré à votre répertoire et que la fonctionnalité [Code secret e-mail à usage unique (OTP)](./one-time-passcode.md) n’est pas activée, l’invité est invité à créer un [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personnel ou un [compte libre-service Azure AD](../enterprise-users/directory-self-service-signup.md). Pour plus d’informations, reportez-vous au [flux d’acceptation d’invitation](#invitation-redemption-flow).
 4. L’invité est guidé tout au long de l’[expérience de consentement](#consent-experience-for-the-guest) décrite ci-dessous.
+
+## <a name="redemption-limitation-with-conflicting-contact-object"></a>Limitation d’échange avec objet contact en conflit
+Parfois, l’e-mail de l’utilisateur externe invité peut être en conflit avec un [Objet de contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) existant, ce qui entraîne la création de l’utilisateur invité sans proxyAddress. Il s’agit d’une limitation connue qui empêche les utilisateurs invités de faire ce qui suit : 
+- Échanger une invitation via un lien direct à l’aide d’un fournisseur d’identité [SAML/WS-FED](/azure/active-directory/external-identities/direct-federation), de [comptes Microsoft](/azure/active-directory/external-identities/microsoft-account), de la [fédération Google](/azure/active-directory/external-identities/google-federation) ou d’un compte à [Code secret à usage unique d’e-mail](/azure/active-directory/external-identities/one-time-passcode). 
+- Échanger une invitation via un lien d’échange d’e-mail d’invitation à l’aide d’un fournisseur d’identité [SAML/WS-FED](/azure/active-directory/external-identities/direct-federation) et d’un compte à [Code secret à usage unique d’e-mail](/azure/active-directory/external-identities/one-time-passcode).
+- Se reconnecter à une application après l’échange à l’aide des comptes [IdP SAML/WS-FED](/azure/active-directory/external-identities/direct-federation) et de [fédération Google](/azure/active-directory/external-identities/google-federation).
+
+Pour débloquer des utilisateurs qui ne peuvent pas échanger une invitation en raison d’un conflit avec un [Objet de contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), procédez comme suit :
+1. Supprimez l’objet de contact conflictuel.
+2. Supprimez l’utilisateur invité dans le portail Azure (la propriété « Invitation acceptée » de l’utilisateur doit être dans un état d’attente).
+3. Réinvitez l’utilisateur.
+4. Attendez que l’utilisateur échange l’invitation
+5. Rajoutez l’e-mail de contact de l’utilisateur dans Exchange et toutes les listes de distribution auxquelles il doit faire partie
+
 ## <a name="invitation-redemption-flow"></a>Flux d’acceptation d’invitation
 
 Quand un utilisateur clique sur le lien **Accepter l’invitation** dans un [e-mail d’invitation](invitation-email-elements.md), Azure AD accepte automatiquement l’invitation en fonction du flux d’acceptation, comme illustré ci-dessous :

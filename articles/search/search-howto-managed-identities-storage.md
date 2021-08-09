@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91ca017bf94f2c9a75a8016fb861cc085dc47ebe
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358369"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556961"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée
 
@@ -49,9 +49,9 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-storage.png "Ajouter une attribution de rôle")
 
 4. Sélectionnez les rôles appropriés en fonction du type de compte de stockage que vous souhaitez indexer :
-    1. Stockage Blob Azure nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
+    1. Stockage Blob Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
     1. Azure Data Lake Storage Gen2 nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
-    1. Stockage Table Azure nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur et accès aux données**.
+    1. Stockage Table Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur et accès aux données**.
 5.  Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
 6.  Recherchez votre service de recherche, sélectionnez-le, puis sélectionnez **Enregistrer**.
 

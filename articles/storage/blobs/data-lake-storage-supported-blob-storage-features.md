@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: normesta
-ms.openlocfilehash: 5c9eb1aa2e88019609f5ab26c2e995e4e43063ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 25fe02ea4103dec2539e429fd2c9aac4274cdd45
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640815"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074788"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -40,7 +40,7 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Stratégies de gestion du cycle de vie (supprimer l’objet blob)|Mise à la disposition générale|Mise à la disposition générale|[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)|
 |Connexion à Azure Monitor|PRÉVERSION |PRÉVERSION|[Surveillance du stockage Azure](./monitor-blob-storage.md)|
 |Instantanés|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Instantanés d’objet blob](snapshots-overview.md)|
-|Sites web statiques|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)|
+|Sites web statiques|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"></div>|[Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)|
 |Stockage non modifiable|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
 |Suppression réversible de conteneur|PRÉVERSION|PRÉVERSION|[Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md)|
 |Inventaire du Stockage Azure|PRÉVERSION|PRÉVERSION|[Gestion des données d’objets blob avec l’inventaire du Stockage Azure (préversion)](blob-inventory.md)|
@@ -54,6 +54,8 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Modifier le flux|Pas encore pris en charge|Pas encore pris en charge|[Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)|
 |Réplication d’objets|Pas encore pris en charge|Pas encore pris en charge|[Configurer la réplication d’objets pour des objets blob de blocs](object-replication-configure.md)|
 |Gestion des versions des objets blob|Pas encore pris en charge|Pas encore pris en charge|[Activer et gérer le contrôle de version des objets blob](versioning-enable.md)|
+|Restauration dans le temps|Pas encore pris en charge|Pas encore pris en charge|[Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md)|
+|Étiquettes d’index d’objet blob|Pas encore pris en charge|Pas encore pris en charge|[Gérer et rechercher des données blob Azure dans l’index d’objet blob](storage-manage-find-blobs.md)|
 
 <div id="preview-form"><sup>1</sup> Pour utiliser des instantanés, un stockage immuable ou des sites web statiques avec Data Lake Storage Gen2, vous devez vous inscrire à la préversion en remplissant ce <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulaire</a>.  </div>
 <div id="preview-form-2"><sup>2</sup>Un nom de domaine personnalisé peut être mappé uniquement au service blob ou au point de terminaison de site web statique. Le point de terminaison de stockage Data Lake n’est pas pris en charge.</a>.  </div>

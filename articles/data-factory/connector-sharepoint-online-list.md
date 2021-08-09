@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jianleishen
-ms.openlocfilehash: 44c60305519c2464df56c3b5a9228161548d4bd6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: c6ce2d796bbe679f73804fef91079db2ca44c28b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482882"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748874"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copie de données à partir de SharePoint Online List à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -217,7 +217,7 @@ Pour copier un fichier à partir de SharePoint Online, vous pouvez utiliser **l�
     - **Méthode** : POST
     - **Headers** :
         - Content-Type : application/x-www-form-urlencoded
-    - **Corps** : `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Remplacez l’ID client, la clé secrète client, l’ID de locataire et le nom du locataire.
+    - **Corps** : `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Remplacez l’ID client (ID d’application), la clé secrète client (clé d’application), l’ID locataire et le nom du locataire (du locataire SharePoint).
 
     > [!CAUTION]
     > Définissez l’option Sortie sécurisée sur « True » dans l’activité web pour empêcher la journalisation en texte brut de la valeur du jeton. Pour toutes les autres activités qui consomment cette valeur, l’option d’entrée sécurisée doit être définie sur « True ».

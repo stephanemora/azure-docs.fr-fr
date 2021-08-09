@@ -1,14 +1,15 @@
 ---
 title: Déployer à grande échelle Azure Policy vers des abonnements délégués
-description: Découvrez comment Azure Lighthouse vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
+description: Azure Lighthouse permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 7b94816361e795d6333bdca63c5e2aab977190e8
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d1a14a7f4db1fe70949f0e1caf41479b159ac86c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786108"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075526"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Déployer à grande échelle Azure Policy vers des abonnements délégués
 

@@ -12,12 +12,12 @@ metadata:
   ms.workload: infrastructure-services
   ms.date: 06/10/2021
   ms.author: duau
-  ms.openlocfilehash: 790f1d8d69fb70556bb083e95e50039e4fbd4c1a
-  ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+  ms.openlocfilehash: 47faea68e2d5556d83d2b65d88e0f22844f24c4f
+  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112553794"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112007754"
 title: Questions fréquentes (FAQ) sur Azure Front Door
 summary: >
   Cet article répond aux questions courantes sur les fonctionnalités d’Azure Front Door. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
@@ -141,7 +141,7 @@ sections:
       </br>Pour votre propre certificat TLS/SSL personnalisé, la rotation automatique n'est pas prise en charge. À l’image de sa configuration initiale pour un domaine personnalisé donné, vous devez pointer Front Door sur la version de certificat appropriée dans votre coffre de clés et vous assurer que le principal de service pour Front Door a toujours accès au coffre de clés. Cette opération de déploiement de certificat mis à jour par Front Door est atomique et n’a aucun impact sur la production, à condition que le nom de l’objet ou le SAN pour le certificat ne change pas.
   - question: >
       Quelles sont les suites de chiffrement actuellement prises en charge par Azure Front Door ?
-    answer: "Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge : \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\n> [!NOTE]  \n> Pour Windows 10 et versions ultérieures, nous vous recommandons d’activer une, ou les deux, suites de chiffrement ECDHE pour une meilleure sécurité. Windows 8.1, 8 et 7 ne sont pas compatibles avec ces suites de chiffrement ECDHE. Les suites de chiffrement DHE ont été fournies pour la compatibilité avec ces systèmes d’exploitation.\n\nQuand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les suites de chiffrement suivantes sont prises en charge :\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
+    answer: "Pour TLS 1.2, les suites de chiffrement suivantes sont prises en charge : \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\nQuand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les suites de chiffrement suivantes sont prises en charge :\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
   - question: >
       Puis-je configurer la stratégie TLS de manière à contrôler les versions du protocole TLS ?
     answer: >

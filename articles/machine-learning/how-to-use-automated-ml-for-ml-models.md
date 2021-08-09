@@ -1,31 +1,30 @@
 ---
-title: Utiliser AutoML pour créer des modèles et les déployer
+title: Configurer l’AutoML avec l’interface utilisateur de Studio
 titleSuffix: Azure Machine Learning
-description: Créer, examiner et déployer des modèles Machine Learning automatisé à l’aide d’Azure Machine Learning Studio.
+description: Découvrez comment configurer l’exécution de l’apprentissage AutoML sans une seule ligne de code avec Azure Machine Learning ML automatisé dans Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
-ms.openlocfilehash: 5718e0e3732f57b46500f9d2cdb1165e883ca44f
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.date: 06/11/2021
+ms.topic: how-to
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575579"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030752"
 ---
-# <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
+# <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configurer l’apprentissage AutoML sans code avec l’interface utilisateur de Studio 
 
+Dans cet article, vous allez apprendre à configurer l’exécution de l’apprentissage AutoML sans une seule ligne de code à l’aide d’Azure Machine Learning ML automatisé dans [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
-Dans cet article, vous allez apprendre à créer, à explorer et à déployer des modèles de machine learning automatisé sans la moindre ligne de code dans le studio Azure Machine Learning.
-
-Le machine learning automatisé est un processus dans lequel le meilleur algorithme de machine learning à utiliser pour vos données spécifiques est automatiquement sélectionné. Ce processus vous permet de générer rapidement des modèles Machine Learning. [Apprenez-en davantage sur Machine Learning automatisé](concept-automated-ml.md).
+Le Machine Learning automatisé, ou AutoML, est un processus dans lequel le meilleur algorithme de Machine Learning à utiliser pour vos données spécifiques est automatiquement sélectionné. Ce processus vous permet de générer rapidement des modèles Machine Learning. [En savoir plus sur la façon dont Azure Machine Learning implémente le Machine Learning automatisé](concept-automated-ml.md).
  
-Pour obtenir un exemple de bout en bout, consultez le [tutoriel sur la création d’un modèle de classification avec l’interface de ML automatisé d’Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+Pour obtenir un exemple de bout en bout, essayez le [Tutoriel : AutoML - former des modèles de classification sans code](tutorial-first-experiment-automated-ml.md). 
 
 Pour une expérience basée sur du code Python, [configurez vos expériences de machine learning automatisé](how-to-configure-auto-train.md) avec le SDK Azure Machine Learning.
 
@@ -47,7 +46,7 @@ Pour une expérience basée sur du code Python, [configurez vos expériences de 
 
  S’il s’agit de votre première expérience, vous verrez une liste vide et des liens vers la documentation. 
 
-Dans le cas contraire, vous verrez une liste de vos expériences récentes Machine Learning automatisé, y compris celles créées avec le kit de développement logiciel (SDK). 
+Dans le cas contraire, vous verrez une liste de vos expériences récentes de ML automatisé, y compris celles créées avec le kit de développement logiciel (SDK). 
 
 ## <a name="create-and-run-experiment"></a>Créer et exécuter une expérience
 
@@ -179,6 +178,14 @@ L’onglet **Modèles** contient une liste des modèles créés affichés selon 
 Explorez les modèles terminés pour voir les détails de l’exécution de la formation, par exemple un résumé du modèle sous l’onglet **Modèle** ou les graphiques des mesures de performance sous l’onglet **Mesures**. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
 
 [![Détails de l’itération](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+
+Dans l’onglet Transformation des données, vous pouvez voir un diagramme des techniques de prétraitement des données, d’ingénierie des caractéristiques et de mise à l’échelle ainsi que l’algorithme Machine Learning qui ont été appliqués pour générer ce modèle.
+
+>[!IMPORTANT]
+> L’onglet Transformation des données est en préversion. Cette fonctionnalité doit être considérée comme [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) et peut changer à tout moment.
+
+![Transformation des données](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
 
 ## <a name="model-explanations-preview"></a>Explications de modèle (préversion)
 

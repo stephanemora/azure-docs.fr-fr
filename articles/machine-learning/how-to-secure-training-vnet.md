@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/16/2020
+ms.date: 05/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 4b3692884da921eeabcafc5a72419278af2d5440
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 8233edd12d4bde5c71d69cfbeab49ebdc8137dbc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888653"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071987"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -64,6 +64,7 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > * Lorsque l’instance de calcul est déployée dans un espace de travail privé, elle n’est accessible qu’à partir d’un réseau virtuel. Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour `<instance-name>.<region>.instances.azureml.ms` avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md).
 > * Le sous-réseau utilisé pour déployer l’instance/le cluster de calcul ne doit pas être délégué à un autre service comme ACI.
 > * Les stratégies de point de terminaison de service de réseau virtuel ne fonctionnent pas pour les comptes de stockage système de l’instance/du cluster de calcul.
+> * Si le stockage et l’instance de calcul se trouvent dans des régions différentes, vous pourriez voir des délais d’attente intermittents
 
     
 > [!TIP]
@@ -118,7 +119,7 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
    - Stockage Azure, en utilisant la __balise de service__ __Storage.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
    - Azure Container Registry, en utilisant la __balise de service__ __AzureContainerRegistry.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
    - Azure Machine Learning, à l’aide de la __balise du service__ de __AzureMachineLearning__
-   - Azure Resource Manager, à l’aide de la __balise de service__ de __AzureResourceManager__
+   - Azure Resource Manager, à l’aide de __l’étiquette de service__ de __Azure Resource Manager__
    - Azure Active Directory, à l’aide de la __balise de service__ de __AzureActiveDirectory__
 
 La configuration de la règle de groupe de sécurité réseau dans le Portail Azure est illustrée dans l’image suivante :
@@ -159,11 +160,11 @@ La configuration de la règle de groupe de sécurité réseau dans le Portail Az
 
 Si vous utilisez le [tunneling forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) avec le calcul Azure Machine Learning, vous devez autoriser la communication avec l’Internet public depuis le sous-réseau contenant la ressource de calcul. Cette communication permet de planifier les tâches et d’accéder au Stockage Azure.
 
-Pour ce faire, il y a deux manières de procéder :
+Il existe deux façons d’autoriser cette communication :
 
 * Utilisez un [NAT de réseau virtuel](../virtual-network/nat-overview.md). Une passerelle NAT fournit une connectivité Internet sortante pour un ou plusieurs sous-réseaux dans votre réseau virtuel. Pour en savoir plus, consultez [Conception de réseaux virtuels avec des ressources de passerelle NAT](../virtual-network/nat-gateway-resource.md).
 
-* Ajoutez des [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) au sous-réseau qui contient la ressource de calcul. Établissez un UDR pour chaque adresse IP utilisée par le service Azure Batch dans la région où se trouvent vos ressources. Ces UDR autorisent le service Batch à communiquer avec les nœuds de calcul pour la planification des tâches. Ajoutez également l’adresse IP du service Azure Machine Learning, car elle est nécessaire pour l’accès aux instances de calcul. Lors de l’ajout de l’adresse IP pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire et secondaire__. La région primaire est celle où se trouve votre espace de travail.
+* Ajoutez des [itinéraires définis par l’utilisateur (UDR)](../virtual-network/virtual-networks-udr-overview.md) au sous-réseau qui contient la ressource de calcul. Établissez un UDR pour chaque adresse IP utilisée par le service Azure Batch dans la région où se trouvent vos ressources. Ces UDR autorisent le service Batch à communiquer avec les nœuds de calcul pour la planification des tâches. Ajoutez également l’adresse IP d’Azure Machine Learning service, car elle est nécessaire pour l’accès aux instances de calcul. Lors de l’ajout de l’adresse IP pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire et secondaire__. La région primaire est celle où se trouve votre espace de travail.
 
     Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si votre service Azure Machine Learning se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
 
@@ -203,22 +204,24 @@ Pour ce faire, il y a deux manières de procéder :
 Pour créer un cluster Capacité de calcul Machine Learning, effectuez les étapes suivantes :
 
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/), puis sélectionnez votre abonnement et votre espace de travail.
+1. Sélectionnez __Calcul__ sur la gauche, __Clusters de calcul__ à partir du centre, puis sélectionnez __+ Nouveau__.
 
-1. Sélectionnez __Compute__ à gauche.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster.png" alt-text="Capture d’écran de la création d’un cluster":::
 
-1. Sélectionnez __Clusters d'entraînement__ à partir du centre, puis sélectionnez __+__ .
+1. Dans la boîte de dialogue __Créer un cluster de calcul__, sélectionnez la taille de machine virtuelle et la configuration dont vous avez besoin, puis sélectionnez __Suivant__.
 
-1. Dans la boîte de dialogue __Nouveau cluster d'entraînement__, développez la section __Paramètres avancés__.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Capture d’écran de la configuration de la machine virtuelle":::
 
-1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, effectuez les actions suivantes dans la section __Configurer le réseau virtuel__ :
+1. Dans la section __Paramètres de configuration__, définissez le __nom du calcul__, le __réseau virtuel__ et le __sous-réseau__.
 
-    1. Dans la liste déroulante __Groupe de ressources__, sélectionnez le groupe de ressources qui contient le réseau virtuel.
-    1. Dans la liste déroulante __Réseau virtuel__, sélectionnez le réseau virtuel qui contient le sous-réseau.
-    1. Dans la liste déroulante __Sous-réseau__, sélectionnez le sous-réseau à utiliser.
+    > [!TIP]
+    > Si votre espace de travail utilise un point de terminaison privé pour se connecter au réseau virtuel, le champ de sélection __Réseau virtuel__ est grisé.
 
-   ![Les paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Capture d’écran des paramètres du réseau virtuel":::
 
-Vous pouvez également créer un cluster Capacité de calcul Machine Learning à l’aide du SDK Azure Machine Learning. Le code suivant crée un cluster Capacité de calcul dans le sous-réseau `default` d’un réseau virtuel nommé `mynetwork` :
+1. Sélectionnez __Créer__ pour créer le cluster de calcul.
+
+Vous pouvez également créer un cluster de calcul Machine Learning à l’aide du SDK Azure Machine Learning. Le code suivant crée un cluster Capacité de calcul dans le sous-réseau `default` d’un réseau virtuel nommé `mynetwork` :
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -258,9 +261,9 @@ Une fois le processus de création terminé, vous pouvez entraîner votre modèl
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="access-data-in-a-compute-instance-notebook"></a>Accéder aux données d’un notebook d’instance de capacité de calcul
+### <a name="access-data-in-a-compute-instance-notebook"></a>Accéder aux données d’un notebook d’instance de calcul
 
-Si vous utilisez des notebooks sur une instance de capacité de calcul Azure, vous devez vérifier que votre notebook s’exécute sur une ressource de calcul derrière le même réseau virtuel et le même sous-réseau que vos données. 
+Si vous utilisez des notebooks sur une instance de calcul Azure Machine Learning, vous devez vérifier que votre notebook s’exécute sur une ressource de calcul derrière le même réseau virtuel et le même sous-réseau que vos données. 
 
 Vous devez configurer votre instance de capacité de calcul pour qu’elle se trouve sur le même réseau virtuel lors de la création sous **Paramètres avancés** > **Configurer le réseau virtuel**. Vous ne pouvez pas ajouter une instance de capacité de calcul existante à un réseau virtuel.
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1703e206bb13aa6f239346f7a724004a00ddfeca
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92677721"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568915"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -180,6 +180,9 @@ Vous pouvez placer le compte de stockage dans un réseau virtuel Azure que vous 
 ### <a name="access-storage-accounts-as-a-trusted-service-with-managed-identities"></a>Accéder aux comptes de stockage en tant que service approuvé avec des identités gérées
 
 Pour accorder aux services approuvés Microsoft un accès à un compte de stockage via un pare-feu, vous pouvez définir une exception sur ce compte de stockage pour ces services. Cette solution permet aux services Azure qui prennent en charge les [identités gérées pour l’authentification](../active-directory/managed-identities-azure-resources/overview.md) d’accéder à des comptes de stockage derrière des pare-feu en tant que services approuvés. Plus précisément, pour qu’une application logique dans une instance Azure multi-locataire globale accède à ces comptes de stockage, vous devez d’abord [activer la prise en charge des identités gérées](../logic-apps/create-managed-service-identity.md) sur l’application logique. Ensuite, vous utilisez l’action ou le déclencheur HTTP dans votre application logique et [définissez leur type d’authentification pour utiliser l’identité gérée de votre application logique](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). Pour ce scénario, vous pouvez utiliser *uniquement* l’action ou le déclencheur HTTP.
+
+> [!NOTE]
+> Si vous utilisez la fonctionnalité d’identité managée pour authentifier l’accès à votre compte de stockage, vous ne pouvez pas utiliser les opérations intégrées du stockage Blob Azure. Vous devez utiliser le déclencheur ou l’action HTTP dont l’identité managée est configurée pour authentifier la connexion de votre compte de stockage. Pour exécuter les opérations de stockage nécessaires, il vous faut donc appeler les API REST correspondantes pour le stockage Blob Azure. Pour plus d’informations, consultez l’[API REST du service BLOB](/rest/api/storageservices/blob-service-rest-api).
 
 Pour configurer l’exception et la prise en charge des identités gérées, suivez ces étapes générales :
 

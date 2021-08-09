@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ef89cb50770eecb7b61798562ba6228f0ecd0071
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255969"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479818"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -490,7 +490,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap |statique|Collection des capacités du nœud pour les différentes mesures. |
+|PropertyGroup |NodeCapacityCollectionMap | Dynamique |Collection des capacités du nœud pour les différentes mesures. Dynamique à partir de Service Fabric 8,1, *Statique* dans les versions antérieures. |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
 
@@ -503,7 +503,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap |statique|Collection de paires clé-valeur de chaîne pour les propriétés du nœud. |
+|PropertyGroup |NodePropertyCollectionMap | Dynamique |Collection de paires clé-valeur de chaîne pour les propriétés du nœud. Dynamique à partir de Service Fabric 8,1, *Statique* dans les versions antérieures. |
 
 ## <a name="paas"></a>PaaS
 

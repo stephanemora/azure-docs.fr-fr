@@ -1,24 +1,24 @@
 ---
-title: Liste des URL requises pour Windows Virtual Desktop – Azure
-description: Liste des URL que vous devez débloquer pour garantir que votre déploiement de Windows Virtual Desktop fonctionne comme prévu.
+title: Liste des URL requises pour Azure Virtual Desktop – Azure
+description: Liste des URL que vous devez débloquer pour garantir que votre déploiement d’Azure Virtual Desktop fonctionne comme prévu.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 183b956c0ec38101f7875fe01dd7c6ef9c8c8c8f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 7206b035724027f346fe49c8834c2fd35ec83af9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891677"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752960"
 ---
 # <a name="required-url-list"></a>Liste des URL requises
 
-Pour déployer et utiliser Windows Virtual Desktop, vous devez débloquer certaines URL afin que vos machines virtuelles puissent y accéder à tout moment. Cet article répertorie les URL requises que vous devez débloquer pour que Windows Virtual Desktop fonctionne correctement. 
+Pour déployer et utiliser Azure Virtual Desktop, vous devez débloquer certaines URL afin que vos machines virtuelles puissent y accéder à tout moment. Cet article répertorie les URL requises que vous devez débloquer pour que Azure Virtual Desktop fonctionne correctement. 
 
 >[!IMPORTANT]
->Windows Virtual Desktop ne prend pas en charge les déploiements qui bloquent les URL mentionnées dans cet article.
+>Azure Virtual Desktop ne prend pas en charge les déploiements qui bloquent les URL mentionnées dans cet article.
 
 ## <a name="required-url-check-tool"></a>Outil de vérification d’URL obligatoire
 
@@ -68,7 +68,7 @@ Pour utiliser l’outil de vérification d’URL obligatoire :
 
 ## <a name="virtual-machines"></a>Machines virtuelles
 
-Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent avoir accès aux URL suivantes dans le cloud commercial Azure :
+Les machines virtuelles Azure que vous créez pour Azure Virtual Desktop doivent avoir accès aux URL suivantes dans le cloud commercial Azure :
 
 |Adresse|Port TCP sortant|Objectif|Balise du service|
 |---|---|---|---|
@@ -87,11 +87,11 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 | 168.63.129.16 | 80 | [Surveillance de l’intégrité de l’hôte de la session](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
->Windows Virtual Desktop prend désormais en charge l’étiquette FQDN. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
+>Azure Virtual Desktop prend désormais en charge l’étiquette FQDN. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
 >
->Nous vous recommandons d’utiliser des étiquettes de nom de domaine complet ou de service à la place des URL pour éviter tout problème lié aux services. Les étiquettes et URL répertoriées correspondent uniquement aux sites et ressources Windows Virtual Desktop. Elles n’incluent pas les URL d’autres services comme Azure Active Directory.
+>Nous vous recommandons d’utiliser des étiquettes de nom de domaine complet ou de service à la place des URL pour éviter tout problème lié aux services. Les étiquettes et URL répertoriées correspondent uniquement aux sites et ressources Azure Virtual Desktop. Elles n’incluent pas les URL d’autres services comme Azure Active Directory.
 
-Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent avoir accès aux URL suivantes dans le cloud Azure Government :
+Les machines virtuelles Azure que vous créez pour Azure Virtual Desktop doivent avoir accès aux URL suivantes dans le cloud Azure Government :
 
 |Adresse|Port TCP sortant|Objectif|Étiquette du service|
 |---|---|---|---|
@@ -120,10 +120,10 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 |*.sfx.ms|443|Mises à jour pour le logiciel client OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Vérification de la révocation de certificat|Aucun|
 |*.azure-dns.com|443|Résolution d’Azure DNS|Aucun|
-|*.azure-dns.net|443|Résolution d’Azure DNS|None|
+|*.azure-dns.net|443|Résolution d’Azure DNS|Aucun|
 
 >[!NOTE]
->Actuellement, Windows Virtual Desktop ne dispose pas d’une liste de plages d’adresses IP que vous pouvez débloquer pour autoriser le trafic réseau. Pour le moment, seules certaines URL spécifiques peuvent être débloquées.
+>Actuellement, Azure Virtual Desktop ne dispose pas d’une liste de plages d’adresses IP que vous pouvez débloquer pour autoriser le trafic réseau. Pour le moment, seules certaines URL spécifiques peuvent être débloquées.
 >
 >Si vous utilisez un pare-feu de nouvelle génération, vous devez utiliser une liste dynamique spécialement conçue pour les adresses IP Azure pour vous assurer que vous pouvez vous connecter.
 >
@@ -131,7 +131,7 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 >
 >Vous devez utiliser le caractère générique (*) pour les URL impliquant du trafic de service. Si vous préférez ne pas utiliser * pour le trafic lié à l’agent, voici comment trouver les URL sans caractères génériques :
 >
->1. Inscrivez vos machines virtuelles dans le pool d’hôtes Windows Virtual Desktop.
+>1. Inscrivez vos machines virtuelles dans le pool d’hôtes Azure Virtual Desktop.
 >2. Ouvrez **Observateur d’événements**, accédez à **Journaux Windows** > **Application** > **WVD-Agent**, puis recherchez l’ID d’événement 3701.
 >3. Débloquez les URL que vous trouvez sous l’ID d’événement 3701. Les URL sous l’ID d’événement 3701 sont spécifiques à la région. Vous devez répéter le processus de déblocage avec les URL appropriées pour chaque région où vous souhaitez déployer vos machines virtuelles.
 

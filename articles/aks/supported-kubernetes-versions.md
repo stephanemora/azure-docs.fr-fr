@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f2f1c01ec323452997f5e7ab8f20e13e1d572a72
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209208"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438195"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -143,12 +143,18 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
+| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | *1.21 GA | 
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
 | 1.21  | 8 avril 2021 | Mai 2021   | Juin 2021  | 1.24 GA |
+| 1,22  | 04 août 21 | Septembre 2021   | Octobre 2021  | 1.25 GA |
+| 1.23  | Décembre 2021 | Janvier 2022   | Février 2022  | 1.26 GA |
 
-
+>[!NOTE]
+>AKS version 1,18 restera disponible jusqu’au 31 juillet 2021. Après cette date, AKS retourne à sa prise en charge habituelle de trois versions. Il est important de noter les points suivants, car le support sera limité dans l’étendue du 30 juin au 31 juillet 2021. La liste ci-dessous indique ce à quoi les utilisateurs seront limités :
+> - Création de nouveaux clusters et nodepools sur 1.18.
+> - Opérations CRUD sur les clusters 1.18.
+> - Prise en charge par Azure des problèmes de plateforme non relatifs à Kubernetes. Les problèmes de plateforme incluent des problèmes de mise en réseau, de stockage ou de calcul exécutés sur Azure. Toutes les requêtes de support pour la mise à jour corrective de K8s et la résolution des problèmes seront demandées pour effectuer une mise à niveau vers une version prise en charge.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

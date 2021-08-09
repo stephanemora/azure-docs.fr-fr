@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 1d64233fc477ec25f91bb73c744b10210571df41
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: d440940d98b33ae5906fe5a4a112939682196e57
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588341"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467409"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques Python pour Apache Spark dans Azure Synapse Analytics
 
@@ -80,12 +80,12 @@ Pour en savoir plus sur la création d’un environnement à partir du fichier e
 ).
 
 #### <a name="update-python-packages"></a>Mettre à jour les packages Python
-Une fois que vous avez identifié le fichier de spécification d’environnement ou l’ensemble de bibliothèques que vous souhaitez installer sur le pool Spark, accédez à Azure Synapse Studio ou au Portail Azure pour mettre à jour les bibliothèques du pool Spark. Ici, vous pouvez fournir la spécification de l’environnement et sélectionner les bibliothèques d’espace de travail à installer. 
+Une fois que vous avez identifié le fichier de spécification d’environnement ou l’ensemble de bibliothèques que vous souhaitez installer sur le pool Spark, accédez à Synapse Studio ou au Portail Azure pour mettre à jour les bibliothèques du pool Spark. Ici, vous pouvez fournir la spécification de l’environnement et sélectionner les bibliothèques d’espace de travail à installer. 
 
 Une fois les modifications enregistrées, un travail Spark exécute l’installation et met en cache l’environnement obtenu pour une réutilisation ultérieure. Une fois le travail terminé, les nouveaux travaux Spark ou les nouvelles sessions de notebook utilisent les bibliothèques de pools mises à jour. 
 
-##### <a name="manage-packages-from-azure-synapse-studio-or-azure-portal"></a>Gérer les packages à partir d’Azure Synapse Studio ou du Portail Azure
-Vous pouvez gérer les bibliothèques de pools Spark depuis Azure Synapse Studio ou le Portail Azure. 
+##### <a name="manage-packages-from-synapse-studio-or-azure-portal"></a>Gérer les packages à partir de Synapse Studio ou du Portail Azure
+Vous pouvez gérer les bibliothèques de pools Spark depuis Synapse Studio ou le Portail Azure. 
 
 Pour mettre à jour un pool Spark ou y ajouter des bibliothèques :
 1. Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.
@@ -156,7 +156,8 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!WARNING]
-> Dans certains cas, vous devrez peut-être créer le chemin d’accès basé sur la structure au-dessus s’il n’existe pas déjà. Vous devrez peut-être, par exemple, ajouter le dossier ```python``` dans le dossier ```libraries``` s’il ne s’y trouve pas déjà.
+> - Dans certains cas, vous devrez peut-être créer le chemin d’accès basé sur la structure au-dessus s’il n’existe pas déjà. Vous devrez peut-être, par exemple, ajouter le dossier ```python``` dans le dossier ```libraries``` s’il ne s’y trouve pas déjà.
+> - Cette méthode de gestion des fichiers wheels personnalisés n’est pas prise en charge sur le runtime Azure Synapse pour Apache Spark 3,0. Reportez-vous à la fonctionnalité des packages d’espace de travail pour gérer les fichiers wheels personnalisés.
 
 > [!IMPORTANT]
 > Pour installer des bibliothèques personnalisées à l’aide de la méthode Azure DataLake Storage, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.

@@ -9,19 +9,19 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 86031eb10dc96be8caac721ba4d9f66595b94aef
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 6a5ebed9f6b8bf5ed40829e13bbbcc43b7ebbc8a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633120"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069541"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
 
 Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cet article contient des recommandations à appliquer pour optimiser le niveau de performance des demandes de stockage. Pour plus d’informations sur la prise en charge du système NFS 3.0 dans le Stockage Blob Azure, consultez [Prise en charge du protocole de système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Les comptes de stockage GPV2 avec performances de niveau Standard sont pris en charge dans les régions suivantes : Australie Est, Corée Centre, USA Est et USA Centre Sud. La préversion prend également en charge les objets blobs de blocs avec niveau de performances Premium dans toutes les régions publiques.
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Il prend en charge les comptes de stockage GPV2 avec des performances de niveau standard et les comptes de stockage d’objets blob de blocs avec un niveau de performances Premium dans toutes les régions publiques.
 
 ## <a name="add-clients-to-increase-throughput"></a>Ajout de clients pour augmenter le débit 
 

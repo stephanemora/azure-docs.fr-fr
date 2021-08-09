@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 1ac3c25458df19ca1db7ee16e5c231512a7663b0
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 9328b8159b04d4e7e7bc2383739c86c76dbf156a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076902"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985883"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -78,9 +78,16 @@ En utilisant le partitionnement horizontal, le magasin transactionnel Azure Cosm
 
 ## <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gérer automatiquement les mises à jour de schéma
 
-Le magasin transactionnel Azure Cosmos DB est indépendant des schémas et il vous permet d’itérer sur vos applications transactionnelles sans avoir à vous soucier de la gestion des schémas ou des index. À l’inverse, le magasin analytique Azure Cosmos DB est schématisé pour optimiser les performances des requêtes analytiques. Grâce à la capacité de synchronisation automatique, Azure Cosmos DB gère l’inférence du schéma sur les dernières mises à jour du magasin transactionnel.  Il gère aussi la représentation du schéma dans le magasin analytique, qui comprend la gestion des types de données imbriqués.
+Le magasin transactionnel Azure Cosmos DB est indépendant des schémas et il vous permet d’itérer sur vos applications transactionnelles sans avoir à vous soucier de la gestion des schémas ou des index. À l’inverse, le magasin analytique Azure Cosmos DB est schématisé pour optimiser les performances des requêtes analytiques. Grâce à la capacité de synchronisation automatique, Azure Cosmos DB gère l’inférence du schéma sur les dernières mises à jour du magasin transactionnel. Il gère aussi la représentation du schéma dans le magasin analytique, qui comprend la gestion des types de données imbriqués.
 
 À mesure que votre schéma évolue et que de nouvelles propriétés sont ajoutées au fil du temps, le magasin analytique présente automatiquement un schéma uni dans tous les schémas historiques du magasin transactionnel.
+
+> [!NOTE]
+> Dans le contexte du magasin analytique, nous considérons les structures suivantes comme des propriétés :
+> * « Éléments » ou « paires chaîne-valeur séparées par le signe `:` » JSON.
+> * Objets JSON, délimités par les signes `{` et `}`.
+> * Tableaux JSON, délimités par les signes `[` et `]`.
+
 
 ### <a name="schema-constraints"></a>Contraintes de schéma
 
@@ -89,6 +96,34 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
 * Vous disposez d’un maximum de 1 000 propriétés à n’importe quel niveau d’imbrication dans le schéma, et d’une profondeur d’imbrication maximale de 127.
   * Seules les 1 000 premières propriétés sont représentées dans le magasin analytique.
   * Seuls les 127 premiers niveaux imbriqués sont représentés dans le magasin analytique.
+  * Le premier niveau d’un document JSON est son niveau racine `/`.
+  * Les propriétés du premier niveau du document sont représentées sous forme de colonnes.
+
+
+* Exemples de scénarios :
+  * Si le premier niveau de votre document a 2 000 propriétés, seules les 1 000 premières sont représentées.
+  * Si vos documents ont 5 niveaux avec 200 propriétés chacun, toutes les propriétés sont représentées.
+  * Si vos documents ont 10 niveaux avec 400 propriétés chacun, seuls les 2 premiers niveaux sont entièrement représentés dans le magasin analytique. La moitié du troisième niveau est également représentée.
+
+* Le document hypothétique ci-dessous contient 4 propriétés et 3 niveaux.
+  * Les niveaux sont `root`, `myArray` et la structure imbriquée dans `myArray`.
+  * Les propriétés sont `id`, `myArray`, `myArray.nested1` et `myArray.nested2`.
+  * La représentation du magasin analytique compte 2 colonnes, `id` et `myArray`. Vous pouvez utiliser les fonctions Spark ou T-SQL pour exposer également les structures imbriquées en tant que colonnes.
+
+
+```json
+{
+  "id": "1",
+  "myArray": [
+    "string1",
+    "string2",
+    {
+      "nested1": "abc",
+      "nested2": "cde"
+    }
+  ]
+}
+```
 
 * Bien que les documents JSON (et les collections/conteneurs Cosmos DB) respectent la casse du point de vue de l’unicité, le magasin analytique le fait pas.
 
@@ -109,13 +144,12 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
 
 
 * Le premier document de la collection définit le schéma initial du magasin analytique.
-  * Les propriétés du premier niveau du document sont représentées sous forme de colonnes.
   * Les documents contenant plus de propriétés que le schéma initial génèrent de nouvelles colonnes dans le magasin analytique.
   * Les colonnes ne peuvent pas être supprimées.
   * La suppression de tous les documents d’une collection ne réinitialise pas le schéma du magasin analytique.
   * Il n’existe pas de contrôle de version de schéma. La dernière version inférée du magasin transactionnel est ce que vous verrez dans le magasin analytique.
 
-* Actuellement, nous ne prenons pas en charge la lecture par Azure Synapse Spark de noms de colonnes contenant des blancs (espaces).
+* Actuellement, nous ne prenons pas en charge la lecture par Azure Synapse Spark de propriétés dont les noms contiennent des blancs (espaces). Vous devrez utiliser des fonctions Spark telles que `cast` ou `replace` pour pouvoir charger les données dans une tramedonnées (DataFrame) Spark.
 
 ### <a name="schema-representation"></a>Représentation du schéma
 
@@ -163,6 +197,8 @@ La représentation de schéma bien définie crée une représentation tabulaire 
 La représentation du schéma de fidélité optimale est conçue pour gérer l’intégralité des schémas polymorphes dans les données opérationnelles indépendantes du schéma. Dans cette représentation de schéma, aucun élément n’est supprimé du magasin analytique, même si les contraintes de schéma bien définies (qui ne sont pas des champs de type de données mixtes ou des tableaux de types de données mixtes) ne sont pas respectées.
 
 Cela est possible en traduisant les propriétés de nœud terminal des données opérationnelles dans le magasin analytique avec des colonnes distinctes en fonction du type de données des valeurs de la propriété. Les noms de propriété de nœud terminal sont étendus avec des types de données, tels qu’un suffixe dans le schéma de magasin analytique, de sorte qu’ils peuvent être des requêtes sans ambiguïté.
+
+Dans la représentation du schéma de fidélité optimale, chaque type de données de chaque propriété génère une colonne pour ce type de données. Chaque colonne compte comme l’une des 1 000 propriétés maximales.
 
 Prenons l’exemple de document suivant dans le magasin transactionnel :
 
@@ -248,6 +284,10 @@ Le magasin analytique suit un modèle de tarification basé sur la consommation 
 La tarification du magasin analytique est distincte du modèle de tarification du magasin de transactions. Il n’existe aucun concept d’unités de demande approvisionnées dans le magasin analytique. Pour plus d’informations sur le modèle de tarification du magasin analytique, consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Afin d’obtenir une estimation précise des coûts d’activation du magasin analytique sur un conteneur Azure Cosmos DB, vous pouvez utiliser l’[outil de planification Azure Cosmos DB Capacity](https://cosmos.azure.com/capacitycalculator/) et obtenir une estimation des coûts de votre magasin analytique et des opérations d’écriture. Les coûts des opérations de lecture analytique dépendent des caractéristiques de la charge de travail analytique mais, selon une estimation précise, l’analyse de 1 To de données dans le magasin analytique entraîne généralement 130 000 opérations de lecture analytique et se traduit par un coût de 0,065 USD.
+
+> [!NOTE]
+> Les estimations des opérations de lecture du magasin analytique ne sont pas incluses dans le module de calcul du coût Cosmos DB, car elles sont une fonction de votre charge de travail analytique. Bien que l’estimation ci-dessus soit destinée à l’analyse de 1 To de données dans le magasin analytique, l’application de filtres réduit le volume de données analysées et détermine le nombre exact d’opérations de lecture analytique en fonction du modèle de tarification de la consommation. Une preuve de concept relative à la charge de travail analytique produirait une estimation plus fine des opérations de lecture analytique.
+
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Durée de vie (TTL) analytique
 

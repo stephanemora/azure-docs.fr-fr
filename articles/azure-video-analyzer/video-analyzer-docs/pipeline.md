@@ -3,12 +3,12 @@ title: Pipeline Azure Video Analyzer
 description: Un pipeline Azure Video Analyzer vous permet de définir l’emplacement où les données d’entrée doivent être capturées, la manière dont elles doivent être traitées ainsi que l’emplacement où les résultats doivent être remis. Un pipeline se compose de nœuds connectés pour obtenir le flux de données souhaité.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.openlocfilehash: 9e3945624a52b64612c7edca2f3380b072f60bec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: deed7eec980272dd3dd001219016eee139f22ad6
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386112"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591239"
 ---
 # <a name="pipeline"></a>Pipeline
 
@@ -74,11 +74,11 @@ Le nœud processeur de détection de mouvement vous permet de détecter les mouv
 
 #### <a name="http-extension-processor"></a>Processeur d’extension HTTP
 
-Le nœud processeur d’extension HTTP vous permet d’étendre le pipeline à votre propre module IoT Edge. Ce nœud accepte les images vidéo décodées en entrée et les relaie vers un point de terminaison HTTP REST exposé par votre module, où vous pouvez les analyser à l’aide d’un modèle IA pour retourner ensuite les résultats de l’inférence. Découvrez plus en détail le [processeur ici](pipeline-extension.md#http-extension-processor). De plus, ce nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées au point de terminaison HTTP. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de remplir cette dernière ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG, BMP et RAW. Découvrez plus en détail le [processeur ici](/pipeline-extension.md#grpc-extension-processor).
+Le nœud processeur d’extension HTTP vous permet d’étendre le pipeline à votre propre module IoT Edge. Ce nœud accepte les images vidéo décodées en entrée et les relaie vers un point de terminaison HTTP REST exposé par votre module, où vous pouvez les analyser à l’aide d’un modèle IA pour retourner ensuite les résultats de l’inférence. De plus, ce nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées au point de terminaison HTTP. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de remplir cette dernière ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG, BMP et RAW. Découvrez plus en détail le [processeur ici](pipeline-extension.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Processeur d’extension gRPC
 
-Le nœud du processeur d’extension gRPC prend les images vidéo décodées comme entrée et les relaie à un point de terminaison [gRPC](pipeline-extension.md#grpc-extension-processor) exposé par votre module. Le nœud prend en charge le transfert de données à l’aide de la [mémoire partagée](https://en.wikipedia.org/wiki/Shared_memory) ou l’incorporation directe de l’image dans le corps des messages gRPC. Tout comme le processus d’extension HTTP, ce nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées au point de terminaison gRPC. Découvrez plus en détail le [processeur ici](/pipeline-extension.md#grpc-extension-processor).
+Le nœud du processeur d’extension gRPC prend les images vidéo décodées comme entrée et les relaie à un point de terminaison [gRPC](terminology.md#grpc) exposé par votre module. Le nœud prend en charge le transfert de données à l’aide de la [mémoire partagée](https://en.wikipedia.org/wiki/Shared_memory) ou l’incorporation directe de l’image dans le corps des messages gRPC. Tout comme le processus d’extension HTTP, ce nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées au point de terminaison gRPC. Découvrez plus en détail le [processeur ici](pipeline-extension.md#grpc-extension-processor).
 
 #### <a name="cognitive-services-extension-processor"></a>Processeur d’extension Cognitive Services
 
@@ -86,7 +86,7 @@ Le nœud processeur d’extension Cognitive Services vous permet d’étendre le
 
 #### <a name="signal-gate-processor"></a>Processeur de porte de signal
 
-Le nœud processeur de la porte de signal vous permet de transférer de manière conditionnelle des médias d’un nœud à un autre. Par exemple, un cas d’usage classique consiste à insérer un nœud processeur de porte de signal entre le nœud source RTSP et le nœud récepteur vidéo, puis à utiliser la sortie d’un nœud processeur de détecteur de mouvement pour déclencher la porte. Avec ce type de pipeline, vous enregistrez la vidéo uniquement quand un mouvement est détecté. Vous pouvez également utiliser la sortie du nœud d’extension HTTP ou gRPC pour déclencher la porte, à la place du nœud processeur de détection de mouvement, ce qui permet ainsi l’enregistrement de la vidéo quand un élément intéressant est détecté.
+Le nœud processeur de la porte de signal vous permet de transférer de manière conditionnelle des médias d’un nœud à un autre. Le nœud de processeur de porte de signal doit être immédiatement suivi d’un récepteur vidéo ou d’un récepteur de fichiers. Par exemple, un cas d’usage classique consiste à insérer un nœud processeur de porte de signal entre le nœud source RTSP et le nœud récepteur vidéo, puis à utiliser la sortie d’un nœud processeur de détecteur de mouvement pour déclencher la porte. Avec ce type de pipeline, vous enregistrez la vidéo uniquement quand un mouvement est détecté. Vous pouvez également utiliser la sortie du nœud d’extension HTTP ou gRPC pour déclencher la porte, à la place du nœud processeur de détection de mouvement, ce qui permet ainsi l’enregistrement de la vidéo quand un élément intéressant est détecté.
 
 #### <a name="object-tracker-processor"></a>Processeur de suivi d’objets
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad0fbacdfe8b6205dd32ecd75e5291b504adcac
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686697"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407774"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Sauvegarde et restauration des groupes de serveurs PostgreSQL Hyperscale avec Azure Arc
 
@@ -90,6 +90,9 @@ La colonne Timestamp indique l’heure UTC dans le temps à laquelle la sauvegar
 
 ## <a name="restore-a-backup"></a>Restaurer une sauvegarde
 Dans cette section, découvrez comment effectuer une restauration complète ou une restauration à un point dans le temps. Lorsque vous restaurez une sauvegarde complète, vous restaurez la totalité du contenu de la sauvegarde. Lorsque vous effectuez une restauration à un point dans le temps, vous restaurez jusqu’à l’heure que vous indiquez. Les transactions effectuées après ce point dans le temps ne sont pas restaurées.
+
+> [!CAUTION]
+> Vous pouvez uniquement effectuer une restauration vers un groupe de serveurs qui a le même nombre de nœuds Worker qu’au moment où la sauvegarde a été effectuée. Si vous augmentez ou réduisez le nombre de nœuds Worker depuis la sauvegarde, avant de procéder à la restauration, vous devez augmenter/réduire le nombre de nœuds Worker, ou créer un nouveau groupe de serveurs, pour qu’il corresponde au contenu de la sauvegarde. La restauration échoue lorsque le nombre de nœuds Worker ne correspond pas.
 
 ### <a name="restore-a-full-backup"></a>Restaurer une sauvegarde complète
 Pour restaurer l’intégralité du contenu d’une sauvegarde, exécutez la commande :
@@ -215,5 +218,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
+- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-in-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
 - Découvrez comment [effectuer un scale-up ou un scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs

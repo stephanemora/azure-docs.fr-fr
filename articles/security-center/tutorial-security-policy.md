@@ -4,29 +4,30 @@ description: Cet article décrit comment utiliser des stratégies de sécurité 
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2021
+ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: 6ecedc20cf6924a82b6b4640d3caa75bc5958de0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b48adf5e6c2c7b91e98ef410c71802b5d47d2845
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101322"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459786"
 ---
 # <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
 Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. 
 
-## <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
+Pour comprendre les relations entre les initiatives, les stratégies et les recommandations, consultez [Que sont les stratégies de sécurité, les initiatives et les recommandations ?](security-policy-concept.md)
 
-Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
+## <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
 
 Security Center utilise le contrôle d’accès en fonction du rôle (Azure RBAC), lequel fournit des rôles intégrés que vous pouvez attribuer à des utilisateurs, groupes et services Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils peuvent accéder. Autrement dit, les utilisateurs se voient attribuer le rôle de *propriétaire*, *contributeur* ou *lecteur* pour l’abonnement de la ressource. Il existe également deux rôles spécifiques à Security Center :
 
 - **Lecteur Sécurité** : a le droit de consulter les éléments de Security Center tels que les recommandations, les alertes, la stratégie et l’intégrité. Ne peut pas apporter de modifications.
 - **Administrateur Sécurité** : a les mêmes droits de consultation que *Lecteur Sécurité*. Peut également mettre à jour la stratégie de sécurité et ignorer les alertes.
+
+Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell.
 
 ## <a name="manage-your-security-policies"></a>Gérer vos stratégies de sécurité
 
@@ -81,27 +82,48 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
     :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center":::
 
-2. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation.
+1. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation (et la stratégie).
 
    > [!NOTE]
    > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement et que celui-ci appartient à un groupe d’administration qui utilise encore la même stratégie, vous continuez à recevoir les recommandations de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
 
-1. Sélectionnez **Afficher la stratégie actuelle**.
+1. Dans les sections **Security Center stratégie par défaut**, **secteur & normes réglementaires** ou **initiatives personnalisées**, sélectionnez l’initiative appropriée contenant la stratégie que vous souhaitez désactiver.
 
-    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Ouvrir la stratégie effective attribuée à votre abonnement":::
+1. Ouvrez la section **Paramètres** et recherchez la stratégie qui appelle la suggestion que vous souhaitez désactiver.
 
-1. Sélectionnez la stratégie attribuée.
-
-   ![sélectionner une stratégie](./media/tutorial-security-policy/security-policy.png)
-
-1. Dans la section **PARAMÈTRES**, recherchez la stratégie qui appelle la suggestion que vous souhaitez désactiver, puis sélectionnez **Désactiver** dans la liste déroulante.
+1. Dans la liste déroulante, remplacez la valeur de la stratégie correspondante par **Désactivé**.
 
    ![désactiver une stratégie](./media/tutorial-security-policy/disable-policy.png)
 
 1. Sélectionnez **Enregistrer**.
 
    > [!NOTE]
-   > La désactivation d’une stratégie peut prendre jusqu’à 12 heures pour entrer en vigueur.
+   > La modification peut prendre jusqu’à 12 heures avant d’être effective.
+
+
+## <a name="enable-a-security-policy"></a>Activer une stratégie de sécurité
+
+Certaines stratégies de vos initiatives peuvent être désactivées par défaut. Par exemple, dans l’initiative d’Azure Security Benchmark, certaines stratégies sont fournies pour vous permettre de les activer uniquement si elles répondent à une exigence de conformité ou de réglementation spécifique pour votre organisation. Ces stratégies incluent des recommandations pour chiffrer les données au repos avec des clés gérées par le client, telles que « les registres de conteneur doivent être chiffrés avec une clé gérée par le client (CMK) ».
+
+Pour activer une stratégie désactivée et vous assurer qu’elle est évaluée pour vos ressources :
+
+1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
+
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center":::
+
+1. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez activer la recommandation (et la stratégie).
+
+1. Dans les sections **Security Center stratégie par défaut**, **secteur & normes réglementaires** ou **initiatives personnalisées**, sélectionnez l’initiative appropriée avec la stratégie que vous souhaitez activer.
+
+1. Ouvrez la section **Paramètres** et recherchez la stratégie qui appelle la suggestion que vous souhaitez désactiver.
+
+1. Dans la liste déroulante, remplacez la valeur de la stratégie correspondante par **AuditIfNotExists** ou **Enforce**.
+
+1. Sélectionnez **Enregistrer**.
+
+   > [!NOTE]
+   > La modification peut prendre jusqu’à 12 heures avant d’être effective.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cette page a décrit les stratégies de sécurité. Pour accéder à des informations connexes, consultez les rubriques suivantes :

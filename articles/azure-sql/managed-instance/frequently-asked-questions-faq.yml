@@ -9,16 +9,16 @@ metadata:
   ms.custom: sqldbrb=1
   ms.devlang: 
   ms.topic: conceptual
-  author: jovanpop-msft
-  ms.author: nnikolic
-  ms.reviewer: mathoma
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: urmilano, danil, nnikolic
   ms.date: 09/21/2020
-  ms.openlocfilehash: 24b4c9ac701167c998caa215e724010a4f953ac3
-  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+  ms.openlocfilehash: 92aa04c2df2b23165afdef39ae39ee95922f19d2
+  ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111907384"
+  ms.lasthandoff: 07/16/2021
+  ms.locfileid: "114295112"
 title: Forum aux questions sur Azure SQL Managed Instance
 summary: >
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -77,7 +77,7 @@ sections:
 
       Remarque : Le matériel Gen4 est en cours de retrait et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles bases de données doivent être déployées sur le matériel Gen5. Le passage de Gen5 à Gen4 n’est pas non plus disponible.
   - question: "Performances \n"
-    answer: "### <a name=\"how-can-i-compare-managed-instance-performance-to-sql-server-performance\"></a>Comment puis-je comparer les performances de Managed Instance à celles de SQL Server ?\n\nPour une comparaison des performances entre une instance gérée et SQL Server, commencez par consulter l'article [Meilleures pratiques pour comparer les performances entre une instance gérée Azure SQL et SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210).\n\n### <a name=\"what-causes-performance-differences-between-managed-instance-and-sql-server\"></a>Quelles sont les causes des différences entre Managed Instance et SQL Server ?\n\nConsultez [Causes principales des différences entre SQL Managed Instance et SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Pour plus d’informations sur l’impact de la taille du fichier journal sur les performances d’usage général de Managed Instance, consultez [Impact de la taille du fichier journal sur l’usage général](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).\n\n### <a name=\"how-do-i-tune-performance-of-my-managed-instance\"></a>Comment régler les performances de mon instance gérée ?\n\nVous pouvez optimiser les performances de votre instance managée en procédant comme suit :\n- Le [réglage automatique](../database/automatic-tuning-overview.md) fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances basé sur l’intelligence artificielle et le machine learning.\n-    L’[OLTP en mémoire](../in-memory-oltp-overview.md) améliore le débit et la latence sur les charges de travail de traitement transactionnel et fournit des analyses plus rapides. \n\nPour affiner encore davantage les performances, envisagez d’appliquer certaines des *bonnes pratiques* pour [optimiser les applications et des bases de données](../database/performance-guidance.md#tune-your-database).\nSi votre charge de travail est constituée d’un grand nombre de petites transactions, envisagez de [passer le type de connexion du mode proxy au mode redirection](connection-types-overview.md#changing-connection-type) pour moins de latence et un débit plus élevé.\n"
+    answer: "### <a name=\"how-can-i-compare-managed-instance-performance-to-sql-server-performance\"></a>Comment puis-je comparer les performances de Managed Instance à celles de SQL Server ?\n\nPour une comparaison des performances entre une instance gérée et SQL Server, commencez par consulter l'article [Meilleures pratiques pour comparer les performances entre une instance gérée Azure SQL et SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210).\n\n### <a name=\"what-causes-performance-differences-between-managed-instance-and-sql-server\"></a>Quelles sont les causes des différences entre Managed Instance et SQL Server ?\n\nConsultez [Causes principales des différences entre SQL Managed Instance et SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Pour plus d’informations sur l’impact de la taille du fichier journal sur les performances d’usage général de Managed Instance, consultez [Impact de la taille du fichier journal sur l’usage général](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).\n\n### <a name=\"how-do-i-tune-performance-of-my-managed-instance\"></a>Comment régler les performances de mon instance gérée ?\n\nVous pouvez optimiser les performances de votre instance managée en procédant comme suit :\n- Le [réglage automatique](../database/automatic-tuning-overview.md) fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances basé sur l’intelligence artificielle et le machine learning.\n- L’[OLTP en mémoire](../in-memory-oltp-overview.md) améliore le débit et la latence sur les charges de travail de traitement transactionnel et fournit des analyses plus rapides. \n- L’application de quelques [bonnes pratiques pour le paramétrage des applications et des bases de données](../database/performance-guidance.md#tune-your-database)\n- Le [remplacement du mode proxy par le mode redirection pour le type de connexion](connection-types-overview.md#changing-connection-type) afin de réduire la latence et d’augmenter le débit, si votre charge de travail se compose de nombreuses petites transactions.\n\n### <a name=\"how-can-i-further-tune-performance-of-my-general-purpose-managed-instance\"></a>Comment affiner les performances de mon instance managée à usage général ?\n\nPour améliorer les performances sur une instance à usage général, [augmentez la taille des fichiers de données](https://techcommunity.microsoft.com/t5/azure-sql/increase-data-file-size-to-improve-hammerdb-workload-performance/ba-p/823337). Pour optimiser les performances de stockage sur une instance à usage général, consultez [Storage best practice guidelines for General Purpose tier](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525).\n\n### <a name=\"my-query-duration-is-too-long-how-can-i-analyze-wait-statistics-on-my-managed-instance\"></a>La durée de ma requête est trop longue. Comment analyser les statistiques d’attente sur mon instance managée ?\n\nConsultez [Analyse des statistiques d’attente sur une instance managée SQL](/archive/blogs/sqlserverstorageengine/analyzing-wait-statistics-on-managed-instance). Les statistiques d’attente sont des informations susceptibles de vous aider à comprendre pourquoi la durée de la requête est longue et à identifier les requêtes qui attendent quelque chose dans le moteur de base de données.\n     \n"
   - question: >
       Supervision, indicateurs de performances et alertes
     answer: >
@@ -85,6 +85,18 @@ sections:
 
 
       Pour connaître toutes les options possibles pour surveiller et alerter sur la consommation et les performances de SQL Managed Instance, consultez la [publication sur les options d’analyse d’Azure SQL Managed Instance de notre blog](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Pour la surveillance des performances en temps réel pour SQL MI, consultez [Surveillance des performances en temps réel pour Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+
+      ### <a name="how-can-i-monitor-performance-of-my-managed-instance"></a>Comment surveiller les performances de mon instance managée ?
+
+
+      Consultez [Surveiller vos déploiements SQL avec SQL Insights](../../azure-monitor/insights/sql-insights-overview.md).
+
+
+      ### <a name="how-can-i-monitor-the-real-time-performance-of-my-managed-instance"></a>Comment surveiller les performances en temps réel de mon instance managée ?
+
+
+      Consultez [Surveillance des performances en temps réel pour Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 
       ### <a name="can-i-use-sql-profiler-for-performance-tracking"></a>Puis-je utiliser le générateur de profils SQL pour le suivi des performances ?
@@ -99,10 +111,16 @@ sections:
       Ils ne sont pas prises en charge. Vous pouvez utiliser [DMV](../database/monitoring-with-dmvs.md) et le [Magasin de données des requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) avec [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) et [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) pour surveiller vos bases de données.
 
 
+      ### <a name="how-can-i-monitor-cpu-usage-on-my-managed-instance"></a>Comment surveiller l’utilisation du processeur sur mon instance managée ?
+
+
+      Consultez [Monitor CPU usage on your SQL Server and Azure SQL](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131).
+
+
       ### <a name="can-i-create-metric-alerts-on-sql-managed-instance"></a>Puis-je créer des alertes basées sur les indicateurs de performances pour SQL Managed Instance ?
 
 
-      Oui. Pour obtenir des instructions, consultez [Créer des alertes pour SQL Managed Instance](alerts-create.md).
+      Oui. Pour obtenir des instructions, consultez [Créer des alertes pour SQL Managed Instance](./alerts-create.md). Pour plus de conseils et d’astuces, consultez [le blog](https://techcommunity.microsoft.com/t5/azure-database-support-blog/tips-amp-tricks-1-creating-alerts-for-azure-sql-managed-instance/ba-p/2396044).
 
 
       ### <a name="can-i-create-metric-alerts-on-a-database-in-managed-instance"></a>Puis-je créer des alertes pour ma base de données dans SQL Managed Instance ?

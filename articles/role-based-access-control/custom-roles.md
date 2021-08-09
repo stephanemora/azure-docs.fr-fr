@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 05/19/2021
 ms.author: rolyon
-ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479829"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469903"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -185,12 +185,6 @@ Au lieu d’ajouter toutes ces chaînes, vous pouvez simplement ajouter une cha�
 Microsoft.CostManagement/exports/*
 ```
 
-Vous pouvez également avoir plusieurs caractères génériques dans une chaîne. Par exemple, la chaîne suivante représente toutes les autorisations de requête pour Cost Management.
-
-```
-Microsoft.CostManagement/*/query/*
-```
-
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 
 Tout comme pour les rôles intégrés, la propriété `AssignableScopes` spécifie les étendues pour lesquelles le rôle est disponible à des fins d’attribution. La propriété `AssignableScopes` pour un rôle personnalisé contrôle également qui peut créer, supprimer, mettre à jour ou afficher le rôle personnalisé.
@@ -210,6 +204,7 @@ La liste suivante décrit les limites des rôles personnalisés.
 - Vous ne pouvez pas définir `AssignableScopes` à l’étendue racine (`"/"`).
 - Vous ne pouvez pas utiliser de caractères génériques (`*`) dans `AssignableScopes`. Cette restriction de caractère générique permet de garantir qu’un utilisateur ne peut pas obtenir l’accès à une étendue en mettant à jour la définition de rôle.
 - Vous ne pouvez définir qu’un seul groupe d’administration dans `AssignableScopes` d’un rôle personnalisé. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
+- Vous ne pouvez avoir qu’un seul caractère générique dans une chaîne d’action.
 - Les rôles personnalisés avec `DataActions` ne peuvent pas être attribués dans l’étendue du groupe d’administration.
 - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle.
 

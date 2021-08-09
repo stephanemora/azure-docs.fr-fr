@@ -11,16 +11,38 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 05d8e2e9555dbd24a812d626ce4be8900991230a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7fff1380697f1179207b470e803bf6994e32e1e2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748688"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782370"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Contestations liées aux revendications, demandes de revendications, et fonctionnalités clientes](claims-challenge.md)
+- [Guide du développeur pour le contexte d'authentification de l'accès conditionnel](developer-guide-conditional-access-authentication-context.md)
+- [Jetons d'actualisation de la Plateforme d'identités Microsoft](refresh-tokens.md)
+- [Plateforme d’identité Microsoft et flux d’assertion du porteur SAML OAuth 2.0](v2-saml-bearer-assertion.md)
+- [Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) React à l’aide du flux de code d’authentification](tutorial-v2-react.md)
+- [Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) Angular à l’aide du flux de code d’authentification](tutorial-v2-angular-auth-code.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Guide du développeur pour le contexte d'authentification de l'accès conditionnel](developer-guide-conditional-access-authentication-context.md)
+- [Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md)
+- [Migration d’une application Node.js d’ADAL vers MSAL](msal-node-migration.md)
+- [Jetons d’ID de la plateforme d’identités Microsoft](id-tokens.md)
+- [Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android](quickstart-v2-android.md)
+- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
+- [Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android](tutorial-v2-android.md)
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -71,24 +93,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Options d’aide et de support pour les développeurs](developer-support-help-options.md)
 - [Application web qui connecte les utilisateurs : Configuration de code](scenario-web-app-sign-user-app-configuration.md)
 - [Application web qui connecte les utilisateurs : Se connecter et se déconnecter](scenario-web-app-sign-user-sign-in.md)
-
-## <a name="february-2021"></a>Février 2021
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Démarrage rapide : Acquérir un jeton d’accès et appeler l’API Microsoft Graph depuis une application de bureau Electron](quickstart-v2-nodejs-desktop.md)
-- [Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph dans une application de bureau Electron](tutorial-v2-nodejs-desktop.md)
-- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Node.js en utilisant l’identité de l’application](quickstart-v2-nodejs-console.md)
-- [Tutoriel : Appeler l’API Microsoft Graph dans une application console Node.js](tutorial-v2-nodejs-console.md)
-- [Tutoriel : Connecter des utilisateurs dans une application web Node.js & Express](tutorial-v2-nodejs-webapp-msal.md)
-- [Prendre en charge l’authentification sans mot de passe avec des clés FIDO2 dans les applications que vous développez](support-fido2-authentication.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Quelles sont les nouveautés en matière d’authentification ?](reference-breaking-changes.md)
-- [Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales](msal-net-aad-b2c-considerations.md)
-- [Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)](sample-v2-code.md)
-- [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md)
-- [Démarrage rapide : Configurer un locataire](quickstart-create-new-tenant.md)
-- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Java à l’aide de l’identité de l’application](quickstart-v2-java-daemon.md)

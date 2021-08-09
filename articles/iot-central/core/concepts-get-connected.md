@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 54bee74fcab02a487b9e950d0ea8f8a45a38601a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760897"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791118"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -182,7 +182,7 @@ IoT Central associe automatiquement un appareil à un modèle d’appareil lorsq
 1. Si le modèle d’appareil n’est pas encore publié dans l’application IoT Central, cette dernière le recherche dans le [référentiel de modèles public](https://github.com/Azure/iot-plugandplay-models). Si IoT Central trouve le modèle, il l’utilise pour générer un modèle d’appareil de base.
 1. Si IoT Central ne trouve pas le modèle dans le référentiel de modèles public, l’appareil est marqué comme **non associé**. Un opérateur peut créer un modèle d’appareil pour l’appareil, puis migrer l’appareil non associé vers le nouveau modèle d’appareil.
 
-La capture d’écran suivante montre comment afficher l’ID d’un modèle d’appareil dans IoT Central. Dans un modèle d’appareil, sélectionnez un composant, puis **Afficher l’identité** :
+La capture d’écran suivante montre comment afficher l’ID d’un modèle d’appareil dans IoT Central. Dans un modèle d’appareil, sélectionnez un composant, puis **Modifier l’identité** :
 
 :::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Capture d’écran de l’ID de modèle dans le modèle d’appareil Thermostat.":::
 

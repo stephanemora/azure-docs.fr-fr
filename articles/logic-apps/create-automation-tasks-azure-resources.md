@@ -3,24 +3,22 @@ title: Créer des tâches d'automatisation pour gérer et surveiller les ressour
 description: Configurez des tâches automatisées pour gérer les ressources Azure et surveiller les coûts en créant des workflows exécutés sur Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: azla
+ms.topic: how-to
+ms.date: 06/09/2021
+ms.openlocfilehash: bd8ac7857d5be31aafd9a1e91cbd276d79823ed2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774914"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747146"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gérer les ressources Azure et surveiller les coûts en créant des tâches d'automatisation (préversion)
 
 > [!IMPORTANT]
-> Cette fonctionnalité disponible en préversion publique est fournie sans contrat de niveau de service et n'est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette fonctionnalité est en préversion, elle n’est pas recommandée pour les charges de travail de production et est exclue des contrats de niveau de service. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Afin de faciliter la gestion des [ressources Azure](../azure-resource-manager/management/overview.md#terminology), vous pouvez créer des tâches de gestion automatisées pour une ressource ou un groupe de ressources spécifique à l'aide de modèles de tâches d'automatisation, dont la disponibilité varie en fonction du type de ressource. Par exemple, vous pouvez configurer une tâche d'automatisation qui vous envoie le coût mensuel d'un [compte de stockage Azure](../storage/common/storage-account-overview.md). Vous pouvez également créer une tâche d'automatisation qui active ou désactive une [machine virtuelle Azure](https://azure.microsoft.com/services/virtual-machines/) selon un calendrier prédéfini.
-
-Une tâche d'automatisation est un workflow qui s'exécute sur le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et dont la facturation repose sur les mêmes [tarifs](https://azure.microsoft.com/pricing/details/logic-apps/) et sur le même [modèle de tarification](../logic-apps/logic-apps-pricing.md). Une fois la tâche créée, vous pouvez consulter et modifier le workflow sous-jacent en ouvrant la tâche dans le Concepteur d'application logique. Après au moins une exécution de la tâche, vous pouvez consulter l'état, l'historique, les entrées et les sorties de chaque exécution.
 
 Les modèles de tâches disponibles dans cette préversion sont les suivants :
 
@@ -45,9 +43,22 @@ Cet article explique comment accomplir les tâches suivantes :
 
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>En quoi les tâches d'automatisation diffèrent-elles d'Azure Automation ?
 
-Actuellement, vous pouvez créer une tâche d'automatisation au niveau des ressources uniquement, examiner l'historique des exécutions de la tâche et modifier le workflow d'application logique sous-jacent de la tâche, qui est alimenté par le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Les tâches d’automatisation sont plus basiques et légères qu’[Azure Automation](../automation/automation-intro.md).
+Les tâches d’automatisation sont plus basiques et légères qu’[Azure Automation](../automation/automation-intro.md). Actuellement, vous ne pouvez créer une tâche d’automatisation qu’au niveau de la ressource Azure. En arrière-plan, une tâche d’automatisation est en fait une ressource d’application logique qui exécute un workflow et est alimentée par le [service Azure Logic Apps *multilocataire*](../logic-apps/logic-apps-overview.md). Une fois la tâche d’automatisation créée, vous pouvez consulter et modifier le workflow sous-jacent en ouvrant la tâche dans le concepteur de workflow. Après au moins une exécution de la tâche, vous pouvez consulter l’état de la tâche, l’historique des exécutions du workflow, les entrées et les sorties de chaque exécution.
 
 À titre de comparaison, Azure Automation est un service d’automatisation et de configuration cloud qui prend en charge une gestion cohérente de vos environnements Azure et non-Azure. Le service comprend l'[automatisation des processus pour assurer leur orchestration](../automation/automation-intro.md#process-automation) à l'aide de [runbooks](../automation/automation-runbook-execution.md), la gestion de la configuration avec [le suivi et l'inventaire des modifications](../automation/change-tracking/overview.md), la gestion des mises à jour, des fonctionnalités partagées et des fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet lors du déploiement, des opérations et de la désaffectation des charges de travail et des ressources.
+
+<a name="pricing"></a>
+
+## <a name="pricing"></a>Tarifs
+
+La simple création d’une tâche d’automatisation n’entraîne pas automatiquement de frais. Sous une tâche d’automatisation, se trouve une application logique multilocataire, ainsi le [modèle tarifaire de la consommation](logic-apps-pricing.md) s’applique également aux tâches d’automatisation. Le comptage et la facturation sont basés sur les exécutions de déclencheur et d’action dans le workflow d’application logique sous-jacent.
+
+Les exécutions sont mesurées et facturées, que le workflow s’exécute normalement ou qu’il soit même instancié. Par exemple, supposons que votre tâche d’automatisation utilise un déclencheur d’interrogation qui effectue régulièrement un appel sortant à un point de terminaison. Cette requête sortante est mesurée et facturée en tant qu’exécution, que le déclencheur soit activé ou non, ce qui détermine si une instance de workflow est créée ou non.
+
+Les déclencheurs et les actions suivent les [tarifs du plan de consommation](https://azure.microsoft.com/pricing/details/logic-apps/), qui diffèrent selon que ces opérations sont [« intégrées »](../connectors/built-in.md) ou [« managées » (Standard ou Enterprise)](../connectors/managed.md). Les déclencheurs et les actions effectuent également des transactions de stockage qui utilisent le [débit de données du plan de consommation](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+> [!TIP]
+> En prime, le plan de consommation comprend tous les mois *plusieurs milliers* d’exécutions intégrées gratuites. Pour des informations spécifiques, consultez les [Tarifs du plan de consommation](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## <a name="prerequisites"></a>Prérequis
 

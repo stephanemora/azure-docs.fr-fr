@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 8d51297b353a72861f864e42bf87cad4f1a712b3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d2754200cb41114aafbe1bea2b511ed743280b88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747194"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061189"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -82,9 +82,11 @@ Pour créer un modèle d’appareil dans IoT Central :
 
 ## <a name="manage-a-device-template"></a>Gérer un modèle d’appareil
 
-Vous pouvez renommer ou supprimer un modèle à partir de la page d’hébergement du modèle.
+Vous pouvez renommer ou supprimer un modèle à partir de la page d’éditeur du modèle.
 
-Après avoir ajouté un modèle d’appareil à votre modèle, vous pouvez le publier. Avant d’avoir publié le modèle, vous ne pouvez pas connecter un appareil basé sur ce modèle de telle manière que vos opérateurs le voient sur la page **Appareils**.
+Une fois que vous avez défini le modèle, vous pouvez le publier. Tant que le modèle n’est pas publié, vous ne pouvez pas y connecter un appareil et il n’apparaît pas sur la page **Appareils**.
+
+Pour en savoir plus sur la modification des modèles d’appareils, consultez [Modifier un modèle d’appareil existant](howto-edit-device-template.md).
 
 ## <a name="create-a-capability-model"></a>Créer un modèle de capacité
 
@@ -171,6 +173,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | Nom d’affichage | Nom complet de la commande utilisée sur les affichages et les formulaires. |
 | Nom | Nom de la commande. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. |
 | Type de fonctionnalité | Commande. |
+| Mettre en file d'attente si hors connexion | Si cette option est activée, vous pouvez appeler la commande même si l’appareil est hors connexion. Si elle n’est pas activée, vous pouvez uniquement appeler la commande lorsque l’appareil est en ligne. |
 | Commentaire | Commentaires sur la fonctionnalité de commande. |
 | Description | Description de la fonctionnalité de commande. |
 | Requête | Si cette option est activée, il s’agit d’une définition du paramètre de requête, notamment le nom, le nom d’affichage, le schéma, l’unité et l’unité d’affichage. |
@@ -195,9 +198,11 @@ Messages cloud-à-appareil :
 
 ## <a name="manage-a-component"></a>Gérer un composant
 
-Si vous n’avez pas publié le composant, vous pouvez modifier les fonctionnalités définies par le composant. Une fois que vous avez publié le composant, si vous souhaitez apporter des modifications, vous devez créer une version du modèle d’appareil et une [version du composant](howto-version-device-template.md). Vous pouvez apporter des modifications qui ne nécessitent pas de versioning, telles que des noms d’affichage ou des unités, dans la section **Personnaliser**.
+Utilisez des composants pour assembler un modèle d’appareil à partir d’autres interfaces. Par exemple, le modèle d’appareil pour un contrôleur de température peut inclure plusieurs composants de thermostat. Les composants peuvent être modifiés directement dans le modèle d’appareil ou exportés et importés en tant que fichiers JSON. Les appareils peuvent interagir avec les instances de composant. Par exemple, un appareil avec deux thermostats peut envoyer des données de télémétrie de chaque thermostat à des composants distincts de votre application IoT Central.
 
-Vous pouvez également exporter le composant en tant que fichier JSON si vous souhaitez la réutiliser dans un autre modèle de capacité.
+## <a name="inheritance"></a>Héritage
+
+Vous pouvez étendre une interface à l’aide de l’héritage. Utilisez l’héritage pour ajouter des fonctionnalités aux interfaces existantes. Les interfaces héritées sont transparentes pour les appareils.
 
 ## <a name="add-cloud-properties"></a>Ajouter des propriétés du cloud
 
@@ -214,13 +219,7 @@ Le tableau suivant illustre les paramètres de configuration d’une propriété
 
 ## <a name="add-customizations"></a>Ajouter des personnalisations
 
-Utilisez des personnalisations quand vous devez modifier un composant importé ou ajouter des fonctionnalités propres à IoT Central à une capacité. Vous pouvez uniquement personnaliser les champs qui n’interrompent pas la compatibilité du composant. Vous pouvez par exemple :
-
-- Personnaliser le nom complet et les unités d’une capacité.
-- Ajouter une couleur par défaut à utiliser quand la valeur apparaît sur un graphique.
-- Spécifier les valeurs initiales, minimales et maximales d’une propriété.
-
-Vous ne pouvez pas personnaliser le nom ou le type de la capacité. Si vous ne pouvez pas apporter certaines modifications dans la section **Personnaliser**, vous devez contrôler la version de votre modèle d’appareil et de votre composant pour modifier la capacité.
+Utilisez des personnalisations quand vous devez modifier un composant importé ou ajouter des fonctionnalités propres à IoT Central à une capacité. Vous pouvez personnaliser n’importe quelle partie des fonctionnalités d’un modèle d’appareil existant.
 
 ### <a name="generate-default-views"></a>Générer des vues par défaut
 
@@ -274,7 +273,7 @@ Pour ajouter un formulaire à un modèle d’appareil :
 
 Avant de pouvoir connecter un appareil qui implémente votre modèle d’appareil, vous devez publier votre modèle d’appareil.
 
-Après avoir publié un modèle d’appareil, vous ne pouvez apporter que des modifications limitées au modèle d’appareil. Pour modifier un composant, vous devez [créer et publier une nouvelle version](./howto-version-device-template.md).
+Pour en savoir plus sur la modification d’un modèle d’appareil après sa publication, consultez [Modifier un modèle d’appareil existant](howto-edit-device-template.md).
 
 Pour publier un modèle d’appareil, accédez à votre modèle d’appareil et sélectionnez **Publier**.
 
@@ -282,4 +281,4 @@ Une fois que vous avez publié un modèle d’appareil, un opérateur peut accé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Nous vous suggérons de vous renseigner sur le [contrôle de version des modèles d’appareil](./howto-version-device-template.md).
+L’étape suivante suggérée est de savoir comment [apporter des modifications à un modèle d’appareil existant](howto-edit-device-template.md).

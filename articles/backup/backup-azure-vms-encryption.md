@@ -2,13 +2,13 @@
 title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.openlocfilehash: 4396eb25980610e9ba22e640957b24147e875cba
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 06/03/2021
+ms.openlocfilehash: 226c3d08903385a1df97d83209762452a70ed816
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803257"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565645"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -66,21 +66,20 @@ Par ailleurs, vous risquez de devoir faire deux choses dans certaines circonstan
 ## <a name="configure-a-backup-policy"></a>Configurer une stratégie de sauvegarde
 
 1. Si vous n’avez pas encore créé de coffre de sauvegarde Recovery Services, suivez [ces instructions](backup-create-rs-vault.md).
-1. Ouvrez le coffre dans le portail, puis sélectionnez **+Sauvegarde** dans la section **Vue d’ensemble**.
+1. Accédez au Centre de sauvegarde, puis, sous l’onglet **Vue d’ensemble**, cliquez sur **+Sauvegarde**.
 
     ![Volet Sauvegarde](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. Dans **Objectif de sauvegarde** > **Où s’exécute votre charge de travail ?** , sélectionnez **Azure**.
-1. Dans **Que voulez-vous sauvegarder ?** , sélectionnez **Machine virtuelle**. Ensuite, sélectionnez **Sauvegarde**.
+1. Sélectionnez **Machines virtuelles Azure** comme **Type de source de données**, sélectionnez le coffre que vous avez créé, puis cliquez sur **Continuer**.
 
-      ![Volet Scénario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+     ![Volet Scénario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. Dans **Stratégie de sauvegarde** > **Choisir une stratégie de sauvegarde**, sélectionnez la stratégie à associer au coffre. Sélectionnez ensuite **OK**.
-    - Une stratégie de sauvegarde spécifie le moment auquel les sauvegardes sont effectuées ainsi que leur durée de stockage.
-    - Les détails de la stratégie par défaut sont répertoriés dans le menu déroulant à l’écran.
+1. Sélectionnez la stratégie que vous souhaitez associer au coffre, puis choisissez **OK**.
+   - Une stratégie de sauvegarde spécifie le moment auquel les sauvegardes sont effectuées ainsi que leur durée de stockage.
+   - Les détails de la stratégie par défaut sont répertoriés dans le menu déroulant à l’écran.
 
-    ![Choisir une stratégie de sauvegarde](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-
+   ![Choisir une stratégie de sauvegarde](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    
 1. Si vous ne souhaitez pas utiliser la stratégie par défaut, sélectionnez **Créer** et [Créer une stratégie personnalisée](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Sous **Machines virtuelles**, sélectionnez **Ajouter**.
@@ -107,19 +106,20 @@ Par ailleurs, vous risquez de devoir faire deux choses dans certaines circonstan
 
 La sauvegarde initiale s’exécutera conformément à la planification, mais vous pouvez l’exécuter immédiatement comme suit :
 
-1. Dans le menu du coffre, sélectionnez **Éléments de sauvegarde**.
-2. Dans **Éléments de sauvegarde**, sélectionnez **Machine virtuelle Azure**.
-3. Dans la liste **Éléments de sauvegarde**, sélectionnez le bouton de sélection (...).
-4. Sélectionnez **Sauvegarder maintenant**.
-5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Sélectionnez ensuite **OK**.
-6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
+1. Accédez au **Centre de sauvegarde** et sélectionnez l’option de menu **Instances de sauvegarde**.
+1. Sélectionnez **Machines virtuelles Azure** comme **Type de source de source**, puis recherchez la machine virtuelle que vous avez configurée pour la sauvegarde.
+1. Cliquez avec le bouton droit sur la ligne appropriée ou sélectionnez l’icône plus (...), puis cliquez sur **Sauvegarder maintenant**.
+1. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Sélectionnez ensuite **OK**.
+1. Surveiller les notifications du portail.
+   Pour surveiller la progression du travail, accédez au **Centre de sauvegarde** > **Travaux de sauvegarde**, puis filtrez la liste des travaux **en cours**.
+   Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ## <a name="provide-permissions"></a>Fournir des autorisations
 
 Sauvegarde Azure a besoin d’un accès en lecture seule pour sauvegarder les clés et secrets ainsi que les machines virtuelles associées.
 
 - Votre coffre de clés est associé au locataire Azure AD de l’abonnement Azure. Si vous êtes **utilisateur membre**, Sauvegarde Azure acquiert l’accès au coffre de clés sans qu’aucune autre action soit nécessaire.
-- Si vous êtes **utilisateur invité**, vous devez accorder des autorisations afin que Sauvegarde Azure puisse accéder au coffre de clés.
+- Si vous êtes **utilisateur invité**, vous devez accorder des autorisations afin que Sauvegarde Azure puisse accéder au coffre de clés. Pour configurer la sauvegarde des machines virtuelles chiffrées, vous devez avoir accès aux coffres de clés.
 
 Pour définir des autorisations :
 
@@ -161,12 +161,14 @@ Restaurez les machines virtuelles chiffrées de la façon suivante :
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
 
    > [!NOTE]
-   > Après avoir restauré le disque de la machine virtuelle, échangez le disque du système d’exploitation de la machine virtuelle d’origine avec le disque de machine virtuelle restauré sans le recréer. [Plus d’informations](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/)
+   > Après avoir restauré le disque de la machine virtuelle, vous pouvez échanger manuellement le disque du système d’exploitation de la machine virtuelle d’origine avec le disque de machine virtuelle restauré sans le recréer. [Plus d’informations](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/)
 
 2. Recréez l’instance de machine virtuelle en effectuant l’une des actions suivantes :
     1. Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
-    2. Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
-3. Pour les machines virtuelles Linux, réinstallez l’extension ADE pour que les disques de données soient ouverts et montés.
+       >[!NOTE]
+       >Lors du déploiement du modèle, vérifiez les conteneurs du compte de stockage et les paramètres public/privé.
+    1. Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+1. Pour les machines virtuelles Linux, réinstallez l’extension ADE pour que les disques de données soient ouverts et montés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

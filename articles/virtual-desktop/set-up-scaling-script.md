@@ -1,23 +1,23 @@
 ---
 title: Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation - Azure
-description: Mise à l'échelle automatique des hôtes de session Windows Virtual Desktop à l'aide d'Azure Automation
+description: Mise à l'échelle automatique des hôtes de session Azure Virtual Desktop à l'aide d'Azure Automation.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80bcf647ee63242bfe60b63ed400b8d3b3dc1d9e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b3ac4074dd4c49933924e39e20d7dbf703525324
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445667"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755984"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
 
-Vous pouvez réduire le coût total de déploiement de Windows Virtual Desktop en procédant à la mise à l'échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
+Vous pouvez réduire le coût total de déploiement de Azure Virtual Desktop en procédant à la mise à l'échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
 
-Cet article présente l’outil de mise à l’échelle créé avec le compte Azure Automation et l’application logique Azure pour procéder à la mise à l’échelle automatique des machines virtuelles hôtes de session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
+Cet article présente l’outil de mise à l’échelle créé avec le compte Azure Automation et l’application logique Azure pour procéder à la mise à l’échelle automatique des machines virtuelles hôtes de session dans votre environnement Azure Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
 
 ## <a name="how-the-scaling-tool-works"></a>Fonctionnement de l'outil de mise à l'échelle
 
@@ -45,7 +45,7 @@ Si vous affectez la valeur zéro au paramètre *LimitSecondsToForceLogOffUser*, 
 
 À tout moment, le travail prend également en compte le paramètre *MaxSessionLimit* du pool d’hôtes pour déterminer si le nombre actuel de sessions est supérieur à 90 % de la capacité maximale. Si c’est le cas, le travail démarre des machines virtuelles hôtes de session supplémentaires.
 
-Le travail s'exécute périodiquement sur la base d'un intervalle de périodicité défini. Vous pouvez modifier cet intervalle en fonction de la taille de votre environnement Windows Virtual Desktop, mais n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps ; vous devez donc tenir compte de ce délai. Nous vous recommandons de définir l'intervalle de périodicité sur : Toutes les 15 minutes.
+Le travail s'exécute périodiquement sur la base d'un intervalle de périodicité défini. Vous pouvez modifier cet intervalle en fonction de la taille de votre environnement Azure Virtual Desktop, mais n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps ; vous devez donc tenir compte de ce délai. Nous vous recommandons de définir l'intervalle de périodicité sur : Toutes les 15 minutes.
 
 Cela dit, l'outil présente également les limitations suivantes :
 
@@ -63,8 +63,8 @@ Cela dit, l'outil présente également les limitations suivantes :
 
 Avant de commencer à configurer l'outil de mise à l'échelle, assurez-vous que vous disposez de ce qui suit :
 
-- Un [pool d’hôtes Windows Virtual Desktop](create-host-pools-azure-marketplace.md)
-- Machines virtuelles du pool d'hôtes de session configurées et inscrites auprès du service Windows Virtual Desktop
+- Un [pool d’hôtes Azure Virtual Desktop](create-host-pools-azure-marketplace.md)
+- Machines virtuelles du pool d'hôtes de session configurées et inscrites auprès du service Azure Virtual Desktop
 - Un utilisateur doté d'un [accès Contributeur](../role-based-access-control/role-assignments-portal.md) sur un abonnement Azure
 
 L'ordinateur que vous utilisez pour déployer l'outil doit disposer de ce qui suit :

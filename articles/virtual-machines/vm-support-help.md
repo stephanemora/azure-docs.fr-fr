@@ -7,31 +7,31 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: b1497144364a519a9e8abb6029a2e7c38f0c07f5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 75b2dd041e4c693258c39fbf0f32f76c1085a966
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776384"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949892"
 ---
 # <a name="support-and-troubleshooting-for-azure-vms"></a>Support et dépannage pour les machines virtuelles Azure
 
 Voici quelques suggestions pour obtenir de l’aide lors du développement de vos solutions Machines virtuelles Azure.
 
-## <a name="self-help-troubleshooting-content"></a>Dépannage autonome
+## <a name="self-help-troubleshooting"></a>Dépannage autonome
 <div class='icon is-large'>
-    <img alt='Self help content' src='https://docs.microsoft.com/media//common/i_article.svg'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
 Divers articles expliquent comment déterminer, diagnostiquer et résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation de Machines virtuelles Azure. Utilisez ces articles pour résoudre les échecs de déploiement, les redémarrages inattendus, les problèmes de connexion et plus encore. 
 
-Pour la liste complète du contenu de dépannage autonome, consultez la [documentation de dépannage des machines virtuelles Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+Pour la liste complète du contenu de dépannage autonome, consultez la [documentation de dépannage des machines virtuelles Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Poster une question sur Microsoft Q&A
 
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='./media/microsoft-logo.png'>
+    <img alt='Microsoft Q&A' src='./media/logos/microsoft-logo.png'>
 </div>   
 
 Si vous souhaitez obtenir des réponses rapides et fiables à vos questions techniques sur les produits de la part d’ingénieurs Microsoft, de MVP (Most Valuable Professionals) Azure ou de notre communauté d’experts, contactez-nous sur [Microsoft Q&A](/answers/products/azure), la destination favorite pour le support de la communauté Azure. 
@@ -42,20 +42,20 @@ Si vous ne trouvez pas la réponse à votre problème à l’aide de la fonction
 | Domaine | Tag |
 |-------|----------------------|
 | [Machines virtuelles Azure](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Machines virtuelles Azure SQL](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
-| [Sauvegarde de machine virtuelle Azure](backup-recovery.md) | [azure-virtual-machine-backup](/answers/topics/azure-virtual-machine-backup.html) | 
-| [Extension de machine virtuelle Azure](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machine-extension.html)| 
-| [Images de machine virtuelle Azure](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machine-images.html) | 
-| [Migration de machine virtuelle Azure](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machine-migration.html) | 
-| [Supervision de machine virtuelle Azure](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machine-monitoring.html) |
-| [Réseau de machine virtuelle Azure](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machine-networking.html) | 
-| [Stockage de machine virtuelle Azure](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machine-storage.html) | 
-| [Groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machine-scale-set.html) | 
+| [Machines virtuelles Azure SQL](../azure-sql/virtual-machines/index.yml) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Sauvegarde de machine virtuelle Azure](backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
+| [Extension de machine virtuelle Azure](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
+| [Images de machine virtuelle Azure](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
+| [Migration de machine virtuelle Azure](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
+| [Supervision de machine virtuelle Azure](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
+| [Réseau de machine virtuelle Azure](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Stockage de machine virtuelle Azure](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
+| [Groupes de machines virtuelles identiques Azure](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 
 ## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
 Découvrez l’éventail des [options de support Azure et choisissez le plan](https://azure.microsoft.com/support/plans) qui vous convient, que vous soyez un développeur qui commence à explorer le cloud ou une grande organisation déployant des applications stratégiques et critiques. Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure.
@@ -68,7 +68,7 @@ Découvrez l’éventail des [options de support Azure et choisissez le plan](ht
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
 <div class='icon is-large'>
-    <img alt='GitHub-image' src='../active-directory/develop/media/common/github.svg'>
+    <img alt='GitHub-image' src='./media/logos/github-logo.png'>
 </div>
 
 Si vous avez besoin d’aide avec le langage et les outils utilisés pour développer et gérer des machines virtuelles Azure, ouvrez un problème dans son dépôt sur GitHub.
@@ -91,7 +91,7 @@ Si vous avez besoin d’aide avec le langage et les outils utilisés pour dével
 ## <a name="submit-feature-requests-on-azure-feedback"></a>Envoyer des demandes de fonctionnalités sur Azure Feedback
 
 <div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
+    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
 </div>
 
 Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Partagez vos idées pour améliorer Machines virtuelles Azure.
@@ -103,7 +103,7 @@ Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Par
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
 </div>
 
 Découvrez les mises à jour de produits, la feuille de route et les annonces importantes dans [Mises à jour Azure](https://azure.microsoft.com/updates/?category=compute).
@@ -113,4 +113,4 @@ Les nouveautés et informations sur Machines virtuelles Azure sont partagées su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/)
+En savoir plus sur [Machines virtuelles Azure](./index.yml)

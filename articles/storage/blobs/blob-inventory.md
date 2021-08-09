@@ -2,24 +2,24 @@
 title: Gestion des données d’objets blob avec l’inventaire du Stockage Azure (préversion)
 description: L’inventaire du Stockage Azure est un outil qui permet d’obtenir une vue d’ensemble de toutes les données blob d’un compte de stockage.
 services: storage
-author: twooley
+author: normesta
 ms.service: storage
 ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 14092e4d6ea63c96b653aaf09160e69a8ad30299
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277264"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753770"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Gestion des données d’objets blob avec l’inventaire des objets blob du Stockage Azure (préversion)
 
-La fonctionnalité d’inventaire des objets blob du Stockage Azure offre une vue d’ensemble des données blob d’un compte de stockage. Utilisez le rapport d’inventaire pour connaître la taille totale des données, l’âge, l’état du chiffrement, etc. Il vous fournit une synthèse de vos données pour les besoins de l’entreprise et ses exigences de conformité. Après activation, un rapport d’inventaire est créé automatiquement tous les jours.
+La fonctionnalité d’inventaire des objets blob du Stockage Azure offre une vue d’ensemble des données blob d’un compte de stockage. Utilisez le rapport d’inventaire pour connaître la taille totale des données, l’âge, les niveaux d’accès, etc. Il vous fournit une synthèse de vos données pour les besoins de l’entreprise et ses exigences de conformité. Après activation, un rapport d’inventaire est créé automatiquement tous les jours.
 
 ## <a name="availability"></a>Disponibilité
 
@@ -30,14 +30,7 @@ L’inventaire d’objets blob est pris en charge pour les comptes de stockage u
 
 ### <a name="preview-regions"></a>Régions de la préversion
 
-La préversion de l’inventaire des objets blob est disponible dans les comptes de stockage des régions suivantes :
-
-- France Centre
-- Centre du Canada
-- Est du Canada
-- USA Est
-- USA Est 2
-- Europe Ouest
+La préversion de l’inventaire des objets blob est disponible dans les comptes de stockage dans toutes les régions publiques, sauf USA Ouest.
 
 ### <a name="pricing-and-billing"></a>Tarification et facturation
 

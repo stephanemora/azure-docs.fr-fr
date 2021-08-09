@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: fe88933049ad39de57f879789e8c1b86ed7a54f5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820118"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969976"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
-Azure Key Vault protège les secrets et les clés de chiffrement (comme des certificats, des chaînes de connexion et des mots de passe) dans le cloud. Toutefois, lors du stockage de données sensibles et critiques pour l’entreprise, vous devez prendre des mesures afin d’optimiser la sécurité de vos coffres et des données qui y sont stockées.
+Azure Key Vault protège les clés de chiffrement, les certificats (et les clés privées associées aux certificats) et les secrets (tels que les chaînes de connexion et les mots de passe) dans le cloud. Toutefois, lors du stockage de données sensibles et critiques pour l’entreprise, vous devez prendre des mesures afin d’optimiser la sécurité de vos coffres et des données qui y sont stockées.
 
 Cet article fournit une vue d’ensemble des fonctionnalités de sécurité et des meilleures pratiques pour Azure Key Vault.
 
@@ -50,7 +50,7 @@ Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiqu
 
 Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-vs-authorization.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-Pour plus d’informations, consultez [Concepts de base de l’authentification Key Vault](authentication-fundamentals.md).
+Pour plus d’informations, consultez [Concepts de base de l’authentification Key Vault](/azure/key-vault/general/authentication.md).
 
 ## <a name="key-vault-authentication-options"></a>Options d’authentification Key Vault
 
@@ -58,7 +58,7 @@ Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiqu
 
 - **Application uniquement** : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
 - **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
-- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC (préversion).
+- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC.
 
 Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-vs-authorization.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 

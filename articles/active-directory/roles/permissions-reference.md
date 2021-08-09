@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32aa09d5c607b932da1530ced30c1b5b378b3990
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 60c616e8765093bd9b0502a1baffdc737e5e2243
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683884"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076021"
 ---
 # <a name="azure-ad-built-in-roles"></a>Rôles intégrés Azure AD
 
@@ -1634,16 +1634,16 @@ Windows Defender ATP et EDR | Attribuer des rôles<br>Gérer des groupes de mach
 
 Les utilisateurs dotés de ce rôle peuvent gérer les alertes et disposent d’un accès global en lecture seule aux fonctionnalités liées à la sécurité, notamment à toutes les informations disponibles dans le centre de sécurité Microsoft 365, Azure Active Directory, Identity Protection, Privileged Identity Management et le Centre de sécurité et de conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et de conformité](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-Dans | Peut
---- | ---
-[Centre de sécurité Microsoft 365](https://protection.office.com) | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes sur les menaces de sécurité
-Azure AD Identity Protection | Toutes les autorisations du rôle lecteur de sécurité<br>En outre, possibilité d’effectuer toutes les opérations du centre de protection de l’identité, à l’exception de la réinitialisation des mots de passe et de la configuration des e-mails d’alerte.
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Toutes les autorisations du rôle lecteur de sécurité
-[Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité
-Windows Defender ATP et EDR | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité
-[Intune](/intune/role-based-access-control) | Toutes les autorisations du rôle lecteur de sécurité
-[Cloud App Security](/cloud-app-security/manage-admins) | Toutes les autorisations du rôle lecteur de sécurité
-[Intégrité des services Microsoft 365](/office365/enterprise/view-service-health) | Afficher l’intégrité des services Microsoft 365
+| Dans | Peut |
+| --- | --- |
+| [Centre de sécurité Microsoft 365](https://protection.office.com) | Toutes les autorisations du rôle lecteur de sécurité<br/>Voir, examiner et répondre aux alertes sur les menaces de sécurité<br/>Gérer les paramètres de sécurité dans le centre de sécurité |
+| [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) | Toutes les autorisations du rôle lecteur de sécurité<br>En outre, possibilité d’effectuer toutes les opérations du centre de protection de l’identité, à l’exception de la réinitialisation des mots de passe et de la configuration des e-mails d’alerte. |
+| [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Toutes les autorisations du rôle lecteur de sécurité |
+| [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité |
+| Windows Defender ATP et EDR | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité |
+| [Intune](/intune/role-based-access-control) | Toutes les autorisations du rôle lecteur de sécurité |
+| [Cloud App Security](/cloud-app-security/manage-admins) | Toutes les autorisations du rôle lecteur de sécurité |
+| [Intégrité des services Microsoft 365](/microsoft-365/enterprise/view-service-health) | Afficher l’intégrité des services Microsoft 365 |
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

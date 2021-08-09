@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d9cfa0aa902fca1afd1033d40b33ccdf5baa56d7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780749"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066673"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -68,7 +68,7 @@ Liens connexes :
 * [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](container-registry-firewall-access-rules.md)
 * [Configuration du proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Géoréplication Azure Container Registry](container-registry-geo-replication.md)
-* [Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics](container-registry-diagnostics-audit-logs.md)
+* [Surveiller Azure Container Registry](monitor-service.md)
 
 ### <a name="configure-public-access-to-registry"></a>Configurer un accès public à un registre
 
@@ -126,11 +126,11 @@ Liens connexes :
 
 ## <a name="advanced-troubleshooting"></a>Dépannage avancé
 
-Si la [collecte des journaux de ressources](container-registry-diagnostics-audit-logs.md) est activée dans le registre, consultez le journal ContainterRegistryLoginEvents. Ce journal stocke les événements d’authentification et l’état, y compris l’identité et l’adresse IP entrantes. Interrogez le journal sur les [échecs d’authentification du registre](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+Si la [collecte des journaux de ressources](monitor-service.md) est activée dans le registre, consultez le journal ContainterRegistryLoginEvents. Ce journal stocke les événements d’authentification et l’état, y compris l’identité et l’adresse IP entrantes. Interrogez le journal sur les [échecs d’authentification du registre](monitor-service.md#registry-authentication-failures). 
 
 Liens connexes :
 
-* [Journaux pour l’évaluation et l’audit de diagnostics](container-registry-diagnostics-audit-logs.md)
+* [Surveiller Azure Container Registry](monitor-service.md)
 * [FAQ sur le registre de conteneurs](container-registry-faq.md)
 * [Ligne de base de sécurité Azure pour Azure Container Registry](security-baseline.md)
 * [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md)

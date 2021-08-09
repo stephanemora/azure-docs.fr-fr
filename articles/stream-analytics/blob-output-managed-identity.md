@@ -6,12 +6,12 @@ ms.author: kimal
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 369348133f7395f5db5b5923bd438cec8e4ad733
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98a78d9d769300fc4963869fbc4fa2607b800fad
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954376"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591113"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Utiliser une identité managée (préversion) pour authentifier votre tâche Azure Stream Analytics auprès du Stockage Blob Azure
 
@@ -21,15 +21,22 @@ Cet article vous montre comment activer une identité managée pour une ou des s
 
 ## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Créer le travail Stream Analytics à l’aide du portail Azure
 
-1. Créez un travail Stream Analytics ou ouvrez un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **Identité managée** sous **Configurer**. Vérifiez que l’option « Utiliser l'identité managée affectée par le système » est sélectionnée, puis cliquez sur le bouton **Enregistrer** en bas de l’écran.
+Commencez par créer une identité managée pour votre tâche Azure Stream Analytics.  
 
-   ![Configurer une identité managée Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
+1. Sur le Portail Azure, ouvrez votre travail Azure Stream Analytics.  
 
-2. Dans la fenêtre de propriétés de sortie du récepteur de sortie de stockage Blob Azure, sélectionnez la liste déroulante Mode d’authentification, puis **Identité managée**. Pour plus d’informations sur les autres propriétés de sortie, consultez [Comprendre les sorties d’Azure Stream Analytics](./stream-analytics-define-outputs.md). Quand vous avez terminé, cliquez sur **Enregistrer**.
+2. Dans le menu de navigation gauche, sélectionnez  **Identité managée**  sous  *Configurer*. Cochez ensuite la case située à côté de l’option  **Utiliser l’identité managée affectée par le système** , puis sélectionnez  **Enregistrer**.
 
-   ![Configurer la sortie de stockage Blob Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="Identité managée affectée par le système":::  
 
-3. Maintenant que le travail est créé, consultez la section [Permettre au travail Stream Analytics d’accéder à votre compte de stockage](#give-the-stream-analytics-job-access-to-your-storage-account) de cet article.
+3. Un principal de service est créé pour l’identité du travail Stream Analytics dans Azure Active Directory. Le cycle de vie de la nouvelle identité est géré par Azure. Quand le travail Stream Analytics est supprimé, l’identité associée (autrement dit, le principal de service) est également automatiquement supprimée par Azure.  
+
+   Lorsque vous enregistrez la configuration, l’ID objet (l’OID) du principal de service s’affiche en tant qu’ID de principal, comme ci-dessous :  
+
+   :::image type="content" source="media/event-hubs-managed-identity/principal-id.png" alt-text="ID du principal":::
+
+   Le principal de service a le même nom que le travail Stream Analytics. Par exemple, si le nom de votre travail est  `MyASAJob`, le nom du principal de service est également  `MyASAJob`. 
+
 
 ## <a name="azure-resource-manager-deployment"></a>Déploiement Azure Resource Manager
 
@@ -160,6 +167,9 @@ Il existe deux niveaux d’accès que vous pouvez choisir pour votre travail Str
 
 À moins d’avoir besoin du travail pour créer des conteneurs en votre nom, vous devriez choisir l’**accès au niveau du conteneur**, car cette option donne au travail le niveau d’accès minimal requis. Les deux options sont expliquées plus bas pour le Portail Azure et la ligne de commande.
 
+> [!NOTE]
+> En raison de la latence de la réplication globale ou de la mise en cache, il peut y avoir un délai lors de la révocation ou de l’octroi des autorisations. Les changements devraient prendre effet en 8 minutes.
+
 ### <a name="grant-access-via-the-azure-portal"></a>Autoriser l’accès via le portail azure
 
 #### <a name="container-level-access"></a>Accès au niveau du conteneur
@@ -213,6 +223,15 @@ Pour autoriser l’accès à la totalité du compte, exécutez la commande suiva
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
    ```
+   
+## <a name="create-a-blob-input-or-output"></a>Créer une entrée ou une sortie d’objet blob  
+
+Maintenant que votre identité managée est configurée, vous pouvez ajouter la ressource blob comme entrée ou sortie de votre travail Stream Analytics.
+
+1. Dans la fenêtre de propriétés de sortie du récepteur de sortie de stockage Blob Azure, sélectionnez la liste déroulante Mode d’authentification, puis **Identité managée**. Pour plus d’informations sur les autres propriétés de sortie, consultez [Comprendre les sorties d’Azure Stream Analytics](./stream-analytics-define-outputs.md). Quand vous avez terminé, cliquez sur **Enregistrer**.
+
+   ![Configurer la sortie de stockage Blob Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+
 
 ## <a name="enable-vnet-access"></a>Activer l’accès au réseau virtuel
 

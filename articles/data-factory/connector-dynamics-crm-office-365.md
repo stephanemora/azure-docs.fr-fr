@@ -1,23 +1,22 @@
 ---
-title: Copier des données dans Dynamics (Common Data Service)
-description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service/Microsoft Dataverse) vers des magasins de données récepteurs pris en charge ou à partir de magasins de données sources pris en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de Data Factory.
+title: Copier des données dans Dynamics (Microsoft Dataverse)
+description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Microsoft Dataverse) vers des magasins de données récepteurs pris en charge ou à partir de magasins de données sources pris en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: c949ed8d0ecb35df0a2c31bb90514c18cf3a3755
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: f6c3469c067cfa4beddbf35db5b1742e5379b602
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484322"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097801"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Microsoft Dynamics 365 et Microsoft Dynamics CRM. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md) qui offre une présentation générale de l’activité d’une copie.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
@@ -27,30 +26,32 @@ Ce connecteur est pris en charge pour les activités suivantes :
 - [Activité de copie](copy-activity-overview.md) avec [prise en charge de la matrice de source/récepteur](copy-activity-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 
-Vous pouvez copier des données à partir de Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM vers tout magasin de données récepteur pris en charge. Vous pouvez également copier des données à partir de n’importe quelle banque de données source prise en charge vers Dynamics 365 (Common Data Service) ou Dynamics CRM. Pour obtenir la liste des magasins de données prises en charge par l'activité de copie en tant que sources et récepteurs, consultez la table [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données à partir de Dynamics 365 (Microsoft Dataverse) ou Dynamics CRM vers tout magasin de données récepteur pris en charge. Vous pouvez également copier des données à partir de n’importe quelle banque de données source prise en charge vers Dynamics 365 (Microsoft Dataverse) ou Dynamics CRM. Pour obtenir la liste des magasins de données prises en charge par l'activité de copie en tant que sources et récepteurs, consultez la table [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+>[!NOTE]
+>En date de novembre 2020, Common Data Service a été renommé [Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro). Cet article est mis à jour pour refléter la terminologie la plus récente. 
 
 Ce connecteur Dynamics prend en charge Dynamics versions 7 à 9, aussi bien en ligne qu’en local. Plus précisément :
-
 - La version 7 mappe vers Dynamics CRM 2015.
 - La version 8 mappe vers Dynamics CRM 2016 et la version anticipée de Dynamics 365.
 - La version 9 mappe vers la dernière version de Dynamics 365.
+
 
 Consultez le tableau suivant sur les configurations et les types d’authentification pris en charge pour en savoir plus sur les versions et produits Dynamics.
 
 | Versions de Dynamics | Types d’authentification | Exemples de services liés |
 |:--- |:--- |:--- |
-| Common Data Service <br/><br/> Dynamics 365 (en ligne) <br/><br/> Dynamics CRM (en ligne) | Principal de service Azure Active Directory (Azure AD) <br/><br/> Office 365 | [Service Dynamics Online et Azure AD : principal ou authentification Office 365](#dynamics-365-and-dynamics-crm-online) |
+| Dataverse <br/><br/> Dynamics 365 (en ligne) <br/><br/> Dynamics CRM (en ligne) | Principal de service Azure Active Directory (Azure AD) <br/><br/> Office 365 | [Service Dynamics Online et Azure AD : principal ou authentification Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 en local avec un déploiement accessible sur Internet (IFD) <br/><br/> Dynamics CRM 2016 local avec IFD <br/><br/> Dynamics CRM 2015 local avec IFD | IFD | [Dynamics local avec IFD et authentification IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+> [!IMPORTANT]
+>Si votre client et votre utilisateur sont configurés dans Azure Active Directory pour l’[accès conditionnel](/azure/active-directory/conditional-access/overview) et/ou si l’authentification multifacteur est requise, vous ne pourrez pas utiliser le type d’authentification Office 365. Dans ce cas, vous devez utiliser une authentification de principal de service Azure Active Directory (Azure AD).
 
 Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont pris en charge :
-
 - Dynamics 365 pour les ventes
 - Dynamics 365 pour le service client
 - Dynamics 365 pour le service après-vente
 - Dynamics 365 pour l’automatisation de service de projet
-- Dynamics 365 pour le marketing
-
-Ce connecteur ne prend pas en charge d’autres types d’applications comme Finance, Operations et Talent.
+- Dynamics 365 pour le marketing - Ce connecteur ne prend pas en charge d’autres types d’applications comme Finance, Operations et Talent.
 
 >[!TIP]
 >Pour copier des données issues de Dynamics 365 for Finance and Operations, vous pouvez utiliser le [connecteur Dynamics AX](connector-dynamics-ax.md).
@@ -58,8 +59,8 @@ Ce connecteur ne prend pas en charge d’autres types d’applications comme Fin
 Ce connecteur Dynamics se base sur les [outils Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## <a name="prerequisites"></a>Prérequis
+Pour utiliser ce connecteur avec l’authentification du principal du service Azure AD, vous devez configurer l’authentification S2S (Server-to-Server) dans Dataverse ou Dynamics. Tout d’abord, inscrivez l’utilisateur de l’application (principal du service) dans Azure Active Directory. Vous pouvez découvrir comment procéder [ici](/azure/active-directory/develop/howto-create-service-principal-portal). Lors de l’inscription de l’application, vous devez créer cet utilisateur dans Dataverse ou Dynamics et accorder des autorisations. Ces autorisations peuvent être accordées directement ou indirectement en ajoutant l’utilisateur de l’application à une équipe à laquelle des autorisations ont été accordées dans Dataverse ou Dynamics. Vous trouverez plus d’informations sur la configuration d’un utilisateur d’application pour l’authentification auprès de Dataverse [ici](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
-Pour utiliser ce connecteur avec l’authentification du principal du service Azure AD, vous devez configurer l’authentification S2S (Server-to-Server) dans Common Data Service ou Dynamics. Pour obtenir des instructions détaillées, consultez [cet article](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication).
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -111,6 +112,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
     }  
 }  
 ```
+
 #### <a name="example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication"></a>Exemple : Dynamics en ligne à l’aide du principal de service Azure AD et de l’authentification du certificat
 
 ```json
@@ -140,7 +142,6 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
     } 
 } 
 ```
-
 #### <a name="example-dynamics-online-using-office-365-authentication"></a>Exemple : Dynamics en ligne utilisant l’authentification Office 365
 
 ```json
@@ -457,4 +458,5 @@ Si tous vos enregistrements sources sont mappés à la même entité cible et qu
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour obtenir la liste des magasins de données pris en charge par l’activité Copy dans Data Factory en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

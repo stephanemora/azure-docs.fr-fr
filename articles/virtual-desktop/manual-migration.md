@@ -1,38 +1,38 @@
 ---
-title: Migrer manuellement à partir de Windows Virtual Desktop (classique) – Azure
-description: Comment migrer manuellement à partir de Windows Virtual Desktop (classique) vers Windows Virtual Desktop.
+title: Migration manuelle à partir d’Azure Virtual Desktop (classique) – Azure
+description: Guide pratique pour migrer manuellement d’Azure Virtual Desktop (classique) vers Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 350b7306b6d39b42fbfebcc6566762df305b11b4
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 633925c8e7a990bcdfa822f77996072f87ae7e90
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445973"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753302"
 ---
-# <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrer manuellement à partir de Windows Virtual Desktop (classique)
+# <a name="migrate-manually-from-azure-virtual-desktop-classic"></a>Migration manuelle à partir d’Azure Virtual Desktop (classique)
 
-Le service Windows Virtual Desktop (classique) crée son environnement de service à l’aide de cmdlets PowerShell, d’API REST et d’objets de service. Un « objet » dans un environnement de service Windows Virtual Desktop est un élément que Windows Virtual Desktop crée. Les objets de service incluent des locataires, des pools d’hôtes, des groupes d’applications et les hôtes de session.
+Azure Virtual Desktop (classique) crée son environnement de service avec des cmdlets PowerShell, des API REST et des objets de service. Un « objet » dans un environnement de service Azure Virtual Desktop consiste en un élément créé par Azure Virtual Desktop. Les objets de service incluent des locataires, des pools d’hôtes, des groupes d’applications et les hôtes de session.
 
-Toutefois, le service Windows Virtual Desktop (classique) n’est pas intégré avec Azure. À défaut d’intégration avec Azure, le portail Azure ne gère pas automatiquement tous les objets que vous créez, car ceux-ci ne sont pas connectés à votre abonnement Azure.
+Toutefois, Azure Virtual Desktop (classique) n’est pas intégré avec Azure. À défaut d’intégration avec Azure, le portail Azure ne gère pas automatiquement tous les objets que vous créez, car ceux-ci ne sont pas connectés à votre abonnement Azure.
 
-La récente mise à jour majeure de Windows Virtual Desktop marque un glissement du service vers une intégration complète avec Azure. Les objets que vous créez dans le service Windows Virtual Desktop sont automatiquement gérés par le portail Azure.
+La récente mise à jour majeure d’Azure Virtual Desktop marque un glissement du service vers une intégration complète avec Azure. Les objets créés dans Azure Virtual Desktop sont automatiquement gérés par le Portail Azure.
 
-Cet article explique pourquoi vous devez envisager une migration vers la dernière version du service Windows Virtual Desktop. Ensuite, nous vous indiquerons comment opérer une migration manuelle de Windows Virtual Desktop (classique) vers la dernière mise à jour de Windows Virtual Desktop.
+Dans cet article, nous expliquons pourquoi il est préférable de passer à la dernière version d’Azure Virtual Desktop. Ensuite, nous vous indiquons comment effectuer une migration manuelle d’Azure Virtual Desktop (classique) vers la dernière mise à jour d’Azure Virtual Desktop.
 
 ## <a name="why-migrate"></a>Pourquoi migrer ?
 
 Les mises à jour majeures sont parfois incommodes, en particulier celles que vous devez effectuer manuellement. Il existe cependant des raisons pour lesquelles vous ne pouvez pas migrer automatiquement :
 
-- Les objets de service existants créés avec la version classique n’ont aucune représentation dans Azure. Leur étendue ne va pas au-delà du service Windows Virtual Desktop.
-- Avec la dernière mise à jour, l’ID d’application du service a été modifié afin de supprimer le consentement aux applications tel qu’il se faisait pour le service Windows Virtual Desktop (classique). Vous ne pouvez pas créer d’objets Azure avec le service Windows Virtual Desktop, sauf s’ils sont authentifiés avec le nouvel ID d’application.
+- Les objets de service existants créés avec la version classique n’ont aucune représentation dans Azure. Leur étendue ne va pas au-delà du service Azure Virtual Desktop.
+- Avec la dernière mise à jour, l’ID d’application du service a été modifié : le consentement aux applications tel qu’il se faisait pour Azure Virtual Desktop (classique) a été supprimé. Il n’est pas possible de créer des objets Azure avec Azure Virtual Desktop, sauf s’ils sont authentifiés avec le nouvel ID d’application.
 
 En dépit de ses contraintes, la migration à partir de la version classique reste importante. Voici ce que vous pouvez faire après la migration :
 
-- gérer le service Windows Virtual Desktop via le portail Azure ;
+- gérer Azure Virtual Desktop sur le Portail Azure ;
 - affecter des groupes d’utilisateurs Azure Active Directory (AD) à des groupes d’applications ;
 - utiliser la fonctionnalité Log Analytics améliorée pour résoudre des problèmes liés à votre déploiement ;
 - utiliser des contrôles d’accès en fonction du rôle natifs Azure (Azure RBAC) pour gérer l’accès administratif.
@@ -68,10 +68,10 @@ Avant de commencer le processus de migration, vérifiez les points suivants :
 
 Maintenant que vous êtes préparé pour le processus de migration, il est temps de passer à l’action.
 
-Pour opérer une migration manuelle du service Windows Virtual Desktop (classique) vers le service Windows Virtual Desktop :
+Pour migrer manuellement d’Azure Virtual Desktop (classique) vers Azure Virtual Desktop, procédez comme suit :
 
 1. Suivez les instructions fournies dans [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md) pour créer tous les objets de niveau supérieur via le portail Azure.
-2. Si vous souhaitez intégrer les machines virtuelles que vous utilisez déjà, suivez les instructions fournies dans [Inscrire les machines virtuelles dans le pool d’hôtes Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) pour les inscrire manuellement auprès du nouveau pool d’hôtes que vous avez créé à l’étape 1.
+2. Si vous souhaitez intégrer les machines virtuelles que vous utilisez déjà, suivez les instructions indiquées dans [Inscription des machines virtuelles dans le pool d’hôtes Azure Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) pour les inscrire manuellement auprès du pool d’hôtes créé à l’étape 1.
 3. Créez des groupes d’applications RemoteApp.
 4. Publiez des utilisateurs ou des groupes d’utilisateurs sur le nouveau bureau et les groupes d’applications RemoteApp.
 5. Mettez à jour votre stratégie d’accès conditionnel pour autoriser les nouveaux objets en suivant les instructions fournies dans [Configurer l’authentification multifacteur](set-up-mfa.md).
@@ -80,6 +80,6 @@ Pour éviter les temps d’arrêt, vous devez commencer par inscrire vos hôtes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la migration effectuée, découvrez comment fonctionne le service Windows Virtual Desktop en consultant [nos tutoriels](create-host-pools-azure-marketplace.md). Apprenez-en davantage sur les fonctionnalités de gestion avancées décrites dans [Développer un pool d’hôtes existant](expand-existing-host-pool.md) et [Personnaliser les propriétés RDP](customize-rdp-properties.md).
+Une fois la migration effectuée, découvrez comment fonctionne Azure Virtual Desktop en consultant [nos tutoriels](create-host-pools-azure-marketplace.md). Apprenez-en davantage sur les fonctionnalités de gestion avancées décrites dans [Développer un pool d’hôtes existant](expand-existing-host-pool.md) et [Personnaliser les propriétés RDP](customize-rdp-properties.md).
 
-Pour en savoir plus sur les objets de service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+Pour plus d’informations sur les objets de service, consultez [Environnement Azure Virtual Desktop](environment-setup.md).

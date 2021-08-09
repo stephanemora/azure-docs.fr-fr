@@ -1,54 +1,45 @@
 ---
-title: En savoir plus sur Azure Image Builder (préversion)
+title: En savoir plus sur Azure Image Builder
 description: Découvrez Azure Image Builder pour les machines virtuelles Azure.
-author: danielsollondon
-ms.author: danis
-ms.date: 03/05/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7289d9d814385f31a71cbd598889e564958a0140
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604064"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441813"
 ---
-# <a name="preview-azure-image-builder-overview"></a>Aperçu : Vue d’ensemble du Générateur d’images Azure
+# <a name="azure-image-builder-overview"></a>Vue d’ensemble du Générateur d’images Azure
 
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La définition de votre propre pipeline d’acquisition d’images nécessite du temps, une infrastructure et une configuration. Toutefois, avec Azure VM Image Builder, il vous suffit de fournir une configuration décrivant votre image et de l’envoyer au service, après quoi l’image est générée et distribuée.
  
 Azure VM Image Builder (Azure Image Builder) vous permet de partir d’une image de la Place de marché Azure basée sur Windows ou Linux ou d’images personnalisées existantes, et de commencer à y ajouter vos propres personnalisations. Étant donné qu’Image Builder repose sur [HashiCorp Packer](https://packer.io/), vous verrez des similitudes, mais vous bénéficiez d’un service managé. Vous pouvez également spécifier où vous souhaitez que vos images soient hébergées dans la [Galerie d’images partagées Azure](shared-image-galleries.md), en tant qu’images managées ou disque dur virtuel.
 
-> [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Fonctionnalités de préversion
+## <a name="features"></a>Fonctionnalités
 
-La préversion prend en charge les fonctionnalités suivantes :
+Azure Image Builder prend en charge les fonctionnalités suivantes :
 
 - Création d’images de référence, qui incluent vos configurations minimales de sécurité et d’entreprise, et qui permettent aux services d’affiner leur personnalisation.
 - Intégration des applications de base, de sorte que les machines virtuelles peuvent accepter les charges de travail après leur création, ou ajouter des configurations pour prendre en charge les images Windows Virtual Desktop.
 - En corrigeant des images existantes, le Générateur d’images vous permet de corriger en permanence des images personnalisées.
 - Connectez Image Builder à vos réseaux virtuels existants, afin de pouvoir vous connecter à des serveurs de configuration existants (DSC, Chef, Puppet, etc.), à des partages de fichiers ou à tout autre serveur/service routable.
 - L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
-- L’intégration avec des pipelines de génération d’images existants vous permet d’appeler simplement le Générateur d’images à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps de prévisualisation du Générateur d’images.
+- Pour l’intégration avec des pipelines de génération d’images existants, il vous suffit d’appeler Image Builder à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps d’Image Builder.
 - Migrez un pipeline de personnalisation d’image existant vers Azure. Utilisez vos scripts, commandes et processus existants pour personnaliser des images.
 - Création d’images au format VHD pour prendre en charge Azure Stack.
  
 
 ## <a name="regions"></a>Régions
-Le service Générateur d’images Azure sera disponible en préversion dans les régions suivantes. Des images peuvent être distribuées en dehors de ces régions.
-- USA Est
-- USA Est 2
-- Centre-USA Ouest
-- USA Ouest
-- USA Ouest 2
-- Europe Nord
-- Europe Ouest
+
+Le service Azure Image Builder est disponible dans [ces](./linux/image-builder-json.md#location) régions. Des images peuvent être distribuées en dehors de ces régions.
 
 ## <a name="os-support"></a>Prise en charge du système d’exploitation
 Le Générateur d’images Azure prendra en charge les images de système d’exploitation de base de la Place de marché Azure :

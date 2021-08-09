@@ -9,34 +9,37 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1e5c932460ada6060c77d233b2271813d6ea327b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b6a8dd3fb2bf5f830ce1df8e9af408ae40a19260
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292303"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590897"
 ---
 # <a name="sdks-and-rest-apis"></a>Kits SDK et API REST
 
 Les fonctionnalités Azure Communication Services sont organisées de façon conceptuelle en six domaines. La plupart des domaines possèdent des Kits de développement logiciel (SDK) entièrement open source, programmés sur des API REST publiées que vous pouvez utiliser directement sur Internet. Le Kit de développement logiciel (SDK) Appel utilise des interfaces réseau privées et est actuellement fermé. Des exemples et des informations plus techniques sur les Kits de développement logiciel (SDK) sont publiés dans le [référentiel GitHub pour Azure Communication Services](https://github.com/Azure/communication).
 
+Le développement d’applications d’appel et de conversation basées sur le web peut être accéléré à l’aide des [bibliothèques d’interface utilisateur Azure Communication Services](https://azure.github.io/communication-ui-library). La bibliothèque d’interface utilisateur vous donne accès à une bibliothèque de composants d’interface utilisateur prêts pour la production que vous pouvez placer dans vos applications.
+
 ## <a name="rest-apis"></a>API REST
 Les API Communication Services ainsi que d’autres API REST Azure sont documentées dans [docs.microsoft.com](/rest/api/azure/). Dans cette documentation, vous trouverez des conseils sur la structure de vos messages HTTP et l’utilisation de Postman. Cette documentation est également disponible au format Swagger sur [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
-
-## <a name="sdks"></a>SDK
+## <a name="sdks"></a>Kits SDK
 
 | Assembly | Espaces de noms| Protocoles | Fonctionnalités |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
 | Azure Resource Manager | Azure.ResourceManager.Communication | [REST](/rest/api/communication/communicationservice)| Approvisionner et gérer les ressources Azure Communication Services|
 | Courant | Azure.Communication.Common| REST | Fournit des types de base pour d’autres Kits de développement logiciel (SDK) |
 | Identité | Azure.Communication.Identity| [REST](/rest/api/communication/communicationidentity)| Gérez les utilisateurs et les jetons d’accès|
-| Numéros de téléphone _(bêta)_| Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Acquérir et gérer des numéros de téléphone |
+| Numéros de téléphone | Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Acquérir et gérer des numéros de téléphone |
 | Conversation | Azure.Communication.Chat| [REST](/rest/api/communication/) avec signalisation protégée | Ajouter des conversations basées sur du texte en temps réel dans vos applications |
 | SMS| Azure.Communication.SMS | [REST](/rest/api/communication/sms)| Envoyer et recevoir des messages SMS|
 | Appel| Azure.Communication.Calling | Transport propriétaire | Utiliser la voix, la vidéo, le partage d’écran et d’autres capacités de communication de données en temps réel |
+| Bibliothèque d’interface utilisateur| Azure.Communication.Calling | Open source | Composants d’interface utilisateur prêts pour la production pour les applications d’appel et de conversation |
 
-Les Kits de développement logiciel (SDK) Azure Resource Manager, Identité et SMS sont axés sur l’intégration de services et, dans de nombreux cas, des problèmes de sécurité se posent si vous intégrez ces fonctions dans des applications destinées aux utilisateurs finaux. Les Kits de développement logiciel (SDK) Courant et Conversation sont adaptées aux applications clientes et aux applications de service. Le Kit de développement logiciel (SDK) Appel est conçu pour les applications clientes. Un Kit de développement logiciel (SDK) axé sur les scénarios de service est en cours de développement.
+
+Les kits de développement logiciel (SDK) Azure Resource Manager, Identité et SMS sont axés sur l’intégration de services et des problèmes de sécurité peuvent se poser si vous intégrez ces fonctions dans des applications destinées aux utilisateurs finaux. Les Kits de développement logiciel (SDK) Courant et Conversation sont adaptées aux applications clientes et aux applications de service. Le Kit de développement logiciel (SDK) Appel est conçu pour les applications clientes. 
 
 
 ### <a name="languages-and-publishing-locations"></a>Langages et emplacements de publication
@@ -51,7 +54,8 @@ Vous trouverez ci-dessous des emplacements de publication pour chaque package de
 | Numéros de téléphone | [npm](https://www.npmjs.com/package/@azure/communication-phone-numbers)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.PhoneNumbers)    | [PyPI](https://pypi.org/project/azure-communication-phonenumbers/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-phonenumbers)   | -              | -              | -                            |
 | Conversation           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPI](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPI](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
-| Appel        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
+| Appel        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling) | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
+| Bibliothèque d’interface utilisateur            | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Documentation de référence     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.android.communication.calling)            | -                              |
 
 
@@ -90,6 +94,10 @@ Prise en charge via .NET Core 2.0 :
 - Mono 5.4
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
+
+Le package appelant prend en charge les applications UWP générées avec .NET Native ou C++/WinRT sur :
+- Windows 10 10.0.17763
+- Windows Server 2019 10.0.17763
 
 ## <a name="api-stability-expectations"></a>Attentes en matière de stabilité des API
 

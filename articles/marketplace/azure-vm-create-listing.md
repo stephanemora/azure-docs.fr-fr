@@ -1,20 +1,20 @@
 ---
 title: Configurer les détails d’une liste d’offres de machines virtuelles sur la Place de marché Azure
-description: Découvrez comment configurer les détails d’une liste d’offres de machines virtuelles sur la Place de marché Azure.
+description: Configurez les détails d’une liste d’offres de machines virtuelles sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ce7b1302a290bb4a7fefa3077e0937c7544015a
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629595"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525423"
 ---
-# <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Comment configurer les détails d’une liste d’offres de machines virtuelles
+# <a name="configure-virtual-machine-offer-listing-details"></a>Configurer les détails d’une liste d’offres de machines virtuelles
 
 Dans la page **Annonce de l’offre** (que vous sélectionnez dans le menu de navigation gauche de l’Espace partenaires), vous définissez les détails de l’offre, comme le nom de l’offre, la description, les liens et les contacts.
 
@@ -25,7 +25,7 @@ Dans la page **Annonce de l’offre** (que vous sélectionnez dans le menu de na
 
 ### <a name="name"></a>Nom
 
-Le nom que vous entrez ici est présenté aux clients comme titre de votre annonce d’offre. Ce champ est renseigné automatiquement avec le nom que vous avez entré dans la zone **Alias d’offre** lors de la création de l’offre. Le nom :
+Le nom que vous entrez ici s’affiche auprès des clients comme titre de votre référencement d’offre. Ce champ est renseigné automatiquement avec le nom que vous avez entré dans la zone **Alias d’offre** lors de la création de l’offre. Le nom :
 
 - Peut inclure les symboles de marque déposée et de copyright.
 - Doit avoir 50 caractères au maximum.
@@ -80,8 +80,6 @@ Spécifiez le **Nom**, l’**E-mail** et le **Téléphone** de la personne qui g
 ## <a name="marketplace-media"></a>Médias de la Place de marché
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format PNG. Votre demande sera rejetée si les images sont floues.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème pendant le chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.

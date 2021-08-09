@@ -1,24 +1,24 @@
 ---
-title: Déployer l’outil de diagnostic pour Windows Virtual Desktop (classique) – Azure
-description: Comment déployer l’outil de diagnostic de l’expérience utilisateur pour Windows Virtual Desktop (classique).
+title: Déployer l’outil de diagnostic pour Azure Virtual Desktop (classique) – Azure
+description: Comment déployer l’outil de diagnostic de l’expérience utilisateur pour Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ed010b3eed875c8b14892a588be13a32fbbd95ac
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 92876524f036126f39a2e4e5db8eb5dbd660cee9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445089"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754778"
 ---
-# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Déployer l’outil de diagnostic Windows Virtual Desktop (classique)
+# <a name="deploy-the-azure-virtual-desktop-classic-diagnostics-tool"></a>Déployer l’outil de diagnostic Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager.
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager.
 
-Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pour vous :
+Voici ce que l’outil de diagnostic pour Azure Virtual Desktop peut faire pour vous :
 
 - Recherchez des activités de diagnostic (gestion, connexion ou flux) pour un seul utilisateur sur une période d’une semaine.
 - Rassemblez les informations sur l’hôte de session pour les activités de connexion à partir de votre espace de travail Log Analytics.
@@ -50,7 +50,7 @@ Une fois que tout est en ordre, vous pouvez créer l’inscription de l’applic
 Cette section vous montre comment utiliser PowerShell pour créer l’application Azure Active Directory avec un principal du service et obtenir des autorisations d’API pour celle-ci.
 
 >[!NOTE]
->Les autorisations d’API sont Windows Virtual Desktop, les autorisations d’API Log Analytics et Microsoft Graph sont ajoutées à l’application Azure Active Directory.
+>Les autorisations d’API sont Azure Virtual Desktop, les autorisations d’API Log Analytics et Microsoft Graph sont ajoutées à l’application Azure Active Directory.
 
 1. Ouvrez PowerShell en tant qu’administrateur.
 2. Connectez-vous à Azure avec un compte disposant des autorisations Propriétaire ou Collaborateur sur l’abonnement Azure que vous souhaitez utiliser pour l’outil de diagnostic :
@@ -200,7 +200,7 @@ Pour définir l’URI de redirection :
 Avant de rendre l’outil de diagnostic disponible pour vos utilisateurs, assurez-vous qu’ils disposent des autorisations suivantes :
 
 - Les utilisateurs doivent avoir un accès en lecture pour l’analytique des journaux d'activité. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](../../azure-monitor/roles-permissions-security.md).
--  Les utilisateurs ont également besoin d’un accès en lecture pour l’abonné Windows Virtual Desktop (rôle de lecteur des Services Bureau à distance). Pour plus d’informations, consultez [Accès délégué dans Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
+-  Les utilisateurs ont également besoin d’un accès en lecture pour l’abonné Azure Virtual Desktop (rôle de lecteur des Services Bureau à distance). Pour plus d’informations, consultez [Accès délégué dans Azure Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 Vous devez également fournir aux utilisateurs les informations suivantes :
 

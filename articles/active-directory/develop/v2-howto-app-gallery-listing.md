@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/14/2020
+ms.date: 06/10/2021
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ade77d05e209d65a9d7aa40451362bd66718cf75
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988903"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033323"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -81,7 +81,7 @@ Vous avez besoin d’un compte permanent pour les tests avec au moins deux utili
 
 **Comment obtenir Azure AD pour développeurs ?**
 
-Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités Azure AD Premium : 90 jours gratuits qui peuvent être étendus tant que vous l’utilisez pour effectuer des tâches de développement : https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités Azure AD Premium : 90 jours gratuits qui peuvent être étendus tant que vous l’utilisez pour effectuer des tâches de développement : [Rejoignez le programme développeur de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Étape 1 : Choisissez la norme d’authentification unique appropriée pour votre application
 
@@ -287,17 +287,6 @@ Vous pouvez mettre à jour ou supprimer une application de galerie existante dan
 > [!NOTE]
 > Si vous rencontrez des problèmes d’accès, consultez la section précédente sur la création de votre compte. Si cela ne fonctionne pas, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-### <a name="list-requests-by-customers"></a>Demandes de listing par les clients
-
-Les clients peuvent envoyer une demande pour lister une application en sélectionnant **Demandes d’application par les clients** > **Soumettre une nouvelle demande**.
-
-![Montre la vignette des applications demandées par les clients](./media/howto-app-gallery-listing/customer-submit-request.png)
-
-Voici le flux des applications demandées par les clients.
-
-![Montre le flux des applications demandées par les clients](./media/howto-app-gallery-listing/customer-request-2.png)
-
-
 ### <a name="timelines"></a>Chronologies
 
 La durée du processus de listing d’une application SAML 2.0 ou WS-Fed dans la galerie est de 7 à 10 jours ouvrables.
@@ -316,7 +305,20 @@ Pour faire remonter un problème, envoyez un e-mail à l’[équipe d’intégra
 ## <a name="step-7---join-the-microsoft-partner-network"></a>Étape 7 : Rejoignez le Microsoft Partner Network
 Le Microsoft Partner Network fournit un accès instantané et exclusif à des ressources, des programmes, des outils et des connexions. Pour rejoindre le réseau et créer votre plan Go to Market, consultez [Atteindre des clients commerciaux](https://partner.microsoft.com/explore/commercial#gtm).
 
+## <a name="request-apps-by-sharing-isv-app-team-contact"></a>Demander des applications en partageant les coordonnées de l’équipe d’applications ISV
+
+Les clients peuvent demander une application en partageant les informations de l’application et les coordonnées ISV [ici](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/AppRequestsByCustomers.aspx).
+
+![Montre la vignette des applications demandées par les clients](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Voici le flux des applications demandées par les clients.
+
+![Montre le flux des applications demandées par les clients](./media/howto-app-gallery-listing/customer-request-2.png)
+
+> [!Note]
+> Si vous rencontrez des [problèmes d’accès](#issues-on-logging-into-portal), veuillez envoyer un e-mail à l’[équipe d’intégration d’applications Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Scénarios d’authentification pour Azure AD](authentication-flows-app-scenarios.md)

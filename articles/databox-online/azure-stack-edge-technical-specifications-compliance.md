@@ -1,6 +1,6 @@
 ---
-title: Spécifications techniques et conformité de Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Découvrir les spécifications techniques et la conformité de votre ressource Azure Stack Edge Pro
+title: Spécifications techniques et conformité pour Azure Stack Edge Pro FGPA
+description: Découvrir les spécifications techniques et la conformité de votre ressource Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 91bb558d47e56ebbcbdf25b0276c2a247ec81b47
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f2d3541e3bf1e8c6045173ac4da9e40a0bc6a8b7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312635"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460426"
 ---
-# <a name="azure-stack-edge-pro-technical-specifications"></a>Spécifications techniques d’Azure Stack Edge Pro
+# <a name="azure-stack-edge-pro-fpga-technical-specifications"></a>Spécifications techniques de l’appareil Azure Stack Edge Pro FGPA
 
-Les composants matériels de l’appareil Microsoft Azure Stack Edge Pro sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales.
+Les composants matériels de l’appareil Microsoft Azure Stack Edge Pro FGPA sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales.
 
 ## <a name="compute-memory-specifications"></a>Spécifications de calcul et de mémoire
 
-L’appareil Azure Stack Edge Pro présente les spécifications suivantes en matière de calcul et de mémoire :
+L’appareil Azure Stack Edge Pro FGPA présente les spécifications suivantes en matière de calcul et de mémoire :
 
 | Caractéristique           | Valeur                             |
 |-------------------------|-----------------------------------|
@@ -35,7 +35,7 @@ L’appareil Azure Stack Edge Pro présente les spécifications suivantes en mat
 
 ## <a name="fpga-specifications"></a>Spécifications FPGA
 
-Pour les scénarios de Machine Learning (ML), chaque appareil Azure Stack Edge Pro dispose d’un FPGA (Field Programmable Gate Array).
+Pour les scénarios de Machine Learning (ML), chaque appareil Azure Stack Edge Pro FGPA dispose d’un FPGA (Field Programmable Gate Array).
 
 | Caractéristique           | Valeur                      |
 |-------------------------|----------------------------|
@@ -43,7 +43,7 @@ Pour les scénarios de Machine Learning (ML), chaque appareil Azure Stack Edge P
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications des blocs d’alimentation
 
-L’appareil Azure Stack Edge Pro est équipé de deux blocs d’alimentation de 100-240 V avec des ventilateurs hautes performances. Les deux blocs d’alimentation fournissent une alimentation redondante. En cas de défaillance d’un blocs d’alimentation, l’appareil continue à fonctionner normalement sur l’autre bloc jusqu’au remplacement du module défaillant. Le tableau suivant liste les spécifications techniques des blocs d’alimentation.
+L’appareil Azure Stack Edge Pro FGPA est équipé de deux blocs d’alimentation de 100-240 V avec des ventilateurs hautes performances. Les deux blocs d’alimentation fournissent une alimentation redondante. En cas de défaillance d’un blocs d’alimentation, l’appareil continue à fonctionner normalement sur l’autre bloc jusqu’au remplacement du module défaillant. Le tableau suivant liste les spécifications techniques des blocs d’alimentation.
 
 | Caractéristique           | Bloc d’alimentation de 750 W                  |
 |-------------------------|----------------------------|
@@ -52,18 +52,18 @@ L’appareil Azure Stack Edge Pro est équipé de deux blocs d’alimentation de
 | Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
 | Enfichable à chaud           | Oui                        |
 
-### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Spécifications du cordon d’alimentation d’Azure Stack Edge Pro par région
+### <a name="azure-stack-edge-pro-fpga-power-cord-specifications-by-region"></a>Spécifications du cordon d’alimentation d’Azure Stack Edge Pro FGPA par région
 
-Votre appareil Azure Stack Edge Pro a besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
-Pour voir les spécifications techniques de tous les cordons d’alimentation pris en charge, consultez [Spécifications du cordon d’alimentation d’Azure Stack Edge Pro par région](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Votre appareil Azure Stack Edge Pro FGPA a besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
+Pour voir les spécifications techniques de tous les cordons d’alimentation pris en charge, consultez [Spécifications du cordon d’alimentation d’Azure Stack Edge Pro FGPA par région](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro FPGA device.-->
 
 ## <a name="network-interface-specifications"></a>Spécifications de l’interface réseau
 
-Votre appareil Azure Stack Edge Pro dispose de 6 interfaces réseau : PORT1 à PORT6.
+Votre appareil Azure Stack Edge Pro FGPA dispose de 6 interfaces réseau : PORT1 à PORT6.
 
 | Caractéristique           | Description                 |
 |-------------------------|----------------------------|
@@ -80,7 +80,7 @@ Consultez la liste de compatibilité matérielle d’Intel QLogic pour connaîtr
 
 ## <a name="storage-specifications"></a>Spécifications de stockage
 
-Les appareils Azure Stack Edge Pro sont dotés de 9 disques SSD NVMe de 2,5", chacun d’une capacité de 1,6 To. Un de ces disques SSD est dédié au système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
+Les appareils Azure Stack Edge Pro FGPA sont dotés de 9 disques SSD NVMe de 2,5", chacun d’une capacité de 1,6 To. Un de ces disques SSD est dédié au système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
 
 |     Caractéristique                          |     Valeur             |
 |--------------------------------------------|-----------------------|

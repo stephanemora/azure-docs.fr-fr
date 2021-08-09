@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96530933"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558995"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexer des objets blob chiffrés à l'aide d'indexeurs d'objets blob et d'ensembles de compétences dans le service Recherche cognitive Azure
 
 Cet article vous explique comment utiliser le service [Recherche cognitive Azure](search-what-is-azure-search.md) pour indexer des documents préalablement chiffrés dans [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) à l'aide d’[Azure Key Vault](../key-vault/general/overview.md). Normalement, un indexeur ne peut pas extraire le contenu des fichiers chiffrés car il n'a pas accès à la clé de chiffrement. Mais en tirant parti de la compétence personnalisée [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) suivie de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), vous pouvez fournir un accès contrôlé à la clé pour déchiffrer les fichiers, puis en extraire le contenu. Cela permet l’indexation de ces documents sans compromettre le statut de chiffrement de vos documents stockés.
 
-En commençant par les documents entiers précédemment chiffrés (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le stockage d’objets BLOB Azure, ce guide utilise Postman et les API REST de recherche pour effectuer les tâches suivantes :
+En commençant par les documents entiers précédemment chiffrés (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le Stockage Blob Azure, ce guide utilise Postman et les API REST de recherche pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Définissez un pipeline qui déchiffre les documents et en extrait le texte.

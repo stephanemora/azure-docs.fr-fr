@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 49da5d7f045ed06ba16696ebd16ad212b9d140d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763306"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888587"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -170,7 +170,7 @@ Pour créer une autre ressource de passerelle, lier l’installation de votre pa
 
 * Votre compte Azure n’appartient qu’à un seul [locataire ou annuaire Azure AD](../active-directory/fundamentals/active-directory-whatis.md#terminology). Vérifiez que vous utilisez le locataire ou annuaire Azure AD que vous avez utilisé lors de l’installation de la passerelle.
 
-* Vos ressource de passerelle et installation de passerelle n’existent pas dans la même région. Toutefois, la position de votre application logique peut être différente de celle de votre ressource de passerelle.
+* Vos ressource de passerelle et installation de passerelle n’existent pas dans la même région. Assurez-vous que l’installation de votre passerelle utilise la même région que celle où vous souhaitez créer la ressource de passerelle dans Azure. Toutefois, la position de votre application logique peut être différente de celle de votre ressource de passerelle.
 
 * L’installation de votre passerelle n’est pas encore associée à la ressource de passerelle. Chaque ressource de passerelle peut lier à une seule installation de passerelle, qui ne peut lier qu’à un seul compte et abonnement Azure. Par conséquent, vous ne pouvez pas sélectionner une installation de passerelle déjà associée à une autre. Ces installations ne s’affichent pas dans la liste **Nom d’installation**.
 

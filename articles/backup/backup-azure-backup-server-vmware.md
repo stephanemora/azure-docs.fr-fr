@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde 
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002951"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084589"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -403,24 +403,24 @@ Ajoutez des machines virtuelles VMware pour la sauvegarde. Les groupes de protec
 >[!NOTE]
 > Cette fonctionnalité s’applique à MABS v3 UR1.
 
-Dans les versions antérieures de MABS, les sauvegardes parallèles n’étaient effectuées que sur les groupes de protection. Avec MABS v3 UR1, toutes les sauvegardes des machines virtuelles VMWare appartenant à un même groupe de protection sont effectuées en parallèle, ce qui permet d’accélérer le processus de sauvegarde. Tous les travaux de réplication delta VMWare s’exécutent en parallèle. Par défaut, le nombre de travaux qui s’exécutent en parallèle est configuré sur 8.
+Dans les versions antérieures de MABS, les sauvegardes parallèles n’étaient effectuées que sur les groupes de protection. Avec MABS v3 UR1, toutes les sauvegardes des machines virtuelles VMware appartenant à un même groupe de protection sont effectuées en parallèle, ce qui permet d’accélérer le processus de sauvegarde. Tous les travaux de réplication delta VMware s’exécutent en parallèle. Par défaut, le nombre de travaux qui s’exécutent en parallèle est configuré sur 8.
 
 Vous pouvez modifier le nombre de travaux à l’aide de la clé de Registre, comme indiqué ci-dessous (celle-ci n’est pas présente par défaut, vous devez donc l’ajouter) :
 
-**Chemin de la clé** : `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Chemin de la clé** : `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
 **Type de clé** : Valeur DWORD (32 bits).
 
 > [!NOTE]
-> Vous pouvez augmenter le nombre de travaux. Si vous définissez ce nombre sur 1, les travaux de réplication seront exécutés les uns après les autres. Pour augmenter le nombre de travaux à exécuter en parallèle, vous devez prendre en compte les performances de VMWare. Tenez compte du nombre de ressources en cours d’utilisation et de toute autre utilisation nécessaire sur le serveur VMWare vSphere, puis déterminez le nombre de travaux de réplication delta à exécuter en parallèle. Cette modification affectera uniquement les groupes de protection qui viennent d’être créés. Pour les groupes de protection existants, vous devez ajouter temporairement une autre machine virtuelle au groupe de protection. La configuration du groupe de protection doit être mise à jour en conséquence. Vous pouvez supprimer cette machine virtuelle du groupe de protection une fois la procédure terminée.
+> Vous pouvez augmenter le nombre de travaux. Si vous définissez ce nombre sur 1, les travaux de réplication seront exécutés les uns après les autres. Pour augmenter le nombre de travaux à exécuter en parallèle, vous devez prendre en compte les performances de VMware. Tenez compte du nombre de ressources en cours d’utilisation et de toute autre utilisation nécessaire sur le serveur VMWare vSphere, puis déterminez le nombre de travaux de réplication delta à exécuter en parallèle. Cette modification affectera uniquement les groupes de protection qui viennent d’être créés. Pour les groupes de protection existants, vous devez ajouter temporairement une autre machine virtuelle au groupe de protection. La configuration du groupe de protection doit être mise à jour en conséquence. Vous pouvez supprimer cette machine virtuelle du groupe de protection une fois la procédure terminée.
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
 
 Pour sauvegarder vSphere 6.7, effectuez les opérations suivantes :
 
 - Activer TLS 1.2 sur le serveur MABS
 
 >[!NOTE]
->Sur VMWare 6.7 et ultérieur, TLS est le protocole de communication activé.
+>Sur VMware 6.7 et ultérieur, TLS est le protocole de communication activé.
 
 - Définissez les clés de Registre comme suit :
 
@@ -453,7 +453,7 @@ Avec MABS v3 UR1, vous pouvez exclure un disque de la sauvegarde de machine vi
 
 Pour configurer l’exclusion du disque, effectuez les étapes suivantes :
 
-### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identifier les détails de la machine virtuelle VMWare et du disque à exclure
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Identifier les détails de la machine virtuelle VMware et du disque à exclure
 
   1. Dans la console VMware, accédez aux paramètres de la machine virtuelle dont vous souhaitez exclure le disque.
   2. Sélectionnez le disque que vous souhaitez exclure et notez le chemin de ce disque.

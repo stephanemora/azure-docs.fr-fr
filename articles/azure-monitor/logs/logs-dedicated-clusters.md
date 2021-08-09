@@ -6,12 +6,12 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9a79a9f863e4deaee27ddfbfdcefd3511fac5032
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3b4a98e37c16feeb2ad8203caaeb5bc231761379
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752172"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004220"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -22,7 +22,7 @@ Les fonctionnalités qui nécessitent des clusters dédiés sont les suivantes 
 - **[Clés gérées par le client](../logs/customer-managed-keys.md)**  : chiffrez les données du cluster à l’aide de clés fournies et contrôlées par le client.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)**  : les clients peuvent contrôler les demandes d’accès aux données par les ingénieurs du support technique Microsoft.
 - Le **[double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données.
-- **[Espaces de travail multiples](../logs/cross-workspace-query.md)**  : si un client utilise plusieurs espaces de travail pour la production, il peut être judicieux d’utiliser un cluster dédié. Les requêtes entre espaces de travail s’exécuteront plus rapidement si tous les espaces de travail se trouvent sur le même cluster. Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
+- **[Espaces de travail multiples](../logs/cross-workspace-query.md)**  : si un client utilise plusieurs espaces de travail pour la production, il peut être judicieux d’utiliser un cluster dédié. Les requêtes entre espaces de travail s’exécuteront plus rapidement si tous les espaces de travail se trouvent sur le même cluster. Il peut s’avérer plus rentable d’utiliser un cluster dédié, car le niveau d’engagement affecté prend en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont réduits et ne peuvent bénéficier de la remise de niveau d'engagement.
 
 Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 1 To d’ingestion des données par jour. La migration vers un cluster dédié est simple. Il n’y a pas de perte de données ni d’interruption de service. 
 
@@ -39,19 +39,19 @@ Toutes les opérations au niveau du cluster requièrent l’autorisation de l’
 
 ## <a name="cluster-pricing-model"></a>Modèle de tarification des clusters
 
-Les clusters dédiés Log Analytics utilisent un modèle de tarification de réservation de capacité d’au moins 1 000 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation.  Les informations sur la tarification de réservation de capacité sont disponibles sur la [page de tarification Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Les clusters dédiés Log Analytics utilisent un modèle de tarification de niveau d’engagement d’au moins 1 000 Go/jour. Toute utilisation au-delà du niveau de la couche sera facturée à un taux effectif par Go de ce niveau d’engagement.  Les informations sur la tarification par niveau d’engagement sont disponibles sur la [page de tarification Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Le niveau de réservation de la capacité du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La `Capacity` est spécifiée en unités de Go et peut avoir des valeurs de 1 000 Go/jour ou plus par incréments de 100 Go/jour.
+Le niveau d’engagement du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La valeur de `Capacity` est spécifiée en unités de Go et peut avoir des valeurs de 1 000, 2 000 ou 5 000 Go/jour.
 
 Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peuvent être spécifiés par le paramètre `billingType` lors de la configuration de votre cluster. 
 
 1. **Cluster** : dans ce cas (valeur par défaut), la facturation des données ingérées est effectuée au niveau du cluster. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. 
 
-2. **Espaces de travail** : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](../../security-center/index.yml) pour chaque espace de travail).
+2. **Espaces de travail** : les coûts de niveau d’engagement pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster, par volume d’ingestion des données (après prise en compte des allocations par nœud depuis [Azure Security Center](../../security-center/index.yml) pour chaque espace de travail). Les détails complets de ce modèle de tarification sont expliqués [ici]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters). 
 
-Si votre espace de travail utilise le niveau tarifaire Par nœud hérité, lorsqu’il est lié à un cluster, il sera facturé en fonction des données ingérées par rapport à la réservation de capacité du cluster, et non plus par nœud. Les allocations de données par nœud d’Azure Security Center continuent à être appliquées.
+Si votre espace de travail utilise le niveau tarifaire Par nœud hérité, lorsqu’il est lié à un cluster, il sera facturé en fonction des données ingérées par rapport au niveau d’engagement du cluster, et non plus Par nœud. Les allocations de données par nœud d’Azure Security Center continuent à être appliquées.
 
-Vous trouverez plus d’informations sur la facturation des clusters dédiés Log Analytics [ici]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+Vous trouverez les détails complets sur la facturation des clusters dédiés Log Analytics [ici]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 
 ## <a name="asynchronous-operations-and-status-check"></a>Opérations asynchrones et vérification de l’état
 
@@ -77,7 +77,7 @@ Les propriétés suivantes doivent être spécifiées :
 - **ClusterName** : Utilisée à des fins d’administration. Les utilisateurs ne sont pas exposés à ce nom.
 - **ResourceGroupName** : Comme pour toutes les ressources Azure, les clusters appartiennent à un groupe de ressources. Nous vous recommandons d’utiliser un groupe central de ressources informatiques, car les clusters sont généralement partagés par de nombreuses équipes dans l’organisation. Pour plus d’informations sur les considérations de conception, consultez [Conception de votre déploiement de journaux Azure Monitor](../logs/design-logs-deployment.md).
 - **Emplacement** : Un cluster se trouve dans une région Azure spécifique. Seuls les espaces de travail situés dans cette région peuvent être liés à ce cluster.
-- **SkuCapacity** : Vous devez spécifier le niveau (SKU) de *réservation de capacité* lors de la création d’une ressource de *cluster*. Le niveau de *réservation de capacité* peut aller de 1 000 à 3 000 Go par jour. Le cas échéant, vous pouvez ultérieurement le mettre à jour par paliers de 100. Si vous avez besoin d’un niveau de réservation de capacité supérieur à 3 000 Go par jour, contactez-nous à l’adresse LAIngestionRate@microsoft.com. Pour plus d’informations sur les coûts de cluster, consultez [Gérer les coûts des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+- **SkuCapacity** : vous devez spécifier le niveau d’engagement (SKU) lors de la création d’une ressource de cluster. Le niveau d’engagement peut être défini sur 1 000, 2 000 ou 5 000 Go/jour. Pour plus d’informations sur les coûts des clusters, consultez [Gérer les coûts des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). Notez que les niveaux d’engagement étaient précédemment appelés réservations de capacité. 
 
 Après avoir créé votre ressource de *cluster*, vous pouvez modifier des propriétés supplémentaires telles que *SKU*, *keyVaultProperties ou *billingType*. Pour plus d’informations, voir ci-dessous.
 
@@ -299,8 +299,8 @@ Une fois que vous avez créé votre ressource de *cluster* et qu’elle est enti
 
 - **keyVaultProperties** : met à jour la clé dans Azure Key Vault. Consultez [Mettre à jour le cluster avec les détails de l’identificateur de clé](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Il contient les paramètres suivants : *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** : La propriété *billingType* détermine l’attribution de facturation pour la ressource de *cluster* et ses données :
-  - **Cluster** (par défaut) : Les coûts de la réservation de capacité pour votre cluster sont attribués à la ressource de *cluster*.
-  - **Espaces de travail** : Les coûts de la réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur à la réservation de capacité. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+  - **Cluster** (par défaut) : Les coûts de votre cluster sont attribués à la ressource de *cluster*.
+  - **Espaces de travail** : Les coûts de votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur au niveau d’engagement. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
   - **Identité** : identité à utiliser pour l’authentification auprès de votre coffre de clés. Elle peut avoir été attribuée par le système ou par l’utilisateur.
 
 >[!IMPORTANT]
@@ -396,9 +396,9 @@ La même que pour « clusters dans un groupe de ressources », mais dans l’ét
 
 
 
-### <a name="update-capacity-reservation-in-cluster"></a>Mettre à jour la réservation de capacité dans un cluster
+### <a name="update-commitment-tier-in-cluster"></a>Mettre à jour le niveau d’engagement dans le cluster
 
-À mesure que le volume de données de vos espaces de travail liés change au fil du temps, vous souhaitez mettre à jour le niveau de réservation de capacité de manière appropriée. La capacité est spécifiée en unités de Go et peut avoir des valeurs de 1 000 Go/jour ou plus par incréments de 100 Go/jour. Notez que vous n’avez pas besoin de fournir le corps entier de la requête REST et que vous devez inclure la référence SKU.
+À mesure que le volume de données de vos espaces de travail liés évolue, vous souhaitez mettre à jour le niveau d’engagement en conséquence. Le niveau est spécifié en unités de Go et peut présenter des valeurs de 1 000, 2 000 ou 5 000 Go/jour. Notez que vous n’avez pas besoin de fournir le corps entier de la requête REST et que vous devez inclure la référence SKU.
 
 **INTERFACE DE LIGNE DE COMMANDE**
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: 9879b5154866436e3216243b123b3575e6cd3df4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e6582aedbc8357715f4e49cc8d5a780859ef3929
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754895"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062067"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -99,7 +99,7 @@ Nous recommandons à chaque organisation d’examiner attentivement les initiati
 > [!TIP]
 > Pour plus d’informations sur l’examen et la modification de vos initiatives, consultez [Utilisation de stratégies de sécurité](tutorial-security-policy.md). 
 
-Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les bonnes pratiques et les standards du secteur, il existe des scénarios dans lesquels les recommandations intégrées listées ci-dessous ne sont pas tout à fait adaptées à votre organisation. Il est donc parfois nécessaire de modifier l’initiative par défaut (sans compromettre la sécurité) pour garantir son alignement sur les propres stratégies de votre organisation. ainsi que sur les standards du secteur, les standards réglementaires et les points de référence que vous êtes tenu de respecter.<br><br>
+Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les bonnes pratiques et les standards du secteur, il existe des scénarios dans lesquels les recommandations intégrées listées ci-dessous ne sont pas tout à fait adaptées à votre organisation. Il est donc parfois nécessaire de modifier l’initiative par défaut (sans compromettre la sécurité) pour garantir son alignement sur les propres stratégies, points de référence, normes et réglementations du secteur d’activité de votre organisation que vous êtes tenu de respecter.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>
@@ -111,7 +111,7 @@ Bien que l’initiative de sécurité par défaut de Security Center soit basée
 
 
 
-## <a name="secure-score-faq"></a>Questions fréquentes (FAQ) sur le degré de sécurisation
+## <a name="faq---secure-score"></a>Questions fréquentes (FAQ) – Degré de sécurisation
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Si je n’applique que trois recommandations sur quatre dans un contrôle de sécurité, mon degré de sécurisation changera-t-il ?
 Non. Il ne changera pas tant que vous n’aurez pas appliqué toutes les recommandations fournies pour une même ressource. Pour obtenir le score maximal d’un contrôle, vous devez appliquer toutes les recommandations de l’ensemble des ressources.

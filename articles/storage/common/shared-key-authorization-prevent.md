@@ -1,31 +1,29 @@
 ---
-title: Empêcher l’autorisation avec clé partagée (préversion)
+title: Empêcher l’autorisation avec une clé partagée
 titleSuffix: Azure Storage
-description: Pour exiger des clients qu’ils utilisent Azure AD pour autoriser les demandes, vous pouvez désactiver les demandes adressées au compte de stockage qui sont autorisées avec une clé partagée (préversion).
+description: Pour exiger des clients qu’ils utilisent Azure AD pour autoriser les demandes, vous pouvez désactiver les demandes adressées au compte de stockage qui sont autorisées avec une clé partagée.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: fryu
-ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: sohamnc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0262cdd348c03dafd378af95374beacf2bc77c23
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199909"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679267"
 ---
-# <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
+# <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure
 
-Chaque demande sécurisée adressée à un compte Stockage Azure doit être autorisée. Par défaut, les demandes peuvent être autorisées soit avec des informations d’identification Azure Active Directory (Azure AD), soit à l’aide de la clé d’accès au compte pour l’autorisation avec clé partagée. Entre ces deux types d’autorisation, Azure AD offre une sécurité et une facilité d’utilisation supérieures par rapport à une clé partagée, et est recommandé par Microsoft. Pour exiger des clients qu’ils utilisent Azure AD pour autoriser les demandes, vous pouvez désactiver les demandes adressées au compte de stockage qui sont autorisées avec une clé partagée (préversion).
+Chaque demande sécurisée adressée à un compte Stockage Azure doit être autorisée. Par défaut, les demandes peuvent être autorisées soit avec des informations d’identification Azure Active Directory (Azure AD), soit à l’aide de la clé d’accès au compte pour l’autorisation avec clé partagée. Entre ces deux types d’autorisation, Azure AD offre une sécurité et une facilité d’utilisation supérieures par rapport à une clé partagée, et est recommandé par Microsoft. Pour exiger des clients qu’ils utilisent Azure AD pour autoriser les demandes, vous pouvez désactiver les demandes adressées au compte de stockage qui sont autorisées avec une clé partagée.
 
 Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de stockage, le service Stockage Azure rejette toutes les demandes ultérieures adressées à ce compte, qui sont autorisées avec les clés d’accès au compte. Seules les demandes sécurisées autorisées avec Azure AD aboutissent. Pour plus d’informations sur l’utilisation d’Azure AD, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
 
-> [!IMPORTANT]
-> La désactivation de l’autorisation avec clé partagée est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
-
-Cet article explique comment détecter les demandes envoyées avec une autorisation avec clé partagée, et comment corriger l’autorisation avec clé partagée pour votre compte de stockage. Pour savoir comment vous inscrire à la préversion, consultez [À propos de la préversion](#about-the-preview).
+Cet article explique comment détecter les demandes envoyées avec une autorisation avec clé partagée, et comment corriger l’autorisation avec clé partagée pour votre compte de stockage.
 
 ## <a name="detect-the-type-of-authorization-used-by-client-applications"></a>Détecter le type d’autorisation utilisé par les applications clientes
 
@@ -33,7 +31,7 @@ Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de 
 
 Utilisez des métriques pour déterminer le nombre de demandes que le compte de stockage reçoit et qui sont autorisées avec clé partagée ou signature d’accès partagé (SAP). Utilisez des journaux pour déterminer les clients qui envoient ces demandes.
 
-Pour plus d’informations sur l’interprétation des demandes effectuées avec une signature d’accès partagé au cours de la période de préversion, consultez [À propos de la préversion](#about-the-preview).
+Une SAP peut être autorisée avec une clé partagée ou Azure AD. Pour plus d’informations sur l’interprétation des demandes effectuées avec une signature d’accès partagé, consultez [Comprendre comment interdire une clé partagée affecte les jetons SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Surveiller le nombre de demandes autorisées avec clé partagée
 
@@ -77,7 +75,6 @@ La journalisation du stockage Azure dans Azure Monitor prend en charge l’utili
 
 Pour journaliser des données de stockage Azure avec Azure Monitor et les analyser avec Azure Log Analytics, vous devez d’abord créer un paramètre de diagnostic qui indique les types de demandes et les services de stockage pour lesquels vous souhaitez journaliser les données. Pour créer un paramètre de diagnostic dans le portail Azure, suivez ces étapes :
 
-1. Inscrivez-vous à la [journalisation de stockage Azure dans Azure Monitor (préversion)](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Créez un espace de travail Log Analytics dans l’abonnement contenant votre compte Stockage Azure, ou utilisez un espace de travail Log Analytics existant. Une fois que vous avez configuré la journalisation pour votre compte de stockage, les journaux sont disponibles dans l’espace de travail Log Analytics. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Dans la section Supervision, Sélectionnez **Paramètres de diagnostic (préversion)** .
@@ -158,6 +155,8 @@ az storage account update \
 
 Une fois que vous avez désactivé l’autorisation avec clé partagée, toute demande adressée au compte de stockage avec une autorisation avec clé partagée échoue avec le code d’erreur 403 (Interdit). Le service Stockage Azure renvoie une erreur indiquant que l’autorisation basée sur une clé n’est pas acceptée sur le compte de stockage.
 
+La propriété **AllowSharedKeyAccess** est prise en charge pour les comptes de stockage qui utilisent uniquement le modèle de déploiement Azure Resource Manager. Pour plus d’informations sur les comptes de stockage qui utilisent le modèle de déploiement Azure Resource Manager, consultez [Types de compte de stockage](storage-account-overview.md#types-of-storage-accounts).
+
 ### <a name="verify-that-shared-key-access-is-not-allowed"></a>Vérifier que l’accès avec clé partagée n’est pas autorisé
 
 Pour vérifier que l’autorisation avec clé partagée n’est plus acceptée, vous pouvez essayer d’appeler une opération de données avec la clé d’accès au compte. L’exemple suivant tente de créer un conteneur à l’aide de la clé d’accès. Cet appel échoue quand l’autorisation avec clé partagée est désactivée pour le compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
@@ -213,6 +212,13 @@ Quand l’accès avec clé partagée est désactivé pour le compte de stockage,
 | SAP de service | Clé partagée | La demande est refusée pour tous les services de stockage Azure. |
 | SAP de compte | Clé partagée | La demande est refusée pour tous les services de stockage Azure. |
 
+Les métriques et la journalisation Azure dans Azure Monitor ne font pas la distinction entre les différents types de signatures d’accès partagé. Le filtre **SAP** dans Azure Metrics Explorer et le champ **SAP** dans la journalisation d’Azure Storage dans Azure Monitor signalent tous deux les demandes autorisées avec n’importe quel type de SAP. Toutefois, les différents types de signatures d’accès partagé sont autorisés de manière différente et se comportent différemment lorsque l’accès avec clé partagée est désactivé :
+
+- Un jeton SAP de service ou un jeton SAP de compte est autorisé avec une clé partagée, et n’est pas autorisé sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
+- Une SAP de délégation d’utilisateur est autorisée avec Azure AD, et est autorisée sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
+
+Lorsque vous évaluez le trafic vers votre compte de stockage, gardez à l’esprit que les métriques et les journaux décrits dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications) peuvent inclure des demandes effectuées avec une SAP de délégation d’utilisateur.
+
 Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
 ## <a name="consider-compatibility-with-other-azure-tools-and-services"></a>Prendre en compte la compatibilité avec d’autres outils et services Azure
@@ -238,21 +244,6 @@ Le service Stockage Azure prend en charge l’autorisation Azure AD uniquement p
 Microsoft recommande soit de migrer les données des services Azure Files ou Stockage Table vers un compte de stockage séparé avant de désactiver l’accès au compte avec une clé partagée, soit de ne pas appliquer ce paramètre aux comptes de stockage qui prennent en charge les charges de travail des services Azure Files ou Stockage Table.
 
 La désactivation de l’accès avec clé partagée pour un compte de stockage n’affecte pas les connexions SMB à Azure Files.
-
-## <a name="about-the-preview"></a>À propos de la préversion
-
-La préversion pour désactiver l’autorisation avec clé partagée est disponible dans le cloud public Azure. Elle est prise en charge pour les comptes de stockage qui utilisent uniquement le modèle de déploiement Azure Resource Manager. Pour plus d’informations sur les comptes de stockage qui utilisent le modèle de déploiement Azure Resource Manager, consultez [Types de compte de stockage](storage-account-overview.md#types-of-storage-accounts).
-
-La préversion inclut les limitations décrites dans les sections suivantes.
-
-### <a name="metrics-and-logging-report-all-requests-made-with-a-sas-regardless-of-how-they-are-authorized"></a>Les métriques et la journalisation signalent toutes les demandes effectuées avec une signature d’accès partagé, quelle que soit leur mode d’autorisation
-
-Les métriques et la journalisation Azure dans Azure Monitor ne font pas la distinction entre les différents types de signatures d’accès partagé dans la préversion. Le filtre **SAP** dans Azure Metrics Explorer et le champ **SAP** dans la journalisation d’Azure Storage dans Azure Monitor signalent tous deux les demandes autorisées avec n’importe quel type de SAP. Toutefois, les différents types de signatures d’accès partagé sont autorisés de manière différente et se comportent différemment lorsque l’accès avec clé partagée est désactivé :
-
-- Un jeton SAP de service ou un jeton SAP de compte est autorisé avec une clé partagée, et n’est pas autorisé sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
-- Une SAP de délégation d’utilisateur est autorisée avec Azure AD, et est autorisée sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
-
-Lorsque vous évaluez le trafic vers votre compte de stockage, gardez à l’esprit que les métriques et les journaux décrits dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications) peuvent inclure des demandes effectuées avec une SAP de délégation d’utilisateur. Pour plus d’informations sur la façon dont le service Stockage Azure répond à une signature d’accès partagé quand la propriété **AllowSharedKeyAccess** est définie sur **false**, consultez [Comprendre comment la désactivation de la clé partagée affecte les jetons SAP](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

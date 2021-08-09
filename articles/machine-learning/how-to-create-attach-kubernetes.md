@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 904074759d2b8f197a0df0377071e95203fabba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373172"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901604"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ Azure Machine Learning peut déployer des modèles Machine Learning entraînés 
 
     Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load Balancer.
 
-- Lorsque vous **attachez** un cluster AKS, il doit se trouver dans le même abonnement Azure que votre espace de travail Azure Machine Learning.
+- > Pour attacher un cluster AKS à partir d’un __autre abonnement Azure__, vous (votre compte Azure AD) devez disposer du rôle **Contributeur** sur le cluster AKS. Vérifiez votre accès dans le [portail Azure](https://ms.portal.azure.com/).
 
 - Si vous voulez utiliser un cluster AKS privé (avec Azure Private Link), vous devez d’abord créer le cluster, puis l’**attacher** à l’espace de travail. Pour plus d’informations, consultez [Créer un cluster Azure Kubernetes Service privé](../aks/private-clusters.md).
 

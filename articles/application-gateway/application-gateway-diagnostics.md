@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2571706d3b1341d6eb3751e50b699043b376767
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: f35a32370f2c5aba0ea3c3e0ea84b739942ceb30
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320652"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457940"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -222,7 +222,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |sslProtocol| Protocole SSL/TLS utilisé (si TLS est activé).|
 |serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
 |serverStatus| Code d’état HTTP du serveur back-end.|
-|serverResponseLatency| Latence de la réponse du serveur back-end.|
+|serverResponseLatency| Latence de la réponse (en **secondes**) du serveur back-end.|
 |host| Adresse figurant dans l’en-tête d’hôte de la demande. Si elle est réécrite en utilisant la réécriture d’en-tête, ce champ contient le nom d’hôte mis à jour.|
 |originalRequestUriWithArgs| Ce champ contient l’URL de la requête HTTP d’origine. |
 |requestUri| Ce champ contient l’URL après l’opération de réécriture sur Application Gateway. |
@@ -243,13 +243,13 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
         "httpVersion": "HTTP/1.0",
         "receivedBytes": 65,
         "sentBytes": 553,
-        "timeTaken": 205,
+        "timeTaken": "0.012",
         "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
-        "serverResponseLatency": "0.023",
+        "serverResponseLatency": "0.012",
         "host": "www.contoso.com",
     }
 }

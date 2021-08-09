@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: bbb996362df1f99a8702de310bc11f6828cc303a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008448"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560867"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -108,6 +108,9 @@ Si vous souhaitez utiliser des en-têtes pour contrôler la mise en cache, consu
 
 Si vous envisagez d’héberger un site web dans plusieurs zones géographiques, nous vous recommandons d’utiliser un [réseau de distribution de contenu](../../cdn/index.yml) pour la mise en cache régionale. Utilisez [Azure Front Door](../../frontdoor/index.yml) si vous souhaitez proposer un contenu différent dans chaque région. Il fournit également des fonctionnalités de basculement. [Azure Traffic Manager](../../traffic-manager/index.yml) n’est pas recommandé si vous envisagez d’utiliser un domaine personnalisé. Des problèmes peuvent survenir en raison de la manière dont le stockage Azure vérifie les noms des domaines personnalisés.
 
+## <a name="permissions"></a>Autorisations
+
+L’autorisation permettant d’activer le site web statique est Microsoft.Storage/storageAccounts/blobServices/clé en écriture ou partagée.  Les rôles intégrés qui fournissent cet accès incluent le Contributeur de compte de stockage.  
 
 ## <a name="pricing"></a>Tarifs
 

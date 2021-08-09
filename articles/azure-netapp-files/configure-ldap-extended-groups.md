@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 05/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 680563e0688d11e02f79f3c184b38d5a80bafeb0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311530"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480354"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS
 
@@ -86,6 +86,8 @@ Cet article explique les considérations et les étapes à suivre pour activer l
     Vous pouvez gérer les attributs POSIX à l’aide du composant logiciel enfichable MMC Utilisateurs et ordinateurs Active Directory. L'exemple suivant illustre l’Éditeur d’attributs Active Directory :  
 
     ![Éditeur d’attributs Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+    Pour plus d’informations, consultez [Accéder à l’éditeur d’attribut Active Directory](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) .  
 
 5. Si vous souhaitez configurer un client Linux NFSv4.1 intégré à LDAP, consultez [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md).
 

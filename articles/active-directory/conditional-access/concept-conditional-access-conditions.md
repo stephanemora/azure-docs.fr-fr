@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/18/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59664a0b5127e9fde8f2890cd396bec120eff29d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e0aaac1c52a2def624f8bc8736219685458ad42
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330654"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070284"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -82,9 +82,9 @@ Lorsqu’il est réglé sur **Oui**, le bouton bascule **Configuration** s’app
       -  Cette option inclut les applications comme les applications de bureau et de téléphone Office.
 - Clients d’authentification hérités
    - Clients Exchange ActiveSync
-      - Cela inclut toute utilisation du protocole EAS (Exchange ActiveSync).
+      - Cette sélection inclut toute utilisation du protocole EAS (Exchange ActiveSync).
       - Si une stratégie bloque l’utilisation d’Exchange ActiveSync, l’utilisateur concerné reçoit un e-mail de mise en quarantaine. Cet e-mail contient des informations sur la raison du blocage et fournit éventuellement des instructions de correction.
-      - Les administrateurs peuvent appliquer la stratégie uniquement aux plateformes prises en charge (par exemple, iOS, Android et Windows) via l’API MS Graph d’accès conditionnel.
+      - Les administrateurs peuvent appliquer la stratégie uniquement aux plateformes prises en charge (par exemple, iOS, Android et Windows) via l’API Microsoft Graph d’accès conditionnel.
    - Autres clients
       - Cette option inclut les clients qui utilisent des protocoles d’authentification de base/hérités qui ne prennent pas en charge l’authentification moderne.
          - SMTP authentifié : utilisé par les clients POP et IMAP pour envoyer des e-mails.
@@ -157,7 +157,7 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 | Application Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS et Android |
 | Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Exchange Online | Windows 10 |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications | Android et iOS |
-| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
+| Services Microsoft Teams, cette application cliente contrôle tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
 | Applications Office 2016, Office 2013 (avec authentification moderne), [client de synchronisation OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
 | Applications Office 2016, Universal Office, Office 2013 (avec authentification moderne), [client de synchronisation OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote uniquement). | SharePoint | macOS |
@@ -195,6 +195,13 @@ Une organisation peut utiliser la condition État de l’appareil pour exclure d
 
 Par exemple, *Tous les utilisateurs* qui accèdent à l’application cloud *Microsoft Azure Management*, incluant **Tous les états d’appareils**, mais excluant **Appareil joint à une version hybride d’Azure AD** et **Appareil marqué comme conforme**, et pour *Contrôles d’accès*, **Bloquer**. 
    - Cet exemple crée une stratégie qui autorise l’accès à Microsoft Azure Management uniquement à partir d’appareils avec jointure hybride Azure AD ou d’appareils marqués comme étant conformes.
+
+> [!IMPORTANT]
+> L’état de l’appareil et les filtres pour appareils ne peuvent pas être utilisés ensemble dans la stratégie d’accès conditionnel. Les filtres pour appareils fournissent un ciblage plus granulaire, incluant la prise en charge du ciblage des informations d’état des appareils via les propriétés `trustType` et `isCompliant`.
+
+## <a name="filters-for-devices-preview"></a>Filtres pour appareils (préversion)
+
+Il existe une nouvelle condition facultative dans l’accès conditionnel, appelée Filtres pour appareils. Lors de la configuration des filtres pour appareils comme condition, les organisations peuvent choisir d’inclure ou d’exclure des appareils en fonction de filtres à l’aide d’une expression de règle sur les propriétés de l’appareil. L’expression de règle pour les filtres pour appareils peut être créée à l’aide du générateur de règles ou de la syntaxe de règle. Cette expérience est semblable à celle utilisée pour les règles d’appartenance dynamiques pour les groupes. Pour plus d’informations, consultez l’article [Accès conditionnel : filtres pour appareils (préversion)](concept-condition-filters-for-devices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

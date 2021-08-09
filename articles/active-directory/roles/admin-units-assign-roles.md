@@ -9,23 +9,32 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24bf5df84015ada6b62c35fdd29571c66e06ebd
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 932fc71617846f2839767546a8fac00a3d16008c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505256"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792252"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Attribuer des rôles dont l’étendue est délimitée à une unité administrative
 
 Dans Azure Active Directory (Azure AD), pour un contrôle administratif plus précis, vous pouvez assigner des utilisateurs à un rôle Azure AD dont l’étendue est limitée à une ou plusieurs unités administratives.
 
-Pour vous préparer à utiliser PowerShell et Microsoft Graph pour la gestion des unités administratives, consultez [Prise en main](admin-units-manage.md#get-started).
+## <a name="prerequisites"></a>Prérequis
+
+- Licence Azure AD Premium P1 ou P2 pour chaque administrateur d'unité administrative
+- Licences Azure AD gratuites pour les membres de l'unité administrative
+- Administrateur de rôle privilégié ou Administrateur général
+- Module AzureAD (avec PowerShell)
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
+
+Pour plus d'informations, consultez [Prérequis pour utiliser PowerShell ou de l'Afficheur Graph](prerequisites.md).
+
 
 ## <a name="available-roles"></a>Rôles disponibles
 
@@ -33,7 +42,7 @@ Role  |  Description
 ----- |  -----------
 Administrateur d’authentification  |  A accès à l’affichage, à la définition et à la réinitialisation des informations de la méthode d’authentification pour tous les utilisateurs non administrateurs à l’intérieur de l’unité administrative affectée uniquement.
 Administrateur de groupes  |  Peut gérer tous les aspects des groupes et des paramètres de groupes, tels que les stratégies d’affectation de noms et d’expiration, dans l’unité administrative attribuée uniquement.
-Administrateur du support technique  |  Peut réinitialiser les mots de passe des non-administrateurs et des administrateurs du support technique à l’intérieur de l’unité administrative affectée uniquement.
+Administrateur du support technique  |  Peut réinitialiser les mots de passe des non-administrateurs et des Administrateurs du support technique au sein de l'unité administrative affectée uniquement.
 Administrateur de licence  |  Peut attribuer, supprimer et mettre à jour des affectations de licence à l’intérieur de l’unité administrative uniquement.
 Administrateur de mots de passe  |  Peut réinitialiser les mots de passe des non-administrateurs et des administrateurs de mots de passe à l’intérieur de l’unité administrative affectée uniquement.
 Administrateur d'utilisateurs  |  Peut gérer tous les aspects des utilisateurs et des groupes, notamment la réinitialisation des mots de passe pour les administrateurs limités à l’intérieur de l’unité administrative affectée uniquement.
@@ -50,7 +59,7 @@ Les principaux de sécurité suivants peuvent être affectés à un rôle avec u
 
 Vous pouvez attribuer un rôle étendu à l’aide du portail Azure, de PowerShell ou de Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
@@ -69,7 +78,7 @@ Vous pouvez attribuer un rôle étendu à l’aide du portail Azure, de PowerShe
 > [!Note]
 > Pour attribuer un rôle à une unité administrative à l’aide d’Azure AD Privileged Identity Management (PIM), consultez [Attribuer des rôles Azure AD dans PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -82,7 +91,7 @@ Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -R
 
 Vous pouvez modifier la section en surbrillance selon les besoins de l’environnement spécifique.
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Requête
 
@@ -105,7 +114,7 @@ Corps
 
 Vous pouvez afficher la liste des administrateurs étendus à l’aide du portail Azure, de PowerShell ou de Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 Vous pouvez afficher toutes les attributions de rôles créées avec une étendue d’unité administrative dans la [section Unités administratives d’Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
@@ -115,7 +124,7 @@ Vous pouvez afficher toutes les attributions de rôles créées avec une étendu
 
 1. Sélectionnez **Rôles et administrateurs**, puis ouvrez un rôle pour afficher les affectations dans l’unité administrative.
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
@@ -124,7 +133,7 @@ Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
 
 Vous pouvez modifier la section en surbrillance selon les besoins de votre environnement spécifique.
 
-### <a name="use-microsoft-graph"></a>Utiliser Microsoft Graph
+### <a name="microsoft-graph-api"></a>API Microsoft Graph
 
 Requête
 

@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
-ms.date: 02/16/2020
+ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 971a6474b3e48f70c1e4e96a784bf1d92709cf71
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b8ccc8eb55031f583eba24368fca66e0943124b1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885215"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064843"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -62,20 +62,6 @@ Avant de tenter d’utiliser Triton pour votre propre modèle, il est important 
 
 :::image type="content" source="./media/how-to-deploy-with-triton/triton-deploy.png" alt-text="Déploiement de Inferenceconfig avec Triton uniquement, sans aucun intergiciel Python":::
 
-**Déploiement de configuration de l’inférence avec Triton**
-
-* Plusieurs rôles de travail [Gunicorn](https://gunicorn.org/) démarrent pour gérer simultanément les requêtes entrantes.
-* Les requêtes sont transmises au **serveur Triton**. 
-* Triton traite les requêtes par lots pour optimiser l’utilisation du GPU.
-* Le client utilise l’__URI de scoring Azure Machine Learning__ pour effectuer des requêtes. Par exemple : `https://myservice.azureml.net/score`.
-
-:::image type="content" source="./media/how-to-deploy-with-triton/inference-config-deploy.png" alt-text="Déploiement avec Triton et un intergiciel Python":::
-
-Le flux de travail pour l’utilisation de Triton pour votre modèle de déploiement est le suivant :
-
-1. Servez votre modèle avec Triton directement.
-1. Vérifiez que vous pouvez envoyer des requêtes à votre modèle déployé par Triton.
-1. (Facultatif) Créer une couche d’intergiciel Python pour le pré-traitement et le post-traitement côté serveur
 
 ## <a name="deploying-triton-without-python-pre--and-post-processing"></a>Déploiement de Triton sans le pré-traitement ni le post-traitement de Python
 
@@ -118,30 +104,16 @@ az ml model register -n my_triton_model -p models --model-framework=Multi
 
 Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ml/model).
 
-Lors de l’inscription du modèle dans Azure Machine Learning, la valeur du paramètre `--model-path  -p` doit être le nom du dossier parent du Triton.  
+Lors de l’inscription du modèle dans Azure Machine Learning, la valeur du paramètre `--model-path  -p` doit être le nom du dossier parent du référentiel de modèles Triton.
 Dans l'exemple ci-dessus, `--model-path` est « models ».
 
-La valeur du paramètre `--name  -n`, « my_triton_model » dans l’exemple, est le nom du modèle connu pour l’espace de travail Azure Machine Learning. 
+La valeur du paramètre `--name  -n`, `my_triton_models` dans l’exemple, est le nom du modèle connu pour l’espace de travail Azure Machine Learning. 
 
 # <a name="python"></a>[Python](#tab/python)
 
 
-```python
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=register-model)]
 
-from azureml.core.model import Model
-
-model_path = "models"
-
-model = Model.register(
-    model_path=model_path,
-    model_name="bidaf-9-tutorial",
-    tags={"area": "Natural language processing", "type": "Question-answering"},
-    description="Question answering from ONNX model zoo",
-    workspace=ws,
-    model_framework=Model.Framework.MULTI,  # This line tells us you are registering a Triton model
-)
-
-```
 Pour plus d’informations, consultez la documentation sur la [classe Model](/python/api/azureml-core/azureml.core.model.model).
 
 ---
@@ -158,29 +130,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 
 # <a name="python"></a>[Python](#tab/python)
 
-```python
-from azureml.core.webservice import AksWebservice
-from azureml.core.model import InferenceConfig
-from random import randint
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=deploy-webservice)]
 
-service_name = "triton-webservice"
-
-config = AksWebservice.deploy_configuration(
-    compute_target_name="aks-gpu",
-    gpu_cores=1,
-    cpu_cores=1,
-    memory_gb=4,
-    auth_enabled=True,
-)
-
-service = Model.deploy(
-    workspace=ws,
-    name=service_name,
-    models=[model],
-    deployment_config=config,
-    overwrite=True,
-)
-```
 ---
 
 [Pour plus d’informations sur le déploiement de modèles, consultez cette documentation](how-to-deploy-and-where.md).
@@ -191,24 +142,20 @@ Tout d’abord, récupérez l’URI de scoring et les jetons du porteur.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-
 ```azurecli
 az ml service show --name=triton-webservice
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-```python
-import requests
-
-print(service.scoring_uri)
-print(service.get_keys())
-
-```
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=get-keys)]
 
 ---
 
 Ensuite, vérifiez que votre service est en cours d’exécution avec : 
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
 ```{bash}
 !curl -v $scoring_uri/v2/health/ready -H 'Authorization: Bearer '"$service_key"''
 ```
@@ -227,132 +174,14 @@ Cette commande renvoie des informations similaires aux suivantes. Notez le `200 
 < HTTP/1.1 200 OK
 HTTP/1.1 200 OK
 ```
-
-Après avoir effectué un contrôle d’intégrité, vous pouvez créer un client et envoyer des données à Triton pour l’inférence. Pour plus d’informations sur la création d’un client, consultez les [exemples de clients](https://aka.ms/nvidia-client-examples) dans la documentation NVIDIA. Il existe également des exemples [Python dans le GitHub Triton](https://aka.ms/nvidia-triton-docs).
-
-À ce stade, si vous ne souhaitez pas ajouter le pré-traitement et le post-traitement Python à votre service web déployé, vous avez peut-être terminé là votre travail. Si vous voulez ajouter cette logique de pré- et de post-traitement, continuez votre lecture.
-
-## <a name="optional-re-deploy-with-a-python-entry-script-for-pre--and-post-processing"></a>(Facultatif) Redéploiement à l’aide d’un script d’entrée Python pour le pré- et le post-traitement
-
-Après avoir vérifié que le Triton est capable de servir votre modèle, vous pouvez ajouter du code de pré-traitement et de post-traitement en définissant un _script d’entrée_. Ce fichier est nommé `score.py`. Pour plus d’informations sur le script d’entrée, consultez [Définir le code d’entrée](how-to-deploy-and-where.md#define-an-entry-script).
-
-Les deux étapes principales sont l’initialisation d’un client HTTP Triton dans votre méthode `init()` et l’appel de ce client dans votre fonction `run()`.
-
-### <a name="initialize-the-triton-client"></a>Initialiser le client Triton
-
-Incluez un code comme l’exemple suivant dans votre fichier `score.py`. Triton dans Azure Machine Learning s’attend à être traité sur localhost, port 8000. Dans ce cas, localhost se trouve à l’intérieur de l’image de Docker pour ce déploiement, et non un port sur votre ordinateur local :
-
-> [!TIP]
-> Le package PIP `tritonhttpclient` est inclus dans l’environnement `AzureML-Triton` organisé. Il n’est donc pas nécessaire de le spécifier en tant que dépendance PIP.
-
-```python
-import tritonhttpclient
-
-def init():
-    global triton_client
-    triton_client = tritonhttpclient.InferenceServerClient(url="localhost:8000")
-```
-
-### <a name="modify-your-scoring-script-to-call-into-triton"></a>Modifiez votre script de scoring pour appeler Triton
-
-L’exemple suivant montre comment demander dynamiquement les métadonnées du modèle :
-
-> [!TIP]
-> Vous pouvez demander dynamiquement les métadonnées des modèles qui ont été chargés avec Triton à l’aide de la méthode `.get_model_metadata` du client Triton. Pour obtenir un exemple d’utilisation, consultez les [exemples de notebooks](https://aka.ms/triton-aml-sample).
-
-```python
-input = tritonhttpclient.InferInput(input_name, data.shape, datatype)
-input.set_data_from_numpy(data, binary_data=binary_data)
-
-output = tritonhttpclient.InferRequestedOutput(
-         output_name, binary_data=binary_data, class_count=class_count)
-
-# Run inference
-res = triton_client.infer(model_name,
-                          [input]
-                          request_id='0',
-                          outputs=[output])
-
-```
-
-<a id="redeploy"></a>
-
-### <a name="redeploy-with-an-inference-configuration"></a>Redéployer avec une configuration d’inférence
-
-Une configuration d’inférence vous permet d’utiliser un script d’entrée, ainsi que le processus de déploiement Azure Machine Learning à l’aide du kit de développement logiciel (SDK) Python ou de Azure CLI.
-
-> [!IMPORTANT]
-> Vous devez spécifier le `AzureML-Triton` [d’environnement curé](./resource-curated-environments.md).
->
-> L’exemple de code Python clone `AzureML-Triton` dans un autre environnement appelé `My-Triton`. Le code Azure CLI utilise également cet environnement. Pour plus d’informations sur le clonage d’un environnement, consultez la référence [Environnement.Clone()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-).
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-> [!TIP]
-> Pour plus d’informations sur la création d’une configuration d'inférence, consultez [Schéma de configuration de l’inférence](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
-
-```azurecli
-az ml model deploy -n triton-densenet-onnx \
--m densenet_onnx:1 \
---ic inference-config.json \
--e My-Triton --dc deploymentconfig.json \
---overwrite --compute-target=aks-gpu
-```
-
 # <a name="python"></a>[Python](#tab/python)
 
-```python
-from azureml.core.webservice import LocalWebservice
-from azureml.core import Environment
-from azureml.core.model import InferenceConfig
-
-
-local_service_name = "triton-bidaf-onnx"
-env = Environment.get(ws, "AzureML-Triton").clone("My-Triton")
-
-for pip_package in ["nltk"]:
-    env.python.conda_dependencies.add_pip_package(pip_package)
-
-inference_config = InferenceConfig(
-    entry_script="score_bidaf.py",  # This entry script is where we dispatch a call to the Triton server
-    source_directory=os.path.join("..", "scripts"),
-    environment=env
-)
-
-local_config = LocalWebservice.deploy_configuration(
-    port=6789
-)
-
-local_service = Model.deploy(
-    workspace=ws,
-    name=local_service_name,
-    models=[model],
-    inference_config=inference_config,
-    deployment_config=local_config,
-    overwrite=True)
-
-local_service.wait_for_deployment(show_output = True)
-print(local_service.state)
-# Print the URI you can use to call the local deployment
-print(local_service.scoring_uri)
-```
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=query-service)]
 
 ---
 
-Après le déploiement, l’URI de scoring s’affiche. Pour ce déploiement local, ce sera `http://localhost:6789/score`. Si vous déployez sur le Cloud, vous pouvez utiliser la commande CLI [az ml service show](/cli/azure/ml/service#az_ml_service_show) pour récupérer l’URI de scoring.
 
-Pour plus d’informations sur la création d’un client qui envoie des demandes d’inférence à l’URI de score, consultez [Consommer un modèle déployé en tant que service Web](how-to-consume-web-service.md).
-
-### <a name="setting-the-number-of-workers"></a>Définition du nombre de workers
-
-Pour définir le nombre de workers dans votre déploiement, définissez la variable d’environnement `WORKER_COUNT`. Étant donné que vous avez un objet [Environnement](/python/api/azureml-core/azureml.core.environment.environment) nommé `env`, vous pouvez procéder comme suit :
-
-```{py}
-env.environment_variables["WORKER_COUNT"] = "1"
-```
-
-Cela indique à Azure ML d’activer le nombre de workers que vous spécifiez.
-
+Après avoir effectué un contrôle d’intégrité, vous pouvez créer un client et envoyer des données à Triton pour l’inférence. Pour plus d’informations sur la création d’un client, consultez les [exemples de clients](https://aka.ms/nvidia-client-examples) dans la documentation NVIDIA. Il existe également des exemples [Python dans le GitHub Triton](https://aka.ms/nvidia-triton-docs).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -366,17 +195,14 @@ az ml service delete -n triton-densenet-onnx
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-```python
-local_service.delete()
-```
-
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
 ## <a name="troubleshoot"></a>Dépanner
 
 * [Résoudre les problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md), découvrez comment dépanner et résoudre les erreurs courantes que vous pouvez rencontrer lors du déploiement d’un modèle.
 
-* Si les journaux de déploiement indiquent que le **démarrage de TritonServer a échoué**, consultez la [documentation open source de Nvidia](https://github.com/triton-inference-server/server).
+* Si les journaux de déploiement indiquent que le **démarrage de TritonServer a échoué**, consultez la [documentation open source de Nvidia.](https://github.com/triton-inference-server/server)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

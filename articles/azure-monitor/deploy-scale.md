@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: cc55cd17a547b9c63f2c26479d5797fae016d8d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 422ba2ecaed8803a49c0a82b85d821d3f55c9bbd
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044066"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071978"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy
 Même si certaines fonctionnalités Azure Monitor sont configurées une fois pour toutes ou un nombre de fois limité, pour d’autres, l’opération doit être répétée pour chacune des ressources que vous voulez superviser. Cet article décrit des méthodes pour implémenter Azure Monitor à la bonne échelle avec Azure Policy et garantir une configuration cohérente et précise de la supervision pour toutes vos ressources Azure.
@@ -41,6 +41,29 @@ Pour consulter les définitions de stratégie intégrées en rapport avec la sup
 3. Pour **Type**, sélectionnez *Intégré* pour **Catégorie**, sélectionnez *Supervision*.
 
   ![Capture d’écran de la page de définitions d’Azure Policy dans le Portail Azure montrant une liste de définitions de stratégie pour la catégorie Supervision et le type Intégré.](media/deploy-scale/builtin-policies.png)
+
+## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (préversion)
+L’[agent Azure Monitor](agents/azure-monitor-agent-overview.md) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles Azure et les remet à Azure Monitor. Il utilise des [règles de collecte de données](agents/data-collection-rule-overview.md) pour configurer les données à récupérer depuis chaque agent, ce qui permet de gérer plus facilement les paramètres de collecte à grande échelle tout en gardant des configurations délimitées et uniques pour des sous-ensembles de machines.  
+Utilisez les stratégies et les initiatives de stratégie ci-dessous pour installer automatiquement l’agent et l’associer à une règle de collecte de données, chaque fois que vous créez une machine virtuelle.
+
+### <a name="built-in-policy-initiatives"></a>Initiatives de stratégie intégrées
+Consultez les prérequis pour l’installation de l’agent [ici](agents/azure-monitor-agent-install.md#prerequisites). 
+
+Il existe des initiatives de stratégie pour les machines virtuelles Windows et Linux comportant des stratégies individuelles qui
+- Installent l’extension de l’agent Azure Monitor sur la machine virtuelle
+- Créent et déploient l’association pour lier la machine virtuelle à une règle de collecte des données
+
+  ![Capture d’écran partielle des définitions Azure Policy illustrant deux initiatives de stratégie intégrée pour la configuration de l’agent Azure Monitor.](media/deploy-scale/built-in-ama-dcr-initiatives.png)  
+
+### <a name="built-in-policy"></a>Stratégie intégrée  
+Vous pouvez choisir d’utiliser les stratégies individuelles en fonction de vos besoins, à partir de l’initiative de stratégie correspondante. Par exemple, si vous ne souhaitez installer automatiquement que l’agent, utilisez tout simplement la première stratégie à partir de l’initiative, comme indiqué ci-dessous :  
+
+  ![Capture d’écran partielle de la page des définitions Azure Policy illustrant les stratégies contenues dans l’initiative pour la configuration de l’agent Azure Monitor.](media/deploy-scale/built-in-ama-dcr-policy.png)  
+
+### <a name="remediation"></a>Correction
+Les initiatives ou les stratégies s’appliquent à chaque machine virtuelle au moment où elle est créée. Une [tâche de correction](../governance/policy/how-to/remediate-resources.md) déploie les définitions de stratégie dans l’initiative sur les **ressources existantes**, ce qui vous permet de configurer l’agent Azure Monitor pour toutes les ressources qui ont déjà été créées. Quand vous créez l’affectation à partir du portail Azure, vous avez la possibilité de créer une tâche de correction en même temps. Pour plus d’informations sur la correction, consultez [Corriger les ressources non conformes avec Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
+![Correction d’initiative pour AMA](media/deploy-scale/built-in-ama-dcr-remediation.png)
 
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic

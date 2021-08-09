@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/14/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5f78b70599d6d0ae8825accf4cc55cdc1c01d9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9d5f47b6f1552c769a7827eeebfb46dc79d8a75
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861236"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077793"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Utiliser le rapport des connexions pour examiner les événements Azure AD Multi-Factor Authentication
 
@@ -31,6 +31,7 @@ Le rapport de connexion vous fournit des informations sur l’utilisation des ap
 
 - La connexion a-t-elle été protégée avec l’authentification multifacteur ?
 - Comment l’utilisateur a-t-il effectué l’authentification multifacteur ?
+- Quelles méthodes d’authentification ont été utilisées lors d’une connexion ?
 - Pourquoi l’utilisateur était-il incapable d’effectuer l’authentification multifacteur ?
 - Combien d’utilisateurs sont-ils invités à utiliser l’authentification multifacteur ?
 - Combien d’utilisateurs n’ont pas pu résoudre le défi de l’authentification multifacteur ?
@@ -43,13 +44,39 @@ Pour afficher le rapport d’activité de connexion dans le [portail Azure](http
 1. Sous l’onglet *Activité* dans le menu de gauche, sélectionnez **Connexions**.
 1. Une liste des événements de connexion s’affiche, incluant leurs états. Vous pouvez sélectionner un événement pour afficher plus d’informations.
 
-    Les onglets *Détails d’authentification* ou *Accès conditionnel* de l’événement montrent le code d’état ou la stratégie qui a déclenché l’invite MFA.
+    Les onglets **Détails d’authentification** ou **Accès conditionnel** de l’événement montrent le code d’état ou la stratégie qui a déclenché l’invite MFA.
 
     [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Si elle est disponible, l’authentification apparaît. Par exemple : message texte, notification d’application Microsoft Authenticator ou appel téléphonique.
 
-Les informations suivantes s’affichent sur la fenêtre *Détails d’authentification* pour un événement de connexion qui indique si la requête MFA a été satisfaite ou refusée :
+L’onglet **Informations sur l’authentification** fournit les informations suivantes pour chaque tentative d’authentification :
+
+- Une liste des stratégies d’authentification appliquées (par exemple, l’accès conditionnel, l’authentification multifacteur par utilisateur, les valeurs par défaut de sécurité)
+- La séquence des méthodes d’authentification utilisées pour la connexion
+- Si la tentative d’authentification a réussi ou non
+- Les raisons de la réussite ou de l’échec de la tentative d’authentification
+
+Ces informations permettent aux administrateurs de dépanner chaque étape de la connexion d’un utilisateur et de suivre :
+
+- Le volume des connexions protégées par l’authentification multifacteur 
+- L’utilisation et le taux de réussite de chaque méthode d’authentification 
+- L’utilisation de méthodes d’authentification sans mot de passe (par exemple, la connexion par téléphone sans mot de passe, FIDO2 et Windows Hello Entreprise) 
+- La fréquence à laquelle les exigences d’authentification sont satisfaites par des revendications de jeton (où les utilisateurs ne sont pas invités de manière interactive à entrer un mot de passe, à entrer un mot de passe à usage unique par SMS, etc.)
+
+Lorsque vous affichez le rapport des connexions, sélectionnez l’onglet **Informations sur l’authentification** : 
+
+![Capture d’écran de l’onglet Informations sur l’authentification](media/howto-mfa-reporting/auth-details-tab.png)
+
+>[!NOTE]
+>Le **code de vérification OATH** est consigné comme méthode d’authentification pour les jetons matériels et logiciels OATH (par exemple, l’application Microsoft Authenticator).
+
+>[!IMPORTANT]
+>L’onglet **Informations sur l’authentification** peut initialement afficher des données incomplètes ou inexactes, jusqu’à ce que les informations du journal soient entièrement agrégées. Voici quelques exemples connus : 
+>- Un message **Satisfaite par une revendication dans le jeton** s’affiche de manière incorrecte lors de la journalisation initiale des événements de connexion. 
+>- La ligne **Authentification principale** n’est pas initialement consignée. 
+
+Les informations suivantes s’affichent sur la fenêtre **Détails d’authentification** pour un événement de connexion qui indique si la requête MFA a été satisfaite ou refusée :
 
 * Si l’authentification multifacteur a été réussie, cette colonne fournit plus d’informations sur la façon dont l’authentification multifacteur a été satisfaite.
    * achevée dans le cloud
@@ -108,11 +135,7 @@ Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -an
 Identifiez les méthodes de sortie et les utilisateurs inscrits :
 
 ```powershell
-Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
-
-@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
-
-@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
 ## <a name="downloaded-activity-reports-result-codes"></a>Codes résultats des rapports d’activité téléchargés
@@ -167,6 +190,7 @@ Le tableau suivant peut vous aider à détecter les problèmes liés aux événe
 | FAILED_AUTH_RESULT_TIMEOUT | Délai d’expiration du résultat de l’authentification | L’utilisateur a mis trop de temps pour traiter la tentative de Multi-Factor Authentication. |
 | FAILED_AUTHENTICATION_THROTTLED | Authentification limitée | La tentative de Multi-Factor Authentication a été limitée par le service. |
 
+
 ## <a name="additional-mfa-reports"></a>Rapports MFA supplémentaires
 
 Les informations et les rapports supplémentaires suivants sont disponibles pour les événements MFA, y compris ceux du serveur MFA :
@@ -177,6 +201,7 @@ Les informations et les rapports supplémentaires suivants sont disponibles pour
 | Utilisation des composants locaux | Azure AD > Sécurité > MFA > Rapport d’activité | Fournit des informations sur l’utilisation globale du serveur MFA via l’extension NPS, ADFS et le serveur MFA. |
 | Historique de l'utilisateur contourné | Azure AD > Security > MFA > Contournement à usage unique | Fournit un historique des requêtes du serveur MFA pour contourner l’authentification multifacteur pour un utilisateur. |
 | État du serveur | Azure AD > Sécurité > MFA > État du serveur | Affiche l’état des serveurs MFA associés à votre compte. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,15 +3,15 @@ title: Gestion d’une ressource Datadog – Solutions partenaires Azure
 description: Cet article décrit la gestion d’une ressource Datadog sur le portail Azure. Comment configurer l’authentification unique, supprimer une organisation Confluent et obtenir de l’assistance.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e964fd436795e19cc77a25efa95de5f6fcac87ca
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046349"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652433"
 ---
 # <a name="manage-the-datadog-resource"></a>Gestion d’une ressource Datadog
 
@@ -130,6 +130,16 @@ Le portail récupère l’application Datadog appropriée à partir d’Azure Ac
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigurez l’application d’authentification unique." border="true":::
  
+## <a name="change-plan"></a>Modifier le plan
+
+Pour modifier le plan de facturation Datadog, accédez à **Vue d’ensemble**, puis sélectionnez **Modifier le plan**.
+
+:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Sélectionnez Modifier le plan de facturation Datadog." border="true":::
+
+Le portail récupère tous les plans Datadog disponibles pour votre locataire. Sélectionnez le plan approprié, puis cliquez sur **Modifier le plan**.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Sélectionnez le plan de facturation Datadog à modifier." border="true":::
+  
 ## <a name="disable-or-enable-integration"></a>Désactiver ou activer l’intégration
 
 Vous pouvez arrêter d’envoyer des journaux et des métriques d’Azure vers Datadog. Vous continuerez à être facturé pour les autres services Datadog qui ne sont pas liés à la supervision des métriques et des journaux.
@@ -151,12 +161,6 @@ Accédez à la **Vue d’ensemble** dans le volet gauche et sélectionnez **Supp
 Si une seule ressource Datadog est mappée à une organisation Datadog, les journaux et les métriques ne sont plus envoyés à Datadog. L’ensemble de la facturation s’arrête pour Datadog via la Place de marché Azure.
 
 Si plusieurs ressources Datadog sont mappées à l’organisation Datadog, la suppression de la ressource Datadog entraîne uniquement l’arrêt de l’envoi des journaux et des métriques pour cette ressource Datadog. Étant donné que l’organisation Datadog est liée à d’autres ressources Azure, la facturation continue via la Place de marché Azure.
-
-## <a name="getting-support"></a>Obtention d’une assistance
-
-Pour contacter le support technique de l’intégration de Datadog dans Azure, sélectionnez **Nouvelle demande de support** dans le volet gauche. Sélectionnez le lien vers le portail Datadog.
-
-:::image type="content" source="media/manage/support-request.png" alt-text="Créer une nouvelle demande de support" border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

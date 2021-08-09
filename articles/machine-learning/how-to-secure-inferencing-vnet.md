@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/23/2020
+ms.date: 05/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 610ab82bfc4665fbb30aa3d3bc0448fa9338689c
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 23caf21da3914dfa1af18ab96ec7cfe52e944f1c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872548"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069754"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -61,25 +61,29 @@ Pour utiliser un cluster AKS dans un réseau virtuel, les exigences réseau suiv
 Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
 
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/), puis sélectionnez votre abonnement et votre espace de travail.
+1. Sélectionnez __Calcul__ sur la gauche, __Clusters d’inférence__ à partir du centre, puis sélectionnez __+ Nouveau__.
 
-1. Sélectionnez __Compute__ à gauche.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference.png" alt-text="Capture d’écran de la boîte de dialogue Créer un cluster d’inférence":::
 
-1. Sélectionnez __Clusters d'inférence__ à partir du centre, puis sélectionnez __+__ .
+1. Dans la boîte de dialogue __Créer un cluster d’inférence__, sélectionnez __Créer__ et la taille de la machine virtuelle à utiliser pour le cluster. Enfin, sélectionnez __Suivant__.
 
-1. Dans la boîte de dialogue __Nouveau cluster d'inférence__, sélectionnez __Avancé__ sous __Configuration réseau__.
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-vm.png" alt-text="Capture d’écran des paramètres de machine virtuelle":::
 
-1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, procédez comme suit :
+1. Dans la section __Configurer les paramètres__, entrez un __nom de calcul__, sélectionnez l’__objectif du cluster__, le __nombre de nœuds__, puis sélectionnez __Avancé__ pour afficher les paramètres réseau. Dans la zone __Configurer le réseau virtuel__, définissez les valeurs suivantes :
 
-    1. Dans la liste déroulante __Groupe de ressources__, sélectionnez le groupe de ressources qui contient le réseau virtuel.
-    1. Dans la liste déroulante __Réseau virtuel__, sélectionnez le réseau virtuel qui contient le sous-réseau.
-    1. Dans la liste déroulante __Sous-réseau__, sélectionnez le sous-réseau.
-    1. Dans la __plage d’adresses de service Kubernetes__, entrez la plage d’adresses du service Kubernetes. Cette plage d’adresses utilise une plage d’adresses IP de notation CIDR (Classless Inter-Domain Routing) pour définir les adresses IP disponibles pour le cluster. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau (par exemple, 10.0.0.0/16).
-    1. Dans la zone __plage d’adresses IP du service DNS Kubernetes__, entrez l’adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes (par exemple, 10.0.0.10).
-    1. Dans la zone __adresse du pont Docker__, entrez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes (par exemple, 172.17.0.1/16).
+    * Définissez le __réseau virtuel__ à utiliser.
 
-   ![Azure Machine Learning : Paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+        > [!TIP]
+        > Si votre espace de travail utilise un point de terminaison privé pour se connecter au réseau virtuel, le champ de sélection __Réseau virtuel__ est grisé.
 
-1. Quand vous déployez un modèle en tant que service web sur AKS, un point de terminaison de scoring est créé pour gérer les demandes d’inférence. Vérifiez que le groupe de sécurité réseau qui contrôle le réseau virtuel dispose d’une règle de sécurité du trafic entrant activée pour l’adresse IP du point de terminaison de scoring si vous souhaitez l’appeler en dehors du réseau virtuel.
+    * Définissez le __sous-réseau__ dans lequel créer le cluster.
+    * Dans le champ __Plage d’adresses du service Kubernetes__, entrez la plage d’adresses du service Kubernetes. Cette plage d’adresses utilise une plage d’adresses IP de notation CIDR (Classless Inter-Domain Routing) pour définir les adresses IP disponibles pour le cluster. Elle ne doit empiéter sur aucune plage d’adresses IP de sous-réseau (par exemple, 10.0.0.0/16).
+    * Dans le champ __Plage d’adresses IP du service DNS Kubernetes__, entrez l’adresse IP du service DNS Kubernetes. Cette adresse IP est affectée au service DNS Kubernetes. Elle doit se situer dans la plage d’adresses du service Kubernetes (par exemple, 10.0.0.10).
+    * Dans le champ __Adresse du pont Docker__, entrez l’adresse du pont Docker. Cette adresse IP est affectée au pont Docker. Elle ne doit appartenir à aucune plage d’adresses IP de sous-réseau, ni à la plage d’adresses du service Kubernetes (par exemple, 172.18.0.1/16).
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-settings.png" alt-text="Capture d’écran de la configuration des paramètres réseau":::
+
+1. Quand vous déployez un modèle en tant que service web sur AKS, un point de terminaison de scoring est créé pour gérer les demandes d’inférence. Vérifiez que le groupe de sécurité réseau (NSG) qui contrôle le réseau virtuel dispose d’une règle de sécurité du trafic entrant activée pour l’adresse IP du point de terminaison de scoring si vous souhaitez l’appeler en dehors du réseau virtuel.
 
     Pour trouver l’adresse IP du point de terminaison de scoring, examinez l’URI de scoring pour le service déployé. Pour plus d’informations sur l’affichage de l’URI de scoring, consultez [Consommer un modèle déployé en tant que service web](how-to-consume-web-service.md#connection-information).
 
@@ -154,9 +158,6 @@ Il existe deux approches pour isoler le trafic vers et depuis le cluster AKS en 
 * __Cluster AKS privé__ : Cette approche utilise Azure Private Link pour sécuriser les communications avec le cluster pour les opérations de déploiement et de gestion.
 * __Équilibreur de charge AKS interne__ : Cette approche configure le point de terminaison de vos déploiements sur AKS pour utiliser une adresse IP privée dans le réseau virtuel.
 
-> [!WARNING]
-> L’équilibreur de charge interne ne fonctionne pas avec un cluster AKS qui utilise kubenet. Si vous souhaitez utiliser un équilibreur de charge interne et un cluster AKS privé en même temps, configurez votre cluster AKS privé avec Azure Container Networking Interface (CNI). Pour plus d’informations, consultez [Configurer la mise en réseau d’Azure CNI dans Azure Kubernetes Service](../aks/configure-azure-cni.md).
-
 ### <a name="private-aks-cluster"></a>Cluster AKS privé
 
 Les clusters AKS par défaut ont un plan de contrôle (ou un serveur d’API) avec des adresses IP publiques. Vous pouvez configurer AKS pour utiliser un plan de contrôle privé en créant un cluster AKS privé. Pour plus d’informations, consultez [Créer un cluster Azure Kubernetes Service privé](../aks/private-clusters.md).
@@ -218,10 +219,18 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-> [!IMPORTANT]
-> L’interface CLI vous permet uniquement de créer un cluster AKS avec un équilibreur de charge interne. Il n’existe aucune commande AZ ML pour mettre à niveau un cluster existant afin d’utiliser un équilibreur de charge interne.
+Pour mettre à niveau un cluster AKS existant afin d’utiliser un équilibreur de charge interne, utilisez la commande suivante :
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
+```azurecli
+az ml computetarget update aks \
+                           -n myaks \
+                           --load-balancer-subnet mysubnet \
+                           --load-balancer-type InternalLoadBalancer \
+                           --workspace-name myworkspace \
+                           -g myresourcegroup
+```
+
+Pour plus d’informations, consultez la référence [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) et [az ml computetarget update aks](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_aks).
 
 ---
 

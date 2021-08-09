@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: cdf46a5f0185e33e1e877e3682ab418a00725de2
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: a8356b863323511951ddd5eae463e0f07d65e61c
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012544"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061971"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertes et incidents de sécurité dans Azure Security Center
 
@@ -22,7 +22,7 @@ Les alertes de sécurité sont déclenchées par des détections avancées et so
 
 ## <a name="what-are-security-alerts-and-security-incidents"></a>Définition des alertes de sécurité et des incidents de sécurité 
 
-Les **alertes** sont les notifications générées par Security Center lorsqu’il détecte des menaces pesant sur des ressources. Security Center hiérarchise et répertorie les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des suggestions sur la manière dont vous pouvez corriger les problèmes liés à une attaque.
+Les **alertes** sont les notifications générées par Security Center lorsqu’il détecte des menaces pesant sur des ressources. Security Center hiérarchise et répertorie les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des instructions détaillées pour vous aider à parer les attaques. Les données d’alerte sont conservées pendant 90 jours.
 
 Un **incident de sécurité** est une collection d’alertes apparentées, par opposition à une présentation individuelle des alertes. Security Center utilise la [corrélation des alertes intelligentes cloud](#cloud-smart-alert-correlation-in-azure-security-center-incidents) corréler divers signaux de faible fidélité et alertes dans des incidents de sécurité.
 
@@ -73,20 +73,23 @@ Security Center affecte un degré de gravité aux alertes pour vous aider à hi�
 > [!NOTE]
 > La gravité des alertes s’affiche différemment dans le portail et les versions de l’API REST antérieures au 01-01-2019. Si vous utilisez une ancienne version de l’API, effectuez une mise à niveau pour bénéficier de l’expérience cohérente décrite ci-dessous.
 
-| severity          | Réponse recommandée      |
-|---|---|
-| **Importante**          | il est fort probable que votre ressource ait été compromise. Vous devez étudier le problème immédiatement. Security Center est très confiant quant à l’intention malveillante et aux constats à l’origine de l’alerte. Par exemple, une alerte qui détecte l’exécution d’un outil malveillant connu, tel que Mimikatz, un outil couramment utilisé pour dérober des informations d’identification.                                                                                                               |
-| **Moyenne**        | il s’agit probablement d’une activité suspecte susceptible d’indiquer qu’une ressource est compromise. Le niveau de confiance de Security Center dans l’analyse et la recherche est moyen, tandis le niveau de confiance quant à l’intention malveillante est moyen ou élevé. Il s’agit généralement de détections basées sur des anomalies ou l’apprentissage automatique. Par exemple, une tentative de connexion depuis un emplacement anormal.                                                                                                                |
+| severity          | Réponse recommandée                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Importante**          | il est fort probable que votre ressource ait été compromise. Vous devez étudier le problème immédiatement. Security Center est très confiant quant à l’intention malveillante et aux constats à l’origine de l’alerte. Par exemple, une alerte qui détecte l’exécution d’un outil malveillant connu, tel que Mimikatz, un outil couramment utilisé pour dérober des informations d’identification.                                                                                                           |
+| **Moyenne**        | il s’agit probablement d’une activité suspecte susceptible d’indiquer qu’une ressource est compromise. Le niveau de confiance de Security Center dans l’analyse et la recherche est moyen, tandis le niveau de confiance quant à l’intention malveillante est moyen ou élevé. Il s’agit généralement de détections basées sur des anomalies ou l’apprentissage automatique. Par exemple, une tentative de connexion depuis un emplacement anormal.                                                                                                            |
 | **Faible**           | cela peut être un positif sans gravité ou une attaque bloquée. Security Center n’est pas suffisamment confiant sur le fait que l’intention soit malveillante. L’activité est peut-être innocente. Par exemple, l’effacement des journaux est une action qui peut se produire lorsqu’un pirate tente de masquer ses traces, mais, dans de nombreux cas, il s’agit d’une opération de routine effectuée par les administrateurs. Security Center n’indique généralement pas les attaques bloquées, sauf s’il s’agit d’un cas qu’il peut être intéressant d’examiner. |
-| **Informational** | Un incident est généralement constitué de plusieurs alertes, dont certaines peuvent apparaître individuellement à titre d’information seulement, mais mériter un examen plus approfondi dans le contexte des autres alertes.                                                                                                                         |
+| **Informational** | Un incident est généralement constitué de plusieurs alertes, dont certaines peuvent apparaître individuellement à titre d’information seulement, mais mériter un examen plus approfondi dans le contexte des autres alertes.                                                                                                                                                                                                                                                               |
+|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## <a name="export-alerts"></a>Exporter les alertes
 
 Vous disposez d’une gamme d’options pour l’affichage de vos alertes en dehors de Security Center, notamment :
 
 - **Télécharger le rapport CSV** dans le tableau de bord des alertes fournit une exportation ponctuelle au format CSV.
-- L’**exportation continue** dans Tarification et paramètres vous permet de configurer des flux d’alertes et de recommandations de sécurité vers les espaces de travail Log Analytics et Event Hubs. [En savoir plus sur l’exportation continue.](continuous-export.md)
-- Le **connecteur Azure Sentinel** diffuse des alertes de sécurité d’Azure Security Center vers Azure Sentinel. [En savoir plus sur la connexion d’Azure Security Center à Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- L’**exportation continue** dans Tarification et paramètres vous permet de configurer des flux d’alertes et de recommandations de sécurité vers les espaces de travail Log Analytics et Event Hubs. [En savoir plus sur l’exportation continue](continuous-export.md).
+- Le **connecteur Azure Sentinel** diffuse des alertes de sécurité d’Azure Security Center vers Azure Sentinel. [En savoir plus sur la connexion d’Azure Security Center à Azure Sentinel](../sentinel/connect-azure-security-center.md).
+
+En savoir plus sur toutes les options d’exportation dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md) et [Exporter en continu des données Security Center](continuous-export.md).
 
 ## <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Corrélation des alertes intelligentes cloud dans Azure Security Center (incidents)
 

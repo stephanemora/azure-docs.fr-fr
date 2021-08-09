@@ -2,13 +2,13 @@
 title: Configurer un VPN de site à site dans un WAN virtuel pour Azure VMware Solution
 description: Apprenez à établir un tunnel VPN (IPsec IKEv1 et IKEv2) site à site dans Azure VMware Solution.
 ms.topic: how-to
-ms.date: 03/23/2021
-ms.openlocfilehash: 4d410a94b822db8eeed0ba166908c804a1a6eaaa
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.date: 06/11/2021
+ms.openlocfilehash: f3fbd3d9507e0203bc58494c2c1a748f1be7e585
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802771"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112021401"
 ---
 # <a name="configure-a-site-to-site-vpn-in-vwan-for-azure-vmware-solution"></a>Configurer un VPN de site à site dans un WAN virtuel pour Azure VMware Solution
 
@@ -17,8 +17,11 @@ Dans cet article, nous allons suivre les étapes permettant d’établir un tunn
 :::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png" alt-text="Diagramme montrant l’architecture du tunnel de site à site VPN." border="false":::
 
 Dans ce guide pratique, vous allez :
+
 - Créer un hub Azure Virtual WAN et une passerelle VPN à laquelle est rattachée une IP publique. 
+
 - Créer une passerelle Azure ExpressRoute et établir un point de terminaison Azure VMware Solution. 
+
 - Activer une configuration VPN locale basée sur des stratégies. 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -67,15 +70,22 @@ Vous devez disposer d’une IP publique se terminant sur un périphérique VPN
  
 3. Sous l’onglet **Informations de base**, renseignez les champs obligatoires. 
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Capture d’écran de l’onglet Informations de base pour le nouveau site VPN.":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics2.png" alt-text="Capture d’écran de l’onglet Informations de base pour le nouveau site VPN." lightbox="media/create-ipsec-tunnel/create-vpn-site-basics2.png":::  
 
-   1. Définissez **Border Gateway Protocol** sur **Activer**.  Lorsqu’il est activé, il garantit qu’Azure VMware Solution et les serveurs locaux publient leurs itinéraires à travers le tunnel. Si elle est désactivée, les sous-réseaux devant être publiés doivent être gérés manuellement. Si les sous-réseaux manquent, HCX ne parviendra pas à former la maille de services. Pour plus d’informations, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   1. Sélectionnez la **Région** dans la liste.
+
+   1. Fournissez un **Nom** pour le VPN site à site.
+
+   1. Précisez le **Fournisseur d’appareils** de l’appareil VPN local, par exemple Cisco.
    
-   1. Pour l’**espace d’adressage privé**, entrez le bloc CIDR local. Il est utilisé pour acheminer tout le trafic lié local sur le tunnel. Le bloc CIDR n’est requis que si vous n’activez pas BGP.
+   1. Fournissez l’**Espace d’adressage privé**. Utilisez le bloc CIDR local pour router tout le trafic à destination de l’environnement local à travers le tunnel. Le bloc CIDR est requis uniquement si vous ne [configurez pas BGP (Border Gateway Protocol) sur les passerelles VPN Azure](../vpn-gateway/bgp-howto.md)
 
-1. Sélectionnez **Suivant : Liens** et renseignez les champs obligatoires. La spécification de noms de liens et de fournisseurs vous permet de faire la distinction entre un nombre quelconque de passerelles susceptibles d’être créées dans le cadre du hub. BGP et le numéro de système autonome (ASN) doivent être uniques au sein de votre organisation.
+1. Sélectionnez **Suivant : Liens** et renseignez les champs obligatoires. La spécification de noms de liens et de fournisseurs vous permet de faire la distinction entre un nombre quelconque de passerelles susceptibles d’être créées dans le cadre du hub.  [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) et le numéro de système autonome (ASN) doivent être uniques au sein de votre organisation. BGP garantit qu’Azure VMware Solution et les serveurs locaux publient leurs routes à travers le tunnel. Si elle est désactivée, les sous-réseaux devant être publiés doivent être gérés manuellement. Si les sous-réseaux manquent, HCX ne parvient pas à former la maille de services. 
+ 
+   >[!IMPORTANT]
+   >Par défaut, Azure affecte automatiquement une adresse IP privée de la plage de préfixes GatewaySubnet en tant qu’adresse IP BGP Azure sur la passerelle VPN Azure. L’adresse BGP Azure APIPA personnalisée est nécessaire lorsque vos appareils VPN locaux utilisent une adresse APIPA (169.254.0.1 à 169.254.255.254) comme adresse IP BGP. La passerelle VPN Azure choisit l’adresse APIPA personnalisée si la ressource de passerelle de réseau local correspondante (réseau local) a une adresse APIPA en tant qu’adresse IP d’homologue BGP. Si la passerelle de réseau local utilise une adresse IP normale (non APIPA), la passerelle VPN Azure revient à l’adresse IP privée de la plage GatewaySubnet.
 
-   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Capture d’écran montrant les détails du lien.":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-links.png" alt-text="Capture d’écran montrant les détails du lien." lightbox="media/create-ipsec-tunnel/create-vpn-site-links.png":::
 
 1. Sélectionnez **Revoir + créer**. 
 
@@ -97,8 +107,11 @@ Les configurations VPN basées sur des stratégies nécessitent que les réseau
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Capture d’écran de la page dans Azure du site du hub Virtual WAN mettant en évidence les points de suspension qui permettent d’accéder à Modifier la connexion VPN à ce hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Modifiez la connexion entre le site VPN et le hub, puis sélectionnez **Enregistrer**.
+
    - Sécurité du protocole Internet (IPSec), sélectionnez **Personnalisé**.
+
    - Utilisez le sélecteur de trafic basé sur des stratégies, sélectionnez **Activer**
+
    - Spécifiez les détails pour **IKE Phase 1** et **IKE Phase 2 (IPSec)** . 
  
    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Capture d’écran de la page Modifier la connexion VPN."::: 
@@ -106,7 +119,9 @@ Les configurations VPN basées sur des stratégies nécessitent que les réseau
    Les sélecteurs de trafic ou les sous-réseaux qui font partie du domaine de chiffrement basé sur des stratégies doivent être :
     
    - Hub Virtual WAN `/24`
+
    - Cloud privé Azure VMware Solution `/22`
+
    - Réseau virtuel Azure connecté (le cas échéant)
 
 ## <a name="step-5-connect-your-vpn-site-to-the-hub"></a>Étape 5. Connexion de votre site VPN au hub
@@ -144,8 +159,11 @@ Les configurations VPN basées sur des stratégies nécessitent que les réseau
       :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Capture d’écran de la page ExpressRoute pour le cloud privé, avec mise en évidence de l’option Utiliser la clé d’autorisation.":::
 
    1. Collez la clé d’autorisation dans le champ **Clé d’autorisation**.
+
    1. Collez l’ID ExpressRoute dans le champ **URI du circuit pair**. 
+
    1. Cochez la case **Associez automatiquement ce circuit ExpressRoute au hub**. 
+
    1. Sélectionnez **Ajouter** pour établir le lien. 
 
 5. Testez votre connexion en [créant un segment NSX-T](./tutorial-nsx-t-network-segment.md) et en provisionnant une machine virtuelle sur le réseau. Effectuez un test Ping à la fois sur les points de terminaison Azure VMware Solution et sur les points de terminaison locaux.

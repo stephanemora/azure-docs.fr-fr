@@ -3,12 +3,12 @@ title: Notes de publication d’Azure Video Analyzer - Azure
 description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus d’Azure Video Analyzer.
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: ffb6381fafd4aabed3bd27b14f4778d23fa7441e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: ef1c395bb10000599f901e62cf77b3573146aeee
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386080"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591221"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Notes de publication d’Azure Video Analyzer
 
@@ -23,13 +23,30 @@ Cet article vous fournit des informations sur :
 
 <hr width=100%>
 
+## <a name="june-3-2021"></a>3 juin 2021
+
+Cette balise de version pour l’actualisation de juillet 2021 du module est
+
+```
+     mcr.microsoft.com/media/video-analyzer:1.0.1
+```
+> [!NOTE]
+> Dans les démarrages rapides et les tutoriels, les manifestes de déploiement utilisent une balise 1 (video-analyzer:1). Par conséquent, le simple redéploiement de tels manifestes doit mettre à jour le module sur vos appareils périphériques quand de nouvelles balises sont publiées.
+
+### <a name="module-updates"></a>Mises à jour de module
+* Prend en charge les caractères unicode dans les informations d’identification pour la connexion à une caméra RTSP
+* Mises à jour pour activer les journaux détaillés en mode débogage
+
+<hr width=100%>
+
 ## <a name="may-25-2021"></a>25 mai 2021
 
 Cette version est la première préversion publique d’Azure Video Analyzer. La balise de version est
 
 ```
-     mcr.microsoft.com/media/video-analyzer:1.0.0
+mcr.microsoft.com/media/video-analyzer:1.0.0
 ```
+
 > [!NOTE]
 > Dans les démarrages rapides et les tutoriels, les manifestes de déploiement utilisent une balise 1 (video-analyzer:1). Par conséquent, le simple redéploiement de tels manifestes doit mettre à jour le module sur vos appareils périphériques quand de nouvelles balises sont publiées.
 
