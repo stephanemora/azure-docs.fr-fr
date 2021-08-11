@@ -82,8 +82,6 @@
           href: howto-sspr-windows.md
     - name: "Authentification multifacteur Azure\_AD"
       items:
-        - name: Guide de planification
-          href: concept-mfa-plan.md
         - name: Guide de déploiement
           href: howto-mfa-getstarted.md
         - name: Configurer les paramètres
@@ -272,7 +270,7 @@
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-active-directory.html
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+      href: 'https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing'
     - name: Mises à jour de service
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow

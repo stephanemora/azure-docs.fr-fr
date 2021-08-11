@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
-ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: 0f295a2c628a7ca931287463a75ad441bc40ee24
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566701"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214949"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -60,7 +60,7 @@ Dans Azure Data Factory, les services liés définissent les informations de con
     ![Portail 3](media/lab-data-flow-data-share/portal3.png)
 1. Vous êtes redirigé vers la page d’accueil de l’expérience utilisateur ADF. Cette page contient des guides de démarrage rapide, des vidéos pédagogiques et des liens vers des tutoriels pour apprendre les concepts liés à la fabrique de données. Pour commencer la création, cliquez sur l’icône en forme de crayon dans la barre latérale gauche.
 
-    ![Configuration du portail](media/lab-data-flow-data-share/configure1.png)
+    ![Configuration du portail](./media/doc-common-process/get-started-page-author-button.png)
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
 

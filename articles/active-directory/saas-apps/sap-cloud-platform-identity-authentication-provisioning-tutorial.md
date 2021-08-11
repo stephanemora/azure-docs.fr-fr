@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer SAP Cloud Platform Identity Authentication pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur sur SAP Cloud Platform Identity Authentication.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: 419f25ee3df471bc2fc4526254f5677b8bd71856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a02b767a097ec2d826f44ac5975063b681242ad1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96342729"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759549"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutoriel : Configurer SAP Cloud Platform Identity Authentication pour le provisionnement automatique d’utilisateurs
 

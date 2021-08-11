@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 9aa394cda245bd3a457a16c19660bfe08553d14d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a4544b2ec632f763fdc2324f1323881ff4947f3e
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058882"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595222"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quelles sont les comparaisons entre les fonctionnalités des produits d’Azure CDN ?
 
@@ -53,7 +53,7 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque prod
 | Prise en charge HTTPS avec un point de terminaison CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTPS sur un domaine personnalisé](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** , Nécessite un CNAME direct pour l’activation |**&#x2713;** |**&#x2713;** |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrage géographique](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Filtrage géographique](cdn-restrict-access-by-country-region.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Jeton d’authentification](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Protection DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Apportez votre propre certificat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |

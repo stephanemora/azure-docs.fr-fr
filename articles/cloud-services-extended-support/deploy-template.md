@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 7c013cbaf8a64d12b132e3dd4c599920bd3f6a2a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 10ebb60caed4bb42bb8e8d8351b465d692eaaf0a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736107"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445090"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
@@ -456,6 +456,6 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-- Consultez les [questions fréquentes (FAQ)](faq.md) concernant Cloud Services (support étendu).
+- Consultez les [questions fréquentes (FAQ)](faq.yml) concernant Cloud Services (support étendu).
 - Déployez un service cloud (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
 - Visitez le [dépôt d’exemples de Cloud Services (support étendu)](https://github.com/Azure-Samples/cloud-services-extended-support).

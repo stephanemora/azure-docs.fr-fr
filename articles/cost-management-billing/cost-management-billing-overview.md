@@ -4,17 +4,17 @@ description: Vous utilisez les fonctionnalités d’Azure Cost Management + Fact
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8eb040183f1a207410c5e093009878845a61f261
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050531"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768488"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -75,10 +75,6 @@ Les recommandations vous montrent comment optimiser et améliorer votre efficaci
 
 Si vous utilisez des systèmes externes pour accéder ou consulter les données de gestion des coûts, vous pouvez facilement exporter les données à partir d’Azure. Vous pouvez également définir une exportation planifiée quotidienne au format CSV et stocker les fichiers de données dans le stockage Azure. Ensuite, vous pouvez accéder aux données à partir de votre système externe.
 
-### <a name="cloudyn-deprecation"></a>Dépréciation de Cloudyn
-
-Cloudyn est un service Azure lié à Cost Management, qui sera déprécié d’ici la fin de l’année 2020. Les fonctionnalités existantes de Cloudyn sont intégrées directement au portail Azure dans la mesure du possible. Aucun nouveau client n’est actuellement intégré pour le moment. Cependant, le produit restera pris en charge jusqu’à ce qu’il soit complètement déprécié.
- 
 ### <a name="additional-azure-tools"></a>Autres outils Azure
 
 Azure dispose d’autres outils qui ne font pas partie de l’ensemble des fonctionnalités d’Azure Cost Management + Facturation. Toutefois, ils jouent un rôle important dans le processus de gestion des coûts. Pour en savoir plus sur ces outils, consultez les liens suivants.

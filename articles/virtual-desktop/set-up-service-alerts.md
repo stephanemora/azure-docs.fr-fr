@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e867901fb90e4e6d6c3a6b8fa7ca6cd28a5e7178
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: da6923d77c866d7123599dc9f242dd18f45964eb
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755930"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033836"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutoriel : Configurer des alertes de service
 
@@ -35,7 +35,7 @@ Cette section vous montre comment configurer Azure Service Health et définir de
 
 Nous vous recommandons de créer des alertes de service pour les types d’événements d’intégrité suivants :
 
-- **Problème de service** : recevez des notifications sur les problèmes majeurs qui impactent la connectivité de vos utilisateurs par rapport au service ou la gestion de votre locataire Azure Virtual Desktop.
+- **Problème de service** : recevez des notifications en cas de problèmes majeurs ayant un impact sur la connectivité de vos utilisateurs par rapport au service ou à la capacité à gérer votre locataire Azure Virtual Desktop.
 - **Avis d’intégrité :** Recevez des notifications qui nécessitent votre attention. Voici quelques exemples de ce type de notification :
     - Des machines virtuelles (VM) n’étant pas configurées de façon sûre avec le port 3389 ouvert
     - Dépréciation de fonctionnalité
@@ -50,7 +50,7 @@ Pour configurer des alertes de service :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez découvert comment configurer et utiliser Azure Service Health afin de superviser les problèmes de service et les alertes d’intégrité pour Azure Virtual Desktop. Pour en savoir plus sur la connexion à Azure Virtual Desktop, passez aux guides pratiques de connexion à Azure Virtual Desktop.
+Dans ce tutoriel, vous avez découvert comment configurer et utiliser Azure Service Health pour superviser les problèmes de service et les avis d’intégrité pour Azure Virtual Desktop. Pour en savoir plus sur la connexion à Azure Virtual Desktop, passez aux guides pratiques Se connecter à Azure Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](./connect-windows-7-10.md)
+> [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](./user-documentation/connect-windows-7-10.md)

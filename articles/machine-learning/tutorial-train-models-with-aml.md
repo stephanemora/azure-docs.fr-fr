@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python, contperf-fy21q4
-ms.openlocfilehash: 544b3ac4702f8ecaa66735f8e0b836cc6f004f42
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: d1ad8e4af0d3fdb0abb95fc12ec4a445afabbb1f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028250"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459241"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>Tutoriel : Entraîner un modèle de classification d’images avec un exemple Jupyter Notebook 
 
@@ -33,7 +33,7 @@ Découvrez comment effectuer les actions suivantes :
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le kit [SDK Azure Machine Learning](/python/api/overview/azure/ml/intro) version 1.13.0.

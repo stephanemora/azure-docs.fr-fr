@@ -150,7 +150,7 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Résolution des problèmes
+    - name: Dépannage
       href: how-to-troubleshoot-dps.md
 - name: Informations de référence
   items:
@@ -189,7 +189,7 @@
         - name: Accélérateurs de solution IoT
           href: ../iot-accelerators/index.yml
         - name: IoT Plug-and-Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
         - name: Time Series Insights

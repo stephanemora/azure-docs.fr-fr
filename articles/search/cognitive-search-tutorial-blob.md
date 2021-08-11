@@ -2,18 +2,17 @@
 title: 'Tutoriel : REST et IA sur les objets blob Azure'
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de texte et de traitement en langage naturel sur du contenu dans Stockage Blob en utilisant Postman et les API REST de Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: cc1be51c506123ae18d0006be693b100f2e5af1b
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555989"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727131"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser REST et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -113,7 +112,7 @@ Cependant, dans le cadre de cet exercice, vous pouvez ignorer le provisionnement
 
 Le troisième composant est Recherche cognitive Azure, que vous pouvez [créer dans le portail](search-create-service-portal.md). Vous pouvez utiliser le niveau gratuit pour effectuer cette procédure pas à pas. 
 
-Comme avec Stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
+Comme pour le service Stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
 
 ### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copier une clé API d’administration et une URL pour Recherche cognitive Azure
 
@@ -200,7 +199,7 @@ Un [objet Ensemble de compétences](/rest/api/searchservice/create-skillset) est
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [

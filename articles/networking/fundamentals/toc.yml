@@ -12,6 +12,10 @@
   items:
     - name: Restreindre l’accès réseau
       href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Concepts
   expanded: true
   items:
@@ -56,7 +60,7 @@
         - name: Étendre une connexion privée locale vers Azure
           href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
         - name: Connectivité Internet sortante uniquement
-          href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/nat-gateway/nat-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Sécurité du réseau
       items:
         - name: Groupes de sécurité réseau
@@ -101,7 +105,7 @@
         - name: Optimiser les coûts liés au routage
           href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
         - name: Créer une passerelle NAT pour les connexions sortantes
-          href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+          href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
         - name: Créer une zone et un enregistrement Azure DNS
           href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
         - name: Router le trafic à l’aide de tables de routage

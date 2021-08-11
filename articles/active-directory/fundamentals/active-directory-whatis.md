@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15872acea0ebb6b2f1e54c9d9d91a6f11d621fd5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b2a4a5d8591eb4c35ccf9c0957d2a26e1ff23c53
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966128"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730331"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -45,7 +45,7 @@ Les services d’entreprise Microsoft Online comme Microsoft 365 ou Microsoft A
 Pour enrichir votre implémentation Azure AD, vous pouvez ajouter des fonctionnalités payantes en procédant à une mise à niveau vers les licences Azure Active Directory Premium P1 ou Premium P2. Les licences payantes Azure AD s’appuient sur votre annuaire gratuit existant et couvrent le libre-service, la supervision améliorée, les rapports de sécurité et l’accès sécurisé pour vos utilisateurs mobiles.
 
 >[!Note]
->Pour connaître la structure de prix de ces licences, consultez les [tarifs d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+>Pour connaître la structure de prix de ces licences, consultez les [tarifs d’Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 >
 >Les éditions Azure Active Directory, Premium P1 et Premium P2 ne sont actuellement pas prises en charge en Chine. Pour plus d’informations sur les tarifs d’Azure AD, contactez le [forum Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 

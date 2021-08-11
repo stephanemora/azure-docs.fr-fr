@@ -1,14 +1,14 @@
 ---
 title: Exemples de requêtes de démarrage
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes de démarrage, notamment compter des ressources ou les trier, par exemple selon une étiquette spécifique.
-ms.date: 05/01/2021
+ms.date: 07/07/2021
 ms.topic: sample
-ms.openlocfilehash: ddb4b57a9f2bae8298de8dad74e99edc19353e42
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 146d53f0781a4783e0b8d9469be2b980d36b69fe
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751496"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487666"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph de démarrage
 
@@ -29,8 +29,6 @@ Nous allons vous guider tout au long des requêtes de démarrage suivantes :
 - [Lister tous les comptes de stockage avec une valeur d’étiquette spécifique](#list-specific-tag)
 - [Lister toutes les étiquettes et leurs valeurs](#list-all-tag-values)
 - [Afficher les groupes de sécurité réseau qui ne sont pas associés](#unassociated-nsgs)
-- [Obtenir le récapitulatif des économies d’Azure Advisor](#advisor-savings)
-- [Compter les machines dans l’étendue des stratégies de configuration d’invité](#count-gcmachines)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -538,84 +536,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 - Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a>
 - Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a>
 - Portail Azure China 21Vianet : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="get-cost-savings-summary-from-azure-advisor"></a><a name="advisor-savings"></a>Obtenir le récapitulatif des économies d’Azure Advisor
-
-Cette requête résume les économies de chaque suggestion d’[Azure Advisor](../../../advisor/advisor-overview.md).
-
-```kusto
-advisorresources
-| where type == 'microsoft.advisor/recommendations'
-| where properties.category == 'Cost'
-| extend
-    resources = tostring(properties.resourceMetadata.resourceId),
-    savings = todouble(properties.extendedProperties.savingsAmount),
-    solution = tostring(properties.shortDescription.solution),
-    currency = tostring(properties.extendedProperties.savingsCurrency)
-| summarize
-    dcount(resources),
-    bin(sum(savings), 0.01)
-    by solution, currency
-| project solution, dcount_resources, sum_savings, currency
-| order by sum_savings desc
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "advisorresources | where type == 'microsoft.advisor/recommendations' | where properties.category == 'Cost' | extend resources = tostring(properties.resourceMetadata.resourceId), savings = todouble(properties.extendedProperties.savingsAmount), solution = tostring(properties.shortDescription.solution), currency = tostring(properties.extendedProperties.savingsCurrency) | summarize dcount(resources), bin(sum(savings), 0.01) by solution, currency | project solution, dcount_resources, sum_savings, currency | order by sum_savings desc"
-```
-
-# <a name="portal"></a>[Portail](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Essayez cette requête dans l’Explorateur Azure Resource Graph :
-
-- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.com</a>
-- Portail Azure Government : <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.us</a>
-- Portail Azure China 21Vianet : <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/advisorresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0D%0A%7C%20where%20properties.category%20%3D%3D%20%27Cost%27%0D%0A%7C%20extend%0D%0A%20%20%20%20resources%20%3D%20tostring%28properties.resourceMetadata.resourceId%29%2C%0D%0A%20%20%20%20savings%20%3D%20todouble%28properties.extendedProperties.savingsAmount%29%2C%0D%0A%20%20%20%20solution%20%3D%20tostring%28properties.shortDescription.solution%29%2C%0D%0A%20%20%20%20currency%20%3D%20tostring%28properties.extendedProperties.savingsCurrency%29%0D%0A%7C%20summarize%0D%0A%20%20%20%20dcount%28resources%29%2C%20%0D%0A%20%20%20%20bin%28sum%28savings%29%2C%200.01%29%0D%0A%20%20%20%20by%20solution%2C%20currency%0D%0A%7C%20project%20solution%2C%20dcount_resources%2C%20sum_savings%2C%20currency%0D%0A%7C%20order%20by%20sum_savings%20desc" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="count-machines-in-scope-of-guest-configuration-policies"></a><a name="count-gcmachines"></a>Compter les machines dans l’étendue des stratégies de configuration d’invité
-
-Affiche le nombre de machines virtuelles Azure et de serveurs connectés ARC dans l’étendue des affectations de [configurations d’invité Azure Policy](../../policy/concepts/guest-configuration.md).
-
-```kusto
-GuestConfigurationResources
-| extend vmid = split(properties.targetResourceId,'/')
-| mvexpand properties.latestAssignmentReport.resources
-| where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.'
-| project machine = tostring(vmid[(-1)]),
-    type = tostring(vmid[(-3)])
-| distinct machine, type
-| summarize count() by type
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]) | distinct machine, type | summarize count() by type"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(properties.targetResourceId,'/') | mvexpand properties.latestAssignmentReport.resources | where properties_latestAssignmentReport_resources.resourceId != 'Invalid assignment package.' | project machine = tostring(vmid[(-1)]), type = tostring(vmid[(-3)]) | distinct machine, type | summarize count() by type"
-```
-
-# <a name="portal"></a>[Portail](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Essayez cette requête dans l’Explorateur Azure Resource Graph :
-
-- Portail Azure : <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%20%7C%20extend%20vmid%20%3D%20split(properties.targetResourceId%2C%22%2F%22)%20%7C%20mvexpand%20properties.latestAssignmentReport.resources%20%7C%20where%20properties_latestAssignmentReport_resources.resourceId%20!%3D%20'Invalid%20assignment%20package.'%20%7C%20project%20machine%20%3D%20tostring(vmid%5B(-1)%5D)%2C%20type%20%3D%20tostring(vmid%5B(-3)%5D)%20%7C%20distinct%20machine%2C%20type%20%7C%20summarize%20count()%20by%20type" target="_blank">portal.azure.com</a>
 
 ---
 

@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Rollbar pour le provisionnement automatique des utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et dé-approvisionner automatiquement des comptes d’utilisateur dans Rollbar.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: Zhchia
-ms.openlocfilehash: 79076db9de4122c19fcb03bbfc938214097e19f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: thwimmer
+ms.openlocfilehash: 8840f7d98b71e46f1c81549eef3c2d7878f96646
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181592"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766181"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutoriel : Configurer Rollbar pour le provisionnement automatique des utilisateurs
 

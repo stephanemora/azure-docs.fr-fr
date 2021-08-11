@@ -7,12 +7,12 @@ ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 6d384ea07c49a8b7936e3cdf634b9775847018f0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 125f56a6c96e37394e4e9e2565093c847e592108
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385524"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585930"
 ---
 # <a name="creating-a-client-certificate"></a>Création d’un certificat client
 
@@ -30,7 +30,8 @@ Nous vous recommandons d’utiliser OpenSSL pour générer les certificats. Si g
 Vous pouvez ensuite générer un certificat en exécutant `openssl` dans une fenêtre de terminal Bash ou PowerShell :
 
 ```bash
-openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout user_privk.pem -out user_cert.pem -subj=/CN="User Client Certificate"
+openssl ecparam -out "privkey_name.pem" -name "secp384r1" -genkey
+openssl req -new -key "privkey_name.pem" -x509 -nodes -days 365 -out "cert.pem" -"sha384" -subj=/CN="ACL Client Cert"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

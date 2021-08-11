@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 06/14/2021
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
-ms.openlocfilehash: 546e7bafe34352ff8968ce1df7cd3386f60eae59
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
+ms.openlocfilehash: 340e7f1b026605a06799dcc79f9fe99e2ad080cf
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075490"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578952"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -108,7 +108,7 @@ Plusieurs restrictions s’appliquent au format des URI de redirection que vous 
 
 ## <a name="add-credentials"></a>Ajouter les informations d’identification
 
-Les informations d’identification sont utilisées par les [applications clientes confidentielles](msal-client-applications.md) qui accèdent à une API web. Les [applications web](scenario-web-app-call-api-overview.md), les autres [API web](scenario-protected-web-api-overview.md) ou les [applications de type service et démon](scenario-daemon-overview.md) sont des exemples de clients confidentiels. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution.
+Les informations d’identification sont utilisées par les [applications clientes confidentielles](msal-client-applications.md) qui accèdent à une API web. Les applications web, les autres API web ou les applications de type service et démon sont des exemples de clients confidentiels. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution.
 
 Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant qu’informations d’identification à votre inscription d’application cliente confidentielle.
 

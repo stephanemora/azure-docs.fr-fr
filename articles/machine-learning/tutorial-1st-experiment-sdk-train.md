@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
-ms.openlocfilehash: 616723e66dceeb3c0de21b36e3af3039dafbe63e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c96936635898f9173b7eb8e60502ea059420cf0b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028268"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758860"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 2 sur 3)
 
@@ -135,10 +135,6 @@ Le code d’entraînement est tiré de [cet exemple d’introduction](https://py
 1. Vous disposez à présent de la structure de dossiers suivante :
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="La structure de répertoires affiche train.py dans le sous-répertoire src":::
-    
-
-> [!div class="nextstepaction"]
-> [J’ai créé les scripts d’entraînement](?success=create-scripts#test-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
 
 ## <a name="test-locally"></a><a name="test-local"></a> Tester localement
@@ -148,9 +144,6 @@ Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exéc
 Une fois le script exécuté, sélectionnez **Actualiser** au-dessus des dossiers de fichiers. Vous verrez le nouveau dossier de données appelé **get-started/data**. Développez ce dossier pour voir les données téléchargées.  
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="La capture d’écran des dossiers montre le dossier de données créé en exécutant le fichier localement.":::
-
-> [!div class="nextstepaction"]
-> [J’ai exécuté le code localement](?success=test-local#create-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> Créer le script de contrôle
@@ -205,10 +198,6 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [J’ai créé le script de contrôle](?success=control-script#submit) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=control-script)
-
-
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Soumettre l’exécution à Azure Machine Learning
 
 Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch.py*.
@@ -245,11 +234,6 @@ Finished Training
 > Si vous voyez une erreur `Your total snapshot size exceeds the limit`, cela signifie que le dossier **data** se trouve dans la valeur `source_directory` utilisée dans `ScriptRunConfig`.
 >
 > Sélectionnez **...** à la fin du dossier, puis sélectionnez **Déplacer** pour déplacer **data** vers le dossier **get-started**.  
-
-
-
-> [!div class="nextstepaction"]
-> [J’ai soumis l’exécution](?success=test-w-environment#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Journaliser les métriques d’entraînement
 
@@ -334,10 +318,6 @@ Les métriques de Azure Machine Learning sont :
 - Équipées d’une interface utilisateur qui vous permet de visualiser les performances de formation dans Studio.
 - Conçues pour être mises à l’échelle, vous conservez ces avantages même lorsque vous exécutez des centaines d’expériences.
 
-> [!div class="nextstepaction"]
-> [J’ai modifié train.py ](?success=modify-train#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=modify-train)
-
-
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Soumettre l’exécution à Azure Machine Learning
 
 Sélectionnez l’onglet du script *run-pytorch.py*, puis sélectionnez **Enregistrer et exécuter le script dans le terminal** pour réexécuter le script *run-pytorch.py*. 
@@ -345,9 +325,6 @@ Sélectionnez l’onglet du script *run-pytorch.py*, puis sélectionnez **Enregi
 Cette fois, quand vous accédez au studio, accédez à l’onglet **Métriques**, où vous pouvez maintenant voir les mises à jour en direct sur la perte du modèle d’entraînement ! 1 à 2 minutes sont parfois nécessaires avant le début de l’entraînement.  
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Graphe des pertes de l’entraînement dans l’onglet Métriques.":::
-
-> [!div class="nextstepaction"]
-> [J’ai resoumis l’exécution](?success=resubmit-with-logging#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

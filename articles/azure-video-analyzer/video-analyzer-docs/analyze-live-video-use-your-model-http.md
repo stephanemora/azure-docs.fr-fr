@@ -3,14 +3,14 @@ title: Analyser une vidéo en direct avec votre propre modèle - HTTP
 description: Ce guide de démarrage rapide explique comment analyser une vidéo en direct en utilisant votre propre modèle (HTTP) avec Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 1b83fd1e58d719054e2788f641d37b6340bdc0ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a587191a0e5fd80174b3d288d1a9a1d8fd1d2e82
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371819"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605230"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>Démarrage rapide : Analyser une vidéo en direct avec votre propre modèle (HTTP)
 
@@ -53,7 +53,7 @@ Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.o
 1. Cliquez avec le bouton droit sur le fichier _src/edge/deployment.yolov3.template.json_, puis sélectionnez **Générer un manifeste de déploiement IoT Edge**.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Capture d’écran de l’option Générer un manifeste de déploiement IoT Edge":::
+   > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Capture d’écran de l’option Générer un manifeste de déploiement IoT Edge":::
 
 1. Le fichier de manifeste _deployment.yolov3.amd64.json_ est créé dans le dossier _src/edge/config_.
 1. Cliquez avec le bouton droit sur _src/edge/config/deployment.yolov3.amd64.json_, puis sélectionnez **Créer un déploiement pour un seul appareil**.
@@ -73,7 +73,13 @@ Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.o
 
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
-1. Pour démarrer une session de débogage, appuyez sur la touche F5. Des messages s’affichent dans la fenêtre TERMINAL.
+1. ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. Le code operations.json commence par appeler les méthodes directes `pipelineTopologyList` et `livePipelineList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
 
    ```
@@ -127,7 +133,7 @@ Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.o
    - Un deuxième appel à `livePipelineList` qui indique que le pipeline en direct est dans l’état En cours d’exécution.
 
 1. La sortie de la fenêtre **TERMINAL** s’interrompt avec l’invite **Appuyez sur Entrée pour continuer**. Ne sélectionnez pas encore Entrée. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
-1. Basculez vers la fenêtre **SORTIE** de Visual Studio Code. Vous voyez des messages indiquant que le module Video Analyzer effectue des envois au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
+1. Basculez vers la fenêtre **SORTIE** de Visual Studio Code. Vous voyez des messages indiquant que le module Video Analyzer envoie des données au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
 1. Le pipeline continue à s’exécuter et affiche des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline, retournez à la fenêtre **TERMINAL**, puis sélectionnez Entrée.
 
    La série d’appels suivante nettoie les ressources :

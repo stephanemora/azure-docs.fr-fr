@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c0a232dc0541ea8626cdb40a9b3497a686a5ee11
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 475d7d25bf0d4a373fd2cb630ee7f2a643581b04
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074507"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090670"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -313,13 +313,13 @@ Enregistrez vos paramètres en cliquant sur **PUT**.
 
 Vos applications sont désormais configurées. Le serveur frontal est maintenant prêt à accéder au serveur principal avec un jeton d’accès approprié.
 
-Pour plus d’informations sur la configuration du jeton d’accès pour d’autres fournisseurs, consultez [Actualiser les jetons de fournisseur d’identité](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
+Pour plus d’informations sur la configuration du jeton d’accès pour d’autres fournisseurs, consultez [Actualiser les jetons de fournisseur d’identité](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Appeler une API de façon sécurisée à partir du code du serveur
 
 Dans cette étape, vous activez votre code du serveur modifié précédemment pour effectuer des appels authentifiés à l’API de serveur principal.
 
-Votre application front-end a désormais l’autorisation nécessaire et ajoute également l’ID de client du back-end aux paramètres de connexion. Par conséquent, elle peut obtenir un jeton d’accès pour l’authentification avec l’application principale. App Service fournit ce jeton dans votre code du serveur en injectant un en-tête `X-MS-TOKEN-AAD-ACCESS-TOKEN` à chaque requête authentifiée (consultez [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) (Récupérer des jetons dans le code d’application)).
+Votre application front-end a désormais l’autorisation nécessaire et ajoute également l’ID de client du back-end aux paramètres de connexion. Par conséquent, elle peut obtenir un jeton d’accès pour l’authentification avec l’application principale. App Service fournit ce jeton dans votre code du serveur en injectant un en-tête `X-MS-TOKEN-AAD-ACCESS-TOKEN` à chaque requête authentifiée (consultez [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) (Récupérer des jetons dans le code d’application)).
 
 > [!NOTE]
 > Ces en-têtes sont injectés pour tous les langages pris en charge. Vous y accédez à l’aide du modèle standard pour chaque langage respectif.
@@ -357,7 +357,7 @@ Félicitations ! Votre code du serveur accède maintenant aux données de serveu
 
 Dans cette étape, vous pointez l’application Angular.js frontale vers l’API principale. De cette manière, vous apprenez à récupérer le jeton d’accès et à effectuer des appels d’API à l’application principale avec celui-ci.
 
-Alors que le code du serveur a accès aux en-têtes de requête, le code du client peut accéder à `GET /.auth/me` pour obtenir les mêmes jetons d’accès (consultez [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) (Récupérer des jetons dans le code d’application)).
+Alors que le code du serveur a accès aux en-têtes de requête, le code du client peut accéder à `GET /.auth/me` pour obtenir les mêmes jetons d’accès (consultez [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) (Récupérer des jetons dans le code d’application)).
 
 > [!TIP]
 > Cette section utilise les méthodes HTTP standard pour illustrer les appels HTTP sécurisés. Toutefois, vous pouvez utiliser la [Bibliothèque d’authentification Microsoft pour JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) afin de simplifier le modèle d’application Angular.js.
@@ -437,7 +437,7 @@ Félicitations ! Votre code du client accède maintenant aux données de serveur
 
 ## <a name="when-access-tokens-expire"></a>Date d’expiration des jetons d’accès
 
-Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier auprès de votre application, consultez [Actualiser les jetons de fournisseur d’identité](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
+Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier auprès de votre application, consultez [Actualiser les jetons de fournisseur d’identité](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

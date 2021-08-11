@@ -3,25 +3,25 @@ title: 'Démarrage rapide : Appeler Microsoft Graph à partir d’un démon Jav
 titleSuffix: Microsoft identity platform
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment une application Java peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identités Microsoft, à l’aide de la propre identité de l’application
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 866fc8c0a44f9380dd38227d2b5a2d2b332ec8b4
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1ef66472d878d33f78ec6ef67c9d7de060f4f292
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075454"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357694"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Java à l’aide de l’identité de l’application
 
-Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application Java peut obtenir un jeton d’accès à l’aide de l’identité de l’application pour appeler l’API Microsoft Graph et afficher une [liste d’utilisateurs](/graph/api/user-list) dans l’annuaire. L’exemple de code montre comment un travail sans assistance ou un service Windows peut s’exécuter avec l’identité d’une application, au lieu de l’identité d’un utilisateur. 
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application Java peut obtenir un jeton d’accès à l’aide de l’identité de l’application pour appeler l’API Microsoft Graph et afficher une [liste d’utilisateurs](/graph/api/user-list) dans l’annuaire. L’exemple de code montre comment un travail sans assistance ou un service Windows peut s’exécuter avec l’identité d’une application, au lieu de l’identité d’un utilisateur.
 
 > [!div renderon="docs"]
 > ![Montre le fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-java-daemon/java-console-daemon.svg)

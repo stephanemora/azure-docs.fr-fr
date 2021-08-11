@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 08de0045a19b0f07308778f8716fa48abded445b
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: a3d63a65edaca68bbb60bf7b8901e341da218377
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815537"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733535"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour JavaScript (version 4)
 
@@ -238,7 +238,7 @@ async function main() {
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your key from {keyVaultName} ...");
+  console.log(`Purging your key from ${keyVaultName} ...`);
   await client.purgeDeletedKey(keyName);
   
 }

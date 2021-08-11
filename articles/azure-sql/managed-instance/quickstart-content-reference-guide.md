@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
-ms.openlocfilehash: d36a4ed5937f6478b7b58c49c1393b6169778af5
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5093dc4b3e401c90e06234b33cdd996ff4a9d781
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691491"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689695"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Bien démarrer avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ Toutefois, pour migrer votre base de données de production ou même des bases d
 - Test des performances : vous devez mesurer les métriques de performance de base sur votre instance SQL Server source et les comparer aux métriques de performance de l’instance managée SQL de destination où vous avez migré la base de données. Apprenez-en davantage sur les [meilleures pratiques en matière de comparaison des performances](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 - Migration en ligne : avec la commande `RESTORE` native décrite dans cet article, vous devez attendre que les bases de données soient restaurées (et copiées vers Stockage Blob Azure si elles ne s’y trouvent pas déjà). Il en résulte des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, utilisez [Database Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) afin de migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données SQL Managed Instance en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
 
-Apprenez-en davantage sur le [processus de migration recommandé](migrate-to-instance-from-sql-server.md).
+Apprenez-en davantage sur le [processus de migration recommandé](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

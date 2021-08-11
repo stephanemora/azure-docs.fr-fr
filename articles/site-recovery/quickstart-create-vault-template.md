@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez apprendre à créer 
 ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 8d7d62c05586032bc73c41ef671862a4aa211334
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a4905742f2c8f3d325cbe32f35e06d9aab27222d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903167"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450288"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle ARM
 
@@ -34,7 +34,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 Deux ressources Azure sont définies dans le modèle :
 
 - [Microsoft.RecoveryServices/vaults](/azure/templates/microsoft.recoveryservices/vaults) : crée le coffre.
-- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs) : configure les paramètres de redondance de sauvegarde du coffre.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs) : configure les paramètres de redondance de sauvegarde du coffre.
 
 Le modèle comprend des paramètres facultatifs pour la configuration de sauvegarde du coffre. Les paramètres de redondance de stockage sont le stockage localement redondant (LRS) ou le stockage géoredondant (GRS). Pour plus d’informations, consultez [Définir la redondance de stockage](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 

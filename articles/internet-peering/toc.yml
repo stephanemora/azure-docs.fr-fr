@@ -89,4 +89,4 @@
     - name: Questions fréquentes (FAQ) sur le peering Internet
       href: faqs.md
     - name: Questions fréquentes (FAQ) sur Peering Service
-      href: service-faqs.md
+      href: service-faqs.yml

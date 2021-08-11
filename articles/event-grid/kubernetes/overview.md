@@ -6,17 +6,17 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: a958e42f3afab3dccd2a989c9d824a37ed9d9a6c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: fdc8c60f2c2cae7368a2e35317de2cfb8274a060
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536808"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414950"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Event Grid sur Kubernetes avec Azure Arc (préversion) – Vue d’ensemble
 Cet article fournit une vue d’ensemble d’Event Grid sur Kubernetes, de cas d’usage, des fonctionnalités qu’il offre et de sa différence par rapport à Azure Event Grid.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="what-is-event-grid"></a>Qu’est-ce qu’Event Grid ?
 Event Grid est un répartiteur d’événements utilisé pour intégrer des charges de travail qui utilisent des architectures pilotées par des événements. Une architecture pilotée par des événements utilise des événements pour communiquer des occurrences dans des changements d’état du système, et constitue une approche d’intégration courante dans des architectures découplées, telles que celles qui utilisent des microservices. Event Grid offre une publication-abonnement (pub-sub), qui est également décrite comme un modèle de communication push-push où des événements sont envoyés (push) à des abonnés qui ne sont pas nécessairement conscients du serveur de publication qui les leur envoie. Ce modèle contraste avec les modèles push-pull classiques, tels que ceux qu’utilisent Azure Service Bus ou Azure Event Hubs, où les clients extraient des messages à partir de courtiers de messages et où, par conséquent, il existe un couplage plus fort entre les courtiers et les clients.

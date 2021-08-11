@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Priority Matrix pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour attribuer et retirer automatiquement des comptes d’utilisateurs sur Priority Matrix.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.author: Zhchia
-ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: faa893f02f83259e7f13be64aa076d20a0342006
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94357859"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766352"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutoriel : Configurer Priority Matrix pour l’approvisionnement automatique d’utilisateurs
 

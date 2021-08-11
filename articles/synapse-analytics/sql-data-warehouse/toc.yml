@@ -38,6 +38,8 @@
         - name: Modèle ARM
           displayName: Resource Manager
           href: quickstart-arm-template.md
+        - name: Solutions de partenaires
+          href: sql-data-warehouse-partner-browse-partners.md
     - name: Charger les données
       items:
         - name: Instruction COPY

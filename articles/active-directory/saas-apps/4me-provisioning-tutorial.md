@@ -2,8 +2,8 @@
 title: 'Tutoriel : Configurer 4me pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur 4me.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72490b729a244763cf5a3fa65a1e62128a5b28b2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998666"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765288"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutoriel : Configurer 4me pour l’attribution automatique d’utilisateurs
 

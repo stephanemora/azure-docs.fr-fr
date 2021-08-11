@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer 15Five pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateurs sur 15Five.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 00f713e8d319d7ad8dcea014429c57d7fba40541
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: e98254654bd3286cc86831941c707949a687494e
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181218"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765223"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutoriel : Configurer 15Five pour l’approvisionnement automatique d’utilisateurs
 

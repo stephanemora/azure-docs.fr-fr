@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 72cd1f4940edae175fd37b4855a5056d954ff765
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 8f52ba7008b2a7b3f7734f652c92014e110e3df4
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967166"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287795"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -41,7 +41,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
-+ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11. La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du kit JDK.     
++ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) version 8 ou 11. La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du kit JDK.     
 
 + [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 

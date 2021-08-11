@@ -12,15 +12,15 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/07/2020
+ms.date: 06/01/2021
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d91d6e528127740039e1e21ca0b4cb8635e7e10
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: d26a95a5db616be89eac89e140e20bd371088716
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569635"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580905"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,8 +59,8 @@ La plupart des fonctionnalités de SQL Server fonctionnent de façon transparent
 Il est également important de noter qu’il y a des différences de comportement entre les fonctionnalités de l’écouteur VNN et de l’écouteur DNN : 
 
 - **Temps de basculement** : Le temps de basculement est plus rapide lors de l’utilisation d’un écouteur DNN, car il n’est pas nécessaire d’attendre que l’équilibreur de charge réseau détecte l’événement de défaillance et change son routage. 
-- **Connexions existantes** : Les connexions à une *base de données spécifique* au sein d’un groupe de disponibilité de basculement qui bascule vont se fermer, mais d’autres connexions au réplica principal restent ouvertes puisque le DNN reste en ligne pendant le processus de basculement. C’est différent d’un environnement VNN traditionnel, où toutes les connexions au réplica principal se ferment généralement quand le groupe de disponibilité bascule, que l’écouteur est mis hors connexion et que le réplica principal passe au rôle secondaire. Lors de l’utilisation d’un écouteur DNN, il peut être nécessaire d’ajuster les chaînes de connexion d’application pour garantir que les connexions sont redirigées vers le nouveau réplica principal après un basculement.
-- **Transactions ouvertes** : les transactions ouvertes sur une base de données dans un groupe de disponibilité de basculement se ferment et sont défaites, et vous devez vous reconnecter *manuellement*. Par exemple, dans SQL Server Management Studio, fermez la fenêtre de requête et ouvrez-en une nouvelle. 
+- **Connexions existantes** : les connexions à une *base de données spécifique* au sein d’un groupe de disponibilité de basculement qui bascule se ferment, mais d’autres connexions au réplica principal restent ouvertes puisque le DNN reste en ligne pendant le processus de basculement. Ce comportement diffère de l’environnement VNN traditionnel, où toutes les connexions au réplica principal se ferment généralement quand le groupe de disponibilité bascule, que l’écouteur est mis hors connexion et que le réplica principal passe au rôle secondaire. Lors de l’utilisation d’un écouteur DNN, il peut être nécessaire d’ajuster les chaînes de connexion d’application pour garantir que les connexions sont redirigées vers le nouveau réplica principal après un basculement.
+- **Transactions ouvertes** : les transactions ouvertes sur une base de données dans un groupe de disponibilité de basculement se ferment et sont restaurées, et vous devez vous reconnecter *manuellement*. Par exemple, dans SQL Server Management Studio, fermez la fenêtre de requête et ouvrez-en une nouvelle. 
 
 La configuration d’un écouteur VNN dans Azure nécessite un équilibreur de charge. Il existe deux options principales pour les équilibreurs de charge dans Azure : externe (public) ou interne. L’équilibreur de charge externe (public) est accessible sur Internet et est associé à une adresse IP virtuelle publique accessible via Internet. Un équilibreur de charge interne prend en charge seulement des clients qui sont au sein du même réseau virtuel. Pour les deux types d’équilibreurs de charge, vous devez activer [Retour direct du serveur](../../../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip). 
 

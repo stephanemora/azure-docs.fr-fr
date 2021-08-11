@@ -1,20 +1,20 @@
 ---
 title: Générer une application web en utilisant l’API d’Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) .NET
 description: Cet article présente un exemple de code .NET que vous pouvez utiliser pour vous connecter à l’API d’Azure Cosmos DB pour MongoDB et pour l’interroger.
-author: markjbrown
-ms.author: mjbrown
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 387455f170d64c78ba4e1aab700a91a81bef2ed0
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 77e7b4feedc6d6d9fcc7dce589db3e75ce0bc180
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235578"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354915"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application web .NET à l’aide de l’API d’Azure Cosmos DB pour MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

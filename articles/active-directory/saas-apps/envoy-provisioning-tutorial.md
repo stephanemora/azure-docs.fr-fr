@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Envoy pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Envoy.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/3/2019
-ms.author: Zhchia
-ms.openlocfilehash: b18ec2531b26574357f56c11558f2afd84467495
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 06/28/2021
+ms.author: thwimmer
+ms.openlocfilehash: f33f9e04781344cd0bb926cecd81f31a2b645bba
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437687"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763947"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutoriel : Configurer Envoy pour l’attribution automatique d’utilisateurs
 
@@ -52,19 +52,19 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 1. Connectez-vous à la [Console d’administration Envoy](https://dashboard.envoy.com/login). Cliquez sur **Integrations** (Intégrations).
 
-    ![Intégrations d’Envoy](media/envoy-provisioning-tutorial/envoy01.png)
+    ![Intégrations d’Envoy](media/envoy-provisioning-tutorial/envoy-01.png)
 
 2. Cliquez sur l’option **Installer** correspondant à **Intégration de Microsoft Azure SCIM**.
 
-    ![Installation d’Envoy](media/envoy-provisioning-tutorial/envoy02.png)
+    ![Installation d’Envoy](media/envoy-provisioning-tutorial/integrations.png)
 
 3. Cliquez sur **Enregistrer** pour **synchroniser tous les utilisateurs**. 
 
-    ![Enregistrement d’Envoy](media/envoy-provisioning-tutorial/envoy03.png)
+    ![Enregistrement d’Envoy](media/envoy-provisioning-tutorial/microsoft-azure.png)
 
 4. Copiez le **JETON DU PORTEUR OAUTH**. Vous devrez entrer cette valeur dans le champ **Jeton secret** sous l’onglet Provisionnement de votre application Envoy dans le portail Azure.
     
-    ![OAUTH d’Envoy](media/envoy-provisioning-tutorial/envoy04.png)
+    ![OAUTH d’Envoy](media/envoy-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-envoy-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Envoy à partir de la galerie d’applications Azure AD
 
@@ -103,7 +103,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://app.envoy.com/scim/v2` dans **URL de locataire**. Entrez la valeur du **JETON DU PORTEUR OAUTH** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Envoy. Si la connexion échoue, vérifiez que votre compte Envoy dispose des autorisations d’administrateur, puis réessayez.
 
-   ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/envoy-tutorial/provisioning.png)
+   ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/envoy-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

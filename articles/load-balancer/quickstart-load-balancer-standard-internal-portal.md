@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 9f987cd99007f66540fd826a6cd14c6427ea0893
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ef20c478215eab6cff1708013b06540020d7bdb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056383"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114291220"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -270,6 +270,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Zone de disponibilité | **2** | **3** |
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant |
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 # <a name="basic-sku"></a>[**Référence De base**](#tab/option-1-create-internal-load-balancer-basic)
 
@@ -509,6 +510,8 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Nom |  **myVM2** | **myVM3** |
     | Groupe à haute disponibilité | Sélectionnez **myAvailabilitySet** | Sélectionnez **myAvailabilitySet** |
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant | Sélectionnez le groupe **myNSG** existant |
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends
 
