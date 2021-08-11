@@ -5,12 +5,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 876e30eec31918489b174aaf4eec77508b2c5a71
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98900922"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112362585"
 ---
 ## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
 
@@ -19,11 +19,11 @@ ms.locfileid: "98900922"
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Accédez aux **Sources**.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
 
 1. Sélectionnez la source de données que vous avez inscrite.
 
-1. Sélectionnez **+ Nouvelle analyse**.
+1. Sélectionnez **Nouvelle analyse**.
 
 1. Sélectionnez les informations d’identification pour vous connecter à votre source de données. 
 

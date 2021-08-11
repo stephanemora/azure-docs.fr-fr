@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 69879548be28ec02df8ba958243a97ee1925e3ae
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7dcba5490d3f341e68b07aa798e9ca0ffa1666e7
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904143"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122090"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1050-evkb-evaluation-kit-to-iot-central"></a>Démarrage rapide : Connecter un kit d’évaluation MIMXRT1050-EVKB NXP à IoT Central
 
@@ -42,11 +42,11 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Avant de configurer votre environnement de développement, vous devez cloner un référentiel GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
+Pour configurer votre environnement de développement, commencez par cloner un dépôt GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
 
-### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le référentiel pour le démarrage rapide
+### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le dépôt pour le démarrage rapide
 
-Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez précédemment cloné ce référentiel dans le cadre d’un autre démarrage rapide, il n’est pas nécessaire de recommencer.
+Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce dépôt dans le cadre d’un autre démarrage rapide, vous n’avez pas besoin de le refaire.
 
 Pour cloner le référentiel, exécutez la commande suivante :
 
@@ -56,7 +56,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Installer les outils
 
-Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans le cadre d’un autre démarrage rapide d’appareil intégré, il n’est pas nécessaire de recommencer.
+Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans le cadre d’un autre démarrage rapide d’appareil intégré, vous n’avez pas besoin de le refaire.
 
 > [!NOTE]
 > Le script d’installation installe les outils suivants :
@@ -70,7 +70,7 @@ Pour installer les outils :
 
     *getting-started\tools\get-toolchain.bat*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Cette console permet d’effectuer les tâches de programmation restantes dans le démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes décrites dans ce démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez le code suivant pour vérifier que CMake version 3.14 ou ultérieure est installé.
 
     ```shell
@@ -131,7 +131,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
 
 1. Démarrez **Termite**.
     > [!TIP]
-    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flash, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flash, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 1. Sélectionnez **Paramètres**.
 1. Dans la boîte de dialogue **Paramètres du port série**, vérifiez les paramètres suivants et mettez à jour si nécessaire :
     * **Vitesse (en bauds)**  : 115 200
@@ -226,7 +226,7 @@ Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
 ## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
 
-Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -242,7 +242,7 @@ Pour supprimer la totalité de l’exemple d’application Azure IoT Central et 
 
 Dans ce démarrage rapide, vous avez créé une image personnalisée contenant un exemple de code Azure RTOS, puis vous avez flashé l’image sur l’appareil EVK NXP. Vous avez également utilisé le portail IoT Central afin de créer des ressources Azure, connecter l’EVK NXP en toute sécurité à Azure, afficher la télémétrie et envoyer des messages.
 
-L’étape suivante consiste à explorer les articles suivants pour en savoir plus sur la façon de connecter des appareils à Azure IoT à l’aide de kits de développement logiciel (SDK) d’appareil IoT. 
+L’étape suivante consiste à explorer les articles ci-dessous pour savoir comment connecter des appareils à Azure IoT à l’aide des kits de développement logiciel (SDK) d’appareil IoT. 
 
 > [!div class="nextstepaction"]
 > [Connecter un appareil simulé à IoT Central](quickstart-send-telemetry-central.md)

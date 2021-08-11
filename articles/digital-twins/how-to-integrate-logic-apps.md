@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: ee6ebf8c115a76b19badb7d08409493b87d5b02e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d293afdcbbf99fd1a01708b537a81bad70fb1fe8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078883"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790088"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Intégrer à Logic Apps à l’aide d’un connecteur personnalisé
 
@@ -43,7 +43,7 @@ Vous devez également accomplir les étapes suivantes dans le cadre de la config
 
 Cet article utilise Logic Apps pour mettre à jour un jumeau dans votre instance Azure Digital Twins. Pour continuer, vous devez ajouter au moins un jumeau dans votre instance. 
 
-Vous pouvez ajouter des jumeaux à l’aide des [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) ou de la [CLI Azure Digital Twins](concepts-cli.md). Pour obtenir des instructions détaillées sur la façon de créer des jumeaux à l’aide de ces méthodes, consultez [Procédure : Gérer des jumeaux numériques](how-to-manage-twin.md).
+Vous pouvez ajouter des jumeaux à l’aide des [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de la [CLI Azure Digital Twins](concepts-cli.md). Pour obtenir des instructions détaillées sur la façon de créer des jumeaux à l’aide de ces méthodes, consultez [Procédure : Gérer des jumeaux numériques](how-to-manage-twin.md).
 
 Vous aurez besoin de **_l’ID du jumeau_** dans votre instance que vous avez créée.
 

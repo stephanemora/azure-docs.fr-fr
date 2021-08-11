@@ -917,7 +917,7 @@
       href: ./policy-reference.md
 - name: Ressources
   items:
-    - name: Questions courantes sur les clusters managés Service Fabric
+    - name: FAQ sur les clusters managés Service Fabric
       href: faq-managed-cluster.yml
     - name: Questions courantes
       href: service-fabric-common-questions.md

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 9491a5dd8f4ab90c97d33770de8a3b609a371b50
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 90a2eb4f3171023e041216dfac052905a6319df6
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478206"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239344"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutoriel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Avant de suivre les instructions de cet article, veillez à disposer des ressour
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] version 6.10 ou ultérieure.
 * [Générateur Express](https://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
@@ -54,9 +54,9 @@ Avant de suivre les instructions de cet article, veillez à disposer des ressour
 ## <a name="create-an-azure-cosmos-db-account"></a><a name="create-account"></a>Créer un compte Azure Cosmos DB
 Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à l’[étape 2 : Créer une application Node.js](#create-new-app).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [cosmos-db-keys](includes/cosmos-db-keys.md)]
 
 ## <a name="create-a-new-nodejs-application"></a><a name="create-new-app"></a>Créer une application Node.js
 Voyons maintenant comment créer un projet Node.js « Hello World » de base à l’aide de l’infrastructure Express.

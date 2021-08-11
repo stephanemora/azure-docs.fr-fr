@@ -459,6 +459,10 @@
         - name: Mise en réseau
           href: flexible-server/concepts-networking.md
           displayName: 'virtual networks, vnet, IP address, public access'
+        - name: Règles de pare-feu
+          href: flexible-server/concepts-firewall-rules.md
+        - name: Sécurité
+          href: flexible-server/concepts-security.md
         - name: limites
           href: flexible-server/concepts-limits.md
         - name: Extensions
@@ -645,6 +649,8 @@
               href: concepts-hyperscale-high-availability.md
         - name: Réplication
           href: concepts-hyperscale-read-replicas.md
+        - name: Regroupement de connexions
+          href: concepts-hyperscale-connection-pool.md
         - name: Surveiller et régler
           items:
             - name: Surveiller et régler

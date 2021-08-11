@@ -11,12 +11,12 @@ author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ms.custom: designer
-ms.openlocfilehash: 995979c7fe100637aa8e241489805fb09d6723f7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 9390fc53f4d10ad770313f1f1459f02fc7e7a998
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814786"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459439"
 ---
 # <a name="tutorial-power-bi-integration---drag-and-drop-to-create-the-predictive-model-part-1-of-2"></a>Tutoriel : Intégration Power BI – Créer un modèle prédictif par glisser-déposer (partie 1 sur 2)
 
@@ -41,7 +41,7 @@ Toutefois, vous pouvez également utiliser l’une des autres options disponible
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez utiliser un [essai gratuit](https://aka.ms/AMLFree). 
+- Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/free/). 
 - Un espace de travail Azure Machine Learning. Si vous ne disposez pas encore d’un espace de travail, consultez [Créer et gérer les espaces de travail Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 - Connaissances préliminaires des workflows de Machine Learning.
 

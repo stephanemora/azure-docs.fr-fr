@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: 102248fb5d427df331bf6c915981328ff73cb10b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 60f8968a3377479457cbe0faceae28bc83835453
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371839"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113735041"
 ---
 * Un compte Azure incluant un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -18,8 +18,7 @@ ms.locfileid: "110371839"
     * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
         * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-        > [!TIP]
-        > Lors de l’installation d’Azure IoT Tools, vous pouvez être invité à installer Docker. N’hésitez pas à ignorer cette invite.
+        [!INCLUDE [install-docker-prompt](../../common-includes/install-docker-prompt.md)]
         * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     * [Python 3](https://www.python.org/downloads/) (3.6.9 ou version ultérieure), [Pip 3](https://pip.pypa.io/en/stable/installing/) et éventuellement [venv](https://docs.python.org/3/library/venv.html).
 * Lisez le guide de démarrage rapide [Détecter les mouvements et émettre des événements](../../../detect-motion-emit-events-quickstart.md)
@@ -43,5 +42,5 @@ Dans ce guide de démarrage rapide, vous allez :
 * Créer et déployer le livePipeline.
 * interpréter les résultats ;
 * Supprimer des ressources.
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]

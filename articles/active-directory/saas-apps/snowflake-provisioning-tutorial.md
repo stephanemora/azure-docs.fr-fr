@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur sur Snowflake.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 06f11763498e3e8393d688a71e1c37b466be3f6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c7eced7fb6c073eece1edbee93da0d9f33e3ed27
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539533"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690284"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
 
@@ -44,8 +44,8 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1 : Planifier votre déploiement de l’approvisionnement
 1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
-2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Déterminez les données à [mapper entre Azure AD et Snowflake](../app-provisioning/customize-application-attributes.md). 
+1. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Déterminez les données à [mapper entre Azure AD et Snowflake](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Étape 2 : Configurer Snowflake pour prendre en charge le provisionnement avec Azure AD
 
@@ -53,15 +53,27 @@ Avant de configurer Snowflake pour le provisionnement automatique d’utilisateu
 
 1. Connectez-vous à votre console d’administration Snowflake. Entrez la requête suivante dans la feuille de calcul mise en évidence, puis sélectionnez **Exécuter**.
 
-    ![Capture d’écran de la console d’administration Snowflake montrant la requête et le bouton Exécuter.](media/Snowflake-provisioning-tutorial/image00.png)
+   ![Capture d’écran de la console d’administration Snowflake montrant la requête et le bouton Exécuter.](media/Snowflake-provisioning-tutorial/image00.png)
+    
+   ```
+   use role accountadmin;
+   
+   create or replace role aad_provisioner;
+   grant create user on account to aad_provisioner;
+   grant create role on account to aad_provisioner;
+   grant role aad_provisioner to role accountadmin;
+   create or replace security integration aad_provisioning type=scim scim_client=azure run_as_role='AAD_PROVISIONER';
+   
+   select SYSTEM$GENERATE_SCIM_ACCESS_TOKEN('AAD_PROVISIONING');
+   ```
 
-2.  Un jeton d’accès SCIM est généré pour votre locataire Snowflake. Pour le récupérer, sélectionnez le lien mis en évidence dans la capture d’écran suivante.
+1.  Un jeton d’accès SCIM est généré pour votre locataire Snowflake. Pour le récupérer, sélectionnez le lien mis en évidence dans la capture d’écran suivante.
 
-    ![Capture d’écran d’une feuille de calcul dans l’interface utilisateur Snowflake avec le jeton d’accès SCIM mis en évidence.](media/Snowflake-provisioning-tutorial/image01.png)
+   ![Capture d’écran d’une feuille de calcul dans l’interface utilisateur Snowflake avec le jeton d’accès SCIM mis en évidence.](media/Snowflake-provisioning-tutorial/image01.png)
 
-3. Copiez la valeur du jeton généré, puis sélectionnez **Terminé**. Cette valeur est entrée dans la zone **Jeton secret** située sous l’onglet **Provisionnement** de votre application Snowflake dans le portail Azure.
+1. Copiez la valeur du jeton généré, puis sélectionnez **Terminé**. Cette valeur est entrée dans la zone **Jeton secret** située sous l’onglet **Provisionnement** de votre application Snowflake dans le portail Azure.
 
-    ![Capture d’écran de la section Détails montrant le jeton copié dans le champ de texte et l’option Terminé mise en évidence.](media/Snowflake-provisioning-tutorial/image02.png)
+   ![Capture d’écran de la section Détails montrant le jeton copié dans le champ de texte et l’option Terminé mise en évidence.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Étape 3 : Ajouter Snowflake à partir de la galerie d’applications Azure AD
 

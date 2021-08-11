@@ -3,13 +3,13 @@ title: Exposer un service REST WCF local aux clients à l’aide d’Azure Relay
 description: Ce tutoriel explique comment exposer un service WCF REST local à un client externe avec Azure WCF Relay.
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
-ms.date: 06/23/2020
-ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: bfdcd59320d965f933fdf367ed60ec80dbfa7122
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710785"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669751"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutoriel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
@@ -45,7 +45,7 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 La première étape consiste à créer un espace de noms et à obtenir une clé de [signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). Un espace de noms fournit une limite d’application pour chaque application exposée via le service de relais. Une clé SAS est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Azure des informations d’identification permettant d’authentifier l’accès à une application.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Définition d’un contrat de service WCF
 

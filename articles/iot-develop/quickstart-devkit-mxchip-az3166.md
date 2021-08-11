@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 4c1c6303727e503bcf5596edcc7b7a6aa5dcdb2c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d36f400e18566abf0631b5bec24fbfe6801fd299
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904141"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575133"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Démarrage rapide : Connecter un devkit MXCHIP AZ3166 à IoT Central
 
@@ -35,17 +35,17 @@ Vous allez effectuer les tâches suivantes :
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Matériel
 
-    * [DevKit IoT MXCHIP AZ3166](https://aka.ms/iot-devkit) (DevKit MXCHIP)
+    * [DevKit IoT MXCHIP AZ3166](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (DevKit MXCHIP)
     * Wi-Fi 2,4 GHz
     * USB 2.0, câble mâle-mâle micro USB
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Avant de configurer votre environnement de développement, vous devez cloner un référentiel GitHub contenant toutes les ressources dont vous avez besoin dans le cadre du guide de démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
+Pour configurer votre environnement de développement, commencez par cloner un dépôt GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
 
-### <a name="clone-the-repo-for-the-quickstart"></a>Clonage du référentiel pour le guide de démarrage rapide
+### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le dépôt pour le démarrage rapide
 
-Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce référentiel dans un autre guide de démarrage rapide, vous n’avez pas besoin de le refaire.
+Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce dépôt dans le cadre d’un autre démarrage rapide, vous n’avez pas besoin de le refaire.
 
 Pour cloner le référentiel, exécutez la commande suivante :
 
@@ -55,7 +55,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Installer les outils
 
-Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans un autre guide de démarrage rapide d’appareil embarqué, vous n’avez pas besoin de le refaire.
+Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans le cadre d’un autre démarrage rapide d’appareil intégré, vous n’avez pas besoin de le refaire.
 
 > [!NOTE]
 > Le script d’installation installe les outils suivants :
@@ -69,7 +69,7 @@ Pour installer les outils :
 
     *getting-started\tools\get-toolchain.bat*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour effectuer les tâches de programmation restantes dans le guide de démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes décrites dans ce démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez le code suivant pour vérifier que CMake version 3.14 ou ultérieure est installé.
 
     ```shell
@@ -137,7 +137,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
 
 1. Démarrez **Termite**.
     > [!TIP]
-    > Si vous ne parvenez pas à connecter Termite à votre devkit, installez le [pilote ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip), puis réessayez. Pour obtenir des étapes supplémentaires, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si vous ne parvenez pas à connecter Termite à votre devkit, installez le [pilote ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip), puis réessayez. Pour obtenir des étapes supplémentaires, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 1. Sélectionnez **Paramètres**.
 1. Dans la boîte de dialogue **Paramètres du port série**, vérifiez les paramètres suivants et mettez à jour si nécessaire :
     * **Vitesse (en bauds)**  : 115 200
@@ -236,13 +236,13 @@ Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
 ## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
 
-Si vous rencontrez des problèmes pour créer le code de l’appareil, le flasher ou vous y connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin des ressources Azure créées dans ce guide de démarrage rapide, vous pouvez les supprimer du portail IoT Central.
+Si vous n’avez plus besoin des ressources Azure créées dans le cadre de ce démarrage rapide, vous pouvez les supprimer du portail IoT Central.
 
 Pour supprimer la totalité de l’exemple d’application Azure IoT Central et tous ses appareils et ressources :
 1. Sélectionnez **Administration** > **Votre application**.
@@ -259,7 +259,7 @@ Maintenant, explorez les articles suivants pour savoir comment connecter des app
 > [!div class="nextstepaction"]
 > [Connexion d’un appareil simulé à IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Connexion d’un appareil simulé à IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connecter un appareil simulé à IoT Hub](quickstart-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
 > Azure RTOS fournit aux fabricants OEM les composants permettant de sécuriser la communication et de créer du code et l’isolation des données à l’aide des mécanismes sous-jacents de protection matérielle MCU/MPU. Toutefois, chaque fabricant OEM est tenu de garantir que son appareil répond aux exigences de sécurité en constante évolution.

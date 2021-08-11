@@ -6,23 +6,22 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: a05ebf00b03ee393aac08e89924e9a15b3e488ef
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5cc27cd600d8e8717a70deefc801b3f500792e11
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560584"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536283"
 ---
 Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) appelant Azure Communication Services Calling pour JavaScript.
 
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting).
+## <a name="sample-code"></a>Exemple de code
+Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Une [application web appelant Communication Services](../../getting-started-with-calling.md) qui fonctionne
 - Un [déploiement de Teams](/deployoffice/teams-install)
-
 
 ## <a name="add-the-teams-ui-controls"></a>Ajouter les contrôles d’interface utilisateur de Teams
 

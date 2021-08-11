@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: dbb49d990581c6b38d0eff32b01dd9b115e6794c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f65f9ea1778aba1ff60cdb4cc4b4eba3fa7562cf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057817"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758151"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution informatique pour gérer mes appareils IoT industriels
 
@@ -98,7 +98,7 @@ Vous pouvez cliquer sur un graphique pour procéder à une analyse plus approfon
 
 ### <a name="factory-locations"></a>Emplacements des usines
 
-Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lorsque vous utilisez l’accélérateur de solution pour la première fois, le tableau de bord présente un ensemble simulé d’usines. Chaque simulation de ligne de production se compose de trois serveurs OPC UA réels qui exécutent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez [FAQ sur l’accélérateur de solution Usine connectée](iot-accelerators-faq-cf.md) :
+Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lorsque vous utilisez l’accélérateur de solution pour la première fois, le tableau de bord présente un ensemble simulé d’usines. Chaque simulation de ligne de production se compose de trois serveurs OPC UA réels qui exécutent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez [FAQ sur l’accélérateur de solution Usine connectée](iot-accelerators-faq-cf.yml) :
 
 [![Emplacements des usines](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
@@ -116,7 +116,7 @@ Vous pouvez parcourir la hiérarchie de la solution et afficher les valeurs TRG 
 
 ### <a name="map"></a>Mappage
 
-Si votre abonnement a accès à [l’API Bing Cartes](iot-accelerators-faq-cf.md), la carte *Usines* vous présente l’emplacement géographique et l’état de toutes les usines de la solution. Cliquez sur les emplacements indiqués sur la carte pour accéder aux détails de l’emplacement.
+Si votre abonnement a accès à [l’API Bing Cartes](iot-accelerators-faq-cf.yml), la carte *Usines* vous présente l’emplacement géographique et l’état de toutes les usines de la solution. Cliquez sur les emplacements indiqués sur la carte pour accéder aux détails de l’emplacement.
 
 [![Carte](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 

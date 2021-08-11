@@ -35,6 +35,10 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - Mettre à jour l’application web
               href: container-registry-tutorial-deploy-update.md
+    - name: Exemples
+      items:
+        - name: Requêtes Azure Resource Graph
+          href: ./resource-graph-samples.md
     - name: Concepts
       expanded: false
       items:
@@ -175,7 +179,7 @@
               href: container-registry-check-health.md
               displayName: 'check, health'
             - name: Questions fréquentes (FAQ)
-              href: container-registry-faq.md
+              href: container-registry-faq.yml
 - name: Tâches
   expanded: true
   items:

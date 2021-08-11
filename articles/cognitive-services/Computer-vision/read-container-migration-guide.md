@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f8913bc75688184d30711e4ee33b5d3601557ee7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465190"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303667"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -83,5 +83,5 @@ Définissez le minuteur avec `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`,
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](computer-vision-resource-container-config.md).
 * Pour en savoir plus sur la reconnaissance de texte imprimé et manuscrit, passez en revue [Vue d'ensemble de la reconnaissance optique de caractères](overview-ocr.md).
 * Pour plus d'informations sur les méthodes prises en charge par le conteneur, reportez-vous à l'[API Read](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
-* Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.md).
+* Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.yml).
 * Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

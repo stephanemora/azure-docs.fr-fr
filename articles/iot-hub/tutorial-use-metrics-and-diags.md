@@ -12,18 +12,18 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 96a9f7c50f3e30d86497c7a612ddda248db3f703
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: beab67a209c177c91a1c4fcfa44934234b6dbc06
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865690"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294807"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux avec un hub IoT
 
 Vous pouvez utiliser Azure Monitor afin de collecter des métriques et des journaux pour votre hub IoT qui peuvent vous aider à superviser le fonctionnement de votre solution et à résoudre les problèmes lorsqu’ils se produisent. Dans cet article, vous allez découvrir comment créer des graphiques basés sur des métriques, créer des alertes qui déclenchent des métriques, envoyer des opérations et des erreurs IoT Hub vers des journaux Azure Monitor, et consulter les erreurs dans les journaux.
 
-Ce tutoriel utilise l’exemple Azure du [guide de démarrage rapide d’envoi de données de télémétrie (.NET)](quickstart-send-telemetry-dotnet.md) pour envoyer des messages au hub IoT. Vous pouvez toujours utiliser un appareil ou un autre exemple pour envoyer des messages, mais vous devrez peut-être modifier certaines étapes en conséquence.
+Ce tutoriel utilise l’exemple Azure du [guide de démarrage rapide d’envoi de données de télémétrie (.NET)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) pour envoyer des messages au hub IoT. Vous pouvez toujours utiliser un appareil ou un autre exemple pour envoyer des messages, mais vous devrez peut-être modifier certaines étapes en conséquence.
 
 Nous vous conseillons de vous familiariser avec les concepts Azure Monitor avant de commencer ce tutoriel. Pour plus d’informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md). Pour en savoir plus sur les métriques et les journaux de ressources émis par IoT Hub, consultez les [informations de référence sur la supervision des données](monitor-iot-hub-reference.md).
 

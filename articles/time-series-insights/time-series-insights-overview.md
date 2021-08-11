@@ -3,19 +3,20 @@ title: 'Présentation : Qu’est-ce que Azure Time Series Insights ? - Azure Ti
 description: Présentation d’Azure Time Series Insights, un nouveau service d’analyse de données de série chronologique et de solutions IoT.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4ad822741869ea3ea450b8964f050d9c4e318e9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95020059"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371244"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Qu’est-ce qu’Azure Time Series Insights Gen1 ?
 

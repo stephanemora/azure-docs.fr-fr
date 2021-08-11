@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ffdd6c30e279cc5df7f97e5ab5bb77a87c18dd8b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6038db88610e1fde8d95c2c31a9bcfa2c5ad5ac2
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480495"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111904244"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec GitHub Enterprise Managed User
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez utiliser les informations fournies par AAD ci-des
 1. Accédez à https://github.com
 1. Cliquez sur Se connecter en haut à droite.
 1. Entrez les informations d'identification du premier compte d'utilisateur administrateur. Le descripteur de connexion doit être au format suivant : `<your enterprise short code>_admin`
-1. Accédez à https://github.com/enterprises/ `<your enterprise name>`. Ces informations doivent vous être fournies par votre contact Solutions Engineering.
+1. Accédez à `https://github.com/enterprises/` `<your enterprise name>`. Ces informations doivent vous être fournies par votre contact Solutions Engineering.
 1. Dans le menu de navigation de gauche, sélectionnez **Paramètres**, puis **Sécurité**.
 1. Cochez la case **Activer l'authentification SAML**.
 1. Entrez l'URL de connexion. Il s'agit de l'URL de connexion que vous avez précédemment copiée à partir d'AAD.

@@ -3,14 +3,14 @@ title: Analyser une vidéo en direct avec l’extension IA Intel OpenVINO™ Mod
 description: Dans ce tutoriel, vous utilisez un serveur de modèles IA fourni par Intel avec des modèles préentraînés pour analyser le flux vidéo en direct d’une caméra IP (simulée).
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 titleSuffix: Azure
-ms.openlocfilehash: d9c7beeb75d8a8785f58b1d0b9b3a93dfc6e53f1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a36de6ac835b3ed9f4188b6f8d2bf3b5178be087
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383840"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604721"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser une vidéo en direct avec l’extension IA Intel OpenVINO™ Model Server 
 
@@ -18,8 +18,7 @@ Ce tutoriel montre comment utiliser l’[extension IA Intel OpenVINO™ Model Se
 
 Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge, ainsi qu’un flux vidéo en direct simulé. Il se base sur un exemple de code écrit en C#.
 
-> [!NOTE]
-> Ce didacticiel nécessite l’utilisation d’un ordinateur x86-64 comme appareil de périphérie.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,7 +64,7 @@ Ce didacticiel présente les procédures suivantes :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ### <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo

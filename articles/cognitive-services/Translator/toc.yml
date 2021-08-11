@@ -122,6 +122,8 @@
           href: document-translation/reference/get-translation-status.md
         - name: Annuler la traduction
           href: document-translation/reference/cancel-translation.md
+    - name: Questions fréquentes (FAQ)
+      href: document-translation/faq.md
 - name: Custom Translator
   items:
     - name: Qu’est-ce que Custom Translator ?

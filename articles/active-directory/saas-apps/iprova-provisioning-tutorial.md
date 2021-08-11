@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer iProva pour l’approvisionnement automatique des utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et annuler l’approvisionnement automatiquement des comptes d’utilisateurs sur iProva.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
-ms.author: Zhchia
-ms.openlocfilehash: dbaea9d4aaea982165c96af00f75524b15fa3015
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c48f5bace8c19d2bbf64668eedf60ae811e5398d
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178073"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726929"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutoriel : Configurer iProva pour l’approvisionnement automatique d’utilisateurs
 

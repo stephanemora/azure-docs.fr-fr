@@ -2,19 +2,17 @@
 title: 'Tutoriel : Interroger des données à partir de Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Instructions pas à pas pour créer une application Power Apps qui se connecte à un index Recherche cognitive Azure, envoie des requêtes et affiche les résultats.
-author: luiscabrer
-manager: eladz
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: e8c16f02cf6b77fa54d2a19abac48e9914aa99bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9bf5ec0f1cac61a65ef0a24ae3f7825c2a950c2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008563"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729547"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutoriel : Interroger un index Recherche cognitive à partir de Power Apps
 
@@ -265,4 +263,4 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 Power Apps permet de développer rapidement des applications personnalisées. Maintenant que vous savez comment vous connecter à un index de recherche, apprenez-en davantage sur la création d’une expérience de visualisation enrichie dans une application Power Apps personnalisée.
 
 > [!div class="nextstepaction"]
-> [Catalogue de formations Power Apps](/powerapps/learning-catalog/get-started)
+> [Catalogue de formations Power Apps](/powerapps/learning-catalog/bdm#get-started)

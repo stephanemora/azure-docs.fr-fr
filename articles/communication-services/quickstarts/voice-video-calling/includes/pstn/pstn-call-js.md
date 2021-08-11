@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: ab5741e12bea83893f871487f92a5495b1dd08c9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 7506f2c42066cb26532f815f2b77b240caea1993
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560333"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535605"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling).
+## <a name="sample-code"></a>Exemple de code
+Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -22,7 +22,6 @@ ms.locfileid: "111560333"
 - Une ressource Communication Services déployée. [Créez une ressource Communication Services](../../../create-communication-resource.md).
 - Numéro de téléphone acquis dans votre ressource Communication Services. [Comment obtenir un numéro de téléphone](../../../telephony-sms/get-phone-number.md).
 - Un `User Access Token` pour activer le client d’appel. Pour en savoir plus, consultez [Comment obtenir un `User Access Token`](../../../access-tokens.md)
-
 
 [!INCLUDE [Calling with JavaScript](../get-started/get-started-javascript-setup.md)]
 
@@ -125,7 +124,6 @@ La propriété `forEveryone` met fin à l’appel pour tous les participants.
 ## <a name="run-the-code"></a>Exécuter le code
 
 Utilisez `webpack-dev-server` pour créer et exécuter votre application. Exécutez la commande suivante pour créer un bundle de l’application hôte sur un serveur web local :
-
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

@@ -11,12 +11,12 @@ ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: traitement de documents
-ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7696a7e1d62aae556d93fa5bccc23376d1ba9a25
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894071"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461926"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -61,7 +61,7 @@ Extrayez du texte, des tableaux, des marques de sélection et une structure d’
 
     :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Paramètres de connexion de l’outil Layout (Disposition) de Form Recognizer.":::
 
-5. Sélectionnez l’URL source, collez l’URL suivante de l’exemple de document https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg, puis cliquez sur le bouton Fetch (Récupérer).
+5. Sélectionnez l’URL source, collez l’URL suivante de l’exemple de document `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`, puis cliquez sur le bouton Fetch (Récupérer).
 
 1. Cliquez sur « Run Layout » (Exécuter la disposition). L’exemple d’outil d’étiquetage de Form Recognizer appelle alors l’API Analyze Layout (Analyser la disposition) et analyse le document.
 
@@ -88,7 +88,7 @@ Extrayez du texte, des tableaux et des paires clé/valeur à partir de factures,
 4. Choisissez le fichier que vous souhaitez analyser à partir des options ci-dessous :
 
     * URL pour une image de facture. Pour ce démarrage rapide, vous pouvez utiliser un [exemple de document de facture](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf).
-    * Une URL pour une image de ticket de caisse. Pour ce démarrage rapide, vous pouvez utiliser un [exemple de document de facture](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg).
+    * Une URL pour une image de ticket de caisse. Pour ce démarrage rapide, vous pouvez utiliser un [exemple de document de facture](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
     * Une URL pour une image de ticket de caisse. Pour ce démarrage rapide, vous pouvez utiliser un [exemple d’image de reçu](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
     * URL pour une image de carte de visite. Pour ce démarrage rapide, vous pouvez utiliser un [exemple de carte de visite](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg).
 
