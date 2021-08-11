@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967963"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450273"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -223,19 +223,19 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour un 
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -DisplayName 'Windows Remote Management (HTTP-In)' -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. Activez les règles de pare-feu suivantes pour autoriser le trafic RDP :
 
    ```powershell
-   Set-NetFirewallRule -DisplayGroup 'Remote Desktop' -Enabled True
+   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
    ```
 
 1. Activez la règle de partage de fichiers et d’imprimantes afin que la machine virtuelle puisse répondre à des demandes ping à l’intérieur du réseau virtuel :
 
    ```powershell
-   Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -Enabled True
+   Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True
    ```
 
 1. Créez une règle pour le réseau de la plateforme Azure :
@@ -314,10 +314,23 @@ Assurez-vous que la machine virtuelle est saine, sécurisé et accessible au pro
 
    Si le référentiel est endommagé, consultez [WMI: Corruption du référentiel ou pas](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484).
 
-1. Assurez-vous qu’aucune autre application n’utilise le port 3389. Ce port est utilisé pour le service RDP dans Azure. Pour voir quels ports sont utilisés sur la machine virtuelle, exécutez `netstat.exe -anob` :
+1. Assurez-vous qu’aucune autre application que TermService n’utilise le port 3389. Ce port est utilisé pour le service RDP dans Azure. Pour voir quels ports sont utilisés sur la machine virtuelle, exécutez `netstat.exe -anob` :
 
    ```powershell
    netstat.exe -anob
+   ```
+   
+   Voici un exemple.
+
+   ```powershell
+   netstat.exe -anob | findstr 3389
+   TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       4056
+   TCP    [::]:3389              [::]:0                 LISTENING       4056
+   UDP    0.0.0.0:3389           *:*                                    4056
+   UDP    [::]:3389              *:*                                    4056
+
+   tasklist /svc | findstr 4056
+   svchost.exe                   4056 TermService
    ```
 
 1. Pour charger un disque dur virtuel Windows qui est un contrôleur de domaine :
@@ -462,6 +475,14 @@ Utilisez l’une des méthodes décrites dans cette section pour convertir et re
 1. Redimensionnez le disque virtuel pour répondre aux exigences d’Azure :
 
    1. Les disques dans Azure doivent avoir une taille virtuelle alignée sur 1 Mio. Si votre disque dur virtuel est une fraction de 1 Mio, vous devrez redimensionner le disque en un multiple de 1 Mio. Les disques qui sont des fractions d’un Mio entraînent des erreurs lors de la création d’images à partir du disque dur virtuel chargé. Pour vérifier la taille, vous pouvez utiliser la cmdlet PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) pour afficher « Size », qui doit être un multiple de 1 Mio dans Azure, et « FileSize », qui est égal à « Size » plus 512 octets pour le pied de page VHD.
+   
+      ```powershell
+      $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
+      $vhd.Size % 1MB
+      0
+      $vhd.FileSize - $vhd.Size
+      512
+      ```
    
    1. La taille maximale autorisée pour le disque dur virtuel du système d’exploitation avec une machine virtuelle de première génération est de 2,048 Gio (2 Tio), 
    1. La taille maximale pour un disque de données est de 32,767 Gio (32 Tio).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: d83cc4045f09ed0f704a0d61c6b303406835eb44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 860085cc447b241f622c2be89038bca0014a883e
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052294"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493408"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Présentation de Log Analytics dans Azure Monitor
 Log Analytics est un outil du Portail Azure utilisé pour modifier et exécuter des requêtes de journal avec des données dans des journaux Azure Monitor. Vous pouvez écrire une requête simple qui retourne un jeu d’enregistrements, puis utiliser les fonctionnalités de Log Analytics pour les trier, les filtrer et les analyser. Vous pouvez également écrire une requête plus avancée pour effectuer une analyse statistique et visualiser les résultats dans un graphique afin d’identifier une tendance particulière. Que vous utilisiez les résultats de vos requêtes de manière interactive ou avec d’autres fonctionnalités d’Azure Monitor, comme les alertes de requête de journal ou les classeurs, Log Analytics est l’outil que vous allez utiliser pour les écrire et les tester. 
@@ -26,7 +26,9 @@ Démarrez Log Analytics à partir de **Journaux** dans le menu **Azure Monitor**
 
 [![Démarrer Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-Lorsque vous démarrez Log Analytics, la première chose que vous verrez est une boîte de dialogue avec des [requêtes d’exemple](../logs/example-queries.md). Celles-ci sont classées par solution et vous pouvez parcourir ou rechercher les requêtes qui correspondent à vos besoins spécifiques. Vous pouvez en trouver une qui effectue exactement ce dont vous avez besoin, ou en charger une dans l’éditeur et la modifier en fonction de vos besoins. L’exploration des requêtes d’exemple est en fait un excellent moyen d’apprendre à écrire vos propres requêtes. Bien entendu, si vous souhaitez commencer avec un script vide et l’écrire vous-même, vous pouvez fermer les exemples. Cliquez simplement sur **Requêtes** en haut de l’écran si vous voulez les retrouver.
+Lorsque vous démarrez Log Analytics, la première chose que vous verrez est une boîte de dialogue avec des [requêtes d’exemple](../logs/queries.md). Celles-ci sont classées par solution et vous pouvez parcourir ou rechercher les requêtes qui correspondent à vos besoins spécifiques. Vous pouvez en trouver une qui effectue exactement ce dont vous avez besoin, ou en charger une dans l’éditeur et la modifier en fonction de vos besoins. L’exploration des requêtes d’exemple est en fait un excellent moyen d’apprendre à écrire vos propres requêtes. 
+
+Bien entendu, si vous souhaitez commencer avec un script vide et l’écrire vous-même, vous pouvez fermer les exemples. Cliquez simplement sur **Requêtes** en haut de l’écran si vous voulez les retrouver.
 
 ## <a name="log-analytics-interface"></a>Interface de Log Analytics
 L’image suivante identifie les différents composants de Log Analytics.

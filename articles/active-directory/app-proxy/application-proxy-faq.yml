@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/27/2021
   ms.author: kenwith
   ms.reviewer: japere
-  ms.openlocfilehash: 711a72a689238e22d83109c9ea4f16501ff4c205
-  ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+  ms.openlocfilehash: 74ef399240307823ae5291f3c7bd073d2c0e8db0
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113727781"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111964821"
 title: Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 summary: Cette page répond aux questions fréquemment posées sur la fonctionnalité Proxy d’application Azure Active Directory (Azure AD).
 sections:
@@ -29,7 +29,7 @@ sections:
   - question: >
       Quelle est la licence exigée pour utiliser le proxy d’application Azure AD ?
     answer: >
-      Pour utiliser le proxy d’application Azure AD, vous devez posséder une licence Azure AD Premium P1 ou P2. Pour plus d’informations sur les licences, consultez [Tarifs Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+      Pour utiliser le proxy d’application Azure AD, vous devez posséder une licence Azure AD Premium P1 ou P2. Pour plus d’informations sur les licences, consultez [Tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
   - question: >
       Qu’advient-il de Proxy d’application Azure AD dans mon locataire si ma licence expire ?
     answer: >

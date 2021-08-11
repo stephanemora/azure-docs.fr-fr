@@ -1,5 +1,5 @@
 ---
-title: Préversion des groupes de placements de proximité pour les groupes de machines virtuelles identiques
+title: Groupes de placement de proximité pour les groupes de machines virtuelles identiques
 description: En savoir plus sur la création et l’utilisation de groupes de placements de proximité pour les groupes de machines virtuelles identiques Windows dans Azure.
 author: cynthn
 ms.author: cynthn
@@ -8,25 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
-ms.custom: mimckitt
-ms.openlocfilehash: eeb0dd6cd5ce838c0f3a68763c40612038ee82f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 767ce9c132c7ca5f322175c54875a6870490052e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933489"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556043"
 ---
-# <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Aperçu : Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
+# <a name="creating-and-using-proximity-placement-groups-using-powershell"></a>Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
 
 Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez votre groupe identique dans un [groupe de placements de proximité](../virtual-machines/co-location.md#proximity-placement-groups).
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
-
-> [!IMPORTANT]
-> Les groupes de placements de proximité sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Les groupes de placements de proximité ne sont pas disponibles dans ces régions en préversion : **Japon Est**, **Australie Est** et **Inde Centre**.
 
 
 ## <a name="create-a-proximity-placement-group"></a>Créer un groupe de placements de proximité

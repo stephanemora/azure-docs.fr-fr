@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9bdc4b2fed40817c7173468180e34de1ed0506fb
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d915577cd6729ead60a00250e186fb2df444b3b1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962677"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029168"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacité du pool SQL dédié dans Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Valeurs maximales autorisées pour les différents composants d’un pool SQL d�
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un pool SQL dédié unique  | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5 ou le nombre total de cDWU nécessaire par 9. Par exemple :<br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW7500c x 9 = 67 500 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
-| Connexion de base de données |Sessions simultanées ouvertes maximales |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction de l’unité DWU sélectionnée. DWU600c et unités supérieures prennent en charge un maximum de 1 024 sessions ouvertes. DWU500c et unités inférieures peuvent prendre en charge un maximum de 512 sessions ouvertes simultanées. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
+| Connexion de base de données |Sessions simultanées ouvertes maximales |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction de l’unité DWU sélectionnée. DWU1000c et unités supérieures prennent en charge un maximum de 1 024 sessions ouvertes. DWU500c et unités inférieures peuvent prendre en charge un maximum de 512 sessions ouvertes simultanées. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
 | [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes simultanées |128<br/><br/>  Un maximum de 128 requêtes simultanées est exécuté et les requêtes restantes sont mises en file d’attente.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque le paramètre [unité d’entrepôt de données](memory-concurrency-limits.md) est inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-concurrency-limits.md). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100c. Pour DWU1000c, la taille de tempdb est 3,99 To. |
@@ -79,7 +79,7 @@ Valeurs maximales autorisées pour les différents composants d’un pool SQL d�
 | SELECT |Octets par colonnes GROUP BY. |8060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
 | SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
 | Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/> Le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez la rubrique [Internal error: An expression services limit has been reached (Erreur interne : une limite des services d’expression est dépassée)](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
+| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>Le nombre de constantes de chaîne pouvant être contenus dans une seule expression d’une requête est limité. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
 ||||
 
 ## <a name="metadata"></a>Métadonnées

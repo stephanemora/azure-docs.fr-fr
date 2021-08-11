@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 06/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5509b9fc63b97338ebc87a1cbef20a176c06f4dd
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: b94374d8eaa0efac50989a388686f96d9bae0622
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795039"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537135"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Configuration requise et considérations pour la réplication inter-région 
 
@@ -39,7 +39,7 @@ Notez la configuration requise et les considérations suivantes relatives à l�
 * La configuration de la réplication de volume pour les volumes sources créés à partir d’un instantané n’est pas prise en charge pour l’instant.
 * Une fois que vous avez configuré la réplication inter-région, le processus de réplication crée des *instantanés SnapMirror* pour fournir des références entre le volume source et le volume de destination. Les instantanés SnapMirror sont parcourus automatiquement lorsqu’un nouveau est créé pour chaque transfert incrémentiel. Vous ne pouvez pas supprimer les instantanés SnapMirror tant que la relation de réplication et le volume n’ont pas été supprimés. 
 * Vous pouvez supprimer des instantanés manuels sur le volume source d’une relation de réplication lorsque celle-ci est active ou interrompue, et également après la suppression de la relation de réplication. Vous ne pouvez pas supprimer des instantanés manuels du volume de destination tant que la relation de réplication n’est pas rompue.
-* Vous ne pouvez pas revenir à un instantané pris avant la création du volume de destination de réplication.
+* Vous ne pouvez pas rétablir un volume source ou un volume de destination de la réplication interrégionale vers un instantané. La fonctionnalité de restauration d’instantané est grisée pour les volumes qui sont dans une relation de réplication. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer une réplication de volume](cross-region-replication-create-peering.md)

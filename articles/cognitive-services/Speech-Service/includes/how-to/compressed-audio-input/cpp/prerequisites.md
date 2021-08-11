@@ -4,17 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: d555322c0fd4067a4232e53387d811de7b50a8f5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 745ff6fddb3b175b4b046be71668f0c85ddd1c63
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417721"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854483"
 ---
 La gestion d'un contenu audio compressé est implémentée à l’aide de [GStreamer](https://gstreamer.freedesktop.org). Pour une raison liée à la gestion des licences, les fichiers binaires GStreamer ne sont pas compilés et liés avec le Kit de développement logiciel (SDK) Speech. Les développeurs doivent installer plusieurs dépendances et plug-ins.
 
 > [!NOTE]
-> Consultez la liste des [architectures cibles et distributions Linux prises en charge](~/articles/cognitive-services/speech-service/speech-sdk.md).
+> Pour une installation générale obligatoire sur Linux, consultez [Configuration système requise et instructions d’installation](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
 # <a name="ubuntudebian"></a>[Ubuntu/Debian](#tab/debian)
 
@@ -38,8 +38,6 @@ gstreamer1-plugins-ugly-free
 
 > [!NOTE]
 > - Sur RHEL/CentOS 7 et RHEL/CentOS 8, en cas d’utilisation du format compressé « ANY », d’autres plug-ins GStreamer doivent être installés si le plug-in de format de média de flux ne figure pas dans les plug-ins installés ci-dessus. 
-> - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 
 ---

@@ -1,20 +1,20 @@
 ---
 title: Créer une offre de machine virtuelle sur la Place de marché Azure.
-description: Découvrez comment créer une offre de machine virtuelle sur la Place de marché commerciale Microsoft.
+description: Créer une offre de machine virtuelle sur la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/08/2021
-ms.openlocfilehash: f0c1d9d528ed4fbf61786042fb6fb34f05fec5d5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 626ee3d9fb7ec193e1384712a03c23feefef67af
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812590"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525027"
 ---
-# <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Comment créer une offre de machine virtuelle sur la Place de marché Azure
+# <a name="create-a-virtual-machine-offer-on-azure-marketplace"></a>Créer une offre de machine virtuelle sur la Place de marché Azure
 
 Cet article explique comment créer une offre de machine virtuelle Azure sur[la Place de marché Azure](https://azuremarketplace.microsoft.com/). Il s’applique aux machines virtuelles Windows et Linux qui contiennent un système d’exploitation, un disque dur virtuel (VHD) et jusqu’à 16 disques de données.
 
@@ -33,7 +33,7 @@ Si vous ne l’avez pas encore fait, passez en revue [Planifier une offre de mac
     ![Capture d’écran montrant les options du menu du volet gauche et le bouton « Nouvelle offre ».](./media/create-vm/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
-> Une fois votre offre publiée, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après y avoir apporté des modifications.
+> Après publication d’une offre, les modifications que vous y apportez dans l’Espace partenaires apparaissent sur la Place de marché Azure uniquement après la republication de l’offre. Veillez à toujours republier une offre après y avoir apporté des modifications.
 
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
@@ -47,16 +47,16 @@ Entrez un **Alias d’offre**. L’alias d’offre est le nom attribué à l’o
 
 Sélectionnez **Créer** pour générer l’offre et continuer. Espace partenaires ouvre la page **Configuration de l’offre**.
 
-## <a name="enable-a-test-drive-optional"></a>Activer une version d’évaluation (facultatif)
+## <a name="test-drive-optional"></a>Vestion d’évaluation (facultatif)
 
 Une version d’évaluation constitue un excellent moyen de présenter votre offre à des clients potentiels en leur donnant accès à un environnement préconfiguré pendant un nombre fixe d’heures. L’offre d’une version d’évaluation entraîne un taux de conversion accru et génère des prospects hautement qualifiés. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](./what-is-test-drive.md).
 
 > [!TIP]
 > Une version d’évaluation n’est pas un essai gratuit. Vous pouvez proposer une version d’évaluation, un essai gratuit ou les deux. Dans les deux cas, vos clients disposent de votre solution pendant une période fixe. Cependant, une version d’évaluation propose en outre une visite autoguidée concrète des principales fonctionnalités de votre produit, ainsi qu’une démonstration des avantages de celui-ci au travers d’un scénario d’implémentation réel.
 
-Pour activer une version d'évaluation, cochez la case **Activer une version d'évaluation**. Vous configurerez ultérieurement la version d'évaluation. La version d'évaluation nécessite la configuration d’un système CRM (voir la section suivante).
+Pour activer une version d'évaluation, cochez la case **Activer une version d'évaluation**. Vous configurerez ultérieurement la version d'évaluation. La version d'évaluation nécessite la configuration d’un système CRM (voir la section suivante). Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher.
 
-## <a name="configure-customer-leads-management"></a>Configurer la gestion des prospects
+## <a name="customer-leads"></a>Prospects
 
 [!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
@@ -64,5 +64,5 @@ Si vous effectuez des modifications, sélectionnez **Enregistrer le brouillon** 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment configurer les propriétés d’une offre de machine virtuelle](azure-vm-create-properties.md)
+- [Configurer les propriétés de l’offre de machine virtuelle](azure-vm-create-properties.md)
 - [Bonnes pratiques pour le référencement des offres](gtm-offer-listing-best-practices.md)

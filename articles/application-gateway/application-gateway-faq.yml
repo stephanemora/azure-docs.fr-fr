@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: afbd0c7fbbe6565a2f8e80c394d8ac608d1aa27a
-  ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+  ms.openlocfilehash: f9f6a834239e46c2c0934dd145f8a1193f6a50b2
+  ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/09/2021
-  ms.locfileid: "111907376"
+  ms.lasthandoff: 07/18/2021
+  ms.locfileid: "114404413"
 title: Forum aux questions sur Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -127,7 +127,7 @@ sections:
   - question: Puis-je déployer autre chose dans le sous-réseau de la passerelle d’application ?
     answer: Non. Mais vous pouvez déployer d’autres passerelles d’application dans le sous-réseau.
   - question: Puis-je modifier le réseau virtuel ou le sous-réseau d’une passerelle applicative existante ?
-    answer: "Vous pouvez uniquement déplacer une passerelle applicative d’un sous-réseau à un autre au sein du même réseau virtuel. Il est également important de noter que la passerelle applicative doit être à l’état *Arrêté* pour effectuer cette action. Cette opération peut seulement être effectuée à l’aide d’Azure PowerShell et Azure CLI en exécutant les commandes suivantes :\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name \"<IPConfigurationName>\" -Subnet $Subnet\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\nPour plus d’informations, consultez [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).\n\n**Azure CLI**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
+    answer: "Vous pouvez uniquement déplacer une passerelle applicative d’un sous-réseau à un autre au sein du même réseau virtuel. Il est pris en charge avec v1 avec un front-end public et privé, et V2 avec un front-end public uniquement. Il est également important de noter que la passerelle applicative doit être à l’état *Arrêté* pour effectuer cette action. Gardez en tête que l’arrêt et le démarrage de v1 modifient l’IP publique. Cette opération peut seulement être effectuée à l’aide d’Azure PowerShell et Azure CLI en exécutant les commandes suivantes :\n\n**Azure PowerShell**\n\n```azurepowershell-interactive\n$VNet = Get-AzVirtualNetwork -Name \"<VNetName>\" -ResourceGroupName \"<ResourceGroup>\"\n$Subnet = Get-AzVirtualNetworkSubnetConfig -Name \"<NewSubnetName>\" -VirtualNetwork $VNet\n$AppGw = Get-AzApplicationGateway -Name \"<ApplicationGatewayName>\" -ResourceGroupName \"<ResourceGroup>\"\nStop-AzApplicationGateway -ApplicationGateway $AppGw\n$AppGw = Set-AzApplicationGatewayIPConfiguration -ApplicationGateway $AppGw -Name $AppGw.GatewayIPConfigurations.Name -Subnet $Subnet\n#If you have a private frontend IP configuration, uncomment and run the next line:\n#$AppGw = Set-AzApplicationGatewayFrontendIPConfig -Name $AppGw.FrontendIPConfigurations.Name[1] -Subnet $Subnet -ApplicationGateway $AppGw\nSet-AzApplicationGateway -ApplicationGateway $AppGw\n```\nPour plus d’informations, consultez [Set-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/Set-AzApplicationGatewayIPConfiguration).\n\n**Azure CLI**\n\n```azurecli-interactive\naz network application-gateway stop -g <ResourceGroup> -n <ApplicationGatewayName>\naz network application-gateway update -g <ResourceGroup> -n <ApplicationGatewayName> --set gatewayIpConfigurations[0].subnet.id=<subnetID>\n``` \n"
   - question: Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de la passerelle d’application ?
     answer: >
       Consultez [Groupes de sécurité réseau dans le sous-réseau Application Gateway](./configuration-infrastructure.md#network-security-groups).
@@ -218,7 +218,8 @@ sections:
 - name: Configuration - authentification mutuelle
   questions:
   - question: Qu’est-ce que l’authentification mutuelle ?
-    answer: "L’authentification mutuelle est une authentification à double sens entre un client et un serveur. L’authentification mutuelle avec Application Gateway permet actuellement à la passerelle de vérifier le client qui envoie la requête : c’est l’authentification du client. En général, seul le client authentifie Application Gateway. \x90Étant donné qu’Application Gateway peut désormais également authentifier le client, il s’agit d’une authentification mutuelle : Application Gateway et le client s’authentifient mutuellement.\n"
+    answer: >
+      L’authentification mutuelle est une authentification à double sens entre un client et un serveur. L’authentification mutuelle avec Application Gateway permet actuellement à la passerelle de vérifier le client qui envoie la requête : c’est l’authentification du client. En général, seul le client authentifie Application Gateway. Étant donné qu’Application Gateway peut désormais également authentifier le client, il s’agit d’une authentification mutuelle : Application Gateway et le client s’authentifient mutuellement.
   - question: L’authentification mutuelle est-elle disponible entre Application Gateway et ses pools principaux ?
     answer: "Non, l’authentification mutuelle n’est actuellement possible qu’entre le client frontend et Application Gateway. L’authentification mutuelle de backend n’est pas prise en charge pour le moment.      \n"
 - name: Diagnostics et journalisation

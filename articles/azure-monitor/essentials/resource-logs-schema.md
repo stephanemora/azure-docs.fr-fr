@@ -2,13 +2,13 @@
 title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 04/07/2020
-ms.openlocfilehash: d219153f9d1dfbcd05cbe28a5ac0609a156c68a9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/10/2021
+ms.openlocfilehash: 5021f6fcfdd981989e2c30edb7605bd080725142
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142564"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715499"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -76,6 +76,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Media Services | [Schémas de surveillance Media Services](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Power BI dédiées | [Journalisation pour Power BI Embedded dans Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|

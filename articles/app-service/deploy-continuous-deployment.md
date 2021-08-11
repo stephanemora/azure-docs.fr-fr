@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 633d62fc69c516b482d5749a07052337dc71f567
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aa058f0de74941a8ac9fe711c7b6de59240680bb
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789480"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536670"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
 [Azure App Service](overview.md) permet un déploiement continu à partir des référentiels [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html) et [Azure Repos](/azure/devops/repos/git/creatingrepo) en extrayant les dernières mises à jour.
 
 > [!NOTE]
-> La page **Centre de développement (classique)** dans le portail Azure, qui est l’ancienne expérience de déploiement, sera déconseillée en mars 2021. Cette modification n’affecte aucun paramètre de déploiement existant dans votre application, et vous pouvez continuer à gérer le déploiement d’applications dans la page du **Centre de déploiement**.
+> La page **Centre de développement (classique)** dans le portail Azure, une ancienne de l’expérience de déploiement, sera déconseillée en mars 2021. Cette modification n’affecte pas les paramètres de déploiement existants dans votre application, et vous pouvez continuer à gérer le déploiement d’applications via la page **Centre de déploiement** du portail.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -43,7 +43,7 @@ Choisissez l’onglet correspondant à votre sélection pour les étapes.
 
 1. La premiière fois que vous effectuez un déploiement à partir de GitHub, cliquez sur **Autoriser** et suivez les invites d’autorisation. Si vous souhaitez effectuer un déploiement à partir d’un référentiel d’utilisateur différent, cliquez sur **Changer de compte**.
 
-1. Après avoir autorisé votre compte Azure auprès de GitHub, sélectionnez l'**organisation**, le **référentiel** et la **branche** pour lesquels configurer CI/CD.
+1. Après avoir autorisé votre compte Azure auprès de GitHub, sélectionnez l'**organisation**, le **référentiel** et la **branche** pour lesquels configurer CI/CD. Si vous ne trouvez pas d’organisation ou de dépôt, vous devez peut-être activer des autorisations supplémentaires sur GitHub. Pour plus d’informations, consultez [Gestion de l’accès aux dépôts de votre organisation](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
 1. Une fois GitHub Actions sélectionné en tant que fournisseur de build, vous pouvez sélectionner le fichier de workflow de votre choix à l’aide des listes déroulantes **Pile d’exécution** et **Version**. Azure valide ce fichier de workflow dans le référentiel GitHub sélectionné afin de gérer les tâches de génération et de déploiement. Pour afficher le fichier avant d’enregistrer vos modifications, cliquez sur **Aperçu du fichier**.
 

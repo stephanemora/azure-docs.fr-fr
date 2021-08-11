@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 541af6d0051d06de5721b22616fbf1e2867b71d6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 27bb3f163dc8f1a2f50e39ca5bbb5708419cb171
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833361"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073897"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurer des restrictions d’accès dans Azure App Service
 
@@ -145,11 +145,11 @@ Dans le cadre d’une règle, vous pouvez ajouter des filtres d’en-tête HTTP 
 * X-Azure-FDID
 * X-FD-HealthProbe
 
-Pour chaque nom d’en-tête, vous pouvez ajouter jusqu’à 8 valeurs séparées par des virgules. Les filtres d’en-tête HTTP sont évalués après la règle elle-même et les deux conditions doivent être vraies pour que la règle s’applique.
+Pour chaque nom d’en-tête, vous pouvez ajouter jusqu’à huit valeurs séparées par des virgules. Les filtres d’en-tête HTTP sont évalués après la règle elle-même et les deux conditions doivent être vraies pour que la règle s’applique.
 
 ### <a name="multi-source-rules"></a>Règles à plusieurs sources
 
-Les règles à plusieurs sources vous permettent de combiner jusqu’à 8 plages d’adresses IP ou 8 étiquettes de service dans une seule règle. Vous pouvez les utiliser si vous avez plus de 512 plages d’adresses IP ou si vous souhaitez créer des règles logiques où plusieurs plages d’adresses IP sont combinées avec un seul filtre d’en-tête HTTP.
+Les règles à plusieurs sources vous permettent de combiner jusqu’à huit plages d’adresses IP ou huit étiquettes de service dans une seule règle. Vous pouvez les utiliser si vous avez plus de 512 plages d’adresses IP ou si vous souhaitez créer des règles logiques où plusieurs plages d’adresses IP sont combinées avec un seul filtre d’en-tête HTTP.
 
 Les règles à plusieurs sources sont définies de la même façon que vous définissez des règles à source unique, mais chaque plage est séparée par une virgule.
 
@@ -200,6 +200,9 @@ Vous pouvez ajouter des restrictions d’accès par programmation en procédant 
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
+   > [!NOTE]
+   > L’utilisation d’étiquettes de service, d’en-têtes HTTP ou de règles à plusieurs sources dans Azure CLI nécessite au moins la version 2.23.0. Vous pouvez vérifier la version du module installé avec : ```az version```
+
 * Utilisez [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). Par exemple :
 
 
@@ -208,7 +211,7 @@ Vous pouvez ajouter des restrictions d’accès par programmation en procédant 
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > L’utilisation d’étiquettes de service, d’en-têtes HTTP ou de règles à plusieurs sources nécessite au moins la version 5.7.0. Vous pouvez vérifier la version du module installé avec : **Get-InstalledModule -Name Az**
+   > L’utilisation d’étiquettes de service, d’en-têtes HTTP ou de règles à plusieurs sources dans Azure PowerShell nécessite au moins la version 5.7.0. Vous pouvez vérifier la version du module installé avec : ```Get-InstalledModule -Name Az```
 
 Vous pouvez également définir les valeurs manuellement en procédant de l’une des façons suivantes :
 

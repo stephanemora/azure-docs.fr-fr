@@ -1,14 +1,14 @@
 ---
 title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
-ms.date: 05/01/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 31d63cf493ae548b8172071c133655900d8c3be7
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a42800bb40f0c94de9b852eb77b3b87b698bdb09
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753810"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112020940"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -199,14 +199,16 @@ L’une des raisons de créer un groupe d’administration est de regrouper des 
 
 Lors du déplacement d’un abonnement ou groupe d’administration en tant qu’enfant d’un autre groupe d’administration, trois règles sont à prendre en compte.
 
-Pour effectuer le déplacement, vous devez avoir :
+Si vous effectuez l’action de déplacement, vous devez disposer de l’autorisation sur chacune des couches suivantes :
 
-- Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
-  - Exemple de rôle intégré **Propriétaire**
-- L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
-  - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
-- L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.
-  - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+- Abonnement/groupe d’administration enfant
+  - `Microsoft.management/managementgroups/write`
+  - `Microsoft.management/managementgroups/subscription/write` (uniquement pour les abonnements)
+  - `Microsoft.Authorization/roleassignment/write`
+- Groupe d’administration parent cible
+  - `Microsoft.management/managementgroups/write`
+- Groupe d’administration parent actuel
+  - `Microsoft.management/managementgroups/write`
 
 **Exception** : Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
 

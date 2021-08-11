@@ -1,22 +1,23 @@
 ---
-title: Créer un modèle de générateur d’images Azure (préversion)
+title: Créer un modèle de générateur d’images Azure
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
-author: danielsollondon
-ms.author: danis
-ms.date: 05/04/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 94083c8811d92d05a68295f9ac75f38123b3f771
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07dfd9eb2dab9ae8c7e7a024bbf09c641e0910e4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732593"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967249"
 ---
-# <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
+# <a name="create-an-azure-image-builder-template"></a>Créer un modèle de générateur d’images Azure 
 
 Le générateur d’images Azure utilise un fichier .json pour transmettre des informations au service du générateur d’images. Dans cet article, nous allons vous présenter les sections du fichier json pour que vous puissiez créer le vôtre. Pour voir des exemples de fichiers .json complets, consultez [GitHub sur le générateur d’images Azure](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -55,7 +56,7 @@ Voici le format de modèle de base :
 
 ## <a name="type-and-api-version"></a>Type et version de l’API
 
-`type` est le type de ressource, qui doit être `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` change au fil du temps à mesure que l’API change, mais doit être `"2020-02-14"` pour la préversion.
+`type` est le type de ressource, qui doit être `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` change au fil du temps à mesure que l’API change, mais doit être `"2020-02-14"` pour l’instant.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -64,18 +65,16 @@ Voici le format de modèle de base :
 
 ## <a name="location"></a>Emplacement
 
-L’emplacement est la région dans laquelle l’image personnalisée sera créée. Pour le générateur d’images en préversion, les régions suivantes sont prises en charge :
+L’emplacement est la région dans laquelle l’image personnalisée sera créée. Les régions suivantes sont prises en charge :
 
 - USA Est
 - USA Est 2
 - Centre-USA Ouest
 - USA Ouest
 - USA Ouest 2
+- États-Unis - partie centrale méridionale
 - Europe Nord
 - Europe Ouest
-- États-Unis - partie centrale méridionale
-
-Prochainement (mi-2021) :
 - Asie Sud-Est
 - Sud-Australie Est
 - Australie Est
@@ -89,21 +88,23 @@ Prochainement (mi-2021) :
 ### <a name="data-residency"></a>Résidence des données
 Le service Azure VM Image Builder ne stocke pas/ne traite pas les données client en dehors des régions qui imposent des exigences strictes en matière de résidence des données dans une seule région lorsqu'un client demande une build dans cette région. En cas d'interruption de service pour les régions qui présentent des exigences en matière de résidence des données, vous devrez créer des modèles dans une région et une zone géographique différentes.
 
+### <a name="zone-redundancy"></a>Redondance de zone
+La distribution prend en charge la redondance de zone, les disques durs virtuels sont distribués dans un compte de stockage redondant dans une zone par défaut et la version de Shared Image Gallery prend en charge un [type de stockage ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview), s’il est spécifié.
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
-Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D1_v2 », qui est créée à partir de l'image que vous spécifiez dans la `source`. Vous pouvez contourner cette règle, notamment pour les raisons suivantes :
+Par défaut, Image Builder utilise une machine virtuelle de build « Standard_D1_v2 », qui est créée à partir de l’image que vous spécifiez dans la `source`. Vous pouvez contourner cette règle, notamment pour les raisons suivantes :
 1. Personnalisations nécessitant davantage de mémoire, une augmentation de la capacité du processeur et la gestion de fichiers volumineux (Go)
-2. Exécution de builds Windows nécessitant l'utilisation de « Standard_D2_v2 » ou d'une taille de machine virtuelle équivalente
-3. Exigence d'[isolement de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/isolation)
+2. Exécution de builds Windows nécessitant l’utilisation de « Standard_D2_v2 » ou d’une taille de machine virtuelle équivalente.
+3. Exigence d'[isolement de la machine virtuelle](../isolation.md)
 4. Personnalisation d'une image nécessitant du matériel spécifique ; par exemple pour une machine virtuelle GPU, une taille de machine virtuelle GPU est nécessaire 
-5. Exigence de chiffrement de bout en bout au repos de la machine virtuelle de build ; vous devez spécifier la [taille de la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) de build de prise en charge qui n'utilise pas de disques temporaires locaux
+5. Exigence de chiffrement de bout en bout au repos de la machine virtuelle de build ; vous devez spécifier la [taille de la machine virtuelle](../azure-vms-no-temp-disk.md) de build de prise en charge qui n'utilise pas de disques temporaires locaux
  
 Cette étape est facultative.
 
 
 ## <a name="proxy-vm-size"></a>Taille de la machine virtuelle proxy
-La machine virtuelle proxy est utilisée pour envoyer des commandes entre le service Azure Image Builder et la machine virtuelle de build ; elle n'est déployée que lors de la spécification d'un réseau virtuel existant. Pour plus d'informations, consultez la [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm) relative aux options de mise en réseau.
+La machine virtuelle proxy est utilisée pour envoyer des commandes entre le service Azure Image Builder et la machine virtuelle de build ; elle n'est déployée que lors de la spécification d'un réseau virtuel existant. Pour plus d'informations, consultez la [documentation](image-builder-networking.md#why-deploy-a-proxy-vm) relative aux options de mise en réseau.
 ```json
  {
     "proxyVmSize": "Standard A1_v2"
@@ -142,7 +143,7 @@ Cette section facultative peut être utilisée pour s’assurer que les dépenda
     "dependsOn": [],
 ```
 
-Pour plus d’informations, consultez [Définir les dépendances des ressources](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+Pour plus d’informations, consultez [Définir les dépendances des ressources](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identité
 
@@ -177,7 +178,7 @@ L’API nécessite un « SourceType » qui définit la source pour la générati
 
 
 > [!NOTE]
-> Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
+> Lorsque vous utilisez des images personnalisées Windows existantes, vous pouvez exécuter la commande sysprep jusqu’à 3 fois sur une seule image Windows 7 ou Windows Server 2008 R2, ou 1001 fois sur une image Windows unique pour les versions ultérieures. Pour plus d’informations, consultez la documentation de [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Source PlatformImage 
 Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](../image-builder-overview.md#os-support). 
@@ -303,7 +304,7 @@ La section de personnalisation est un tableau. Le générateur d’images Azure 
  
 ### <a name="shell-customizer"></a>Personnalisateur de l’interpréteur de commandes
 
-Le personnalisateur de l’interpréteur de commandes prend en charge l’exécution de scripts shell. Ceux-ci doivent donc être accessibles publiquement pour que le générateur d’images puisse y accéder.
+L’interface de l’interpréteur de commandes prend en charge l’exécution des scripts d’interpréteur de commandes. Les scripts d’interpréteur de commandes doivent être accessibles publiquement ou vous devez avoir configuré un [MSI](./image-builder-user-assigned-identity.md) pour que le générateur d’images y accède.
 
 ```json
     "customize": [ 
@@ -421,7 +422,7 @@ Propriétés de personnalisation :
 
 ### <a name="file-customizer"></a>Personnalisateur de fichier
 
-Le personnalisateur de fichier permet aux générateurs d’images de télécharger un fichier d’un GitHub ou Stockage Azure. Si vous disposez d’un pipeline de build d’image qui s’appuie sur des artefacts, vous pouvez définir le personnalisateur de fichier à télécharger du partage de build et déplacer les artefacts dans l’image.  
+Le personnalisateur de fichier permet aux générateurs d’images de télécharger un fichier d’un dépôt GitHub ou Stockage Azure. Si vous disposez d’un pipeline de build d’image qui s’appuie sur des artefacts, vous pouvez définir le personnalisateur de fichier à télécharger du partage de build et déplacer les artefacts dans l’image.  
 
 ```json
      "customize": [ 
@@ -450,7 +451,7 @@ Cela est pris en charge par les répertoires Windows et les chemins d’accès L
 - Système d’exploitation Linux - Le seul chemin dans lequel le générateur d’images peut écrire est /tmp.
 - Windows - Aucune restriction de chemin d’accès, mais le chemin d’accès doit exister.
  
- 
+
 Si une erreur se produit lors de la tentative de téléchargement du fichier, ou de son placement dans un répertoire spécifié, l’étape de personnalisation échoue, et sera consignée dans le fichier customization.log.
 
 > [!NOTE]
@@ -471,10 +472,11 @@ Ce personnalisateur est basé sur [le provisionneur Windows Update de la communa
                 "updateLimit": 20
             }
                ], 
-OS support: Windows
 ```
 
-Propriétés de personnalisation :
+Système d’exploitation pris en charge : Windows
+
+Propriétés du personnalisateur :
 - **type** : WindowsUpdate.
 - **searchCriteria** : facultatif, définit les types de mises à jour installées (recommandées, importantes, etc.), BrowseOnly = 0 et IsInstalled = 0 (recommandé) sont les valeurs par défaut.
 - **filters** : facultatif, vous permet de spécifier un filtre pour inclure ou exclure des mises à jour.
