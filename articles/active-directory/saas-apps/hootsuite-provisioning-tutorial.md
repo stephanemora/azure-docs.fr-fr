@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Hootsuite pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur depuis Azure AD pour Hootsuite.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.author: Zhchia
-ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c60f2ccc9325183fdcbc4edc533c7418e36eb6bf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177070"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763605"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutoriel : Configurer Hootsuite pour le provisionnement automatique d’utilisateurs
 

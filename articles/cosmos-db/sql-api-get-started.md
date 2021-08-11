@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ece9ed5cb6eb6ea706db1ed615a64d001f2b17c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c317987d382ba5e52e99bbd2a775bf080a51b11f
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102423950"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239433"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutoriel : Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,15 +50,15 @@ Commençons dès maintenant !
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
+* [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : Création d’un compte Azure Cosmos DB
 
 Commençons par créer un compte Azure Cosmos DB. Si vous disposez déjà d’un compte et que vous voulez l’utiliser, ignorez cette section. Pour utiliser l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer. Passez ensuite à l’[Étape 2 : Configurer votre projet Visual Studio](#SetupVS).
 
-[!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount-preview](includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Étape 2 : Configurer votre projet Visual Studio
 

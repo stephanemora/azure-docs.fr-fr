@@ -92,7 +92,7 @@
         - name: Échec du démarrage des rôles
           href: role-startup-failure.md
         - name: Forum aux questions
-          href: faq.md
+          href: faq.yml
 - name: Exemples
   items:
     - name: Exemples de modèles

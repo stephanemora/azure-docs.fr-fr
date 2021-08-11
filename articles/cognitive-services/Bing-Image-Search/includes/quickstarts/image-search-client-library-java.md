@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: f155868483a0b00ed5ecb6f02ad3ee5440e6e45a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a07d6c6b397f8461202ffebe081b2fde91b53547
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625328"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289615"
 ---
 Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide de la bibliothèque de client Recherche d’images Bing, qui est un wrapper de l’API et contient les mêmes fonctionnalités. Cette application Java simple envoie une requête de recherche d’image, analyse la réponse JSON et affiche l’URL de la première image retournée.
 
@@ -22,7 +22,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-La dernière version du [JDK (Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+La dernière version du [JDK (Java Development Kit)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 Installez les dépendances de bibliothèque de client Recherche d’images Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: adcabf8427f515a1814dd740bc5c70b8b0e7b9b7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 2fefa04a6ba00d788d39d850431234c490734dd5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858067"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593168"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -26,7 +26,7 @@ Utilisez la bibliothèque de client Visage pour Python pour :
 * [Identifier un visage](#identify-a-face)
 * [Vérifier les visages](#verify-faces)
 
-[Documentation de référence](/python/api/azure-cognitiveservices-vision-face/) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemples C#](/samples/browse/?products=azure&term=face)
+[Documentation de référence](/python/api/overview/azure/cognitiveservices/face-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemples C#](/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -3,21 +3,21 @@ title: 'Tutoriel : Créer une application monopage JavaScript qui utilise la Pl
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous allez créer une application monopage JavaScript qui utilise la plateforme d’identités Microsoft pour connecter les utilisateurs et obtenir un jeton d’accès pour appeler l’API Microsoft Graph en leur nom.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: e76dfe71f54eacbde2b34958e0abb70e64dbe0a9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6d900cafff52ec42a11a0a8537ed1e878a59944a
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075220"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356542"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 

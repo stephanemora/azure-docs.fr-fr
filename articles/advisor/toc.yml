@@ -21,6 +21,10 @@
   items:
     - name: Bien démarrer avec Advisor
       href: advisor-get-started.md
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Guides pratiques
   items:
     - name: Fiabilité

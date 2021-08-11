@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: ba874790b8da6c1dc021163259f8df934fa17d41
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 28fe118e010b269a35df878c9e5ca82c6b6b530d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714869"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291421"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
@@ -43,13 +43,13 @@ Dans ce guide de démarrage rapide, vous utilisez une méthode directe pour cont
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](quickstart-send-telemetry-python.md) précédent, vous pouvez ignorer cette étape.
+Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) précédent, vous pouvez ignorer cette étape.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
-Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](quickstart-send-telemetry-python.md) précédent, vous pouvez ignorer cette étape.
+Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) précédent, vous pouvez ignorer cette étape.
 
 Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans ce démarrage rapide, vous utilisez Azure Cloud Shell pour inscrire un appareil simulé.
 

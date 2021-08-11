@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 306294cc654e46dbe8af80b25cb9c709071fad20
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a147d4ca7b947c6a1cdfeec1587e9ae6b2d27fa0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166324"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448904"
 ---
 # <a name="deploy-a-azure-cloud-services-extended-support-using-the-azure-portal"></a>Déployer une instance Azure Cloud Services (support étendu) à l’aide du portail Azure
 Cet article explique comment utiliser le portail Azure pour créer un déploiement de service cloud (support étendu). 
@@ -63,6 +63,6 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Serv
 7. Une fois tous les champs complétés, accédez à l’onglet **Vérifier et créer** pour valider la configuration de votre déploiement et créer votre service cloud (support étendu).
 
 ## <a name="next-steps"></a>Étapes suivantes 
-- Consultez les [questions fréquentes (FAQ)](faq.md) concernant Cloud Services (support étendu).
+- Consultez les [questions fréquentes (FAQ)](faq.yml) concernant Cloud Services (support étendu).
 - Déployez un service cloud (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
 - Visitez le [dépôt d’exemples de Cloud Services (support étendu)](https://github.com/Azure-Samples/cloud-services-extended-support).

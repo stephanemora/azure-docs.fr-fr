@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer SAP Analytics Cloud pour le provisionnement autom
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et SAP Analytics Cloud.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 27d12989-efa8-4254-a4ad-8cb6bf09d839
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
-ms.author: Zhchia
-ms.openlocfilehash: 31e5393cb5de627ebf8832e43302583d6eacbf59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 16fbc64f77407c02ec189e9f0bd0de40d9a7f2bd
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181479"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759629"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer SAP Analytics Cloud pour le provisionnement automatique d’utilisateurs
 

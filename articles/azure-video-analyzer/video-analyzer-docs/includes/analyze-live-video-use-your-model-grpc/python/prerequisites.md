@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: c9b37af5b3a30f23cdefcb703adc5e5c41415b3d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f82665a03cdc1f710afb05c58d9a457e5d604e15
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371832"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113735245"
 ---
 * Un compte Azure incluant un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -18,8 +18,7 @@ ms.locfileid: "110371832"
     * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
         * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-        > [!TIP]
-        > Lors de l’installation d’Azure IoT Tools, vous pouvez être invité à installer Docker. N’hésitez pas à ignorer cette invite.
+        [!INCLUDE [install-docker-prompt](../../common-includes/install-docker-prompt.md)]
         * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     * [Python 3](https://www.python.org/downloads/) (3.6.9 ou version ultérieure), [Pip 3](https://pip.pypa.io/en/stable/installing/) et éventuellement [venv](https://docs.python.org/3/library/venv.html).
  
@@ -44,5 +43,5 @@ Dans ce guide de démarrage rapide, vous allez :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/python/python-set-up-dev-env.md)]

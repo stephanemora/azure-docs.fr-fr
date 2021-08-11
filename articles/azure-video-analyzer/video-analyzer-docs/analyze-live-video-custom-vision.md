@@ -2,14 +2,14 @@
 title: Commencer avec Azure Video Analyzer
 description: Ce tutoriel vous guide dans les étapes d’analyse d’une vidéo en direct avec Azure Video Analyzer sur IoT Edge et Azure Custom Vision.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 3ba8fe19b08a17e2d2e35cfc34cda3a65795dea5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: efb89b8ac28ca2d4ddfb72c75d420ace705d92ba
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383752"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603383"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser une vidéo en direct avec Azure Video Analyzer sur IoT Edge et Azure Custom Vision
 
@@ -112,24 +112,16 @@ Une fois que vous avez terminé, vous pouvez exporter le modèle vers un contene
    2. `docker image ls`
 
       Cette commande vérifie si la nouvelle image se trouve dans votre registre local.
-   3. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+   
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
-      Cette commande doit publier le port exposé de Docker (80) sur le port de votre ordinateur local (80).
-   4. `docker container ls`
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+::: zone-end
 
-      Cette commande vérifie les mappages de port, et elle vérifie si le conteneur Docker s’exécute correctement sur votre ordinateur. La sortie suivante doit s’afficher :
-      
-      ```
-      CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-      8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
-      ```
-   5. `curl -X POST http://127.0.0.1:80/score -F imageData=@<path to any image file that has the toy delivery truck in it>`
-
-      Cette commande teste le conteneur sur l’ordinateur local. Si l’image montre le même camion de livraison que celui utilisé pour entraîner le modèle, la sortie ressemblera à l’exemple suivant. Celle-ci indique que le camion de livraison a été détecté avec une probabilité de 90,12 %.
-
-      ```
-      {"created":"2020-03-20T07:10:47.827673","id":"","iteration":"","predictions":[{"boundingBox":{"height":0.66167289,"left":-0.03923762,"top":0.12781593,"width":0.70003178},"probability":0.90128148,"tagId":0,"tagName":"delivery truck"},{"boundingBox":{"height":0.63733053,"left":0.25220079,"top":0.0876643,"width":0.53331227},"probability":0.59745145,"tagId":0,"tagName":"delivery truck"}],"project":""}
-      ```
+::: zone pivot="programming-language-python"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+::: zone-end
 
 ## <a name="examine-the-sample-files"></a>Examiner les exemples de fichiers
 
@@ -151,7 +143,7 @@ Une fois que vous avez terminé, vous pouvez exporter le modèle vers un contene
    1. `"topologyName" : "InferencingWithHttpExtension"`
    2. Ajoutez ce qui suit en haut du tableau des paramètres : `{"name": "inferencingUrl","value": "http://cv/score"},`
    3. Remplacez la valeur du paramètre `rtspUrl` par la valeur `"rtsp://rtspsim:554/media/t2.mkv"`.
-4. Sous `livePipelineDelete`, vérifiez que `"name": "InferencingWithHttpExtension"` est vrai.
+4. Sous `pipelineTopologyDelete`, vérifiez que `"name": "InferencingWithHttpExtension"` est vrai.
 5. Cliquez avec le bouton droit sur le fichier deployment.customvision.template.json du dossier src/edge/, puis sélectionnez **Générer un manifeste de déploiement IoT Edge**.
 
    ![Capture d’écran montrant l’option Générer un manifeste de déploiement IoT Edge](./media/custom-vision/deployment-template-json.png)
@@ -188,15 +180,11 @@ Une fois que vous avez terminé, vous pouvez exporter le modèle vers un contene
     - Un module nommé `rtspsim`, qui simule un serveur RTSP, agissant comme la source d’un flux vidéo en direct
     - Un module nommé `cv` qui, comme son nom l’indique, est le modèle de détection de camion jouet Custom Vision qui applique une vision personnalisée aux images et retourne plusieurs types d’étiquettes. (Notre modèle a été entraîné à l’aide d’une seule étiquette : « delivery truck » (camion de livraison).)
 
-## <a name="prepare-for-monitoring-events"></a>Préparez-vous à des événements de supervision
 
-Cliquez avec le bouton droit sur ava-sample-device, puis sélectionnez **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre **SORTIE** de Visual Studio Code.
-
-![Capture d’écran de l’option Démarrer la supervision du point de terminaison d’événement intégré](./media/custom-vision/start-monitoring.png)
 
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
-Si vous ouvrez la topologie de ce tutoriel dans un navigateur, vous voyez que la valeur de `inferencingUrl` a été définie sur `http://cv/image`. Ce paramètre signifie que le serveur d’inférence retourne les résultats après avoir détecté des camions jouets dans la vidéo en direct.
+Si vous ouvrez la topologie de ce tutoriel dans un navigateur, vous voyez que la valeur de `inferencingUrl` a été définie sur `http://cv/score`. Ce paramètre signifie que le serveur d’inférence retourne les résultats après avoir détecté des camions jouets dans la vidéo en direct.
 
 1. Dans Visual Studio Code, ouvrez l’onglet **Extensions** (ou sélectionnez **Ctrl+Maj+X**) et recherchez Azure IoT Hub.
 2. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
@@ -205,7 +193,14 @@ Si vous ouvrez la topologie de ce tutoriel dans un navigateur, vous voyez que la
 3. Recherchez et activez **Afficher le message détaillé**.
 
    ![Capture d’écran montrant l’option Afficher le message détaillé.](./media/custom-vision/show-verbose-message.png)
-4. Pour démarrer une session de débogage, sélectionnez la touche **F5**. Des messages s’affichent dans la fenêtre **TERMINAL**.
+4.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end  
+
 5. Le code operations.json commence par appeler les méthodes directes `livePipelineList` et `livePipelineList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche **Entrée**.
 
    La fenêtre **TERMINAL** affiche le jeu d’appels de méthode directe suivant :
@@ -223,7 +218,7 @@ Si vous ouvrez la topologie de ce tutoriel dans un navigateur, vous voyez que la
             "parameters": [
               { 
                 "name": "inferencingUrl",
-                "value": "http://cv/image"
+                "value": "http://cv/score"
               },
               {
                 "name": "rtspUrl",

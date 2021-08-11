@@ -3,13 +3,13 @@ title: Azure PowerShell - S’abonner à un abonnement Azure
 description: Cet article fournit un exemple de script Azure PowerShell qui montre comment s’abonner à des événements Event Grid pour un abonnement Azure.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 07/08/2020
-ms.openlocfilehash: 0aae1d64b789cedab6420ac1f323a2379bff17be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: b14d1a07725b015b436f48dc03f0c21ce1e74226
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87460811"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467413"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>S’abonner aux événements d’un abonnement Azure avec PowerShell
 

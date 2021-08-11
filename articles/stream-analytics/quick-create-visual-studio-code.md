@@ -7,14 +7,14 @@ ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd74787c1e9ad158becf54f4b2b00bb71317e81d
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98014609"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221783"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code (préversion)
+# <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code
 
 Ce démarrage rapide vous montre comment créer et exécuter une tâche Azure Stream Analytics à l’aide de l’extension Azure Stream Analytics Tools pour Visual Studio Code. Cet exemple de travail lit les données de streaming à partir d’un appareil Azure IoT Hub. Vous définissez un travail qui calcule la température moyenne quand elle dépasse 27 degrés et qui écrit les événements de sortie résultants dans un nouveau fichier du stockage d’objets blob.
 

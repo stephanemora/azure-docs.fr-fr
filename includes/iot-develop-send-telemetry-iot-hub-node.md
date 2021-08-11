@@ -1,19 +1,23 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 501b1383bbc4fb3e20a675b3dca7186d0fe4548e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d0f1a0bed557e27da113dcb6177c75198b47e6ad
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112041026"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712841"
 ---
+[![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+
+Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de développement d’application Azure IoT. Vous utilisez Azure CLI pour créer un hub Azure IoT et un appareil. Ensuite, vous utilisez un exemple Azure IoT device SDK pour exécuter un contrôleur de température simulé, le connecter en toute sécurité au hub et envoyer des données de télémétrie.
+
 ## <a name="prerequisites"></a>Prérequis
 - Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - [Git](https://git-scm.com/downloads).
@@ -89,7 +93,7 @@ Dans cette section, vous allez utiliser le Kit de développement logiciel (SDK) 
     node pnpTemperatureController.js
     ```
     > [!NOTE]
-    > Cet exemple de code utilise Azure IoT Plug-and-Play, qui vous permet d’intégrer des appareils intelligents dans vos solutions sans aucune configuration manuelle.  Par défaut, la plupart des exemples de cette documentation utilisent IoT Plug-and-Play. Pour en savoir plus sur les avantages et les cas d’utilisation d’IoT PnP, consultez [Qu’est ce qu’IoT Plug-and-Play ?](../articles/iot-pnp/overview-iot-plug-and-play.md).
+    > Cet exemple de code utilise Azure IoT Plug-and-Play, qui vous permet d’intégrer des appareils intelligents dans vos solutions sans aucune configuration manuelle.  Par défaut, la plupart des exemples de cette documentation utilisent IoT Plug-and-Play. Pour en savoir plus sur les avantages et les cas d’utilisation d’IoT PnP, consultez [Qu’est ce qu’IoT Plug-and-Play ?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
 Lorsque le code Node.js envoie un message simulé de télémétrie de votre appareil au hub IoT, le message s’affiche dans votre application CLI qui surveille les événements :
 

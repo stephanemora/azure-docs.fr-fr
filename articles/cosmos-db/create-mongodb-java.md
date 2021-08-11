@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Créer une application web en utilisant l’API d’Azure Cosmos DB pour MongoDB et le SDK Java'
 description: Découvrez comment générer un exemple de code Java et l’utiliser ensuite pour vous connecter et faire des requêtes à l’aide de l’API d’Azure Cosmos DB pour MongoDB.
-author: markjbrown
-ms.author: mjbrown
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 026e40595adcf22b119f223b289ba496f61c8e7a
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: a9036c3077795e43abab2894eedb0e18854b13f8
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235393"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354908"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Démarrage rapide : Créer une application console avec Java et l’API MongoDB dans Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

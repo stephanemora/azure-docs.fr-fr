@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: b7dd9685be5e0928743eaf9a541c88de6a49a36c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 950f6fa47de273534a4636796351dd3640628dda
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891246"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551233"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Démarrage rapide : Déployer un cluster AKS avec des nœuds d’informatique confidentielle à l’aide d’Azure CLI
 
@@ -25,8 +25,8 @@ Les fonctionnalités des nœuds d’informatique confidentielle sont les suivant
 
 - Nœuds Worker Linux prenant en charge les conteneurs Linux.
 - Machine virtuelle de deuxième génération avec des nœuds de machines virtuelles Ubuntu 18.04.
-- Processeur compatible Intel SGX pour permettre l’exécution de vos conteneurs dans une enclave protégée qui garantit la confidentialité en tirant parti de la mémoire EPC (Encrypted Page Cache). Pour obtenir plus d’informations, consultez les [Questions fréquentes (FAQ) sur l’informatique confidentielle Azure](./faq.md).
-- Pilote DCAP Intel SGX préinstallé sur les nœuds d’informatique confidentielle. Pour obtenir plus d’informations, consultez les [Questions fréquentes (FAQ) sur l’informatique confidentielle Azure](./faq.md).
+- Processeur compatible Intel SGX pour permettre l’exécution de vos conteneurs dans une enclave protégée qui garantit la confidentialité en tirant parti de la mémoire EPC (Encrypted Page Cache). Pour obtenir plus d’informations, consultez les [Questions fréquentes (FAQ) sur l’informatique confidentielle Azure](./faq.yml).
+- Pilote DCAP Intel SGX préinstallé sur les nœuds d’informatique confidentielle. Pour obtenir plus d’informations, consultez les [Questions fréquentes (FAQ) sur l’informatique confidentielle Azure](./faq.yml).
 
 > [!NOTE]
 > Les machines virtuelles DCsv2 utilisent du matériel spécialisé, soumis à des tarifs plus élevés et à la disponibilité régionale. Pour plus d’informations, consultez les [SKU disponibles et les régions prises en charge](virtual-machine-solutions.md).

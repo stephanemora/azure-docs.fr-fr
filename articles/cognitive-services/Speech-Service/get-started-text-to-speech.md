@@ -3,22 +3,22 @@ title: Guide de démarrage rapide sur la synthèse vocale - Service de reconnais
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le kit SDK Speech pour convertir le texte par synthèse vocale. Dans ce guide de démarrage rapide, vous allez découvrir la construction d'objets et les modèles de conception, les formats de sortie audio pris en charge, le CLI Speech, ainsi que les options de configuration personnalisées pour la synthèse vocale.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/17/2021
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: synthèse vocale
-ms.openlocfilehash: 33e19816d219e2be3dae367c5b30da349e2eb879
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: be6080e90fedb28d5c579fbec8abb19164236ac1
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085483"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709782"
 ---
 # <a name="get-started-with-text-to-speech"></a>Bien démarrer avec la conversion de texte par synthèse vocale
 

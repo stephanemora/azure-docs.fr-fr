@@ -3,22 +3,22 @@ title: Guide de démarrage rapide sur la reconnaissance vocale - Service de reco
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le SDK Speech pour convertir la parole en texte. Dans ce guide de démarrage rapide, vous allez découvrir la construction d’objet, les formats d’entrée audio pris en charge et les options de configuration de la reconnaissance vocale.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 26314d8ebd86d6cd041d9c275db53127d4b22606
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 70e19a375fcf20c0d50a4ce2d324391bd60a0807
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180045"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711570"
 ---
 # <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
 

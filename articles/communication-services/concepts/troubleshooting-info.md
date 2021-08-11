@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 06ba8675b0d393b85ef5748df6d0250257324808
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 66f2091087ed3602e929b584f7a311f4ebb05f88
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108600"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292514"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -181,7 +181,7 @@ Le kit SDK Appel Azure Communication Services utilise les codes d’erreur suiva
 
 | Code d'erreur | Description | Action à effectuer |
 | -------- | ---------------| ---------------|
-| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. Si vous utilisez l’interopérabilité Teams, assurez-vous que votre locataire Teams a été ajouté à la liste d’autorisation d’accès à la préversion. Pour activer/désactiver l’[interopérabilité des locataires Teams](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
+| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. Si vous utilisez l’interopérabilité Teams, assurez-vous que votre locataire Teams a été ajouté à la liste d’autorisation d’accès à la préversion. Pour activer/désactiver l’[interopérabilité des locataires Teams](./teams-interop.md), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
 | 404 | Appel introuvable. | Assurez-vous que le numéro que vous appelez (ou l’appel que vous êtes en train de joindre) existe. |
 | 408 | Le délai d’attente du contrôleur d’appel a expiré. | Le contrôleur d’appel a atteint le délai d’attente des messages de protocole provenant des points de terminaison utilisateur. Vérifiez que les clients sont connectés et disponibles. |
 | 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser le kit SDK le plus récent dans un environnement pris en charge. |

@@ -3,21 +3,21 @@ title: 'Démarrage rapide : Connecter des utilisateurs dans des applications mo
 titleSuffix: Microsoft identity platform
 description: Dans ce guide de démarrage rapide, vous découvrez de quelle manière une application JavaScript peut appeler une API qui exige des jetons d’accès émis par la plateforme d’identités Microsoft.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: ae6fdc989f70cee387c818a147e52408650cc783
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: c266fe52620cd91f1e09f06d7468181b0d584df3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075436"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357640"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -56,7 +56,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Sélectionnez **Inscription**. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
 > 1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Sous **Gérer**, sélectionnez **Authentification**.
 > 1. Sous **Configurations de plateforme** > **Ajouter une plateforme**. Sélectionnez **Web**.
-> 1. Choisissez `http://localhost:3000/` comme valeur pour **URI de redirection**. 
+> 1. Choisissez `http://localhost:3000/` comme valeur pour **URI de redirection**.
 > 1. Sélectionnez **Jetons d’accès** et **Jetons d’ID** sous **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride).
 > 1. Sélectionnez **Configurer**.
 

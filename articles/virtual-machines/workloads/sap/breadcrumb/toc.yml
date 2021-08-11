@@ -1,0 +1,15 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Machines virtuelles
+      tocHref: /azure/virtual-machines/index
+      topicHref: /azure/virtual-machines/index
+      items:
+        - name: Charges de travail
+          tocHref: /azure/virtual-machines/workloads/sap/get-started
+          topicHref: /azure/virtual-machines/workloads/sap/get-started
+          items:
+            - name: SAP
+              tocHref: /azure/backup/index
+              topicHref: /azure/virtual-machines/workloads/sap/index

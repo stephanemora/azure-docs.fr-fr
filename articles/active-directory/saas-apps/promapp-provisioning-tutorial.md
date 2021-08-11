@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Promapp pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Promapp.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
-ms.author: Zhchia
-ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: thwimmer
+ms.openlocfilehash: 65f78c17d6cd54053f8898f1750d5c86d9cb92e9
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94359100"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766325"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Promapp pour l’attribution automatique d’utilisateurs
 

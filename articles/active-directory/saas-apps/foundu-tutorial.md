@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 05/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 5237ca5629957f9f0e774aa1ee3f0f78c7a54f73
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 16962c14de7458c69b31d3501d7cd8317ae06f09
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481754"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527336"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foundu"></a>Tutoriel : Intégration de l'authentification unique Azure Active Directory à foundU
 
@@ -129,7 +129,7 @@ Dans cette section, vous allez permettre à B.Simon d'utiliser l'authentificatio
 
 1. Sur la page **Paramètres de l'authentification unique**, procédez comme suit :
 
-    ![Capture d'écran de la configuration de l'authentification unique foundU](./media/foundu-tutorial/configuration.png)
+    ![Capture d'écran de la configuration de l'authentification unique foundU](./media/foundu-tutorial/configuration-1.png)
 
     a. Copiez la valeur du champ **Identificateur (ID d'entité)** et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** sur le portail Azure.
 

@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 22fea8695af7f7ee3915e6e0518d20312d59766c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 018b11d53cf201de41f0f6ff9bc4f1f5c7488d7a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688169"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765314"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrer des machines virtuelles VMware vers Azure (sans agent) - PowerShell
 
@@ -496,4 +496,4 @@ Write-Output $MigrateJob.State
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
--  Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+-  Envisagez de déployer [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
