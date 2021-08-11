@@ -8,14 +8,16 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1e7cbcdbaeb375e733a3e05ebd4998c1d2160a6
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96187780"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285803"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Java et JDBC avec Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cette rubrique illustre la création d’un exemple d’application qui utilise Java et [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) pour stocker et récupérer des informations dans [Azure Database pour MySQL](./index.yml).
 
@@ -25,7 +27,7 @@ JDBC est l’API Java standard pour se connecter à des bases de données relati
 
 - Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [Azure CLI](/cli/azure/install-azure-cli). Nous vous recommandons d’utiliser Azure Cloud Shell. Vous serez ainsi connecté automatiquement et vous aurez accès à tous les outils dont vous avez besoin.
-- Un [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) pris en charge, version 8 (inclus dans Azure Cloud Shell).
+- Un [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) pris en charge, version 8 (inclus dans Azure Cloud Shell).
 - L’outil de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Préparer l’environnement de travail

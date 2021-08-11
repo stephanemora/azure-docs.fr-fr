@@ -2,14 +2,14 @@
 title: Exemples d’interface de ligne de commande Azure | Microsoft Docs
 description: Cet article fournit un tableau qui contient des liens vers des exemples de scripts de l’interface de ligne de commande (CLI) Azure pour Event Grid.
 ms.topic: sample
-ms.date: 07/07/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0cddb8b9ba6a4a06667696fdf5eda8e1896f20de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c195f5f1d2120f33ca8581cf59ea5a941a675435
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87498772"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453803"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Exemples d’interface de ligne de commande Azure pour Event Grid
 

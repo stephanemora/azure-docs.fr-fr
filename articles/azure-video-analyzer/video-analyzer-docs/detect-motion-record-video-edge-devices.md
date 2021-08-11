@@ -2,14 +2,14 @@
 title: Détecter les mouvements et enregistrer des vidéos sur des périphériques – Azure
 description: Utilisez Azure Video Analyzer pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée). Il montre comment détecter la présence d’un mouvement et, le cas échéant, enregistrer un clip vidéo MP4 sur le système de fichiers local de l’appareil de périphérie. Le guide de démarrage rapide utilise une machine virtuelle Azure comme appareil IoT Edge ainsi qu’un flux vidéo en direct simulé.
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: 38886673f57c4142dc1fd8cd5bd397a375aca4db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e79a2aa9027309838fd0a0fcc79096e27651e7be
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385848"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601624"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur des appareils de périphérie
 
@@ -68,7 +68,13 @@ Effectuez les étapes suivantes pour utiliser Video Analyzer afin de détecter l
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 
-1. Démarrez une session de débogage en appuyant sur la touche F5. La fenêtre **TERMINAL** affiche des messages.
+1.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. Le code _operations.json_ appelle les méthodes directes `pipelineTopologyList` et `livePipelineList`. Si vous avez nettoyé les ressources après les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Appuyez sur la touche Entrée.
 
    ```
@@ -234,4 +240,4 @@ Si vous envisagez d’essayer les autres guides de démarrage rapide, conservez 
 - Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
   - Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous trouverez les caméras IP qui prennent RTSP en charge dans la page des [produits conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-  - Utilisez un appareil Linux AMD64 ou x64 au lieu d’utiliser une machine virtuelle Linux dans Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true). Suivez ensuite les instructions figurant dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md?view=iotedge-2020-11&preserve-view=true) pour inscrire l’appareil auprès d’Azure IoT Hub.
+  - Utilisez un appareil Linux AMD64 ou x64 au lieu d’utiliser une machine virtuelle Linux dans Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true). Suivez ensuite les instructions dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md?view=iotedge-2020-11&preserve-view=true) pour inscrire l’appareil auprès d’Azure IoT Hub.

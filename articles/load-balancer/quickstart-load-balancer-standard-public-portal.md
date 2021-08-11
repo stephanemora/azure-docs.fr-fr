@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c19c4963ad8c378e1282180800fd839e20edfdd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a0952301da222282ff5f1e283a9326328da2715e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056332"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "114289596"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
@@ -278,6 +278,8 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Nom |  **myVM2** |**myVM3**|
     | Zone de disponibilité | **2** |**3**|
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-outbound-rule-configuration"></a>Créer une configuration de règle de trafic sortant
 Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT sortante pour les machines virtuelles dans le pool principal. 
@@ -564,6 +566,8 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Nom |  **myVM2** |**myVM3**|
     | Groupe à haute disponibilité| Sélectionnez **myAvailabilitySet** | Sélectionnez **myAvailabilitySet**|
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant| Sélectionnez le groupe **myNSG** existant|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends
 

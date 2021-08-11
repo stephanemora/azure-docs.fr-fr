@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: d6d842a59a184470720da50917726eae069c6b02
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c2a704d5e87e5b5813a59f9c5951688f5c3b893a
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368506"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300913"
 ---
 # <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct à l’aide de Live Video Analytics avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
 
@@ -78,7 +78,7 @@ Dans la version initiale de ce serveur d’inférence, vous avez accès aux [mod
 
 - object_tracking for person_vehicle_bike_tracking ![suivi d’objet pour personne ou véhicule](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-Ce modèle utilise les pipelines de détection d’objet préchargé, de classification d’objet et de suivi d’objet pour démarrer rapidement. De plus, il est fourni avec les modèles préchargés [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) et [vehicle-attributes-recognition-barrier-0039](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+Ce modèle utilise les pipelines de détection d’objet préchargé, de classification d’objet et de suivi d’objet pour démarrer rapidement. De plus, il est fourni avec les modèles préchargés [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) et [vehicle-attributes-recognition-barrier-0039](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md).
 
 > [!NOTE]
 > En téléchargeant et en utilisant le module Edge OpenVINO™ DL Streamer – Edge AI Extension d’Intel et le logiciel inclus, vous acceptez les termes et conditions du [contrat de licence](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).

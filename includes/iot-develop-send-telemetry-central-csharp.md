@@ -1,19 +1,23 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 9b1460819a496a141260aede32c519e2e2271c95
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4715c007ea9c86b623eab63b83cb83514cf16866
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776402"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712939"
 ---
+[![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
+
+Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de développement d’application Azure IoT. Tout d’abord, vous créez une application Azure IoT Central pour héberger des appareils. Ensuite, vous utilisez un exemple Azure IoT device SDK pour exécuter un contrôleur de température simulé, le connecter en toute sécurité à IoT Central et envoyer la télémétrie.
+
 ## <a name="prerequisites"></a>Prérequis
 - [Visual Studio (Community, Professional ou Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
 - Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp). Téléchargez une copie du dépôt et extrayez-la : [Télécharger le fichier .zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip).

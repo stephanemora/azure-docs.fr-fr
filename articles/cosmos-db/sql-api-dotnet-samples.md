@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 2e7bfd3735a57ddfa5d6100e18cf7a5676c1b9b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed7f883605e4d0ed877e91cba9159bb3cac7b68a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019038"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239780"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples .NET pour l’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Un abonnement Azure ou un compte d’essai de Cosmos DB gratuit
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
   
 - Vous pouvez [activer les avantages d’abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) : Votre abonnement Visual Studio vous donne droit chaque mois à des crédits que vous pouvez utiliser pour les services Azure payants.
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
 > Les exemples sont autonomes. Ils se configurent et se nettoient eux-mêmes après avec plusieurs appels à [CreateDocumentCollectionAsync()](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync). Chaque occurrence facture votre abonnement pour une heure d’utilisation dans le niveau de performance de votre collection. 

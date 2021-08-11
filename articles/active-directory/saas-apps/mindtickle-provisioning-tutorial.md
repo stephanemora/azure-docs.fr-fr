@@ -2,21 +2,21 @@
 title: "Tutoriel : Configurer MindTickle pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et supprimer automatiquement des comptes d’utilisateur dans MindTickle.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/23/2019
-ms.author: Zhchia
-ms.openlocfilehash: c158358b1c4fcd72d9189d7a991645cb65a4dc83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: b0da76f17be54f29783018d854419739a0407263
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348124"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769003"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutoriel : Configurer MindTickle pour l'approvisionnement automatique d'utilisateurs
 

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 4df49521d59118f23c82cdc57d1b4b28477f05c5
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 16735c2d8e77c23156e23aade7a1d42bd7504e71
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439154"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765636"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Découvrir, évaluer et migrer des instances de machines virtuelles GCP (Google Cloud Platform) vers Azure
 
@@ -324,8 +324,8 @@ Effectuez une migration de test de la façon suivante :
 
     ![Nettoyer la migration](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
     > [!NOTE]
-    > Vous pouvez maintenant inscrire vos serveurs exécutant SQL Server avec SQL VM RP (fournisseur de ressources de machine virtuelle) pour tirer parti de la mise à jour corrective automatisée, de la sauvegarde automatisée et de la gestion des licences simplifiée à l’aide de l’extension d’agent IaaS SQL.
-    >- Sélectionnez **Gérer** > **Réplication de serveurs** > **Machine contenant SQL Server** > **Calcul et réseau** et sélectionnez **oui** pour vous inscrire avec SQL VM RP (fournisseur de ressources de machine virtuelle).
+    > Vous pouvez désormais inscrire vos serveurs exécutant SQL Server auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure pour bénéficier de la mise à jour corrective automatisée, de la sauvegarde automatisée et de la gestion simplifiée des licences à l’aide de l’extension SQL IaaS Agent.
+    >- Sélectionnez **Gérer** > **Réplication de serveurs** > **Machine contenant SQL Server** > **Calcul et réseau**, puis sélectionnez **oui** pour effectuer l’inscription auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure.
     >- Sélectionnez Azure Hybrid Benefit pour SQL Server si vous disposez d’instances SQL Server couvertes par des abonnements Software Assurance ou SQL Server actifs et que vous souhaitez appliquer l’avantage aux machines que vous migrez.hs.
 
 ## <a name="migrate-gcp-vms"></a>Migrer les machines virtuelles GCP
@@ -368,7 +368,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
-    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
 
 
 

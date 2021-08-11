@@ -4,12 +4,12 @@ description: Modèles Azure Resource Manager à utiliser avec les coffres Recove
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 35c631e46f06cb0b7dcc5e26b4e2c6db046b4936
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4e3ef31252956532be38d987ffa40d1581377b1a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067993"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293641"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modèles Azure Resource Manager pour la Sauvegarde Azure
 
@@ -20,15 +20,15 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager à 
 |**Coffre Recovery Services** | |
 | [Créer un coffre Recovery Services](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vault-create)| Créez un coffre Recovery Services. Le coffre peut être utilisé pour la Sauvegarde Azure et Azure Site Recovery. |
 |**Sauvegarde de machines virtuelles**| |
-| [Sauvegarde des machines virtuelles Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-vms) | Utilisez le coffre Recovery Services existant et la stratégie de sauvegarde pour sauvegarder les machines virtuelles Azure Resource Manager dans le même groupe de ressources.|
-| [Sauvegarde des machines virtuelles IaaS dans le coffre Recovery Services](https://github.com/Azure/azure-quickstart-templates/tree/master/201-recovery-services-backup-classic-resource-manager-vms) | Modèle pour sauvegarder les machines virtuelles classiques et Azure Resource Manager. |
+| [Sauvegarde des machines virtuelles Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-vms) | Utilisez le coffre Recovery Services existant et la stratégie de sauvegarde pour sauvegarder les machines virtuelles Azure Resource Manager dans le même groupe de ressources.|
+| [Sauvegarde des machines virtuelles IaaS dans le coffre Recovery Services](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-classic-resource-manager-vms) | Modèle pour sauvegarder les machines virtuelles classiques et Azure Resource Manager. |
 | [Création d’une stratégie de sauvegarde hebdomadaire pour les machines virtuelles IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-weekly-backup-policy-create) | Le modèle crée un coffre Recovery Services et une stratégie de sauvegarde hebdomadaire utilisée pour sauvegarder des machines virtuelles classiques et Azure Resource Manager.|
 | [Création d’une stratégie de sauvegarde quotidienne pour les machines virtuelles IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-daily-backup-policy-create) | Le modèle crée un coffre Recovery Services et une stratégie de sauvegarde quotidienne utilisée pour sauvegarder des machines virtuelles classiques et Azure Resource Manager.|
 | [Déploiement d’une machine virtuelle Windows Server avec la fonctionnalité de sauvegarde activée](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup) | Le modèle crée une machine virtuelle Windows Server et un coffre Recovery Services avec la stratégie de sauvegarde par défaut activée.|
 |**Surveillance des travaux de sauvegarde** |  |
-| [Utiliser les journaux d’activité Azure Monitor avec Sauvegarde Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Le modèle déploie les journaux d’activité Azure Monitor avec la Sauvegarde Azure, ce qui vous permet de superviser les travaux de sauvegarde et de restauration, ainsi que les alertes de sauvegarde et le stockage cloud utilisés dans vos coffres Recovery Services.|
+| [Utiliser les journaux d’activité Azure Monitor avec Sauvegarde Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/backup-oms-monitoring) | Le modèle déploie les journaux d’activité Azure Monitor avec la Sauvegarde Azure, ce qui vous permet de superviser les travaux de sauvegarde et de restauration, ainsi que les alertes de sauvegarde et le stockage cloud utilisés dans vos coffres Recovery Services.|
 |**Sauvegarder SQL Server sur une machine virtuelle Azure** |  |
-| [Sauvegarder SQL Server sur une machine virtuelle Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Ce modèle crée un coffre Recovery Services et une stratégie de sauvegarde spécifique aux charges de travail. Il inscrit la machine virtuelle auprès du service Sauvegarde Azure et configure la protection sur cette machine virtuelle. Ceci fonctionne uniquement pour les images de la galerie SQL. |
+| [Sauvegarder SQL Server sur une machine virtuelle Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vm-workload-backup) | Ce modèle crée un coffre Recovery Services et une stratégie de sauvegarde spécifique aux charges de travail. Il inscrit la machine virtuelle auprès du service Sauvegarde Azure et configure la protection sur cette machine virtuelle. Ceci fonctionne uniquement pour les images de la galerie SQL. |
 |**Sauvegarder des partages de fichiers Azure** |  |
-| [Sauvegarder des partages de fichiers Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-backup-file-share) | Ce modèle configure la protection d’un partage de fichiers Azure existant en spécifiant les détails appropriés pour le coffre et la stratégie de sauvegarde Recovery Services. Il crée éventuellement un coffre et une stratégie de sauvegarde Recovery Services, puis enregistre le compte de stockage contenant le partage de fichiers dans le coffre Recovery Services. |
+| [Sauvegarder des partages de fichiers Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-file-share) | Ce modèle configure la protection d’un partage de fichiers Azure existant en spécifiant les détails appropriés pour le coffre et la stratégie de sauvegarde Recovery Services. Il crée éventuellement un coffre et une stratégie de sauvegarde Recovery Services, puis enregistre le compte de stockage contenant le partage de fichiers dans le coffre Recovery Services. |
 |   |   |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8726f6211ef792064e9e180a8c2e34383eeb6d53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389108"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441569"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutoriel : Migrer une application web à partir de Bing Cartes
 
@@ -33,7 +33,7 @@ Les applications web qui utilisent Bing Cartes utilisent souvent le kit SDK Java
 
 Si vous migrez une application Web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte Open source telle que Cesium, Leaflet et OpenLayers. Si c’est le cas et que vous préférez continuer à utiliser cette bibliothèque, vous pouvez la connecter aux services de mosaïques Azure Maps ([mosaïques routières](/rest/api/maps/render/getmaptile) \| [mosaïques satellites](/rest/api/maps/render/getmapimagerytile)). Les liens ci-dessous fournissent des détails sur l’utilisation d’Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
 
-* [Cesium](https://cesiumjs.org/) – Contrôle de carte 3D pour le web. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Référentiel de plug-ins]()
+* [Cesium](https://www.cesium.com/) – Contrôle de carte 3D pour le web. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Référentiel de plug-ins]()
 * [Leaflet](https://leafletjs.com/) – Contrôle de carte 2D léger pour le web. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Référentiel de plug-ins]()
 * [OpenLayers](https://openlayers.org/) – Contrôle de carte 2D pour le web qui prend en charge les projections. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Référentiel de plug-ins]()
 
@@ -1255,7 +1255,7 @@ Les cartes Bing et Azure prennent en charge la superposition des images géoréf
 
 **Avant : Bing Cartes**
 
-Lors de la création d’une superposition au sol dans Bing Cartes, vous devez spécifier l’URL de l’image à superposer et un cadre englobant auquel lier l’image sur la carte. Cet exemple superpose une image de carte de [Newark New Jersey en 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sur la carte.
+Lors de la création d’une superposition au sol dans Bing Cartes, vous devez spécifier l’URL de l’image à superposer et un cadre englobant auquel lier l’image sur la carte. Cet exemple superpose une image de carte de Newark New Jersey en 1922 sur la carte.
 
 ```html
 <!DOCTYPE html>

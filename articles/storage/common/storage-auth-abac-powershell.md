@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 8d634cf7cb5a500e8ff36222419600b6059c9a74
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: d6cb1980c93e5161f02b79b05f1128ba777027c6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489336"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281950"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-azure-powershell-preview"></a>Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob en utilisant Azure PowerShell (préversion)
 
@@ -111,8 +111,6 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     Set-AzContext $context
     ```
 
-1. Si ce n’est déjà fait, inscrivez votre abonnement pour utiliser des étiquettes d’index d’objets blob. Pour plus d’informations, consultez [Inscrire votre abonnement (préversion)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
-
 ## <a name="step-3-create-a-user"></a>Étape 3 : Créer un utilisateur
 
 1. Utilisez [New-AzureADUser](/powershell/module/azuread/new-azureaduser) pour créer un utilisateur ou recherchez un utilisateur existant. Ce tutoriel utilise Chandra comme exemple.
@@ -134,7 +132,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 1. Ajoutez l’étiquette d’index d’objets blob suivante au fichier texte. Pour plus d’informations, consultez [Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objets blob, vous devez utiliser des étiquettes d’index d’objets blob avec les conditions. 
+    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. 
 
     | Clé | Valeur |
     | --- | --- |

@@ -2,8 +2,8 @@
 title: 'Tutoriel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Ce tutoriel montre comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur dans Zscaler Three.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c16c02a870edb1a777b63da6fea57fc02136d643
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ae6888ada7ec1a03d4401ee5f56130ca45e05b1
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936598"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760421"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs
 

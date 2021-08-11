@@ -107,11 +107,11 @@
         - name: Kit SDK Azure pour .NET (NuGet)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
         - name: Kit de développement logiciel Microsoft Azure SDK pour Go
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph'
         - name: Kit SDK Azure pour Java
           href: /java/api/overview/azure/resourcegraph/management
         - name: Kit SDK Azure pour Java (Maven)
-          href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+          href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar'
         - name: Kit SDK Azure pour JavaScript
           href: /javascript/api/@azure/arm-resourcegraph
         - name: Kit SDK Azure pour Python
@@ -121,7 +121,7 @@
         - name: REST
           href: /rest/api/azure-resourcegraph/
         - name: OpenAPI
-          href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+          href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2021-03-01'
     - name: Modèles Resource Manager
       href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Tables et types de ressources Resource Graph
@@ -132,8 +132,8 @@
       href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: Chaîne YouTube Governance
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Mises à jour Azure
+      href: 'https://azure.microsoft.com/updates/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice

@@ -9,12 +9,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 - mode-api
-ms.openlocfilehash: 9b06afefedd7e8a850cca8a54cf5fc1da2cf3cc5
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 9686b99a7c13ef3103513efab759e6295ef052c3
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112120221"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288893"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Démarrage rapide : générer des images conteneurs Java et les envoyer (push) à Azure Container Registry
 
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide vous montre comment générer une application Java
 
 * Un abonnement Azure. Si vous n’avez pas déjà un abonnement Azure, vous pouvez activer vos [avantages d’abonné MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou vous inscrire pour un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial).
 * [Azure CLI](/cli/azure/overview).
-* Un kit de développement Java (JDK) pris en charge. Pour en savoir plus sur les kits de développement disponibles pour le développement sur Azure, consultez <https://aka.ms/azure-jdks>.
+* Un kit de développement Java (JDK) pris en charge. Pour plus d’informations sur les JDK disponibles pour le développement sur Azure, consultez [Prise en charge de Java sur Azure et Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * L’outil de génération [Maven](http://maven.apache.org) (version 3 ou ultérieure) d’Apache.
 * Un client [Git](https://git-scm.com).
 * Un client [Docker](https://www.docker.com).

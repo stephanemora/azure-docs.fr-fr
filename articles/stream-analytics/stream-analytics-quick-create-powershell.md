@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 193c8b1f47960b9b42c61a9b0e394e5ebedf7bf7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 9a931790428a138ea926b0408dd236917987c620
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107867580"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285972"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell
 
@@ -90,7 +90,7 @@ Le bloc de code Azure CLI ci-après exécute de nombreuses commandes pour prépa
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Ajoutez un appareil au hub IoT à l’aide de la commande [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Cet exemple crée un appareil appelé **MyASAIoTDevice**.
+3. Ajoutez un appareil au hub IoT à l’aide de la commande [az iothub device-identity create](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#create-a-simulated-device). Cet exemple crée un appareil appelé **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"

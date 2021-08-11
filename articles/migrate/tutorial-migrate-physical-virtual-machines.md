@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 87bfb857aa8963de20b392b924e03e36c3b3fffd
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: a89d689dd8c3e6341c270db1c56797a01e4d4170
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439383"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765437"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -363,7 +363,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
-    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

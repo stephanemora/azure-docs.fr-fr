@@ -7,12 +7,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: b25d9846f3bb678c182fa22d824f7b4171d2d803
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: cf08f1baf2a2fb32e22cf07ae27c5122d6459294
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515629"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285348"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Démarrage rapide : Configurer la machine virtuelle Science des données pour Linux (Ubuntu)
 
@@ -145,6 +145,6 @@ Voici comment poursuivre votre formation et votre exploration :
 
 * La procédure [Science des données sur la machine virtuelle pour la science des données pour Linux](linux-dsvm-walkthrough.md) vous montre comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle DSVM Linux provisionnée ici. 
 * Explorez les différents outils de science des données sur la machine virtuelle DSVM en testant les outils décrits dans cet article. Vous pouvez également exécuter `dsvm-more-info` dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et à des liens vers des informations supplémentaires concernant les outils installés sur la machine virtuelle.  
-* Découvrez comment créer systématiquement des solutions analytiques à l’aide du [processus TDSP (Team Data Science Process)](../team-data-science-process/index.yml).
+* Découvrez comment créer systématiquement des solutions analytiques à l’aide du [processus TDSP (Team Data Science Process)](/azure/architecture/data-science-process/overview).
 * Pour des exemples d’apprentissage automatique et d’analyse de données utilisant les services d’intelligence artificielle d’Azure, visitez [Azure AI Gallery](https://gallery.azure.ai/).
 * Consultez la [documentation de référence](./reference-ubuntu-vm.md) appropriée pour cette machine virtuelle.

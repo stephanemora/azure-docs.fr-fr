@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65874a66fd6e3843f7d1a3dc1e7d088d392df645
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96484819"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114284990"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutoriel : Se connecter à un compte de stockage en utilisant un point de terminaison privé Azure
 
@@ -131,6 +131,8 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
 5. Sélectionnez **Revoir + créer**. 
   
 6. Passez en revue les paramètres, puis sélectionnez **Créer**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-storage-account-with-a-private-endpoint"></a>Créer un compte de stockage avec un point de terminaison privé
 

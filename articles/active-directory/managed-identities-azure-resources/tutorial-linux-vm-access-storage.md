@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e927415e0a1d2ce7d52e602eddfffb0eae5387b5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 77b41a73ca092f36f38d35f525bc381e29848396
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076561"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037955"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Didacticiel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure 
 
@@ -79,7 +79,7 @@ Les fichiers nécessitent un stockage d’objets blob, vous devez donc créer un
 
 Vous pouvez utiliser les identités gérées de la machine virtuelle pour récupérer les données dans l’objet blob de stockage Azure. Les identités managées pour les ressources Azure peuvent servir à l’authentification auprès des ressources prenant en charge l’authentification Azure AD.  Accordez l’accès en affectant le rôle [storage-blob-data-reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) à l’identité managée au niveau de l’étendue du groupe de ressources qui contient votre compte de stockage.
  
-Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
 > Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).

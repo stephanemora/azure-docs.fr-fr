@@ -2,8 +2,8 @@
 title: 'Tutoriel : Configurer Templafy OpenID Connect pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur dans Templafy OpenID Connect.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.assetid: 8cbb387a-e3fb-4588-bb87-bf4f88144361
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
-ms.author: zhchia
-ms.openlocfilehash: 6b1894d832c3a74916418aa06885c2917267f4b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 56046874155cd54a380d31607331d76f9982c167
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652587"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759105"
 ---
 # <a name="tutorial-configure-templafy-openid-connect-for-automatic-user-provisioning"></a>Tutoriel : Configurer Templafy OpenID Connect pour le provisionnement automatique d’utilisateurs
 

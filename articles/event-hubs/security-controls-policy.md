@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Event Hubs
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Event Hubs. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f2171c9274e23cacbf63cd684fcf1fd0ceddc355
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1fb2ba445434d2547de7360fe557e63c506812b0
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034412"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114404449"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Event Hubs
 

@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 9d843b2a75c5e5dff21c27f3c486c372408719d5
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 58986ee94998dde88f8113449b460a0208156463
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904118"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122043"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1060-evk-evaluation-kit-to-iot-central"></a>Démarrage rapide : Connecter un kit d’évaluation MIMXRT1060-EVK NXP à IoT Central
 
@@ -25,7 +25,7 @@ Dans ce démarrage rapide, vous allez utiliser Azure RTOS pour connecter le kit 
 
 Vous allez effectuer les étapes suivantes :
 
-* Installer un ensemble d’outils de développement intégrés pour la programmation d’un EVK NXP en C
+* Installer un ensemble d’outils de développement intégrés pour la programmation d’un EVK NXP dans C
 * Générer une image et la flasher sur l’EVK NXP
 * Azure IoT Central permet de créer des composants cloud, d’afficher les propriétés, d’afficher la télémétrie des appareils et d’appeler des commandes directes
 
@@ -42,11 +42,11 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Avant de configurer votre environnement de développement, vous devez cloner un référentiel GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
+Pour configurer votre environnement de développement, commencez par cloner un dépôt GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
 
-### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le référentiel pour le démarrage rapide
+### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le dépôt pour le démarrage rapide
 
-Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez précédemment cloné ce référentiel dans le cadre d’un autre démarrage rapide, il n’est pas nécessaire de recommencer.
+Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce dépôt dans le cadre d’un autre démarrage rapide, vous n’avez pas besoin de le refaire.
 
 Pour cloner le référentiel, exécutez la commande suivante :
 
@@ -70,7 +70,7 @@ Pour installer les outils :
 
     *getting-started\tools\get-toolchain.bat*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes dans le démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes décrites dans ce démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez le code suivant pour vérifier que CMake version 3.14 ou ultérieure est installé.
 
     ```shell
@@ -111,19 +111,19 @@ Pour connecter le kit d’évaluation EVK NXP à Azure, vous allez modifier un f
 
 ### <a name="flash-the-image"></a>Flasher l’image
 
-1. Sur l’EVK NXP, repérez le bouton **Réinitialiser**, le port USB Micro et le port Ethernet.  Vous pouvez utiliser ces composants dans les étapes suivantes. Les trois sont mis en évidence dans l’image suivante :
+1. Sur l’EVK NXP, repérez le bouton **Réinitialiser**, le port micro USB et le port Ethernet.  Vous pouvez utiliser ces composants dans les étapes suivantes. Tous trois sont mis en évidence dans l’image suivante :
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/nxp-evk-board.png" alt-text="Repérez les composants clés sur la carte EVK NXP":::
 
-1. Connectez le câble USB du micro au port USB Micro sur l’EVK NXP, puis connectez-le à votre ordinateur. Une fois l’appareil sous tension, un témoin LED de couleur verte s’allume en continu pour montrer l’état de l’alimentation.
-1. Utilisez le câble Ethernet pour connecter l’EVK NXP à un port Ethernet.
+1. Branchez le câble micro USB au port micro USB sur l’EVK NXP, puis branchez-le à votre ordinateur. Une fois l’appareil sous tension, un témoin LED de couleur verte s’allume pour montrer l’état de l’alimentation.
+1. Le câble Ethernet permet de connecter l’EVK NXP à un port Ethernet.
 1. Dans l’Explorateur de fichiers, recherchez le fichier binaire que vous avez créé dans la section précédente.
 1. Copiez le fichier binaire *mimxrt1060_azure_iot.bin*.
 1. Dans l’Explorateur de fichiers, recherchez l’appareil EVK NXP connecté à votre ordinateur. L’appareil apparaît en tant que lecteur sur votre système avec le nom de lecteur **RT1060**.
 1. Collez le fichier binaire dans le dossier racine de l’EVK NXP. Le processus de flash démarre automatiquement et se termine en quelques secondes.
 
     > [!NOTE]
-    > Au cours du processus de flashage, un témoin LED de couleur rouge clignote rapidement sur l’EVK NXP.
+    > Au cours du processus de flash, un témoin LED de couleur rouge clignote rapidement sur l’EVK NXP.
 
 ### <a name="confirm-device-connection-details"></a>Vérifier les détails de connexion de l’appareil
 
@@ -131,7 +131,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
 
 1. Démarrez **Termite**.
     > [!TIP]
-    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flashage, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flash, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 1. Sélectionnez **Paramètres**.
 1. Dans la boîte de dialogue **Paramètres du port série**, vérifiez les paramètres suivants et mettez à jour si nécessaire :
     * **Vitesse (en bauds)**  : 115 200
@@ -226,7 +226,7 @@ Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
 ## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
 
-Si vous rencontrez des problèmes pour générer le code de l’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -240,7 +240,7 @@ Pour supprimer la totalité de l’exemple d’application Azure IoT Central et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une image personnalisée contenant un exemple de code Azure RTOS, puis flashé l’image sur l’appareil EVK NXP. Vous avez également utilisé le portail IoT Central pour créer des ressources Azure, connecter l’EVK NXP en toute sécurité à Azure, afficher la télémétrie et envoyer des messages.
+Dans ce démarrage rapide, vous avez créé une image personnalisée contenant un exemple de code Azure RTOS, puis vous avez flashé l’image sur l’appareil EVK NXP. Vous avez également utilisé le portail IoT Central afin de créer des ressources Azure, connecter l’EVK NXP en toute sécurité à Azure, afficher la télémétrie et envoyer des messages.
 
 L’étape suivante consiste à explorer les articles ci-dessous pour savoir comment connecter des appareils à Azure IoT à l’aide des kits de développement logiciel (SDK) d’appareil IoT. 
 

@@ -3,12 +3,12 @@ title: Analyser des flux vidéo en direct avec le service Vision par ordinateur 
 description: Ce tutoriel explique comment utiliser Azure Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 824ff93e1411563b07bea9f30bbd2cf4ecad457c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373560"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456133"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale et Live Video Analytics (préversion)
 
@@ -63,7 +63,7 @@ Le nœud MediaGraphCognitiveServicesVisionExtension joue le rôle d’un proxy. 
 
 ## <a name="create-the-computer-vision-resource"></a>Créer la ressource Vision par ordinateur
 
-Vous devez créer une ressource Azure de type Vision par ordinateur sur le [Portail Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou via Azure CLI. Vous serez en mesure de créer la ressource une fois que votre demande d’accès au conteneur aura été approuvée et que votre ID d’abonnement Azure aura été inscrit. Rendez-vous sur https://aka.ms/csgate pour envoyer votre cas d’usage et votre ID d’abonnement Azure.  Vous devez créer la ressource Azure à l’aide du même abonnement Azure que celui qui a été fourni dans le formulaire de demande d’accès.
+Vous devez créer une ressource Azure de type Vision par ordinateur sur le [Portail Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou via Azure CLI.
 
 ### <a name="gathering-required-parameters"></a>Collecte des paramètres requis
 
