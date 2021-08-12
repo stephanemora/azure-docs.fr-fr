@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 72372e6365a2535e449681549a515c3f8594f2f1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786598"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111570517"
 ---
-# <a name="create-an-azure-vmware-solution-avs-assessment"></a>Créer une évaluation Azure VMware Solution (AVS)
+# <a name="create-an-azure-vmware-solution-assessment"></a>Créer une évaluation Azure VMware Solution
 
-Cet article explique comment créer une évaluation d’Azure VMware Solution (AVS) pour des serveurs locaux dans votre environnement de serveur VMware avec Azure Migrate : découverte et évaluation.
+Cet article explique comment créer une évaluation d’Azure VMware Solution pour des serveurs locaux dans votre environnement VMware avec Azure Migrate : découverte et évaluation.
 
 [Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers.
 
@@ -62,8 +62,8 @@ Il existe deux types de critères de dimensionnement que vous pouvez utiliser po
 
 1. Dans **Source de découverte** :
 
-    - Si vous avez découvert des serveurs à l’aide de l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
-    - Si vous avez découvert des serveurs à l’aide d’un fichier CSV importé, sélectionnez **Serveurs importés**. 
+    - Si vous avez découvert des serveurs avec l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
+    - Si vous avez découvert des serveurs avec un fichier CSV importé, sélectionnez **Serveurs importés**. 
     
 1. Cliquez sur **Modifier** pour examiner les propriétés d’évaluation.
 
