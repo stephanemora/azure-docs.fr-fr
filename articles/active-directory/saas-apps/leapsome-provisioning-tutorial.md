@@ -2,8 +2,8 @@
 title: 'Tutoriel : Configurer Leapsome pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Leapsome.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: b7c1c995ead9a8d66cd11fb4579cc49e12b487df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9ffd7bcb38840b66eb837588b9b5f86280b5e49
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96351586"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113763428"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutoriel : Configurer Leapsome pour l’approvisionnement automatique d’utilisateurs
 

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028628"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765735"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>Tutoriel : prise en main d’un script Python dans Azure Machine Learning (partie 1 sur 3)
 
@@ -77,9 +77,6 @@ Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exéc
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="La capture d’écran montre l’outil permettant d’enregistrer et d’exécuter le script dans le terminal à partir de la barre d’outils":::
 
 Vous voyez la sortie du script dans la fenêtre du terminal au moment où elle s’ouvre. Fermez l’onglet, puis sélectionnez **Terminer** pour fermer la session.
-
-> [!div class="nextstepaction"]
-> [J’ai exécuté le script localement](?success=run-local#control-script) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=run-local)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> Créer un script de contrôle
 
@@ -149,8 +146,6 @@ Voici une description du fonctionnement du script de contrôle :
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [J’ai créé le script de contrôle](?success=create-control-script#submit) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=create-control-script)
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Soumettre et exécuter votre code dans le cloud
 
@@ -161,8 +156,6 @@ Dans le terminal, vous pouvez être invité à vous connecter pour vous authenti
 > [!TIP]
 > Si vous venez de terminer la création du cluster de calcul, vous risquez de voir s’afficher l’erreur « UserError : image de l’ancrage requis introuvable... ». Attendez environ 5 minutes, puis réessayez.  Le cluster de calcul peut avoir besoin de plus de temps avant d’être prêt à créer des nœuds.
 
-> [!div class="nextstepaction"]
-> [J’ai soumis le code dans le cloud](?success=submit-to-cloud#monitor) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>Superviser votre code dans le cloud à partir du studio
 
@@ -204,8 +197,6 @@ Attendez environ 10 minutes.  Vous verrez un message indiquant que l’exécuti
 
 Le fichier `70_driver_log.txt` contient la sortie standard d’une exécution. Ce fichier peut être utile lors du débogage des exécutions distantes dans le cloud.
 
-> [!div class="nextstepaction"]
-> [J’ai vu le journal dans le studio](?success=monitor-in-studio#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

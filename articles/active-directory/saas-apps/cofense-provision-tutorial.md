@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Cofense Recipient Sync pour l’approvisionnement
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 84fe20ef-0de0-4f7c-9b42-6385f3d834db
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
-ms.author: Zhchia
-ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: a2e3ebb1c1062e989e159a69bd08042c269d91f2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646042"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764091"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cofense Recipient Sync pour l’approvisionnement automatique d’utilisateurs
 
@@ -132,8 +132,8 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |addresses[type eq "work"].country|String|
    |title|String|
    |emails[type eq "work"].value|String|
-   |emails[type eq "home"].value|String|
-   |emails[type eq "other"].value|String|
+   |emails[type eq "home"].value|Chaîne|
+   |emails[type eq "other"].value|Chaîne|
    |preferredLanguage|String|
    |nickName|String|
    |userType|String|

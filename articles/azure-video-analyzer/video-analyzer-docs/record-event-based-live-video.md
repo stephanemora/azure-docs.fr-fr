@@ -2,13 +2,13 @@
 title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud - Azure'
 description: Dans ce tutoriel, vous allez voir comment utiliser Azure Video Analyzer pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et pour le lire dans le cloud.
 ms.topic: tutorial
-ms.date: 04/13/2021
-ms.openlocfilehash: 6ecbaf794530e80837c2d2a5f9f3fca11e3c93ae
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 06/01/2021
+ms.openlocfilehash: 9b5935b9b06a1e48ac106c7736390e39612b0af4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565659"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602165"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture des enregistrements
 
@@ -35,8 +35,7 @@ Lisez ces articles avant de commencer :
 Les prérequis pour ce tutoriel sont les suivants :
 * Un compte Azure incluant un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) gratuitement.
 
-    > [!NOTE]    
-    > Vous aurez besoin d’un abonnement Azure pour lequel vous avez accès au rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) et au rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de compte pour qu’il vous les octroie.
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Installation de Docker](https://docs.docker.com/desktop/#download-and-install) sur votre ordinateur.
 * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
     * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -136,11 +135,7 @@ Cette étape permet de créer le manifeste de déploiement IoT Edge dans src/edg
 
 S’il s’agit de votre premier tutoriel avec Video Analyzer, Visual Studio Code vous invite à entrer la chaîne de connexion IoT Hub. Vous pouvez copier la chaîne à partir du fichier appsettings.json.
 
-> [!NOTE]
-> Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+[!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 Visual Studio Code vous demande ensuite de sélectionner un appareil IoT Hub. Sélectionnez votre appareil IoT Edge, à savoir avasample-iot-edge-device.
 
@@ -170,7 +165,7 @@ Après environ 30 secondes, actualisez Azure IoT Hub dans la section inférieur
 1. Ensuite, sous les nœuds **livePipelineSet** et **pipelineTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline précédente :
 
     `"pipelineTopologyName" : "EVRtoVideosOnObjDetect"`
-1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-evr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
+1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-evr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
 1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
 1. Le fichier operations.json commence par appeler pipelineTopologyList et livePipelineList. Si vous avez nettoyé des ressources à l’issue de démarrages rapides ou de tutoriels, cette action renvoie des listes vides et marque des pauses pour vous permettre de sélectionner **Entrée**, comme illustré ci-dessous :
     ```
@@ -367,13 +362,11 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
-> [!NOTE]
-> Étant donné que la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo sont liés au moment où vous avez activé le pipeline en direct et où vous l’avez désactivé.
-> 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous envisagez d’essayer les autres tutoriels, tenez-vous en aux ressources créées. Sinon, accédez au portail Azure et à vos groupes de ressources, sélectionnez le groupe de ressources sous lequel vous avez exécuté ce tutoriel, puis supprimez le groupe de ressources.
+[!INCLUDE [clean-up-resources](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

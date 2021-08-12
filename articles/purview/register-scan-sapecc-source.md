@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: c4126a99b38021ea7399bb486b8942423f0a809c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 62015554f7e8e17e1443cc85812b3f37ee64f0a4
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067111"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551701"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>Inscrire et analyser la source SAP ECC
 
@@ -105,6 +105,8 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     e.  **Chemin de la bibliothèque JCo** : chemin vers le répertoire contenant les bibliothèques JCo
 
     f.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la source SAP ECC à analyser.
+    > [!Note] 
+    > En règle générale, prévoyez 1 Go de mémoire pour 1 000 tables
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="Analyser SAP ECC" border="true":::
 

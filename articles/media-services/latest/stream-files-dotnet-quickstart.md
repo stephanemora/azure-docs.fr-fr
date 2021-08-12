@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 07/23/2021
 ms.author: inhenkel
-ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9b45671496f114eaf708aad92def220a3b81349e
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962041"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690207"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - .NET
 
@@ -35,9 +35,10 @@ Dans cette rubrique, l’exemple encode du contenu que vous mettez à dispositio
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Créer un compte Media Services](./account-create-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
-- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
+- Installez [Visual Studio Code pour Windows/macOS/Linux](https://code.visualstudio.com/) ou [Visual Studio 2019 pour Windows ou Mac](https://visualstudio.microsoft.com/).
+- Installer le [Kit de développement logiciel (SDK) .NET 5.0](https://dotnet.microsoft.com/download)
+- [Créer un compte Media Services](./account-create-how-to.md). Veillez à copier les détails de l’**accès à l’API** au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier *.env* utilisé dans cet exemple.
+- Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier *.env*.
 
 ## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
@@ -49,7 +50,7 @@ Clonez un référentiel GitHub qui contient l’exemple .NET de diffusion en con
 
 L’exemple se trouve dans le dossier [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
-Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) dans votre projet téléchargé. Remplacez les valeurs par les informations d’identification que vous avez obtenues en [accédant aux API](./access-api-howto.md).
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 L’exemple effectue les actions suivantes :
 

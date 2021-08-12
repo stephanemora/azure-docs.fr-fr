@@ -9,12 +9,12 @@ metadata:
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 215a34c7adcd9f5628bb164deecaf94d2b885b1d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 612ef6ffa35988a69e6755a38e88a083d533827c
+  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91710666"
+  ms.lasthandoff: 07/28/2021
+  ms.locfileid: "114726647"
 landingContent:
 - title: À propos de Serveur flexible (préversion)
   linkLists:
@@ -42,10 +42,14 @@ landingContent:
       url: concepts-compute-storage.md
     - text: Mise en réseau
       url: concepts-networking.md
+    - text: Règles de pare-feu
+      url: concepts-firewall-rules.md
     - text: Versions de Postgres
       url: concepts-supported-versions.md
     - text: Extensions
       url: concepts-extensions.md
+    - text: Sécurité
+      url: concepts-security.md
     - text: Superviser
       url: concepts-monitoring.md
     - text: Réplication logique

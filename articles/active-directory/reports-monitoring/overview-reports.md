@@ -17,12 +17,12 @@ ms.date: 09/30/2020
 ms.author: markvi
 ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b67e8f7ae06f9cb3becb849df41210cb6e7791d0
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91566820"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731717"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -87,7 +87,7 @@ Le [rapport de journaux d’audit](concept-audit-logs.md) vous fournit les enreg
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>De quelle licence Azure AD avez-vous besoin pour accéder au rapport de journaux d’audit ?  
 
-Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Une comparaison détaillée des fonctionnalités selon les [différents types de licences](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) est disponible dans la [page Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
+Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Une comparaison détaillée des fonctionnalités selon les [différents types de licences](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) est disponible dans la [page Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Rapport de connexions
 

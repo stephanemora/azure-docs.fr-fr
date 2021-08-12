@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 3b7b752af1456996f847b1aa367939a61b4c61bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 05d617b39160a55a15eb3e74b6b515ce053baf6c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470496"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769074"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous apprendrez à :
 > * Configurer l’appliance de réplication et déployer le serveur de configuration.
 > * Installer le service Mobility sur chaque machine virtuelle AWS à migrer.
 > * Activez la réplication des machines virtuelles.
-> * Suivre et superviser l’état de la réplication. 
+> * Suivre et superviser l’état de la réplication.
 > * Exécuter une migration de test pour vérifier que tout fonctionne comme prévu.
 > * Exécuter une migration complète vers Azure.
 
@@ -64,7 +64,7 @@ Même si nous vous conseillons d’effectuer une évaluation, celle-ci n’est p
 
 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
 - Vérifiez que les machines virtuelles AWS que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les machines virtuelles AWS sont traitées comme des machines physiques dans le cadre de la migration. Passez en revue les [systèmes d’exploitation et versions de noyau pris en charge](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) pour le workflow de migration de serveurs physiques. Vous pouvez utiliser des commandes standard comme *hostnamectl* ou *uname-a* pour vérifier les versions de noyau et de système d’exploitation de vos machines virtuelles Linux.  Nous vous recommandons d’effectuer un test de migration (test de basculement) pour vérifier si la machine virtuelle fonctionne comme prévu avant de procéder à la migration réelle.
 - Vérifiez que vos machines virtuelles AWS sont conformes aux [configurations prises en charge](./migrate-support-matrix-physical-migration.md#physical-server-requirements) pour la migration vers Azure.
@@ -97,7 +97,7 @@ Affectez le rôle Contributeur de machines virtuelles au compte Azure. Cela perm
 
 - Créer une machine virtuelle dans le groupe de ressources sélectionné
 - Créer une machine virtuelle dans le réseau virtuel sélectionné
-- Écrire sur un disque managé Azure. 
+- Écrire sur un disque managé Azure.
 
 ### <a name="create-an-azure-network"></a>Créer un réseau Azure
 
@@ -122,8 +122,8 @@ Préparez le déploiement de l’appliance comme suit :
 - Les machines virtuelles AWS sources communiquent avec l’appliance de réplication sur les ports HTTPS 443 (orchestration du canal de contrôle) et TCP 9443 (transport de données) entrants pour la gestion de la réplication et le transfert des données de réplication. L’appliance de réplication à son tour orchestre et envoie les données de réplication à Azure sur le port HTTPS 443 sortant. Pour configurer ces règles, modifiez les règles de trafic entrant/sortant du groupe de sécurité avec les ports et les informations d’adressage IP source appropriés.
 
    ![Groupes de sécurité AWS ](./media/tutorial-migrate-aws-virtual-machines/aws-security-groups.png)
-     
- 
+
+
    ![Modifier les paramètres de sécurité ](./media/tutorial-migrate-aws-virtual-machines/edit-security-settings.png)
 
 - L’appliance de réplication utilise MySQL. Passez en revue les [options](migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
@@ -147,7 +147,7 @@ La première étape de la migration consiste à configurer l’appliance de rép
     - Après avoir cliqué sur ce bouton, vous ne pouvez plus changer la région cible de ce projet.
     - Pour migrer vos machines virtuelles vers une autre région, vous devez créer un projet Azure Migrate différent.  
     > [!NOTE]
-    > Si vous avez sélectionné « Point de terminaison privé » comme méthode de connectivité pour le projet Azure Migrate lors de sa création, le coffre Recovery Services est également configuré pour la connectivité de point de terminaison privé. Vérifiez que les points de terminaison privés sont accessibles depuis l’appliance de réplication. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > Si vous avez sélectionné « Point de terminaison privé » comme méthode de connectivité pour le projet Azure Migrate lors de sa création, le coffre Recovery Services est également configuré pour la connectivité de point de terminaison privé. Vérifiez que les points de terminaison privés sont accessibles depuis l’appliance de réplication. [**En savoir plus**](troubleshoot-network-connectivity.md)
 
 6. Dans **Voulez-vous installer une nouvelle appliance de réplication ?** , sélectionnez **Installer une appliance de réplication**.
 7. Dans **Télécharger et installer le logiciel de l’appliance de réplication**, téléchargez le programme d’installation de l’appliance et la clé d’inscription. Vous avez besoin de la clé pour inscrire l’appliance. Une fois téléchargée, la clé reste valide pendant 5 jours.
@@ -168,7 +168,9 @@ La première étape de la migration consiste à configurer l’appliance de rép
     9.10 Dans **Résumé**, sélectionnez **Installer**.   
     9.11 **Progression de l’installation** vous montre des informations sur le processus d’installation. Quand cela est terminé, cliquez sur **Terminer**. Une fenêtre affiche un message concernant un redémarrage. Sélectionnez **OK**.   
     9.12 Ensuite, une fenêtre affiche un message concernant la phrase secrète de la connexion du serveur de configuration. Copiez la phrase secrète dans le Presse-papiers et enregistrez-la dans un fichier texte temporaire sur les machines virtuelles sources. Vous aurez besoin de cette phrase secrète plus tard, pendant le processus d’installation du service Mobility.
-10. Une fois l’installation terminée, l’Assistant Configuration de l’appliance démarre automatiquement (vous pouvez également le lancer manuellement à l’aide du raccourci cspsconfigtool créé sur le Bureau de l’appliance). Dans ce tutoriel, nous allons installer manuellement le service Mobility sur les machines virtuelles sources à répliquer. Avant de continuer, vous devez donc créer un compte factice. Vous pouvez spécifier les informations suivantes pour créer le compte factice : « guest » comme nom convivial, « username » comme nom d’utilisateur et « password » comme mot de passe de compte. Vous utiliserez ce compte factice à l’étape Activer la réplication. 
+
+10. Une fois l’installation terminée, l’Assistant Configuration de l’appliance démarre automatiquement (vous pouvez également le lancer manuellement à l’aide du raccourci cspsconfigtool créé sur le Bureau de l’appliance). Dans ce tutoriel, nous allons installer manuellement le service Mobility sur les machines virtuelles sources à répliquer. Avant de continuer, vous devez donc créer un compte factice. Vous pouvez spécifier les informations suivantes pour créer le compte factice : « guest » comme nom convivial, « username » comme nom d’utilisateur et « password » comme mot de passe de compte. Vous utiliserez ce compte factice à l’étape Activer la réplication.
+
 11. Une fois l’appliance installée et redémarrée, dans **Découvrir des machines**, sélectionnez la nouvelle appliance dans **Sélectionner un serveur de configuration**, puis cliquez sur **Finaliser l’inscription**. L’option Finaliser l’inscription exécute quelques tâches finales pour préparer l’appliance de réplication.
 
     ![Finaliser l’inscription](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -236,9 +238,9 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
 
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Non virtualisé/autre**.
 3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée.
-4. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication. 
+4. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication.
 5. Sous **Informations d’identification de l’invité**, sélectionnez le compte factice créé durant l’[installation de l’appliance de réplication](#download-the-replication-appliance-installer) pour installer manuellement le service Mobility (l’installation push n’est pas prise en charge). Cliquez ensuite sur **Suivant : Machines virtuelles**.   
- 
+
     ![Paramètres de réplication](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. Dans **Machines virtuelles**, dans **Importer les paramètres de migration à partir d’une évaluation ?** , conservez le paramètre par défaut **Non, je vais spécifier les paramètres de migration manuellement**.
 7. Cochez chaque machine virtuelle devant faire l’objet d’une migration. Cliquez ensuite sur **Suivant : Paramètres de la cible**.
@@ -247,16 +249,16 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
 
 8. Dans **Paramètres de la cible**, sélectionnez l’abonnement et la région cible vers laquelle vous allez migrer, puis spécifiez le groupe de ressources dans lequel les machines virtuelles Azure résideront après la migration.
 9. Dans **Réseau virtuel**, sélectionnez le réseau virtuel/sous-réseau Azure auquel les machines virtuelles Azure seront jointes après la migration.  
-10. Dans **Compte de stockage de cache**, conservez l’option par défaut pour utiliser le compte de stockage de cache créé automatiquement pour le projet. Utilisez la liste déroulante si vous voulez spécifier un autre compte de stockage à utiliser comme compte de stockage de cache pour la réplication. <br/> 
+10. Dans **Compte de stockage de cache**, conservez l’option par défaut pour utiliser le compte de stockage de cache créé automatiquement pour le projet. Utilisez la liste déroulante si vous voulez spécifier un autre compte de stockage à utiliser comme compte de stockage de cache pour la réplication. <br/>
     > [!NOTE]
     >
     > - Si vous avez sélectionné « Point de terminaison privé » comme méthode de connectivité pour le projet Azure Migrate, accordez au coffre Recovery Services l’accès au compte de stockage de cache. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - Pour répliquer en utilisant ExpressRoute avec le peering privé, créez un point de terminaison privé pour le compte de stockage de cache. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+    > - Pour répliquer en utilisant ExpressRoute avec le peering privé, créez un point de terminaison privé pour le compte de stockage de cache. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional)
 11. Dans **Options de disponibilité**, sélectionnez :
     -  Zone de disponibilité pour épingler la machine migrée à une Zone de disponibilité spécifique dans la région. Utilisez cette option pour distribuer les serveurs qui forment une couche Application à plusieurs nœuds entre des Zones de disponibilité. Si vous sélectionnez cette option, vous devez spécifier la Zone de disponibilité à utiliser pour chaque machine sélectionnée dans l’onglet Calcul. Cette option est disponible uniquement si la région cible sélectionnée pour la migration prend en charge les Zones de disponibilité
     -  Groupe à haute disponibilité pour placer la machine migrée dans un groupe à haute disponibilité. Pour utiliser cette option, le groupe de ressources cible qui a été sélectionné doit avoir un ou plusieurs groupes à haute disponibilité.
     - Aucune option de redondance de l’infrastructure n’est requise si vous n’avez pas besoin de ces configurations de disponibilité pour les machines migrées.
-    
+
 12. Dans **Type de chiffrement de disque**, sélectionnez :
     - Chiffrement au repos avec une clé gérée par la plateforme
     - Chiffrement au repos avec une clé gérée par le client
@@ -264,7 +266,7 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
 
    > [!NOTE]
    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
-  
+
 13. Dans **Azure Hybrid Benefit** :
 
     - Sélectionnez **Non** si vous ne souhaitez pas appliquer Azure Hybrid Benefit. Cliquez ensuite sur **Suivant**.
@@ -283,7 +285,7 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
 
 15. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
     - Vous pouvez exclure des disques de la réplication.
-    - Si vous excluez des disques, ils ne seront pas présents sur la machine virtuelle Azure après la migration. 
+    - Si vous excluez des disques, ils ne seront pas présents sur la machine virtuelle Azure après la migration.
 
     ![Paramètres des disques](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
@@ -329,6 +331,10 @@ Effectuez une migration de test de la façon suivante :
 
     ![Nettoyer la migration](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
+    > [!NOTE]
+    > Vous pouvez désormais inscrire vos serveurs exécutant SQL Server auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure pour bénéficier de la mise à jour corrective automatisée, de la sauvegarde automatisée et de la gestion simplifiée des licences à l’aide de l’extension SQL IaaS Agent.
+    >- Sélectionnez **Gérer** > **Réplication de serveurs** > **Machine contenant SQL Server** > **Calcul et réseau**, puis sélectionnez **oui** pour effectuer l’inscription auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure.
+    >- Sélectionnez Azure Hybrid Benefit pour SQL Server si vous disposez d’instances de SQL Server couvertes par des abonnements Software Assurance ou SQL Server actifs, et si vous souhaitez appliquer cet avantage aux machines que vous migrez.
 
 ## <a name="migrate-aws-vms"></a>Migrer des machines virtuelles AWS
 
@@ -354,7 +360,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
-6. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure. 
+6. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure.
 
 
 
@@ -370,7 +376,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
-    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+    - Envisagez de déployer [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
 
 
 
@@ -384,7 +390,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
 
 **Question :** Je ne parviens pas à importer des machines virtuelles à des fins de migration à partir de mes résultats Server Assessment précédemment créés.   
 **Réponse :** Actuellement, nous ne prenons pas en charge l’importation de l’évaluation pour ce workflow. En guise de solution de contournement, vous pouvez exporter l’évaluation, puis sélectionner manuellement la recommandation pendant l’étape Activer la réplication.
-  
+
 **Question :** J’obtiens l’erreur « Impossible de récupérer le GUID du BIOS » quand j’essaie de découvrir mes machines virtuelles AWS.   
 **Réponse :** Utilisez toujours la connexion racine pour l’authentification, et non un pseudo utilisateur. De même, vérifiez quels sont les systèmes d’exploitation pris en charge pour les machines virtuelles AWS.  
 

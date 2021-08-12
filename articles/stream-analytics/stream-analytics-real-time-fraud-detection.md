@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: 1e26159c07ca551a78ee2f83a0ca64779c60f7b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb13fa39452cac26fac2476b6f102248478b18a5
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018868"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689745"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutoriel : Analyser les données d’appels frauduleux avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -133,7 +133,7 @@ Maintenant que vous disposez d’un flux d’événements d’appel, vous pouvez
 
 1. Pour créer un travail Stream Analytics, accédez au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Créer une ressource**, puis recherchez **Tâche Stream Analytics**. Sélectionnez la vignette **Tâche Stream Analytics**, puis sélectionnez *Créer**.
+2. Sélectionnez **Créer une ressource**, puis recherchez **Tâche Stream Analytics**. Sélectionnez la vignette **Tâche Stream Analytics** et sélectionnez **Créer**.
 
 3. Remplissez le formulaire **Nouvelle tâche Stream Analytics** avec les valeurs suivantes :
 

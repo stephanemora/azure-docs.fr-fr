@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c78f12d484cb1c0e4cda80867af67bc8af7f6c55
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286132"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460240"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -30,7 +30,7 @@ Le service Vision par ordinateur d’Azure vous donne accès à des algorithmes 
 
 | Service|Description|
 |---|---|
-|[Reconnaissance optique des caractères (OCR)](overview-ocr.md)|Le service Reconnaissance optique de caractères (OCR) extrait le texte des images. Vous pouvez utiliser la nouvelle API Read pour extraire du texte imprimé et manuscrit à partir d'images et de documents. Elle utilise des modèles basés sur le Deep Learning et fonctionne avec du texte sur une variété de surfaces et d'arrière-plans. Ces derniers comprennent les documents commerciaux, les factures, les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour vous lancer, suivez le [guide de démarrage rapide consacré au service Reconnaissance optique de caractères](quickstarts-sdk/client-library.md).|
+| [Reconnaissance optique des caractères (OCR)](overview-ocr.md)|Le service Reconnaissance optique de caractères (OCR) extrait le texte des images. Vous pouvez utiliser la nouvelle API Read pour extraire du texte imprimé et manuscrit à partir d'images et de documents. Elle utilise des modèles basés sur le Deep Learning et fonctionne avec du texte sur une variété de surfaces et d'arrière-plans. Ces derniers comprennent les documents commerciaux, les factures, les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour vous lancer, suivez le [guide de démarrage rapide consacré au service Reconnaissance optique de caractères](quickstarts-sdk/client-library.md).|
 |[Analyse d’image](overview-image-analysis.md)| Le service Analyse d'images extrait de nombreuses caractéristiques visuelles à partir d'images, telles que des objets, des visages, du contenu pour adultes et des descriptions de texte générées automatiquement. Pour vous lancer, suivez le [guide de démarrage rapide consacré au service Analyse d'images](quickstarts-sdk/image-analysis-client-library.md).|
 | [Analyse spatiale](intro-to-spatial-analysis-public-preview.md)| Le service Analyse spatiale détecte la présence de personnes et analyse leurs déplacements sur un flux vidéo, et produit des événements auxquels d'autres systèmes peuvent répondre. Pour démarrer, installez le [conteneur Analyse spatiale](spatial-analysis-container.md).|
 

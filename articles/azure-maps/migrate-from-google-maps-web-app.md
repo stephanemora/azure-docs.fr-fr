@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: fcb8090427530271600a6699fafa5c488c426784
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f034d5e4edd1e99605f3620cdf99084ae8c4ea86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680869"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437208"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutoriel : Migrer une application Web à partir de Google Maps
 
@@ -40,7 +40,7 @@ Vous allez également apprendre :
 
 Si vous migrez une application web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte open source. Voici des exemples of bibliothèque de contrôle de carte open source : Cesium, Leaflet et OpenLayers. Vous pouvez quand même effectuer la migration si votre application utilise une bibliothèque de contrôle de carte open source et que vous ne souhaitez pas utiliser le SDK web Azure Maps. Dans ce cas, connectez votre application aux services de mosaïques Azure Maps ([mosaïques routières](/rest/api/maps/render/getmaptile) \| [mosaïques satellites](/rest/api/maps/render/getmapimagerytile)). Les points suivants indiquent en détail comment utiliser Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
 
-* Cesium : contrôle carte 3D pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [de l’exemple de code](https://cesiumjs.org/)
+* Cesium : contrôle carte 3D pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [de l’exemple de code](https://www.cesium.com/)
 * Leaflet : contrôle de carte 2D léger pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [de l’exemple de code](https://leafletjs.com/)
 * OpenLayers : contrôle de carte 2D pour le Web qui prend en charge les projections. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [de l’exemple de code](https://openlayers.org/)
 
@@ -1318,12 +1318,12 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Couche de mosaïques Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps"></a>Après : Azure Maps
+#### <a name="after-azure-maps&quot;></a>Après : Azure Maps
 
 Ajoutez une couche de mosaïques à la carte de la même façon que n’importe quelle autre couche. Utilisez une URL mise en forme qui a des espaces réservés de zoom x, y ; `{x}`, `{y}`, `{z}` pour indiquer à la couche où accéder aux mosaïques. Les couches de mosaïques Azure Maps prennent également en charge les espaces réservés `{quadkey}`, `{bbox-epsg-3857}` et `{subdomain}`.
 
 > [!TIP]
-> Dans Azure Maps, les couches peuvent facilement être rendues sous d’autres couches, y compris les couches de la carte de base. Il est souvent souhaitable de restituer des couches de mosaïques sous les étiquettes de carte afin qu’elles soient faciles à lire. La méthode `map.layers.add` prend un deuxième paramètre, qui est l’ID de la couche sous laquelle insérer la nouvelle couche. Pour insérer une couche de mosaïques sous les étiquettes de carte, utilisez ce code : `map.layers.add(myTileLayer, "labels");`
+> Dans Azure Maps, les couches peuvent facilement être rendues sous d’autres couches, y compris les couches de la carte de base. Il est souvent souhaitable de restituer des couches de mosaïques sous les étiquettes de carte afin qu’elles soient faciles à lire. La méthode `map.layers.add` prend un deuxième paramètre, qui est l’ID de la couche sous laquelle insérer la nouvelle couche. Pour insérer une couche de mosaïques sous les étiquettes de carte, utilisez ce code : `map.layers.add(myTileLayer, &quot;labels");`
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -1390,7 +1390,7 @@ Azure et Google Maps prennent en charge la superposition d’images géoréfére
 
 #### <a name="before-google-maps"></a>Avant : Google Maps
 
-Spécifiez l’URL de l’image que vous souhaitez superposer, et un cadre englobant pour lier l’image sur la carte. Cet exemple superpose une image de carte de [Newark New Jersey en 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sur la carte.
+Spécifiez l’URL de l’image que vous souhaitez superposer, et un cadre englobant pour lier l’image sur la carte. Cet exemple superpose une image de carte de Newark New Jersey en 1922 sur la carte.
 
 ```html
 <!DOCTYPE html>

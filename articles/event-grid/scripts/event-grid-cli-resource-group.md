@@ -3,14 +3,14 @@ title: Exemple de script Azure CLI - S’abonner à un groupe de ressources | Mi
 description: Cet article fournit un exemple de script Azure CLI qui montre comment s’abonner à des événements Azure Event Grid pour un groupe de ressources.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31309ffc6397fec942b48209c7fd7c950e0fdb97
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a72e7b1748f7e7fb96e5b282ea299a60fe5deb1d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871342"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467394"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-azure-cli"></a>S’inscrire aux événements d’un groupe de ressources avec Azure CLI
 

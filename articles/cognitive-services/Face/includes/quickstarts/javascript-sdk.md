@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: a44cbbf110ac2789b03b411f074f068451c70e2c
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: f77fa7e5c33d8970365f7d35c6ad0460718662b9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858215"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593552"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Démarrage rapide : Bibliothèque de client Visage pour JavaScript
 
@@ -27,7 +27,7 @@ Utilisez la bibliothèque de client Visage pour JavaScript afin d’effectuer le
 * [Créer un objet PersonGroup](#create-a-persongroup)
 * [Identifier un visage](#identify-a-face)
 
-[Documentation de référence](/javascript/api/@azure/cognitiveservices-face/) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Exemples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Documentation de référence](/javascript/api/overview/azure/cognitive-services/face-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Exemples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## <a name="prerequisites"></a>Prérequis
 

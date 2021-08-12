@@ -7,12 +7,12 @@ ms.author: duau
 ms.service: route-server
 ms.topic: sample
 ms.date: 04/09/2021
-ms.openlocfilehash: 1b5141bea71e44b746801841526d96a01fa064fc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ce236c971dc7b471ead94d5dbb4e8b9d76037eef
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315119"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437591"
 ---
 # <a name="azure-resource-manager-templates-for-azure-route-server"></a>Modèles Azure Resource Manager pour Serveur de routes Azure
 
@@ -20,4 +20,4 @@ Le tableau suivant comprend des liens vers des modèles Azure Resource Manager p
 
 | Titre | Description |
 | ------ | ----------- |
-| [Serveur de routes et Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-route-server-quagga) | Déployez un serveur de routes Azure et Quagga (NVA) sur un réseau virtuel. |
+| [Serveur de routes et Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/route-server-quagga) | Déployez un serveur de routes Azure et Quagga (NVA) sur un réseau virtuel. |

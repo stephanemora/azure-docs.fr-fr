@@ -149,7 +149,7 @@
         - name: Compression de fichiers
           href: cdn-troubleshoot-compression.md
         - name: Autorités de certification autorisées
-          href: cdn-troubleshoot-allowed-ca.md
+          href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
         - name: Offres d’abonnement et limitation de bande passante
           href: subscription-offerings.md
 - name: Informations de référence

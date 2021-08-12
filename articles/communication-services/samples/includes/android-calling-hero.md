@@ -1,21 +1,21 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: azure-communication-services
 author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 2a573a4df8abcdc2b32204faadbaa0df8c3dac15
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cc6264e00cb627815f4008f147266357c625b72a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313548"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201413"
 ---
 L'**exemple de bannière d'appel de groupe pour Android** d'Azure Communication Services illustre de quelle façon le SDK Android Communication Services Calling peut être utilisé pour créer une expérience d'appels vocaux et vidéo. Dans cet exemple de démarrage rapide, vous allez apprendre à configurer et à exécuter l’exemple. Une vue d’ensemble de l’exemple est fournie ci-après pour le contexte.
 

@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer SolarWinds Service Desk (anciennement Samanage) pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et SolarWinds Service Desk (anciennement Samanage).
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
-ms.author: Zhchia
-ms.openlocfilehash: d68811c5e7b92698944d7b1b1736eef864d97d20
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.author: thwimmer
+ms.openlocfilehash: 3999575e13a1bb12478f6a9270dafa7c18c22f35
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802299"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759648"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Tutoriel : Configurer SolarWinds Service Desk (précédemment Samanage) pour l’approvisionnement automatique d’utilisateurs
 
@@ -156,7 +156,7 @@ Si vous sélectionnez l’option **Synchroniser l’ensemble des utilisateurs et
 
 ## <a name="change-log"></a>Journal des modifications
 
-* 14/09/2020 : modification du nom de la société dans deux didacticiels SaaS de Samanage à SolarWinds Service Desk (anciennement Samanage) par https://github.com/ravitmorales.
+* 14/09/2020 : modification du nom de la société dans deux didacticiels SaaS de Samanage à SolarWinds Service Desk (anciennement Samanage) par `https://github.com/ravitmorales`.
 * 22/04/2020 - Mise à jour de la méthode d’autorisation : remplacement de l’authentification de base par le jeton secret à long terme.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

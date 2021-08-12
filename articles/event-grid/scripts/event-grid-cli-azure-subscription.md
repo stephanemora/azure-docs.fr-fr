@@ -3,14 +3,14 @@ title: Exemple de script Azure CLI - S’abonner à un abonnement Azure | Micros
 description: Cet article fournit un exemple de script Azure CLI qui montre comment s’abonner à des événements Azure Event Grid avec Azure CLI.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7456f9c0da4963c1d3772169faf4963b8af6562d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e6b0fac888b621511f06e15def4d19d22921ad39
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871400"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463817"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>S’abonner aux événements d’un abonnement Azure avec Azure CLI
 

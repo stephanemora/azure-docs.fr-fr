@@ -6,20 +6,20 @@ author: peiliu
 manager: vravikumar
 services: azure-communication-services
 ms.author: peiliu
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 8c9468510e68f29816e52e74cb9a311e3834f107
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: cddff62f911339e7b2ddb76535acda09e1793137
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593084"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292419"
 ---
 # <a name="quickstart-using-azure-opentelemetry-exporter-to-export-sdk-telemetry-data-to-application-insights"></a>Démarrage rapide : Utilisation de l’exportateur Azure OpenTelemetry pour exporter des données de télémétrie du Kit de développement logiciel (SDK) vers Application Insights
 
-L’exportateur Azure OpenTelemetry est un kit de développement logiciel (SDK) inclus dans [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Il vous permet d’exporter des données de suivi à l’aide de l’exportateur OpenTelemetry et de les envoyer à [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). L’exportateur OpenTelemetry offre aux applications et aux infrastructures un moyen standardisé de collecter des informations de télémétrie.
+L’exportateur Azure OpenTelemetry est un kit de développement logiciel (SDK) inclus dans [Azure Monitor](../../azure-monitor/index.yml). Il vous permet d’exporter des données de suivi à l’aide de l’exportateur OpenTelemetry et de les envoyer à [Application Insights](../../azure-monitor/app/app-insights-overview.md). L’exportateur OpenTelemetry offre aux applications et aux infrastructures un moyen standardisé de collecter des informations de télémétrie.
 
 Azure Application Insights est une fonctionnalité d’Azure Monitor utilisée pour surveiller des applications dynamiques. Il affiche des données de télémétrie relatives à votre application dans une ressource Microsoft Azure. Le modèle de télémétrie est normalisé afin qu’il soit possible de créer une plateforme et une surveillance indépendante du langage.
 
@@ -71,4 +71,4 @@ Dans ce démarrage rapide, vous avez appris comment :
 
 Vous souhaiterez peut-être également :
 
-- [En savoir plus sur l’analyse de données dans Application Insights](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
+- [En savoir plus sur l’analyse de données dans Application Insights](/powerapps/maker/canvas-apps/application-insights)

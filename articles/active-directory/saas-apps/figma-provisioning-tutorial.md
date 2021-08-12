@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Figma pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Figma.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
-ms.openlocfilehash: ec509cc04db87602b3e29230253d9b363a5e30d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 98e8e4a0b46834f09f36c27ff3b3b81419effddf
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96353916"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113764029"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutoriel : Configurer Figma pour le provisionnement automatique d’utilisateurs
 

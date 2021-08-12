@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 07bc3cd9fdda98e6eeb0d7fe4ebefd562aafc47b
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: b40aaea15515d29a7cff6fd34c246b29ef9401dd
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992301"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361781"
 ---
 # <a name="what-is-custom-translator"></a>Qu’est-ce que Custom Translator ?
 
@@ -22,7 +22,7 @@ ms.locfileid: "107992301"
 
 Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles avec la même [API de traduction de texte Translator Text V3](../reference/v3-0-translate.md?tabs=curl) cloud, sécurisée, haute performance et hautement scalable de Microsoft, qui génère des milliards de traductions tous les jours.
 
-Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](../language-support.md#customization).
+Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](../language-support.md).
 
 Cette documentation contient les types d’articles suivants :
 

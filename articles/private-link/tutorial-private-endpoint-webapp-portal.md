@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67c4b96ebb9e578e6a617b37e5a05084e72c4f56
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896971"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114285063"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutoriel : Se connecter à une application web avec Azure Private Endpoint
 
@@ -135,6 +135,8 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
 5. Sélectionnez **Revoir + créer**. 
   
 6. Passez en revue les paramètres, puis sélectionnez **Créer**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-web-app"></a>Créer une application web
 

@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: f9f6a834239e46c2c0934dd145f8a1193f6a50b2
-  ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+  ms.openlocfilehash: 7bef7a0cbc81f4d72a28d74feb5a526789c0ff59
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/18/2021
-  ms.locfileid: "114404413"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114469715"
 title: Forum aux questions sur Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -242,7 +242,7 @@ sections:
       Vous pouvez afficher et analyser les journaux d’accès de plusieurs façons. Utilisez les journaux d'activité Azure Monitor, Excel, Power BI, etc.
 
 
-      Vous pouvez également utiliser un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal d’activité [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
+      Vous pouvez également utiliser un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal d’activité [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
   - question: Dans quelles circonstances, l'intégrité d'un serveur principal peut-elle indiquer un état inconnu ?
     answer: >
       En règle générale, vous constatez un état inconnu lorsque l'accès au serveur principal est bloqué par un groupe de sécurité réseau (NSG), un DNS personnalisé ou un routage défini par l'utilisateur (UDR) sur le sous-réseau d'Application Gateway. Pour plus d’informations, consultez [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).

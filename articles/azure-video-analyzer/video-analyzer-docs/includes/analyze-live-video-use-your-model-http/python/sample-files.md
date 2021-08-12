@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: be49e1b80742fc49a60122de822626ab4c09a1db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: dfedba441cc4df8436f32d3985182c16ef2cbb5e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371852"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465684"
 ---
 Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans un dossier. Effectuez les étapes suivantes pour examiner et modifier les exemples de fichiers.
 
@@ -27,8 +27,8 @@ Le modèle de déploiement fait référence au manifeste de déploiement de l’
         * Invoque des méthodes directes pour nettoyer des ressources.
 1. Modifiez le fichier **operations.json** :
 
-    * Changez le lien vers pipelineTopology<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
-    * Sous livePipelineSet, modifiez le nom de la pipelineTopology pour le faire correspondre à la valeur du lien précédent :<br/>`"pipelineTopologyName" : "InferencingWithHttpExtension"`
-    * Sous PipelineTopologyDelete, modifiez le nom :<br/>`"name": "InferencingWithHttpExtension"`
+    * Changez le lien vers pipelineTopology<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-with-httpExtension/topology.json"`
+    * Sous livePipelineSet, modifiez le nom de la pipelineTopology pour le faire correspondre à la valeur du lien précédent :<br/>`"pipelineTopologyName" : "EVROnMotionPlusHttpExtension"`
+    * Sous PipelineTopologyDelete, modifiez le nom :<br/>`"name": "EVROnMotionPlusHttpExtension"`
 
 

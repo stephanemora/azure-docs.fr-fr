@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   manager: philmea
-  ms.openlocfilehash: d5942e7f7e027404dd702ecdd8a006dff667625d
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.openlocfilehash: 4f00c96c62b19fba017b655cc8daeefa34051db5
+  ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113310858"
+  ms.lasthandoff: 07/24/2021
+  ms.locfileid: "114666754"
 title: Questions fréquentes (FAQ) sur les services Météo d'Azure Maps
 summary: >
   Cet article répond aux questions les plus fréquentes sur les données et les fonctionnalités des [services météo](/rest/api/maps/weather) Azure Maps. Les rubriques suivantes sont traitées :
@@ -95,7 +95,7 @@ sections:
   - question: "Comment interpréter les couleurs utilisées pour les vignettes radar et satellite ? \n"
     answer: "L’article Azure Maps concernant les [concepts relatifs au service Météo](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) explique comment interpréter les couleurs qui sont utilisées pour les vignettes radar et satellite. L’article montre des exemples de couleurs et de codes couleur HEX.\n \n"
   - question: "Puis-je créer des animations radar et satellite ? \n"
-    answer: "Oui. En plus des vignettes radar et satellite en temps réel, les utilisateurs d’Azure Maps peuvent demander des vignettes passées et à venir afin d’améliorer les visualisations de données avec des superpositions de carte. Les clients peuvent appeler l’[API Get Map Tile v2](/rest/api/maps/renderv2/getmaptilepreview) ou demander des mosaïques via le kit SDK web d’Azure Maps. Les mosaïques radar passées jusqu’à 1 heure et demie et à venir jusqu’à 2 heures sont disponibles. Elles sont mises à disposition toutes les 5 minutes. Vous pouvez obtenir des vignettes infrarouges passées avec une ancienneté maximale de 3 heures. En outre, ces vignettes sont mises à disposition toutes les 10 minutes. Pour plus d’informations, consultez l’[exemple de code](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer) de l’animation sur les vignettes météo open source.  \n"
+    answer: "Oui. En plus des vignettes radar et satellite en temps réel, les utilisateurs d’Azure Maps peuvent demander des vignettes passées et à venir afin d’améliorer les visualisations de données avec des superpositions de carte. Les clients peuvent appeler l’[API Get Map Tile v2](/rest/api/maps/render-v2/get-map-tile) ou demander des mosaïques via le kit SDK web d’Azure Maps. Les mosaïques radar passées jusqu’à 1 heure et demie et à venir jusqu’à 2 heures sont disponibles. Elles sont mises à disposition toutes les 5 minutes. Vous pouvez obtenir des vignettes infrarouges passées avec une ancienneté maximale de 3 heures. En outre, ces vignettes sont mises à disposition toutes les 10 minutes. Pour plus d’informations, consultez l’[exemple de code](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer) de l’animation sur les vignettes météo open source.  \n"
   - question: "Mettez-vous à disposition des icônes pour les différentes conditions météorologiques ? \n"
     answer: >
       Oui. Les icônes et leur code sont [disponibles ici](./weather-services-concepts.md#weather-icons). Notez que seules certaines des API du service Météo (préversion), comme l’[API Get Current Conditions](/rest/api/maps/weather/getcurrentconditions), retournent l’*iconCode* dans la réponse. Pour plus d’informations, consultez l’[exemple de code](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location) open source « Current Weather Conditions ».

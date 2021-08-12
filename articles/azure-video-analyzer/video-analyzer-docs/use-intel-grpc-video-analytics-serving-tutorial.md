@@ -3,13 +3,13 @@ title: Analyser des vidéos en direct avec l’extension Intel OpenVINO™ DL St
 description: Ce tutoriel montre comment utiliser l’extension Intel OpenVINO™ DL Streamer – Edge AI pour analyser le flux vidéo en direct d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.service: azure-video-analyzer
-ms.date: 05/18/2021
-ms.openlocfilehash: 9f3a313b1dc99fd86bc2ee764a78a151e8d88f96
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 06/01/2021
+ms.openlocfilehash: f666ac772d85fb1501c54001511e25cd941ee7c3
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440555"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604781"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser une vidéo en direct avec l’extension Intel OpenVINO™ DL Streamer – Edge AI 
 
@@ -17,8 +17,7 @@ Ce tutoriel montre comment utiliser Intel OpenVINO™ DL Streamer – Edge AI Ex
 
 Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge simulé ainsi qu’un flux vidéo en direct simulé. Il est basé sur l’exemple de code écrit en C# et s’appuie sur le guide de démarrage rapide [Détecter les événements de mouvement et d’émission](detect-motion-emit-events-quickstart.md).
 
-> [!NOTE]
-> Ce didacticiel nécessite l’utilisation d’un ordinateur x86-64 comme appareil de périphérie.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,7 +63,7 @@ Dans la version initiale de ce serveur d’inférence, vous avez accès aux [mod
 
 - object_tracking for person_vehicle_bike_tracking ![suivi d’objet pour personne ou véhicule](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-Ce modèle utilise les pipelines de détection d’objet préchargé, de classification d’objet et de suivi d’objet pour démarrer rapidement. De plus, il est fourni avec les modèles préchargés [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) et [vehicle-attributes-recognition-barrier-0039](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+Ce modèle utilise les pipelines de détection d’objet préchargé, de classification d’objet et de suivi d’objet pour démarrer rapidement. De plus, il est fourni avec les modèles préchargés [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) et [vehicle-attributes-recognition-barrier-0039](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md).
 
 > [!NOTE]
 > En téléchargeant et en utilisant le module Edge OpenVINO™ DL Streamer – Edge AI Extension d’Intel et le logiciel inclus, vous acceptez les termes et conditions du [contrat de licence](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).

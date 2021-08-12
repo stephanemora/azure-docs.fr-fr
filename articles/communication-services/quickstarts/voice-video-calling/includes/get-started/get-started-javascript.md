@@ -6,20 +6,18 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: eb0f596a2da9b501f57ca1b2795bffa338e3234c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f394448f0b488f468ce09c13d036585db032bda9
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560798"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112536099"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Javascript.
 
-> [!NOTE]
-> Ce document utilise la version 1.1.0-beta.1 du SDK Calling.
+## <a name="sample-code"></a>Exemple de code
 
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
+Vous pouvez télécharger l’exemple d’application à partir de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +25,6 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un a
 - [Node.js](https://nodejs.org/) versions Active LTS et Maintenance LTS (8.11.1 et 10.14.1 recommandées).
 - Une ressource Communication Services active. [Créez une ressource Communication Services](../../../create-communication-resource.md).
 - Un jeton d’accès utilisateur pour instancier le client d’appel. Découvrez comment [créer et gérer des jetons d’accès utilisateur](../../../access-tokens.md)
-
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
@@ -98,10 +95,11 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
 | AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implémente l’interface CommunicationTokenCredential qui est utilisée pour instancier CallAgent. |
 
-
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Vous devez entrer un jeton d’accès utilisateur valide pour votre ressource dans le champ de texte, puis cliquer sur Envoyer. Consultez la documentation sur les [jetons d’accès utilisateur](../../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationTokenCredential` qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant à **client.js** :
+Vous devez entrer un jeton d’accès utilisateur valide pour votre ressource dans le champ de texte, puis cliquer sur Envoyer. Consultez la documentation sur les [jetons d’accès utilisateur](../../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationTokenCredential` qui nous permettra d’établir et de recevoir des appels. 
+
+Ajoutez le code suivant à **client.js** :
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -167,7 +165,3 @@ Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments su
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
 Vous pouvez établir un appel VoIP sortant en fournissant un jeton d’accès utilisateur et un ID d’utilisateur valides dans les champs de texte correspondant et en cliquant sur le bouton **Start Call** (Démarrer l’appel). L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent.
-
-## <a name="sample-code"></a>Exemple de code
-
-Vous pouvez télécharger l’exemple d’application à partir de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: bf60f512416007137e71119fa7474b1393099ebf
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: cffd8e0347f501e82ca6e62d5c120b232869cbc0
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718878"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653318"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur d’Azure IoT Central
 
@@ -22,7 +22,7 @@ Cet article vous présente l’interface utilisateur d’Azure IoT Central. Vous
 
 ## <a name="iot-central-homepage"></a>Page d’accueil d’IoT Central
 
-La page [Page d’accueil d’IoT Central](https://aka.ms/iotcentral-get-started) vous permet d’en savoir plus sur les dernières nouvelles et fonctionnalités disponibles sur IoT Central, de créer des applications, et de visualiser et lancer vos applications existantes.
+La page [Page d’accueil d’IoT Central](https://apps.azureiotcentral.com/) vous permet d’en savoir plus sur les dernières nouvelles et fonctionnalités disponibles sur IoT Central, de créer des applications, et de visualiser et lancer vos applications existantes.
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Page d’accueil d’IoT Central":::
 
@@ -36,7 +36,7 @@ Pour plus d’informations, consultez le guide de démarrage rapide [Créer une 
 
 ### <a name="launch-your-application"></a>Lancer votre application
 
-Vous lancez votre application IoT Central en accédant à l’URL que vous avez choisie lors de la création de l’application. Vous pouvez également consulter la liste de toutes les applications auxquelles vous avez accès dans le [gestionnaire d’applications IoT Central](https://aka.ms/iotcentral-apps).
+Vous lancez votre application IoT Central en accédant à l’URL que vous avez choisie lors de la création de l’application. Vous pouvez également consulter la liste de toutes les applications auxquelles vous avez accès dans le [gestionnaire d’applications IoT Central](https://apps.azureiotcentral.com/myapps).
 
 :::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="Gestionnaire d’applications IoT Central":::
 
@@ -84,7 +84,7 @@ Le menu supérieur s’affiche sur chaque page :
 
 * Pour rechercher des appareils, entrez une valeur de **recherche**.
 * Pour modifier la langue de l’interface utilisateur ou le thème, choisissez l’icône des **paramètres**. En savoir plus sur la [gestion de vos préférences d’application](howto-manage-preferences.md)
-* Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources. Vous pouvez [obtenir des informations sur votre application](./howto-get-app-info.md) à partir du lien **À propos de votre application**. Dans une application relevant du plan tarifaire gratuit, les ressources de support incluent un accès à la [conversation en direct](howto-show-hide-chat.md).
+* Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources. Vous pouvez [obtenir des informations sur votre application](howto-faq.yml#how-do-i-get-information-about-my-application-) à partir du lien **À propos de votre application**. Dans une application relevant du plan tarifaire gratuit, les ressources de support incluent un accès à la [conversation en direct](howto-show-hide-chat.md).
 * Pour vous déconnecter de l’application, choisissez l’icône **Compte**.
 
 Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface utilisateur :
@@ -98,9 +98,9 @@ Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Capture d’écran du tableau de bord IoT Central.":::
 
-* **Tableau de bord** est la première page que vous voyez quand vous vous connectez à votre application IoT Central. Vous pouvez créer et personnaliser plusieurs tableaux de bord d’application. En savoir plus sur l’[ajout de vignettes à votre tableau de bord](howto-add-tiles-to-your-dashboard.md)
+* **Tableau de bord** est la première page que vous voyez quand vous vous connectez à votre application IoT Central. Vous pouvez créer et personnaliser plusieurs tableaux de bord d’application. En savoir plus sur l’[ajout de vignettes à votre tableau de bord](howto-manage-dashboards.md)
 
-* Vous pouvez aussi créer des tableaux de bord personnels pour superviser ce qui vous intéresse. Pour en savoir plus, consultez l’article [Créer des tableaux de bord personnels Azure IoT Central](howto-create-personal-dashboards.md).
+* Vous pouvez aussi créer des tableaux de bord personnels pour superviser ce qui vous intéresse. Pour en savoir plus, consultez l’article [Créer des tableaux de bord personnels Azure IoT Central](howto-manage-dashboards.md).
 
 ### <a name="devices"></a>Appareils
 
@@ -110,8 +110,6 @@ Cette page montre les appareils de votre application IoT Central, regroupés par
 
 * Un modèle d’appareil définit un type d’appareil pouvant se connecter à votre application.
 * Un appareil représente un appareil réel ou simulé dans votre application.
-
-Pour en savoir plus, consultez le démarrage rapide [Surveiller vos appareils](./quick-monitor-devices.md). 
 
 ### <a name="device-groups"></a>Groupes d’appareils
 
@@ -134,7 +132,7 @@ Analytique expose des fonctionnalités puissantes pour analyser les tendances hi
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Page Travaux":::
 
-Cette page vous permet d’afficher et de créer des travaux qui peuvent être utilisés pour des opérations de gestion des appareils en bloc sur vos appareils. Vous pouvez mettre à jour les propriétés de l’appareil, ses paramètres et exécuter des commandes sur des groupes d’appareils. Pour plus d’informations, consultez l’article [Exécuter une tâche](howto-run-a-job.md).
+Cette page vous permet d’afficher et de créer des travaux qui peuvent être utilisés pour des opérations de gestion des appareils en bloc sur vos appareils. Vous pouvez mettre à jour les propriétés de l’appareil, ses paramètres et exécuter des commandes sur des groupes d’appareils. Pour plus d’informations, consultez l’article [Exécuter une tâche](howto-manage-devices-in-bulk.md).
 
 ### <a name="device-templates"></a>Modèles d’appareil
 

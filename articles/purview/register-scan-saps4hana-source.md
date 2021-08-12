@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: a061f3afbfb3a114ec22bcfba123aa326b6ac3fd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a0e6a02aed59cbe968abb0df5c3fb612c8f2d3b0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067093"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551683"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Inscrire et analyser une source SAP S/4HANA
 
@@ -103,6 +103,8 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     e.  **Chemin de la bibliothèque JCo** : spécifiez le chemin vers le dossier contenant les bibliothèques JCo.
 
     f.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la source SAP S/4HANA à analyser.
+    > [!Note] 
+    > En règle générale, prévoyez 1 Go de mémoire pour 1 000 tables
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Analyser SAP S/4HANA" border="true":::
 

@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 592affde83e468c409c25204fa389471a77abcce
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e3b67bee93a0e9a7b823d3a91d6d95e1bccbbe71
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005588"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202824"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>Démarrage rapide : Créer un modèle Object Anchors à partir d’un modèle 3D
 
@@ -34,51 +34,7 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-object-anchors-account"></a>Créer un compte Object Anchors
-
-Tout d’abord, vous devez créer un compte avec le service Object Anchors.
-
-1. Accédez au [portail Azure](https://portal.azure.com/) et sélectionnez **Créer une ressource**.
-
-   :::image type="content" source="./media/create-aoa-resource-1.png" alt-text="Créer une nouvelle ressource":::
-
-2. Recherchez la ressource **Object Anchors**.
-
-   Recherchez « Object Anchors ».
-
-   :::image type="content" source="./media/create-aoa-resource-2.png" alt-text="Sélectionner la ressource Object Anchors":::
-
-   Sur la ressource **Object Anchors** dans les résultats de la recherche, sélectionnez les **Créer -> Object Anchors**.
-
-   :::image type="content" source="./media/create-aoa-resource-3.png" alt-text="Créer une ressource Object Anchors":::
-
-3. Dans la boîte de dialogue **Compte Object Anchors** :
-    * Entrez un nom de ressource unique.
-    * Sélectionnez l’abonnement auquel attacher la ressource.
-    * Créez un groupe de ressources ou utilisez un groupe existant.
-    * Sélectionnez la région dans laquelle vous souhaitez que votre ressource existe.
-
-    :::image type="content" source="./media/create-aoa-resource-4.png" alt-text="Entrer les détails du compte de ressource Object Anchors":::
-
-    Sélectionnez **Créer** pour commencer à créer la ressource.
-
-4. Une fois la ressource créée, sélectionnez **Accéder à la ressource**.
-
-   :::image type="content" source="./media/create-aoa-resource-5.png" alt-text="Accéder à la ressource":::
-
-5. Sur la page de présentation :
-
-   Prenez note du **Domaine du compte**. Vous en aurez besoin ultérieurement.
-
-   :::image type="content" source="./media/create-aoa-resource-6.1.png" alt-text="Copier le domaine du compte pour votre ressource Object Anchors":::
-
-   Prenez note de l’**ID de compte**. Vous en aurez besoin ultérieurement.
-
-   :::image type="content" source="./media/create-aoa-resource-6.2.png" alt-text="Copier l’ID de compte pour votre ressource Object Anchors":::
-
-   Accédez à la page **Clés d’accès** et prenez note de la **Clé primaire**. Vous en aurez besoin ultérieurement.
-
-   :::image type="content" source="./media/create-aoa-resource-7.png" alt-text="Copier la clé de compte pour votre ressource Object Anchors":::
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
 ## <a name="get-the-sample-project"></a>Récupération de l’exemple de projet
 

@@ -29,7 +29,7 @@
   items:
     - name: Chaînage de fonctions
       href: durable-functions-sequence.md
-    - name: Éventail intérieur/extérieur
+    - name: Fan-out/fan-in
       href: durable-functions-cloud-backup.md
     - name: 'Moniteurs (C#, JavaScript)'
       href: durable-functions-monitor.md

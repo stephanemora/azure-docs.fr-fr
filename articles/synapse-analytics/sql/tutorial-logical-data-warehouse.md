@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459311"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442842"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutoriel : Créer un entrepôt de données logique avec un pool SQL serverless
 
@@ -41,7 +41,7 @@ Pour commencer, vous avez besoin de configurer une source de données et de spé
 
 Les sources de données représentent des informations de chaîne de connexion qui décrivent l’emplacement où vos données sont placées et la manière de vous authentifier auprès de votre source de données.
 
-Voici un exemple de définition de source de données qui fait référence à un [jeu de données Azure ouvert et public, fourni par le Centre européen de prévention et de contrôle des maladies (ECDC), sur les cas de COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) :
+Voici un exemple de définition de source de données qui fait référence à un [jeu de données Azure ouvert et public, fourni par le Centre européen de prévention et de contrôle des maladies (ECDC), sur les cas de COVID-19](/azure/open-datasets/dataset-ecdc-covid-cases) :
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -246,4 +246,3 @@ Ce contrôle d’accès avec sécurité basé sur les rôles peut simplifier la 
 
 - Pour savoir comment connecter un pool SQL serverless à Power BI Desktop et créer des rapports, consultez [Connecter un pool SQL serverless à Power BI Desktop et créer des rapports](tutorial-connect-power-bi-desktop.md).
 - Pour découvrir comment utiliser des tables externes dans un pool SQL serverless, consultez [Utiliser des tables externes avec Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool).
-

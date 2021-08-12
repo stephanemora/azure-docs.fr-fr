@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Apple Business Manager pour le provisionnement au
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et Apple Business Manager.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 4ad30031-9904-4ac3-a4d2-e8c28d44f319
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.author: Zhchia
-ms.openlocfilehash: b4f24c9beffcd67fb84940c2e159da615496d9aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d82a47729d9f9348368f19ffd595599464dde5b8
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180368"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765030"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Tutoriel : Configurer Apple Business Manager pour le provisionnement automatique d’utilisateurs
 

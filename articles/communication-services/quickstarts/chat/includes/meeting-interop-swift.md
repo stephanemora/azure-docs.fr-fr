@@ -2,15 +2,15 @@
 title: Démarrage rapide - Participer à une réunion Teams
 author: askaur
 ms.author: askaur
-ms.date: 05/13/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: beb3f6daa577a7505b49faf1acd7cc9fb9a69ff2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 335e21057d0deaa68b4b791501e59aaa772eb49c
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080275"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113094"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une conversation dans une réunion Teams à l’aide du kit SDK Conversation Azure Communication Services pour iOS.
 

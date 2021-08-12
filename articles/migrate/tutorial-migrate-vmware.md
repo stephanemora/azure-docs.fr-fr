@@ -7,21 +7,21 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3db33f994c70d2c471ec8147672be5704406157d
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567116"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765365"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
 Cet article explique comment effectuer la migration de machines virtuelles VMware locales vers Azure avec l’outil [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool), en utilisant la migration sans agent. Vous pouvez également migrer des machines virtuelles VMware à l’aide de la migration basée sur un agent. [Comparez](server-migrate-overview.md#compare-migration-methods) les méthodes.
 
-Ce tutoriel est le troisième d’une série qui explique comment évaluer et migrer des machines virtuelles VMware vers Azure. 
+Ce tutoriel est le troisième d’une série qui explique comment évaluer et migrer des machines virtuelles VMware vers Azure.
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. 
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles.
 
 
 Dans ce tutoriel, vous allez apprendre à :
@@ -40,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Avant de commencer ce didacticiel, vous devez :
 
 1. [Suivre le premier tutoriel](./tutorial-discover-vmware.md) pour configurer Azure et VMware en vue de la migration.
-2. Nous vous recommandons de suivre le deuxième tutoriel afin d’[évaluer les machines virtuelles VMware](./tutorial-assess-vmware-azure-vm.md) avant de les migrer vers Azure, mais cela n’est pas une obligation. 
+2. Nous vous recommandons de suivre le deuxième tutoriel afin d’[évaluer les machines virtuelles VMware](./tutorial-assess-vmware-azure-vm.md) avant de les migrer vers Azure, mais cela n’est pas une obligation.
 3. Accédez au projet déjà créé ou [créez un nouveau projet](./create-manage-projects.md).
 4. Vérifiez les autorisations de votre compte Azure – Votre compte Azure a besoin d’autorisations pour créer une machine virtuelle et écrire sur un disque managé Azure.
 
@@ -55,7 +55,7 @@ Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azur
 
 ## <a name="replicate-vms"></a>Répliquer des machines virtuelles
 
-Une fois que vous avez configuré l’appliance et terminé la détection, vous pouvez commencer la réplication des machines virtuelles VMware sur Azure. 
+Une fois que vous avez configuré l’appliance et terminé la détection, vous pouvez commencer la réplication des machines virtuelles VMware sur Azure.
 
 - Vous pouvez exécuter jusqu’à 500 réplications simultanément.
 - Dans le portail, vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la migration. Pour migrer davantage de machines, ajoutez-les à des groupes par lots de 10.
@@ -67,12 +67,12 @@ Activez la réplication comme suit :
     ![Répliquer des machines virtuelles](./media/tutorial-migrate-vmware/select-replicate.png)
 
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec VMware vSphere**.
-3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée > **OK**. 
+3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée > **OK**.
 
     ![Paramètres de la source](./media/tutorial-migrate-vmware/source-settings.png)
 
 4. Dans **Machines virtuelles**, sélectionnez les machines à répliquer. Pour appliquer les paramètres de taille de machine virtuelle et de type de disque issus d’une évaluation, le cas échéant, dans **Importer les paramètres de migration à partir d’une évaluation Azure Migrate ?** , sélectionnez **Oui**, puis sélectionnez le groupe de machines virtuelles et le nom de l’évaluation. Si vous n’utilisez pas les paramètres d’évaluation, sélectionnez **Non**.
-   
+
     ![Sélectionner l’évaluation](./media/tutorial-migrate-vmware/select-assessment.png)
 
 5. Dans **Machines virtuelles**, sélectionnez les machines virtuelles que vous souhaitez migrer. Cliquez ensuite sur **Suivant : Paramètres de la cible**.
@@ -92,7 +92,7 @@ Activez la réplication comme suit :
 
    > [!NOTE]
    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
-  
+
 10. Dans **Azure Hybrid Benefit** :
 
     - Sélectionnez **Non** si vous ne souhaitez pas appliquer Azure Hybrid Benefit. Cliquez ensuite sur **Suivant**.
@@ -102,8 +102,8 @@ Activez la réplication comme suit :
 
 11. Dans **Calcul**, vérifiez le nom de la machine virtuelle, sa taille, le type de disque du système d’exploitation et la configuration de la disponibilité (si elle a été sélectionnée à l’étape précédente). Les machines virtuelles doivent satisfaire aux [exigences d’Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-    - **Taille de la machine virtuelle** : si vous suivez les recommandations de l’évaluation, la liste déroulante Taille de la machine virtuelle affiche la taille recommandée. Sinon, Azure Migrate choisit une taille qui correspond à la taille la plus proche dans l’abonnement Azure. Vous pouvez également choisir une taille manuelle dans **Taille de la machine virtuelle Azure**. 
-    - **Disque de système d’exploitation** : spécifiez le disque du système d’exploitation (démarrage) pour la machine virtuelle. Le disque du système d’exploitation est le disque qui contient le chargeur de démarrage et le programme d’installation du système d’exploitation. 
+    - **Taille de la machine virtuelle** : si vous suivez les recommandations de l’évaluation, la liste déroulante Taille de la machine virtuelle affiche la taille recommandée. Sinon, Azure Migrate choisit une taille qui correspond à la taille la plus proche dans l’abonnement Azure. Vous pouvez également choisir une taille manuelle dans **Taille de la machine virtuelle Azure**.
+    - **Disque de système d’exploitation** : spécifiez le disque du système d’exploitation (démarrage) pour la machine virtuelle. Le disque du système d’exploitation est le disque qui contient le chargeur de démarrage et le programme d’installation du système d’exploitation.
     - **Zone de disponibilité** : Spécifiez la zone de disponibilité à utiliser.
     - **Groupe à haute disponibilité** : Spécifiez le groupe à haute disponibilité à utiliser.
 
@@ -114,7 +114,7 @@ Activez la réplication comme suit :
 
 
 12. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
-   
+
     ![Capture d’écran montrant l’onglet Disques de la boîte de dialogue Répliquer.](./media/tutorial-migrate-vmware/disks.png)
 
 13. Dans **Passer en revue et démarrer la réplication**, passez en revue les paramètres, puis cliquez sur **Répliquer** pour démarrer la réplication initiale pour les serveurs.
@@ -148,7 +148,7 @@ La réplication se déroule comme suit :
 
 Quand la réplication différentielle commence, vous pouvez exécuter une migration de test avec les machines virtuelles avant d’exécuter une migration complète vers Azure. Avant la migration, nous vous recommandons vivement d’effectuer cette opération au moins une fois pour chaque machine.
 
-- L’exécution d’une migration de test permet de vérifier que la migration fonctionne comme prévu, sans impact sur les machines locales qui restent opérationnelles et poursuivent la réplication. 
+- L’exécution d’une migration de test permet de vérifier que la migration fonctionne comme prévu, sans impact sur les machines locales qui restent opérationnelles et poursuivent la réplication.
 - Une migration de test simule la migration en créant une machine virtuelle Azure à l’aide de données répliquées (il s’agit en général d’une migration vers un réseau virtuel hors production dans votre abonnement Azure).
 - Vous pouvez utiliser la machine virtuelle Azure de test répliquée pour valider la migration, effectuer des tests d’applications et résoudre les éventuels problèmes avant la migration complète.
 
@@ -170,6 +170,10 @@ Effectuez une migration de test de la façon suivante :
 
     ![Nettoyer la migration](./media/tutorial-migrate-vmware/clean-up.png)
 
+    > [!NOTE]
+    > Vous pouvez désormais inscrire vos serveurs exécutant SQL Server auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure pour bénéficier de la mise à jour corrective automatisée, de la sauvegarde automatisée et de la gestion simplifiée des licences à l’aide de l’extension SQL IaaS Agent.
+    >- Sélectionnez **Gérer** > **Réplication de serveurs** > **Machine contenant SQL Server** > **Calcul et réseau**, puis sélectionnez **oui** pour effectuer l’inscription auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure.
+    >- Sélectionnez Azure Hybrid Benefit pour SQL Server si vous disposez d’instances de SQL Server couvertes par des abonnements Software Assurance ou SQL Server actifs, et si vous souhaitez appliquer cet avantage aux machines que vous migrez.
 
 ## <a name="migrate-vms"></a>Migrer des machines virtuelles
 
@@ -189,13 +193,13 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
 1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la réplication**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication de la machine virtuelle.
-2. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration. Si la machine est dotée d’un système d’exploitation Linux, passez en revue les [exigences](../virtual-machines/extensions/agent-linux.md#requirements) de l’agent Linux de machine virtuelle Azure sur les machines migrées pour vérifier que l’installation de l’agent VM Linux est effectuée correctement. 
+2. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration. Si la machine est dotée d’un système d’exploitation Linux, passez en revue les [exigences](../virtual-machines/extensions/agent-linux.md#requirements) de l’agent Linux de machine virtuelle Azure sur les machines migrées pour vérifier que l’installation de l’agent VM Linux est effectuée correctement.
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
 6. Supprimez les machines virtuelles locales de votre inventaire des machines virtuelles locales.
 7. Supprimez les machines virtuelles locales des sauvegardes locales.
-8. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure. 
+8. Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure.
 
 ## <a name="post-migration-best-practices"></a>Bonnes pratiques après la migration
 
@@ -210,7 +214,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
--  Envisagez de déployer [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+-  Envisagez de déployer [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
