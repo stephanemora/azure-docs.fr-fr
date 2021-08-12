@@ -1,19 +1,19 @@
 ---
 title: Installer un serveur cible maître pour la restauration automatique de machines virtuelles Linux avec Azure Site Recovery
 description: Découvrez comment configurer un serveur cible maître Linux pour la restauration automatique vers un site local pendant la reprise d’activité de machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery.
-author: mayurigupta13
 services: site-recovery
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: mayg
-ms.openlocfilehash: 1404b2dd035b7fd4b06c5f959fd9ba45f6be9c75
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b8264221db1fcfee8d47ac0d8f159d6b7a6140fe
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164972"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577084"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -335,7 +335,16 @@ Vous devez installer les outils VMware ou open-vm-tools sur le serveur maître c
 
 ### <a name="upgrade-the-master-target-server"></a>Mettre à niveau le serveur cible maître
 
-Exécutez le programme d’installation. Il détecte automatiquement que l’agent est installé sur le serveur cible maître. Sélectionnez **Y** (O) pour effectuer la mise à niveau.  Une fois la configuration terminée, vérifiez la version du serveur cible maître installée à l’aide de la commande suivante :
+L’exécution du programme d’installation détectera automatiquement que l’agent est installé sur le serveur cible maître. Pour effectuer la mise à niveau, procédez comme suit :
+1. Copiez le fichier tar. gz du serveur de configuration vers le serveur cible maître Linux
+2. Exécutez cette commande pour confirmer la version que vous exécutez : cat /usr/local/.vx_version
+3. Décompressez le fichier tar : tar -xvf latestlinuxmobsvc.tar.gz
+4. Octroyez les autorisations pour l’exécution des changements : chmod 755 ./install
+5. Exécutez le script de mise à niveau : sudo./Install
+6. Le programme d’installation doit détecter que l’agent est installé sur le serveur cible maître. Sélectionnez **Y** (O) pour effectuer la mise à niveau.
+7. Vérifiez que l’agent exécute la nouvelle version : cat /usr/local/.vx_version
+
+Une fois la configuration terminée, vérifiez la version du serveur cible maître installée à l’aide de la commande suivante :
 
 `cat /usr/local/.vx_version`
 

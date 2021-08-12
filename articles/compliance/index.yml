@@ -390,11 +390,11 @@ additionalContent:
         - title: Confidentialité et RGPD
           links:
             - text: Checklists
-              url: /compliance/regulatory/gdpr-arc-azure-dynamics
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics-windows
             - text: Demandes des titulaires des données
               url: /compliance/regulatory/gdpr-dsr-Azure
             - text: Notification de violation
-              url: /compliance/regulatory/gdpr-breach-azure-dynamics
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
             - text: Évaluations de l’impact de la protection des données
               url: /microsoft-365/compliance/gdpr-dpia-azure
             - text: Résidence des données dans Azure

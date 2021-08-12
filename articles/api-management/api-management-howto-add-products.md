@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c0d24c667d2c7c46f65d8c6f3bf6e6e3b52fd00
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545154"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669646"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutoriel : Créer et publier un produit  
 
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Créer et publier un produit
@@ -163,7 +163,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 ---
 
 > [!TIP]
-> Vous pouvez créer ou mettre à jour l’abonnement de l’utilisateur à un produit avec des clés d’abonnement personnalisées via une [API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou une commande PowerShell.
+> Vous pouvez créer ou mettre à jour l’abonnement de l’utilisateur à un produit avec des clés d’abonnement personnalisées via une [API REST](/rest/api/apimanagement/2020-12-01/subscription/create-or-update) ou une commande PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

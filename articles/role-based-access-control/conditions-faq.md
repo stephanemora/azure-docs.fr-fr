@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 93eb1afb061182105766ce4d7c864601883ec0cc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: df1b585fb0f84dafe26c954386f487e3ceff2bc7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489667"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847325"
 ---
 # <a name="faq-for-azure-role-assignment-conditions-preview"></a>FAQ sur les conditions d’attribution de rôle Azure (préversion)
 
@@ -38,9 +38,9 @@ Si vous ajoutez au moins trois expressions pour une action ciblée, vous devez d
   
 Le portail Azure ne vous permet pas de modifier ou d’afficher les conditions dans l’étendue du groupe d’administration. La colonne **Condition** n’est pas affichée pour l’étendue du groupe d’administration. Azure PowerShell et Azure CLI vous permettent d’ajouter des conditions au niveau de l’étendue du groupe d’administration.
 
-**Les conditions sont-elles prises en charge via Azure AD Privileged Identity Management pour les ressources Azure en préversion ?**
+**Les conditions sont-elles prises en charge via Privileged Identity Management pour les ressources Azure en préversion ?**
 
-Non.
+Oui. Pour plus d’informations, consultez [Attribuer des rôles de ressources Azure dans Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **Les conditions sont-elles prises en charge pour les administrateurs classiques ?**
 

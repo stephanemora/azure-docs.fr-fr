@@ -3,13 +3,13 @@ title: Bien démarrer avec Azure Video Analyzer -Azure
 description: Ce guide de démarrage rapide vous guide tout au long des étapes de prise en main d’Azure Video Analyzer. Il utilise une machine virtuelle Azure comme appareil IoT Edge et un flux vidéo en direct simulé.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
-ms.openlocfilehash: 284911c4fb4a2df0fd03d10e2ead9c1f14a9c2bf
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.date: 06/01/2021
+ms.openlocfilehash: 335890f4bb939123290e5dfe9cccbf9f9aef1242
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321609"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605180"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>Démarrage rapide : Bien démarrer avec Azure Video Analyzer
 
@@ -24,14 +24,12 @@ Une fois la procédure de configuration terminée, vous pourrez exécuter un flu
 
 * Un compte Azure disposant d’un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    > [!NOTE]    
-    > Vous aurez besoin d’un abonnement Azure dans lequel vous avez accès au rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) et au rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de compte pour qu’il vous les octroie.  
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
 
     * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-> [!TIP] 
-> Vous serez peut-être invité à installer Docker pendant l’installation de l’extension Azure IoT Tools. N’hésitez pas à ignorer cette invite.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 
@@ -89,11 +87,7 @@ Si vous suivez ce guide de démarrage rapide, les événements sont envoyés au 
 1. Développez le nœud **Appareils**.
 1. Cliquez avec le bouton droit sur `avasample-iot-edge-device`, puis sélectionnez **Démarrer la supervision du point de terminaison d’événement intégré**.
 
-    > [!NOTE]
-    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 

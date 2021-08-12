@@ -2,17 +2,19 @@
 title: 'Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
 description: 'Tutoriel : Bien démarrer avec R et Spark sur un cluster Azure HDInsight Machine Learning Services.'
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 07c004fa5f03c53ed0778613a0c16a0ba2aff11f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 58c407478432cab5d63bf06ae0c41779c2d78dde
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869495"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299372"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Ce tutoriel fournit une présentation étape par étape de l’utilisation des fonctions R dans Apache Spark qui s’exécutent sur un cluster Azure HDInsight Machine Learning Services.
 
@@ -229,7 +231,7 @@ rxSetComputeContext(mySparkCluster)
     DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
     DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
     ---
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)

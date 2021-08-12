@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: ed6106a8967c177428abf7727b43f8fba33d580d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 38227e47154e280fc34624b4f92a4f75261b7004
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903992"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121952"
 ---
 # <a name="quickstart-connect-a-renesas-rx65n-cloud-kit-to-iot-central"></a>Démarrage rapide : Connecter un kit cloud RX65N Renesas à IoT Central
 
@@ -73,7 +73,7 @@ Pour installer les outils :
 
    *%USERPROFILE%\AppData\Roaming\GCC pour Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes du démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes décrites dans ce démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez les commandes suivantes pour vérifier que CMake version 3.14 ou ultérieure est installé, et que le chemin d’accès du compilateur RX est correctement configuré.
 
     ```shell
@@ -173,7 +173,7 @@ Pour connecter le RX65N Renesas à Azure, vous allez modifier un fichier de conf
 
 Vous pouvez utiliser l’application **Termite** pour surveiller la communication et vérifier que votre appareil est correctement configuré.
 > [!TIP]
-> Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flashage, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+> Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flashage, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 1. Démarrez **Termite**.
 1. Sélectionnez **Paramètres**.
@@ -181,7 +181,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     * **Vitesse (en bauds)**  : 115 200
     * **Port**: port auquel votre RX65N Renesas est connecté. Si plusieurs options de port sont disponibles dans la liste déroulante, vous pouvez trouver le port approprié à utiliser. Ouvrez le **Gestionnaire d'appareils** Windows et affichez les **Ports** pour identifier le port à utiliser.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/termite-settings.png" alt-text="Capture d’écran des paramètres du port série dans l’application Termite":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/termite-settings.png" alt-text="Capture d’écran des paramètres de port série dans l’application Termite":::
 
 1. Sélectionnez OK.
 1. Appuyez sur le bouton **Réinitialiser** de l’appareil.
@@ -272,7 +272,7 @@ Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
 ## <a name="troubleshoot"></a>Dépanner
 
-Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

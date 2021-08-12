@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 54ee903b490e10f7ea4ca3bca91f742b5811404d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3420acbccf8066b6a40669103f253a4fc6f06fa
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563300"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595294"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Qu’est-ce qu’un réseau de distribution de contenu sur Azure ?
 Un réseau de diffusion de contenu (CDN) est un réseau distribué de serveurs capables de fournir efficacement du contenu web aux utilisateurs. Les CDN stockent le contenu en cache sur des serveurs Edge situés à des emplacements de point de présence (POP) proches des utilisateurs finaux afin de réduire la latence. 
@@ -69,7 +69,7 @@ Azure CDN offre les fonctionnalités suivantes :
 - [Assistance pour les domaines personnalisés HTTPS](cdn-custom-ssl.md)
 - [Journaux de diagnostics Azure](cdn-azure-diagnostic-logs.md)
 - [Compression de fichiers](cdn-improve-performance.md)
-- [Filtrage géographique](cdn-restrict-access-by-country.md)
+- [Filtrage géographique](cdn-restrict-access-by-country-region.md)
 
 Pour obtenir la liste complète des fonctionnalités prises en charge par chaque produit Azure CDN, consultez [Comparer les fonctionnalités des produits Azure CDN](cdn-features.md).
 

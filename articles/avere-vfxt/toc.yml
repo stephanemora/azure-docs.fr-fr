@@ -37,7 +37,7 @@
     - name: Projets de démonstration
       href: avere-vfxt-demo-links.md
     - name: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
-      href: avere-vfxt-faq.md
+      href: avere-vfxt-faq.yml
     - name: Guide de récupération d’urgence
       href: disaster-recovery.md
     - name: Documentation complémentaire

@@ -1,5 +1,5 @@
 ---
-title: Réinitialiser des jetons de déploiement dans Azure Static Web Apps (préversion)
+title: Réinitialiser des jetons de déploiement dans Azure Static Web Apps
 description: Réinitialiser les jetons dans un site Azure Static Web Apps
 services: static-web-apps
 author: webmaxru
@@ -7,14 +7,14 @@ ms.author: masalnik
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 1/31/2021
-ms.openlocfilehash: fe1edb2693993d02a705039c18b04c8d1b7b9725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d516a448240e32f58318689d985bc0aad906b9f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743146"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814007"
 ---
-# <a name="reset-deployment-tokens-in-azure-static-web-apps-preview"></a>Réinitialiser des jetons de déploiement dans Azure Static Web Apps (préversion)
+# <a name="reset-deployment-tokens-in-azure-static-web-apps"></a>Réinitialiser des jetons de déploiement dans Azure Static Web Apps
 
 Lorsque vous créez un site Azure Static Web Apps, Azure génère un jeton utilisé pour identifier l’application pendant le déploiement. Pendant l’approvisionnement, ce jeton est stocké en tant que secret dans le dépôt GitHub. Cet article explique comment utiliser et gérer ce jeton.
 

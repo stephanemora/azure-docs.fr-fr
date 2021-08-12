@@ -10,12 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 6dc99d58f15653e9d3f991622de3bb3388690459
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 4d760f5017c20ac88d3329bb79937c971d4fba75
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814803"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459421"
 ---
 # <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-automated-machine-learning-part-1-of-2"></a>Tutoriel : Intégration de Power BI – Créer un modèle prédictif avec le machine learning automatisé (partie 1 sur 2)
 
@@ -39,7 +39,7 @@ Toutefois, vous pouvez également utiliser l’une des autres options disponible
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez utiliser un [essai gratuit](https://aka.ms/AMLFree). 
+- Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/free/). 
 - Un espace de travail Azure Machine Learning. Si vous ne disposez pas encore d’un espace de travail, consultez [Créer et gérer les espaces de travail Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 
 ## <a name="create-a-compute-cluster"></a>Créer un cluster de calcul

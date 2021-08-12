@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 275f87163e75c3ded7260229d40a61185877a7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932e4db2c7a91c1c6ec6133068741f07d3652c35
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459406"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>Didacticiel : Intégration d’Azure Active Directory à JobScore
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD auprès de JobScore, effect
 
     ![Informations d’authentification unique relatives au domaine et aux URL JobScore](common/sp-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://hire.jobscore.com/auth/adfs/<company name>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://hire.jobscore.com/auth/adfs/<company id>`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe du support technique de JobScore](mailto:support@jobscore.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

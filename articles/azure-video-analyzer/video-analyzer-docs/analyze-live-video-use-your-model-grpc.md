@@ -3,14 +3,14 @@ title: Analyser une vidéo en direct avec votre propre modèle gRPC
 description: Ce guide de démarrage rapide explique comment analyser une vidéo en direct en utilisant votre propre modèle gRPC avec Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: a9b086f4b2d856e3e534ac2603f61dfbfef31db0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cb901ca96cde0d0a113b07429338464e24720650
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371777"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601679"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---grpc"></a>Démarrage rapide : Analyser une vidéo en direct avec votre propre modèle - gRPC
 
@@ -76,7 +76,13 @@ Dans ce guide de démarrage rapide, vous allez utiliser Video Analyzer pour dét
 
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
-1. Pour démarrer une session de débogage, appuyez sur la touche F5. Des messages s’affichent dans la fenêtre TERMINAL.
+1. ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. Le code dans **operations.json** commence par appeler les méthodes directes pipelineTopologyList et livePipelineList. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
 
    ```
@@ -131,10 +137,10 @@ Dans ce guide de démarrage rapide, vous allez utiliser Video Analyzer pour dét
    ```
 
    - Un appel à livePipelineActivate qui démarre le pipeline en direct et le flux vidéo.
-   - Un deuxième appel à livePipelineList qui indique que le pipeline en direct est dans l’état En cours d’exécution.
+   - Un deuxième appel à livePipelineList qui indique que le pipeline en direct est à l’état En cours d’exécution.
 
 1. La sortie de la fenêtre TERMINAL s’interrompt avec l’invite Appuyez sur Entrée pour continuer. Ne sélectionnez pas encore Entrée. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
-1. Basculez vers la fenêtre SORTIE de Visual Studio Code. Vous voyez des messages indiquant que le module Video Analyzer effectue des envois au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
+1. Basculez vers la fenêtre SORTIE de Visual Studio Code. Vous voyez des messages indiquant que le module Video Analyzer envoie des données au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
 1. Le pipeline continue à s’exécuter et affiche des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline, retournez à la fenêtre TERMINAL, puis sélectionnez Entrée.
 
    La série d’appels suivante nettoie les ressources :

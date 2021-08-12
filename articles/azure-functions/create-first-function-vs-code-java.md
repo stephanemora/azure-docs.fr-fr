@@ -7,12 +7,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
-ms.openlocfilehash: 9e6c58b35b4e44d512cd336c786b67100c40b9fc
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 0f429c6feda62c6572c25e4f8e2513123ff6ef03
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112968587"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287777"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction Java dans Azure avec Visual Studio Code
 
@@ -40,7 +40,7 @@ Avant de commencer, veillez à disposer des éléments suivants :
 
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11.
++ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) version 8 ou 11.
 
 + [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 

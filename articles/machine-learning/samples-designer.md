@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: a99595405872ff1b341dfc9277583417564ef6b7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556169"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465076"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exemples de jeux de données et de pipelines pour le concepteur Azure Machine Learning
 
@@ -23,7 +23,7 @@ Utilisez les exemples intégrés du concepteur Azure Machine Learning pour comme
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree)
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/)
 * Espace de travail Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
