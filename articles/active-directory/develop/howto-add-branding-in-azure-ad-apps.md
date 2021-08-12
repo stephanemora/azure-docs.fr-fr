@@ -1,5 +1,5 @@
 ---
-title: Instructions de personnalisation des applications | Azure
+title: 'Se connecter avec Microsoft : Directives de personnalisation | Azure AD'
 titleSuffix: Microsoft identity platform
 description: Découvrez les instructions de personnalisation d’application pour la plateforme d’identité Microsoft.
 services: active-directory
@@ -13,14 +13,14 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beccbb77f27ef462f8725cf6b2ffb6966c68e23b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581990"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471361"
 ---
-# <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
+# <a name="sign-in-with-microsoft-branding-guidelines-for-applications"></a>Se connecter avec Microsoft : Directives de personnalisation des applications
 
 Lorsque vous développez des applications avec la plateforme d’identité Microsoft, vous devez orienter vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire (géré dans Azure AD) ou leur compte personnel pour s’inscrire et se connecter à votre application.
 
