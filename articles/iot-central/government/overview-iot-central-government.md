@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8957db7112363e4245e6610890ed6e4644c4a9dd
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99834338"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586470"
 ---
 # <a name="what-are-the-iot-central-government-solutions"></a>Présentation des solutions IoT Central pour le secteur public
 
@@ -27,7 +27,7 @@ L’application Suivi de la qualité de l’eau est un modèle d’application I
 ![Modèle d’application Suivi de la qualité de l’eau](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 Le modèle d’application se compose des éléments suivants :
-* Exemples de tableaux de bord d’opérateur
+* Exemples de tableaux de bord
 * Exemples de modèles d’appareil de surveillance de la qualité de l’eau
 * Appareils de surveillance de la qualité de l’eau simulés
 * Règles et travaux préconfigurés
@@ -45,7 +45,7 @@ L’application Suivi de la consommation d’eau est un modèle d’application 
   ![Modèle d’application Suivi de la consommation d’eau](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 Le modèle d’application Suivi de la consommation d’eau est constitué des composants préconfigurés suivants :
-* Exemples de tableaux de bord d’opérateur
+* Exemples de tableaux de bord
 * Exemples de modèles d’appareil de surveillance de la qualité de l’eau
 * Appareils de surveillance de la qualité de l’eau simulés
 * Règles et travaux préconfigurés
@@ -61,7 +61,7 @@ L’application Gestion connectée des déchets est un modèle d’application I
 
 
 Le modèle d’application Gestion connectée des déchets est constitué de composants préconfigurés :
-* Exemples de tableaux de bord d’opérateur
+* Exemples de tableaux de bord
 * Exemples de modèles de conteneur de déchets connectés
 * Conteneur de déchets connectés simulés
 * Règles et travaux préconfigurés

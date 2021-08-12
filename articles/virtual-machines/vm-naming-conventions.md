@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 2fa362a56eb1246381fcc944e82ea85d31ff3d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c0fcd7923d03ed4086e424e3a8ec86fc74df4af
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599899"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526953"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Conventions de dénomination des tailles de machines virtuelles Azure
 
@@ -29,7 +29,7 @@ Cette page met en avant les convention d’affectation de noms utilisées pour l
 | *Sous-famille | Utilisé uniquement pour différencier des machines virtuelles spécialisées|
 | Nombre de processeurs virtuels| Indique le nombre de processeurs virtuels de la machine virtuelle |
 | *Processeurs virtuels avec contraintes| Utilisé pour certaines tailles de machine virtuelle uniquement. Indique le nombre de processeurs virtuels pour la [taille des processeurs virtuels avec contraintes](./constrained-vcpu.md) |
-| Fonctionnalités supplémentaires | Une ou plusieurs lettres minuscules indiquent des fonctionnalités supplémentaires, telles que : <br> a = processeur basé sur AMD <br> d = disque (disque temporaire local présent) ; ceci concerne les nouvelles machines virtuelles Azure, consultez [Séries Ddv4 et Ddsv4](./ddv4-ddsv4-series.md) <br> h = compatible avec la mise en veille prolongée <br> i = taille isolée <br> l = mémoire insuffisante ; une quantité de mémoire inférieure à la taille d’utilisation intensive de la mémoire <br> m = utilisation intensive de la mémoire ; la plus grande quantité de mémoire dans une taille particulière <br> t = très petite mémoire ; la plus petite quantité de mémoire dans une taille particulière <br> r = compatible RDMA <br> s = capacité de stockage Premium, y compris l’utilisation possible de [SSD Ultra](./disks-types.md#ultra-disk) (Remarque : certaines tailles plus récentes sans l’attribut de s peuvent toujours prendre en charge le stockage Premium, par exemple M128, M64, etc.)<br> |
+| Fonctionnalités supplémentaires | Une ou plusieurs lettres minuscules indiquent des fonctionnalités supplémentaires, telles que : <br> a = processeur basé sur AMD <br> d = diskfull (disque temporaire local présent) ; ceci concerne les nouvelles machines virtuelles Azure, consultez [Séries Ddv4 et Ddsv4](./ddv4-ddsv4-series.md). <br> i = taille isolée <br> l = mémoire insuffisante ; une quantité de mémoire inférieure à la taille d’utilisation intensive de la mémoire <br> m = utilisation intensive de la mémoire ; la plus grande quantité de mémoire dans une taille particulière <br> t = très petite mémoire ; la plus petite quantité de mémoire dans une taille particulière <br> s = capacité de stockage Premium, y compris l’utilisation possible de [SSD Ultra](./disks-types.md#ultra-disk) (Remarque : certaines tailles plus récentes sans l’attribut de s peuvent toujours prendre en charge le stockage Premium, par exemple M128, M64, etc.)<br> |
 | *Type d’accélérateur | Indique le type d’accélérateur matériel dans les références (SKU) spécialisées/GPU. Seules les nouvelles références (SKU) spécialisées/GPU lancées à partir du troisième trimestre 2020 auront l’accélérateur matériel dans leur nom. |
 | Version | Indique la version de la série de machines virtuelles |
 

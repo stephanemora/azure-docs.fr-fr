@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/10/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 173bd167a0814ddf735d90b257089a685d99cc58
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6239b0c7f56db49d54ee95b1d6fb0737d2ea9cb8
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762602"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017975"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
 Ajoutez des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages avec Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout de nouveaux utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md).
@@ -38,9 +38,7 @@ Vous trouverez bien plus d’informations disponibles dans un profil utilisateur
 
     ![Page du profil utilisateur, avec les informations modifiables](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. Sélectionnez **Modifier** pour ajouter ou mettre à jour les informations incluses dans chaque section disponible (facultatif).
-
-    ![Page du profil utilisateur, montrant les zones modifiables](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+3. Sélectionnez **Modifier** pour ajouter ou mettre à jour les informations incluses dans chaque section modifiable (facultatif).
 
     - **Image du profil**. Sélectionnez une image miniature pour le compte de l’utilisateur. Cette image s’affiche dans Azure Active Directory et sur la page personnelle de l’utilisateur, comme la page myapps.microsoft.com.
 

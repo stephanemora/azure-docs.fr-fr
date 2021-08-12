@@ -2,13 +2,13 @@
 title: Tutoriel sur l’enregistrement et la lecture vidéo en continu - Azure Video Analyzer
 description: Dans ce tutoriel, vous allez voir comment utiliser Azure Video Analyzer pour enregistrer des vidéos en continu dans le cloud et comment lire les enregistrements.
 ms.topic: tutorial
-ms.date: 04/01/2021
-ms.openlocfilehash: d62b9f413f0613d8152d3b0106fd398f89d3b95c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 2f3fc2421a2341974aa7ea7bdafeaf0123ea983e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383859"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602924"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>Tutoriel : Enregistrement et lecture vidéo en continu
 
@@ -68,7 +68,7 @@ Ce didacticiel présente les procédures suivantes :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
   
 
@@ -93,7 +93,7 @@ Dans Visual Studio Code, accédez au dossier src/cloud-to-device-console-app. Vo
 1. Ensuite, sous les nœuds **livePipelineSet** et **pipelineTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline précédente :
 
     `"topologyName" : "CVRToVideoSink"`  
-1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json) dans un navigateur, puis examinez videoName. Vous verrez qu’il est codé en dur dans `sample-cvr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
+1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-cvr-video`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.
 1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
 1. Le fichier operations.json commence par appeler `pipelineTopologyList` et `livePipelineList`. Si vous avez nettoyé des ressources à l’issue de démarrages rapides ou de tutoriels, cette action renvoie des listes vides et marque des pauses pour vous permettre de sélectionner **Entrée**, comme illustré ci-dessous :
 
@@ -238,15 +238,15 @@ Comme son nom l’indique, l’événement **RecordingStarted** est envoyé lors
 }
 ```
 
-Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients puissent démarrer la lecture de la vidéo.
+Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients commencent la lecture de la vidéo.
 
-La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
 ### <a name="recordingstopped-event"></a>Événement RecordingStopped
 
-Lorsque vous désactivez le pipeline en direct, le nœud récepteur vidéo arrête d’enregistrer la vidéo. Il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped** :
+Quand vous désactivez le pipeline en direct, le nœud récepteur vidéo cesse d’enregistrer le média. Il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingStopped** :
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -267,7 +267,7 @@ Lorsque vous désactivez le pipeline en direct, le nœud récepteur vidéo arrê
 
 Cet événement indique que l’enregistrement s’est arrêté.
 
-La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie, qui est dans ce cas le nom de la ressource Video Analyzer dans lequel la vidéo est enregistrée.
 
@@ -282,12 +282,11 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 1. Sélectionnez la vidéo.
 1. La page de détails de la vidéo s’ouvre et la lecture démarre automatiquement.
 
-> [!NOTE]
-> Étant donné que la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo sont liés au moment où vous avez activé le pipeline en direct et où vous l’avez désactivé.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous envisagez d’essayer les autres tutoriels, tenez-vous en aux ressources créées. Sinon, accédez au portail Azure et à vos groupes de ressources, sélectionnez le groupe de ressources sous lequel vous avez exécuté ce tutoriel, puis supprimez le groupe de ressources.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

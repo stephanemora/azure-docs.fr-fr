@@ -2,13 +2,13 @@
 title: Détecter des mouvements et enregistrer des vidéos avec Azure Video Analyzer
 description: Ce guide de démarrage rapide montre comment utiliser le module de périphérie Azure Video Analyzer pour appliquer la détection de mouvement à un stream vidéo en direct et enregistrer une vidéo dans le compte Video Analyzer.
 ms.topic: quickstart
-ms.date: 04/03/2021
-ms.openlocfilehash: 9643ed3a7bbcc23757110033be1dbc3780ddafb5
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 06/01/2021
+ms.openlocfilehash: 7772a32a529eeba36378e9ffb7568912ae66c7a2
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565929"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601477"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>Démarrage rapide : Détecter des mouvements et enregistrer une vidéo dans Video Analyzer
 
@@ -18,8 +18,7 @@ Cet article vous explique comment utiliser le module de périphérie Azure Video
 
 * Un compte Azure incluant un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) gratuitement.
 
-    > [!NOTE]    
-    > Vous aurez besoin d’un abonnement Azure pour lequel vous avez accès au rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) et au rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de compte pour qu’il vous les octroie.
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
     * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
@@ -94,11 +93,7 @@ Si vous suivez ce guide de démarrage rapide, les événements sont envoyés au 
 1. Développez le nœud **Appareils**.
 1. Cliquez avec le bouton droit sur `avasample-iot-edge-device`, puis sélectionnez **Démarrer la supervision du point de terminaison d’événement intégré**.
 
-    > [!NOTE]
-    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="use-direct-method-calls-to-analyze-live-video"></a>Utiliser des appels de méthode directe pour analyser la vidéo en direct
 
@@ -1000,9 +995,7 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 
-> [!NOTE]
-> Étant donné que la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo sont liés au moment où vous avez activé le pipeline en direct et où vous l’avez désactivé.
-    
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]    
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

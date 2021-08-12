@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: ce0fab219f49427892f5ffe47c595edb26fea010
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796009"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300486"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>Tutoriel : Ajouter une condition d’attribution de rôle pour restreindre l’accès aux objets blob en utilisant le portail Azure (préversion)
 
@@ -72,8 +72,6 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
 
 ## <a name="step-2-set-up-storage"></a>Étape 2 : Configurer le stockage
 
-1. Si ce n’est déjà fait, inscrivez votre abonnement pour utiliser des étiquettes d’index d’objets blob. Pour plus d’informations, consultez [Inscrire votre abonnement (préversion)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
-
 1. Créez un compte de stockage compatible avec la fonctionnalité d’étiquette d’index d’objets blob, qui est en préversion publique. Pour plus d’informations, consultez [Gérer et rechercher des données d’objets blob Azure avec des étiquettes d’index d’objets blob (préversion)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Créez un conteneur dans le compte de stockage et définissez le niveau d’accès public sur **Privé (pas d’accès anonyme)** .
@@ -89,7 +87,7 @@ Voici à quoi ressemble la condition exprimée sous forme de code :
     Si vous ne voyez pas la section Étiquettes d’index d’objets blob et que vous venez d’inscrire votre abonnement, vous devrez peut-être attendre quelques minutes que les modifications se propagent. Pour plus d’informations, consultez [Utiliser des étiquettes d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objets blob, vous devez utiliser des étiquettes d’index d’objets blob avec les conditions. 
+    > Les objets blob prennent également en charge la possibilité de stocker des métadonnées clé/valeur arbitraires définies par l’utilisateur. Bien que les métadonnées soient similaires aux étiquettes d’index d’objet blob, vous devez utiliser des étiquettes d’index d’objet blob avec les conditions. 
 
     | Clé | Valeur |
     | --- | --- |

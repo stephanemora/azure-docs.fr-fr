@@ -14,12 +14,12 @@ ms.custom:
 - contentperf:fy21q3
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 95247a1485bac7282ffe95ddcc2ddd37883738dd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8e491e6fc8d0eb93a3d9696f68f045191c2da20b
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783817"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400900"
 ---
 # <a name="what-is-azure-iot-hub"></a>Qu’est-ce qu’Azure IoT Hub ?
 
@@ -106,7 +106,7 @@ IoT Hub et les Kits SDK d’appareil prennent en charge les protocoles suivants 
 * MQTT
 * MQTT sur WebSockets
 
-IoT Hub et les SDK d’appareil prennent en charge les conventions [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) pour la connexion des appareils. Les appareils IoT Plug-and-Play utilisent un modèle d’appareil pour exposer leurs fonctionnalités aux applications IoT Plug-and-Play. Le modèle d’appareil permet aux créateurs de solutions d’intégrer des appareils intelligents dans leurs solutions sans aucune configuration manuelle.
+IoT Hub et les SDK d’appareil prennent en charge les conventions [Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md) pour la connexion des appareils. Les appareils IoT Plug-and-Play utilisent un modèle d’appareil pour exposer leurs fonctionnalités aux applications IoT Plug-and-Play. Le modèle d’appareil permet aux créateurs de solutions d’intégrer des appareils intelligents dans leurs solutions sans aucune configuration manuelle.
 
 Si votre solution ne peut pas utiliser les bibliothèques d’appareils, les appareils peuvent utiliser les protocoles MQTT v3.1.1, HTTPS 1.1 ou AMQP 1.0 pour se connecter nativement à votre concentrateur.
 
@@ -134,7 +134,7 @@ IoT Hub sur Azure Stack Hub est gratuit pendant la préversion publique. Pour pl
 
 Pour tester une solution IoT de bout en bout, consultez les démarrages rapides relatifs à IoT Hub :
 
-* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-node.md)
+* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 Pour en savoir plus sur la façon dont vous pouvez générer et déployer des solutions IoT avec Azure IoT, consultez la page :
 

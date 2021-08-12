@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: a14f00585eede96814627c941050c3179436ab06
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 21e7e54e346d24758711990bfa5f71d387ba4956
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059721"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403913"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>Démarrage rapide : Connecter un Devkit MXCHIP AZ3166 à IoT Hub
 
@@ -23,7 +23,7 @@ ms.locfileid: "112059721"
 
 Dans le cadre de ce démarrage rapide, vous utilisez Azure RTOS pour connecter un DevKit IoT MXCHIP AZ3166 (ci-après DevKit MXCHIP) à Azure IoT. 
 
-Vous allez également utiliser IoT Explorer et IoT Plug-and-Play pour gérer le DevKit MXCHIP. La technologie IoT Plug-and-Play fournit un modèle d’appareil ouvert qui permet aux applications d’interroger par programme les fonctionnalités d’un appareil et d’interagir avec celui-ci. Un appareil utilise ce modèle pour diffuser ses fonctionnalités vers une application prenant en charge la technologie IoT Plug-and-Play. Ce modèle vous permet de simplifier et d’améliorer les tâches d’ajout, de configuration et de gestion des appareils. Pour plus d’informations, consultez la [documentation sur la technologie IoT Plug-and-Play](/azure/iot-pnp).
+Vous allez également utiliser IoT Explorer et IoT Plug-and-Play pour gérer le DevKit MXCHIP. La technologie IoT Plug-and-Play fournit un modèle d’appareil ouvert qui permet aux applications d’interroger par programme les fonctionnalités d’un appareil et d’interagir avec celui-ci. Un appareil utilise ce modèle pour diffuser ses fonctionnalités vers une application prenant en charge la technologie IoT Plug-and-Play. Ce modèle vous permet de simplifier et d’améliorer les tâches d’ajout, de configuration et de gestion des appareils. Pour plus d’informations, consultez la [documentation sur la technologie IoT Plug-and-Play](../iot-develop/index.yml).
 
 Vous allez effectuer les tâches suivantes :
 
@@ -38,13 +38,13 @@ Vous allez effectuer les tâches suivantes :
 * Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Azure CLI. Vous avez le choix entre deux options pour exécuter les commandes Azure CLI dans ce guide de démarrage rapide :
-    * Utilisez Azure Cloud Shell, un interpréteur de commandes interactif qui exécute des commandes CLI dans votre navigateur. Cette option est recommandée, car vous n’avez pas besoin d’installer quoi que ce soit. Si vous utilisez Cloud Shell pour la première fois, connectez-vous au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans [Démarrage rapide de Cloud Shell](/azure/cloud-shell/quickstart) pour **démarrer Cloud Shell** et **sélectionner l’environnement Bash**.
+    * Utilisez Azure Cloud Shell, un interpréteur de commandes interactif qui exécute des commandes CLI dans votre navigateur. Cette option est recommandée, car vous n’avez pas besoin d’installer quoi que ce soit. Si vous utilisez Cloud Shell pour la première fois, connectez-vous au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans [Démarrage rapide de Cloud Shell](../cloud-shell/quickstart.md) pour **démarrer Cloud Shell** et **sélectionner l’environnement Bash**.
     * Si vous le souhaitez, exécutez Azure CLI sur votre ordinateur local. Si l’interface de ligne de commande Azure est déjà installée, exécutez `az upgrade` pour la mettre à niveau, ainsi que les extensions, vers la version actuelle. Pour installer l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
 * [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme pour surveiller et gérer Azure IoT 
 * Matériel
 
-    * [DevKit IoT MXCHIP AZ3166](https://aka.ms/iot-devkit) (DevKit MXCHIP)
+    * [DevKit IoT MXCHIP AZ3166](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (DevKit MXCHIP)
     * Wi-Fi 2,4 GHz
     * USB 2.0, câble mâle-mâle micro USB
 
@@ -243,7 +243,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
 
 1. Démarrez **Termite**.
     > [!TIP]
-    > Si vous ne parvenez pas à connecter Termite à votre devkit, installez le [pilote ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip), puis réessayez. Pour obtenir des étapes supplémentaires, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > Si vous ne parvenez pas à connecter Termite à votre devkit, installez le [pilote ST-LINK](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip), puis réessayez. Pour obtenir des étapes supplémentaires, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 1. Sélectionnez **Paramètres**.
 1. Dans la boîte de dialogue **Paramètres du port série**, vérifiez les paramètres suivants et mettez à jour si nécessaire :
     * **Vitesse (en bauds)**  : 115 200
@@ -426,7 +426,7 @@ Pour utiliser Azure CLI pour appeler une méthode :
 
 ## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
 
-Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -466,4 +466,3 @@ L’étape suivante consiste à explorer les articles ci-dessous pour savoir com
 
 > [!IMPORTANT]
 > Azure RTOS fournit aux fabricants OEM les composants permettant de sécuriser la communication et de créer du code et l’isolation des données à l’aide des mécanismes sous-jacents de protection matérielle MCU/MPU. Toutefois, chaque fabricant OEM est tenu de garantir que son appareil répond aux exigences de sécurité en constante évolution.
-

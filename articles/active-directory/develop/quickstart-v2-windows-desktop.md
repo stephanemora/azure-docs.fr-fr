@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 29ec031fe462e44c1f00d383d667c45b0b16f60b
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6c0fa74253b678049a499074024291fcad705743
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536547"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112427918"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -132,8 +132,7 @@ using Microsoft.Identity.Client;
 Ensuite, initialisez MSAL à l’aide du code suivant :
 
 ```csharp
-public static IPublicClientApplication PublicClientApp;
-PublicClientApplicationBuilder.Create(ClientId)
+IPublicClientApplication publicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();

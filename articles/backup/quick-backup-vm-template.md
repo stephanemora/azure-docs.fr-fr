@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 434916465e3f395f8db7ac621acd8f922899162b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 8657ea43abe0808734a5223131a3105414deb385
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008000"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433901"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Démarrage rapide : Sauvegarder une machine virtuelle dans Azure avec un modèle ARM
 

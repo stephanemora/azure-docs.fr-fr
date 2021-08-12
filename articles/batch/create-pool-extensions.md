@@ -3,12 +3,12 @@ title: Utiliser des extensions avec des pools Batch
 description: Les extensions sont de petites applications qui facilitent la configuration et l’installation post-approvisionnement sur des nœuds de calcul Batch.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 1bf9847af57347c143ee3d790d89988ba7cd48e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 406de8ea1c781ac742e7ca3fff8f84f03727a031
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100416489"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476103"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Utiliser des extensions avec des pools Batch
 
@@ -20,14 +20,14 @@ Vous pouvez vérifier l’état en direct des extensions que vous utilisez et r�
 
 - Les pools avec des extensions doivent utiliser la [configuration de machine virtuelle](nodes-and-pools.md#virtual-machine-configuration).
 - Le type d’extension CustomScript est réservé au service Azure Batch et ne peut pas être remplacé.
+- Certaines extensions ont besoin, pour fonctionner correctement, d’une identité managée au niveau du pool qui soit accessible dans le contexte d’un nœud de calcul. Le cas échéant, consultez [Configuration des identités managées dans des pools Batch](managed-identity-pools.md).
 
 ### <a name="supported-extensions"></a>Extensions prises en charge
 
-Les extensions suivantes peuvent actuellement être installées lors de la création d’un pool Batch. 
+Les extensions qui peuvent actuellement être installées lors de la création d’un pool Batch sont les suivantes :
 
 - Extension Azure Key Vault pour [Linux](../virtual-machines/extensions/key-vault-linux.md) et [Windows](../virtual-machines/extensions/key-vault-windows.md)
 - Log Analytics et extension de supervision pour [Linux](../virtual-machines/extensions/oms-linux.md) et [Windows](../virtual-machines/extensions/oms-windows.md)
-- Pack de sécurité Azure
 
 Vous pouvez demander la prise en charge de serveurs de publication et/ou de types d’extension supplémentaires en ouvrant une demande de support.
 

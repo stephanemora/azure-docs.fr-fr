@@ -11,12 +11,12 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 64e4c05e9439c164329dede5d714bec160bc5ae2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 79cf3c2764035ef2e8c4418d172ba991a72bf3ff
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050373"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113285905"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Démarrage rapide : Créer une application Java dans Azure App Service
 
@@ -28,11 +28,11 @@ Il existe également des versions IDE de cet article. Consultez [Guide de démar
 
 Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
 
-+ An <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">Compte Azure</abbr> avec un abonnement actif <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">Compte Azure</abbr> avec un abonnement actif <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
-+ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11.
++ [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) version 8 ou 11.
 
 + [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 

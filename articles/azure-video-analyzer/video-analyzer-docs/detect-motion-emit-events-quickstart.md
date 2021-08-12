@@ -2,14 +2,14 @@
 title: Détecter les mouvements et émettre des événements depuis la périphérie - Azure
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Video Analyzer pour détecter les mouvements et émettre des événements en appelant programmatiquement des méthodes directes.
 ms.topic: quickstart
-ms.date: 03/17/2021
+ms.date: 06/01/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: f0f36f1dc08d7e5c9100814456ab5d21a37123fc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7a8e06af94ee4a0a473ef60a5920a0d3e44e685e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957721"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605317"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Démarrage rapide : Détecter les événements de mouvement et d’émission
 

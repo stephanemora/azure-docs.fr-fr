@@ -4,17 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 7b8e0e5710b81a5ce332f9a1fb6dc42d40369004
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: acfba31896f7a658e08d5765812c09d78b662b0d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560329"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535996"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Telephone%20Calling).
+## <a name="sample-code"></a>Exemple de code
+
+Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Telephone%20Calling).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,14 +35,13 @@ ms.locfileid: "111560329"
 
 Ajoutez le type `PhoneNumber` à votre application en modifiant **MainActivity.Java** :
 
-
 ```java
 import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
 <!--
 > [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-chek this.
+> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-check this.
 -->
 
 ## <a name="start-a-call-to-phone"></a>Démarrer un appel téléphonique

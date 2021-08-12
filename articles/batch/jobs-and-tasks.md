@@ -2,13 +2,13 @@
 title: Travaux et tâches dans Azure Batch
 description: En savoir plus sur les travaux et les tâches et sur leur utilisation dans un workflow Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: faedb912b0c21acdec977fe7651f0a5daddb2c6f
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95808591"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004166"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Travaux et tâches dans Azure Batch
 
@@ -24,7 +24,7 @@ Un travail spécifie le [pool](nodes-and-pools.md#pools) sur lequel l’opérati
 
 Vous pouvez attribuer une priorité facultative aux travaux que vous créez. Le service Batch utilise la valeur de priorité du travail pour déterminer l’ordre de planification (pour toutes les tâches au sein du travail) dans chaque pool.
 
-Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail](/rest/api/batchservice/job/update) (REST Batch) ou modifiez [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (.NET Batch). Les valeurs de priorité sont comprises entre –1000 (priorité la plus basse) et 1000 (priorité la plus élevée).
+Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail](/rest/api/batchservice/job/update) (REST Batch) ou modifiez [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (.NET Batch). Les valeurs de priorité sont comprises entre –1000 (priorité la plus basse) et 1000 (priorité la plus élevée).
 
 Dans un même pool, les travaux de priorité supérieure sont prioritaires en termes de planification sur les travaux de priorité inférieure. Les tâches des travaux de priorité inférieure qui sont déjà en cours d’exécution ne sont pas devancées par les tâches d’un travail de priorité plus élevée. Des travaux avec le même niveau de priorité ont la même chance d’être planifiés et l’ordre d’exécution des tâches n’est pas défini.
 
@@ -91,7 +91,7 @@ Comme dans le cas de n’importe quelle tâche Azure Batch, vous pouvez spécifi
 
 Toutefois, la tâche de démarrage peut également inclure des données de référence qui doivent être utilisées par toutes les tâches exécutées sur le nœud de calcul. Par exemple, la ligne de commande d’une tâche de démarrage peut effectuer une opération `robocopy` afin de copier les fichiers d’application (qui ont été spécifiés comme fichiers de ressources et téléchargés sur le nœud) à partir du [répertoire de travail](files-and-directories.md) de la tâche de démarrage vers le dossier **partagé**, puis exécuter un MSI ou `setup.exe`.
 
-Il est généralement préférable pour le service Batch d’attendre que la tâche de démarrage soit terminée avant de considérer que le nœud est prêt à recevoir des tâches, mais vous pouvez configurer ce paramètre.
+En règle générale, le service Batch doit attendre la fin de la tâche de démarrage avant de considérer que le nœud est prêt à recevoir des tâches. Toutefois, vous pouvez le configurer autrement en fonction des besoins.
 
 Si une tâche de démarrage échoue sur un nœud du pool, l’état du nœud est mis à jour pour refléter l’échec et aucune tâche n’est affectée au nœud. Une tâche de démarrage peut échouer en cas de problème de copie des fichiers de ressources depuis le stockage, ou si le processus exécuté par sa ligne de commande retourne un code de sortie différent de zéro.
 
@@ -155,13 +155,13 @@ Pour plus d’informations, consultez l’article [Dépendances de tâches dans 
 
 ### <a name="environment-settings-for-tasks"></a>Paramètres d’environnement des tâches
 
-Chaque tâche exécutée par le service Batch a accès aux variables d’environnement définies sur les nœuds de calcul. Cela inclut les variables d’environnement définies par le service Batch ([service-defined](./batch-compute-node-environment-variables.md)) et les variables d’environnement personnalisées que vous pouvez définir pour vos tâches. Les applications et les scripts que vos tâches exécutent sur les nœuds ont accès à ces variables d’environnement pendant l’exécution.
+Chaque tâche exécutée par le service Batch a accès aux variables d’environnement définies sur les nœuds de calcul. Cela inclut les [variables d’environnement définies par le service Batch](./batch-compute-node-environment-variables.md) et les variables d’environnement personnalisées que vous pouvez définir pour vos tâches. Les applications et les scripts exécutés par vos tâches ont accès à ces variables d’environnement pendant l’exécution.
 
-Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Pour plus d’informations, consultez l’opération [Ajouter une tâche à un travail](/rest/api/batchservice/task/add?) (API REST Batch) ou les propriétés [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) et [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) dans .NET Batch.
+Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Pour plus d’informations, consultez l’opération [Ajouter une tâche à un travail](/rest/api/batchservice/task/add?) (REST Batch) ou les propriétés [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) et [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) dans Batch .NET.
 
-L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de l’opération [Obtenir des informations sur une tâche](/rest/api/batchservice/task/get) (REST Batch) ou en accédant à la propriété [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) (.NET Batch). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
+L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de l’opération [Obtenir des informations sur une tâche](/rest/api/batchservice/task/get) (REST Batch) ou en accédant à la propriété [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) (.NET Batch). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
 
-Vous trouverez la liste complète des variables d’environnement définies par le service dans l’article [Compute node environment variables](batch-compute-node-environment-variables.md) (Variables d’environnement de nœud de calcul).
+Pour connaître la liste de toutes les variables d’environnement définies par le service, consultez [Variables d’environnement de nœud de calcul](batch-compute-node-environment-variables.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

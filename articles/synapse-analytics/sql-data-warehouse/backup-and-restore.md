@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: cb0cf3d84db507d3200f0285e95c2142e3288fbd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 45b9fa1fb96f45b5b24d7a0b823b11f89a471bd4
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784068"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752312"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Sauvegarde et restauration dans un pool SQL dédié Azure Synapse
 
@@ -26,7 +26,7 @@ Découvrez comment utiliser la sauvegarde et la restauration dans un pool SQL d
 
 Une *capture instantanée d’entrepôt de données* crée un point de restauration que vous pouvez utiliser pour récupérer ou copier votre entrepôt de données dans un état antérieur.  Comme un pool SQL dédié est un système distribué, une capture instantanée d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans le Stockage Azure. Les captures instantanées capturent les changements incrémentiels à partir des données stockées dans votre entrepôt de données.
 
-Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Un entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement. Les taux de restauration de pool SQL dédié peuvent varier en fonction de la taille de la base de données et de l’emplacement des entrepôts de données source et cible.
+Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Une capture instantanée d’entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement. Les taux de restauration de pool SQL dédié peuvent varier en fonction de la taille de la base de données et de l’emplacement des entrepôts de données source et cible.
 
 ## <a name="automatic-restore-points"></a>Points de restauration automatiques
 
@@ -78,7 +78,7 @@ Si vous n’avez pas besoin de géosauvegardes pour votre pool SQL dédié, vous
 
 ## <a name="data-residency"></a>Résidence des données 
 
-Si votre centre de données associé est situé en dehors de votre limite géographique, vous pouvez vous assurer que vos données restent dans la limite géographique en refusant le stockage géoredondant. Cette opération peut être effectuée lors de la configuration de votre pool SQL dédié (anciennement SQL DW) via l’option de stockage géoredondant au moment de la création ou de la restauration d’un pool SQL dédié. 
+Si votre centre de données couplé est situé en dehors de votre pays, vous pouvez vous assurer que vos données restent dans votre région en approvisionnant votre base de données sur un stockage localement redondant (LRS). Si votre base de données a déjà été approvisionnée sur un stockage géographiquement redondant avec accès en lecture (RA-GRS, option par défaut actuelle), vous pouvez refuser les géosauvegardes, mais votre base de données continuera de résider sur le stockage répliqué sur une paire régionale. Pour vous assurer que les données client restent dans votre région, vous pouvez approvisionner ou restaurer votre pool SQL dédié sur un stockage localement redondant. Pour plus d’informations sur la façon d’approvisionner ou de restaurer sur un stockage localement redondant, consultez l’article [Configure single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](single-region-residency.md).
 
 Pour confirmer que votre centre de données associé se trouve dans un autre pays, reportez-vous à [Régions jumelées Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

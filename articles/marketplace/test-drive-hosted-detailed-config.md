@@ -7,22 +7,22 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: f11f1d5601a61bbd9b8729b478c278db8d3e73dc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 85668f07512e8aaa925b924ef0e631fe89b5c3fa
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812410"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005696"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuration détaillée pour les versions d'évaluation hébergées
 
-Cet article explique comment configurer une version d’évaluation hébergée pour Dynamics 365 for Customer Engagement ou Dynamics 365 for Operations.
+Cet article explique comment configurer une version d’évaluation hébergée pour Dynamics 365 for Customer Engagement et Power Apps ou Dynamics 365 for Operations.
 
-## <a name="configure-for-dynamics-365-customer-engagement"></a>Configurer pour Dynamics 365 Customer Engagement
+## <a name="configure-for-dynamics-365-customer-engagement--power-apps"></a>Configuration pour Dynamics 365 Customer Engagement et Power Apps
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. Si vous ne pouvez pas accéder au lien ci-dessus, vous devez envoyer une demande [ici](https://appsource.microsoft.com/partners/list-an-app) pour publier votre application. Une fois que nous examinerons la demande, vous disposerez d’un accès pour démarrer le processus de publication.
-3. Trouvez une offre existante **Dynamics 365 for Customer Engagement** ou créez une nouvelle offre **Dynamics 365 for Customer Engagement**.
+3. Trouvez une offre **Dynamics 365 for Customer Engagement et Power Apps** existante ou créez-en une nouvelle.
 4. Activez la case à cocher **Activer une version d’évaluation** et sélectionnez un type de **Version d’évaluation** (voir la puce ci-dessous), puis sélectionnez **Enregistrer**.
 
     [![Sélection de la case à cocher « Activer une version d’évaluation ».](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
@@ -61,9 +61,10 @@ Cet article explique comment configurer une version d’évaluation hébergée p
 
 ## <a name="configure-for-dynamics-365-operations"></a>Configurer pour Dynamics 365 for Operations
 
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. Si vous ne pouvez pas accéder au lien ci-dessus, vous devez envoyer une demande [ici](https://appsource.microsoft.com/partners/list-an-app) pour publier votre application. Une fois que nous examinerons la demande, vous disposerez d’un accès pour démarrer le processus de publication.
 3. Trouvez une offre **Dynamics 365 for Operations** existante ou créez une nouvelle offre **Dynamics 365 for Operations**.
-4. Activez la case à cocher **Activer une version d’évaluation** et sélectionnez un type de **Version d’évaluation** (voir la puce ci-dessous), puis sélectionnez **Enregistrer**.
+4. Cochez la case **Activer une version d’évaluation** et sélectionnez un **Type de version d’évaluation** (cf. puce ci-dessous), puis **Enregistrer le brouillon**.
 
     [![Sélectionnez la case Activer une version d’évaluation.](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 

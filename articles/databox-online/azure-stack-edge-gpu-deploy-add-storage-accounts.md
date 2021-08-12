@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: d20ade0fdf6262c08a4ae961d17b1ec8a9ba39f2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 68dc83e9954875b5f9b5adab37d7ddd212534eaa
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065801"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359782"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutoriel : Transférer des données par le biais de comptes de stockage avec Azure Stack Edge Pro avec GPU 
 
@@ -95,7 +95,7 @@ myasetiered1       myasetiered1      DBELocal StandardLRS Storage            11/
 
 Pour accéder à la clé d’accès, exécutez l’applet de commande suivante :
 
-`Get-AzureRmStorageAccountAccessKey`
+`Get-AzureRmStorageAccountKey`
 
 Voici un exemple de sortie obtenue :
 
@@ -136,7 +136,7 @@ Chacune de ces étapes est décrite dans les sections suivantes.
 
 L’accès au stockage Blob sur HTTPS nécessite un certificat SSL pour l’appareil. Vous allez également télécharger ce certificat sur votre appareil Azure Stack Edge Pro en tant que fichier *.pfx* avec une clé privée qui lui est associée. Pour plus d’informations sur la façon de créer (à des fins de test et de développement uniquement) et de charger ces certificats sur votre appareil Azure Stack Edge Pro, consultez :
 
-- [Créer le certificat de point de terminaison d’objet Blob](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional).
+- [Créer le certificat de point de terminaison d’objet Blob](azure-stack-edge-gpu-create-certificates-powershell.md#create-certificates).
 - [Charger le certificat de point de terminaison d’objet Blob](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 - [Importer des certificats sur le client qui accède à l’appareil](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

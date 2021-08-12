@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 45906fd6199f870b8a5f5fc4087d6dd063e42905
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f0cf672f98cc01911e8a4a73368ebf7a3a19a419
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110656225"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457172"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-astra-schedule"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Astra Schedule
 
@@ -84,7 +84,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.aaiscloud.com/<CUSTOMER_INSTANCE>`.
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Astra Schedule](mailto:cloudoperations@aais.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Astra Schedule](https://help.adastra.live). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

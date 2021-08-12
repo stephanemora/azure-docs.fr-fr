@@ -2,14 +2,14 @@
 title: Matrice de prise en charge de sauvegarde de disques Azure
 description: Fournit un résumé des paramètres de prise en charge et des limitations de la Sauvegarde de disque Azure.
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b6ea48a326ec42aaf33af61b0ec1a6a07bae8fe
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612855"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750926"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matrice de prise en charge de sauvegarde de disques Azure
 
@@ -17,9 +17,7 @@ Vous pouvez utiliser [Sauvegarde Azure](./backup-overview.md) pour protéger les
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La sauvegarde de disques Azure est disponible dans les régions suivantes : USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Centre Nord, Canada Centre, Brésil Sud, Afrique du Sud Nord, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, Europe Nord, Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, France Centre, Norvège Est, Émirats arabes unis Nord, Australie Centre, Australie Centre 2, Australie Est, Corée Centre, Corée Sud, Japon Est, Japon Ouest, Asie Est, Asie Sud-Est, Inde Centre. 
-
-D’autres régions seront annoncées quand elles seront disponibles.
+Sauvegarde de disque Azure est disponible dans toutes les régions du cloud public, à l’exception des régions France Sud et Afrique du Sud Ouest, et n’est actuellement pas disponible dans les régions du cloud souverain. Ces régions seront annoncées quand elles seront disponibles.
 
 ## <a name="limitations"></a>Limites
 
@@ -62,6 +60,15 @@ D’autres régions seront annoncées quand elles seront disponibles.
 - La prise en charge des [liaisons privées](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) pour des disques managés vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Le Sauvegarde de disque Azure prend en charge la sauvegarde de disques sur lesquels des points de terminaison privés sont activés. Cela n’inclut pas que les données de sauvegarde ou les captures instantanées soient accessibles via le point de terminaison privé.
 
 - Vous pouvez supprimer une instance de sauvegarde, ce qui entraînera non seulement l’arrêt de la sauvegarde, mais également la suppression de toutes les données de sauvegarde. Actuellement, vous ne pouvez pas désactiver une sauvegarde, car l’option **arrêter la sauvegarde et conserver les données de sauvegarde** n’est pas prise en charge.
+
+- Les limites de Sauvegarde de disque Azure sont les suivantes :
+    
+    | Paramètre | Limite maximale |
+    | --- | --- |
+    | Nombre de stratégies de sauvegarde par coffre de sauvegarde | 5 000 |
+    | Nombre d’instances de sauvegarde par coffre de sauvegarde | 5 000 |
+    | Nombre de sauvegardes à la demande autorisées par jour par instance de sauvegarde | 10 |
+    | Nombre de restaurations autorisées par jour par instance de sauvegarde | 10 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
