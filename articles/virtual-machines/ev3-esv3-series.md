@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: 878ca249a02d3b53d0085052b2ff1caf590e3ce3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e96c54fb5e0bab71a68bd6a9749a358843b76a0c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557860"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083311"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 et Esv3
 
@@ -46,9 +46,7 @@ Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’
 | Standard_E32_v3 | 32 | 256 | 800  | 32 | 48000/750/375  | 8/16 000 |
 | Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96000/1000/500 | 8/24 000 |
 | Standard_E64_v3 | 64 | 432 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
-| Standard_E64i_v3 <sup>1,2</sup> | 64 | 432 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
-
-<sup>1</sup> Tailles avec nombre de cœurs limité disponibles.
+| Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
@@ -76,11 +74,11 @@ Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d�
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32 000/256 (400)    | 32 000/800   | 25 600/384  | 32 000/800 | 8/8 000 |
 | Standard_E20s_v3               | 20 | 160 | 320 | 32 | 40 000/320 (400)    | 40 000/1 000  | 32 000/480  | 40 000/1 000 | 8/10 000 |
 | Standard_E32s_v3 <sup>1</sup>  | 32 | 256 | 512 | 32 | 64 000/512 (800)    | 64 000/1 600  | 51 200/768  | 64 000/1 600 | 8/16 000 |
-| Standard_E48s_v3 <sup>1</sup>  | 48 | 384 | 768 | 32 | 96 000/768 (1 200)   | 96 000/2 000  | 76 800/1152 | 80 000/2 000 | 8/24 000 |
+| Standard_E48s_v3               | 48 | 384 | 768 | 32 | 96 000/768 (1 200)   | 96 000/2 000  | 76 800/1152 | 80 000/2 000 | 8/24 000 |
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 | 80 000/1 200 | 80 000/2 000 | 8/30 000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 | 80 000/1 200 | 80 000/2 000 | 8/30 000 |
 
-<sup>1</sup> Tailles avec nombre de cœurs limité disponibles.
+<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 

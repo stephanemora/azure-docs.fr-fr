@@ -16,12 +16,12 @@ ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70e91ff8fa3666a2dfc5aaad07be7927852b08bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afe4db68b5a5d508aaf9760f4da0a8fd15890e15
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85357696"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614861"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Meilleures pratiques pour la modification de la configuration par défaut
 L’objectif de cette rubrique est de décrire les modifications prises en charge et celles qui ne sont pas prises en charge pour Azure AD Connect Sync.
@@ -31,7 +31,9 @@ La configuration créée par Azure AD Connect fonctionne « telle quelle » pour
 ## <a name="changes-to-the-service-account"></a>Modifications apportées au compte de service
 Azure AD Connect Sync s’exécute sous un compte de service créé par l’Assistant Installation. Ce compte de service conserve les clés de chiffrement dans la base de données utilisée par la synchronisation. Il est créé avec un mot de passe de 127 caractères de long, défini pour ne pas expirer.
 
-* La modification ou la réinitialisation du mot de passe du compte de service **n’est pas prise en charge** . Sa modification ou sa réinitialisation supprime les clés de chiffrement et le service ne peut pas accéder à la base de données ni démarrer.
+> [!WARNING]
+> Si vous modifiez ou réinitialisez le mot de passe du service ADSync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu’à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service ADSync.
+> Pour ce faire, consultez [Modifier le mot de passe du compte de service ADSync](how-to-connect-sync-change-serviceacct-pass.md).
 
 ## <a name="changes-to-the-scheduler"></a>Modifications apportées au planificateur
 À partir de la version 1.1 (février 2016), vous pouvez configurer le [planificateur](how-to-connect-sync-feature-scheduler.md) sur un cycle de synchronisation autre que le cycle par défaut de 30 minutes.

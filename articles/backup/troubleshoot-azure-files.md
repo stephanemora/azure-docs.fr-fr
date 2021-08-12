@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 86324c80f0df70713c6ea76a43e4b9da50c1fae6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515071"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555017"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -42,6 +42,7 @@ Réessayez l’inscription. Si le problème persiste, contactez le support techn
 - Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé.
 - Assurez-vous que le compte de stockage est bien pris en charge pour la sauvegarde de partage de fichiers. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
 - Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.
+- Vérifiez le paramètre de routage réseau du compte de stockage pour vous assurer que la préférence de routage est définie en tant que routage réseau Microsoft.
 
 ### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>La configuration du partage de fichiers de sauvegarde (ou la configuration de la stratégie de protection) échoue
 
@@ -126,6 +127,14 @@ Message d’erreur : Un travail de sauvegarde est déjà en cours pour ce partag
 - La sauvegarde du partage de fichiers ne prend pas en charge les demandes d’instantanés parallèles sur le même partage de fichiers.
 
 - Attendez que la sauvegarde en cours se termine, puis réessayez. Si vous ne trouvez pas un travail de sauvegarde dans le coffre Recovery Services, vérifiez les autres coffres Recovery Services du même abonnement.
+
+### <a name="usererrorstorageaccountinternetroutingnotsupported--storage-accounts-with-internet-routing-configuration-are-not-supported-by-azure-backup"></a>UserErrorStorageAccountInternetRoutingNotSupported- Les comptes de stockage avec une configuration de routage Internet ne sont pas pris en charge par Azure Backup
+
+Code d’erreur : UserErrorStorageAccountInternetRoutingNotSupported
+
+Message d'erreur : Le service Sauvegarde Azure ne prend pas en charge les comptes de stockage avec une configuration de routage Internet
+
+Assurez-vous que les préférences de routage définies pour le compte de stockage hébergeant le partage de fichiers sont le routage réseau Microsoft.
 
 ### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling : la sauvegarde ou la restauration du partage de fichiers ont échoué en raison d’une limitation de bande passante du service de stockage Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné
 

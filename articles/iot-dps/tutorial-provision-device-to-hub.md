@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 94568eb5d64f07133ebb9992cdae59400830dd5e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b6dce9f84ff78a7caaf5f5f7ef702053640cee7a
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226886"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112519098"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
@@ -71,8 +71,6 @@ Après l’inscription, le service d’approvisionnement attend que l’appareil
 Votre appareil IoT peut être un appareil réel ou un appareil simulé. Étant donné que l’appareil IoT est maintenant inscrit avec une instance de service Device Provisioning, l’appareil peut désormais démarrer et appeler le service d’approvisionnement pour être reconnu à l’aide du mécanisme d’attestation. Une fois l’appareil reconnu par le service d’approvisionnement, il est affecté à un hub IoT. 
 
 Des exemples d’appareil simulé, avec des attestations TPM et X.509, sont inclus pour C, Java, C#, Node.js et Python. Par exemple, un appareil simulé utilisant un TPM et le [kit de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdk-c) suit le processus traité dans la section [Simuler la première séquence de démarrage d’un appareil](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device). Le même appareil utilisant l’attestation de certificats X.509 fait référence à la section [Séquence de démarrage](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
-
-Reportez-vous au [Guide de procédure pour le DevKit IoT MXChip](how-to-connect-mxchip-iot-devkit.md) comme exemple pour un appareil réel.
 
 Démarrez l’appareil pour autoriser votre application cliente d’appareil à lancer l’inscription auprès de votre service Device Provisioning.  
 

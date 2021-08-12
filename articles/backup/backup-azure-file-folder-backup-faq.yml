@@ -1,0 +1,244 @@
+### YamlMime:FAQ
+metadata:
+  title: Agent Microsoft Azure Recovery Services (MARS) – FAQ
+  description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
+  ms.topic: conceptual
+  ms.date: 04/05/2021
+  ms.openlocfilehash: a26ed95843e93323a31c25e6b894b070cf3837aa
+  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 06/07/2021
+  ms.locfileid: "111907348"
+title: 'Foire aux questions : agent Microsoft Azure Recovery Services (MARS)'
+summary: >
+  Cet article répond aux questions courantes sur la sauvegarde de données à l’aide de l’agent MARS (Microsoft Azure Recovery Services) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
+sections:
+- name: Configurer des sauvegardes
+  questions:
+  - question: >
+      Où puis-je télécharger la dernière version de l’agent MARS ?
+    answer: >
+      Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière version de l’agent MARS utilisé lors de la sauvegarde de machines Windows Server et System Center DPM, et du serveur de Sauvegarde Microsoft Azure.
+  - question: >
+      Où puis-je télécharger le fichier des informations d’identification du coffre ?
+    answer: >
+      Dans le portail Azure, accédez à **Propriétés** pour votre coffre. Sous **Informations d’identification de la sauvegarde**, cochez la case **La dernière version de l’agent Recovery Services est déjà utilisée**. Sélectionnez **Télécharger**.
+
+
+      ![Télécharger les informations d’identification](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+  - question: >
+      Combien de temps les informations d’identification restent-elles valides ?
+    answer: >
+      Les informations d’identification du coffre expirent au bout de 10 jours. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
+  - question: >
+      Quels sont les caractères autorisés pour la phrase secrète ?
+    answer: >
+      La phrase secrète doit utiliser des caractères du jeu de caractères ASCII, avec des [valeurs ASCII inférieures ou égales à 127](/office/vba/language/reference/user-interface-help/character-set-0127).
+  - question: >
+      Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?
+    answer: >
+      Vous ne pouvez pas sauvegarder de données sur les types de lecteurs et volumes suivants :
+
+
+      * Médias amovibles : toutes les sources d’éléments de sauvegarde doivent être déclarées fixes.
+
+      * Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
+
+      * Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
+
+      * Partages réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
+
+      * Volumes protégés par BitLocker : le volume doit être déverrouillé pour que la sauvegarde soit possible.
+
+      * Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge.
+  - question: >
+      Quels sont les types de fichiers et dossiers pris en charge ?
+    answer: >
+      [En savoir plus](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) sur les types de fichiers et dossiers pris en charge pour la sauvegarde.
+  - question: "Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers sur une machine virtuelle Azure ?  \n"
+    answer: >
+      Oui. La Sauvegarde Azure assure la sauvegarde au niveau de la machine virtuelle des machines virtuelles Azure à l’aide de l’extension de machine virtuelle de l’agent de machine virtuelle Azure. Si vous souhaitez sauvegarder des fichiers et des dossiers sur le système d’exploitation Windows invité de la machine virtuelle, vous pouvez installer l’agent MARS.
+  - question: >
+      Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers dans un espace de stockage temporaire de la machine virtuelle Azure ?
+    answer: >
+      Oui. Installez l’agent MARS et sauvegardez les fichiers et dossiers sur le système d’exploitation Windows invité, dans un espace de stockage temporaire.
+
+
+      * Les opérations de sauvegarde échouent lorsque les données du stockage temporaire sont effacées.
+
+      * Si les données du stockage temporaire sont supprimées, vous pouvez uniquement restaurer le stockage non volatile.
+  - question: >
+      Comment faire pour inscrire un serveur dans une autre région ?
+    answer: >
+      Les données de sauvegarde sont envoyées au centre de données du coffre dans lequel le serveur est inscrit. Le moyen le plus simple pour changer de centre de données consiste à désinstaller, puis réinstaller l’agent, et à inscrire la machine auprès d’un nouveau coffre, dans la région requise.
+  - question: >
+      L’agent MARS prend-il en charge la déduplication de Windows Server 2012 ?
+    answer: >
+      Oui. Cet agent convertit les données dédupliquées en données normales lorsqu’il prépare l’opération de sauvegarde. Ensuite, il optimise les données pour la sauvegarde, les chiffre, puis les envoie au coffre.
+  - question: >
+      Ai-je besoin d’autorisations d’administrateur pour installer et configurer l’agent MARS ?
+    answer: >
+      Oui, l’installation de l’agent MARS et la configuration des sauvegardes à l’aide de la console MARS impliquent que l’utilisateur soit administrateur local sur le serveur protégé.
+  - question: >
+      Lorsque l'abonnement au coffre est transféré vers une autre instance d'Azure AD Directory, quel est l'impact sur les sauvegardes de l'agent MARS ?
+    answer: "Le changement d'instance d'Azure AD Directory n'a aucun impact sur les sauvegardes de l'agent MARS. \n"
+- name: Gestion des sauvegardes
+  questions:
+  - question: >
+      Que se passe-t-il si je renomme ou modifie le nom de domaine complet d’un ordinateur Windows configuré pour la sauvegarde ?
+    answer: >
+      Lorsque vous renommez un ordinateur Windows ou que vous modifiez le nom de domaine complet en effectuant des opérations telles que l’ajout d’un ordinateur à un domaine, le déplacement d’un ordinateur vers un autre domaine ou la disjonction d’un ordinateur d’un domaine, toutes les sauvegardes actuellement configurées sont arrêtées.
+
+
+      * Vous devez inscrire le nouveau nom de l’ordinateur auprès du coffre Recovery Services.
+
+      * Lorsque vous enregistrez le nouveau nom dans le coffre, la première opération de sauvegarde est une sauvegarde *complète*.
+
+      * Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option permettant de restaurer les données à un autre emplacement dans l’Assistant Récupération de données. [Plus d’informations](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - question: >
+      Quelle est la longueur maximale autorisée pour le chemin d’accès au fichier de sauvegarde ?
+    answer: "L’agent MARS s’appuie sur NTFS et utilise la spécification de longueur de chemin d’accès définie par [l’API Windows](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si les fichiers que vous souhaitez protéger sont plus longs que la valeur autorisée, sauvegardez le dossier parent ou le lecteur de disque.  \n"
+  - question: >
+      Quels sont les caractères autorisés dans les chemins d’accès aux fichiers ?
+    answer: >
+      L’agent MARS s’appuie sur NTFS et autorise les [caractères pris en charge](/windows/win32/FileIO/naming-a-file#naming-conventions) dans les noms/chemins d’accès aux fichiers.
+  - question: >
+      Un avertissement s’affiche, signalant que les sauvegardes Azure n’ont pas été configurées pour ce serveur.
+    answer: >
+      Cet avertissement, qui peut s’afficher même si vous avez configuré une stratégie de sauvegarde, apparaît lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent de ceux qui figurent dans le coffre de sauvegarde.
+
+
+      * Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser.
+
+      * Si vous recevez cet avertissement, [reconfigurez](backup-azure-manage-windows-server.md) la stratégie de sauvegarde, puis exécutez une sauvegarde à la demande pour resynchroniser les données du serveur local avec Azure.
+  - question: >
+      Je vois que quelques travaux sont bloqués avec l’état En cours pendant une longue période sous les travaux de sauvegarde dans le portail Azure. Comment puis-je résoudre ces travaux ?
+    answer: >
+      Cela peut se produire si un travail n’a pas pu s’effectuer en raison par exemple de problèmes de connectivité réseau, de l’arrêt de la machine ou de l’arrêt du processus. Aucune action de l’utilisateur n’est requise. Ces travaux seront automatiquement marqués comme ayant **Échoué** au bout de 30 jours. [En savoir plus](backup-windows-with-mars-agent.md#run-an-on-demand-backup) sur l’exécution d’un travail de sauvegarde à la demande à l’aide de l’agent MARS.
+- name: Gérer le dossier du cache de sauvegarde
+  questions:
+  - question: >
+      Quelle est la taille minimale requise du dossier du cache ?
+    answer: >
+      La taille du dossier du cache détermine la quantité de données que vous sauvegardez.
+
+
+      * Les volumes de dossier de cache doivent disposer d’un espace disponible correspondant à 5 à 10 % minimum de la taille totale des données de sauvegarde.
+
+      * Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou déplacez le dossier de cache vers un volume ayant suffisamment d’espace disponible en suivant [ces étapes](#how-do-i-change-the-cache-location-for-the-mars-agent-).
+
+      * Si vous sauvegardez l’état du système Windows, il vous faut 30 à 35 Go supplémentaires d’espace libre sur le volume contenant le dossier du cache.
+  - question: >
+      Comment vérifier si le dossier de travail est valide et accessible ?
+    answer: >
+      1. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+
+      2. Vérifiez que le chemin de l’emplacement de votre dossier de travail correspond aux valeurs des entrées de clé de Registre ci-dessous :
+
+          | Chemin d’accès au Registre | Clé de Registre | Valeur |
+          | --- | --- | --- |
+          | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+          | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+  - question: >
+      Comment faire pour modifier l’emplacement du cache pour l’agent MARS ?
+    answer: >
+      1. Pour arrêter le moteur de sauvegarde, exécutez cette commande dans une invite de commandes avec élévation de privilèges :
+
+          ```Net stop obengine```
+      2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez Gestion des disques et démontez le ou les disques dont le nom est au format `"CBSSBVol_<ID>"`.
+
+      3. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+
+      4. Copiez la totalité du dossier `\Scratch` sur un autre lecteur disposant d’un espace suffisant. Assurez-vous que le contenu est copié et non déplacé.
+
+      5. Mettez à jour les entrées de registre suivantes en utilisant le chemin du dossier de travail qui vient d’être déplacé.
+
+          | Chemin d’accès au Registre | Clé de Registre | Valeur |
+          | --- | --- | --- |
+          | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nouvel emplacement du dossier de travail* |
+          | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nouvel emplacement du dossier de travail* |
+
+      6. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
+
+          ```command
+          Net stop obengine
+
+          Net start obengine
+          ```
+
+      7. Exécutez une sauvegarde à la demande. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
+
+
+      >[!NOTE]
+
+      >Si vous utilisez une solution d’amorçage hors connexion, ne modifiez pas l’emplacement du cache pendant le processus de réplication initiale.
+  - question: >
+      Où le dossier du cache doit-il se trouver ?
+    answer: >
+      Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
+
+
+      * Partage réseau ou média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles comme les lecteurs USB ne sont pas pris en charge.
+
+      * Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent de sauvegarde Azure
+  - question: >
+      Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?
+    answer: >
+      Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
+
+
+      * Chiffré
+
+      * Dédupliqué
+
+      * Compressé
+
+      * Partiellement alloué
+
+      * Point d’analyse
+
+
+      Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les attributs nécessaires pour l’agent de sauvegarde Azure.
+  - question: >
+      Existe-t-il un moyen d’adapter la quantité de bande passante utilisée pour la sauvegarde ?
+    answer: >
+      Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-windows-with-mars-agent.md#enable-network-throttling)
+- name: Restaurer
+  questions:
+  - question: >
+      Gérer
+    answer: ''
+  - question: >
+      Puis-je effectuer la récupération si j’ai oublié ma phrase secrète ?
+    answer: "L’agent de sauvegarde Azure a besoin d’une phrase secrète (que vous avez fournie lors de l’inscription) pour déchiffrer les données sauvegardées lors de la restauration. Passez en revue les scénarios ci-dessous pour comprendre les options de gestion d’une phrase secrète perdue :\n\n| Ordinateur d’origine <br> *(ordinateur source sur lequel les sauvegardes ont été effectuées)* | Passphrase | Options disponibles |\n| --- | --- | --- |\n| Disponible |Perdue |Si votre ordinateur d’origine (où les sauvegardes ont été effectuées) est disponible et toujours inscrit auprès du même coffre Recovery Services, vous pouvez régénérer la phrase secrète en suivant ces [étapes](./backup-azure-manage-mars.md#re-generate-passphrase).  |\n| Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |\n\nTenez compte des conditions suivantes :\n\n* Si vous désinstallez puis réinscrivez l’agent sur le même ordinateur d’origine avec\n  * la *même phrase secrète*, vous serez en mesure de restaurer vos données sauvegardées.\n  * une *phrase secrète différente*, vous ne serez pas en mesure de restaurer vos données sauvegardées.\n* Si vous installez l’agent sur un *autre ordinateur* avec\n  * la *même phrase secrète* (utilisée sur l’ordinateur d’origine), vous serez en mesure de restaurer vos données sauvegardées.\n  * une *phrase secrète différente*, vous ne serez pas en mesure de restaurer vos données sauvegardées.          \n* Si votre ordinateur d’origine est endommagé (vous empêchant de régénérer la phrase secrète via la console MARS) mais que vous pouvez restaurer le dossier de travail d’origine utilisé par l’agent MARS ou y accéder, vous pourrez peut-être effectuer la restauration (si vous avez oublié le mot de passe). Pour obtenir de l’aide, contactez le service clientèle.\n"
+  - question: >
+      Comment effectuer la récupération si j’ai perdu mon ordinateur d’origine (sur lequel les sauvegardes ont été effectuées) ?
+    answer: >
+      Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l’inscription) de l’ordinateur d’origine, vous pouvez restaurer les données sauvegardées sur un autre ordinateur. Passez en revue les scénarios ci-dessous pour comprendre vos options de restauration.
+
+
+      | Ordinateur d’origine | Passphrase | Options disponibles |
+
+      | --- | --- | --- |
+
+      | Perdue |Disponible |Vous pouvez installer et inscrire l’agent MARS sur un autre ordinateur avec la même phrase secrète que celle que vous avez fournie lors de l’inscription de l’ordinateur d’origine. Choisissez **Option de récupération** > **Autre emplacement** pour effectuer la restauration. Pour plus d’informations, consultez cet [article](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+
+      | Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |
+  - question: >
+      Mes tâches de sauvegarde ont échoué ou n’ont pas été exécutées pendant une longue période. Ma période de rétention a expiré. Puis-je encore à restaurer ?
+    answer: >
+      Par mesure de sécurité, Sauvegarde Azure conserve le point de récupération le plus récent, même s’il est ultérieur à la période de rétention. Une fois que les sauvegardes sont relancées et que les nouveaux points de récupération deviennent disponibles, le point de récupération plus ancien est supprimé conformément à la rétention spécifiée.
+  - question: >
+      Que se passe-t-il si j’annule un travail de restauration en cours ?
+    answer: >
+      Si un travail de restauration en cours est annulé, le processus de restauration s’arrête. Tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre), sans aucun restauration.
+  - question: >
+      L’agent MARS sauvegarde-t-il et restaure-t-il les listes de contrôle d’accès définies sur les fichiers, les dossiers et les volumes ?
+    answer: >
+      * L’agent MARS sauvegarde les listes de contrôle d’accès définies sur les fichiers, les dossiers et les volumes
+
+      * Pour l’option de récupération Restaurer le volume, l’agent MARS fournit une option permettant d’ignorer la restauration des autorisations de liste de contrôle d’accès au fichier ou dossier en cours de récupération.
+
+      * Pour l’option de récupération de fichiers et dossiers individuels, l’agent MARS effectue une restauration avec les autorisations de liste de contrôle d’accès (il n’existe aucune option permettant d’ignorer la restauration de liste de contrôle d’accès).
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n[Apprenez](tutorial-backup-windows-server-to-azure.md) comment sauvegarder une machine Windows."

@@ -1,5 +1,5 @@
 ---
-title: Gestion des utilisateurs sur FPGA Azure Stack Edge Pro | Microsoft Docs
+title: Gestion d’utilisateur Azure Stack Edge Pro avec FPGA
 description: Décrit comment utiliser le Portail Azure pour gérer les utilisateurs sur Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 27ca190f3bad7f75175e5206d48e13dae1f5687e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb7b4ee235d83afd5bdaafe5c7678069c5c864de
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97913304"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460681"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro-fpga"></a>Utiliser le portail Azure pour gérer les utilisateurs sur votre FPGA Azure Stack Edge Pro
 
-Cet article explique comment gérer les utilisateurs sur votre appareil FPGA Azure Stack Edge Pro. Vous pouvez gérer Azure Stack Edge Pro par le biais du Portail Azure ou de l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, modifier ou supprimer des utilisateurs.
+Cet article explique comment gérer les utilisateurs sur votre appareil FPGA Azure Stack Edge Pro. Vous pouvez gérer Azure Stack Edge Pro FGPA via le Portail Azure ou l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, modifier ou supprimer des utilisateurs.
 
 Dans cet article, vous apprendrez comment :
 

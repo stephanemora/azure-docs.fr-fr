@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configuration de New Relic by Organization pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment procéder automatiquement à l’attribution des comptes d’utilisateur et à son annulation entre Azure AD et New Relic by Organization.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
-ms.author: Zhchia
-ms.openlocfilehash: 6d196f7037fe9c0209e66e9d6e9ab25bdf807b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c7dc59049e96b5ac178d8da4ba5a16833ad61a90
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181898"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768933"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Tutoriel : Configuration de l’attribution automatique d’utilisateurs dans New Relic by Organization
 

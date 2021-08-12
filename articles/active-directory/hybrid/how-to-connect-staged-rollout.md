@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8460e428239a652d2accb3d1818b0a709dc16c3e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f3474d14b84e41fdf808b5a5b5c612b3a872f2c6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758663"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753500"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
@@ -92,6 +92,10 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour les versions de Windows 10 antérieures à la version 1903. Ce scénario revient au point de terminaison WS-Trust du serveur de fédération, même si l’utilisateur qui se connecte figure dans l’étendue du déploiement par étapes.
 
 - Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour toutes les versions lorsque l’UPN local de l’utilisateur n’est pas routable. Ce scénario revient au point de terminaison WS-Trust en mode de déploiement par étapes, mais il cesse de fonctionner lorsque la migration par étapes est terminée et que l’authentification de l’utilisateur ne dépend plus du serveur de fédération.
+
+- Si vous disposez d’une configuration VDI non persistante avec la version 1903 ou une version ultérieure de Windows 10, vous devez rester sur un domaine fédéré. Le passage à un domaine managé n’est pas pris en charge sur une infrastructure VDI non persistante. Pour plus d’informations, consultez [Identité d’appareil et virtualisation des postes de travail](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
+
+- Si vous disposez d’un certificat de confiance hybride Windows Hello Entreprise avec des certificats émis par le biais de votre serveur de fédération agissant en tant qu’autorité d’inscription ou utilisateur de carte à puce, le scénario n’est pas pris en charge dans un déploiement par étapes. 
 
   >[!NOTE]
   >Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) et [Migrer de la fédération à l’authentification directe](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).

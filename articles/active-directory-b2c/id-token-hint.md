@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a3f8a0562df4b4eeef338ddf357f37d7d0bc8f5a
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 6477283b3eb96579b943baf0aa34c2737bf43a58
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946634"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059593"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique id_token_hint dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -94,6 +94,8 @@ Les métadonnées suivantes sont pertinentes lors de l’utilisation d’une cl�
 | METADATA| Oui | URL qui pointe vers un document de configuration d’émetteur de jeton, également appelé point de terminaison de configuration OpenID connu.   |
 | émetteur | Non | Identifie le service de jeton de sécurité (émetteur de jeton). Cette valeur peut être utilisée pour remplacer la valeur configurée dans les métadonnées et doit être identique à la revendication `iss` dans la revendication de jeton JWT. |  
 | IdTokenAudience | Non | Identifie le destinataire du jeton. Doit être identique à la revendication `aud` dans la revendication de jeton JWT. |  
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
@@ -185,7 +187,7 @@ L’émetteur de jeton doit fournir les points de terminaison suivants :
 * `/.well-known/openid-configuration` : un point de terminaison de configuration bien connu avec des informations pertinentes sur le jeton, comme le nom de l’émetteur du jeton et le lien vers le point de terminaison JWK. 
 * `/.well-known/keys` : le point de terminaison de la clé web JSON (JWK) avec la clé publique utilisée pour signer la clé (avec la partie clé privée du certificat).
 
-Consultez l’exemple de contrôleur MVC .Net [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
+Consultez l’exemple de contrôleur MVC .NET [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs).
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Étape 1. Préparer un certificat auto-signé
 
@@ -219,7 +221,7 @@ Le profil technique suivant valide le jeton et extrait les revendications. Rempl
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

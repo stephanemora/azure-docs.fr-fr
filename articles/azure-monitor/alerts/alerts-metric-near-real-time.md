@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 24298734a46b8339a2a8818692641b4c10812294
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 06/03/2021
+ms.openlocfilehash: 1228f89c2037e1a181fd1f881a1a8d0262b4dbbd
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104879"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410132"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -36,6 +36,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Automation/automationAccounts | Oui| Non | [Comptes Automation](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | Non | Non | [Azure VMware Solution](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Oui | Non | [Comptes Batch](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft.bing/accounts | Oui | Non | [Comptes Bing](../essentials/metrics-supported.md#microsoftbingaccounts) |
 |Microsoft.BotService/botServices | Oui | Non | [Bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Oui | Oui | [Cache Azure pour Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |microsoft.Cdn/profiles | Oui | Non | [Profils CDN](../essentials/metrics-supported.md#microsoftcdnprofiles) |
@@ -51,6 +52,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Compute/cloudServices/roles | Oui | Non |  [Rôles de service cloud](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Oui | Oui<sup>1</sup> | [Machines virtuelles](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Oui | Non |[Jeux de mise à l’échelle de machine virtuelle](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.ConnectedVehicle/platformAccounts | Oui | Non |[Comptes de plateforme de véhicule connecté](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
 |Microsoft.ContainerInstance/containerGroups | Oui| Non | [Groupes de conteneurs](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | Non | Non | [Registres de conteneurs](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Oui | Non | [Clusters managés](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |

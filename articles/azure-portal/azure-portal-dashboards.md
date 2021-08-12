@@ -3,13 +3,13 @@ title: Créer un tableau de bord dans le portail Azure
 description: Cet article décrit comment créer et personnaliser un tableau de bord dans le portail Azure.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.openlocfilehash: 668aead7b448cd462fab80003e498e956a6484d2
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.date: 05/12/2021
+ms.openlocfilehash: 0de3e30d2a27d131c13b2df94b1462b6e89b48e3
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794887"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846179"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Créer un tableau de bord dans le portail Azure
 
@@ -88,6 +88,14 @@ Bon nombre de pages de ressources contiennent une icône d’épingle dans l’e
 Si vous sélectionnez cette icône, vous pouvez épingler la vignette à un tableau de bord privé ou partagé existant. Vous pouvez aussi créer un autre tableau de bord avec cette épingle en sélectionnant **Créer**.
 
 :::image type="content" source="media/azure-portal-dashboards/dashboard-pin-pane.png" alt-text="Capture d’écran des options Épingler au tableau de bord.":::
+
+### <a name="copy-a-tile-to-a-new-dashboard"></a>Copier une vignette dans un nouveau tableau de bord
+
+Si vous souhaitez réutiliser une vignette sur un autre tableau de bord, vous pouvez la copier d’un tableau de bord vers un autre. Pour ce faire, sélectionnez le menu contextuel dans l’angle supérieur droit, puis sélectionnez **Copier**.
+
+:::image type="content" source="media/azure-portal-dashboards/copy-dashboard.png" alt-text="Capture d’écran montrant comment copier une vignette dans le portail Azure.":::
+
+Vous pouvez ensuite choisir de copier la vignette dans un tableau de bord privé ou partagé existant, ou de créer une copie de la vignette dans le tableau de bord que vous utilisez déjà. Vous pouvez aussi créer un autre tableau de bord qui inclura une copie de la vignette en sélectionnant **Créer**.
 
 ### <a name="resize-or-rearrange-tiles"></a>Redimensionner ou réorganiser des vignettes
 

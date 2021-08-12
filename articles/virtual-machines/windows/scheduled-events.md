@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08b6e72d6b4cb1352a203008e3f20ae39333ec02
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499949"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592283"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -68,15 +68,16 @@ Par conséquent, vérifiez le champ `Resources` de l’événement pour identifi
 ### <a name="endpoint-discovery"></a>Découverte de point de terminaison
 Pour les machines virtuelles compatibles avec le réseau virtuel, le service de métadonnées est disponible à partir d’une adresse IP non routable statique, `169.254.169.254`. Le point de terminaison complet de la dernière version des événements planifiés est : 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01`
 
 Si la machine virtuelle n’est pas créée au sein d’un réseau virtuel, ce qui est habituellement le cas pour les services cloud et les machines virtuelles classiques, une logique supplémentaire est nécessaire pour découvrir l’adresse IP à utiliser. Reportez-vous à cet exemple pour savoir comment [découvrir le point de terminaison hôte](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Version et disponibilité dans la région
-Les versions du service Événements planifiés sont gérées. Ces versions sont obligatoires et la version actuelle est `2019-01-01`.
+Les versions du service Événements planifiés sont gérées. Ces versions sont obligatoires et la version actuelle est `2020-07-01`.
 
 | Version | Type de version | Régions | Notes de publication | 
 | - | - | - | - | 
+| 2020-07-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour Durée de l’événement |
 | 2019-08-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour EventSource |
 | 2019-04-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge pour Description de l’événement |
 | 2019-01-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge des groupes de machines virtuelles identiques, EventType « Terminate » |
@@ -108,7 +109,7 @@ Vous pouvez rechercher des événements planifiés en effectuant l’appel suiva
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 Une réponse contient un tableau d’événements planifiés. Un tableau vide signifie qu’il n’y a actuellement aucun événement planifié.
@@ -126,6 +127,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
             "NotBefore": {timeInUTC},       
             "Description": {eventDescription},
             "EventSource" : "Platform" | "User",
+            "DurationInSeconds" : {timeInSeconds},
         }
     ]
 }
@@ -142,6 +144,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 | NotBefore| Heure après laquelle cet événement peut démarrer. <br><br> Exemple : <br><ul><li> Lundi 19 septembre 2016 18:29:47 GMT  |
 | Description | Description de cet événement. <br><br> Exemple : <br><ul><li> Le serveur hôte est en cours de maintenance. |
 | EventSource | Initiateur de l’événement. <br><br> Exemple : <br><ul><li> `Platform`: Cet événement est déclenché par la plateforme. <li>`User`: Cet événement est déclenché par l’utilisateur. |
+| DurationInSeconds | Durée attendue de l’interruption causée par l’événement. <br><br> Exemple : <br><ul><li> `9` : l’interruption provoquée par l’événement durera 9 secondes. <li>`-1` : valeur par défaut utilisée si la durée d’impact est inconnue ou non applicable. |
 
 ### <a name="event-scheduling"></a>Planification d’événement
 Chaque événement est planifié à un moment donné dans le futur (délai minimum), en fonction de son type. Cette heure est reflétée dans la propriété `NotBefore` d’un événement. 
@@ -178,7 +181,7 @@ Voici un exemple de code JSON attendu dans le corps de la requête `POST`. La re
 
 #### <a name="bash-sample"></a>Exemple Bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
 
 > [!NOTE] 
@@ -195,7 +198,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01"
 this_host = socket.gethostname()
 
 

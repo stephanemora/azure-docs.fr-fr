@@ -2,21 +2,21 @@
 title: "Tutoriel : Configurer Juno Journey pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Apprenez à approvisionner et à annuler l'approvisionnement automatique de comptes d'utilisateur entre Azure AD et Juno Journey.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 58466aabebb7a69a2c17a9ac4be9afc30ccd00af
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96177886"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767495"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutoriel : Configurer Juno Journey pour l'approvisionnement automatique d'utilisateurs
 
@@ -85,7 +85,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d'identification Administrateur**, entrez la valeur de l'URL du locataire récupérée précédemment dans **URL du locataire**. Entrez la valeur du jeton secret récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Juno Journey. Si la connexion échoue, vérifiez que votre compte Juno Journey dispose des autorisations d'administrateur, puis réessayez.
 
-    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/juno-journey-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/juno-journey-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
