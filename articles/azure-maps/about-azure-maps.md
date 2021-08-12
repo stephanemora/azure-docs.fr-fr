@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 9b93ac2973fdf45c5ec395cf30490a820848bad9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 970223c0514651ddcdf373aa6638abf17b06d01c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027164"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669103"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -77,7 +77,7 @@ Pour en savoir plus sur le service, consultez la [Documentation des services Mob
 
 ### <a name="render-service"></a>Render Service
 
-Le [service Render V2 (préversion)](/rest/api/maps/renderv2) introduit une nouvelle version de l’[API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview). L’API Get Map Tile V2 permet aux clients de demander à Azure Maps des vignettes routières, des vignettes météo ou des vignettes de carte créées à l’aide du Créateur Azure Maps. Il est recommandé d’utiliser la nouvelle API Get Map Tile V2.  
+Le [service Render V2 (préversion)](/rest/api/maps/renderv2) introduit une nouvelle version de l’[API Get Map Tile V2](/rest/api/maps/render-v2/get-map-tile). L’API Get Map Tile V2 permet aux clients de demander à Azure Maps des vignettes routières, des vignettes météo ou des vignettes de carte créées à l’aide du Créateur Azure Maps. Il est recommandé d’utiliser la nouvelle API Get Map Tile V2.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemple de carte provenant du service Render V2":::
 
@@ -175,7 +175,7 @@ Les services Météo offrent des API dont les développeurs peuvent se servir po
 
 Les développeurs peuvent utiliser l’[API d’obtention de données météorologiques](/rest/api/maps/weather/getweatheralongroute) pour récupérer des informations météorologiques concernant un itinéraire particulier. En outre, le service prend en charge la génération de notifications météorologiques pour des points de route affectés par des aléas climatiques tels que des inondations ou de fortes pluies.
 
-L’[API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) vous permet de demander des vignettes de satellite et de radar passées, actuelles et futures.
+L’[API Get Map Tile V2](/rest/api/maps/render-v2/get-map-tile) vous permet de demander des vignettes de satellite et de radar passées, actuelles et futures.
 
 ![Exemple de carte avec des vignettes de radar météo en temps réel](media/about-azure-maps/intro_weather.png)
 

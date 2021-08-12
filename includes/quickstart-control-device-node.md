@@ -1,13 +1,10 @@
 ---
-title: 'Démarrage rapide : Contrôler un appareil à partir d’Azure IoT (Node.js)'
-description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Node.js. Une application est une application back-end qui peut contrôler à distance des appareils connectés à votre concentrateur. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: philmea
+ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
-ms.topic: quickstart
+ms.topic: include
 ms.custom:
 - mvc
 - seo-javascript-september2019
@@ -17,18 +14,14 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 26a17febf1804a0acc94fd4f484aae34e44af132
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3ffcfdb156f222cf1eb7134b271550eac4c9fcb3
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295333"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114732106"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Démarrage rapide : Utiliser Node.js pour contrôler un appareil connecté à un hub Azure IoT
-
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
-
-Dans ce guide de démarrage rapide, vous utilisez une méthode directe pour contrôler un appareil simulé connecté à Azure IoT Hub. IoT Hub est un service Azure qui vous permet de gérer vos appareils IoT à partir du cloud et d’envoyer de gros volumes de données de télémétrie d’appareils au cloud afin de les stocker et de les traiter. Vous pouvez utiliser les méthodes directes pour modifier à distance le comportement d’un appareil connecté à votre IoT Hub. Ce guide de démarrage rapide utilise deux applications Node.js : une application d’appareil simulé qui répond aux méthodes directes appelées à partir d’une application back-end et une application back-end qui appelle les méthodes directes sur l’appareil simulé.
+Ce guide de démarrage rapide utilise deux applications Node.js : une application d’appareil simulé qui répond aux méthodes directes appelées à partir d’une application back-end et une application back-end qui appelle les méthodes directes sur l’appareil simulé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,21 +37,21 @@ Dans ce guide de démarrage rapide, vous utilisez une méthode directe pour cont
 
 * [Un exemple de projet Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
-* Le port 8883 ouvert dans votre pare-feu. L’exemple d’appareil de ce guide de démarrage rapide utilise le protocole MQTT, lequel communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Le port 8883 ouvert dans votre pare-feu. L’exemple d’appareil de ce guide de démarrage rapide utilise le protocole MQTT, lequel communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) précédent, vous pouvez ignorer cette étape.
+Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) précédent, vous pouvez ignorer cette étape.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
-Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) précédent, vous pouvez ignorer cette étape.
+Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) précédent, vous pouvez ignorer cette étape.
 
 Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans ce démarrage rapide, vous utilisez Azure Cloud Shell pour inscrire un appareil simulé.
 
@@ -151,16 +144,3 @@ L’application back-end se connecte au point de terminaison côté service sur 
     Après avoir exécuté l’application back-end, un message s’affiche dans la fenêtre de la console exécutant l’appareil simulé, et la fréquence à laquelle il envoie les messages change :
 
     ![Sortie en cas de changement dans le client simulé](./media/quickstart-control-device-node/simulated-device-message-change.png)
-
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur un appareil à partir d’une application back-end et répondu à l’appel de méthode directe dans une application d’appareil simulé.
-
-Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
-
-> [!div class="nextstepaction"]
-> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

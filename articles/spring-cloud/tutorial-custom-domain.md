@@ -1,18 +1,18 @@
 ---
 title: 'Tutoriel : Mapper un domaine personnalisé existant à Azure Spring Cloud'
 description: Comment mapper un nom DNS (Distributed Name Service) personnalisé existant à Azure Spring Cloud
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 6c9d2e82e048a8693175974d6ef664d67e9deac8
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: afef05b381bbd1331cdc5af1ec91190839fdea7b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652649"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470218"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutoriel : Mapper un domaine personnalisé existant à Azure Spring Cloud
 

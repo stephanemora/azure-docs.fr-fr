@@ -10,14 +10,17 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: f4dfd0701c2eeeaa5ba3b2be20b9448ca2093601
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 87a658c077a93d852e2a1e03faedf1fa5064e3dc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111797"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473124"
 ---
 # <a name="call-recording-api-quickstart"></a>Démarrage rapide de l’API d’enregistrement d’appel
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 Ce démarrage rapide vous mntre comment enregistrer des appels vocaux et vidéo. Ce démarrage rapide suppose que vous avez déjà utilisé le [Kit de développement logiciel (SDK) Calling](get-started-with-video-calling.md) pour créer l’expérience d’appel d’utilisateur final. À l’aide des **API et kits de développement logiciel (SDK) d’appel du serveur**, vous pouvez activer et gérer les enregistrements. 
 
 ::: zone pivot="programming-language-csharp"

@@ -2,20 +2,20 @@
 title: Génération et transfert de clés protégées par HSM – BYOK – Azure Key Vault
 description: Utilisez les informations de cet article pour planifier, générer, puis transférer vos propres clés protégées par HSM à utiliser avec Azure Key Vault. Cette méthode est également appelée BYOK (Bring Your Own Key, ou apportez votre propre clé).
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
-ms.author: ambapat
-ms.openlocfilehash: 44b7d5c4202307eba572caecf6910a90223c51bb
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.author: mbaldwin
+ms.openlocfilehash: 828ec5b82033c5eb2109840721349b6a89de3735
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015930"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459871"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importer des clés protégées par HSM dans Key Vault (BYOK)
 

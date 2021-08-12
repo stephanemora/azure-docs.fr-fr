@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 012a49762596adee39988614ed0c1020cd8bc104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d15f8a139a63845470c26048c043d574064e2aa1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791102"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034010"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -41,7 +41,7 @@ Le proxy inverse expose un ou plusieurs points de terminaison sur le nœud local
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Atteindre les microservices de l’extérieur du cluster
-Le modèle de communication externe par défaut des microservices est un modèle d’adhésion, avec lequel aucun service n’est accessible directement à partir des clients externes. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), qui représente une limite réseau située entre les microservices et les clients externes, effectue la traduction des adresses réseau et transfère les requêtes externes vers des points de terminaison IP:port internes. Pour que le point de terminaison d’un microservice soit accessible aux clients externes, vous devez tout d’abord configurer l’équilibreur de charge de sorte qu’il transfère le trafic vers chaque port utilisé par le service au sein du cluster. En outre, la plupart des microservices, en particulier les microservices avec état, ne résident pas sur tous les nœuds du cluster. Les microservices peuvent se déplacer entre les nœuds lors d’un basculement. Dans ce cas, l’équilibreur de charge ne peut pas déterminer efficacement l’emplacement du nœud cible des réplicas auxquels il doit transférer le trafic.
+Le modèle de communication externe par défaut des microservices est un modèle d’adhésion, avec lequel aucun service n’est accessible directement à partir des clients externes. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), qui représente une limite réseau située entre les microservices et les clients externes, effectue la traduction des adresses réseau et transfère les requêtes externes vers des points de terminaison IP:port internes. Pour que le point de terminaison d’un microservice soit accessible aux clients externes, vous devez tout d’abord configurer l’équilibreur de charge de sorte qu’il transfère le trafic vers chaque port utilisé par le service au sein du cluster. Cependant, la plupart des microservices, en particulier ceux avec état, ne résident pas sur tous les nœuds du cluster. Les microservices peuvent se déplacer entre les nœuds lors d’un basculement. Dans ce cas, l’équilibreur de charge ne peut pas déterminer efficacement l’emplacement du nœud cible des réplicas auxquels il doit transférer le trafic.
 
 ### <a name="reaching-microservices-via-the-reverse-proxy-from-outside-the-cluster"></a>Atteindre les microservices par l’intermédiaire du proxy inverse à partir de l’extérieur du cluster
 Au lieu de configurer le port d’un service donné dans l’équilibreur de charge, vous pouvez configurer uniquement le port du proxy inverse dans l’équilibreur de charge. Cette configuration permet aux clients se trouvant en dehors du cluster d’atteindre les services à l’intérieur du cluster avec le proxy inverse sans qu’une configuration supplémentaire soit nécessaire.

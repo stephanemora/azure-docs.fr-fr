@@ -156,6 +156,6 @@
         - name: Superviser une migration en ligne et effectuer le basculement
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
         - name: Migrer Oracle vers Azure SQL DB
-          href: /azure/postgresql/howto-migrate-from-oracle
+          href: ../postgresql/howto-migrate-from-oracle.md
         - name: "Migrer MongoDB vers Azure Cosmos\_DB"
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
