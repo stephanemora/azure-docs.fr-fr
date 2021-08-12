@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 08/19/2020
-ms.openlocfilehash: f8a211c6cb3a405b1d3f022dfa02673d6a6db942
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 97f902b31b4beb45017c7a93c3c0397ae409b3af
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705190"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377599"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Démarrage rapide : Partager des données à l’aide d’Azure Data Share et d’un modèle ARM
 
@@ -22,7 +22,7 @@ Découvrez comment configurer un nouveau partage de données Azure à partir d�
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datashare%2Fdata-share-share-storage-account%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-data-share-share-storage-account/).
 
-:::code language="json" source="~/quickstart-templates/101-data-share-share-storage-account/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datashare/data-share-share-storage-account/azuredeploy.json":::
 
 Les ressources suivantes sont définies dans le modèle :
 
@@ -66,7 +66,7 @@ Cela est dû au fait que le déploiement tente de créer le jeu de données avan
 
 1. Sélectionnez l’image ci-après pour vous connecter à Azure et ouvrir le modèle.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datashare%2Fdata-share-share-storage-account%2Fazuredeploy.json)
 1. Sélectionnez ou entrez les valeurs suivantes :
 
     * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.

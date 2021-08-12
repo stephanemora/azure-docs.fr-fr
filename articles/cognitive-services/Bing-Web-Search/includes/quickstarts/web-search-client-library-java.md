@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 414c2b936d98d1269221bf1353dbc364c9b5723e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 363705460572e7158db7505765939e97642af382
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948014"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113289638"
 ---
 La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Java. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 
 Vous voulez voir le code tout de suite ? Des exemples de [bibliothèques de client Recherche Bing pour Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) sont disponibles sur GitHub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-* [JDK 7 ou 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK 7 ou 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Apache Maven](https://maven.apache.org/download.cgi) ou votre outil favori d’automatisation de création
 * Une clé d’abonnement
 

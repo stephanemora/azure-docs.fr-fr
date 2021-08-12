@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9664d7976dfc53c8a0217c519a35f622f04efcc6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629782"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115895"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Démarrage rapide : créer et gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers Azure](storage-files-introduction.md) avec l’Explorateur Stockage Azure. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -20,6 +20,13 @@ Ce guide vous explique les bases de l’utilisation du [partage de fichiers Azur
 L’Explorateur Stockage Azure est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>Prérequis
 Pour ce guide de démarrage rapide, l’Explorateur Stockage doit être installé. Pour le télécharger et l’installer, accédez à [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).

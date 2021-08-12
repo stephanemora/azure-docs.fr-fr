@@ -61,7 +61,7 @@
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-active-directory.html
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+      href: 'https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing'
     - name: Mises à jour de service
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow

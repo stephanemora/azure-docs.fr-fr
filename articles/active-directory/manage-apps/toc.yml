@@ -12,8 +12,6 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Voir vos applications
-      href: view-applications-portal.md
     - name: Ajouter une application
       href: add-application-portal.md
     - name: Configurer une application
@@ -24,6 +22,8 @@
       href: add-application-portal-setup-sso.md
     - name: Configurer l’authentification unique OIDC
       href: add-application-portal-setup-oidc-sso.md
+    - name: Voir vos applications
+      href: view-applications-portal.md
     - name: Supprimer une application
       href: delete-application-portal.md
 - name: Tutoriels

@@ -1,19 +1,19 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: active-directory
-author: daveba
+author: barclayn
 ms.service: msi
 ms.topic: include
-ms.date: 05/29/2018
-ms.author: daveba
+ms.date: 07/20/2021
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: 874dd2613cda70ae96b11fe99ee2944af02c2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a5544d481974a9c9ff176104dda0816950ed970
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997368"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593797"
 ---
 > [!IMPORTANT]
-> Quand vous créez des identités affectées à l’utilisateur, seuls les caractères alphanumériques (0-9, a-z, A-Z), le trait de soulignement (\_) et le trait d’union (-) sont pris en charge. De plus, le nom doit comprendre de 3 à 128 caractères pour que l’affectation à la machine virtuelle/au groupe de machines virtuelles identiques fonctionne correctement. Revenez ultérieurement pour des mises à jour. Pour plus d’informations, voir [FAQ et problèmes connus](../articles/active-directory/managed-identities-azure-resources/known-issues.md).
+> Lorsque vous créez des identités managées attribuées par l’utilisateur, seuls les caractères alphanumériques (0-9, a-z, A-Z) et le trait d’union (-) sont pris en charge. Pour que l’attribution à une machine virtuelle ou à un groupe de machines virtuelles identiques fonctionne correctement, le nom est limité à 24 caractères. Pour plus d’informations, voir [FAQ et problèmes connus](../articles/active-directory/managed-identities-azure-resources/known-issues.md).

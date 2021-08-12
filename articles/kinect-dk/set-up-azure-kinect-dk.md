@@ -14,10 +14,10 @@ audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
 ms.openlocfilehash: b33565f319de77385c966f742fa52391f4869eed
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77211276"
 ---
 # <a name="quickstart-set-up-your-azure-kinect-dk"></a>Démarrage rapide : Configurer Azure Kinect DK
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide fournit des instructions sur la configuration d’
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="system-requirements"></a>Configuration système requise
+## <a name="system-requirements"></a>Configuration requise
 
 Consultez la [configuration requise](system-requirements.md) pour voir si la configuration de votre ordinateur hôte répond aux exigences minimales d’Azure Kinect DK.
 

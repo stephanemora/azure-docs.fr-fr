@@ -1,18 +1,18 @@
 ---
 title: Prise en charge d’Azure Cosmos DB Gremlin et compatibilité avec les fonctionnalités TinkerPop
 description: Découvrez le langage Gremlin d’Apache TinkerPop. Découvrez les fonctionnalités et les étapes disponibles dans Azure Cosmos DB et les différences de compatibilité avec le moteur de graphes TinkerPop.
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 11/11/2020
-ms.author: sngun
-ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/06/2021
+author: manishmsfte
+ms.author: mansha
+ms.openlocfilehash: a2e868fa6054681f37d699bdc469db9ded0b8ee9
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630749"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356362"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Prise en charge des graphes Azure Cosmos DB Gremlin et compatibilité avec les fonctionnalités TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -102,6 +102,12 @@ Les propriétés utilisées par le format JSON pour les sommets sont décrites c
 | `_partition` | Clé de partition du sommet. Utilisée pour le [partitionnement de graphe](graph-partitioning.md). |
 | `outE` | Cette propriété contient une liste des arêtes externes d’un sommet. Permet de stocker les informations de contiguïté avec des sommets pour une exécution rapide des traversées. Les arêtes sont regroupées en fonction de leurs intitulés. |
 
+Chaque propriété peut stocker plusieurs valeurs dans un tableau.
+
+| Propriété | Description |
+| --- | --- |
+| `value` | Valeur de la propriété |
+
 Et l’arête contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
 
 | Propriété | Description |
@@ -109,13 +115,7 @@ Et l’arête contient les informations suivantes pour faciliter la navigation v
 | `id` | ID de l’arête. Doit être unique (en association avec la valeur de `_partition`, si applicable). |
 | `label` | Intitulé de l’arête. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
 | `inV` | Cette propriété contient la liste des sommets d’une arête. Permet de stocker les informations de contiguïté avec l’arête pour une exécution rapide des traversées. Les sommets sont regroupés en fonction de leurs intitulés. |
-| `properties` | Sac de propriétés définies par l’utilisateur associé à l’arête. Chaque propriété peut avoir plusieurs valeurs. |
-
-Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
-
-| Propriété | Description |
-| --- | --- |
-| `value` | Valeur de la propriété
+| `properties` | Sac de propriétés définies par l’utilisateur associé à l’arête. |
 
 ## <a name="gremlin-steps"></a>Étapes de Gremlin
 

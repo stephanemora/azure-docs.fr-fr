@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer un répertoire fédéré pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner des comptes d’utilisateur dans le répertoire fédéré.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
-ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 14560565b3d1d0f12bea1e74a164a7596cfc8b7a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998360"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767979"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutoriel : Configurer un répertoire fédéré pour l’attribution automatique d’utilisateurs
 

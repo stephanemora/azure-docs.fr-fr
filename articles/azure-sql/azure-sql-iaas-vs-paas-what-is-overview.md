@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: dabfe4c3416d1595d8f030d3c671fe2aa0b0c7a3
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: b8f55a720583713fad59fc07495dcab070d19fa7
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708919"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378090"
 ---
 # <a name="what-is-azure-sql"></a>Qu'est-ce que SQL Azure ? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -158,7 +158,7 @@ Pour de nombreuses entreprises, la décision de migrer vers un service cloud vis
 
 Pour bon nombre de services informatiques, répondre aux obligations de temps d’exécution d’un contrat de niveau de service (SLA) est la priorité absolue. Dans cette section, nous allons détailler les implications du contrat SLA pour chaque option d’hébergement de base de données.
 
-Pour **Azure SQL Database** et **Azure SQL Managed Instance**, Microsoft fournit un contrat SLA de disponibilité de 99,99 %. Pour obtenir les dernières informations, consultez [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/sql-database/).
+Pour **Azure SQL Database** et **Azure SQL Managed Instance**, Microsoft fournit un contrat SLA de disponibilité de 99,99 %. Pour obtenir les dernières informations, consultez [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 Pour **SQL sur des machines virtuelles Azure**, Microsoft fournit un contrat SLA de disponibilité de 99,95 % couvrant uniquement la machine virtuelle. Ce contrat SLA ne couvre pas les processus (comme SQL Server) exécutés sur la machine virtuelle et nécessite l’hébergement d’au moins deux instances de machine virtuelle dans un groupe à haute disponibilité. Pour plus d’informations, consultez le [contrat SLA de machine virtuelle](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pour obtenir une haute disponibilité de la base de données sur des machines virtuelles, vous devez configurer une des options de haute disponibilité prises en charge dans SQL Server, telle que les [groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). L’utilisation d’une option de haute disponibilité prise en charge ne fournit pas de SLA supplémentaire, mais vous pouvez atteindre une disponibilité de base de données > 99,99 %.
 

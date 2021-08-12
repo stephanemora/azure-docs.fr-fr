@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 04/28/2021
-ms.openlocfilehash: f37ef6f968542c1f8fc1ef2f328cd2a78c024852
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 813a49cbb2937da19dd0b71029cc172f632e7dab
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278137"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403766"
 ---
 Si vous développez pour des *appareils avec contraintes*, vous pouvez utiliser IoT Plug-and-Play avec :
 
@@ -24,7 +24,7 @@ La plupart des exemples ci-dessous nécessitent un appareil matériel spécifiqu
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Utiliser le kit de développement logiciel (SDK) pour Embedded C
 
-Le kit de développement logiciel (SDK) pour Embedded C offre une solution légère pour connecter des appareils limités aux services Azure IoT, y compris à l’aide des [conventions d’IoT Plug-and-Play](../articles/iot-pnp/concepts-convention.md). Les liens suivants incluent des exemples d’appareil basé sur une MCU, à titre éducatif et à des fins de débogage.
+Le kit de développement logiciel (SDK) pour Embedded C offre une solution légère pour connecter des appareils limités aux services Azure IoT, y compris à l’aide des [conventions d’IoT Plug-and-Play](../articles/iot-develop/concepts-convention.md). Les liens suivants incluent des exemples d’appareil basé sur une MCU, à titre éducatif et à des fins de débogage.
 
 ### <a name="use-an-mcu-based-device"></a>Utiliser un appareil basé sur une MCU
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3b64efab10a9d52209f04dfd43a43654eb55467a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ee721a56da41c4a5ff9184c6bc716784f858507d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706940"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112467632"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison
 
@@ -23,7 +23,7 @@ Ce didacticiel montre comment ajouter un domaine personnalisé à un point de te
 
 Le nom du point de terminaison dans votre profil CDN est un sous-domaine d’azureedge.net. Par défaut, lors de la distribution de contenu, le domaine du profil CDN est inclus dans l’URL.
 
-Par exemple : **https://contoso.azureedge.net/photo.png**.
+Par exemple : `https://contoso.azureedge.net/photo.png`.
 
 Azure CDN offre la possibilité d’associer un domaine personnalisé à un point de terminaison CDN. Cette option distribue le contenu avec un domaine personnalisé dans votre URL au lieu du domaine par défaut.
 
@@ -83,7 +83,7 @@ Pour ajouter un enregistrement d’alias pour votre point de terminaison Azure C
 
 4. Dans **Ajouter un jeu d’enregistrements**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom  | Entrez l’alias que vous souhaitez utiliser pour votre point de terminaison CDN. Par exemple, **www**. |
     | Type  | Sélectionnez **CNAME**. |

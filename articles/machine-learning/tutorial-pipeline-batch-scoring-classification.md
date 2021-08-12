@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 75e87e004190ebe86c983c5956105ec629dcc673
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0fee13de8a1af520564004f029fa616f5ebb1119
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772276"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459475"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots
 
@@ -36,7 +36,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 > * Créer, exécuter et publier un pipeline
 > * Activer un point de terminaison REST pour le pipeline
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
 ## <a name="prerequisites"></a>Prérequis
 

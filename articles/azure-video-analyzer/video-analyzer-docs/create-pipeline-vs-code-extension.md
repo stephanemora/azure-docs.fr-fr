@@ -3,13 +3,13 @@ title: Extension Visual Studio Code pour Azure Video Analyzer
 description: Ce guide de démarrage rapide vous guide tout au long des étapes de prise en main de l’extension Visual Studio Code pour Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/30/2021
-ms.openlocfilehash: bfbb73172cc137be5c8ed20333b2efc468ec8af1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: dd342d1aaf8cf93bfcf518342315ad022e52f4f9
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385915"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604022"
 ---
 # <a name="quickstart-azure-video-analyzer-visual-studio-code-extension"></a>Démarrage rapide : Extension Visual Studio Code pour Azure Video Analyzer
 

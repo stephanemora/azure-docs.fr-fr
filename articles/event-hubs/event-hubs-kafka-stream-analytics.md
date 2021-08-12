@@ -3,12 +3,12 @@ title: Azure Event Hubs - Traiter les événements Apache Kafka
 description: 'Tutoriel : Cet article décrit comment traiter les événements Kafka ingérés à travers des hubs d’événements à l’aide d’Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 05/10/2021
-ms.openlocfilehash: 449301effbbb8fb92a873bd90d95da4653bfd8a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0a14a4f8a4e82faebe232ac072ebe61e2db427b7
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373595"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286370"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutoriel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article montre comment diffuser en streaming des données dans Event Hubs et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
@@ -25,7 +25,7 @@ Vous n’avez pas besoin de changer vos clients de protocole ou d’exécuter vo
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 * Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Téléchargez](https://maven.apache.org/download.cgi) et [installez](https://maven.apache.org/install.html) une archive binaire Maven.
 * [Git](https://www.git-scm.com/)
 * Un **compte de stockage Azure**. Si vous n’en avez pas, [créez-en un](../storage/common/storage-account-create.md) avant de continuer. Le travail Stream Analytics dans cette procédure pas à pas stocke les données de sortie dans un stockage blob Azure. 

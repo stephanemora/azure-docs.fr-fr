@@ -4,12 +4,12 @@ description: Dans ce tutoriel, découvrez comment configurer l’intégration co
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: a969db374a5645f5920a5871c26619d36ae3f194
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 2f09472d52faa4fd9147fb3f660467218f3b032b
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413102"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983755"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutoriel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus (CI/CD) pour une application Java sur Service Fabric
 
@@ -40,12 +40,14 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les instructions suivantes indiquent comment le configurer en dehors d’un cluster à l’aide d’une image Docker fournie. Toutefois, un environnement de build Jenkins préconfiguré peut également être utilisé. L’image conteneur suivante est installée avec le plug-in Service Fabric, et est prête pour une utilisation immédiate avec Service Fabric.
 
-1. Extrayez l’image du conteneur Jenkins de Service Fabric : `docker pull mcr.microsoft.com/azuredocs/jenkins:v10`. Cette image est fournie avec le plug-in Jenkins de Service Fabric préinstallé.
+[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
+
+1. Extrayez l’image du conteneur Jenkins de Service Fabric : `docker pull rapatchi/jenkins:v10`. Cette image est fournie avec le plug-in Jenkins de Service Fabric préinstallé.
 
 1. Exécutez l’image conteneur avec l’emplacement où se trouvent vos certificats sur votre ordinateur local monté.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster mcr.microsoft.com/azuredocs/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Récupérez l’ID de l’instance d’image du conteneur. Vous pouvez répertorier tous les conteneurs Docker avec la commande ``docker ps –a``

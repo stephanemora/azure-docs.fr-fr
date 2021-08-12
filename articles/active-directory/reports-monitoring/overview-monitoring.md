@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e9787b18932b83526dd410aec8024066d312978
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577775"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729504"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>En quoi consiste la surveillance d’Azure Active Directory ?
 
@@ -44,7 +44,7 @@ Actuellement, vous pouvez acheminer les journaux d’activité vers :
 
 Vous avez besoin d’une licence Azure AD Premium pour accéder aux journaux de connexion Azure AD.
 
-Pour obtenir des informations détaillées sur les fonctionnalités et les licences, consultez le [guide des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Pour obtenir des informations détaillées sur les fonctionnalités et les licences, consultez le [guide des tarifs Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Pour déployer les fonctionnalités de supervision et de création de rapports Azure AD, vous avez besoin d’un utilisateur qui dispose du rôle d’administrateur général ou d’administrateur de la sécurité sur le locataire Azure AD.
 

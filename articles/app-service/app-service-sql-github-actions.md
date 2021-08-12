@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/22/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 5f27a0cbfedd9b5021be2aa54ab5fb021b48d0b2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f8048dab26451fea85b52caa3ffdc27d7e0a677a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103208"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894143"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-for-containers-and-connect-to-a-database"></a>Tutoriel : Utiliser GitHub Actions pour effectuer un déploiement sur App Service pour conteneurs et se connecter à une base de données
 
-Ce tutoriel vous guidera tout au long du processus de configuration d'un workflow GitHub Actions visant à déployer une application ASP.NET Core conteneurisée avec un back-end [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) . Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database. Vous allez d'abord créer des ressources Azure à l'aide d'un workflow GitHub Actions de [modèle ARM](/azure/azure-resource-manager/templates/overview).
+Ce tutoriel vous guidera tout au long du processus de configuration d'un workflow GitHub Actions visant à déployer une application ASP.NET Core conteneurisée avec un back-end [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) . Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database. Vous allez d'abord créer des ressources Azure à l'aide d'un workflow GitHub Actions de [modèle ARM](../azure-resource-manager/templates/overview.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -85,7 +85,7 @@ Dans votre référentiel, créez un secret pour `SQL_SERVER_ADMIN_PASSWORD`. Il 
 
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
 
-Le workflow de création de ressources Azure exécute un [modèle ARM](/azure/azure-resource-manager/templates/overview) pour déployer les ressources vers Azure. Le workflow :
+Le workflow de création de ressources Azure exécute un [modèle ARM](../azure-resource-manager/templates/overview.md) pour déployer les ressources vers Azure. Le workflow :
 
 - extrait le code source à l'aide de l'[action d'extraction](https://github.com/marketplace/actions/checkout) ;
 - se connecte à Azure à l'aide de l'[action de connexion à Azure](https://github.com/marketplace/actions/azure-login) et recueille des informations sur l'environnement et les ressources Azure ;
@@ -119,7 +119,7 @@ Pour exécuter le workflow de création de ressources Azure :
 
 ## <a name="build-push-and-deploy-your-image"></a>Créer, envoyer et déployer votre image
 
-Le workflow de création, d'envoi et de déploiement génère un conteneur qui intègre les dernières modifications apportées à l'application, envoie le conteneur à [Azure Container Registry](/azure/container-registry/) et met à jour l'emplacement de préproduction de l'application web pour qu'il pointe vers le dernier conteneur envoyé. Le workflow contient un travail de création et de déploiement :
+Le workflow de création, d'envoi et de déploiement génère un conteneur qui intègre les dernières modifications apportées à l'application, envoie le conteneur à [Azure Container Registry](../container-registry/index.yml) et met à jour l'emplacement de préproduction de l'application web pour qu'il pointe vers le dernier conteneur envoyé. Le workflow contient un travail de création et de déploiement :
 
 - Le travail de création extrait le code source à l'aide de l'[action d'extraction](https://github.com/marketplace/actions/checkout). Le travail utilise ensuite l'[action de connexion à Docker](https://github.com/marketplace/actions/docker-login) et un script personnalisé pour s'authentifier auprès d'Azure Container Registry, générer une image conteneur et la déployer sur Azure Container Registry.
 - Le travail de déploiement se connecte à Azure à l'aide de l'[action de connexion à Azure](https://github.com/marketplace/actions/azure-login) et recueille des informations sur l'environnement et les ressources Azure. Le travail procède ensuite à la mise à jour des paramètres de l'application web à l'aide de l'[action des paramètres Azure App Service](https://github.com/marketplace/actions/azure-app-service-settings), et lance le déploiement sur un emplacement de préproduction App Service à l'aide de l'[action Azure Web Deploy](https://github.com/marketplace/actions/azure-webapp). Enfin, le travail exécute un script personnalisé pour mettre à jour la base de données SQL et bascule l'emplacement de préproduction vers la production.
