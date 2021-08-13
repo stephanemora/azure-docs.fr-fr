@@ -6,15 +6,15 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: cawrites
+ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 6aa6537cefb110662f9fbc535832d8c9423a6f68
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ec117b8f341546deb48510d9b27a43b731d03742
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136586"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970711"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guide de migration : MySQL vers Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -166,6 +166,7 @@ Pour plus d’informations sur l’exécution de ce scénario de migration, cons
 | Titre | Description |
 | --- | --- |
 | [Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
+|[MySQL vers SQL DB – Utilitaire Comparer les bases de données](https://www.microsoft.com/download/details.aspx?id=103016)|L’utilitaire Comparer les bases de données est une application console Windows permettant de vérifier que les données sont identiques sur les plateformes source et cible. Vous pouvez utiliser cet outil pour comparer efficacement les données jusqu’au niveau de la ligne ou de la colonne sur toutes les tables, lignes et colonnes, ou une partie d’entre elles.|
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 

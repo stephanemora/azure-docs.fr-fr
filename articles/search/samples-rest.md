@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: a7ab48759ac775c1195dedb4143d895bdcdec937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a903b63ad1da2dbb029fdbeba1106d3090ba3ef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98956434"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554819"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Exemples de code Java pour Recherche cognitive Azure
 

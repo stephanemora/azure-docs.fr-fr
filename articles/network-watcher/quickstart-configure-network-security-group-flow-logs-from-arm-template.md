@@ -8,12 +8,12 @@ ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
 ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
-ms.openlocfilehash: 9d541294ff20047f9041b58b3ce971c76adb6737
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 953e61febcd965786f2a53f2769c1d52c85f83a3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982679"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452671"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Démarrage rapide : Configurer les journaux de flux de groupe de sécurité réseau au moyen d’un modèle ARM
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle que nous utilisons dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create).
+Le modèle que nous utilisons dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/azuredeploy.json":::
 

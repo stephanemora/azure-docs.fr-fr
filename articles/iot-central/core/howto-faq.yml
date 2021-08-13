@@ -1,0 +1,52 @@
+### YamlMime:FAQ
+metadata:
+  title: "Foire aux questions Azure IoT Central | Microsoft\_Docs"
+  description: Foire aux questions (FAQ) Azure IoT Central et réponses
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 12/20/2020
+  ms.topic: how-to
+  ms.service: iot-central
+  services: iot-central
+title: Foire aux questions pour IoT Central
+summary: ''
+sections:
+  - name: Ignoré
+    questions:
+      - question: "Comment obtenir des informations sur mon application\_?\n"
+        answer: "Vous aurez besoin de\_:\n\n- Ces informations si vous contactez le support technique.\n- L’abonnement Azure que votre application utilise pour localiser les informations de facturation dans le Portail Azure.\n- L’ID de l’application lorsque vous utilisez l’API REST.\n- La version de l’application pour effectuer des tâches telles que l’ajout d’un connecteur.\n\nObtenir des informations sur votre application IoT Central\_:\n\n1. Sélectionnez le lien **Aide** dans le menu du haut.\n\n1. Sélectionnez **À propos de votre application**.\n\n1. La page **À propos de votre application** affiche des informations sur votre application\_:  \n\n    :::image type=\"content\" source=\"media/howto-faq/about-your-app2.png\" alt-text=\"À propos de la capture d’écran de votre application\":::\n\n    Utilisez le bouton **Copier les informations** pour copier les informations de la grille dans le presse-papiers.\n"
+      - question: "Combien d’applications IoT Central puis-je déployer dans mon abonnement\_?\n"
+        answer: "Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étendue de votre solution IoT. IoT Central limite actuellement à\_10 le nombre d’applications que vous pouvez déployer dans un abonnement. Pour augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).\n"
+      - question: "Comment transférer un appareil d’IoT Hub à IoT Central\_?\n"
+        answer: "Un appareil peut se connecter directement à un hub IoT en utilisant une chaîne de connexion ou le [service Device Provisioning (DPS)](../../iot-dps/about-iot-dps.md). IoT Central utilise toujours DPS.\n\nPour connecter un appareil qui a été connecté à IoT Hub à IoT Central, mettez à jour l’appareil avec\_:\n\n- L’ID d’étendue de l'application IoT Central.\n- Une clé dérivée de la clé SAS du groupe ou du certificat\_X. 509 de l’application.\n\nPour plus d’informations, consultez [Se connecter à Azure IoT Central](concepts-get-connected.md).\n\nPour interagir avec IoT Central, un modèle d’appareil doit modéliser les fonctionnalités de l’appareil. Pour plus d’informations, consultez [Que sont les modèles d’appareil\_?](concepts-device-templates.md).\n"
+      - question: "Comment vérifier les problèmes d’informations d’identification si un appareil ne se connecte pas à mon application IoT Central\_?\n"
+        answer: |
+          L’article [Déterminer la raison pour laquelle les données de vos appareils ne s’affichent pas dans Azure IoT Central](troubleshoot-connection.md) comprend des étapes pour diagnostiquer les problèmes de connectivité des appareils.
+      - question: "Comment soumettre un ticket auprès du support technique\_?\n"
+        answer: |
+          Si vous avez besoin d’aide, vous pouvez soumettre un [ticket de support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+          Pour plus d’informations, notamment sur les autres options de support, consultez [Options d’aide et de support Azure IoT](../../iot-fundamentals/iot-support-help.md).
+      - question: "Comment débloquer un appareil\_?\n"
+        answer: "Quand un appareil est bloqué, il ne peut pas envoyer de données à votre application IoT Central. L’état des appareils bloqués est **Bloqué** sur la page **Appareils** de votre application. Un opérateur doit débloquer l’appareil avant que ce dernier puisse recommencer à envoyer des données\_:\n\n:::image type=\"content\" source=\"media/howto-faq/blocked.png\" alt-text=\"Capture d’écran montrant un appareil bloqué\":::\n\nQuand un opérateur débloque un appareil, l’état revient à sa valeur précédente, à savoir **Inscrit** ou **Approvisionné**.\n"
+      - question: "Comment passer d’un plan tarifaire gratuit à un plan tarifaire standard\_?\n"
+        answer: "- Les applications qui utilisent le plan Gratuit sont gratuites pendant sept\_jours, puis elles expirent. Pour éviter de perdre vos données, vous pouvez les déplacer vers un plan tarifaire Standard avant leur expiration.\n- Les applications qui utilisent un plan tarifaire Standard sont facturées par appareil. Cependant, chaque application est gratuite pour les deux premiers appareils qui l’utilisent.\n\nApprenez-en davantage au sujet de la tarification sur la [page de tarification d’Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).\n\nDans la section des tarifs, vous pouvez faire passer votre application du plan tarifaire Gratuit au plan Standard.\n\nPour mener à bien ce processus en libre-service, effectuez ces étapes\_:\n\n1. Accédez à la page **Tarifs** de la section **Administration**.\n\n1. Sélectionner le **plan**\n\n    :::image type=\"content\" source=\"media/howto-faq/free-trial-billing.png\" alt-text=\"État de la version d'évaluation\":::\n\n1. Sélectionnez le service Azure Active Directory approprié, ainsi que l’abonnement Azure à utiliser pour l’application associée au plan payant.\n\n1. Lorsque vous sélectionnez **Enregistrer**, votre application devient payante et son utilisation vous est donc facturée.\n\n> [!Note]\n> Par défaut, vous passez à un plan tarifaire *Standard\_2*.\n"
+      - question: |
+          Comment changer le plan tarifaire de mon application
+        answer: "Les applications qui utilisent un plan tarifaire Standard sont facturées par appareil. Cependant, chaque application est gratuite pour les deux premiers appareils qui l’utilisent.\n\nDans la section des tarifs, vous pouvez passer à un niveau tarifaire Azure\_IoT inférieur ou supérieur à celui dont vous disposez actuellement.\n\n1. Accédez à la page **Tarifs** de la section **Administration**.\n\n    :::image type=\"content\" source=\"media/howto-faq/pricing.png\" alt-text=\"Mettre à niveau le plan tarifaire\":::\n\n1. Sélectionnez le **Plan**, puis sélectionnez **Enregistrer** pour passer à un niveau tarifaire supérieur ou inférieur.\n"
+      - question: "Comment approuver un appareil\_?\n"
+        answer: "Si l’état de l’appareil est **En attente d’approbation** sur la page **Appareils**, cela signifie que l’option **Approbation automatique** est désactivée\_:\n\n:::image type=\"content\" source=\"media/howto-faq/auto-approve.png\" alt-text=\"Capture d’écran montrant une application avec l’option d’approbation automatique désactivée.\":::\n\nUn opérateur doit approuver explicitement un appareil avant qu’il ne commence à envoyer des données. Les appareils non enregistrés manuellement sur la page **Appareils**, mais connectés avec des informations d'identification valides afficheront l’état **En attente d'approbation**. Les opérateurs peuvent approuver ces appareils sur la page **Appareils** en utilisant le bouton **Approuver**\_:\n\n:::image type=\"content\" source=\"media/howto-faq/approve-device.png\" alt-text=\"Capture d’écran montrant comment approuver un appareil\":::\n"
+      - question: "Comment associer un appareil à un modèle d’appareil\_?\n"
+        answer: "Si l’état de l’appareil est **Non associé**, cela signifie que les appareils se connectant à IoT\_Central n’ont pas de modèle d’appareil associé. C’est généralement le cas dans les scénarios suivants\_:\n\n- Un ensemble d’appareils est ajouté en utilisant **Importer** sur la page **Appareils**, sans spécifier le modèle d’appareil.\n- Un appareil a été inscrit manuellement sur la page **Appareils** sans spécifier le modèle d’appareil. L’appareil est alors connecté avec des informations d’identification valides.  \n\nL’opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer**. Pour plus d’informations, consultez [Gérer les appareils dans votre application Azure IoT Central\_> Migration d’appareils vers un modèle](howto-manage-devices-individually.md).\n"
+      - question: "Où puis-je en savoir plus sur IoT Hub\_?\n"
+        answer: |
+          Azure IoT Central utilise Azure IoT Hub comme passerelle cloud pour la connectivité des appareils. IoT Hub permet :
+
+          - L’ingestion de données à grande échelle dans le cloud.
+          - La gestion des appareils.
+          - La connectivité sécurisée des appareils.
+
+          Pour plus d’informations sur IoT Hub, consultez [Azure IoT Hub](../../iot-hub/index.yml).
+      - question: "Où puis-je en savoir plus sur le service Device Provisioning (DPS)\_?\n"
+        answer: |
+          Azure IoT Central utilise DPS pour permettre aux appareils de se connecter à votre application. Pour en savoir plus sur le rôle de DPS dans la connexion des appareils à IoT Central, consultez [Se connecter à Azure IoT Central](concepts-get-connected.md). Pour en savoir plus sur DPS, consultez [Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning](../../iot-dps/about-iot-dps.md).

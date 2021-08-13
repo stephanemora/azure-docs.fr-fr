@@ -8,25 +8,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67e77c2dd08386279beeb06ff9081fa2669afa73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
+ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102487832"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111352747"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assigner des rôles d’administrateur personnalisés à l’aide de l’API Microsoft Graph dans Azure Active Directory 
 
 Vous pouvez automatiser la manière dont vous attribuez des rôles aux comptes d’utilisateur à l’aide de l’API Microsoft Graph. Cet article traite des opérations de PUBLICATION, d’OBTENTION et de SUPPRESSION sur roleAssignments.
 
-## <a name="required-permissions"></a>Autorisations requises
+## <a name="prerequisites"></a>Prérequis
 
-Connectez-vous à votre organisation Azure AD à l’aide d’un compte Administrateur général ou Administrateur de rôle privilégié pour attribuer ou supprimer des rôles.
+- Licence Azure AD Premium P1 ou P2
+- Administrateur de rôle privilégié ou Administrateur général
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
+
+Pour plus d'informations, consultez [Prérequis pour utiliser PowerShell ou de l'Afficheur Graph](prerequisites.md).
 
 ## <a name="post-operations-on-roleassignment"></a>Opérations de PUBLICATION sur RoleAssignment
 
@@ -305,5 +309,5 @@ Nous empêchons les utilisateurs de supprimer leur propre rôle d’administrate
 ## <a name="next-steps"></a>Étapes suivantes
 
 * N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* Pour plus d’informations sur les rôles et l’attribution de rôle d’administrateur, consultez [Attribuer des rôles d’administrateur](permissions-reference.md)
-* Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](../fundamentals/users-default-permissions.md)
+* Pour plus d'informations sur les autorisations associées aux rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md)
+* Pour plus d'informations sur les autorisations utilisateur par défaut, consultez la [comparaison des autorisations par défaut d'un utilisateur invité et d'un membre](../fundamentals/users-default-permissions.md).

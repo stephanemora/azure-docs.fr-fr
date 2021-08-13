@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4761550c3d08b66fc949c9b6e2950dc08278eea8
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718061"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592229"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -22,7 +22,7 @@ Nous aimerions beaucoup avoir votre avis, envoyez vos commentaires à <azurealer
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Quand et pourquoi l’utilisation d’un type de condition dynamique est-elle recommandée ?
 
-1. **Génération d’alertes évolutive** : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement.  [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](./alerts-metric-create-templates.md).
+1. **Génération d’alertes évolutive** : les règles d’alerte de seuil dynamique peuvent créer des seuils adaptés à des centaines de séries de métriques à la fois, tout en offrant quand même la même facilité de définition d’une règle d’alerte sur une seule métrique. Elles vous donnent moins d’alertes à créer et à gérer. Vous pouvez utiliser le portail Azure ou l’API Azure Resource Manager pour les créer. L’approche évolutive s’avère particulièrement utile lorsque vous traitez des dimensions de métrique ou plusieurs ressources, comme toutes les ressources d’abonnement. [Découvrez comment configurer des alertes de métrique avec des seuils dynamiques à l’aide de modèles](./alerts-metric-create-templates.md).
 
 1. **Reconnaissance intelligente des modèles de métriques** : avec notre technologie de machine learning, nous sommes en mesure de détecter automatiquement des modèles de métriques pour nous adapter à leur évolution au fil du temps, ce qui peut souvent inclure leur saisonnalité (toutes les heures/tous les jours/toutes les semaines). L’adaptation au comportement des métriques au fil du temps et les alertes émises selon les écarts par rapport à un modèle permettent de ne pas avoir à connaître le « bon » seuil de chaque métrique. L’algorithme ML utilisé dans les seuils dynamiques est conçu pour empêcher les seuils bruyants (faible précision) ou larges (faible rappel) qui n’ont pas de modèle attendu.
 

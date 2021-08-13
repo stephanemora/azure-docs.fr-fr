@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2d3c7026fd221b1a17b8efe56b03b2a26358c7ab
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 09fa626e77e20feff55f7b17807754ac1d2b873f
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364382"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568843"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc Java : Télécharger des informations
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "107364382"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -49,6 +49,26 @@ ms.locfileid: "107364382"
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="2123"></a><a name="2.12.3"></a>2.12.3
+
+* Corriger la stratégie de nouvelle tentative quand `GoneException` est inclus dans `IllegalStateException` : cette modification est nécessaire pour s’assurer que le cache de la passerelle est actualisé sur 410 afin que le connecteur Spark (pour Spark 2,4) puisse utiliser une stratégie de nouvelle tentative personnalisée pour permettre aux requêtes de réussir pendant les fractionnements de partition
+
+### <a name="2122"></a><a name="2.12.2"></a>2.12.2
+
+* Résolution d’un problème entraînant la non-importation des documents sur des erreurs temporaires.
+
+### <a name="2121"></a><a name="2.12.1"></a>2.12.1
+
+* Mettez à niveau pour utiliser la dernière version du kit de développement logiciel Cosmos Core.
+
+### <a name="2120"></a><a name="2.12.0"></a>2.12.0
+
+* Améliorez la gestion du budget RU fourni par le connecteur Spark pour l’opération en bloc. Une importation en bloc unique initiale est effectuée à partir du connecteur Spark avec un baseBatchSize, et la consommation de RU pour l’importation par lot ci-dessus est collectée.
+  Un miniBatchSizeAdjustmentFactor est calculé en fonction de la consommation RU ci-dessus, et la taille du mini-lot est ajustée en fonction de cette valeur. En fonction du temps écoulé et du RU consommé pour chaque importation par lot, une durée de veille est calculée pour limiter la consommation de RU par seconde et est utilisée pour suspendre le thread avant l’importation par lot suivante.
+
+### <a name="2110"></a><a name="2.11.0"></a>2.11.0
+
+* Corriger un bogue empêchant les mises à jour en bloc lors de l’utilisation d’une clé de partition imbriquée
 
 ### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a18c9e0dc8f7d6f78985b626fa36c84fe15876c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554970"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "114292861"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail Azure
 
@@ -130,6 +130,8 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
 5. Sélectionnez **Revoir + créer**. 
   
 6. Passez en revue les paramètres, puis sélectionnez **Créer**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="create-an-azure-sql-server-and-private-endpoint"></a><a name ="create-a-private-endpoint"></a>Créer un serveur SQL Azure et un point de terminaison privé
 

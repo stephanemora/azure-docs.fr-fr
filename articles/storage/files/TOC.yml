@@ -179,8 +179,6 @@
               href: storage-files-migration-nas-cloud-databox.md
         - name: Cibler un déploiement hybride
           items:
-            - name: Migrer des données en bloc vers Azure File Sync avec Azure Data Box
-              href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Effectuer la migration d’un serveur Linux vers un serveur de fichiers hybride avec Azure File Sync
               href: storage-files-migration-linux-hybrid.md
             - name: "Migrer d’un serveur NAS local vers un serveur de fichiers hybride avec Azure File\_Sync"

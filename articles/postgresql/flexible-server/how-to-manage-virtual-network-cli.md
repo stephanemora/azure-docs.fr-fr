@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 0a4bf648551be723007b0d8856fe0857896aad94
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: f00a1c8f8901d16a0aefa376f145fd2a4cbf2cf5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778388"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952412"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Créer et gérer des réseaux virtuels pour le serveur flexible Azure Database pour PostgreSQL à l'aide du portail d’Azure CLI
 
@@ -72,11 +72,17 @@ Reportez-vous à la documentation de référence sur l’interface de ligne de c
     > [!Note]
     > Le réseau virtuel et le sous-réseau doivent se trouver dans la même région et le même abonnement que votre serveur flexible.
 
+    > [!IMPORTANT]
+    > Les noms comportant `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` et `GatewaySubnet` sont des noms réservés dans Azure. Veuillez ne pas les utiliser comme nom de sous-réseau.
+
 - Créez un serveur flexible à l’aide d’un nouveau réseau virtuel et d’un nouveau sous-réseau avec un préfixe d’adresse autre que le préfixe par défaut.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
 Pour obtenir la liste complète des paramètres CLI configurables, reportez-vous à la [documentation de référence](/cli/azure/postgres/flexible-server) d’Azure CLI.
+
+>[!Important]
+> Si vous recevez une erreur `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, cela signifie que vous utilisez peut-être une version antérieure d’Azure CLI. [Mettez à niveau Azure CLI](/cli/azure/update-azure-cli) et réessayez l’opération.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur la [mise en réseau dans le serveur flexible Azure Database pour PostgreSQL](./concepts-networking.md).

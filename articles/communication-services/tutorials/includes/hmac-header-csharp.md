@@ -5,15 +5,15 @@ author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19a031c58219f7369a2969599b13337de238e4c6
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490504"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107400"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,14 +28,14 @@ Avant de commencer, assurez-vous de :
 L’authentification par clé d’accès utilise une clé secrète partagée afin de générer une signature HMAC pour chaque requête HTTP. Cette signature est générée avec l’algorithme SHA256 et est envoyée dans l’en-tête `Authorization` à l’aide du schéma `HMAC-SHA256`. Par exemple :
 
 ```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
+Authorization: "HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
 La signature `hmac-sha256-signature` est constituée des éléments suivants :
 
 - Verbe HTTP (par exemple `GET` ou `PUT`)
 - Un chemin de requête HTTP
-- Date
+- x-ms-date
 - Host
 - x-ms-content-sha256
 
@@ -167,7 +167,7 @@ var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authori
 //Compute the signature.
 var signature = ComputeSignature(stringToSign);
 //Concatenate the string, which will be used in the authorization header.
-var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
+var authorizationHeader = $"HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
 ## <a name="add-headers-to-requestmessage"></a>Ajouter des en-têtes à requestMessage
@@ -178,7 +178,7 @@ Utilisez le code suivant pour ajouter les en-têtes obligatoires à votre `reque
 //Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
 //Add a date header.
-requestMessage.Headers.Add("Date", date);
+requestMessage.Headers.Add("x-ms-date", date);
 //Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```

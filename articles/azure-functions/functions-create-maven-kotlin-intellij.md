@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: f02643ee28d76d4f90206a1aa2879b4672da2a38
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2ec995334069dc707c8eb09fae3601f58c6c549
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179443"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287255"
 ---
 # <a name="create-your-first-kotlin-function-in-azure-using-intellij"></a>Créer votre première fonction Kotlin dans Azure avec IntelliJ
 
@@ -23,7 +23,7 @@ Cet article vous montre comment créer une fonction Java déclenchée par HTTP d
 
 Pour créer et publier des fonctions Kotlin sur Azure avec IntelliJ, installez les logiciels suivants :
 
-- [Kit de développeur Java](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK), version 8
+- [Kit de développeur Java](/azure/developer/java/fundamentals/java-support-on-azure) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 ou ultérieure
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versions Community ou Ultimate avec Maven
 - [Azure CLI](/cli/azure)

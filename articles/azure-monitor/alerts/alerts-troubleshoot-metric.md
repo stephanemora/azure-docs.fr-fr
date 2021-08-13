@@ -4,13 +4,13 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 04/12/2021
-ms.openlocfilehash: fc9af94b07add5728201baaa8fa6992728a60a8c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/03/2021
+ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786006"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412897"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -62,7 +62,10 @@ Si vous pensez que votre alerte de métrique a été déclenchée à tort, la pr
     - La valeur d'**Agrégation** sélectionnée dans le graphique de métriques est identique à la valeur de **Type d'agrégation** de votre règle d'alerte
     - La valeur de **Granularité temporelle** sélectionnée est identique à la valeur de **Granularité d'agrégation (période)** de votre règle d'alerte (et qu'elle n'est pas définie sur « Automatique »)
 
-5. Si la règle d'alerte a été déclenchée alors que d'autres alertes ont déjà été déclenchées pour superviser les mêmes critères (qui ne sont pas résolus), vérifiez si la règle d'alerte a été configurée avec la propriété *autoMitigate* définie sur **false** (cette propriété ne peut être configurée que par le biais de REST/PowerShell/CLI ; par conséquent, vérifiez le script utilisé pour déployer la règle d'alerte). Dans ce cas, la règle d'alerte ne résout pas automatiquement les alertes déclenchées, et n'exige pas la résolution d'une alerte déclenchée avant un nouveau déclenchement.
+5. Si l’alerte se déclenche alors que d'autres alertes (non résolues) surveillant les mêmes critères se sont déjà déclenchées, vérifiez si la règle d'alerte a été configurée pour ne pas résoudre les alertes automatiquement. Une telle configuration a pour effet que la règle d’alerte devient sans état, ce qui signifie qu’elle ne résout pas automatiquement les alertes déclenchées et n’exige pas qu’une alerte déclenchée soit résolue avant de se déclencher à nouveau sur la même série chronologique.
+    Vous pouvez vérifier si la règle d’alerte est configurée pour ne pas résoudre les alertes automatiquement de l’une des manières suivantes :
+    - En modifiant la règle d’alerte dans le portail Azure et en vérifiant que la case à cocher « Résoudre automatiquement les alertes » est désactivée (dans la section « Détails des règles d’alerte »).
+    - En examinant le script utilisé pour déployer la règle d’alerte, ou en extrayant la définition de la règle d’alerte et en vérifiant si la propriété *AutoMitigate* est définie sur **false**.
 
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Impossible de trouver la métrique sur laquelle porte l’alerte – métriques d’invités de machines virtuelles
@@ -107,7 +110,9 @@ Lors de la suppression d’une ressource Azure, les règles d’alerte de métri
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Générer des alertes de métrique chaque fois que ma condition est remplie
 
-Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d'alerte de métrique spécifique sans état et être alerté chaque fois qu'une évaluation établit que la condition d'alerte est remplie, créez la règle d'alerte par programmation (par exemple via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)) et définissez la propriété *autoMitigate* sur « False ».
+Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d’alerte de métrique spécifique et recevoir une alerte pour chaque évaluation dans laquelle la condition d’alerte est remplie, procédez de l’une des façons suivantes :
+- Si vous créez la règle d’alerte par programme (par exemple, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), affectez la valeur « false » à la propriété *AutoMitigate*.
+- Si vous créez la règle d’alerte via le portail Azure, désactivez l’option « Résoudre automatiquement les alertes » (disponible dans la section « Détails des règles d’alerte »).
 
 > [!NOTE] 
 > La création d'une règle d'alerte de métrique sans état empêche la résolution des alertes déclenchées. Par conséquent, même si la condition n'est plus remplie, les alertes restent déclenchées jusqu'à la fin de la période de rétention de 30 jours.
@@ -239,6 +244,7 @@ Tenez compte des restrictions suivantes pour les noms de règle d’alerte d’i
 - Les noms de règles d’alerte des indicateurs de performance doivent être uniques au sein d’un groupe de ressources
 - Les noms de règle d’alerte des indicateurs de performance ne peuvent pas contenir les caractères suivants : * # & + : < > ? @ % { } \ / 
 - Les noms de règle d’alerte ne peuvent pas se terminer par un espace ni par un point
+- Le nom du groupe de ressources et le nom de la règle d’alerte combinés ne peuvent pas dépasser 252 caractères
 
 > [!NOTE] 
 > Si le nom de la règle d’alerte contient des caractères qui ne sont ni alphabétiques ni numériques (par exemple des espaces, des signes de ponctuation ou des symboles), ces caractères peuvent être encodés dans l’URL quand ils sont récupérés par certains clients.

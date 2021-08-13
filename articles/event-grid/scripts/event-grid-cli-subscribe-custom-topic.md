@@ -3,14 +3,14 @@ title: Exemple de script Azure CLI - S’abonner à une rubrique personnalisée 
 description: Cet article fournit un exemple de script Azure CLI qui montre comment s’abonner à des événements Event Grid pour une rubrique personnalisée.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/22/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eaec3521c90a0fb6425f5b68425ef608ae6db3c5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f192abd9c484b85a4b1f96f272e380da2e4df1d3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871306"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474087"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>S’inscrire aux événements d’une rubrique personnalisée avec Azure CLI
 

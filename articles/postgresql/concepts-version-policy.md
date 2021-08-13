@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 05/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f4cf4c0109d524d0a8fe62ae1930165173db170
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100518417"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407054"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Stratégie de contrôle de version Azure Database pour PostgreSQL
 
@@ -22,13 +22,16 @@ Cette page décrit la stratégie de contrôle de version d’Azure Database pour
 
 Azure Database pour PostgreSQL prend en charge les versions de base de données suivantes.
 
-| Version | Serveur unique | Serveur flexible (préversion) |
-| ----- | :------: | :----: |
-| PostgreSQL 12 |  | X  | 
-| PostgreSQL 11 | X | X |
-| PostgreSQL 10 | X |  |
-| PostgreSQL 9.6 | X |  |
-| *PostgreSQL 9.5 (retiré)* | X |  |
+| Version | Serveur unique | Serveur flexible (préversion) | Hyperscale (Citus) |
+| ----- | :------: | :----: | :----: |
+| PostgreSQL 13 |  | X  | X\* |
+| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 11 | X | X | X |
+| PostgreSQL 10 | X |  |  |
+| PostgreSQL 9.6 | X |  |  |
+| *PostgreSQL 9.5 (retiré)* | X |  |  |
+
+(\* PostgreSQL 12 et 13 sont disponibles en tant que fonctionnalité d’évaluation dans Hyperscale (Citus).)
 
 ## <a name="major-version-support"></a>Prise en charge de la version principale
 Chaque version principale de PostgreSQL est prise en charge par Azure Database pour PostgreSQL à partir de la date du début de la prise en charge de la version par Azure et jusqu’à ce que la version soit supprimée par la communauté PostgreSQL, comme indiqué dans la [stratégie de contrôle de version de la communauté PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -46,6 +49,7 @@ Le tableau ci-dessous fournit les détails relatifs au retrait des versions prin
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Caractéristiques](https://wiki.postgresql.org/wiki/New_in_postgres_10) | 4 juin 2018  | 10 novembre 2022
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Caractéristiques](https://www.postgresql.org/docs/11/release-11.html) | 24 juillet 2019  | 9 novembre 2023
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Caractéristiques](https://www.postgresql.org/docs/12/release-12.html) | 22 septembre 2020  | 14 novembre 2024
+| [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Caractéristiques](https://www.postgresql.org/docs/13/release-13.html) | 25 mai 2021   | 13 novembre 2025
 
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versions de moteur PostgreSQL supprimées non prises en charge dans Azure Database pour PostgreSQL
 

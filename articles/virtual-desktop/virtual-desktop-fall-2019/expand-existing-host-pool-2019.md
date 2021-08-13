@@ -1,22 +1,22 @@
 ---
-title: Développer un pool d’hôtes Windows Virtual Desktop (classique) existant avec de nouveaux hôtes de session - Azure
-description: Comment développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique).
+title: Développement d’un pool d’hôtes Azure Virtual Desktop (classique) existant avec de nouveaux hôtes de session – Azure
+description: Guide pratique pour développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Azure Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e459737db621dfb55b5534e60989437b293e57a9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551949"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745076"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-azure-virtual-desktop-classic"></a>Développement d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Windows Virtual Desktop (classique), qui ne prend pas en charge les objets Windows Virtual Desktop Azure Resource Manager. Si vous essayez de gérer des objets Windows Virtual Desktop Azure Resource Manager, consultez [cet article](../expand-existing-host-pool.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../expand-existing-host-pool.md).
 
 À mesure que vous intensifiez l’utilisation au sein de votre pool d’hôtes, il se peut que vous deviez développer votre pool d’hôtes existant avec de nouveaux hôtes de session pour gérer la nouvelle charge.
 
@@ -33,7 +33,7 @@ Avant de commencer, assurez-vous que vous avez créé un pool d’hôtes et des 
 Vous aurez également besoin des informations suivantes recueillies lors de la création initiale du pool d’hôtes et des machines virtuelles hôtes de session :
 
 - Taille de machine virtuelle, image et préfixe de nom
-- Jonction de domaine et informations d’identification d’administrateur client de Windows Virtual Desktop
+- Jonction de domaine et informations d’identification d’administrateur des locataires Azure Virtual Desktop
 - Nom du réseau virtuel et nom du sous-réseau
 
 Les trois sections suivantes sont trois méthodes que vous pouvez utiliser pour développer le pool d’hôtes. Vous pouvez vous servir de l’outil de déploiement avec lequel êtes les plus à l’aise.
@@ -83,7 +83,7 @@ Toutes les valeurs dans cette section doivent correspondre à celles que vous av
 3.    Pour *Région*, sélectionnez la région dans laquelle se trouvent les machines virtuelles hôtes de session du pool d’hôtes existant.
 4.    Pour *Nom du pool d’hôtes*, entrez le nom du pool d’hôtes existant.
 5.    Pour *Type de bureau*, sélectionnez le type de bureau correspondant au pool d’hôtes existant.
-6.    Pour *Utilisateurs de bureau par défaut*, entrez une liste séparée par des virgules des utilisateurs supplémentaires dont vous voulez qu’il se connectent aux clients Windows Virtual Desktop et accèdent à un ordinateur de bureau une fois l’offre de la Place de marché Microsoft Azure terminée. Par exemple, si vous voulez accorder l’accès à user3@contoso.com et user4@contoso.com, entrez user3@contoso.com,user4@contoso.com.
+6.    Pour *Utilisateurs de bureau par défaut*, entrez la liste séparée par des virgules des utilisateurs supplémentaires dont vous voulez qu’il se connectent aux clients Azure Virtual Desktop et accèdent à un ordinateur de bureau une fois l’offre de la Place de marché Microsoft Azure terminée. Par exemple, si vous voulez accorder l’accès à user3@contoso.com et user4@contoso.com, entrez user3@contoso.com,user4@contoso.com.
 7.    Sélectionnez **Suivant : Configurer la machine virtuelle**.
 
 >[!NOTE]
@@ -109,14 +109,14 @@ Toutes les valeurs de paramètre dans cette section doivent correspondre à cell
 1. Pour les paramètres *Source d’image* et *Version du système d’exploitation de l’image*, entrez les informations que vous avez fournies lors de la création initiale du pool d’hôtes.
 2. Pour *UPN de jonction de domaine Active Directory* et les mots de passe associés, entrez les informations que vous avez fournies lors de la création initiale du pool d’hôtes pour joindre les machines virtuelles au domaine Active Directory. Ces informations d’identification seront utilisées pour créer un compte local sur vos machines virtuelles. Vous pouvez réinitialiser ces comptes locaux pour modifier leurs informations d’identification ultérieurement.
 3. Pour les informations sur le réseau virtuel, sélectionnez les mêmes réseau virtuel et sous-réseau pour l’emplacement où se trouvent vos machines virtuelles hôtes de session de pool d’hôtes.
-4. Sélectionnez **Suivant : configurer les Informations sur Windows Virtual Desktop**.
+4. Sélectionnez **Suivant : Configuration des informations sur Azure Virtual Desktop**.
 
-### <a name="windows-virtual-desktop-information"></a>Informations sur Windows Virtual Desktop
+### <a name="azure-virtual-desktop-information"></a>Informations sur Azure Virtual Desktop
 
 Toutes les valeurs de paramètre dans cette section doivent correspondre à celles que vous avez fournies lors de la création initiale du pool d’hôtes et des machines virtuelles hôtes de session :
 
-1. Dans *Nom du groupe de locataires Windows Virtual Desktop*, entrez le nom du groupe de locataires qui contient votre locataire. Conservez la valeur par défaut, sauf si un nom de groupe de locataires spécifique vous a été fourni.
-2. Dans *Nom du locataire Windows Virtual Desktop*, entrez le nom du locataire que vous allez créer dans ce pool d’hôtes.
+1. Dans *Nom du groupe de locataires Azure Virtual Desktop*, entrez le nom du groupe de locataires qui contient votre locataire. Conservez la valeur par défaut, sauf si un nom de groupe de locataires spécifique vous a été fourni.
+2. Dans *Nom du locataire Azure Virtual Desktop*, entrez le nom du locataire dans lequel vous allez créer ce pool d’hôtes.
 3. Spécifiez les informations d’identification que vous avez utilisées lors de la création initiale du pool d’hôtes et des machines virtuelles hôtes de session. Si vous utilisez un principal de service, entrez l’ID de l’instance Azure Active Directory dans laquelle celui-ci se trouve.
 4. Sélectionnez **Suivant : Vérifier + créer**.
 
@@ -126,7 +126,7 @@ Suivez les instructions de la section [Exécuter le modèle Azure Resource Manag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Windows Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
+Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Azure Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
 
 - [Se connecter avec le client Windows Desktop](connect-windows-7-10-2019.md)
 - [Se connecter avec le client web](connect-web-2019.md)

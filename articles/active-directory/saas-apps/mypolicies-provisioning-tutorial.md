@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et supprimer automatiquement des comptes d’utilisateur dans myPolicies.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 221f63ab9a7eb3f71a4c730a11565dda64c9edc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d8d0bc83ec763d9c32ff9d90419a7b163b261144
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96353582"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762143"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutoriel : Configurer myPolicies pour l’approvisionnement automatique d’utilisateurs
 
@@ -32,7 +32,7 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans m
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * Un locataire Azure AD.
-* [Un locataire myPolicies](https://mypolicies.com/index.html#section10).
+* [Un locataire myPolicies](https://mypolicies.com/).
 * Un compte d’utilisateur dans myPolicies avec des autorisations d’administrateur.
 
 ## <a name="assigning-users-to-mypolicies"></a>Attribution d’utilisateurs à myPolicies

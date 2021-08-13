@@ -1,0 +1,49 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes (FAQ) sur l’API de traitement SaaS – Place de marché commerciale Microsoft
+  description: Découvrez plusieurs conditions d’intégration de la Place de marché commerciale Microsoft permettant aux clients Azure de s’abonner à des offres SaaS.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: conceptual
+  ms.date: 03/19/2021
+  author: mingshen-ms
+  ms.author: mingshen
+title: Questions courantes sur les API de traitement SaaS
+summary: Cet article décrit plusieurs conditions d’intégration de la Place de marché commerciale Microsoft permettant aux clients Azure de s’abonner à des offres SaaS.
+sections:
+  - name: Ignoré
+    questions:
+      - question: |
+          Expérience de découverte
+        answer: |
+          Une fois l’offre SaaS publiée, les utilisateurs Azure peuvent la découvrir sur la Place de marché Azure. Vos clients peuvent filtrer les offres en fonction du type de produit (SaaS) et découvrir les services SaaS qui les intéressent.
+      - question: |
+          Expérience d’achat
+        answer: |
+          Si un utilisateur est intéressé par un service SaaS spécifique, il peut s'y abonner depuis la Place de marché Azure.
+      - question: "Qu’implique le fait pour un utilisateur Azure de souscrire une offre SaaS sur la Place de marché Azure\_?\n"
+        answer: |
+          Cet utilisateur peut alors consulter les conditions d'utilisation et la déclaration de confidentialité associées au service SaaS, et accepter de payer selon les conditions de facturation que vous, l'éditeur de l'offre SaaS, avez définies sur la facture Microsoft. Les utilisateurs peuvent utiliser leur profil de paiement existant dans Azure pour payer la consommation du service SaaS.
+
+          Cette possibilité s’avère avantageuse à plusieurs égards. Les clients peuvent désormais découvrir et s'abonner en un seul endroit en utilisant Microsoft Cloud Platform comme source de confiance, sans avoir à vérifier tous les logiciels ISV qu'ils souhaitent utiliser. De plus, les clients peuvent utiliser leur profil de paiement existant sans avoir à payer explicitement chaque logiciel ISV séparément.
+      - question: |
+          L'utilisateur est-il automatiquement facturé lors de la souscription de l'offre ?
+        answer: |
+          En souscrivant l'offre SaaS, l'utilisateur a accepté de payer pour la consommation du service SaaS via la plate-forme Microsoft. Toutefois, les frais ne commenceront à s'appliquer que lorsque l'offre sera effectivement consommée. L'utilisateur doit se rendre sur votre offre SaaS et confirmer la création de son compte pour commencer à consommer l'offre. Vous demanderez ensuite à Microsoft de commencer à facturer l'abonnement SaaS de ce client.
+      - question: "Comment êtes-vous averti lorsqu'un utilisateur souscrit votre offre SaaS\_?\n"
+        answer: "Après avoir souscrit une offre, l'utilisateur Azure peut découvrir et gérer toutes ses offres sur Azure. Par défaut, une offre SaaS nouvellement souscrite présente l’état **Provisioning, fulfillment pending** (Provisionnement, en attente de traitement). Dans cet état, l’utilisateur Azure est invité à **Configurer un compte** pour accéder à son expérience de gestion d’abonnement SaaS sur le portail Azure.\n\nQuand l’utilisateur sélectionne **Configurer un compte**, il est redirigé vers le site web du service SaaS. L’éditeur a configuré l’URL au moment de publier l’offre. Cette page est appelée page d'accueil de l'éditeur. Les utilisateurs Azure se connectent à la page d’arrivée\_SaaS en fonction de leurs informations d’identification Azure Active Directory (Azure\_AD) dans Azure.\n\n> [!IMPORTANT]\n> L’utilisateur qui achète doit se connecter en utilisant Azure Active Directory, l’authentification unique (SSO Azure\_AD) comme indiqué par la [stratégie](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). La propriété `mail` de la ressource utilisateur récupérée à partir de l’API Microsoft Graph vous donne les coordonnées dans le cas d’Azure\_AD et `userPrincipalName` pour MSA. Il est possible que le champ «\_mail\_» soit vide pour Azure\_AD, et que l’utilisateur n’ait pas d’adresse e-mail enregistrée. Si c’est le cas, nous vous recommandons de le détecter et de demander une adresse e-mail de contact. C’est votre seule chance d’obtenir une adresse e-mail pour contacter un client pendant ou après le processus d’intégration du client.\n\nLorsque l'utilisateur Azure est redirigé vers la page d'accueil, un jeton est ajouté à l'URL de la requête. Ce jeton de courte durée est valide pendant 24\_heures. Vous pouvez alors détecter la présence de ce jeton et appeler l'API Microsoft pour obtenir plus de contexte sur celui-ci.\n\n![Flux d’abonnement du client](media/saas-metering-service-integration-flow-a.png)\n\nPour plus d’informations sur le contrat API pour la gestion des scénarios Transaction dans le cycle de vie d’une offre SaaS, consultez [API de traitement SaaS ](pc-saas-fulfillment-api-v2.md).\n"
+      - question: |
+          Comment identifier l'offre SaaS que l'utilisateur souscrit dans Azure ?
+        answer: |
+          La réponse à l'API `Resolve` inclut des informations sur l'offre et le forfait associés à l'abonnement SaaS.
+      - question: |
+          Comment l’utilisateur Azure peut-il modifier le forfait associé à cet abonnement Azure ?
+        answer: "* L’utilisateur Azure peut modifier le forfait associé à l’abonnement SaaS directement dans l’expérience SaaS, ou via la plate-forme Microsoft.\n\n* Des conversions peuvent être effectuées à n’importe quel stade du cycle de facturation. Vous êtes invité à accuser réception de toute conversion, laquelle entre en vigueur une fois qu’elle est confirmée.\n\n* Les tarifs des forfaits prépayés ( **mensuels** ou  **annuels**) sont calculés au prorata. Tout dépassement constaté jusqu'au moment de la conversion sera reporté sur la facture suivante. Les nouveaux dépassements seront reportés en fonction du nouveau forfait.\n\n>[!Note]\n>Vous pouvez bloquer le passage à une version antérieure si vous ne souhaitez pas prendre en charge des chemins de conversion spécifiques.\n\nLa séquence ci-dessous montre le flux quand un client Azure change de forfait dans l’expérience SaaS\_:\n\n![Flux de changement du forfait d’un client](media/saas-metering-service-integration-flow-b.png)\n\nLa séquence ci-dessous montre le flux lorsqu’un client Azure change de forfait dans le magasin en ligne de Microsoft\_:\n\n![Flux de changement de forfait dans le magasin en ligne client](media/saas-metering-service-integration-flow-c.png)\n"
+      - question: |
+          Comment l’utilisateur Azure peut-il se désabonner du forfait associé à un abonnement Azure ?
+        answer: "Un utilisateur Azure peut se désabonner d'une offre SaaS achetée directement dans l'expérience SaaS ou via la plate-forme Microsoft. Lorsque l'utilisateur se désabonne, il ne sera plus facturé à partir du prochain cycle de facturation.\n\nLa séquence ci-dessous montre le flux lorsqu'un client Azure se désabonne de l’offre SaaS dans l’expérience SaaS\_:\n\n![Le client se désabonne dans l'expérience SaaS](media/saas-metering-service-integration-flow-d.png)\n\nLa séquence ci-dessous est la capture du flux quand un utilisateur Azure se désabonne via le magasin en ligne de Microsoft\_:\n\n![Un client se désabonne via le magasin en ligne de Microsoft](media/saas-metering-service-integration-flow-e.png)\n"
+additionalContent: |
+
+  ## <a name="next-steps"></a>Étapes suivantes
+
+  [API de service de mesure de la Place de marché](../marketplace-metering-service-apis.md)

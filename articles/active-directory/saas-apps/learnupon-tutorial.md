@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5f789baf7467af863c59a44ab9a256c9f6d7fd15
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 84da4c02ec4631e9d9f33ac745c3721894cc5f29
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075241"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : intégration d’Azure Active Directory à LearnUpon
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de LearnUpon](https://www.learnupon.com/features/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de LearnUpon](https://www.learnupon.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, recherchez l’**empreinte**, qui sera ajoutée à vos paramètres SAML LearnUpon.
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez permettre à B.Simon d'utiliser l'authentificatio
 
 ### <a name="create-learnupon-test-user"></a>Créer un utilisateur de test LearnUpon
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans LearnUpon. LearnUpon prend en charge l’approvisionnement d’utilisateurs juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans LearnUpon, il en est créé un après l’authentification. Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique LearnUpon](https://www.learnupon.com/features/support/).
+Dans cette section, un utilisateur appelé Britta Simon est créé dans LearnUpon. LearnUpon prend en charge l’approvisionnement d’utilisateurs juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans LearnUpon, il en est créé un après l’authentification. Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique LearnUpon](https://www.learnupon.com/contact/).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

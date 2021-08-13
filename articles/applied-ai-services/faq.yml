@@ -8,32 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.service: applied-ai-services
   ms.date: 05/28/2021
-  ms.openlocfilehash: e424501e4b5ce6f6731f093394a6536c332b3cbc
-  ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/02/2021
-  ms.locfileid: "111907324"
 title: Forum Aux Questions sur Azure Applied AI Services
-summary: >
+summary: |
   Voici les réponses aux questions fréquemment posées sur Azure Applied AI Services.
 sections:
-- name: Section unique – Ignorée
-  questions:
-  - question: La solution Azure Applied AI Services prend-elle en charge le chiffrement de données au repos et les clés gérées par le client (CMK) ?
-    answer: >
-      Oui. Le processus d’activation des clés gérées par le client avec Azure Key Vault pour Applied AI Services varie d’un produit à l’autre. Utilisez les liens ci-après pour obtenir des instructions propres au service :
-
-      - [Chiffrement des données au repos dans le service Recherche cognitive](../search/search-security-manage-encryption-keys.md)
-
-      - [Chiffrement Form Recognizer des données au repos](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
-
-      - [Chiffrement des données au repos Metrics Advisor](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
-
-      - [Chiffrement des données au repos dans le service Video Analyzer](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
-additionalContent: >
-  ## <a name="next-steps"></a>Étapes suivantes
-
-  - [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md)
-
-  - [Formulaire de demande de clé gérée par le client dans Azure Applied AI Services](https://aka.ms/cogsvc-cmk)
+  - name: Section unique – Ignorée
+    questions:
+      - question: "La solution Azure Applied AI Services prend-elle en charge le chiffrement de données au repos et les clés gérées par le client (CMK)\_?"
+        answer: "Oui. Le processus d’activation des clés gérées par le client avec Azure Key Vault pour Applied AI Services varie d’un produit à l’autre. Utilisez les liens ci-après pour obtenir des instructions propres au service\_:\n- [Chiffrement des données au repos dans le service Recherche cognitive](../search/search-security-manage-encryption-keys.md)\n- [Chiffrement Form Recognizer des données au repos](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)\n- [Chiffrement des données au repos Metrics Advisor](../cognitive-services/metrics-advisor/encryption.md)\n- [Chiffrement des données au repos dans le service Video Analyzer](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)\n"
+additionalContent: "## <a name=\"next-steps\"></a>Étapes suivantes\n- [Qu’est-ce qu’Azure Key Vault\_?](../key-vault/general/overview.md)\n- [Formulaire de demande de clé gérée par le client dans Azure Applied AI Services](https://aka.ms/cogsvc-cmk)\n"

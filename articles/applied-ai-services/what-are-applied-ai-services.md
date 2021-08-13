@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: b4c22f8b6825b2955ba7c50e2ef1ff5f3ee00464
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b4ec1ea076994622e4e687c3f6f4a4f3826ad385
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958185"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220448"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Qu’est-ce qu’Azure Applied AI Services ?
 
@@ -33,7 +33,7 @@ Form Recognizer est constitué de modèles de traitement de documents personnal
 
 Protéger la croissance de l’entreprise en lui permettant de prendre les bonnes décisions en fonction des renseignements sur les métriques de l’entreprise, les services et les ressources physiques.  Azure Metrics Advisor utilise l’intelligence artificielle pour superviser les données et détecter les anomalies dans des données de série chronologique. Le service automatise le processus d’application de modèles à vos données et fournit un ensemble d’API et un espace de travail web pour l’ingestion des données, la détection des anomalies et les diagnostics, sans avoir besoin de connaître le Machine Learning. Les développeurs peuvent créer des applications AIOps, de maintenance prédictive et de supervision métier sur le service.  Azure Metrics Advisor est conçu à l’aide du détecteur d’anomalies d’Azure Cognitive Services.
 
-[En savoir plus sur Azure Metrics Advisor](../cognitive-services/metrics-advisor/index.yml)
+[En savoir plus sur Azure Metrics Advisor](./metrics-advisor/index.yml)
 
 ## <a name="azure-cognitive-search"></a>Recherche cognitive Azure
 

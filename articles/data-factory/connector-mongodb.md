@@ -1,24 +1,24 @@
 ---
-title: Copier des données à partir de MongoDB
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
+title: Copier des données depuis ou vers MongoDB
+description: Découvrez comment copier des données de MongoDB vers des banques de données réceptrices prises en charge, ou depuis des banques de données réceptrices prises en charge vers MongoDB, à l’aide de l’activité de copie disponible dans le pipeline Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/08/2021
-ms.openlocfilehash: 58a1301205bc299d396644558c14579b1d97378d
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 06/01/2021
+ms.openlocfilehash: c566b3d13a58b1ad6095f9e2443e10d6db33dedb
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484287"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749528"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
+# <a name="copy-data-from-or-to-mongodb-by-using-azure-data-factory"></a>Copier des données depuis ou vers MongoDB à l’aide d’Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 >[!IMPORTANT]
 >Cette nouvelle version du connecteur MongoDB dans ADF fournit une meilleure prise en charge native de MongoDB. Si vous utilisez le connecteur MongoDB précédent, qui est pris en charge tel quel à des fins de compatibilité descendante, dans votre solution, consultez l’article [Connecteur MongoDB (hérité)](connector-mongodb-legacy.md).
@@ -26,7 +26,7 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Vous pouvez copier des données d’une base de données MongoDB vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données d’une base de données MongoDB vers toute banque de données réceptrice prise en charge, ou de toute banque de données source prise en charge vers une base de données MongoDB. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Plus précisément, ce connecteur MongoDB prend en charge les **versions jusqu’à 4.2**.
 
@@ -104,7 +104,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source MongoDB.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source et le récepteur MongoDB.
 
 ### <a name="mongodb-as-source"></a>MongoDB en tant que source
 
@@ -161,15 +161,66 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 ]
 ```
 
+### <a name="mongodb-as-sink"></a>MongoDB en tant que récepteur
 
-## <a name="export-json-documents-as-is"></a>exporter des documents JSON tels quels
+Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
 
-Vous pouvez utiliser ce connecteur MongoDB pour exporter des documents JSON tels quels à partir d’une collection MongoDB vers différentes banques basées sur fichiers ou vers Azure Cosmos DB. Pour obtenir une telle copie indépendante du schéma, ignorez la section « structure » (également appelée *schéma*) dans le mappage de schéma et de jeu de données dans l’activité de copie.
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété **type** du récepteur de l’activité de copie doit être définie sur **MongoDbV2Sink**. |Oui |
+| writeBehavior |Décrit comment écrire des données dans MongoDB. Les valeurs autorisées sont **insert** et **upsert**.<br/><br/>Le comportement de la valeur **upsert** consiste à remplacer le document si un document portant le même `_id` existe déjà ; sinon, le document est inséré.<br /><br />**Remarque** : Azure Data Factory génère automatiquement un `_id` pour un document si `_id` n’est pas spécifié dans le document d’origine ni par le mappage de colonnes. Cela signifie que vous devez vérifier que votre document comporte un ID afin qu’**upsert** fonctionne comme prévu. |Non<br />(la valeur par défaut est **insert**) |
+| writeBatchSize | La propriété **writeBatchSize** contrôle la taille des documents à écrire dans chaque lot. Vous pouvez essayer d’augmenter la valeur de **writeBatchSize** pour améliorer les performances et diminuer la valeur si la taille de votre document est grande. |Non<br />(la valeur par défaut est **10 000**) |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion par lot soit terminée avant d’expirer. La valeur autorisée est timespan. | Non<br/>(la valeur par défaut est **00:30:00** – 30 minutes) |
+
+>[!TIP]
+>Pour importer des documents JSON en l’état, voir la section [Importer ou exporter des documents JSON](#import-and-export-json-documents). Pour copier à partir de données sous forme tabulaire, voir [Mappage de schéma](#schema-mapping).
+
+**Exemple**
+
+```json
+"activities":[
+    {
+        "name": "CopyToMongoDB",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Document DB output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "MongoDbV2Sink",
+                "writeBehavior": "upsert"
+            }
+        }
+    }
+]
+```
+
+## <a name="import-and-export-json-documents"></a>Importer et exporter des documents JSON
+
+À l’aide de ce connecteur Azure Cosmos MongoDB, vous pouvez facilement :
+
+* Copier des documents entre deux collections MongoDB en l’état.
+* Importer des documents JSON de différentes sources dans MongoDB, notamment depuis Azure Cosmos DB, le stockage Blob Azure, Azure Data Lake Store et d’autres magasins basés sur des fichiers pris en charge par Azure Data Factory.
+* Exporter des documents JSON d’une collection MongoDB vers différentes banques basées sur des fichiers.
+
+Pour obtenir une telle copie indépendante du schéma, ignorez la section « structure » (également appelée *schéma*) dans le mappage de schéma et de jeu de données dans l’activité de copie.
 
 
 ## <a name="schema-mapping"></a>Mappage de schéma
 
-Pour copier des données de MongoDB vers un récepteur tabulaire, consultez [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping).
+Pour copier des données de MongoDB vers un récepteur tabulaire ou inversé, consultez [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

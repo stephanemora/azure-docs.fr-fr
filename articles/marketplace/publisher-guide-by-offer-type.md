@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 04/06/2021
-ms.openlocfilehash: 381ee45bd678ef22222483675ddf001e16970628
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 72cae8aee9b1bcca286696b5685ef69b84167a8e
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552051"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537851"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -37,12 +37,11 @@ Le tableau suivant montre les types d’offre de place de marché commerciale pr
 | [**Conteneur Azure**](marketplace-containers.md) | Utilisez le type d’offre Conteneur Azure si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes. |
 | [**Machine virtuelle Azure**](marketplace-virtual-machines.md) | Utilisez le type d’offre Machine virtuelle si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client. |
 | [**Service de conseil**](./plan-consulting-service-offer.md) | Les services de conseil aident les clients à se connecter aux services pour gérer et étendre leur utilisation des services Azure, Dynamics 365 ou Power Suite.|
-| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Vous pouvez publier des offres AppSource qui étendent ou s’appuient sur Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps et des applications de finance et opérations.|
-| [**Module IoT Edge**](iot-edge-module.md) | Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. |
-| [**Service géré**](./plan-managed-service-offer.md) | Vous pouvez créer des offres de service géré et gérer des abonnements ou des groupes de ressources délégués par le client via [Azure Lighthouse](../lighthouse/overview.md).|
-| [**Application Power BI**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | Vous pouvez publier des offres AppSource qui étendent ou s’appuient sur Power BI et Microsoft 365.|
+| [**Dynamics 365**](marketplace-dynamics-365.md) | Publiez des offres AppSource qui s’ajoutent à Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps et des applications financières et opérationnelles.|
+| [**Module IoT Edge**](marketplace-iot-edge.md) | Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. |
+| [**Service géré**](./plan-managed-service-offer.md) | Créez des offres de service géré et gérez des abonnements ou des groupes de ressources délégués par le client via [Azure Lighthouse](../lighthouse/overview.md).|
+| [**Application Power BI**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publiez des offres AppSource qui s’ajoutent à Power BI et à Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Utilisez le type d’offre SaaS (Logiciel en tant que service) pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. Pour obtenir des informations sur les exigences relatives à l’authentification unique pour les offres SaaS, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale](azure-ad-saas.md). |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

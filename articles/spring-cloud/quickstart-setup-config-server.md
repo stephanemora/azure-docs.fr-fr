@@ -1,19 +1,19 @@
 ---
 title: Démarrage rapide - Configurer un serveur de configuration Azure Spring Cloud
 description: Décrit la configuration du serveur de configuration Azure Spring Cloud pour le déploiement d’applications.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8c71e76213011beaa63deeaadfa3d6d2dc0d4ce2
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 95f4e7e9dcc8c9f16465d2a577d4bdf425dae4a8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286530"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470552"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Démarrage rapide : Configurer un serveur de configuration Azure Spring Cloud
 
@@ -79,41 +79,42 @@ La procédure suivante utilise l’interface Azure CLI pour configurer le serve
 Exécutez la commande suivante pour définir le dépôt par défaut.
 
 ```azurecli
-
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+```
+
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
+> Si vous utilisez un dépôt privé pour le serveur de configuration, reportez-vous à notre [tutoriel sur la configuration de l’authentification](./how-to-config-server.md).
 
-## Troubleshooting of Azure Spring Cloud config server
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Résolution des problèmes de Config Server d’Azure Spring Cloud
 
-The following procedure explains how to troubleshoot config server settings.
+La procédure suivante explique comment résoudre les problèmes liés aux paramètres de Config Server.
 
-1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
-1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
-1. Click **Run**. 
-1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
+1. Dans le portail Azure, accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Journaux**. 
+1. Sélectionnez **Requêtes** et **Afficher les journaux des applications qui contiennent les termes « erreur » ou « exceptions »** . 
+1. Cliquez sur **Exécuter**. 
+1. Si vous trouvez l’erreur **java.lang.illegalStateException** dans les journaux, cela indique que le service Spring Cloud ne peut pas localiser les propriétés provenant de Config Server.
 
-    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+    [ ![Portail ASC, exécuter une requête](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
-1. Go to the service **Overview** page.
-1. Select **Diagnose and solve problems**. 
-1. Select **Config Server** detector.
+1. Allez à la page **Vue d’ensemble** du service.
+1. Sélectionnez **Diagnostiquer et résoudre les problèmes**. 
+1. Sélectionnez le détecteur **Config Server**.
 
-    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+    [ ![Portail ASC, diagnostiquer les problèmes](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. Click **Config Server Health Check**.
+3. Cliquez sur **Contrôle d’intégrité de Config Server**.
 
-    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+    [ ![Portail ASC, Genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. Click **Config Server Status** to see more details from the detector.
+4. Cliquez sur **État de Config Server** pour afficher plus de détails à partir du détecteur.
 
-    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+    [ ![Portail ASC, état d’intégrité](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous n’avez pas prévu de passer au guide de démarrage rapide suivant, consultez [Nettoyer les ressources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Dans le cas contraire, passez au guide de démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
-> [Build and deploy apps](./quickstart-deploy-apps.md)
+> [Créer et déployer des applications](./quickstart-deploy-apps.md)

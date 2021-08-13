@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e6b7c0a14f6e5f63e84c8efa484347cd4ff322f4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046315"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789540"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -33,7 +33,7 @@ Vous devez d’abord déterminer l’utilisation du cluster que vous créez. Que
 ### <a name="select-node-properties-for-each-node-type"></a>Sélectionner les propriétés de nœud pour chaque type de nœud
 Les types de nœuds définissent les références, le nombre et les propriétés des machines virtuelles du groupe identique correspondant.
 
-La taille minimale des machines virtuelles pour chaque type de nœud est déterminée par le [niveau de durabilité][durability] que vous choisissez.
+La taille minimale des machines virtuelles pour chaque type de nœud est déterminée par le [niveau de durabilité][durability] que vous choisissez. Avant de choisir une référence SKU de machine virtuelle, assurez-vous de bien comprendre les étapes requises pour la [mise à l’échelle verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) si vous décidez d’avoir besoin d’une autre référence SKU de machine virtuelle à l’avenir.
 
 Le nombre minimal de machines virtuelles pour le type de nœud principal est déterminé par le [niveau de fiabilité][reliability] que vous choisissez.
 
