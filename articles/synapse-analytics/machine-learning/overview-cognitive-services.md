@@ -9,24 +9,24 @@ ms.reviewer: jrasnick, garye, negust, ruxu
 ms.date: 06/30/2021
 author: garyericson
 ms.author: garye
-ms.openlocfilehash: c9db8c1cf508d05dfafae672e5f03ff55bb046c0
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 3af2efda3d54f8db29d4817357ea8cb826b7c608
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113114496"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294143"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Cognitive Services dans Azure Synapse Analytics
 
 À l’aide des modèles préformés d’Azure Cognitive Services, vous pouvez enrichir vos données avec l’intelligence artificielle (IA) dans Azure Synapse Analytics.
 
-[Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) regroupent des services cloud qui ajoutent des informations cognitives à vos données, même si vous n’avez pas de compétences en matière de science des données ou d’intelligence artificielle. Vous pouvez utiliser ces services avec vos données dans Synapse Analytics de plusieurs façons :
+[Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md) regroupent des services cloud qui ajoutent des informations cognitives à vos données, même si vous n’avez pas de compétences en matière de science des données ou d’intelligence artificielle. Vous pouvez utiliser ces services avec vos données dans Synapse Analytics de plusieurs façons :
 
 - L’Assistant Cognitive Services de Synapse Analytics génère du code PySpark dans un notebook Synapse qui se connecte à un cognitive service à l’aide des données d’une table Spark. Ensuite, à l’aide de modèles de Machine Learning préformés, le service vous permet d’ajouter l’intelligence artificielle à vos données.
 
 - Le tutoriel [Créer des applications Machine Learning avec Microsoft Machine Learning pour Apache Spark (préversion)](tutorial-build-applications-use-mmlspark.md) montre comment appeler un certain nombre de cognitive services à l’aide de Microsoft Machine Learning pour Apache Spark (MMLSpark).
 
-- À partir du code PySpark généré par l’Assistant, ou de l’exemple de code MMLSpark fourni dans le tutoriel, vous pouvez écrire votre propre code pour utiliser d’autres cognitive services avec vos données. Pour plus d’informations sur les services disponibles, consultez la [Présentation d’Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services).
+- À partir du code PySpark généré par l’Assistant, ou de l’exemple de code MMLSpark fourni dans le tutoriel, vous pouvez écrire votre propre code pour utiliser d’autres cognitive services avec vos données. Pour plus d’informations sur les services disponibles, consultez la [Présentation d’Azure Cognitive Services](../../cognitive-services/what-are-cognitive-services.md).
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -45,5 +45,5 @@ Les tutoriels suivants fournissent des exemples complets d’utilisation de Cogn
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Fonctionnalités de Machine Learning dans Azure Synapse Analytics](what-is-machine-learning.md)
-- [Présentation de Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
+- [Présentation de Cognitive Services](../../cognitive-services/what-are-cognitive-services.md)
 - [Utiliser un notebook échantillon de la galerie Synapse Analytics](quickstart-gallery-sample-notebook.md)

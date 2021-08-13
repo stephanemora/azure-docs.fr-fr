@@ -6,16 +6,16 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: reference
 ms.date: 3/22/2021
-ms.openlocfilehash: d4aea455a33f45973c2329fb44fdda6c2a508f53
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 77469a9232361cf680eca69f4a2e9d131581d14d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787439"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677941"
 ---
 # <a name="opc-publisher-telemetry-format"></a>Format de télémétrie d’OPC Publisher
 
-Les versions 2.6 et ultérieures d’OPC Publisher prennent en charge le format JSON OPC UA PubSub normalisé comme spécifié dans la [partie 14 de la spécification OPC UA](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-14-pubsub/), qui ressemble à ceci :
+Les versions 2.6 et ultérieures d'OPC Publisher prennent en charge le format JSON OPC UA PubSub normalisé comme spécifié dans la [partie 14 de la spécification OPC UA](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-14-pubsub/) :
 ```
 {
   "MessageId": "18",
@@ -49,7 +49,7 @@ Les versions 2.6 et ultérieures d’OPC Publisher prennent en charge le format 
 }
 ```
 
-En outre, toutes les versions d’OPC Publisher prennent en charge un format de télémétrie JSON simple non normalisé, compatible avec [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/), qui ressemble à ceci :
+En outre, toutes les versions d'OPC Publisher prennent en charge un format de télémétrie JSON simple et non normalisé, compatible avec [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) semblable à ce qui suit :
 ```
 [
    {
@@ -82,10 +82,15 @@ En outre, toutes les versions d’OPC Publisher prennent en charge un format de 
 ```
 
 ## <a name="opc-publisher-telemetry-configuration-file-format"></a>Format de fichier de configuration de télémétrie d’OPC Publisher
+
+> [!NOTE]
+> Le format de configuration de la télémétrie est désormais déconseillé. Il est uniquement disponible dans les versions 2.5 et antérieures.
+
+
 ```
     // The configuration settings file consists of two objects:
     // 1) The 'Defaults' object, which defines defaults for the telemetry configuration
-    // 2) An array 'EndpointSpecific' of endpoint specific configuration
+    // 2) An array 'EndpointSpecific' of endpoint-specific configuration
     // Both objects are optional and if they are not specified, then OPC Publisher uses
     // its internal default configuration:
     //  {
@@ -215,7 +220,7 @@ En outre, toutes les versions d’OPC Publisher prennent en charge un format de 
         // or the defaults used by publisher.
         // It is not allowed to specify 'Name' and 'Flat' properties in this object.
         "EndpointSpecific": [
-            // The following shows how a endpoint specific configuration can look like:
+            // The following shows how an endpoint-specific configuration can look like:
             {
                 // 'ForEndpointUrl' allows to configure for which OPC UA server this
                 // object applies and is a required property for all objects in the

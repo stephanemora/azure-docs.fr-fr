@@ -13,6 +13,10 @@
         - name: Modèle ARM
           displayName: Resource Manager
           href: alerts-activity-log-service-notifications-arm.md
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Concepts
   items:
     - name: Page de l’état Azure

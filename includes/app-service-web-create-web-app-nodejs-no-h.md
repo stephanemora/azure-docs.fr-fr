@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: app-service
 author: cephalin
@@ -8,22 +8,19 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 337b6a23691e9fd533009ea5553e4b8765eb91bc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f6fbfd521381706c0bc592ceb516e1864e96e4b8
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767316"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688637"
 ---
 Créer une [application web](../articles/app-service/overview.md#app-service-on-linux) dans le plan App Service `myAppServicePlan`. 
 
-Dans Cloud Shell, vous pouvez utiliser la commande [`az webapp create`](/cli/azure/webapp). Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `NODE|6.9`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
+Dans Cloud Shell, vous pouvez utiliser la commande [`az webapp create`](/cli/azure/webapp). Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `NODE|14-lts`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "NODE|6.9" --deployment-local-git
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "NODE|6.9" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'NODE|14-lts' --deployment-local-git
 ```
 
 Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :

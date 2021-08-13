@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.openlocfilehash: 267857df03bb85ad8455979919e3b1e267a9e127
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 8282f8b5561b6353c5e3bfb5d62a146350f0879a
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586061"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649478"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 
@@ -89,6 +89,6 @@ Vous pouvez nettoyer toutes les ressources créées au cours de ce démarrage ra
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Migrer SQL Server vers Azure SQL Database hors connexion](tutorial-sql-server-to-azure-sql.md)
+* [Migrer SQL Server vers Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
 * [Migrer SQL Server vers une instance Azure SQL Managed Instance hors connexion](tutorial-sql-server-to-managed-instance.md)
 * [Migrer SQL Server vers une instance Azure SQL Managed Instance en ligne](tutorial-sql-server-managed-instance-online.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: eb1549b94ac2b1e1d1b37183e12d063a0f84f73c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 93dbdb8384a37e2f104f1ab99caf1ab6d8464c06
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792996"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461899"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’Azure CLI
 
@@ -52,7 +52,7 @@ Pour importer les fichiers sur votre machine, utilisez les liens de navigation c
 
 Pour utiliser Azure Digital Twins dans cet article, vous devez d’abord **configurer une instance Azure Digital Twins** et les autorisations requises pour l’utiliser. Si vous disposez déjà d’une instance Azure Digital Twins configurée lors d’une tâche précédente, vous pouvez utiliser cette instance.
 
-Dans le cas contraire, suivez les instructions fournies dans [Procédure : Configurer une instance et l’authentification](how-to-set-up-instance-cli.md). Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
+Dans le cas contraire, suivez les instructions indiquées dans [Configurer une instance et l’authentification](how-to-set-up-instance-cli.md). Ces instructions contiennent également les étapes permettant de vérifier que vous avez correctement effectué chaque étape et que vous êtes prêt à passer à l’utilisation de votre nouvelle instance.
 
 Une fois que vous avez configuré votre instance Azure Digital Twins, notez les valeurs suivantes dont vous aurez besoin pour vous connecter ultérieurement à l’instance :
 * Le **_nom d’hôte_** de l’instance
@@ -320,4 +320,4 @@ Dans ce tutoriel, vous avez commencé à utiliser Azure Digital Twins en génér
 
 Passez au tutoriel suivant pour combiner Azure Digital Twins à d’autres services Azure afin de bénéficier d’un scénario de bout en bout piloté par les données :
 > [!div class="nextstepaction"]
-> [Tutoriel : Connecter une solution de bout en bout](tutorial-end-to-end.md)
+> [Connecter une solution de bout en bout](tutorial-end-to-end.md)

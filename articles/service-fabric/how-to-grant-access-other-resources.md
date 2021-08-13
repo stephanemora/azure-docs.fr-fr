@@ -3,12 +3,13 @@ title: Accorder à une application l’accès à d’autres ressources Azure
 description: Cet article explique comment accorder à votre application Service Fabric avec identité managée l’accès à d’autres ressources Azure prenant en charge l’authentification basée sur Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: c7560294fbf6d122396b6a5a8ffd3ee93bc89048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 7f49a3f97862c3a141ea9376d0ffc9bf510d3e6f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97507453"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110782959"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure
 
@@ -17,18 +18,10 @@ Pour que l’application puisse utiliser son identité managée et accéder à d
 La séquence exacte d’étapes dépend ensuite du type de ressource Azure qui fait l’objet de l’accès, ainsi que de la langue/du client utilisé pour accorder des autorisations. Le reste de cet article suppose qu’une identité affectée par l’utilisateur est attribuée à l’application et comprend plusieurs exemples typiques pour votre commodité, mais il ne s’agit en aucun cas d’une référence exhaustive pour cette rubrique ; consultez la documentation des services Azure respectifs pour obtenir des instructions à jour sur l’octroi d’autorisations.  
 
 ## <a name="granting-access-to-azure-storage"></a>Octroi de l’accès au Stockage Azure
-Vous pouvez utiliser l’identité managée de l’application Service Fabric (affectée par l’utilisateur dans ce cas) pour récupérer les données à partir d’un objet blob de stockage Azure. Accordez à l’identité les autorisations requises dans le Portail Azure en procédant comme suit :
+Vous pouvez utiliser l’identité managée de l’application Service Fabric (affectée par l’utilisateur dans ce cas) pour récupérer les données à partir d’un objet blob de stockage Azure. Accordez à l’identité les autorisations nécessaires pour le compte de stockage en affectant le rôle de [lecteur de données blob de stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) à l’identité gérée de l’application au niveau de l’étendue du *groupe de ressources* .
 
-1. Accédez au compte de stockage.
-2. Cliquez sur le lien (IAM) de contrôle d’accès dans le panneau de gauche.
-3. (facultatif) Vérifier l’accès existant : sélectionnez l’identité managée affectée par le système ou par l’utilisateur dans le contrôle « Rechercher » ; sélectionnez l’identité appropriée dans la liste de résultats
-4. Cliquez sur + Ajouter une attribution de rôle en haut de la page pour ajouter une nouvelle attribution de rôle à l’identité de l'application.
-Sous Rôle, dans la liste déroulante, sélectionnez Lecteur des données Blob du stockage.
-5. Dans la liste déroulante suivante, sous Attribuer l’accès à, choisissez `User assigned managed identity`.
-6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante Abonnement, puis définissez Groupe de ressources sur Tous les groupes de ressources.
-7. Sous Sélectionner, choisissez l’UAI correspondant à l’application Service Fabric et cliquez sur Enregistrer.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-La prise en charge des identités managées Service Fabric affectées par le système n’inclut pas l’intégration dans le Portail Azure ; si votre application utilise une identité affectée par le système, vous devez rechercher d’abord l’ID client de l’identité de l’application, puis répéter les étapes ci-dessus, mais en sélectionnant l’option `Azure AD user, group, or service principal` dans le contrôle Rechercher.
 
 ## <a name="granting-access-to-azure-key-vault"></a>Octroi de l’accès à Azure Key Vault
 De même que pour l’accès au stockage, vous pouvez tirer parti de l’identité managée d’une application Service Fabric pour accéder à un coffre de clés Azure. Les étapes permettant d’accorder l’accès dans le Portail Azure sont similaires à celles répertoriées ci-dessus et ne sont pas répétées ici. Reportez-vous à l’image ci-dessous pour connaître les différences.

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: 77d370b895c777278d3136c7d2c511e7f9e23b36
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 559703401fa87980a5937e81eeab27ef44769c20
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179253"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651478"
 ---
 # <a name="getting-started-with-azure-functions"></a>Bien démarrer avec Azure Functions
 
@@ -66,7 +66,7 @@ Utilisez les ressources suivantes pour démarrer.
 ::: zone pivot="programming-language-python"
 | Action | Ressources |
 | --- | --- |
-| **Créer votre première fonction** | À l’aide de l’un des outils suivants :<br><br><li>[Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)<li>[Terminal/invite de commandes](./create-first-function-cli-csharp.md?pivots=programming-language-python) |
+| **Créer votre première fonction** | À l’aide de l’un des outils suivants :<br><br><li>[Visual Studio Code](./create-first-function-vs-code-python.md)<li>[Terminal/invite de commandes](./create-first-function-cli-python.md) |
 | **Voir une fonction en cours d’exécution** | <li>[Navigateur d’exemples Azure](/samples/browse/?expanded=azure&languages=python&products=azure-functions)<li>[Bibliothèque de la communauté Azure](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Python) |
 | **Explorer un tutoriel interactif** | <li>[Choix de la meilleure technologie serverless Azure pour un scénario métier](/learn/modules/serverless-fundamentals/)<li>[Well-Architected Framework – Efficacité des performances](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Créer des API serverless avec Azure Functions](/learn/modules/build-api-azure-functions/)<li>[Créer une logique serverless avec Azure Functions](/learn/modules/create-serverless-logic-with-azure-functions/) <br><br>Consultez Microsoft Learn pour obtenir la [liste complète des tutoriels interactifs](/learn/browse/?expanded=azure&products=azure-functions).|
 | **Passer en revue les meilleures pratiques** |<li>[Performances et fiabilité](./functions-best-practices.md)<li>[Gérer les connexions](./manage-connections.md)<li>[Gestion des erreurs et nouvelles tentatives des fonctions](./functions-bindings-error-pages.md?tabs=python)<li>[Sécurité](./security-concepts.md)<li>[Améliorer les performances de débit](./python-scale-performance-reference.md)|

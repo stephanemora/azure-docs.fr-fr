@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.subservice: hadr
+ms.custom: na, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 7742b39fae9390a5baa7f58dbb25eeff45384dc2
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 49a369c439465a7a93cba1aea983d23a54da206e
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769540"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569497"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +29,7 @@ Cet article explique comment créer une instance de cluster de basculement (FCI)
 Pour plus d’informations, consultez une présentation de [l’instance FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [les meilleures pratiques de cluster](hadr-cluster-best-practices.md). 
 
 > [!NOTE]
-> Il est maintenant possible d’effectuer un lift-and-shift de votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
+> Il est maintenant possible de déplacer votre solution d’instance de cluster de basculement vers SQL Server sur des machines virtuelles Azure à l’aide d’Azure Migrate. Pour en savoir plus, consultez [Migrer une instance de cluster de basculement](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md). 
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -140,7 +141,9 @@ Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en
 
 ## <a name="configure-quorum"></a>Configurer un quorum
 
-Configurez la solution de quorum qui répond le mieux aux besoins de votre entreprise. Vous pouvez configurer un [Témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), un [Témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness) ou un [Témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-cluster-best-practices.md#quorum). 
+Étant donné que le témoin de disque est l’option de quorum la plus résiliente et que la solution FCI utilise des disques partagés Azure, il est recommandé de configurer un témoin de disque comme solution de quorum. 
+
+Si vous avez un nombre pair de votes dans le cluster, configurez la [Solution de quorum](hadr-cluster-quorum-configure-how-to.md) qui correspond le mieux aux besoins de votre entreprise. Pour plus d’informations, consultez [Quorum avec les machines virtuelles SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 
 ## <a name="validate-cluster"></a>Valider le cluster
 Validez le cluster dans l’interface utilisateur ou avec PowerShell.
@@ -208,9 +211,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurer la connectivité 
 
-Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 CU2+ (ou version ultérieure) et Windows Server 2016 (ou version ultérieure), vous pouvez utiliser la fonctionnalité de [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md).  
-
-Pour plus d’informations sur les options de connectivité des clusters, consultez [Acheminer les connexions HADR vers SQL Server sur des machines virtuelles Azure](hadr-cluster-best-practices.md#connectivity). 
+Vous pouvez configurer un nom de réseau virtuel ou un nom de réseau distribué pour une instance de cluster de basculement. [Passez en revue les différences entre les deux](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn), puis déployez un [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [nom de réseau virtuel](failover-cluster-instance-vnn-azure-load-balancer-configure.md) pour votre instance de cluster de basculement.  
 
 ## <a name="limitations"></a>Limites
 
@@ -224,6 +225,10 @@ Si les disques partagés Azure ne sont pas la solution de stockage FCI appropri�
 
 Pour plus d’informations, consultez une présentation de [Instance FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [Meilleures pratiques de configuration de cluster](hadr-cluster-best-practices.md).
 
-Pour plus d'informations, consultez les pages suivantes : 
-- [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+
+Pour en savoir plus, consultez :
+
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
+- [Vue d’ensemble d’une instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)

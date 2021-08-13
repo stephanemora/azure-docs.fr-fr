@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: db3b62e7ce07c1e10bc5030c37cb8957d281ea05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/29/2021
+ms.openlocfilehash: 585a2cf1a3dcbc1c45ae40b728b28ece505efee3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517295"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110788363"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Single Server
 
@@ -34,13 +34,16 @@ Pour les serveurs qui prennent en charge jusqu’à 4 To de stockage, les sauveg
 
 Dans un sous-ensemble de [régions Azure](./concepts-pricing-tiers.md#storage), tous les serveurs nouvellement approvisionnés peuvent prendre en charge un stockage jusqu’à 16 To de stockage. Les sauvegardes sur ces serveurs de stockage volumineux sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Dans une journée, trois sauvegardes de captures instantanées différentielles sont effectuées. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. 
 
+> [!NOTE]
+> Des sauvegardes automatiques sont effectuées pour les [serveurs de réplication](./concepts-read-replicas.md) configurés avec une configuration de stockage allant jusqu’à 4 to.
+
 ### <a name="backup-retention"></a>Rétention des sauvegardes
 
 Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 7 et 35 jours. La période de conservation par défaut est 7 jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du [portail Azure](./howto-restore-server-portal.md#set-backup-configuration) ou d’[Azure CLI](./howto-restore-server-cli.md#set-backup-configuration). 
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La période de rétention de sauvegarde peut également être traitée comme une fenêtre de récupération du point de vue de la restauration. Toutes les sauvegardes requises pour effectuer une restauration à un instant dans le passé au cours de la période de rétention de sauvegarde sont conservées dans le stockage de sauvegarde. Par exemple, si la période de rétention des sauvegardes est définie sur 7 jours, la fenêtre de récupération est considérée comme les 7 derniers jours. Dans ce scénario, toutes les sauvegardes nécessaires à la restauration du serveur au cours des 7 derniers jours sont conservées. Avec une fenêtre de rétention de sauvegarde de sept jours :
 - Les serveurs avec un stockage jusqu’à 4 To peuvent conserver jusqu’à 2 sauvegardes complètes de base de données, toutes les sauvegardes différentielles et les sauvegardes du journal des transactions effectuées depuis la première sauvegarde complète de la base de données.
--   Les serveurs avec un stockage jusqu’à 16 To conservent la capture instantanée complète de base de données, toutes les captures instantanées différentielles et les sauvegardes du journal des transactions au cours des 8 derniers jours.
+- Les serveurs avec un stockage jusqu’à 16 To conservent la capture instantanée complète de base de données, toutes les captures instantanées différentielles et les sauvegardes du journal des transactions au cours des 8 derniers jours.
 
 ### <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
 

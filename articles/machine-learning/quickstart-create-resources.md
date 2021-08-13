@@ -10,13 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
-ms.custom: contperf-fy21q4
-ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 0d4c85ec1075e3925fa5657783ffce618faaa6ea
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033452"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760141"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : créer les ressources d’espace de travail nécessaires pour commencer à utiliser Azure Machine Learning
 
@@ -37,10 +37,6 @@ Si vous n’avez pas encore d’espace de travail, créez-en un maintenant :
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-> [!div class="nextstepaction"]
-> [J’ai créé un espace de travail](?success=create-workspace#instance) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
-
-
 ## <a name="create-compute-instance"></a><a name="instance"></a> Créer une instance de calcul
 
 Vous pouvez installer Azure Machine Learning sur votre propre ordinateur.  Toutefois, dans ce guide de démarrage rapide, vous allez créer une ressource de calcul en ligne dont l’environnement de développement est déjà installé et prêt à l’emploi.  Vous allez utiliser cette machine en ligne, une *instance de calcul*, pour votre environnement de développement afin d’écrire et d’exécuter du code dans des scripts Python et des notebooks Jupyter.
@@ -54,9 +50,6 @@ Créez une *instance de calcul* afin d’utiliser cet environnement de développ
 1. Indiquez un nom, puis sélectionnez **Créer**.
  
 Dans environ deux minutes, vous verrez l’**État** de l’instance de calcul passer de *Création en cours* à *En cours d’exécution*.  Il sera prêt à ce moment-là.  
-
-> [!div class="nextstepaction"]
-> [J’ai créé une instance de calcul](?success=create-instance#cluster) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-instance)
 
 ## <a name="create-compute-clusters"></a><a name="cluster"></a> Créer des clusters de calcul
 
@@ -77,9 +70,6 @@ En moins d’une minute, l’**État** du cluster passe de *Création en cours* 
 
 > [!NOTE]
 > Quand le cluster est créé, aucun nœud n’y est provisionné. Le cluster n’implique *aucun* coût tant que vous n’avez pas soumis un travail. Ce cluster fera l’objet d’un scale-down après 2 400 secondes (40 minutes) d’inactivité.  Cela vous donnera le temps de l’utiliser dans quelques tutoriels, si vous le souhaitez, sans devoir attendre un nouveau scale-up.
-
-> [!div class="nextstepaction"]
-> [J’ai créé un cluster de calcul](?success=create-compute-cluster#clean-up) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="quick-tour-of-the-studio"></a><a name="studio"></a> Visite rapide du studio
 

@@ -39,6 +39,8 @@
   items:
     - name: Exemples de code de coffre de clés
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+    - name: Requêtes Azure Resource Graph
+      href: ../resource-graph-samples.md
 - name: Concepts
   items:
     - name: Concepts de base

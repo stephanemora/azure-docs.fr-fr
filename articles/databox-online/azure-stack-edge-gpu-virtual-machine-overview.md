@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 7e225f3f58e6e24d21c3100fd182934f9caae40b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 775cb6f7cfc19b0009fc92cc5afbd3ac383b3ea3
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210185"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663856"
 ---
 # <a name="virtual-machines-on-your-azure-stack-edge-pro-gpu-device"></a>Machines virtuelles exécutées sur votre appareil Azure Stack Edge Pro GPU
 
@@ -78,7 +78,7 @@ Des extensions de script personnalisé sont disponibles pour les machines virtue
 
 Pour plus d'informations, consultez [Déployer des extensions de script personnalisé sur des machines virtuelles exécutées sur votre appareil](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).
 
-Vous pouvez également utiliser des extensions GPU pour votre machine virtuelle lorsque vous souhaitez installer des pilotes GPU au moment de l'approvisionnement des machines virtuelles GPU. Pour plus d'informations, consultez [Créer des machines virtuelles GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) et [Installer des extensions GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
+Vous pouvez également utiliser des extensions GPU pour votre machine virtuelle si vous souhaitez installer des pilotes GPU au moment de l'approvisionnement des machines virtuelles GPU. Pour plus d'informations, consultez [Créer des machines virtuelles GPU](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) et [Installer des extensions GPU](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
