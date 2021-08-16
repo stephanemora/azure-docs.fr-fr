@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a1771dd6f312129d418cac3ddac8ef2411e95c6
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579754"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110496131"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -142,7 +142,7 @@ L’élément **UserJourneyBehaviors** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Étendue du comportement de session d’authentification unique d’un parcours utilisateur. |
 | SessionExpiryType |0:1 | Comportement d’authentification de la session. Valeurs possibles : `Rolling` ou `Absolute`. La valeur `Rolling` (valeur par défaut) indique que l’utilisateur reste connecté tant qu’il est actif dans l’application. La valeur `Absolute` indique que l’utilisateur est obligé de se réauthentifier après le délai spécifié par la durée de vie de session d’application. |
-| SessionExpiryInSeconds | 0:1 | Durée de vie du cookie de la session d’Azure AD B2C spécifiée en tant que valeur entière et stockée dans le navigateur de l’utilisateur après une authentification réussie. |
+| SessionExpiryInSeconds | 0:1 | Durée de vie du cookie de la session d’Azure AD B2C spécifiée en tant que valeur entière et stockée dans le navigateur de l’utilisateur après une authentification réussie. La valeur par défaut est 86 400 secondes (24 heures). La valeur minimale est de 900 secondes (15 minutes). La valeur maximale est de 86 400 secondes (24 heures). |
 | JourneyInsights | 0:1 | Clé d’instrumentation Azure Application Insights à utiliser. |
 | ContentDefinitionParameters | 0:1 | Liste des paires clé/valeur à ajouter à l’URI de charge de définition de contenu. |
 |ScriptExecution| 0:1| Modes d’exécution [JavaScript](javascript-and-page-layout.md) pris en charge. Valeurs possibles : `Allow` ou `Disallow` (par défaut).

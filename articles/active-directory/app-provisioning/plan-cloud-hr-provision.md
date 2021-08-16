@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4f8803dc3cf8234bfbdf3cf9281ec8388727749b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785040"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590447"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -182,7 +182,7 @@ Nous vous recommandons la configuration de production suivante :
 |:-|:-|
 |Nombre d’agents d’approvisionnement Azure AD Connect à déployer|Deux (pour haute disponibilité et basculement)
 |Nombre d’applications du connecteur d’approvisionnement à configurer|Une application par sous-domaine|
-|Serveur hôte pour l’agent d’approvisionnement Azure AD Connect|Windows 2012 R2+ avec ligne de vue sur les contrôleurs de domaine Active Directory géo-localisés</br>Peut coexister avec le service Azure AD Connect|
+|Serveur hôte pour l’agent d’approvisionnement Azure AD Connect|Windows Server 2016 avec ligne de vue sur les contrôleurs de domaine Active Directory géolocalisés</br>Peut coexister avec le service Azure AD Connect|
 
 ![Flux vers les agents locaux](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -196,24 +196,133 @@ Nous vous recommandons la configuration de production suivante :
 |:-|:-|
 |Nombre d’agents d’approvisionnement Azure AD Connect à déployer localement|Deux par forêt Active Directory disjointe|
 |Nombre d’applications du connecteur d’approvisionnement à configurer|Une application par sous-domaine|
-|Serveur hôte pour l’agent d’approvisionnement Azure AD Connect|Windows 2012 R2+ avec ligne de vue sur les contrôleurs de domaine Active Directory géo-localisés</br>Peut coexister avec le service Azure AD Connect|
+|Serveur hôte pour l’agent d’approvisionnement Azure AD Connect|Windows Server 2016 avec ligne de vue sur les contrôleurs de domaine Active Directory géolocalisés</br>Peut coexister avec le service Azure AD Connect|
 
 ![Une seule forêt Active Directory disjointe du locataire de l’application RH cloud](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Configuration requise pour l’agent d’approvisionnement Azure AD Connect
 
-La solution d’approvisionnement d’utilisateurs de l’application RH cloud vers Active Directory nécessite le déploiement d’un ou plusieurs agents d’approvisionnement Azure AD Connect sur des serveurs exécutant Windows 2012 R2 (ou versions ultérieures). Les serveurs doivent avoir au minimum 4 Go de RAM et runtime .NET 4.7.1+. Vérifiez que le serveur hôte a un accès réseau au domaine Active Directory cible.
+La solution de provisionnement d’utilisateurs de l’application RH cloud vers Active Directory nécessite le déploiement d’un ou de plusieurs agents de provisionnement Azure AD Connect sur des serveurs exécutant Windows 2016 ou une version ultérieure. Les serveurs doivent avoir au minimum 4 Go de RAM et runtime .NET 4.7.1+. Vérifiez que le serveur hôte a un accès réseau au domaine Active Directory cible.
 
 Pour préparer l’environnement local, l’Assistant de configuration de l’agent d’approvisionnement Azure AD Connect inscrit l’agent auprès de votre locataire Azure AD, [ouvre les ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [autorise l’accès aux URL](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls) et prend en charge [la configuration du proxy HTTPS sortant](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
-L’agent d’approvisionnement utilise un compte de service pour communiquer avec le ou les domaines Active Directory. Avant d’installer l’agent, créez un compte de service dans les utilisateurs et les ordinateurs Active Directory qui répondent aux exigences suivantes :
-
-- Un mot de passe qui n’expire pas
-- Des autorisations de contrôle délégué pour lire, créer, supprimer et gérer des comptes d’utilisateur
+L’agent de provisionnement configure un [compte de service administré global (compte GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts) pour communiquer avec les domaines Active Directory. Si vous souhaitez utiliser un autre compte de service qu’un compte GMSA pour le provisionnement, vous pouvez [ignorer la configuration GMSA](../cloud-sync/how-to-manage-registry-options.md#skip-gmsa-configuration) et spécifier le compte de service de votre choix lors de la configuration. 
 
 Vous pouvez sélectionner des contrôleurs de domaine qui doivent gérer les demandes d’approvisionnement. Si vous avez plusieurs contrôleurs de domaine géographiquement répartis, installez l’agent d’approvisionnement dans le même site que vos contrôleurs de domaine par défaut. Ce positionnement améliore la fiabilité et les performances de la solution de bout en bout.
 
 Pour une haute disponibilité, vous pouvez déployer plusieurs agents d’approvisionnement Azure AD Connect. Enregistrez l’agent pour gérer le même ensemble de domaines Active Directory locaux.
+
+## <a name="design-hr-provisioning-app-deployment-topology"></a>Concevoir la topologie de déploiement de l’application de provisionnement RH
+
+En fonction du nombre de domaines Active Directory à inclure dans la configuration du provisionnement d’utilisateurs entrants, vous pouvez envisager l’une des topologies de déploiement suivantes. Chaque diagramme de topologie illustre un exemple de scénario de déploiement qui met en évidence certains aspects de la configuration. Référez-vous à l’exemple qui correspond le plus à vos besoins de déploiement pour déterminer la configuration adaptée. 
+
+### <a name="deployment-topology-1-single-app-to-provision-all-users-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>Topologie de déploiement 1 : Application unique pour provisionner tous les utilisateurs de l’application RH cloud vers un seul domaine Active Directory local
+
+Il s’agit de la topologie de déploiement la plus commune. Utilisez cette topologie si vous devez provisionner tous les utilisateurs de l’application RH cloud vers un domaine Active Directory unique et que les mêmes règles de provisionnement s’appliquent à l’ensemble des utilisateurs. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Capture d’écran d’une application unique utilisée pour provisionner tous les utilisateurs de l’application RH cloud vers un seul domaine AD" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux nœuds d’agent de provisionnement pour la haute disponibilité et le basculement. 
+* Utilisez l’[Assistant Configuration de l’agent de provisionnement](../cloud-sync/how-to-install.md#install-the-agent) pour inscrire votre domaine AD auprès de votre locataire Azure AD. 
+* Lors de la configuration de l’application de provisionnement, sélectionnez le domaine AD dans la liste déroulante des domaines inscrits. 
+* Si vous utilisez des filtres d’étendue, configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+### <a name="deployment-topology-2-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-single-on-premises-active-directory-domain"></a>Topologie de déploiement 2 : Applications séparées pour provisionner des ensembles d’utilisateurs distincts de l’application RH cloud vers un seul domaine Active Directory local
+
+Cette topologie répond aux besoins métier où la logique de provisionnement et de mappage des attributs diffère selon le type d’utilisateur (employé/prestataire), l’emplacement de l’utilisateur ou l’unité commerciale de l’utilisateur. Vous pouvez également utiliser cette topologie pour déléguer l’administration et la maintenance du provisionnement d’utilisateurs entrants en fonction de la division ou du pays de l’utilisateur.
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Capture d’écran de plusieurs applications séparées utilisées pour provisionner des utilisateurs de l’application RH cloud vers un seul domaine AD" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux nœuds d’agent de provisionnement pour la haute disponibilité et le basculement. 
+* Créez une application de provisionnement HR2AD pour chacun des ensembles d’utilisateurs distincts que vous souhaitez provisionner. 
+* Utilisez des [filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md) dans l’application de provisionnement afin de définir les utilisateurs à traiter par chaque application. 
+* Dans un scénario où les références des responsables doivent être résolues sur des ensembles d’utilisateurs distincts (par exemple, des prestataires sous l’autorité de responsables qui sont employés), vous pouvez créer une application de provisionnement HR2AD séparée pour la mise à jour du seul attribut *manager*. Définissez l’étendue de cette application à tous les utilisateurs. 
+* Configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+> [!NOTE] 
+> Si vous n’avez pas de domaine AD de test et que vous utilisez un conteneur TEST OU dans AD, vous pouvez utiliser cette topologie afin de créer deux applications séparées, *HR2AD (Prod)* et *HR2AD (Test)* . Utilisez l’application *HR2AD (Test)* pour tester les modifications apportées au mappage d’attributs avant de les promouvoir dans l’application *HR2AD (Prod)* .  
+
+### <a name="deployment-topology-3-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-no-cross-domain-visibility"></a>Topologie de déploiement 3 : Applications séparées pour provisionner des ensembles d’utilisateurs distincts de l’application RH cloud vers plusieurs domaines Active Directory locaux (sans visibilité inter-domaines)
+
+Utilisez cette topologie pour gérer plusieurs domaines AD enfants indépendants qui appartiennent à la même forêt, si le responsable d’un utilisateur reste toujours membre du même domaine que l’utilisateur et si les règles de génération d’ID uniques pour les attributs (notamment *userPrincipalName*, *samAccountName* et *mail*) n’imposent pas une recherche au niveau de la forêt. Cette topologie permet également de déléguer l’administration de chaque travail de provisionnement par limite de domaine. 
+
+Dans l’exemple de diagramme ci-dessous, les applications de provisionnement sont configurées pour chaque région géographique : Amérique du Nord (NA), Europe, Moyen-Orient/Afrique (EMEA) et Asie-Pacifique (APAC). Les utilisateurs sont provisionnés dans le domaine AD correspondant à la région où ils se trouvent. Il est possible d’avoir une administration déléguée de l’application de provisionnement qui permette aux *administrateurs EMEA* de gérer indépendamment la configuration du provisionnement des utilisateurs situés dans la région EMEA.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Capture d’écran de plusieurs applications séparées utilisées pour provisionner des utilisateurs de l’application RH cloud vers plusieurs domaines AD" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux nœuds d’agent de provisionnement pour la haute disponibilité et le basculement. 
+* Utilisez l’[Assistant Configuration de l’agent de provisionnement](../cloud-sync/how-to-install.md#install-the-agent) pour inscrire tous les domaines AD enfants auprès de votre locataire Azure AD. 
+* Créez une application de provisionnement HR2AD séparée pour chaque domaine cible. 
+* Lors de la configuration de l’application de provisionnement, sélectionnez le domaine AD enfant correspondant dans la liste déroulante des domaines AD disponibles. 
+* Utilisez des [filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md) dans l’application de provisionnement afin de définir les utilisateurs à traiter par chaque application. 
+* Configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+
+### <a name="deployment-topology-4-separate-apps-to-provision-distinct-user-sets-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>Topologie de déploiement 4 : Applications séparées pour provisionner des ensembles d’utilisateurs distincts de l’application RH cloud vers plusieurs domaines Active Directory locaux (avec visibilité inter-domaines)
+
+Utilisez cette topologie pour gérer plusieurs domaines AD enfants indépendants qui appartiennent à la même forêt, si le responsable d’un utilisateur peut être membre d’un autre domaine et si les règles de génération d’ID uniques pour les attributs (notamment *userPrincipalName*, *samAccountName* et *mail*) imposent une recherche au niveau de la forêt. 
+
+Dans l’exemple de diagramme ci-dessous, les applications de provisionnement sont configurées pour chaque région géographique : Amérique du Nord (NA), Europe, Moyen-Orient/Afrique (EMEA) et Asie-Pacifique (APAC). Les utilisateurs sont provisionnés dans le domaine AD correspondant à la région où ils se trouvent. Les références des responsables inter-domaines et la recherche au niveau de la forêt sont gérées par l’activation du repérage des références sur l’agent de provisionnement. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Capture d’écran de plusieurs applications séparées utilisées pour provisionner des utilisateurs de l’application RH cloud vers plusieurs domaines AD (avec prise en charge inter-domaines)" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux nœuds d’agent de provisionnement pour la haute disponibilité et le basculement. 
+* Configurez le [repérage des références](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) sur l’agent de provisionnement. 
+* Utilisez l’[Assistant Configuration de l’agent de provisionnement](../cloud-sync/how-to-install.md#install-the-agent) pour inscrire le domaine AD parent et tous les domaines AD enfants auprès de votre locataire Azure AD. 
+* Créez une application de provisionnement HR2AD séparée pour chaque domaine cible. 
+* Lors de la configuration de chaque application de provisionnement, sélectionnez le domaine AD parent correspondant dans la liste déroulante des domaines AD disponibles. Cela garantit une recherche au niveau de la forêt ainsi que la génération de valeurs uniques pour les attributs comme *userPrincipalName*, *samAccountName* et *mail*.
+* Utilisez *parentDistinguishedName* avec le mappage d’expression pour créer dynamiquement un utilisateur dans le domaine enfant et le [conteneur OU](#configure-active-directory-ou-container-assignment) appropriés. 
+* Utilisez des [filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md) dans l’application de provisionnement afin de définir les utilisateurs à traiter par chaque application. 
+* Pour résoudre les références des responsables inter-domaines, créez une application de provisionnement HR2AD séparée pour la mise à jour du seul attribut *manager*. Définissez l’étendue de cette application à tous les utilisateurs. 
+* Configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+### <a name="deployment-topology-5-single-app-to-provision-all-users-from-cloud-hr-to-multiple-on-premises-active-directory-domains-with-cross-domain-visibility"></a>Topologie de déploiement 5 : Application unique pour provisionner tous les utilisateurs de l’application RH cloud vers plusieurs domaines Active Directory locaux (avec visibilité inter-domaines)
+
+Choisissez cette topologie si vous souhaitez utiliser une seule application de provisionnement pour gérer les utilisateurs qui sont membres de tous vos domaines AD parents et enfants. Cette topologie est recommandée si les règles de provisionnement sont les mêmes dans tous les domaines et que l’administration déléguée des travaux de provisionnement n’est pas requise. Cette topologie prend en charge la résolution des références des responsables inter-domaines ainsi que la vérification de l’unicité au niveau de la forêt. 
+
+Dans l’exemple de diagramme ci-dessous, une seule application de provisionnement gère les utilisateurs membres de trois domaines enfants différents regroupés par région : Amérique du Nord (NA), Europe, Moyen-Orient/Afrique (EMEA) et Asie-Pacifique (APAC). Le mappage d’attributs pour *parentDistinguishedName* est utilisé pour créer dynamiquement un utilisateur dans le domaine enfant approprié. Les références des responsables inter-domaines et la recherche au niveau de la forêt sont gérées par l’activation du repérage des références sur l’agent de provisionnement. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Capture d’écran d’une application unique utilisée pour provisionner des utilisateurs de l’application RH cloud vers plusieurs domaines AD (avec prise en charge inter-domaines)" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux nœuds d’agent de provisionnement pour la haute disponibilité et le basculement. 
+* Configurez le [repérage des références](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) sur l’agent de provisionnement. 
+* Utilisez l’[Assistant Configuration de l’agent de provisionnement](../cloud-sync/how-to-install.md#install-the-agent) pour inscrire le domaine AD parent et tous les domaines AD enfants auprès de votre locataire Azure AD. 
+* Créez une application de provisionnement HR2AD unique pour l’ensemble de la forêt. 
+* Lors de la configuration de l’application de provisionnement, sélectionnez le domaine AD parent correspondant dans la liste déroulante des domaines AD disponibles. Cela garantit une recherche au niveau de la forêt ainsi que la génération de valeurs uniques pour les attributs comme *userPrincipalName*, *samAccountName* et *mail*.
+* Utilisez *parentDistinguishedName* avec le mappage d’expression pour créer dynamiquement un utilisateur dans le domaine enfant et le [conteneur OU](#configure-active-directory-ou-container-assignment) appropriés. 
+* Si vous utilisez des filtres d’étendue, configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+### <a name="deployment-topology-6-separate-apps-to-provision-distinct-users-from-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>Topologie de déploiement 6 : Applications séparées pour provisionner des utilisateurs distincts de l’application RH cloud vers des forêts Active Directory locales déconnectées
+
+Choisissez cette topologie si votre infrastructure informatique contient des forêts AD déconnectées/disjointes et si vous devez provisionner des utilisateurs dans des forêts différentes en fonction de leur affiliation professionnelle. Dans l’exemple ci-dessous, les utilisateurs travaillant pour la filiale *Contoso* doivent être provisionnés dans le domaine *contoso.com*, tandis que les utilisateurs travaillant pour la filiale *Fabrikam* doivent être provisionnés dans le domaine *fabrikam.com*. 
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png" alt-text="Capture d’écran de plusieurs applications séparées utilisées pour provisionner des utilisateurs de l’application RH cloud vers des forêts AD déconnectées" lightbox="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux ensembles différents d’agents de provisionnement (un par forêt) pour la haute disponibilité et le basculement. 
+* Créez une application de provisionnement différente pour chaque forêt. 
+* Si vous devez résoudre des références inter-domaines au niveau de la forêt, activez le [repérage des références](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) sur l’agent de provisionnement. 
+* Créez une application de provisionnement HR2AD séparée pour chaque forêt déconnectée. 
+* Lors de la configuration de chaque application de provisionnement, sélectionnez le domaine AD parent approprié dans la liste déroulante des domaines AD disponibles. 
+* Configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
+
+### <a name="deployment-topology-7-separate-apps-to-provision-distinct-users-from-multiple-cloud-hr-to-disconnected-on-premises-active-directory-forests"></a>Topologie de déploiement 7 : Applications séparées pour provisionner des utilisateurs distincts de plusieurs applications RH cloud vers des forêts Active Directory locales déconnectées
+
+Dans les organisations de grande taille, il n’est pas rare d’avoir plusieurs systèmes RH. Dans les scénarios d’entreprise avec des fusions et des acquisitions, vous pouvez avoir besoin de connecter vos domaines Active Directory locaux à plusieurs sources RH. Nous vous recommandons d’utiliser la topologie ci-dessous si vous avez plusieurs sources RH et que vous souhaitez acheminer les données d’identité de toutes ces sources RH vers des domaines Active Directory locaux identiques ou différents.  
+
+:::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="Capture d’écran de plusieurs applications séparées utilisées pour provisionner des utilisateurs de plusieurs applications RH cloud vers des forêts AD déconnectées" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
+
+**Aspects essentiels de la configuration**
+* Configurez deux ensembles différents d’agents de provisionnement (un par forêt) pour la haute disponibilité et le basculement. 
+* Si vous devez résoudre des références inter-domaines au niveau de la forêt, activez le [repérage des références](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) sur l’agent de provisionnement. 
+* Créez une application de provisionnement HR2AD séparée pour chaque combinaison système RH/domaine Active Directory local.
+* Lors de la configuration de chaque application de provisionnement, sélectionnez le domaine AD parent approprié dans la liste déroulante des domaines AD disponibles. 
+* Configurez l’[indicateur Ignorer les suppressions hors de l’étendue](skip-out-of-scope-deletions.md) pour empêcher les désactivations de comptes accidentelles. 
 
 ## <a name="plan-scoping-filters-and-attribute-mapping"></a>Planifier les filtres d’étendue et le mappage des attributs
 
@@ -295,7 +404,7 @@ Lorsque vous lancez le processus Entrants, vous devrez peut-être générer des 
 La fonction [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) d’Azure AD évalue chaque règle, puis vérifie la valeur générée pour l’unicité dans le système cible. Pour un exemple, voir [Générer une valeur unique pour l’attribut userPrincipalName (UPN)](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
 > [!NOTE]
-> Cette fonction est actuellement prise en charge uniquement pour l’approvisionnement d’utilisateurs de Workday vers Active Directory. Elle ne peut pas être utilisée avec d’autres applications d’approvisionnement.
+> Cette fonction est actuellement prise en charge uniquement pour le provisionnement d’utilisateurs « Workday vers Active Directory » et « SuccessFactors vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications d’approvisionnement.
 
 ### <a name="configure-active-directory-ou-container-assignment"></a>Configurer l’attribution de conteneur d’UO Active Directory
 
@@ -315,7 +424,7 @@ Avec cette expression, si la valeur Municipalité est Dallas, Austin, Seattle ou
 
 Lorsque vous lancez le processus Entrants, vous devez définir et remettre un mot de passe temporaire pour les nouveaux comptes d’utilisateur. Grâce à l’approvisionnement d’utilisateurs de l’application RH cloud vers Azure AD, vous pouvez déployer la fonction de [réinitialisation de mot de passe en libre-service](../authentication/tutorial-enable-sspr.md) (SSPR) Azure AD pour l’utilisateur dès le premier jour.
 
-La SSPR est un moyen simple pour les administrateurs informatiques de permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes. Vous pouvez approvisionner l’attribut **Numéro de téléphone** de l’application RH cloud vers Active Directory, puis le synchroniser avec Azure AD. Une fois que l’attribut **Numéro de téléphone mobile** est dans Azure AD, vous pouvez activer SSPR pour le compte de l’utilisateur. Ensuite, le premier jour, le nouvel utilisateur peut utiliser le numéro de téléphone mobile enregistré et vérifié pour l’authentification.
+La SSPR est un moyen simple pour les administrateurs informatiques de permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes. Vous pouvez approvisionner l’attribut **Numéro de téléphone** de l’application RH cloud vers Active Directory, puis le synchroniser avec Azure AD. Une fois que l’attribut **Numéro de téléphone mobile** est dans Azure AD, vous pouvez activer SSPR pour le compte de l’utilisateur. Ensuite, le premier jour, le nouvel utilisateur peut utiliser le numéro de téléphone mobile enregistré et vérifié pour l’authentification. Reportez-vous à la [documentation SSPR](../authentication/howto-sspr-authenticationdata.md) pour plus d’informations sur la façon de préremplir les informations de contact d’authentification. 
 
 ## <a name="plan-for-initial-cycle"></a>Planifier le cycle initial
 

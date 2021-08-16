@@ -3,20 +3,20 @@ title: Nouveautés
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Découvrez les nouvelles fonctionnalités et améliorations apportées à la documentation et aux services Azure SQL Database et SQL Managed Instance.
 services: sql-database
-author: stevestein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service
-ms.custom: sqldbrb=2
+ms.subservice: service-overview
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/17/2021
-ms.author: sstein
-ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/03/2021
+ms.openlocfilehash: 3a971b88e2152d79f0c11cc58092d6faf1e3f900
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132014"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752672"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -136,9 +136,9 @@ Si une instance participe à un [groupe de basculement automatique](./auto-failo
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé
 
-La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre `@query` est utilisé. Lorsque ce problème se produit, chaque deuxième exécution de la procédure sp_send_dbmail échoue avec l’erreur `Msg 22050, Level 16, State 1` et le message `Failed to initialize sqlcmd library with error number -2147467259`. Pour voir correctement cette erreur, vous devez appeler la procédure avec la valeur par défaut 0 pour le paramètre `@exclude_query_output`. Autrement, l’erreur n’est pas propagée.
-Ce problème est dû à un bogue connu lié à la façon dont la procédure sp_send_dbmail utilise l’emprunt d’identité et le regroupement de connexions.
-Pour contourner ce problème, encapsulez le code pour l’envoi d’e-mail dans une logique de nouvelle tentative s’appuyant sur le paramètre de sortie `@mailitem_id`. Si l’exécution échoue, la valeur du paramètre est NULL, ce qui indique que la procédure sp_send_dbmail doit être appelée une fois de plus pour envoyer un e-mail avec succès. Voici un exemple de logique de nouvelle tentative.
+La procédure `sp_send_dbmail` peut échouer momentanément lorsque le paramètre `@query` est utilisé. Lorsque ce problème se produit, chaque deuxième exécution de la procédure sp_send_dbmail échoue avec l’erreur `Msg 22050, Level 16, State 1` et le message `Failed to initialize sqlcmd library with error number -2147467259`. Pour voir correctement cette erreur, vous devez appeler la procédure avec la valeur par défaut 0 pour le paramètre `@exclude_query_output`. Autrement, l’erreur n’est pas propagée.
+Ce problème est dû à un bogue connu lié à la façon dont la procédure `sp_send_dbmail` utilise l’emprunt d’identité et le regroupement de connexions.
+Pour contourner ce problème, encapsulez le code pour l’envoi d’e-mail dans une logique de nouvelle tentative s’appuyant sur le paramètre de sortie `@mailitem_id`. Si l’exécution échoue, la valeur du paramètre est NULL, ce qui indique que la procédure `sp_send_dbmail` doit être appelée une fois de plus pour envoyer un e-mail avec succès. Voici un exemple de logique de nouvelle tentative.
 ```sql
 CREATE PROCEDURE send_dbmail_with_retry AS
 BEGIN
@@ -159,32 +159,33 @@ END
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs
 
-Les [groupes d'approbation de serveurs](../managed-instance/server-trust-group-overview.md) sont utilisés pour établir une relation de confiance entre les instances gérées, condition préalable à l'exécution de [transactions distribuées](./elastic-transactions-overview.md). Après avoir supprimé Managed Instance du groupe d'approbation de serveurs ou supprimé le groupe, vous pourrez peut-être encore exécuter des transactions distribuées. Il existe une solution de contournement que vous pouvez appliquer pour vous assurer que les transactions distribuées sont désactivées : le [basculement manuel initié par l'utilisateur](../managed-instance/user-initiated-failover.md) sur Managed Instance.
+Les [groupes d'approbation de serveurs](../managed-instance/server-trust-group-overview.md) sont utilisés pour établir une relation de confiance entre les instances gérées, condition préalable à l'exécution de [transactions distribuées](./elastic-transactions-overview.md). Après avoir supprimé Managed Instance du groupe d’approbation de serveurs ou supprimé le groupe, vous pourrez peut-être encore exécuter des transactions distribuées. Il existe une solution de contournement que vous pouvez appliquer pour vous assurer que les transactions distribuées sont désactivées : le [basculement manuel initié par l'utilisateur](../managed-instance/user-initiated-failover.md) sur Managed Instance.
 
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Les transactions distribuées ne peuvent pas être exécutées après l'opération de mise à l'échelle de Managed Instance
 
 Les opérations de mise à l'échelle de Managed Instance qui incluent la modification du niveau de service ou du nombre de vCores réinitialisent les paramètres du groupe d'approbation de serveurs sur le back-end et désactivent les [transactions distribuées](./elastic-transactions-overview.md) en cours d'exécution. Pour contourner ce problème, supprimez le [groupe d'approbation de serveurs](../managed-instance/server-trust-group-overview.md) et créez-en un nouveau sur le portail Azure.
 
-### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Les instructions BULK INSERT et BACKUP/RESTORE ne peuvent pas utiliser Managed Identity pour accéder au service Stockage Azure
+### <a name="bulk-insert-and-backuprestore-statements-should-use-sas-key-to-access-azure-storage"></a>Les instructions BULK INSERT et BACKUP/RESTORE doivent utiliser la clé SAS pour accéder au stockage Azure
 
-Les instructions BULK INSERT, BACKUP, et RESTORE, et la fonction OPENROWSET, ne peuvent pas utiliser `DATABASE SCOPED CREDENTIAL` avec une identité managée pour l’authentification auprès du service Stockage Azure. Pour contourner ce problème, basculez vers l'authentification par SIGNATURE D'ACCÈS PARTAGÉ. L'exemple suivant ne fonctionne pas sur SQL Azure (Database et Managed Instance) :
+Actuellement, il n’est pas possible d’utiliser la syntaxe `DATABASE SCOPED CREDENTIAL` avec une identité managée pour l’authentification auprès du stockage Azure. Microsoft recommande d’utiliser une [signature d’accès partagé](../../storage/common/storage-sas-overview.md) pour les [informations d’identification dans l’étendue de la base de données](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), lors de l’accès au stockage Azure pour les instructions bulk insert, `BACKUP` et `RESTORE`, ou la fonction `OPENROWSET`. Par exemple :
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+CREATE DATABASE SCOPED CREDENTIAL sas_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
 GO
 CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= sas_cred );
 GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solution de contournement** : Utilisez la [signature d'accès partagé pour vous authentifier auprès du service de stockage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
+Pour un autre exemple d’utilisation de `BULK INSERT` avec une clé SAS, consultez [Signature d’accès partagé pour l’authentification auprès du stockage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage). 
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Le principal du service ne peut pas accéder à Azure AD et à AKV
 
-Dans certains cas, il existe peut exister un problème avec le principal de service utilisé pour accéder aux services Azure AD et Azure Key Vault (AKV). Par conséquent, ce problème a un impact sur l’utilisation de l’authentification Azure AD et le chiffrement transparent de base de données (TDE) avec SQL Managed Instance. Cela peut être vécu comme un problème de connectivité intermittente ou l’impossibilité d’exécuter des instructions telles que CREATE LOGIN/USER FROM EXTERNAL PROVIDER ou EXECUTE AS LOGIN/USER. La configuration de TDE avec une clé gérée par le client sur un nouveau service Azure SQL Managed Instance peut également ne pas fonctionner dans certaines circonstances.
+Dans certains cas, il existe peut exister un problème avec le principal de service utilisé pour accéder aux services Azure AD et Azure Key Vault (AKV). Par conséquent, ce problème a un impact sur l’utilisation de l’authentification Azure AD et le chiffrement transparent de base de données (TDE) avec SQL Managed Instance. Cela peut être ressenti comme un problème de connectivité intermittent ou comme l’impossibilité d’exécuter des instructions telles que `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` ou `EXECUTE AS LOGIN/USER`. La configuration de TDE avec une clé gérée par le client sur un nouveau service Azure SQL Managed Instance peut également ne pas fonctionner dans certaines circonstances.
 
-**Solution de contournement** : Pour éviter que ce problème ne se produise sur votre service SQL Managed Instance avant d'exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l'exécution de commandes de mise à jour, accédez au portail Azure, puis au [panneau d'administration Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal de service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
+**Solution de contournement** : Pour éviter que ce problème ne se produise sur votre service SQL Managed Instance avant d’exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l’exécution de commandes de mise à jour, accédez au portail Azure, puis à la [page d’administration Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal de service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer
 
@@ -210,18 +211,18 @@ Si le groupe de basculement s’étend sur plusieurs instances dans différents 
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Les rôles d’agent SQL requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin
 
-Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de SQL Agent](/sql/ssms/agent/sql-server-agent-fixed-database-roles), il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées aux procédures stockées principales pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
+Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de SQL Agent](/sql/ssms/agent/sql-server-agent-fixed-database-roles), il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées à trois procédures stockées dans la base de données master pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
 
 **Solution de contournement** : Une fois que vous avez ajouté des connexions à un rôle de base de données fixe SQL Agent (SQLAgentUserRole, SQLAgentReaderRole, ou SQLAgentOperatorRole) pour chaque connexion ajoutée à ces rôles, exécutez le script T-SQL ci-dessous pour autoriser explicitement l’accès EXÉCUTER aux procédures stockées listées.
 
 ```tsql
 USE [master]
 GO
-CREATE USER [login_name] FOR LOGIN [login_name]
+CREATE USER [login_name] FOR LOGIN [login_name];
 GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Les travaux de l’agent SQL peuvent être interrompus par le redémarrage du processus de l’agent
@@ -313,12 +314,12 @@ Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être remplacés à l’avenir par les noms des bases de données.
 
-**Solution de contournement** : Utilisez l’affichage sys.databases pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID :
+**Solution de contournement** : Utilisez l’affichage `sys.databases` pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID :
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
 FROM sys.databases
-WHERE database_id > 4
+WHERE database_id > 4;
 ```
 
 ### <a name="error-logs-arent-persisted"></a>Les journaux des erreurs ne sont pas conservés

@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ff56bd488fb1e9d776b99461ae1c40c9941fae0b
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 547152e5c74d8953ae206d9ff3b6076013b0ade1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633930"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091627"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -63,6 +63,28 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 | iothub-connection-auth-method |Une méthode d’authentification définie par IoT Hub sur les messages appareil-à-cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message.| Non | connectionAuthMethod |
 | dt-dataschema | Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. | Non | $dt-dataschema |
 | dt-subject | Nom du composant qui envoie les messages appareil-à-cloud. | Oui | $dt-subject |
+
+## <a name="application-properties-of-d2c-iot-hub-messages"></a>Propriétés d’application des messages IoT Hub **D2C**
+
+Une utilisation courante des propriétés d’application consiste à envoyer un horodatage à partir de l’appareil à l’aide de la propriété `iothub-creation-time-utc` pour enregistrer le moment où le message a été envoyé par l’appareil. Le format de cet horodatage doit être UTC sans informations de fuseau horaire. Par exemple, `2021-04-21T11:30:16Z` est valide, `2021-04-21T11:30:16-07:00` ne l’est pas :
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
+}
+```
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriétés système des messages IoT Hub **C2D**
 

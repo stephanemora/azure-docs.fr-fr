@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 04/28/2021
-ms.openlocfilehash: 04831c7cb56082854097a2091b3c8099e4d488a6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 820c69135acbecde8c2c918e26a7b8cf9dc69428
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124794"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699893"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,8 +24,11 @@ ms.locfileid: "108124794"
 La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des bases de données secondaires lisibles à partir de bases de données individuelles sur un serveur dans un centre de données identique ou différent (région).
 
 > [!NOTE]
-> La géoréplication active pour Azure SQL Hyperscale [est désormais en préversion publique](https://aka.ms/hsgeodr). Les limitations actuelles incluent : un seul géosecondaire dans la même région ou une autre région, seul le basculement forcé est pris en charge, la restauration de base de données à partir d’un géosecondaire n’est pas prise en charge, l’utilisation d’un géosecondaire en tant que base de données source pour la copie de base de données ou en tant que principal pour un autre géosecondaire n’est pas prise en charge
-
+> La fonctionnalité de géoréplication active pour Azure SQL Hyperscale [est désormais disponible en préversion publique](https://aka.ms/hsgeodr). Les limitations actuelles incluent : un seul géosecondaire dans la même région ou dans une autre région, basculement forcé et planifié non pris en charge pour le moment, restauration de base de données à partir d'un géosecondaire non prise en charge, utilisation d'un géosecondaire en tant que base de données source pour la copie de base de données ou en tant que principal pour un autre géosecondaire non prise en charge
+> Si besoin, vous pouvez rendre le géosecondaire accessible en écriture en rompant le lien de géoréplication comme suit :
+> 1. Faites de la base de données secondaire une base de données autonome en lecture-écriture à l'aide de la cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary). Toutes les modifications de données validées sur la base de données primaire mais pas encore répliquées sur la base de données secondaire seront perdues. Ces modifications peuvent être récupérées lorsque l'ancienne base de données primaire est disponible ou, dans certains cas, en restaurant l'ancienne base de données primaire au dernier point disponible dans le temps.
+> 2. Si l'ancienne base de données primaire est disponible, supprimez-la, puis configurez la géoréplication pour la nouvelle base de données primaire (une nouvelle base de données secondaire sera amorcée). 
+> 3. Mettez à jour les chaînes de connexion de votre application en conséquence.
 
 > [!NOTE]
 > La géoréplication active n’est pas prise en charge par Azure SQL Managed Instance. Pour le basculement géographique d’instances de SQL Managed Instance, utilisez des [groupes de basculement automatique](auto-failover-group-overview.md).
@@ -144,6 +147,9 @@ Par défaut, la redondance de stockage de sauvegarde de la base de données seco
 Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](purchasing-models.md).
 
 ## <a name="cross-subscription-geo-replication"></a>Géoréplication entre abonnements
+
+> [!NOTE]
+> La création d'un géo-réplica sur un serveur logique dans un autre locataire Azure n'est pas prise en charge lorsque l'authentification [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) est activée sur le serveur logique primaire ou secondaire.
 
 Pour configurer la géoréplication active entre deux bases de données appartenant à des abonnements différents (que ce soit sous le même locataire ou non), vous devez suivre la procédure spéciale décrite dans cette section.  La procédure repose sur des commandes SQL et requiert ce qui suit :
 

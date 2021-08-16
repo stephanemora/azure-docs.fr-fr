@@ -4,20 +4,20 @@ description: Utilisez le chiffrement sur l’hôte pour activer le chiffrement d
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 06/14/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ad053a0e97a8efa50fbb01798e639fb33e769bef
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721866"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078765"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez le portail Azure pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
-Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l’hôte ainsi que sur d’autres types de chiffrement de disques managés, consultez :
+Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l’hôte, ainsi que sur d’autres types de chiffrement de disques managés, consultez :
 
 * Linux : [Chiffrement à l’hôte : chiffrement de bout en bout pour vos données de machine virtuelle](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -34,19 +34,19 @@ Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez activer la fonctionnalité pour votre abonnement avant d’utiliser la propriété EncryptionAtHost pour votre machine virtuelle/groupe de machines virtuelles identiques. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
+Vous devez activer la fonctionnalité pour votre abonnement avant d’utiliser la propriété EncryptionAtHost pour votre machine virtuelle/groupe de machines virtuelles identiques. Suivez la procédure ci-dessous pour activer la fonctionnalité pour votre abonnement :
 
 1. **Portail Azure**: Sélectionnez l’icône Cloud Shell dans le [portail Azure](https://portal.azure.com) :
 
     ![Icône permettant de lancer Cloud Shell à partir du portail Azure](../Cloud-Shell/media/overview/portal-launch-icon.png)
     
-2.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
 
     ```powershell
      Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-3.  Vérifiez que l’état de l’inscription est Inscrit (cela prend quelques minutes) à l’aide de la commande ci-dessous avant d’essayer la fonctionnalité.
+1.  Vérifiez que l’état de l’inscription est **Inscrit** (cela prend quelques minutes) à l’aide de la commande ci-dessous avant d’essayer la fonctionnalité.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
@@ -66,7 +66,7 @@ Une fois la fonctionnalité activée, vous devez configurer un coffre de clés A
 
 ## <a name="deploy-a-vm"></a>Déployer une machine virtuelle
 
-Vous devez déployer une nouvelle machine virtuelle pour activer le chiffrement au niveau de l’hôte, car il ne peut pas être activé sur les machines virtuelles existantes.
+Maintenant que vous avez configuré une instance Azure Key Vault et un jeu de chiffrement de disque, vous pouvez déployer une machine virtuelle qui utilisera le chiffrement sur l’hôte.
 
 1. Recherchez **Machines virtuelles** et sélectionnez **+ Ajouter** pour créer une machine virtuelle.
 1. Créez une nouvelle machine virtuelle, sélectionnez une région appropriée et une taille de machine virtuelle prise en charge.

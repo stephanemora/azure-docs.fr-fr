@@ -11,14 +11,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/30/2021
+ms.date: 6/9/2021
 ms.author: gunnarc
-ms.openlocfilehash: fd9aa5b2202a197b12a8e888dc510cdf4544bdec
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae31a7984ed87f03c59adfe3171ef9648eb287e8
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108735962"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888605"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,10 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+
+###### <a name="may-26-2021"></a>**26 mai 2021**
+Le système d’exploitation invité de mai a été publié. 
 
 ###### <a name="april-30-2021"></a>**30 avril 2021**
 Le système d’exploitation invité d’avril a été publié. 
@@ -150,23 +154,16 @@ Publication du système d’exploitation invité du mois de septembre.
 .NET Framework installé : 3.5, 4.7.2
 
 > [!NOTE]
-> Le SDK Windows Azure pour .NET - 3.0 peut être téléchargé [ici][Windows Azure SDK].
->
->Étapes d'installation :
->1. Veuillez désinstaller les anciennes versions du fichier MicrosoftAzureAuthoringTools*.msi
->2. Installer le [kit SDK Azure pour .NET - 3.0][Windows Azure SDK]
->3. Redémarrer votre machine
->4. Créer un projet de service cloud et ajouter un seul rôle de travail
->5. Définir la famille de système d’exploitation sur 6 et générer un paquet
->6. Déployer le paquet sur Azure à l’aide du portail Azure ou de Visual Studio
+> Nous vous recommandons de développer des services Cloud Services sur Visual Studio 2019 et d’installer la charge de travail Azure.
 >
 >La version de système d’exploitation Family 6 applique TLS 1.2 en désactivant explicitement TLS 1.0 et 1.1 et en définissant un ensemble spécifique de suites de chiffrement. En savoir [plus].
 
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.31_202105-01 |  26 mai 2021  |  Post 6.33  |  
 |  WA-GUEST-OS-6.30_202104-01 |  30 avril 2021  |  Post 6.32  |  
-|  WA-GUEST-OS-6.29_202103-01 |  28 mars 2021  |  Post 6.31  |  
+|~~WA-GUEST-OS-6.29_202103-01~~|  28 mars 2021  |  26 mai 2021  |  
 |~~WA-GUEST-OS-6.28_202102-01~~|  19 février 2021  |  30 avril 2021  |  
 |~~WA-GUEST-OS-6.27_202101-01~~|  5 février 2021  |  28 mars 2021  |  
 |~~WA-GUEST-OS-6.26_202012-01~~|  15 janvier 2021  |  19 février 2021  |  
@@ -208,8 +205,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.55_202105-01  |  26 mai 2021  |  Post 5.57  | 
 |  WA-GUEST-OS-5.54_202104-01  |  30 avril 2021  |  Post 5.56  | 
-|  WA-GUEST-OS-5.53_202103-01  |  28 mars 2021  |  Post 5.55  | 
+|~~WA-GUEST-OS-5.53_202103-01~~|  28 mars 2021  |  26 mai 2021  | 
 |~~WA-GUEST-OS-5.52_202102-01~~|  19 février 2021  |  30 avril 2021  | 
 |~~WA-GUEST-OS-5.51_202101-01~~|  5 février 2021  |  28 mars 2021  | 
 |~~WA-GUEST-OS-5.50_202012-01~~|  15 janvier 2021  |  19 février 2021  | 
@@ -248,8 +246,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.90_202105-01  |  26 mai 2021  |  Post 4.92  | 
 |  WA-GUEST-OS-4.89_202104-01  |  30 avril 2021  |  Post 4.91  | 
-|  WA-GUEST-OS-4.88_202103-01  |  28 mars 2021  |  Post 4.90  | 
+|~~WA-GUEST-OS-4.88_202103-01~~|  28 mars 2021  |  26 mai 2021  | 
 |~~WA-GUEST-OS-4.87_202102-01~~|  19 février 2021  |  30 avril 2021  | 
 |~~WA-GUEST-OS-4.86_202101-01~~|  5 février 2021  |  28 mars 2021  | 
 |~~WA-GUEST-OS-4.85_202012-01~~|  15 janvier 2021  |  19 février 2021  | 
@@ -288,8 +287,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.97_202105-01  |  26 mai 2021  |  Post 3.99  |
 |  WA-GUEST-OS-3.96_202104-01  |  30 avril 2021  |  Post 3.98  |
-|  WA-GUEST-OS-3.95_202103-01  |  28 mars 2021  |  Post 3.97  |
+|~~WA-GUEST-OS-3.95_202103-01~~|  28 mars 2021  |  26 mai 2021  |
 |~~WA-GUEST-OS-3.94_202102-01~~|  19 février 2021  |  30 avril 2021  |
 |~~WA-GUEST-OS-3.93_202101-01~~|  5 février 2021  |  28 mars 2021  |
 |~~WA-GUEST-OS-3.92_202012-01~~|  15 janvier 2021  |  19 février 2021  |  
@@ -328,8 +328,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.110_202105-01  |  26 mai 2021  |  Post 2.112  |
 |  WA-GUEST-OS-2.109_202104-01  |  30 avril 2021  |  Post 2.111  |
-|  WA-GUEST-OS-2.108_202103-01  |  28 mars 2021  |  Post 2.110  |
+|~~WA-GUEST-OS-2.108_202103-01~~|  28 mars 2021  |  26 mai 2021  |
 |~~WA-GUEST-OS-2.107_202102-01~~|  19 février 2021  |  30 avril 2021  |  
 |~~WA-GUEST-OS-2.106_202101-01~~|  5 février 2021  |  28 mars 2021  |  
 |~~WA-GUEST-OS-2.105_202012-01~~|  15 janvier 2021  |  19 février 2021  |  

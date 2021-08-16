@@ -4,7 +4,7 @@ description: Explique comment rapprocher vos ressources utilisateur Microsoft 3
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c528b61f4d590c0402ac7c89d97f545911d883
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 82ac5d6b6c3424be4e3f012a04c5fc1b149f58d0
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627939"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891893"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les capacités multigéographiques dans Microsoft 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Microsoft 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
+
+## <a name="supported-multi-geo-locations"></a>Emplacements géographiques multiples pris en charge
+Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Activer la synchronisation de l’emplacement des données préféré
 Par défaut, les ressources Microsoft 365 des utilisateurs se trouvent dans la même zone géographique que le locataire Azure AD. Par exemple, si votre locataire est situé en Amérique du Nord, les boîtes aux lettres Exchange des utilisateurs sont également situées en Amérique du Nord. Pour une organisation multinationale, cela n’est peut-être pas optimal.
@@ -34,31 +37,10 @@ L’attribut **preferredDataLocation** vous permet de définir la zone géograph
 > [!IMPORTANT]
 > Les fonctionnalités multigéographiques sont actuellement disponibles pour les clients dotés d’un Contrat Entreprise actif avec au moins 250 abonnements aux services Microsoft 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
->
+> Pour obtenir la liste de toutes les zones géographiques prises en charge par Azure AD Connect, consultez [Disponibilité multi-géographique de Microsoft 365](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).
 
-Vous trouverez la liste de toutes les zones géographiques pour Microsoft 365 dans la section [Où se trouvent vos données ?](/microsoft-365/enterprise/o365-data-locations)
 
-Voici les zones géographiques Microsoft 365 disponibles pour les fonctionnalités multigéographiques :
 
-| Zone géographique | Valeur de PreferredDataLocation |
-| --- | --- |
-| Asie-Pacifique | APC |
-| Australie | AUS |
-| Canada | CAN |
-| Union européenne | EUR |
-| France | FRA |
-| Inde | IND |
-| Japon | JPN |
-| Corée du Sud | KOR |
-| Afrique du Sud | ZAF |
-| Suisse | CHE |
-| Émirats Arabes Unis | ARE |
-| Royaume-Uni | GBR |
-| États-Unis | NAM |
-
-* Si une zone géographique, par exemple l’Amérique du Sud, n’apparaît pas dans ce tableau, c’est qu’elle n’est pas utilisable pour les fonctionnalités multigéographiques.
-
-* Toutes les charges de travail Microsoft 365 ne prennent pas en charge l’utilisation du paramètre de zone géographique des utilisateurs.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Prise en charge d’Azure AD Connect pour la synchronisation
 

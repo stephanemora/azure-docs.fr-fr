@@ -1,24 +1,24 @@
 ---
 title: Préparer et personnaliser une image de disque dur virtuel principale - Azure
-description: Explique comment préparer, personnaliser et charger une image principale Windows Virtual Desktop dans Azure.
+description: Explique comment préparer, personnaliser et charger une image principale Azure Virtual Desktop dans Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 654b5b293397af9737813d759a7c784d90629942
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445803"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751430"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
-Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
+Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique à Azure Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 >[!IMPORTANT]
->Nous vous recommandons d’utiliser une image de la Bibliothèque d’images Azure. Toutefois, si vous devez utiliser une image personnalisée, assurez-vous que l’agent Windows Virtual Desktop n’est pas déjà installé sur votre machine virtuelle. L’utilisation d’une image personnalisée avec l’agent Windows Virtual Desktop peut entraîner des problèmes avec l’image, comme des blocages d’inscription et de connexions de session utilisateur.  
+>Nous vous recommandons d’utiliser une image de la Bibliothèque d’images Azure. Toutefois, si vous devez utiliser une image personnalisée, assurez-vous que l’agent Azure Virtual Desktop n’est pas déjà installé sur votre machine virtuelle. L’utilisation d’une image personnalisée avec l’agent Azure Virtual Desktop peut entraîner des problèmes avec l’image, comme des blocages d’inscription et de connexions de session utilisateur.  
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -128,7 +128,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>Désactiver l’assistant Stockage
 
-Pour l’hôte de session de Windows Virtual Desktop qui utilise Windows 10 Entreprise ou Windows 10 Entreprise multisession, nous vous recommandons de désactiver l’assistant Stockage. Vous pouvez désactiver l’assistant Stockage dans le menu Paramètres sous **Stockage**, comme illustré dans la capture d’écran suivante :
+Pour l’hôte de session de Azure Virtual Desktop qui utilise Windows 10 Entreprise ou Windows 10 Entreprise multisession, nous vous recommandons de désactiver l’assistant Stockage. Vous pouvez désactiver l’assistant Stockage dans le menu Paramètres sous **Stockage**, comme illustré dans la capture d’écran suivante :
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du menu Stockage sous Paramètres, avec l’option « Assistant Stockage » désactivée](media/storagesense.png)
@@ -215,6 +215,6 @@ Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des poo
 - [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
 - [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
 - [Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers](create-host-pools-user-profile.md)
-- [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configurer la méthode d’équilibrage de charge d’Azure Virtual Desktop](configure-host-pool-load-balancing.md)
 
 Si vous rencontrez un problème de connectivité après avoir préparé ou personnalisé votre image de disque dur virtuel, consultez le [Guide de résolution des problèmes](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour obtenir de l’aide.

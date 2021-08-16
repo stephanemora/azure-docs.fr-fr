@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 50d60621c1d6b08ded5a2fdb6f6137281e9dee78
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0921c3d9bf254e3d486ec381c3243a8035bb6f50
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462264"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750350"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
@@ -62,7 +62,7 @@ Si vous disposez déjà d’un réseau virtuel pour héberger une instance Azure
 
 1. Dans la boîte de dialogue **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes :
 
-    |Paramètre          |Valeur                                             |
+    |Paramètre          |Value                                             |
     |-----------------|--------------------------------------------------|
     |Abonnement     |Sélectionnez votre abonnement.                         |
     |Groupe de ressources   |Sélectionnez votre groupe de ressources ou créez-en un.  |
@@ -88,9 +88,7 @@ Sélectionnez le réseau virtuel **azure-spring-cloud-vnet** que vous avez cré�
 
     ![Capture d’écran de la fenêtre Contrôle d’accès](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Attribuez le rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner) à l’entité [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
-
-    Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+1. Attribuez le rôle *Propriétaire* au **Fournisseur de ressources Azure Spring Cloud**. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Vous pouvez également effectuer cette étape en exécutant la commande Azure CLI suivante :
 
@@ -189,7 +187,7 @@ Les tables de routage auxquelles votre réseau virtuel personnalisé est associ�
 
 * Vous pouvez associer vos tables de routage Azure à votre réseau virtuel uniquement lorsque vous créez une nouvelle instance de service Azure Spring Cloud. Vous ne pouvez pas choisir d’utiliser une autre table de routage après la création de l’instance Azure Spring Cloud.
 * Le sous-réseau d’application de microservices et le sous-réseau du runtime du service doivent être associés à des tables de routage différentes ou à aucune d’entre elles.
-* Les autorisations doivent être attribuées avant la création de l’instance. Veillez à accorder l’autorisation *Propriétaire Azure Spring Cloud* à vos tables de routage.
+* Les autorisations doivent être attribuées avant la création de l’instance. Veillez à accorder au **fournisseur de ressources Azure Spring Cloud** l’autorisation *Propriétaire* à vos tables de routage.
 * La ressource de table de route associée ne peut pas être mise à jour après la création du cluster. Même si la ressource de table de route ne peut pas être mise à jour, les règles personnalisées peuvent être modifiées dans la table de route.
 * Vous ne pouvez pas réutiliser une table de routage avec plusieurs instances en raison de règles d’acheminement pouvant entrer en conflit.
 

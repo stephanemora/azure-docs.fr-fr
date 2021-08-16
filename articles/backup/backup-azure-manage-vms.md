@@ -3,12 +3,12 @@ title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70ce8ababcb596c3eb804e429156000ff7d64ecc
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635075"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372569"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -21,7 +21,7 @@ Dans le portail Azure, le tableau de bord du coffre Recovery Services permet d�
 * La taille totale de tous les instantanés de sauvegarde.
 * Le nombre de machines virtuelles qui sont activées pour les sauvegardes.
 
-Vous pouvez gérer les sauvegardes à l’aide du tableau de bord et en accédant aux machines virtuelles individuelles. Pour commencer les sauvegardes des machines, ouvrez le coffre sur le tableau de bord.
+Vous pouvez gérer les sauvegardes à l’aide du tableau de bord et en accédant aux machines virtuelles individuelles. Pour commencer les sauvegardes des machines, ouvrez le coffre sur le tableau de bord :
 
 ![Vue complète du tableau de bord avec curseur](./media/backup-azure-manage-vms/bottom-slider.png)
 

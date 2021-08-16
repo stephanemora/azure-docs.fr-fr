@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 92500be4ef793fc71c828b84b6b62f833884b372
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 4f46dc092776e73556a67fee705a98fa883dfbc6
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628281"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810693"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -370,14 +370,13 @@ En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource d
 
 **Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de rétention avec la journalisation de flux NSG implique des coûts de stockage distincts pendant de longues périodes. Si vous voulez conserver les données indéfiniment et ne voulez pas appliquer de stratégie de conservation, définissez la durée de conservation (en jours) sur 0. Pour en savoir plus, consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
 
-**Problèmes liés aux règles TCP entrantes définies par l’utilisateur** : [Les groupes de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md) sont implémentés en tant que [pare-feu avec état](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Toutefois, en raison des limitations actuelles de la plateforme, les règles définies par l’utilisateur qui affectent les flux TCP entrants sont implémentées sans état. Pour cette raison, les flux affectés par les règles de trafic entrant définies par l’utilisateur n’ont pas de fin d’exécution. Par ailleurs, les nombres de paquets et d’octets ne sont pas enregistrés pour ces flux. Par conséquent, le nombre d’octets et de paquets signalé dans les journaux de flux NSG (et Traffic Analytics) peut différer du nombre réel. Un indicateur d’abonnement qui résout ces problèmes est prévu au plus tard en mars 2021. En attendant, les clients confrontés à des problèmes graves en raison de ce comportement peuvent demander une assistance via le support technique, émettre une demande de support sous Network Watcher > Journaux de workflow NSG.  
+**Problèmes liés aux règles TCP entrantes définies par l’utilisateur** : [Les groupes de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md) sont implémentés en tant que [pare-feu avec état](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Toutefois, en raison des limitations actuelles de la plateforme, les règles définies par l’utilisateur qui affectent les flux TCP entrants sont implémentées sans état. Pour cette raison, les flux affectés par les règles de trafic entrant définies par l’utilisateur n’ont pas de fin d’exécution. Par ailleurs, les nombres de paquets et d’octets ne sont pas enregistrés pour ces flux. Par conséquent, le nombre d’octets et de paquets signalé dans les journaux de flux NSG (et Traffic Analytics) peut différer du nombre réel. Un indicateur d’abonnement qui résout ces problèmes est prévu au plus tard en juin 2021. En attendant, les clients confrontés à des problèmes graves en raison de ce comportement peuvent demander une assistance via le support technique, émettre une demande de support sous Network Watcher -> Journaux de flux NSG.  
 
 **Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
 **Problème avec le groupe de sécurité réseau du sous-réseau d’Application Gateway v2** : La journalisation de flux sur le groupe de sécurité réseau du sous-réseau d’Application Gateway v2 [n’est pas prise en charge](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actuellement. Ce problème ne concerne pas Application Gateway v1.
 
 **Services incompatibles** : En raison des limitations actuelles de la plateforme, un petit ensemble de services Azure n’est pas pris en charge par les journaux de flux NSG. La liste actuelle des services incompatibles est
-- [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
@@ -390,6 +389,7 @@ En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource d
 Quelques scénarios courants :
 1. **Plusieurs cartes réseau sur une machine virtuelle** : Si plusieurs cartes réseau sont attachées à une machine virtuelle, la journalisation de flux doit être activée sur chacune d’elles.
 1. **Groupe de sécurité réseau au niveau de la carte réseau et du sous-réseau** : Si le groupe de sécurité réseau est configuré au niveau de la carte réseau ainsi qu’au niveau du sous-réseau, la journalisation de flux doit être activée sur les deux groupes de sécurité réseau. 
+1. **Sous-réseau de cluster AKS** : AKS ajoute un NSG par défaut au sous-réseau du cluster. Comme expliqué dans le point ci-dessus, les journaux de flux doivent être activés sur ce groupe de sécurité réseau par défaut.
 
 **Approvisionnement du stockage** : Le stockage doit être approvisionné dans le paramétrage avec le volume de journal de flux attendu.
 

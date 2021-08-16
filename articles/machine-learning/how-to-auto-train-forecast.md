@@ -1,7 +1,7 @@
 ---
-title: Entraîner automatiquement un modèle de prévision de série chronologique
+title: Configurer AutoML pour la prévision de série chronologique
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser Azure Machine Learning pour entraîner un modèle de régression de prévisions de série chronologique en utilisant le Machine Learning automatisé.
+description: Configurez ML automatisé Azure Machine Learning pour effectuer l’apprentissage de modèles de prévision de série chronologique avec le SDK Python Azure Machine Learning.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
@@ -9,18 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl
-ms.date: 08/20/2020
-ms.openlocfilehash: ae5aacf48fdc038e485226476509e14c551bfbfa
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 06/11/2021
+ms.openlocfilehash: d2c4f759f6b2f7ef769148c99dfcbfb738b19f5e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785202"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030861"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
+# <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Configurer AutoML pour effectuer l’apprentissage d’un modèle de prévision de série chronologique avec Python
 
-
-Dans cet article, vous allez apprendre à configurer et à effectuer l'apprentissage d’un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning automatisé dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](/python/api/overview/azure/ml/). 
+Dans cet article, vous allez apprendre à configurer l’apprentissage AutoML pour des modèles de prévision de série chronologique avec ML automatisé Azure Machine Learning dans le [SDK Python Azure Machine Learning](/python/api/overview/azure/ml/).
 
 Pour cela, vous devez : 
 
@@ -29,7 +28,7 @@ Pour cela, vous devez :
 > * Configurer des paramètres spécifiques de série chronologique dans un objet [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 > * Exécuter des prédictions avec les données de série chronologique.
 
-Pour une expérience avec peu de code, consultez le [tutoriel : Prévoir la demande à l’aide du Machine Learning automatisé](tutorial-automated-ml-forecast.md) pour un exemple de prévision de série chronologique utilisant le Machine Learning automatisé dans [Azure Machine Learning Studio](https://ml.azure.com/).
+Pour une expérience à faible code, consultez le [Tutoriel : Prévoir la demande à l’aide du Machine Learning automatisé](tutorial-automated-ml-forecast.md) pour un exemple de prévision de série chronologique utilisant le Machine Learning automatisé dans [Azure Machine Learning Studio](https://ml.azure.com/).
 
 Contrairement aux méthodes classiques de séries chronologiques, dans Machine Learning automatisé, les valeurs des séries chronologiques sont ajoutées à un tableau croisé dynamique pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. Cette approche intègre plusieurs variables contextuelles et les relations qu’elles entretiennent au cours de l’apprentissage. Dans la mesure où plusieurs facteurs peuvent influencer une prévision, cette méthode s’aligne bien sur les scénarios de prévision du monde réel. Par exemple, lors de la prévision des ventes, les interactions entre les tendances historiques, les taux de change et les prix déterminent conjointement le résultat des ventes. 
 
@@ -43,7 +42,7 @@ Pour cet article, vous avez besoin des éléments suivants :
 
 ## <a name="preparing-data"></a>Préparation des données
 
-La principale différence entre un type de tâche de régression de prévisions et un type de tâche de régression au sein d’AutoML consiste à intégrer une fonctionnalité dans vos données qui représente une série chronologique valide. Une série chronologique normale a une fréquence cohérente et bien définie et a une valeur à chaque point de l’exemple dans un intervalle de temps continu. 
+La principale différence entre un type de tâche de régression de prévision et un type de tâche de régression au sein de ML automatisé consiste à intégrer une fonctionnalité dans vos données qui représente une série chronologique valide. Une série chronologique normale a une fréquence cohérente et bien définie et a une valeur à chaque point de l’exemple dans un intervalle de temps continu. 
 
 Examinons la capture instantanée suivante d’un fichier `sample.csv`.
 Ce jeu de données provient de données de ventes quotidiennes d'une entreprise qui possède deux magasins différents, A et B. 
@@ -418,4 +417,4 @@ Consultez les [exemples de notebooks de prévision](https://github.com/Azure/Mac
 * Découvrez plus d’informations sur [comment et où déployer un modèle](how-to-deploy-and-where.md).
 * Découvrez l’[interprétabilité : explications des modèles en machine learning automatisé (préversion)](how-to-machine-learning-interpretability-automl.md). 
 * Découvrez comment effectuer l’apprentissage de plusieurs modèles avec AutoML dans l’article [Many Models Solution Accelerator](https://aka.ms/many-models) (Accélérateur de solution de nombreux modèles).
-* Suivez le [tutoriel](tutorial-auto-train-models.md) pour voir un exemple de bout en bout de création d’expériences avec le machine learning automatisé.
+* Suivez le [Tutoriel : Effectuer l’apprentissage de modèles de régression](tutorial-auto-train-models.md) pour voir un exemple de bout en bout de création d’expériences avec le Machine Learning automatisé.

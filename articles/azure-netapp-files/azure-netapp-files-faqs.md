@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 476bed754c6ccc2cab1cd9c97b52873a9b430770
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 46db9181657e5271f5aee567365e1f616caddc3f
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480320"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061503"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -58,9 +58,9 @@ Non, actuellement Azure NetApp Files ne prend pas en charge le réseau virtuel �
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Le trafic réseau entre la machine virtuelle Azure et le stockage peut-il être chiffré ?
 
-Le trafic de données entre les clients NFSv4.1 et les volumes Azure NetApp Files peut être chiffré à l’aide de Kerberos avec le chiffrement AES-256. Pour plus d’informations, consultez [Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files](configure-kerberos-encryption.md).   
+Le trafic des données Azure NetApp Files est sécurisé par conception parce qu’il ne fournit pas de point de terminaison public et que le trafic de données reste au sein du réseau virtuel appartenant au client. Les données à la volée ne sont pas chiffrées par défaut. Toutefois, le trafic des données d’une machine virtuelle Azure (exécutant un client SMB ou NFS) vers Azure NetApp Files est aussi sécurisé que tout autre trafic entre machines virtuelles Azure. 
 
-Le trafic de données entre les clients NFSv3 ou SMB3 et les volumes Azure NetApp Files n’est pas chiffré. Toutefois, le trafic à partir d’une machine virtuelle Azure (exécutant un client SMB ou NFS) vers Azure NetApp Files est aussi sécurisé que tout autre trafic entre machines virtuelles Azure. Ce trafic est local pour le réseau du centre de données Azure. 
+Le protocole NFSv3 ne prend pas en charge le chiffrement. Ces données ne peuvent donc pas être chiffrées. Toutefois, le chiffrement des données à la volée NFSv4.1 et SMB3 peut être activé. Le trafic de données entre les clients NFSv4.1 et les volumes Azure NetApp Files peut être chiffré à l’aide de Kerberos avec le chiffrement AES-256. Pour plus d’informations, consultez [Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files](configure-kerberos-encryption.md). Le trafic de données entre les clients SMB3 et les volumes Azure NetApp Files peut être chiffré à l’aide de l’algorithme AES-CCM sur SMB 3.0 et de l’algorithme AES-GCM sur les connexions SMB 3.1.1. Pour plus d’informations, consultez [Créer un volume SMB pour Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Le stockage peut-il être chiffré au repos ?
 
@@ -130,6 +130,18 @@ Azure NetApp Files fournit des métriques de performance des volumes. Vous pouve
 
 Pour plus d’informations sur les options de sécurité pour NFSv4.1, les vecteurs de performances testés et l’impact sur les performances attendu, consultez [Impact de Kerberos sur les performances des volumes NFSv4.1](performance-impact-kerberos.md). 
 
+### <a name="does-azure-netapp-files-support-smb-direct"></a>Azure NetApp Files prend-il en charge SMB Direct ?
+
+Non, Azure NetApp Files ne prend pas en charge SMB Direct. 
+
+### <a name="is-nic-teaming-supported-in-azure"></a>L’association de cartes réseau est-elle prise en charge dans Azure ?
+
+L’association de cartes réseau n’est pas prise en charge dans Azure. Bien que plusieurs interfaces réseau soient prises en charge sur les machines virtuelles Azure, elles représentent une construction logique plutôt qu’une construction physique. Ainsi, elles ne fournissent aucune tolérance de panne.  En outre, la bande passante disponible pour une machine virtuelle Azure est calculée pour la machine elle-même, et non pour une interface réseau individuelle.
+
+### <a name="are-jumbo-frames-supported"></a>Les trames Jumbo sont-elles prises en charge ?
+
+Les trames Jumbo ne sont pas prises en charge avec les machines virtuelles Azure.
+
 ## <a name="nfs-faqs"></a>Questions fréquentes sur NFS
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Je veux monter un volume automatiquement lorsqu’une machine virtuelle Azure est démarrée ou redémarrée.  Comment configurer mon hôte pour les volumes NFS persistants ?
@@ -184,9 +196,9 @@ Oui, vous devez créer une connexion Active Directory avant de déployer un volu
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Combien de connexions Active Directory sont prises en charge ?
 
-Azure NetApp Files ne prend pas en charge plusieurs connexions Active Directory (AD) dans une même et seule *région*, même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même *abonnement*, à condition que les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts. 
+Vous ne pouvez configurer qu’une seule connexion Active Directory (AD) par abonnement et par région. Pour plus d’informations, consultez [Configuration requise pour les connexions Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 
-Une connexion AD est configurée par compte NetApp ; la connexion AD est visible seulement via le compte NetApp dans lequel elle est créée.
+Toutefois, vous pouvez mapper plusieurs comptes NetApp d’un même abonnement et d’une même région à un serveur AD commun créé dans l’un des comptes NetApp. Consultez [Mapper plusieurs comptes NetApp d’un même abonnement et d’une même région à une connexion AD](create-active-directory-connections.md#shared_ad). 
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Est-ce qu’Azure NetApp Files prend en charge Azure Active Directory ? 
 
@@ -214,43 +226,6 @@ Utilisez le lien **Affichage JSON** dans le volet de vue d’ensemble du volume 
 
 Non. Toutefois, les partages SMB d’Azure NetApp Files peuvent servir de cible de dossier pour un espace de noms DFS (DFS-N).   
 Pour utiliser un partage SMB d’Azure NetApp Files comme cible de dossier DFS-N, indiquez le chemin d’accès de montage UNC (Convention d’affectation des noms) du partage SMB d’Azure NetApp Files à l’aide de la procédure [Ajouter un dossier cible de DFS](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target).  
-
-### <a name="smb-encryption-faqs"></a>FAQ sur le chiffrement SMB
-
-Cette section répond aux questions fréquentes sur le chiffrement SMB (SMB 3.0 et SMB 3.1.1).
-
-#### <a name="what-is-smb-encryption"></a>Présentation du chiffrement SMB  
-
-La fonctionnalité [Chiffrement SMB](/windows-server/storage/file-server/smb-security) permet un chiffrement de bout en bout des données SMB et protège les données contre les tentatives d’écoute clandestine sur des réseaux non approuvés. Le chiffrement SMB est pris en charge sur SMB 3.0 et versions ultérieures. 
-
-#### <a name="how-does-smb-encryption-work"></a>Fonctionnement du chiffrement SMB
-
-Lors de l’envoi d’une demande au stockage, le client chiffre la demande, que le stockage déchiffre ensuite. Les réponses sont chiffrées de façon similaire par le serveur et déchiffrées par le client.
-
-#### <a name="which-clients-support-smb-encryption"></a>Quels clients prennent en charge le chiffrement SMB ?
-
-Windows 10, Windows 2012 et les versions ultérieures prennent en charge le chiffrement SMB.
-
-#### <a name="with-azure-netapp-files-at-what-layer-is-smb-encryption-enabled"></a>Avec Azure NetApp Files, sur quelle couche le chiffrement SMB est-il activé ?  
-
-Le chiffrement SMB est activé au niveau du partage.
-
-#### <a name="what-forms-of-smb-encryption-are-used-by-azure-netapp-files"></a>Quelles sont les formes de chiffrement SMB utilisées par Azure NetApp Files ?
-
-SMB 3.0 utilise l’algorithme AES-CCM, tandis que SMB 3.1.1 utilise l’algorithme AES-GCM
-
-#### <a name="is-smb-encryption-required"></a>Le chiffrement SMB est-il obligatoire ?
-
-Le chiffrement SMB n’est pas obligatoire. Par conséquent, il est activé uniquement pour un partage donné si l’utilisateur demande qu’Azure NetApp Files l’active. Les partages Azure NetApp Files ne sont jamais exposés à Internet. Ils sont accessibles uniquement à partir d’un réseau virtuel donné, via VPN ou Express Route, de sorte que les partages Azure NetApp Files sont sécurisés par nature. Le choix d’activer le chiffrement SMB dépend entièrement de l’utilisateur. Tenez compte de la baisse des performances prévue avant d’activer cette fonctionnalité.
-
-#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Quel est l’impact escompté du chiffrement SMB sur les charges de travail client ?
-
-Bien que le chiffrement SMB ait un impact sur le client (surcharge du processeur pour le chiffrement et le déchiffrement des messages) et le stockage (réduction du débit), le tableau suivant met en évidence l’impact sur le stockage uniquement. Vous devez tester l’incidence des performances du chiffrement sur vos applications avant de déployer des charges de travail en production.
-
-|     Profil d’E/S       |     Impact        |
-|-  |-  |
-|     Charges de travail d’écriture et de lecture      |     10 % à 15 %        |
-|     Utilisation intensive des métadonnées        |     5 %    |
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

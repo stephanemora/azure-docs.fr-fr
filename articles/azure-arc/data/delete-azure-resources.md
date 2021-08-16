@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: ce46b7afe7344fabde03805dc2a0977411be5811
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716076"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411176"
 ---
 # <a name="delete-resources-from-azure"></a>Supprimer des ressources d’Azure
 
@@ -22,6 +22,18 @@ Cet article décrit comment supprimer des ressources d’Azure.
 
 > [!WARNING]
 > Lorsque vous supprimez des ressources comme décrit dans cet article, ces actions sont irréversibles.
+
+## <a name="before"></a>Avant
+
+Avant de supprimer une ressource telle l’instance gérée qu’Azure Arc SQL ou le contrôleur de données Azure Arc, vous devez exporter et charger les informations d’utilisation dans Azure pour obtenir un calcul de facturation précis en suivant les instructions décrites dans [Télécharger les données de facturation dans Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+
+## <a name="direct-connectivity-mode"></a>Mode de connectivité directe
+
+Lorsqu’un cluster est connecté à Azure en mode de connectivité directe, utilisez la Portail Azure pour gérer les ressources. Utilisez le portail pour toutes les opérations de création, lecture, mise à jour & suppression (CRUD) pour les groupes de contrôleur de données, Managed Instance et PostgreSQL.
+
+Consultez [Gérer des ressources Azure à l’aide du Portail Azure](../../azure-resource-manager/management/manage-resources-portal.md).
+
+## <a name="indirect-connectivity-mode"></a>Mode de connectivité indirecte
 
 En mode de connexion indirecte, la suppression d’une instance de Kubernetes ne la supprime pas d’Azure, et la suppression d’une instance d’Azure ne la supprime pas de Kubernetes. En mode de connexion indirecte, la suppression d’une ressource est un processus en deux étapes qui sera amélioré dans le futur. Kubernetes sera la source fidèle et le portail sera mis à jour pour la refléter.
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 06/13/2021
 ms.author: memildin
-ms.openlocfilehash: 3a64b385cbac972fd55eae5c341b4ecb7a431d5b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 96c83cf3ba127f88c3ea8d90f648e4c5a8ba9d66
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108732974"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062349"
 ---
 # <a name="continuously-export-security-center-data"></a>Exporter en continu des données Security Center
 
@@ -42,7 +42,7 @@ Cet article explique comment configurer l’exportation continue vers des espace
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Gratuit|
-|Rôles et autorisations obligatoires :|<ul><li>**Administrateur de sécurité** ou **Propriétaire** sur le groupe de ressources</li><li>Autorisations en écriture sur la ressource cible</li><li>Si vous utilisez les stratégies Azure Policy « DeployIfNotExist » décrites ci-dessous, vous aurez également besoin d’autorisations pour attribuer des stratégies</li></ul>|
+|Rôles et autorisations obligatoires :|<ul><li>**Administrateur de sécurité** ou **Propriétaire** sur le groupe de ressources</li><li>Autorisations en écriture sur la ressource cible</li><li>Si vous utilisez les stratégies Azure Policy « DeployIfNotExist » décrites ci-dessous, vous aurez également besoin d’autorisations pour attribuer des stratégies</li><li>Pour exporter vers un espace de travail Log Analytics :<ul><li>s’il **possède la solution SecurityCenterFree**, vous avez besoin d’autorisations de lecture au minimum pour la solution d’espace de travail : `Microsoft.OperationsManagement/solutions/read`</li><li>s’il **ne possède pas la solution SecurityCenterFree**, vous devez disposer d’autorisations d’écriture pour la solution d’espace de travail : `Microsoft.OperationsManagement/solutions/action`</li><li>En savoir plus sur [les solutions d’espace de travail Azure Monitor et Log Analytics](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, autres zones Gov<br>![Oui](./media/icons/yes-icon.png) China Gov|
 |||
 
@@ -51,14 +51,16 @@ Cet article explique comment configurer l’exportation continue vers des espace
 
 L’exportation continue peut exporter les types de données suivants à chaque modification :
 
-- Alertes de sécurité
-- Recommandations de sécurité 
-- Certains résultats de sécurité peuvent être considérés comme des « sous-recommandations », par exemple des résultats d’analyses d’évaluation des vulnérabilités ou des mises à jour système spécifiques. Vous pouvez choisir de les inclure avec leurs recommandations « parent », telles que « Des mises à jour système doivent être installées sur vos ordinateurs ».
-- Score sécurisé (par abonnement ou par contrôle)
-- Données de conformité réglementaire
+- Alertes de sécurité.
+- Recommandations relatives à la sécurité.
+- Résultats de sécurité. Ils peuvent être considérés comme des « sous » recommandations et appartiennent à une recommandation « parent ». Par exemple :
+    - La recommandation « Des mises à jour système doivent être installées sur vos machines » aura une « sous »recommandation pour chaque mise à jour système en suspens.
+    - La recommandation « Les vulnérabilités de vos machines virtuelles doivent être corrigées » aura une « sous »recommandation pour chaque vulnérabilité identifiée par l’analyseur des vulnérabilités.
+    > [!NOTE]
+    > Si vous configurez une exportation continue avec l’API REST, incluez toujours le parent avec les résultats. 
+- (Fonctionnalité d’évaluation) Score sécurisé par abonnement ou par contrôle.
+- (Fonctionnalité d’évaluation) Données de conformité réglementaire.
 
-> [!NOTE]
-> L’exportation du score sécurisé et des données de conformité réglementaire est une fonctionnalité d’évaluation. 
 
 ## <a name="set-up-a-continuous-export"></a>Configurer une exportation continue 
 
@@ -80,7 +82,7 @@ Les étapes ci-dessous sont nécessaires si vous configurez une exportation cont
 
 1. Sélectionnez le type de données que vous souhaitez exporter, puis choisissez les filtres à appliquer sur chaque type (par exemple, exporter uniquement les alertes d’un niveau de gravité élevé).
 1. Sélectionnez la fréquence d’exportation appropriée :
-    - **Diffusion en continu** : les évaluations sont envoyées en temps réel lorsque l’état d’intégrité d’une ressource est mis à jour (si aucune mise à jour n’est effectuée, aucune donnée n’est envoyée).
+    - **Streaming** : les évaluations sont envoyées quand l’état d’intégrité d’une ressource est mis à jour (si aucune mise à jour n’est effectuée, aucune donnée n’est envoyée).
     - **Captures instantanées** : un instantané de l’état actuel de toutes les évaluations de conformité réglementaire est envoyé chaque semaine (il s’agit d’une fonctionnalité en préversion pour les instantanés hebdomadaires de données de niveau de sécurité et de conformité réglementaire).
 
 1. Éventuellement, si votre sélection inclut l’une de ces recommandations, vous pouvez inclure les résultats de l’évaluation des vulnérabilités :

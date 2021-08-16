@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 00fbf0fe3340dc0c14f8cd55098c1e20990a3207
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9388a6e01885e4a3a0c5aa95c254910c96a4e36a
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368021"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902354"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurer des cibles de calcul pour l'apprentissage et le déploiement de modèles
 
@@ -26,11 +26,13 @@ Cet article explique comment configurer l'espace de travail pour utiliser ces re
 
 * Votre ordinateur local
 * Machines virtuelles distantes
+* Pools Apache Spark (avec Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
 * Azure Databricks
 * Service Analytique Azure Data Lake
 * Azure Container Instance
+
 
 Pour utiliser les cibles de calcul gérées par Azure Machine Learning service, consultez :
 
@@ -128,6 +130,10 @@ Azure Machine Learning prend également en charge le rattachement d’une machin
 >
 > Azure Machine Learning ne supprime pas la machine virtuelle pour vous. Vous devez supprimer manuellement la machine virtuelle à l’aide du portail Azure, de l’interface CLI ou du Kit de développement logiciel (SDK) pour Machines virtuelles Azure.
 
+## <a name="apache-spark-pools"></a><a id="synapse"></a>Pools Apache Spark
+
+L’intégration d’Azure Synapse Analytics à Azure Machine Learning (préversion) vous permet d’attacher un pool Apache Spark en utilisant Azure Synapse pour l’exploration et la préparation de données interactives. Avec cette intégration, vous pouvez disposer d’une puissance de calcul dédiée au data wrangling à grande échelle. Pour plus d’informations, consultez [Guide pratique pour attacher des pools Apache Spark avec Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
+
 ## <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. Elle fournit Apache Spark, que vous pouvez utiliser pour entraîner votre modèle.
@@ -221,11 +227,14 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > Ne créez pas plusieurs attachements en même temps dans le même service Azure Batch depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
-### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
+## <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
 Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il peut être utilisé comme cible de calcul avec un pipeline Azure Machine Learning.
 
-> [!IMPORTANT} Azure Machine Learning ne peut pas créer de cible de calcul Azure Databricks pour vous. Au lieu de cela, vous devez créer un espace de travail Azure Databricks, puis l’attacher à votre espace de travail Azure Machine Learning. Pour créer une ressource d’espace de travail, consultez le document [Exécuter un travail Spark sur Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
+> [!IMPORTANT]
+> Azure Machine Learning ne peut pas créer de cible de calcul Azure Databricks. Vous devez créer un espace de travail Azure Databricks, puis l’attacher à votre espace de travail Azure Machine Learning. Pour créer une ressource d’espace de travail, consultez le document [Exécuter un travail Spark sur Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
+> 
+> Pour attacher un espace de travail Azure Databricks d’un __autre abonnement Azure__, vous (votre compte Azure AD) devez disposer du rôle **Contributeur** dans cet espace de travail. Vérifiez votre accès dans le [portail Azure](https://ms.portal.azure.com/).
 
 Pour joindre Azure Databricks comme cible de calcul, fournissez les informations suivantes :
 
@@ -233,7 +242,7 @@ Pour joindre Azure Databricks comme cible de calcul, fournissez les informations
 * __Nom de l’espace de travail Databricks__ : nom de l’espace de travail Azure Databricks.
 * __Jeton d’accès Databricks__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](/azure/databricks/dev-tools/api/latest/authentication).
 
-Le code suivant montre comment joindre Azure Databricks en tant que cible de calcul avec le kit de développement logiciel (SDK) Azure Machine Learning (__l’espace de travail Databricks doit être présent dans le même abonnement que votre espace de travail AML__) :
+Le code suivant montre comment attacher Azure Databricks comme cible de calcul avec le SDK Azure Machine Learning :
 
 ```python
 import os
@@ -277,7 +286,7 @@ Si vous souhaitez obtenir un exemple plus détaillé, veuillez consulter un [exe
 > [!WARNING]
 > Ne créez pas plusieurs attachements en même temps dans le même service Azure Databricks depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
-### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
+## <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics est une plateforme analytique de Big Data dans le cloud Azure. Il peut être utilisé comme cible de calcul avec un pipeline Azure Machine Learning.
 

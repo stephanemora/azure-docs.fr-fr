@@ -1,26 +1,27 @@
 ---
-title: Vue d’ensemble de l’isolement et de la sécurité des réseaux virtuels
+title: Sécuriser les ressources d’espace de travail à l’aide de réseaux virtuels
 titleSuffix: Azure Machine Learning
-description: Utiliser un réseau virtuel Microsoft Azure avec Azure Machine Learning pour sécuriser les ressources d’espace de travail et les environnements de calcul.
+description: Sécurisez les ressources d’espace de travail Azure Machine Learning et les environnements de calcul à l’aide d’un réseau virtuel Azure isolé.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 03/02/2021
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e6b8a4bbbe596ec06f7f9b445dbaa439e1207e46
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack
+ms.openlocfilehash: c5e5461163b28ff53e77121a8e48dc478887ea6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888707"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081062"
 ---
-# <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
+<!-- # Virtual network isolation and privacy overview -->
+# <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Sécuriser les ressources d’espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
-Dans cet article, vous allez découvrir comment utiliser des réseaux virtuels (VNets) pour sécuriser la communication réseau dans Azure Machine Learning. Cet article utilise un exemple de scénario pour vous montrer comment configurer un réseau virtuel complet.
+Sécurisez les ressources d’espace de travail Azure Machine Learning et les environnements de calcul à l’aide de réseaux virtuels. Cet article utilise un exemple de scénario pour vous montrer comment configurer un réseau virtuel complet.
 
 Cet article fait partie d’une série en cinq parties qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de commencer par lire cet article pour comprendre les concepts. 
 

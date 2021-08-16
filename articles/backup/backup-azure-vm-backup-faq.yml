@@ -4,12 +4,12 @@ metadata:
   description: Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service Sauvegarde Microsoft Azure.
   ms.topic: conceptual
   ms.date: 06/02/2021
-  ms.openlocfilehash: 7c9743c71a505c586745117d48b3b23537db1d77
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: fc7d9ff7770cdd60ac1a30ccbcb2758b67ec2a35
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114458009"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111968657"
 title: Forum aux questions - Sauvegarde de machines virtuelles Azure
 summary: >
   Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](./backup-overview.md).
@@ -215,7 +215,7 @@ sections:
     answer: La sauvegarde de machine virtuelle Azure utilise une [communication HTTPS pour le chiffrement en transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). Le transfert de données utilise la structure Azure (non les points de terminaison publics) qui n’a pas besoin d’un accès Internet pour la sauvegarde de machine virtuelle.
   - question: Comment puis-je désactiver l’option de récupération de fichiers ?
     answer: >-
-      [Cette API](/rest/api/backup/item-level-recovery-connections/provision) configure un script pour appeler une **connexion iSCSI** pour la récupération de fichiers à partir du service Sauvegarde Azure.
+      [Cette API](/rest/api/backup/itemlevelrecoveryconnections/provision) configure un script pour appeler une **connexion iSCSI** pour la récupération de fichiers à partir du service Sauvegarde Azure.
 
       - Vous pouvez désactiver cette option à l’aide de **définitions de rôle personnalisées** en excluant l’action de l’API.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Check-list : Bonnes pratiques et recommandations pour les performances'
+title: 'Liste de vérification : Meilleures pratiques et recommandations'
 description: Fournit une check-list rapide qui vous permet de passer en revue les bonnes pratiques et recommandations pour optimiser les performances de votre serveur SQL Server dans une instance de SQL Server sur les machines virtuelles Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -7,6 +7,7 @@ author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,19 +16,19 @@ ms.date: 05/06/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 7e22da62570a1689f5113f41710006698469fa6a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e658a2ceed031ea68bce17b87887fd42f24756d6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452184"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079928"
 ---
-# <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Check-list : Bonnes pratiques relatives aux performances pour SQL Server sur les machines virtuelles Azure
+# <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Liste de vérification : Meilleures pratiques relatives à SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article fournit une check-list rapide sous la forme d’une série de bonnes pratiques et de recommandations pour optimiser les performances de votre serveur SQL Server dans une instance de SQL Server sur les machines virtuelles Azure. 
 
-Pour plus d’informations, consultez les autres articles de cette série : [Taille d’une machine virtuelle](performance-guidelines-best-practices-vm-size.md), [Stockage](performance-guidelines-best-practices-storage.md) et [Collecter une base de référence](performance-guidelines-best-practices-collect-baseline.md). 
+Pour des détails complets, consultez les autres articles de cette série : [Liste de vérification](performance-guidelines-best-practices-checklist.md), [Taille de machine virtuelle](performance-guidelines-best-practices-vm-size.md), [Stockage](performance-guidelines-best-practices-storage.md), [Sécurité](security-considerations-best-practices.md), [Configuration HADR](hadr-cluster-best-practices.md) et [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md). 
 
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -69,7 +70,10 @@ Voici une check-list rapide des bonnes pratiques relatives à la configuration d
     - Arrêtez toujours le service SQL Server avant de modifier les paramètres de cache de votre disque.
 - Pour les charges de travail de développement et test, utilisez le service Stockage Standard. Il n’est pas recommandé d’utiliser HDD/SDD Standard pour les charges de travail de production.
 - Le [bursting de disque basé sur les crédits](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) ne doit être pris en compte que pour les charges de travail de dev/test et les systèmes départementaux plus petits.
-- Formatez votre disque de données de façon à utiliser une taille d’unité d’allocation de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur temporaire `D:\` (dont la taille par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés avec une taille d’unité d’allocation et un entrelacement pour le pool de stockage défini sur 64 Ko. 
+- Configurez le compte de stockage dans la même région que la machine virtuelle SQL Azure. 
+- Désactivez le stockage géoredondant Azure (géoréplication) et utilisez LRS (stockage local redondant) sur le compte de stockage.
+- Formatez votre disque de données afin d’utiliser une taille d’unité d’allocation de 64 ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur `D:\` temporaire (dont la valeur par défaut est de 4 ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés avec une taille d’unité d’allocation et un entrelacement pour le pool de stockage défini sur 64 Ko. 
+
 
 Pour en savoir plus, consultez les [bonnes pratiques relatives au stockage](performance-guidelines-best-practices-storage.md). 
 
@@ -94,7 +98,7 @@ Voici une liste de vérification rapide des meilleures pratiques pour les param�
 - Activer le [réglage automatique](/sql/relational-databases/automatic-tuning/automatic-tuning) sur les bases de données d’application critiques.
 - S’assurer que toutes les [meilleures pratiques tempdb](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server) sont respectées.
 - Placer tempdb sur le lecteur éphémère D:/.
-- [Utiliser le nombre de fichiers recommandé](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), à l’aide de plusieurs fichiers de données tempdb en commençant par 1 fichier par cœur, et jusqu’à 8 fichiers.
+- [Utiliser le nombre de fichiers recommandé](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), à l’aide de plusieurs fichiers de données tempdb en commençant par un fichier par cœur et jusqu’à huit fichiers.
 - Planifier des tâches SQL Server Agent pour exécuter les tâches [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [index reorganize](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [index rebuild](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index) et [update statistics](/sql/t-sql/statements/update-statistics-transact-sql#examples).
 - Surveiller et gérer l’intégrité et la taille du [fichier journal de transactions](/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file#Recommendations) de SQL Server.
 - Tirer parti de toutes les nouvelles [fonctionnalités de SQL Server](/sql/sql-server/what-s-new-in-sql-server-ver15) disponibles pour la version utilisée.
@@ -115,13 +119,56 @@ Voici une liste de vérification rapide des meilleures pratiques pour obtenir un
 - Implémenter une solution de haute disponibilité et récupération d’urgence (HADR) qui répond à vos SLA en matière de continuité des activités. Consultez les [options HADR](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) disponibles pour SQL Server sur machines virtuelles Azure. 
 - Utiliser le portail Azure (support + dépannage) pour évaluer l’historique et l’[intégrité des ressources](../../../service-health/resource-health-overview.md) ; envoyer de nouvelles demandes de support le cas échéant.
 
+## <a name="hadr-configuration"></a>Configuration HADR
+
+Les fonctionnalités de haute disponibilité et récupération d’urgence (HADR), telles que le [groupe de disponibilité Always On](availability-group-overview.md) et l’[instance de cluster de basculement](failover-cluster-instance-overview.md), reposent sur la technologie de [cluster de basculement Windows Server](hadr-windows-server-failover-cluster-overview.md) sous-jacente. Examinez les meilleures pratiques pour modifier vos paramètres HADR afin de mieux prendre en charge l’environnement cloud. 
+
+Pour votre cluster Windows, prenez en compte les meilleures pratiques suivantes : 
+
+* Définissez des paramètres moins agressifs pour le cluster afin d’éviter les pannes inattendues dues à des défaillances momentanées du réseau ou à la maintenance de la plateforme Azure. Pour plus d’informations, consultez les [paramètres de pulsation et de seuil](hadr-cluster-best-practices.md#heartbeat-and-threshold). Pour Windows Server 2012 ou version ultérieure, utilisez les valeurs recommandées suivantes : 
+   - **SameSubnetDelay** : 1 seconde
+   - **SameSubnetThreshold** : 40 pulsations
+   - **CrossSubnetDelay** : 1 seconde
+   - **CrossSubnetThreshold** : 40 pulsations.
+* Placez vos machines virtuelles dans un groupe à haute disponibilité ou dans différentes zones de disponibilité.  Pour plus d’informations, consultez les [paramètres de disponibilité des machines virtuelles](hadr-cluster-best-practices.md#vm-availability-settings). 
+* Utilisez une seule carte réseau par nœud de cluster et un seul sous-réseau. 
+* Configurez le [vote de quorum](hadr-cluster-best-practices.md#quorum-voting) du cluster pour utiliser trois votes ou plus (toujours par nombre impair). N’attribuez pas de votes à des régions de récupération d’urgence. 
+* Surveillez attentivement les [limites de ressources](hadr-cluster-best-practices.md#resource-limits) pour éviter les redémarrages ou les basculements inattendus dus à des contraintes de ressources.
+   - Assurez-vous que le système d’exploitation, les pilotes et SQL Server disposent de la version la plus récente. 
+   - Optimisez les performances de SQL Server sur les machines virtuelles Azure. Consultez les autres sections de cet article pour en savoir plus. 
+   - Réduisez ou répartissez la charge de travail pour éviter d’atteindre les limites de ressources. 
+   - Passez à une machine virtuelle ou à un disque dont les limites sont plus élevées pour éviter les contraintes. 
+
+Pour votre groupe de disponibilité SQL Server ou votre instance de cluster de basculement, tenez compte des meilleures pratiques suivantes : 
+
+* Si vous rencontrez fréquemment des échecs inattendus, suivez les meilleures pratiques en matière de performances décrites dans la suite de cet article. 
+* Si l’optimisation des performances de la machine virtuelle SQL Server ne résout pas vos pannes inattendues, envisagez de [relâcher la surveillance](hadr-cluster-best-practices.md#relaxed-monitoring) du groupe de disponibilité ou de l’instance de cluster de basculement. Toutefois, cela ne résout pas la source sous-jacente du problème et peut masquer les symptômes en réduisant la probabilité d’échec. Vous devrez peut-être encore examiner et résoudre la cause racine sous-jacente. Pour Windows Server 2012 ou version ultérieure, utilisez les valeurs recommandées suivantes : 
+   - **Délai d’expiration du bail** : Utilisez cette équation pour calculer la valeur maximale du délai d’expiration du bail :   
+    `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
+    Commencez par 40 secondes. Si vous utilisez les valeurs assouplies de `SameSubnetThreshold` et `SameSubnetDelay` qui ont été recommandées précédemment, ne dépassez pas 80 secondes pour la valeur du délai d’expiration du bail.    
+   - **Nombre maximal d’échecs au cours d’une période spécifiée** : Définissez cette valeur sur 6. 
+* Lorsque vous utilisez le nom de réseau virtuel (VNN) pour vous connecter à votre solution HADR, spécifiez `MultiSubnetFailover = true` dans la chaîne de connexion, même si votre cluster s’étend sur un seul sous-réseau. 
+   - Si le client ne prend pas en charge `MultiSubnetFailover = True`, vous devrez peut-être définir `RegisterAllProvidersIP = 0` et `HostRecordTTL = 300` pour mettre en cache les informations d’identification du client pour des durées plus courtes. Toutefois, cela peut entraîner des requêtes supplémentaires sur le serveur DNS. 
+- Pour vous connecter à votre solution HADR à l’aide du nom de réseau distribué (DNN), tenez compte des points suivants :
+   - Vous devez utiliser un pilote client qui prend en charge `MultiSubnetFailover = True`, et ce paramètre doit figurer dans la chaîne de connexion. 
+   - Utilisez un port DNN unique dans la chaîne de connexion lorsque vous vous connectez à l’écouteur DNN pour un groupe de disponibilité. 
+- Utilisez une chaîne de connexion de mise en miroir de bases de données pour un groupe de disponibilité de base afin de contourner le besoin d’un équilibreur de charge ou d’un DNN. 
+- Validez la taille de secteur de vos disques durs virtuels avant de déployer votre solution de haute disponibilité pour éviter les E/S mal alignées. Pour plus d’informations, voir [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c). 
+
+
+Pour en savoir plus, consultez les [meilleures pratiques relatives à la haute disponibilité et récupération d’urgence](hadr-cluster-best-practices.md). 
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus, consultez les autres articles de cette série :
+
 - [Taille de la machine virtuelle](performance-guidelines-best-practices-vm-size.md)
 - [Stockage](performance-guidelines-best-practices-storage.md)
+- [Sécurité](security-considerations-best-practices.md)
+- [Paramètres HADR](hadr-cluster-best-practices.md)
 - [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md)
 
 Pour connaître les meilleures pratiques en matière de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](security-considerations-best-practices.md).
 
-Consultez d’autres articles relatifs aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.md).
+Consultez d’autres articles relatifs aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.yml).

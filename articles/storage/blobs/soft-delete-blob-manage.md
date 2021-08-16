@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bdd0c8a3ddacd3a99627bfc29c41e61a165350c6
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477703"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812365"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>Gérer et restaurer des objets blob supprimés de manière réversible
 
@@ -78,7 +78,7 @@ L’appel de l’opération **Annuler la suppression d’un objet blob** sur un 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
 
-Pour restaurer une version spécifique, commencez par appeler l’opération **Annuler la suppression d’un objet blob** sur l’objet blob de base ou la version, puis copiez la version souhaitée sur l’objet blob de base. L’exemple suivant restaure un objet blob de blocs à la dernière version enregistrée :
+Pour restaurer une capture instantanée supprimée de manière réversible, commencez par appeler l’opération **Annuler la suppression d’un objet blob** sur l’objet blob de base, puis copiez la capture instantanée souhaitée sur l’objet. Dans l’exemple suivant, un objet blob de blocs est restauré avec la dernière capture instantanée générée :
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
@@ -96,7 +96,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-Pour restaurer une capture instantanée spécifique, commencez par appeler l’opération **Annuler la suppression d’un objet blob** sur l’objet blob de base, puis copiez la capture instantanée souhaitée sur l’objet blob de base. L’exemple suivant restaure un objet blob de blocs en restaurant sa capture instantanée générée le plus récemment :
+Pour restaurer une capture instantanée supprimée de manière réversible, commencez par appeler l’opération **Annuler la suppression d’un objet blob** sur l’objet blob de base, puis copiez la capture instantanée souhaitée sur l’objet. L’exemple suivant restaure un objet blob de blocs en restaurant sa capture instantanée générée le plus récemment :
 
 ```csharp
 // Restore the block blob.
@@ -130,6 +130,6 @@ Non applicable. Le contrôle de version des objets blob n’est pris en charge q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Suppression réversible pour le stockage de blobs](./soft-delete-blob-overview.md)
+- [Suppression réversible pour le stockage de blobs](soft-delete-blob-overview.md)
 - [Activer la suppression réversible pour les objets blob](soft-delete-blob-enable.md)
 - [Contrôle de version des blobs](versioning-overview.md)
