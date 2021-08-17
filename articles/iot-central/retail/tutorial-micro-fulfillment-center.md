@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d70a15456ecc688b6bc8137223d36164545c0123
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5d473ad0409fcdd301490348659f183d15905cf2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956213"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585840"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
@@ -42,7 +42,7 @@ Pour créer une nouvelle application Azure IoT Central :
 1. Sélectionnez **Distribution**.  La page de vente au détail affiche plusieurs modèles d’application de vente au détail.
 
 Pour créer une application de centre de microtraitement qui utilise les fonctionnalités de préversion :  
-1. Sélectionnez le modèle d’application **Centre de microtraitement**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel. Le modèle fournit aussi un tableau de bord d’opérateur pour superviser l’état de votre centre de traitement ainsi que celui de vos robots porteurs. 
+1. Sélectionnez le modèle d’application **Centre de microtraitement**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel. Le modèle fournit aussi un tableau de bord pour superviser l’état de votre centre de traitement ainsi que celui de vos robots porteurs. 
 
     ![Capture d’écran de la page Créer votre application IoT dans Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
@@ -61,7 +61,7 @@ Pour créer une application de centre de microtraitement qui utilise les fonctio
 
 ## <a name="walk-through-the-application"></a>examiner l’application 
 
-Une fois le modèle d’application déployé, le **tableau de bord du centre de microtraitement de Northwind Traders** s’affiche. Northwind Trader est un détaillant fictif dont le centre de microtraitement est géré dans cette application Azure IoT Central. Dans ce tableau de bord d’opérateur figurent des informations et autres données de télémétrie sur les appareils de ce modèle ainsi qu’un ensemble de commandes, de tâches et d’actions que vous pouvez effectuer. Le tableau de bord se divise logiquement en deux parties. À gauche, vous pouvez superviser les conditions ambiantes au sein de la structure de traitement et à droite, vous pouvez superviser l’intégrité d’un robot porteur au sein de l’installation.  
+Une fois le modèle d’application déployé, le **tableau de bord du centre de microtraitement de Northwind Traders** s’affiche. Northwind Trader est un détaillant fictif dont le centre de microtraitement est géré dans cette application Azure IoT Central. Dans ce tableau de bord figurent des informations et autres données de télémétrie sur les appareils de ce modèle ainsi qu’un ensemble de commandes, de tâches et d’actions que vous pouvez effectuer. Le tableau de bord se divise logiquement en deux parties. À gauche, vous pouvez superviser les conditions ambiantes au sein de la structure de traitement et à droite, vous pouvez superviser l’intégrité d’un robot porteur au sein de l’installation.  
 
 À partir de ce tableau de bord, vous pouvez :
    * Consulter les données de télémétrie des appareils, par exemple le nombre de prélèvements, le nombre de commandes traitées et certaines propriétés comme l’état du système de la structure.  

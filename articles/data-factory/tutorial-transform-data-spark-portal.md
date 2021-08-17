@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/10/2018
-ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 7e4ad47f933757c4ebce66acd7ddc5e0033b601e
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377786"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215777"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 
@@ -118,9 +118,9 @@ Vous créez deux services liés dans cette section :
 
 ### <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
 
-1. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche. 
+1. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche. 
 
-   ![Page « Prise en main »](./media/tutorial-transform-data-spark-portal/get-started-page.png)
+   ![Capture d’écran montrant l’onglet Gérer.](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Cliquez sur **Connexions** au bas de la fenêtre, puis cliquez sur **+ Nouveau**. 
 

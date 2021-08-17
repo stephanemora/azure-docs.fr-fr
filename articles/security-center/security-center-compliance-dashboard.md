@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 970329753d6dd6c6175c26da4288c304e27e3982
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123156"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237618"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
@@ -51,17 +51,17 @@ Utilisez le tableau de bord de conformité réglementaire pour vous aider à pre
 
     Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous verrez votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. Sélectionnez un onglet correspondant à une norme de conformité qui vous intéresse (1). Vous verrez sur quels abonnements la norme est appliquée (2) et la liste de tous les contrôles relatifs à cette norme (3). Pour les contrôles applicables, vous pouvez voir les détails des évaluations ayant réussi ou échoué associées à ce contrôle (4) et le nombre de ressources affectées (5). Certains contrôles sont grisés. Aucune évaluation Security Center n’est associée à ces contrôles. Vérifiez les conditions qui leur sont associées et évaluez-les dans votre environnement. Certaines d’entre elles peuvent être liés au processus et ne pas être d’ordre technique.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploration des détails de la conformité à une norme spécifique":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploration des détails de la conformité à une norme spécifique.":::
 
 1. Pour générer un rapport PDF comportant un résumé de votre état de compatibilité actuel pour une norme particulière, sélectionnez **Télécharger un rapport**.
 
     Le rapport fournit un résumé général de votre état de conformité pour la norme sélectionnée en fonction des données d’évaluation Security Center. Le rapport est organisé en fonction des contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Télécharger le rapport de conformité":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Télécharger le rapport de conformité.":::
 
 ## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
 
@@ -71,11 +71,11 @@ Utilisez le tableau de bord de conformité réglementaire pour vous aider à pre
 
 1.  Sélectionnez une ressource particulière pour voir plus de détails et résoudre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0**, sélectionnez la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La sélection d’une recommandation concernant une norme vous amène directement à la page des détails de la recommandation":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La sélection d’une recommandation concernant une norme vous amène directement à la page des détails de la recommandation.":::
 
 1. Dans cet exemple, quand vous sélectionnez **Entreprendre une action** dans la page des détails de la recommandation, vous arrivez dans les pages relatives aux machines virtuelles Azure du portail Azure, où vous pouvez activer le chiffrement sous l’onglet **Sécurité** :
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Le bouton Entreprendre une action de la page des détails de la recommandation vous amène aux options de correction":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Le bouton Entreprendre une action de la page des détails de la recommandation vous amène aux options de correction.":::
 
     Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
@@ -93,15 +93,15 @@ Utilisez les données d’exportation continue envoyées à un hub d’événeme
 
 - Exportez toutes les données de conformité réglementaire dans un **flux continu** :
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Exporter en continu un flux de données de conformité réglementaire" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Exporter en continu un flux de données de conformité réglementaire." lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
 
 - Exportez des **instantanés hebdomadaires** de vos données de conformité réglementaire :
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exporter en continu un instantané hebdomadaire des données de conformité réglementaire" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exporter en continu un instantané hebdomadaire des données de conformité réglementaire." lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
 Vous pouvez également exporter un **rapport PDF/CSV** de vos données de conformité directement à partir du tableau de bord de conformité réglementaire :
 
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exporter vos données de conformité réglementaire sous forme de rapport PDF ou CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exporter vos données de conformité réglementaire sous forme de rapport PDF ou CSV." lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
 
 Apprenez-en davantage dans [Exporter en continu des données Security Center](continuous-export.md).
 
@@ -112,7 +112,7 @@ La fonctionnalité d’automatisation de workflow de Security Center peut décle
 
 Par exemple, vous pouvez faire en sorte que Security Center envoie un e-mail à un utilisateur donné en cas d’échec d’une évaluation de conformité. Vous devez d’abord créer l’application logique (à l’aide d’[Azure Logic Apps](../logic-apps/logic-apps-overview.md)), puis configurer le déclencheur dans une nouvelle automatisation de workflow, comme expliqué dans [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilisation des modifications apportées aux évaluations de conformité réglementaire pour déclencher une automatisation de workflow" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilisation des modifications apportées aux évaluations de conformité réglementaire pour déclencher une automatisation de workflow." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 
@@ -168,7 +168,7 @@ Pour utiliser le tableau de bord de conformité réglementaire, Azure Security C
 ### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>Comment afficher un rapport sur les contrôles ayant réussi ou échoué par norme dans mon tableau de bord ?
 Dans le tableau de bord principal, vous pouvez voir un rapport sur les contrôles ayant réussi ou échoué pour (1) les quatre premières normes ayant la conformité la plus faible dans le tableau de bord. Pour afficher l’état de tous les contrôles ayant réussi ou échoué, sélectionnez (2) **Afficher les *x*** (x représentant le nombre de normes que vous suivez). Un plan de contexte affiche l’état de conformité pour chacune des normes que vous suivez.
 
-:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Section Résumé du tableau de bord de conformité réglementaire":::
+:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Section Résumé du tableau de bord de conformité réglementaire.":::
 
 
 ### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>Comment télécharger un rapport avec des données de conformité dans un format autre que PDF ?

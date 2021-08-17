@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 689a9f38199184d56c9442aabae01ba7c60e4842
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 2c274ffa263ac2313171ac7adc08f2ea2120c57c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951808"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234660"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -725,7 +725,7 @@ Sélectionnez certaines actions et essayez de récupérer les données à partir
 Quand vous avez fini d’utiliser l’exemple d’application du tutoriel, vous pouvez supprimer les ressources Azure pour réduire les coûts et préserver les ressources. Toutes vos ressources doivent être contenues dans le même groupe de ressources. Vous pouvez les supprimer simultanément en une seule opération en supprimant le groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*.
 
 > [!IMPORTANT]
-> La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif.
+> La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement sur la gauche.
 >
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.

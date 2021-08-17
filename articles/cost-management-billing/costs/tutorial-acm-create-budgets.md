@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des budgets Azure'
 description: Ce tutoriel vous permet de planifier et prendre en compte les coûts de services Azure que vous consommez.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2021
+ms.date: 06/17/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 916abcb702f46e5b18a403369bd2ed4dfe5b8473
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1531b6bf591d2fb859dbd680c41d51a5835347a1
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695289"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112320727"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -165,7 +165,12 @@ L’intégration au budget avec les groupes d’actions ne fonctionne que pour l
 
 ## <a name="create-and-edit-budgets-with-powershell"></a>Créer et modifier des budgets avec PowerShell
 
-Si vous êtes client Contrat Entreprise, vous pouvez créer et modifier des budgets par programmation avec le module Azure PowerShell. Pour télécharger la dernière version d’Azure PowerShell, exécutez la commande suivante :
+Si vous êtes client Contrat Entreprise, vous pouvez créer et modifier des budgets par programmation avec le module Azure PowerShell. 
+
+>[!Note]
+>Les clients disposant d’un contrat client Microsoft doivent utiliser l' [API REST budgets](/rest/api/consumption/budgets/create-or-update) pour créer des budgets par programme, car PowerShell et CLI ne sont pas encore pris en charge.
+
+Pour télécharger la dernière version d’Azure PowerShell, exécutez la commande suivante :
 
 ```azurepowershell-interactive
 install-module -name Az
@@ -189,6 +194,7 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
+Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 

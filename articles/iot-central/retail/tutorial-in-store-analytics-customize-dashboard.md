@@ -1,6 +1,6 @@
 ---
-title: Tutoriel - Personnaliser le tableau de bord de l’opérateur dans Azure IoT Central
-description: Ce tutoriel montre comment personnaliser le tableau de bord de l’opérateur dans une application IoT Central et gérer les appareils.
+title: Tutoriel - Personnaliser le tableau de bord dans Azure IoT Central
+description: Ce tutoriel montre comment personnaliser le tableau de bord dans une application IoT Central et gérer les appareils.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d8655251d22f82b6ff6171514cdd48506c5cc895
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755348"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585969"
 ---
-# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutoriel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
+# <a name="tutorial-customize-the-dashboard-and-manage-devices-in-azure-iot-central"></a>Didacticiel : Personnaliser le tableau de bord et gérer les appareils dans Azure IoT Central
 
 
-Dans ce tutoriel, vous allez découvrir comment vous pouvez personnaliser le tableau de bord de l’opérateur dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
+Dans ce didacticiel, vous allez découvrir comment vous pouvez personnaliser le tableau de bord dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -39,7 +39,7 @@ Le réalisateur de logiciel doit terminer le tutoriel pour créer l’applicatio
 * [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app.md) (obligatoire)
 
 ## <a name="change-the-dashboard-name"></a>Modifier le nom du tableau de bord
-Pour personnaliser le tableau de bord de l’opérateur, vous devez modifier le tableau de bord par défaut dans votre application. Vous pouvez aussi créer des tableaux de bord supplémentaires. La première étape pour personnaliser le tableau de bord dans votre application consiste à modifier le nom.
+Pour personnaliser le tableau de bord, vous devez modifier le tableau de bord par défaut dans votre application. Vous pouvez aussi créer des tableaux de bord supplémentaires. La première étape pour personnaliser le tableau de bord dans votre application consiste à modifier le nom.
 
 1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
 

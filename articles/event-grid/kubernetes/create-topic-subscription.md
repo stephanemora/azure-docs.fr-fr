@@ -4,53 +4,78 @@ description: Cet article explique comment créer une rubrique Event Grid sur un 
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/25/2021
+ms.date: 06/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: d29583cecb1498c10320a844923067a48693480a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 5060d8e3022d98c31d11ea570555b7c5bba3d062
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030302"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415639"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Router des événements cloud vers des Webhooks avec Azure Event Grid sur Kubernetes
 Dans ce guide de démarrage rapide, vous allez créer une rubrique dans Event Grid sur Kubernetes, créer un abonnement pour la rubrique, puis envoyer un exemple d’événement à la rubrique pour tester le scénario. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 
 ## <a name="prerequisites"></a>Prérequis
 
 1. [Connecter votre cluster Kubernetes à Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Installer l’extension Event Grid sur le cluster Kubernetes](install-k8s-extension.md). Cette extension déploie Event Grid sur un cluster Kubernetes. 
-1. [Créer un emplacement personnalisé](../../azure-arc/kubernetes/custom-locations.md). Un emplacement personnalisé représente un espace de noms dans le cluster et est l’endroit où les rubriques et les abonnements à des événements sont déployés.
+
+
+## <a name="create-a-custom-location"></a>Créer un emplacement personnalisé
+En tant qu’extension d’emplacement Azure, un emplacement personnalisé vous permet d’utiliser votre cluster Kubernetes compatible avec Azure arc comme emplacement cible pour le déploiement de ressources, telles que des rubriques de Event Grid. Un emplacement personnalisé représente un espace de noms dans le cluster et est l’endroit où les rubriques et les abonnements à des événements sont déployés. Dans cette section, vous allez créer un emplacement personnalisé. 
+
+1. Déclarez les variables suivantes pour stocker les valeurs du cluster Azure Arc, du groupe de ressources et des noms d’emplacements personnalisés. Copiez ces instructions dans un éditeur, remplacez les valeurs, puis copiez/collez-les dans la fenêtre bash.  
+
+    ```azurecli-interactive
+    resourcegroupname="<AZURE RESOURCE GROUP NAME>"
+    arcclustername="<AZURE ARC CLUSTER NAME>"
+    customlocationname="<CUSTOM LOCATION NAME>"
+    ```
+1. Récupérez l’ID de ressource du cluster Azure Arc connecté. Mettez à jour les valeurs du nom du cluster Azure Arc et des paramètres du groupe de ressources avant d’exécuter la commande. 
+
+    ```azurecli-interactive
+    hostresourceid=$(az connectedk8s show -n $arcclustername -g $resourcegroupname --query id -o tsv)    
+    ```
+1. Obtenez l’ID de ressource de l’extension Event Grid. Cette étape suppose que le nom que vous avez donné pour l’extension de Event Grid est **eventgrid-ext\** . Mettez à jour les noms de cluster et de groupe de ressources Azure Arc avant d’exécuter la commande. 
+
+    ```azurecli-interactive
+    clusterextensionid=$(az k8s-extension show --name eventgrid-ext --cluster-type connectedClusters -c $arcclustername -g $resourcegroupname  --query id -o tsv)    
+    ```
+1. Créez un emplacement personnalisé à l’aide des deux valeurs ci-dessus. Mettez à jour les noms d’emplacement et de groupe de ressources personnalisés avant d’exécuter la commande. 
+
+    ```azurecli-interactive
+    az customlocation create -n $customlocationname -g $resourcegroupname --namespace arc --host-resource-id $hostresourceid --cluster-extension-ids $clusterextensionid    
+    ```
+1. Obtenez ID de ressource de l’emplacement personnalisé. Mettez à jour le nom de l’emplacement personnalisé avant d’exécuter la commande. 
+
+    ```azurecli-interactive
+    customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
+    ```
+
+    Pour plus d’informations sur la création d’emplacements personnalisés, consultez [Créer et gérer des emplacements personnalisés sur Kubernetes avec Azure Arc activé](../../azure-arc/kubernetes/custom-locations.md). 
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
+Dans cette section, vous allez créer une rubrique dans l’emplacement personnalisé que vous avez créé à l’étape précédente. Mettez à jour les noms des groupes de ressources et des rubriques Event Grid avant d’exécuter la commande. Mettez à jour l’emplacement si vous utilisez un emplacement autre que Est des États-Unis. 
 
-### <a name="azure-cli"></a>Azure CLI
-Exécutez la commande Azure CLI suivante pour créer une rubrique :
+1. Déclarez une variable pour contenir le nom de la rubrique. 
 
-```azurecli-interactive
-az eventgrid topic create --name <EVENT GRID TOPIC NAME> \
-                        --resource-group <RESOURCE GROUP NAME> \
-                        --location <REGION> \
-                        --kind azurearc \
-                        --extended-location-name /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOM LOCATION NAME> \
-                        --extended-location-type customlocation \
-                        --input-schema CloudEventSchemaV1_0
-```
-Spécifiez des valeurs pour les espaces réservés suivants avant d’exécuter la commande :
-- Nom du groupe de ressources Azure où vous voulez créer la rubrique Event Grid. 
-- Nom pour la rubrique. 
-- Région pour la rubrique.
-- Dans l’ID de ressource de l’emplacement personnalisé, spécifiez les valeurs suivantes :
-    - ID de l’abonnement Azure où se trouve votre emplacement personnalisé.
-    - Nom du groupe de ressources qui contient l’emplacement personnalisé.
-    - Nom de l’emplacement personnalisé.
+    ```azurecli-interactive
+    topicname="<TOPIC NAME>"
+    ```
+4. Pour créer une rubrique, exécutez la commande suivante. 
 
-Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+    ```azurecli-interactive
+    az eventgrid topic create -g $resourcegroupname --name $topicname --kind azurearc --extended-location-name $customlocationid --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location $region    
+    ```
+
+    Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
+
 Avant de créer un abonnement pour la rubrique personnalisée, créez un point de terminaison pour le message d’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
 
 1. Dans la page de l’article, sélectionnez **Déployer sur Azure** pour déployer la solution sur votre abonnement. Dans le portail Azure, indiquez des valeurs pour les paramètres.
@@ -66,38 +91,26 @@ Avant de créer un abonnement pour la rubrique personnalisée, créez un point d
 ## <a name="create-a-subscription"></a>Création d’un abonnement
 Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, vous devez créer un abonnement Event Grid pour un sujet qui vous intéresse. Un abonnement aux événements définit la destination à laquelle ces événements sont envoyés. Pour plus d’informations sur toutes les destinations ou les gestionnaires pris en charge, consultez [Gestionnaires d’événements](event-handlers.md).
 
-
-### <a name="azure-cli"></a>Azure CLI
-Pour créer un abonnement aux événements avec une destination de Webhook (point de terminaison HTTPS), exécutez la commande Azure CLI suivante :
+Pour créer un abonnement d’événement avec un webhook (point de terminaison HTTP), entrez un nom pour l’abonnement à l’événement, mettez à jour le nom du site Web, puis exécutez la commande suivante.
 
 ```azurecli-interactive
-az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> \
-                                    --source-resource-id /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<TOPIC'S RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAme> \
-                                    --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
+topicid=$(az eventgrid topic show --name $topicname --resource-group $resourcegroupname --query id -o tsv)
+az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source-resource-id $topicid --endpoint https://<SITE NAME>.azurewebsites.net/api/updates
 ```
 
-Spécifiez des valeurs pour les espaces réservés suivants avant d’exécuter la commande :
-- Nom de l’abonnement aux événements à créer. 
 
-- Dans l’**ID de ressource de la rubrique**, spécifiez les valeurs suivantes :
-    - ID de l’abonnement Azure où vous voulez que l’abonnement soit créé. 
-    - Nom du groupe de ressources qui contient la rubrique.
-    - Nom de la rubrique. 
-- Pour le point de terminaison, spécifiez le nom du site web de la visionneuse Event Grid.
-    
 Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
-
 
 ## <a name="send-events-to-the-topic"></a>Envoyer des événements à la rubrique
 1. Exécutez la commande suivante afin d’obtenir le **point de terminaison** pour la rubrique : Après avoir copié et collé la commande, et avant de l’exécuter, mettez à jour le **nom de la rubrique** et le **nom du groupe de ressources**. Vous allez publier des exemples d’événements sur ce point de terminaison de rubrique. 
 
     ```azurecli
-    az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv
+    az eventgrid topic show --name $topicname -g $resourcegroupname --query "endpoint" --output tsv
     ```
 2. Exécutez la commande suivante afin d’obtenir la **clé** pour la rubrique personnalisée  : Après avoir copié et collé la commande, et avant de l’exécuter, mettez à jour le **nom de la rubrique** et le nom du **groupe de ressources**. C’est la clé principale de la rubrique. Pour récupérer cette clé à partir du portail Azure, basculez vers l’onglet **Clés d’accès** de la page **Rubrique Event Grid**. Pour être en mesure de poster un événement dans une rubrique personnalisée, vous avez besoin de la clé d’accès. 
 
     ```azurecli
-    az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
+    az eventgrid topic key list --name $topicname -g $resourcegroupname --query "key1" --output tsv
     ```
 1. Exécutez la commande **Curl** suivante pour publier l’événement : Spécifiez l’URL et la clé du point de terminaison de l’étape 1 et 2 avant d’exécuter la commande. 
 
@@ -125,24 +138,15 @@ Pour plus d’informations sur cette commande CLI, consultez [`az eventgrid even
     
         ```yml
         apiVersion: v1
-        dnsPolicy: ClusterFirstWithHostNet
-        hostNetwork: true
         kind: Pod
-        metadata: 
-          name: test-pod
-        spec: 
-          containers: 
-            - 
-              name: nginx
-          emptyDir: {}
-          image: nginx
-          volumeMounts: 
-            - 
-              mountPath: /usr/share/nginx/html
-              name: shared-data
-          volumes: 
-            - 
-              name: shared-data  
+        metadata:
+            name: test-pod2
+        spec:
+            containers:
+              - name: nginx
+                image: nginx
+            hostNetwork: true
+            dnsPolicy: ClusterFirstWithHostNet       
         ```
     1. Créez le pod.
         ```bash

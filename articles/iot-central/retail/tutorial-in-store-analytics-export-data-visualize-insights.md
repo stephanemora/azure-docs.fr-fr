@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d94b3e56b3b8f70a03b6a3872b085e450043ab70
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831686"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585948"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous apprendrez à :
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Pour terminer les deux didacticiels précédents, [Créer une application Analytique dans le magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app.md) et [Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* Pour terminer les deux didacticiels précédents, [Créer une application Analytique dans le magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app.md) et [Personnaliser le tableau de bord et gérer les appareils dans Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * Un compte Microsoft Power BI. Si vous n’avez pas de compte Power BI, inscrivez-vous pour bénéficier d’une version d’évaluation gratuite de [Power BI Pro](https://app.powerbi.com/signupredirect?pbi_source=web) avant de commencer.
 

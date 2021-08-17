@@ -8,12 +8,12 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef92a0f8c560dd20edf8711fba36cdf005ef15be
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554188"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443691"
 ---
 # <a name="confidential-computing-on-azure"></a>Informatique confidentielle dans Azure
 
@@ -85,7 +85,7 @@ Créez des applications sur des offres IaaS d’informatique confidentielle dans
 ### <a name="azure-security"></a>Sécurité Azure 
 Garantissez la sécurité de vos charges de travail grâce aux méthodes de vérification et à la gestion de clés matérielles. 
 - Attestation : [Microsoft Azure Attestation (préversion)](../attestation/overview.md)
-- Gestion des clés : Managed-HSM (préversion)
+- Gestion des clés : Managed-HSM
 
 ### <a name="develop"></a>Développer
 Commencez à utiliser le développement d’applications activées pour les enclaves et déployez des algorithmes confidentiels en utilisant l’infrastructure d’inférence confidentielle.

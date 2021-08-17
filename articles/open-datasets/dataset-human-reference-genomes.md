@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 2e8afede19a948af1863b6b24f277ab934861f22
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1e1b1fa785d4ab91329216983c5b694cc484860a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038620"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297721"
 ---
 # <a name="human-reference-genomes"></a>Génomes humains de référence
 
@@ -46,11 +46,11 @@ Ce jeu de données est stocké dans les régions Azure USA Ouest 2 et USA Centr
 
 ## <a name="data-access"></a>Accès aux données
 
-USA Ouest 2 : https://datasetreferencegenomes.blob.core.windows.net/dataset
+USA Ouest 2 : « https://datasetreferencegenomes.blob.core.windows.net/dataset  »
 
-USA Centre-Ouest : https://datasetreferencegenomes-secondary.blob.core.windows.net/dataset
+USA Centre-Ouest : « https://datasetreferencegenomes-secondary.blob.core.windows.net/dataset »
 
-[Jeton SAS](/azure/storage/common/storage-sas-overview) : sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=JtQoPFqiC24GiEB7v9zHLi4RrA2Kd1r%2F3iFt2l9%2FlV8%3D
+[Jeton SAS](../storage/common/storage-sas-overview.md) : sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=JtQoPFqiC24GiEB7v9zHLi4RrA2Kd1r%2F3iFt2l9%2FlV8%3D
 
 ## <a name="use-terms"></a>Conditions d’utilisation
 
@@ -75,7 +75,7 @@ Si vous avez des questions ou des commentaires sur ce jeu de données, contactez
 
 Plusieurs données génomiques publiques ont été chargées comme Azure Open Dataset [ici](https://azure.microsoft.com/services/open-datasets/catalog/). Nous créons un service blob lié à ce jeu de données ouvert. Vous trouverez des exemples de procédure d’appel de données à partir d’Azure Open Datasets pour le jeu de données `Reference Genomes` dans ce qui suit :
 
-Les utilisateurs peuvent appeler et télécharger le chemin suivant avec ce notebook : https://datasetreferencegenomes.blob.core.windows.net/dataset/vertebrate_mammalian/Homo_sapiens/latest_assembly_versions/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_assembly_structure/genomic_regions_definitions.txt
+Les utilisateurs peuvent appeler et télécharger le chemin suivant avec ce notebook : « https://datasetreferencegenomes.blob.core.windows.net/dataset/vertebrate_mammalian/Homo_sapiens/latest_assembly_versions/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_assembly_structure/genomic_regions_definitions.txt  »
 
 **Remarque importante :** Les utilisateurs doivent se connecter à leur compte Azure via Azure CLI pour afficher les données avec le SDK Azure ML. En revanche, il n’est pas nécessaire d’effectuer des actions pour télécharger les données.
 
@@ -137,4 +137,4 @@ blob_service_client.get_blob_to_path('dataset/vertebrate_mammalian/Homo_sapiens/
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Affichez les autres jeux de données dans le [catalogue Open Datasets](dataset-catalog.md).
+Consultez les autres jeux de données du [catalogue Open Datasets](dataset-catalog.md).

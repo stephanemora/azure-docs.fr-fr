@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656287"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552250"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -25,10 +25,6 @@ La source de données Azure SQL Database Managed Instance prend en charge les fo
 - **Analyses complètes et incrémentielles** pour capturer les métadonnées et la classification dans Azure SQL Database Managed Instance
 
 - **Traçabilité** entre les ressources de données pour les activités de copie et de flux de données ADF
-
-### <a name="known-limitations"></a>Limitations connues
-
-Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) dans Azure SQL Managed Instance.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -125,7 +121,35 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 
     Par exemple, `foobar.public.123.database.windows.net,3342`
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+
+Pour créer une analyse et l’exécuter, procédez comme suit :
+
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+
+1. Sélectionnez la source Azure SQL Database Managed Instance que vous avez inscrite.
+
+1. Sélectionnez **Nouvelle analyse**.
+
+1. Sélectionnez les informations d’identification pour vous connecter à votre source de données.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="Configurer l’analyse":::
+
+1. Vous pouvez étendre votre analyse à des tables spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+
+1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="trigger":::
+
+1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 > [!NOTE]
 > La suppression de votre analyse ne supprime pas vos ressources des analyses Azure SQL Database Managed Instance précédentes.

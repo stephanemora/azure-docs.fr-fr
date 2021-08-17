@@ -13,165 +13,135 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/15/2020
+ms.date: 07/07/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdef3e1f1a60c9eb0c751855837e9cbe77e015e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30ec59a2b74ffb1a9de8bbf03271bf4699c98b6b
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572287"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552608"
 ---
 # <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>Qu’est-ce que le diagnostic de connexion dans Azure AD ?
 
-Azure Active Directory (Azure AD) fournit un modèle de sécurité flexible afin de contrôler ce que les utilisateurs peuvent faire avec les ressources managées. L’accès à ces ressources n’est pas uniquement contrôlé par leur *identité*, mais également par le *moyen* qu’ils utilisent pour accéder aux ressources. En général, un modèle flexible s’accompagne d’un certain degré de complexité dû au nombre d’options de configuration dont vous disposez. De cette complexité peut découler une augmentation du risque d’erreurs.
+La détermination de la raison de l’échec de la connexion peut rapidement devenir une tâche difficile. Vous devez analyser ce qui s’est produit lors de la tentative de connexion et rechercher les recommandations disponibles pour résoudre le problème. Dans l’idéal, vous souhaitez résoudre le problème sans impliquer d’autres personnes, comme le support Microsoft. Si vous vous trouvez dans une situation comme celle-ci, vous pouvez utiliser le diagnostic de connexion dans Azure AD, un outil qui vous aide à examiner les connexions dans Azure AD. 
 
-En tant qu’administrateur informatique, vous avez besoin d’une solution qui vous procure des insights concernant les activités de votre système. Cette visibilité peut vous permettre de diagnostiquer et de résoudre les problèmes lorsqu’ils se produisent. Le diagnostic de connexion pour Azure AD est un exemple de ce type de solution. Vous pouvez utiliser le diagnostic pour analyser ce qui s’est produit lors d’une tentative de connexion et obtenir des recommandations afin de résoudre les problèmes sans avoir à contacter le support Microsoft.
+Cet article vous donne une vue d’ensemble du diagnostic et de la façon dont vous pouvez l’utiliser pour résoudre les erreurs liées à la connexion. 
 
-Cet article trace un panorama des possibilités de la solution et de la façon dont vous pouvez l’utiliser.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="how-it-works"></a>Fonctionnement  
 
-Le diagnostic de connexion est disponible dans toutes les éditions d’Azure AD.
+Dans Azure AD, les tentatives de connexion sont contrôlées par :
 
-Vous devez être administrateur global dans Azure AD pour l’utiliser.
+- **Qui** : l’utilisateur effectue une tentative de connexion.
+- **Comment** : une tentative de connexion a été effectuée.
 
-## <a name="how-it-works"></a>Fonctionnement
+Par exemple, vous pouvez configurer des stratégies d’accès conditionnel qui permettent aux administrateurs de configurer tous les aspects du locataire lorsqu’ils se connectent à partir du réseau d’entreprise. En revanche, ce même utilisateur peut très bien être bloqué lorsqu’il se connecte avec le même compte à partir d’un réseau non approuvé. 
 
-Dans Azure AD, la réponse à une tentative de connexion est liée à l’*identité* de l’utilisateur et à la *façon* dont il accède au locataire. Par exemple, un administrateur peut généralement configurer tous les aspects du locataire lorsqu’il se connecte à partir du réseau d’entreprise. En revanche, ce même utilisateur peut très bien être bloqué lorsqu’il se connecte avec le même compte à partir d’un réseau non approuvé.
+En raison de la très grande flexibilité du système qui permet de répondre à une tentative de connexion, vous pouvez vous retrouver dans des scénarios où vous devrez résoudre des problèmes de connexion. Le diagnostic de connexion est une fonctionnalité conçue pour permettre l’autodiagnostic des problèmes de connexion avec :  
 
-En raison de la très grande flexibilité du système qui permet de répondre à une tentative de connexion, vous pouvez vous retrouver dans des scénarios où vous devrez résoudre des problèmes de connexion. Le diagnostic de connexion est une fonctionnalité qui :
+- Analyse des données à partir des événements de connexion.  
 
-- Analyse les données à partir des événements de connexion.
+- Affichage d’informations sur ce qui s’est produit.  
 
-- Affiche ce qui s’est passé.
+- Recommandations pour résoudre les problèmes.  
 
-- Fournit des recommandations sur la façon de résoudre les problèmes.
+Pour démarrer et suivre le processus de diagnostic, vous devez :   
 
-Le diagnostic de connexion pour Azure AD est conçu pour permettre le diagnostic automatique des erreurs de connexion. Pour suivre le processus de diagnostic, vous devez :
+1. **Identifier l’événement** : entrez les informations relatives à l’événement de connexion 
 
-![Diagramme montrant le diagnostic de connexion.](./media/overview-sign-in-diagnostics/process.png)
+2. **Sélectionner un événement** : sélectionnez un événement en fonction des informations partagées. 
 
-1. Définir l’étendue des événements de connexion qui vous intéressent.
+3. **Prendre des mesures** : examinez les résultats de diagnostic et suivez les étapes.
 
-2. Sélectionner la connexion que vous souhaitez examiner.
 
-3. Examiner le résultat du diagnostic.
+### <a name="identify-event"></a>Identifier l’événement 
 
-4. Prendre des mesures.
+Pour identifier les événements appropriés pour vous, vous pouvez filtrer en fonction des options suivantes :
 
-### <a name="define-scope"></a>Définir l’étendue
+- Nom de l’utilisateur
+- Application 
+- ID de corrélation ou ID de requête 
+- Date et heure
 
-L’objectif de cette étape est de définir l’étendue des événements de connexion à examiner. Votre étendue est basée soit sur un utilisateur, soit sur un identificateur (correlationId, requestId) et un intervalle de temps. Pour préciser davantage l’étendue, vous pouvez spécifier un nom d’application. Azure AD utilise les informations d’étendue pour localiser les événements appropriés qui vous intéressent.  
+![Capture d’écran montrant les filtres.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
 
-### <a name="select-sign-in"></a>Sélectionner la connexion  
 
-En fonction de vos critères de recherche, Azure AD récupère toutes les événements de connexion correspondants et les présente dans une vue Résumé de l’authentification.
 
-![Capture d’écran partielle montrant la section Résumé de l’authentification.](./media/overview-sign-in-diagnostics/authentication-summary.png)
+### <a name="select-event"></a>Sélectionner un événement  
 
-Vous pouvez personnaliser les colonnes affichées dans cette vue.
+En fonction de vos critères de recherche, Azure AD récupère toutes les événements de connexion correspondants et les présente dans une vue Résumé de l’authentification.  
 
-### <a name="review-diagnostic"></a>Examiner le diagnostic
+![Capture d’écran de la page de résumé de l’authentification.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 
-Pour l’événement de connexion sélectionné, Azure AD fournit des résultats de diagnostic.
+Vous pouvez modifier le contenu affiché dans les colonnes en fonction de vos préférences. Voici quelques exemples :
 
-![Capture d’écran partielle montrant la section des résultats de diagnostic.](./media/overview-sign-in-diagnostics/diagnostics-results.png)
-
-Ces résultats commencent par une évaluation, qui explique ce qui s’est produit en quelques phrases. L’explication vous aide à comprendre le comportement du système.
-
-Ensuite est présenté un résumé des stratégies d’accès conditionnel associées qui ont été appliquées à l’événement de connexion sélectionné. Les résultats de diagnostic incluent également les étapes de correction recommandées pour résoudre votre problème. La résolution d’un problème sans aide supplémentaire n’étant pas toujours possible, il peut s’avérer souhaitable d’ouvrir un ticket de support.
+- Détails du risque
+- État de l’accès conditionnel
+- Emplacement
+- ID de ressource
+- Type d’utilisateur
+- Informations sur l’authentification
 
 ### <a name="take-action"></a>Effectuer une action
 
-À ce stade, vous devez disposer des informations qui vous sont nécessaires pour résoudre votre problème.
+Pour l’événement de connexion sélectionné, vous obtenez des résultats de diagnostic. Lisez les résultats pour identifier l’action que vous pouvez entreprendre pour résoudre le problème. Ces résultats ajoutent des étapes recommandées et dévoilent les informations pertinentes, telles que les stratégies associées, les détails de connexion et la documentation de prise en charge. La résolution d’un problème sans aide supplémentaire n’étant pas toujours possible, il peut s’avérer souhaitable d’ouvrir un ticket de support. 
 
-## <a name="scenarios"></a>Scénarios
 
-Les scénarios suivants sont couverts par le diagnostic de connexion :
+![Capture d’écran montrant les résultats de diagnostic.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
 
-- Blocage par l’accès conditionnel
 
-- Échec de l’accès conditionnel
 
-- Authentification multifacteur (MFA) à partir de l’accès conditionnel
+## <a name="how-to-access-it"></a>Procédure d'accès
 
-- Authentification multifacteur à partir d’autres conditions exigées
+Pour utiliser le diagnostic, vous devez être connecté au client en tant qu’administrateur général ou lecteur global. Si vous n’avez pas ce niveau d’accès, utilisez [Privileged Identity Management, PIM](../privileged-identity-management/pim-resource-roles-activate-your-roles.md), pour élever votre accès à l’administrateur/lecteur global au sein du locataire. Cela vous permettra d’avoir un accès temporaire au diagnostic.  
 
-- Validation par l’authentification multifacteur exigée
+Avec le niveau d’accès correct, vous pouvez trouver le diagnostic à différents emplacements : 
 
-- Validation par l’authentification multifacteur exigée (emplacement de connexion risqué)
+**Option A** : Diagnostiquer et résoudre les problèmes 
 
-- Connexion réussie
+![Capture d’écran montrant comment lancer les diagnostics de connexion à partir de l’accès conditionnel.](./media/overview-sign-in-diagnostics/troubleshoot-link.png)
 
-### <a name="blocked-by-conditional-access"></a>Blocage par l’accès conditionnel
 
-Dans ce scénario, une tentative de connexion a été bloquée par une stratégie d’accès conditionnel.
+1. Ouvrez **Azure Active Directory AAD ou l’accès conditionnel Azure AD**. 
 
-![Capture d’écran montrant la configuration de l’accès avec l’option Bloquer l’accès sélectionnée.](./media/overview-sign-in-diagnostics/block-access.png)
+2. Dans le menu principal, cliquez sur **Diagnostiquer & résoudre les problèmes**.  
 
-La section de diagnostic de ce scénario affiche des informations détaillées sur l’événement de connexion utilisateur et les stratégies appliquées.
+3. Dans les **Utilitaires de résolution des problèmes**, il existe une vignette Diagnostic de la connexion. 
 
-### <a name="failed-conditional-access"></a>Échec de l’accès conditionnel
+4. Cliquez sur le bouton **Résoudre les problèmes**.  
 
-Ce scénario est le résultat classique de l’échec d’une tentative de connexion dû à une stratégie d’accès conditionnel dont les conditions n’ont pas été remplies. Voici des exemples courants :
+ 
 
-![Capture d’écran montrant la configuration de l’accès avec des exemples de stratégie courants et l’option Accorder l’accès sélectionnée.](./media/overview-sign-in-diagnostics/require-controls.png)
+ 
 
-- Exiger un appareil joint à Azure AD hybride
+**Option B** : Événements de connexion 
 
-- Demander une application cliente approuvée
+![Capture d’écran montrant comment lancer les diagnostics de connexion à partir d’Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
 
-- Exiger une stratégie de protection des applications
 
-La section de diagnostic de ce scénario affiche des informations détaillées sur la tentative de connexion utilisateur et les stratégies appliquées.
 
-### <a name="mfa-from-conditional-access"></a>Authentification multifacteur à partir de l’accès conditionnel
 
-Dans ce scénario, une stratégie d’accès conditionnel impose que l’utilisateur se connecte au moyen de l’authentification multifacteur.
+1. Ouvrez Azure Active Directory. 
 
-![Capture d’écran montrant la configuration de l’accès avec l’option Exiger l’authentification multifacteur sélectionnée.](./media/overview-sign-in-diagnostics/require-mfa.png)
+2. Dans le menu principal, dans la section **Surveillance**, sélectionnez **Connexions**. 
 
-La section de diagnostic de ce scénario affiche des informations détaillées sur la tentative de connexion utilisateur et les stratégies appliquées.
+3. Dans la liste des connexions, sélectionnez une connexion avec un état **Échec**. Vous pouvez filtrer votre liste par État pour faciliter la recherche des connexions ayant échoué. 
 
-### <a name="mfa-from-other-requirements"></a>Authentification multifacteur à partir d’autres conditions exigées
+4. L’onglet **Détails de l'activité : connexions** s’ouvre pour la connexion sélectionnée. Cliquez sur l’icône en pointillés pour afficher plus d’icônes de menu. Sélectionnez l’onglet **Résolution des problèmes et support**. 
 
-Dans ce scénario, une exigence relative à l’authentification multifacteur n’a pas été appliquée par une stratégie d’accès conditionnel. Par exemple, l’authentification multifacteur par utilisateur.
+5. Cliquez sur le lien pour **Lancer le diagnostic de connexion**. 
 
-![Capture d’écran montrant la configuration de l’authentification multifacteur par utilisateur.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
+ 
 
-Le but de ce scénario de diagnostic est de fournir plus de détails sur les éléments suivants :
+**Option C** : Demande de support 
 
-- Source de l’interruption de l’authentification multifacteur
-- Résultat de l’interaction avec le client
+Le diagnostic peut également être trouvé lors de la création d’un dossier de support pour vous donner la possibilité d’effectuer un diagnostic automatique avant de devoir soumettre un cas. 
 
-Vous pouvez également afficher tous les détails de la tentative de connexion de l’utilisateur.
 
-### <a name="mfa-proof-up-required"></a>Validation par l’authentification multifacteur exigée
-
-Dans ce scénario, les tentatives de connexion ont été interrompues par des demandes de configuration de l’authentification multifacteur. Cette configuration est également appelée « validation ».
-
-La validation par l’authentification multifacteur se produit lorsqu’un utilisateur est obligé d’utiliser l’authentification multifacteur mais qu’il ne l’a pas encore configurée, ou lorsqu’un administrateur a exigé de l’utilisateur qu’il la configure.
-
-L’objectif de ce scénario de diagnostic est de révéler que l’interruption de l’authentification multifacteur était due à une absence de configuration par l’utilisateur. La solution recommandée consiste à ce que l’utilisateur effectue la validation.
-
-### <a name="mfa-proof-up-required-risky-sign-in-location"></a>Validation par l’authentification multifacteur exigée (emplacement de connexion risqué)
-
-Dans ce scénario, les tentatives de connexion ont été interrompues par une demande de configuration de l’authentification multifacteur à partir d’un emplacement de connexion risqué.
-
-L’objectif de ce scénario de diagnostic est de révéler que l’interruption de l’authentification multifacteur était due à une absence de configuration par l’utilisateur. La solution recommandée consiste à ce que l’utilisateur effectue la validation, plus précisément à partir d’un emplacement réseau qui n’est pas risqué.
-
-Par exemple, si un réseau d’entreprise est défini en tant qu’emplacement nommé, l’utilisateur doit plutôt essayer d’effectuer la validation à partir du réseau d’entreprise.
-
-### <a name="successful-sign-in"></a>Connexion réussie
-
-Dans ce scénario, les événements de connexion n’ont pas été interrompus par l’accès conditionnel ou l’authentification multifacteur.
-
-Ce scénario de diagnostic fournit des détails sur les événements de connexion utilisateur qui étaient censés être interrompus en raison des stratégies d’accès conditionnel ou de l’authentification multifacteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation des rapports Azure Active Directory](overview-reports.md)
-- [Présentation de la supervision d’Azure Active Directory](overview-monitoring.md)
+- [Diagnostics de connexion pour les scénarios de Azure AD](concept-sign-in-diagnostics-scenarios.md)

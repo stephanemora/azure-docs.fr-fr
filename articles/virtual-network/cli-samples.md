@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97565e30171a529dd4d8a30916333407f5bd185c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048831"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435701"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemples Azure CLI pour réseau virtuel
 
@@ -35,4 +35,4 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Filtrer le trafic réseau de machine virtuelle entrant et sortant](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Crée un réseau virtuel avec des sous-réseaux frontaux et principaux. Le trafic réseau entrant vers le sous-réseau frontal est limité à HTTP, HTTPS et SSH. Le trafic sortant vers Internet à partir du sous-réseau principal n’est pas autorisé. |
 |[Configurer un réseau virtuel à double pile IPv4 + IPv6 avec Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Déploie un réseau virtuel à double pile (IPv4 + IPv6) avec deux machines virtuelles et un équilibreur de charge de base Azure avec les adresses IP publiques IPv4 et IPv6. |
 |[Configurer un réseau virtuel à double pile IPv4 + IPv6 avec Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Déploie un réseau virtuel à double pile (IPv4 + IPv6) avec deux machines virtuelles et un équilibreur de charge standard Azure avec les adresses IP publiques IPv4 et IPv6. |
-|[Tutoriel : Créer et tester une passerelle NAT - Azure CLI](./tutorial-create-nat-gateway-cli.md)|Créer et vérifier une passerelle NAT en utilisant une machine virtuelle source et de destination. |
+|[Tutoriel : Créer et tester une passerelle NAT - Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md)|Créer et vérifier une passerelle NAT en utilisant une machine virtuelle. |

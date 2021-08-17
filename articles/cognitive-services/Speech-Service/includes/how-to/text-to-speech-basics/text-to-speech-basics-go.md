@@ -2,14 +2,14 @@
 author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/02/2021
 ms.author: yulili
-ms.openlocfilehash: 759fca1d323c72fe5e336a3211a9fb68fc1804b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 54647867ab0a0d2c1333f80121aeab49a2efc959
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085484"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279860"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech.
 
@@ -29,7 +29,7 @@ Avant de pouvoir faire quoi que ce soit, vous devez installer le [kit SDK Speech
 ## <a name="text-to-speech-to-speaker"></a>Conversion de texte par synthèse vocale vers un haut-parleur
 
 Utilisez l’exemple de code suivant pour exécuter la synthèse vocale sur votre appareil de sortie audio par défaut.
-Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région.
+Remplacez les variables `subscription` et `region` par votre clé de voix et votre emplacement/région.
 L’exécution du script dicte votre texte d’entrée sur le haut-parleur par défaut.
 
 ```go
@@ -68,8 +68,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
     if err != nil {
@@ -167,7 +167,7 @@ Cette fois, vous allez enregistrer le résultat dans une variable [`SpeechSynthe
 La propriété `AudioData` retourne un élément `[]byte` des données de sortie. Vous pouvez utiliser ce `[]byte` manuellement ou utiliser la classe [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) pour gérer le flux en mémoire.
 Dans cet exemple, vous allez utiliser la fonction statique `NewAudioDataStreamFromSpeechSynthesisResult()` pour obtenir un flux à partir du résultat.
 
-Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région.
+Remplacez les variables `subscription` et `region` par votre clé de voix et votre emplacement/région.
 
 ```go
 package main
@@ -184,8 +184,8 @@ import (
 )
 
 func main(subscription string, region string) {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
     if err != nil {

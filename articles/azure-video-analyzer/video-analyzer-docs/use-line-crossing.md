@@ -2,13 +2,13 @@
 title: Détecter quand des objets franchissent une ligne virtuelle dans une vidéo en direct avec Azure Video Analyzer
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Video Analyzer pour détecter quand des objets franchissent une ligne dans un flux vidéo en direct d’une caméra IP (simulée).
 ms.topic: tutorial
-ms.date: 05/18/2021
-ms.openlocfilehash: 8cca0aca44f2cb2ebdbee7869d189b0cd2b2451f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/01/2021
+ms.openlocfilehash: 0b87d80c5dcc7a72bf940cac3573ee5e68964022
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465657"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604661"
 ---
 # <a name="tutorial-detect-when-objects-cross-a-virtual-line-in-a-live-video"></a>Tutoriel : Détecter quand des objets franchissent une ligne virtuelle dans une vidéo en direct
 
@@ -58,7 +58,7 @@ Ce didacticiel présente les procédures suivantes :
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Générer un manifeste de déploiement IoT Edge":::
 1. Le fichier de manifeste *deployment.yolov3.amd64.json* est créé dans le dossier *src/edge/config*.
-1. Cliquez avec le bouton droit sur *src/edge/config/deployment.yolov3.amd64.json* et sélectionnez **Créer un déploiement pour un seul appareil**.
+1. Cliquez avec le bouton droit sur *src/edge/config/deployment.yolov3.amd64.json*, puis sélectionnez **Créer un déploiement pour un seul appareil**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
@@ -98,11 +98,11 @@ Dans Visual Studio Code, accédez au dossier src/cloud-to-device-console-app. Vo
 1. Modifiez le fichier operations.json :
     
     * Changez le lien de la topologie de pipeline :
-    * « pipelineTopologyUrl » : « https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json »
-    * Sous livePipelineSet, remplacez le nom de la topologie par la valeur du lien précédent :
-    * « topologyName » : « LineCrossingWithHttpExtension »
+    * `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"`
+    * Sous `livePipelineSet`, modifiez le nom de la topologie de manière à ce qu’il corresponde à la valeur figurant dans le lien ci-dessus précédent :
+    * `"topologyName" : "LineCrossingWithHttpExtension"`
     * Sous `pipelineTopologyDelete`, modifiez le nom :
-    * « name » : « LineCrossingWithHttpExtension »
+    * `"name" : "LineCrossingWithHttpExtension"`
     
 Ouvrez l’URL de la topologie de pipeline dans un navigateur et examinez les paramètres du nœud d’extension HTTP.
 
@@ -113,7 +113,7 @@ Ouvrez l’URL de la topologie de pipeline dans un navigateur et examinez les pa
    }
 ```
 
-Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence d’images de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence, par conséquent, `maximumSamplesPerSecond` est défini sur 2. Le résultat réel est de 15 images/s.
+Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence d’images de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence. Votre modèle AI a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
 
 Examinez également les espaces réservés `linecrossingName` et `lineCoordinates` des paramètres du nœud de franchissement de ligne. Nous avons fourni des valeurs par défaut pour ces paramètres, mais vous les remplacez avec le fichier operations.json. Regardez comment nous passons les autres paramètres du fichier operations.json à une topologie (par ex., URL RTSP).  
 

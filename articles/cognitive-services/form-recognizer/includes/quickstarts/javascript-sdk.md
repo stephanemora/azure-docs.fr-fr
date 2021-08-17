@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: aafe6caab127736d950ef78804f7af08242ced41
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 224e6ab17db7ac7013213230035ef4d66616f71e
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894302"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113132025"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,7 @@ ms.locfileid: "111894302"
 
 > [!IMPORTANT]
 >
-> * Ce guide de démarrage rapide utilise le SDK version **3.1.0** et cible l’API version **2.1**.
+> * Ce guide de démarrage rapide utilise la version **3.1.1** du kit SDK et cible la version **2.1** de l’API.
 >
 >* Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Consultez la documentation de référence ci-dessous.
 
@@ -80,7 +80,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 ## <a name="object-model"></a>Modèle objet
 
-Avec Form Recognizer, vous pouvez créer deux types de client différents. Le premier, `FormRecognizerClient`, sert à interroger le service pour reconnaître les champs et le contenu de formulaires. Le deuxième, `FormTrainingClient`, sert à créer et à gérer des modèles personnalisés que vous pouvez utiliser pour améliorer la reconnaissance.
+Avec Form Recognizer, vous pouvez créer deux types de client différents. Le premier, `FormRecognizerClient`, sert à interroger le service pour reconnaître les champs et le contenu de formulaires. Le deuxième, `FormTrainingClient`, sert à créer et à gérer des modèles personnalisés pour améliorer la reconnaissance.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 

@@ -6,22 +6,24 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/25/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: b7740fa1f6a54dcfcc1181dddedcdd5fdb50402c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 0140166ac173e51f9b9d4e9617de3b70d24e1474
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378225"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215057"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Tutoriel : Prouver que vous êtes propriétaire d'un certificat d'autorité de certification
 
-Après avoir chargé votre certificat d'autorité de certification (AC) racine ou votre certificat d'AC subordonné sur votre instance d'IoT Hub, vous devez prouver que vous êtes propriétaire de ce certificat :
+Après avoir chargé votre certificat d'autorité de certification (AC) racine ou votre certificat d'AC subordonné sur votre instance d'IoT Hub, vous pouvez le configurer pour vérifier automatiquement ou manuellement vous êtes propriétaire du certificat.
+
+## <a name="verify-certificate-automatically"></a>Vérifier le certificat automatiquement 
 
 1. Sur le portail Azure, accédez à votre instance d'IoT Hub et sélectionnez **Paramètres > Certificats**.
 
@@ -29,17 +31,25 @@ Après avoir chargé votre certificat d'autorité de certification (AC) racine o
 
 3. Entrez un nom d'affichage dans le champ **Nom du certificat**, puis sélectionnez le certificat PEM à ajouter.
 
-4. Sélectionnez **Enregistrer**. Votre certificat apparaît dans la liste des certificats avec l'état **Non vérifié**. Le processus de vérification prouvera que vous êtes propriétaire du certificat.
+4. Pour vérifier automatiquement le certificat, cochez la case en regard de **Définir l’état du certificat sur vérifié lors du chargement**.
 
-5. Sélectionnez le certificat pour afficher la boîte de dialogue **Détails du certificat**.
+  :::image type="content" source="media/tutorial-x509-prove-possession/skip-pop.png" alt-text="Capture d’écran montrant où la case à cocher pour ignorer la preuve de possession est":::
 
-6. Sélectionnez **Générer un code de vérification** dans la boîte de dialogue.
+5. Sélectionnez **Enregistrer**.  Votre certificat apparaît dans la section des certificats avec l'état **Vérifié**.
+
+## <a name="verify-certificate-manually-after-upload"></a>Vérifier manuellement le certificat après le chargement
+
+1. Si vous n’avez pas choisi de vérifier automatiquement le certificat pendant le téléchargement, votre certificat est affiché dans la liste des certificats avec l’état **Non vérifié**. 
+
+2. Sélectionnez le certificat pour afficher la boîte de dialogue **Détails du certificat**.
+
+3. Sélectionnez **Générer un code de vérification** dans la boîte de dialogue.
 
   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="{Certificate details dialog}":::
 
-7. Copiez le code de vérification dans le Presse-papiers. Vous devez définir le code de vérification en tant qu'objet du certificat. Par exemple, si le code de vérification est 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, ajoutez-le en tant qu'objet de votre certificat, comme indiqué à l'étape suivante.
+4. Copiez le code de vérification dans le Presse-papiers. Vous devez définir le code de vérification en tant qu'objet du certificat. Par exemple, si le code de vérification est 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, ajoutez-le en tant qu'objet de votre certificat, comme indiqué à l'étape suivante.
 
-8. Un certificat de vérification peut être généré de trois façons :
+5. Un certificat de vérification peut être généré de trois façons :
 
     * Si vous utilisez le script PowerShell fourni par Microsoft, exécutez `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` pour créer un certificat nommé `VerifyCert4.cer`. Pour plus d'informations, consultez [Utilisation des scripts fournis par Microsoft](tutorial-x509-scripts.md).
 
@@ -77,6 +87,6 @@ Après avoir chargé votre certificat d'autorité de certification (AC) racine o
 
     Pour plus d'informations, consultez [Utilisation d'OpenSSL pour créer des certificats de test](tutorial-x509-openssl.md).
 
-10. Sélectionnez le nouveau certificat dans l'affichage **Détails du certificat**.
+6. Sélectionnez le nouveau certificat dans l'affichage **Détails du certificat**.
 
-11. Une fois le certificat chargé, sélectionnez **Vérifier**. L'état du certificat d'AC doit passer à **Vérifié**.
+7. Une fois le certificat chargé, sélectionnez **Vérifier**. L'état du certificat d'AC doit passer à **Vérifié**.

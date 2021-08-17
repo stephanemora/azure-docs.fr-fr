@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/18/2021
+ms.date: 06/22/2021
 ms.author: lajanuar
-ms.openlocfilehash: ccc0f857f9377c3b82ca70a6611b8e64d352700f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8d348a57470d21f72e55fc3cbf2e66e974e3c8a4
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110116483"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362734"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -22,15 +22,29 @@ ms.locfileid: "110116483"
 
 Passez en revue les toutes dernières mises à jour apportées au service Translator de texte. Ajoutez cette page aux favoris pour vous tenir informé des notes de publication, des améliorations apportées aux fonctionnalités et des mises à jour de la documentation.
 
+## <a name="june-2021"></a>Juin 2021
+
+### <a name="document-translation-client-libraries-for-cnet-and-pythonnow-available-in-prerelease"></a>[Bibliothèques clientes de traduction de documents pour C#/.net et Python](document-translation/client-sdks.md), désormais disponibles en version préliminaire.
+
+## <a name="may-2021"></a>Mai 2021
+
+### <a name="document-translation--now-in-general-availability"></a>[Traduction de document ― maintenant en disponibilité générale](https://www.microsoft.com/translator/blog/2021/05/25/translate-full-documents-with-document-translation-%e2%80%95-now-in-general-availability/)
+
+* **Mise en production de fonctionnalité** : la fonctionnalité [Traduction de documentation](document-translation/overview.md) du Traducteur est mise à la disposition générale. La traduction de documents est conçue pour traduire des fichiers volumineux et des documents batch avec du contenu riche tout en préservant la structure et le format d’origine. vous pouvez également utiliser des glossaires personnalisés et des modèles personnalisés générés avec des [Traducteurs personnalisés](custom-translator/overview.md) afin de garantir la traduction rapide et précise de vos documents.
+
+### <a name="translator-service-available-in-containers"></a>[Service Traducteur disponible dans les conteneurs](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
+
+* **Nouvelle version** : le service Traducteur est disponible dans les conteneurs sous la forme d’un aperçu contrôlé. [Soumettez une demande en ligne](https://aka.ms/csgate-translator) et approuvez-la avant de commencer. Les conteneurs vous permettent d’exécuter plusieurs fonctionnalités de service du Traducteur dans votre propre environnement et sont très utiles pour répondre aux besoins spécifiques en matière de sécurité et de gouvernance des données. *Voir*, [Installer et exécuter des conteneurs Translator (préversion)](containers/translator-how-to-install-container.md)
+
 ## <a name="february-2021"></a>Février 2021
 
 ### <a name="document-translation-public-preview"></a>[Préversion publique de la traduction de documents](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 * **Nouvelle version** : la [traduction de documents](document-translation/overview.md) est disponible en tant que fonctionnalité d’évaluation du service Translator. Les fonctionnalités d’évaluation sont toujours en cours de développement et ne sont pas destinées à une utilisation en production. Elles sont disponibles en « préversion » afin que les clients puissent y accéder en avant-première et donner leur feedback. La traduction de documents vous permet de traduire des documents volumineux et de traiter des fichiers en batch tout en conservant la structure et le format d’origine. _Consultez_ le [blog Microsoft Translator : Présentation de la traduction de documents](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
-### <a name="text-translation-support-for-9-added-languages"></a>[Prise en charge de la traduction de texte pour 9 langues ajoutées](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
+### <a name="text-translation-support-for-nine-added-languages"></a>[Prise en charge de la traduction de texte pour neuf langues ajoutées](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 
-* Le service Translator dispose [d’une prise en charge linguistique de traduction de texte](language-support.md#text-translation) pour les langues suivantes :
+* Le service Translator dispose [d’une prise en charge linguistique de traduction de texte](language-support.md) pour les langues suivantes :
 
   * L’**albanais**. Langue isolée sans rapport avec les autres et parlée par près de 8 millions de personnes.
   * L’**amharique**. Langue officielle d’Éthiopie parlée par environ 32 millions de personnes. C’est également la langue liturgique de l’église orthodoxe éthiopienne.
@@ -46,7 +60,7 @@ Passez en revue les toutes dernières mises à jour apportées au service Transl
 
 ### <a name="text-translation-support-for-inuktitut"></a>[Prise en charge de la traduction de texte pour l’inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md#text-translation) pour l’**inuktitut**, l’une des principales langues inuites du Canada. L’inuktitut est l’une des huit langues autochtones officielles dans les Territoires du Nord-Ouest.
+* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md) pour l’**inuktitut**, l’une des principales langues inuites du Canada. L’inuktitut est l’une des huit langues autochtones officielles dans les Territoires du Nord-Ouest.
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -58,13 +72,13 @@ Passez en revue les toutes dernières mises à jour apportées au service Transl
 
 ### <a name="text-translation-support-for-canadian-french"></a>[Prise en charge de la traduction de texte pour le français canadien](https://www.microsoft.com/translator/blog/2020/10/20/cest-tiguidou-ca-translator-adds-canadian-french/)
 
-* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md#text-translation) pour le **français canadien**. Le français canadien et le français européen sont similaires et sont mutuellement compréhensibles. Toutefois, il peut exister des différences importantes au niveau du vocabulaire, de la grammaire, de la rédaction et de la prononciation. Plus de 7 millions de Canadiens (20 % de la population) parlent le français comme première langue.
+* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md) pour le **français canadien**. Le français canadien et le français européen sont similaires et sont mutuellement compréhensibles. Toutefois, il peut exister des différences importantes au niveau du vocabulaire, de la grammaire, de la rédaction et de la prononciation. Plus de 7 millions de Canadiens (20 % de la population) parlent le français comme première langue.
 
 ## <a name="september-2020"></a>Septembre 2020
 
 ### <a name="text-translation-support-for-assamese-and-axomiya"></a>[Prise en charge de la traduction de texte pour l’assamais et l’axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
 
-* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md#text-translation) pour l’**assamais** également appelé l’**axomiya**.  L’assamais/axomiya est essentiellement parlé en Inde de l’Est par environ 14 millions de personnes.
+* Le service Translator dispose d’[une prise en charge linguistique de traduction de texte](language-support.md) pour l’**assamais** également appelé l’**axomiya**.  L’assamais/axomiya est essentiellement parlé en Inde de l’Est par environ 14 millions de personnes.
 
 ## <a name="august-2020"></a>Août 2020
 

@@ -6,13 +6,13 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/04/2018
-ms.openlocfilehash: 4c8ae67720cf6ac9d577286898b95cdd10f38152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/07/2021
+ms.openlocfilehash: 90166f1a6716d9ed6b30ca002836d03d26c1ee3b
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377956"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215898"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformer des données dans un réseau virtuel Azure en utilisant l’activité Hive d’Azure Data Factory à partir du portail Azure
 
@@ -99,9 +99,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
    
     ![Page d’accueil Data Factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Cliquez sur **Créer et surveiller** pour lancer l’interface utilisateur (IU) de Data Factory dans un onglet séparé.
-11. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante : 
+11. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche comme illustré dans l’image suivante : 
 
-    ![Onglet Modifier](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Capture d’écran montrant l’onglet Gérer.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 Le cluster Hadoop se trouvant dans un réseau virtuel, vous devez installer un runtime d’intégration auto-hébergé (IR) dans le même réseau virtuel. Dans cette section, vous créez une nouvelle machine virtuelle, vous la joignez au même réseau virtuel et vous installez IR auto-hébergé sur celle-ci. L’IR auto-hébergé permet au service Data Factory de distribuer le traitement des requêtes à un service de calcul tel que HDInsight dans un réseau virtuel. Il vous permet également de déplacer des données vers/depuis des magasins de données dans un réseau virtuel dans Azure. Vous utilisez un IR auto-hébergé lorsque le magasin de données ou le calcul se trouve également dans un environnement local. 

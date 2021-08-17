@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 183693963d66a5df13cbb4dd1e561b26f5495f08
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 224e48bad96340554fa3667d990c29d681963109
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685690"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585976"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutoriel : Créer une application d’analytique en magasin dans Azure IoT Central
 
@@ -64,7 +64,7 @@ Pour créer une nouvelle application Azure IoT Central :
 
 Pour créer une application d’analytique en magasin pour les caisses :  
 
-1. Sélectionnez le modèle d’application **Analytique en magasin – caisse**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel, à l’exception des capteurs RuuviTag. Le modèle fournit également un tableau de bord d’opérateur permettant de surveiller les caisses et les conditions environnementales, ainsi que l’état des appareils. 
+1. Sélectionnez le modèle d’application **Analytique en magasin – caisse**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel, à l’exception des capteurs RuuviTag. Le modèle fournit également un tableau de bord permettant de surveiller les caisses et les conditions environnementales, ainsi que l’état des appareils. 
 
 1. Si vous le souhaitez, choisissez un **nom d’application** convivial. Cette application est basée sur un magasin fictif de vente au détail nommé Contoso. Le tutoriel utilise le **nom d’application** *Caisse Contoso*. Le modèle d’application est basé sur la société fictive Northwind. Dans ce tutoriel, vous utilisez Contoso pour apprendre à personnaliser l’application.
 
@@ -155,11 +155,11 @@ Pour ajouter un modèle d’appareil RuuviTag à votre application :
 ## <a name="customize-device-templates"></a>Personnaliser des modèles d’appareil
 Vous pouvez personnaliser les modèles d’appareil dans votre application de trois façons. Premièrement, vous personnalisez les interfaces natives intégrées de vos appareils en modifiant les fonctionnalités de l’appareil. Par exemple, avec un capteur de température, vous pouvez modifier des détails tels que le nom d’affichage de l’interface de température, le type de données, les unités de mesure et les plages de fonctionnement minimale et maximale. 
 
-Deuxièmement, personnalisez vos modèles d’appareil en ajoutant des propriétés cloud. Les propriétés cloud ne font pas partie des fonctionnalités intégrées de l’appareil. Elles sont des données personnalisées que votre application Azure IoT Central crée, stocke et associe à vos appareils. Un exemple de propriété cloud peut être une valeur calculée ou des métadonnées telles qu’un emplacement que vous souhaitez associer à un ensemble d’appareils. 
+Deuxièmement, personnalisez vos modèles d’appareil en ajoutant des propriétés cloud. Les propriétés cloud ne font pas partie des fonctionnalités intégrées de l’appareil. Elles sont des données personnalisées que votre application Azure IoT Central crée, stocke et associe à vos appareils. Un exemple de propriété cloud peut être une valeur calculée ou des métadonnées telles qu’un emplacement que vous souhaitez associer à un ensemble d’appareils.
 
 Troisièmement, personnalisez les modèles d’appareil en créant des affichages personnalisés. Les affichages permettent aux opérateurs de visualiser les données de télémétrie et les métadonnées de vos appareils, telles que les métriques et l’intégrité des appareils.
 
-Ici, vous utiliserez les deux premières méthodes pour personnaliser le modèle d’appareil destiné à vos capteurs RuuviTag. Pour plus d’informations sur la création d’affichages pour vos capteurs, consultez le guide de démarrage rapide [Ajouter un appareil simulé à votre application IoT Central](../core/quick-create-simulated-device.md).
+Ici, vous utiliserez les deux premières méthodes pour personnaliser le modèle d’appareil destiné à vos capteurs RuuviTag.
 
 Pour personnaliser les interfaces intégrées du modèle d’appareil RuuviTag :
 
@@ -289,4 +289,4 @@ Dans ce didacticiel, vous avez appris à :
 Maintenant que vous avez créé une application de surveillance des conditions Azure IoT Central, nous vous suggérons de réaliser l’étape suivante :
 
 > [!div class="nextstepaction"]
-> [Personnaliser le tableau de bord de l’opérateur](./tutorial-in-store-analytics-customize-dashboard.md)
+> [Personnaliser le tableau de bord](./tutorial-in-store-analytics-customize-dashboard.md)

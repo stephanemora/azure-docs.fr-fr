@@ -1,21 +1,21 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a6fc7a8419c3c4b6173771c898a1a4331d3c5874
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157539"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201150"
 ---
 L'**exemple de bannière d'appel de groupe** Azure Communication Services illustre de quelle façon le SDK web Communication Services Calling peut être utilisé pour créer une expérience d'appel de groupe.
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l�
 
 ## <a name="download-code"></a>Télécharger le code
 
-Recherchez le projet correspondant à cet exemple sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Une version [Interopérabilité avec Teams](../../concepts/teams-interop.md) de l'exemple est disponible sur une [branche](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop) distincte.
+Recherchez le projet correspondant à cet exemple sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Une version de l’exemple qui comprend des fonctionnalités actuellement en préversion publique, telles que [Teams Interop](../../concepts/teams-interop.md) et [l’enregistrement d’appels](../../concepts/voice-video-calling/call-recording.md), est disponible sur une [branche](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview)distincte.
 
 ## <a name="overview"></a>Vue d’ensemble
 

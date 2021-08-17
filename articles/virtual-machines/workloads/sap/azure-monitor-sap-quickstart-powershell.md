@@ -3,17 +3,18 @@ title: Déployer Azure Monitor pour SAP Solutions avec Azure PowerShell
 description: Déployer Azure Monitor pour SAP Solutions avec Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
-ms.date: 09/08/2020
 ms.topic: quickstart
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.date: 07/08/2021
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 24a8d3a893b5c3c988be25ae55be06f7fc934c8d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 62f1cdcc51779351d743c5e3be5b8405a0bee2d1
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667558"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567647"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Démarrage rapide : Déployer Azure Monitor pour SAP Solutions avec Azure PowerShell
 
@@ -26,7 +27,7 @@ Cet article explique comment créer des ressources Azure Monitor pour SAP Soluti
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps). Si vous choisissez d’utiliser Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../../../cloud-shell/overview.md) pour plus d’informations.
+Si vous choisissez d’utiliser PowerShell en local, vous devez installer le module Azure PowerShell. Vous devez également vous connecter à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez également choisir d’utiliser Cloud Shell. Pour plus d’informations sur Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../../../cloud-shell/overview.md).
 
 > [!IMPORTANT]
 > Tant que le module PowerShell **Az.HanaOnAzure** est en préversion, vous devez l’installer séparément à l’aide de l’applet de commande `Install-Module`. Quand ce module PowerShell sera en disponibilité générale, il fera partie intégrante des versions futures du module PowerShell Az et sera disponible en mode natif dans Azure Cloud Shell.
@@ -43,7 +44,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources Azure](../../../azure-resource-manager/management/overview.md) avec l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
+Créez un [groupe de ressources Azure](../../../azure-resource-manager/management/overview.md) avec le cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
 
 L’exemple suivant crée un groupe de ressources portant le nom spécifié à l’emplacement indiqué.
 
@@ -53,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroup -Location westus2
 
 ## <a name="sap-monitor"></a>Moniteur SAP
 
-Pour créer un moniteur SAP, vous devez utiliser l’applet de commande [New-AzSapMonitor](/powershell/module/az.hanaonazure/new-azsapmonitor). L’exemple suivant crée un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
+Pour créer un moniteur SAP, utilisez l’applet de commande [New-AzSapMonitor](/powershell/module/az.hanaonazure/new-azsapmonitor). L’exemple suivant crée un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
 
 ```azurepowershell-interactive
 $Workspace = New-AzOperationalInsightsWorkspace -ResourceGroupName myResourceGroup -Name sapmonitor-test -Location westus2 -Sku Standard
@@ -73,7 +74,7 @@ $SapMonitorParams = @{
 New-AzSapMonitor @SapMonitorParams
 ```
 
-Pour récupérer les propriétés d’un moniteur SAP, vous devez utiliser l’applet de commande [Get-AzSapMonitor](/powershell/module/az.hanaonazure/get-azsapmonitor). L’exemple suivant obtient les propriétés d’un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
+Pour récupérer les propriétés d’un moniteur SAP, utilisez l’applet de commande [Get-AzSapMonitor](/powershell/module/az.hanaonazure/get-azsapmonitor). L’exemple suivant obtient les propriétés d’un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
 
 ```azurepowershell-interactive
 Get-AzSapMonitor -ResourceGroupName myResourceGroup -Name ps-spamonitor-t01
@@ -81,7 +82,7 @@ Get-AzSapMonitor -ResourceGroupName myResourceGroup -Name ps-spamonitor-t01
 
 ## <a name="provider-instance"></a>Instance du fournisseur
 
-Pour créer une instance de fournisseur, vous utilisez l’applet de commande [New-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/new-azsapmonitorproviderinstance). L’exemple suivant crée une instance de fournisseur pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
+Pour créer une instance de fournisseur, utilisez l’applet de commande [New-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/new-azsapmonitorproviderinstance). L’exemple suivant crée une instance de fournisseur pour l’abonnement, le groupe de ressources et le nom de ressource spécifiés.
 
 ```azurepowershell-interactive
 $SapProviderParams = @{
@@ -98,7 +99,11 @@ $SapProviderParams = @{
 New-AzSapMonitorProviderInstance @SapProviderParams
 ```
 
-Pour récupérer les propriétés d’une instance de fournisseur, vous utilisez l’applet de commande [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance). L’exemple suivant obtient les propriétés d’une instance de fournisseur pour l’abonnement, le groupe de ressources, le nom SapMonitor et le nom de ressource spécifiés.
+Pour récupérer les propriétés d’une instance de fournisseur, utilisez l’applet de commande [Get-AzSapMonitorProviderInstance](/powershell/module/az.hanaonazure/get-azsapmonitorproviderinstance). L’exemple suivant obtient les propriétés de : 
+- Instance de fournisseur pour l’abonnement spécifié
+- Groupe de ressources
+- Nom de SapMonitor
+- Nom de la ressource
 
 ```azurepowershell-interactive
 Get-AzSapMonitorProviderInstance -ResourceGroupName myResourceGroup -SapMonitorName ps-spamonitor-t01
@@ -118,7 +123,7 @@ Remove-AzSapMonitorProviderInstance -ResourceGroupName myResourceGroup -SapMonit
 
 ### <a name="delete-the-sap-monitor"></a>Supprimer le moniteur SAP
 
-Pour supprimer un moniteur SAP, vous utilisez l’applet de commande [Remove-AzSapMonitor](/powershell/module/az.hanaonazure/remove-azsapmonitor). L’exemple suivant supprime un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de moniteur spécifiés.
+Pour supprimer un moniteur SAP, utilisez l’applet de commande [Remove-AzSapMonitor](/powershell/module/az.hanaonazure/remove-azsapmonitor). L’exemple suivant supprime un moniteur SAP pour l’abonnement, le groupe de ressources et le nom de moniteur spécifiés.
 
 ```azurepowershell
 Remove-AzSapMonitor -ResourceGroupName myResourceGroup -Name ps-sapmonitor-t02
@@ -136,4 +141,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur [Azure Monitor pour SAP Solutions](azure-monitor-overview.md).
+Découvrez plus en détail Azure Monitor pour SAP Solutions.
+
+> [!div class="nextstepaction"]
+> [Azure Monitor pour SAP Solutions](azure-monitor-overview.md)

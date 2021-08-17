@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 643ab787e07cdb1f3a61d1028838a2fc68a169f2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3342198600c3549a7ce5e1e52111233d4fa920d8
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147982"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110176"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Envoy
 
@@ -78,7 +78,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 
@@ -127,27 +127,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Envoy** pour être dirigé vers l’application Envoy. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Envoy. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Envoy** pour être dirigé vers l’application Envoy. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Envoy. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
 
     ![Configuration](common/setup-sso.png)
 
-3. Si vous souhaitez configurer manuellement Envoy, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Envoy en tant qu’administrateur et effectuez les étapes suivantes :
+3. Si vous souhaitez configurer manuellement Envoy, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Envoy en tant qu’administrateur et effectuez les étapes suivantes.
 
-4. Dans la barre d’outils située en haut, cliquez sur **Settings**.
+4. Accédez à **Intégrations** > **Toutes les intégrations**, puis cliquez pour **Installer** SAML sous **Authentification unique**.
 
-    ![Envoy](./media/envoy-tutorial/envoy-1.png "Envoy")
+    ![Authentification SAML](./media/envoy-tutorial/integrations.png "Authentification SAML")
 
-5. Cliquez sur **Company**.
+5. Accédez à la section **Intégrations intégrées** et procédez comme suit :
 
-    ![Société](./media/envoy-tutorial/envoy-2.png "Company")
-
-6. Cliquez sur **SAML**.
-
-    ![SAML](./media/envoy-tutorial/envoy-3.png "SAML")
-
-7. Dans la section de configuration **Authentification SAML**, procédez comme suit :
-
-    ![Authentification SAML](./media/envoy-tutorial/envoy-4.png "Authentication SAML")
+    ![Authentification unique](./media/envoy-tutorial/configuration.png "Authentification unique")
     
     >[!NOTE]
     >La valeur de l’ID d’emplacement du siège est générée automatiquement par l’application.
@@ -156,7 +148,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     
     b. Collez la valeur **URL de connexion** copiée dans le portail Azure dans la zone de texte **IDENTITY PROVIDER HTTP SAML URL** (URL HTTP SAML du fournisseur d’identité).
     
-    c. Cliquez sur **Save changes**.
+    c. Cliquez sur **Enregistrer**.
 
 ### <a name="create-envoy-test-user"></a>Créer un utilisateur de test Envoy
 

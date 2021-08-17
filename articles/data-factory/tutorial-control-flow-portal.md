@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: a1e30bb59d81e949720560f2ce5da796a2c7fbe2
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/07/2021
+ms.openlocfilehash: 3891cf49f536cea11049e4bcea05f90eb7892ac2
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905339"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216996"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 
@@ -166,9 +166,9 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
 - Connexion d’une activité à une autre activité (cas de réussite et échec)
 - Utilisation de la sortie d’une activité en tant qu’entrée de l’activité suivante
 
-1. Sur la page **Prise en main** de l’interface utilisateur de Data Factory, cliquez sur la vignette **Créer un pipeline**.  
+1. Dans la page d’accueil de l’interface utilisateur Data Factory, cliquez sur la vignette **Orchestrer**.  
 
-   ![Page de prise en main](./media/tutorial-control-flow-portal/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 3. Dans la fenêtre Propriétés pour le pipeline, basculez vers l’onglet **Paramètres** et utilisez le bouton **Nouveau** pour ajouter les trois paramètres suivants de type chaîne : sourceBlobContainer, sinkBlobContainer et récepteur.
 
     - **sourceBlobContainer** - paramètre dans le pipeline consommé par le jeu de données d’objet blob source.

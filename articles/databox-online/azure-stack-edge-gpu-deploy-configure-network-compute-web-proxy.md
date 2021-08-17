@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 38259febaed159217379ba131fb2bffb808e65e7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 3c3b2bc20481da45bd9345f7668382521642a074
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838143"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221279"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Configurer le réseau pour Azure Stack Edge Pro avec GPU
 
@@ -67,12 +67,13 @@ Procédez comme suit pour configurer le réseau de votre appareil.
 
     Lorsque vous configurez les paramètres réseau, gardez à l’esprit :
 
-   * Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. Une adresse IP, un sous-réseau, une passerelle et un DNS sont automatiquement attribués.
-   * Si le protocole DHCP n’est pas activé, vous pouvez, le cas échéant, attribuer des adresses IP statiques.
-   * Vous pouvez configurer votre interface réseau sur IPv4.
-   * Sur les interfaces 25 Gbits/s, vous pouvez définir le mode RDMA (accès direct à distance) sur iWarp ou RoCE (RDMA sur Ethernet). Si des latences faibles sont l’exigence principale et que l’évolutivité n’est pas un problème, utilisez RoCE. Lorsque la latence est une exigence essentielle, mais que la facilité d’utilisation et l’évolutivité ont également des priorités élevées, iWARP est le meilleur choix.
-   * L’association de cartes d’interface réseau et l’agrégation de liens ne sont pas prises en charge avec Azure Stack Edge. 
-   * Le numéro de série d’un port correspond au numéro de série du nœud.
+    * Assurez-vous que les ports 5 et 6 sont connectés pour les déploiements de Network Function Manager. Pour plus d’informations, consultez [Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge (préversion)](../network-function-manager/deploy-functions.md).
+    * Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. Une adresse IP, un sous-réseau, une passerelle et un DNS sont automatiquement attribués.
+    * Si le protocole DHCP n’est pas activé, vous pouvez, le cas échéant, attribuer des adresses IP statiques.
+    * Vous pouvez configurer votre interface réseau sur IPv4.
+    * Sur les interfaces 25 Gbits/s, vous pouvez définir le mode RDMA (accès direct à distance) sur iWarp ou RoCE (RDMA sur Ethernet). Si des latences faibles sont l’exigence principale et que l’évolutivité n’est pas un problème, utilisez RoCE. Lorsque la latence est une exigence essentielle, mais que la facilité d’utilisation et l’évolutivité ont également des priorités élevées, iWARP est le meilleur choix.
+    * L’association de cartes d’interface réseau et l’agrégation de liens ne sont pas prises en charge avec Azure Stack Edge. 
+    * Le numéro de série d’un port correspond au numéro de série du nœud.
 
     Une fois le réseau de l’appareil configuré, la page est mise à jour comme indiqué ci-dessous.
 
@@ -110,7 +111,7 @@ Procédez comme suit pour activer le calcul et configurer le réseau de calcul.
 1. Affectez des **adresses IP des services externes Kubernetes**. Il s’agit également des adresses IP d’équilibrage de charge. Ces adresses IP contiguës sont destinées aux services que vous souhaitez exposer en dehors du cluster Kubernetes, et vous spécifiez la plage d’adresses IP statiques en fonction du nombre de services exposés. 
     
     > [!IMPORTANT]
-    > Nous vous recommandons vivement de spécifier au moins 1 adresse IP pour le service Hub Azure Stack Edge Pro afin d'avoir accès aux modules de calcul. Vous pouvez ensuite éventuellement spécifier des adresses IP supplémentaires pour d’autres services/modules IoT Edge (1 par service/module) qui doivent être accessibles à partir de l’extérieur du cluster. Les adresses IP du service peuvent être mises à jour ultérieurement. 
+    > Nous vous recommandons vivement de spécifier un minimum de 1 adresse IP pour le service Azure Stack Edge Hub pour accéder aux modules de calcul. Vous pouvez ensuite éventuellement spécifier des adresses IP supplémentaires pour d’autres services/modules IoT Edge (1 par service/module) qui doivent être accessibles à partir de l’extérieur du cluster. Les adresses IP du service peuvent être mises à jour ultérieurement. 
     
 1. Sélectionnez **Appliquer**.
 
