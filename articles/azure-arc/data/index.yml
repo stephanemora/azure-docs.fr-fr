@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Services de données avec Azure Arc
+title: Services de données avec Azure Arc
 summary: Exécutez les services de données Azure localement, à la périphérie ou dans des environnements multiclouds à l’aide de Kubernetes sur l’infrastructure de votre choix.
 metadata:
-  title: Services de données avec Azure Arc (préversion)
+  title: Services de données avec Azure Arc (préversion)
   description: Exécutez les services de données Azure localement, à la périphérie ou dans des environnements multiclouds à l’aide de Kubernetes sur l’infrastructure de votre choix.
   ms.service: azure-arc
   ms.subservice: azure-arc-data
@@ -10,18 +10,18 @@ metadata:
   author: MikeRayMSFT
   ms.author: mikeray
   ms.date: 12/16/2020
-  ms.openlocfilehash: a3f90834c3b4d68e96b02361643bf32786670e84
-  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+  ms.openlocfilehash: f31ce0d0a010b27698de094e4c72f56e35ad2409
+  ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97673909"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113732833"
 landingContent:
 - title: À propos de
   linkLists:
   - linkListType: overview
     links:
-    - text: Présentation des services de données avec Azure Arc
+    - text: Que sont les services de données activés pour Azure Arc ?
       url: overview.md
   - linkListType: concept
     links:

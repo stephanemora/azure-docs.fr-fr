@@ -59,7 +59,9 @@
           href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: Procédures
   items:
-    - name: Désactiver les stratégies réseau pour un point de terminaison privé
+    - name: Exporter les enregistrements DNS du point de terminaison privé
+      href: private-endpoint-export-dns.md
+    - name: Désactiver les stratégies réseau pour les points de terminaison privés
       href: disable-private-endpoint-network-policy.md
     - name: Désactiver les stratégies réseau pour un service Liaison privée
       href: disable-private-link-service-network-policy.md

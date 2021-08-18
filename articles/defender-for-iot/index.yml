@@ -15,14 +15,14 @@ metadata:
   ms.date: 06/16/2021
 highlightedContent:
   items:
-    - title: Présentation d’Azure Defender pour IoT pour les organisations
+    - title: Présentation d’Azure Defender pour IoT pour les organisations finales
       itemType: overview
       url: organizations/overview.md
     - title: Nouveautés pour les organisations
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Solution sans agent pour les organisations
-      itemType: overview
+    - title: Architecture de la solution sans agent pour les organisations
+      itemType: architecture
       url: organizations/architecture.md
     - title: Présentation d’Azure Defender pour IoT pour les fabricants d’appareils
       itemType: overview
@@ -30,19 +30,19 @@ highlightedContent:
     - title: Nouveautés pour les fabricants d’appareils
       itemType: whats-new
       url: device-builders/release-notes.md
-    - title: Solution basée sur un agent pour les fabricants d’appareils
-      itemType: overview
+    - title: Architecture de la solution basée sur un agent pour les fabricants d’appareils
+      itemType: architecture
       url: device-builders/architecture-agent-based.md
 conceptualContent:
   items:
-    - title: Azure Defender pour IoT pour les organisations
+    - title: Azure Defender pour IoT pour les organisations finales
       links:
         - url: organizations/quickstart-system-prerequisites.md
           itemType: quickstart
           text: Prérequis système
         - url: organizations/getting-started.md
           itemType: quickstart
-          text: Bien démarrer avec Defender pour IoT pour les organisations
+          text: Bien démarrer avec Defender pour IoT pour les organisations finales
         - url: organizations/concept-key-concepts.md
           itemType: quickstart
           text: Concepts clés

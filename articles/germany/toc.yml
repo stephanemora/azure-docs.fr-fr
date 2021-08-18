@@ -1,0 +1,89 @@
+- name: Documentation Azure Allemagne
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce qu’Azure Allemagne\_?"
+      href: germany-welcome.md
+    - name: Principe de l’administration des données
+      href: germany-overview-data-trustee.md
+- name: Bien démarrer
+  items:
+    - name: Guide du développeur
+      href: germany-developer-guide.md
+    - name: Se connecter au Portail Azure Allemagne
+      href: germany-get-started-connect-with-portal.md
+    - name: Se connecter en utilisant Azure PowerShell
+      href: germany-get-started-connect-with-ps.md
+    - name: Se connecter en utilisant CLI
+      href: germany-get-started-connect-with-cli.md
+    - name: Configurer Visual Studio pour Azure Allemagne
+      href: germany-get-started-connect-with-vs.md
+    - name: Configurer une application web
+      href: germany-howto-deploy-webandmobile.md
+    - name: Services disponibles
+      href: germany-services.md
+- name: Procédure
+  items:
+    - name: Gérer
+      items:
+        - name: Abonnement
+          href: germany-manage-subscriptions.md
+    - name: Migrate
+      href: germany-migration-main.md
+      items:
+        - name: Calcul
+          href: germany-migration-compute.md
+        - name: Mise en réseau
+          href: germany-migration-networking.md
+        - name: Stockage
+          href: germany-migration-storage.md
+        - name: Web
+          href: germany-migration-web.md
+        - name: Bases de données
+          href: germany-migration-databases.md
+        - name: Analytique
+          href: germany-migration-analytics.md
+        - name: Internet des Objets
+          href: germany-migration-iot.md
+        - name: Intégration
+          href: germany-migration-integration.md
+        - name: Identité
+          href: germany-migration-identity.md
+        - name: Sécurité
+          href: germany-migration-security.md
+        - name: Outils d'administration
+          href: germany-migration-management-tools.md
+        - name: Média
+          href: germany-migration-media.md
+- name: Référence
+  items:
+    - name: Images
+      href: germany-image-gallery.md
+    - name: Services
+      items:
+        - name: Calcul
+          href: germany-services-compute.md
+        - name: Stockage
+          href: germany-services-storage.md
+        - name: Base de données
+          href: germany-services-database.md
+        - name: Mise en réseau
+          href: germany-services-networking.md
+        - name: Sécurité et identité
+          href: germany-services-securityandidentity.md
+        - name: Web et mobile
+          href: germany-services-webandmobile.md
+        - name: Internet des objets (IoT)
+          href: germany-services-iot.md
+- name: Ressources
+  items:
+    - name: Site Web Azure Allemagne
+      href: 'https://azure.microsoft.com/overview/clouds/germany/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: /archive/blogs/azuregermany/
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Version d’évaluation
+      href: 'https://azure.microsoft.com/free/germany'

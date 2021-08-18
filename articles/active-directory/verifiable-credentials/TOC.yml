@@ -24,6 +24,14 @@
 - name: Guides pratiques
   expanded: true
   items:
+    - name: Planifier et concevoir
+      items:
+        - name: Présentation de la planification de l’architecture
+          href: introduction-to-verifiable-credentials-architecture.md
+        - name: Planifier votre solution d'émission
+          href: plan-issuance-solution.md
+        - name: Planifier votre solution de vérification
+          href: plan-verification-solution.md
     - name: Personnaliser vos justificatifs
       href: credential-design.md
     - name: Gérer la révocation des justificatifs

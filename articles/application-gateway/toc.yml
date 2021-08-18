@@ -284,6 +284,8 @@
       href: migrate-v1-v2.md
 - name: Informations de référence
   items:
+    - name: Erreurs courantes dans Key Vault
+      href: application-gateway-key-vault-common-errors.md
     - name: Données de surveillance
       href: monitor-application-gateway-reference.md
     - name: Entrée pour les annotations AKS

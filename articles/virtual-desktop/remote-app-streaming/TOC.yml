@@ -1,0 +1,264 @@
+- name: Présentation du streaming d’applications distantes Azure Virtual Desktop
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce que le streaming d’applications distantes Azure Virtual Desktop\_?"
+      href: overview.md
+    - name: "Qu’est-ce qu’Azure Virtual Desktop\_?"
+      href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Tutoriels
+  items:
+    - name: 1. Créer un pool d’hôtes avec le portail Azure
+      href: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 2. Gérer les groupes d’applications
+      href: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 3. Créer un pool d’hôtes pour valider les mises à jour de service
+      href: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: 4. Configurer des alertes de service
+      href: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Démarrages rapides
+  items:
+    - name: Bien démarrer avec Azure Virtual Desktop
+      href: ../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Guides pratiques
+  items:
+    - name: Fondamentaux de la diffusion en continu d’application
+      items:
+        - name: Déployer des applications avec l’attachement d’application MSIX
+          href: msix-app-attach.md
+        - name: Héberger des applications personnalisées
+          href: custom-apps.md
+        - name: S'inscrire à la tarification de l'accès par utilisateur
+          href: per-user-access-pricing.md
+        - name: Estimer les coûts de déploiement totaux
+          href: total-costs.md
+        - name: Estimer les coûts de diffusion d’application par utilisateur
+          href: streaming-costs.md
+        - name: Déployer des applications avec Microsoft Intune
+          href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Traiter les clients du point de terminaison géré par Intune
+          href: /mem/intune/fundamentals/windows-10-virtual-machines?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: "Utiliser Azure\_Monitor"
+          href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Gérer les scénarios de récupération d'urgence
+          href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Mise à l'échelle de votre déploiement
+          href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Activer l’impression universelle
+          href: /universal-print/fundamentals/universal-print-getting-started?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Autres rubriques
+      items:
+        - name: Se connecter à des ressources Azure Virtual Desktop
+          items:
+            - name: Se connecter avec le client Windows Desktop
+              href: ../user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec le client web
+              href: ../user-documentation/connect-web.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec le client Android
+              href: ../user-documentation/connect-android.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec le client macOS
+              href: ../user-documentation/connect-macos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec le client iOS
+              href: ../user-documentation/connect-ios.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec le client Microsoft Store
+              href: ../user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Se connecter avec des clients légers
+              href: ../user-documentation/linux-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Créer un pool d’hôtes et des hôtes de session
+          items:
+            - name: PowerShell
+              href: ../create-host-pools-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: "Déployer une machine virtuelle Windows\_7"
+              href: ../deploy-windows-7-virtual-machine.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Déployer un hôte de session basé sur GPU
+              href: ../configure-vm-gpu.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Développer un pool d’hôtes existant
+              href: ../expand-existing-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Gérer les groupes d’applications avec PowerShell
+              href: ../manage-app-groups-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Supprimer un pool d’hôtes
+          href: ../delete-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Configurer les paramètres d’un pool d’hôtes
+          items:
+            - name: Propriétés RDP
+              href: ../customize-rdp-properties.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Équilibrage de charge pour les pools d’hôtes mis en pool
+              href: ../configure-host-pool-load-balancing.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Type d’affectation de bureau personnel
+              href: ../configure-host-pool-personal-desktop-assignment-type.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Personnaliser une image d’hôte de session
+          items:
+            - name: Configurer une image VHD principale
+              href: ../set-up-customize-master-image.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Installer Office sur une image VHD principale
+              href: ../install-office-on-wvd-master-image.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Mettre à l’échelle des hôtes de session automatiquement
+          href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Personnaliser un flux
+          href: ../customize-feed-for-virtual-desktop-users.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Utiliser les diagnostics des services
+          items:
+            - name: Utiliser les diagnostics avec Log Analytics
+              href: ../diagnostics-log-analytics.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Utiliser l’attachement d’application MSIX
+          items:
+            - name: Configurer l’attachement d’application MSIX avec le portail Azure
+              href: ../app-attach-azure-portal.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Configurer l’attachement d’application MSIX avec PowerShell
+              href: ../app-attach-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Créer des scripts PowerShell
+              href: ../app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Préparer une image MSIX
+              href: ../app-attach-image-prep.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Configurer un partage de fichiers
+              href: ../app-attach-file-share.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Configurer l’outil MSIXMGR
+              href: ../app-attach-msixmgr.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Configurer les mises à jour automatiques
+          href: ../configure-automatic-updates.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Utiliser Azure Advisor
+          href: ../azure-advisor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Résoudre les recommandations
+          href: ../azure-advisor-recommendations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Utiliser Azure Monitor pour Azure Virtual Desktop
+          href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Définir un plan de reprise d’activité
+          href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Démarrer la machine virtuelle à la connexion
+          items:
+            - name: Configurer Démarrer la machine virtuelle à la connexion
+              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: FAQ sur Démarrer la machine virtuelle à la connexion
+              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Définir le mode maintenance
+          href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Concepts
+  items:
+    - name: Fondamentaux de la diffusion en continu d’application
+      items:
+        - name: Suggestions en matière d’architecture
+          href: architecture-recs.md
+        - name: Conseils de sécurité
+          href: security.md
+        - name: Comprendre les licences et la tarification de l’accès par utilisateur
+          href: licensing.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de sécurité Azure
+          href: ../security-baseline.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Autres rubriques
+      items:
+        - name: Glossaire Azure Monitor
+          href: ../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Rôles intégrés
+          href: ../rbac.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Authentification
+          href: ../authentication.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Environnement Azure Virtual Desktop
+          href: ../environment-setup.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Agent Azure Virtual Desktop
+          href: ../agent-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Connectivité réseau
+          items:
+            - name: Présentation de la connectivité réseau
+              href: ../network-connectivity.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: RDP Shortpath
+              href: ../shortpath.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Implémenter la qualité de service (QoS)
+              href: ../rdp-quality-of-service-qos.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Liste des URL requises
+              href: ../safe-url-list.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Remarques relatives à la bande passante
+              href: ../rdp-bandwidth.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Instructions de prise en charge du proxy
+              href: ../proxy-server-support.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Déterminer la latence des connexions utilisateur
+              href: ../connection-latency.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Accès délégué dans Azure Virtual Desktop
+          href: ../delegated-access-virtual-desktop.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Méthodes d’équilibrage de charge des pools d’hôtes
+          href: ../host-pool-load-balancing.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Conteneurs de profil FSLogix et fichiers Azure
+          href: ../fslogix-containers-azure-files.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Options de stockage pour les conteneurs de profil FSLogix
+          href: ../store-fslogix-profile.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Questions fréquentes (FAQ) sur Azure Virtual Desktop
+          href: ../faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: "FAQ sur Windows\_10 Entreprise multisession"
+          href: ../windows-10-multisession-faq.yml
+        - name: Attachement d’application MSIX
+          items:
+            - name: "Qu’est-ce que l’attachement d’application MSIX\_?"
+              href: ../what-is-app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Glossaire
+              href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: Questions fréquentes (FAQ)
+              href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Emplacements des données
+          href: ../data-locations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Dépanner
+  items:
+    - name: 'Vue d’ensemble du dépannage, commentaires et support'
+      href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Identifier et diagnostiquer les problèmes
+      href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Création d’un pool d’hôtes
+      href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Configuration d’une machine virtuelle hôte de session
+      href: ../troubleshoot-vm-configuration.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Connexions du service Bureau à distance
+      href: ../troubleshoot-service-connection.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Agent Azure Virtual Desktop
+      href: ../troubleshoot-agent.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Problèmes du client Bureau à distance
+      href: ../troubleshoot-client.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure Virtual Desktop PowerShell
+      href: ../troubleshoot-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Diagnostic des problèmes de performances graphiques
+      href: ../remotefx-graphics-performance-counters.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure Monitor
+      href: ../troubleshoot-azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Problèmes de gestion
+      href: ../troubleshoot-management-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Informations de référence
+  items:
+    - name: Bonnes pratiques de sécurité
+      href: ../security-guide.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Azure CLI
+      href: /cli/azure/desktopvirtualization
+    - name: Estimer les coûts d’Azure Monitor
+      href: ../azure-monitor-costs.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Paramètres de fichier RDP pris en charge
+      href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+    - name: Guide des tailles des machines virtuelles
+      href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    - name: Interface de ligne de commande Microsoft Azure
+      href: /cli/azure/
+    - name: Exemples de scénarios Azure
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: Découverte des e-mails
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
+- name: Ressources
+  items:
+    - name: PowerShell
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
+    - name: Référence d’API REST
+      href: /rest/api/desktopvirtualization/
+    - name: Outil d’estimation de l’expérience
+      href: 'https://azure.microsoft.com/services/virtual-desktop/assessment/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Parcours d’apprentissage
+      href: /learn/paths/m365-wvd/
+    - name: Vidéos pratiques
+      href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
+    - name: Groupe de support de la communauté technique
+      href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: "Feuille de route Microsoft\_365"
+      href: 'https://aka.ms/wvdroadmap'
+    - name: "Modèles Microsoft\_Azure Resource Manager"
+      href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'
+    - name: Offres de conformité Azure
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
+    - name: Azure Advisor
+      href: ../../advisor/advisor-overview.md

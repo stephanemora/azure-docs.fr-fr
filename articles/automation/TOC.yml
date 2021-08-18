@@ -68,10 +68,14 @@
           href: quickstart-create-automation-account-template.md
         - name: Identité managée
           items:
-            - name: Activer une identité managée
+            - name: Utiliser une identité managée affectée par le système
               href: enable-managed-identity-for-automation.md
-            - name: Désactiver l’identité managée
+            - name: Utiliser une identité managée affectée par l'utilisateur
+              href: add-user-assigned-identity.md
+            - name: Désactiver l'identité managée affectée par le système
               href: disable-managed-identity-for-automation.md
+            - name: Supprimer l'identité managée affectée par l'utilisateur
+              href: remove-user-assigned-identity.md
             - name: Résoudre les problèmes d’identité managée
               href: troubleshoot/managed-identity.md
         - name: compte d'identification

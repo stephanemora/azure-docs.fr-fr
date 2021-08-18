@@ -38,6 +38,8 @@
       href: premium-portal.md
     - name: Certificats du Pare-feu Azure Premium
       href: premium-certificates.md
+    - name: Catégories web du pare-feu Azure
+      href: web-categories.md
     - name: Balises FQDN
       href: fqdn-tags.md
     - name: Noms de domaine complets d’infrastructure

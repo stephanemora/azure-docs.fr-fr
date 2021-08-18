@@ -292,6 +292,8 @@
           href: howto-use-analytics.md
         - name: Journaliser les événements dans Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Envoyer des événements à Event Grid
+          href: how-to-event-grid.md
         - name: Enregistrer des requêtes avec Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Configurer les journaux et les métriques cloud pour une passerelle auto-hébergée
@@ -335,6 +337,8 @@
       href: ./policy-reference.md
     - name: Schéma des journaux de ressource
       href: gateway-log-schema-reference.md
+    - name: Schéma Event Grid
+      href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)

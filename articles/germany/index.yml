@@ -1,0 +1,46 @@
+### YamlMime:Landing
+title: Documentation Azure Allemagne
+summary: Azure Allemagne est une instance isolée physiquement de Microsoft Azure qui utilise des services de sécurité et de conformité de classe mondiale qui sont essentiels aux réglementations en vigueur en matière de confidentialité des données. Depuis août 2018, nous n’avons pas accepté de nouveaux clients ni déployé de nouveaux services et fonctionnalités dans les emplacements d’origine Microsoft Cloud Allemagne. En fonction de l’évolution des besoins des clients, nous avons récemment lancé deux nouvelles régions de centres de données en Allemagne, offrant une résidence des données client, une connectivité complète au réseau mondial du Cloud de Microsoft, ainsi qu’un tarif compétitif sur le marché.
+metadata:
+  title: Documentation Azure Allemagne
+  description: Azure Allemagne est une instance isolée physiquement de Microsoft Azure qui utilise des services de sécurité et de conformité de classe mondiale qui sont essentiels aux réglementations en vigueur en matière de confidentialité des données
+  ms.service: germany
+  ms.topic: landing-page
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
+  ms.openlocfilehash: 9f8caa2172f57a47d918135d47d404c378e29c6d
+  ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "116985475"
+landingContent:
+- title: À propos d’Azure Allemagne
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Allemagne ?
+      url: germany-welcome.md
+  - linkListType: concept
+    links:
+    - text: Services disponibles
+      url: germany-services.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Guide du développeur
+      url: germany-developer-guide.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter via le portail Azure
+      url: germany-get-started-connect-with-portal.md
+- title: Gérer et migrer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer et se connecter à votre abonnement
+      url: germany-manage-subscriptions.md
+    - text: Recommandations en matière de migration
+      url: germany-migration-main.md

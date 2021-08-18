@@ -76,11 +76,7 @@
             - name: Configurer un exemple de script
               href: how-to-set-up-instance-scripted.md
         - name: Activer l’accès privé avec Private Link
-          items:
-            - name: Portail
-              href: how-to-enable-private-link-portal.md
-            - name: Interface de ligne de commande
-              href: how-to-enable-private-link-cli.md
+          href: how-to-enable-private-link.md
         - name: Écrire le code d’authentification de l’application
           href: how-to-authenticate-client.md
         - name: Créer une inscription d’application
@@ -105,7 +101,7 @@
           href: how-to-use-azure-digital-twins-explorer.md
         - name: Gérer des jumeaux numériques
           href: how-to-manage-twin.md
-        - name: Gérer le graphe de jumeaux avec des relations
+        - name: Gérer le graphe de jumeaux et les relations
           href: how-to-manage-graph.md
         - name: Configurer une fonction Azure pour le traitement des données
           href: how-to-create-azure-function.md
@@ -130,11 +126,7 @@
     - name: Connecter une sortie
       items:
         - name: Gérer les points de terminaison et les routes
-          items:
-            - name: Portail
-              href: how-to-manage-routes-portal.md
-            - name: API et CLI
-              href: how-to-manage-routes-apis-cli.md
+          href: how-to-manage-routes.md
         - name: Acheminer des événements avec une identité managée
           href: how-to-route-with-managed-identity.md
         - name: Intégrer à Azure Maps

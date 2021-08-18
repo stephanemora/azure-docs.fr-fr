@@ -48,7 +48,11 @@
     - name: Nettoyer et supprimer un locataire
       href: tutorial-delete-tenant.md
 - name: Exemples
-  href: code-samples.md
+  items:
+    - name: Intégrer Azure AD B2C avec toutes vos applications
+      href: integrate-with-app-code-samples.md
+    - name: Utilisez les connecteurs API pour modifier vos flux d'utilisateurs
+      href: api-connector-samples.md
 - name: Concepts
   items:
     - name: Comparer les solutions pour les identités externes
@@ -285,6 +289,8 @@
               href: multi-factor-authentication.md
             - name: Intégration des partenaires
               items:
+                - name: BlokSec
+                  href: partner-bloksec.md
                 - name: HYPR
                   href: partner-hypr.md
                 - name: Keyless
@@ -392,6 +398,8 @@
           href: custom-domain.md
         - name: Partenaires pour Web Application Firewall
           items:
+            - name: Akamai
+              href: partner-akamai.md
             - name: Cloudflare
               href: partner-cloudflare.md
         - name: Configurer des domaines d’API web
