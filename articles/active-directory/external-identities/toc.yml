@@ -90,7 +90,7 @@
           items:
             - name: Azure Active Directory
               href: azure-ad-account.md
-            - name: Compte Microsoft (version préliminaire)
+            - name: Compte Microsoft
               href: microsoft-account.md
             - name: Fédération des services Google
               href: google-federation.md
@@ -114,6 +114,8 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Ajouter un système d’approbation personnalisé
               href: self-service-sign-up-add-approvals.md
+            - name: Sécuriser votre connecteur d'API
+              href: self-service-sign-up-secure-api-connector.md
         - name: Gérer les comptes d’utilisateurs invités
           items:
             - name: Groupes dynamiques et utilisateurs B2B
@@ -153,7 +155,7 @@
         - name: Page de questions Microsoft Q&A
           href: /answers/topics/azure-active-directory.html
         - name: Tarifs
-          href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+          href: 'https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing'
         - name: Calculatrice de prix
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Mises à jour de service

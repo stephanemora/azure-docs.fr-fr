@@ -32,6 +32,7 @@
           items:
             - name: Déclaration de ressource
               href: resource-declaration.md
+              displayName: existing
             - name: Déploiement conditionnel
               href: conditional-resource-deployment.md
               displayName: runtime
@@ -55,7 +56,7 @@
         - name: Boucles
           items:
             - name: Ressources
-              displayName: 'iteration,copy,multiple,batches,child'
+              displayName: 'iteration,copy,multiple,batches,child,condition,filter'
               href: loop-resources.md
             - name: Propriétés
               displayName: 'iteration,copy,multiple'
@@ -159,6 +160,8 @@
           href: operators-logical.md
         - name: Opérateurs numériques
           href: operators-numeric.md
+        - name: Opérateurs d’accès
+          href: operators-access.md
     - name: Interface CLI Bicep
       href: bicep-cli.md
       displayName: 'build,decompile,install,list-versions,list versions,upgrade,version'

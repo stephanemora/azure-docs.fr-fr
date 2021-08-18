@@ -190,7 +190,7 @@
           items:
             - name: Clés gérées par le client
               href: search-security-manage-encryption-keys.md
-            - name: Informations de chiffrement
+            - name: Trouver les objets chiffrés
               href: search-security-get-encryption-keys.md
         - name: Sécurité de trafic entrant
           items:

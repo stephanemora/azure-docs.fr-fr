@@ -1,0 +1,54 @@
+- name: Documentation Azure Australie
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce qu’Azure Australie\_?"
+      href: australia-overview.md
+- name: Concepts
+  items:
+    - name: Sécurité dans Azure Australie
+      items:
+        - name: Sécurité des données
+          href: secure-your-data.md
+        - name: Configuration de la passerelle VPN Azure
+          href: vpn-gateway.md
+        - name: "Azure\_Key\_Vault"
+          href: azure-key-vault.md
+        - name: Fédération des identités
+          href: identity-federation.md
+        - name: Azure RBAC et PIM
+          href: role-privileged.md
+        - name: Récupération de site et sauvegarde pour Essential 8
+          href: recovery-backup.md
+        - name: Supervision du système Azure
+          href: system-monitor.md
+        - name: Azure Policy et Azure Blueprints
+          href: azure-policy.md
+    - name: Passerelles dans Azure Australie
+      items:
+        - name: 'Journalisation, audit et visibilité des passerelles'
+          href: gateway-log-audit-visibility.md
+        - name: Administration à distance sécurisée des passerelles
+          href: gateway-secure-remote-administration.md
+        - name: Contrôle de l’entrée des données de la passerelle
+          href: gateway-ingress-traffic.md
+        - name: Contrôle de la sortie des données de la passerelle
+          href: gateway-egress-traffic.md
+- name: Ressources
+  items:
+    - name: Description de la sécurité Azure Australie
+      href: security-explained.md
+    - name: Ressources supplémentaires Azure Australie
+      href: reference-library.md
+    - name: Site web ACSC (Australian Cyber Security Centre)
+      href: 'https://cyber.gov.au/'
+    - name: Liste des services cloud certifiés (CCSL) australiens
+      href: 'https://acsc.gov.au/infosec/irap/certified_clouds.htm'
+    - name: Page Australie sur le portail d’approbation de services Microsoft
+      href: 'https://aka.ms/au-irap'
+    - name: Blueprints PROTÉGÉS par l’Australie pour les applications web IaaS et PaaS
+      href: 'https://aka.ms/au-protected'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'

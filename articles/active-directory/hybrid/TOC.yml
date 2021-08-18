@@ -30,6 +30,8 @@
       items:
         - name: Présentation d’Azure AD Connect et Connect Health
           href: whatis-azure-ad-connect.md
+        - name: "Qu’est-ce qu’Azure AD Connect V2.0\_?"
+          href: whatis-azure-ad-connect-v2.md
         - name: Choisir l’authentification appropriée
           href: ./choose-ad-authn.md
         - name: Synchronisation des identités et résilience d’attribut en double
@@ -152,10 +154,8 @@
           href: reference-connect-instances.md
         - name: Migration
           items:
-            - name: Migrer depuis la fédération vers PHS
-              href: plan-migrate-adfs-password-hash-sync.md
-            - name: Migrer depuis la fédération vers PTA
-              href: plan-migrate-adfs-pass-through-authentication.md
+            - name: Passer de la fédération à l’authentification cloud
+              href: migrate-from-federation-to-cloud-authentication.md
             - name: Déplacer des groupes d’une forêt à une autre
               href: how-to-connect-migrate-groups.md
             - name: Migrer vers l’authentification cloud avec un lancement intermédiaire
@@ -390,7 +390,5 @@
       href: reference-connect-adconnectivitytools.md
     - name: msExchUserHoldPolicies et cloudMSExchUserHoldPolicies
       href: reference-connect-msexchuserholdpolicies.md
-    - name: "Comprendre la disparition des appareils Azure AD Connect\_1.4.xx.x"
-      href: reference-connect-device-disappearance.md
     - name: Archive de l’historique des versions Azure AD Connect
       href: reference-connect-version-history-archive.md

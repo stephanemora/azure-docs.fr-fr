@@ -11,12 +11,12 @@ metadata:
   ms.author: victorh
   ms.date: 05/03/2021
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: cec6930c8ef68717cfa0685a0b3b4bb585229864
-  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.openlocfilehash: 23490ec827aa1a004153bcf2e6af46b81835083c
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113438599"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114469290"
 landingContent:
 - title: Découvrez le Pare-feu Azure
   linkLists:
@@ -38,19 +38,19 @@ landingContent:
     links:
     - text: Nouveautés
       url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
-- title: En savoir plus sur la version préliminaire Pare-feu Azure Premium
+- title: En savoir plus sur le Pare-feu Azure Premium
   linkLists:
   - linkListType: overview
     links:
-    - text: Fonctionnalités du Pare-feu Azure Premium - Préversion
+    - text: Fonctionnalités du Pare-feu Azure Premium
       url: premium-features.md
   - linkListType: concept
     links:
-    - text: Certificats du Pare-feu Azure Premium - Préversion
+    - text: Certificats du Pare-feu Azure Premium
       url: premium-certificates.md
   - linkListType: how-to-guide
     links:
-    - text: Déployer et configurer le Pare-feu Azure Premium - Préversion
+    - text: Déployer et configurer le Pare-feu Azure Premium
       url: premium-deploy.md
 - title: Déployer un pare-feu Azure
   linkLists:

@@ -26,6 +26,8 @@
       items:
         - name: Développer avec Helm
           href: quickstart-helm.md
+    - name: S’abonner à des événements AKS avec Event Grid (préversion)
+      href: quickstart-event-grid.md
 - name: Tutoriels
   items:
     - name: 1 - Préparer l’application pour AKS

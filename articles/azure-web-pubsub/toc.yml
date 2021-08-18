@@ -28,6 +28,12 @@
       items:
         - name: Protéger la clé d’accès
           href: howto-secure-rotate-access-key.md
+        - name: Utiliser des points de terminaison privés Azure
+          href: howto-secure-private-endpoints.md
+        - name: Gérer le contrôle d’accès réseau
+          href: howto-secure-network-access-control.md
+        - name: Sécuriser le trafic sortant via des points de terminaison privés partagés
+          href: howto-secure-shared-private-endpoints.md
     - name: Résolution des problèmes
       items:
         - name: Collecter le suivi réseau

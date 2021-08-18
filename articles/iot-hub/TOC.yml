@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure IoT Hub\_?"
       href: about-iot-hub.md
+    - name: Concepts de l’IoT
+      href: iot-concepts.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -12,17 +14,7 @@
     - name: Envoyer des données de télémétrie avec le SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Contrôler un appareil
-      items:
-        - name: Node.js
-          href: quickstart-control-device-node.md
-        - name: .NET
-          href: quickstart-control-device-dotnet.md
-        - name: Java
-          href: quickstart-control-device-java.md
-        - name: Python
-          href: quickstart-control-device-python.md
-        - name: Android
-          href: quickstart-control-device-android.md
+      href: quickstart-control-device.md
     - name: Router automatiquement les messages avec un modèle ARM
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -54,6 +46,8 @@
       href: tutorial-firmware-update.md
     - name: Connectivité des appareils de test
       href: tutorial-connectivity.md
+    - name: Visualisation des données dans Power BI
+      href: iot-hub-live-data-visualization-in-power-bi.md
     - name: "Utilisation des certificats\_X.509"
       items:
         - name: Introduction
@@ -72,8 +66,6 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
-    - name: Prise en charge des identités managées
-      href: iot-hub-managed-identity.md
     - name: Prise en charge de TLS
       href: iot-hub-tls-support.md
     - name: Prise en charge des réseaux virtuels
@@ -207,8 +199,6 @@
               items:
                 - name: Utiliser IoTHubClient
                   href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Utiliser le sérialiseur
-                  href: iot-hub-device-sdk-c-serializer.md
             - name: Informations sur les ressources Azure IoT C SDK
               href: 'https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md'
             - name: Développer pour des appareils avec contraintes
@@ -217,6 +207,8 @@
               href: iot-hub-how-to-develop-for-mobile-devices.md
             - name: Développer pour la plateforme Android Things
               href: iot-hub-how-to-android-things.md
+        - name: Contrôler un appareil sur Android
+          href: quickstart-control-device-android.md
         - name: Interroger des données Avro à partir d’un itinéraire de concentrateur
           href: iot-hub-query-avro-data.md
         - name: Envoi de messages cloud vers appareil
@@ -302,6 +294,8 @@
               href: iot-hub-rm-template-powershell.md
             - name: Utiliser un modèle à partir de .NET
               href: iot-hub-rm-template.md
+        - name: Configurer des identités managées
+          href: iot-hub-managed-identity.md
         - name: Configurer le chargement de fichiers
           items:
             - name: Utiliser le portail Azure
@@ -363,8 +357,6 @@
           href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
         - name: Gérer la messagerie des appareils cloud avec Cloud Explorer pour Visual Studio
           href: iot-hub-visual-studio-cloud-device-messaging.md
-        - name: Visualisation des données dans Power BI
-          href: iot-hub-live-data-visualization-in-power-bi.md
         - name: Visualisation des données dans une application web
           href: iot-hub-live-data-visualization-in-web-apps.md
         - name: Prévisions météo avec Azure Machine Learning
@@ -485,7 +477,7 @@
         - name: IoT Edge
           href: ../iot-edge/index.yml
         - name: IoT Plug-and-Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Accélérateurs de solution IoT
           href: ../iot-accelerators/index.yml
         - name: Azure Maps

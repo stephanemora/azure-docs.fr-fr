@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de stratégie
 description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
-ms.date: 05/04/2021
+ms.date: 07/16/2021
 ms.topic: sample
-ms.openlocfilehash: cee8810655016669e289053abdcfe9e52771b513
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3156c992ba0914fc5f244515b0027438567310a5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743540"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387573"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
@@ -47,6 +47,7 @@ Voici les éléments intégrés de la [conformité réglementaire](../concepts/r
 - [IRS 1075 septembre 2016](./irs-1075-sept2016.md)
 - [ISO 27001:2013](./iso-27001.md)
 - [New Zealand ISM Restricted](./new-zealand-ism.md)
+- [NIST SP 800-53 R5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 - [UK OFFICIAL et UK NHS](./ukofficial-uknhs.md)
