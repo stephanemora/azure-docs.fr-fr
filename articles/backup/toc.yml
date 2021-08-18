@@ -324,7 +324,7 @@
       items:
         - name: Matrices de protection
           items:
-            - name: Matrice de protection MABS V3 UR1
+            - name: Matrice de protection MABS V3 UR1 (et versions ultérieures)
               href: backup-mabs-protection-matrix.md
             - name: Matrice de protection MABS V3 RTM
               href: microsoft-azure-backup-server-protection-v3.md
@@ -338,12 +338,16 @@
               href: backup-mabs-whats-new-mabs.md
             - name: Notes de publication de MABS
               href: backup-mabs-release-notes-v3.md
+            - name: Activer/désactiver les paramètres de télémétrie
+              href: manage-telemetry.md
             - name: Installation sans assistance
               href: backup-mabs-unattended-install.md
         - name: Protection des charges de travail
           items:
             - name: Sauvegarder des machines virtuelles Hyper-V
               href: back-up-hyper-v-virtual-machines-mabs.md
+            - name: Sauvegarder des machines virtuelles Azure Stack HCI
+              href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md
             - name: Serveur VMware
               href: backup-azure-backup-server-vmware.md
             - name: Exchange

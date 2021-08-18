@@ -245,6 +245,22 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Exemple : Appareil Cisco ASA (IKEv2/pas de BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
+      items:
+        - name: Portail Azure
+          href: ipsec-ike-policy-howto.md
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Configurer des passerelles de type actif-actif
+      items:
+        - name: Portail Azure
+          href: active-active-portal.md
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Configurer des passerelles redondantes dans une zone
+      href: create-zone-redundant-vnet-gateway.md
+    - name: Configurer les captures de paquets
+      href: packet-capture.md
     - name: Surveillance de l’intégrité
       items:
         - name: Supervision de la passerelle VPN
@@ -253,22 +269,6 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configurer des alertes basées sur des journaux de ressources
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
-    - name: Configurer les captures de paquets
-      href: packet-capture.md
-    - name: Passerelles redondantes interzones
-      items:
-        - name: Créer une passerelle redondante interzone
-          href: create-zone-redundant-vnet-gateway.md
-    - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
-      items:
-        - name: Portail Azure
-          href: ipsec-ike-policy-howto.md
-        - name: PowerShell
-          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Configurer des connexions entre deux passerelles actives
-      items:
-        - name: PowerShell
-          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Dépanner
       href: vpn-gateway-troubleshoot.md
       items:

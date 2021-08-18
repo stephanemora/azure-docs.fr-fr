@@ -331,7 +331,7 @@
               href: resource-location.md
             - name: Utiliser des extensions de modèle
               href: resource-extensions.md
-        - name: Sorties
+        - name: Outputs
           href: outputs.md
         - name: Script de déploiement
           displayName: custom script
@@ -411,10 +411,14 @@
       items:
         - name: Kit de ressources de test
           href: test-toolkit.md
-        - name: Scénarios de test
-          href: test-cases.md
+        - name: Cas de test de modèle
+          href: template-test-cases.md
+        - name: Cas de test de fichier de paramètres
+          href: parameter-file-test-cases.md
         - name: Cas de test CreateUiDefinition
           href: createuidefinition-test-cases.md
+        - name: Tous les cas de tests de fichiers
+          href: all-files-test-cases.md
     - name: Spécifications de modèle
       items:
         - name: Créer et déployer des spécifications de modèle

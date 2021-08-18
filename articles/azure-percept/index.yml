@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 193f3a17263ff0c3f164d04fe6a6a766208dd5bc
-  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+  ms.openlocfilehash: 380af1d7d258aea286886a2e49e53496a179bb63
+  ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/29/2021
-  ms.locfileid: "113031478"
+  ms.lasthandoff: 07/13/2021
+  ms.locfileid: "113667056"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -101,9 +101,9 @@ landingContent:
       url: how-to-configure-voice-assistant.md
 - title: Développement avancé avec Azure Percept
   linkLists:
-  - linkListType: overview
+  - linkListType: concept
     links:
-    - text: Vue d’ensemble du développement avancé
+    - text: Développement avancé sur Azure Percept
       url: overview-advanced-code.md
   - linkListType: how-to-guide
     links:
@@ -111,9 +111,9 @@ landingContent:
       url: dev-tools-installer.md
 - title: Tenir votre Azure Percept DK à jour
   linkLists:
-  - linkListType: overview
+  - linkListType: concept
     links:
-    - text: Vue d’ensemble de l’expérience de mise à jour du DK Azure Percept
+    - text: Expérience de mise à jour du DK Azure Percept
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:

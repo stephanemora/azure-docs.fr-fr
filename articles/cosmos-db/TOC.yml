@@ -745,6 +745,14 @@
               href: migrate-dotnet-v3.md
             - name: "Migrer ver le kit SDK .NET\_V2"
               href: migrate-dotnet-v2.md
+        - name: Connecteurs
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: kafka-connector-source.md
+            - name: Kafka Connect - Sink
+              href: kafka-connector-sink.md
         - name: Dépannage
           items:
             - name: Erreurs courantes
@@ -867,6 +875,10 @@
               href: certificate-based-authentication.md
             - name: Utiliser Always Encrypted
               href: how-to-always-encrypted.md
+        - name: Développement côté client
+          items:
+            - name: État de session et fournisseur de cache
+              href: session-state-and-caching-provider.md
         - name: Intégrer à d’autres services Azure
           items:
             - name: Solution e-commerce de flux de modification
@@ -1017,7 +1029,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Stocker et gérer Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: configure-spring-data-apache-cassandra-with-cosmos-db.md
         - name: Résolution des problèmes courants
           href: cassandra-troubleshoot.md
         - name: Superviser avec des journaux de diagnostic
@@ -1371,6 +1383,10 @@
           href: /rest/api/storageservices/table-service-rest-api
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Guides pratiques
   items:
     - name: Niveau gratuit
