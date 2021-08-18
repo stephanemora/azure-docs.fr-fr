@@ -35,7 +35,15 @@
     - name: Sécurité
       items:
         - name: Authentification et autorisation
-          href: relay-authentication-and-authorization.md
+          items:
+            - name: Vue d’ensemble (authentification et autorisation)
+              href: relay-authentication-and-authorization.md
+            - name: Utiliser Azure Active Directory
+              items:
+                - name: Authentifier avec des identités managées (préversion)
+                  href: authenticate-managed-identity.md
+                - name: Authentifier à partir d’une application (préversion)
+                  href: authenticate-application.md
         - name: Contrôles de sécurité intégrés
           href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
         - name: Sécurité du réseau

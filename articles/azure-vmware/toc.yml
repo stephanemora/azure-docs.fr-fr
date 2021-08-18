@@ -24,7 +24,7 @@
       href: tutorial-configure-networking.md
     - name: Créer un cloud privé
       href: tutorial-create-private-cloud.md
-    - name: Créer un segment réseau NSX-T
+    - name: Créer un segment réseau
       href: tutorial-nsx-t-network-segment.md
     - name: Supprimer un cloud privé
       href: tutorial-delete-private-cloud.md
@@ -62,12 +62,14 @@
       href: reserved-instance.md
     - name: Configurer la mise en réseau
       items:
-        - name: Configurer DHCP
+        - name: Configurer le serveur ou le relais DHCP
           href: configure-dhcp-azure-vmware-solution.md
-        - name: Configurer DHCP sur les réseaux VMware HCX étendus L2
+        - name: Configurer le DHCP sur les réseaux étendus L2
           href: configure-l2-stretched-vmware-hcx-networks.md
-        - name: Configurer les composants NSX avec Azure
-          href: configure-nsx-network-components-azure-portal.md
+        - name: Configurer le redirecteur DNS
+          href: configure-dns-azure-vmware-solution.md
+        - name: Configurer la mise en miroir des ports
+          href: configure-port-mirroring-azure-vmware-solution.md
         - name: Configurer GitHub Enterprise Server
           href: ./configure-github-enterprise-server.md
         - name: Activer l’accès Internet public
@@ -100,6 +102,8 @@
           href: deploy-traffic-manager-balance-workloads.md
         - name: Configurer des alertes et utiliser des métriques
           href: configure-alerts-for-azure-vmware-solution.md
+        - name: Attacher des pools de disques à des hôtes VMware Azure Solution
+          href: attach-disk-pools-to-azure-vmware-solution-hosts.md
         - name: Sauvegarder avec le serveur de sauvegarde Azure
           items:
             - name: Configurer un serveur de sauvegarde
@@ -130,8 +134,12 @@
           href: azure-vmware-solution-horizon.md
         - name: Déployer des machines virtuelles à partir de la bibliothèque de contenu
           href: deploy-vm-content-library.md
-        - name: Déployer la reprise d’activité avec VMware HCX
-          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: Récupération d'urgence
+          items:
+            - name: Déployer la reprise d’activité avec VMware SRM
+              href: disaster-recovery-using-vmware-site-recovery-manager.md
+            - name: Déployer la reprise d’activité avec VMware HCX
+              href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: Mettre à niveau l’appliance VMware HCX
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
     - name: Écosystème VMware
@@ -149,13 +157,13 @@
     - name: Dépannage
       items:
         - name: Ouvrir une demande de support pour les échecs de déploiement
-          href: fix-deployment-provisioning-failures.md
+          href: fix-deployment-failures.md
         - name: Code d’erreur vix des outils VMware = 21009
           href: 'https://kb.vmware.com/s/article/2129927'
     - name: Questions fréquentes (FAQ)
       items:
         - name: Général
-          href: ./faq.yml
+          href: /azure/azure-vmware/faq
         - name: Communication du client
           href: /azure/azure-vmware/faq#customer-communication
         - name: Configuration et installation

@@ -744,6 +744,8 @@
           href: database/arm-templates-content-guide.md?tabs=single-database
         - name: Exemples de code
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+        - name: Requêtes Azure Resource Graph
+          href: database/resource-graph-samples.md
 - name: SQL Managed Instance (SQL MI)
   items:
     - name: Documentation
@@ -1067,8 +1069,8 @@
               href: managed-instance/management-endpoint-verify-built-in-firewall.md
         - name: Migrate
           items:
-            - name: Migrer vers SQL Managed Instance
-              href: managed-instance/migrate-to-instance-from-sql-server.md
+            - name: Guide de migration de SQL Server vers Azure SQL Managed Instance
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: Migrer une base de données avec Log Replay Service
               href: managed-instance/log-replay-service-migrate.md
             - name: Migrer un certificat TDE
@@ -1185,12 +1187,12 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migrer le stockage vers le stockage SSD Ultra
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Installer l’extension Agent IaaS SQL
+                - name: Extension Agent IaaS SQL
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Inscription automatique
                       href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-                    - name: Machine virtuelle unique
+                    - name: Inscrire une machine virtuelle unique
                       href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
                     - name: Inscrire en bloc plusieurs machines virtuelles
                       href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md

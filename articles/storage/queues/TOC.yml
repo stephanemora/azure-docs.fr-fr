@@ -39,10 +39,29 @@
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Autres langages
       href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Requêtes Azure Resource Graph
+      href: ../common/resource-graph-samples.md
 - name: Concepts
   items:
     - name: Comptes de stockage
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Autorisation
+      href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      items:
+        - name: Authentifier et autoriser avec Azure AD
+          href: authorize-access-azure-active-directory.md
+        - name: Autoriser avec une clé partagée
+          items:
+            - name: Afficher et gérer les clés de compte
+              href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Configuration des chaînes de connexion
+              href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Utiliser l’API REST Stockage Azure
+              href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Autoriser avec la signature d’accès partagé
+          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Autorisation des opérations de gestion
+      href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sécurité
       items:
         - name: Chiffrement du Stockage Azure au repos
@@ -50,23 +69,6 @@
           items:
             - name: Chiffrement avec des clés gérées par le client
               href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Autorisation des opérations de données
-          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          items:
-            - name: Authentifier et autoriser avec Azure AD
-              href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Autoriser avec une clé partagée
-              items:
-                - name: Afficher et gérer les clés de compte
-                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Configuration des chaînes de connexion
-                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Utiliser l’API REST Stockage Azure
-                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Autoriser avec la signature d’accès partagé
-              href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Autorisation des opérations de gestion
-          href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Utiliser des points de terminaison privés Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Contrôles de sécurité par Azure Policy
@@ -201,7 +203,7 @@
       items:
         - name: Utiliser l’émulateur open source Azurite
           href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Utiliser l’émulateur Stockage Azure
+        - name: Utiliser l’émulateur Stockage Azure (déconseillé)
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Développer avec des files d’attente
       items:
