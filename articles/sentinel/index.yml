@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 53ebfd52d2e55aa8f30f7638cd9998e83c257439
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: 672912ae04ce98e121a9d1509f50a613fbea86b0
+  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112199427"
+  ms.lasthandoff: 07/14/2021
+  ms.locfileid: "113765695"
 landingContent:
 - title: À propos d’Azure Sentinel
   linkLists:
@@ -61,8 +61,6 @@ landingContent:
       url: connect-microsoft-365-defender.md
     - text: Créer un connecteur personnalisé
       url: create-custom-connector.md
-    - text: Connecter la Threat Intelligence
-      url: connect-threat-intelligence.md
     - text: Superviser l’intégrité des connecteurs
       url: monitor-data-connector-health.md
     - text: Intégrer Azure Data Explorer
@@ -79,24 +77,18 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Importer le renseignement sur les menaces dans Azure Sentinel
-      url: import-threat-intelligence.md
+    - text: Comprendre les renseignements sur les menaces dans Azure Sentinel
+      url: understand-threat-intelligence.md
     - text: Intégrations du renseignement sur les menaces
       url: threat-intelligence-integration.md
-  - linkListType: tutorial
-    links:
-    - text: Utiliser l’analytique intégrée pour détecter les menaces
-      url: tutorial-detect-threats-built-in.md
-    - text: Créer des règles de détection personnalisées
-      url: tutorial-detect-threats-custom.md
   - linkListType: how-to-guide
     links:
-    - text: Connecter la Threat Intelligence
-      url: connect-threat-intelligence.md
-  - linkListType: reference
-    links:
-    - text: Informations de référence sur les entités
-      url: entities-reference.md
+    - text: Connecter des plateformes de renseignement sur les menaces à Azure Sentinel
+      url: connect-threat-intelligence-tip.md
+    - text: Connecter des flux Azure Sentinel à STIX/TAXIi
+      url: connect-threat-intelligence-taxii.md
+    - text: Utiliser des indicateurs de menace
+      url: work-with-threat-indicators.md
 - title: Détection de menaces
   linkLists:
   - linkListType: concept
@@ -105,8 +97,16 @@ landingContent:
       url: identify-threats-with-entity-behavior-analytics.md
     - text: Anomalies SOC-ML
       url: soc-ml-anomalies.md
+  - linkListType: tutorial
+    links:
+    - text: Utiliser l’analytique intégrée pour détecter les menaces
+      url: tutorial-detect-threats-built-in.md
+    - text: Créer des règles de détection personnalisées
+      url: tutorial-detect-threats-custom.md
   - linkListType: reference
     links:
+    - text: Informations de référence sur les entités
+      url: entities-reference.md
     - text: Enrichissements UEBA
       url: ueba-enrichments.md
 - title: Chasse des menaces

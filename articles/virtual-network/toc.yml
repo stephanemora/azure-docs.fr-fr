@@ -230,8 +230,10 @@
           items:
             - name: "Créer un préfixe d’adresse\_IP publique - Portail"
               href: create-public-ip-prefix-portal.md
-            - name: "Créer un préfixe d’adresse\_IPv6 publique"
-              href: ipv6-reserve-public-ip-address-prefix.md
+            - name: "Créer un préfixe d’adresse\_IP publique - PowerShell"
+              href: create-public-ip-prefix-powershell.md
+            - name: "Créer un préfixe d’adresse\_IP publique - Azure CLI"
+              href: create-public-ip-prefix-cli.md
         - name: "Mettre à niveau une adresse\_IP publique"
           items:
             - name: "Mettre à niveau une adresse\_IP publique - Portail"
@@ -256,12 +258,10 @@
               items:
                 - name: Équilibreur de charge interne standard avec IPv6 - PowerShell
                   href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-            - name: Public de base
-              items:
-                - name: Équilibreur de charge public de base avec IPv6 - PowerShell
-                  href: ipv6-add-to-existing-vnet-powershell.md
-                - name: Équilibreur de charge public de base avec IPv6 - Azure CLI
-                  href: ipv6-add-to-existing-vnet-cli.md
+            - name: Ajouter une IPv6 à une application IPv4 - PowerShell
+              href: ipv6-add-to-existing-vnet-powershell.md
+            - name: Ajouter une IPv6 à une application IPv4 - Azure CLI
+              href: ipv6-add-to-existing-vnet-cli.md
         - name: Préférence de routage
           items:
             - name: Création d’une adresse IP publique

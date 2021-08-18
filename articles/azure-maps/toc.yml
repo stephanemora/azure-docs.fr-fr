@@ -202,6 +202,8 @@
               href: map-add-drawing-toolbar.md
             - name: Obtenir des données de forme
               href: map-get-shape-data.md
+            - name: Ajouter une grille d’alignement
+              href: map-add-snap-grid.md
             - name: Réagir aux événements de dessin
               href: drawing-tools-events.md
             - name: Types d’interaction et raccourcis clavier
@@ -397,7 +399,7 @@
         - name: Accélérateurs de solution IoT
           href: ../iot-accelerators/index.yml
         - name: IoT Plug-and-Play
-          href: ../iot-pnp/index.yml
+          href: ../iot-develop/index.yml
         - name: Azure Maps
           href: ./index.yml
         - name: Time Series Insights

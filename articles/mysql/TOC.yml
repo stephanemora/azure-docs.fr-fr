@@ -424,6 +424,8 @@
               href: flexible-server/connect-java.md
             - name: .NET
               href: flexible-server/connect-csharp.md
+            - name: Se connecter au serveur dans le réseau virtuel
+              href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Se connecter avec TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configurer les paramètres du serveur

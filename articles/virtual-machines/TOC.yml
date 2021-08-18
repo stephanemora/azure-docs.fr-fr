@@ -67,6 +67,40 @@
           href: ./windows/tutorial-load-balancer.md
         - name: 8 - Gérer la mise en réseau
           href: ./windows/tutorial-virtual-network.md
+- name: Développer
+  items:
+    - name: API REST
+      href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+    - name: Python
+      items:
+        - name: Kit de développement logiciel (SDK) Python
+          href: 'https://github.com/Azure/azure-sdk-for-python'
+        - name: Exemples
+          href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+    - name: .NET
+      items:
+        - name: Kit de développement logiciel (SDK) .NET
+          href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: Informations de référence
+          href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+    - name: Java
+      items:
+        - name: Kit de développement logiciel (SDK) Java
+          href: 'https://github.com/Azure/azure-sdk-for-java'
+        - name: Référence
+          href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+    - name: Go
+      items:
+        - name: Kit de développement logiciel (SDK) Go
+          href: 'https://github.com/Azure/azure-sdk-for-go'
+        - name: Référence
+          href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
+    - name: Référentiel d’exemples Azure CLI
+      href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
+    - name: Référentiel d’exemples PowerShell
+      href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Charges de travail
   items:
     - name: Red Hat
@@ -800,8 +834,6 @@
               href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
             - name: Créer une version d’image dans une galerie d’images partagées
               href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
-            - name: Créer une machine virtuelle à partir d’une version d’image
-              href: 'https://azure.microsoft.com/resources/templates/vm-from-sig/'
         - name: Ansible
           href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
         - name: Résoudre les problèmes relatifs aux images partagées
@@ -964,10 +996,29 @@
       href: disks-types.md
     - name: Options de redondance de disque
       href: disks-redundancy.md
+    - name: Déployer un disque ZRS
+      href: disks-deploy-zrs.md
     - name: Disques partagés
       href: disks-shared.md
     - name: Activer les disques partagés
       href: disks-shared-enable.md
+    - name: Pools de disques
+      items:
+        - name: Vue d’ensemble
+          displayName: Disk pools overview
+          href: disks-pools.md
+        - name: Planifier des pools de disques
+          href: disks-pools-planning.md
+        - name: Déployer un pool de disques
+          href: disks-pools-deploy.md
+        - name: Déplacer un pool de disques vers un autre abonnement
+          href: disks-pools-move-resource.md
+        - name: Gérer un pool de disques
+          href: disks-pools-manage.md
+        - name: Annuler l’approvisionnement d’un pool de disques
+          href: disks-pools-deprovision.md
+        - name: Résoudre les problèmes d’un pool de disques
+          href: disks-pools-troubleshoot.md
     - name: Chiffrement
       items:
         - name: Vue d’ensemble du chiffrement de disque
@@ -1306,7 +1357,7 @@
     - name: Optimiser le débit du réseau
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
     - name: Meilleures pratiques
-      href: /azure/virtual-network/concepts-and-best-practices
+      href: ../virtual-network/concepts-and-best-practices.md
     - name: Création d’un réseau virtuel
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrer le trafic
@@ -1711,7 +1762,7 @@
               href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Questions fréquentes (FAQ)
               displayName: Azure monitor for VMs
-              href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Activer la supervision
               items:
                 - name: Vue d’ensemble de l’activation de la supervision
@@ -1743,7 +1794,7 @@
               href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Créer des règles d'alerte
               displayName: 'Azure monitor, monitoring'
-              href: ../azure-monitor/vm/vminsights-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+              href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Mettre à niveau l’agent de dépendances
               displayName: 'Azure monitor, monitoring'
               href: ../azure-monitor/vm/vminsights-dependency-agent-maintenance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1882,8 +1933,6 @@
       href: /azure/developer/jenkins/
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support et résolution des problèmes
-  href: vm-support-help.md
 - name: Ressources
   items:
     - name: Framework d’adoption du cloud
@@ -1906,12 +1955,6 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Exemples
-      items:
-        - name: Référentiel d’exemples Azure CLI
-          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
-        - name: Référentiel d’exemples PowerShell
-          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
     - name: Commandes CLI courantes
       href: ./linux/cli-manage.md
     - name: Commandes PowerShell courantes
@@ -1932,3 +1975,5 @@
           href: ./linux/faq.yml
         - name: Windows
           href: ./windows/faq.yml
+- name: Support et résolution des problèmes
+  href: vm-support-help.md

@@ -25,6 +25,14 @@
       href: powerbi.md
 - name: Concepts
   items:
+    - name: Meilleures pratiques
+      items:
+        - name: Meilleures pratiques de prédéploiement
+          href: prerequisites.md
+        - name: Bonnes pratiques générales
+          href: best-practices.md
+        - name: Meilleures pratiques de collecte de données
+          href: best-practices-data.md
     - name: Architecture
       items:
         - name: Rôles et autorisations
@@ -32,7 +40,7 @@
         - name: Coûts et facturation
           href: azure-sentinel-billing.md
         - name: Base de référence de la sécurité
-          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json'
+          href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
     - name: Collecte et analyse de données
       items:
         - name: Normalisation et modèle ASIM (Azure Sentinel Information Model)
@@ -47,8 +55,8 @@
           href: sentinel-solutions-catalog.md
     - name: Informations sur les menaces
       items:
-        - name: Importer le renseignement sur les menaces dans Azure Sentinel
-          href: import-threat-intelligence.md
+        - name: Comprendre les renseignements sur les menaces dans Azure Sentinel
+          href: understand-threat-intelligence.md
         - name: Intégrations du renseignement sur les menaces
           href: threat-intelligence-integration.md
     - name: Détection de menaces
@@ -59,8 +67,6 @@
           href: soc-ml-anomalies.md
         - name: Attaques multiétapes (Fusion)
           href: fusion.md
-        - name: Watchlists
-          href: watchlists.md
     - name: Chasse des menaces
       href: hunting.md
     - name: SOAR
@@ -280,7 +286,13 @@
     - name: Découvrir et déployer des solutions
       href: sentinel-solutions-deploy.md
     - name: Connecter la Threat Intelligence
-      href: connect-threat-intelligence.md
+      items:
+        - name: Se connecter aux plateformes de renseignement sur les menaces
+          href: connect-threat-intelligence-tip.md
+        - name: Se connecter aux flux STIX/TAXII
+          href: connect-threat-intelligence-taxii.md
+    - name: Utiliser des indicateurs de menace
+      href: work-with-threat-indicators.md
     - name: Superviser et visualiser les données
       items:
         - name: Visualiser les données collectées
@@ -313,6 +325,8 @@
           href: false-positives.md
         - name: Créer des incidents à partir d’alertes de sécurité Microsoft
           href: create-incidents-from-alerts.md
+        - name: Utiliser des watchlists
+          href: watchlists.md
     - name: Être à l’affût des menaces
       items:
         - name: Repérer avec Jupyter Notebooks
@@ -385,7 +399,7 @@
               href: ../role-based-access-control/built-in-roles.md#all
             - name: Rôles Azure Sentinel
               href: ../role-based-access-control/built-in-roles.md#security
-    - name: Informations de référence sur les connecteurs de données
+    - name: Références de la collecte de données
       items:
         - name: Informations de référence sur les schémas de source de données
           href: data-source-schema-reference.md
@@ -425,8 +439,10 @@
               href: hunting-with-rest-api.md
             - name: Gérer les watchlists avec l’API REST
               href: watchlist-with-rest-api.md
+            - name: Enrichissez les entités avec des données de géolocalisation avec REST-API
+              href: geolocation-data-api.md
         - name: "Alertes MCAS non intégrées à Microsoft\_365 Defender"
-          href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+          href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
 - name: Ressources
   items:
     - name: Ressources utiles

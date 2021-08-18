@@ -27,6 +27,22 @@
       items:
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
+        - name: Guide des opérations de sécurité
+          items:
+            - name: Vue d’ensemble des opérations de sécurité
+              href: security-operations-introduction.md
+            - name: Opérations de sécurité pour les comptes d’utilisateur
+              href: security-operations-user-accounts.md
+            - name: Opérations de sécurité pour les comptes privilégiés
+              href: security-operations-privileged-accounts.md
+            - name: Opérations de sécurité pour PIM
+              href: security-operations-privileged-identity-management.md
+            - name: Opérations de sécurité pour les applications
+              href: security-operations-applications.md
+            - name: Opérations de sécurité pour les appareils
+              href: security-operations-devices.md
+            - name: Opérations de sécurité pour l’infrastructure
+              href: security-operations-infrastructure.md
         - name: "Protéger Microsoft\_365 contre les attaques locales"
           href: protect-m365-from-on-premises-attacks.md
         - name: Collaboration externe sécurisée
@@ -179,6 +195,8 @@
           href: active-directory-deployment-checklist-p2.md
         - name: Plans de déploiement Azure Active Directory
           href: active-directory-deployment-plans.md
+        - name: Plans de déploiement Azure Active Directory B2C
+          href: azure-active-directory-b2c-deployment-plans.md
     - name: Stockage des données
       items:
         - name: Stockage des données d’identité pour l’Europe
@@ -255,5 +273,3 @@
   items:
     - name: "Obtenir une assistance pour Azure\_Active\_Directory"
       href: active-directory-troubleshooting-support-howto.md
-    - name: Forum Aux Questions sur Azure Active Directory
-      href: active-directory-faq.yml

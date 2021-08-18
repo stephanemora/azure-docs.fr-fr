@@ -101,6 +101,9 @@ conceptualContent:
         - itemType: how-to-guide
           text: Reconnaître les intentions vocales avec LUIS et C#
           url: how-to-recognize-intents-from-speech-csharp.md
+        - itemType: how-to-guide
+          text: 'Reconnaître les intentions vocales avec des critères spéciaux simples, C++'
+          url: how-to-use-simple-language-pattern-matching.md
         - itemType: reference
           text: Portail LUIS (Language Understanding)
           url: 'https://www.luis.ai'

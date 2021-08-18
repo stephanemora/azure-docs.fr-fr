@@ -17,10 +17,12 @@ items:
         items:
           - name: Créer et gérer des jetons d’accès
             href: quickstarts/access-tokens.md
-          - name: Utiliser des identités managées
-            href: quickstarts/managed-identity.md
-          - name: Configurer des identités managées à partir de CLI
-        href: quickstarts/managed-identity-from-cli.md
+          - name: S’authentifier avec Azure AD
+            href: quickstarts/identity/service-principal.md
+          - name: S’authentifier avec Azure AD (Azure CLI)
+            href: quickstarts/identity/service-principal-from-cli.md
+          - name: Créer rapidement des identités pour les tests
+            href: quickstarts/identity/quick-create-identity.md
       - name: Conversation
         items:
           - name: Ajouter la conversation à votre application
@@ -29,7 +31,7 @@ items:
             href: quickstarts/chat/meeting-interop.md
       - name: Téléphonie et SMS
         items:
-          - name: Obtenir un numéro de téléphone
+          - name: Obtenir et gérer des numéros de téléphone
             href: quickstarts/telephony-sms/get-phone-number.md
           - name: Porter un numéro de téléphone dans Azure
             href: quickstarts/telephony-sms/port-phone-number.md
@@ -51,7 +53,7 @@ items:
             href: quickstarts/voice-video-calling/calling-client-samples.md
           - name: Joindre votre application cliente d’appel à une réunion Teams
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
-          - name: Joindre un service à un appel
+          - name: Utiliser les API d’automatisation d’appel
             href: quickstarts/voice-video-calling/call-automation-api-sample.md
           - name: Enregistrer les appels
             href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +78,7 @@ items:
         href: tutorials/building-app-start.md
       - name: Signer une requête HTTP avec une signature HMAC en utilisant C#
         href: tutorials/hmac-header-tutorial.md
-      - name: Signer et envoyer des requêtes à l’API SMS d’ACS avec Postman
+      - name: Signer et envoyer des requêtes à l’API SMS avec Postman
         href: tutorials/postman-tutorial.md
   - name: Concepts
     expanded: false

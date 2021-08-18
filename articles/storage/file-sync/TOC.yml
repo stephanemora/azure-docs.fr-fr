@@ -25,7 +25,7 @@
           href: file-sync-choose-cloud-tiering-policies.md
         - name: Superviser la hiérarchisation cloud
           href: file-sync-monitor-cloud-tiering.md
-    - name: Cibles de performance et d’évolutivité
+    - name: Cibles d’évolutivité et de performances
       href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Prévenir les suppressions de données accidentelles
       href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
@@ -70,17 +70,17 @@
         - name: Inscrire un serveur avec la synchronisation de fichiers Azure
           href: file-sync-server-registration.md
         - name: Ajouter un point de terminaison du serveur de synchronisation de fichiers Azure
-          href: file-sync-server-endpoint.md
-        - name: Gérer le stockage dans les clouds indépendants Azure
+          href: file-sync-server-endpoint-create.md
+        - name: Gérer le stockage dans les Clouds indépendants Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
-        - name: Initier un basculement de compte
-          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Gérer les fichiers hiérarchisés
           href: file-sync-how-to-manage-tiered-files.md
         - name: 'Déplacer des ressources vers d’autres groupes de ressources, abonnements et locataires AAD'
           href: file-sync-resource-move.md
-        - name: Déprovisionner un point de terminaison de serveur Azure File Sync
-          href: file-sync-deprovision-server-endpoint.md
+        - name: Supprimer un point de terminaison du serveur de synchronisation de fichiers Azure
+          href: file-sync-server-endpoint-delete.md
+        - name: Initier un basculement de compte
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Modifier la topologie d’Azure File Sync
           href: file-sync-modify-sync-topology.md
     - name: Protection de données
@@ -140,11 +140,11 @@
     - name: Migrer
       items:
         - name: Migrer vers des partages de fichiers Azure
-          href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
         - name: Cibler un déploiement hybride
           items:
             - name: Migrer des données en bloc vers Azure File Sync avec Azure Data Box
-              href: file-sync-offline-data-transfer.md
+              href: ../files/storage-files-migration-server-hybrid-databox.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
             - name: Effectuer la migration d’un serveur Linux vers un serveur de fichiers hybride avec Azure File Sync
               href: ../files/storage-files-migration-linux-hybrid.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
             - name: "Migrer d’un serveur NAS local vers un serveur de fichiers hybride avec Azure File\_Sync"
@@ -158,7 +158,7 @@
             - name: Guide de migration de StorSimple 1200
               href: ../files/storage-files-migration-storsimple-1200.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Activer les partages de fichiers volumineux
-      href: ../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+      href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Sécuriser
       items:
         - name: Gérer les clés de chiffrement du compte de stockage
@@ -194,7 +194,7 @@
         - name: Résoudre les problèmes de synchronisation de fichiers Azure
           href: file-sync-troubleshoot.md
         - name: Résoudre les problèmes de suppression de partages de fichiers Azure
-          href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+          href: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json#unable-to-modify-moverename-or-delete-a-file-or-directory
         - name: Résoudre les problèmes de sauvegarde des partages de fichiers
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
 - name: Informations de référence
