@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a37b189ae98332b2d6c557b6bdfad98266002e9e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: b6d04053d4b63552c2329a675c2557e6f1cd8fee
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833901"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290030"
 ---
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>Tutoriel : Accéder au stockage Azure à partir d’une application web
 
@@ -172,11 +172,9 @@ Vous devez accorder à votre application web un accès au compte de stockage ava
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage pour accorder l’accès à votre application web. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche, puis **Attributions de rôle**. La liste des utilisateurs ayant accès au compte de stockage s’affiche. À présent, vous souhaitez ajouter une attribution de rôle à un bot, le service d’application qui a besoin d’accéder au compte de stockage. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle**.
+Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage pour accorder l’accès à votre application web. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche, puis **Attributions de rôle**. La liste des utilisateurs ayant accès au compte de stockage s’affiche. À présent, vous souhaitez ajouter une attribution de rôle à un bot, le service d’application qui a besoin d’accéder au compte de stockage. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page **Ajouter une attribution de rôle**.
 
-Dans **Rôle**, sélectionnez **Contributeur aux données Blob du stockage** pour permettre à votre application web d’accéder en lecture aux objets blob de stockage. Dans **Attribuer l’accès à**, sélectionnez **App Service**. Dans **Abonnement**, sélectionnez votre abonnement. Sélectionnez ensuite le service d’application auquel vous souhaitez accorder l’accès. Sélectionnez **Enregistrer**.
-
-:::image type="content" alt-text="Capture d’écran montrant l’écran Ajouter une attribution de rôle." source="./media/scenario-secure-app-access-storage/add-role-assignment.png":::
+Affectez le rôle **Contributeur de données d’objet blob de stockage** à **App Service** à l’étendue de l’abonnement.  Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Votre application web a maintenant accès à votre compte de stockage.
 

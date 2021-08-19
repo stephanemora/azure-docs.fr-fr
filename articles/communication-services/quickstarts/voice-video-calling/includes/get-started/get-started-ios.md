@@ -6,17 +6,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 27d1271450715babeb94bfe929e54500c59aa664
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: de2e9fd9cb44b855dbc1db8d1d355be092d6c83e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560801"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112535544"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour iOS.
 
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
+## <a name="sample-code"></a>Exemple de code
+
+Vous pouvez télécharger l’exemple d’application sur [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -128,7 +129,11 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Initialisez une instance de `CallAgent` avec un jeton d’accès utilisateur qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant au rappel `onAppear` dans **ContentView.swift** :
+Initialisez une instance de `CallAgent` avec un jeton d’accès utilisateur qui nous permettra d’établir et de recevoir des appels. 
+
+Vous devez remplacer `<USER ACCESS TOKEN>` par un jeton d’accès utilisateur valide pour votre ressource. Consultez la documentation sur les [jetons d’accès utilisateur](../../../access-tokens.md) si vous n’avez pas encore de jeton disponible.
+
+Ajoutez le code suivant au rappel `onAppear` dans **ContentView.swift** :
 
 ```swift
 var userCredential: CommunicationTokenCredential?
@@ -154,7 +159,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-Vous devez remplacer `<USER ACCESS TOKEN>` par un jeton d’accès utilisateur valide pour votre ressource. Consultez la documentation sur les [jetons d’accès utilisateur](../../../access-tokens.md) si vous n’avez pas encore de jeton disponible.
+
 
 ## <a name="start-a-call"></a>Démarrer un appel
 
@@ -207,7 +212,3 @@ Vous pouvez établir un appel VoIP sortant en fournissant un ID d’utilisateur 
 
 > [!NOTE]
 > La première fois que vous effectuez un appel, le système vous invite à accorder l’accès au microphone. Dans une application de production, vous devez utiliser l’API `AVAudioSession` pour [vérifier l’état de l’autorisation](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) et mettre à jour le comportement de votre application de manière appropriée quand l’autorisation n’est pas accordée.
-
-## <a name="sample-code"></a>Exemple de code
-
-Vous pouvez télécharger l’exemple d’application à partir de [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).

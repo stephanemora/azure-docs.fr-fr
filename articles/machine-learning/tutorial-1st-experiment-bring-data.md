@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: dbbd71a40419ee3472b01be11c101567e6945634
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4d4c7fcb824d57b46df1353f30d3136e129af293
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028214"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765796"
 ---
 # <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>Tutoriel : Charger des données et entraîner un modèle (partie 3 sur 3)
 
@@ -161,9 +161,6 @@ optimizer = optim.SGD(
 )
 ```
 
-> [!div class="nextstepaction"]
-> [J’ai modifié le script d’entraînement](?success=adjust-training-script#upload) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
-
 
 ## <a name="upload-the-data-to-azure"></a><a name="upload"></a> Charger les données dans Azure
 
@@ -203,9 +200,6 @@ Pour exécuter ce script dans Azure Machine Learning, vous devez rendre vos donn
     Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
     Uploaded 9 files
     ```
-
-> [!div class="nextstepaction"]
-> [J’ai chargé les données](?success=upload-data#control-script) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> Créer un script de contrôle
 
@@ -271,17 +265,12 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [J’ai créé le script de contrôle](?success=control-script#submit-to-cloud) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=control-script)
-
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-to-cloud"></a> Soumettre l’exécution à Azure Machine Learning
 
 Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch-data.py*.  Cette exécution permet d’entraîner le modèle sur le cluster de calcul à l’aide des données que vous avez chargées.
 
 Ce code va produire une URL vers l’expérience dans Azure Machine Learning Studio. Si vous accédez à ce lien, vous pourrez voir votre code en cours d’exécution.
 
-> [!div class="nextstepaction"]
-> [J’ai resoumis l’exécution](?success=submit-to-cloud#inspect-log) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Examiner le fichier journal
 
@@ -324,8 +313,6 @@ Remarques :
 - Azure Machine Learning a monté automatiquement pour vous Stockage Blob sur le cluster de calcul.
 - ``dataset.as_named_input('input').as_mount()`` utilisé dans le script de contrôle donne après résolution le point de montage.
 
-> [!div class="nextstepaction"]
-> [J’ai examiné le fichier journal](?success=inspect-log#clean-up-resources) [J’ai rencontré un problème](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -355,4 +342,5 @@ Vous avez appris comment modifier votre script de formation pour accepter un che
 
 Maintenant que vous avez un modèle, découvrez :
 
-* Comment [déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
+> [!div class="nextstepaction"]
+> [Comment déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
