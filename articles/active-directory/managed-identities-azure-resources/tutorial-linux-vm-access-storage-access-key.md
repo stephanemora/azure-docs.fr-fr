@@ -6,6 +6,7 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a934c347a628e775ae9890e7ee705d2863a0d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: d554e5cc535975ad7c9f2ccb4c228e33e489645e
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080432"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038028"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
@@ -64,10 +65,10 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 
 Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une identité managée attribuée par le système de votre machine virtuelle pour récupérer une SAS de stockage à partir de Resource Manager, puis utiliser cette SAS pour accéder au stockage.  Dans cette étape, vous autorisez votre identité managée affectée par le système de machine virtuelle à accéder à la SAP de votre compte de stockage. Accordez l’accès en attribuant le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) à l’identité managée au niveau de l’étendue du groupe de ressources qui contient votre compte de stockage.
  
-Pour connaître la procédure détaillée, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
-> Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+> Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory.](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure Resource Manager

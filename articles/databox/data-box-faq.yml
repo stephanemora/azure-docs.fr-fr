@@ -7,15 +7,15 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 05/11/2021
+  ms.date: 07/21/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: 85b2abd58f55e75a4b560b4cdbcc792693d1a2a3
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: 47d941b1c6e6ce7b0f383e977f227db65fa86871
+  ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113094840"
+  ms.lasthandoff: 07/23/2021
+  ms.locfileid: "114653424"
 title: 'Azure Data Box : Forum Aux Questions (FAQ)'
 summary: >
   La solution hybride Microsoft Azure Data Box Disk vous permet d’envoyer des téraoctets de données vers Azure de façon rapide, économique et fiable, via un appareil de transfert. Cette FAQ contient des réponses aux questions que vous pouvez vous poser lorsque vous utilisez Data Box sur le portail Azure.
@@ -234,6 +234,10 @@ sections:
       J’ai commandé un Data Box dans la région USA Est, mais j’ai reçu un appareil qui a été expédié à partir d’un emplacement dans la région USA Ouest. Où renvoyer l’appareil ?
     answer: >
       Nous essayons de vous procurer un appareil Data Box le plus rapidement possible. Nous donnons la priorité à l’envoi à partir du centre de données le plus proche de l’emplacement de votre compte de stockage, mais nous expédions toujours un appareil à partir d’un centre de données Azure disposant d’un stock. Votre Data Box doit être retourné au même emplacement que celui où il a été expédié, tel qu’affiché sur l’étiquette d’expédition.
+  - question: >
+      Je dois envoyer un Data Box à Porto Rico. Existe-t-il des exigences spéciales ?
+    answer: >
+      Si vous devez faire expédier un appareil à Porto Rico, envoyez un e-mail à [adbops@microsoft.com](mailto:adbops@microsoft.com) pour obtenir des instructions. On vous demande de créer une commande à l’aide d’une adresse des États-Unis, mais de fournir à l’équipe des opérations une adresse de Porto Rico par e-mail. L’expédition d’un appareil à Porto Rico n’ajoute aucun coût d’expédition supplémentaire avec UPS.
   - question: >
       L’écran E-ink n’affiche pas l’étiquette de retour. Que dois-je faire ?
     answer: "Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :\n- Décollez l’ancienne étiquette d’expédition et l’éventuel autocollant du précédent colis.\n- Accédez à votre commande dans le portail Azure. Accédez à **Vue d’ensemble**, puis à **Télécharger une étiquette d’expédition**. Pour plus d’informations, consultez [Télécharger une étiquette d’expédition](data-box-portal-admin.md#download-shipping-label).\n- Imprimez l’étiquette d’expédition et insérez-la dans la pochette en plastique transparent accolée à l’appareil. \n- Vérifiez que l’étiquette d’expédition est clairement visible. \n"

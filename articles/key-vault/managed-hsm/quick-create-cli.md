@@ -2,32 +2,32 @@
 title: Démarrage rapide – Provisionner et activer un HSM managé Azure
 description: Démarrage rapide montrant comment provisionner et activer un HSM managé à l’aide d’Azure CLI
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 06/01/2021
-ms.author: ambapat
-ms.openlocfilehash: 0b29a292dae570d368f54f65773ce72a54de2e2d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/21/2021
+ms.author: mbaldwin
+ms.openlocfilehash: be8c28f736e58ebcbe95d4b8a4042b79fa1cf9f7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413984"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443588"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI
 
 Azure Key Vault Managed HSM est un service cloud complètement managé, à haut niveau de disponibilité et monolocataire qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de HSM certifiés **FIPS 140-2 de niveau 3**. Pour plus d’informations Managed HSM, vous pouvez consultez la [présentation](overview.md). 
 
-Dans ce démarrage rapide, vous allez créer et activer un HSM managé avec Azure CLI. Ensuite, vous y stockerez un secret.
+Dans ce démarrage rapide, vous allez créer et activer un HSM managé avec Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous devez disposer des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
-* Azure CLI 2.12.0 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
+* Azure CLI version 2.25.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 * HSM managé dans votre abonnement. Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour provisionner et activer un HSM managé.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -127,4 +127,5 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vaul
 
 - Lire une [présentation de Managed HSM](overview.md)
 - Découvrir la [gestion des clés dans un HSM managé](key-management.md)
+- En savoir plus sur la [Gestion des rôles pour un HSM géré](role-management.md)
 - Passer en revue les [bonnes pratiques de Managed HSM](best-practices.md)

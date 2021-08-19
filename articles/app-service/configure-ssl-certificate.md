@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c087533958665eb71e046d3bab1f03265adbd3ba
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 011461b1ecba9c5ce8cf636980a97d26f2228a98
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853565"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128837"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -341,6 +341,9 @@ Une fois l’opération de recréation de clé terminée, cliquez sur **Synchron
 
 ### <a name="renew-certificate"></a>Renouvellement de certificat
 
+> [!NOTE]
+> Le processus de renouvellement exige que [le principal de service connu pour App Service dispose des autorisations requises sur votre coffre de clés](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Cette autorisation est configurée pour vous lorsque vous importez un App Service Certificate via le portail et ne doit pas être supprimée de votre coffre de clés.
+
 Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche. Par défaut, les certificats App Service sont valides pendant 1 an.
 
 Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 30 jours avant leur expiration si vous avez activé le renouvellement automatique.
@@ -389,11 +392,11 @@ Dans votre certificat, recherchez le verrou de type **Supprimer**. À droite de 
 
 Vous pouvez maintenant supprimer le certificat App Service. Dans le volet de navigation de gauche, sélectionnez **Vue d’ensemble** > **Supprimer**. Dans la boîte de dialogue de confirmation, tapez le nom du certificat, puis sélectionnez **OK**.
 
-## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
+## <a name="automate-with-scripts&quot;></a>Automatiser des tâches à l’aide de scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name=&quot;azure-cli&quot;></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
@@ -405,4 +408,4 @@ Vous pouvez maintenant supprimer le certificat App Service. Dans le volet de nav
 * [Appliquer le protocole HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Utiliser un certificat TLS/SSL dans votre code dans Azure App Service](configure-ssl-certificate-in-code.md)
-* [FORUM AUX QUESTIONS : App Service Certificates](./faq-configuration-and-management.md)
+* [FORUM AUX QUESTIONS : App Service Certificates](./faq-configuration-and-management.yml)
