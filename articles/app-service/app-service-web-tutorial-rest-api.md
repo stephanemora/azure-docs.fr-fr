@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4c617c9bb5e45df1ebf3f6274ed88e05f28cfe4c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 8317db1b7c4e71f05694ab902738dca87925a4d6
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751956"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992186"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -170,6 +170,9 @@ Vous pouvez définir plusieurs URL de client dans `properties.cors.allowedOrigin
 
 > [!NOTE]
 > Si votre application exige l’envoi d’informations d’identification, telles que des cookies ou des jetons d’authentification, le navigateur peut exiger l’en-tête `ACCESS-CONTROL-ALLOW-CREDENTIALS` dans la réponse. Pour ce faire, dans App Service, définissez `properties.cors.supportCredentials` sur `true` dans votre configuration CORS. Cela ne peut pas être activé lorsque `allowedOrigins` inclut `'*'`.
+
+> [!NOTE]
+> La spécification de `AllowAnyOrigin` et `AllowCredentials` est une configuration non sécurisée et peut entraîner une falsification de requête intersites. Le service CORS retourne une réponse CORS non valide lorsqu’une application est configurée avec les deux méthodes.
 
 ### <a name="test-cors-again"></a>Testez CORS à nouveau
 

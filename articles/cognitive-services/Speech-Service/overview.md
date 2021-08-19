@@ -3,19 +3,19 @@ title: Qu’est-ce que le service de reconnaissance vocale ?
 titleSuffix: Azure Cognitive Services
 description: Le service Speech rassemble la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un seul abonnement Azure. Ajoutez les services Speech à vos applications, outils et appareils avec le SDK Speech, le SDK Speech Devices ou les API REST.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: trbye
-ms.openlocfilehash: af76ba2a4ee8610a0f64265889c009416f477543
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.author: nitinme
+ms.openlocfilehash: 8e173f8f11f45fc61ee412c7241a5f9297c807bb
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665065"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708225"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -33,6 +33,7 @@ Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plu
 | | [Conversation multi-appareil](multi-device-conversation.md) | Connecter plusieurs appareils ou clients dans une conversation pour envoyer des messages vocaux ou textuels, avec une prise en charge simple de la transcription et de la traduction| Oui | Non |
 | | [Transcription de conversation](./conversation-transcription.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | Oui | Non |
 | | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non | [Oui](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
+| | [Évaluation de la prononciation](./how-to-pronunciation-assessment.md) | L’évaluation de la prononciation évalue la prononciation des entrées vocales et fournit des commentaires aux orateurs sur la justesse et l’aisance des paroles prononcées. Grâce à l’évaluation de la prononciation, les élèves qui apprennent des langues peuvent pratiquer, obtenir des commentaires instantanés et améliorer leur prononciation pour pouvoir parler et se présenter en toute confiance. | [Oui](./how-to-pronunciation-assessment.md) | [Oui](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
 | [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Utilisez des voix neuronales, qui sont des voix semblables à la voix humaine alimentées par des réseaux neuronaux profonds. Consultez [Prise en charge des langues](language-support.md). | [Oui](./speech-sdk.md) | [Oui](#reference-docs) |
 | | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](#reference-docs) |
 | [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](./speech-sdk.md) | Non |
@@ -81,9 +82,9 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 -->
 Le déploiement de votre nouvelle ressource Speech prend quelques instants. 
 
-### <a name="find-keys-and-region"></a>Rechercher les clés et la région
+### <a name="find-keys-and-locationregion"></a>Trouver les clés et l’emplacement/la région
 
-Pour rechercher les clés et la région d’un déploiement terminé, effectuez les étapes suivantes :
+Pour rechercher les clés et l’emplacement/la région d’un déploiement terminé, effectuez les étapes suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en utilisant votre compte Microsoft.
 
@@ -131,7 +132,7 @@ D’autres produits proposent des modèles vocaux adaptés à des fins spécifiq
 
 | Speech Service | Plateforme | Description |
 | -------------- | -------- | ----------- |
-| Reconnaissance vocale | [Discours personnalisé](https://aka.ms/customspeech) | Personnalisez les modèles de reconnaissance vocale en fonction de vos besoins et des données disponibles. Éliminez les obstacles à la reconnaissance vocale, tels que le style d’élocution, le bruit de fond et le vocabulaire. |
+| Reconnaissance vocale | [Discours personnalisé](./custom-speech-overview.md) | Personnalisez les modèles de reconnaissance vocale en fonction de vos besoins et des données disponibles. Éliminez les obstacles à la reconnaissance vocale, tels que le style d’élocution, le bruit de fond et le vocabulaire. |
 | Synthèse vocale | [Custom Voice](https://aka.ms/customvoice) | Créez une voix unique et reconnaissable pour vos applications de synthèse vocale, avec vos données vocales disponibles. Vous pouvez ensuite affiner le réglage des sorties vocales en ajustant tout un ensemble de paramètres vocaux. |
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
@@ -143,7 +144,7 @@ D’autres produits proposent des modèles vocaux adaptés à des fins spécifiq
 * Synthèse vocale standard
 * Synthèse vocale neuronale
 * Synthèse vocale personnalisée (préversion)
-* Détection de langue vocale (préversion)
+* Identification de la langue parlée (préversion)
 
 ## <a name="reference-docs"></a>Documents de référence
 
