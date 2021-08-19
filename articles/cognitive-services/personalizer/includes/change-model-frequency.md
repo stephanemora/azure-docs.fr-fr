@@ -1,6 +1,6 @@
 ---
 title: Fichier Include
-description: Fichier Include
+description: inclure fichier
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,16 +8,16 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 08/25/2020
-ms.openlocfilehash: 4eacc1c4e863ad1a278a4974bb0f6c101aafe7e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6473eeee350299ba98460f3f4f022e0514f90e69
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055376"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112255362"
 ---
 ### <a name="change-the-model-update-frequency"></a>Changer la fréquence de mise à jour du modèle
 
-Dans le portail Azure, dans la ressource Personalizer dans la page **Configuration**, affectez à la **fréquence de mise à jour du modèle** la valeur 10 secondes. Avec cette courte durée, le service est entraîné rapidement, ce qui vous permet de voir comment la première action change pour chaque itération.
+Dans le portail Azure, dans la ressource Personalizer dans la page **Configuration**, affectez à la **fréquence de mise à jour du modèle** la valeur 30 secondes. Avec cette courte durée, le service est entraîné rapidement, ce qui vous permet de voir comment la première action change pour chaque itération.
 
 ![Changer la fréquence de mise à jour du modèle](../media/settings/configure-model-update-frequency-settings.png)
 

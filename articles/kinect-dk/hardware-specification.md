@@ -1,11 +1,10 @@
 ---
-title: Spécifications matérielles Azure Kinect DK
+title: Spécifications matérielles pour Azure Kinect DK
 description: Découvrez les composants, les spécifications et les fonctionnalités d’Azure Kinect DK.
-author: tesych
-ms.author: tesych
-ms.reviewer: jarrettr
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 02/14/2020
+ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, spécifications, matériel, DK, fonctionnalités, profondeur, couleur, RVB, IMU, microphone, réseau, profondeur
 ms.custom:
@@ -14,14 +13,14 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b5ec67537fe0bd8732b4068c0ed52861ed8f2c1a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619958"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "116985849"
 ---
-# <a name="azure-kinect-dk-hardware-specifications"></a>Spécifications matérielles Azure Kinect DK
+# <a name="azure-kinect-dk-hardware-specifications"></a>Spécifications matérielles pour Azure Kinect DK
 
 Cet article fournit des informations sur la façon dont le matériel Azure Kinect intègre la toute dernière technologie de capteur de Microsoft dans un accessoire connecté par USB.
 
@@ -42,16 +41,18 @@ Les abréviations suivantes seront utilisées tout au long de cet article.
 
 Le poids et les dimensions de l’appareil Azure Kinect sont les suivants.
 
-- **Dimensions** : 103 x 39 x 126mm
+- **Dimensions** : 103 x 39 x 126 mm
 - **Poids** : 440 g
 
 ![Dimensions Azure Kinect DK](./media/resources/hardware-specs-media/dimensions.png)
+
+Un fichier STEP pour l’appareil Azure Kinect est disponible [ici](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets). 
 
 ## <a name="operating-environment"></a>Environnement d’exploitation
 
 Azure Kinect DK est destiné aux développeurs et aux entreprises commerciales disposant des conditions ambiantes suivantes :
 
-- **Temperature** : 10 à 25 ⁰C
+- **Température** : 10-25<sup>°</sup>C
 - **Humidité** : 8 à 90 % d’humidité relative (sans condensation)
 
 > [!NOTE]
@@ -61,9 +62,9 @@ Reportez-vous aux [informations de sécurité](https://support.microsoft.com/hel
 
 ## <a name="depth-camera-supported-operating-modes"></a>Modes de fonctionnement pris en charge pour la caméra à profondeur de champ
 
-Azure Kinect DK comprend une caméra à profondeur de champ ToF 1 Mpx conçue par Microsoft qui utilise le [capteur d’images présenté lors de la conférence ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). La caméra à profondeur de champ prend en charge les modes indiqués ci-dessous :
+Azure Kinect DK comprend une caméra à profondeur de champ ToF 1 Mpx conçue par Microsoft qui utilise le [capteur d’images présenté lors de la conférence ISSCC 2018](/windows/mixed-reality/ISSCC-2018). La caméra à profondeur de champ prend en charge les modes indiqués ci-dessous :
 
- | Mode            | Résolution | FoI       | FPS                | Plage de fonctionnement* | Temps d’exposition |
+ | Mode            | Résolution | FoI       | i/s                | Plage de fonctionnement* | Temps d’exposition |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
 | NFOV sans compartimentation   | 640 x 576    | 75°x°65   | 0, 5, 15, 30       | 0,5 - 3,86 m       | 12,8 ms        |
 | NFOV 2x2 avec compartimentation (SW) | 320 x 288    | 75°x°65   | 0, 5, 15, 30       | 0,5 - 5,46 m       | 12,8 ms        |
@@ -84,9 +85,9 @@ Azure Kinect DK comprend un capteur CMOS OV12A10 12 Mpx avec obturateur roulan
 |       1 920 x 1 080                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x°59                              |
 |       1 280 x 720                           |          16:9          |          MJPEG/YUY2/NV12  |          0, 5, 15, 30       |          90°x°59                              |
 |       4 096 x 3 072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x°74,3                            |
-|       2048 x 1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x°74,3                            |
+|       2 048 x 1 536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x°74,3                            |
 
-La caméra RVB est compatible avec les classes vidéo USB et peut être utilisée sans le SDK du capteur. Espace de couleurs de la caméra RVB : Plage complète BT.601 [0..255]. 
+La caméra RVB est compatible avec les classes vidéo USB et peut être utilisée sans le SDK du capteur. Espace colorimétrique de la caméra RVB : plage complète BT.601 [0..255]. Le [sous-échantillonnage de la chrominance](https://en.wikipedia.org/wiki/Chroma_subsampling) MJPEG est 4:2:2.
 
 > [!NOTE]
 > Le SDK du capteur peut fournir des images en couleurs au format de pixel BVRA. Ce mode n’est pas pris en charge par l’appareil et provoque une charge processeur supplémentaire lorsqu’il est utilisé. Le processeur hôte est utilisé pour convertir les images MJPEG reçues de l’appareil.
@@ -113,7 +114,7 @@ Vous trouverez ci-dessous les valeurs d’exposition manuelle qui sont acceptée
 
 ## <a name="depth-sensor-raw-timing"></a>Minutage brut du capteur de profondeur
 
-Mode de profondeur | IR <br>Impulsions | d’impulsion <br>Largeur  | Idle <br>Périodes| Durée d’inactivité | Exposition <br> Temps
+Mode de profondeur | IR <br>Impulsions | d’impulsion <br>Largeur  | Idle <br>Points| Durée d’inactivité | Exposition : <br> Temps
 -|-|-|-|-|-
 NFOV sans compartimentation <br>  NFOV 2xx avec compartimentation <br> WFOV 2x2 avec compartimentation | 9 | 125 us | 8 | 1 450 us | 12,8 ms 
 WFOV sans compartimentation                                            | 9 | 125 us | 8 | 2 390 us | 20,3 ms
@@ -150,7 +151,7 @@ Azure Kinect DK comprend un réseau circulaire de 7 microphones haute qualité 
 
 Azure Kinect DK est un appareil composite USB3 qui expose les points de terminaison matériels suivants au système d’exploitation :
 
-L’ID de fournisseur est 0x045E (Microsoft) et les ID de produit sont listés dans le tableau ci-dessous :
+L’ID de fournisseur est 0x045E (Microsoft). La table Product ID est montrée ci-dessous :
 
 |    Interface USB        |    IP PNP    |     Notes            |
 |-------------------------|--------------|----------------------|
@@ -177,7 +178,7 @@ Le voyant situé à l’arrière de l’appareil indique l’état de celui-ci 
 
 L’appareil peut être alimenté de deux manières :
 
-1. À l’aide du dispositif d’alimentation fourni avec l’appareil. Les données sont connectées par un autre câble USB Type C vers Type A.
+1. À l’aide du dispositif d’alimentation fourni avec l’appareil. Le connecteur d’alimentation est un OD 4,5 mm avec un ID 3,0 mm et un diamètre de broche de 0,6 mm.
 2. En utilisant un câble Type C vers Type C à la fois pour l’alimentation et pour les données.
 
 L’appareil Azure Kinect DK n’est pas fourni avec un câble Type C vers Type C.
@@ -190,7 +191,7 @@ L’appareil Azure Kinect DK n’est pas fourni avec un câble Type C vers Ty
 > Pour sélectionner un bon câble Type C vers Type C :
 > - Le [câble certifié USB](https://www.usb.org/products) doit prendre en charge à la fois l’alimentation et les données.
 > - Un câble passif doit mesurer moins de 1,5 mètre. S’il est plus long, utilisez plutôt un câble actif. 
-> - Le câble doit prendre en charge au minimum 1,5A. Dans le cas contraire, vous devrez connecter une alimentation externe.
+> - Le câble doit prendre en charge au moins 1,5 A. Dans le cas contraire, vous devrez connecter une alimentation externe.
 
 Vérifiez le câble :
 
@@ -201,7 +202,7 @@ Vérifiez le câble :
 
 - Dans la visionneuse Azure Kinect, vérifiez que le câble peut diffuser des données de façon fiable pour tous les capteurs, avec les paramètres suivants :
 
-  - Caméra à profondeur de champ : NFOV sans compartimentation
+  - Caméra à champ de profondeur : NFOV unbinned
   - Caméra RVB : 2160p
   - Microphones et IMU activés
 

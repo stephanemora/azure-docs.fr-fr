@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dc101eac5d3829d8f4bcb84c79481b2053f82965
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92077828"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037649"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalité dans une application Spring Boot
 
@@ -51,25 +51,16 @@ Nous vous recommandons de conserver les indicateurs de fonctionnalités en dehor
 
 Le moyen le plus simple de connecter votre application Spring Boot à App Configuration est de passer par le fournisseur de configuration :
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
-
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.1.2</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-cloud-feature-management-web</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>1.2.2</version>
-</dependency>
-```
+> [!NOTE]
+> Si vous devez prendre en charge une version plus ancienne de Spring Boot, consultez notre [ancienne bibliothèque](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 
 ## <a name="feature-flag-declaration"></a>Déclaration d’indicateur de fonctionnalité
 
@@ -183,7 +174,7 @@ public String getOldFeature() {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez découvert comment implémenter des indicateurs de fonctionnalités dans votre application Spring Boot en utilisant les bibliothèques `spring-cloud-azure-feature-management-web`. Pour plus d’informations sur la prise en charge de la gestion des fonctionnalités dans Spring Boot et App Configuration, consultez les ressources suivantes :
+Dans ce tutoriel, vous avez découvert comment implémenter des indicateurs de fonctionnalités dans votre application Spring Boot en utilisant les bibliothèques `azure-spring-cloud-feature-management-web`. Pour plus d’informations sur la prise en charge de la gestion des fonctionnalités dans Spring Boot et App Configuration, consultez les ressources suivantes :
 
 * [Exemple de code d’indicateur de fonctionnalité Spring Boot](./quickstart-feature-flag-spring-boot.md)
 * [Gérer les indicateurs de fonctionnalité](./manage-feature-flags.md)

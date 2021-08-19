@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e6d89bdfca268a02c1f58bdceb4e4485dc3851a6
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: ff3c052e2e9e745c59947cda43d12b46786fbd62
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438375"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707591"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -109,6 +109,7 @@ Pour activer la réécriture SSPR, commencez par activer l’option de réécrit
 
     ![Configurer Azure AD Connect pour la réécriture du mot de passe](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
 
+1. Sur la page **Extensions de répertoire**, sélectionnez **Suivant**.
 1. Sur la page **Prêt à configurer**, sélectionnez **Configurer** et attendez la fin du processus.
 1. Lorsque la configuration prend fin, sélectionnez **Quitter**.
 

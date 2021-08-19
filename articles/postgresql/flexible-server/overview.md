@@ -3,16 +3,16 @@ title: Azure Database pour PostgreSQL - Serveur flexible
 description: Fournit une vue d’ensemble d’Azure Database pour PostgreSQL - Serveur flexible.
 author: sunilagarwal
 ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/22/2021
-ms.openlocfilehash: efa5502c89a68be05ef8f7dc1d3d57c57e732caa
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 06/14/2021
+ms.custom: mvc, references_regions
+ms.openlocfilehash: 25b2788591c44cb4b75c89ca020825d16884224b
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987071"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116157"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -92,24 +92,32 @@ Le serveur flexible est fourni avec le pooler de connexions PgBouncer intégré.
 
 ## <a name="azure-regions"></a>Régions Azure
 
-L’un des avantages de l’exécution de votre charge de travail dans Azure est sa portée mondiale. Le serveur flexible est disponible aujourd’hui dans les régions Azure suivantes :
+L’un des avantages de l’exécution de votre charge de travail dans Azure est sa portée mondiale. Le serveur flexible est actuellement disponible dans les régions Azure suivantes :
 
 | Region | Disponibilité | Haute disponibilité redondante interzone | 
 | --- | --- | --- |
-| Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
-| Europe Nord | :heavy_check_mark: | :heavy_check_mark: |
-| Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | 
-| USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
-| USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Australie Est | :heavy_check_mark: | :heavy_check_mark: | 
+| Sud-Australie Est | :heavy_check_mark: | :x: | 
+| Brésil Sud | :heavy_check_mark: | :x: |
+| Centre du Canada | :heavy_check_mark: | :heavy_check_mark: | 
 | USA Centre | :heavy_check_mark: | :heavy_check_mark: | 
 | USA Est | :heavy_check_mark: | :heavy_check_mark: | 
-| Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: |
-| Japon Est | :heavy_check_mark: | :heavy_check_mark: | 
-| Australie Est | :heavy_check_mark: | :heavy_check_mark: | 
-| Centre du Canada | :heavy_check_mark: | :heavy_check_mark: | 
+| USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
 | France Centre | :heavy_check_mark: | :heavy_check_mark: | 
+| Japon Est | :heavy_check_mark: | :heavy_check_mark: | 
+| Centre de la Corée | :heavy_check_mark: | :x: | 
+| Europe Nord | :heavy_check_mark: | :heavy_check_mark: |
+| Norvège Est | :heavy_check_mark: | :x: |
+| Afrique du Sud Nord | :heavy_check_mark: | :x: |
+| Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: |
+| Suisse Nord | :heavy_check_mark: | :x: |
+| Émirats arabes unis Nord | :heavy_check_mark: | :x: |
+| Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | 
+| Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
+| USA Ouest | :heavy_check_mark: | :x: |
+| USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |
 
-Nous continuons d’ajouter d’autres régions pour le serveur flexible.
+<!-- We continue to add more regions for flexible server. -->
 
 ## <a name="migration"></a>Migration
 

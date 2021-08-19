@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Ajouter un administrateur'
+title: 'Démarrage rapide : Ajouter un administrateur'
 description: Dans ce tutoriel, vous allez apprendre à ajouter un autre utilisateur administratif à votre espace de travail.
 services: synapse-analytics
 author: saveenr
@@ -10,12 +10,13 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/02/2021
-ms.openlocfilehash: 8b854dfcff7dfb4d03038b542308b6f3ebb6d491
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 7a03715a89b5319e341d1704719b020e1b61ef1d
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553496"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113219417"
 ---
 # <a name="add-an-administrator-to-your-synapse-workspace"></a>Ajouter un administrateur à votre espace de travail Synapse
 
@@ -27,12 +28,20 @@ Jusqu'à présent, dans le guide de démarrage, nous nous sommes concentrés sur
 
 ## <a name="azure-rbac-owner-role-for-the-workspace"></a>Azure RBAC : Rôle de Propriétaire de l'espace de travail
 
-Attribuez à `ryan@contoso.com` le rôle de **Propriétaire** Azure RBAC sur l'espace de travail.
+1. Ouvrez le portail Azure, puis votre espace de travail Synapse.
+1. Sur le côté gauche, sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Propriétaire |
+    | Attribuer l’accès à | Utilisateur |
+    | Membre | ryan@contoso.com |
 
-1. Ouvrez le portail Azure, puis votre espace de travail.
-1. Sur le côté gauche, sélectionnez **Contrôle d'accès (IAM)** .
-1. Attribuez à `ryan@contoso.com` le rôle de **Propriétaire**. 
-1. Cliquez sur **Enregistrer**.
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. Sélectionnez **Enregistrer**. 
  
  
 ## <a name="synapse-rbac-synapse-administrator-role-for-the-workspace"></a>Synapse RBAC : Rôle d'Administrateur Synapse de l'espace de travail
@@ -40,22 +49,28 @@ Attribuez à `ryan@contoso.com` le rôle de **Propriétaire** Azure RBAC sur l'e
 Attribuez à `ryan@contoso.com` le rôle d'**Administrateur Synapse** Synapse RBAC sur l’espace de travail.
 
 1. Ouvrez votre espace de travail dans Synapse Studio.
-1. Sur le côté gauche, cliquez sur **Gérer** pour ouvrir le hub Gérer.
-1. Sous **Sécurité**, cliquez sur **Contrôle d'accès**.
-1. Cliquez sur **Add**.
+1. Sur le côté gauche, sélectionnez **Gérer** pour ouvrir le hub Gérer.
+1. Sous **Sécurité**, sélectionnez **Contrôle d’accès**.
+1. Sélectionnez **Ajouter**.
 1. Laissez le champ **Étendue** défini sur **Espace de travail**.
 1. Attribuez à `ryan@contoso.com` le rôle d'**Administrateur Synapse**. 
-1. Cliquez ensuite sur **Appliquer**.
+1. Ensuite, sélectionnez **Appliquer**.
  
-## <a name="azure-rbac-role-assignments-on-the-primary-storage-account"></a>RBAC Azure : Attributions de rôle sur le compte de stockage principal
-
-Attribuez à `ryan@contoso.com` le rôle de **Propriétaire** sur le compte de stockage principal de l'espace de travail.
-Attribuez à `ryan@contoso.com` le rôle de **Contributeur aux données Azure Storage Blob** sur le compte de stockage principal de l'espace de travail.
+## <a name="azure-rbac-role-assignments-on-the-workspaces-primary-storage-account"></a>RBAC Azure : Attributions de rôle sur le compte de stockage principal de l’espace de travail
 
 1. Ouvrez le compte de stockage principal de l'espace de travail sur le portail Azure.
-1. Sur le côté gauche, cliquez sur **Contrôle d'accès (IAM)** .
-1. Attribuez à `ryan@contoso.com` le rôle de **Propriétaire**. 
-1. Attribuez à `ryan@contoso.com` le rôle de **Contributeur aux données Azure Storage Blob**.
+1. Sur le côté gauche, sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Rôle 1 | Propriétaire |
+    | Rôle 2| Contributeur aux données Azure Storage Blob|
+    | Attribuer l’accès à | Utilisateur |
+    | Membre | ryan@contoso.com |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="dedicated-sql-pools-db_owner-role"></a>Pools SQL dédiés : Rôle db_owner
 
