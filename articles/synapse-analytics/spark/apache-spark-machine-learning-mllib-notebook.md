@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 5caa41b852bf55a11489db6c0bab871b20720e05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: c0be8241b438a010a44c4b9dbabbb05d5ac290b3
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670663"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217086"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutoriel : Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -195,9 +196,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Maintenant qu’il existe deux DataFrames, la tâche suivante consiste à créer la formule du modèle et à l’exécuter sur le DataFrame d’entraînement. Vous pouvez ensuite effectuer une validation par rapport au DataFrame de test. Faites des essais avec différentes versions de la formule du modèle pour voir l’impact de différentes combinaisons.
 
 > [!Note]
-> Pour enregistrer le modèle, vous aurez besoin du rôle Azure *Contributeur aux données Blob du stockage*. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure Contributeur aux données Blob du stockage à votre serveur Azure SQL Database. Seuls les membres dotés de privilèges de propriétaire peuvent effectuer cette étape. 
->
->Pour découvrir les divers rôles intégrés Azure, consultez [ce guide](../../role-based-access-control/built-in-roles.md).
+> Pour enregistrer le modèle, affectez le rôle *Contributeur de données d’objet blob de stockage* à l’étendue de la ressource serveur d’Azure SQL Database. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md). Seuls les membres dotés de privilèges de propriétaire peuvent effectuer cette étape.
 
 ```python
 ## Create a new logistic regression object for the model

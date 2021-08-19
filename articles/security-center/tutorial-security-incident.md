@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d11384a3a1cab1ef5145a8e29a64e26552862da
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453442"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236874"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutoriel : Trier les alertes de sécurité, les examiner et y répondre
 Security Center analyse continuellement vos charges de travail de cloud hybride à l’aide de l’analytique avancée et du renseignement sur les menaces, afin de vous avertir des activités potentiellement malveillantes détectées sur vos ressources cloud. Vous pouvez également intégrer à Security Center des alertes provenant d’autres produits et services de sécurité. Lorsqu’une alerte est déclenchée, vous devez agir rapidement pour examiner et résoudre le problème de sécurité potentiel. 
@@ -60,7 +60,7 @@ Quand vous avez décidé de l’alerte à examiner en premier :
 1. Dans la page de vue d’ensemble de l’alerte, sélectionnez la ressource à examiner en premier.
 1. Commencez votre investigation dans le volet gauche, qui affiche les informations générales de l’alerte de sécurité.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Volet gauche de la page Détails de l’alerte mettant en évidence les informations générales":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Volet gauche de la page Détails de l’alerte mettant en évidence les informations générales.":::
 
     Ce volet affiche les éléments suivants :
     - Gravité de l’alerte, état et durée d’activité
@@ -80,7 +80,7 @@ Après avoir examiné une alerte de sécurité et compris son étendue, vous pou
 
 1.  Ouvrez l’onglet **Entreprendre une action** pour voir les réponses recommandées.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Onglet Entreprendre une action pour les alertes de sécurité" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Onglet Entreprendre une action pour les alertes de sécurité." lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Consultez la section **Atténuer la menace**, qui indique les étapes d’investigation manuelle nécessaires à l’atténuation du problème.
 1.  Pour renforcer vos ressources et empêcher les futures attaques de ce genre, appliquez les recommandations de sécurité indiquées dans la section **Empêcher les attaques futures**.
@@ -97,7 +97,7 @@ Après avoir examiné une alerte de sécurité et compris son étendue, vous pou
     1. en la signalant comme étant **Utile** ou **Inutile**.
     1. Sélectionnez une raison et ajoutez un commentaire.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Fournir des commentaires à Microsoft sur l’utilité d’une alerte":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Fournir des commentaires à Microsoft sur l’utilité d’une alerte.":::
 
     > [!TIP]
     > Nous examinons vos commentaires afin d’améliorer nos algorithmes et de fournir de meilleures alertes de sécurité.

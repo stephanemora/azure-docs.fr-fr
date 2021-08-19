@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/22/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 11c0a621375cfa57c8b25f0bdd5ed4651dffa853
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f634cb35590a428613858a88a71db1d0792ceb06
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949412"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967499"
 ---
 # <a name="tutorial-create-your-project"></a>Tutoriel : Créer votre projet
 
@@ -26,7 +26,6 @@ Dans ce didacticiel, vous apprendrez à :
 > * Spécifier les détails d’appareil de base de votre projet
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un [compte Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) professionnel/scolaire valide.
 - Un compte MPN (Microsoft Partner Network) vérifié. Si vous n’avez pas de compte MPN, [rejoignez le réseau de partenaires](https://partner.microsoft.com/) avant de commencer. 
@@ -65,6 +64,10 @@ Ensuite, vous devez fournir des informations de base sur l’appareil. Vous pour
     | Type d’appareil            | Spécification de Produit fini ou de Kit de développement prêt pour la solution.     Pour plus d’informations sur la terminologie, consultez le [glossaire des certifications](./resources-glossary.md).                                                                     |
     | Classe d’appareil           | Passerelle, capteur ou autre.  Pour plus d’informations sur la terminologie, consultez le [glossaire des certifications](./resources-glossary.md).                                                                    |
     | URL du code source de l’appareil | Obligatoire si vous certifiez un kit de développement prêt pour la solution, facultatif dans le cas contraire. L’URL doit pointer vers un emplacement GitHub pour le code de votre appareil. |
+
+    > [!Note]
+    > Si vous promouvez un service Microsoft (par exemple, Azure Sphere), assurez-vous que le nom de votre appareil respecte les [instructions de personnalisation](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) de Microsoft.
+
 1. Sélectionnez le bouton `Next` (Suivant) pour accéder à l’onglet `Certifications`.
 
     ![Image du formulaire de création de projet, onglet Certifications](./media/images/create-new-project-certificationswindow.png)

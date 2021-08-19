@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/01/2021
+ms.date: 07/25/2021
 ms.author: memildin
-ms.openlocfilehash: cff1215fadcd26f18b75c33bba6794c625729e5d
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 2770c3532dd83051f9c2c7dcc770850e85aeae4b
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113225585"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689583"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -28,29 +28,13 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 | Modifications planifiées                                                                                                                                                                                          | Date estimée de la modification |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Exportations CSV à limiter à 20 Mo](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | Juillet 2021                 |
 | [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | Juillet 2021                 |
 | [Dépréciation de la recommandation « Les problèmes d’intégrité de l’agent Log Analytics doivent être résolus sur vos machines »](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | Juillet 2021                 |
-| [Améliorations apportées à la recommandation de classification des données SQL](#enhancements-to-sql-data-classification-recommendation)                                                                                       | T3 2021                   |
+| [Réorganisation logique d’Azure Defender pour les alertes Gestionnaire des ressources](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                                           | Août 2021               |
+| [Exportations CSV à limiter à 20 Mo](#csv-exports-to-be-limited-to-20-mb)                                                                                                                               | Août 2021               |
 | [Activer le contrôle de sécurité Azure Defender à inclure au degré de sécurisation](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | T3 2021                   |
-|                                                                                                                                                                                                         |                           |
+| [Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | PREMIER TRIMESTRE 2022                   ||                                                                                                                                                                                                         |                           |
 
-
-### <a name="csv-exports-to-be-limited-to-20-mb"></a>Exportations CSV à limiter à 20 Mo
-
-**Date estimée de la modification :** juillet 2021
-
-Lors de l’exportation des données de recommandations Security Center, il n’existe actuellement aucune limite quant au volume de données que vous pouvez télécharger.
-
-:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Bouton « Télécharger le rapport CSV » de Security Center pour exporter les données de recommandation.":::
-
-Avec cette modification, nous instaurons une limite de 20 Mo.
-
-S’il vous faut exporter de plus grands volumes de données, utilisez les filtres disponibles avant sélection ou sélectionnez des sous-ensembles de vos abonnements et téléchargez les données par lots.
-
-:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtrage des abonnements dans le portail Azure.":::
-
-Apprenez-en davantage sur [l’exécution d’une exportation CSV de vos recommandations de sécurité](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013
 
@@ -77,11 +61,62 @@ Il est probable que cette modification influe sur vos scores de sécurité. Pour
 > [!TIP]
 > La page [Inventaire des ressources](asset-inventory.md) est également concernée par cette modification, car elle affiche aussi des informations indiquant si une machine est surveillée, non surveillée ou partiellement surveillée (un état qui fait référence à un agent avec problèmes d’intégrité). 
 
-### <a name="enhancements-to-sql-data-classification-recommendation"></a>Améliorations apportées à la recommandation de classification des données SQL
 
-**Date estimée de la modification :** T3 2021
+### <a name="logical-reorganization-of-azure-defender-for-resource-manager-alerts"></a>Réorganisation logique d’Azure Defender pour les alertes Gestionnaire des ressources
 
-La recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** du contrôle de sécurité **Appliquer la classification des données** va être remplacée par une nouvelle version mieux alignée sur la stratégie de classification des données de Microsoft. L’ID de la recommandation sera donc également modifié (actuellement, il s’agit de b0df6f56-862d-4730-8597-38c0fd4ebd59).
+**Date estimée de la modification :** Août 2021
+
+Les alertes énumérées ci-dessous sont actuellement fournies dans le cadre du plan [Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md).
+
+Dans le cadre d’une réorganisation logique de certains des plans Azure Defender, nous déplaçons certaines alertes d’**Azure Defender pour Resource Manager** à **Azure Defender pour les serveurs**.
+
+Les alertes sont organisées en fonction de deux principes essentiels :
+
+- Les alertes qui fournissent une protection de plan de contrôle, sur de nombreux types de ressources Azure, feront partie d’Azure Defender pour Resource Manager
+- Les alertes qui protègent des charges de travail spécifiques seront déplacées vers le plan Azure Defender correspondant associé à cette charge de travail
+
+Voici les alertes qui font actuellement partie d’Azure Defender pour Resource Manager, et qui, suite à cette modification, seront déplacées vers Azure Defender pour les serveurs :
+
+- ARM_AmBroadFilesExclusion
+- ARM_AmDisablementAndCodeExecution
+- ARM_AmDisablement
+- ARM_AmFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusion
+- ARM_AmRealtimeProtectionDisabled
+- ARM_AmTempRealtimeProtectionDisablement
+- ARM_AmRealtimeProtectionDisablementAndCodeExec
+- ARM_AmMalwareCampaignRelatedExclusion
+- ARM_AmTemporarilyDisablement
+- ARM_UnusualAmFileExclusion
+- ARM_CustomScriptExtensionSuspiciousCmd
+- ARM_CustomScriptExtensionSuspiciousEntryPoint
+- ARM_CustomScriptExtensionSuspiciousPayload
+- ARM_CustomScriptExtensionSuspiciousFailure
+- ARM_CustomScriptExtensionUnusualDeletion
+- ARM_CustomScriptExtensionUnusualExecution
+- ARM_VMAccessUnusualConfigReset
+- ARM_VMAccessUnusualPasswordReset
+- ARM_VMAccessUnusualSSHReset
+
+En savoir plus sur [Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) et [Azure Defender pour les serveurs](defender-for-servers-introduction.md).
+
+
+### <a name="csv-exports-to-be-limited-to-20-mb"></a>Exportations CSV à limiter à 20 Mo
+
+**Date estimée de la modification :** Août 2021
+
+Lors de l’exportation des données de recommandations Security Center, il n’existe actuellement aucune limite quant au volume de données que vous pouvez télécharger.
+
+:::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Bouton « Télécharger le rapport CSV » de Security Center pour exporter les données de recommandation.":::
+
+Avec cette modification, nous instaurons une limite de 20 Mo.
+
+S’il vous faut exporter de plus grands volumes de données, utilisez les filtres disponibles avant sélection ou sélectionnez des sous-ensembles de vos abonnements et téléchargez les données par lots.
+
+:::image type="content" source="media/upcoming-changes/filter-subscriptions.png" alt-text="Filtrage des abonnements dans le portail Azure.":::
+
+Apprenez-en davantage sur [l’exécution d’une exportation CSV de vos recommandations de sécurité](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations).
 
 ### <a name="enable-azure-defender-security-control-to-be-included-in-secure-score"></a>Activer le contrôle de sécurité Azure Defender à inclure au degré de sécurisation
 
@@ -96,6 +131,12 @@ Lorsque vous activez Azure Defender, vous étendez les fonctionnalités du mode 
 Cette modification aura un impact sur le degré de sécurisation de tous les abonnements qui ne sont pas protégés par Azure Defender. Nous vous suggérons d’activer Azure Defender avant cette modification pour vous assurer qu’il n’y a aucun impact sur le vôtre. 
 
 Pour plus d’informations, consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
+
+### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL
+
+**Date estimée de la modification :** T1 2022
+
+La recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** du contrôle de sécurité **Appliquer la classification des données** va être remplacée par une nouvelle version mieux alignée sur la stratégie de classification des données de Microsoft. L’ID de la recommandation sera donc également modifié (actuellement, il s’agit de b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

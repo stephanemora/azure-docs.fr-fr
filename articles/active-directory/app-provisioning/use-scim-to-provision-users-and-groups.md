@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ddc50ab8c72017160a7032e35a69eedf85ebac95
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784806"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707921"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutoriel : Développer et planifier le provisionnement d’un point de terminaison SCIM dans Azure Active Directory
 
@@ -192,8 +192,6 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 |Modifier des utilisateurs ou des groupes avec des requêtes PATCH|[section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). La prise en charge garantit que les groupes et les utilisateurs sont provisionnés de manière performante.|
 |Récupérer une ressource connue pour un utilisateur ou un groupe créé précédemment|[section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |Interroger des utilisateurs ou des groupes|[section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalId`, et les groupes sont interrogés via `displayName`.|
-|Interroger l’utilisateur en utilisant son ID et son responsable|section 3.4.2|
-|Interroger un groupe en utilisant son ID et les membres qui le composent|section 3.4.2|
 |Le filtre [excludedAttributes=members](#get-group) lors de l’interrogation de la ressource de groupe|section 3.4.2.5|
 |Accepter un jeton du porteur unique pour l’authentification et l’autorisation d’AAD dans votre application.||
 |Suppression réversible d’un utilisateur `active=false` et restauration de l’utilisateur `active=true`.|L’objet utilisateur doit être retourné dans une requête, que l’utilisateur soit actif ou non. La seule fois où l’utilisateur ne doit pas être retourné est lorsqu’il est supprimé définitivement de l’application.|
@@ -201,22 +199,37 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 
 Suivez ces recommandations lors de l’implémentation d’un point de terminaison SCIM pour garantir la compatibilité avec AAD :
 
+##### <a name="general"></a>Général : 
 * `id` est une propriété obligatoire pour toutes les ressources. Chaque réponse qui retourne une ressource doit garantir que chaque ressource dispose de cette propriété, sauf pour `ListResponse` sans membre.
-* La réponse à une demande de requête/filtre doit toujours être `ListResponse`.
-* Les groupes sont facultatifs et uniquement pris en charge si l’implémentation SCIM prend en charge les requêtes **PATCH**.
+* Les valeurs envoyées doivent être stockées dans le même format que celui dans lequel elles ont été envoyées. Les valeurs non valides doivent être rejetées avec un message d’erreur descriptif et exploitable. Les transformations de données ne doivent pas se produire entre les données envoyées par Azure AD et les données stockées dans l’application SCIM. (par exemple, un numéro de téléphone envoyé comme 55555555555 ne doit pas être enregistré/retourné sous la forme + 5 (555) 555-5555)
 * Il n’est pas nécessaire d’inclure la ressource entière dans la réponse **PATCH**.
-* Microsoft AAD utilise uniquement les opérateurs suivants : `eq`, `and`
 * N’exigez pas un respect de la casse pour les éléments structurels SCIM, en particulier pour les valeurs d’opération `op` **PATCH**, comme défini dans la [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD émet les valeurs de `op` ainsi : **Ajouter**, **Remplacer** et **Supprimer**.
 * Microsoft AAD effectue des requêtes pour récupérer un utilisateur et un groupe aléatoires afin de vérifier que le point de terminaison et les informations d’identification sont valides. C’est également fait dans le cadre d’un flux de **Connexion test** dans le [portail Azure](https://portal.azure.com). 
-* L’attribut à l’aide duquel peuvent être interrogées les ressources doit être défini comme attribut correspondant dans l’application sur le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Personnalisation des mappages d’attributs pour le provisionnement d’utilisateurs](customize-application-attributes.md).
-* L’attribut de droit n’est pas pris en charge.
 * Prenez en charge HTTPS sur votre point de terminaison SCIM.
-* [Découverte de schéma](#schema-discovery)
-  * La découverte de schéma n’est pas actuellement prise en charge sur l’application personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera la seule méthode utilisée pour ajouter des attributs supplémentaires à un connecteur existant. 
-  * Si aucune valeur n’est présente, n’envoyez pas de valeurs Null.
-  * Utilisez une casse mixte pour les valeurs de propriété (par exemple, readWrite).
-  * Doit retourner une réponse de liste.
-  * La requête /schemas sera effectuée par le client SCIM Azure AD chaque fois qu’une personne enregistrera la configuration du provisionnement dans le portail Azure ou chaque fois qu’un utilisateur accèdera à la page de modification du provisionnement dans le portail Azure. Tous les attributs supplémentaires découverts seront exposés aux clients dans les mappages d’attributs sous la liste des attributs cibles. La découverte de schéma entraîne uniquement l’ajout d’attributs cibles supplémentaires. Elle n’entraîne pas la suppression d’attributs. 
+* Les attributs complexes et à valeurs multiples personnalisés sont pris en charge, mais AAD ne dispose pas de nombreuses structures de données complexes pour extraire des données dans ces cas. Les attributs complexes de type nom/valeur en paires simples peuvent être mappés facilement, mais la circulation d’attributs complexes avec au moins trois sous-attributs n’est pas bien prise en charge pour le moment.
+
+##### <a name="retrieving-resources"></a>Récupération de ressources :
+* La réponse à une demande de requête/filtre doit toujours être `ListResponse`.
+* Microsoft AAD utilise uniquement les opérateurs suivants : `eq`, `and`
+* L’attribut à l’aide duquel peuvent être interrogées les ressources doit être défini comme attribut correspondant dans l’application sur le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Personnalisation des mappages d’attributs pour le provisionnement d’utilisateurs](customize-application-attributes.md).
+
+##### <a name="users"></a>/Users :
+* L’attribut de droit n’est pas pris en charge.
+* Tous les attributs pris en compte pour l’unicité de l’utilisateur doivent être utilisables dans le cadre d’une requête filtrée. (Par exemple, si l’unicité de l’utilisateur est évaluée pour userName et emails[type eq "work"], un GET sur /Users doit permettre les requêtes _userName eq "user@contoso.com"_ et _emails[type eq "work"] eq "user@contoso.com"_ .
+
+##### <a name="groups"></a>/Groups :
+* Les groupes sont facultatifs et uniquement pris en charge si l’implémentation SCIM prend en charge les requêtes **PATCH**.
+* les groupes doivent avoir une unicité sur la valeur’displayName’ à des fins de correspondance entre Azure Active Directory et l’application SCIM. Ce n’est pas une exigence du protocole SCIM, mais cela est nécessaire pour intégrer un service SCIM avec Azure Active Directory.
+
+##### <a name="schemas-schema-discovery"></a>/Schemas (découverte de schéma) :
+
+* [Exemple de demande/réponse](#schema-discovery)
+* La découverte de schéma n’est pas actuellement prise en charge sur l’application hors galerie personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera la seule méthode utilisée pour ajouter des attributs supplémentaires au schéma d’une application SCIM de la galerie existante. 
+* Si aucune valeur n’est présente, n’envoyez pas de valeurs Null.
+* Utilisez une casse mixte pour les valeurs de propriété (par exemple, readWrite).
+* Doit retourner une réponse de liste.
+* La requête /schemas sera effectuée par le client SCIM Azure AD chaque fois qu’une personne enregistrera la configuration du provisionnement dans le portail Azure ou chaque fois qu’un utilisateur accèdera à la page de modification du provisionnement dans le portail Azure. Tous les attributs supplémentaires découverts seront exposés aux clients dans les mappages d’attributs sous la liste des attributs cibles. La découverte de schéma entraîne uniquement l’ajout d’attributs cibles supplémentaires. Elle n’entraîne pas la suppression d’attributs. 
+
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Approvisionnement et déprovisionnement d'utilisateurs
 
@@ -888,6 +901,8 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 ### <a name="ip-ranges"></a>Plages d’adresses IP
 Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. Notez que vous devez examiner attentivement la liste des plages d’adresses IP pour les adresses calculées. Une adresse telle que « 40.126.25.32 » peut être représentée dans la liste de plages d’adresses IP sous la forme « 40.126.0.0/18 ». Vous pouvez aussi récupérer programmatiquement la liste de plages d’adresses IP avec l’[API](/rest/api/virtualnetwork/servicetags/list) suivante.
 
+Azure AD prend également en charge une solution basée sur agent pour assurer la connectivité aux applications dans les réseaux privés (localement, hébergés dans Azure, hébergés dans AWS, etc.). Les clients peuvent déployer un agent léger, qui permet de se connecter à Azure AD sans ouvrir de ports entrants sur un serveur de leur réseau privé. En savoir plus [ici](/app-provisioning/on-premises-scim-provisioning).
+
 ## <a name="build-a-scim-endpoint"></a>Créer un point de terminaison SCIM
 
 Maintenant que vous avez conçu votre schéma et compris l'implémentation d'Azure AD SCIM, vous pouvez commencer à développer votre point de terminaison SCIM. Plutôt que de réaliser l’ensemble de la procédure et de créer l’implémentation entièrement par vous-même, vous pouvez vous appuyer sur un certain nombre de bibliothèques SCIM open source publiées par la communauté SCIM.
@@ -1339,7 +1354,7 @@ La spécification SCIM ne définit pas un schéma propre à SCIM pour l’authe
 
 |Méthode d’autorisation|Avantages|Inconvénients|Support|
 |--|--|--|--|
-|Nom d’utilisateur et mot de passe (non recommandé ou pris en charge par Azure AD)|Facile à implémenter|Non sécurisé - [Votre Pa$$word n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Prise en charge au cas par cas pour les applications de la galerie. Pas de prise en charge pour les applications ne figurant pas dans la galerie.|
+|Nom d’utilisateur et mot de passe (non recommandé ou pris en charge par Azure AD)|Facile à implémenter|Non sécurisé - [Votre Pa$$word n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Non pris en charge pour les nouvelles applications de la galerie ou hors galerie.|
 |Jeton de porteur de longue durée|Les jetons de longue durée ne nécessitent aucune intervention de la part d’un utilisateur. Ils sont simples à utiliser par les administrateurs qui configurent le provisionnement.|Les jetons de longue durée peuvent être difficiles à partager avec un administrateur sans utiliser de méthodes non sécurisées telles que la messagerie électronique. |Prise en charge pour toutes les applications (celles de la galerie et les autres). |
 |Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie, mais pas pour les autres. Toutefois, vous pouvez fournir un jeton d’accès dans l’interface utilisateur en tant que jeton secret à des fins de test à court terme. La prise en charge de l’octroi de code OAuth pour les applications hors galerie fait partie de notre backlog. De même, la prise en charge des URL d’authentification/de jeton configurables pour l’application de galerie fait également partie de notre backlog.|
 |Octroi d’informations d’identification de client OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée. L’octroi du code d’autorisation et l’octroi d’informations d’identification du client permettent de créer le même type de jeton d’accès. L’utilisation de l’une ou l’autre de ces méthodes est donc transparente pour l’API.  Le provisionnement peut être entièrement automatisé, et de nouveaux jetons peuvent être demandés sans l’assistance d’un utilisateur. ||Pas de prise en charge pour les applications de la galerie ni pour les autres. La prise en charge est dans notre backlog.|
