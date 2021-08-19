@@ -1,31 +1,33 @@
 ---
-title: Accéder à un serveur SQL local à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé
-description: Ce tutoriel explique comment utiliser le portail Azure pour configurer le service Private Link et accéder à un serveur SQL Server local à partir d’un VNET managé en utilisant un point de terminaison privé.
+title: Accéder à un serveur SQL local à partir d’un VNet managé Data Factory en utilisant un point de terminaison privé
+description: Ce tutoriel explique comment utiliser le portail Azure pour configurer le service Private Link et accéder à un serveur SQL Server local à partir d’un VNet managé en utilisant un point de terminaison privé.
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: c389eab986fa317174db08a3e33d54d595c50c4c
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: bb29c7712bdbe629ff3aa8704c0c4654404f0da3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657361"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971842"
 ---
-# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutoriel : Guide pratique pour accéder à un serveur SQL local à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé
+# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>Tutoriel : Guide pratique pour accéder à un serveur SQL local à partir d’un VNet managé Data Factory en utilisant un point de terminaison privé
 
-Ce tutoriel explique comment utiliser le portail Azure pour configurer le service Private Link et accéder à un serveur SQL Server local à partir d’un VNET managé en utilisant un point de terminaison privé.
+Ce tutoriel explique comment utiliser le portail Azure pour configurer le service Private Link et accéder à un serveur SQL Server local à partir d’un VNet managé en utilisant un point de terminaison privé.
+
+> [!NOTE]
+> La solution présentée dans cet article décrit la connectivité SQL Server, mais vous pouvez utiliser une approche similaire pour connecter et interroger les autres [connecteurs locaux](connector-overview.md) disponibles pris en charge dans Azure Data Factory.
 
 :::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Capture d’écran montrant le modèle d’accès du serveur SQL" lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
-
 
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Réseau virtuel**. Si vous n’avez pas de réseau virtuel, créez-en un en suivant la procédure [Créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
-* **Réseau virtuel connecté à un réseau local**. Créez une connexion entre le réseau virtuel et le réseau local en utilisant [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json).
-* **Data Factory avec VNET managé activé**. Si vous n’avez pas de fabrique de données ou que le VNET managé n’est pas activé, créez-en une en suivant la procédure [Créer une fabrique de données avec VNET managé](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private).
+* **Réseau virtuel**. Si vous n’avez pas de réseau virtuel, créez-en un en suivant la procédure [Créer un réseau virtuel](../virtual-network/quick-create-portal.md).
+* **Réseau virtuel connecté à un réseau local**. Créez une connexion entre le réseau virtuel et le réseau local en utilisant [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) ou un [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json).
+* **Data Factory avec VNet managé activé**. Si vous n’avez pas de fabrique de données ou que le VNet managé n’est pas activé, créez-en une en suivant la procédure [Créer une fabrique de données avec VNet managé](tutorial-copy-data-portal-private.md).
 
 ## <a name="create-subnets-for-resources"></a>Créer des sous-réseaux pour les ressources
 
@@ -212,8 +214,10 @@ Dans cette section, vous allez créer un service Private Link derrière un équi
 2. Exécutez le script avec les options suivantes :<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> correspond à l’adresse IP cible du serveur SQL Server.<br/>
-    >[!Note] 
-    >Pour que le nom de domaine complet fonctionne sur le serveur SQL Server local, vous devez ajouter un enregistrement dans la zone Azure DNS.
+    
+    > [!Note] 
+    > Pour que le nom de domaine complet fonctionne sur le serveur SQL Server local, vous devez ajouter un enregistrement dans la zone Azure DNS.
+    
 3. Exécutez la commande ci-dessous et vérifiez les tables iptable dans les machines virtuelles de serveur back-end. Dans vos tables iptable, vous pouvez voir un enregistrement comportant votre adresse IP cible.<br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
 
@@ -266,7 +270,7 @@ Accédez à la machine virtuelle de serveur back-end, puis vérifiez avec la com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez au tutoriel suivant pour découvrir comment accéder à une instance managée Microsoft Azure SQL à partir d’un VNET managé Data Factory en utilisant un point de terminaison privé :
+Passez au tutoriel suivant pour découvrir comment accéder à une instance managée Microsoft Azure SQL à partir d’un VNet managé Data Factory en utilisant un point de terminaison privé :
 
 > [!div class="nextstepaction"]
-> [Accéder à une instance managée SQL à partir d’un VNET managé Data Factory](tutorial-managed-virtual-network-sql-managed-instance.md)
+> [Accéder à une instance managée SQL à partir d’un VNet managé Data Factory](tutorial-managed-virtual-network-sql-managed-instance.md)

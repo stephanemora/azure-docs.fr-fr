@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix ADC (authentification Kerberos) | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique (SSO) entre Azure Active Directory et Citrix ADC à l’aide d’une authentification Kerberos.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory au connecteur Citrix ADC SAML pour Azure AD (authentification Kerberos) | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique (SSO) entre Azure Active Directory et le connecteur Citrix ADC SAML pour Azure AD à l’aide d’une authentification Kerberos.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 06/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 75d46edb332fb28132592e414e78bad64e75fef5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 915c8d7767842a698c786052f93e81097a4f79c3
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736408"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986189"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-kerberos-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Citrix ADC (authentification Kerberos)
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-saml-connector-for-azure-ad-kerberos-based-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory au connecteur Citrix ADC SAML pour Azure AD (authentification Kerberos)
 
-Ce tutoriel explique comment intégrer Citrix ADC avec Azure Active Directory (Azure AD). Quand vous intégrez Citrix ADC avec Azure AD, vous pouvez :
+Ce tutoriel explique comment intégrer le connecteur Citrix ADC SAML pour Azure AD à Azure Active Directory (Azure AD). Lorsque vous intégrez le connecteur Citrix ADC SAML pour Azure AD à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à Citrix ADC.
-* Permettre à vos utilisateurs de se connecter automatiquement à Citrix ADC avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès au connecteur Citrix ADC SAML pour Azure AD.
+* Permettre à vos utilisateurs de se connecter automatiquement au connecteur Citrix ADC SAML pour Azure AD avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -31,24 +31,24 @@ Ce tutoriel explique comment intégrer Citrix ADC avec Azure Active Directory (A
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement Citrix ADC pour lequel l’authentification unique (SSO) est activée.
+* Abonnement activé pour l’authentification unique du connecteur Citrix ADC SAML pour Azure AD.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Ce tutoriel inclut les scénarios suivants :
 
-* Authentification unique **lancée par le fournisseur de services** pour Citrix ADC
+* Authentification unique **initiée par le fournisseur de service** pour le connecteur Citrix ADC SAML pour Azure AD.
 
-* Attribution d’utilisateurs **juste-à-temps** pour Citrix ADC
+* Approvisionnement d’utilisateur **juste-à-temps** pour le connecteur Citrix ADC SAML pour Azure AD.
 
-* [Authentification Kerberos pour Citrix ADC](#publish-the-web-server)
+* [Authentification Kerberos pour le connecteur SAML ADC pour Azure AD](#publish-the-web-server).
 
-* [Authentification par en-tête pour Citrix ADC](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+* [Authentification basée sur l’en-tête pour le connecteur SAML ADC pour Azure AD](header-citrix-netscaler-tutorial.md#publish-the-web-server).
 
 
-## <a name="add-citrix-adc-from-the-gallery"></a>Ajout de Citrix ADC à partir de la galerie
+## <a name="add-citrix-adc-saml-connector-for-azure-ad-from-the-gallery"></a>Ajouter le connecteur Citrix ADC SAML pour Azure AD à partir de la galerie
 
-Pour intégrer Citrix ADC à Azure AD, ajoutez d’abord Citrix ADC à votre liste d’applications SaaS managées à partir de la galerie :
+Pour intégrer le connecteur Citrix ADC SAML pour Azure AD à Azure AD, commencez par ajouter le connecteur Citrix ADC SAML pour Azure AD à votre liste d’applications SaaS gérées à partir de la galerie :
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 
@@ -58,15 +58,15 @@ Pour intégrer Citrix ADC à Azure AD, ajoutez d’abord Citrix ADC à votre lis
 
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 
-1. Dans la section **Ajouter à partir de la galerie**, entrez **Citrix ADC** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, entrez **Connecteur Citrix ADC SAML pour Azure AD** dans la zone de recherche.
 
-1. Dans les résultats, sélectionnez **Citrix ADC**, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans les résultats, sélectionnez **Connecteur Citrix ADC SAML pour Azure AD**, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso-for-citrix-adc"></a>Configurer et tester l’authentification unique Azure AD pour Citrix ADC
+## <a name="configure-and-test-azure-ad-sso-for-citrix-adc-saml-connector-for-azure-ad"></a>Configurer et tester l’authentification unique Azure AD pour le connecteur Citrix ADC SAML pour Azure AD
 
-Configurez et testez l’authentification unique Azure AD avec Citrix ADC à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Citrix ADC associé.
+Configurez et testez l’authentification unique Azure AD avec le connecteur Citrix ADC SAML pour Azure AD à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur du connecteur Citrix ADC SAML pour Azure AD associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Citrix ADC, effectuez les étapes suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec le connecteur Citrix ADC SAML pour Azure AD, effectuez les étapes suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-sso) : pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 
@@ -74,9 +74,9 @@ Pour configurer et tester l’authentification unique Azure AD avec Citrix ADC,
 
     1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) : pour permettre à B.Simon d’utiliser l’authentification unique Azure AD.
 
-1. [Configurer l’authentification unique Citrix ADC](#configure-citrix-adc-sso) pour configurer les paramètres d’authentification unique côté application.
+1. [Configurer l’authentification unique pour le connecteur Citrix ADC SAML pour Azure AD](#configure-citrix-adc-saml-connector-for-azure-ad-sso) pour configurer les paramètres d’authentification unique côté application.
 
-    * [Créer un utilisateur de test Citrix ADC](#create-a-citrix-adc-test-user) pour avoir un équivalent de B.Simon dans Citrix ADC lié à la représentation Azure AD de l’utilisateur.
+    1. [Créer un utilisateur de test pour le connecteur Citrix ADC SAML pour Azure AD](#create-citrix-adc-saml-connector-for-azure-ad-test-user). Pour avoir un équivalent de B.Simon dans le connecteur Citrix ADC SAML pour Azure AD lié à la représentation de l’utilisateur dans Azure AD.
 
 1. [Tester l’authentification unique](#test-sso) : pour vérifier si la configuration fonctionne.
 
@@ -84,33 +84,33 @@ Pour configurer et tester l’authentification unique Azure AD avec Citrix ADC,
 
 Pour activer l’authentification unique Azure AD à l’aide du portail Azure, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Citrix ADC**, sous **Gérer**, sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Connecteur Citrix ADC SAML pour Azure AD**, sous **Gérer**, sélectionnez **Authentification unique**.
 
 1. Dans le volet **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 
-1. Dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de stylet **Modifier** pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, pour configurer l’application en mode **lancé par le fournisseur d’identité** :
+1. Dans la section **Configuration SAML de base**, pour configurer l’application en mode **lancé par le fournisseur d’identité**, effectuez les étapes suivantes :
 
-    1. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `https://<Your FQDN>`
+    1. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : `https://<YOUR_FQDN>`
 
-    1. Dans la zone de texte **URL de réponse**, entrez une URL au format suivant : `http(s)://<Your FQDN>.of.vserver/cgi/samlauth`
+    1. Dans la zone de texte **URL de réponse**, entrez une URL au format suivant : `http(s)://<YOUR_FQDN>.of.vserver/cgi/samlauth`
 
 1. Pour configurer l’application en mode **lancé par le fournisseur de services**, sélectionnez **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    * Dans la zone **URL de connexion**, entrez une URL au format suivant : `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`
+    * Dans la zone **URL de connexion**, entrez une URL au format suivant : `https://<YOUR_FQDN>/CitrixAuthService/AuthService.asmx`
 
     > [!NOTE]
-    > * Les URL utilisées dans cette section ne sont pas des valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL de connexion. Pour obtenir ces valeurs, contactez l’[équipe du support technique Citrix ADC](https://www.citrix.com/contact/technical-support.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-    > * Pour configurer l’authentification unique, les URL doivent être accessibles à partir de sites web publics. Vous devez activer le pare-feu ou d’autres paramètres de sécurité côté Citrix ADC pour permettre à Azure AD de poster le jeton sur l’URL configurée.
+    > * Les URL utilisées dans cette section ne sont pas des valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL de connexion. Pour obtenir ces valeurs, contactez [l’équipe de support technique du connecteur Citrix ADC SAML pour Azure AD](https://www.citrix.com/contact/technical-support.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > * Pour configurer l’authentification unique, les URL doivent être accessibles à partir de sites web publics. Vous devez activer le pare-feu ou d’autres paramètres de sécurité côté connecteur Citrix ADC SAML pour Azure AD pour permettre à Azure AD de poster le jeton sur l’URL configurée.
 
 1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **URL des métadonnées de fédération d’application**, copiez cette URL et enregistrez-la dans le Bloc-notes.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer Citrix ADC**, copiez la ou les URL pertinentes en fonction de vos besoins.
+1. Dans la section **Configurer le connecteur Citrix ADC SAML pour Azure AD**, copiez la ou les URL pertinentes en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -134,11 +134,11 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon su
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Citrix ADC.
+Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès au connecteur Citrix ADC SAML pour Azure AD.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
-1. Dans la liste des applications, sélectionnez **Citrix ADC**.
+1. Dans la liste d’applications, sélectionnez **Connecteur Citrix ADC SAML pour Azure AD**.
 
 1. Dans la vue d’ensemble de l’application, sous **Gérer**, sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**. Ensuite, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
@@ -146,13 +146,13 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
-## <a name="configure-citrix-adc-sso"></a>Configurer l’authentification unique Citrix ADC
+## <a name="configure-citrix-adc-saml-connector-for-azure-ad-sso"></a>Configurer l’authentification unique pour le connecteur Citrix ADC SAML pour Azure AD
 
 Sélectionnez un lien pour connaître les étapes relatives au type d’authentification que vous voulez configurer :
 
-- [Configurer l’authentification unique Citrix ADC pour l’authentification Kerberos](#publish-the-web-server)
+- [Configurer Citrix ADC SAML Connector pour Azure AD SSO pour l’authentification Kerberos](#publish-the-web-server)
 
-- [Configurer l’authentification unique Citrix ADC pour l’authentification par en-tête](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+- [Configurer le connecteur Citrix SAML ADC pour Azure AD SSO pour l’authentification basée sur l’en-tête](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
 ### <a name="publish-the-web-server"></a>Publier le serveur web 
 
@@ -162,7 +162,7 @@ Pour créer un serveur virtuel :
     
 1. Sélectionnez **Ajouter**.
 
-    ![Configuration de Citrix ADC - volet Services](./media/citrix-netscaler-tutorial/web01.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Services](./media/citrix-netscaler-tutorial/web01.png)
 
 1. Définissez les valeurs suivantes pour le serveur web qui exécute les applications :
 
@@ -188,7 +188,7 @@ Pour configurer l’équilibrage de charge :
 
 1. Sélectionnez **OK**.
 
-    ![Configuration de Citrix ADC - volet Paramètres de base](./media/citrix-netscaler-tutorial/load01.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Paramètres de base](./media/citrix-netscaler-tutorial/load01.png)
 
 ### <a name="bind-the-virtual-server"></a>Lier le serveur virtuel
 
@@ -196,11 +196,11 @@ Pour lier l’équilibreur de charge au serveur virtuel :
 
 1. Dans le volet **Services et groupes de services**, sélectionnez **Aucune liaison de service de serveur virtuel d’équilibrage de charge**.
 
-   ![Configuration de Citrix ADC - volet Liaison de service de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/bind01.png)
+   ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Liaison de service de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/bind01.png)
 
 1. Vérifiez les paramètres comme indiqué dans la capture d’écran suivante, puis sélectionnez **Fermer**.
 
-   ![Configuration de Citrix ADC - vérifier la liaison des services de serveur virtuel](./media/citrix-netscaler-tutorial/bind02.png)
+   ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Vérifier la liaison des services de serveur virtuel](./media/citrix-netscaler-tutorial/bind02.png)
 
 ### <a name="bind-the-certificate"></a>Lier le certificat
 
@@ -208,15 +208,15 @@ Pour publier ce service en tant que TLS, liez le certificat serveur, puis testez
 
 1. Sous **Certificat**, sélectionnez **Aucun certificat de serveur**.
 
-   ![Configuration de Citrix ADC - volet Certificat de serveur](./media/citrix-netscaler-tutorial/bind03.png)
+   ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Certificat de serveur](./media/citrix-netscaler-tutorial/bind03.png)
 
 1. Vérifiez les paramètres comme indiqué dans la capture d’écran suivante, puis sélectionnez **Fermer**.
 
-   ![Configuration de Citrix ADC - vérifier le certificat](./media/citrix-netscaler-tutorial/bind04.png)
+   ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Vérifier le certificat](./media/citrix-netscaler-tutorial/bind04.png)
 
-## <a name="citrix-adc-saml-profile"></a>Profil SAML de Citrix ADC
+## <a name="citrix-adc-saml-connector-for-azure-ad-saml-profile"></a>Profil SAML du connecteur Citrix ADC SAML pour Azure AD
 
-Pour configurer le profil SAML de Citrix ADC, effectuez les étapes des sections suivantes.
+Pour configurer le profil SAML du connecteur Citrix ADC SAML pour Azure AD, effectuez les étapes des sections suivantes.
 
 ### <a name="create-an-authentication-policy"></a>Créer une stratégie d’authentification
 
@@ -232,7 +232,7 @@ Pour créer une stratégie d’authentification :
     * **Action** : Entrez **SAML**, puis sélectionnez **Ajouter**.
     * **Expression** :  Entrez **true**.     
     
-    ![Configuration de Citrix ADC - volet Créer une stratégie d’authentification](./media/citrix-netscaler-tutorial/policy01.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Créer une politique d’authentification](./media/citrix-netscaler-tutorial/policy01.png)
 
 1. Sélectionnez **Create** (Créer).
 
@@ -252,7 +252,7 @@ Pour créer un serveur SAML d’authentification, accédez au volet **Créer un 
 
 1. Sélectionnez **Create** (Créer).
 
-![Configuration de Citrix ADC - volet Créer un serveur SAML d’authentification](./media/citrix-netscaler-tutorial/server01.png)
+![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Créer un serveur d’authentification SAML](./media/citrix-netscaler-tutorial/server01.png)
 
 ### <a name="create-an-authentication-virtual-server"></a>Créer un serveur virtuel d’authentification
 
@@ -278,15 +278,15 @@ Modifiez deux sections pour le serveur virtuel d’authentification :
 
 1.  Dans le volet **Stratégies d’authentification avancées**, sélectionnez **Aucune stratégie d’authentification**.
 
-    ![Configuration de Citrix ADC - volet Stratégies d’authentification avancées](./media/citrix-netscaler-tutorial/virtual01.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Stratégies d’authentification avancées](./media/citrix-netscaler-tutorial/virtual01.png)
 
 1. Dans le volet **Liaison des stratégies**, sélectionnez la stratégie d’authentification, puis sélectionnez **Lier**.
 
-    ![Configuration de Citrix ADC - volet Liaison des stratégies](./media/citrix-netscaler-tutorial/virtual02.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Liaison de la stratégie](./media/citrix-netscaler-tutorial/virtual02.png)
 
 1. Dans le volet **Serveurs virtuels basés sur un formulaire**, sélectionnez **Aucun serveur virtuel d’équilibrage de charge**.
 
-    ![Configuration de Citrix ADC - volet Serveurs virtuels basés sur un formulaire](./media/citrix-netscaler-tutorial/virtual03.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Serveurs virtuels basés sur des formulaires](./media/citrix-netscaler-tutorial/virtual03.png)
 
 1. Dans **Nom de domaine complet d’authentification**, entrez un nom de domaine complet (FQDN) (obligatoire).
 
@@ -294,22 +294,22 @@ Modifiez deux sections pour le serveur virtuel d’authentification :
 
 1. Sélectionnez **Lier**.
 
-    ![Configuration de Citrix ADC - volet Liaison de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/virtual04.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Liaison de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/virtual04.png)
 
     > [!NOTE]
     > Veillez à sélectionner **Terminé** dans le volet **Configuration du serveur virtuel d’authentification**.
 
 1. Pour vérifier vos modifications, dans un navigateur, accédez à l’URL de l’application. Votre page de connexion de locataire doit s’afficher au lieu de l’accès non authentifié que vous auriez pu voir précédemment.
 
-    ![Configuration de Citrix ADC - page de connexion dans un navigateur web](./media/citrix-netscaler-tutorial/virtual05.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Une page de connexion dans un navigateur web](./media/citrix-netscaler-tutorial/virtual05.png)
 
-## <a name="configure-citrix-adc-sso-for-kerberos-based-authentication"></a>Configurer l’authentification unique Citrix ADC pour l’authentification Kerberos
+## <a name="configure-citrix-adc-saml-connector-for-azure-ad-sso-for-kerberos-based-authentication"></a>Configurer Citrix ADC SAML Connector pour Azure AD SSO pour l’authentification Kerberos
 
-### <a name="create-a-kerberos-delegation-account-for-citrix-adc"></a>Créer un compte de délégation Kerberos pour Citrix ADC
+### <a name="create-a-kerberos-delegation-account-for-citrix-adc-saml-connector-for-azure-ad"></a>Créer un compte de délégation Kerberos pour le connecteur Citrix ADC SAML pour Azure AD
 
 1. Créez un compte d’utilisateur (dans cet exemple, nous utilisons _AppDelegation_).
 
-    ![Configuration de Citrix ADC - volet Propriétés](./media/citrix-netscaler-tutorial/kerberos01.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Propriétés](./media/citrix-netscaler-tutorial/kerberos01.png)
 
 1. Configurez un nom de principal du service (SPN) hôte pour ce compte. 
 
@@ -323,14 +323,14 @@ Modifiez deux sections pour le serveur virtuel d’authentification :
 
 1. Configurez la délégation pour le serveur web comme indiqué dans la capture d’écran suivante :
  
-    ![Configuration de Citrix ADC - Délégation dans le volet Propriétés](./media/citrix-netscaler-tutorial/kerberos02.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Délégation dans le volet Propriétés](./media/citrix-netscaler-tutorial/kerberos02.png)
 
     > [!NOTE]
     > Dans l’exemple de capture d’écran, le nom du serveur w&eb interne exécutant le site d’authentification intégrée Windows est _CWEB2_.
 
-### <a name="citrix-adc-aaa-kcd-kerberos-delegation-accounts"></a>Citrix ADC AAA KCD (comptes de délégation Kerberos)
+### <a name="citrix-adc-saml-connector-for-azure-ad-aaa-kcd-kerberos-delegation-accounts"></a>AAA KCD (comptes de délégation Kerberos) du connecteur Citrix ADC SAML pour Azure AD
 
-Pour configurer le compte Citrix ADC AAA KCD :
+Pour configurer les comptes AAA KCD du connecteur Citrix ADC SAML pour Azure AD :
 
 1.  Accédez à **Passerelle Citrix** > **Comptes AAA KCD (délégation contrainte Kerberos)** .
 
@@ -351,7 +351,7 @@ Pour configurer le compte Citrix ADC AAA KCD :
 
 1. Sélectionnez **OK**.
  
-    ![Configuration de Citrix ADC - volet Configurer un compte KCD](./media/citrix-netscaler-tutorial/kerberos03.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Configurer les comptes KCD](./media/citrix-netscaler-tutorial/kerberos03.png)
 
 ### <a name="citrix-traffic-policy-and-traffic-profile"></a>Stratégie de trafic Citrix et profil de trafic
 
@@ -373,7 +373,7 @@ Pour configurer la stratégie de trafic Citrix et le profil de trafic :
 
 1. Sélectionnez **OK**.
 
-    ![Configuration de Citrix ADC - volet Configurer un profil de trafic](./media/citrix-netscaler-tutorial/kerberos04.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Configurer le profil de trafic](./media/citrix-netscaler-tutorial/kerberos04.png)
  
 1.  Sélectionnez **Traffic Policy** (Stratégie de trafic).
 
@@ -389,7 +389,7 @@ Pour configurer la stratégie de trafic Citrix et le profil de trafic :
 
 1. Sélectionnez **OK**.
 
-    ![Configuration de Citrix ADC - volet Configurer une stratégie de trafic](./media/citrix-netscaler-tutorial/kerberos05.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Configurer la stratégie de trafic](./media/citrix-netscaler-tutorial/kerberos05.png)
 
 ### <a name="bind-a-traffic-policy-to-a-virtual-server-in-citrix"></a>Lier une stratégie de trafic à un serveur virtuel dans Citrix
 
@@ -401,13 +401,13 @@ Pour lier une stratégie de trafic à un serveur virtuel à l’aide de l’inte
 
 1. Dans le volet **Serveur virtuel d’équilibrage de charge**, sous **Paramètres avancés**, sélectionnez **Stratégies**. Toutes les stratégies configurées pour votre instance de NetScaler figurent dans la liste.
  
-    ![Configuration de Citrix ADC - volet Serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/kerberos06.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/kerberos06.png)
 
-    ![Configuration de Citrix ADC - boîte de dialogue Stratégies](./media/citrix-netscaler-tutorial/kerberos07.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Boîte de dialogue Stratégies](./media/citrix-netscaler-tutorial/kerberos07.png)
 
 1.  Cochez la case située en regard du nom de la stratégie que vous voulez lier à ce serveur virtuel.
  
-    ![Configuration de Citrix ADC - volet Liaison de stratégie de trafic de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/kerberos09.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Liaison de stratégie de trafic de serveur virtuel d’équilibrage de charge](./media/citrix-netscaler-tutorial/kerberos09.png)
 
 1. Dans la boîte de dialogue **Choisir un type** :
 
@@ -415,34 +415,34 @@ Pour lier une stratégie de trafic à un serveur virtuel à l’aide de l’inte
 
     1. Pour **Choisir un type**, sélectionnez **Requête**.
 
-    ![Configuration de Citrix ADC - volet Choisir un type](./media/citrix-netscaler-tutorial/kerberos08.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Choisir un type](./media/citrix-netscaler-tutorial/kerberos08.png)
 
 1. Quand la stratégie est liée, sélectionnez **Terminé**.
  
-    ![Configuration de Citrix ADC - volet Stratégies](./media/citrix-netscaler-tutorial/kerberos10.png)
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Volet Stratégies](./media/citrix-netscaler-tutorial/kerberos10.png)
 
 1. Testez la liaison à l’aide du site web d’authentification intégrée Windows.
 
-    ![Configuration de Citrix ADC - page de test dans un navigateur web](./media/citrix-netscaler-tutorial/kerberos11.png)    
+    ![Configuration du connecteur Citrix ADC SAML pour Azure AD - Une page de test dans un navigateur web](./media/citrix-netscaler-tutorial/kerberos11.png)    
 
-### <a name="create-a-citrix-adc-test-user"></a>Créer un utilisateur de test Citrix ADC
+### <a name="create-citrix-adc-saml-connector-for-azure-ad-test-user"></a>Créer un utilisateur de test pour le connecteur Citrix ADC SAML pour Azure AD
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans Citrix ADC. Citrix ADC prend en charge l’attribution d’utilisateurs juste-à-temps, qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans Citrix ADC, il est créé après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans le connecteur Citrix ADC SAML pour Azure AD. Le connecteur Citrix ADC SAML pour Azure AD prend en charge le provisionnement d’utilisateurs juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans le connecteur Citrix ADC SAML pour Azure AD, un utilisateur est créé après l’authentification.
 
 > [!NOTE]
-> Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique de Citrix ADC](https://www.citrix.com/contact/technical-support.html).
+> Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique du connecteur Citrix ADC SAML pour Azure AD](https://www.citrix.com/contact/technical-support.html).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Citrix ADC, où vous pouvez lancer le processus de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion au connecteur Citrix ADC SAML pour Azure AD à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-* Accédez directement à l’URL de connexion Citrix ADC pour lancer le processus de connexion.
+* Accédez directement à l’URL de connexion au connecteur Citrix ADC SAML pour Azure AD pour initier le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Citrix ADC dans Mes applications vous redirige vers l’URL de connexion Citrix ADC. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette du connecteur Citrix ADC SAML pour Azure AD dans Mes applications, cette opération redirige vers l’URL de connexion du connecteur Citrix ADC SAML pour Azure AD. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Citrix ADC, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré le connecteur Citrix ADC SAML pour Azure AD, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
