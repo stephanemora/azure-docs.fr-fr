@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 08868a6ab3a3755d7bc9c2e7af4ab6c9116831d0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ac364950b78aeb61bd74fcc918a4dae2a31a6ffa
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791806"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690301"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutoriel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
@@ -58,9 +58,9 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 * Installez Visual Studio Code ou Visual Studio.
 * Créez un nouveau compte Azure Media Services, comme décrit dans [ce démarrage rapide](./account-create-how-to.md).
 * Obtenir les informations d’identification nécessaires pour utiliser les API Media Services en respectant l’[accès aux API](./access-api-howto.md)
-* Définissez les valeurs appropriées dans le fichier de configuration d’application (appsettings.json).
+* Définissez les valeurs appropriées dans le fichier de configuration d’application (appsettings.json ou .env).
 
-## <a name="download-code"></a>Télécharger le code
+## <a name="download-the-code-and-configure-the-sample"></a>Télécharger le code et configurer l’exemple
 
 Clonez un dépôt GitHub qui contient l’exemple .NET complet abordé dans cet article sur votre machine avec la commande suivante :
 
@@ -69,6 +69,8 @@ Clonez un dépôt GitHub qui contient l’exemple .NET complet abordé dans cet 
  ```
  
 L’exemple de « chiffrement avec DRM » se trouve dans le dossier [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM).
+
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!NOTE]
 > L’exemple crée des ressources uniques chaque fois que vous exécutez l’application. En règle générale, vous réutilisez les ressources existantes telles que les transformations et les stratégies (si une ressource existante a des configurations requises).

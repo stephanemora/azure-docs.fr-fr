@@ -4,19 +4,19 @@ titleSuffix: Azure Automation
 description: Ce guide de démarrage rapide montre comment créer un compte Automation en utilisant le modèle Azure Resource Manager.
 services: automation
 ms.author: magoedte
-ms.date: 01/07/2021
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081295"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652007"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Automation à l’aide d’un modèle ARM
 
@@ -95,6 +95,18 @@ Si vous ne connaissez pas encore Azure Automation et Azure vous devez bien compr
     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Entrez les valeurs.
+
+    Lorsque vous tentez d’exécuter le modèle ARM à partir de PowerShell, de l’interface CLI ou de la fonction Modèles du portail, si le paramètre `_artifactsLocation` n’est pas correctement défini, vous recevez un message d’erreur similaire au suivant :
+
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+
+    Pour éviter cela, lors de l’exécution à partir de la fonction Modèles du portail, indiquez ce qui suit pour le paramètre `_artifactsLocation` : `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Quand vous exécutez à partir de PowerShell, incluez le paramètre et sa valeur `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Quand vous exécutez à partir d’Azure CLI, incluez le paramètre et sa valeur `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    Pour des références sur PowerShell/CLI, consultez [Créer un compte Azure Automation (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) sous la section **Utiliser le modèle**.
 
 3. Le déploiement peut prendre plusieurs minutes. Une fois l’opération terminée, le résultat ressemble à ce qui suit :
 

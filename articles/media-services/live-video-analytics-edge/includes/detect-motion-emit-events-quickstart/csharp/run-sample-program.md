@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 766dd13f58268c044435a22fb30c1de816d4d151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b173a5fe639ff21cc8a475edd16d0e3885dacef
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97531827"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279875"
 ---
 Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
@@ -26,6 +26,14 @@ Pour exécuter l’exemple de code, effectuez les étapes suivantes :
     `"topologyName" : "MotionDetection"`
     
 1. Démarrez une session de débogage en appuyant sur la touche F5. La fenêtre **TERMINAL** affiche des messages.
+
+    Si vous démarrez une session de débogage avec la touche F5, vous êtes invité à entrer le type d’environnement et le projet la première fois. Il s’agit de créer et configurer le fichier launch.json dans votre dossier. Pour les besoins de cette démonstration, utilisez ce qui suit :
+    * Environnement - .NET Core
+    * Projet - c2d-console-app
+    
+    Modifiez le fichier launch.json une fois qu’il a été créé. Modifiez la configuration de la console sur « integratedTeminal ».
+    
+    `"console": "integratedTerminal"`
 1. Le fichier *operations.json* commence par appeler `GraphTopologyList` et `GraphInstanceList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus retourne des listes vides, puis s’interrompt. Pour continuer, sélectionnez la touche Entrée.
 
     ```

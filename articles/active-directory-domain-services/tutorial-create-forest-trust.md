@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2021
+ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 027217ab5963f084fca7678c9e51f7188d39a191
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673466"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707892"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutoriel : Créer une approbation de forêt sortante pour un domaine local dans Azure Active Directory Domain Services
 
@@ -51,7 +51,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Dans ce tutoriel, vous créez et vous configurez une approbation de forêt sortante à partir d'Azure AD DS avec le portail Azure. Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com).
+Dans ce tutoriel, vous créez et vous configurez une approbation de forêt sortante à partir d'Azure AD DS avec le portail Azure. Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com). Les autorisations d’administrateur général sont nécessaires pour modifier une instance Azure AD DS. 
 
 ## <a name="networking-considerations"></a>Mise en réseau - Éléments à prendre en compte
 
