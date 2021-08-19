@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/11/2021
 ms.author: aapowell
-ms.openlocfilehash: ccc9089493dd8502997d7095c368c0edb83d2b70
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: cc117859c911d9b2c1df6c03fc6cd9738e5de1ec
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586506"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988316"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps
 
@@ -56,7 +56,13 @@ Créer une application Hugo à l’aide de l’interface de ligne de commande (C
 1. Initialisez un dépôt Git.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. Vérifiez que votre branche est nommée `main`.
+
+   ```bash
+   git branch -M main
    ```
 
 1. Ensuite, ajoutez un thème au site en installant un thème sous la forme d’un sous-module git, puis en le spécifiant dans le fichier de configuration Hugo.

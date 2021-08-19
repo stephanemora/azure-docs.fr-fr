@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 92014d161d0ef70b163494b617545287c7e39818
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 552e8a4565710cb22f65ee5abf493c5471d89f3c
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855005"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585516"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente de Registre confidentiel Microsoft Azure pour Python
 
@@ -22,7 +22,7 @@ Le Registre confidentiel Microsoft Azure est un service nouveau et hautement sé
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[Documentation de référence de l’API](/python/api/overview/azure/keyvault-secrets-readme) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Index package Python)](https://pypi.org/project/azure-keyvault-secrets/)
+[Documentation de référence sur les API](/python/api/overview/azure/keyvault-secrets-readme) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Bibliothèque de gestion des packages (index de packages Python)](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Bibliothèque cliente de packages (index de packages Python)](https://pypi.org/project/azure-confidentialledger/)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -107,7 +107,7 @@ ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 ```
 
 ### <a name="use-the-control-plane-client-library"></a>Utiliser la bibliothèque cliente du plan de contrôle
@@ -148,7 +148,7 @@ confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger
 Pour vérifier que votre compte a été créé avec succès, affichez ses détails à l’aide de la fonction `get`.
 
 ```python
-myledger = ledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print("Here are the details of your newly created ledger:")
 print (f"- Name: {myledger.name}")
