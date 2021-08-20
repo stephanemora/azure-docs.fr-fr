@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 03/11/2021
-ms.openlocfilehash: 573e0dc028391c2eea9d412bfe68c07a2e95aec3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 43d702f3294d728b196de69790f543dc67491400
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963137"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433931"
 ---
 # <a name="quickstart-create-a-serverless-simple-chat-application-with-azure-functions-and-azure-web-pubsub-service"></a>Démarrage rapide : Créer une application de conversation simple serverless avec Azure Functions et le service Azure Web PubSub 
 
@@ -27,6 +27,12 @@ Installez un éditeur de code, tel que [Visual Studio Code](https://code.visuals
    > Pour plus d’informations sur les versions prises en charge de Node.js, consultez la [documentation sur les versions du runtime d’Azure Functions](../azure-functions/functions-versions.md#languages).
 
 Installez [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 ou ultérieure) pour exécuter des applications Azure Function en local.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+Installez un éditeur de code, comme [Visual Studio Code](https://code.visualstudio.com/).
+
+Installez [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 3 ou ultérieure) pour exécuter des applications Azure Functions localement.
 
 ---
 
@@ -51,6 +57,8 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
 - Dans le navigateur, ouvrez le **portail Azure** et vérifiez que l’instance de service Web PubSub que vous avez déployée a été créée. Accédez à l’instance.
 - Sélectionnez **Clés** et copiez la chaîne de connexion.
 
+:::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Capture d’écran de la copie de la chaîne de connexion Web PubSub.":::
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 - Mettez à jour la configuration de la fonction.
@@ -59,7 +67,7 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
   Dans *local.settings.js*, apportez les modifications suivantes, puis enregistrez le fichier.
     - Remplacez l’espace réservé *<connection-string>* par la chaîne de connexion copiée à partir du **portail Azure** pour le paramètre **`WebPubSubConnectionString`** . 
     - Pour le paramètre **`AzureWebJobsStorage`** , cela est nécessaire, car [Azure Functions nécessite un compte de stockage Azure](../azure-functions/storage-considerations.md).
-        - Si l’émulateur de stockage Azure est exécuté localement, conservez les paramètres d’origine « UseDevelopmentStorage=true ».
+        - Si l’[émulateur de stockage Azure](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) est exécuté localement, conservez les paramètres d’origine « UseDevelopmentStorage=true ».
         - Si vous disposez d’une chaîne de connexion de stockage Azure, remplacez la valeur par celle-ci.
  
 - Les fonctions JavaScript sont organisées dans des dossiers. Deux fichiers se trouvent dans chaque dossier : le fichier `function.json` définit les liaisons utilisées dans la fonction et le fichier `index.js` correspond au corps de la fonction. Plusieurs fonctions sont déclenchées dans cette application de fonction :
@@ -76,11 +84,39 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
     func start
     ```
 
+# <a name="c"></a>[C#](#tab/csharp)
+
+- Mettez à jour la configuration de la fonction.
+
+  Ouvrez le dossier */samples/functions/csharp/simplechat* dans le référentiel cloné. Modifiez *local.settings.json* pour ajouter une chaîne de connexion de service.
+  Dans *local.settings.js*, apportez les modifications suivantes, puis enregistrez le fichier.
+    - Remplacez l’espace réservé *<connection-string>* par la chaîne de connexion copiée à partir du **portail Azure** pour le paramètre **`WebPubSubConnectionString`** . 
+    - Pour le paramètre **`AzureWebJobsStorage`** , cela est nécessaire, car [Azure Functions nécessite un compte de stockage Azure](../azure-functions/storage-considerations.md).
+        - Si l’[émulateur de stockage Azure](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) est exécuté localement, conservez les paramètres d’origine « UseDevelopmentStorage=true ».
+        - Si vous disposez d’une chaîne de connexion de stockage Azure, remplacez la valeur par celle-ci.
+
+- Les fonctions C# sont organisées par fichier Functions.cs. Plusieurs fonctions sont déclenchées dans cette application de fonction :
+
+    - **login** : fonction déclenchée par HTTP. Elle utilise la liaison d’entrée *webPubSubConnection* pour générer et retourner des informations de connexion de service valides.
+    - **connected** : fonction déclenchée par `WebPubSubTrigger`. Reçoit un message de conversation dans le corps de la demande et diffuse le message à toutes les applications clientes connectées avec des tâches multiples.
+    - **broadcast** : fonction déclenchée par `WebPubSubTrigger`. Reçoit un message de conversation dans le corps de la demande et diffuse le message à toutes les applications clientes connectées avec une seule tâche.
+    - **connect** et **disconnect** : fonctions déclenchées par `WebPubSubTrigger`. Traitent les événements de connexion et de déconnexion.
+
+- Dans le terminal, vérifiez que vous vous trouvez dans le dossier */samples/functions/csharp/simplechat*. Installez les extensions et exécutez l’application de fonction.
+
+    ```bash
+    func extensions install
+
+    func start
+    ```
+
+---
+
 - La fonction locale utilise le port défini dans le fichier `local.settings.json`. Pour le rendre disponible dans un réseau public, vous devez utiliser [ngrok](https://ngrok.com) pour exposer ce point de terminaison. Exécutez la commande ci-dessous afin d’obtenir un point de terminaison de transfert, par exemple : http://{ngrok-id}.ngrok.io -> http://localhost:7071.
 
     ```bash
     ngrok http 7071
-    ```    
+    ``` 
 
 - Définissez `Event Handler` dans le service Azure Web PubSub. Accédez au **portail Azure** -> Recherchez votre ressource Web PubSub -> **Paramètres**. Ajoutez un nouveau mappage de paramètres de hub à la fonction en cours d’utilisation comme indiqué ci-dessous. Remplacez le {ngrok-id} par le vôtre.
 
@@ -89,7 +125,7 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
    - Modèle d’événement utilisateur : *
    - Événements système : connect, connected, disconnected.
 
----
+:::image type="content" source="media/quickstart-serverless/set-event-hanlder.png" alt-text="Capture d’écran de la définition du gestionnaire d’événements.":::
 
 ## <a name="run-the-web-application"></a>Exécuter l’application web
 
@@ -114,3 +150,16 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes 
 1. Dans la fenêtre qui s’ouvre, sélectionnez le groupe de ressources, puis sélectionnez **Supprimer le groupe de ressources**.
 
 1. Dans la nouvelle fenêtre, tapez le nom du groupe de ressources à supprimer, puis sélectionnez **Supprimer**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce démarrage rapide, vous avez appris à exécuter une application de conversation simple et serverless. À présent, vous pouvez commencer à créer votre propre application. 
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Créer un salon de conversation simple avec Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+
+> [!div class="nextstepaction"]
+> [Liaisons Azure Web PubSub pour Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+
+> [!div class="nextstepaction"]
+> [Explorer d’autres exemples Azure Web PubSub](https://github.com/Azure/azure-webpubsub/tree/main/samples)

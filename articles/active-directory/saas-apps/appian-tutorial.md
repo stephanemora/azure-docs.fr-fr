@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: aef8eb429bf772dff4d4b0de629cb1118b140e10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2ac93e198dc9f8f3e7f2d2e5038e6ad25003e6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180385"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457585"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appian"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Appian
 
@@ -33,12 +33,15 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Appian pour lequel l’authentification unique est activée.
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Appian prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
-* Appian prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Appian prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* Appian prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 ## <a name="adding-appian-from-the-gallery"></a>Ajout d’Appian à partir de la galerie
 
@@ -50,7 +53,6 @@ Pour configurer l’intégration d’Appian à Azure AD, vous devez ajouter Appi
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Appian** au niveau de la zone de recherche.
 1. Sélectionnez **Appian** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-appian"></a>Configurer et tester l’authentification unique Azure AD pour Appian
 
@@ -71,11 +73,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Appian**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.appiancloud.com`
 
@@ -95,6 +97,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Appian**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -145,7 +148,6 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1.  Après avoir vérifié que vous pouvez toujours vous connecter, cliquez sur **Save Changes** (Enregistrer les modifications).
 
-
 ### <a name="create-appian-test-user"></a>Créer un utilisateur de test Appian
 
 Dans cette section, un utilisateur nommé Britta Simon est créé dans Appian. Appian prend en charge le provisionnement d’utilisateurs juste-à-temps, option qui est activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateurs dans Appian, il en est créé un après l’authentification.
@@ -162,10 +164,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance d’Appian pour laquelle vous avez configuré l’authentification unique 
+* Dans le portail Azure, cliquez sur **Tester cette application**. Vous devez alors automatiquement être connecté à l’instance d’Appian pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, au moment de cliquer sur la vignette Appian dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour initier le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Appian pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
-
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, au moment de cliquer sur la vignette Appian dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour initier le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Appian pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

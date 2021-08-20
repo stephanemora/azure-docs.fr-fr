@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 202cbca5795ef877794c42f1fcc57c51835e5118
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89263176"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966389"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Didacticiel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure
 
@@ -85,14 +86,18 @@ Les fichiers nécessitent un stockage d’objets blob, vous devez donc créer un
 Cette section montre comment accorder à votre machine virtuelle l’accès à un conteneur de stockage Azure. Vous pouvez utiliser l’identité managée affectée par le système de machine virtuelle pour récupérer les données dans l’objet blob de stockage Azure.
 
 1. Revenez à votre compte de stockage nouvellement créé.
-2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.
-3. Cliquez sur **+ Ajouter une attribution de rôle** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
-4. Sous **Rôle**, dans la liste déroulante, sélectionnez **Lecteur des données Blob du stockage**.
-5. Dans la liste déroulante suivante, sous **Attribuer l’accès à**, choisissez **Machine virtuelle**.
-6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur **Tous les groupes de ressources**.
-7. Sous **Sélectionner**, choisissez votre machine virtuelle, puis cliquez sur **Enregistrer**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Lecteur des données blob du stockage |
+    | Attribuer l’accès à | Identité managée |
+    | Attribué par le système | Machine virtuelle |
+    | Sélectionnez | &lt;votre machine virtuelle&gt; |
 
-    ![Affecter des autorisations](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="access-data"></a>Accéder aux données 
 

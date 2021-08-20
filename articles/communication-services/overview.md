@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: da099fe09b44a8c7aeecdfd7118e936ce3f0ff91
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 12e0c9c277bbf162797d52692add208ce921569b
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113064"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360916"
 ---
 # <a name="what-is-azure-communication-services"></a>Qu’est-ce qu’Azure Communication Services ?
 
@@ -23,9 +23,9 @@ Azure Communication Services regroupe des services cloud dotés d’API REST et 
 1. Conversation de texte enrichi
 1. sms
 
-Les applications d’appel vocal et vidéo peuvent interagir avec le réseau téléphonique commuté (RTPC) public. Vous pouvez obtenir des numéros de téléphone directement via les API REST, les kits de développement logiciel (SDK) Azure Communication Services ou le portail Azure. Le routage direct d’Azure Communication Services vous permet d’utiliser des contrôleurs SIP et de frontière de session pour connecter vos propres opérateurs RTPC et apporter vos propres numéros de téléphone.
+Vous pouvez connecter des points de terminaison clients personnalisés, des services personnalisés et le réseau téléphonique public commuté (RTPC) à votre application de communication. Vous pouvez acquérir des numéros de téléphone directement via les API REST Azure Communication Services, les Kits de développement logiciel (SDK) ou le portail Azure et utiliser ces numéros pour les applications de SMS ou d’appel. Le routage direct d’Azure Communication Services vous permet d’utiliser des contrôleurs SIP et de frontière de session pour connecter vos propres opérateurs RTPC et apporter vos propres numéros de téléphone.
 
-En plus des API REST, les [bibliothèques clientes Azure Communication Services](./concepts/sdk-options.md) sont disponibles pour différents langages et plateformes, notamment les navigateurs web (JavaScript), iOS (Swift), Java (Android), Windows (.net). La solution Azure Communication Services est indépendante des identités et vous contrôlez intégralement la façon dont les utilisateurs finals sont identifiés et authentifiés.
+En plus des API REST, les [bibliothèques clientes Azure Communication Services](./concepts/sdk-options.md) sont disponibles pour différents langages et plateformes, notamment les navigateurs web (JavaScript), iOS (Swift), Java (Android), Windows (.net). Une [bibliothèque d’interface utilisateur pour les navigateurs web](https://aka.ms/acsstorybook) peut accélérer le développement pour les navigateurs mobiles et de bureau. La solution Azure Communication Services est indépendante des identités et vous contrôlez intégralement la façon dont les utilisateurs finals sont identifiés et authentifiés.
 
 Les scénarios pour Azure Communication Services sont les suivants :
 

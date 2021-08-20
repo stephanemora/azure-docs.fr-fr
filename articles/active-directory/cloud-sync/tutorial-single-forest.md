@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3bc9378539e6a7f98e34d0a149848d0e892c224
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a5ef6895710cf4af6022b728942f94e4c3a3d59d
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306090"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913614"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou version ultérieure, avec au minimum 4 Go de RAM et le runtime .NET 4.7.1+ 
+1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2016 ou une version ultérieure, avec au minimum 4 Go de RAM et un runtime .NET 4.7.1 et versions ultérieures. 
 
 2. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* sur Azure AD sur les ports suivants :

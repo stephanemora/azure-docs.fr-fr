@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f65a690378723fe8ee214333d3bfee0b18ce0cd0
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458606"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112553654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory au portail Lenses.io DataOps
 
@@ -26,8 +26,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer le portail DataOps [Le
 * Permettre à vos utilisateurs de se connecter automatiquement à Lenses avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration d’applications SaaS (Software as a Service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure AD ?](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
@@ -36,19 +34,20 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Une instance d’un portail Lenses. Vous pouvez choisir parmi diverses [options de déploiement](https://lenses.io/product/deployment/).
 * Une [licence](https://lenses.io/product/pricing/) Lenses.io qui prend en charge l’authentification unique
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification SSO Azure AD dans un environnement de test.
 
 * Lenses.io prend en charge l’authentification unique initiée par le fournisseur de services.
 
-* Après avoir configuré Lenses.io, vous pouvez appliquer le contrôle de session. Ce contrôle protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
 ## <a name="add-lensesio-from-the-gallery"></a>Ajout de Lenses.io depuis la galerie
 
 Pour configurer l’intégration de Lenses.io avec Azure AD, ajoutez Lenses.io à votre liste d’applications SaaS gérées :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou un compte personnel Microsoft.
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Sélectionnez **Nouvelle application**.
@@ -72,22 +71,22 @@ Procédez comme suit :
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure :
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Lenses.io**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Lenses.io**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Capture d’écran montrant l’icône de modification de la configuration SAML de base.](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez des valeurs dans les zones de saisie de texte suivantes :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. **URL d’authentification** : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>`. par exemple `https://lenses.my.company.com`.
+    a. **Identificateur (ID d’entité)**  : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>`. par exemple `https://lenses.my.company.com`.
 
-    b. **Identificateur (ID d’entité)**  : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>`. par exemple `https://lenses.my.company.com`.
+    b. **URL de réponse** : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`. par exemple `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`.
 
-    c. **URL de réponse** : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`. par exemple `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`.
+    c. **URL d’authentification** : Entrez une URL au format suivant : `https://<CUSTOMER_LENSES_BASE_URL>`. par exemple `https://lenses.my.company.com`.
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’URL d’authentification, de l’URL de réponse et de l’identificateur, en fonction de l’URL de base de votre instance de portail Lenses. Pour plus d’informations, consultez la [documentation sur l’authentification unique Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’identificateur, l’URL de réponse et l’URL d’authentification, de l’URL de base de votre instance de portail Lenses. Pour plus d’informations, consultez la [documentation sur l’authentification unique Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, accédez à la section **Certificat de signature SAML**. Recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger et enregistrer le certificat sur votre ordinateur.
 
@@ -137,13 +136,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Lenses.io**.
 1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer**, sélectionnez **Utilisateurs et groupes**.
-
-   ![Capture d’écran affichant le lien « Utilisateurs et groupes ».](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**.
-
-   ![Capture d’écran affichant le lien Ajouter un utilisateur.](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Cliquez ensuite sur le bouton **Sélectionner** en bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle approprié pour l’utilisateur dans la liste. Cliquez ensuite sur le bouton **Sélectionner** en bas de l’écran.
@@ -162,22 +155,14 @@ Pour plus d’informations, consultez [Mappage de groupe Azure - Lenses](https:/
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration SSO Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous sélectionnez la vignette Lenses.io dans le volet d’accès, vous devez être connecté automatiquement au portail Lenses.io. Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Lenses.io, à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à Lenses.io pour lancer le flux de connexion.
 
-- [Configurer l’authentification unique dans votre instance Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Lenses.io dans Mes applications vous redirige vers l’URL de connexion Lenses.io. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure AD ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure AD ?](../conditional-access/overview.md)
-
-- [Essayer Lenses.io avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Lenses.io avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Lenses.io, vous pouvez appliquer le contrôle de session, qui protège de l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

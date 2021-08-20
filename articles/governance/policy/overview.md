@@ -1,14 +1,14 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 05/01/2021
+ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: b9cd2becc0c1241c34b7cd887a274088296150ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 387c52eb1337f6d3aa7046b122fa66ff93be5e64
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733480"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726682"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -61,7 +61,7 @@ La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour 
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy et Azure RBAC
 
-Il existe quelques différences importantes entre Azure Policy et le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Azure Policy évalue l’état en examinant les propriétés des ressources qui sont représentées dans Resource Manager et les propriétés de certains fournisseurs de ressources. Azure Policy ne limite pas les actions (également appelées _opérations_). Azure Policy garantit que l’état des ressources est conforme à vos règles d’entreprise sans se préoccuper de qui a apporté la modification ou qui a l’autorisation d’apporter une modification.
+Il existe quelques différences importantes entre Azure Policy et le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Azure Policy évalue l’état en examinant les propriétés des ressources qui sont représentées dans Resource Manager et les propriétés de certains fournisseurs de ressources. Azure Policy ne limite pas les actions (également appelées _opérations_). Azure Policy garantit que l’état des ressources est conforme à vos règles d’entreprise sans se préoccuper de qui a apporté la modification ou qui a l’autorisation d’apporter une modification. Certaines ressources Azure Policy, telles que les [définitions de stratégie](#policy-definition), les [définitions d’initiative](#initiative-definition) et les [attributions](#assignments), sont visibles par tous les utilisateurs. Cette conception permet à tous les utilisateurs et services de savoir en toute transparence quelles règles de stratégie sont définies dans leur environnement.
 
 Azure RBAC est axé sur la gestion des [actions](../../role-based-access-control/resource-provider-operations.md) des utilisateurs dans différentes étendues. Si le contrôle d’une action est nécessaire, Azure RBAC est l’outil qu’il convient d’utiliser. Même si une personne est autorisée à exécuter une action, si le résultat est une ressource non conforme, Azure Policy bloque toujours la création ou la mise à jour.
 

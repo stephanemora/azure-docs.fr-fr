@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 959289de2fa10e9ce31ce71c8ea3fcb9e33d0951
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: df5752760dcb9968b44243fb4c2d2412698267df
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789223"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588990"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la consommation d’eau avec Azure IoT Central
 
@@ -23,7 +23,7 @@ Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Utiliser le modèle Azure IoT Central de suivi de la consommation d’eau pour créer votre application de suivi de la consommation d’eau
-> * Explorer et personnaliser le tableau de bord de l’opérateur
+> * Explorer et personnaliser le tableau de bord.
 > * Explorer les modèles d’appareils
 > * Explorer les appareils simulés.
 > * Explorer et configurer les règles.
@@ -49,7 +49,7 @@ Pour créer une application Azure IoT Central de suivi de la consommation d’ea
   
 
 1. Sélectionnez le modèle d’application **Water consumption monitoring** (Suivi de la consommation d’eau).
-Ce modèle comprend un exemple de modèle d’appareil pour la consommation d’eau, un appareil simulé, un tableau de bord d’opérateur et des règles de supervision préconfigurées.
+Ce modèle comprend un exemple de modèle d’appareil pour la consommation d’eau, un appareil simulé, un tableau de bord et des règles de supervision préconfigurées.
 
 1. Sélectionnez **Create app** (Créer une application) pour ouvrir le formulaire de création **New application** (Nouvelle application) avec les champs suivants :
     * **Nom de l'application** : par défaut, le nom de l’application est composé de *Water consumption monitoring* et d’une chaîne d’ID unique générée par Azure IoT Central. Si vous le souhaitez, choisissez un nom d’application convivial. Vous pouvez également modifier le nom de l’application.
@@ -66,7 +66,7 @@ Vous venez de créer une application de suivi de la consommation d’eau à l’
 
 L’application de suivi de la consommation d’eau est préconfigurée avec les éléments suivants :
 
-* Exemples de tableaux de bord d’opérateur
+* Exemples de tableaux de bord
 * Exemples de modèles prédéfinis de débitmètre et de vanne
 * Débitmètre et dispositif de vanne intelligente simulés
 * Règles et travaux
@@ -74,7 +74,7 @@ L’application de suivi de la consommation d’eau est préconfigurée avec les
 
 Cette application est la vôtre et vous pouvez la modifier à tout moment. Vous allez maintenant explorer l’application et effectuer certaines personnalisations.
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>Explorer et personnaliser le tableau de bord de l’opérateur
+## <a name="explore-and-customize-the-dashboard"></a>Explorer et personnaliser le tableau de bord
 
 Une fois l’application créée, l’exemple **Wide World water consumption dashboard** s’ouvre.
   
@@ -92,7 +92,7 @@ Le tableau de bord est constitué de différents types de vignettes :
 * **Vignette des KPI de débit moyen d’eau** : la vignette des KPI est configurée pour afficher comme exemple le *débit moyen des 30 dernières minutes*. Vous pouvez personnaliser les vignettes de KPI et définir un type et une plage de temps différents.
 * **Vignettes des commandes d’appareil** : il s’agit notamment des vignettes **Close valve** (Fermer la vanne), **Open valve**(Ouvrir la vanne) et **Set valve position** (Régler la position de la vanne). Lorsque vous sélectionnez une commande, vous êtes dirigé vers la page des commandes de l’appareil simulé. Dans Azure IoT Central, une *commande* est un type de *fonctionnalité d’appareil*. Nous aborderons ce concept dans la section [Modèle d’appareil](../government/tutorial-water-consumption-monitoring.md#explore-the-device-template) de ce tutoriel.
 
-* **Carte des zones de distribution de l’eau** : cette carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de carte affiche l’emplacement des appareils. Essayez les contrôles de la carte, tels que *Zoom avant*, *Zoom arrière* ou *Développer*.
+* **Carte des zones de distribution de l’eau** : cette carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La mosaïque affiche la [localisation](../core/howto-use-location-data.md) de l’appareil. Essayez les contrôles de la carte, tels que *Zoom avant*, *Zoom arrière* ou *Développer*.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Carte du tableau de bord de suivi de la consommation d’eau":::
 
@@ -109,7 +109,7 @@ Vous pouvez personnaliser les vues du tableau de bord pour les opérateurs.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Modification du tableau de bord":::
 
-Pour plus d’informations, consultez [Créer et personnaliser des tableaux de bord](../core/howto-create-personal-dashboards.md).
+Pour plus d’informations, consultez [Créer et personnaliser des tableaux de bord](../core/howto-manage-dashboards.md).
 
 ## <a name="explore-the-device-template"></a>Explorer le modèle d’appareil
 
@@ -146,7 +146,7 @@ Pour personnaliser le modèle d’appareil :
     Dans Azure IoT Central, vous pouvez ajouter une propriété qui s’applique à l’appareil. Par exemple, une propriété cloud peut être un seuil d’alerte propre à la zone d’installation, aux informations sur les ressources ou à d’autres informations de maintenance.
 1. Sélectionnez **Save** (Enregistrer) pour enregistrer les modifications.
 
-Pour plus d’informations, consultez [Propriétés du cloud](../core/quick-create-simulated-device.md#add-cloud-properties).
+Pour plus d’informations, consultez [Propriétés du cloud](../core/concepts-device-templates.md#cloud-properties).
 
 
 ### <a name="views"></a>Les vues
@@ -155,20 +155,20 @@ Le modèle d’appareil de suivi de la consommation d’eau est fourni avec des 
 
   ![Vues du modèle d’appareil](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
-Pour plus d’informations, consultez [Les vues](../core/quick-create-simulated-device.md#views).
+Pour plus d’informations, consultez [Les vues](../core/concepts-device-templates.md#views).
 
 ### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
 
 Accédez à la page des modèles d’appareils, puis sélectionnez **Publier** pour enregistrer toutes les modifications apportées au modèle d’appareil.
 
-Pour plus d’informations, consultez [Comment publier des modèles](../core/quick-create-simulated-device.md#publish-device-template).
+Pour plus d’informations, consultez [Comment publier des modèles](../core/howto-set-up-template.md#publish-a-device-template).
 
 ### <a name="create-a-new-device-template"></a>Créer un modèle d’appareil
 
 Sélectionnez **+ New** (Nouveau) pour créer un nouveau modèle d’appareil et suivre le processus de création.
 Vous pouvez créer un modèle d’appareil personnalisé à partir de zéro ou choisir un modèle d’appareil dans le catalogue d’appareils Azure.
 
-Pour plus d’informations, consultez [Comment ajouter des modèles d’appareil](../core/quick-create-simulated-device.md#add-a-device-template).
+Pour plus d’informations, consultez [Comment ajouter des modèles d’appareil](../core/howto-set-up-template.md).
 
 ## <a name="explore-simulated-devices"></a>Explorer les appareils simulés
 
@@ -195,7 +195,7 @@ Dans Azure IoT Central, vous pouvez créer des appareils simulés pour tester vo
 
 Ajoutez de nouveaux appareils en sélectionnant **+ New** (Nouveau) sous l’onglet **Devices** (Appareils).
 
-Pour plus d’informations, consultez [Comment ajouter de nouveaux appareils](../core/quick-create-simulated-device.md#add-a-simulated-device).
+Pour en savoir plus, consultez [Gérer les appareils](../core/howto-manage-devices-individually.md).
 
 ## <a name="explore-rules"></a>Explorer les règles
 
@@ -243,7 +243,7 @@ Dans Azure IoT Central, les travaux vous permettent de déclencher la mise à jo
 1. Dans le volet gauche, sélectionnez **Jobs** (Travaux).
 1. Sélectionnez **+New** (Nouveau) et configurez un ou plusieurs travaux.
 
-Pour plus d’informations, consultez [Comment exécuter un travail](../core/howto-run-a-job.md).
+Pour plus d’informations, consultez [Comment exécuter un travail](../core/howto-manage-devices-in-bulk.md).
 
 ## <a name="customize-your-application"></a>Personnaliser votre application
 

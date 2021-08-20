@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: ecbad0a8c23bd2781373923ffa470a06509ee852
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 29a7865a06fd96ce4d27892775fb5af728633a02
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038592"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982471"
 ---
 # <a name="microsoft-news-recommendation"></a>Microsoft News Recommendation
 
@@ -102,7 +102,7 @@ Pour certaines raisons, dans l’incorporation d’apprentissage à partir du so
 
 ## <a name="storage-location"></a>Emplacement de stockage
 
-Les données sont stockées dans des blobs situés dans le centre de données USA Ouest/Est, dans le conteneur d'objets blob suivant : https://mind201910small.blob.core.windows.net/release/.
+Les données sont stockées dans des blobs situés dans le centre de données USA Ouest/Est, dans le conteneur de blobs suivant : « https://mind201910small.blob.core.windows.net/release/  ».
 
 Au sein du conteneur, les jeux d’apprentissage et de validation sont comprimés respectivement dans les fichiers MINDlarge_train.zip and MINDlarge_dev.zip.
 

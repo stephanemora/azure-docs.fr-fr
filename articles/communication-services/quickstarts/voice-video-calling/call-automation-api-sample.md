@@ -10,14 +10,18 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 72f567603cbe012bd20c881a5bfd725a2f319ef9
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 94adf38e2fac5a57f26d6a3a88c5c4b2f71cc995
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107621"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473186"
 ---
-# <a name="call-automation-api-quickstart"></a>Démarrage rapide de l’API d’automatisation des appels
+# <a name="quickstart-use-the-call-automation-apis"></a>Démarrage rapide : Utiliser les API d’automatisation d’appel
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+
 Prenez en main Azure Communication Services à l’aide des kits de développement logiciel (SDK) serveur Communication Services Calling pour créer une solution de routage d’appels automatisée.
 
 ::: zone pivot="programming-language-csharp"

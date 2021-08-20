@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 384eb565882cf5f62cec1c6d38769647a82ec712
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e5bad3f24d5692bbebb668e29b5ea229294b46f9
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038644"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982741"
 ---
 # <a name="clinvar-annotations"></a>Annotations ClinVar
 
@@ -36,9 +36,9 @@ Ce jeu de données est stocké dans les régions Azure USA Ouest 2 et USA Centr
 
 ## <a name="data-access"></a>Accès aux données
 
-USA Ouest 2 : https://datasetclinvar.blob.core.windows.net/dataset
+USA Ouest 2 : « https://datasetclinvar.blob.core.windows.net/dataset  »
 
-USA Centre-Ouest : https://datasetclinvar-secondary.blob.core.windows.net/dataset
+USA Centre-Ouest : « https://datasetclinvar-secondary.blob.core.windows.net/dataset  »
 
 [Jeton SAS](../storage/common/storage-sas-overview.md) : sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=qFPPwPba1RmBvaffkzkLuzabYU5dZstSTgMwxuLNME8%3D
 
@@ -64,7 +64,7 @@ Si vous avez des questions ou des commentaires sur ce jeu de données, contactez
 
 Différentes données publiques de génomique ont été chargées dans un [jeu de données Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/). Nous créons un service blob lié à ce jeu de données ouvert. Vous trouverez ici des exemples de procédure d’appel de données à partir d’Azure Open Datasets pour le jeu de données `ClinVar` :
 
-Les utilisateurs peuvent appeler et télécharger le chemin suivant avec ce notebook : https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5.
+Les utilisateurs peuvent appeler et télécharger le chemin suivant avec ce notebook : « https://datasetclinvar.blob.core.windows.net/dataset/ClinVarFullRelease_00-latest.xml.gz.md5  »
 
 > [!NOTE]
 > Les utilisateurs doivent se connecter à leur compte Azure avec Azure CLI pour afficher les données avec le kit SDK Azure ML. En revanche, ils n’ont aucune action à effectuer pour télécharger les données.

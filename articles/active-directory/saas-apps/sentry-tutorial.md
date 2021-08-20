@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: c95ab589917979bd718011aa15cfaf12ba05e45b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f639c656207f94b37bbf2768b6c39fc69eb8603
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182367"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114454570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Sentry
 
@@ -86,14 +86,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://sentry.io/organizations/<ORGANIZATION_SLUG>/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Sentry](mailto:support@sentry.io). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez ces valeurs à jour avec les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL de connexion. Pour plus d’informations sur la recherche de ces valeurs, consultez la [documentation de Sentry](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
+1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier l’**URL des métadonnées de l’application** et enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+   ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+    
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B.Simon dans le portail Azure.
 
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
@@ -117,11 +118,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-sentry-sso"></a>Configurer l’authentification unique Sentry
 
-Pour configurer l’authentification unique côté **Sentry**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique de Sentry](mailto:support@sentry.io). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Sentry**, accédez à **Org Settings** (Paramètres de l’organisation) > **Auth** (Authentification) [ou accédez à `https://sentry.io/settings/<YOUR_ORG_SLUG>/auth/`] et sélectionnez **Configure** (Configurer) pour Active Directory. Collez l’URL des métadonnées de fédération de l’application provenant de votre configuration Azure SAML.
 
 ### <a name="create-sentry-test-user"></a>Créer un utilisateur de test Sentry
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans Sentry. Sentry prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Sentry, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans Sentry. Sentry prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Sentry, il en est créé un après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -129,15 +130,17 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Sentry où vous pouvez lancer le processus de connexion.  
+1. Dans le portail Azure, sélectionnez **Tester cette application**. Vous êtes alors redirigé vers l’URL de connexion de Sentry, à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-1. Accédez directement à l’URL de connexion Sentry pour lancer le processus de connexion.
+1. Accédez directement à l’URL de connexion de Sentry pour initier le flux de connexion.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Sur le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Sentry pour laquelle vous avez configuré l’authentification unique. 
+* Dans le portail Azure, sélectionnez **Tester cette application**. Vous devez être connecté automatiquement à l’application Sentry pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Sentry dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Sentry pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="either-mode"></a>L’un ou l’autre mode :
+
+Vous pouvez utiliser le portail Mes applications pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Sentry dans le portail Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. Si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application Sentry pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
