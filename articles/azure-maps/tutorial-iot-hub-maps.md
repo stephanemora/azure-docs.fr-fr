@@ -3,18 +3,18 @@ title: 'Tutoriel : Implémenter l’analytique spatiale IoT | Microsoft Azure M
 description: Tutoriel sur l’intégration d’IoT Hub aux API du service Microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/01/2020
+ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 37aa8c954f847002ad69fa17ee1f025049ec9bb6
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 31e122b3d65598c0e6a3dbfcf3aa65a9fd339609
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785761"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405903"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -119,11 +119,9 @@ Ensuite, utilisez l’[application Postman](https://www.getpostman.com) pour [ch
 
 Effectuez les étapes suivantes pour charger la limite géographique à l’aide de l’API de chargement de données Azure Maps : 
 
-1. Ouvrez l’application Postman et sélectionnez **New**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection, puis sélectionnez **Create**.
+1. Ouvrez l’application Postman et sélectionnez **Nouveau**. Dans la fenêtre **Create New**, sélectionnez **HTTP Request**, puis entrez le nom de la requête.
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New**, sélectionnez **Request**, puis entrez le nom de la requête. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
-
-3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger la limite géographique dans l’API de chargement de données. Remplacez `{subscription-key}` par la clé de votre abonnement principal.
+2. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger la limite géographique dans l’API de chargement de données. Remplacez `{subscription-key}` par la clé de votre abonnement principal.
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
@@ -131,21 +129,21 @@ Effectuez les étapes suivantes pour charger la limite géographique à l’aide
 
     Dans le chemin d’URL, la valeur `geojson` définie pour le paramètre `dataFormat` représente le format des données en cours de chargement.
 
-4. Sélectionnez **Body** > **raw** comme format d’entrée, puis choisissez **JSON** dans la liste déroulante. [Ouvrez le fichier de données JSON](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4) et copiez le code JSON dans la section du corps. Sélectionnez **Envoyer**.
+3. Sélectionnez **Body** > **raw** comme format d’entrée, puis choisissez **JSON** dans la liste déroulante. [Ouvrez le fichier de données JSON](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4) et copiez le code JSON dans la section du corps. Sélectionnez **Envoyer**.
 
-5. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`.
+4. Sélectionnez **Send** et attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`.
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
-6. Pour vérifier l’état de l’appel d’API, créez une requête HTTP **GET** sur `status URL`. Vous devez ajouter votre clé d’abonnement principale à l’URL pour l’authentification. La requête **GET** doit ressembler à l’URL suivante :
+5. Pour vérifier l’état de l’appel d’API, créez une requête HTTP **GET** sur `status URL`. Vous devez ajouter votre clé d’abonnement principale à l’URL pour l’authentification. La requête **GET** doit ressembler à l’URL suivante :
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
    ```
 
-7. Quand la requête s’est effectuée avec succès, sélectionnez l’onglet **En-têtes** dans la fenêtre de réponse. Copiez la valeur de la clé **Resource-Location**, qui correspond à `resource location URL`.  `resource location URL` contient l’identificateur unique (`udid`) des données chargées. Copiez la valeur `udid` (Clé) pour une utilisation ultérieure dans ce tutoriel.
+6. Quand la requête s’est effectuée avec succès, sélectionnez l’onglet **En-têtes** dans la fenêtre de réponse. Copiez la valeur de la clé **Resource-Location**, qui correspond à `resource location URL`.  `resource location URL` contient l’identificateur unique (`udid`) des données chargées. Copiez la valeur `udid` (Clé) pour une utilisation ultérieure dans ce tutoriel.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/resource-location-url.png" alt-text="Copiez l’URL de l’emplacement de la ressource.":::
 
@@ -156,7 +154,7 @@ IoT Hub permet une communication bidirectionnelle sécurisée et fiable entre un
 > [!NOTE]
 > La capacité à publier des événements de télémétrie de l’appareil sur Event Grid est actuellement en préversion. Cette fonctionnalité est disponible dans toutes les régions, à l’exception des suivantes : USA Est, USA Ouest, Europe Ouest, Azure Government, Azure China 21Vianet et Azure Allemagne.
 
-Pour créer un hub IoT dans le groupe de ressources *ContosoRental*, effectuez les étapes décrites dans [Créer un hub IoT](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
+Pour créer un hub IoT dans le groupe de ressources *ContosoRental*, effectuez les étapes décrites dans [Créer un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub).
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Inscrire votre appareil dans votre hub IoT
 
@@ -174,7 +172,7 @@ Voici le [code de script C# que votre fonction contiendra](https://github.com/Az
 
 1. Dans le tableau de bord du portail Azure, sélectionnez **Créer une ressource**. Saisissez **Function App** dans la zone de texte de recherche. Sélectionnez **Application de fonction** > **Créer**.
 
-1. Dans la page de création **Function App**, nommez votre application de fonction. Sous **Groupe de ressources**, sélectionnez **ContosoRental** dans la liste déroulante. Sélectionnez **.NET Core** comme **pile d’exécution**. En bas de la page, sélectionnez **Suivant  : Hébergement >** .
+1. Dans la page de création **Function App**, nommez votre application de fonction. Sous **Groupe de ressources**, sélectionnez **ContosoRental** dans la liste déroulante. Sélectionnez **.NET** comme **pile d’exécution**. Sélectionnez **3.1** comme **Version**.  En bas de la page, sélectionnez **Suivant  : Hébergement >** .
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Capture d’écran de la création d’une application de fonction.":::
 
@@ -273,7 +271,7 @@ Pour obtenir la liste complète des API REST Azure Maps, consultez :
 
 * [API REST Azure Maps](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](../iot-pnp/index.yml)
+* [IoT Plug and Play](../iot-develop/index.yml)
 
 Pour obtenir la liste des appareils qui sont certifiés Azure pour IoT, visitez :
 
@@ -289,4 +287,4 @@ Pour en savoir plus sur la façon d’envoyer des données de télémétrie appa
 
 
 > [!div class="nextstepaction"]
-> [Envoyer des données de télémétrie depuis un appareil](../iot-hub/quickstart-send-telemetry-dotnet.md)
+> [Envoyer des données de télémétrie depuis un appareil](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
