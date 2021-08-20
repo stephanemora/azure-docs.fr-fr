@@ -6,13 +6,13 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: fe4841307ba94a7c3f8ac1d2aa13b43c07df4456
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 07/08/2021
+ms.openlocfilehash: 55ddb188abfd43dbb782beef5f99d4058004922f
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488444"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113515479"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données du stockage Blob Azure vers une base de données SQL Database en utilisant l’outil Copier les données
 
@@ -107,73 +107,73 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
 1. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Créer et superviser.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la mosaïque Ouvrir Azure Data Factory Studio.":::
 
-1. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**.
+1. Pour lancer l’interface utilisateur Azure Data Factory dans un onglet séparé, sélectionnez **Ouvrir** dans la mosaïque **Ouvrir Azure Data Factory Studio**.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 
-1. Sur la page **Prise en main**, sélectionnez la vignette **Copier des données** pour démarrer l’outil Copier des données.
+1. Sur la page d’accueil d’Azure Data Factory, sélectionnez la mosaïque **Ingérer** pour lancer l’outil Copier des données.
 
-   ![Vignette de l’outil Copier les données](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d'accueil Azure Data Factory.](./media/doc-common-process/get-started-page.png)
 
-1. Sur la page **Propriétés**, sous **Nom de la tâche**, saisissez **CopyFromBlobToSqlPipeline**. Sélectionnez ensuite **Suivant**. L’interface utilisateur de Data Factory crée un pipeline avec le nom spécifié.
+1. Sur la page **Propriétés** de l’outil Copier des données, choisissez **Tâche de copie intégrée** sous **Type de tâche**, puis **Suivant**.
 
-   ![Créer un pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
-
+     ![Capture d’écran montrant la page Propriétés](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+    
 1. Sur la page **Banque de données source**, procédez comme suit :
 
-   a. Sélectionnez **+ Créer une connexion** pour ajouter une connexion
+   a. Sélectionnez **+ Créer une connexion** pour ajouter une connexion.
 
    b. Sélectionnez **Stockage Blob Azure** à partir de la galerie, puis sélectionnez **Continuer**.
 
-   c. Dans la page **Nouveau service lié**, sélectionnez votre abonnement Azure et ensuite votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Créer**.
+   c. Dans la page **Nouvelle connexion (Stockage Blob Azure)** , sélectionnez votre abonnement Azure dans la liste **Abonnement Azure** et votre compte de stockage dans la liste **Nom du compte de stockage**. Testez la connexion, puis sélectionnez **Créer**.
 
-   d. Sélectionnez le service lié qui vient d’être créé en tant que source, puis sélectionnez **Suivant**.
+   d. Sélectionnez le service lié qui vient d’être créé en tant que source dans le bloc **Connexion**.
 
-   ![Sélectionner un service lié source](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+   e. Dans la section **Fichier ou dossier**, sélectionnez **Parcourir** pour accéder au dossier **adfv2tutorial**, sélectionnez le fichier **inputEmp.txt**, puis cliquez sur **OK**.
 
-1. Sur la page **Choisir le fichier ou le dossier de sortie**, procédez comme suit :
+   f. Sélectionnez **Suivant** pour passer à l’étape suivante.
 
-   a. Sélectionnez **Parcourir** pour accéder au dossier **adfv2tutorial/input**, sélectionnez le fichier **inputEmp.txt**, puis sélectionnez **Choisir**.
+   :::image type="content" source="./media/tutorial-copy-data-tool/source-data-store.png" alt-text="Configurez la source.":::
 
-   b. Sélectionnez **Suivant** pour passer à l’étape suivante.
-
-1. Dans la page **Paramètres de format de fichier** , cochez la case *Première ligne comme en-tête*. Notez que l’outil détecte automatiquement les séparateurs de ligne et de colonne. Sélectionnez **Suivant**. Vous pouvez aussi prévisualiser les données et examiner le schéma des données d’entrée dans cette page.
+1. Dans la page **Paramètres de format de fichier** , cochez la case *Première ligne comme en-tête*. Notez que l’outil détecte automatiquement les séparateurs de lignes et de colonnes. Vous pouvez également visualiser des données et afficher le schéma des données d’entrée en sélectionnant le bouton **Aperçu des données** dans cette page. Sélectionnez ensuite **Suivant**. 
 
    ![Paramètres de format de fichier](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 
 1. Sur la page **Banque de données de destination**, procédez comme suit :
 
-   a. Sélectionnez **+ Créer une connexion** pour ajouter une connexion
+   a. Sélectionnez **+ Créer une connexion** pour ajouter une connexion.
 
    b. Sélectionnez **Azure SQL Database** dans la galerie, puis sélectionnez **Continuer**.
 
-   c. Dans la page **Nouveau service lié**, sélectionnez le nom de votre serveur et le nom de votre base de données dans la liste déroulante, spécifiez le nom d’utilisateur et le mot de passe, puis sélectionnez **Créer**.
+   c. Sur la page **Nouvelle connexion (Azure SQL Database)** , sélectionnez votre abonnement Azure, le nom du serveur et le nom de la base de données dans la liste déroulante. Sélectionnez ensuite **Authentification SQL** sous **Type d’authentification**, spécifiez le nom d’utilisateur et le mot de passe. Testez la connexion et sélectionnez **Créer**.
 
-      ![Configurer Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   ![Configurer Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
    d. Sélectionnez le service lié qui vient d’être créé en tant que récepteur, puis sélectionnez **Suivant**.
 
-1. Sur la page **Mappage de table**, sélectionnez la table **[dbo].[emp]** , puis sélectionnez **Suivant**.
+1. Sur la page **Magasin de données de destination**, sélectionnez **Utiliser une table existante** et sélectionnez la table **dbo.emp**. Sélectionnez ensuite **Suivant**.
 
 1. Dans la page **Mappage de colonne**, notez que les deuxième et troisième colonnes du fichier d’entrée sont mappées aux colonnes **FirstName** et **LastName** de la table **emp**. Ajustez le mappage pour vérifier qu’il n’y a pas d’erreur, puis sélectionnez **Suivant**.
 
    ![Page de mappage de colonnes](./media/tutorial-copy-data-tool/column-mapping.png)
 
-1. Sur la page **Paramètres**, cliquez sur **Suivant**.
+1. Sur la page **Paramètres**, sous **Nom de la tâche**, saisissez **CopyFromBlobToSqlPipeline** et sélectionnez **Suivant**.
+
+   :::image type="content" source="./media/tutorial-copy-data-tool/settings.png" alt-text="Configurez les paramètres":::.
 
 1. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
 
-1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
+1. Sur la page **Déploiement**, sélectionnez **Analyse** pour analyser le pipeline (tâche).
 
    ![Surveillance d’un pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. Dans la page Exécutions de pipeline, sélectionnez **Actualiser** pour actualiser la liste. Sélectionnez le lien situé sous **NOM DU PIPELINE** pour voir les détails de l’exécution d’activité ou réexécuter le pipeline. 
+1. Dans la page Exécutions de pipeline, sélectionnez **Actualiser** pour actualiser la liste. Sélectionnez le lien situé sous **Nom du pipeline** pour afficher les détails de l’exécution d’activité ou réexécuter le pipeline. 
 
    ![Exécution du pipeline](./media/tutorial-copy-data-tool/pipeline-run.png)
 
-1. Dans la page Exécutions de l’activité, sélectionnez le lien **Détails** (icône de lunettes) en dessous de la colonne **Nom de l’activité** pour plus d’informations sur l’opération de copie. Pour revenir à l’affichage Exécutions de pipeline, sélectionnez le lien **Toutes les exécutions de pipelines** dans le menu de navigation. Sélectionnez **Actualiser** pour actualiser l’affichage.
+1. Sur la page « Exécutions des activités », sélectionnez le lien **Détails** (icône en forme de lunettes) sous la colonne **Nom de l’activité** pour plus d’informations sur l’opération de copie. Pour revenir à l’affichage « Exécutions de pipeline », sélectionnez le lien **Toutes les exécutions de pipeline** dans le menu de navigation. Sélectionnez **Actualiser** pour actualiser l’affichage.
 
    ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

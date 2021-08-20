@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous découvrez comment créer des images contene
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0bbe5bbe8ed12902541e40e9d78a7e7cdd21f9f1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 831d96534bbdb0a90c89d0e76fc1aeb48ce2f69e
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413137"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201497"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutoriel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
@@ -59,19 +59,10 @@ docker build -t azure-vote-front .
 > [!Note]
 > Si vous obtenez un refus d’autorisation, suivez [cette](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation sur l’utilisation de Docker sans sudo.
 
-Cette commande peut prendre un certain temps, car toutes les dépendances nécessaires doivent être extraites du Hub Docker. Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher les images créées.
+Cette commande peut prendre un certain temps, car toutes les dépendances nécessaires doivent être extraites du Hub Docker. Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher l’image *azure-vote-front* que vous venez de créer.
 
 ```bash
 docker images
-```
-
-Notez que les deux images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application. Elle est dérivée d’une image *python* provenant de Docker Hub.
-
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
-
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
@@ -128,8 +119,7 @@ Sortie :
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
+azure-vote-front             latest              052c549a75bf        About a minute ago   913MB
 ```
 
 Pour obtenir le nom de loginServer, exécutez la commande suivante :
@@ -158,15 +148,14 @@ Sortie :
 
 ```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
-mcr.microsoft.com/azuredocs/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
+azure-vote-front                       latest              052c549a75bf        23 minutes ago      913MB
+<acrName>.azurecr.io/azure-vote-front  v1                  052c549a75bf        23 minutes ago      913MB
 
 ```
 
 ## <a name="push-images-to-registry"></a>Envoyer des images au registre
 
-Envoyez l’image *azure-vote-front* au registre. 
+Envoyez l’image *azure-vote-front* au registre.
 
 À l’aide de l’exemple suivant, remplacez le nom d’ACR loginServer par le loginServer à partir de votre environnement.
 

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : créer une application web sur Azure Arc'
 description: Commencez à utiliser App Service sur Azure Arc en déployant votre première application web.
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: b9292af90c50712ef99496ce6078c4c34b5e5d01
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 4002ef3d66eaae05881da0dd8d95cc82ffeb916d
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984875"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377005"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Créer une application App Service sur Azure Arc (préversion)
 
@@ -49,7 +49,7 @@ L’exemple suivant crée une application Node.js. Remplacez `<app-name>` par un
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
@@ -75,7 +75,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 > [!NOTE]
 > Pour utiliser Log Analytics, vous devez l’avoir activé lors de l’[installation de l’extension App Service](manage-create-arc-environment.md#install-the-app-service-extension). Si vous avez installé l’extension sans Log Analytics, ignorez cette étape.
 
-Accédez à l’[espace de travail Log Analytics configuré avec votre extension App service](manage-create-arc-environment.md#install-the-app-service-extension), puis cliquez sur Journaux dans le volet de navigation gauche. Exécutez l’exemple de requête suivant pour afficher les journaux des dernières 72 heures. Remplacez `<app-name>` par le nom de votre application web. 
+Accédez à l’[espace de travail Log Analytics configuré avec votre extension App service](manage-create-arc-environment.md#install-the-app-service-extension), puis cliquez sur Journaux dans le volet de navigation gauche. Exécutez l’exemple de requête suivant pour afficher les journaux des dernières 72 heures. Remplacez `<app-name>` par le nom de votre application web. Si une erreur se produit lors de l’exécution d’une requête, réessayez dans 10 à 15 minutes (il peut y avoir un délai pour que Log Analytics commence à recevoir les journaux de votre application). 
 
 ```kusto
 let StartTime = ago(72h);
@@ -98,7 +98,8 @@ Pour créer une application de conteneur personnalisé, exécutez la commande [a
 Par exemple, essayez :
 
 ```azurecli-interactive
-az webapp create 
+az webapp create \
+    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

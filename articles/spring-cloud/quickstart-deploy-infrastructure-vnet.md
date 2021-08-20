@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Approvisionner Azure Spring Cloud à l’aide d’un modèle Azure Resource Manager (modèle ARM)'
-description: Ce démarrage rapide montre comment déployer un cluster Spring Cloud dans un réseau virtuel existant.
+description: Ce guide de démarrage rapide explique comment utiliser un modèle ARM pour déployer un cluster Spring Cloud dans un réseau virtuel existant.
 services: azure-resource-manager
 author: ryhud
 ms.service: spring-cloud
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java
 ms.author: rhudson
 ms.date: 05/27/2021
-ms.openlocfilehash: f57e3d6d1f3f562e35d38e45a3e0ca1703730d04
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 73c24f62e2c4333cb1e8ea826792626591aa1c68
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949223"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895883"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-an-arm-template"></a>Démarrage rapide : Approvisionner Azure Spring Cloud à l’aide d’un modèle ARM
 
@@ -103,8 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 Dans le cadre de ce démarrage rapide, vous avez déployé une instance Azure Spring Cloud dans un réseau virtuel existant à l’aide d’un modèle ARM, puis validé le déploiement. Pour plus d’informations sur Azure Spring Cloud et Azure Resource Manager, accédez aux ressources ci-dessous.
 
 - Déployez l’un des exemples d’application suivants à partir des emplacements ci-dessous :
-   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (microservices avec un backend mysql).
-   * [Hello World simple](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
+   - [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (microservices avec un backend mysql).
+   - [Hello World simple](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Utilisez des [domaines personnalisés](tutorial-custom-domain.md) avec Azure Spring Cloud.
 - Exposez des applications Azure Spring Cloud à Internet à l’aide d’[Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - Affichez l’[architecture de référence Azure Spring Cloud](reference-architecture.md) sécurisée de bout en bout, basée sur [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

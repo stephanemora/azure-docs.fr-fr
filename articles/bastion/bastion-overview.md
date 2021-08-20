@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 07/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: ae0d4c0fc3ee3f621cc7d90238d9a8ac7b3f773c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: contperf-fy2q1-portal
+ms.openlocfilehash: f23a21bdba5602dad2e38ee931a5e754f0607cde
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142228"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730590"
 ---
 # <a name="what-is-azure-bastion"></a>Qu’est-ce qu’Azure Bastion ?
 
@@ -20,13 +21,32 @@ Azure Bastion est un service que vous déployez et qui vous permet de vous conne
 
 Bastion fournit une connectivité RDP et SSH sécurisée à toutes les machines virtuelles du réseau virtuel dans lequel il est provisionné. Azure Bastion protège vos machines virtuelles contre l’exposition des ports RDP/SSH au monde extérieur, tout en fournissant un accès sécurisé à l’aide de RDP/SSH.
 
-## <a name="architecture"></a>Architecture
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagramme montrant l’architecture Azure Bastion.":::
 
-Le déploiement Azure Bastion est effectué par réseau virtuel et non par abonnement/compte ou machine virtuelle. Une fois que vous avez provisionné le service Azure Bastion dans votre réseau virtuel, l’expérience RDP/SSH est disponible pour toutes vos machines virtuelles sur le même réseau virtuel.
+## <a name="key-benefits"></a><a name="key"></a>Principaux avantages
+
+* **RDP et SSH directement dans le Portail Azure :** vous pouvez accéder directement à la session RDP et SSH dans le Portail Azure en un simple clic.
+* **Session à distance sur TLS et traversée de pare-feu pour RDP/SSH :** Azure Bastion utilise un client web basé sur HTML5 automatiquement diffusé en continu sur votre appareil local. Vous bénéficiez d’une session RDP/SSH sur TLS sur le port 443, ce qui vous permet de traverser les pare-feu d’entreprise en toute sécurité.
+* **Aucune adresse IP publique n’est requise sur la machine virtuelle Azure :** Azure Bastion ouvre la connexion RDP/SSH à votre machine virtuelle Azure en utilisant une adresse IP privée sur votre machine virtuelle. Vous n’avez pas besoin d’une adresse IP publique sur votre machine virtuelle.
+* **Gestion aisée des groupes de sécurité réseau :** Azure Bastion est un service PaaS de plateforme entièrement géré d’Azure, renforcé en interne pour vous fournir une connectivité RDP/SSH sécurisée. Vous n’avez pas besoin d’appliquer des groupes de sécurité réseau sur le sous-réseau Azure Bastion. Comme Azure Bastion se connecte à vos machines virtuelles par le biais d’une adresse IP privée, vous pouvez configurer vos groupes de sécurité réseau pour autoriser RDP/SSH depuis Azure Bastion uniquement. Vous n’avez plus à gérer les groupes de sécurité réseau chaque fois que vous devez vous connecter de manière sécurisée à vos machines virtuelles.
+* **Protection contre l’analyse des ports :** parce que vous n’avez pas besoin d’exposer vos machines virtuelles à l’Internet public, celles-ci sont protégées contre l’analyse des ports par des utilisateurs malveillants situés en dehors de votre réseau virtuel.
+* **Protégez-vous contre les exploits du jour zéro. Renforcement de la sécurité dans un seul endroit :** Azure Bastion est un service PaaS complètement managé par la plateforme. Comme il se trouve au périmètre de votre réseau virtuel, vous n’avez pas besoin de vous soucier du renforcement de la sécurité de chacune des machines virtuelles de votre réseau virtuel. La plateforme Azure protège contre les exploits du jour zéro en assurant une sécurité durcie permanente et à jour pour Azure Bastion.
+
+## <a name="skus"></a><a name="sku"></a>Références SKU
+
+Azure Bastion présente deux références SKU disponibles : de base et standard. La référence SKU standard est actuellement en préversion. Pour plus d’informations, notamment sur la mise à niveau d’une référence SKU, consultez l’article [Paramètres de configuration](configuration-settings.md#skus). 
+
+La table suivante présente les fonctionnalités et les références SKU correspondantes.
+
+[!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
+
+## <a name="architecture"></a><a name="architecture"></a>Architecture
+
+Azure Bastion est déployé sur un réseau virtuel et prend en charge l’appairage de réseaux virtuels. Plus précisément, Azure Bastion gère la connectivité RDP/SSH aux machines virtuelles créées dans les réseaux virtuels locaux ou homologués.
 
 RDP et SSH font partie des moyens fondamentaux par lesquels vous pouvez vous connecter à vos charges de travail exécutées dans Azure. L’exposition des ports RDP/SSH sur Internet est déconseillée car considérée comme une surface de menace importante. Cela est surtout dû aux vulnérabilités du protocole. Pour contenir cette surface de menace, vous pouvez déployer des hôtes Bastion (également appelés serveurs de saut) du côté public de votre réseau périphérique. Les serveurs hôte Bastion sont conçus et configurés pour faire face aux attaques. Les serveurs Bastion fournissent également une connectivité RDP et SSH aux charges de travail situées derrière le bastion, ainsi qu’à l’intérieur du réseau.
 
-![Architecture d’Azure Bastion](./media/bastion-overview/architecture.png)
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagramme montrant l’architecture Azure Bastion.":::
 
 Cette figure représente l’architecture d’un déploiement Azure Bastion. Dans ce diagramme :
 
@@ -36,26 +56,26 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion. Dan
 * D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur.
 * Aucune adresse IP publique n’est requise sur la machine virtuelle Azure.
 
-## <a name="key-features"></a>Fonctionnalités clés
+## <a name="host-scaling"></a><a name="host-scaling"></a>Mise à l’échelle de l’hôte
 
-Les fonctionnalités suivantes sont disponibles :
+Azure Bastion prend en charge la mise à l’échelle manuelle des hôtes. Vous pouvez configurer le nombre d’instances d’hôte (unités d’échelle) afin de gérer le nombre de connexions RDP/SSH simultanées qu’Azure Bastion peut prendre en charge. Le fait d’augmenter le nombre d’instances de l’hôte permet à Azure Bastion de gérer davantage de sessions simultanées. La diminution du nombre d’instances réduit le nombre de sessions simultanées prises en charge. Azure Bastion prend en charge jusqu’à 50 instances d’hôte. Cette fonctionnalité est disponible uniquement pour la référence SKU Azure Bastion standard.
 
-* **RDP et SSH directement dans le Portail Azure :** Vous pouvez accéder directement à la session RDP et SSH directement dans le Portail Azure en un clic.
-* **Session à distance sur TLS et traversée de pare-feu pour RDP/SSH :** Azure Bastion utilise un client web basé sur HTML5 qui est automatiquement envoyé en streaming sur votre appareil local, si bien que vous obtenez votre session RDP/SSH via TLS sur le port 443, ce qui vous permet de traverser les pare-feu d’entreprise de manière sécurisée.
-* **Aucune adresse IP publique n’est requise sur la machine virtuelle Azure :** Azure Bastion ouvre la connexion RDP/SSH à votre machine virtuelle Azure en utilisant une adresse IP privée sur votre machine virtuelle. Vous n’avez pas besoin d’une adresse IP publique sur votre machine virtuelle.
-* **Gestion aisée des groupes de sécurité réseau :** Azure Bastion est un service PaaS de plateforme entièrement géré d’Azure, renforcé en interne pour vous fournir une connectivité RDP/SSH sécurisée. Vous n’avez pas besoin d’appliquer de groupes de sécurité réseau sur le sous-réseau Azure Bastion. Comme Azure Bastion se connecte à vos machines virtuelles par le biais d’une adresse IP privée, vous pouvez configurer vos groupes de sécurité réseau pour autoriser RDP/SSH depuis Azure Bastion uniquement. Vous n’avez plus à gérer les groupes de sécurité réseau chaque fois que vous devez vous connecter de manière sécurisée à vos machines virtuelles.
-* **Protection contre l’analyse des ports :** Parce que vous n’avez pas besoin d’exposer vos machines virtuelles à l’Internet public, celles-ci sont protégées contre l’analyse des ports par des utilisateurs malveillants situés en dehors de votre réseau virtuel.
-* **Protégez-vous contre les exploits du jour zéro. Renforcement de la sécurité dans un seul endroit :** Azure Bastion est un service PaaS complètement managé par la plateforme. Comme il se trouve au périmètre de votre réseau virtuel, vous n’avez pas besoin de vous soucier du renforcement de la sécurité de chacune des machines virtuelles de votre réseau virtuel. La plateforme Azure protège contre les exploits du jour zéro en assurant une sécurité durcie permanente et à jour pour Azure Bastion.
+Pour plus d’informations, consultez l’article [Paramètres de configuration](configuration-settings.md#instance).
+
+## <a name="pricing"></a><a name="pricing"></a>Tarifs
+
+Le tarif d’Azure Bastion implique une combinaison de tarifs horaires basés sur la référence SKU, les unités d’échelle et les taux de transfert de données. Pour des informations sur les prix, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/azure-bastion) .
 
 ## <a name="whats-new"></a><a name="new"></a>Nouveautés
 
 Abonnez-vous au flux RSS, puis consultez les dernières mises à jour des fonctionnalités Azure Bastion dans la page [Mises à jour Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion).
 
-## <a name="faq"></a>Questions fréquentes (FAQ)
+## <a name="bastion-faq"></a>FAQ Bastion
 
-[!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
+Pour accéder aux questions fréquentes (FAQ), consultez la [FAQ](bastion-faq.md)Bastion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Créer un hôte Azure Bastion et se connecter à une machine virtuelle Windows](tutorial-create-host-portal.md).
+* [Module Learn : présentation d’Azure Bastion](/learn/modules/intro-to-azure-bastion/).
 * Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.

@@ -4,26 +4,33 @@ description: Guide pratique pour créer un pool d’hôtes Azure Virtual Desktop
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 03/10/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 96e5fbf825c0550001ae9b0a38517e753b3a8d0f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 34faa055eb14841d1b35d81e62c74fef92c80bac
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756254"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707061"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
 >[!IMPORTANT]
 >Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Les objets que vous créez avec Azure Virtual Desktop (classique) ne peuvent pas être gérés avec le portail Azure.
 
-Les pools d’hôtes sont des ensembles d’une ou plusieurs machines virtuelles identiques dans des environnements Azure Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôtes sont des ensembles d’une ou plusieurs machines virtuelles identiques, aussi appelés « hôtes de session », dans des environnements Azure Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique. Si vous souhaitez en savoir plus sur l’architecture de déploiement, consultez la présentation de l'[environnement d’Azure Virtual Desktop](environment-setup.md). Si vous êtes développeur d’applications et que vous utilisez la diffusion d’applications à distance pour Azure Virtual Desktop, vos clients ou utilisateurs peuvent utiliser vos applications comme des applications locales sur un appareil physique. Pour plus d’informations sur l’utilisation d’Azure Virtual Desktop en tant que développeur d’applications, consultez notre documentation sur la [diffusion en continu d’applications d’Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
-Cet article vous guide tout au long du processus de création d’un pool d’hôtes pour un environnement Azure Virtual Desktop par le biais du portail Azure. Cette méthode offre une interface basée sur un navigateur pour créer un pool d’hôtes dans Azure Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine Azure Active Directory (AD) et inscrire les machines virtuelles auprès d’Azure Virtual Desktop.
+>[!NOTE]
+>Si vous êtes développeur d’applications et que vous utilisez la diffusion d’applications à distance pour Azure Virtual Desktop et que les utilisateurs de votre application se trouvent dans la même organisation que votre déploiement, vous pouvez utiliser votre locataire Azure existant pour créer votre pool hôte. Si vos utilisateurs sont en dehors de votre organisation, pour des raisons de sécurité, vous devez créer des locataires Azure distincts avec au moins un pool hôte pour chaque organisation. En savoir plus sur les pratiques que nous vous recommandons de suivre pour garantir la sécurité de votre déploiement aux [recommandations d’architecture](./remote-app-streaming/architecture-recs.md).
+
+Cet article vous guide tout au long du processus de création d’un pool d’hôtes pour un environnement Azure Virtual Desktop par le biais du portail Azure. Cette méthode offre une interface basée sur un navigateur pour créer un pool d’hôtes dans Azure Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine Azure Active Directory (AD) ou au locataire Azure Active Directory (Azure AD) et inscrire les machines virtuelles auprès d’Azure Virtual Desktop.
 
 ## <a name="prerequisites"></a>Prérequis
+
+Il existe deux ensembles d’exigences différents selon que vous êtes un professionnel de l’informatique qui configure un déploiement pour votre organisation ou un développeur d’applications qui dessert des applications pour les clients.
+
+### <a name="requirements-for-it-professionals"></a>Exigences pour les professionnels de l’informatique
 
 Vous devez entrer les paramètres suivants pour créer un pool d’hôtes :
 
@@ -37,11 +44,21 @@ Vous devez également connaître les éléments suivants :
 - Emplacement de la source de l’image que vous voulez utiliser. Provient-elle de la galerie Azure ou s’agit-il d’une image personnalisée ?
 - Informations d’identification de jonction de domaine.
 
-En outre, assurez-vous d’avoir inscrit le fournisseur de ressources Microsoft.DesktopVirtualization. Si vous ne l’avez pas encore fait, accédez à **Abonnements**, sélectionnez le nom de votre abonnement, puis **Fournisseurs de ressources**. Recherchez DesktopVirtualization, sélectionnez Microsoft.DesktopVirtualization, puis Inscrire.
+### <a name="requirements-for-app-developers"></a>Exigences pour les développeurs d’applications
 
-Lorsque vous créez un pool d’hôtes Azure Virtual Desktop avec le modèle Azure Resource Manager, vous pouvez créer un ordinateur virtuel à partir de la Galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
+Si vous êtes un développeur d’applications qui utilise la diffusion d’applications à distance pour Azure Virtual Desktop pour fournir des applications à vos clients, voici ce dont vous aurez besoin pour commencer :
 
-Si vous n’avez pas encore d’abonnement Azure, veillez à [créer un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer à suivre ces instructions.
+- Si vous envisagez de servir l’application de votre organisation aux utilisateurs finaux, assurez-vous que cette application est bien prête. Pour en savoir plus, consultez [Comment héberger des applications personnalisées avec Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
+- Si les options existantes de l’image de la Galerie Azure ne répondent pas à vos besoins, vous devrez également créer votre propre image personnalisée pour les hôtes de session de vos machines virtuelles. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
+- Informations d’identification de jonction de domaine. Si vous ne disposez pas déjà d’un système de gestion des identités compatible avec Azure Virtual Desktop, vous devez configurer la gestion des identités pour votre pool hôte.
+
+### <a name="final-requirements"></a>Exigences finales
+
+Enfin, assurez-vous d’avoir inscrit le fournisseur de ressources Microsoft.DesktopVirtualization. Si vous ne l’avez pas encore fait, accédez à **Abonnements**, sélectionnez le nom de votre abonnement, puis **Fournisseurs de ressources**. Recherchez **DesktopVirtualization**, sélectionnez **Microsoft.DesktopVirtualization**, puis **Inscrire**.
+
+Si vous êtes un professionnel de l’informatique et que vous créer un réseau, lorsque vous créez un pool d’hôtes Azure Virtual Desktop avec le modèle Azure Resource Manager, vous pouvez créer un ordinateur virtuel à partir de la Galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md). (Si vous êtes développeur d’applications, vous n’avez pas à vous soucier de cette partie.)
+
+Enfin, si vous n’avez pas encore d’abonnement Azure, veillez à [créer un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer à suivre ces instructions.
 
 ## <a name="begin-the-host-pool-setup-process"></a>Démarrer le processus de création du pool d’hôtes
 
@@ -51,6 +68,8 @@ Pour commencer à créer votre nouveau pool d’hôtes
    
    >[!NOTE]
    > Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us/) à la place.
+   > 
+   >Si vous accédez au portail Azure Chine, accédez à [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2. Entrez **Azure Virtual Desktop** dans la barre de recherche, puis recherchez et sélectionnez **Azure Virtual Desktop** sous Services.
 
@@ -82,7 +101,7 @@ Pour commencer à créer votre nouveau pool d’hôtes
 9.  Si vous choisissez **Groupé**, entrez les informations suivantes :
 
      - Pour **Limite de session maximale**, entrez le nombre maximal d’utilisateurs dont vous souhaitez équilibrer la charge sur un seul hôte de session.
-     - Pour **Algorithme d’équilibrage de charge**, choisissez l’équilibrage de charge en profondeur d’abord ou en largeur d’abord, en fonction de votre modèle d’utilisation.
+     - Pour **Algorithme d’équilibrage de charge**, choisissez l’équilibrage de charge en profondeur d’abord ou en largeur d’abord, en fonction de votre modèle d’utilisation. En savoir plus sur la signification de chacune de ces options sur les [méthodes d’équilibrage de charge des pools hôtes](host-pool-load-balancing.md).
 
        > [!div class="mx-imgBorder"]
        > ![Capture d’écran du champ Type d’affectation avec l’option « Groupé » sélectionnée. L’utilisateur pointe son curseur sur Largeur d’abord dans le menu déroulant de l’équilibrage de charge.](media/pooled-assignment-type.png)
@@ -103,12 +122,12 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
 2. Après cela, spécifiez un **Préfixe de nom** pour nommer les machines virtuelles créées par le processus de création. Le suffixe sera `-` avec des nombres commençant à 0.
 
-3. Choisissez l’**emplacement de machine virtuelle** où vous souhaitez créer les machines virtuelles. Elle peut être identique ou différente de la région que vous avez sélectionnée pour le pool d’hôtes.
+3. Choisissez l’**emplacement de machine virtuelle** où vous souhaitez créer les machines virtuelles. Elle peut être identique ou différente de la région que vous avez sélectionnée pour le pool d’hôtes. N’oubliez pas que les prix des machines virtuelles varient selon la région et que les emplacements des machines virtuelles doivent être proches de leurs utilisateurs si possible pour optimiser les performances. En savoir plus sur les [Emplacements de données pour Azure Virtual Desktop](data-locations.md).
    
-4. Ensuite, choisissez l’option de disponibilité qui correspond le mieux à vos besoins. Pour en découvrir plus sur l’option qui vous convient, consultez [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/availability.md) et [notre Forum aux questions](faq.md#which-availability-option-is-best-for-me).
+4. Ensuite, choisissez l’option de disponibilité qui correspond le mieux à vos besoins. Pour en découvrir plus sur l’option qui vous convient, consultez [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/availability.md) et [notre Forum aux questions](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
    
    > [!div class="mx-imgBorder"]
-   > [Capture d’écran du menu déroulant des options de disponibilité. L’option « Zone de disponibilité » est mise en évidence.](media/availability-zone.png)
+   > ![Capture d’écran du menu déroulant des options de disponibilité. L’option « Zone de disponibilité » est mise en évidence.](media/availability-zone.png)
 
 5. Ensuite, choisissez l’image qui doit être utilisée pour créer la machine virtuelle. Vous pouvez choisir **Galerie** ou **Objet blob de stockage**.
 
@@ -123,7 +142,7 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
       Si vous ne voyez pas l’image souhaitée, sélectionnez **Voir toutes les images** afin de pouvoir sélectionner une autre image dans votre galerie ou une image fournie par Microsoft ou d’autres éditeurs. Vérifiez que l’image choisie fait partie des [images de système d’exploitation prises en charge](overview.md#supported-virtual-machine-os-images).
 
       > [!div class="mx-imgBorder"]
-      > ![Capture d’écran de la Place de marché avec une liste d’images Microsoft.](media/marketplace-images.png)
+      > ![Capture d’écran du portail Azure avec une liste d’images Microsoft.](media/marketplace-images.png)
 
       Vous pouvez également accéder à **Mes éléments** et choisir une image personnalisée que vous avez déjà chargée.
 
@@ -132,9 +151,9 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
     - Si vous choisissez **Objet blob de stockage**, vous pouvez utiliser votre propre build d’image via Hyper-V ou sur une machine virtuelle Azure. Il vous suffit d’entrer l’emplacement de l’image dans l’objet blob de stockage sous la forme d’un URI.
    
-   L’emplacement de l’image est indépendant de l’option de disponibilité, mais la résilience de zone de l’image détermine si cette image peut être utilisée avec une zone de disponibilité. Si vous sélectionnez une zone de disponibilité lors de la création de votre image, veillez à utiliser une image de la galerie avec la résilience de zone activée. Pour en découvrir plus sur l’option de résilience de zone que vous devez utiliser, consultez le [Forum aux questions](faq.md#which-availability-option-is-best-for-me).
+   L’emplacement de l’image est indépendant de l’option de disponibilité, mais la résilience de zone de l’image détermine si cette image peut être utilisée avec une zone de disponibilité. Si vous sélectionnez une zone de disponibilité lors de la création de votre image, veillez à utiliser une image de la galerie avec la résilience de zone activée. Pour en découvrir plus sur l’option de résilience de zone que vous devez utiliser, consultez le [Forum aux questions](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
 
-6. Ensuite, choisissez la **taille de machine virtuelle** que vous souhaitez utiliser. Vous pouvez soit conserver la taille par défaut, soit sélectionner **Modifier la taille** pour changer de taille. Si vous sélectionnez **Modifier la taille**, dans la fenêtre qui s’affiche, choisissez la taille de la machine virtuelle adaptée à votre charge de travail.
+6. Ensuite, choisissez la **taille de machine virtuelle** que vous souhaitez utiliser. Vous pouvez soit conserver la taille par défaut, soit sélectionner **Modifier la taille** pour changer de taille. Si vous sélectionnez **Modifier la taille**, dans la fenêtre qui s’affiche, choisissez la taille de la machine virtuelle adaptée à votre charge de travail. Pour en savoir plus sur les tailles de machine virtuelle et la taille que vous devez choisir, consultez les [Instructions de dimensionnement de machine virtuelle](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 
 7. Sous **Nombre de machines virtuelles**, indiquez le nombre de machines virtuelles que vous souhaitez créer pour votre pool d’hôtes.
 
@@ -157,11 +176,17 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
     Si vous choisissez **Avancé**, sélectionnez un groupe de sécurité réseau existant que vous avez déjà configuré.
 
-11. Après cela, indiquez si vous souhaitez que les machines virtuelles soient jointes à un domaine et une unité d’organisation spécifiques. Si vous choisissez **Oui**, spécifiez le domaine à joindre. Vous pouvez éventuellement ajouter une unité d’organisation spécifique à laquelle doivent appartenir les machines virtuelles. Si vous choisissez **Non**, les machines virtuelles sont jointes au domaine correspondant au suffixe de l’**UPN de jonction de domaine AD**.
+11. Ensuite, sélectionnez si vous voulez que les machines virtuelles soient jointes à **Active Directory** ou à **Azure Active Directory** (préversion).
 
-    - Quand vous spécifiez une unité d’organisation, veillez à utiliser le chemin complet (nom unique) sans guillemets.
+    - Pour Active Directory, fournissez un compte pour joindre le domaine et choisissez si vous souhaitez joindre un domaine et une unité d’organisation spécifiques.
 
-12. Sous Compte d’administrateur de domaine, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné. L’authentification multifacteur (MFA) ne peut pas être activée sur ce compte. Lors de la jointure à un domaine Azure Active Directory Domain Services (Azure AD DS), le compte doit faire partie du groupe d’administrateurs Azure AD DC et le mot de passe du compte doit fonctionner dans Azure AD DS.
+        - Pour le nom d'utilisateur principal de la jonction de domaine d’AD, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné. L’authentification multifacteur (MFA) ne peut pas être activée sur le compte que vous utilisez. Lors de la jointure à un domaine Azure Active Directory Domain Services (Azure AD DS), le compte doit faire partie du groupe d’administrateurs Azure AD DC et le mot de passe du compte doit fonctionner dans Azure AD DS.
+
+        - Pour spécifier un domaine, sélectionnez **Oui**, puis saisissez le nom du domaine que vous souhaitez rejoindre. Si vous le souhaitez, vous pouvez également ajouter une unité d’organisation spécifique dans laquelle vous souhaitez placer les machines virtuelles en entrant le chemin d’accès complet (nom unique) et sans guillemets. Si vous ne souhaitez pas spécifier de domaine, sélectionnez **Non**. Les machines virtuelles sont automatiquement jointes au domaine qui correspond au suffixe de l'**UPN de jonction de domaine Active Directory**.
+  
+    - Pour Azure Active Directory, vous pouvez sélectionner **inscrire la machine virtuelle auprès d’Intune** pour mettre automatiquement la machine virtuelle à la disposition de la gestion après son déploiement.
+
+12. Sous **compte d’administrateur de l’ordinateur virtuel**, entrez les informations d’identification du compte administrateur local à ajouter lors de la création de la machine virtuelle. Vous pouvez utiliser ce compte à des fins de gestion à la fois dans les machines virtuelles AD et Azure AD.
 
 13. Sélectionnez **Suivant : Espace de travail >** .
 
@@ -170,6 +195,9 @@ Nous sommes maintenant prêts à commencer la phase suivante de la configuration
 ## <a name="workspace-information"></a>Informations sur l’espace de travail
 
 Le processus de création du pool d’hôtes crée un groupe d’applications de bureau par défaut. Pour que le pool d’hôtes fonctionne comme prévu, vous devez publier ce groupe d’applications sur des utilisateurs ou des groupes d’utilisateurs, et vous devez inscrire le groupe d’applications auprès d’un espace de travail.
+
+>[!NOTE]
+>Si vous êtes un développeur d’applications qui tente de publier les applications de votre organisation, vous pouvez attacher dynamiquement des applications MSIX à des sessions utilisateur ou ajouter vos packages d’application à une image de machine virtuelle personnalisée. Pour plus d’informations, consultez Comment faire pour servir votre application personnalisée avec Azure Virtual Desktop.
 
 Pour inscrire le groupe d’applications de bureau auprès d’un espace de travail
 
@@ -195,7 +223,7 @@ Pour inscrire le groupe d’applications de bureau auprès d’un espace de trav
      - Un espace de travail, si vous avez choisi d’en créer un
      - Si vous avez choisi d’inscrire le groupe d’applications de bureau, l’inscription aboutit.
      - Des machines virtuelles, si vous avez choisi d’en créer, qui sont jointes au domaine et inscrites auprès du nouveau pool d’hôtes
-     - Un lien de téléchargement pour un modèle Azure Resource Management basé sur votre configuration
+     - Un lien de téléchargement pour un modèle Azure Resource Managr basé sur votre configuration
 
 Après cela, vous avez terminé !
 

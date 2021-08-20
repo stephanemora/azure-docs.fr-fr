@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: ba6a06b51a9fd3a4efec98d5a713d1a791e9a321
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 96794d2ab07f9fe352f611c7d0cf511067928bee
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136910"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413190"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à New Relic
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer New Relic à Azure Act
 Pour commencer, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement New Relic pour lequel l’authentification unique est activée.
+* Une organisation New Relic sur le [compte/modèle d’utilisateur New Relic One](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-product-based-pricing/overview-changes-pricing-user-model/#user-models) et sur l’édition Pro ou Enterprise. Pour plus d’informations, consultez [Configuration New Relic requise](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more).
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -76,11 +76,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez des valeurs pour **Identificateur** et **URL de réponse**.
 
-   * Récupérez ces valeurs à l’aide de l’application New Relic **My Organization**. Pour utiliser cette application :
-      1. [Connectez-vous](https://login.newrelic.com/) à New Relic.
-      1. Dans le menu du haut, sélectionnez **Apps** (Applications).
-      1. Dans la section **Your apps** (Vos applications), sélectionnez **My Organization** (Mon organisation) > **Authentication domains** (Domaines d’authentification).
-      1. Choisissez le domaine d’authentification auquel l’authentification unique Azure AD doit se connecter (si vous avez plusieurs domaines d’authentification). La plupart des entreprises n’ont qu’un seul domaine d’authentification appelé **Default** (Par défaut). S’il n’existe qu’un seul domaine d’authentification, vous n’avez rien à sélectionner.
+   * Récupérez ces valeurs à partir de l’[interface utilisateur du domaine d’authentification New Relic](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). À partir de là : 
+      1. Si vous avez plusieurs domaines d’authentification, choisissez celui auquel vous souhaitez que l’authentification unique Azure AD se connecte. La plupart des entreprises n’ont qu’un seul domaine d’authentification appelé **Default** (Par défaut). S’il n’existe qu’un seul domaine d’authentification, vous n’avez rien à sélectionner.
       1. Dans la section **Authentication** (Authentification), **Assertion consumer URL** (URL du consommateur d’assertion) contient la valeur à utiliser pour **Reply URL** (URL de réponse).
       1. Dans la section **Authentication** (Authentification), **Our entity ID** (Notre ID d’entité) contient la valeur à utiliser pour **Identifier** (Identificateur).
 
@@ -119,13 +116,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-new-relic-sso"></a>Configurer l’authentification unique pour New Relic
 
-Pour configurer l’authentification unique dans New Relic, suivez ces étapes.
+Pour configurer l’authentification unique dans New Relic, suivez ces étapes. 
 
 1. [Connectez-vous](https://login.newrelic.com/) à New Relic.
 
-1. Dans le menu du haut, sélectionnez **Apps** (Applications).
-
-1. Dans la section **Your apps** (Vos applications), sélectionnez **My Organization** (Mon organisation) > **Authentication domains** (Domaines d’authentification).
+1. Accédez à l’[interface utilisateur du domaine d’authentification](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). 
 
 1. Choisissez le domaine d’authentification auquel l’authentification unique Azure AD doit se connecter (si vous avez plusieurs domaines d’authentification). La plupart des entreprises n’ont qu’un seul domaine d’authentification appelé **Default** (Par défaut). S’il n’existe qu’un seul domaine d’authentification, vous n’avez rien à sélectionner.
 
@@ -143,9 +138,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans New Re
 
 1. [Connectez-vous](https://login.newrelic.com/) à New Relic.
 
-1. Dans le menu du haut, sélectionnez **Apps** (Applications).
-
-1. Dans la section **Your apps** (Vos applications), sélectionnez **User Management** (Gestion des utilisateurs).
+1. Accédez à l’interface utilisateur de [**gestion des utilisateurs**](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where).
 
 1. Sélectionnez **Ajouter un utilisateur**.
 
@@ -153,7 +146,7 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans New Re
    
    1. Pour **Email** (E-mail), entrez la valeur qui sera envoyée par l’authentification unique Azure AD.
    
-   1. Choisissez un type d’utilisateur dans **Type** et un groupe d’utilisateurs dans **Group** pour l’utilisateur. Pour un utilisateur de test, **Basic User** (Utilisateur de base) pour Type et **User** (Utilisateur) pour Group sont des choix raisonnables.
+   1. Choisissez un type d’utilisateur dans **Type** et un groupe d’utilisateurs dans **Group** pour l’utilisateur. Pour un utilisateur de test, **Basic user** (Utilisateur de base) pour Type et **User** (Utilisateur) pour Group sont des choix raisonnables.
    
    1. Pour enregistrer l’utilisateur, sélectionnez **Add User** (Ajouter un utilisateur).
 
@@ -175,4 +168,8 @@ Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré New Relic, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez terminé, vous pouvez consulter l’[interface utilisateur de **gestion des utilisateurs**](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where) pour vérifier que vos utilisateurs ont été ajoutés à New Relic. 
+
+Ensuite, vous voudrez probablement affecter vos utilisateurs à des rôles ou des comptes Relic spécifiques. Pour en savoir plus à ce sujet, consultez [Concepts de gestion des utilisateurs](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#understand-concepts). 
+
+Dans l’interface utilisateur du domaine d’authentification New Relic, vous pouvez configurer d’[autres paramètres](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt), comme le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -5,18 +5,18 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: db1650c61ae9e70955fd945527ff049e2663a174
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 333f9572e9bf5a24e7c9ac230b10f74adf5be7de
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018060"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963795"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
 Cet article explique comment [Azure App Service](overview.md) exécute des applications Python, comment vous pouvez migrer des applications existantes vers Azure et comment vous pouvez personnaliser le comportement d’App Service si nécessaire. Les applications Python doivent être déployées avec tous les modules [pip](https://pypi.org/project/pip/) nécessaires.
 
-Le moteur de déploiement App Service active automatiquement un environnement virtuel et exécute automatiquement `pip install -r requirements.txt` quand vous déployez un [dépôt Git](deploy-local-git.md) ou un [package zip](deploy-zip.md).
+Le moteur de déploiement App Service active automatiquement un environnement virtuel et exécute automatiquement `pip install -r requirements.txt` quand vous déployez un [référentiel Git](deploy-local-git.md) ou un [package compressé](deploy-zip.md) [avec l’automatisation de génération activée](deploy-zip.md#enable-build-automation).
 
 Ce guide fournit des concepts et des instructions clés aux développeurs Python qui utilisent un conteneur Linux intégré dans App Service. Si vous n’avez jamais utilisé Azure App Service, commencez par suivre le [démarrage rapide Python](quickstart-python.md) et le [tutoriel sur l’utilisation de Python avec PostgreSQL](tutorial-python-postgresql-app.md).
 
@@ -65,7 +65,7 @@ Vous pouvez exécuter une version non prise en charge de Python en générant vo
 
 ## <a name="customize-build-automation"></a>Personnaliser l’automatisation de la génération
 
-Le système de génération d’App Service, appelé Oryx, effectue les étapes suivantes au moment où vous déployez votre application à l’aide de packages Git ou zip :
+Le système de génération d’App Service, appelé Oryx, effectue les étapes suivantes au moment où vous déployez votre application si le paramètre d’application `SCM_DO_BUILD_DURING_DEPLOYMENT` est défini sur `1` :
 
 1. Exécutez un script de prégénération personnalisé s’il est spécifié par le paramètre `PRE_BUILD_COMMAND`. (Le script peut lui-même exécuter d’autres scripts Python et Node.js, des commandes pip et npm ainsi que des outils Node tels que yarn, par exemple `yarn install` et `yarn build`.)
 
@@ -326,7 +326,7 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## <a name="detect-https-session"></a>Détecter une session HTTPS
 
-Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
+Dans App Service, une [terminaison TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
@@ -440,4 +440,4 @@ Si cette erreur se produit dans l’exemple du [Didacticiel : Déployer une app
 > [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)

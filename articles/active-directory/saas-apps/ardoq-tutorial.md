@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 525a15e90b77a06a3a64a244b46010664767ff18
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b515fb22a81952794ac0914076fec67724759863
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964666"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457333"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ardoq"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Ardoq
 
@@ -83,9 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     |------------|
     | `https://<CustomerName>.us.ardoq.com/saml/v2` |
     | `https://<CustomerName>.ardoq.com/saml/v2` |
-    |
-
-
+    
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<CustomerName>.ardoq.com/saml/v2`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
@@ -96,7 +94,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     |-------------|
     | `https://<CustomerName>.ardoq.com/saml/v2` |
     | `https://<CustomerName>.us.ardoq.com/saml/v2` |
-    |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Ardoq](mailto:support@ardoq.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -113,10 +110,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | assignedRoles | user.assignedroles |
     | mail | user.mail |
 
-    > [!NOTE]
-    > Ardoq attend des rôles pour les utilisateurs affectés à l’application. Veuillez configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [cette page](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
-
-
+  > [!NOTE]
+  > Ardoq attend des rôles pour les utilisateurs qui sont affectés à l’application. Assurez-vous de configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Vos rôles doivent être configurés avec les valeurs « admin », « writer », « reader » et/ou « contributor ».
+  >
+  > Découvrez comment [configurer les rôles dans Azure AD](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).    
+ 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c49409472c8ce9c5b9dab25cbb66df8e1b30f410
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695150"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465309"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -102,6 +102,12 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
+      
+   Si vous envisagez d’utiliser l’homologation privée IPv6 sur ExpressRoute, définissez la référence SKU IP sur Standard et le paramètre AllocationMethod sur Static :
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
+   ```
+   
 1. Créez la configuration de votre passerelle. La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Dans cette étape, vous spécifiez la configuration qui sera utilisée lorsque vous créerez la passerelle. Utilisez l’exemple suivant pour créer la configuration de votre passerelle.
 
    ```azurepowershell-interactive
@@ -113,7 +119,7 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
 > [!IMPORTANT]
-> Si vous prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner une référence (SKU) AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) pour **-GatewaySku**.
+> Si vous envisagez d’utiliser l’homologation privée IPv6 sur ExpressRoute, veillez à sélectionner une référence AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) pour **-GatewaySku** ou utilisez une SKU non AZ (standard, HighPerformance, UltraPerformance) pour -GatewaySKU avec l’adresse IP publique standard et statique.
 > 
 > 
 

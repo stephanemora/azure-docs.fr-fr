@@ -3,16 +3,16 @@ title: Azure Defender pour DNS – Avantages et fonctionnalités
 description: Découvrir les avantages et les fonctionnalités d’Azure Defender pour DNS
 author: memildin
 ms.author: memildin
-ms.date: 05/12/2021
+ms.date: 07/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 976ffc86fd82bb85fefb16b4f442111a07d1f652
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 48306c8ec46274bc123ada4f7c8f748a230edf30
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003599"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690832"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Présentation d’Azure Defender pour DNS
 
@@ -29,7 +29,7 @@ Azure Defender pour DNS fournit une couche supplémentaire de protection pour vo
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour DNS** est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Azure Chine)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Chine<br>:::image type="icon" source="./media/icons/no-icon.png":::Azure Government|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Quels sont les avantages d’Azure Defender pour DNS ?

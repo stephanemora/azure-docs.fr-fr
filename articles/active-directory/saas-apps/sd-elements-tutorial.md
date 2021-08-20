@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eec86c042d00a15185c1e13eaa592cf2c6c5505
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893592"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290392"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SD Elements
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer SD Elements à Azure Active 
 * Contrôler, dans Azure AD, qui a accès à SD Elements
 * Permettre aux utilisateurs de se connecter automatiquement à SD Elements avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,48 +37,47 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* SD Elements prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* SD Elements prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
-## <a name="adding-sd-elements-from-the-gallery"></a>Ajout de SD Elements à partir de la galerie
+## <a name="add-sd-elements-from-the-gallery"></a>Ajouter SD Elements à partir de la galerie
 
 Pour configurer l’intégration de SD Elements avec Azure AD, vous devez ajouter SD Elements disponible dans la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **SD Elements** dans la zone de recherche.
 1. Sélectionnez **SD Elements** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sd-elements"></a>Configurer et tester l’authentification unique Azure AD pour SD Elements
+## <a name="configure-and-test-azure-ad-sso-for-sd-elements"></a>Configurer et tester l’authentification unique Azure AD pour SD Elements
 
 Configurez et testez l’authentification unique Azure AD auprès de SD Elements avec un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SD Elements associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD auprès de SD Elements, suivez les indications des modules ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec SD Elements, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique SD Elements](#configure-sd-elements-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test SD Elements](#create-sd-elements-test-user)** pour avoir un équivalent de B.Simon dans SD Elements lié à la représentation Azure AD associée.
+    1. **[Créer un utilisateur de test SD Elements](#create-sd-elements-test-user)** pour avoir un équivalent de B.Simon dans SD Elements lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SD Elements**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le Portail Azure, accédez à la page d’intégration de l’application **SD Elements**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<TENANT_NAME>.sdelements.com/sso/saml2/metadata`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<TENANT_NAME>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique SD Elements](mailto:support@sdelements.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -124,15 +121,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SD Elements**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-sd-elements-sso"></a>Configurer l’authentification unique SD Elements
@@ -143,11 +134,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le menu du haut, cliquez sur **Système**, puis sur **Authentification unique**.
 
-    ![Capture d’écran montrant l’option « Authentification unique » sélectionnée dans la liste déroulante « Système »](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Capture d’écran montrant l’option « Authentification unique » sélectionnée dans la liste déroulante « Système »](./media/sd-elements-tutorial/system.png)
 
 1. Dans la boîte de dialogue **Paramètres d’authentification unique** , procédez comme suit :
 
-    ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
+    ![Configure Single Sign-On](./media/sd-elements-tutorial/settings.png)
 
     a. Pour **SSO Type**, sélectionnez **SAML**.
 
@@ -167,15 +158,15 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 1. Dans le menu situé en haut, cliquez sur **Gestion des utilisateurs**, puis sur **Utilisateurs**.
 
-    ![Capture d’écran montrant l’option « Utilisateurs » sélectionnée dans la liste déroulante « Gestion des utilisateurs »](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Capture d’écran montrant l’option « Utilisateurs » sélectionnée dans la liste déroulante « Gestion des utilisateurs »](./media/sd-elements-tutorial/users.png) 
 
 1. Cliquez sur **Add New User**.
 
-    ![Capture d’écran montrant le bouton « Ajouter un nouvel utilisateur » sélectionné.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Capture d’écran montrant le bouton « Ajouter un nouvel utilisateur » sélectionné.](./media/sd-elements-tutorial/add-user.png)
 
 1. Dans la boîte de dialogue **Ajouter un nouvel utilisateur**, procédez comme suit :
 
-    ![Création d'un utilisateur de test SD Elements](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![Création d'un utilisateur de test SD Elements](./media/sd-elements-tutorial/new-user.png) 
 
     a. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **b.simon@contoso.com** .
 
@@ -189,16 +180,12 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous cliquez sur la vignette SD Elements dans le volet d’accès, vous devez être connecté automatiquement à l’application SD Elements pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur Tester cette application dans le Portail Azure. Vous êtes alors automatiquement connecté à l’instance de SD Elements pour laquelle vous avez configuré l’authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette SD Elements dans Mes applications, vous devez être connecté automatiquement à l’application SD Elements pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer SD Elements avec Azure AD](https://aad.portal.azure.com/)
+Une fois que vous avez configuré SD Elements, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -2,18 +2,18 @@
 title: Gestion des rôles de plan de données HSM managé - Azure Key Vault | Microsoft Docs
 description: Utilisez cet article pour gérer les affectations de rôles pour votre HSM managé
 services: key-vault
-author: amitbapat
+author: mbaldwin
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
-ms.openlocfilehash: 4d36b2c2178c7205246cd7c59aefedef3358e473
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.author: mbaldwin
+ms.openlocfilehash: 7a4179d35faffbf04a70a63aafead120259802f3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951740"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471260"
 ---
 # <a name="managed-hsm-role-management"></a>Gestion du rôle HSM managé
 
@@ -33,7 +33,7 @@ Pour obtenir la liste de tous les rôles intégrés au HSM managé et les opéra
 Pour utiliser les commandes Azure CLI de cet article, vous devez disposer des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
-* Azure CLI version 2.21.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
+* Azure CLI version 2.25.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 * HSM managé dans votre abonnement. Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour provisionner et activer un HSM managé.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

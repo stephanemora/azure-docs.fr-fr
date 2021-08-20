@@ -1,26 +1,20 @@
 ---
-title: Nouveautés Notes de publication - Azure Event Grid
+title: Nouveautés Azure Event Grid
 description: Découvrez les nouveautés d’Azure Event Grid, notamment les dernières notes de publication, les problèmes connus, les corrections de bogues, les fonctionnalités dépréciées et les modifications à venir.
 ms.topic: overview
 ms.date: 04/27/2021
-ms.openlocfilehash: ccb8df774838a1b71ddec08394d7487bf3176039
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a8c39338b43dfb1ddde173c3560faeb977b0148f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135920"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466663"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Nouveautés d’Azure Event Grid
 
 >Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` dans votre lecteur de flux ![icône RSS](./media/whats-new/feed-icon-16x16.png).
 
-Azure Event Grid bénéficie d’améliorations en continu. Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
-
-- Versions les plus récentes
-- Problèmes connus
-- Résolution des bogues
-- Fonctionnalités dépréciées
-- Modifications planifiées
+Azure Event Grid bénéficie d’améliorations en continu. Pour rester à jour avec les développements les plus récents, cet article vous fournit des informations sur les fonctionnalités qui sont ajoutées ou mises à jour dans une version. 
 
 ## <a name="610-preview-2020-10"></a>6.1.0-preview (2020-10)
 - [Rubriques relatives aux identités gérées pour les systèmes](enable-identity-system-topics.md)

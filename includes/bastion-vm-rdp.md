@@ -1,21 +1,21 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 06/21/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 083ab61d5a20bfb8e38747ae0694b1176c0a0fd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 026e505e1ce5fe4d561289b2a98c8c0324136cbc
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521529"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108234"
 ---
-1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis sélectionnez **Se connecter**. Dans la liste déroulante, sélectionnez **Bastion**.
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à la machine virtuelle à laquelle vous souhaitez vous connecter. Sur la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion** dans la liste déroulante.
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm.png" alt-text="Sélectionnez Bastion":::
 
@@ -27,6 +27,9 @@ ms.locfileid: "92521529"
 
    :::image type="content" source="./media/bastion-vm-rdp/connect-vm-host.png" alt-text="Connexion":::
 
-1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion.
+1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion. 
+
+   * Lorsque vous vous connectez, le bureau de la machine virtuelle peut être différent de celui présenté dans la capture d’écran. 
+   * L’utilisation de touches de raccourci lorsque vous êtes connecté à une machine virtuelle peut ne pas s’accompagner du même comportement que les touches de raccourci sur un ordinateur local. Par exemple, lorsque vous êtes connecté à une machine virtuelle Windows à partir d’un client Windows, CTRL+ALT+FIN est le raccourci clavier pour CTRL+ALT+SUPPR sur un ordinateur local. Pour effectuer cette opération depuis un Mac alors que vous êtes connecté à une machine virtuelle Windows, le raccourci clavier est Fn+CTRL+ALT+Retour arrière.
 
    :::image type="content" source="./media/bastion-vm-rdp/connection.png" alt-text="Se connecter à l’aide du port 443":::

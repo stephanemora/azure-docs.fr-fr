@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 6c31a20b527dd6f4741d00b8306c0f88b27f2f6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a93cc04d7172432f223cd0ae5553c374778fd11b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92672846"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292615"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-serraview-space-utilization-software-solutions"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Serraview Space Utilization Software Solutions
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Serraview Space Utilization 
 * Contrôler dans Azure AD qui a accès à Serraview Space Utilization Software Solutions.
 * Permettre à vos utilisateurs de se connecter automatiquement à Serraview Space Utilization Software Solutions avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,27 +37,24 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Serraview Space Utilization Software Solutions prend en charge l’authentification unique (SSO) lancée par **le fournisseur de services et le fournisseur d’identité**
+* Serraview Space Utilization Software Solutions prend en charge l’authentification unique (SSO) lancée par **le fournisseur de services et le fournisseur d’identité**.
 
-* Une fois que vous avez configuré Serraview Space Utilization Software Solutions, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-serraview-space-utilization-software-solutions-from-the-gallery"></a>Ajout de Serraview Space Utilization Software Solutions à partir de la galerie
+## <a name="add-serraview-space-utilization-software-solutions-from-the-gallery"></a>Ajouter Serraview Space Utilization Software Solutions depuis la galerie
 
 Pour configurer l’intégration de Serraview Space Utilization Software Solutions à Azure AD, vous devez ajouter Serraview Space Utilization Software Solutions, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Serraview Space Utilization Software Solutions** dans la zone de recherche.
 1. Sélectionnez **Serraview Space Utilization Software Solutions** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-serraview-space-utilization-software-solutions"></a>Configurer et tester l’authentification unique Azure AD pour Serraview Space Utilization Software Solutions
 
 Configurez et testez l’authentification unique Azure AD avec Serraview Space Utilization Software Solutions pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Serraview Space Utilization Software Solutions.
 
-Pour configurer et tester l’authentification unique Azure AD avec Serraview Space Utilization Software Solutions, effectuez les modules suivants :
+Pour configurer et tester l’authentification unique Azure AD avec Serraview Space Utilization Software Solutions, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -72,15 +67,15 @@ Pour configurer et tester l’authentification unique Azure AD avec Serraview S
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Serraview Space Utilization Software Solutions**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Sur le Portail Azure, accédez à la page d’intégration de l’application **Serraview Space Utilization Software Solutions**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:Serraview:<SERRAVIEW_IDENTIFIER>`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `urn:Serraview:<SERRAVIEW_IDENTIFIER>`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.serraview.com/SAML/AssertionConsumerService.aspx`
 
@@ -118,13 +113,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Serraview Space Utilization Software Solutions**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -139,18 +128,20 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Serrav
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette Serraview Space Utilization Software Solutions dans le volet d’accès doit vous connecter automatiquement à l’application Serraview Space Utilization Software Solutions pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Serraview Space Utilization Software Solutions, où vous pouvez lancer le processus de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion Serraview Space Utilization Software Solutions et lancez le processus de connexion à partir de là.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le Portail Azure : vous devez être connecté automatiquement à l’instance de Serraview Space Utilization Software Solutions pour laquelle vous avez configuré l’authentification unique. 
 
-- [Essayer Serraview Space Utilization Software Solutions avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Serraview Space Utilization Software Solutions dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance Serraview Space Utilization Software Solutions pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Serraview Space Utilization Software Solutions, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

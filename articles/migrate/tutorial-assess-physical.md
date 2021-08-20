@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: b1026f718c7c59e88dbf3b041c4b07cd1cfc641c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 44d92bbf5c3767a15e600836acd23cf3055f842e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780578"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464984"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Tutoriel : Évaluer des serveurs physiques pour la migration vers Azure
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant de suivre ce tutoriel pour évaluer vos serveurs en vue de leur migration vers des machines virtuelles Azure, vérifiez que vous avez découvert les serveurs que vous souhaitez évaluer :
+- Avant de suivre ce tutoriel pour évaluer vos serveurs en vue de les migrer vers des machines virtuelles Azure, vérifiez que vous avez découvert les serveurs que vous souhaitez évaluer :
     - Pour découvrir des serveurs avec l’appliance Azure Migrate, [suivez ce tutoriel](tutorial-discover-physical.md). 
     - Pour découvrir des serveurs avec un fichier CSV importé, [suivez ce tutoriel](tutorial-discover-import.md).
 - Vérifiez que les serveurs physiques que vous souhaitez évaluer n’exécutent pas Windows Server 2003 ni SUSE Linux. L’évaluation n’est pas prise en charge pour ces serveurs.
@@ -56,7 +56,7 @@ Exécutez une évaluation comme suit :
 
 1. Sur la page **Vue d’ensemble** > **Windows, Linux et SQL Server**, cliquez sur **Évaluer et migrer des serveurs**.
 
-   ![Emplacement du bouton Évaluer et migrer des serveurs](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Emplacement du bouton Évaluer et migrer des serveurs.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Évaluer**.
 
@@ -65,8 +65,8 @@ Exécutez une évaluation comme suit :
 3. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Machine virtuelle Azure**.
 4. Dans **Source de découverte** :
 
-    - Si vous avez découvert des serveurs à l’aide de l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
-    - Si vous avez découvert des serveurs à l’aide d’un fichier CSV importé, sélectionnez **Serveurs importés**. 
+    - Si vous avez découvert des serveurs avec l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
+    - Si vous avez découvert des serveurs avec un fichier CSV importé, sélectionnez **Serveurs importés**. 
     
 1. Cliquez sur **Modifier** pour examiner les propriétés d’évaluation.
 

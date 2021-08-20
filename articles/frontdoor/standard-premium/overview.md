@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 5c3ae5c7b1c45d170548f6fa00481094117e1737
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: acae0362d664567bb15b964f396f0c300135ed1c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937360"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114726751"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Qu’est-ce qu’Azure Front Door Standard/Premium (préversion) ?
 

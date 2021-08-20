@@ -6,7 +6,7 @@ author: msmimart
 ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.date: 08/05/2020
+ms.date: 06/18/2020
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -15,12 +15,12 @@ ms.custom:
 - seo-update-azuread-jan
 - mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 242f5a721959246b8d0159598cc86ab3b5194641
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529853"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422603"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Démarrage rapide : Ajouter des utilisateurs invités à votre annuaire dans le portail Azure
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui suit :
 
- - Un rôle qui vous permet de créer des utilisateurs dans votre annuaire de locataire, tel que le rôle Administrateur général ou l’un des rôles d’annuaire administrateur limités.
+ - Un rôle qui vous permet de créer des utilisateurs dans votre annuaire de locataire, tel que le rôle Administrateur général ou l’un des rôles d’annuaire administrateur limités, tels qu’un utilisateur invité ou un administrateur d’utilisateurs.
  - Un compte e-mail valide que vous pouvez ajouter à votre annuaire de locataire et que vous pouvez utiliser pour recevoir l’e-mail d’invitation de test.
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Ajouter un utilisateur invité dans Azure AD

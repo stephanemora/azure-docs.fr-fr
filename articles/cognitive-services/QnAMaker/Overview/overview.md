@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot avec peu de code, invites multitours
-ms.openlocfilehash: 84678e0472284f6a9acfec53fbe31ff550775446
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b3e780393b911697d17ca1873201720c0bc628be
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292663"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322599"
 ---
 # <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
 
@@ -20,7 +20,14 @@ QnA Maker est un service cloud de traitement en langage naturel (NLP, Natural La
 
 QnA Maker est couramment utilisé pour créer des applications clientes conversationnelles, notamment des applications de réseaux sociaux, des chatbots et des applications de bureau à reconnaissance vocale.
 
-QnA Maker ne stocke pas les données client. Toutes les données client (réponses aux questions et chatlogs) sont stockées dans la région sur laquelle le client déploie les instances de service dépendants. Pour plus d’informations sur les services dépendants, voir [ici](../concepts/plan.md?tabs=v1).
+QnA Maker ne stocke pas les données client. Toutes les données client (réponses aux questions et chat logs) sont stockées dans la région sur laquelle le client déploie les instances de service dépendants. Pour plus d’informations sur les services dépendants, voir [ici](../concepts/plan.md?tabs=v1).
+
+Cette documentation contient les types d’articles suivants :
+
+* Les [guides de démarrage rapide](../quickstarts/create-publish-knowledge-base.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
+* Les [guides patiques](../how-to/set-up-qnamaker-service-azure.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les [articles conceptuels](../concepts/plan.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
+* Les [**Tutoriels**](../tutorials/create-faq-bot-with-azure-bot-service.md) sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.
 
 ## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 
