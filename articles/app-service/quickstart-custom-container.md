@@ -7,12 +7,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2d4e22c58fd45edc4beb58b4b1b9ae7c835e8fa9
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: e6c2a452441b268adc52ef3d9337aa5e604fe1e6
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113215446"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729862"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Exécuter un conteneur personnalisé dans Azure
 
@@ -208,7 +208,7 @@ Créez un registre de conteneurs en suivant les instructions de la section [Dém
 
     ![se connecter à Azure](./media/quickstart-docker/sign-in.png)
 
-1. Dans la [barre d’état](https://code.visualstudio.com/docs/getstarted/userinterface) située en bas, vérifiez l’adresse e-mail de votre compte Azure. Dans l’explorateur **APP SERVICE**, votre abonnement doit s’afficher.
+1. Dans la [barre d’état](https://code.visualstudio.com/docs/getstarted/userinterface) en bas, vérifiez l’adresse e-mail de votre compte Azure. Dans l’explorateur **APP SERVICE**, votre abonnement doit s’afficher.
 
 1. Dans la barre d’activités, sélectionnez le logo **Docker** . Dans l’explorateur **REGISTRES**, vérifiez que le registre de conteneurs que vous avez créé s’affiche.
 
@@ -300,7 +300,7 @@ Dans ce fichier Dockerfile, l’image parente correspond à l’un des conteneur
 1. Dans la barre d’activité, cliquez sur l’icône **Docker**. Dans l’explorateur **IMAGES** , recherchez l’image que vous venez de générer.
 1. Développez l’image, cliquez avec le bouton droit sur l’étiquette souhaitée, puis cliquez sur **Push (envoyer)** .
 1. Assurez-vous que l’étiquette d’image commence par `<acr-name>.azurecr.io` et appuyez sur **Entrée**.
-1. Lorsque Visual Studio Code finit de pousser (push) l’image vers votre registre de conteneurs, cliquez sur **Actualiser** en haut de l’explorateur **REGISTRES** et vérifiez que l’image a bien été envoyée (push).
+1. Quand Visual Studio Code finit d’envoyer (push) l’image vers votre registre de conteneurs, cliquez sur **Actualiser** en haut de l’explorateur **REGISTRES** et vérifiez que l’image a bien été envoyée (push).
 
     ![Capture d’écran montrant l’image déployée dans Azure Container Registry.](./media/quickstart-docker/image-in-registry.png)
 

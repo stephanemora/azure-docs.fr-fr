@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 393b8857b3602d914143787cc9ea46074ff59c05
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 17a41bd64f1bba4a5ae4d6d9d497c03afae037e7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813899"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444223"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutoriel : Publier Azure Static Web Apps avec Azure DevOps
 
@@ -21,20 +21,21 @@ Cet article explique comment effectuer un déploiement sur [Azure Static Web A
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 - Configurer un site Azure Static Web Apps
-- Créer un pipeline Azure DevOps pour générer et publier une application web statique
+- Créer un pipeline Azure pour générer et publier une application web statique
 
 ## <a name="prerequisites"></a>Prérequis
 
 - **Compte Azure actif :** si vous n’en avez pas, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/).
-- **Projet Azure DevOps :** si vous n’en avez pas, vous pouvez [créer un projet gratuitement](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- **Pipeline Azure DevOps :** si vous avez besoin d’aide pour commencer, consultez [Créer votre premier pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+- **Projet Azure DevOps :** si vous n’en avez pas, vous pouvez [créer un projet gratuitement](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+  - Azure DevOps inclut **Azure Pipelines**. Si vous avez besoin d’aide pour prendre en main Azure Pipelines, consultez [Créer votre premier pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+  - Actuellement, la tâche de pipeline pour application web statique fonctionne uniquement sur les ordinateurs **Linux**. Quand vous exécutez le pipeline indiqué ci-dessous, assurez-vous qu’il s’exécute sur une machine virtuelle Linux.
 
-## <a name="create-a-static-web-app-in-an-azure-devops-repository"></a>Créer une application web statique dans un dépôt Azure DevOps
+## <a name="create-a-static-web-app-in-an-azure-devops"></a>Créer une application web statique dans une instance Azure DevOps
 
   > [!NOTE]
   > Si vous disposez d’une application existante dans votre dépôt, vous pouvez passer à la section suivante.
 
-1. Accédez à votre dépôt Azure DevOps.
+1. Accédez à votre référentiel dans Azure Repos.
 
 1. Sélectionnez **Importer** pour commencer l’importation d’un exemple d’application.
   
@@ -56,7 +57,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 1. Sélectionnez **Create** (Créer).
 
-1. Sous _Détails du déploiement_, veillez à sélectionner **Autre**. Cela vous permet d’utiliser le code de votre dépôt Azure DevOps.
+1. Sous _Détails du déploiement_, veillez à sélectionner **Autre**. Cela vous permet d’utiliser le code dans Azure Repos.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Détails du déploiement - Autre":::
 
@@ -73,7 +74,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Créer la tâche de pipeline dans Azure DevOps
 
-1. Accédez au dépôt Azure DevOps créé précédemment.
+1. Accédez au référentiel créé précédemment dans Azure Repos.
 
 1. Sélectionnez **Configurer la build**.
 
@@ -87,7 +88,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
     ```yaml
     trigger:
-    - main
+      - main
 
     pool:
       vmImage: ubuntu-latest
@@ -100,7 +101,6 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
           app_location: '/'
           api_location: 'api'
           output_location: ''
-        env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

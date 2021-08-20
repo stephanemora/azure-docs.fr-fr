@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 41b627259d84539c868f95eb3cf33db5dbdab52c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8562acbf0b7dc6cac0ef03e6d0ca41691f752cdf
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97862393"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729793"
 ---
 # <a name="introduction-to-azure-functions"></a>Introduction à Azure Functions
 
@@ -46,7 +46,7 @@ Vous trouverez ci-dessous un ensemble de scénarios courants pour Azure Function
 | **Traiter des chargements de fichiers** | Exécutez du code quand un fichier est chargé ou modifié dans [Stockage Blob](./functions-bindings-storage-blob.md) |
 | **Générer un workflow serverless** | Chaînez une série de fonctions ensemble à l’aide de [fonctions durables](./durable/durable-functions-overview.md) |
 | **Répondre à des modifications de base de données** | Exécutez une logique personnalisée lorsqu’un document est créé ou mis à jour dans [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
-| **Exécuter des tâches planifiées** | Exécutez le code aux [heures définies](./functions-bindings-timer.md) |
+| **Exécuter des tâches planifiées** | Exécutez le code à des [intervalles de temps prédéfinis](./functions-bindings-timer.md) |
 | **Créer des systèmes de file d’attente de messages fiables** | Traitez les files d’attente de messages en utilisant [Stockage File d’attente](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) ou [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyser les flux de données IoT** | Collectez et traitez les [données issues d’appareils IoT](./functions-bindings-event-iot.md) |
 | **Traiter des données en temps réel** | Utilisez [Functions et SignalR](./functions-bindings-signalr-service.md) pour répondre immédiatement aux données |

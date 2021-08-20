@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4ca7c318dc1ac9d135c43c6d063a0f8a45276fe
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419930"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729757"
 ---
 # <a name="what-is-azure-purview"></a>Qu’est-ce qu’Azure Purview ?
 
@@ -71,7 +71,7 @@ La détection, la compréhension et l’utilisation des sources de données sont
 Dans le même temps, les utilisateurs peuvent contribuer au catalogue en balisant, en documentant et en annotant les sources de données qui ont déjà été enregistrées. Ils peuvent également enregistrer de nouvelles sources de données, qui sont ensuite détectées, comprises et utilisées par la communauté d’utilisateurs du catalogue.
 
 ## <a name="in-region-data-residency"></a>Résidence des données dans la région
-Azure Purview ne déplace pas et ne stocke pas les données client en dehors de la région dans laquelle il a été déployé.
+Pour Azure Purview, certains noms de table et chemins d’accès aux fichiers et certaines informations relatives aux chemins d’accès à l’objet sont stockés aux États-Unis. Sous réserve de l’exception mentionnée ci-dessus, la possibilité d’activer le stockage de toutes les autres données client dans une seule région est actuellement disponible dans toutes les zones géographiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

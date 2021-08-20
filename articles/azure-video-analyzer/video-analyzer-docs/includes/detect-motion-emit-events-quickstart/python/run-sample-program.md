@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: faneerde
-ms.openlocfilehash: b66de47b5429f869b798092475ce93e1c1f740a2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9544a69da1c8ba0e3c2fd248a0bbbc7cbc13206f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486689"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593566"
 ---
 Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 
@@ -28,14 +28,16 @@ Pour exécuter l’exemple de code, effectuez les étapes suivantes :
 1. Dans le nœud `pipelineTopologySet`, vérifiez que vous voyez la valeur suivante :
 
    ```
-   "topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. Dans les nœuds `livePipelineSet` et `livePipelineDelete`, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline :
 
    `"topologyName" : "MotionDetection"`
 
-1. Démarrez une session de débogage en appuyant sur la touche F5. La fenêtre **TERMINAL** affiche des messages.
+1. * Accédez à la fenêtre `TERMINAL` dans VS Code.
+   * Utilisez la commande cd pour accéder au répertoire /video-analyzer-iot-edge-python-main/src/cloud-to-device-console-app.
+   * Exécutez « python main.py », vous verrez des messages imprimés dans la fenêtre `TERMINAL`.
 1. Le fichier _operations.json_ commence par appeler `pipelineTopologyList` et `livePipelineList`. Si vous avez nettoyé les ressources après avoir suivi les guides de démarrage rapide précédents, ce processus va retourner des listes vides.
 
    ```

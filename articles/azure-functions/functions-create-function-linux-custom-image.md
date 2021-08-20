@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 3eb0c54fda14711e45af3974638d53807994df91
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f3f4af97309326fe761ea58a7927df19522e4f60
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459597"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486748"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -407,6 +407,9 @@ Une application de fonction sur Azure gère l’exécution de vos fonctions dans
     ::: zone-end
     
     Le paramètre *deployment-container-image-name* spécifie l’image à utiliser pour l’application de fonction. Vous pouvez utiliser la commande [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) pour voir des informations sur l’image utilisée pour le déploiement. Vous pouvez aussi utiliser la commande [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) pour déployer à partir d’une autre image.
+    
+    > [!TIP]  
+    > Vous pouvez utiliser le [`DisableColor`paramètre](functions-host-json.md#console) dans le fichier host.json pour empêcher l’écriture des caractères de contrôle ANSI dans les journaux de conteneur. 
 
 1. Affichez la chaîne de connexion pour le compte de stockage que vous avez créé avec la commande [az storage account show-connection-string](/cli/azure/storage/account). Remplacez `<storage-name>` par le nom du compte de stockage créé ci-dessus :
 

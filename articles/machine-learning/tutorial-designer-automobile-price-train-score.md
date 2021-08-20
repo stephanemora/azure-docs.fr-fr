@@ -1,28 +1,29 @@
 ---
-title: 'Tutoriel : Prédire les prix des voitures avec le concepteur'
+title: 'Tutoriel : Concepteur – effectuer l’apprentissage d’un modèle de régression sans code'
 titleSuffix: Azure Machine Learning
-description: Entraînez un modèle Machine Learning pour prévoir l’évolution des prix dans le secteur automobile avec une régression linéaire. Ce tutoriel est le premier d’une série de deux.
+description: Effectuer l’apprentissage d’un modèle de régression qui prédit les prix des voitures à l’aide du concepteur Azure Machine Learning.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.custom: designer
-ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: f8e544681f940e649e1d04d148caafb875c69952
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660982"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472917"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
+# <a name="tutorial-designer---train-a-no-code-regression-model"></a>Tutoriel : Concepteur – effectuer l’apprentissage d’un modèle de régression sans code
 
+Effectuer l’apprentissage d’un modèle de régression linéaire qui prédit les prix des voitures à l’aide du concepteur Azure Machine Learning. Ce tutoriel est le premier d’une série de deux.
 
-Dans ce tutoriel en deux parties, vous découvrez comment utiliser le concepteur d’Azure Machine Learning pour entraîner et déployer un modèle Machine Learning qui prédit le prix des voitures. Le concepteur est un outil de type glisser-déposer avec lequel vous créez des modèles Machine Learning sans écrire une seule ligne de code.
+Ce tutoriel utilise le concepteur Azure Machine Learning. Pour plus d’informations, consultez [Qu’est-ce que le concepteur Azure Machine Learning](concept-designer.md).
 
-Dans la première partie du tutoriel, vous allez apprendre à :
+Dans la première partie du tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créer un pipeline
@@ -31,7 +32,7 @@ Dans la première partie du tutoriel, vous allez apprendre à :
 > * Entraîner un modèle Machine Learning
 > * Évaluer un modèle Machine Learning
 
-Dans la [deuxième partie](tutorial-designer-automobile-price-deploy.md) du tutoriel, vous allez déployer votre modèle en tant que point de terminaison d’inférence en temps réel pour prédire le prix de n’importe quel véhicule en fonction des caractéristiques techniques que vous lui envoyez. 
+Dans la [deuxième partie](tutorial-designer-automobile-price-deploy.md) du tutoriel, vous déployez votre modèle en tant que point de terminaison d’inférence en temps réel pour prédire le prix de n’importe quel véhicule en fonction des caractéristiques techniques que vous lui envoyez. 
 
 > [!NOTE]
 >Une version complète de ce tutoriel est disponible en tant qu’exemple de pipeline.
@@ -195,7 +196,7 @@ Le fractionnement des données est une tâche courante de Machine Learning. Vous
 1. Connectez le port de gauche du module **Clean Missing Data** au module **Split Data**.
 
     > [!IMPORTANT]
-    > Vérifiez que le port de sortie de gauche de **Clean Missing Data** est connecté à **Split Data**. Le port de gauche contient les données nettoyées. Le port de droite contient les données ignorées.
+    > Vérifiez que le port de sortie de gauche de **Clean Missing Data** est connecté à **Split Data**. Le port de gauche contient les données nettoyées. Le port de droite contient les données abandonnées.
 
 1. Sélectionnez le module **Fractionner les données**.
 

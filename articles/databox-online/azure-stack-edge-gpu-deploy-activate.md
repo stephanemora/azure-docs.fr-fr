@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 8e88fb2f6f2fc9ad50911bfda2245cd95ae33236
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: fe1397b2853e95af715e4feb8423f7db3cf548f0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058746"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219965"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Activer Azure Stack Edge Pro avec GPU
 
@@ -92,6 +92,26 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge Pro avec GPU,
 L’activation de l’appareil est terminée. Vous pouvez maintenant ajouter des partages sur votre appareil.
 
 Si vous rencontrez des problèmes lors de l’activation, consultez [Résoudre les problèmes avec l’activation et Azure Key Vault](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
+
+
+
+## <a name="deploy-workloads"></a>Déployer les charges de travail
+
+Une fois que vous avez activé l’appareil, l’étape suivante consiste à déployer des charges de travail.
+
+- Pour déployer des charges de travail de machine virtuelle, consultez [Que sont des machines virtuelles sur Azure Stack Edge ?](azure-stack-edge-gpu-virtual-machine-overview.md) et la documentation associée sur le déploiement des machines virtuelles.
+- Pour déployer des fonctions réseau en tant qu’applications gérées :
+    - Veillez à créer une ressource d’appareil pour Azure Network Function Manager (NFM) qui est liée à la ressource Azure Stack Edge. La ressource d’appareil agrège toutes les fonctions réseau déployées sur l’appareil Azure Stack Edge. Pour obtenir des instructions détaillées, consultez [Tutoriel : Créer une ressource d’appareil Network Function Manager (préversion)](../network-function-manager/create-device.md). 
+    - Vous pouvez ensuite déployer Network Function Manager conformément aux instructions dans [Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge (préversion)](../network-function-manager/deploy-functions.md).
+- Pour déployer des charges de travail IoT Edge et Kubernetes :
+    - Vous devez d’abord configurer le calcul comme décrit dans [Tutoriel : Configurer le calcul sur un appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md). Cette étape crée un cluster Kubernetes qui fait office de plateforme d’hébergement pour IoT Edge sur votre appareil. 
+    - Une fois qu’un cluster Kubernetes a été créé sur votre appareil Azure Stack Edge, vous pouvez déployer des charges de travail d’application sur ce cluster via l’une des méthodes suivantes :
+
+        - Accès natif via `kubectl`
+        - IoT Edge
+        - Azure Arc
+        
+        Pour plus d’informations sur le déploiement des charges de travail, consultez [Gestion des charges de travail Kubernetes sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

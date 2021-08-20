@@ -8,21 +8,21 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 45e65b164849a34560279b049bbd96ec9bf84058
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 7691bb6ffd93c3c87872659417f91de1599a81e8
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107502"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767171"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutoriel : Signer et envoyer des requêtes avec Postman
-Dans ce tutoriel, nous allons configurer et utiliser Postman pour effectuer une requête auprès d’Azure Communication Services (ACS) à l’aide du protocole HTTP. À la fin de ce tutoriel, vous aurez envoyé avec succès un message SMS à l’aide des services ACS et de Postman, et pourrez utiliser Postman pour explorer d’autres API dans ACS.
+Dans ce tutoriel, nous allons configurer et utiliser Postman pour effectuer une requête auprès d’Azure Communication Services à l’aide du protocole HTTP. À la fin de ce tutoriel, vous aurez réussi à envoyer un SMS à l’aide de Communication Services et de Postman. Vous pourrez ensuite utiliser Postman pour explorer d’autres API au sein d’Azure Communication Services.
 
 Dans ce tutoriel, nous allons :
 > [!div class="checklist"]
 > * Téléchargement de Postman
 > * Configuration de Postman pour signer des requêtes HTTP
-> * Faire une requête à l’API SMS d’ACS pour envoyer un message.
+> * Faire une requête à l’API SMS de Communication Services pour envoyer un message.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,15 +46,15 @@ Postman peut organiser les requêtes de nombreuses façons. Aux fins de ce tutor
 
 Une fois le bouton sélectionné, cliquez sur « Créer une collection » pour démarrer le processus de création de collection. Un nouvel onglet s’ouvre dans la zone centrale de Postman. Nommez la collection comme vous le souhaitez. Ici, la collection est nommée « ACS » :
 
-:::image type="content" source="media/postman/acs-collection.png" alt-text="Postman avec une collection ACS ouverte et le nom de la collection mis en surbrillance.":::
+:::image type="content" source="media/postman/acs-collection.png" alt-text="Postman avec une collection Communication Services ouverte et le nom de la collection mis en évidence.":::
 
 Une fois que votre collection est créée et nommée, vous pouvez la configurer.
 
 ### <a name="adding-collection-variables"></a>Ajout de variables de collection
 
-Pour gérer l’authentification et faciliter les requêtes, nous allons spécifier deux variables de collection au sein de la collection ACS nouvellement créée. Ces variables sont disponibles pour toutes les requêtes au sein de votre collection ACS. Pour commencer à créer des variables, accédez à l’onglet Variables de la collection.
+Pour gérer l’authentification et faciliter les requêtes, nous allons spécifier deux variables de collection au sein de la collection Communication Services nouvellement créée. Ces variables sont disponibles pour toutes les requêtes au sein de votre collection Communication Services. Pour commencer à créer des variables, accédez à l’onglet Variables de la collection.
 
-:::image type="content" source="media/postman/variable-stab.png" alt-text="Postman avec un onglet Variables de la collection ACS.":::
+:::image type="content" source="media/postman/variable-stab.png" alt-text="Postman avec l’onglet Variables d’une collection Communication Services.":::
 
 Dans l’onglet Collection, créez deux variables :
 - key : cette variable doit être l’une des clés de votre page de clés Azure Communication Services dans le portail Azure. Par exemple : `oW...A==`.
@@ -62,17 +62,17 @@ Dans l’onglet Collection, créez deux variables :
 
 Entrez ces valeurs dans la colonne « Valeur initiale » de l’écran Variables. Une fois cela fait, appuyez sur le bouton « Tout conserver », juste au-dessus du tableau à droite. Une fois cela correctement configuré, l’écran de Postman doit ressembler à ceci :
 
-:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Postman avec les variables de la collection ACS Collection configurées correctement.":::
+:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Postman avec les variables d’une collection Communication Services correctement configurées.":::
 
 Vous pouvez en apprendre davantage sur les variables en lisant la [documentation de Postman à leur sujet](https://learning.postman.com/docs/sending-requests/variables).
 
 ### <a name="creating-a-pre-request-script"></a>Création d’un script de pré-requête
 
-L’étape suivante consiste à créer un script de pré-requête dans Postman. Un script de pré-requête est un script qui s’exécute avant chaque requête Postman et qui peut modifier les paramètres de la requête à votre place. Nous allons l’utiliser pour signer nos requêtes HTTP afin qu’elles puissent être autorisées par les services ACS. Pour plus d’informations sur les conditions requises pour la signature, vous pouvez [lire notre guide sur l’authentification](/rest/api/communication/authentication).
+L’étape suivante consiste à créer un script de pré-requête dans Postman. Un script de pré-requête est un script qui s’exécute avant chaque requête Postman et qui peut modifier les paramètres de la requête à votre place. Nous allons l’utiliser pour signer nos requêtes HTTP afin qu’elles puissent être autorisées par Azure Communication Services. Pour plus d’informations sur les conditions requises pour la signature, vous pouvez [lire notre guide sur l’authentification](/rest/api/communication/authentication).
 
 Nous allons créer ce script dans la collection de sorte qu’il s’exécute sur n’importe quelle requête de la collection. Pour ce faire, dans l’onglet Collection, cliquez sur le sous-onglet « Script de pré-requête ».
 
-:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Postman avec un sous-onglet Script de pré-requête de la collection ACS sélectionné.":::
+:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Postman avec sélection du sous-onglet Script de pré-requête de la collection Communication Services.":::
 
 Dans ce sous-onglet, vous pouvez créer un script de pré-requête en l’entrant dans la zone de texte ci-dessous. Il peut être plus facile d’écrire cela dans un éditeur de code complet tel que [Visual Studio Code](https://code.visualstudio.com/) avant de le coller ici. Nous allons étudier chaque partie du script de ce tutoriel. N’hésitez pas à passer à la fin si vous souhaitez simplement copier dans Postman et commencer. Commençons par écrire le script.
 
@@ -117,7 +117,7 @@ const url = pm.request.url.toString().replace('{{endpoint}}','');
 const stringToSign = pm.request.method + '\n' + url + '\n' + dateStr + ';' + hostStr + ';' + hashedBodyStr;
 ```
 
-Enfin, nous devons signer cette chaîne à l’aide de notre clé ACS, puis l’ajouter à notre requête dans l’en-tête `Authorization` :
+Enfin, nous devons signer cette chaîne à l’aide de notre clé Communication Services, puis l’ajouter à notre requête dans l’en-tête `Authorization` :
 
 ```JavaScript
 // Decode our access key from previously created variables, into bytes from base64.
@@ -182,13 +182,13 @@ Une fois que vous l’avez entré, appuyez sur CTRL + S ou appuyez sur le bouton
 
 ## <a name="creating-a-request-in-postman"></a>Créeation d’une requête dans Postman
 
-Maintenant que tout est configuré, nous sommes prêts à créer une demande ACS dans Postman. Pour commencer, cliquez sur l’icône Plus (+) en regard de la collection ACS :
+Maintenant que tout est configuré, nous sommes prêts à créer une requête Communication Services dans Postman. Pour commencer, cliquez sur l’icône Plus (+) à côté de la collection Communication Services :
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Bouton Plus de Postman.":::
 
 Cette opération crée un nouvel onglet pour notre requête dans Postman. Nous devons ensuite procéder à sa configuration. Nous allons faire une requête à l’API d’envoi de SMS. Veillez donc à vous reporter à la [documentation de cette API pour obtenir de l’aide](/rest/api/communication/sms/send). Nous allons configurer la requête Postman.
 
-Commencez par définir le type de requête sur `POST`, puis entrez `{{endpoint}}/sms?api-version=2021-03-07` dans le champ URL de la requête. Cette URL utilise la variable `endpoint` créée précédemment pour l’envoyer automatiquement à votre ressource ACS.
+Commencez par définir le type de requête sur `POST`, puis entrez `{{endpoint}}/sms?api-version=2021-03-07` dans le champ URL de la requête. Cette URL utilise la variable `endpoint` créée précédemment pour l’envoyer automatiquement à votre ressource Communication Services.
 
 :::image type="content" source="media/postman/post-request-and-url.png" alt-text="Une requête Postman, avec le type défini sur POST et l’URL définie correctement.":::
 
@@ -212,15 +212,15 @@ Dans la zone de texte ci-dessous, vous devez entrer un corps de requête, qui do
 }
 ```
 
-Pour la valeur « de », vous devez [obtenir un numéro de téléphone](../quickstarts/telephony-sms/get-phone-number.md) dans le portail ACS comme mentionné précédemment. Entrez-le sans espace et préfixé par votre indicatif de pays. Par exemple : `+15555551234`. Votre « message » peut être tout ce que vous souhaitez envoyer, mais `Hello from ACS` est un bon exemple. La valeur « à » doit être le numéro d’un téléphone auquel vous avez accès et qui peut recevoir des messages SMS. L’utilisation de votre propre mobile est une bonne idée.
+Pour la valeur « de », vous devez [obtenir un numéro de téléphone](../quickstarts/telephony-sms/get-phone-number.md) dans le portail Azure Communication Services comme mentionné précédemment. Entrez-le sans espace et préfixé par votre indicatif de pays. Par exemple : `+15555551234`. Votre « message » peut être tout ce que vous souhaitez envoyer, mais `Hello from ACS` est un bon exemple. La valeur « à » doit être le numéro d’un téléphone auquel vous avez accès et qui peut recevoir des messages SMS. L’utilisation de votre propre mobile est une bonne idée.
 
-Une fois que vous avez entré ces informations, vous devez enregistrer cette requête dans le collection ACS que nous avons créée précédemment. Cela nous permet de nous assurer qu’elle récupère les variables et le script de pré-requête que nous avons créés précédemment. Pour ce faire, cliquez sur le bouton « Enregistrer » dans le coin supérieur droit de la zone de requête.
+Une fois que vous avez entré ces informations, vous devez enregistrer cette requête dans le collection Communication Services que nous avons créée précédemment. Cela nous permet de nous assurer qu’elle récupère les variables et le script de pré-requête que nous avons créés précédemment. Pour ce faire, cliquez sur le bouton « Enregistrer » dans le coin supérieur droit de la zone de requête.
 
 :::image type="content" source="media/postman/postman-save.png" alt-text="Bouton Enregistrer pour une requête Postman.":::
 
-Une fenêtre de boîte de dialogue s’affiche et vous demande si vous souhaitez appeler la requête et où vous souhaitez l’enregistrer. Vous pouvez la nommer comme vous le souhaitez, mais veillez à sélectionner votre collection ACS dans la moitié inférieure de la boîte de dialogue :
+Une fenêtre de boîte de dialogue s’affiche et vous demande si vous souhaitez appeler la requête et où vous souhaitez l’enregistrer. Vous pouvez la nommer comme vous le souhaitez, mais veillez à sélectionner votre collection Communication Services dans la moitié inférieure de la boîte de dialogue :
 
-:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="La boîte de dialogue Enregistrer la requête de Postman avec la collection ACS sélectionnée.":::
+:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="Boîte de dialogue « Enregistrer la demande » de Postman avec la collection Communication Services sélectionnée.":::
 
 ## <a name="sending-a-request"></a>Envoi d’une requête
 
@@ -228,17 +228,17 @@ Maintenant que tout est configuré, vous devriez être en mesure d’envoyer la 
 
 :::image type="content" source="media/postman/postman-send.png" alt-text="Une requête Postman, avec le bouton Envoyer mis en surbrillance.":::
 
-Si tout s’est bien passé, vous devriez maintenant voir la réponse d’ACS, qui devrait être le code d’état 202 :
+Si tout s’est bien passé, vous devriez maintenant voir la réponse de Communication Services, qui devrait être le code d’état 202 :
 
 :::image type="content" source="media/postman/postman-202.png" alt-text="Une requête Postman correctement envoyée avec un code d’état 202.":::
 
-Le téléphone mobile qui possède le numéro que vous avez fourni pour la valeur « à », devrait également avoir reçu un message SMS. Vous avez maintenant configuré Postman, qui est opérationnel et peut communiquer avec les services ACS et envoyer des SMS.
+Le téléphone mobile qui possède le numéro que vous avez fourni pour la valeur « à », devrait également avoir reçu un message SMS. Vous disposez maintenant d’une configuration fonctionnelle de Postman qui peut communiquer avec Azure Communication Services et envoyer des SMS.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer les API ACS](/rest/api/communication/)
+> [Explorer les API Azure Communication Services](/rest/api/communication/)
 > [En savoir plus sur l’authentification](/rest/api/communication/authentication)
 > [En savoir plus sur Postman](https://learning.postman.com/)
 

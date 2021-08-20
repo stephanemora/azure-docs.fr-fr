@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 63740e6d3f6df757cc7cc8847ed10a03b8831fd5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: dfb71802b0aa0fae1bb853823b054ae49d700edf
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060181"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438275"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Linux
 
@@ -157,13 +157,16 @@ Une fois votre nouvelle solution chargée dans la fenêtre Visual Studio Code, p
 Le fichier d’environnement stocke les informations d’identification de votre registre de conteneurs et les partage avec le runtime IoT Edge. Le runtime a besoin de ces informations d’identification pour extraire vos images de conteneur sur l’appareil IoT Edge.
 
 >[!NOTE]
->Si vous n’avez pas remplacé la valeur **localhost:5000** par la valeur du serveur de connexion de votre registre de conteneurs Azure, dans l’étape [**Créer un modèle de projet**](#create-a-project-template), le fichier **.env** et la section registryCredentials du manifeste de déploiement seront manquants. 
+>Si vous n’avez pas remplacé la valeur **localhost:5000** par la valeur du serveur de connexion de votre registre de conteneurs Azure, dans l’étape [**Créer un modèle de projet**](#create-a-project-template), le fichier **.env** et la section registryCredentials du manifeste de déploiement seront manquants.
 
 L’extension IoT Edge tente d’extraire d’Azure vos informations d’identification de registre de conteneurs et de les insérer dans le fichier d’environnement. Vérifiez si vos informations d’identification sont déjà incluses. Si ce n’est pas le cas, veuillez les ajouter maintenant :
 
 1. Ouvrez le fichier **.env** dans votre solution de module.
 2. Ajoutez les valeurs de **nom d’utilisateur** et de **mot de passe** que vous avez copiées à partir de votre registre de conteneurs Azure.
 3. Enregistrez les modifications apportées au fichier .env.
+
+>[!NOTE]
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 

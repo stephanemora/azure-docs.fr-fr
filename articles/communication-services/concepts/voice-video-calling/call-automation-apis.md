@@ -9,15 +9,18 @@ ms.author: joseys
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5cf4093f74fc95d0c012a6b77093231e966d2408
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 86110cf08db2843421a3bbd7400dac295f041e7d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106206"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464370"
 ---
-# <a name="call-automation-apis-overview"></a>Vue d’ensemble des API d’automatisation des appels
-Les API d’automatisation des appels vous permettent de communiquer avec vos utilisateurs à grande échelle à l’aide d’une logique métier automatisée. Vous pouvez utiliser ces API pour créer des appels sortants automatisés de rappel de rendez-vous, ou pour fournir des notifications concernant des événements tels que des coupures de courant ou des incendies de forêt. Les applications ajoutées à un appel peuvent superviser les mises à jour au fur et à mesure de l’arrivée ou du départ de participants, ce qui vous permet d’implémenter la création de rapports et la journalisation. 
+# <a name="call-automation-overview"></a>Vue d’ensemble de l’automatisation des appels
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+Les API d’automatisation des appels vous permettent d’accéder aux capacités d’appel vocal et vidéo des **services**. Vous pouvez utiliser ces API pour créer des applications de service qui gèrent des appels sortants automatisés de rappel de rendez-vous ou qui fournissent des notifications préventives concernant des événements tels que des coupures de courant ou des incendies de forêt. Les applications de service qui se joignent à un appel peuvent surveiller les mises à jour, telles que l’arrivée ou le départ de participants, ce qui vous permet d’implémenter de riches fonctionnalités de création de rapports et de journalisation.
 
 ![Applications In-Call et Out-of-Call](../media/call-automation-apps.png)
 
@@ -39,11 +42,6 @@ Les API d’automatisation des appels sont fournies pour les actions In-Call (ap
 | Démarrer et gérer l’enregistrement des appels                                |                           | X             |
 
 ## <a name="in-call-app-participant-apis"></a>API In-Call (app-participant)
-> [!NOTE] 
-> Les applications In-Call sont facturées en tant que participants à l’appel, aux [tarifs RTC et VoIP standard](https://azure.microsoft.com/pricing/details/communication-services/).
-
-> [!NOTE] 
-> Les actions In-Call sont attribuées à l’élément app-participant associé à l’élément `callConnectionId` utilisé dans l’appel d’API.
 
 Les API In-Call permettent à une application d’effectuer des actions dans un appel en tant qu’élément app-participant. Lorsqu’une application répond ou joint un appel, un élément `callConnectionId` est attribué et utilisé pour les actions In-Call telles que :
 - Ajouter ou supprimer des participants aux appels
@@ -77,6 +75,4 @@ Les notifications d’événements sont envoyées en tant que charges utiles JSO
 - Résultat de l’invitation d’un participant
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez [Exemple de démarrage rapide d’automatisation des appels](../../quickstarts/voice-video-calling/call-automation-api-sample.md).
-
-En savoir plus sur l’[Enregistrement des appels](./call-recording.md).
+Pour en savoir plus, consultez [Démarrage rapide de l’automatisation des appels](../../quickstarts/voice-video-calling/call-automation-api-sample.md).

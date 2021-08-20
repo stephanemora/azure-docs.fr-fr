@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
-ms.custom: mvc
-ms.date: 05/07/2021
-ms.openlocfilehash: c971f184aad7bfaf6d36a00ec1fb95f474c3a61c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: mvc, contperf-fy21q4
+ms.date: 06/22/2021
+ms.openlocfilehash: 032723c66d3263019447e231064f8846b44afe1d
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376937"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728671"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est une plateforme cloud pour la création et l’exécution de [*workflows*](#logic-app-concepts) automatisés qui intègrent vos applications, données, services et systèmes. Avec cette plateforme, vous pouvez rapidement développer des solutions d’intégration hautement scalables pour vos scénarios d’entreprise et B2B (Business to business). En tant que membre d’[Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifie la façon de connecter des systèmes existants, modernes et de pointe dans le cloud, localement et dans des environnements hybrides.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est une plateforme cloud pour la création et l’exécution de [*workflows*](#workflow) automatisés qui intègrent vos applications, données, services et systèmes. Avec cette plateforme, vous pouvez rapidement développer des solutions d’intégration hautement scalables pour vos scénarios d’entreprise et B2B (Business to business). En tant que membre d’[Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifie la façon de connecter des systèmes existants, modernes et de pointe dans le cloud, localement et dans des environnements hybrides.
 
 La liste suivante décrit simplement quelques exemples de tâches, de processus métier et de charges de travail que vous pouvez automatiser avec le service Logic Apps :
 
@@ -29,7 +29,7 @@ La liste suivante décrit simplement quelques exemples de tâches, de processus 
 
 Selon le type de ressource d’application logique que vous choisissez et créez, vos applications logiques s’exécutent dans un environnement de service d’intégration mutualisé, monolocataire ou dédié. Par exemple, lorsque vous mettez en conteneur des applications logiques monolocataires, vous pouvez déployer vos applications en tant que conteneurs et les exécuter à n’importe quel endroit où les Azure Functions peuvent s’exécuter. Pour plus d’informations, consultez [Différences entre le type de ressource et l’environnement hôte pour Logic Apps](#resource-environment-differences).
 
-Pour accéder en toute sécurité aux opérations et les exécuter en temps réel sur différentes sources de données, vous pouvez choisir des [*connecteurs managés*](#logic-app-concepts) à partir d’un [écosystème de connecteurs Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) plus étendu à utiliser dans vos workflows, par exemple :
+Pour accéder en toute sécurité aux opérations et les exécuter en temps réel sur différentes sources de données, vous pouvez choisir des [*connecteurs managés*](#managed-connector) à partir d’un [écosystème de connecteurs Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) plus étendu à utiliser dans vos workflows, par exemple :
 
 * Des services Azure tels que le Stockage Blob et Service Bus
 * Des services Office 365 tels qu’Outlook, Excel et SharePoint
@@ -37,9 +37,9 @@ Pour accéder en toute sécurité aux opérations et les exécuter en temps rée
 * Des systèmes d’entreprise tels que SAP et IBM MQ
 * Des partages de fichiers tels que FTP et SFTP
 
-Pour communiquer avec un point de terminaison de service quelconque, exécuter votre propre code, organiser votre workflow ou manipuler des données, vous pouvez utiliser des déclencheurs et des actions [*intégrés*](#logic-app-concepts) qui s’exécutent en mode natif dans le service Logic Apps. Par exemple, les déclencheurs intégrés incluent Request, HTTP et Recurrence. Les actions intégrées incluent Condition, For each, Exécuter du code JavaScript et des opérations qui appellent des fonctions Azure, des applications web ou des applications API hébergées dans Azure, ainsi que d’autres workflows Logic Apps.
+Pour communiquer avec un point de terminaison de service quelconque, exécuter votre propre code, organiser votre workflow ou manipuler des données, vous pouvez utiliser des déclencheurs et des actions [*intégrés*](#built-in-operations) qui s’exécutent en mode natif dans le service Logic Apps. Par exemple, les déclencheurs intégrés incluent Request, HTTP et Recurrence. Les actions intégrées incluent Condition, For each, Exécuter du code JavaScript et des opérations qui appellent des fonctions Azure, des applications web ou des applications API hébergées dans Azure, ainsi que d’autres workflows Logic Apps.
 
-Pour les scénarios d’intégration B2B, Logic Apps intègre les fonctionnalités de [BizTalk Server](/biztalk/core/introducing-biztalk-server). Pour définir les artefacts B2B (Business-to-Business), vous devez créer un [*compte d’intégration*](#logic-app-concepts) dans lequel vous stockez ces artefacts. Une fois que vous avez lié ce compte à votre application logique, vos workflows peuvent utiliser ces artefacts B2B et échanger des messages conformes aux normes d’échange de données informatisé (EDI) et d’intégration d’applications d’entreprise (EAI).
+Pour les scénarios d’intégration B2B, Logic Apps intègre les fonctionnalités de [BizTalk Server](/biztalk/core/introducing-biztalk-server). Pour définir les artefacts B2B (Business-to-Business), vous devez créer un [*compte d’intégration*](#integration-account) dans lequel vous stockez ces artefacts. Une fois que vous avez lié ce compte à votre application logique, vos workflows peuvent utiliser ces artefacts B2B et échanger des messages conformes aux normes d’échange de données informatisé (EDI) et d’intégration d’applications d’entreprise (EAI).
 
 Pour plus d’informations sur la façon dont les workflows peuvent accéder aux applications, aux données, aux services et aux systèmes et les utiliser, consultez la documentation suivante :
 
@@ -52,35 +52,61 @@ Pour plus d’informations sur la façon dont les workflows peuvent accéder aux
 
 ## <a name="key-terms"></a>Termes clés
 
-* *Application logique* : ressource Azure à créer lorsque vous souhaitez développer un workflow. En fonction des besoins de votre scénario et des exigences de la solution, vous pouvez créer des applications logiques qui s’exécutent dans Azure Logic Apps multilocataire ou monolocataire, ou dans un environnement de service d’intégration. Pour plus d’informations, consultez [Différences entre le type de ressource et l’environnement hôte pour Logic Apps](#resource-environment-differences).
+Les termes suivants sont des concepts importants du service Logic Apps.
 
-* *Workflow* : série d’étapes définissant une tâche ou un processus, commençant par un déclencheur individuel, suivi d’une ou de plusieurs actions.
+### <a name="logic-app"></a>Application logique
 
-* *Déclencheur* : première étape au début de chaque workflow, qui spécifie la condition à respecter avant d’exécuter les actions figurant dans le workflow. Par exemple, un événement déclencheur peut être de recevoir un e-mail dans votre boîte de réception ou de détecter un nouveau fichier dans un compte de stockage.
+Une *application logique* est la ressource Azure que vous créez lorsque vous souhaitez développer un workflow. Il existe [plusieurs types de ressources d’application logique qui fonctionnent dans différents environnements](#resource-environment-differences).
 
-* *Action* : chaque étape qui suit le déclencheur et exécute une opération dans un workflow.
+### <a name="workflow"></a>Workflow
 
-* *Déclencheur ou action intégré* : opération Logic apps exécutée en mode natif qui fournit un moyen de contrôler la planification ou la structure de votre workflow, d’exécuter votre propre code, de gérer ou de manipuler des données ou d’effectuer d’autres tâches dans votre workflow. La plupart des opérations intégrées ne sont associées à aucun service ni système. Beaucoup ne vous obligent pas non plus à créer d’abord une connexion à partir de votre workflow ni à authentifier votre identité. Cependant, des opérations intégrées sont également disponibles pour certains services, systèmes et protocoles fréquemment utilisés, tels qu’Azure Functions, Gestion des API Azure, Azure App Service, etc.
+Un *workflow* est une série d’étapes qui définissent une tâche ou un processus. Chaque workflow démarre avec un seul déclencheur, après quoi vous devez ajouter une ou plusieurs actions.
 
-  Par exemple, vous pouvez démarrer presque n’importe quel workflow selon une planification en utilisant le déclencheur Recurrence. Vous pouvez aussi faire en sorte que votre workflow attende jusqu’à ce qu’il soit appelé quand vous utilisez le déclencheur Request. Pour plus d’informations, consultez [Déclencheurs et actions intégrés pour Azure Logic Apps](../connectors/built-in.md).
+### <a name="trigger"></a>Déclencheur 
 
-* *Connecteur managé* : un proxy ou un wrapper prédéfini autour avec une API REST qui fournit des déclencheurs et des actions prédéfinis pour votre workflow afin d’accéder à une application, des données, un service ou un système spécifique. Avant de pouvoir utiliser la plupart des connecteurs managés, vous devez créer une connexion à partir de votre workflow et d’authentifier votre identité.
+Un *déclencheur* est toujours la première étape d’un flux de travail et spécifie la condition d’exécution de toutes les autres étapes de ce flux de travail. Par exemple, un événement déclencheur peut être de recevoir un e-mail dans votre boîte de réception ou de détecter un nouveau fichier dans un compte de stockage.
 
-  Par exemple, vous pouvez démarrer un workflow à l’aide d’un déclencheur ou ajouter une action qui fonctionne avec le Stockage blob Azure, Office 365, Salesforce ou les serveurs SFTP. Les connecteurs managés sont hébergés et maintenus par Microsoft. Pour plus d’informations, passez en revue [Connecteurs managés pour Azure Logic Apps](../connectors/managed.md).
+### <a name="action"></a>Action
 
-* *Compte d’intégration* : ressource Azure à créer lorsque vous souhaitez définir et stocker des artefacts B2B à utiliser dans vos workflows. Une fois que vous avez lié ce compte à votre application logique, vos workflows peuvent utiliser ces artefacts B2B et échanger des messages conformes aux normes d’échange de données informatisé (EDI) et d’intégration d’applications d’entreprise (EAI).
+Une *action* désigne chaque étape d’un workflow après le déclencheur. Chaque action exécute une opération dans un workflow.
 
-  Par exemple, vous pouvez définir des partenaires commerciaux, des contrats, des schémas, des mappages et d’autres artefacts B2B. Vous pouvez créer des workflows qui utilisent ces artefacts et échangent des messages sur des protocoles tels que AS2, EDIFACT, X12 et RosettaNet. Pour plus d’informations, consultez [Créer et gérer des comptes d’intégration pour les intégrations d’entreprise B2B](logic-apps-enterprise-integration-create-integration-account.md).
+### <a name="built-in-operations"></a>Opérations intégrées
+
+Un déclencheur ou une action *intégré* est une opération qui s’exécute en mode natif dans Azure Logic Apps. Par exemple, les opérations intégrées vous permettent de contrôler la planification ou la structure de votre workflow, d’exécuter votre propre code, de gérer et de manipuler des données, d’envoyer ou de recevoir des requêtes sur un point de terminaison et d’effectuer d’autres tâches dans votre workflow.
+
+La plupart des opérations intégrées ne sont associées à aucun service ni système, mais certaines opérations intégrées sont disponibles pour des services spécifiques, comme Azure Functions ou Azure App Service. Beaucoup ne vous obligent pas non plus à créer d’abord une connexion à partir de votre workflow ni à authentifier votre identité. Pour plus d’informations et d’exemples, consultez [Opérations intégrées pour Azure Logic Apps](../connectors/built-in.md).
+
+Par exemple, vous pouvez démarrer presque n’importe quel workflow selon une planification en utilisant le déclencheur Recurrence. Vous pouvez aussi faire en sorte que votre workflow attende jusqu’à ce qu’il soit appelé quand vous utilisez le déclencheur Request. 
+ 
+
+### <a name="managed-connector"></a>Connecteur managé
+
+Un *connecteur managé* est un proxy ou un wrapper prédéfini pour une API REST que vous pouvez utiliser pour accéder à une application, des données, un service ou un système spécifiques. Avant de pouvoir utiliser la plupart des connecteurs managés, vous devez créer une connexion à partir de votre workflow et d’authentifier votre identité. Les connecteurs managés sont publiés, hébergés et tenus à jour par Microsoft. Pour plus d’informations, passez en revue [Connecteurs managés pour Azure Logic Apps](../connectors/managed.md).
+
+Par exemple, vous pouvez démarrer votre workflow à l’aide d’un déclencheur ou exécuter une action qui fonctionne avec un service, comme Office 365 ou Salesforce, ou des serveurs de fichiers.
+
+### <a name="integration-account"></a>Compte d’intégration
+
+Un *compte d’intégration* désigne la ressource Azure que vous créez lorsque vous souhaitez définir et stocker des artefacts B2B à utiliser dans vos workflows. Une fois que vous avez [créé et lié un compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) à votre application logique, vos workflows peuvent utiliser ces artefacts B2B. Vos workflows peuvent également échanger des messages conformes aux normes d’échange de données informatisé (EDI) et d’Intégration d’Applications d’Entreprise (IAE).
+
+Par exemple, vous pouvez définir des partenaires commerciaux, des contrats, des schémas, des mappages et d’autres artefacts B2B. Vous pouvez créer des workflows qui utilisent ces artefacts et échangent des messages sur des protocoles tels que AS2, EDIFACT, X12 et RosettaNet.
 
 <a name="how-do-logic-apps-work"></a>
 
 ## <a name="how-logic-apps-work"></a>Comment fonctionnent les applications logiques
 
-Dans une application logique, chaque workflow démarre avec un [déclencheur](#logic-app-concepts) individuel. Un déclencheur se déclenche quand une condition est satisfaite, par exemple quand un événement spécifique se produit ou quand les données répondent à des critères spécifiques. De nombreux déclencheurs incluent des [fonctionnalités de planification](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) qui contrôlent la fréquence d’exécution de votre workflow. Après le déclencheur, une ou plusieurs [actions](#logic-app-concepts) exécutent des opérations. Par exemple, elles traitent, gèrent ou convertissent des données qui transitent par le workflow ou qui font passer le workflow à l’étape suivante.
+Dans une application logique, chaque workflow démarre avec un [déclencheur](#trigger) individuel. Un déclencheur se déclenche quand une condition est satisfaite, par exemple quand un événement spécifique se produit ou quand les données répondent à des critères spécifiques. De nombreux déclencheurs incluent des [fonctionnalités de planification](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md) qui contrôlent la fréquence d’exécution de votre workflow. Après le déclencheur, une ou plusieurs [actions](#action) exécutent des opérations. Par exemple, elles traitent, gèrent ou convertissent des données qui transitent par le workflow ou qui font passer le workflow à l’étape suivante.
 
-Par exemple, le workflow suivant commence avec un déclencheur Dynamics qui a une condition intégrée nommée **Lorsqu’un enregistrement est mis à jour**. Les actions incluent la transformation de données XML, l’appel d’une application web de mise à jour des données, l’évaluation d’une condition qui contrôle les actions à entreprendre et l’envoi d’un e-mail de notification avec les résultats. Lorsque le déclencheur détecte un événement qui répond à la condition, le déclencheur se déclenche et les actions figurant dans le workflow commencent à s’exécuter. Chaque fois que le déclencheur se déclenche, le service Logic Apps crée une instance de workflow qui exécute ces actions.
+La capture d’écran suivante montre une partie d’un exemple de workflow d’entreprise. Ce workflow utilise des conditions et des commutateurs pour déterminer l’action suivante. Supposons que vous disposez d’un système de commandes et que votre workflow traite les commandes entrantes. Vous souhaitez examiner manuellement les commandes dépassant un certain coût. Votre workflow comporte déjà des étapes précédentes qui déterminent le coût d’une commande entrante. Vous devez donc créer une condition initiale basée sur cette valeur de coût. Par exemple :
 
-![Concepteur d’applications logiques – Exemple de workflow](./media/logic-apps-overview/azure-logic-apps-designer.png)
+- Si la commande est inférieure à un certain montant, la condition est fausse. Le workflow traite alors la commande.
+- Si la condition est vraie, le workflow envoie un e-mail pour une révision manuelle. Un commutateur détermine l’étape suivante. 
+  - Si le réviseur l’approuve, le workflow continue à traiter la commande.
+  - Si le réviseur la réaffecte, le workflow envoie un e-mail d’escalade pour obtenir plus d’informations sur la commande. 
+      - Si les conditions requises pour l’escalade sont satisfaites, la condition de réponse est vraie. La commande est alors traitée. 
+      - Si la condition de réponse est fausse, un e-mail est envoyé concernant le problème.
+
+:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Capture d’écran montrant le concepteur de workflow et un exemple de workflow d’entreprise utilisant des commutateurs et des conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 Vous pouvez créer visuellement des workflows avec le concepteur d’applications logiques dans le portail Azure, dans Visual Studio Code ou dans Visual Studio. Chaque workflow a également une définition sous-jacente qui est décrite à l’aide de JSON (JavaScript Object Notation). Si vous préférez, vous pouvez modifier les workflows en changeant cette définition JSON. Pour certaines tâches de création et de gestion, Logic Apps fournit une prise en charge des commandes Azure PowerShell et Azure CLI. Pour un déploiement automatisé, Logic Apps prend en charge les modèles Azure Resource Manager.
 
@@ -159,7 +185,19 @@ Tous ces services vous aident à connecter et à réunir des systèmes disparate
 
 ## <a name="get-started"></a>Bien démarrer
 
-Avant de pouvoir démarrer avec Azure Logic Apps, vous avez besoin d’un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). Sinon, essayez ce [guide de démarrage rapide pour créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), qui supervise le nouveau contenu sur un site web via un flux RSS et envoie un e-mail quand un nouveau contenu apparaît.
+Avant de pouvoir démarrer avec Azure Logic Apps, vous avez besoin d’un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
+
+Lorsque vous êtes prêt, essayez un ou plusieurs des guides de démarrage rapide suivants pour Logic Apps. Découvrez comment créer un workflow de base qui surveille un flux RSS et envoie un e-mail en cas de nouveau contenu.
+
+* [Créer une application logique multilocataire dans le portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Créer une application logique multilocataire dans Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
+* [Créer une application logique multilocataire dans Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+
+Vous pouvez également explorer d’autres guides de démarrage rapide pour Logic Apps :
+
+* [Créer une application logique multilocataire à l’aide d’un modèle ARM](quickstart-create-deploy-azure-resource-manager-template.md)
+* [Créer une application logique multilocataire à l’aide d’Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md)
+
 
 ## <a name="other-resources"></a>Autres ressources
 

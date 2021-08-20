@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2021
+ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: af5e0e6a8f019d0b35d73b49f6efb45c2195d62d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072628"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458323"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>Didacticiel : utiliser des règles d’automatisation dans Azure Sentinel
 
@@ -123,7 +123,15 @@ Chaque playbook doit démarrer avec un déclencheur. Le déclencheur définit l�
 
    Choisissez le déclencheur qui correspond au type de playbook que vous êtes en train de créer.
 
+    > [!NOTE]
+    > N’oubliez pas que seuls les playbooks basés sur le **déclencheur d’incident** peuvent être appelés par des règles d’automatisation. Les playbooks basés sur le **déclencheur d’alerte** doivent être définis pour s’exécuter directement dans les [règles analytiques](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule). Ils peuvent également être exécutés manuellement.
+    > 
+    > Pour plus d’informations sur le déclencheur à utiliser, consultez [**Utiliser des déclencheurs et actions dans les playbooks Azure Sentinel**](playbook-triggers-actions.md)
+
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choisir un déclencheur pour votre playbook":::
+
+> [!NOTE]
+> Quand vous choisissez un déclencheur ou une action ultérieure, vous êtes invité à vous authentifier auprès du fournisseur de ressources avec lequel vous interagissez. Dans ce cas, le fournisseur est Azure Sentinel. Il existe plusieurs approches pour l’authentification. Pour obtenir plus de détails et d’instructions, consultez [**Authentifier les playbooks auprès d’Azure Sentinel**](authenticate-playbooks-to-sentinel.md).
 
 ### <a name="add-actions"></a>Ajouter des actions
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à PureCloud by Genesys | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PureCloud by Genesys.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Genesys Cloud | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Genesys Cloud for Azure.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: da3e88706c4a7820920191df419a448a08b9f675
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fdc6e6839af33a154f331940bba354c05e6b3f64
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736589"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580270"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à PureCloud by Genesys
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-genesys-cloud-for-azure"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Genesys Cloud
 
-Dans ce tutoriel, vous allez apprendre à intégrer PureCloud by Genesys à Azure Active Directory (Azure AD). Quand vous intégrez PureCloud à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Genesys Cloud for Azure à Azure Active Directory (Azure AD). Quand vous intégrez Genesys Cloud for Azure à Azure AD, vous pouvez :
 
-* Contrôler qui a accès à PureCloud by Genesys dans Azure AD.
-* Autoriser les utilisateurs à se connecter automatiquement à PureCloud by Genesys avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès à Genesys Cloud for Azure.
+* Permettre à vos utilisateurs de se connecter automatiquement à Genesys Cloud for Azure avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -31,52 +31,52 @@ Dans ce tutoriel, vous allez apprendre à intégrer PureCloud by Genesys à Azur
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement PureCloud by Genesys pour lequel l’authentification unique (SSO) est activée.
+* Un abonnement Genesys Cloud for Azure pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* PureCloud by Genesys prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Genesys Cloud for Azure prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="add-purecloud-by-genesys-from-the-gallery"></a>Ajouter PureCloud by Genesys à partir de la galerie
+## <a name="add-genesys-cloud-for-azure-from-the-gallery"></a>Ajouter Genesys Cloud for Azure à partir de la galerie
 
-Pour configurer l’intégration de PureCloud by Genesys à Azure AD, vous devez ajouter PureCloud by Genesys à partir de la galerie à votre liste d’applications SaaS managées. Pour ce faire, procédez comme suit :
+Pour configurer l’intégration de Genesys Cloud for Azure dans Azure AD, vous devez ajouter Genesys Cloud for Azure à partir de la galerie à votre liste d’applications SaaS gérées. Pour ce faire, procédez comme suit :
 
 1. Connectez-vous au portail Azure, soit avec un compte professionnel ou scolaire, soit avec un compte Microsoft personnel.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **PureCloud by Genesys** dans la zone de recherche.
-1. Sélectionnez **PureCloud by Genesys** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, saisissez **Genesys Cloud for Azure** dans la zone de recherche.
+1. Sélectionnez **Genesys Cloud for Azure** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso-for-purecloud-by-genesys"></a>Configurer et tester l’authentification unique Azure AD pour PureCloud by Genesys
+## <a name="configure-and-test-azure-ad-sso-for-genesys-cloud-for-azure"></a>Configurer et tester l’authentification unique Azure AD pour Genesys Cloud for Azure
 
-Configurez et testez l’authentification unique Azure AD avec PureCloud by Genesys pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans PureCloud by Genesys.
+Configurez et testez l’authentification unique Azure AD avec Genesys Cloud for Azure à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Genesys Cloud for Azure.
 
-Pour configurer et tester l’authentification unique Azure AD auprès de PureCloud by Genesys, effectuez les étapes suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Genesys Cloud for Azure, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique PureCloud by Genesys](#configure-purecloud-by-genesys-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test PureCloud by Genesys](#create-purecloud-by-genesys-test-user)** pour avoir, dans PureCloud by Genesys, un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
+1. **[Configurer l’authentification unique de Genesys Cloud for Azure](#configure-genesys-cloud-for-azure-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Genesys Cloud for Azure](#create-genesys-cloud-for-azure-test-user)** pour avoir un équivalent de B.Simon dans Genesys Cloud for Azure lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Pour activer l’authentification unique Azure AD dans le portail Azure, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **PureCloud by Genesys**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Genesys Cloud for Azure**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous voulez configurer l’application en mode **lancé par le fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, procédez comme suit :
 
     a. Dans la zone **Identificateur**, entrez les URL qui correspondent à votre région :
     
@@ -113,11 +113,11 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
     | https://login.mypurecloud.com.au |
     |
 
-1. Votre application PureCloud by Genesys attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut :
+1. L’application Genesys Cloud for Azure s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut :
 
     ![image](common/default-attributes.png)
 
-1. En outre, l’application PureCloud by Genesys s’attend également à ce que quelques attributs de plus soient transmis dans la réponse SAML, comme indiqués dans le tableau suivant. Ces attributs sont également préremplis, mais vous pouvez les examiner en fonction de vos besoins.
+1. En outre, l’application Genesys Cloud for Azure s’attend à ce que quelques attributs supplémentaires (présentés dans le tableau suivant) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner en fonction de vos besoins.
 
     | Nom | Attribut source|
     | ---------------| --------------- |
@@ -128,7 +128,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer PureCloud by Genesys**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Genesys Cloud for Azure**, copiez les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -146,19 +146,19 @@ Dans cette section, vous allez créer un utilisateur de test nommé B.Simon dans
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à PureCloud by Genesys.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Genesys Cloud for Azure.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **PureCloud by Genesys**.
+1. Dans la liste des applications, sélectionnez **Genesys Cloud for Azure**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-purecloud-by-genesys-sso"></a>Configurer l’authentification unique PureCloud by Genesys
+## <a name="configure-genesys-cloud-for-azure-sso"></a>Configurer l’authentification unique de Genesys Cloud for Azure
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à PureCloud by Genesys en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à Genesys Cloud for Azure en tant qu’administrateur.
 
 1. Sélectionnez **Admin** en haut, puis accédez à **Single Sign-on** (Authentification unique) sous **Integrations**.
 
@@ -174,19 +174,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     c. Dans la zone **Target URI** (URI cible), collez la valeur **URL de connexion** que vous avez copiée du portail Azure.
 
-    d. Pour la valeur **Relying Party Identifier** (Identificateur de partie de confiance), accédez au portail Azure puis, dans la page d’intégration de l’application **PureCloud by Genesys**, sélectionnez l’onglet **Propriétés** et copiez la valeur **ID de l’application**. Collez ensuite cette valeur dans la zone **Relying Party Identifier**.
+    d. Pour la valeur **Relying Party Identifier** (Identificateur de partie de confiance), accédez au portail Azure puis, dans la page d’intégration de l’application **Genesys Cloud for Azure**, sélectionnez l’onglet **Propriétés** et copiez la valeur **ID de l’application**. Collez ensuite cette valeur dans la zone **Relying Party Identifier**.
 
-    ![Capture d’écran affichant le volet Propriétés dans lequel vous pouvez trouver la valeur de l’ID de l’application.](./media/purecloud-by-genesys-tutorial/configure-6.png)
+    ![Capture d’écran montrant le volet Propriétés dans lequel vous pouvez trouver la valeur de l’ID de l’application.](./media/purecloud-by-genesys-tutorial/configuration.png)
 
     e. Sélectionnez **Enregistrer**.
 
-### <a name="create-purecloud-by-genesys-test-user"></a>Créer un utilisateur de test PureCloud by Genesys
+### <a name="create-genesys-cloud-for-azure-test-user"></a>Créer un utilisateur de test Genesys Cloud for Azure
 
-Pour permettre aux utilisateurs Azure AD de se connecter à PureCloud by Genesys, vous devez les provisionner dans PureCloud by Genesys. Dans PureCloud by Genesys, le provisionnement se fait manuellement.
+Pour permettre aux utilisateurs d’Azure AD de se connecter à Genesys Cloud for Azure, vous devez les attribués dans Genesys Cloud for Azure. Dans Genesys Cloud for Azure, l’approvisionnement est une tâche manuelle.
 
 **Pour configurer un compte d’utilisateur, effectuez ces étapes :**
 
-1. Connectez-vous à PureCloud by Genesys en tant qu’administrateur.
+1. Connectez-vous à Genesys Cloud for Azure en tant qu’administrateur.
 
 1. Sélectionnez **Admin** en haut de la fenêtre, puis accédez à la section **People** (Personnes) sous **People & Permissions** (Personnes & Autorisations).
 
@@ -212,16 +212,16 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion à PureCloud by Genesys, d’où vous pouvez lancer le processus de connexion.  
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion de Genesys Cloud for Azure, à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-* Accédez directement à l’URL de connexion PureCloud by Genesys et lancez le flux de connexion.
+* Accédez directement à l’URL de connexion de Genesys Cloud for Azure pour initier le flux de connexion.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* En cliquant sur **Tester cette application** dans le portail Azure, vous devez être automatiquement connecté à l’instance de PureCloud by Genesys, pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur **Tester cette application** dans Portail Azure : vous devez être connecté automatiquement à l’instance de Genesys Cloud for Azure pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette PureCloud by Genesys dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de PureCloud by Genesys pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Genesys Cloud for Azure dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Genesys Cloud for Azure pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré PureCloud by Genesys, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Genesys Cloud for Azure, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

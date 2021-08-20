@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer une définition de stratégie personnalisée'
 description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 1cd88481e84fd334b95a5969fb7f4fa268e30cf5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752126"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362149"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutoriel : Créer une définition de stratégie personnalisée
 
@@ -66,7 +66,7 @@ L’[extension VS Code](../how-to/extension-for-vscode.md#search-for-and-view-r
 
 ### <a name="arm-templates"></a>Modèles ARM
 
-Il existe plusieurs façons d’examiner un [modèle ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) qui inclut la propriété à gérer.
+Il existe plusieurs façons d’examiner un [modèle ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) qui inclut la propriété à gérer.
 
 #### <a name="existing-resource-in-the-portal"></a>Ressource existante dans le portail
 

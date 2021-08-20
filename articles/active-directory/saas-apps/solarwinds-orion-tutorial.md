@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/29/2021
 ms.author: jeedes
-ms.openlocfilehash: b503697972bfe7fbd8fc18b77d6e0206dc055b67
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ae73974a65ca13c76fc374bf0544d67fa2a524c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206130"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113107273"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SolarWinds Orion
 
@@ -98,6 +98,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | FirstName | user.givenname |
     | LastName | user.surname |
     | E-mail |user.mail |
+
+1. Dans la section **Attributs utilisateur et revendications**, cliquez sur l’icône en forme de crayon pour modifier, puis cliquez sur **Ajouter une revendication de groupe**.
+
+    ![Capture d’écran d’Attributs utilisateur et revendications.](./media/solarwinds-orion-tutorial/group-claim.png)
+
+1. Choisissez **Groupes de sécurité**.
+1. Si Azure AD est synchronisé avec votre instance locale d’AD, remplacez **Attribut source** par **sAMAccountName**. Dans le cas contraire, laissez-le comme ID de groupe.
+
+1. Dans les **options avancées**, cochez la case **Personnaliser le nom de la revendication de groupe** et donnez-lui le nom OrionGroups.
+
+1. Cliquez sur **Enregistrer**.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

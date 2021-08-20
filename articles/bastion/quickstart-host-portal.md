@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Configurer Azure Bastion et se connecter à une machine virtuelle via une adresse IP privée et un navigateur'
+title: 'Démarrage rapide : Configurer Bastion à partir des paramètres de la machine virtuelle'
 titleSuffix: Azure Bastion
-description: Découvrez comment créer un hôte Azure Bastion à partir d’une machine virtuelle et comment s’y connecter de manière sécurisée par le biais de votre navigateur à l’aide d’une adresse IP privée.
+description: Découvrez comment créer un hôte Azure Bastion à partir des paramètres de la machine virtuelle et comment se connecter à cette dernière de manière sécurisée par le biais de votre navigateur à l’aide d’une adresse IP privée.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 06/29/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: 67211215b3dac9ad8774dc4e3c67a869bd031646
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 7598b2908365061ae789ce2ffafb6088dc5c2a68
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111264"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733355"
 ---
-# <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Démarrage rapide : Se connecter de manière sécurisée à une machine virtuelle par le biais d’un navigateur via une adresse IP privée
+# <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Démarrage rapide : Configurer Azure Bastion à partir des paramètres de la machine virtuelle
 
-Vous pouvez vous connecter à une machine virtuelle par le biais de votre navigateur en utilisant le portail Azure et Azure Bastion. Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Si vous n’avez pas besoin de l’adresse IP publique sur votre machine virtuelle, vous pouvez la supprimer. Vous vous connecterez alors à votre machine virtuelle via le portail à l’aide de l’adresse IP privée. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md).
+Cet article de démarrage rapide vous explique comment configurer Azure Bastion en fonction des paramètres de votre machine virtuelle dans le portail Azure, puis comment vous connecter à une machine virtuelle via une adresse IP privée. Une fois le service approvisionné, l’expérience RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. La machine virtuelle n’a pas besoin d’une adresse IP publique, d’un logiciel client, d’un agent ou d’une configuration spéciale. Si vous n’avez pas besoin de l’adresse IP publique sur votre machine virtuelle, vous pouvez la supprimer. Vous vous connecterez alors à votre machine virtuelle via le portail à l’aide de l’adresse IP privée. Pour plus d’informations sur Azure Bastion, consultez [Présentation d’Azure Bastion](bastion-overview.md).
 
 ## <a name="prerequisites"></a><a name="prereq"></a>Configuration requise
 
@@ -62,7 +62,8 @@ Lors de la création de cette configuration, vous pouvez utiliser les exemples d
 | --- | --- |
 | Nom | VNet1-bastion |
 | + Nom du sous-réseau | AzureBastionSubnet |
-| Adresses AzureBastionSubnet | Un sous-réseau dans votre espace d’adressage de réseau virtuel avec un masque de sous-réseau /27. Par exemple, 10.1.1.0/27.  |
+| Adresses AzureBastionSubnet | Un sous-réseau dans votre espace d’adressage de réseau virtuel avec un masque de sous-réseau /27 ou supérieur.<br> Par exemple, 10.1.1.0/26.  |
+| Niveau/référence SKU | standard |
 | Adresse IP publique |  Création |
 | Nom de l’adresse IP publique | VNet1-ip  |
 | Référence SKU d’adresse IP publique |  standard  |
@@ -72,7 +73,9 @@ Lors de la création de cette configuration, vous pouvez utiliser les exemples d
 
 Il existe différentes manières de configurer un hôte bastion. Dans les étapes suivantes, vous allez créer un hôte bastion dans le portail Azure directement à partir de votre machine virtuelle. Quand vous créez un hôte à partir d’une machine virtuelle, différents paramètres sont automatiquement renseignés conformément à votre machine virtuelle et/ou votre réseau virtuel.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
+
+1. Connectez-vous au portail Azure.
 1. Accédez à la machine virtuelle à laquelle vous voulez vous connecter, puis sélectionnez **Se connecter**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Capture d’écran des paramètres de la machine virtuelle." lightbox="./media/quickstart-host-portal/vm-connect.png":::
@@ -83,25 +86,26 @@ Il existe différentes manières de configurer un hôte bastion. Dans les étape
 
    :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Capture d’écran de la rubrique Utiliser Bastion.":::
 
-1. Sur la page **Se connecter à l’aide d’Azure Bastion**, configurez les valeurs.
+1. Sur la page **Se connecter à l’aide d’Azure Bastion**, **Étape 1**, les valeurs sont préremplies, car vous créez l’hôte bastion directement à partir de votre machine virtuelle.
 
-   * **Étape 1 :** Les valeurs sont préremplies, car vous créez l’hôte bastion directement à partir de votre machine virtuelle.
+   :::image type="content" source="./media/quickstart-host-portal/create-step-1.png" alt-text="Capture d’écran des paramètres préremplis à l’étape 1." lightbox="./media/quickstart-host-portal/create-step-1.png":::
 
-   * **Étape 2 :** L’espace d’adressage est prérempli avec un espace d’adressage suggéré. AzureBastionSubnet doit avoir un espace d’adressage de /27 ou plus (/26, /25, etc.).
+1. Sur la page **Se connecter à l’aide d’Azure Bastion**, **Étape 2**, configurez les valeurs du sous-réseau. L’espace d’adressage AzureBastionSubnet est prérempli avec un espace d’adressage suggéré. AzureBastionSubnet doit avoir un espace d’adressage de /27 ou plus (/26, /25, etc.). Nous vous recommandons d’utiliser un /26 afin que la mise à l’échelle de l’hôte ne soit pas limitée. Lorsque vous avez terminé de configurer ce paramètre, cliquez sur **Créer un sous-réseau** pour créer AzureBastionSubnet.
 
-   :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Capture d’écran de la création du sous-réseau Bastion.":::
+     :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Capture d’écran de la création du sous-réseau Bastion.":::
 
-1. Cliquez sur **Créer un sous-réseau** pour créer AzureBastionSubnet.
 1. Une fois le sous-réseau créé, la page passe automatiquement à l’**étape 3**. Pour l’étape 3, utilisez les valeurs suivantes :
 
    * **Nom :** nommez l’hôte bastion.
+   * **Niveau :** le niveau désigne la référence SKU. Pour cet exercice, sélectionnez **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
+   * **Nombre d’instances :** il s’agit du paramètre de mise à l’échelle de l’hôte. Utilisez le curseur pour le configurer. Si vous spécifiez la référence SKU De base, vous êtes limité à deux instances et ne pouvez pas configurer ce paramètre. Pour plus d’informations, consultez [Paramètres de configuration – Mise à l’échelle de l’hôte](configuration-settings.md#instance). Le nombre d’instances est en préversion et s’appuie sur la référence SKU Standard. Dans ce démarrage rapide, vous pouvez sélectionner le nombre d’instances de votre choix, en gardant à l’esprit les considérations relatives à la [tarification](https://azure.microsoft.com/pricing/details/azure-bastion) des unités d’échelle.
    * **Adresse IP publique** : sélectionnez **Créer**.
    * **Nom de l’IP publique :** nom de la ressource d’IP publique.
-   * **SKU de l’IP publique :** préconfiguré sur **Standard**.
+   * **SKU de l’IP publique :** préconfigurée sur **Standard**.
    * **Attribution :** préconfiguré sur **Statique**. Vous ne pouvez pas utiliser une attribution Dynamique pour Azure Bastion.
    * **Groupe de ressources** : le même groupe de ressources que la machine virtuelle.
 
-   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Capture d’écran de l’étape 3.":::
+   :::image type="content" source="./media/quickstart-host-portal/create-step-3.png" alt-text="Capture d’écran de l’étape 3.":::
 1. Après avoir renseigné les valeurs, sélectionnez **Créer Azure Bastion à l’aide des valeurs par défaut**. Azure valide vos paramètres, puis crée l’hôte. La création et le déploiement de l’hôte et de ses ressources prennent environ 5 minutes.
 
 ## <a name="remove-vm-public-ip-address"></a><a name="remove"></a>Supprimer une adresse IP publique de machine virtuelle
@@ -115,7 +119,7 @@ Une fois Bastion déployé sur le réseau virtuel, l’écran devient la page de
 1. Entrez le nom d’utilisateur et le mot de passe pour votre machine virtuelle. puis **Connecter**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Capture d’écran montrant la boîte de dialogue Se connecter à l’aide d’Azure Bastion":::
-1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion. 
+1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion. Cliquez sur **Autoriser** quand vous êtes invité à entrer des autorisations sur le Presse-papiers. Cela vous permet d’utiliser les flèches du Presse-papiers à distance sur la gauche de l’écran.
 
    * Lorsque vous vous connectez, le bureau de la machine virtuelle peut être différent de celui présenté dans la capture d’écran. 
    * L’utilisation de touches de raccourci lorsque vous êtes connecté à une machine virtuelle peut ne pas s’accompagner du même comportement que les touches de raccourci sur un ordinateur local. Par exemple, lorsque vous êtes connecté à une machine virtuelle Windows à partir d’un client Windows, CTRL+ALT+FIN est le raccourci clavier pour CTRL+ALT+SUPPR sur un ordinateur local. Pour effectuer cette opération depuis un Mac alors que vous êtes connecté à une machine virtuelle Windows, le raccourci clavier est Fn+CTRL+ALT+Retour arrière.

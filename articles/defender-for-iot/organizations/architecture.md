@@ -2,20 +2,19 @@
 title: Présentation de l'architecture de solution sans agent
 description: Découvrez l’architecture et le flux d’informations d’Azure Defender pour IoT sans agent.
 ms.topic: overview
-ms.date: 1/25/2021
-ms.author: shhazam
-ms.openlocfilehash: bd639ca2656b901bd87fccf36fb4a5d90d3bf918
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 07/19/2021
+ms.openlocfilehash: cec373f3848e264b7c9f4b9753315189da77bc0b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011210"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455225"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architecture de Azure Defender pour IoT
 
 Cet article décrit l’architecture système fonctionnelle de la solution Defender pour IoT sans agent. Azure Defender pour IoT offre deux ensembles de fonctionnalités pour répondre aux besoins de votre environnement, une solution sans agent pour les organisations, et une solution basée sur un agent pour les fabricants d’appareils.
 
-## <a name="agentless-solution-for-organizations"></a>Solution sans agent pour les organisations
+## <a name="agentless-solution-architecture-for-organizations"></a>Architecture de la solution sans agent pour les organisations
 ### <a name="defender-for-iot-components"></a>Composants de Defender pour IoT
 
 Defender pour IoT se connecte au cloud Azure et aux composants locaux. La solution est conçue pour offrir une scalabilité dans les environnements de grande taille distribués géographiquement avec plusieurs emplacements distants. Cette solution active une architecture distribuée multicouche par pays, région, unité commerciale ou zone. 

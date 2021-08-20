@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 89988579c847250938db71844b1bbafa4965e7df
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004562"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573667"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutoriel : Utiliser Apache HBase dans Azure HDInsight
 
@@ -209,7 +209,7 @@ Vous pouvez interroger les données des tables HBase à l’aide d’[Apache Hiv
 La requête Hive pour accéder aux données HBase n’a pas besoin d’être exécutée à partir du cluster HBase. Tout cluster fourni avec Hive (y compris Spark, Hadoop, HBase ou Interactive Query) peut être utilisé pour interroger des données HBase, à condition que les étapes suivantes soient effectuées :
 
 1. Les deux clusters doivent être attachés aux mêmes réseau et sous-réseau virtuels
-2. Copie de `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` depuis les nœuds principaux du cluster HBase sur les nœuds principaux du cluster Hive
+2. Copiez `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` des nœuds principaux du cluster HBase aux nœuds principaux et aux nœuds Worker du cluster Hive
 
 ### <a name="secure-clusters"></a>Clusters sécurisés
 
@@ -217,7 +217,7 @@ Les données HBase peuvent également être interrogées à partir de Hive, au m
 
 1. Lorsque vous suivez un modèle à plusieurs clusters, les deux clusters doivent être activés pour ESP. 
 2. Pour autoriser Hive à interroger des données HBase, assurez-vous que l’utilisateur `hive` est autorisé à accéder aux données HBase via le plug-in Apache Ranger pour HBase
-3. Lorsque vous utilisez des clusters distincts activés pour ESP, le contenu de `/etc/hosts` à partir des nœuds principaux du cluster HBase doit être ajouté à `/etc/hosts` des nœuds principaux du cluster Hive. 
+3. Lorsque vous utilisez des clusters distincts activés pour ESP, le contenu de `/etc/hosts` à partir des nœuds principaux du cluster HBase doit être ajouté à `/etc/hosts` des nœuds principaux et des nœuds Worker du cluster Hive. 
 > [!NOTE]
 > Après la mise à l’échelle d’un des clusters, `/etc/hosts` doit être ajouté à nouveau
 

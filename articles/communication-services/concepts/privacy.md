@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bb40c4bdcdc61cfa3d82ea5313a1c6b084bb1514
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 870000e49e77475e8f8c7dcac84d470a853c8a76
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110671"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762860"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
 
@@ -22,6 +22,10 @@ Azure Communication Services s’engage à aider nos clients à respecter leurs 
 ## <a name="data-residency"></a>Résidence des données
 
 Quand vous créez une ressource Communication Services, vous spécifiez une **zone géographique** (et non un centre de données Azure). Tous les messages de conservation et données de ressources stockés par Communication Services au repos sont conservés dans cette zone géographique, au sein d’un centre de données sélectionné en interne par Communication Services. Les données peuvent transiter ou être traitées dans d’autres zones géographiques. Ces points de terminaison globaux sont nécessaires pour fournir de hautes performances et une faible latence aux utilisateurs finaux, où qu’ils se trouvent.
+
+## <a name="data-collection"></a>Collecte de données
+
+Azure Communication Services collecte uniquement les données de diagnostic requises pour fournir le service. 
 
 ## <a name="data-residency-and-events"></a>Résidence et sécurité des données
 
@@ -76,6 +80,10 @@ La communication audio et vidéo est traitée temporairement par le service et a
 ### <a name="internet-voice-and-video-calling"></a>Appel vocal et appel vidéo par Internet
 
 La communication audio et vidéo est traitée temporairement par le service et aucune donnée n’est conservée dans votre ressource, à l’exception des journaux Azure Monitor.
+
+### <a name="call-recording"></a>Enregistrement d’appel
+
+Les enregistrements d’appel sont stockés pendant 48 heures dans la même zone géographique que celle qui a été sélectionnée pour ```Data Location``` pendant la création de la ressource . Après cela, l’enregistrement est supprimé et vous êtes responsable du stockage de l’enregistrement dans un endroit sûr et conforme.
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor et Log Analytics
 

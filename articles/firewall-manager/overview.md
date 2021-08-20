@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 06/21/2021
 ms.author: victorh
-ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279925"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595324"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -82,7 +82,6 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Un seul hub virtuel sécurisé par région|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région.|Créez plusieurs réseaux étendus virtuels dans une région.|
 |Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Enquête|
 |Filtrage du trafic entre hubs dans des déploiements de hubs virtuels sécurisés|Le filtrage de la communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore pris en charge. Toutefois, la communication de hub à hub continue de fonctionner si le filtrage du trafic privé via le Pare-feu Azure n’est pas activé.|Enquête|
-|Spokes dans une autre région que le hub virtuel|Les spokes dans une autre région que le hub virtuel ne sont pas pris en charge.|Enquête<br><br>Créez un hub par région et appairez des réseaux virtuels dans la même région que le hub.|
 |Trafic de branche à branche avec filtrage du trafic privé activé|Le trafic de branche à branche n’est pas pris en charge lorsque le filtrage du trafic privé est activé. |Investigation en cours<br><br>Ne sécurisez pas le trafic privé si la connectivité de branche à branche est critique.|
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
@@ -91,5 +90,6 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Module Learn : Introduction à Azure Firewall Manager](/learn/modules/intro-to-azure-firewall-manager/)
 - Passer en revue [Vue d’ensemble du déploiement d’Azure Firewall Manager](deployment-overview.md)
 - En savoir plus sur les [hubs virtuels sécurisés](secured-virtual-hub.md)

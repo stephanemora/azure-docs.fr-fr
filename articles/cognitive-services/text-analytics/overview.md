@@ -12,18 +12,18 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 66b5918b945c8f098e52b115f2fc74c75d953ff5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072349"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550603"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
 L’API Analyse de texte est un service cloud qui fournit des fonctionnalités de traitement en langage naturel pour l’exploration de texte et l’analyse de texte, notamment l’analyse des sentiments, l’exploration des opinions, l’extraction de phrases clés, la détection de la langue et la reconnaissance des entités nommées.
 
-L’API fait partie d’[Azure Cognitive Services](../index.yml), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’API REST [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) ou [version 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/), ou la [bibliothèque de client](quickstarts/client-libraries-rest-api.md).
+L’API fait partie d’[Azure Cognitive Services](../index.yml), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’API REST [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) ou [version 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1) ou avec la [bibliothèque de client](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -35,15 +35,15 @@ Cette documentation contient les types d’articles suivants :
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 
-Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) et découvrez ce que les gens pensent de votre marque ou de votre thématique en explorant le texte pour trouver des indices sur les sentiments positifs ou négatifs. 
+Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) (SA) et découvrez ce que les gens pensent de votre marque ou de votre thématique en explorant le texte pour trouver des indices sur les sentiments positifs ou négatifs. 
 
 La fonctionnalité fournit des étiquettes de sentiment (comme « négatif », « neutre » et « positif ») en fonction du score de confiance le plus élevé trouvé par le service au niveau du document et de la phrase. Cette fonctionnalité retourne également des scores de confiance compris entre 0 et 1 pour chaque document, ainsi que les phrases qu’il contient pour les sentiments positif, neutre et négatif. Vous pouvez également exécuter le service localement [à l’aide d’un conteneur](how-tos/text-analytics-how-to-install-containers.md).
 
-À partir de la préversion 3.1, l’exploration des opinions est une fonctionnalité d’Analyse des sentiments. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus précises sur les opinions liées aux mots (tels que les attributs de produits ou de services) dans le texte.
+À partir de la version 3.1, l’exploration des opinions (OM) est une fonctionnalité d’Analyse des sentiments. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus précises sur les opinions liées aux mots (tels que les attributs de produits ou de services) dans le texte.
 
 ## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
 
-Utilisez l’[extraction de phrases clés](how-tos/text-analytics-how-to-keyword-extraction.md) pour identifier rapidement les principaux concepts dans un texte. Par exemple, dans le texte « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), l’extraction de phrases clés retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
+Utilisez l’[extraction d’expressions clés](how-tos/text-analytics-how-to-keyword-extraction.md) (KPE) pour identifier rapidement les principaux concepts d’un texte. Par exemple, dans le texte « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), l’extraction de phrases clés retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
 
 ## <a name="language-detection"></a>Détection de la langue
 
@@ -53,6 +53,10 @@ La détection de la langue peut [détecter la langue dans laquelle un texte d’
 
 La reconnaissance d’entités nommées (NER) peut [identifier et classer les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, quantités ; les entités bien connues sont également reconnues et liées à des informations supplémentaires sur le web.
 
+## <a name="text-analytics-for-health"></a>Analyse de texte pour la santé
+
+Analyse de texte pour la santé est une fonctionnalité du service de l’API Analyse de texte qui extrait et étiquette des informations médicales pertinentes à partir de textes non structurés, tels que les notes du médecin, les bilans de sortie d’hospitalisation, les documents cliniques et les dossiers médicaux électroniques. 
+
 ## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
 
 [Utilisez des conteneurs Analyse de texte](how-tos/text-analytics-how-to-install-containers.md) pour déployer localement des fonctionnalités d’API. Ces conteneurs Docker vous donnent la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles. Analyse de texte offre les conteneurs suivants :
@@ -60,11 +64,11 @@ La reconnaissance d’entités nommées (NER) peut [identifier et classer les en
 * analyse des sentiments
 * Extraction de phrases clés (préversion)
 * Détection de langue (préversion)
-* Analyse de texte pour la santé (préversion)
+* Analyse de texte pour la santé
 
 ## <a name="asynchronous-operations"></a>Opérations asynchrones
 
-Le point de terminaison `/analyze` vous permet d’utiliser des fonctionnalités sélectionnées de l’API Analyse de texte [de façon asynchrone](how-tos/text-analytics-how-to-call-api.md), comme la reconnaissance d’entités nommées et l’extraction de phrases clés.
+Le point de terminaison `/analyze` vous permet d’utiliser de nombreuses fonctionnalités de l’API Analyse de texte [de façon asynchrone](how-tos/text-analytics-how-to-call-api.md). Les fonctionnalités Reconnaissance d’entité nommée (NER), Extraction d’expressions clés (KPE), Analyse des sentiments (SA) et Exploration des opinions (OM) sont disponibles dans le cadre du point de terminaison `/analyze`. Cela permet de regrouper ces fonctionnalités en un seul appel. Cela permet d’envoyer jusqu’à 125 000 caractères par document. La tarification est identique à celle de l’API Analyse de texte classique.
 
 ## <a name="typical-workflow"></a>Flux de travail classique
 

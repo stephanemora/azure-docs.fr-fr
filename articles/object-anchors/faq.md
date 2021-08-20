@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 31b46475af345ec4eed3a8d5787bf859918048ef
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: cb64f2be26abc1d3ccaf80b90a85f279c7930c94
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985847"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710720"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Forum aux questions sur Azure Object Anchors
 
@@ -99,7 +99,7 @@ L’unité représente l’unité de mesure du modèle. Les unités prises en ch
 
 **Q : Object Anchors peut-il gérer le déplacement d’objets ?**
 
-**R :** Nous ne prenons pas en charge le **déplacement continu** ni les objets **dynamiques**.
+**R :** Nous ne prenons pas en charge le **déplacement continu** ni les objets **dynamiques**. Nous prenons en charge les objets dans une position entièrement nouvelle dans l’espace une fois qu’ils y ont été physiquement déplacés, mais nous ne pouvons pas les suivre pendant leur déplacement.
 
 **Q : Object Anchors peut-il gérer la déformation ou les articulations ?**
 

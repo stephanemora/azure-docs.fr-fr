@@ -9,28 +9,28 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
-ms.custom: automl
-ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/01/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: 69cbb3923f3a29085b0999bdce44efe99245b3eb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028718"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491368"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>Tutoriel : Entraînement d’un modèle de classification avec AutoML sans code dans Azure Machine Learning studio
 
 Découvrez comment entraîner un modèle de classification avec AutoML sans code en utilisant le ML automatisé Azure Machine Learning dans Azure Machine Learning studio. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
 
-Avec le machine learning automatisé, vous pouvez automatiser des tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
+Avec le Machine Learning automatisé, vous pouvez automatiser les tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
 
 Dans ce tutoriel, vous n’allez pas écrire de code. Vous allez utiliser l’interface du studio pour effectuer l’entraînement.  Vous allez apprendre à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créez un espace de travail Machine Learning.
 > * Exécuter une expérience de machine learning automatisé.
-> * Voir les détails de l'expérience.
-> * Déployer le modèle.
+> * Explorez les détails du modèle.
+> * Déployer le modèle recommandé.
 
 Essayez également le machine learning automatisé pour ces autres types de modèles :
 
@@ -39,7 +39,7 @@ Essayez également le machine learning automatisé pour ces autres types de mod�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
 * Téléchargez le fichier de données [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv). La colonne **y** indique si un client a souscrit à un compte à terme, qui est ensuite identifié comme colonne cible pour les prédictions de ce tutoriel. 
 
@@ -58,7 +58,7 @@ Il existe de nombreuses [façons de créer un espace de travail](how-to-manage-w
 
 Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes via Azure Machine Learning Studio, accessible à l’adresse https://ml.azure.com. Cette interface web centralisée comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Studio n’est pas prise en charge par les navigateurs Internet Explorer.
 
-1. Connectez-vous au [studio Azure Machine Learning](https://ml.azure.com).
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Sélectionnez votre abonnement et l’espace de travail que vous avez créé.
 
@@ -92,7 +92,7 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
 
     1. En bas à gauche, sélectionnez **Suivant** pour le charger dans le conteneur par défaut qui a été configuré automatiquement lors de la création de votre espace de travail.  
     
-       Une fois le chargement terminé, le formulaire Settings and preview (Paramètres et aperçu) est prérenseigné en fonction du type de fichier. 
+       Une fois le chargement terminé, le formulaire **Paramètres et aperçu** est prérenseigné en fonction du type de fichier. 
        
     1. Vérifiez que le formulaire **Settings and preview** est renseigné comme ci-dessous, puis sélectionnez **Next** (Suivant).
         
@@ -142,7 +142,7 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
             ----|---|---
             Nom du calcul |  Nom unique qui identifie votre contexte de calcul. | automl-compute
             Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
-            Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
+            Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|1800 (par défaut)
             Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None               
 
         1. Sélectionnez **Créer** pour créer votre cible de calcul. 
@@ -155,7 +155,7 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
 
     1. Sélectionnez **Suivant**.
 
-1. Dans le formulaire **Type et paramètre de la tâche**, configurez votre expérience de machine learning automatisé en spécifiant le type et les paramètres de configuration de la tâche de machine learning.
+1. Dans le formulaire **Sélectionner la tâche et les paramètres**, effectuez la configuration pour votre expérience de Machine Learning automatisé en spécifiant les paramètres de configuration et le type de tâche de Machine Learning.
     
     1.  Sélectionnez **Classification** comme type de tâche de machine learning.
 

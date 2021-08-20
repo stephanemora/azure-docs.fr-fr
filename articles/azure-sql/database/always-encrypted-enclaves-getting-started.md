@@ -1,7 +1,6 @@
 ---
-title: 'Tutoriel : Bien démarrer avec Always Encrypted avec enclaves sécurisées dans Azure SQL Database'
+title: 'Tutoriel : Prise en main d’Always Encrypted avec enclaves sécurisées'
 description: Ce tutoriel vous montre comment créer un environnement simple pour Always Encrypted avec enclaves sécurisées de base dans Azure SQL Database, comment chiffrer les données sur place et comment émettre des requêtes confidentielles riches sur des colonnes chiffrées à l’aide de SQL Server Management Studio (SSMS).
-keywords: chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, Always Encrypted, enclaves sécurisées, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,20 +9,17 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
-ms.openlocfilehash: 71e90e0afc3bc976ed65eb0ef59c76781490bdc1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/14/2021
+ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457129"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727343"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutoriel : Bien démarrer avec Always Encrypted avec enclaves sécurisées dans Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted avec des enclaves sécurisées pour Azure SQL Database est actuellement en **préversion publique**.
 
 Ce tutoriel explique comment démarrer avec [Always Encrypted avec enclaves sécurisées](/sql/relational-databases/security/encryption/always-encrypted-enclaves) dans Azure SQL Database. Il vous montre comment :
 
@@ -71,7 +67,7 @@ Pour continuer à interagir avec PowerShell Gallery, exécutez la commande suiva
 
 ## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>Étape 1 : Créer et configurer un serveur et une base de données de série DC
 
-Au cours de cette étape, vous allez créer un nouveau serveur logique Azure SQL Database et une nouvelle base de données à l’aide de la génération matérielle de série DC, requise pour Always Encrypted avec enclaves sécurisées. Pour plus d’informations, consultez [Série DC](service-tiers-vcore.md#dc-series).
+Au cours de cette étape, vous allez créer un nouveau serveur logique Azure SQL Database et une nouvelle base de données à l’aide de la génération matérielle de série DC, requise pour Always Encrypted avec enclaves sécurisées. Pour plus d’informations, consultez [Série DC](service-tiers-sql-database-vcore.md#dc-series).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -90,7 +86,7 @@ Au cours de cette étape, vous allez créer un nouveau serveur logique Azure SQL
    - **Mot de passe** : entrez un mot de passe qui répond aux exigences, puis réentrez-le dans le champ **Confirmer le mot de passe**.
    - **Emplacement** : sélectionnez un emplacement dans la liste déroulante.
       > [!IMPORTANT]
-      > Vous devez sélectionner un emplacement (une région Azure) qui prend en charge à la fois la génération matérielle de série DC et Microsoft Azure Attestation. Pour obtenir la liste des régions prenant en charge la série DC, consultez [Disponibilité de la série DC](service-tiers-vcore.md#dc-series-1). [Voici](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) la disponibilité régionale de Microsoft Azure Attestation.
+      > Vous devez sélectionner un emplacement (une région Azure) qui prend en charge à la fois la génération matérielle de série DC et Microsoft Azure Attestation. Pour obtenir la liste des régions prenant en charge la série DC, consultez [Disponibilité de la série DC](service-tiers-sql-database-vcore.md#dc-series). [Voici](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) la disponibilité régionale de Microsoft Azure Attestation.
 
    Sélectionnez **OK**.
 1. Laissez **Vous souhaitez utiliser un pool élastique SQL ?** avec la valeur **Non**.
@@ -135,7 +131,7 @@ Au cours de cette étape, vous allez créer un nouveau serveur logique Azure SQL
 1. Créer un groupe de ressources
 
    > [!IMPORTANT]
-   > Vous devez créer votre groupe de ressources dans une région (emplacement) qui prend en charge à la fois la génération matérielle de série DC et Microsoft Azure Attestation. Pour obtenir la liste des régions prenant en charge la série DC, consultez [Disponibilité de la série DC](service-tiers-vcore.md#dc-series-1). [Voici](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) la disponibilité régionale de Microsoft Azure Attestation.
+   > Vous devez créer votre groupe de ressources dans une région (emplacement) qui prend en charge à la fois la génération matérielle de série DC et Microsoft Azure Attestation. Pour obtenir la liste des régions prenant en charge la série DC, consultez [Disponibilité de la série DC](service-tiers-sql-database-vcore.md#dc-series). [Voici](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) la disponibilité régionale de Microsoft Azure Attestation.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"

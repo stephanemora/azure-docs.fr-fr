@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Oracle Cloud Infrastructure Console pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et Oracle Cloud Infrastructure Console.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: 84024ad57af3ca650c69bfda0eda672aee313793
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.author: thwimmer
+ms.openlocfilehash: 748e32a929e9681bb75a8d627eb9de11807c7c41
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814655"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709971"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutoriel : Configurer Oracle Cloud Infrastructure Console pour le provisionnement automatique d’utilisateurs
 > [!NOTE]
@@ -71,7 +71,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
     ![Génération de jetons Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. Pour générer un jeton secret, encodez en Base64 l’ID de client et le secret du client au format **ID de client:Secret du client**. Enregistrez le jeton secret. Vous devrez entrer cette valeur dans le champ **Jeton secret** dans l’onglet Provisionnement de votre application Oracle Cloud Infrastructure Console dans le portail Azure.
+6. Pour générer un jeton secret, encodez l’ID client et la clé secrète client en Base64 au format **ID client:Clé secrète client**. Remarque : Cette valeur doit être générée avec le retour automatique à la ligne désactivé (base64 avec 0). Enregistrez le jeton secret. Vous devrez entrer cette valeur dans le champ **Jeton secret** dans l’onglet Provisionnement de votre application Oracle Cloud Infrastructure Console dans le portail Azure.
 
 ## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Oracle Cloud Infrastructure Console à partir de la galerie d’applications Azure AD
 

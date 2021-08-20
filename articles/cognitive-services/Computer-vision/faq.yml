@@ -1,0 +1,39 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes (FAQ) sur Vision par ordinateur
+  titleSuffix: Azure Cognitive Services
+  description: Obtenez des réponses aux questions fréquentes concernant l’API Vision par ordinateur dans Azure Cognitive Services.
+  services: cognitive-services
+  author: KellyDF
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: conceptual
+  ms.date: 04/17/2019
+  ms.author: kefre
+  ms.custom: seodec18
+  ms.openlocfilehash: f03dd44b1ea37f5103ca9aa4eff26b3b7b080312
+  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/06/2021
+  ms.locfileid: "113311620"
+title: Questions fréquentes (FAQ) sur l’API Vision par ordinateur
+summary: >
+  > [!TIP]
+
+  > Si vous ne trouvez pas les réponses à vos questions dans ce forum aux questions (FAQ), essayez d’interroger la communauté de l’API Vision par ordinateur sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou de contacter le service Aide et support sur [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Puis-je former l’API Vision par ordinateur pour qu’elle utilise des balises personnalisées ?  J’aimerais par exemple ajouter des images d’espèces de chats pour « former » l’IA, puis recevoir une valeur d’espèce en fonction d’une requête d’IA.
+    answer: >
+      Cette fonction n’est pas disponible actuellement. Toutefois, nos ingénieurs travaillent pour mettre en œuvre cette fonctionnalité sur l’API Vision par ordinateur.
+  - question: >
+      Puis-je déployer la capacité OCR (Read) localement ?
+    answer: >
+      Oui, l’API cloud OCR (Read) est également disponible en tant que conteneur Docker pour un déploiement local. Découvrez [comment déployer les conteneurs OCR](./computer-vision-how-to-install-containers.md).
+  - question: >
+      Vision par ordinateur peut-elle être utilisée pour lire des plaques d’immatriculation ?
+    answer: L’API Vision comprend les capacités OCR de Deep Learning avec la fonctionnalité Read la plus récente. Nous essayons constamment d’améliorer nos services afin qu’ils fonctionnent dans tous les scénarios.

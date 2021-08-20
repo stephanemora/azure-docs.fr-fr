@@ -3,12 +3,12 @@ title: Connecter ExpressRoute à la passerelle de réseau virtuel
 description: Procédure pour connecter ExpressRoute à la passerelle de réseau virtuel.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 115e8829723c25fb1644f3f5652fbace529a05cb
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a3e759c12496613848f6f0bc8de596a5099b904b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945672"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438210"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -30,8 +30,8 @@ ms.locfileid: "107945672"
    | **Clé d’autorisation**  | Collez la clé d’autorisation que vous avez copiée précédemment. |
    | **URI du circuit pair**  | Collez l’ID ExpressRoute que vous avez copié précédemment.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Capture d’écran de la page Ajouter une connexion qui permet de connecter ExpressRoute à la passerelle de réseau virtuel":::
+   :::image type="content" source="../media/tutorial-configure-networking/add-connection.png" alt-text="Capture d’écran montrant la page Ajouter une connexion qui permet de connecter ExpressRoute à la passerelle de réseau virtuel.":::
 
 Ceci crée la connexion entre votre circuit ExpressRoute et votre réseau virtuel.
 
-:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Capture d’écran des connexions de passerelle de réseau virtuel":::
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Capture d’écran montrant une connexion réussie à la passerelle de réseau virtuel.":::

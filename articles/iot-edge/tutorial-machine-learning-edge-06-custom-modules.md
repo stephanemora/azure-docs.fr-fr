@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c096b26f31bdf92bb5ab91c8dad7876f228ff14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65daa2cd4681a50179ef1447ce9e4ebe6f7db717
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462794"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438113"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutoriel : Créer et déployer des modules IoT Edge personnalisés
 
@@ -148,6 +148,9 @@ Dans cette étape, nous créons une solution Azure IoT Edge à l’aide du modul
       CONTAINER_REGISTRY_USERNAME_<your registry name>=<ACR username>
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
+
+      >[!NOTE]
+      >Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 1. Cliquez avec le bouton droit sur le fichier deployment.template.json dans l’Explorateur Visual Studio Code et sélectionnez **Générer la solution IoT Edge**.
 
@@ -354,7 +357,7 @@ Comme mentionné précédemment, le module enregistreur a besoin d’un montage 
    sudo mkdir -p /data/avrofiles
    ```
 
-1. Mettez à jour des autorisations de répertoire pour le rendre accessible en écriture par le conteneur.
+1. Mettez à jour les autorisations de répertoire pour le rendre accessible en écriture par le conteneur.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles

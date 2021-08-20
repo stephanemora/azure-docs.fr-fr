@@ -2,21 +2,21 @@
 title: 'Tutoriel : Configurer Looop pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur sur Looop.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
-ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: c17c56651dda65d5bd151f0f274af6ed377fb7df
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835014"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229774"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutoriel : Configurer Looop pour l’affectation automatique d’utilisateurs
 
@@ -45,7 +45,7 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 
 ### <a name="important-tips-for-assigning-users-to-looop"></a>Conseils importants pour l’affectation d’utilisateurs à Looop
 
-* Il est recommandé de n’attribuer qu’un seul utilisateur Azure AD à Looop afin de tester la configuration du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+* Il est recommandé de n’attribuer qu’un seul utilisateur Azure AD à Looop afin de tester la configuration du provisionnement automatique d’utilisateurs. Vous pouvez affecter plus tard d’autres utilisateurs et/ou groupes.
 
 * Quand vous attribuez un utilisateur à Looop, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
 
@@ -53,13 +53,13 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 
 Avant de configurer Looop pour le provisionnement automatique d’utilisateurs avec Azure AD, vous devez récupérer certaines informations de configuration à partir de Looop.
 
-1. Connectez-vous à votre [Console d’administration Looop](https://app.looop.co/#/login) et sélectionnez **Account** (Compte). Sous **Account Settings**, sélectionnez **Authentication**.
+1. Connectez-vous à votre [Console d’administration Looop](https://app.looop.co/#/login) et sélectionnez **Account** (Compte). Sous **Account Settings** (Paramètres du compte), sélectionnez **Authentication** (Authentification).
 
-    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Capture d’écran de la console d’administration Looop. L’onglet Account est mis en évidence et ouvert. Sous Account settings, Authentication est mis en évidence." border="false":::
+    ![Administrateur Looop](media/looop-provisioning-tutorial/admin.png)
 
 2. Générez un jeton en cliquant sur **Reset Token** (Réinitialiser le jeton) sous **SCIM Integration**.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Capture d’écran de la section SCIM Integration d’une page dans la console d’administration Looop. Le bouton Reset token est mis en évidence." border="false":::
+    ![Jeton Looop](media/looop-provisioning-tutorial/resettoken.png)
 
 3. Copiez le **Point de terminaison SCIM** et le **Jeton**. Ces valeurs doivent être entrées dans les champs **URL de locataire** et **Jeton secret** de l’onglet Provisionnement, dans votre application Looop sur le portail Azure. 
 
@@ -143,12 +143,13 @@ Cette section vous guide tout au long des étapes de configuration du service de
    |name.givenName|String|
    |name.familyName|String|
    |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
@@ -184,7 +185,12 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs e
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="change-log"></a>Journal des modifications
+
+* 15/07/2021 : Ajout des attributs utilisateur de l’extension d’entreprise **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber** et **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager**.
+* 15/07/2021 : Suppression des attributs utilisateur de l’extension personnalisée **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department** et **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id**.
+
+## <a name="more-resources"></a>Plus de ressources
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)

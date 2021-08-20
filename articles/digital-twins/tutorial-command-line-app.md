@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cee1a33f74b11793d9b12db0b8bc6f65fda29a3
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1d4faa9ad8bce084fdd011fb9a79fd867f02aa27
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787674"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446904"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’un exemple d’application cliente
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil utilisé pour ce tutoriel est un **exemple d’application cliente en ligne de commande** pour interagir avec une instance Azure Digital Twins. L’application cliente est semblable à celle écrite dans [Tutoriel : Coder une application cliente](tutorial-code.md).
+Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil utilisé pour ce tutoriel est un **exemple d’application cliente en ligne de commande** pour interagir avec une instance Azure Digital Twins. L’application cliente est semblable à celle écrite dans [Coder une application cliente](tutorial-code.md).
 
 Vous pouvez utiliser cet exemple pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également consulter le [code de l’exemple](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) pour en savoir plus sur les API Azure Digital Twins, et vous exercer à implémenter vos propres commandes en modifiant l’exemple de projet comme bon vous semble.
 
@@ -40,7 +40,6 @@ Maintenant que l’application et l’authentification sont configurées, exécu
 :::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Capture d’écran du bouton de démarrage de Visual Studio (projet SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 Une fenêtre de console s’ouvre, exécute l’authentification et attend une commande. 
-* L’authentification est gérée par le biais du navigateur : votre navigateur web par défaut s’ouvre avec une invite d’authentification. Utilisez cette invite pour vous connecter avec vos informations d’identification Azure. Vous pouvez ensuite fermer l’onglet ou la fenêtre du navigateur.
 
 Voici une capture d’écran montrant à quoi ressemble la console projet :
 
@@ -49,7 +48,7 @@ Voici une capture d’écran montrant à quoi ressemble la console projet :
 > [!TIP]
 > Pour obtenir la liste de toutes les commandes que vous pouvez utiliser avec ce projet, entrez `help` dans la console de projet et appuyez sur Entrée.
 
-Laissez la console de projet en cours d’exécution pour le reste des étapes de ce tutoriel.
+Une fois que vous avez confirmé le bon fonctionnement de l’application, fermez la fenêtre de la console pour arrêter l’application pour le moment. Vous l’exécuterez à nouveau plus tard dans l’article.
 
 ## <a name="model-a-physical-environment-with-dtdl"></a>Modéliser un environnement physique avec DTDL
 
@@ -71,6 +70,8 @@ Sélectionnez *Room.json* pour l’ouvrir dans la fenêtre d’édition, puis mo
 ### <a name="upload-models-to-azure-digital-twins"></a>Charger des modèles sur Azure Digital Twins
 
 Après avoir conçu les modèles, vous devez les charger sur votre instance Azure Digital Twins. Cela configure votre instance du service Azure Digital Twins avec votre propre vocabulaire de domaine personnalisé. Une fois que vous avez chargé les modèles, vous pouvez créer des instances de jumeau qui les utilisent.
+
+1. Après avoir modifié le fichier Room.json dans la section précédente, relancez l’application console.
 
 1. Dans la fenêtre de console du projet, exécutez la commande suivante pour charger votre modèle Room mis à jour, ainsi qu’un modèle Floor que vous utiliserez aussi dans la section suivante pour créer différents types de jumeaux.
 
@@ -95,7 +96,7 @@ CreateModels Room
 ```
 
 Comme les modèles ne peuvent pas être remplacés, une erreur de service est désormais retournée.
-Pour plus d’informations sur la façon de supprimer des modèles existants, consultez [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md).
+Pour plus d’informations sur la façon de supprimer des modèles existants, consultez [Gérer des modèles DTDL](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -219,7 +220,7 @@ Exécutez les commandes suivantes dans la console de projet en cours d’exécut
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Capture d’écran montrant un résultat partiel de la requête de jumeau, qui comprend room0 et floor1.":::
 
     >[!NOTE]
-    >Dans l’exemple de projet, la commande `Query` sans argument supplémentaire équivaut à `Query SELECT * FROM DIGITALTWINS`. Pour interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](concepts-cli.md), utilisez la requête la plus longue (complète).
+    >Dans l’exemple de projet, la commande `Query` sans argument supplémentaire équivaut à `Query SELECT * FROM DIGITALTWINS`. Pour interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), utilisez la requête la plus longue (complète).
 
 1. **Quelles sont les pièces dans mon environnement ?** (requête par modèle)
 
@@ -279,4 +280,4 @@ Dans ce tutoriel, vous avez commencé à utiliser Azure Digital Twins en génér
 
 Passez au tutoriel suivant pour combiner Azure Digital Twins à d’autres services Azure afin de bénéficier d’un scénario de bout en bout piloté par les données :
 > [!div class="nextstepaction"]
-> [Tutoriel : Connecter une solution de bout en bout](tutorial-end-to-end.md)
+> [Connecter une solution de bout en bout](tutorial-end-to-end.md)

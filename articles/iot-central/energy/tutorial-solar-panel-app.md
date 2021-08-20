@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 509e31919dd974da253cd0478a70f889cc060fae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 369195e8dfce2440c2e34151e7de6b2d23edbad1
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831788"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963254"
 ---
 # <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Tutoriel : Créer et découvrir le modèle d’application de suivi des panneaux solaires 
 
@@ -64,7 +64,7 @@ Pour vérifier la création de l'application et la simulation des données, acc�
 Une fois que vous avez correctement déployé le modèle d’application, vous allez examiner l’application de plus près. Remarquez qu’elle est fournie avec un exemple de compteur intelligent, un modèle d’appareil et un tableau de bord.
 
 Adatum est un fournisseur d’énergie fictif qui assure le suivi et la gestion de panneaux solaires. Le tableau de bord de suivi des panneaux solaires contient des propriétés, des données et des exemples de commandes. Ce tableau de bord vous permet, à vous ou à votre équipe de support, d’effectuer les activités suivantes de manière proactive, avant toute opération de support technique supplémentaire visant à résoudre un problème :
-* Consulter les dernières informations relatives à un panneau et l’emplacement où celui-ci est installé sur la carte.
+* Consulter les dernières informations relatives à un panneau et l’[emplacement](../core/howto-use-location-data.md) où celui-ci est installé sur la carte.
 * Vérifier l’état du panneau et l’état de la connexion.
 * Examiner les tendances en matière de production d’énergie et de température pour détecter d’éventuelles anomalies.
 * Suivre la production totale d’énergie à des fins de planification et de facturation.

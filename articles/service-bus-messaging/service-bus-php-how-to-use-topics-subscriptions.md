@@ -4,16 +4,14 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser les rubriques et
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cdb6ca30b2c9abf2c2525057a90888b2c5d1c78
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88066200"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302533"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec PHP
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 Cet article vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en PHP et utilisent le [kit SDK Azure pour PHP](https://github.com/Azure/azure-sdk-for-php). Parmi les scénarios présentés :
 
@@ -22,6 +20,10 @@ Cet article vous montre comment utiliser les rubriques et les abonnements Servic
 - Envoi de messages à une rubrique 
 - Réception de messages à partir d’un abonnement
 - Suppression de rubriques et d’abonnements
+
+> [!IMPORTANT]
+> Depuis février 2021, le kit SDK Azure pour PHP est passé en phase de déclassement et n’est plus officiellement pris en charge par Microsoft. Pour plus d’informations, consultez [cette annonce](https://github.com/Azure/azure-sdk-for-php#important-annoucement) sur GitHub. Cet article sera bientôt retiré. 
+ 
 
 ## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

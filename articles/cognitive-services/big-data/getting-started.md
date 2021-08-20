@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9c9780a51954978935dad164c9d8c5b5a1535826
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460495"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447328"
 ---
 # <a name="getting-started"></a>Bien démarrer
 
@@ -27,7 +27,7 @@ Dans cet article, nous allons effectuer les étapes suivantes pour vous aider à
 
 ## <a name="create-a-cognitive-services-resource"></a>Créer une ressource Cognitive Services
 
-Pour utiliser Cognitive Services pour le Big Data, nous devons d’abord créer un service cognitif pour notre workflow. Il existe deux principaux types de services cognitifs : les services cloud hébergés dans Azure et les services conteneurisés gérés par les utilisateurs. Nous vous recommandons de commencer par les services cognitifs basée sur le cloud, qui sont plus simples.
+Pour utiliser Cognitive Services pour le Big Data, vous devez d’abord créer une instance de Cognitive Services pour votre flux de travail. Il existe deux principaux types de services cognitifs : les services cloud hébergés dans Azure et les services conteneurisés gérés par les utilisateurs. Nous vous recommandons de commencer par les services cognitifs basée sur le cloud, qui sont plus simples.
 
 ### <a name="cloud-services"></a>Services cloud
 
@@ -49,7 +49,7 @@ Suivez [ce guide](../cognitive-services-container-support.md?tabs=luis) pour cr�
 
 ## <a name="create-an-apache-spark-cluster"></a>Créer un cluster Apache Spark
 
-[Apache Spark&trade;](http://spark.apache.org/) est une infrastructure informatique distribuée conçue pour le traitement des données Big Data. Les utilisateurs peuvent travailler avec Apache Spark dans Azure avec des services comme Azure Databricks, Azure Synapse Analytics, HDInsight et Azure Kubernetes Services. Pour utiliser Cognitive Services pour le Big Data, nous devons d’abord créer un cluster. Si vous disposez déjà d’un cluster Spark, n’hésitez pas à essayer un exemple.
+[Apache Spark&trade;](http://spark.apache.org/) est une infrastructure informatique distribuée conçue pour le traitement des données Big Data. Les utilisateurs peuvent travailler avec Apache Spark dans Azure avec des services comme Azure Databricks, Azure Synapse Analytics, HDInsight et Azure Kubernetes Services. Pour utiliser Cognitive Services pour le Big Data, vous devez d’abord créer un cluster. Si vous disposez déjà d’un cluster Spark, n’hésitez pas à essayer un exemple.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
@@ -86,11 +86,11 @@ Pour bien démarrer avec Azure Kubernetes Service, effectuez les étapes suivant
 
 ## <a name="try-a-sample"></a>Essayer un exemple
 
-Une fois que vous avez configuré votre cluster Spark et votre environnement, vous pouvez exécuter un court exemple. Cette section montre comment utiliser Cognitive Services pour le Big Data dans Azure Databricks.
+Une fois que vous avez configuré votre cluster Spark et votre environnement, vous pouvez exécuter un court exemple. Cette section montre comment utiliser Cognitive Services pour le Big Data dans Azure Databricks.
 
-Tout d’abord, nous pouvons créer un notebook dans Azure Databricks. Pour les autres fournisseurs de cluster Spark, utilisez leurs notebooks ou Spark Submit.
+Tout d’abord, vous pouvez créer un notebook dans Azure Databricks. Pour les autres fournisseurs de cluster Spark, utilisez leurs notebooks ou Spark Submit.
 
-1. Créez un notebook Databricks en choisissant **Nouveau notebook** dans le menu **Azure Databricks**.
+1. Créez un notebook Databricks en choisissant **Nouveau notebook** dans le menu **Azure Databricks**.
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 

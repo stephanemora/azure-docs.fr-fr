@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: f7b09c47d94443edc81a66028fa687aa48e843e7
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3f7663c62b514cb002b4de3df59d2185cfa815d3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002339"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284216"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Configurer le provisionnement automatique d’agents et d’extensions depuis Azure Security Center
 
@@ -27,8 +27,8 @@ Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à 
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | État de sortie :          | **Caractéristique** : Le provisionnement automatique est en disponibilité générale<br>**Agent et extensions** : L’agent Log Analytics pour les machines virtuelles Azure est en disponibilité générale, Microsoft Dependency Agent est en préversion, le module complémentaire Policy pour Kubernetes est en disponibilité générale                |
 | Prix :                | Gratuit                                                                                                                                                                                                                         |
-| Destinations prises en charge : | ![Oui](./media/icons/yes-icon.png) Machines Azure<br>![Non](./media/icons/no-icon.png) Machines Azure Arc<br>![Non](./media/icons/no-icon.png) Nœuds Kubernetes<br>![Non](./media/icons/no-icon.png) Virtual Machine Scale Sets |
-| Clouds :                 | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, Azure Chine                                                                                                      |
+| Destinations prises en charge : | :::image type="icon" source="./media/icons/yes-icon.png"::: Machines Azure<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines Azure Arc<br>:::image type="icon" source="./media/icons/no-icon.png"::: Nœuds Kubernetes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Groupes de machines virtuelles identiques |
+| Clouds :                 | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure China 21Vianet                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>Comment Security Center collecte-t-il des données ?
@@ -86,9 +86,9 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
         > [!TIP]
         > Pour toute question concernant les espaces de travail par défaut, consultez :
         >
-        > - [Est-ce que je suis facturé pour Journaux Azure Monitor sur des espaces de travail créés par Security Center ?](/azure/security-center/faq-data-collection-agents#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
-        > - [Où est créé l’espace de travail Log Analytics par défaut ?](/azure/security-center/faq-data-collection-agents#where-is-the-default-log-analytics-workspace-created-)
-        > - [Puis-je supprimer les espaces de travail par défaut créés par Security Center ?](/azure/security-center/faq-data-collection-agents#can-i-delete-the-default-workspaces-created-by-security-center-)
+        > - [Est-ce que je suis facturé pour Journaux Azure Monitor sur des espaces de travail créés par Security Center ?](./faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
+        > - [Où est créé l’espace de travail Log Analytics par défaut ?](./faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created-)
+        > - [Puis-je supprimer les espaces de travail par défaut créés par Security Center ?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center-)
 
     - **Connecter les machines virtuelles Azure à un autre espace de travail** – Dans la liste déroulante, sélectionnez l’espace de travail où stocker les données collectées. La liste déroulante comprend tous les espaces de travail de tous vos abonnements. Vous pouvez utiliser cette option pour collecter les données de machines virtuelles qui s’exécutent dans différents abonnements et les stocker dans l’espace de travail que vous avez sélectionné.  
 
@@ -181,7 +181,7 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](/azure/security-center/faq-data-collection-agents#what-happens-when-data-collection-is-enabled-) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](./faq-data-collection-agents.yml#what-happens-when-data-collection-is-enabled-) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Pour activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cela amène AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur sur lequel une stratégie AppLocker est déjà configurée. 
 > - Pour collecter la plateforme de filtrage Windows [ID d’événement 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), vous devez activer [Connexion de la plateforme de filtrage d’audits](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
@@ -271,7 +271,7 @@ Pour désactiver le provisionnement automatique d’un agent :
 
 
 > [!NOTE]
->  La désactivation de l’approvisionnement automatique ne supprime pas le Log Analytics Agent des machines virtuelles Azure sur lesquelles l’agent était approvisionné. Pour plus d’informations sur la suppression de l’extension OMS, consultez [Comment supprimer des extensions OMS installées par Security Center](/azure/security-center/faq-data-collection-agents#how-do-i-remove-oms-extensions-installed-by-security-center-).
+>  La désactivation de l’approvisionnement automatique ne supprime pas le Log Analytics Agent des machines virtuelles Azure sur lesquelles l’agent était approvisionné. Pour plus d’informations sur la suppression de l’extension OMS, consultez [Comment supprimer des extensions OMS installées par Security Center](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-security-center-).
 >
 
 

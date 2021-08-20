@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 907b627a260bf552555dca63936af6495fb987c6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467658"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453751"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à LogMeIn
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration de LogMeIn à Azure AD, vous devez ajouter Log
 1. Dans la section **Ajouter à partir de la galerie**, tapez **LogMeIn** dans la zone de recherche.
 1. Sélectionnez **LogMeIn** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-logmein"></a>Configurer et tester l’authentification unique Azure AD pour LogMeIn
 
 Configurez et testez l’authentification unique Azure AD dans LogMeIn à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans LogMeIn.
@@ -70,7 +69,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **LogMeIn**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -91,7 +90,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 6. Dans la section **Configurer LogMeIn**, copiez la ou les URL appropriées, en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -119,7 +117,15 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 ## <a name="configure-logmein-sso"></a>Configurer l’authentification unique dans LogMeIn
 
-1. Dans une autre fenêtre de navigateur, connectez-vous à votre site web LogMeIn en tant qu’administrateur.
+1. Pour automatiser la configuration dans LogMeIn, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Une fois l’extension ajoutée au navigateur, un clic sur **Configurer LogMeIn** vous redirige vers l’application LogMeIn. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à LogMeIn. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous souhaitez configurer LogMeIn manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise LogMeIn en tant qu’administrateur.
 
 1. Accédez à l’onglet **Identity Provider** (Fournisseur d’identité) et, dans la zone de texte **Metadata url** (URL des métadonnées), collez l’**URL des métadonnées de fédération** que vous avez copiée dans le portail Azure.
 

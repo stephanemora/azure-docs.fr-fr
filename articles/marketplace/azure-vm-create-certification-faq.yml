@@ -8,12 +8,12 @@ metadata:
   author: mathapli
   ms.author: mathapli
   ms.date: 01/18/2021
-  ms.openlocfilehash: d11988cbf65b9a66e1ada1640726f2ace5fec336
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+  ms.openlocfilehash: 96e8f93f38d7ba84b93fdfb4101371f426a14f37
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113598390"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114456570"
 title: Résoudre les problèmes de certification des machines virtuelles
 summary: >
   Lorsque vous publiez l’image d’une machine virtuelle sur Place de marché Azure, l’équipe Azure la valide pour s’assurer qu’elle est démarrable, sécurisée et compatible avec Azure. Si votre image de machine virtuelle échoue à l’un des tests de haute qualité, elle ne sera pas publiée. Vous recevrez un message d’erreur qui décrit le problème.
@@ -363,6 +363,11 @@ sections:
   - question: >
       Les images de machine virtuelle doivent avoir 1 Mo d’espace libre
     answer: >
+      >[!NOTE]
+
+      >À partir du **30 septembre 2021**, si vous publiez des images dans Azure (avec une **partition GPT**), **assurez-vous que les 2048 premiers secteurs (1 Mo) du disque du système d’exploitation sont vides**. Sinon, votre publication échouera. Cette exigence vise à permettre à Azure d’ajouter des bits importants à l’image (par exemple, des bits destinés à améliorer le temps de démarrage pour les clients, la facturation et d’autres détails).
+
+
       Si vous [créez votre propre image](azure-vm-create-using-own-image.md), vérifiez que les 2 048 premiers secteurs (1 Mo) du disque de système d’exploitation sont vides. Sinon, votre publication échouera. Cette exigence ne s’applique qu’au disque de système d’exploitation (et non aux disques de données). Si vous générez votre image [à partir d’une base approuvée](azure-vm-create-using-approved-base.md), vous pouvez ignorer cette exigence.
 
 

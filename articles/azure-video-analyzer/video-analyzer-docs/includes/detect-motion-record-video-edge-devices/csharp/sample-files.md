@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: c21a052dd25fae2d74762726a520fd109da11c9e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d86ad88e122909225b5b64861623ce9b5b2df8af
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385839"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444515"
 ---
 Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans un dossier. Effectuez les étapes suivantes pour examiner et modifier les exemples de fichiers.
 
@@ -23,11 +23,10 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     * **Program.cs** : exemple de code de programme. Ce code :
 
         * Il charge les paramètres de l’application.
-        * Appelle des [méthodes directes](../../../direct-methods.md)<!--add a link--> que le module de périphérie Video Analyzer expose.
+        * Appelle les [méthodes directes](../../../direct-methods.md) exposées par le module de périphérie Video Analyzer.
         * S’interrompt pour vous permettre d’examiner la sortie du programme dans la fenêtre **TERMINAL** et d’examiner les événements qui ont été générés par le module dans la fenêtre **SORTIE**.
         * Invoque des méthodes directes pour nettoyer des ressources.
 1. Modifiez le fichier **operations.json** :
-    
-    * Changez le lien vers le pipeline : <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-files/topology.json" `
+    * Changez le lien vers le pipeline : <br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * Sous livePipelineSet, modifiez le nom de la topologies de pipeline pour le faire correspondre à la valeur du lien précédent : <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * Sous PipelineTopologyDelete, modifiez le nom : <br/>`"name": "EVRToFilesOnMotionDetection" `

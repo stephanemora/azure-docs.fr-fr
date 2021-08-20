@@ -9,19 +9,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/22/2020
+ms.date: 07/06/2021
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 8a0dd8b20331d2f296767bc5628e901600f835e0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ca8829a5f71dabfe33f013c354e083cae08e4566
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078147"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430631"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutoriel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
-Vous pouvez connecter des réseaux virtuels entre eux à l’aide du peering de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans ce tutoriel, vous allez apprendre à :
+Vous pouvez connecter des réseaux virtuels entre eux à l’aide du peering de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles, avec la même latence et la même bande passante que si elles se trouvaient sur le même réseau virtuel. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer deux réseaux virtuels
@@ -33,100 +33,119 @@ Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tuto
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vous avez besoin d’un compte Azure doté d’un abonnement actif. Si vous n’en avez pas, vous pouvez [compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## <a name="log-in-to-azure"></a>Connexion à Azure
-
-Connectez-vous au portail Azure sur https://portal.azure.com.
+Avant de commencer, vous avez besoin d’un compte Azure doté d’un abonnement actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-virtual-networks"></a>Créer des réseaux virtuels
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource**.
-2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-3. Sous l’onglet **Bases**, entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-    |Paramètre|Value|
+1. Dans le portail Azure, sélectionnez **Créer une ressource**.
+
+1. Recherchez **Réseau virtuel**, puis sélectionnez **Créer**.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-vnet.png" alt-text="Capture d’écran de la création d’une ressource pour un réseau virtuel.":::
+
+1. Sous l’onglet **Bases**, entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
+
+    |Paramètre|Valeur|
     |---|---|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez *myResourceGroup*.|
     |Région| Sélectionnez **USA Est**.|
     |Name|myVirtualNetwork1|
 
-4. Sous l’onglet **Adresses IP**, entrez 10.0.0.0/16 dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez *Subnet1* sous **Nom du sous-réseau** et 10.0.0.0/24 sous **Plage d’adresses de sous-réseau**.
-5. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
-   
-5. Effectuez à nouveau les étapes 1 à 5, avec les modifications suivantes :
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-basic-tab.png" alt-text="Capture d’écran de l’onglet Informations de base pour Créer un réseau virtuel.":::
 
-    |Paramètre|Value|
-    |---|---|
-    |Nom|myVirtualNetwork2|
-    |Espace d’adressage|10.1.0.0/16|
-    |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Nom du sous-réseau | Sous-réseau2|
-    |Plage d’adresses de sous-réseau|10.1.0.0/24|
+1. Sous l’onglet **Adresses IP**, entrez *10.0.0.0/16* dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez *Subnet1* sous **Nom du sous-réseau** et *10.0.0.0/24* sous **Plage d’adresses de sous-réseau**.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/ip-addresses-tab.png" alt-text="Capture d’écran de l’onglet Adresses IP pour Créer un réseau virtuel.":::
+
+1. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
+   
+1. Répétez les étapes 1 à 5 pour créer un deuxième réseau virtuel avec les paramètres suivants :
+
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Nom | myVirtualNetwork2 |
+    | Espace d’adressage | 10.1.0.0/16 |
+    | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
+    | Nom du sous-réseau | Sous-réseau2 |
+    | Plage d’adresses de sous-réseau | 10.1.0.0/24 |
 
 ## <a name="peer-virtual-networks"></a>Appairer des réseaux virtuels
 
-1. Dans la zone de recherche en haut du portail Azure, commencez à taper *MyVirtualNetwork1*. Quand la mention **myVirtualNetwork1** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Sélectionnez **Peerings** sous **Paramètres**, puis sélectionnez **Ajouter**, comme indiqué dans l’image suivante :
+1. Dans la zone de recherche en haut du portail Azure, recherchez *myVirtualNetwork1*. Quand la mention **myVirtualNetwork1** apparaît dans les résultats de recherche, sélectionnez-la.
 
-    ![Créer un peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/search-vnet.png" alt-text="Capture d’écran de la recherche de myVirtualNetwork1.":::
 
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+1. Sélectionnez **Appairages** sous **Paramètres**, puis sélectionnez **+ Ajouter**, comme illustré dans l’image suivante :
 
-    |Paramètre|Valeur|
-    |---|---|
-    |Nom du peering de myVirtualNetwork1 avec un réseau virtuel distant|myVirtualNetwork1-myVirtualNetwork2 : Quand la page se charge pour la première fois, l’expression « réseau virtuel distant » s’affiche ici. Une fois que vous avez choisi le réseau virtuel distant, l’expression « réseau virtuel distant » est remplacée par le nom du réseau virtuel distant.|
-    |Abonnement| Sélectionnez votre abonnement.|
-    |Réseau virtuel|myVirtualNetwork2 : Pour sélectionner le réseau virtuel *myVirtualNetwork2*, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork2 (myResourceGroup)**. Vous pouvez sélectionner un réseau virtuel figurant dans la même région ou dans une région différente.|
-    |Nom du peering entre myVirtualNetwork2 et myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-peering.png" alt-text="Capture d’écran de création d’appairages pour myVirtualNetwork1.":::
+    
+1. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **Ajouter**.
 
-    ![Paramètres de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Ce réseau virtuel – Nom de la liaison Peering | Nom de l’appairage de myVirtualNetwork1 au réseau virtuel distant.  *myVirtualNetwork1-myVirtualNetwork2* est utilisé pour cette connexion.|
+    | Réseau virtuel distant – Nom de la liaison Peering |  Nom de l’appairage du réseau virtuel distant à myVirtualNetwork1. *myVirtualNetwork2-myVirtualNetwork1* est utilisé pour cette connexion. |
+    | Abonnement | Sélectionnez votre abonnement.|
+    | Réseau virtuel  | Vous pouvez sélectionner un réseau virtuel figurant dans la même région ou dans une région différente. Dans la liste déroulante, sélectionnez *myVirtualNetwork2*. |
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png" alt-text="Capture d’écran de la configuration de l’appairage de réseaux virtuels." lightbox="./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional-expanded.png":::
 
     L’**ÉTAT DE PEERING** est *Connecté*, comme indiqué dans l’image suivante :
 
-    ![État de peering](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png" alt-text="Capture d’écran de l’état de connexion de l’appairage de réseaux virtuels.":::
 
-    Si vous ne voyez pas l’état, actualisez votre navigateur.
+    Si vous ne voyez pas d’état *Connecté*, cliquez sur le bouton **Actualiser**.
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir une communication entre elles dans une étape ultérieure.
+Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir tester la communication entre elles.
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource**.
-2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. Vous pouvez sélectionner différents systèmes d’exploitation, mais les étapes restantes partent du principe que vous avez sélectionné **Windows Server 2016 Datacenter**. 
-3. Entrez ou sélectionnez les informations suivantes pour **De base**, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
-    |Paramètre|Valeur|
-    |---|---|
-    |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Nom|myVm1|
-    |Emplacement| Sélectionnez **USA Est**.|
-    |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+1. Sélectionnez **Calcul**, puis **Créer** sous *Machine virtuelle*.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-vm.png" alt-text="Capture d’écran de la création d’une ressource pour des machines virtuelles.":::
+
+1. Entrez ou sélectionnez les informations suivantes dans l’onglet **Informations de base**, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **Créer** :
+
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
+    | Nom | myVm1 |
+    | Emplacement | Sélectionnez **USA Est**. |
+    | Image | Sélectionnez une image de système d’exploitation. Pour cette machine virtuelle, *Centre de données Windows Server 2019 – Gen1* est sélectionnée. |
+    | Taille | Sélectionnez une taille de machine virtuelle. Pour cette machine virtuelle *Standard_D2s_v3* est sélectionnée. |
+    | Nom d’utilisateur | Entrez un nom d’utilisateur. Le nom d’utilisateur *azure* a été choisi pour cet exemple. |
+    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
    
-4. Sélectionnez une taille de machine virtuelle sous l’option **Taille**.
-5. Sélectionnez les valeurs suivantes sous **Réseaux** :
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-vm-basic-tab.png" alt-text="Capture d’écran de la configuration de l’onglet Informations de base de la machine virtuelle." lightbox="./media/tutorial-connect-virtual-networks-portal/create-vm-basic-tab-expanded.png":::
 
-    |Paramètre|Valeur|
-    |---|---|
-    |Réseau virtuel| myVirtualNetwork1 : S’il n’est pas déjà sélectionné, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork1**.|
-    |Subnet| Subnet1 : S’il n’est pas déjà sélectionné, sélectionnez **Sous-réseau**, puis sélectionnez **Subnet1**.|
-   
-6. Sélectionnez **Mise en réseau**. Choisissez **Autoriser les ports sélectionnés** sous l’option **Ports d’entrée publics**. Choisissez **RDP** sous l’option **Sélectionner des ports d’entrée** située dessous. 
+1. Dans l’onglet **Mise en réseau**, sélectionnez les valeurs suivantes :
 
-7. Sélectionnez le bouton **Vérifier + créer** dans l’angle inférieur gauche pour démarrer le déploiement de la machine virtuelle.
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Réseau virtuel | myVirtualNetwork1 : S’il n’est pas déjà sélectionné, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork1**. |
+    | Subnet | Subnet1 : S’il n’est pas déjà sélectionné, sélectionnez **Sous-réseau**, puis sélectionnez **Subnet1**. |
+    | Aucun port d’entrée public | *Autoriser les ports sélectionnés* |
+    | Sélectionner des ports d’entrée | *RDP (3389)* |
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-vm-networking-tab.png" alt-text="Capture d’écran de la configuration de l’onglet Mise en réseau de la machine virtuelle." lightbox="./media/tutorial-connect-virtual-networks-portal/create-vm-networking-tab-expanded.png":::
+
+1. Sélectionnez **Vérifier + créer**, puis **Créer** pour démarrer le déploiement de la machine virtuelle.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 
-Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
+Répétez à nouveau les étapes 1 à 6 pour créer une deuxième machine virtuelle avec les modifications suivantes :
 
-|Paramètre|Value|
-|---|---|
-|Nom | myVm2|
-|Réseau virtuel | myVirtualNetwork2|
+| Paramètre | Valeur |
+| --- | --- |
+| Nom | myVm2 |
+| Réseau virtuel | myVirtualNetwork2 |
 
 La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
 
@@ -134,47 +153,61 @@ La création des machines virtuelles peut prendre plusieurs minutes. Attendez qu
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 
-1. Dans la zone de *recherche* en haut du portail, commencez à taper *myVm1*. Quand **myVm1** apparaît dans les résultats de la recherche, sélectionnez-la.
-2. Créez une connexion Bureau à distance avec la machine virtuelle *myVm1* en sélectionnant **Connecter**, comme indiqué dans l’image suivante :
+1. Dans la zone de recherche située en haut du portail, recherchez *myVm1*. Quand **myVm1** apparaît dans les résultats de la recherche, sélectionnez-la.
+    
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/search-vm.png" alt-text="Capture d’écran de la recherche de myVm1.":::
 
-    ![Connexion à la machine virtuelle](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
+1. Pour vous connecter à la machine virtuelle, sélectionnez **Connexion**, puis sélectionnez **RDP** dans la liste déroulante. Sélectionnez **Télécharger le fichier RDP** pour télécharger le fichier de Bureau à distance.
 
-3. Pour vous connecter à la machine virtuelle, ouvrez le fichier RDP téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
-4. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**.
-5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez **Oui** pour poursuivre le processus de connexion.
-6. Dans une étape ultérieure, un test ping sera utilisé pour communiquer avec la machine virtuelle *myVm2* depuis la machine virtuelle *myVm1*. Le test ping utilise le protocole ICMP, qui est interdit par le Pare-feu Windows par défaut. Sur la machine virtuelle *myVm1*, autorisez ICMP à travers le pare-feu Windows afin de pouvoir effectuer un test ping pour cette machine virtuelle à partir de *myVm2* lors d’une étape ultérieure, en utilisant PowerShell :
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png" alt-text="Capture d’écran du bouton Se connecter à la machine virtuelle."::: 
+
+1. Pour vous connecter à la machine virtuelle, ouvrez le fichier RDP téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/rdp-connect.png" alt-text="Capture d’écran de l’écran de connexion du Bureau à distance.":::
+
+1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/rdp-credentials.png" alt-text="Capture d’écran de l’écran des informations d’identification RDP.":::
+
+1. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez **Oui** pour continuer le processus de connexion.
+
+1. Dans une étape ultérieure, un test ping sera utilisé pour communiquer avec la machine virtuelle *myVm1* depuis la machine virtuelle *myVm2*. Le test ping utilise le protocole ICMP, qui est interdit par le Pare-feu Windows par défaut. Sur la machine virtuelle *myVm1*, autorisez ICMP à travers le pare-feu Windows afin de pouvoir effectuer un test ping pour cette machine virtuelle à partir de *myVm2* lors d’une étape ultérieure, en utilisant PowerShell :
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
-    
-    Bien que ce test ping soit utilisé pour établir une communication entre les machines virtuelles, il n’est pas recommandé d’autoriser le protocole IMCP via le pare-feu Windows lors de déploiements de production.
 
-7. Pour établir une connexion avec la machine virtuelle *myVm2*, entrez la commande suivante à partir d’une invite de commandes sur la machine virtuelle *myVm1* :
+    Bien que ce test ping soit utilisé pour établir une communication entre les machines virtuelles dans ce tutoriel, il n’est pas recommandé d’autoriser le protocole IMCP via le pare-feu Windows lors de déploiements de production.
+
+1. Pour établir une connexion avec la machine virtuelle *myVm2*, entrez la commande suivante à partir d’une invite de commandes sur la machine virtuelle *myVm1* :
 
     ```
     mstsc /v:10.1.0.4
     ```
     
-8. Étant donné que vous avez activé la commande ping sur *myVm1*, vous pouvez désormais y effectuer un test ping par adresse IP :
+1. Étant donné que vous avez activé la commande ping sur *myVm1*, vous pouvez désormais y effectuer un test ping par adresse IP :
 
     ```
     ping 10.0.0.4
     ```
     
-9. Déconnectez vos sessions RDP sur *myVm1* et *myVm2*.
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/myvm2-ping-myvm1.png" alt-text="Capture d’écran de myVM2 effectuant un test ping sur myVM1.":::
+
+1. Déconnectez vos sessions RDP sur *myVm1* et *myVm2*.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que toutes les ressources qu’il contient : 
 
 1. Entrez *myResourceGroup* dans le champ **Recherche** en haut du portail. Quand **myResourceGroup** apparaît dans les résultats de la recherche, sélectionnez-le.
-2. Sélectionnez **Supprimer le groupe de ressources**.
-3. Entrez *myResourceGroup* dans **TAPER NOM DU GROUPE DE RESSOURCES :** puis sélectionnez **Supprimer**.
+
+1. Sélectionnez **Supprimer le groupe de ressources**.
+
+1. Entrez *myResourceGroup* dans **TAPER NOM DU GROUPE DE RESSOURCES :** puis sélectionnez **Supprimer**.
+
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/delete-resource-group.png" alt-text="Capture d’écran de la page Supprimer un groupe de ressources.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le peering de réseaux virtuels](virtual-network-peering-overview.md)
-
-

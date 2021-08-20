@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 9f25e7ce9580ab967d1625a6ab1550bd3f535225
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2764eede3aebd0110e2cc2de8a1813bc1f28cb86
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109010"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444338"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Démarrage rapide : Envoyer des SMS dans Azure Logic Apps avec Azure Communication Services
 
@@ -52,14 +52,40 @@ Pour ajouter l’action **Envoyer un SMS** en tant que nouvelle étape dans votr
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Capture d’écran montrant le concepteur d’application logique et le connecteur Azure Communication Services avec l’action Envoyer un SMS sélectionnée":::
 
 1. Créez maintenant une connexion à votre ressource Communication Services.
+    1. Au sein du même abonnement :
 
-   1. Entrez un nom pour la connexion.
+       1. Entrez un nom pour la connexion.
 
-   1. Sélectionnez votre ressource Azure Communication Services.
+       1. Sélectionnez votre ressource Azure Communication Services.
 
-   1. Sélectionnez **Create** (Créer).
+       1. Sélectionnez **Create** (Créer).
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Capture d’écran montrant la configuration de l’action Envoyer un SMS avec des exemples d’informations":::
+       :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Capture d’écran montrant la configuration de l’action Envoyer un SMS avec des exemples d’informations":::
+
+    1. En utilisant la chaîne de connexion de votre ressource Communication Services :
+        
+        1. Entrez un nom pour la connexion.
+        
+        1. Sélectionnez Authentification par ConnectionString dans les options du menu déroulant.
+        
+        1. Entrez la chaîne de connexion de votre ressource Communication Services.
+        
+        1. Sélectionnez **Create** (Créer).
+        
+        :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Capture d’écran montrant la configuration de l’authentification ConnectionString.":::
+        
+    1. En utilisant le principal de service ([Voir la création de principaux de service](../identity/service-principal-from-cli.md)) :
+        1. Entrez un nom pour la connexion.
+        
+        1. Sélectionnez Authentification par principal de service (application Azure AD) dans les options du menu déroulant.
+        
+        1. Entrez l’ID du locataire, l’ID du client et la clé secrète client de votre principal de service.
+        
+        1. Entrez l’URL du point de terminaison Communication Services de votre ressource Communication Services.
+        
+        1. Sélectionnez **Create** (Créer).
+        
+        :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="Capture d’écran montrant la configuration d’Authentification par principal de service.":::     
 
 1. Dans l’action **Envoyer un SMS**, entrez les informations suivantes : 
 

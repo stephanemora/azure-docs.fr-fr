@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 3f66da38d3303b47c2a9b6cefeee19af6bf64ec1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec27f6605d2f6f63f0493bb08a27a5b3af85832
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725505"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201795"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workplace by Facebook
 
@@ -41,9 +41,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Workplace by Facebook prend en charge l’authentification unique initiée par **SP**
-* Workplace by Facebook prend en charge **l’approvisionnement juste-à-temps**
-* Workplace by Facebook prend en charge **[l’approvisionnement automatique d’utilisateurs](workplacebyfacebook-provisioning-tutorial.md)**
+* Workplace by Facebook prend en charge l’authentification unique initiée par le **fournisseur de services**.
+* Workplace by Facebook prend en charge **l’approvisionnement juste-à-temps**.
+* Workplace by Facebook prend en charge **[l’Attribution d’utilisateurs automatique](workplacebyfacebook-provisioning-tutorial.md)** .
 * L’application mobile Workplace by Facebook peut désormais être configurée avec Azure AD pour activer l’authentification unique. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 
@@ -139,19 +139,21 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
     > [!NOTE]
     > Dans le cadre du processus d’authentification SAML, Workplace peut utiliser des chaînes de requête d’une taille pouvant aller jusqu’à 2,5 Ko pour transmettre des paramètres à Azure AD.
 
-1. Dans le volet de navigation de gauche, accédez à **Security** > **Authentication** (Sécurité>Authentification).
+1. Accédez à l’onglet **Admin Panel** (Panneau d’administration) > **Security** (Sécurité) > **Authentication** (Authentification).
 
-    ![Panneau d’administration](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
+    ![Panneau d’administration](./media/workplacebyfacebook-tutorial/security.png)
 
     a. Activez l’option **Single-sign on(SSO)** (Authentification unique).
+
+    b. Sélectionnez **SSO** (Authentification unique) comme valeur par défaut pour les nouveaux utilisateurs.
     
-    b. Cliquez sur **+Add new SSO Provider** (Ajouter un nouveau fournisseur d’authentification unique).
+    c. Cliquez sur **+Add new SSO Provider** (Ajouter un nouveau fournisseur d’authentification unique).
     > [!NOTE]
     > Veillez également à cocher la case Password (Mot de passe). Lorsqu’ils effectuent la substitution du certificat, les administrateurs peuvent avoir besoin de cette option pour continuer d’avoir accès à Workplace.
 
-1. Sous l’onglet **Authentication**, sélectionnez **Single-Sign On (SSO)** (Authentification unique) et procédez comme suit :
+1. Dans la fenêtre contextuelle **Single Sign-On (SSO) Setup** (Configuration de l’authentification unique), procédez comme suit :
 
-    ![Onglet d’authentification](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
+    ![Onglet d’authentification](./media/workplacebyfacebook-tutorial/single-sign-on-setup.png)
 
     a. Dans **Name of the SSO Provider** (Nom du fournisseur d’authentification unique), entrez le nom de l’instance d’authentification unique, par exemple Azureadsso.
 
@@ -159,7 +161,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
     c. Dans la zone de texte **SAML Issuer URL** (URL de l’émetteur SAML), collez la valeur de l’**identifiant Azure AD** que vous avez copiée à partir du portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
+    d. Ouvrez le **certificat (Base64)** téléchargé à partir du portail Azure dans Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
 
     e. Copiez **Audience URL** pour votre instance et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 

@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a2d8a215dfc34073783a5d8a6233ec8dbae4ec17
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4f5cd479d69a14974f032b7ec047881826bfd79b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218870"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438221"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Windows
 
@@ -180,6 +180,9 @@ Le runtime IoT Edge a besoin des informations d’identification de registre pou
 1. Ajoutez les valeurs de **Nom d’utilisateur** et **Mot de passe** que vous avez copiées à partir de votre registre de conteneurs Azure.
 
 1. Enregistrez les modifications apportées au fichier .env.
+
+>[!NOTE]
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="review-the-sample-code"></a>Réviser l’exemple de code
 

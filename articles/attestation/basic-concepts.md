@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47231ecab14ab9d1705d1015c0de4a035a10a02e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99429277"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417304"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -129,10 +129,25 @@ Exemple de jeton JWT généré pour une enclave SGX :
   "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
   "x-ms-sgx-product-id": 1, 
   "x-ms-sgx-svn": 1,
-  "x-ms-ver": "1.0"
+  "x-ms-ver": "1.0",
+  "x-ms-sgx-config-id": "000102030405060708090a0b0c0d8f99000102030405060708090a0b0c860e9a000102030405060708090a0b7d0d0e9b000102030405060708090a740c0d0e9c",
+  "x-ms-sgx-config-svn": 3451,
+  "x-ms-sgx-isv-extended-product-id": "8765432143211234abcdabcdef123456",
+  "x-ms-sgx-isv-family-id": "1234567812344321abcd1234567890ab"
 }.[Signature]
 ```
+
 Certaines des revendications utilisées ci-dessus sont considérées comme dépréciées, mais sont entièrement prises en charge.  Nous vous recommandons de faire en sorte que tous les futurs outils et code utilisent les noms des revendications non dépréciées. Pour plus d’informations, consultez les [revendications émises par Azure Attestation](claim-sets.md).
+
+Les revendications ci-dessous s’affichent uniquement dans le jeton d’attestation généré pour les plateformes de serveurs à processeur évolutif Intel® Xeon®. Les revendications ne s’affichent pas si l’enclave SGX n’est pas configurée avec une [séparation des clés et une prise en charge du partage](https://github.com/openenclave/openenclave/issues/3054).
+
+**x-ms-sgx-config-id**
+
+**x-ms-sgx-config-svn**
+
+**x-ms-sgx-isv-extended-product-id**
+
+**x-ms-sgx-isv-family-id**
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 

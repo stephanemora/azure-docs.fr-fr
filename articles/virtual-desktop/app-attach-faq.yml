@@ -1,0 +1,91 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ sur l’attachement d’application MSIX Azure Virtual Desktop – Azure
+  description: Questions fréquentes (FAQ) sur l’attachement d’application MSIX pour Azure Virtual Desktop.
+  services: virtual-desktop
+  author: Heidilohr
+  ms.service: virtual-desktop
+  ms.topic: conceptual
+  ms.date: 08/17/2020
+  ms.author: helohr
+  manager: femila
+  ms.openlocfilehash: 5d78c3f85067e0a8e3a2da7ff1388d229116dade
+  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/27/2021
+  ms.locfileid: "114713103"
+title: FAQ sur l’attachement d’application MSIX
+summary: Cet article répond aux questions fréquemment posées sur l’attachement d’application MSIX pour Azure Virtual Desktop.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Quelle est la différence entre MSIX et l’attachement d’application MSIX ?
+    answer: >
+      MSIX est un format d’empaquetage pour les applications, tandis que l’attachement d’application MSIX est la fonctionnalité qui fournit des packages MSIX à votre déploiement.
+  - question: >
+      L’attachement d’application MSIX utilise-t-il FSLogix ?
+    answer: >
+      L’attachement d’application MSIX n’utilise pas FSLogix. En revanche, l’attachement d’application MSIX et FSLogix sont conçus pour fonctionner ensemble afin de fournir une expérience utilisateur transparente.
+  - question: >
+      Est-ce que je peux utiliser l’attachement d’application MSIX en dehors d’Azure Virtual Desktop ?
+    answer: >
+      Les API sur lesquelles repose l’attachement d’application MSIX sont disponibles pour Windows 10 Entreprise. Ces API peuvent être utilisées en dehors d’Azure Virtual Desktop. Toutefois, il n’existe aucun plan de gestion pour l’attachement d’application MSIX en dehors d’Azure Virtual Desktop.
+  - question: >
+      Comment obtenir un package MSIX ?
+    answer: >
+      Votre fournisseur de logiciels vous donnera un package MSIX. Vous pouvez également convertir des packages non MSIX en MSIX. Pour plus d’informations, consultez [Comment migrer vos programmes d’installation existants vers MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+  - question: >
+      Quels systèmes d’exploitation prennent en charge l’attachement d’application MSIX ?
+    answer: >
+      Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 ou ultérieure.
+  - question: >
+      L’attachement d’application MSIX est-il mis à la disposition générale ?
+    answer: "L’attachement d’application MSIX fait partie de Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 ou ultérieure. Les deux systèmes d’exploitation sont actuellement mis à la disposition générale. \n"
+  - question: >
+      Est-ce que je peux utiliser l’attachement d’application MSIX en dehors d’Azure Virtual Desktop ?
+    answer: >
+      MSIX et l’attachement d’application MSIX font partie de Windows 10 Entreprise et Windows 10 Entreprise multisession, version 2004 et ultérieures. Actuellement, nous ne proposons aucun logiciel de gestion pour l’attachement d’application MSIX en dehors d’Azure Virtual Desktop.
+  - question: >
+      Puis-je exécuter simultanément deux versions de la même application ?
+    answer: >
+      Pour que deux versions des mêmes applications MSIX s’exécutent simultanément, la famille de packages MSIX définie dans le fichier appxmanifest.xml doit être différente pour chaque application.
+  - question: >
+      Dois-je désactiver la mise à jour automatique lorsque j’utilise l’attachement d’application MSIX ?
+    answer: >
+      Oui. L’attachement d’application MSIX ne prend pas en charge la mise à jour automatique des applications MSIX.
+  - question: >
+      Comment fonctionnent les autorisations avec l’attachement d’application MSIX ?
+    answer: >
+      Toutes les machines virtuelles d’un pool hôte qui utilise l’attachement d’application MSIX doivent avoir des autorisations de lecture sur le partage de fichiers où sont stockées les images MSIX. Si le pool utilise également Azure Files, il doit disposer à la fois du contrôle d’accès en fonction du rôle (RBAC) et des autorisations New Technology File System (NTFS).
+  - question: >
+      Combien d’utilisateurs peuvent utiliser un handle d’image MSIX ?
+    answer: "L’attachement d’application MSIX monte les images MSIX par ordinateur, et non par utilisateur. Le nombre d’utilisateurs pouvant utiliser un handle d’image MSIX est basé sur la taille du système de fichiers et du débit du réseau de l’ordinateur. De plus, Azure Files a une limite de 2 000 handles ouverts par fichier. \n"
+  - question: >
+      Puis-je utiliser Azure Active Directory Domain Services (Azure AD DS) avec l’attachement d’application MSIX ?
+    answer: >
+      Actuellement, l’attachement d’application MSIX ne prend pas en charge Azure AD DS. Les objets ordinateur Azure AD DS n’étant pas synchronisés avec Azure Active Directory (Azure AD), l’administrateur n’est pas en mesure de fournir les autorisations de contrôle d’accès en fonction du rôle (RBAC) requises pour Azure Files.
+  - question: >
+      Puis-je utiliser l’attachement d’application MSIX pour HTTP ou HTTPs ?
+    answer: >
+      L’utilisation de l’attachement d’application MSIX sur HTTP ou HTTPs n’est actuellement pas prise en charge.
+  - question: >
+      Puis-je effectuer une copie intermédiaire de la même application MSIX ?
+    answer: >
+      Oui. Vous pouvez effectuer une nouvelle copie intermédiaire d’applications, ce qui ne devrait pas provoquer d’erreur.
+  - question: >
+      L’attachement d’application MSIX prend-il en charge les certificats auto-signés ?
+    answer: >
+      Oui. Vous devez installer le certificat auto-signé sur toutes les machines virtuelles hôtes de session où l’attachement d’application MSIX est utilisé pour héberger l’application auto-signée. Découvrez comment créer un certificat auto-signé dans [Créer un certificat pour la signature de package](/windows/msix/package/create-certificate-package-signing).
+  - question: >
+      Quelles applications puis-je repackager dans MSIX ?
+    answer: "Chaque application utilise différentes fonctionnalités du système d’exploitation, des langages de programmation et des infrastructures. Pour repackager votre application, suivez les instructions disponibles dans [Comment migrer vos programmes d’installation existants vers MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). Vous trouverez une liste des éléments dont vous avez besoin pour repackager une application dans [Se préparer à packager une application de bureau](/windows/msix/desktop/desktop-to-uwp-prepare). \n\nCertaines applications ne peuvent pas être superposées, ce qui signifie qu’elles ne peuvent pas être repackagées dans un fichier MSIX. Voici la liste des applications qui ne peuvent pas être repackagées :\n\n- Pilotes \n- Active-X ou Silverlight\n- Clients VPN\n- Programmes antivirus\n"
+  - question: >
+      Combien d’applications MISX puis-je ajouter à chaque hôte de session ?
+    answer: >
+      Chaque hôte de session a des limites différentes en fonction de son UC, de sa mémoire et de son système d’exploitation. Le dépassement de ces limites peut altérer les performances de l’application et l’expérience globale de l’utilisateur. Toutefois, l’attachement d’application MSIX lui-même n’a aucune limite quant au nombre d’applications qu’il peut utiliser.
+  - question: >
+      Combien de fichiers .VHD ou .VHDX puis-je monter sur un pool d’hôtes ?
+    answer: "L’attachement d’application MSIX n’a pas de limite quant au nombre de fichiers que vous pouvez monter. Toutefois, le pool d’hôtes lui-même peut être limité par les facteurs suivants :\n\n- La capacité du système d’exploitation à gérer les volumes montés.\n- Le nombre maximum de fichiers ouverts que votre solution de stockage ou votre système de fichiers peut contenir.\n- L’utilisation de la mémoire et de l’UC de l’hôte de session du pool d’hôtes.\n\nEn d’autres termes, les limites du pool d’hôtes sont les mêmes que si vous installez et exécutez les applications localement.          \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nSi vous souhaitez en savoir plus sur l’attachement d’application MSIX, consultez notre [page de présentation](what-is-app-attach.md) et notre [glossaire](app-attach-glossary.md). Sinon, commencez avec [Configurer l’attachement d’application](app-attach.md)."

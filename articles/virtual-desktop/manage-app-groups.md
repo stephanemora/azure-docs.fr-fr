@@ -3,22 +3,25 @@ title: Gérer des groupes d’applications Azure Virtual Desktop - Portail Azure
 description: Explique comment gérer des groupes d’applications Azure Virtual Desktop avec le portail Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3c28654f70599a67060a94b8bb93397fc51c527e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 80a066aab79e3ca6ca541a82fe6b7fe023653a81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753338"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448787"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutoriel : Gérer des groupes d’applications avec le portail Azure
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objet Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Azure Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu Démarrer.
+
+>[!NOTE]
+>Vous pouvez joindre dynamiquement des applications MISX à des sessions utilisateur ou ajouter vos packages d’application à une image de machine virtuelle personnalisée pour publier les applications de votre organisation. Pour en savoir plus, consultez [Comment héberger des applications personnalisées avec Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
@@ -34,6 +37,8 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
    
     >[!NOTE]
     > Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us/) à la place.
+    >
+    >Si vous accédez au portail Azure Chine, allez à [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2.  Recherchez et sélectionnez **Azure Virtual Desktop**.
 

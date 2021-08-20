@@ -1,19 +1,19 @@
 ---
 title: Démarrage rapide - Créer et déployer des applications sur Azure Spring Cloud
 description: Décrit le déploiement d’applications sur Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fc005e8d94a0c6ddb7f21de05872f12bdb7f2177
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b82e36b798611aad20044592cd3bec60cdf2e871
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965138"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469254"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -213,7 +213,6 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
 
     ```azurecli
     az configure --defaults group=<resource group name> spring-cloud=<service name>  
-    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
 1. Créez les 2 microservices principaux pour PetClinic : la passerelle API (api-gateway) et le service Clients (customers-service).
@@ -245,7 +244,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
 
 ## <a name="verify-the-services"></a>Vérifier les services
 
-Accédez à la passerelle API et au service Clients à partir du navigateur avec l’**URL publique** indiquée ci-dessus, au format « https://<service name>-api-gateway.azuremicroservices.io ».
+Accédez à la passerelle de l’application et au service clients à partir du navigateur avec l’**URL publique** indiquée ci-dessus, au format `https://<service name>-api-gateway.azuremicroservices.io`.
 
 ![Accéder au service Clients de PetClinic](media/build-and-deploy/access-customers-service.png)
 
@@ -282,7 +281,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
 1. Générez des configurations en exécutant la commande suivante dans le dossier racine de PetClinic contenant le fichier POM parent. Si vous vous êtes déjà connecté avec Azure CLI, la commande sélectionne automatiquement les informations d’identification. Sinon, elle vous connecte avec des instructions d’invite. Pour plus d’informations, consultez notre [page wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.5.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
     
     Il vous sera demandé de sélectionner les éléments suivants :
@@ -298,7 +297,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -317,7 +316,7 @@ La compilation du projet prend de 5 à 10 minutes. Une fois l’opération ter
     
 ## <a name="verify-the-services"></a>Vérifier les services
 
-Une commande de déploiement réussie retourne l’URL au format « https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io ». Utilisez-la pour accéder au service en cours d’exécution.
+Une commande de déploiement réussie renverra une URL au format suivant : `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Utilisez-la pour accéder au service en cours d’exécution.
 
 ![Accéder à PetClinic](media/build-and-deploy/access-customers-service.png)
 

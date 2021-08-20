@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1501d682de61b52a3933f6f849b4eac6d9f33b87
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379214"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766844"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database pour PostgreSQL - Serveur unique
 
@@ -26,7 +26,7 @@ Cet article contient une vue d'ensemble et une présentation des concepts de bas
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Serveur unique est un service de base de données complètement managé avec des exigences minimales pour les personnalisations de la base de données. La plateforme de serveur unique est conçue pour prendre en charge la plupart des fonctions de gestion de base de données, comme les correctifs, les sauvegardes, la haute disponibilité et la sécurité, avec un minimum de configuration et de contrôle de la part de l'utilisateur. L'architecture est optimisée pour fournir une disponibilité de 99,99 % sur une seule zone de disponibilité. Elle prend en charge la version de la communauté de PostgreSQL 9.5, 9.6, 10 et 11. Le service est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Serveur unique est un service de base de données complètement managé avec des exigences minimales pour les personnalisations de la base de données. La plateforme de serveur unique est conçue pour prendre en charge la plupart des fonctions de gestion de base de données, comme les correctifs, les sauvegardes, la haute disponibilité et la sécurité, avec un minimum de configuration et de contrôle de la part de l'utilisateur. L'architecture est optimisée pour fournir une disponibilité de 99,99 % sur une seule zone de disponibilité. Elle prend en charge la version de la communauté de PostgreSQL 9.6, 10 et 11. Le service est aujourd'hui généralement disponible dans un grand nombre de [régions Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 Les serveurs uniques sont particulièrement adaptés aux applications natives Cloud conçues pour gérer les correctifs automatisés sans qu'il soit nécessaire d'exercer un contrôle précis sur le calendrier des correctifs et les paramètres de configuration PostgreSQL personnalisés.
 

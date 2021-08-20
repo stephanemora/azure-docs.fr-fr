@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Migrer des services web à partir de Bing Cartes | Microsoft Azure Maps'
+title: 'Tutoriel : Migrer des services web de Bing Cartes vers Microsoft Azure Maps'
 description: Tutoriel sur la migration des services web de Bing Cartes vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 605d30a6e209b8da9e772a95f6318a4aa679c704
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786511"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578934"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
@@ -199,7 +199,6 @@ Le service d’itinéraire Azure Maps fournit les API suivantes pour le calcul d
 
 -   [Calculer l’itinéraire](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes.
 -   [Itinéraire par lots](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
--   [Services Mobility (préversion) ](/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -451,7 +450,7 @@ Dans Azure Maps, des lignes et des polygones peuvent également être ajoutés �
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-En ce qui concerne les localisations de tracés, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’**un espace, et non une virgule**, sépare la longitude et la latitude dans Azure Maps. Actuellement, Azure Maps ne prend pas en charge les tracés encodés. De plus grands jeux de données peuvent être téléchargés lorsqu'un GeoJSON remplit l'API de stockage de données Azure Maps, comme documenté [ici](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+En ce qui concerne les localisations de tracés, Azure Maps exige que les coordonnées soient au format `longitude latitude`, tandis que Bing Cartes utilise le format `latitude,longitude`. Notez également qu’**un espace, et non une virgule**, sépare la longitude et la latitude dans Azure Maps. Actuellement, Azure Maps ne prend pas en charge les tracés encodés. De plus grands jeux de données peuvent être téléchargés lorsqu'un GeoJSON remplit l'API de stockage de données Azure Maps, comme documenté [ici](./how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Les styles de chemins d'accès dans Azure Maps sont ajoutés au format `optionNameValue`, avec plusieurs styles séparés par un caractère barre verticale (`|`), par exemple `optionName1Value1|optionName2Value2`. Notez que les noms et les valeurs des options ne sont pas séparés. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des chemins d'accès dans Azure Maps :
 

@@ -4,23 +4,22 @@ description: Dans ce tutoriel, vous créez une application C# .NET Core afin d�
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 3225b04ea99b300967353975bb92ab76804ed58a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: b2b2fc806020c665e7658226cb11c086aa816127
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108394"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433428"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Échanger des messages avec des files d’attente Azure Service Bus (.NET)
 Ce guide de démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus à l’aide de la bibliothèque .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
 
 
 ## <a name="prerequisites"></a>Prérequis
-Si vous débutez avec le service, consultez [Vue d’ensemble de Service Bus](service-bus-messaging-overview.md) avant de suivre ce démarrage rapide. 
 
 - **Abonnement Azure**. Pour utiliser des services Azure, dont Azure Service Bus, vous avez besoin d’un abonnement. Si vous n’avez pas de compte Azure existant, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/).
-- **Microsoft Visual Studio 2019**. La bibliothèque cliente Azure Service Bus utilise les nouvelles fonctionnalités introduites dans C# 8.0.  Vous pouvez toujours utiliser la bibliothèque avec les versions précédentes du langage C#, mais la nouvelle syntaxe ne sera pas disponible. Pour utiliser la syntaxe complète, nous vous recommandons d’effectuer la compilation avec la version 3.0 ou une version ultérieure du kit SDK .NET Core et la version du langage `latest`. Si vous utilisez Visual Studio, les versions antérieures à Visual Studio 2019 ne sont pas compatibles avec les outils nécessaires à la génération de projets C# 8.0. Visual Studio 2019, y compris l’édition Community gratuite, est téléchargeable [ici](https://visualstudio.microsoft.com/vs/).
+- **Microsoft Visual Studio 2019**. La bibliothèque cliente Azure Service Bus utilise les nouvelles fonctionnalités introduites dans C# 8.0.  Vous pouvez toujours utiliser la bibliothèque avec les versions précédentes du langage C#, mais la nouvelle syntaxe ne sera pas disponible. Pour utiliser la syntaxe complète, nous vous recommandons d’effectuer la compilation avec la version 3.0 ou une version ultérieure du kit SDK .NET Core et la version du langage `latest`. Si vous utilisez Visual Studio, les versions antérieures à Visual Studio 2019 ne sont pas compatibles avec les outils nécessaires à la génération de projets C# 8.0.
 - **Créez un espace de noms et une file d’attente Service Bus**. Suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer un espace de noms et une file d’attente Service Bus. 
 
     > [!IMPORTANT]
@@ -59,10 +58,10 @@ Cette section montre comment créer une application console .NET Core pour envoy
 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.  
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
-    1. Utilise la méthode [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) sur l’objet `ServiceBusClient` pour créer un objet [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) pour la file d’attente Service Bus spécifique.     
-    1. Crée un objet [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) à l’aide de [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
-    1. Ajoutez des messages au lot à l’aide de [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
-    1. Envoie le lot de messages à file d’attente Service Bus à l’aide de la méthode [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
+    1. Utilise la méthode `CreateSender` sur l’objet `ServiceBusClient` pour créer un objet `ServiceBusSender` pour la file d’attente Service Bus spécifique.     
+    1. Crée un objet `ServiceBusMessageBatch` à l’aide de la méthode `ServiceBusSender.CreateMessageBatchAsync`.
+    1. Ajoutez des messages au lot à l’aide de `ServiceBusMessageBatch.TryAddMessage`. 
+    1. Envoie le lot de messages à file d’attente Service Bus à l’aide de la méthode `ServiceBusSender.SendMessagesAsync`.
     
         Pour plus d'informations, consultez les commentaires du code.
     
@@ -182,10 +181,10 @@ Dans cette section, vous allez ajouter du code pour récupérer des messages à 
 1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.
     Voici les étapes importantes du code :
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
-    1. Appelle la méthode [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) sur l'objet `ServiceBusClient` pour créer un objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) pour la file d’attente Service Bus spécifiée. 
-    1. Spécifie des gestionnaires pour les événements [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) et [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) de l’objet `ServiceBusProcessor`. 
-    1. Démarre le traitement des messages en appelant [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) sur l' objet `ServiceBusProcessor`. 
-    1. Lorsque l’utilisateur appuie sur une clé pour terminer le traitement, il appelle [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) sur l' objet `ServiceBusProcessor`. 
+    1. Appelle la méthode `CreateProcessor` sur l'objet `ServiceBusClient` pour créer un objet `ServiceBusProcessor` pour la file d’attente Service Bus spécifiée. 
+    1. Spécifie des gestionnaires pour les événements `ProcessMessageAsync` et `ProcessErrorAsync` de l’objet `ServiceBusProcessor`. 
+    1. Démarre le traitement des messages en appelant `StartProcessingAsync` sur l' objet `ServiceBusProcessor`. 
+    1. Lorsque l’utilisateur appuie sur une clé pour terminer le traitement, il appelle `StopProcessingAsync` sur l' objet `ServiceBusProcessor`. 
 
         Pour plus d'informations, consultez les commentaires du code.
 
@@ -297,4 +296,4 @@ Consultez la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour .NET – Fichier Lisez-moi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemples sur GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Informations de référence sur l’API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)
+- [Informations de référence sur l’API .NET](/dotnet/api/azure.messaging.servicebus)

@@ -1,5 +1,5 @@
 ---
-title: Présentation des services de données avec Azure Arc
+title: Que sont les services de données avec Azure Arc ?
 description: Présente les services de données avec Azure Arc
 ms.custom: references_regions
 author: twright-msft
@@ -8,20 +8,20 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 07/13/2021
 ms.topic: overview
-ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: cb905bd3e8ceb7012415a65bda1928b25da3037b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107716094"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760994"
 ---
-# <a name="what-are-azure-arc-enabled-data-services-preview"></a>Présentation des services de données avec Azure Arc (préversion)
+# <a name="what-are-azure-arc-enabled-data-services-preview"></a>Que sont les services de données avec Azure Arc (préversion) ?
 
 Azure Arc vous permet d'exécuter des services de données Azure localement, à la périphérie et dans des clouds publics à l'aide de Kubernetes et de l'infrastructure de votre choix.
 
-Actuellement, les services de données avec Azure Arc suivants sont disponibles en préversion :
+Actuellement, les services de données avec Azure Arc suivants sont disponibles en préversion :
 
 - Instance managée SQL
 - PostgreSQL Hyperscale
@@ -30,7 +30,7 @@ Actuellement, les services de données avec Azure Arc suivants sont disponibles 
 
 ## <a name="always-current"></a>Toujours à jour
 
-Les services de données avec Azure Arc, tels que SQL Managed Instance avec Azure Arc et PostgreSQL Hyperscale avec Azure Arc, bénéficient de mises à jour fréquentes contenant notamment des correctifs de maintenance et de nouvelles fonctionnalités semblables à l'expérience offerte par Azure. Des mises à jour de Microsoft Container Registry vous sont fournies et vous pouvez définir les cadences de déploiement conformément à vos stratégies. Ainsi, les bases de données locales restent à jour tandis que vous gardez le contrôle. Dans la mesure où les services de données avec Azure Arc sont fournis sur abonnement, vos bases de données ne sont jamais confrontées à aucun problème de fin de support.
+Les services de données avec Azure Arc, tels que SQL Managed Instance avec Azure Arc et PostgreSQL Hyperscale avec Azure Arc, bénéficient de mises à jour fréquentes contenant notamment des patchs de maintenance et de nouvelles fonctionnalités semblables à l’expérience offerte par Azure. Des mises à jour de Microsoft Container Registry vous sont fournies et vous pouvez définir les cadences de déploiement conformément à vos stratégies. Ainsi, les bases de données locales restent à jour tandis que vous gardez le contrôle. Dans la mesure où les services de données avec Azure Arc sont fournis sur abonnement, vos bases de données ne seront plus confrontées à des situations de fin de support.
 
 ## <a name="elastic-scale"></a>Mise à l’échelle élastique
 
@@ -42,11 +42,11 @@ Azure Arc offre également d'autres avantages liés au cloud, tels qu'un déploi
 
 ## <a name="unified-management"></a>Gestion unifiée
 
-À l’aide d’outils que vous connaissez déjà, comme le portail Azure, d’Azure Data Studio et de l’[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], vous pouvez désormais profiter d’une vue unifiée sur toutes les ressources de données déployées avec Azure Arc. Vous pouvez non seulement visualiser et gérer différentes bases de données relationnelles au sein de votre environnement et d'Azure, mais également bénéficier de journaux et de données de télémétrie à partir d'API Kubernetes pour analyser la capacité et l'intégrité de l'infrastructure sous-jacente. Outre les fonctionnalités localisées d'analytique des journaux d'activité et d'analyse des performances, vous pouvez désormais tirer parti d'Azure Monitor pour obtenir des insights opérationnels complets sur l'ensemble de votre patrimoine.
+À l’aide d’outils que vous connaissez déjà, comme le portail Azure, Azure Data Studio et l’interface de ligne de commande Azure (`az`) avec l’extension `arcdata`, vous pouvez désormais profiter d’une vue unifiée sur toutes les ressources de données déployées avec Azure Arc. Vous pouvez non seulement visualiser et gérer différentes bases de données relationnelles au sein de votre environnement et d’Azure, mais également obtenir des journaux et des données de télémétrie à partir d’API Kubernetes pour analyser la capacité et l’intégrité de l’infrastructure sous-jacente. Outre les fonctionnalités localisées d'analytique des journaux d'activité et d'analyse des performances, vous pouvez désormais tirer parti d'Azure Monitor pour obtenir des insights opérationnels complets sur l'ensemble de votre patrimoine.
 
 ## <a name="disconnected-scenario-support"></a>Prise en charge de scénarios déconnectés
 
-De nombreux services tels que l'approvisionnement en libre-service, les sauvegardes/restaurations automatisées et la supervision peuvent être exécutés localement dans votre infrastructure, avec ou sans connexion directe à Azure. La connexion directe à Azure ouvre la voie à des options supplémentaires d'intégration à d'autres services Azure tels qu'Azure Monitor, et la possibilité d'utiliser le portail Azure et les API Azure Resource Manager n'importe où dans le monde pour gérer vos services de données avec Azure Arc.
+De nombreux services tels que l'approvisionnement en libre-service, les sauvegardes/restaurations automatisées et la supervision peuvent être exécutés localement dans votre infrastructure, avec ou sans connexion directe à Azure. La connexion directe à Azure ouvre la voie à des options supplémentaires d’intégration à d’autres services Azure tels qu’Azure Monitor et la possibilité d’utiliser le portail Azure et les API Azure Resource Manager n’importe où dans le monde pour gérer vos services de données avec Azure Arc.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -55,17 +55,30 @@ Le tableau suivant décrit les scénarios actuellement pris en charge pour les s
 |Régions Azure  |Mode de connexion directe  |Mode de connexion indirecte  |
 |---------|---------|---------|
 |USA Est|Disponible|Disponible
+|USA Est 2|Disponible|Disponible
+|USA Ouest 2|Disponible|Disponible
+|USA Centre|Non disponible|Disponible
+|États-Unis - partie centrale méridionale|Disponible|Disponible
+|Sud du Royaume-Uni|Disponible|Disponible
+|France Centre|Disponible|Disponible
 |Europe Ouest |Disponible |Disponible
 |Europe Nord|Disponible|Disponible
+|Japon Est|Non disponible|Disponible
+|Centre de la Corée|Non disponible|Disponible
+|Asie Est|Non disponible|Disponible
+|Asie Sud-Est|Disponible|Disponible
+|Australie Est|Disponible|Disponible
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > **Vous voulez juste essayer ?**  
 > Démarrez rapidement avec [Démarrage rapide d'Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) sur Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
+>
+>En outre, déployez [JumpStart ArcBox](https://azurearcjumpstart.io/azure_jumpstart_arcbox/), un bac à sable facile à déployer pour tout ce qui concerne Azure Arc. ArcBox est conçu pour être entièrement autonome au sein d’un seul abonnement Azure et d’un seul groupe de ressources, ce qui vous permet de vous familiariser facilement avec toutes les technologies avec Azure Arc grâce à un abonnement Azure.
 
 [Installer les outils clients](install-client-tools.md)
 
-[Créer le contrôleur de données Azure Arc](create-data-controller.md) (nécessite l'installation préalable des outils clients)
+[Planifier le déploiement des services de données Azure Arc](plan-azure-arc-data-services.md) (nécessite d’abord l’installation des outils clients)
 
 [Créer une instance gérée Azure SQL sur Azure Arc](create-sql-managed-instance.md) (nécessite la création préalable d’un contrôleur de données Azure Arc)
 

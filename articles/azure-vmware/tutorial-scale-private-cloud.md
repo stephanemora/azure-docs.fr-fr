@@ -3,12 +3,12 @@ title: Tutoriel - Développer ou réduire les clusters dans un cloud privé
 description: Dans ce tutoriel, vous utilisez le portail Azure pour mettre à l’échelle un cloud privé Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 23fa38f41a1effab212896e59118978202ef17a7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 79368483c7edd3ebf6811eeca1853b4bcb4ecec9
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769288"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433991"
 ---
 # <a name="tutorial-expand-or-shrink-clusters-in-a-private-cloud"></a>Tutoriel : Développer ou réduire les clusters dans un cloud privé
 
@@ -28,11 +28,11 @@ Pour suivre ce tutoriel, vous avez besoin d’un cloud privé existant. Si vous 
 
 1. Dans la page Vue d’ensemble d’un cloud privé existant, sous **Gérer**, sélectionnez **Mettre à l’échelle le cloud privé**. Ensuite, sélectionnez **+ Ajouter un cluster**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Sélectionner Ajouter un cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Capture d’écran montrant comment ajouter un cluster à un cloud privé Azure VMware Solution." border="true":::
 
 1. Dans la page **Ajouter un cluster**, utilisez le curseur pour sélectionner le nombre d’hôtes. Sélectionnez **Enregistrer**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Dans la page Ajouter un cluster, utilisez le curseur pour sélectionner le nombre d’hôtes. Sélectionnez Enregistrer." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Capture d’écran montrant comment configurer un nouveau cluster." border="true":::
 
    Le déploiement du nouveau cluster va commencer.
 
@@ -40,11 +40,9 @@ Pour suivre ce tutoriel, vous avez besoin d’un cloud privé existant. Si vous 
 
 1. Dans la page Vue d’ensemble d’un cloud privé existant, sélectionnez **Mettre à l’échelle le cloud privé**, puis sélectionnez l’icône de crayon pour modifier le cluster.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Sélectionner Mettre à l’échelle le cloud privé dans Vue d’ensemble" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Capture d’écran montrant où modifier un cluster existant." border="true":::
 
 1. Dans la page **Modifier le cluster**, utilisez le curseur pour sélectionner le nombre d’hôtes. Sélectionnez **Enregistrer**.
-
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Dans la page Modifier le cluster, utilisez le curseur pour sélectionner le nombre d’hôtes. Sélectionnez Enregistrer." border="true":::
 
    L’ajout des hôtes au cluster commence.
 

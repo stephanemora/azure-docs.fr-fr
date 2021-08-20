@@ -5,18 +5,21 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 5d146305a1bd5dcde80c29892ef5e7512eca74b7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 24bc9b0f92a82354f511f534eb9b0e86d59d336b
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967096"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201263"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Exemples de modèles Resource Manager pour les règles de collecte de données dans Azure Monitor
 Cet article comprend des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour créer une association entre une [règle de collecte de données](data-collection-rule-overview.md) et l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## <a name="create-rule-sample"></a>Créer une règle (exemple)
+
+Voir [Format de modèle](/azure/templates/microsoft.insights/datacollectionrules)
 
 ## <a name="create-association-with-azure-vm"></a>Créer une association avec une machine virtuelle Azure
 
@@ -112,7 +115,7 @@ L’exemple suivant crée une association entre un serveur avec Azure Arc et une
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/dataCollectionRuleAssociations",
-            "name": "[concat(parameters('machineName'),'/microsoft.insights/', parameters('associationName'))]",
+            "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('associationName'))]",
             "apiVersion": "2019-11-01-preview",
             "properties": {
                 "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 06/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 7a706eb120f45fcd08febd0bda9aaaa54a82135a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1f8e47235cff2e23e45dcba535caf92ca6da0e4
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728168"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à BIC Cloud Design
 
@@ -40,9 +40,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* BIC Cloud Design prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**
+* BIC Cloud Design prend en charge l’authentification unique initiée par le **fournisseur de services**.
 
-## <a name="adding-bic-cloud-design-from-the-gallery"></a>Ajout de BIC Cloud Design à partir de la galerie
+## <a name="add-bic-cloud-design-from-the-gallery"></a>Ajouter BIC Cloud Design à partir de la galerie
 
 Pour configurer l’intégration de BIC Cloud Design à Azure AD, vous devez ajouter BIC Cloud Design à votre liste d’applications SaaS gérées, à partir de la galerie.
 
@@ -53,7 +53,6 @@ Pour configurer l’intégration de BIC Cloud Design à Azure AD, vous devez 
 1. Dans la section **Ajouter à partir de la galerie**, tapez **BIC Cloud Design** dans la zone de recherche.
 1. Sélectionnez **BIC Cloud Design** dans le panneau des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-bic-cloud-design"></a>Configurer et tester l’authentification unique Azure AD pour BIC Cloud Design
 
 Configurez et testez l’authentification unique (SSO) Azure AD avec BIC Cloud Design à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique (SSO) fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans BIC Cloud Design.
@@ -61,10 +60,10 @@ Configurez et testez l’authentification unique (SSO) Azure AD avec BIC Cloud
 Pour configurer et tester l’authentification unique Azure AD avec BIC Cloud Design, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique (SSO) BIC Cloud Design](#configure-bic-cloud-design-sso)** pour configurer les paramètres d’authentification unique côté application.
-    * **[Créer un utilisateur de test BIC Cloud Design](#create-bic-cloud-design-test-user)** pour avoir, dans BIC Cloud Design, un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
+    1. **[Créer un utilisateur de test BIC Cloud Design](#create-bic-cloud-design-test-user)** pour avoir, dans BIC Cloud Design, un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -89,15 +88,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     c. Une fois le fichier de métadonnées correctement chargé, la valeur **Identificateur** est automatiquement renseignée dans la section Configuration SAML de base.
 
-    ![Informations d’authentification unique dans Domaine et URL BIC Cloud Design](common/sp-identifier.png)
-
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
 
-    ```https
-    https://<customer-specific-name/tenant>.biccloud.com
-    https://<customer-specific-name/tenant>.biccloud.de
-    ```
-
+    | URL de connexion |
+    |-----|
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.com` |
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.de` |
+    
     > [!Note]
     > Si la valeur **Identificateur** n’est pas automatiquement renseignée, renseignez-la manuellement. La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique BIC Cloud Design](mailto:bicsupport@gbtec.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
@@ -160,7 +157,6 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 * Accédez directement à l’URL de connexion BIC Cloud Design pour lancer le flux de connexion à partir de là.
 
 * Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette BIC Cloud Design dans Mes applications vous redirige vers l’URL de connexion BIC Cloud Design. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

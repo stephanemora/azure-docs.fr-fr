@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e58028495da409df00db8e25adf68945a008bc9e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 1c5fd2416c37743dc48544da4bcfd23fc6928cdd
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228297"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539001"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Qu’est-ce que le service Azure IoT Hub Device Provisioning ?
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui autorise un provisionnement sans contact, juste-à-temps sur le hub IoT approprié et sans aucune intervention humaine. DPS permet de provisionner plusieurs millions d’appareils de manière sécurisée et scalable.
@@ -110,13 +110,13 @@ DPS est disponible dans de nombreuses régions. La liste des régions existantes
 ## <a name="availability"></a>Disponibilité
 Le contrat de niveau de service (SLA) pour DPS offre une disponibilité de 99,9 %, et vous pouvez [lire le contrat SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-## <a name="quotas"></a>Quotas
+## <a name="quotas-and-limits"></a>Quotas et limites
 Chaque abonnement Azure a des limites de quota par défaut qui peuvent impacter l’étendue de votre solution IoT. La limite actuelle par abonnement est de 10 services Device Provisioning par abonnement.
+
+Pour plus d’informations sur les limites de quota, consultez [Limites du service d’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-Pour plus d’informations sur les limites de quota :
-* [Limites du service d’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Composants Azure connexes
 DPS automatise le provisionnement d’appareils avec Azure IoT Hub. Découvrez plus d’informations sur [IoT Hub](../iot-hub/index.yml).

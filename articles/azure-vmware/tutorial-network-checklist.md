@@ -2,13 +2,13 @@
 title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez la configuration réseau requise pour la connectivité réseau et les ports réseau dans Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 06/08/2021
-ms.openlocfilehash: 5719ec1a2495c6a225c35ec46cdf19506a10ba6f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 42400011d1dab9b1e5d869a5d96255cf67ea632c
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017268"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113640565"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -23,10 +23,10 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > * Considérations relatives à DHCP et DNS dans Azure VMware Solution
 
 ## <a name="prerequisite"></a>Prérequis
-Vérifiez que toutes les passerelles, dont le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des ASN publics à 4 octets pour publier les routes.
+Vérifiez que toutes les passerelles, y compris le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des numéros de système autonome (ASN) publics à 4 octets pour publier les routes.
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Éléments à prendre en considération pour le réseau virtuel et le circuit ExpressRoute
-Quand vous créez une connexion de réseau virtuel dans votre abonnement, le circuit ExpressRoute s’établit par peering et utilise la clé d’autorisation et l’ID de peering que vous demandez sur le portail Azure. Le Peering est une connexion privée de type un-à-un entre votre cloud privé et le réseau virtuel.
+Quand vous créez une connexion de réseau virtuel dans votre abonnement, le circuit ExpressRoute s’établit par Peering et utilise la clé d’autorisation et l’ID de Peering que vous demandez sur le portail Azure. Le Peering est une connexion privée de type un-à-un entre votre cloud privé et le réseau virtuel.
 
 > [!NOTE] 
 > Le circuit ExpressRoute ne fait pas partie d’un déploiement de cloud privé. Le circuit ExpressRoute local dépasse le cadre de ce document. Si vous avez besoin d’une connexion locale à votre cloud privé, vous pouvez utiliser l’un de vos circuits ExpressRoute existants ou en acheter un dans le portail Azure.
@@ -34,6 +34,9 @@ Quand vous créez une connexion de réseau virtuel dans votre abonnement, le cir
 Lors du déploiement d’un cloud privé, vous recevez des adresses IP pour vCenter et NSX-T Manager. Pour accéder à ces interfaces de gestion, vous devez créer des ressources supplémentaires dans le réseau virtuel de votre abonnement. Les procédures de création de ces ressources et d’établissement de [Peering privé ExpressRoute](tutorial-expressroute-global-reach-private-cloud.md) sont accessibles dans les tutoriels.
 
 La mise en réseau logique du cloud privé inclut un environnement NSX-T pré-approvisionné. Une passerelle de niveau 0 et une passerelle de niveau 1 sont pré-approvisionnées pour vous. Vous pouvez créer un segment et l’attacher à la passerelle de niveau 1 existante ou à une nouvelle passerelle de niveau 1 que vous définissez. Les composants de réseau logique NSX-T fournissent une connectivité Est-Ouest entre les charges de travail et une connectivité Nord-Sud aux services Internet et Azure.
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ## <a name="routing-and-subnet-considerations"></a>Éléments à prendre en considération en matière de routage et de sous-réseaux
 Le cloud privé Azure VMware Solution est connecté à votre réseau virtuel Azure au moyen d’une connexion Azure ExpressRoute. Cette connexion à bande passante élevée et à faible latence vous permet d’accéder aux services qui s’exécutent dans votre abonnement Azure à partir de votre environnement cloud privé. Le routage est basé sur le protocole BGP (Border Gateway Protocol), automatiquement provisionné et activé par défaut pour chaque déploiement de cloud privé. 

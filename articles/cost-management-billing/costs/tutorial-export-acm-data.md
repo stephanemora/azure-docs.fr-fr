@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/06/2021
+ms.date: 07/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f9afe0b7c27fb2199f9bdcd1fa5edbe4da01602
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517637"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708636"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -247,7 +247,7 @@ Chaque exportation crée un fichier, ce qui signifie que les exportations antér
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Création d’une exportation pour plusieurs abonnements
 
-Si vous possédez un Accord Entreprise, vous pouvez utiliser un groupe d’administration pour agréger les informations sur les coûts d’abonnement dans un seul conteneur. Vous pouvez ensuite exporter les données de gestion des coûts pour le groupe d’administration.
+Si vous possédez un Accord Entreprise, vous pouvez utiliser un groupe d’administration pour agréger les informations sur les coûts d’abonnement dans un seul conteneur. Vous pouvez ensuite exporter les données de gestion des coûts pour le groupe d’administration. Les exportations pour les groupes d’administration prennent uniquement en charge les coûts réels.
 
 Les exportations pour les groupes d’administration d’autres types d’abonnement ne sont pas prises en charge.
 

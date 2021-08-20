@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 573e4c9d8db3f07f223826ab648f2ef57e1d9c58
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5a73b98f31fb7c2f8979f977138ca7f836fe5a34
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766314"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221801"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ az login
 Utilisez la commande Azure CLI [az role assignment create](/cli/azure/role/assignment) pour permettre à Key Vault d’accéder à votre compte de stockage. Fournissez à la commande les valeurs de paramètre suivantes :
 
 - `--role`: Transmettez le rôle Azure « Rôle de service d’opérateur de clé de compte de stockage ». Ce rôle limite l’étendue d’accès à votre compte de stockage. Pour un type de compte classique, transmettez « Rôle de service d’opérateur de clé de compte de stockage classique » à la place.
-- `--assignee`: Transmettez la valeur « https://vault.azure.net  », qui est l’URL de Key Vault dans le cloud public Azure. (Pour le cloud Azure Government, utilisez « --asingee-object-id » à la place, consultez [ID d’application du principal du service](#service-principal-application-id).)
+- `--assignee`: Transmettez la valeur « https://vault.azure.net  », qui est l’URL de Key Vault dans le cloud public Azure. (Pour le cloud Azure Government, utilisez « --assignee-object-id » à la place. Voir[ID d’application du principal de service](#service-principal-application-id).)
 - `--scope`: Transmettez l’ID de ressource de votre compte de stockage, qui se présente sous la forme `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Pour trouver votre ID d’abonnement, utilisez la commande Azure CLI [az account list](/cli/azure/account?#az_account_list) ; pour trouver le nom de votre compte de stockage et le groupe de ressources du compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?#az_storage_account_list).
 
 ```azurecli-interactive

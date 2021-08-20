@@ -1,21 +1,21 @@
 ---
 title: Présentation d’Azure Files | Microsoft Docs
-description: Vue d’ensemble d’Azure Files, un service qui vous permet de créer et d’utiliser les partages de fichiers réseau dans le cloud à l’aide du protocole SMB standard du secteur.
+description: Vue d’ensemble d’Azure Files, un service qui vous permet de créer et d’utiliser les partages de fichiers réseau dans le cloud à l’aide des protocoles SMB ou NFS.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7279c5578d969db9178ce85734e3a43f9eccdf8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c47d68dbaef7cbd154a0ac9af7ad582c1e94b640
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780044"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114673952"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
-Azure Files offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard ou le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard. Les partages de fichiers Azure peuvent être montés simultanément par des déploiements dans le cloud ou en local. Les partages de fichiers SMB Azure Files sont accessibles à partir des clients Windows, Linux et macOS. Les partages de fichiers NFS Azure Files sont accessibles à partir des clients Linux ou macOS. De plus, les partages de fichiers SMB Azure Files peuvent être mis en cache sur les serveurs Windows avec Azure File Sync, pour un accès rapide à proximité de l’endroit où les données sont utilisées.
+Azure Files offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard ou le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard. Les partages de fichiers Azure Files peuvent être montés simultanément par des déploiements dans le cloud ou en local. Les partages de fichiers Azure via SMB sont accessibles à partir des clients Windows, Linux et macOS. Les partages Azure Files via NFS sont accessibles à partir des clients Linux ou macOS. En outre, les partages de fichiers Azure via SMB peuvent être mis en cache sur les serveurs Windows à l’aide d’[Azure File Sync](../file-sync/file-sync-introduction.md) pour un accès rapide à proximité de l’endroit où les données sont utilisées.
 
 Voici quelques vidéos sur les cas d’utilisation courants d’Azure Files :
 * [Remplacer votre serveur de fichiers par un partage de fichiers Azure serverless](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
@@ -25,7 +25,7 @@ Voici quelques vidéos sur les cas d’utilisation courants d’Azure Files :
 Les partages de fichiers Azure peuvent être utilisés pour :
 
 * **Remplacer ou complémenter les serveurs de fichiers locaux** :  
-    Azure Files peut être utilisé pour remplacer complètement ou compléter les serveurs de fichiers locaux traditionnels ou les périphériques NAS. Les systèmes d’exploitation courants tels que Windows, Mac OS et Linux peuvent monter directement des partages Azure Files, n’importe où dans le monde. Les partages de fichiers SMB Azure Files peuvent également être répliqués avec Azure File Sync sur des serveurs Windows, localement ou dans le cloud, pour une mise en cache performante et distribuée des données là où elles sont utilisées. Avec la mise à disposition récente de l’[authentification AD pour Azure Files](storage-files-active-directory-overview.md), les partages de fichiers SMB Azure Files peuvent continuer à fonctionner avec AD, hébergé localement, pour le contrôle d’accès. 
+    Azure Files peut être utilisé pour remplacer complètement ou compléter les serveurs de fichiers locaux traditionnels ou les périphériques NAS. Les systèmes d’exploitation courants tels que Windows, Mac OS et Linux peuvent monter directement des partages Azure Files, n’importe où dans le monde. Les partages de fichiers Azure via SMB peuvent également être répliqués à l’aide d’Azure File Sync vers des serveurs Windows, localement ou dans le cloud, pour une mise en cache performante et distribuée des données là où elles sont utilisées. Avec la mise à disposition récente de l’[authentification AD pour Azure Files](storage-files-active-directory-overview.md), les partages de fichiers Azure via SMB peuvent continuer à fonctionner avec AD, hébergé localement, pour le contrôle d’accès. 
 
 * **Migration « lift-and-shift » des applications** :  
     Azure Files facilite le passage dans le cloud des applications qui exigent un partage de fichiers pour stocker les données utilisateur ou l’application de fichier. Azure Files permet une transition classique, où l’application et ses données sont déplacées vers Azure, ainsi qu’une transition hybride, où les données d’application sont déplacées vers Azure Files et l’application s’exécute toujours en local. 
@@ -51,9 +51,9 @@ Les partages de fichiers Azure peuvent être utilisés pour :
 * **Programmabilité familière**. Les applications exécutées dans Azure peuvent accéder aux données dans le partage via les [API d’E/S du système](/dotnet/api/system.io.file) de fichier. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. En plus des API d’E/S du système, vous pouvez utiliser les [bibliothèques de client de stockage Azure](/previous-versions/azure/dn261237(v=azure.100)) ou l’[API REST de stockage Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Découvrir les protocoles de partage de fichiers disponibles](storage-files-compare-protocols.md)
+* [Planifier un déploiement Azure Files](storage-files-planning.md)
 * [Création d’un partage de fichiers Azure](storage-how-to-create-file-share.md)
 * [Connecter et monter un partage SMB sur Windows](storage-how-to-use-files-windows.md)
 * [Connecter et monter un partage SMB sur Linux](storage-how-to-use-files-linux.md)
 * [Connecter et monter un partage SMB sur macOS](storage-how-to-use-files-mac.md)
-* [Guide pratique pour créer un partage NFS](storage-files-how-to-create-nfs-shares.md)
+* [Connecter et monter un partage NFS sur Linux](storage-files-how-to-mount-nfs-shares.md)

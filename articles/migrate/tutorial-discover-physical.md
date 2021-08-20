@@ -1,18 +1,18 @@
 ---
 title: Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 description: Apprenez à découvrir des serveurs physiques locaux avec l’outil de découverte et d’évaluation d’Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 7ff8a7739c0018d415ad503e888d63d04e641153
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0878911bdd3caa2202ef993142aa89e4eabfe33c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751200"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464839"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -79,11 +79,42 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
 Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs physiques.
 
-- Pour les **serveurs Windows**, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
-    > [!Note]
-    > Pour Windows Server 2008 et 2008 R2, vérifiez que WMF 3.0 est installé sur les serveurs et que le compte de domaine/local utilisé pour accéder aux serveurs a été ajouté aux groupes suivants : Utilisateurs de l'Analyseur de performances, Utilisateurs du journal des performances et WinRMRemoteWMIUsers.
+**Serveurs Windows**
 
-- Pour les **serveurs Linux**, vous devez disposer d’un compte racine sur les serveurs Linux que vous voulez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
+- Pour les serveurs Windows, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. 
+- Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances. 
+- Si le groupe d’utilisateurs Gestion à distance n’est pas présent, ajoutez un compte d’utilisateur au groupe **WinRMRemoteWMIUsers_** .
+- Le compte a besoin de ces autorisations pour que l’appliance puisse créer une connexion CIM avec le serveur et extraire les métadonnées de configuration et de performance requises des classes WMI répertoriées ici.
+- Dans certains cas, l’ajout du compte à ces groupes peut ne pas renvoyer les données requises à partir des classes WMI, car le compte peut être filtré par le [Contrôle de compte d’utilisateur](/windows/win32/wmisdk/user-account-control-and-wmi). Pour surmonter le filtrage du Contrôle de compte d’utilisateur, le compte d’utilisateur doit disposer des autorisations nécessaires sur l’espace de noms CIMV2 et ses sous-espaces de noms sur le serveur cible. Vous pouvez suivre les étapes [ici](troubleshoot-appliance.md) pour activer les autorisations requises.
+
+    > [!Note]
+    > Pour Windows Server 2008 et 2008 R2, assurez-vous que WMF 3.0 est installé sur les serveurs.
+
+**Serveurs Linux**
+
+- Vous devez disposer d’un compte racine sur les serveurs que vous souhaitez découvrir. Vous pouvez également fournir un compte d’utilisateur avec des autorisations sudo.
+- La prise en charge de l’ajout d’un compte d’utilisateur avec accès sudo est fournie par défaut avec le nouveau script d’installation d’appliances téléchargé à partir du portail après le 20 juillet 2021.
+- Pour les appliances plus anciennes, vous pouvez activer la capacité en procédant comme suit :
+    1. Sur le serveur exécutant l’appliance, ouvrez l’Éditeur du Registre.
+    1. Accédez à HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Créez une clé de Registre « isSudo » avec une valeur DWORD de 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Capture d’écran montrant comment activer la prise en charge de sudo.":::
+
+- Pour découvrir les métadonnées de configuration et de performances du serveur cible, vous devez activer l’accès sudo pour les commandes répertoriées [ici](migrate-appliance.md#linux-server-metadata). Assurez-vous d’avoir activé « NOPASSWD » pour que le compte exécute les commandes requises sans demander un mot de passe à chaque fois que la commande sudo est appelée.
+- Les distributions de système d’exploitation Linux suivantes sont prises en charge pour la découverte par Azure Migrate à l’aide d’un compte avec accès sudo :
+
+    Système d’exploitation | Versions 
+    --- | ---
+    Red Hat Enterprise Linux | 6, 7, 8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04, 16.04, 18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- Si vous ne pouvez pas fournir de compte racine ni de compte d’utilisateur avec un accès sudo, vous pouvez définir la clé de Registre « isSudo » sur la valeur « 0 » dans le registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance et fournir un compte non racine avec les capacités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**
 --- | --- |
@@ -91,7 +122,6 @@ setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEA
 setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Collecter les données de performances du disque
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Collecter le numéro de série du BIOS
 chmod a+r /sys/class/dmi/id/product_uuid | Collecter le GUID du BIOS
-
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
@@ -122,7 +152,7 @@ Pour configurer l’appliance, vous devez :
 1. Fournissez un nom d’appliance et générez une clé de projet sur le portail.
 2. Télécharger un fichier compressé avec le script du programme d’installation Azure Migrate à partir du portail Azure.
 3. Extraire le contenu du fichier compressé. Lancer la console PowerShell avec des privilèges administratifs.
-4. Exécuter le script PowerShell pour lancer l’application web de l’appliance.
+4. Exécuter le script PowerShell pour lancer le gestionnaire de configuration de l’appliance.
 5. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet en utilisant la clé de projet.
 
 ### <a name="1-generate-the-project-key"></a>1. Générer la clé de projet
@@ -133,6 +163,8 @@ Pour configurer l’appliance, vous devez :
 1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des serveurs pendant la création de ressources.
 1. Une fois les ressources Azure créées, une **clé de projet** est générée.
 1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
+
+  [ ![Sélections pour la génération de la clé.](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
 
 ### <a name="2-download-the-installer-script"></a>2. Télécharger le script du programme d’installation
 
@@ -145,50 +177,45 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 1. Sur le serveur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation du cloud public : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Exemple d’utilisation du cloud du secteur public : ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Vérifiez les toutes dernières versions de l’appliance et les valeurs de hachage :
-    - Pour le cloud public :
+    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Vérifiez la dernière version de l’appliance et la valeur de hachage :
 
-        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
-        --- | --- | ---
-        Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
+    **Télécharger** | **Valeur de hachage**
+    --- | ---
+    [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
-    - Pour Azure Government :
+> [!NOTE]
+> Le même script peut être utilisé pour configurer une appliance physique pour un cloud public Azure ou un cloud Azure Government avec une connectivité de point de terminaison public ou privé.
 
-        **Scénario** | **Téléchargement** _ | _ *Valeur de hachage**
-        --- | --- | ---
-        Physique (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
- 
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
-Le script du programme d’installation effectue les opérations suivantes :
-
-- Installe des agents et une application web pour la découverte et l’évaluation des serveurs physiques.
-- Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS.
-- Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
-- Crée les fichiers suivants sous le chemin :
-    - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
-    - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
-
-Exécutez le script comme suit :
 
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
 
-    - Pour le cloud public : 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Pour Azure Government : 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    Une fois son exécution terminé, le script lance l’application web de l’appliance.
+5. Sélectionnez parmi les options de scénario, de cloud et de connectivité pour déployer une appliance avec la configuration souhaitée. Par exemple, la sélection présentée ci-dessous configure une appliance pour découvrir et évaluer des **serveurs physiques** _(ou des serveurs qui s’exécutent sur d’autres clouds comme AWS, GCP, Xen, etc.)_ dans un projet Azure Migrate avec une **connectivité par défaut _(point de terminaison public)_** sur le **cloud public Azure**.
 
-Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour les résoudre.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Capture d’écran montrant comment configurer l’appliance avec la configuration souhaitée" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+
+6. Le script du programme d’installation effectue les opérations suivantes :
+
+ - Installe les agents et une application web.
+ - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
+ - Télécharge et installe un module réinscriptible IIS.
+ - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
+ - Crée les fichiers suivants sous le chemin :
+    - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
+    - **Fichiers journaux** : %Programdata%\Microsoft Azure\Logs
+
+Une fois que le script a été exécuté avec succès, le gestionnaire de configuration de l’appliance est lancé automatiquement.
+
+> [!NOTE]
+> Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour les résoudre.
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 

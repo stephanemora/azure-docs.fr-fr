@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 32f28a6fa056819081804a3ccb919436c3f50bae
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 268f248c879d1a6872713159bfb1aa44879d21ad
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112039894"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730380"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -44,7 +44,7 @@ Les distributions Linux suivantes sont prises en charge pour les architectures 
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04 (jusqu’en septembre), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > Des architectures supplémentaires sont prises en charge par le kit SDK Speech (mais pas par l’interface CLI de Speech). Pour plus d’informations, consultez [À propos du kit SDK Speech](../speech-sdk.md).

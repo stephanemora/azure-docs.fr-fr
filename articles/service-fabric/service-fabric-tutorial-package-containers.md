@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous découvrez comment générer une définition
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 611409b7588f231bb09c3fe57ef4fc29199e0367
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92738851"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202487"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
@@ -83,7 +83,7 @@ Pour ajouter un autre service conteneur à une application déjà créée à l�
 1. Changez le répertoire d’un niveau jusqu’au répertoire **TestContainer**, par exemple *./TestContainer*
 2. Exécutez `yo azuresfcontainer:AddService`
 3. Nommez le service « azurevoteback ».
-4. Indiquez le chemin de l’image conteneur pour Redis : « alpine:redis »
+4. Indiquez le chemin de l’image conteneur pour Redis : « redis:alpine ».
 5. Appuyez sur Entrée pour laisser la section Commands vide
 6. Spécifiez un nombre d’instances de « 1 ».
 
@@ -91,7 +91,7 @@ Les entrées pour l’ajout du service utilisé sont toutes affichées :
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -270,7 +270,7 @@ Utilisez le script d’installation fourni dans le répertoire **TestContainer**
 ./install.sh
 ```
 
-Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
+Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Développez le nœud Applications et constatez qu’il existe une entrée pour votre type d’application, et une entrée pour l’instance.
 
 ![Service Fabric Explorer][sfx]
 
@@ -375,7 +375,6 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

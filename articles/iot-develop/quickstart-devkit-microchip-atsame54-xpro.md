@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/08/2021
-ms.openlocfilehash: ee3c74e9b1bf1edcfa039703de92e899562ab927
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9611f80c6895387e71cd6387736cb1445e6b1542
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903219"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575305"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>Démarrage rapide : connecter un kit d’évaluation Microchip ATSAME54-XPro à IoT Central
 
@@ -44,11 +44,11 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Pour configurer votre environnement de développement, commencez par cloner un dépôt GitHub contenant toutes les ressources dont vous avez besoin pour le guide de démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
+Pour configurer votre environnement de développement, commencez par cloner un dépôt GitHub contenant toutes les ressources dont vous avez besoin pour le démarrage rapide. Ensuite, vous installez un ensemble d’outils de programmation.
 
-### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le dépôt pour le guide de démarrage rapide
+### <a name="clone-the-repo-for-the-quickstart"></a>Cloner le dépôt pour le démarrage rapide
 
-Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce dépôt dans le cadre d’un autre guide de démarrage rapide, il n’est pas nécessaire de recommencer.
+Clonez le référentiel suivant pour télécharger tous les exemples de code d’appareil, les scripts d’installation et les versions hors connexion de la documentation. Si vous avez déjà cloné ce dépôt dans le cadre d’un autre démarrage rapide, vous n’avez pas besoin de le refaire.
 
 Pour cloner le référentiel, exécutez la commande suivante :
 
@@ -58,7 +58,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### <a name="install-the-tools"></a>Installer les outils
 
-Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans le cadre d’un autre guide de démarrage rapide d’appareil embarqué, vous n’avez pas besoin de le refaire.
+Le référentiel cloné contient un script d’installation qui installe et configure les outils requis. Si vous avez installé ces outils dans le cadre d’un autre démarrage rapide d’appareil intégré, vous n’avez pas besoin de le refaire.
 
 > [!NOTE]
 > Le script d’installation installe les outils suivants :
@@ -72,7 +72,7 @@ Pour installer les outils :
 
     *getting-started\tools\get-toolchain.bat*
 
-1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes du guide de démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
+1. Après l’installation, ouvrez une nouvelle fenêtre de console pour identifier les modifications de configuration apportées par le script d’installation. Utilisez cette console pour accomplir les tâches de programmation restantes décrites dans ce démarrage rapide. Vous pouvez utiliser Windows CMD, PowerShell ou Git Bash pour Windows.
 1. Exécutez le code suivant pour vérifier que CMake version 3.14 ou ultérieure est installé.
 
     ```shell
@@ -106,7 +106,9 @@ Pour connecter le Microchip E54 à Azure, vous allez modifier un fichier de con
 
 ### <a name="connect-the-device"></a>Connecter l’appareil
 
-1. Sur le Microchip E54, localisez le bouton **Reset**, le port **Ethernet** et le port Micro USB qui s’appelle **Debug USB**.
+1. Sur le Microchip E54, localisez le bouton **Reset**, le port **Ethernet** et le port Micro USB qui s’appelle **Debug USB**. Chaque composant est mis en évidence dans l’image suivante :
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png" alt-text="Localiser les composants clés sur le tableau du kit d’évaluation du Microchip E54":::
 
 1. Branchez le câble Micro USB au port **Debug USB** du Microchip E54, puis branchez-le à votre ordinateur.
     > [!NOTE]
@@ -118,7 +120,10 @@ Pour connecter le Microchip E54 à Azure, vous allez modifier un fichier de con
 
 Si vous avez le capteur Weather Click et l’adaptateur mikroBUS Xplained Pro, suivez les étapes de cette section. Sinon, passez à [Générer l’image](#build-the-image). Vous pouvez suivre ce guide de démarrage rapide même si vous n’avez pas de capteur. L’exemple de code pour l’appareil retourne des données simulées si aucun capteur réel n’est présent.
 
-1. Si vous avez le capteur Weather Click et l’adaptateur mikroBUS Xplained Pro, installez-les sur le Microchip E54.
+1. Si vous avez le capteur Weather Click et l’adaptateur mikroBUS Xplained Pro, installez-les sur le Microchip E54 comme illustré sur la photo suivante :
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Installer le capteur Weather Click et l’adaptateur mikroBUS Xplained Pro sur le Microchip E54":::
+
 1. Rouvrez le fichier de configuration que vous avez modifié précédemment :
 
     *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
@@ -167,7 +172,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
 
 1. Démarrez **Termite**.    
     > [!TIP]
-    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flash, consultez [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) pour suivre d’autres procédures.
+    > Si vous rencontrez des problèmes lors de l’initialisation ou de la connexion de votre appareil après le flash, consultez [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) pour suivre d’autres procédures.
 1. Sélectionnez **Paramètres**.
 1. Dans la boîte de dialogue **Paramètres du port série**, vérifiez les paramètres suivants et mettez à jour si nécessaire :
     * **Vitesse (en bauds)**  : 115 200
@@ -262,13 +267,13 @@ Sélectionnez l’onglet **À propos de** sur la page de l’appareil.
 
 ## <a name="troubleshoot-and-debug"></a>Résoudre les problèmes et déboguer
 
-Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+Si vous rencontrez des problèmes pour générer le code d’appareil, flasher l’appareil ou le connecter, consultez [Résolution des problèmes](troubleshoot-embedded-device-quickstarts.md).
 
 Pour déboguer l’application, consultez [Débogage avec Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin des ressources Azure créées dans ce guide de démarrage rapide, vous pouvez les supprimer du portail IoT Central.
+Si vous n’avez plus besoin des ressources Azure créées dans le cadre de ce démarrage rapide, vous pouvez les supprimer du portail IoT Central.
 
 Pour supprimer la totalité de l’exemple d’application Azure IoT Central et tous ses appareils et ressources :
 1. Sélectionnez **Administration** > **Votre application**.

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: effab14316c4a959f22467b9cc50984b6571da55
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f01b75cac9fba9e0975882560920f6c6ceee7dc7
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872152"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136640"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework
 
@@ -51,9 +51,9 @@ Remplacez `<access-key>` par la clé primaire de votre cache.
 
 ## <a name="create-a-console-app"></a>Créer une application console
 
-Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
+Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Tapez un **Nom de projet**, vérifiez que **.NET Framework 4.6.1** ou une version ultérieure est sélectionné, puis cliquez sur **Créer** pour créer une application console.
+Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Saisissez un **nom de projet**, vérifiez que **.NET Framework 4.6.1** ou une version ultérieure est sélectionné, puis sélectionnez **Créer** pour créer une application console.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -61,7 +61,7 @@ Sélectionnez **Application console (.NET Framework)** et **Suivant** pour confi
 
 Dans cette section, vous allez configurer l’application console pour utiliser le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) pour .NET.
 
-Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**, et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
+Dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**, puis exécutez la commande suivante à partir de la fenêtre de la console du gestionnaire de package.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -85,7 +85,7 @@ Dans Visual Studio, ouvrez votre fichier *App.config* et mettez-le à jour pour 
 </configuration>
 ```
 
-Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références** et cliquez sur **Ajouter une référence**. Ajoutez une référence à l’assembly **System.Configuration**.
+Dans Explorateur de solutions, cliquez avec le bouton droit sur **Références** et sélectionnez **Ajouter une référence**. Ajoutez une référence à l’assembly **System.Configuration**.
 
 Ajoutez les instructions `using` ci-après à *Program.cs* :
 
@@ -325,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-Le cache Azure pour Redis dispose d’un nombre configurable de bases de données (16 par défaut) pouvant être utilisées pour séparer de manière logique les données dans un cache Azure pour Redis. Le code se connecte à la base de données par défaut, DB 0. Pour plus d’informations, consultez les sections [What are Redis databases?](cache-development-faq.md#what-are-redis-databases) (Que sont les bases de données Redis ?) et [Configuration du serveur Redis par défaut](cache-configure.md#default-redis-server-configuration).
+Le cache Azure pour Redis dispose d’un nombre configurable de bases de données (16 par défaut) pouvant être utilisées pour séparer de manière logique les données dans un cache Azure pour Redis. Le code se connecte à la base de données par défaut, DB 0. Pour plus d’informations, consultez les sections [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) (Que sont les bases de données Redis ?) et [Configuration du serveur Redis par défaut](cache-configure.md#default-redis-server-configuration).
 
 Les éléments de cache peuvent être stockés et extraits en utilisant les méthodes `StringSet` et `StringGet`.
 
@@ -344,7 +344,7 @@ Le cache Azure pour Redis peut mettre en cache des objets .NET et des types de 
 
 Une méthode simple pour sérialiser des objets consiste à utiliser les méthodes de sérialisation `JsonConvert` dans [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) et à sérialiser vers et à partir de JSON. Dans cette section, vous allez ajouter un objet .NET dans le cache.
 
-Dans Visual Studio, cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**, et exécutez la commande suivante à partir de la fenêtre de la Console du Gestionnaire de package.
+Dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**, puis exécutez la commande suivante à partir de la fenêtre de la console du gestionnaire de package.
 
 ```powershell
 Install-Package Newtonsoft.Json
@@ -402,16 +402,16 @@ Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver le
 Sinon, si l’exemple d’application de démarrage rapide était votre dernière opération, vous pouvez supprimer les ressources Azure créées dans ce démarrage rapide afin d’éviter tout frais. 
 
 > [!IMPORTANT]
-> La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
+> La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l'hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement sur la gauche, au lieu de supprimer l'intégralité du groupe de ressources.
 >
 
-Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
+Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
 Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![DELETE](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
+Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources à confirmer, puis sélectionnez **Supprimer**.
 
 Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 

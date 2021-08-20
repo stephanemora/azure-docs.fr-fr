@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: 6e4be05d6b1c930c66c775d7b3c893e5bad4da7e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: eb7aba4367b7f8ce54141613e0d1f52ded1c26bb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714527"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284766"
 ---
 # <a name="what-is-image-analysis"></a>Présentation du service Analyse d'images
 
@@ -25,6 +25,9 @@ ms.locfileid: "109714527"
 Le service Analyse d'images de Vision par ordinateur peut extraire un large éventail de caractéristiques visuelles à partir de vos images. Par exemple, il peut déterminer si une image contient du contenu pour adultes, identifier des marques ou des objets spécifiques, ou trouver des visages humains.
 
 Vous pouvez utiliser le service Analyse d'images via un kit SDK de bibliothèque de client ou en appelant directement l'[REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005). Pour vous lancer, suivez le [guide de démarrage rapide](quickstarts-sdk/image-analysis-client-library.md).
+
+> [!div class="nextstepaction"]
+> [Prise en main](quickstarts-sdk/image-analysis-client-library.md)
 
 Cette documentation contient les types d’articles suivants :
 * Les [guides de démarrage rapide](./quickstarts-sdk/image-analysis-client-library.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
@@ -41,9 +44,15 @@ Vous pouvez analyser des images pour fournir des insights sur leurs caractérist
 
 Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des conseils pour clarifier le contexte de l’étiquette. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc. [Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)
 
+:::image type="content" source="Images/tagging.png" alt-text="Image d’un skateur avec étiquettes répertoriées à droite":::
+
+
 ### <a name="detect-objects"></a>Détecter des objets
 
 La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image. [Détecter des objets](concept-object-detection.md)
+
+:::image type="content" source="Images/detect-objects.png" alt-text="Image d’un bureau avec un rectangle autour d’un ordinateur portable":::
+
 
 ### <a name="detect-brands"></a>Détecter les marques
 
@@ -56,6 +65,8 @@ Identifier et catégoriser une image dans son ensemble en utilisant une [taxonom
 ### <a name="describe-an-image"></a>Décrire une image
 
 Générer une description de l’intégralité d’une image dans un langage lisible utilisant des phrases complètes. Les algorithmes du service Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas. [Décrire une image](concept-describing-images.md)
+
+:::image type="content" source="Images/description.png" alt-text="Image de vaches avec description simple à droite":::
 
 ### <a name="detect-faces"></a>Détecter des visages
 
@@ -73,15 +84,20 @@ Utiliser des modèles de domaine pour détecter et identifier le contenu spécif
 
 Analyser l’utilisation des couleurs dans une image. Le service Vision par ordinateur peut déterminer si une image est en noir et blanc ou en couleur. Pour les images en couleur, il peut également identifier les couleurs dominantes et d’accentuation. [Détecter le jeu de couleurs](concept-detecting-color-schemes.md)
 
+
+
 ### <a name="generate-a-thumbnail"></a>Générer une miniature
 
 Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun. [Générer une miniature](concept-generating-thumbnails.md)
+
+:::image type="content" source="Images/thumbnail-demo.png" alt-text="Image d’une personne sur un sommet, avec les versions rognées à droite":::
+
 
 ### <a name="get-the-area-of-interest"></a>Obtenir la zone d’intérêt
 
 Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Au lieu de rogner l’image et de générer une miniature, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région pour que l’application appelante puisse modifier l’image d’origine de la manière souhaitée. [Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)
 
-## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
+### <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 
 Vous pouvez utiliser Vision par ordinateur pour [détecter des contenus pour adultes](concept-detecting-adult-content.md) dans une image et retourner des scores de confiance pour différentes classifications. Le seuil de marquage du contenu peut être défini sur une échelle pour prendre en compte vos préférences.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d840d2ea518ede320990eb8da23b96129310bcbc
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6e470aaaad9879116460180b15f45b1419f51418
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430570"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201149"
 ---
 > [!NOTE]
 > Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers).
@@ -64,10 +64,10 @@ static async Task Main(string[] args)
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Les clients de numéro de téléphone peuvent être authentifiés à l’aide de la chaîne de connexion obtenue à partir d’une ressource Azure Communication dans le [portail Azure] [azure_portal].
+Les clients de numéro de téléphone peuvent être authentifiés à l’aide de la chaîne de connexion obtenue à partir d’une ressource Azure Communication Services dans le [portail Azure][azure_portal].
 
 ```csharp
-// Get a connection string to our Azure Communication resource.
+// Get a connection string to our Azure Communication Services resource.
 var connectionString = "<connection_string>";
 var client = new PhoneNumbersClient(connectionString);
 ```
@@ -75,7 +75,7 @@ var client = new PhoneNumbersClient(connectionString);
 Les clients de numéro de téléphone ont également la possibilité de s’authentifier à l’aide de l’authentification Azure Active Directory. Avec cette option, les variables d’environnement `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` et `AZURE_TENANT_ID` doivent être configurées pour l’authentification.
 
 ```csharp
-// Get an endpoint to our Azure Communication resource.
+// Get an endpoint to our Azure Communication Services resource.
 var endpoint = new Uri("<endpoint_url>");
 TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);

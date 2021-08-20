@@ -1,26 +1,24 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: inclure fichier
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 04f97e121317635ceeda764da8c75834c972ace8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 41a25c5b92bfc91379ecf9c869a6c1dbbb7c9680
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112042033"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201230"
 ---
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
-
-> [!NOTE]
-> Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
+## <a name="sample-code"></a>Exemple de code
+Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,9 +43,8 @@ Avant de commencer, assurez-vous de :
 Nous allons utiliser Gradle pour installer les dépendances nécessaires de Communication Services. À partir de la ligne de commande, accédez au répertoire racine du projet `ChatQuickstart`. Ouvrez le fichier build.gradle de l’application et ajoutez les dépendances suivantes à la cible `ChatQuickstart` :
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
-implementation 'com.azure.android:azure-core-http-okhttp:1.0.0-beta.5'
+implementation 'com.azure.android:azure-communication-common:1.0.1'
+implementation 'com.azure.android:azure-communication-chat:1.0.0'
 implementation 'org.slf4j:slf4j-log4j12:1.7.29'
 ```
 
@@ -76,7 +73,7 @@ Pour importer la bibliothèque dans votre projet à l’aide du système de gén
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.8</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -95,7 +92,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
-import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +106,7 @@ Copiez le code suivant dans la classe `MainActivity` du fichier `MainActivity.ja
     private String firstUserAccessToken = "<first_user_access_token>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.8";
+    private final String sdkVersion = "1.0.0";
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
@@ -165,17 +161,12 @@ Dans les étapes suivantes, nous allons remplacer les espaces réservés par un 
 Remplacez le commentaire `<CREATE A CHAT CLIENT>` par le code suivant (placez les instructions d’importation en haut du fichier) :
 
 ```java
-import com.azure.android.core.credential.AccessToken;
-import com.azure.android.core.http.okhttp.OkHttpAsyncClientProvider;
-import com.azure.android.core.http.policy.BearerTokenAuthenticationPolicy;
 import com.azure.android.core.http.policy.UserAgentPolicy;
 
 ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
     .endpoint(endpoint)
-    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
-        callback.onSuccess(new AccessToken(firstUserAccessToken, OffsetDateTime.now().plusDays(1))), "chat"))
+    .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
-    .httpClient(new OkHttpAsyncClientProvider().createInstance())
     .buildAsyncClient();
 
 ```
@@ -185,8 +176,8 @@ Les classes et interfaces suivantes gèrent quelques-unes des principales foncti
 
 | Nom                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient/ChatAsyncClient | Cette classe est nécessaire à la fonctionnalité de conversation (Chat). Vous l’instanciez avec vos informations d’abonnement et l’utilisez pour créer, obtenir et supprimer des threads. |
-| ChatThreadClient/ChatThreadAsyncClient | Cette classe est nécessaire à la fonctionnalité de fil de conversation (Chat Thread). Vous obtenez une instance via ChatClient et l’utilisez pour envoyer/recevoir/mettre à jour/supprimer des messages, ajouter/supprimer/obtenir des utilisateurs, envoyer des notifications de saisie et des accusés de lecture, souscrire à des événements de conversation. |
+| ChatClient/ChatAsyncClient | Cette classe est nécessaire à la fonctionnalité de conversation (Chat). Vous l’instanciez avec vos informations d’abonnement et l’utilisez pour créer, obtenir et supprimer des threads, ainsi que pour vous abonner à des événements de conversation. |
+| ChatThreadClient/ChatThreadAsyncClient | Cette classe est nécessaire à la fonctionnalité de fil de conversation (Chat Thread). Vous obtenez une instance via ChatClient et l’utilisez pour envoyer/recevoir/mettre à jour/supprimer des messages, ajouter/supprimer/obtenir des utilisateurs, envoyer des notifications de saisie et des accusés de lecture. |
 
 ## <a name="start-a-chat-thread"></a>Démarrer un fil de conversation
 
@@ -227,10 +218,8 @@ Maintenant que nous avons créé un thread de conversation, nous allons obtenir 
 ```
 ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
     .endpoint(endpoint)
-    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
-        callback.onSuccess(new AccessToken(firstUserAccessToken, OffsetDateTime.now().plusDays(1))), "chat"))
+    .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
-    .httpClient(new OkHttpAsyncClientProvider().createInstance())
     .chatThreadId(threadId)
     .buildAsyncClient();
 
@@ -260,32 +249,15 @@ chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getI
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
 Avec la signalisation en temps réel, vous pouvez vous abonner aux nouveaux messages entrants et mettre à jour en conséquence les messages actuellement en mémoire. Azure Communication Services prend en charge une [liste d’événements auxquels vous pouvez vous abonner](../../../concepts/chat/concepts.md#real-time-notifications).
 
-Mettez à jour le code du client de conversation pour ajouter `realtimeNotificationParams` :
-
-```java
-ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
-    .endpoint(endpoint)
-    .credentialPolicy(new BearerTokenAuthenticationPolicy((request, callback) ->
-        callback.onSuccess(new AccessToken(firstUserAccessToken, OffsetDateTime.now().plusDays(1))), "chat"))
-    .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
-    .httpClient(new OkHttpAsyncClientProvider().createInstance())
-    .realtimeNotificationParams(getApplicationContext(), firstUserAccessToken)
-    .buildAsyncClient();
-
-```
-
 Remplacez le commentaire `<RECEIVE CHAT MESSAGES>` par le code suivant (placez les instructions d’importation en haut du fichier) :
 
 ```java
-import com.azure.android.communication.chat.signaling.chatevents.BaseEvent;
-import com.azure.android.communication.chat.signaling.chatevents.ChatMessageReceivedEvent;
-import com.azure.android.communication.chat.signaling.properties.ChatEventId;
 
 // Start real time notification
-chatAsyncClient.startRealtimeNotifications();
+chatAsyncClient.startRealtimeNotifications(firstUserAccessToken, getApplicationContext());
 
 // Register a listener for chatMessageReceived event
-chatAsyncClient.on(ChatEventId.chatMessageReceived, "chatMessageReceived", (BaseEvent payload) -> {
+chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent payload) -> {
     ChatMessageReceivedEvent chatMessageReceivedEvent = (ChatMessageReceivedEvent) payload;
     // You code to handle chatMessageReceived event
     
@@ -298,13 +270,13 @@ chatAsyncClient.on(ChatEventId.chatMessageReceived, "chatMessageReceived", (Base
 > Pendant que nous travaillons à une solution, vous pouvez désactiver la fonctionnalité de notifications en temps réel en ajoutant les informations de dépendance suivantes dans le fichier build.gradle de l’application et en interrogeant à la place l’API GetMessages pour présenter les messages entrants aux utilisateurs. 
 > 
 > ```
-> implementation ("com.azure.android:azure-communication-chat:1.0.0-beta.8") {
+> implementation ("com.azure.android:azure-communication-chat:1.0.0") {
 >     exclude group: 'com.microsoft', module: 'trouter-client-android'
 > }
-> implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.9'
+> implementation 'com.azure.android:azure-communication-calling:1.0.0'
 > ```
 > 
-> Remarquez qu’ avec la mise à jour ci-dessus, si l’application tente d’agir sur l’API de notification comme `chatAsyncClient.startRealtimeNotifications()` ou `chatAsyncClient.on()`, une erreur d’exécution se produit.
+> Remarquez qu’ avec la mise à jour ci-dessus, si l’application tente d’agir sur l’API de notification comme `chatAsyncClient.startRealtimeNotifications()` ou `chatAsyncClient.addEventHandler()`, une erreur d’exécution se produit.
 
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
@@ -328,8 +300,8 @@ chatThreadAsyncClient.addParticipant(participant);
 Remplacez le commentaire `<LIST USERS>` par le code suivant (placez les instructions d’importation en haut du fichier) :
 
 ```java
-import com.azure.android.core.rest.PagedResponse;
-import com.azure.android.core.util.Context;
+import com.azure.android.core.rest.util.paging.PagedAsyncStream;
+import com.azure.android.core.util.RequestContext;
 
 // The maximum number of participants to be returned per page, optional.
 int maxPageSize = 10;
@@ -342,34 +314,12 @@ ListParticipantsOptions listParticipantsOptions = new ListParticipantsOptions()
     .setMaxPageSize(maxPageSize)
     .setSkip(skip);
 
-PagedResponse<ChatParticipant> getParticipantsFirstPageWithResponse =
-    chatThreadAsyncClient.getParticipantsFirstPageWithResponse(listParticipantsOptions, Context.NONE).get();
+PagedAsyncStream<ChatParticipant> participantsPagedAsyncStream =
+      chatThreadAsyncClient.listParticipants(listParticipantsOptions, RequestContext.NONE);
 
-for (ChatParticipant chatParticipant : getParticipantsFirstPageWithResponse.getValue()) {
+participantsPagedAsyncStream.forEach(chatParticipant -> {
     // You code to handle participant
-}
-
-listParticipantsNextPage(chatThreadAsyncClient, getParticipantsFirstPageWithResponse.getContinuationToken(), 2);
-
-```
-
-Insérez la méthode d’assistance suivante dans la classe `MainActivity` :
-
-```java
-void listParticipantsNextPage(ChatThreadAsyncClient chatThreadAsyncClient, String continuationToken, int pageNumber) {
-    if (continuationToken != null) {
-        try {
-            PagedResponse<ChatParticipant> nextPageWithResponse = chatThreadAsyncClient.getParticipantsNextPageWithResponse(continuationToken, Context.NONE).get();
-            for (ChatParticipant chatParticipant : nextPageWithResponse.getValue()) {
-                // You code to handle participant
-            }
-
-            listParticipantsNextPage(chatThreadAsyncClient, nextPageWithResponse.getContinuationToken(), ++pageNumber);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
+});
 
 ```
 
@@ -418,38 +368,14 @@ ListReadReceiptOptions listReadReceiptOptions = new ListReadReceiptOptions()
     .setMaxPageSize(maxPageSize)
     .setSkip(skip);
 
-PagedResponse<ChatMessageReadReceipt> listReadReceiptsFirstPageWithResponse =
-    chatThreadAsyncClient.getReadReceiptsFirstPageWithResponse(listReadReceiptOptions, Context.NONE).get();
+PagedAsyncStream<ChatMessageReadReceipt> readReceiptsPagedAsyncStream =
+      chatThreadAsyncClient.listReadReceipts(listReadReceiptOptions, RequestContext.NONE);
 
-for (ChatMessageReadReceipt readReceipt : listReadReceiptsFirstPageWithResponse.getValue()) {
+readReceiptsPagedAsyncStream.forEach(readReceipt -> {
     // You code to handle readReceipt
-}
-
-listReadReceiptsNextPage(chatThreadAsyncClient, listReadReceiptsFirstPageWithResponse.getContinuationToken(), 2);
+});
 
 ```
-
-Insérez la méthode d’assistance suivante dans la classe :
-```java
-void listReadReceiptsNextPage(ChatThreadAsyncClient chatThreadAsyncClient, String continuationToken, int pageNumber) {
-    if (continuationToken != null) {
-        try {
-            PagedResponse<ChatMessageReadReceipt> nextPageWithResponse =
-                    chatThreadAsyncClient.getReadReceiptsNextPageWithResponse(continuationToken, Context.NONE).get();
-                    
-            for (ChatMessageReadReceipt readReceipt : nextPageWithResponse.getValue()) {
-                // You code to handle readReceipt
-            }
-            
-            listParticipantsNextPage(chatThreadAsyncClient, nextPageWithResponse.getContinuationToken(), ++pageNumber);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-```
-
 
 ## <a name="run-the-code"></a>Exécuter le code
 

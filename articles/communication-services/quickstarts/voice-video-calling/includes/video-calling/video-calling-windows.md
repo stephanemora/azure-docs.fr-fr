@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 05d7ac0fc46ddbe279208e9d60fb9f039985ad06
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5fa934ea2dc29004057ffbd3bad7c5f7b5afe935
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560681"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593959"
 ---
 Ce démarrage rapide explique comment démarrer un appel vidéo à deux avec le Kit de développement logiciel (SDK) Appel d’Azure Communication Services pour Windows.
 
@@ -27,15 +27,15 @@ Dans Visual Studio, créez un projet avec le modèle **Application vide (Windows
 
 ### <a name="install-the-package"></a>Installer le package
 
-Cliquez avec le bouton droit sur votre projet, puis accédez à `Manage Nuget Packages` pour installer `Azure.Communication.Calling`. 
+Cliquez avec le bouton droit sur votre projet, puis accédez à `Manage Nuget Packages` pour installer `[Azure.Communication.Calling](https://www.nuget.org/packages/Azure.Communication.Calling)`. Assurez-vous que l’option Inclure les préversions est cochée et que la source du package provient de https://www.nuget.org/api/v2/. 
 
 ### <a name="request-access"></a>Demander l'accès
 
 Accédez à `Package.appxmanifest`, puis cliquez sur `Capabilities`.
 Cochez la case `Internet (Client & Server)` pour obtenir un accès entrant et sortant à Internet. Cochez la case `Microphone` pour accéder au flux audio du microphone. Cochez la case `WebCam` pour accéder à la caméra de l’appareil. 
 
-Ajoutez le code suivant à votre fichier `Package.appxmanifest`. 
-```
+Ajoutez le code suivant à votre `Package.appxmanifest` en cliquant avec le bouton droit et en sélectionnant Afficher le code. 
+```XML
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -63,25 +63,35 @@ Ouvrez le fichier `MainPage.xaml` de votre projet et remplacez le contenu par l�
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <StackPanel>
-        <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
-        <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
-        <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        <StackPanel>
+            <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
+            <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
+            <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
+            <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        </StackPanel>
     </StackPanel>
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-        <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
-        <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
-    </StackPanel>   
 </Page>
 ```
 
-Ouvrez le fichier `MainPage.xaml.cs` et remplacez le contenu par l’implémentation suivante : 
+Ouvrez `App.xaml.cs` (cliquez avec le bouton droit et sélectionnez Afficher le code) et ajoutez cette ligne en haut :
+```C#
+using CallingQuickstart;
+```
+
+Ouvrez `MainPage.xaml.cs` (cliquez avec le bouton droit et sélectionnez Afficher le code) et remplacez le contenu par l’implémentation suivante : 
 ```C#
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-using Azure.Communication;
+using Azure.WinRT.Communication;
 using Azure.Communication.Calling;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CallingQuickstart
 {
@@ -138,7 +148,11 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Initialisez une instance de `CallAgent` avec un jeton d’accès utilisateur qui nous permettra d’établir et de recevoir des appels. Pour accéder aux caméras de l’appareil, nous avons également besoin d’une instance du Gestionnaire de périphériques. 
+Pour initialiser un `CallAgent`, vous aurez besoin d’un jeton d’accès utilisateur. En général, ce jeton est généré à partir d’un service avec une authentification propre à l’application. Pour plus d’informations sur les jetons d’accès utilisateur, consultez le [guide des jetons d’accès utilisateur](../../../access-tokens.md). 
+
+Pour les besoins de ce guide de démarrage rapide, remplacez `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur généré pour votre ressource Azure Communication Services.
+
+Une fois que vous disposez d’un jeton, initialisez une instance `CallAgent` avec le jeton qui permettra d’établir et de recevoir des appels. Pour accéder aux caméras de l’appareil, nous avons également besoin d’une instance du Gestionnaire de périphériques. 
 
 ```C#
 private async void InitCallAgentAndDeviceManager()
@@ -226,7 +240,7 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
     AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
     acceptCallOptions.VideoOptions = new VideoOptions(localVideoStream);
 
-    call = await incomingcall.Accept(acceptCallOptions);
+    call = await incomingcall.AcceptAsync(acceptCallOptions);
 }
 ```
 
@@ -297,7 +311,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             });
             break;
         default:
-            System.Console.WriteLine(((Call)sender).State);
+            Debug.WriteLine(((Call)sender).State);
             break;
     }
 }
@@ -311,7 +325,7 @@ Terminez l’appel en cours quand l’utilisateur clique sur le bouton `Hang Up`
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
     var hangUpOptions = new HangUpOptions();
-    await call.HangUp(hangUpOptions);
+    await call.HangUpAsync(hangUpOptions);
 }
 ```
 
@@ -320,3 +334,5 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 Vous pouvez générer et exécuter le code sur Visual Studio. Notez que, pour les plateformes de solution, nous prenons en charge `ARM64`, `x64` et `x86`. 
 
 Vous pouvez passer un appel vidéo sortant en entrant un ID d’utilisateur dans le champ de texte, puis en cliquant sur le bouton `Start Call`. 
+
+Pour plus d’informations sur les identifiants utilisateur, consultez le guide [Jetons d’accès utilisateur](../../../access-tokens.md). 

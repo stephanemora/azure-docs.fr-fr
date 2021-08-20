@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: c5871704dd2b999bbb9033abc20f41099b53d000
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 2c7df8ee7ea6947165157e43f79ecca7afd8a118
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "111907276"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114447536"
 title: Azure App Configuration – Questions fréquentes (FAQ)
 summary: Cet article répond aux questions fréquentes sur Azure App Configuration.
 sections:
@@ -142,6 +142,12 @@ sections:
 
 
       Examinez le corps de la réponse 429 connaître pour la raison spécifique de l’échec de la requête.
+  - question: Pourquoi ne puis-je pas créer de magasin App Configuration portant le même nom que celui que je viens de supprimer ?
+    answer: >
+      Lorsqu’un magasin App Configuration de niveau standard est supprimé, le nom est réservé pendant trois jours après la suppression. Il est possible de recréer un magasin portant le même nom avant la fin de la période de réservation, mais il doit se trouver dans le même abonnement, le même groupe de ressources et la même région que le magasin d’origine. Si le groupe de ressources qui contenait le magasin a été supprimé, il faudra d’abord le recréer dans le même abonnement avant de recréer le magasin qu’il contenait.
+  - question: Comment puis-je restaurer un magasin App Configuration que j’ai supprimé par erreur ?
+    answer: >
+      Les magasins App Configuration de niveau standard peuvent être récupérés dans les trois jours suivant leur suppression. Pour récupérer un magasin App Configuration supprimé par erreur, contactez Support Microsoft.
   - question: Comment puis-je recevoir des annonces sur les nouvelles versions et d’autres informations relatives à App Configuration ?
     answer: >
       Abonnez-vous à notre [référentiel d’annonces GitHub](https://github.com/Azure/AppConfiguration-Announcements).

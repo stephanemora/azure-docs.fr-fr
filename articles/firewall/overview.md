@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: e87953217fe44fedc8d693a40a1f3ae942a06a39
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 0b5812b5a562b20d1e0224a038e3572767130333
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216366"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441216"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -27,14 +27,14 @@ Vous pouvez créer, appliquer et consigner des stratégies de connectivité rés
 
 Pour découvrir les fonctionnalités du Pare-feu Azure, consultez [Fonctionnalités du Pare-feu Azure](features.md).
 
-## <a name="azure-firewall-premium-preview"></a>Pare-feu Azure Premium - Préversion
+## <a name="azure-firewall-premium"></a>Pare-feu Azure Premium
 
-Pare-feu Azure Premium - Préversion est un pare-feu de nouvelle génération avec des fonctionnalités qui sont nécessaires pour les environnements hautement sensibles et réglementés. Ces fonctionnalités incluent l’inspection TLS, IDPS, le filtrage d’URL et les catégories web.
+Pare-feu Azure Premium est un pare-feu de nouvelle génération dont les capacités sont requises pour les environnements hautement sensibles et réglementés. Ces fonctionnalités incluent l’inspection TLS, IDPS, le filtrage d’URL et les catégories web.
 
-Pour plus d’informations sur les fonctionnalités du Pare-feu Azure Premium - Préversion, consultez [Fonctionnalités du Pare-feu Azure Premium - Préversion](premium-features.md).
+Pour plus d’informations sur les fonctionnalités de Pare-feu Azure Premium, consultez [Fonctionnalités de Pare-feu Azure Premium](premium-features.md).
 
 
-Pour voir le Pare-feu Premium - Préversion est configuré dans le portail Azure, consultez [Pare-feu Azure Premium - Préversion dans le portail Azure](premium-portal.md).
+Pour voir la façon dont Pare-feu Azure Premium est configuré dans le portail Azure, consultez [Pare-feu Azure Premium dans le portail Azure](premium-portal.md).
 
 
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA
@@ -81,10 +81,11 @@ Les problèmes connus du service Pare-feu Azure sont les suivants :
 |La suppression de RuleCollectionGroups à l’aide de modèles ARM n’est pas prise en charge.|La suppression d’un RuleCollectionGroup à l’aide de modèles ARM n’est pas prise en charge et entraîne un échec.|Cette opération n’est pas prise en charge.|
 |La règle DNAT permettant de *tout* (*) autoriser renvoie le trafic SNAT.|Si une règle DNAT autorise *tout* (*) en tant qu’adresse IP source, une règle de réseau implicite met en correspondance le traffic VNet-VNet et soumet systématiquement le trafic à cette règle SNAT.|Il s’agit d’une limitation actuelle.|
 |L’ajout d’une règle DNAT à un hub virtuel sécurisé à l’aide d’un fournisseur de sécurité n’est pas pris en charge.|Cela se traduit par un itinéraire asynchrone pour le trafic DNAT de retour, qui accède au fournisseur de sécurité.|Non pris en charge.|
-
+| Une erreur s’est produite lors de la création de plus de 2000 collections de règles. | Le nombre maximal de collections de règles NAT/Application ou Réseau est de 2000 (limite de Resource Manager). | Il s’agit d’une limitation actuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : Créer un pare-feu Azure et une stratégie de pare-feu - Modèle ARM](../firewall-manager/quick-firewall-policy.md)
 - [Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle ARM](deploy-template.md)
 - [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)
+- [Module Learn : Introduction à Pare-feu Azure](/learn/modules/introduction-azure-firewall/)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 5c68453f7f7d638877683920a17022cf3d29bdc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9bba6c33dafb04be0cec0eb74be3b7211bc1b0ed
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597808"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466427"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Tutoriel : Intégrer Expensify avec Azure Active Directory
 
@@ -78,11 +78,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www.expensify.com/authentication/saml/login`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://www.expensify.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://www.expensify.com`
-
-    c. b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    
+    c. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www.expensify.com/authentication/saml/login`
 
     > [!NOTE]
     > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Expensify](mailto:help@expensify.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -127,7 +127,7 @@ Pour activer l’authentification unique dans Expensify, vous devez d’abord ac
 
 1. Connectez-vous à votre application Expensify.
 
-2. Dans le panneau gauche, cliquez sur **Paramètres** et accédez à **SAML**.
+2. Dans le volet gauche, pointez sur Settings (Paramètres), puis cliquez sur Domains (Domaines) et accédez à **SAML**.
 
 3. Paramétrez l’option **Connexion SAML** sur **Activée**.
 
@@ -135,7 +135,7 @@ Pour activer l’authentification unique dans Expensify, vous devez d’abord ac
 
 ### <a name="create-expensify-test-user"></a>Créer un utilisateur de test Expensify
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Expensify. Travaillez avec [l’équipe de support technique Expensify](mailto:help@expensify.com) pour ajouter les utilisateurs à la plateforme Expensify.
+Dans cette section, vous créez le même utilisateur appelé B.Simon (par exemple, B.Simon@contoso.com) dans Expensify. Consultez son guide [ici](https://community.expensify.com/discussion/4869/how-to-manage-domain-members) pour inviter des membres ou collaborez avec l’[équipe du support technique d’Expensify](mailto:help@expensify.com) pour ajouter des utilisateurs à la plateforme Expensify.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

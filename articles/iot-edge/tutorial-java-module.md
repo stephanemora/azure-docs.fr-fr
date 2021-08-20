@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: f5f931ce1aa6c06f151241b6136470d494dbcd48
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3c3dae7cb64dd6c2e13c77c061c770bd787e2f06
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218751"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438131"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-using-linux-containers"></a>Tutoriel : Développer un module IoT Edge en Java avec des conteneurs Linux
 
@@ -58,7 +58,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 Pour développer un module IoT Edge avec Java, installez les configurations requises supplémentaires suivantes sur votre machine de développement :
 
 * [Pack d’extension Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) pour Visual Studio Code.
-* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support), et [définissez la variable d’environnement`JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) pour pointer vers votre installation JDK.
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure), et [définissez la variable d’environnement`JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) pour pointer vers votre installation JDK.
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -106,6 +106,9 @@ L’extension IoT Edge tente d’extraire d’Azure vos informations d’identif
 1. Dans l’Explorateur VS Code, ouvrez le fichier .env.
 2. Mettre à jour les champs avec les valeurs de **nom d’utilisateur** et de **mot de passe** que vous avez copiées à partir de votre registre de conteneurs Azure.
 3. Enregistrez ce fichier.
+
+>[!NOTE]
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Lorsque vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification de moindre privilège, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 

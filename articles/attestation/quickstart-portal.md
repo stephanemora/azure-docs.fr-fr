@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6130b49244a0fe7f8cbe377706f45634efce3639
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729387"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220273"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Démarrage rapide : Configurer Azure Attestation à partir du portail Azure
 
@@ -90,7 +90,7 @@ Suivez les étapes de cette section pour afficher, ajouter et supprimer des cert
 1. Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1. Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1. Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1. Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Vous voyez une invite à sélectionner le certificat pour l’authentification. Choisissez l’option appropriée pour continuer.
+1. Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Si vous êtes invité à sélectionner un certificat pour l’authentification, cliquez sur Annuler/choisir un certificat valide pour continuer.
 1. Sélectionnez **Télécharger les certificats de signataire de stratégie**. Le bouton est désactivé pour les fournisseurs d’attestation créés sans l’obligation de signature de stratégie.
 1. Le fichier texte téléchargé aura tous les certificats au format JWS.
 1. Vérifiez le nombre de certificats et les certificats téléchargés.
@@ -100,7 +100,7 @@ Suivez les étapes de cette section pour afficher, ajouter et supprimer des cert
 1.  Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1.  Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1.  Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1.  Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur.
+1.  Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Si vous êtes invité à sélectionner un certificat pour l’authentification, cliquez sur Annuler/choisir un certificat valide pour continuer.
 1.  Sélectionnez **Ajouter** dans le menu supérieur. Le bouton est désactivé pour les fournisseurs d’attestation créés sans l’obligation de signature de stratégie.
 1.  Chargez le fichier de certificat de signataire de stratégie et sélectionnez **Ajouter**. [Voir des exemples de certificats de signataire de stratégie](./policy-signer-examples.md).
 
@@ -109,7 +109,7 @@ Suivez les étapes de cette section pour afficher, ajouter et supprimer des cert
 1.  Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1.  Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1.  Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1.  Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur.
+1.  Sélectionnez **Certificats de signataire de stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Si vous êtes invité à sélectionner un certificat pour l’authentification, cliquez sur Annuler/choisir un certificat valide pour continuer.
 1.  Sélectionnez **Supprimer** dans le menu supérieur. Le bouton est désactivé pour les fournisseurs d’attestation créés sans l’obligation de signature de stratégie.
 1.  Chargez le fichier de certificat de signataire de stratégie et sélectionnez **Supprimer**. [Voir des exemples de certificats de signataire de stratégie](./policy-signer-examples.md). 
 
@@ -122,7 +122,7 @@ Cette section explique comment afficher une stratégie d’attestation et commen
 1.  Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1.  Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1.  Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1.  Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Vous voyez une invite à sélectionner le certificat pour l’authentification. Choisissez l’option appropriée pour continuer.
+1.  Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Si vous êtes invité à sélectionner un certificat pour l’authentification, cliquez sur Annuler/choisir un certificat valide pour continuer.
 1.  Sélectionnez le **Type d’attestation** par défaut et affichez la **Stratégie actuelle**.
 
 ### <a name="configure-an-attestation-policy"></a>Configurer une stratégie d’attestation
@@ -132,7 +132,7 @@ Suivez ces étapes pour charger une stratégie au format JWT ou texte si le four
 1. Accédez au menu ou à la page d’accueil du portail Azure, puis sélectionnez **Toutes les ressources**.
 1. Dans la zone de filtre, entrez le nom du fournisseur d’attestation.
 1. Sélectionnez le fournisseur d’attestation et accédez à la page Vue d’ensemble.
-1. Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur.
+1. Sélectionnez **Stratégie** dans le menu de la ressource sur le côté gauche de la fenêtre ou dans le volet inférieur. Si vous êtes invité à sélectionner un certificat pour l’authentification, cliquez sur Annuler/choisir un certificat valide pour continuer.
 1. Sélectionnez **Configurer** dans le menu supérieur.
 1. Sélectionnez **JWT** ou **Texte** comme **Format de stratégie**.
 

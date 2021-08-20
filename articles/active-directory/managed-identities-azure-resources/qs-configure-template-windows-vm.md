@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 07/13/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fdaa61e7b02121dcafaba758be2734eabf0e09d
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 1412b0ff7703d5bcc9950c80d5ab59b4c33cc7ae
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295414"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732221"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant des modèles
 
@@ -83,49 +83,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
 ### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Attribuer un rôle à l’identité managée affectée par le système de la machine virtuelle
 
-Après avoir activé l’identité managée affectée par le système sur votre machine virtuelle, vous pouvez lui attribuer un rôle, comme l’accès en **lecture** au groupe de ressources dans lequel elle a été créée.
+Après avoir activé une identité managée affectée par le système sur votre machine virtuelle, vous pouvez lui attribuer un rôle, comme l’accès **Lecteur** au groupe de ressources dans lequel elle a été créée. Vous trouverez des informations détaillées pour vous aider dans cette étape dans l’article [Attribuer des rôles Azure avec des modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 
-Pour affecter un rôle à l’identité attribuée par le système à votre machine virtuelle, votre compte a besoin de l’affectation de rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator).
-
-1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
-
-2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et ajoutez les informations suivantes pour donner à votre machine virtuelle un accès en **lecture** sur le groupe de ressources dans lequel elle a été créée.  Votre structure de modèle peut varier en fonction de l’éditeur et du modèle de déploiement que vous choisissez.
-
-   Sous la section `parameters`, ajoutez ce qui suit :
-
-    ```json
-    "builtInRoleType": {
-        "type": "string",
-        "defaultValue": "Reader"
-    },
-    "rbacGuid": {
-        "type": "string"
-    }
-    ```
-
-    Sous la section `variables`, ajoutez ce qui suit :
-
-    ```json
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-    ```
-
-    Sous la section `resources`, ajoutez ce qui suit :
-
-    ```json
-    {
-        "apiVersion": "2017-09-01",
-        "type": "Microsoft.Authorization/roleAssignments",
-        "name": "[parameters('rbacGuid')]",
-        "properties": {
-            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-            "scope": "[resourceGroup().id]"
-        },
-         "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-        ]
-    }
-    ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Désactiver une identité managée affectée par le système d’une machine virtuelle Azure
 

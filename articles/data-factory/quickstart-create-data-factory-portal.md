@@ -4,14 +4,14 @@ description: Créez une fabrique de données avec un pipeline copiant les donné
 author: jianleishen
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 12/14/2020
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 888350dacd2437f585c6571b991ae06eed2d32ab
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 9d8bf0d62518c94458a5b989c040f8eaefea11cd
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482162"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436997"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory 
 
@@ -65,9 +65,9 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 
 1. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer** une fois la validation passée. Une fois la ressource créée, sélectionnez **Accéder à la ressource** pour ouvrir la page **Data Factory**. 
 
-1. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un autre onglet du navigateur.
+1. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour démarrer l’interface utilisateur d’Azure Data Factory dans un onglet de navigateur distinct.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Créer et superviser.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Ouvrir Azure Data Factory Studio.":::
    
    > [!NOTE]
    > Si vous constatez que le navigateur web est bloqué à l’étape « Autorisation », décochez la case **Bloquer les cookies et les données de site tiers**. Sinon, gardez-la cochée, créez une exception pour **login.microsoftonline.com**, puis réessayez d’ouvrir l’application.

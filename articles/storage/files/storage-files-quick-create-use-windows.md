@@ -1,24 +1,31 @@
 ---
-title: Créer et utiliser un partage Azure Files sur des machines virtuelles Windows
-description: Créez et utilisez un partage Azure Files dans le portail Azure. Connectez-le à une machine virtuelle Windows, connectez-vous au partage de fichiers, et chargez un fichier dans le partage de fichiers.
+title: Créer et utiliser un partage de fichiers Azure sur des machines virtuelles Windows
+description: Créez et utilisez un partage de fichiers Azure dans le portail Azure. Connectez-le à une machine virtuelle Windows, connectez-vous au partage de fichiers, et chargez un fichier dans le partage de fichiers.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/15/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 3cb97d40008a103d9de6d76018f7881764813e3c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718176"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727183"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
+# <a name="quickstart-create-and-manage-azure-file-shares-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure avec des machines virtuelles Windows
 
 L’article décrit les étapes de base à suivre pour créer et utiliser un partage Azure Files. Dans ce guide de démarrage rapide, l’accent est mis sur la configuration rapide d’un partage Azure Files, afin de vous faire découvrir le fonctionnement du service. Si vous avez besoin d’instructions plus détaillées sur la création et l’utilisation de partages de fichiers Azure dans votre propre environnement, consultez [Utiliser un partage de fichiers Azure avec Windows](storage-how-to-use-files-windows.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -63,13 +70,14 @@ Jusqu’ici, vous avez créé un compte de stockage Azure et un partage de fichi
 ### <a name="deploy-a-vm"></a>Déployer une machine virtuelle
 
 1. Ensuite, développez le menu à gauche du portail Azure et choisissez **Créer une ressource** dans le coin supérieur gauche.
-1. Dans la zone de recherche située au-dessus de la liste des ressources de la **Place de marché Azure**, recherchez puis sélectionnez **Windows Server 2016 Datacenter**.
+1. Sous **Services populaires**, sélectionnez **Machines virtuelles**.
 1. Sous l’onglet **De base**, sous **Détails du projet**, sélectionnez le groupe de ressources que vous avez créé pour ce guide de démarrage rapide.
 
    ![Entrez des informations de base sur votre machine virtuelle dans le panneau du portail.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Sous **Détails de l’instance**, nommez la machine virtuelle *qsVM*.
-1. Conservez les paramètres par défaut pour la **Région**, les **Options de disponibilité**, l’**Image**, et la **Taille**.
+1. Pour **Image**, sélectionnez **Centre de données Windows Server 2016 – Gen2**.
+1. Conservez les paramètres par défaut pour **Région**, **Options de disponibilité** et **Taille**.
 1. Sous **Compte d’administrateur**, ajoutez un **Nom d’utilisateur** puis entrez un **Mot de passe** pour la machine virtuelle.
 1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans la liste déroulante.
 1. Sélectionnez **Vérifier + créer**.

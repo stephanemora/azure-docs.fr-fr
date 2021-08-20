@@ -1,20 +1,20 @@
 ---
-title: Déployer le tutoriel C++ natif sur HoloLens
-description: Guide de démarrage rapide qui montre comment exécuter le tutoriel C++ natif sur HoloLens
+title: Déployer le tutoriel WMR C++ natif sur HoloLens
+description: Démarrage rapide qui montre comment exécuter le tutoriel HolographicApp C++ natif sur HoloLens
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: eabade94b06d8689026548d6e09d6098e8da9f59
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530584"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666804"
 ---
-# <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple C++ natif sur HoloLens
+# <a name="quickstart-deploy-native-c-wmr-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple WMR C++ natif sur HoloLens
 
-Ce guide de démarrage rapide explique comment déployer et exécuter l’application de tutoriel C++ native sur un appareil HoloLens 2.
+Ce démarrage rapide explique comment déployer et exécuter l’application de tutoriel WMR (Windows Mixed Reality) C++ native sur un appareil HoloLens 2.
 
 Dans ce guide de démarrage rapide, vous allez apprendre à :
 
@@ -51,17 +51,17 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 La dernière commande crée dans le répertoire ARR un sous-répertoire contenant les différents exemples de projets pour Azure Remote Rendering.
 
-Le tutoriel HoloLens C++ se trouve dans le sous-répertoire *NativeCpp/HoloLens*.
+Le tutoriel HoloLens C++ se trouve dans le sous-répertoire *NativeCpp/HoloLens-Wmr*.
 
 ## <a name="build-the-project"></a>Créer le projet
 
-Ouvrez le fichier solution *HolographicApp.sln* situé dans le sous-répertoire *NativeCpp/HoloLens* à l’aide de Visual Studio 2019.
+Ouvrez le fichier solution *HolographicApp.sln* situé dans le sous-répertoire *NativeCpp/HoloLens-Wmr* à l’aide de Visual Studio 2019.
 
 Basculez la configuration de build sur *Débogage* (ou *Release*) et *ARM64*. Vérifiez également que le mode du débogueur est défini sur *Appareil* plutôt que *Ordinateur distant* :
 
 ![Configuration de Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
-Les informations d’identification du compte étant codées en dur dans le code source du tutoriel, vous devez les remplacer par des informations d’identification valides. Pour ce faire, ouvrez le fichier `HolographicAppMain.cpp` dans Visual Studio et changez la partie où le client est créé dans le constructeur de la classe `HolographicAppMain` :
+Les informations d’identification du compte étant codées en dur dans le code source du tutoriel, vous devez les remplacer par des informations d’identification valides. Pour ce faire, ouvrez le fichier `HolographicAppMain.cpp` dans Visual Studio et changez la partie où le client est créé dans le constructeur de la classe `HolographicAppMain` :
 
 ```cpp
 // 2. Create Client
@@ -80,7 +80,7 @@ Les informations d’identification du compte étant codées en dur dans le code
 
 Plus spécifiquement, modifiez les valeurs suivantes :
 * `init.AccountId`, `init.AccountKey` et `init.AccountDomain` pour utiliser les données de votre compte. Consultez le paragraphe sur la façon de [récupérer les informations du compte](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Spécifiez où créer la session de rendu à distance en modifiant la partie région de la chaîne `init.RemoteRenderingDomain` pour les régions autres que `westus2`, par exemple `"westeurope.mixedreality.azure.com"`.
+* Spécifiez où créer la session de rendu à distance en modifiant la partie région de la chaîne `init.RemoteRenderingDomain` pour les [régions](../../../reference/regions.md) autres que `westus2`, par exemple `"westeurope.mixedreality.azure.com"`.
 * Vous pouvez aussi remplacer `m_sessionOverride` par un ID de session existant. Des sessions peuvent être créées en dehors de cet exemple, en utilisant le [script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou l’[API REST de session](../../../how-tos/session-rest-api.md) directement.
 La création d’une session en dehors de l’exemple est recommandée quand celui-ci doit s’exécuter plusieurs fois. Si aucune session n’est transmise, l’exemple crée une nouvelle session à chaque démarrage, ce qui peut prendre plusieurs minutes.
 

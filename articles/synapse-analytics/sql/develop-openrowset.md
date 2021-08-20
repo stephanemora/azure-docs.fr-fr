@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c8a93ce59927144ce02edb8c1193406a29b18530
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956532"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913776"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -189,7 +189,10 @@ ROWTERMINATOR ='row_terminator'`
 
 Spécifie l’indicateur de fin de ligne à utiliser. Si la marque de fin de ligne n’est pas spécifiée, l’une des marques par défaut sera utilisée. Les indicateurs de fin par défaut pour PARSER_VERSION = ’1.0’ sont \r\n, \n et \r. Les indicateurs de fin par défaut pour PARSER_VERSION = ’2.0’ sont \r\n et \n.
 
-ESCAPECHAR = 'char'
+> [!NOTE]
+> Quand vous utilisez PARSER_VERSION=‘1.0’ et que vous spécifiez le caractère de saut de ligne \n en tant qu’indicateur de fin de ligne, celui-ci est automatiquement précédé du caractère \r (retour chariot), modifiant ainsi l’indicateur de fin de ligne en \r\n.
+
+ESCAPE_CHAR = 'char'
 
 Spécifie le caractère dans le fichier qui est utilisé pour se placer lui-même dans une séquence d’échappement ainsi que toutes les valeurs de délimiteur dans le fichier. Si le caractère d’échappement est suivi d’une valeur autre que lui-même, ou que l’une des valeurs de délimiteur, le caractère d’échappement est supprimé lors de la lecture de la valeur. 
 
@@ -221,6 +224,8 @@ La version 1.0 de l’analyseur CSV, qui est la version par défaut, est riche 
 Informations détaillées sur l’analyseur CSV version 1.0 :
 
 - Les options suivantes ne sont pas prises en charge : HEADER_ROW.
+- Les indicateurs de fin de ligne par défaut sont \r\n, \n et \r. 
+- Si vous spécifiez le caractère de saut de ligne \n en tant qu’indicateur de fin de ligne, celui-ci est automatiquement précédé du caractère \r (retour chariot), modifiant ainsi l’indicateur de fin de ligne en \r\n.
 
 Caractéristiques la version 2.0 de l’analyseur CSV :
 
@@ -233,6 +238,7 @@ Caractéristiques la version 2.0 de l’analyseur CSV :
 - Format pris en charge pour le type de données DATE : AAAA-MM-JJ
 - Format pris en charge pour le type de données TIME : HH:MM:SS[.fractions de seconde]
 - Format pris en charge pour le type de données DATETIME2 : YYYY-MM-DD HH:MM:SS[.fractions de seconde]
+- Les indicateurs de fin de ligne par défaut sont \r\n et \n.
 
 HEADER_ROW = { TRUE | FALSE }
 

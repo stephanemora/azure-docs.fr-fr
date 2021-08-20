@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête .NET Core'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour activer les packages NuGet Resource Graph pour .NET Core et vous exécutez votre première requête.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b0c1b7165702d00426f3459907a5558a08b12d84
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4cc21a3f73991b3f1177a9bbc16491a18be51489
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751838"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460690"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de .NET Core
 
@@ -65,8 +65,7 @@ Pour permettre à .NET Core d’interroger Azure Resource Graph, créez une appl
                string strTenant = args[0];
                string strClientId = args[1];
                string strClientSecret = args[2];
-               string strSubscriptionId = args[3];
-               string strQuery = args[4];
+               string strQuery = args[3];
 
                AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
                AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
@@ -74,7 +73,6 @@ Pour permettre à .NET Core d’interroger Azure Resource Graph, créez une appl
 
                ResourceGraphClient argClient = new ResourceGraphClient(serviceClientCreds);
                QueryRequest request = new QueryRequest();
-               request.Subscriptions = new List<string>(){ strSubscriptionId };
                request.Query = strQuery;
 
                QueryResponse response = argClient.Resources(request);
@@ -85,6 +83,9 @@ Pour permettre à .NET Core d’interroger Azure Resource Graph, créez une appl
    }
    ```
 
+   > [!NOTE]
+   > Ce code crée une requête basée sur un locataire. Pour restreindre la requête à un [groupe d’administration](../management-groups/overview.md) ou à un abonnement, définissez la propriété `ManagementGroups` ou `Subscriptions` sur l’objet `QueryRequest`.
+
 1. Générez et publiez l’application console`argQuery` :
 
    ```dotnetcli
@@ -94,21 +95,20 @@ Pour permettre à .NET Core d’interroger Azure Resource Graph, créez une appl
 
 ## <a name="run-your-first-resource-graph-query"></a>Exécuter votre première requête Resource Graph
 
-L’application console .NET Core étant générée et publiée, nous pouvons tester une requête Resource Graph simple. La requête retourne les cinq premières ressources Azure avec le nom (**Name**) et le **Type** de chaque ressource.
+L’application console .NET Core étant générée et publiée, nous pouvons tester une requête Resource Graph simple basée sur un locataire. La requête retourne les cinq premières ressources Azure avec le nom (**Name**) et le **Type** de chaque ressource.
 
 Dans chaque appel de `argQuery`, vous devez remplacer les variables utilisées par vos propres valeurs :
 
 - Remplacer `{tenantId}` par l’ID de votre locataire
 - `{clientId}` - Remplacer l’ID client de votre principal de service
 - `{clientSecret}` - Remplacer le secret client de votre principal de service
-- Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 1. Remplacez les répertoires par le `{run-folder}` que vous avez défini à l’aide de la commande `dotnet publish` précédente.
 
 1. Exécutez votre première requête Azure Resource Graph à l’aide de l’application console .NET Core compilée :
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5"
    ```
 
    > [!NOTE]
@@ -117,7 +117,7 @@ Dans chaque appel de `argQuery`, vous devez remplacer les variables utilisées p
 1. Remplacez le dernier paramètre par `argQuery.exe` et la requête par `order by` suivi de la propriété **Name** :
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5 | order by name asc"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    > [!NOTE]
@@ -126,7 +126,7 @@ Dans chaque appel de `argQuery`, vous devez remplacer les variables utilisées p
 1. Remplacez le dernier paramètre par `argQuery.exe` et changez la requête en `order by` pour classer d’abord les résultats selon la propriété **Name**, puis limitez (`limit`) les résultats aux cinq premiers :
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | order by name asc | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | order by name asc | limit 5"
    ```
 
 Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et classés en fonction de la propriété **Name**, mais toujours limités aux cinq premiers.

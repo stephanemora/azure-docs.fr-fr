@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 4418d7866f2476d528290f99d396dcf52c47c3ec
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 52f948526b1575f43d722c856251eed83b2e66ef
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038684"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982768"
 ---
 # <a name="1000-genomes"></a>1 000 génomes
 
@@ -42,9 +42,9 @@ Ce jeu de données est stocké dans les régions Azure USA Ouest 2 et USA Centr
 
 ## <a name="data-access"></a>Accès aux données
 
-USA Ouest 2 : https://dataset1000genomes.blob.core.windows.net/dataset
+USA Ouest 2 : « https://dataset1000genomes.blob.core.windows.net/dataset  »
 
-USA Centre-Ouest : https://dataset1000genomes-secondary.blob.core.windows.net/dataset
+USA Centre-Ouest : « https://dataset1000genomes-secondary.blob.core.windows.net/dataset  »
 
 [Jeton SAS](../storage/common/storage-sas-overview.md) : sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
@@ -58,4 +58,4 @@ https://www.internationalgenome.org/contact
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez afficher les autres jeux de données dans le [catalogue Open Datasets](dataset-catalog.md).
+Consultez les autres jeux de données du [catalogue Open Datasets](dataset-catalog.md).

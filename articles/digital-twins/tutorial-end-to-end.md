@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 82c24a38d8b693bb931be75b3be5d3bfaaa2d38f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 641a2f902cd0cf0540cd4cd217f720beaa70a7d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615658"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460985"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -117,24 +117,85 @@ Cette action a pour effet d’ouvrir le Gestionnaire de package NuGet. Sélectio
 
 ### <a name="publish-the-app"></a>Publier l’application
 
-De retour dans la fenêtre de Visual Studio où le projet _**AdtE2ESample**_ est ouvert, recherchez le projet _**SampleFunctionsApp**_ dans le volet *Explorateur de solutions*.
+Pour publier l’application de fonction sur Azure, vous devez d’abord créer un compte de stockage, puis créer l’application de fonction dans Azure et enfin publier les fonctions dans l’application de fonction Azure. Cette section complète ces actions à l’aide d’Azure CLI.
 
-[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+1. Créez un **compte de stockage Azure** en exécutant la commande suivante :
 
-Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’autorisations pour accéder à votre instance Azure Digital Twins et au nom d’hôte de l’instance. Vous les configurerez à l’étape suivante.
+    ```azurecli-interactive
+    az storage account create --name <name-for-new-storage-account> --location <location> --resource-group <resource-group> --sku Standard_LRS
+    ```
+
+1. Créez une **application de fonction Azure** en exécutant la commande suivante :
+
+    ```azurecli-interactive
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    ```
+
+1. Ensuite, vous allez compresser les fonctions au format **zip** et les **publier** dans votre nouvelle application de fonction Azure.
+
+    1. Ouvrez un terminal comme PowerShell sur votre ordinateur local, puis accédez aux [exemples de référentiel Digital Twins](https://github.com/azure-samples/digital-twins-samples/tree/master/) que vous avez téléchargés précédemment dans le tutoriel. Dans le dossier du référentiel téléchargé, accédez à *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp*.
+    
+    1. Dans votre terminal, exécutez la commande suivante pour publier le projet :
+
+        ```powershell
+        dotnet publish -c Release
+        ```
+
+        Cette commande publie le projet dans le répertoire *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish*.
+
+    1. Créez un zip des fichiers publiés qui se trouvent dans le répertoire *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish*. 
+        
+        Si vous utilisez PowerShell, vous pouvez le faire en copiant le chemin d’accès complet à ce répertoire *\publish* et en le collant dans la commande suivante :
+    
+        ```powershell
+        Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
+        ```
+
+        La cmdlet crée un fichier **publish.zip** dans le répertoire de votre terminal qui comprend un fichier *host.json*, ainsi que les répertoires *bin*, *ProcessDTRoutedData* et *ProcessHubToDTEvents*.
+
+        Si vous n’utilisez pas PowerShell et que vous n’avez pas accès à la cmdlet `Compress-Archive`, vous devez compresser les fichiers au format zip à l’aide d’Explorateur de fichiers ou d’une autre méthode.
+
+1. Dans Azure CLI, exécutez la commande suivante pour déployer les fonctions publiées et compressées dans votre application de fonction Azure :
+
+    ```azurecli-interactive
+    az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
+    ```
+
+    > [!NOTE]
+    > Si vous utilisez Azure CLI localement, vous pouvez accéder au fichier ZIP sur votre ordinateur directement à l’aide de son chemin d’accès sur votre machine.
+    > 
+    >Si vous utilisez Azure Cloud Shell, chargez le fichier ZIP sur Cloud Shell à l’aide de ce bouton avant d’exécuter la commande :
+    >
+    > :::image type="content" source="media/tutorial-end-to-end/azure-cloud-shell-upload.png" alt-text="Capture d’écran d’Azure Cloud Shell avec mise en évidence la méthode de chargement des fichiers.":::
+    >
+    > Dans ce cas, le fichier sera téléchargé dans le répertoire racine de votre stockage Cloud Shell, de sorte que vous pouvez faire référence au fichier directement par son nom pour le paramètre `--src` de la commande (par exemple, `--src publish.zip`).
+
+    Un déploiement réussi répond avec le code d’état 202 et génère un objet JSON contenant les détails de votre nouvelle fonction. Vous pouvez vérifier que le déploiement a réussi en recherchant ce champ dans le résultat :
+
+    ```json
+    {
+      ...
+      "provisioningState": "Succeeded",
+      ...
+    }
+    ```
+
+Vous avez maintenant publié les fonctions dans une application de fonction sur Azure.
+
+Ensuite, pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra avoir l’autorisation d’accéder à votre instance Azure Digital Twins. Vous allez configurer cet accès dans la section suivante.
 
 ### <a name="configure-permissions-for-the-function-app"></a>Configurer des autorisations pour l’application de fonction
 
-Deux paramètres doivent être définis pour que l’application de fonction accède à votre instance Azure Digital Twins. Ces deux définitions peuvent se faire a moyen de commandes dans [Azure Cloud Shell](https://shell.azure.com). 
+Deux paramètres doivent être définis pour que l’application de fonction accède à votre instance Azure Digital Twins. Ils peuvent tous deux être définis à l’aide d’Azure CLI. 
 
 #### <a name="assign-access-role"></a>Attribuer le rôle d’accès
 
-Le premier paramètre donne à l’application de fonction le rôle de **Propriétaire des données Azure Digital Twins** dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md). 
+Le premier paramètre donne à l’application de fonction le rôle de **Propriétaire des données Azure Digital Twins** dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Vous pouvez en savoir plus sur la sécurité et les attributions de rôles dans [Sécurité pour les solutions Azure Digital Twins](concepts-security.md). 
 
 1. Utilisez la commande suivante pour consulter les détails de l’identité managée par le système pour la fonction. Prenez note du champ **principalId** dans la sortie.
 
     ```azurecli-interactive 
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-function-app-name>   
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
     ```
 
     >[!NOTE]
@@ -439,4 +500,4 @@ Dans ce tutoriel, vous avez créé un scénario de bout en bout qui montre comme
 Vous pouvez à présent commencer à consulter la documentation de concept pour en savoir plus sur les éléments avec lesquels vous avez travaillé dans le tutoriel :
 
 > [!div class="nextstepaction"]
-> [Concepts : Modèles personnalisés](concepts-models.md)
+> [Modèles personnalisés](concepts-models.md)

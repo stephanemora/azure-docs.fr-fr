@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 5e2458ebcdcc1b2dba598b5d443b8eab12312e7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: e9e211fe3039b85e2807fec159537d32380e9799
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788959"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664986"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interagir avec Azure Cosmos DB à l’aide d’Apache Spark dans Azure Synapse Link
 
@@ -28,7 +28,7 @@ Les fonctionnalités suivantes sont prises en charge lors de l'interaction avec 
 * Synapse Apache Spark vous permet également d'ingérer des données dans Azure Cosmos DB. Il convient de noter que les données sont toujours ingérées dans les conteneurs Azure Cosmos DB par le biais du magasin transactionnel. Lorsque Synapse Link est activé, les nouvelles insertions, mises à jour et suppressions sont automatiquement synchronisées avec le magasin analytique.
 * Synapse Apache Spark prend également en charge le flux structuré Spark avec Azure Cosmos DB comme source et comme récepteur. 
 
-Les sections suivantes présentent la syntaxe des fonctionnalités ci-dessus. Les mouvements au sein de l'espace de travail Azure Synapse Analytics sont conçus afin de fournir une expérience prête à l'emploi facile à prendre en main. Les mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur Azure Cosmos DB dans l'onglet **Données** de l'espace de travail Synapse. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Les mouvements sont également bien adaptés pour découvrir des données en un seul clic.
+Les sections suivantes présentent la syntaxe des fonctionnalités ci-dessus. Vous pouvez également consulter le module d’apprentissage sur la façon d’[interroger Azure Cosmos DB avec Apache Spark pour Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Les mouvements au sein de l'espace de travail Azure Synapse Analytics sont conçus afin de fournir une expérience prête à l'emploi facile à prendre en main. Les mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur Azure Cosmos DB dans l'onglet **Données** de l'espace de travail Synapse. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Les mouvements sont également bien adaptés pour découvrir des données en un seul clic.
 
 > [!IMPORTANT]
 > Vous devez tenir compte de certaines contraintes dans le schéma analytique qui peuvent entraîner un comportement inattendu dans les opérations de chargement de données.
@@ -213,3 +213,4 @@ query.awaitTermination()
 * [Exemples permettant de prendre en main Azure Synapse Link sur GitHub](https://aka.ms/cosmosdb-synapselink-samples).
 * [Découvrez les fonctionnalités prises en charge dans Azure Synapse Link pour Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Se connecter à Synapse Link pour Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* Consultez le module d’apprentissage sur la façon d’[interroger Azure Cosmos DB avec Apache Spark pour Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 768b2f4a9b993e4824fbcebe7a96d7f62a90c934
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a50b8eee5a45fdd496aa0e063272c1c32cf0e5a7
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078309"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664446"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
@@ -29,15 +29,13 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 * [Modules complémentaires du service de stockage Azure NetApp Files](storage-service-add-ons.md)
 
-    La nouvelle option de menu Azure NetApp Files **Modules complémentaires du service de stockage** constitue pour le Portail Azure une « rampe de lancement » des modules complémentaires tiers pris en charge de l’écosystème dans le service de stockage Azure NetApp Files. Avec cette nouvelle option de menu du portail, vous pouvez accéder rapidement à la page d’accueil d’un module complémentaire en cliquant sur la vignette correspondante.  
+    La nouvelle option du menu Azure NetApp Files **Modules complémentaires du service de stockage** constitue pour le portail Azure une « rampe de lancement » des modules complémentaires tiers disponibles de l’écosystème dans le service de stockage Azure NetApp Files. Avec cette nouvelle option de menu du portail, vous pouvez accéder rapidement à la page d’accueil d’un module complémentaire en cliquant sur la vignette correspondante.  
 
     Les **modules complémentaires NetApp** constituent la première catégorie des modules complémentaires introduits dans **Modules complémentaires du service de stockage**. Elle permet d’accéder à **NetApp Cloud Compliance**. Cliquez sur la vignette **NetApp Cloud Compliance** pour ouvrir un nouveau navigateur et accéder à la page d’installation du module complémentaire. 
 
-* Fonctionnalités maintenant en disponibilité générale (GA)   
+* Le [pool de capacités de QoS manuelle](manual-qos-capacity-pool-introduction.md) est désormais en disponibilité générale (GA)   
 
-    Les fonctionnalités Azure NetApp Files suivantes sont maintenant en disponibilité générale. Il n’est plus nécessaire de les inscrire pour pouvoir les utiliser :
-    * [Stratégie d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
-    * [Pool de capacités QoS](manual-qos-capacity-pool-introduction.md)
+    La fonctionnalité de pool de capacités de QoS manuelle est désormais en disponibilité générale. Il n’est plus nécessaire de l’inscrire pour pouvoir l’utiliser. 
 
 * [Prise en charge de l’instance AD partagée pour plusieurs comptes vers une instance Active Directory par région et par abonnement](create-active-directory-connections.md#shared_ad) (préversion)   
 

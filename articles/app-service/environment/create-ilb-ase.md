@@ -7,14 +7,17 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 331a91f645c64f0b70ff6c4de922b455eb344ce2
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063295"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433253"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 L’environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure. Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) : 
 
@@ -40,7 +43,7 @@ Avec un ASE ILB, vous pouvez effectuer des tâches telles que :
 
 Lorsque vous utilisez un ASE ILB, vous ne pouvez pas effectuer certaines opérations :
 
--   utiliser SSL basé sur IP ;
+-   utiliser une liaison TLS/SSL basée sur une adresse IP ;
 -   attribuer des adresses IP à des applications spécifiques ;
 -   acheter et utiliser un certificat avec une application via le portail Azure. Vous pouvez obtenir des certificats directement auprès d’une autorité de certification et les utiliser avec vos applications. Vous ne pouvez pas les obtenir via le portail Azure.
 
@@ -119,7 +122,7 @@ Pour configurer DNS dans les zones privées Azure DNS :
 
 Les paramètres DNS du suffixe de domaine par défaut de votre ASE ne limitent pas vos applications à être accessibles uniquement par ces noms. Vous pouvez définir un nom de domaine personnalisé sans validation sur vos applications dans un environnement ASE ILB. Si vous souhaitez ensuite créer une zone nommée contoso.net, vous pouvez le faire et la pointer vers l’adresse IP ILB. Le nom de domaine personnalisé fonctionne pour les demandes d’application, mais pas pour le site GCL. Le site GCL est disponible uniquement pour &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net.
 
-La zone nommée .&lt;asename&gt;.appserviceenvironment.net est globalement unique. Avant mai 2019, les clients pouvaient spécifier le suffixe de domaine de l’ASE ILB. Si vous souhaitez utiliser .contoso.com comme suffixe de domaine, vous pouvez le faire et inclure le site GCL. Ce modèle présentait quelques contraintes au niveau de la gestion du certificat SSL par défaut, de l’absence d’authentification unique auprès du site GCL, et de la nécessité d’utiliser un certificat générique. Le processus de mise à niveau du certificat par défaut de l’ASE ILB entraînait également une interruption du service et le redémarrage de l’application. Pour résoudre ces problèmes, le comportement de l’ASE ILB a été modifié pour utiliser un suffixe de domaine basé sur le nom de l’ASE, avec un suffixe appartenant à Microsoft. La modification apportée au comportement de l’ASE ILB affecte uniquement les environnements ASE ILB créés après mai 2019. Les environnements ASE ILB préexistants doivent toujours gérer le certificat par défaut de l’ASE et leur configuration DNS.
+La zone nommée .&lt;asename&gt;.appserviceenvironment.net est globalement unique. Avant mai 2019, les clients pouvaient spécifier le suffixe de domaine de l’ASE ILB. Si vous souhaitez utiliser .contoso.com comme suffixe de domaine, vous pouvez le faire et inclure le site GCL. Ce modèle présentait quelques contraintes au niveau de la gestion du certificat TLS/SSL par défaut, de l’absence d’authentification unique auprès du site GCL et de la nécessité d’utiliser un certificat générique. Le processus de mise à niveau du certificat par défaut de l’ASE ILB entraînait également une interruption du service et le redémarrage de l’application. Pour résoudre ces problèmes, le comportement de l’ASE ILB a été modifié pour utiliser un suffixe de domaine basé sur le nom de l’ASE, avec un suffixe appartenant à Microsoft. La modification apportée au comportement de l’ASE ILB affecte uniquement les environnements ASE ILB créés après mai 2019. Les environnements ASE ILB préexistants doivent toujours gérer le certificat par défaut de l’ASE et leur configuration DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publier avec un ASE ILB
 

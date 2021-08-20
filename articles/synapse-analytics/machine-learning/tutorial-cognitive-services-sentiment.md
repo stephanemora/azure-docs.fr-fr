@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4199e82ee5b32fe3e34df421a9ca54136b8cbfb7
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c9f738f95e11ab29fc5163b69812037410e79e8a
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846389"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361102"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutoriel : Analyse des sentiments avec Cognitive Services (préversion)
 
@@ -69,7 +69,7 @@ Vous aurez besoin d’une table Spark pour ce tutoriel.
 
 ## <a name="open-the-cognitive-services-wizard"></a>Ouvrir l’Assistant Cognitive Services
 
-1. Cliquez avec le bouton droit sur la table Spark créée dans la procédure précédente. Sélectionnez **Machine Learning** > **Enrichir avec un modèle existant** pour ouvrir l’Assistant.
+1. Cliquez avec le bouton droit sur la table Spark créée dans la procédure précédente. Sélectionnez **Machine Learning** > **Prédire avec un modèle** pour ouvrir l’Assistant.
 
    ![Capture d’écran montrant les sélections permettant d’ouvrir l’Assistant de scoring.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 

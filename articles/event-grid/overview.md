@@ -2,13 +2,13 @@
 title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/27/2021
+ms.openlocfilehash: d9f6c6aa61851bc003b53941f7c1f1eea5261e5f
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934860"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730293"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -45,6 +45,7 @@ Les services Azure suivants prennent en charge l’envoi d’événements vers E
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Abonnements Azure](event-schema-subscriptions.md)
 - [Cache Azure pour Redis](event-schema-azure-cache.md)
+- [Azure Kubernetes Service (préversion)](event-schema-aks.md)
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 

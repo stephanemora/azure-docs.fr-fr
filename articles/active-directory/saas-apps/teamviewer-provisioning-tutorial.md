@@ -2,21 +2,21 @@
 title: "Tutoriel : Configurer TeamViewer pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Apprenez à provisionner et déprovisionner automatiquement des comptes d'utilisateur entre Azure AD et TeamViewer.
 services: active-directory
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0362f0d69581c252170b4f37f8564caa7acd3d29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 76d5ad2e1e025583b122fbb117ccc0d5eb4e2a63
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182238"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759048"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutoriel : Configurer TeamViewer pour l'approvisionnement automatique d'utilisateurs
 
@@ -97,9 +97,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `ttps://webapi.teamviewer.com/scim/v2` dans le champ **URL du locataire** et entrez le jeton de script créé plus tôt dans le **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à TeamViewer. Si la connexion échoue, vérifiez que votre compte TeamViewer dispose des autorisations d'administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://webapi.teamviewer.com/scim/v2` dans le champ **URL du locataire** et entrez le jeton de script créé plus tôt dans le **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à TeamViewer. Si la connexion échoue, vérifiez que votre compte TeamViewer dispose des autorisations d'administrateur, puis réessayez.
 
-    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret.](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de la boîte de dialogue Informations d’identification de l’administrateur permettant d’entrer l’URL du locataire et le jeton secret](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

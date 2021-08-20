@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a4d079855e5aa05adb84b62d686d9f386608f7bb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 77a46beceda451d456dfc4f576f855ebf7312e50
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752135"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463510"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Créer et fusionner une demande de signature de certificat dans Key Vault
 
@@ -140,6 +140,8 @@ Exemple
 
      Cette erreur peut se produire si **SubjectName** contient des caractères spéciaux. Consultez les remarques dans les instructions du portail Azure et PowerShell.
 
+- Type d’erreur **La demande de signature de certificat utilisée pour obtenir votre certificat a déjà été utilisée. Essayez de générer un nouveau certificat avec une nouvelle demande de signature de certificat.**
+     Accédez à la section « Stratégie avancée » du certificat et vérifiez si l’option « Réutiliser la clé lors du renouvellement » est désactivée.
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: f6f653478dea84ecb3951b4c313f0f7604733b88
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214746"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292904"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -42,7 +42,7 @@ Si le problème persiste, créez un [ticket de support](../../azure-portal/suppo
 ### <a name="query-fails-because-file-cannot-be-opened"></a>La requête échoue car le fichier ne peut pas être ouvert
 
 Si votre requête échoue avec une erreur indiquant que le fichier ne peut pas être ouvert parce qu’il n’existe pas ou qu’il est utilisé par un autre processus, et que vous êtes sûr que le fichier existe et qu’il n’est pas utilisé par un autre processus, cela signifie que le pool SQL serverless ne peut pas accéder au fichier. Ce problème se produit généralement lorsque votre identité Azure Active Directory ne dispose pas de droits d’accès au fichier ou qu’un pare-feu bloque l’accès au fichier. Par défaut, le pool SQL serverless tente d’accéder au fichier en utilisant votre identité Azure Active Directory. Pour résoudre ce problème, vous devez disposer des droits nécessaires pour accéder au fichier. Le moyen le plus simple consiste à vous accorder le rôle « Contributeur aux données Blob du stockage » pour le compte de stockage que vous tentez d’interroger. 
-- [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Consultez Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### <a name="alternative-to-storage-blob-data-contributor-role"></a>Alternative au rôle Contributeur aux données Blob du stockage
@@ -86,6 +86,12 @@ Si votre requête échoue avec le message d’erreur « Cette requête ne peut 
 - Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Pour optimiser les requêtes, consultez les [bonnes pratiques concernant les performances du pool SQL serverless](./best-practices-serverless-sql-pool.md).  
+
+### <a name="could-not-allocate-tempdb-space-while-transferring-data-from-one-distribution-to-another"></a>Impossible d’allouer de l’espace tempdb lors du transfert de données d’une distribution à une autre
+
+Cette erreur est un cas spécifique de l’erreur générique [La requête échoue, car elle ne peut pas être exécutée en raison de contraintes de ressources](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints). Cette erreur est retournée quand les ressources allouées à la base de données `tempdb` sont insuffisantes pour exécuter la requête. 
+
+Appliquez la même atténuation et les meilleures pratiques avant de soumettre un ticket de support.
 
 ### <a name="query-fails-with-error-while-handling-an-external-file"></a>La requête échoue avec une erreur lors de la gestion d’un fichier externe. 
 
@@ -446,6 +452,25 @@ Créez une base de données distincte et référencez les [tables](../metadata/t
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
+Les erreurs possibles et les actions de résolution des problèmes sont répertoriées dans le tableau suivant.
+
+| Erreur | Cause racine |
+| --- | --- |
+| Erreurs de syntaxe :<br/> - Syntaxe incorrecte près de `Openrowset`<br/> -  `...` n’est pas une option reconnue de fournisseur de `BULK OPENROWSET`.<br/> - Syntaxe incorrecte près de `...` | Causes principales possibles :<br/> - N’utilise pas CosmosDB comme premier paramètre,<br/> - Utilise un littéral de chaîne au lieu d’un identificateur dans le troisième paramètre,<br/> - Ne spécifie pas le troisième paramètre (nom de conteneur). |
+| Une erreur s’est produite dans la chaîne de connexion CosmosDB. | -Le compte, la base de données ou la clé n’est pas spécifié(e), <br/> - Une option dans une chaîne de connexion n’est pas reconnue,<br/> - Un point-virgule `;` est placé à la fin d’une chaîne de connexion. |
+| La résolution du chemin d’accès CosmosDB a échoué avec l’erreur « Nom de compte incorrect » ou « Nom de base de données incorrect ». | Le nom de compte, le nom de la base de données ou le conteneur spécifié est introuvable, ou le stockage analytique n’a pas été activé pour la collection spécifiée.|
+| La résolution du chemin d’accès CosmosDB a échoué avec l’erreur « Valeur de secret incorrecte » ou « Secret null ou vide ». | La clé du compte n’est pas valide ou est manquante. |
+| La colonne `column name` de type `type name` n’est pas compatible avec le type de données externe `type name`. | Le type de colonne spécifié dans la clause `WITH` ne correspond pas au type dans le conteneur Azure Cosmos DB. Essayez de modifier le type de colonne tel que décrit dans la section [Mappages de type Azure Cosmos DB à SQL](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), ou utilisez le type `VARCHAR`. |
+| La colonne contient `NULL` valeurs dans toutes les cellules. | Possibilité d’une erreur de nom de colonne ou d’expression de chemin d’accès dans la clause `WITH`. Le nom de colonne (ou l’expression de chemin d’accès après le type de colonne) dans la clause `WITH` doit correspondre à un nom de propriété dans la collection Azure Cosmos DB. La comparaison *respecte la casse*. Par exemple, `productCode` et `ProductCode` sont des propriétés différentes. |
+
+Vous pouvez nous faire part de vos suggestions et signaler des problèmes dans la [page de commentaires Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+
+### <a name="utf-8-collation-warning-is-returned-while-reading-cosmosdb-string-types"></a>Un avertissement de classement UTF-8 est retourné lors de la lecture des types de chaîne CosmosDB
+
+Un pool SQL serverless retourne un avertissement au moment de la compilation si le classement de la colonne `OPENROWSET` n’a pas d’encodage UTF-8. Vous pouvez facilement modifier le classement par défaut pour toutes les fonctions `OPENROWSET` en cours d’exécution dans la base de données actuelle à l’aide de l’instruction T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
+
+[Le classement Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) offre les meilleurs résultats quand vous filtrez vos données à l’aide de prédicats de chaîne.
+
 ### <a name="some-rows-are-not-returned"></a>Certaines lignes ne sont pas retournées
 
 - Il existe un délai de synchronisation entre les magasins transactionnels et analytiques. Le document que vous avez entré dans le magasin transactionnel Cosmos DB peut apparaître dans le magasin analytique après 2-3 minutes.
@@ -464,7 +489,7 @@ Synapse SQL retourne `NULL` au lieu des valeurs que vous voyez dans le magasin d
 
 La valeur spécifiée dans la clause `WITH` ne correspond pas aux types Cosmos DB sous-jacents dans le stockage analytique et ne peut pas être convertie de façon implicite. Utilisez le type `VARCHAR` dans le schéma.
 
-### <a name="performance-issues"></a>Problèmes de performance
+### <a name="cosmosdb-performance-issues"></a>Problème de performances de CosmosDB
 
 Si vous rencontrez des problèmes de performances inattendus, assurez-vous que vous avez appliqué les meilleures pratiques, notamment :
 - Assurez-vous que vous avez placé l’application cliente, le pool serverless et le stockage analytique Cosmos DB dans [la même région](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
@@ -480,8 +505,8 @@ La prise en charge de Delta Lake est actuellement disponible en préversion publ
   - Ne spécifiez pas de caractères génériques pour décrire le schéma de partition. La requête Delta Lake identifie automatiquement les partitions Delta Lake. 
 - Les tables Delta Lake créées dans les pools Apache Spark ne sont pas synchronisées dans le pool SQL serverless. Vous ne pouvez pas interroger de tables Delta Lake de pools Apache Spark à l’aide du langage T-SQL.
 - Les tables externes ne prennent pas en charge le partitionnement. Utilisez des [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) dans le dossier Delta Lake pour tirer parti de l’élimination des partitions. Consulez les roblèmes connus et solutions de contournement ci-dessous.
-- Les pools SQL serverless ne prennent pas en charge les requêtes de voyage dans le temps. Vous pouvez voter pour cette fonctionnalité sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
-- Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics [pour mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) ou [lire des données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Les pools SQL serverless ne prennent pas en charge les requêtes de voyage dans le temps. Vous pouvez voter pour cette fonctionnalité sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [lire les données historiques](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Vous pouvez utiliser un pool SQL serverless pour interroger la dernière version de Delta Lake. Utilisez les pools Apache Spark dans Azure Synapse Analytics pour [mettre à jour Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - La prise en charge de Delta Lake n’est pas disponible dans les pools SQL dédiés. Assurez-vous que vous utilisez des pools serverless pour interroger les fichiers Delta Lake.
 
 Vous pouvez proposer des idées et des améliorations sur la [page de commentaires Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -509,14 +534,34 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 Si cette requête échoue, l’appelant n’est pas autorisé à lire les fichiers de stockage sous-jacents. 
 
 Le moyen le plus simple consiste à vous accorder le rôle « Contributeur aux données Blob du stockage » pour le compte de stockage que vous tentez d’interroger. 
-- [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Pour plus d’informations, consultez le guide complet sur le contrôle d’accès Azure Active Directory pour le stockage](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Consultez Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### <a name="partitioning-column-returns-null-values"></a>La colonne de partitionnement renvoie des valeurs NULL
 
-Si vous utilisez les vues sur la fonction `OPENROWSET` qui lit le dossier Delta Lake partitionné, vous pouvez obtenir la valeur `NULL` plutôt que les valeurs de colonne réelles pour les colonnes de partitionnement. En raison de ce problème connu, la fonction `OPENROWSET` avec la clause `WITH` ne peut pas lire les colonnes de partitionnement. Les [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) de Delta Lake ne doivent pas avoir la fonction `OPENROWSET` avec la clause `WITH`. Vous devez utiliser la fonction `OPENROWSET` qui ne présente pas de schéma spécifié explicitement.
+Si vous utilisez les vues sur la fonction `OPENROWSET` qui lit le dossier Delta Lake partitionné, vous pouvez obtenir la valeur `NULL` plutôt que les valeurs de colonne réelles pour les colonnes de partitionnement. L’exemple suivant illustre une vue qui référence les colonnes de partitionnement `Year` et `Month` :
 
-**Solution de contournement :** supprimez le formulaire de clause `WITH` de la fonction `OPENROWSET` utilisée dans les vues.
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+     with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
+
+En raison de ce problème connu, la fonction `OPENROWSET` avec la clause `WITH` ne peut pas lire les valeurs à partir des colonnes de partitionnement. Les [vues partitionnées](create-use-views.md#delta-lake-partitioned-views) de Delta Lake ne doivent pas avoir la fonction `OPENROWSET` avec la clause `WITH`. Vous devez utiliser la fonction `OPENROWSET` qui ne présente pas de schéma spécifié explicitement.
+
+**Solution de contournement :** supprimez la clause `WITH` de la fonction `OPENROWSET` qui est utilisée dans les vues, par exemple :
+
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+   --with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>Échec de la requête en raison d’un échec de modification de la topologie ou du conteneur de calcul
 
@@ -527,7 +572,7 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-Les requêtes exécutées via la base de données MASTER sont concernées par ce problème.
+Les requêtes exécutées via la base de données MASTER sont concernées par ce problème. Cela ne s’applique pas à toutes les requêtes qui lisent des données partitionnées. Les jeux de données partitionnés par colonnes de chaîne sont affectés par ce problème.
 
 **Solution de contournement :** exécutez les requêtes sur une base de données personnalisée avec le classement de base de données `Latin1_General_100_BIN2_UTF8`.
 
@@ -535,7 +580,7 @@ Les requêtes exécutées via la base de données MASTER sont concernées par ce
 
 Vous essayez de lire des fichiers Delta Lake qui contiennent des colonnes de type imbriqué sans spécifier de clause WITH (à l’aide de l’inférence de schéma automatique). L’inférence de schéma automatique ne fonctionne pas avec les colonnes imbriquées dans Delta Lake.
 
-**Solution de contournement :** utilisez la clause `WITH` et attribuez explicitement le type `VARCHAR` aux colonnes imbriquées.
+**Solution de contournement :** utilisez la clause `WITH` et attribuez explicitement le type `VARCHAR` aux colonnes imbriquées. Notez que cela ne fonctionne pas si votre jeu de données est partitionné, en raison d’un autre problème connu où la clause `WITH` retourne `NULL` pour les colonnes de partition. Les jeux de données partitionnés avec des colonnes de type complexe ne sont actuellement pas pris en charge.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>Valeur de la colonne de partitionnement introuvable dans le fichier 
 
@@ -548,6 +593,31 @@ Cannot find value of partitioning column '<column name>' in file
 ```
 
 **Solution de contournement :** essayez de mettre à jour votre jeu de données Delta Lake à l’aide de pools Apache Spark et utilisez une valeur (chaîne vide ou `"null"`) plutôt que `null` dans la colonne de partitionnement.
+
+### <a name="json-text-is-not-properly-formatted"></a>Le texte JSON n’est pas mis en forme correctement
+
+Cette erreur indique que le pool SQL serverless ne peut pas lire le journal des transactions Delta Lake. L’erreur ressemble probablement à ceci :
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+Tout d’abord, assurez-vous que votre jeu de données Delta Lake n’est pas endommagé.
+- Vérifiez que vous pouvez lire le contenu du dossier Delta Lake à l’aide du pool Apache Spark dans Synapse ou le cluster Databricks. De cette façon, vous vous assurez que le fichier `_delta_log` n’est pas endommagé.
+- Vérifiez que vous pouvez lire le contenu des fichiers de données en spécifiant `FORMAT='PARQUET'` et en utilisant un caractère générique récursif `/**` à la fin du chemin de l’URI. Si vous pouvez lire tous les fichiers Parquet, le problème se trouve dans le dossier du journal des transactions `_delta_log`.
+
+**Solution de contournement :** ce problème peut se produire si vous utilisez un classement de base de données `_UTF8`. Essayez d’exécuter une requête sur une base de données `master` ou toute autre base de données qui a un classement non UTF8. Si cette solution de contournement résout votre problème, utilisez une base de données sans classement `_UTF8`.
+
+Si le jeu de données est valide mais que la solution de contournement ne vous aide pas, soumettez un ticket de support et indiquez comment reproduire le problème au support Azure :
+- N’apportez pas de modifications comme l’ajout/la suppression de colonnes ou l’optimisation de la table, car cela peut modifier l’état des fichiers du journal des transactions Delta Lake.
+- Copiez le contenu du dossier `_delta_log` dans un nouveau dossier vide. **NE PAS** copier les fichiers `.parquet data`.
+- Essayez de lire le contenu que vous avez copié dans le nouveau dossier et vérifiez que vous obtenez la même erreur.
+- Vous pouvez maintenant continuer à utiliser le dossier Delta Lake avec le pool Spark. Vous fournirez les données copiées au support Microsoft si vous êtes autorisé à les partager.
+- Envoyez le contenu du fichier copié `_delta_log` au support Azure.
+
+L’équipe Azure examine le contenu du fichier `delta_log` et fournit plus d’informations sur les erreurs possibles et les solutions de contournement.
 
 ## <a name="constraints"></a>Contraintes
 

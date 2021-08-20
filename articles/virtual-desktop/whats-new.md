@@ -3,17 +3,17 @@ title: Nouveautés d’Azure Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 06/02/2021
+ms.date: 07/07/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: bd8af603e8e9d9b7a6c59004092ba2a8c59bc4e2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d597e4c33652cb5a7106943ebd9f4e8b23b496ef
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753824"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730223"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Nouveautés d’Azure Virtual Desktop
 
@@ -42,24 +42,60 @@ L’agent Azure Virtual Desktop est mis à jour au moins une fois par mois.
 
 Voici les modifications apportées à l’agent Azure Virtual Desktop :
 
-- Version 1.0.2944.1400 pour la production et version 1.0.2990.800 pour tous les pools d’hôtes de validation : cette mise à jour a été publiée le 27 avril 2021.
-- Version 1.0.2990.800 : cette mise à jour a été publiée le 13 avril 2021 et présente les changements suivants :
+- Version 1.0.3130.1200 : cette mise à jour a été publiée en mai 2021 pour les pools de validation et présente les modifications suivantes :
+    - Améliorations générales et résolutions de bogues.
+    - Résout un problème d’obtention du chemin d’accès au pool d’hôtes pour l’inscription Intune.
+    - Ajout de la journalisation pour mieux diagnostiquer les problèmes liés à l’agent.
+- Version 1.0.3050.1200 : cette mise à jour a été publiée en mai 2021 pour les pools de validation et présente les modifications suivantes :
+    - Mise à jour de l’analyse interne de l’intégrité de l’agent.
+    - Mise à jour de la logique de nouvelle tentative pour l’intégrité de la pile.
+- Version 1.0.2990.1500 : cette mise à jour publiée en avril 2021 présente les changements suivants :
     - Mise à jour des messages d’erreur de l’agent.
-    - Ajout d’une exception qui vous empêche d’installer des agents non-Windows 7 sur des machines virtuelles Windows 7.
+    - Ajout d’une exception qui vous empêche d’installer des agents non Windows 7 sur des machines virtuelles Windows 7.
     - Mise à jour de la logique du service Pulsation.
-- Version 1.0.2944.1400 : cette mise à jour a été publiée le 7 avril 2021 et présente les changements suivants :
+- Version 1.0.2944.1400 : cette mise à jour publiée en avril 2021 présente les changements suivants :
     - Ajout de liens vers le guide de résolution des problèmes de l’agent Azure Virtual Desktop dans les journaux de l’observateur d’événements concernant les erreurs de l’agent.
     - Ajout d’une exception pour une meilleure gestion des erreurs.
     - Ajout de l’outil WVDAgentUrlTool.exe qui permet aux clients de vérifier à quelles URL obligatoires ils peuvent accéder.
-- Version 1.0.2866.1500 : cette mise à jour publiée le 26 mars 2021 corrige un problème lié à la vérification de l'intégrité de la pile.
-- Version 1.0.2800.2802 : cette mise à jour publiée le 10 mars 2021 comporte des améliorations générales et des correctifs de bogues.
-- Version 1.0.2800.2800 : cette mise à jour publiée le 2 mars 2021 corrige un problème de connexion inversée.
-- Version 1.0.2800.2700 : cette mise à jour publiée le 10 février 2021 comporte des améliorations générales et des correctifs de bogues.
-- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé dans l’orchestration.
+-   Version 1.0.2866.1500 : cette mise à jour publiée en mars 2021 corrige un problème lié à la vérification de l’intégrité de la pile.
+-   Version 1.0.2800.2802 : cette mise à jour publiée en mars 2021 comporte des améliorations générales et des correctifs de bogues.
+-   Version 1.0.2800.2800 : cette mise à jour publiée en mars 2021 corrige un problème de connexion inversée.
+-   Version 1.0.2800.2700 : cette mise à jour publiée en février 2021 corrige un problème d’accès refusé dans l’orchestration.
 
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 
 Vous êtes curieux de découvrir les dernières mises à jour de FSLogix ? Consultez [Nouveautés de FSLogix](/fslogix/whats-new).
+
+## <a name="june-2021"></a>Juin 2021
+
+Voici ce qui a changé en juin 2021 :
+
+### <a name="windows-virtual-desktop-is-now-azure-virtual-desktop"></a>Windows Virtual Desktop est désormais Azure Virtual Desktop
+
+Pour mieux s’aligner sur la vision d’une plateforme flexible de bureau cloud et d’applications distantes, nous avons renommé Windows Virtual Desktop en Azure Virtual Desktop. Pour plus d’informations, consultez le [ billet d’annonce du blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
+
+### <a name="eu-uk-and-canada-geographies-are-now-generally-available"></a>Les zones géographiques Europe, Royaume-Uni et Canada sont désormais à la disposition générale
+
+Le service de métadonnées pour l’Union européenne, le Royaume-Uni et le Canada est désormais en disponibilité générale. Ces nouveaux emplacements sont très importants en matière de souveraineté des données en dehors des États-Unis. Pour plus d’informations, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-azure-virtual-desktop-service/m-p/2478401#M7314).
+
+### <a name="the-getting-started-tool-is-now-in-public-preview"></a>L’outil Prise en main est désormais en préversion publique
+
+Nous avons créé l’outil de Prise en main Azure Virtual Desktop pour faciliter le processus de déploiement pour les utilisateurs débutants. En simplifiant et en automatisant le processus de déploiement, nous espérons que cet outil permettra à un large éventail d’utilisateurs d’adopter Azure Virtual Desktop plus rapidement et de manière mieux accessible. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
+
+### <a name="azure-virtual-desktop-pricing-calculator-updates"></a>Mises à jour de la calculatrice de prix Azure Virtual Desktop
+
+Nous avons apporté des mises à jour significatives pour améliorer l’expérience de tarification d’Azure Virtual Desktop sur la calculatrice de prix Azure, notamment en incluant les éléments suivants :  
+  
+- Nous avons mis à jour le nom du service qui devient Azure Virtual Desktop  
+- Nous avons également mis à jour la disposition avec les nouveaux éléments suivants :  
+   - Section Stockage avec la bande passante de stockage fichier et disque managé  
+   - Section personnalisée qui affiche le coût par utilisateur
+
+Vous pouvez accéder à la calculatrice de prix sur [cette page](https://azure.microsoft.com/pricing/calculator/).
+
+### <a name="single-sign-on-sso-using-active-directory-federation-services-ad-fs"></a>Authentification unique (SSO) avec les services de fédération Active Directory (AD FS) (ADFS)
+
+La fonctionnalité d’authentification unique AD FS est désormais en disponibilité générale. Cette fonctionnalité permet aux clients d’utiliser AD FS pour offrir une expérience d’authentification unique aux utilisateurs sur les clients Windows et web. Pour plus d’informations, consultez [Configurer l’authentification unique AD FS pour Azure Virtual Desktop](configure-adfs-sso.md).
 
 ## <a name="may-2021"></a>Mai 2021
 
@@ -453,7 +489,7 @@ La version précédente du client Bureau à distance s’appelle désormais « 
 
 ### <a name="teams-update"></a>Mise à jour de Microsoft Teams
 
-Nous avons apporté des améliorations à Microsoft Teams pour Azure Virtual Desktop. Plus important encore, Azure Virtual Desktop prend désormais en charge l’optimisation audio et vidéo pour le client Windows Desktop. La redirection améliore la latence en créant des chemins directs entre utilisateurs quand ceux-ci utilise l’audio ou la vidéo dans le cadre d’appels et de réunions. Une distance moins élevée signifie moins de tronçons, ce qui améliore la fluidité sonore et visuelle des appels. Pour en savoir plus, consultez [Utiliser Microsoft Teams sur Azure Virtual Desktop](teams-on-wvd.md).
+Nous avons apporté des améliorations à Microsoft Teams pour Azure Virtual Desktop. Plus important encore, Azure Virtual Desktop prend désormais en charge l’optimisation audio et vidéo pour le client Windows Desktop. La redirection améliore la latence en créant des chemins directs entre utilisateurs quand ceux-ci utilise l’audio ou la vidéo dans le cadre d’appels et de réunions. Une distance moins élevée signifie moins de tronçons, ce qui améliore la fluidité sonore et visuelle des appels. Pour en savoir plus, consultez [Utiliser Microsoft Teams sur Azure Virtual Desktop](./teams-on-avd.md).
 
 ## <a name="june-2020"></a>Juin 2020
 

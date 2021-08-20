@@ -1,0 +1,117 @@
+### YamlMime:FAQ
+metadata:
+  title: Forum Aux Questions sur Metrics Advisor
+  titleSuffix: Azure Cognitive Services
+  description: Forum aux questions sur le service Metrics Advisor.
+  services: cognitive-services
+  author: mrbullwinkle
+  manager: nitinme
+  ms.service: applied-ai-services
+  ms.subservice: metrics-advisor
+  ms.topic: conceptual
+  ms.date: 11/05/2020
+  ms.author: mbullwin
+  ms.openlocfilehash: 9c09297f587fcac65346abddc1b06a69a8e58e6e
+  ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/15/2021
+  ms.locfileid: "114341346"
+title: Forum Aux Questions sur Metrics Advisor
+summary: ''
+sections:
+- name: Général
+  questions:
+  - question: >
+      Pourquoi ne puis-je pas créer la ressource ? Le « Niveau tarifaire » n’est pas disponible et il indique « Vous avez déjà créé 1 S0 pour cet abonnement » ?
+    answer: >
+      :::image type="content" source="media/pricing.png" alt-text="Message lorsqu’une ressource F0 existe déjà":::
+
+
+      Pendant la préversion publique, une seule instance de Metrics Advisor peut être créée par région dans le cadre d’un abonnement.
+
+
+      Si vous avez déjà créé une instance dans la même région à l’aide du même abonnement, vous pouvez essayer une autre région ou un autre abonnement pour créer une nouvelle instance. Vous pouvez également supprimer une instance existante pour en créer une nouvelle.
+
+
+      Si vous avez déjà supprimé l’instance existante mais que l’erreur persiste, patientez environ 20 minutes après la suppression de la ressource avant de créer une nouvelle instance.
+- name: Concepts de base
+  questions:
+  - question: >
+      Qu’est-ce que les données de séries chronologiques multidimensionnelles ?
+    answer: >
+      Consultez la définition de la [Métrique multidimensionnelle](glossary.md#multi-dimensional-metric) dans le glossaire.
+  - question: >
+      Quelle quantité de données est nécessaire pour que Metrics Advisor démarrent la détection des anomalies ?
+    answer: >
+      Au minimum, un point de données peut déclencher la détection d’anomalie. Toutefois, cela n’apporte pas la meilleure précision. Le service envisage une fenêtre de points de données précédents en utilisant la valeur que vous avez spécifiée comme règle de remplissage lors de la création du flux de données.
+
+
+      Nous vous recommandons d’avoir des données avant le timestamp sur lequel vous souhaitez effectuer la détection.
+
+      En fonction de la granularité de vos données, la quantité de données recommandée varie comme indiqué ci-dessous.
+
+
+      | Granularité | Quantité de données recommandée pour la détection |
+
+      | ----------- | ------------------------------------- |
+
+      | moins de 5 minutes | 4 jours de données |
+
+      | de 5 minutes à 1 jour | 28 jours de données |
+
+      | de plus d’1 jour à 31 jours | 4 ans de données |
+
+      | plus de 31 jours | 48 jours de données |
+  - question: >
+      Pourquoi Metrics Advisor ne détecte-t-il pas les anomalies à partir des données historiques ?
+    answer: >
+      Metrics Advisor est conçu pour détecter les données de streaming en direct. Il existe une limitation de la longueur maximale des données d’historique que le service examinera pour exécuter la détection des anomalies. Cela signifie que seuls les points de données après un timestamp précédent donné auront des résultats de détection d’anomalie. Ce timestamp précédent dépend de la granularité de vos données.
+
+
+      En fonction de la granularité de vos données, les longueurs des données historiques qui auront des résultats de détection d’anomalie sont les suivantes.
+
+
+      | Granularité | Longueur maximale des données d’historique pour la détection d’anomalie |
+
+      | ----------- | ------------------------------------- |
+
+      | moins de 5 minutes | heure d’intégration : 13 heures |
+
+      | de 5 minutes à moins de 1 heure | heure d’intégration : 4 heures  |
+
+      | de 1 heure à moins de 1 jour | heure d’intégration : 14 heures  |
+
+      | 1 jour | heure d’intégration : 28 heures  |
+
+      | de plus d’1 jour à moins de 31 jours | heure d’intégration : 2 heures  |
+
+      | plus de 31 jours | heure d’intégration : 24 heures   |
+  - question: >
+      Conservation des données et limites de Metrics Advisor
+    answer: "1. Conservation des données :\nMetrics Advisor conservera au maximum **10 000** intervalles de temps (qu’est-ce qu’un intervalle ?) en comptant à partir du timestamp actuel, qu’il y ait des données disponibles ou non. Les données qui tombent en dehors de la fenêtre seront supprimées.  Mappage de la conservation des données en nombre de jours pour différentes granularités de métriques.\n\n| Granularité(min) |    Rétention(jour) |\n|------------------| ------------------|\n|  1 | 6,94 |\n|  5 | 34,72|\n| 15 | 104,1|\n| 60(=horaire) | 416,67 |\n| 1440(=quotidienne)|10 000|\n\n2. Limite du nombre maximal de séries chronologiques dans une même métrique :\n\nIl peut y avoir plusieurs dimensions dans une métrique, et chaque dimension peut avoir plusieurs valeurs. La combinaison maximale de dimensions pour une métrique ne doit pas dépasser **100 000**.   \n- Les administrateurs de ressources Metrics Advisor et les propriétaires des flux de données seront avertis lorsque la limite de **80 %** sera atteinte sur la page de détail du flux de données. \n- Si la métrique a dépassé la limite, le flux de données **sera suspendu** et attendra que les clients décident d’une action. Il est suggéré de diviser le flux de données en plusieurs flux de données en utilisant le filtrage. \n\n3. Limite du nombre maximum de points de données stockés dans une instance Metrics Advisor :\n\nMetrics Advisor compte le total des points de données de tous les flux de données qui ont été intégrés à l’instance à partir du premier timestamp d’ingestion. Le nombre maximum de points de données pouvant être stockés dans une instance Metrics Advisor est de **2 milliards**. \n- Les administrateurs de ressources Metrics Advisor et tous les utilisateurs seront avertis lorsque la limite de **80 %** sera atteinte sur la page de liste des flux de données et sur la page d’ajout de nouveaux flux de données. \n- Si le total des points de données a dépassé la limite, tous les flux de données **sont suspendus** et l’intégration de nouveaux flux est également **bloquée**. Il est suggéré de supprimer les flux de données inutilisés ou de créer une nouvelle ressource Metrics Advisor dans votre abonnement.\n"
+  - question: >
+      Comment détecter des mines et pixels indépendants du périphérique comme des anomalies ?
+    answer: >
+      Si des seuils définitifs sont prédéfinis, vous pouvez définir manuellement le « seuil définitif » dans [configurations de la détection d’anomalie](how-tos/configure-metrics.md#anomaly-detection-methods).
+
+      S’il n’y a aucun seuil, vous pouvez utiliser la « détection intelligente » qui est alimentée par l’intelligence artificielle. Pour plus d’informations, reportez-vous à l’[ajustement de la configuration de détection](how-tos/configure-metrics.md#tune-the-detection-configuration).
+  - question: >
+      Comment faire détecter la non-conformité avec les modèles standard (saisonnier) comme des anomalies ?
+    answer: >
+      La « Détection intelligente » peut apprendre le modèle de vos données, y compris les modèles saisonniers. Elle détecte ensuite les points de données qui ne sont pas conformes aux modèles standard comme des anomalies. Pour plus d’informations, reportez-vous à l’[ajustement de la configuration de détection](how-tos/configure-metrics.md#tune-the-detection-configuration).
+  - question: >
+      Comment détecter les lignes plates comme des anomalies ?
+    answer: >
+      Si vos données sont normalement assez instables et fluctuent beaucoup et que vous souhaitez être alerté lorsqu’elles deviennent trop stables ou qu’elles se transforment en une ligne plate, le « Seuil de modification » peut être configuré pour détecter ces points de données lorsque la modification est trop légère.
+
+      Pour plus d’informations, consultez les [configurations de détection d’anomalie](how-tos/configure-metrics.md#anomaly-detection-methods).
+  - question: >
+      Comment configurer des paramètres de messagerie et activer les alertes par e-mail ?
+    answer: "1.  Un utilisateur doté de privilèges d’administrateur d’abonnement ou d’administrateur de groupe de ressources a besoin d’accéder à la ressource Metrics Advisor créée dans le portail Azure, puis de sélectionner l’onglet **Contrôle d’accès (IAM)** . \n2.  Sélectionnez **Ajouter des attributions de rôle**.\n3.  Sélectionnez un rôle **Administrateur Metrics Advisor Cognitive Services**, puis sélectionnez votre compte comme dans l’image ci-dessous.\n4.  Cliquez sur le bouton **Enregistrer**. Vous avez été correctement ajouté en tant qu’administrateur de ressource Metrics Advisor. Notez que toutes les actions ci-dessus doivent être effectuées par un administrateur d’abonnement ou un administrateur de groupe de ressources. \n\n    :::image type=\"content\" source=\"media/access-control.png\" alt-text=\"Page du menu Contrôle d’accès (IAM) avec l’option Ajouter une attribution de rôle encadrée, puis une zone avec l’option Attribuer l’accès à définie sur un utilisateur auquel le rôle attribué est Administrateur Metrics Advisor Cognitive Services, puis le bouton Enregistrer de l’interface utilisateur encadré pour illustrer les étapes de la recherche d’un utilisateur et de l’ajout d’un niveau d’autorisation particulier.\" lightbox=\"media/access-control.png\":::\n\n\n5.  La propagation des autorisations peut prendre jusqu’à une minute. Ensuite, sélectionnez votre espace de travail Metrics Advisor, puis sélectionnez l’option **Paramètre de messagerie** dans le volet de navigation gauche. Renseignez les éléments nécessaires, en particulier les informations relatives au protocole SMTP. \n6.  Sélectionnez **Enregistrer** et vous avez terminé de configurer la messagerie. Vous pouvez créer des hooks et vous abonner à des anomalies de métrique pour obtenir des alertes en quasi-temps réel. \n"
+- name: Concepts avancés
+  questions:
+  - question: >
+      Comment Metrics Advisor crée-t-il un arbre de diagnostic pour les métriques multidimensionnelles ?
+    answer: "Une métrique peut être fractionnée en plusieurs séries chronologiques par dimensions. Par exemple, la métrique `Response latency` est surveillée pour tous les services appartenant à l’équipe. La catégorie `Service` peut être utilisée comme dimension pour enrichir la métrique, de sorte que `Response latency` est fractionnée par `Service1`, `Service2`, etc. Chaque service pouvant être déployé sur différents ordinateurs dans plusieurs centres de données, la métrique peut être divisée davantage par `Machine` et `Data center`.\n\n|Service| Centre de données| Machine  | \n|----|------|----------------   |\n| S1 |  DC1 |   M1 |\n| S1 |  DC1 |   M2 |\n| S1 |  DC2 |   M3 |\n| S1 |  DC2 |   M4 |\n| S2 |  DC1 |   M1 |\n| S2 |  DC1 |   M2 |\n| S2 |  DC2 |   M5 |\n| S2 |  DC2 |   M6 |\n| ...|      |      |\n\nÀ partir de la `Response latency` totale, nous pouvons explorer la mesure au niveau du détail par `Service`, `Data center` et `Machine`. Toutefois, il est peut-être plus judicieux pour les propriétaires de service d’utiliser le chemin d’accès `Service` -> `Data center` -> `Machine`, ou plus logique pour les ingénieurs d’infrastructure d’utiliser le chemin d’accès `Data Center` -> `Machine` -> `Service`. Tout dépend des besoins professionnels de vos utilisateurs. \n\nDans Metric Advisor, les utilisateurs peuvent spécifier n’importe quel chemin d’accès qu’ils veulent explorer au niveau du détail ou dont ils veulent remonter à partir d’un nœud de la topologie hiérarchique. Plus précisément, la topologie hiérarchique est un graphe orienté acyclique plutôt qu’une arborescence. Il existe une topologie hiérarchique complète qui se compose de toutes les combinaisons de dimensions potentielles, comme celle-ci : \n\n:::image type=\"content\" source=\"media/dimension-combinations-view.png\" alt-text=\"Diagramme de topologie hiérarchique constitué de plusieurs sommets et arêtes interconnectés à dimensions multiples étiquetées S, DC et M avec des numéros correspondants allant de 1 à 6\" lightbox=\"media/dimension-combinations-view.png\":::\n\nEn théorie, si la dimension `Service` a `Ls` valeurs distinctes, que la dimension `Data center` a `Ldc` valeurs distinctes et que la dimension `Machine` a `Lm` valeurs distinctes, alors il peut y avoir `(Ls + 1) * (Ldc + 1) * (Lm + 1)` combinaisons de dimensions dans la topologie hiérarchique. \n\nMais généralement, toutes les combinaisons de dimensions ne sont pas valides, ce qui peut réduire considérablement la complexité. Actuellement, si les utilisateurs agrègent eux-mêmes la métrique, nous ne limitons pas le nombre de dimensions. Si vous devez utiliser les fonctionnalités de cumul fournies par Metrics Advisor, le nombre de dimensions ne devrait pas être supérieur à 6. Toutefois, nous limitons à moins de 10 000 le nombre de séries chronologiques développées par des dimensions pour une métrique.\n\nL’outil **Arbre de diagnostic** de la page de diagnostics affiche uniquement les nœuds dans lesquels une anomalie a été détectée, plutôt que la topologie entière. Cela vous permet de vous concentrer sur le problème actuel. Il se peut également qu’il ne montre pas toutes les anomalies dans la métrique et affiche plutôt les principales anomalies en fonction de leur contribution. De cette façon, nous pouvons rapidement déterminer l’impact, la portée et le chemin de propagation des données anormales. Cela réduit considérablement le nombre d’anomalies sur lesquelles nous devons nous concentrer et aide les utilisateurs à comprendre et à localiser leurs problèmes clés. \n \nPar exemple, lorsqu’une anomalie se produit sur `Service = S2 | Data Center = DC2 | Machine = M5`, l’écart de l’anomalie a un impact sur le nœud parent `Service= S2` qui a également détecté l’anomalie, mais l’anomalie ne concerne pas l’ensemble du centre de données au niveau de `DC2` ni tous les services sur `M5`. L’arborescence de l’incident est générée comme dans la capture d’écran ci-dessous : la première anomalie est capturée sur `Service = S2` et la cause racine peut être analysée dans deux chemins qui mènent tous deux à `Service = S2 | Data Center = DC2 | Machine = M5`.\n\n :::image type=\"content\" source=\"media/root-cause-paths.png\" alt-text=\"Cinq sommets étiquetés avec deux chemins distincts reliés par des arêtes avec un nœud commun étiqueté S2. La première anomalie est capturée sur Service = S2 et la cause racine peut être analysée par les deux chemins qui mènent tous deux à Service = S2 | Data Center = DC2 | Machine = M5\" lightbox=\"media/root-cause-paths.png\":::\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\n- [Présentation de Metrics Advisor](overview.md)"

@@ -1,18 +1,18 @@
 ---
 title: Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil de découverte et d’évaluation d’Azure Migrate
 description: Apprenez à découvrir les applications, dépendances et serveurs locaux dans un environnement VMware en utilisant l’outil de découverte et d’évaluation d’Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 42140e61146d8682d193f89b2a691b8a13260533
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: d2b71b227500644a63eb116493abeba7576eb7eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803598"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464935"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation
 
@@ -302,22 +302,20 @@ Si la validation échoue, vous pouvez sélectionner un état d’**échec** pour
 
 ### <a name="start-discovery"></a>Démarrer la découverte
 
-Pour lancer la découverte de vCenter Server, dans **Étape 3 : Fournissez des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server**, sélectionnez **Démarrer la découverte**. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
-
-> [!NOTE]
-> Azure Migrate chiffre les communications entre l’appliance Azure Migrate et les instances SQL sources quand la propriété [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) a la valeur `true`. La couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
-> Si aucun certificat n’a été provisionné sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
->
+Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la découverte**. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
 
 ## <a name="how-discovery-works"></a>Fonctionnement de la découverte
 
 * Il faut environ 15 minutes par hôte pour que l’inventaire de serveurs découverts apparaisse sur le portail Azure.
 * Si vous avez fourni des informations d’identification de serveur, l’inventaire logiciel (découverte des applications installées) est automatiquement lancé une fois la découverte des serveurs exécutant vCenter Server terminée. L’inventaire logiciel est effectué une fois toutes les 12 heures.
 * L’[inventaire logiciel](how-to-discover-applications.md) identifie les instances SQL qui s’exécutent sur les serveurs. Avec ces informations collectées, l’appliance tente de se connecter aux diverses instances SQL grâce aux informations d’authentification Windows ou SQL Server fournies sur l’appliance. Ensuite, elle recueille des données sur les bases de données SQL Server et leurs propriétés. La découverte SQL Server est effectuée une fois toutes les 24 heures.
+* L’appliance ne peut se connecter qu’aux instances SQL auxquelles elle est reliée par une ligne de mire réseau, alors que l’inventaire logiciel en lui-même n’a pas nécessairement besoin d’une ligne de mire réseau.
 * La découverte des applications installées peut prendre plus de 15 minutes. Sa durée dépend du nombre de serveurs découverts. Pour 500 serveurs, environ une heure s’écoule avant que l’inventaire découvert apparaisse dans le projet Azure Migrate dans le portail.
-* Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’analyse des dépendances sans agent.
+* Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’[analyse des dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md).
 * Les données de bases de données et d’instances SQL commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
+* Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2158046) sur ce que vous devez choisir.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Capture d’écran montrant comment modifier les propriétés de connexion de SQL Server.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
