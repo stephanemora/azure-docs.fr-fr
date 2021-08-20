@@ -6,13 +6,13 @@ author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: c79d96e016459732ce71019511fa429d62d91f9d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 07/05/2021
+ms.openlocfilehash: 9dbeeaa10fc755b978a1819a0af181da47149921
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740135"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436835"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
@@ -179,11 +179,12 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
     ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
-   ![Page d’accueil Data Factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
-11. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante :
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Open Azure Data Factory Studio.":::
 
-    ![Bouton Créer un pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
+10. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
+11. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche comme illustré dans l’image suivante :
+
+    ![Capture d’écran montrant le bouton Gérer.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous allez créer des services liés à votre compte de stockage Azure et à votre base de données dans Azure SQL Database.
