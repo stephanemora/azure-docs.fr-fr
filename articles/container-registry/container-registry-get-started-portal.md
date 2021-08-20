@@ -1,21 +1,22 @@
 ---
 title: Guide de démarrage rapide - Créer un registre dans le portail
 description: Apprenez rapidement à créer un registre de conteneurs Azure privé à l’aide du portail Azure.
-ms.date: 08/04/2020
+ms.date: 06/23/2021
 ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+- contperf-fy21q4
+ms.openlocfilehash: 51531b6af5babe256ec89079c7705cfea71ef52a
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773582"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895937"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs Azure à l’aide du portail Azure
 
-Un registre de conteneurs Azure est un registre Docker privé dans Azure, où vous pouvez stocker et gérer des images de conteneurs Docker privés ainsi que les artefacts associés. Dans ce guide de démarrage rapide, vous allez créer un registre de conteneurs à partir du portail Azure. Vous allez ensuite utiliser des commandes Docker pour envoyer (push) une image conteneur dans le registre, puis tirer (pull) et exécuter l’image à partir de votre registre.
+Azure Container Registry est un service de registre privé permettant de créer, de stocker et de gérer des images conteneurs et les artefacts associés. Dans ce guide de démarrage rapide, vous créez une instance de registre de conteneurs Azure avec le portail Azure. Vous allez ensuite utiliser des commandes Docker pour envoyer (push) une image conteneur dans le registre, puis tirer (pull) et exécuter l’image à partir de votre registre.
 
 Pour vous connecter au registre et utiliser des images conteneur, ce guide de démarrage rapide vous demande d’exécuter Azure CLI (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
@@ -37,17 +38,17 @@ Sous l’onglet **Informations de base**, entrez les valeurs appropriées pour *
 
 Acceptez les valeurs par défaut pour les autres paramètres. Sélectionnez ensuite **Passer en revue + créer** . Après avoir passé en revue les paramètres, sélectionnez **Créer**.
 
-Dans ce guide de démarrage rapide, vous allez créer un registre *De base*. Il s’agit d’une option à coût optimisé pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles (SKU), consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 Quand le message **Déploiement réussi** s’affiche, sélectionnez le registre de conteneurs dans le portail. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Vue d’ensemble du registre de conteneurs dans le portail":::
 
-Prenez note du nom du registre et de la valeur du **serveur de connexion**. Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
+Prenez note du nom du registre et de la valeur du **Serveur de connexion**, qui est un nom complet se terminant par `azurecr.io` dans le cloud Azure. Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
 
 ## <a name="log-in-to-registry"></a>Se connecter au registre
 
-Avant d’envoyer (push) et de tirer (pull) des images conteneur, vous devez vous connecter à l’instance du registre. [Connectez-vous à Azure CLI][get-started-with-azure-cli] sur votre machine locale, puis exécutez la commande [az acr login][az-acr-login]. Spécifiez uniquement le nom du registre au moment de la connexion à Azure CLI. N’utilisez pas le nom du serveur de connexion, qui comprend un suffixe de domaine comme `azurecr.io`.
+Avant d’envoyer (push) et de tirer (pull) des images conteneur, vous devez vous connecter à l’instance du registre. [Connectez-vous à Azure CLI][get-started-with-azure-cli] sur votre machine locale, puis exécutez la commande [az acr login][az-acr-login]. Spécifiez seulement le nom du registre au moment de la connexion avec Azure CLI. N’utilisez pas le nom complet du serveur de connexion.
 
 ```azurecli
 az acr login --name <registry-name>

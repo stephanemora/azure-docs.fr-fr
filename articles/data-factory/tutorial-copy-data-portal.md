@@ -5,14 +5,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: aa8ccdde19dadeb1864037ed13082e42a27b8f59
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 766572462c2596856258f2f154845b940c6b5c1c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483314"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436799"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données dans Azure SQL Database en utilisant Azure Data Factory
 
@@ -96,7 +96,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 8. Sélectionnez l’onglet **Configuration Git** dans la partie supérieure, puis cochez la case **Configurer Git plus tard**.
 9. Sélectionnez **Vérifier + créer**, puis **Créer** une fois la validation réussie.
 10. Une fois la création terminée, vous voyez apparaître l’avis dans le centre de notifications. Sélectionnez **Accéder à la ressource** pour accéder à la page de la fabrique de données.
-11. Sélectionnez **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
+11. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet distinct.
 
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
@@ -108,11 +108,11 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des jeux de données et des services liés lorsque vous en avez besoin pour configurer le pipeline.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 
-1. Dans le volet Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
+1. Dans le panneau Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du concepteur de pipeline. Spécifiez **CopyFromBlobToSql** pour le **Nom**.
 

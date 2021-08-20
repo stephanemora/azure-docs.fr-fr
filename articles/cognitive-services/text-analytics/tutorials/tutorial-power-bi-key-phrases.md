@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 05/19/2021
 ms.author: aahi
-ms.openlocfilehash: e8ce559b180169468a5c53e5aa1d742dd4cdfc83
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a1c093f1933da96ec866280cf3583162891d5068
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450872"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550261"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
@@ -45,7 +45,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Pour commencer, ouvrez Power BI Desktop et chargez le fichier CSV `FabrikamComments.csv` que vous avez téléchargé dans la section [Prérequis](#Prerequisites). Ce fichier représente une journée d’activité hypothétique dans le forum de support d’une petite entreprise fictive.
 
 > [!NOTE]
-> Power BI peut utiliser les données issues d’une multitude de sources, telles que Facebook ou une base de données SQL. Pour plus d’informations, consultez les pages concernant [l’intégration de Facebook à Power BI](https://powerbi.microsoft.com/integrations/facebook/) et [l’intégration de SQL Server à Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
+> Power BI peut utiliser les données issues d’une multitude de sources basées sur le web, telles que des bases de données SQL. Pour plus d’informations, consultez la [documentation de Power Query](/power-query/connectors/).
 
 Dans la fenêtre principale de Power BI Desktop, sélectionnez le ruban **Accueil**. Dans le groupe **Données externes** du ruban, ouvrez le menu déroulant **Obtenir des données**, puis sélectionnez **Texte/CSV**.
 
@@ -89,7 +89,7 @@ Vous pouvez également envisager de filtrer les messages vides en utilisant le f
 ## <a name="understand-the-api"></a>Comprendre l’API
 <a name="UnderstandingAPI"></a>
 
-[L’API d’extraction de phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases) du service Analyse de texte peut traiter jusqu’à mille documents texte par requête HTTP. Power BI traite généralement les enregistrements un par un. Par conséquent, dans ce tutoriel, chacun de vos appels à l’API ne contient qu’un seul document. Pour chaque document à traiter, l’API d’extraction de phrases clés nécessite les champs ci-dessous.
+[L’API d’extraction de phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-1/operations/KeyPhrases) du service Analyse de texte peut traiter jusqu’à mille documents texte par requête HTTP. Power BI traite généralement les enregistrements un par un. Par conséquent, dans ce tutoriel, chacun de vos appels à l’API ne contient qu’un seul document. Pour chaque document à traiter, l’API d’extraction de phrases clés nécessite les champs ci-dessous.
 
 | Champ | Description |
 | - | - |
@@ -225,7 +225,7 @@ La fonction Analyse des sentiments ci-après retourne une étiquette évaluant l
 // Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
     apikey = "YOUR_API_KEY_HERE",
-    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/sentiment",
     jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody = Text.ToBinary(jsonbody),
@@ -242,7 +242,7 @@ Voici deux versions d’une fonction Détection de langue. La première retourne
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -255,7 +255,7 @@ Voici deux versions d’une fonction Détection de langue. La première retourne
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +274,7 @@ Pour finir, voici une variante de la fonction Expressions clés déjà présent�
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -291,7 +291,7 @@ in  keyphrases
 Apprenez-en davantage sur le service Analyse de texte, sur le langage de formule M Power Query ou sur Power BI.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
+> [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur le langage M Power Query](/powerquery-m/power-query-m-reference)

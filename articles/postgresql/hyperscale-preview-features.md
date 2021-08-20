@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 04/07/2021
-ms.openlocfilehash: 5f0552e09464a6b571a665cfe3895f48c3aa8c41
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 07/09/2021
+ms.openlocfilehash: 1e0f7c133a0ac0091355cba20d251333e6402212
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258450"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463536"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>Fonctionnalités en préversion pour PostgreSQL - Hyperscale (Citus)
 
@@ -32,9 +32,11 @@ Voici les fonctionnalités actuellement disponibles pour la préversion :
   Stockage des colonnes des tables sélectionnées (plutôt que les lignes) de façon contiguë sur le disque. Prend en charge la compression sur disque. Adapté aux charges de travail d’analytique et d’entreposage de données.
 * **[Réplicas en lecture](howto-hyperscale-read-replicas-portal.md)** (actuellement dans la même région uniquement). Toutes les modifications apportées au groupe principal de serveurs sont reflétées dans son réplica, tandis que les requêtes sur le réplica n’entraînent aucune charge supplémentaire sur le groupe d’origine.
   Les réplicas représentent un outil utile pour améliorer les performances des charges de travail en lecture seule.
-* **[PgBouncer managé](concepts-hyperscale-limits.md#managed-pgbouncer-preview)** .
+* **[PgBouncer managé](concepts-hyperscale-connection-pool.md)** .
   Dispositif de regroupement de connexions qui permet à de nombreux clients de se connecter à un groupe de serveurs en même temps, tout en limitant le nombre de connexions actives. Il satisfait aux requêtes de connexion tout en conservant une exécution fluide du nœud coordinateur.
 * **[pgAudit](concepts-hyperscale-audit.md)** . Fournit une journalisation détaillée des audits de session et d’objets via la fonctionnalité de journalisation PostgreSQL standard. Elle génère les journaux d’audit nécessaires pour passer certains audits administratifs, financiers ou de certification ISO.
+* **[create_extension() UDF](concepts-hyperscale-extensions.md#use-postgresql-extensions)** .
+  Permet de créer des extensions dont l’installation nécessite un accès administratif.
 
 ### <a name="available-regions-for-preview-features"></a>Régions disponibles pour les fonctionnalités en préversion
 

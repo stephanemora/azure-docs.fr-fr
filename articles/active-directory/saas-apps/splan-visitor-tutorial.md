@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/14/2020
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de00b869aef2d1429740d75829da9a5c3e79de15
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644693"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465940"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à Splan Visitor
 
@@ -33,11 +33,14 @@ Pour commencer, vous avez besoin des éléments suivants :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Splan Visitor pour lequel l’authentification unique est activée.
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification SSO Azure AD dans un environnement de test.
 
-Splan Visitor prend en charge l’authentification unique lancée par le fournisseur d’identité.
+* Splan Visitor prend en charge l’authentification unique lancée par le fournisseur d’identité.
 
 ## <a name="add-splan-visitor-from-the-gallery"></a>Ajouter Splan Visitor à partir de la galerie
 
@@ -69,7 +72,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Splan Visitor**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de **modification/stylet** pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de **crayon** pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Capture d’écran montrant l’icône de modification/stylet pour Configuration SAML de base.](common/edit-urls.png)
 

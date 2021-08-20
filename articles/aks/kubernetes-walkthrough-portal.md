@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment créer rapidement un cluster Kubernetes, déployer une application et superviser les performances dans AKS (Azure Kubernetes Service) à l’aide du portail Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-ms.openlocfilehash: 28ba2ffd2007aeb45081cf66b05395a2b8456bf7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c695b3214cebb601e53810ea8d6f3402bcf2e94
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779702"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463123"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide du portail Azure
 
@@ -41,13 +41,17 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
         * Sélectionnez un **abonnement** Azure.
         * Sélectionnez ou créez un **groupe de ressources** Azure, par exemple *myResourceGroup*.
     - **Détails du cluster** : 
+        * Vérifiez que la **Configuration prédéfinie** est *Standard ($$)* . Pour plus d’informations sur les configurations prédéfinies, consultez [Présélections de configuration de cluster dans le portail Azure][preset-config].
         * Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*. 
         * Sélectionnez une **région** et une **version de Kubernetes** pour le cluster AKS.
     - **Pool de nœuds principal** : 
-        * Sélectionnez une **taille de nœud** de machine virtuelle pour les nœuds AKS. Elle ne sera *pas modifiable* une fois le cluster AKS déployé.
-        * Sélectionnez également le nombre de nœuds à déployer dans le cluster. Pour effectuer ce démarrage rapide, définissez le **Nombre de nœuds** à *1*. Le nombre de nœuds est *modifiable* après le déploiement du cluster.
+        * conservez la valeur par défaut sélectionnée.
     
     ![Créer un cluster AKS - fournir des informations de base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+
+    > [!NOTE]
+    > Vous pouvez modifier la configuration prédéfinie lors de la création de votre cluster en sélectionnant *Afficher toutes les configurations prédéfinies* et en choisissant une autre option.
+    > ![Créer un cluster AKS - options prédéfinies du portail](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
 
 4. Sélectionnez **Suivant : Pools de nœuds** à l’issue du processus.
 
@@ -103,8 +107,9 @@ Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de lig
     La sortie montre le nœud unique créé au cours des étapes précédentes. Assurez-vous que l’état du nœud est *Prêt* :
 
     ```output
-    NAME                       STATUS    ROLES     AGE       VERSION
-    aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-12345678-vmss000000   Ready    agent   23m   v1.19.11
+    aks-agentpool-12345678-vmss000001   Ready    agent   24m   v1.19.11
     ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
@@ -273,7 +278,7 @@ Les conteneurs `azure-vote-back` et `azure-vote-front` s’affichent, comme illu
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Pour visualiser les journaux relatifs au pod `azure-vote-front`, sélectionnez **Afficher les journaux du conteneur** dans la liste déroulante de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour afficher les journaux du pod `azure-vote-front`, sélectionnez **Afficher dans Log Analytics** en haut de la zone *azure-vote-front | Vue d’ensemble* sur le côté droit. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
 ![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
@@ -318,4 +323,5 @@ Pour en savoir plus sur AKS au travers d’un exemple complet, notamment sur la 
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 06/10/2021
+ms.date: 07/07/2021
 ms.author: aahi
-ms.openlocfilehash: a8645552cba0bb687b5d9a9dc93bc917d7ee38af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 00ffe7d9911e10dad26976b36954be5fe61c3474
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969332"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113549685"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
@@ -25,7 +25,7 @@ Les modèles IA utilisés par l’API sont fournis par le service ; vous n’av
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versions et fonctionnalités d’Analyse des sentiments
 
-| Fonctionnalité                                   | Analyse des sentiments v3 | Analyse des sentiments v3.1 (préversion) |
+| Fonctionnalité                                   | Analyse des sentiments v3.0 | Analyse des sentiments v3.1 |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Méthodes pour les requêtes uniques et de lots    | X                     | X                                 |
 | Scores et étiquetage d’Analyse des sentiments             | X                     | X                                 |
@@ -49,7 +49,7 @@ Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proche
 
 ## <a name="opinion-mining"></a>Exploration des opinions
 
-L’Exploration des opinions est une fonctionnalité d’Analyse des sentiments, disponible dans la préversion de la version 3.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus précises sur les opinions liées aux attributs de produits ou de services dans le texte. L’API fait apparaître les opinions en tant que cible (substantif ou verbe) ainsi qu’une évaluation (adjectif).
+Exploration des opinions est une fonctionnalité d’Analyse des sentiments, à compter la version 3.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus précises sur les opinions liées aux attributs de produits ou de services dans le texte. L’API fait apparaître les opinions en tant que cible (substantif ou verbe) ainsi qu’une évaluation (adjectif).
 
 Par exemple, si un client laisse un commentaire sur un hôtel, comme « la chambre était géniale, mais le personnel peu sympathique », Exploration des opinions va repérer des cibles (aspects) dans le texte ainsi que les évaluations (opinions) et les sentiments associés. Analyse des sentiments peut signaler seulement un sentiment négatif.
 
@@ -64,7 +64,7 @@ Pour avoir l’Exploration des opinions dans vos résultats, vous devez inclure 
 
 La qualité des résultats de l’analyse des sentiments est d’autant meilleure que vous lui donnez de petites quantités de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer des documents JSON dans ce format : ID, texte et langue. Analyse des sentiments prend en charge une large palette de langues, et plus de langues encore en préversion. Pour en savoir plus, consultez [Langages pris en charge](../language-support.md).
+Vous devez disposer des documents JSON dans ce format : ID, texte et langue. Analyse des sentiments prend en charge un large éventail de langues. Pour en savoir plus, consultez [Langages pris en charge](../language-support.md).
 
 La taille du document doit être inférieure à 5 120 caractères par document. Pour connaître le nombre maximal de documents autorisés dans une collection, consultez l’article [Limites de données](../concepts/data-limits.md?tabs=version-3) sous Concepts. La collection est soumise dans le corps de la demande.
 
@@ -72,9 +72,9 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+#### <a name="version-31"></a>[Version 3.1](#tab/version-3-1)
 
-[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
+[Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
 
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -89,17 +89,17 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver la clé et le point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+#### <a name="version-31"></a>[Version 3.1](#tab/version-3-1)
 
 **Analyse des sentiments**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
 
 **Exploration des opinions**
 
 Pour obtenir les résultats de l’Exploration des opinions, vous devez inclure le paramètre `opinionMining=true`. Par exemple :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
 
@@ -117,7 +117,7 @@ Définissez un en-tête de requête pour inclure votre clé d’API Analyse de t
 
 ### <a name="example-request-for-sentiment-analysis-and-opinion-mining"></a>Exemple de demande pour l’Analyse des sentiments et l’Exploration des opinions  
 
-Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments. Le format de la demande est le même pour les deux versions, `v3.0` et `v3.1-preview`.
+Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments. Le format de la demande est le même pour les deux versions, `v3.0` et `v3.1`.
     
 ```json
 {
@@ -142,7 +142,7 @@ L’API Analyse de texte est sans état. Aucune donnée n’est stockée dans vo
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+#### <a name="version-31"></a>[Version 3.1](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Exemple de réponse de l’Analyse des sentiments et de l’Exploration des opinions
 

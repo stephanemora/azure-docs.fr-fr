@@ -7,13 +7,13 @@ ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 02/18/2021
-ms.openlocfilehash: 182d9d08041b2d32253b935a5171be6d399c80a6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 07/05/2021
+ms.openlocfilehash: ae7f83e397822eb52a9fdfca7011d4228cb3b625
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679061"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436335"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Charger de façon incrémentielle les données de plusieurs tables de SQL Server sur Azure SQL Database avec PowerShell
 
@@ -815,10 +815,11 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’**activité 
 
 3. Recherchez votre fabrique de données dans la liste des fabriques de données, puis sélectionnez-la pour ouvrir la page **Fabrique de données**. 
 
-4. Dans la page **Fabrique de données**, sélectionnez **Créer et surveiller** pour lancer Azure Data Factory dans un onglet séparé.
+4. Dans la page **Fabrique de données**, sélectionnez **Ouvrir** sur la vignette **Ouvrir Azure Data Factory Studio** pour lancer Azure Data Factory dans un onglet distinct.
 
-5. Dans la page **Commençons**, sélectionnez **Superviser** sur le côté gauche. 
-![Capture d’écran montrant la page de prise en main pour Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+5. Dans la page d’accueil d’Azure Data Factory, sélectionnez **Superviser** sur le côté gauche. 
+
+    ![Capture d’écran montrant la page d’accueil pour Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres**. Si une erreur s’est produite, un lien figure dans la colonne **Erreur**.
 

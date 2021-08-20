@@ -6,15 +6,15 @@ author: nmurav
 manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986297"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762883"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -26,7 +26,7 @@ Azure Communication Services permet d’ajouter les appels vocaux/vidéo et le p
 
 ### <a name="pricing"></a>Tarifs
 
-Les services d’appel et de partage d’écran sont facturés à la minute pour chaque participant à un tarif de 0,004 USD par participant par minute pour les appels de groupe. Pour comprendre les différents flux d’appels possibles, reportez-vous à [cette page](./call-flows.md).
+Les services d’appel et de partage d’écran sont facturés à la minute pour chaque participant à un tarif de 0,004 USD par participant par minute pour les appels de groupe. Azure Communication Services ne facture pas la sortie de données. Pour comprendre les différents flux d’appels possibles, reportez-vous à [cette page](./call-flows.md).
 
 Chaque participant d’un appel est comptabilisé dans la facturation pour chaque minute où il est connecté à l’appel. Cela vaut que l’utilisateur effectue un appel vidéo, un appel vocal ou un partage d’écran.
 
@@ -58,12 +58,31 @@ Alice appelle Bob, elle passe un appel RTC depuis une application sur son numér
 - 1 participant sur la section VoIP (Alice) depuis l’application vers les serveurs Communication Services x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD
 - 1 participant sur la section sortante RTC (Bob) depuis les serveurs Communication Services vers un numéro de téléphone américain x 10 minutes x 0,013 USD par segment de participant par minute = 0,13 USD.
 
-Remarque : Le tarif mixte des États-Unis vers `+1-425` est de 0,013 USD. Pour plus de détails, consultez le lien suivant : https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+> [!Note]
+> Le tarif mixte des États-Unis vers `+1-425` est de 0,013 USD. Pour plus de détails, consultez le lien suivant : https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 
 **Coût total de l’appel** : $0,04 + $0,13 = $0,17
 
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-via-azure-communication-services-direct-routing"></a>Exemple de tarif : appel sortant à partir d’une application utilisant le SDK JS via le routage direct Azure Communication Services
 
-### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Exemple de tarif : Appel audio de groupe à l’aide du kit SDK JS et d’une section RTC
+Alice effectue un appel sortant à partir d’une application Azure Communication Services vers un numéro de téléphone (Bob) via le routage direct Azure Communication Services.
+- Alice a utilisé le kit SDK JS pour créer l’application.
+- L’appel est passé à un contrôleur SBC (Session Border Controller) connecté via le routage direct Communication Services.
+- L’appel dure 10 minutes au total. 
+
+**Calculs des coûts**
+
+- 1 participant sur la section VoIP (Alice) depuis l’application vers les serveurs Communication Services x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD
+- 1 participant sur la section sortante en routage direct Communication Services (Bob) depuis les serveurs Communication Services vers un contrôleur SBC x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD.
+
+**Coût total de l’appel** : 0,04 USD + 0,04 USD = 0,08 USD
+
+> [!Note]
+> La section en routage Azure Communication Services n’est pas facturé jusqu’au 01/08/2021.
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>Exemple de tarif : Appel audio de groupe à l’aide du kit SDK JS et d’une section RTC
 
 Alice et Bob se sont sur un appel VoIP. Bob a transféré l’appel à Charlie sur le numéro RTC de Charlie, un numéro de téléphone américain commençant par `+1-425`.
 

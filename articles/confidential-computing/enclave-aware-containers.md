@@ -7,12 +7,12 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 0c9e7f98a9df7bfea6b0c6dd6d3c2cf1f6090ab0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74c0ea83d5792083993c6ce9c5dab88684234928
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932631"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469579"
 ---
 # <a name="enclave-aware-containers"></a>Conteneurs reconnaissant les enclaves
 
@@ -52,10 +52,9 @@ Cette solution vous permet d’implémenter un modèle Machine Learning entraîn
 
 Démarrer [ici](https://aka.ms/confidentialinference) avec le modèle Machine Learning lift-and-shift pour le Runtime ONNX
 
-### <a name="edgeless-rt"></a>Edgeless RT
+### <a name="ego"></a>EGo
 
-Edgeless RT est un projet open source qui s’appuie sur le SDK Open Enclave. Il ajoute la prise en charge de Go et de fonctionnalités C++ supplémentaires. Démarrez avec une simple application Go confidentielle à l’aide de votre environnement VS Code usuel [ici](https://github.com/edgelesssys/edgelessrt). Pour les applications Edgeless sur AKS, suivez les instructions [ici](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md).
-
+Le [SDK EGo](https://www.ego.dev) open source offre une prise en charge des enclaves par le langage de programmation Go. EGo s’appuie sur le SDK Open enclave. Il a pour but de faciliter la création de microservices confidentiels. Suivez ce [guide pas à pas](https://github.com/edgelesssys/ego/tree/master/samples/aks) pour déployer un service basé sur EGo sur AKS.
 
 ## <a name="container-based-sample-implementations"></a>Exemples d’implémentations basées sur des conteneurs
 

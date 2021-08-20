@@ -6,23 +6,19 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2fa9cbba571fa5603607c5efea7f49a5822726e9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3a4f842f096f6f8c283934b67808bb33b20f8fc1
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089413"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360196"
 ---
-# <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services
+# <a name="network-recommendations"></a>Recommandations pour le réseau
 
-Ce document fournit une vue d’ensemble des facteurs et des bonnes pratiques à prendre en considération lors de la création d’expériences de communication multimédia d’excellente qualité avec Azure Communication Services.
-
-## <a name="factors-that-affect-media-quality-and-reliability"></a>Facteurs ayant une incidence sur la qualité et la fiabilité du trafic multimédia
-
-Toutes sortes de facteurs participent à la qualité multimédia (audio, vidéo et de partage d’application) en temps réel d’Azure Communication Services. Parmi eux, la qualité du réseau, la bande passante, le pare-feu, l’hôte et les configurations d’appareil.
+Ce document résume la façon dont l’environnement réseau impacte la qualité des appels vocaux et vidéo. Toutes sortes de facteurs participent à la qualité multimédia (audio, vidéo et de partage d’application) en temps réel d’Azure Communication Services. Parmi eux, la qualité du réseau, la bande passante, le pare-feu, l’hôte et les configurations d’appareil.
 
 
 ### <a name="network-quality"></a>Qualité du réseau

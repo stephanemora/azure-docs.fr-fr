@@ -1,17 +1,17 @@
 ---
 title: 'Démarrage rapide : Votre première requête JavaScript'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer la bibliothèque Resource Graph pour JavaScript et vous exécutez votre première requête.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: c958d4dc0662756e2f60a62b6a777a8dd031fe53
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 9dc5068232e6ad19715535ba8e41cff213e23311
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324956"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459960"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de JavaScript
 
@@ -65,16 +65,13 @@ Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnem
    const authenticator = require("@azure/ms-rest-nodeauth");
    const resourceGraph = require("@azure/arm-resourcegraph");
 
-   if (argv.query && argv.subs) {
-       const subscriptionList = argv.subs.split(",");
-
+   if (argv.query) {
        const query = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new resourceGraph.ResourceGraphClient(credentials);
           const result = await client.resources(
              {
-                 query: argv.query,
-                 subscriptions: subscriptionList,
+                 query: argv.query
              },
              { resultFormat: "table" }
           );
@@ -86,21 +83,22 @@ Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnem
    }
    ```
 
+   > [!NOTE]
+   > Ce code crée une requête basée sur un locataire. Pour restreindre la requête à un [groupe d’administration](../management-groups/overview.md) ou à un abonnement, définissez et ajoutez une propriété [queryrequest](/javascript/api/@azure/arm-resourcegraph/queryrequest) à l’appel de `client.resources`, puis spécifiez `managementGroups` ou `subscriptions`.
+
 1. Entrez la commande suivante dans le terminal :
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5" --subs <YOUR_SUBSCRIPTION_ID_LIST>
+   node index.js --query "Resources | project name, type | limit 5"
    ```
-
-   Veillez à remplacer l’espace réservé `<YOUR_SUBSCRIPTION_ID_LIST>` par la liste des ID d’abonnement Azure séparés par des virgules.
 
    > [!NOTE]
    > Comme cet exemple de requête ne fournit pas de modificateur de tri tel que `order by`, l’exécution répétée de cette requête peut produire un ensemble distinct de ressources par requête.
 
-1. Remplacez le premier paramètre par `index.js` et la requête par `order by` suivi de la propriété **Name**. Remplacez `<YOUR_SUBSCRIPTION_ID_LIST>` par votre ID d’abonnement :
+1. Remplacez le premier paramètre par `index.js` et la requête par `order by` suivi de la propriété **Name**.
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5 | order by name asc" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    Quand le script tente de s’authentifier, un message similaire au message suivant s’affiche dans le terminal :
@@ -112,10 +110,10 @@ Pour permettre à JavaScript d’interroger Azure Resource Graph, l’environnem
    > [!NOTE]
    > Comme précédemment, l’exécution répétée de cette requête peut produire un ensemble différent de ressources. L’ordre des commandes de requête est important. Dans cet exemple, `order by` vient après `limit`. Cet ordre de commande limite d’abord les résultats de la requête, puis les classe.
 
-1. Remplacez le premier paramètre par `index.js` et changez la requête en `order by` pour classer d’abord les résultats selon la propriété **Name**, puis limitez (`limit`) les résultats aux cinq premiers. Remplacez `<YOUR_SUBSCRIPTION_ID_LIST>` par votre ID d’abonnement :
+1. Remplacez le premier paramètre par `index.js` et changez la requête en `order by` pour classer d’abord les résultats selon la propriété **Name**, puis limitez (`limit`) les résultats aux cinq premiers.
 
    ```bash
-   node index.js --query "Resources | project name, type | order by name asc | limit 5" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | order by name asc | limit 5"
    ```
 
 Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et classés en fonction de la propriété **Name**, mais toujours limités aux cinq premiers.

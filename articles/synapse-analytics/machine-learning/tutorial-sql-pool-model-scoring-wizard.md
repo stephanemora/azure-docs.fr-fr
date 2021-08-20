@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: d8db9257ad6eed98b39cd2c9a52351f013453365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f21fb2d35dc7cb7383d756b4177924420961945f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935232"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506369"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-preview-for-dedicated-sql-pools"></a>Tutoriel : Assistant de scoring de modèle Machine Learning pour les pools SQL dédiés
 
@@ -119,7 +119,7 @@ Avant d’exécuter toutes les cellules du notebook, vérifiez que l’instance 
 
    ![Charger des données dans un pool SQL dédié](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Accédez à **Données** > **Espace de travail**. Ouvrez l’Assistant de scoring SQL en cliquant avec le bouton droit sur la table du pool SQL dédié. Sélectionnez **Machine Learning** > **Enrichir avec un modèle existant**.
+1. Accédez à **Données** > **Espace de travail**. Ouvrez l’Assistant de scoring SQL en cliquant avec le bouton droit sur la table du pool SQL dédié. Sélectionnez **Machine Learning** > **Prédire avec un modèle**.
 
    > [!NOTE]
    > L’option Machine Learning n’apparaît que si vous disposez d’un service lié créé pour Azure Machine Learning. (Consultez [Prérequis](#prerequisites) au début de ce tutoriel.)

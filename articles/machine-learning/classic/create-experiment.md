@@ -9,21 +9,21 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 843845e6099bdf43f7cd37b0f3e6f82d3ed50b4c
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 68741d273cc0461bc2c0d362c1a859146d696cad
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520610"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582471"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Machine Learning Studio (classique)
 
-**S’APPLIQUE À :**  ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article s’applique à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**S’APPLIQUE À**   ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article ne s’applique pas à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Dans ce guide de démarrage rapide, vous utilisez [Azure Machine Learning Studio (classique)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) pour créer une expérience d’apprentissage automatique qui prédit le prix d’une voiture d’après plusieurs variables comme la marque et les caractéristiques techniques.
+Dans ce guide de démarrage rapide, vous créer une expérience de machine learning dans [Machine Learning Studio (classique)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) qui prédit le prix d’une voiture d’après plusieurs variables, comme la marque et les spécifications techniques.
 
 Si vous ne connaissez pas bien l’apprentissage automatique, la série de vidéos [Science des données pour les débutants](data-science-for-beginners-the-5-questions-data-science-answers.md) offre une excellente introduction à l’apprentissage automatique, en présentant les termes et les concepts courants.
 

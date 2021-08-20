@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: e9c1299c0847aa30e1e3e198d2165e2674164458
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3ed74340c4e234ae1ea4781d8b91451be6e366c4
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960844"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113515607"
 ---
 # <a name="tutorial-use-azure-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>Tutoriel : Utiliser Azure Log Analytics pour collecter et visualiser les métriques et les journaux (préversion)
 
@@ -117,11 +117,11 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.keyVault.name            | -                            | Nom du coffre Azure Key Vault pour l’ID et la clé Azure Log Analytics                                                                                                                                                |
 | spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | Nom du secret dans Azure Key Vault pour l’ID d’espace de travail Azure Log Analytics                                                                                                                                       |
 | spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | Nom du secret dans Azure Key Vault pour la clé d’espace de travail Azure Log Analytics                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.uriSuffix       | ods.opinsights.azure.com     | [Suffixe d’URI][uri_suffix] d’espace de travail Azure Log Analytics de destination. Si votre espace de travail Azure Log Analytics n’est pas dans Azure global, vous devez mettre à jour le suffixe d’URI en fonction du cloud correspondant. |
+| spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | [Suffixe d’URI][uri_suffix] d’espace de travail Azure Log Analytics de destination. Si votre espace de travail Azure Log Analytics n’est pas dans Azure global, vous devez mettre à jour le suffixe d’URI en fonction du cloud correspondant. |
 
 > [!NOTE]  
-> - Pour les clouds Azure Chine, le paramètre « spark.synapse.logAnalytics.keyVault.uriSuffix » doit être « ods.opinsights.azure.cn ». 
-> - Pour les clouds Azure Government, le paramètre « spark.synapse.logAnalytics.keyVault.uriSuffix » doit être « ods.opinsights.azure.us ». 
+> - Pour les clouds Azure Chine, le paramètre « spark.synapse.logAnalytics.uriSuffix » doit être « ods.opinsights.azure.cn ». 
+> - Pour les clouds Azure Government, le paramètre « spark.synapse.logAnalytics.uriSuffix » doit être « ods.opinsights.azure.us ». 
 
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
@@ -205,6 +205,30 @@ Vous pouvez personnaliser le classeur à l’aide d’une requête Kusto et conf
    | summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
    | order by TimeGenerated asc
    ```
+
+## <a name="write-custom-application-logs"></a>Écrire des journaux d’application personnalisés
+
+Vous pouvez utiliser la bibliothèque Apache Log4j pour écrire des journaux personnalisés.
+
+Exemple pour Scala :
+
+```scala
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
+Exemple pour PySpark :
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
 
 ## <a name="create-and-manage-alerts-using-azure-log-analytics"></a>Créer et gérer des alertes à l’aide d’Azure Log Analytics
 

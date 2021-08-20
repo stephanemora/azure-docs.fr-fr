@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/18/2021
-ms.openlocfilehash: 6f101d31e7268eb8f58d236bc214f322c71336df
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e63e45026be6bb315a9bc520680eb40253654975
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075013"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539922"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -38,6 +38,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Minutages des tests d’évaluation](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 [Débogage de flux de travail pour les flux de données](https://youtu.be/y3suL7UsWVw)
+
+[Vue de supervision mise à jour](https://www.youtube.com/watch?v=FWCBslsk6KE)
 
 ## <a name="transformation-overviews"></a>Vues d’ensemble de la transformation
 

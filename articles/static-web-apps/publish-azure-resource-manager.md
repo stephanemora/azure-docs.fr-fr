@@ -5,14 +5,14 @@ services: static-web-apps
 author: petender
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 07/13/2021
 ms.author: petender
-ms.openlocfilehash: 95b2bd71b59a8ef14274928428624fe52e923fe1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b7b75fcf6f7ef1d6f2444a8fe59421bdb64c1890
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968902"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765862"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-using-an-arm-template"></a>Tutoriel : Publier des applications Azure Static Web Apps en utilisant un modèle ARM
 
@@ -38,7 +38,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 ## <a name="create-a-github-personal-access-token"></a>Créer un jeton d’accès personnel GitHub
 
-L’un des paramètres requis dans le modèle ARM est `repositoryToken`, qui permet au processus de déploiement ARM d’interagir avec le dépôt GitHub contenant le code source du site statique. 
+L’un des paramètres du modèle ARM est `repositoryToken`, qui permet au processus de déploiement ARM d’interagir avec le dépôt GitHub contenant le code source du site statique. 
 
 1. À partir de votre profil de compte GitHub (en haut à droite), sélectionnez **Settings**.
 
@@ -57,7 +57,7 @@ L’un des paramètres requis dans le modèle ARM est `repositoryToken`, qui per
 1. Copiez la valeur du jeton dans un éditeur de texte à des fins d’utilisation ultérieure.
 
 > [!IMPORTANT]
-> Veillez à copier ce jeton et à le stocker dans un emplacement sûr. Envisagez de stocker ce jeton dans [Azure Key Vault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) et accédez-y dans votre modèle ARM.
+> Veillez à copier ce jeton et à le stocker dans un emplacement sûr. Vous pouvez stocker ce jeton dans [Azure Key Vault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) et y accéder dans votre modèle ARM.
 
 ## <a name="create-a-github-repo"></a>Créer un dépôt GitHub
 
@@ -122,11 +122,14 @@ Une fois les prérequis en place, l’étape suivante consiste à définir le fi
                 },
                 "resourceTags": {
                     "type": "object"
+                },
+                "appSettings": {
+                    "type": "object"
                 }
             },
             "resources": [
                 {
-                    "apiVersion": "2019-12-01-preview",
+                    "apiVersion": "2021-01-15",
                     "name": "[parameters('name')]",
                     "type": "Microsoft.Web/staticSites",
                     "location": "[parameters('location')]",
@@ -144,7 +147,19 @@ Une fois les prérequis en place, l’étape suivante consiste à définir le fi
                     "sku": {
                         "Tier": "[parameters('sku')]",
                         "Name": "[parameters('skuCode')]"
-                    }
+                    },
+                    "resources":[
+                        {
+                            "apiVersion": "2021-01-15",
+                            "name": "appsettings",
+                            "type": "config",
+                            "location": "[parameters('location')]",
+                            "properties": "[parameters('appSettings')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/staticSites', parameters('name'))]"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -163,9 +178,8 @@ Une fois les prérequis en place, l’étape suivante consiste à définir le fi
                 "name": {
                     "value": "myfirstswadeployment"
                 },
-                "location": {
-                "type": "string",
-                "defaultValue": "Central US"
+                "location": { 
+                    "value": "Central US"
                 },   
                 "sku": {
                     "value": "Free"
@@ -197,6 +211,12 @@ Une fois les prérequis en place, l’étape suivante consiste à définir le fi
                         "Project": "Testing SWA with ARM",
                         "ApplicationName": "myfirstswadeployment"
                     }
+                },
+                "appSettings": {
+                    "value": {
+                        "MY_APP_SETTING1": "value 1",
+                        "MY_APP_SETTING2": "value 2"
+                    }
                 }
             }
         }
@@ -217,7 +237,7 @@ Vous avez besoin d’Azure CLI ou d’Azure PowerShell pour déployer le modèle
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Pour déployer un modèle, connectez-vous à Azure CLI ou Azure PowerShell.
+Pour déployer un modèle, connectez-vous à Azure CLI ou à Azure PowerShell.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

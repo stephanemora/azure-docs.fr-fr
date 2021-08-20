@@ -5,13 +5,13 @@ ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/18/2021
-ms.openlocfilehash: 6c7bfaf6bd6ca11593a986ca8d929faf063be720
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 07/05/2021
+ms.openlocfilehash: 927d913122203383b4279d68059040b6bf4be5e7
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905771"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436763"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Charger de façon incrémentielle des données d’Azure SQL Managed Instance sur le Stockage Azure à l’aide de la capture des changements de données
 
@@ -127,11 +127,12 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
    ![Capture d’écran d’un message indiquant que votre déploiement est terminé avec une option pour accéder à la ressource.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
-   ![Capture d’écran montrant la fabrique de données que vous avez déployée.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
-10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
-11. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante :
+      :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Ouvrir Azure Data Factory Studio.":::
 
-    ![Bouton Créer un pipeline](./media/tutorial-incremental-copy-change-data-capture-feature-portal/get-started-page.png)
+10. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet distinct.
+11. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche comme illustré dans l’image suivante :
+
+    ![Capture d’écran montrant le bouton Gérer.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous allez créer des services liés à votre compte Stockage Azure et à Azure SQL MI.

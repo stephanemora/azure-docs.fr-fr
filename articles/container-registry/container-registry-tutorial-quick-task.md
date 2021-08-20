@@ -2,14 +2,14 @@
 title: Tutoriel - Génération rapide d’une image de conteneur
 description: Dans ce didacticiel, vous allez apprendre comment générer une image de conteneur Docker dans Azure avec Azure Container Registry Tasks (ACR Tasks), puis la déployer dans Azure Container Instances.
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 07/20/2021
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 282e6ea56835fba679510a29af936c1fbcb3ead2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: be722812c5d3991da6bbc2458770798ded2039d4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775346"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448894"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -74,7 +74,7 @@ Pour simplifier l’exécution des exemples de commandes, les didacticiels de ce
 ACR_NAME=<registry-name>
 ```
 
-Avec cette variable d’environnement de registre de conteneurs renseignée, vous devriez être en mesure de copier-coller le reste des commandes dans le didacticiel, sans modifier aucune valeur. Exécutez les commandes suivantes afin de créer un groupe de ressources et un registre de conteneurs :
+Avec cette variable d’environnement de registre de conteneurs renseignée, vous devriez être en mesure de copier-coller le reste des commandes dans le didacticiel, sans modifier aucune valeur. Exécutez les commandes suivantes pour créer un groupe de ressources et un registre de conteneurs.
 
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
@@ -83,7 +83,9 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Maintenant que vous disposez d’un registre, utilisez ACR Tasks pour générer une image conteneur à partir de l’exemple de code. Exécutez la commande [az acr build][az-acr-build] afin d’effectuer une *tâche rapide* :
+Maintenant que vous disposez d’un registre, utilisez ACR Tasks pour générer une image conteneur à partir de l’exemple de code. Exécutez la commande [az acr build][az-acr-build] pour exécuter une *tâche rapide*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -184,7 +186,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Vous devez maintenant créer un principal de service et stocker ses informations d’identification dans votre coffre de clés.
 
-Utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer le principal du service, et [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal de service dans le coffre :
+Utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer le principal de service, et [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal de service dans le coffre. Utilisez Azure CLI version **2.25.0** ou ultérieure pour ces commandes :
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -208,7 +210,7 @@ Ensuite, stockez le *appId* du principal de service dans le coffre, qui est le *
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp list --display-name $ACR_NAME-pull --query [].appId --output tsv)
 ```
 
 Vous avez créé un coffre de clés Azure et il contient deux secrets :

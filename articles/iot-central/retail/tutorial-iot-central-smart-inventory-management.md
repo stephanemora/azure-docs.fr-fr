@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff3486ae1ff34485dbae47d33d089367515664f8
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719081"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964299"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutoriel : Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central
 
@@ -57,7 +57,7 @@ Après le déploiement réussi du modèle d’application, votre tableau de bord
 Le tableau de bord distingue logiquement deux opérations de gestion des appareils de passerelle différentes : 
    * L’entrepôt est déployé avec une passerelle BLE fixe et des balises BLE sur les palettes pour assurer le suivi des stocks dans un site plus important
    * Le magasin de vente au détail est doté d’une passerelle RFID fixe et de balises RFID sur chaque article, pour assurer le suivi des stocks dans un point de vente
-   * Afficher l’emplacement de la passerelle, son état et ses détails connexes 
+   * Visualiser l’[emplacement](../core/howto-use-location-data.md) l’état et les détails associés de la passerelle 
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran montrant la moitié supérieure du tableau de bord de gestion intelligente des stocks](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)

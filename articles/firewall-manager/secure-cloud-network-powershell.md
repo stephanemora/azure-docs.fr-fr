@@ -8,12 +8,12 @@ ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9161eee3fe892092d06080a3a5ce1e11c4fa1764
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0a8973887f179f2b05f2694e932f50cafa26c69c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701904"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469396"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure PowerShell
 
@@ -33,9 +33,6 @@ Dans ce tutoriel, vous allez apprendre à :
 - PowerShell 7
 
    Pour ce tutoriel, vous devez exécuter Azure PowerShell localement sur PowerShell 7. Pour installer PowerShell 7, consultez [Migration de Windows PowerShell 5.1 vers PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
-- Az.Network version 3.2.0
-
-    Si vous avez Az.Network version 3.4.0 ou ultérieure, vous devez passer à une version antérieure pour utiliser certaines des commandes de ce tutoriel. Vous pouvez vérifier la version de votre module Az.Network à l’aide de la commande `Get-InstalledModule -Name Az.Network`. Pour désinstaller le module Az.Network, exécutez `Uninstall-Module -name az.network`. Pour installer le module Az.Network 3.2.0, exécutez `Install-Module az.network -RequiredVersion 3.2.0 -force`.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -67,8 +64,8 @@ Créez deux réseaux virtuels et connectez-les au hub en tant que spokes :
 $Spoke1 = New-AzVirtualNetwork -Name "spoke1" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.1.0/24"
 $Spoke2 = New-AzVirtualNetwork -Name "spoke2" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.2.0/24"
 # Connect Virtual Network to Virtual WAN
-$Spoke1Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RemoteVirtualNetwork $Spoke1
-$Spoke2Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke2" -RemoteVirtualNetwork $Spoke2
+$Spoke1Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RemoteVirtualNetwork $Spoke1 -EnableInternetSecurityFlag $True
+$Spoke2Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke2" -RemoteVirtualNetwork $Spoke2 -EnableInternetSecurityFlag $True
 ```
 
 À ce stade, vous disposez d’un WAN virtuel entièrement fonctionnel fournissant une connectivité Any-To-Any. Pour améliorer la sécurité, vous devez déployer un pare-feu Azure sur chaque hub virtuel. Des stratégies de pare-feu peuvent être utilisées pour gérer efficacement l’instance de Pare-feu Azure du WAN virtuel. Par conséquent, une stratégie de pare-feu est également créée dans cet exemple :
@@ -125,9 +122,11 @@ Vous pouvez maintenant passer à la deuxième étape pour ajouter les routes sta
 ```azurepowershell
 # Create static routes in default Route table
 $AzFWId = $(Get-AzVirtualHub -ResourceGroupName $RG -name  $HubName).AzureFirewall.Id
-$AzFWRoute = New-AzVHubRoute -Name "private-traffic" -Destination @("0.0.0.0/0", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16") -DestinationType "CIDR" -NextHop $AzFWId -NextHopType "ResourceId"
+$AzFWRoute = New-AzVHubRoute -Name "all_traffic" -Destination @("0.0.0.0/0", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16") -DestinationType "CIDR" -NextHop $AzFWId -NextHopType "ResourceId"
 $DefaultRT = Update-AzVHubRouteTable -Name "defaultRouteTable" -ResourceGroupName $RG -VirtualHubName  $HubName -Route @($AzFWRoute)
 ```
+> [!NOTE]
+> La chaîne « ***all_traffic*** » comme valeur pour le paramètre « -Name » dans la commande New-AzVHubRoute ci-dessus a une signification spéciale : si vous utilisez cette chaîne exacte, la configuration appliquée dans cet article est reflétée correctement dans le portail Azure (Firewall Manager --> Hubs virtuels --> [Votre hub] --> Configuration de sécurité). Si un autre nom est utilisé, la configuration souhaitée sera appliquée, mais elle ne sera pas reflétée dans le portail Azure. 
 
 ## <a name="test-connectivity"></a>Tester la connectivité
 

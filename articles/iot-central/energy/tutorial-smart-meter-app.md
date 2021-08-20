@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d9b5af45ab9a1003cc25e8b1ea2059b83bc715c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833301"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963236"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutoriel : Créer et découvrir pas à pas le modèle d’application de surveillance de compteur intelligente 
 
@@ -63,7 +63,7 @@ Pour vérifier la création de l'application et la simulation des données, acc�
 Une fois le modèle d’application correctement déployé, il comprend un exemple d’appareil de compteur intelligent, un modèle d’appareil et un tableau de bord. 
 
 Adatum est un fournisseur d’énergie fictif qui surveille et gère des compteurs intelligents. Le tableau de bord de surveillance de compteur intelligente, affiche des propriétés, des données et des exemples de commandes. Il permet aux opérateurs et aux équipes de support technique d'effectuer de manière proactive les activités suivantes avant l'apparition d'incidents : 
-* Examiner les dernières informations du compteur et l’emplacement où celui-ci est installé sur la carte
+* Examiner les dernières informations du compteur et l’[emplacement](../core/howto-use-location-data.md) où celui-ci est installé sur la carte
 * Vérifier de manière proactive le réseau du compteur et son état de la connexion 
 * Surveiller les mesures de tensions minimale et maximale pour vérifier l’intégrité du réseau 
 * Examiner les tendances en termes d’énergie, de puissance et de tension pour détecter d’éventuelles anomalies 

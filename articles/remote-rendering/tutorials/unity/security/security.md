@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e133de6b4f7f67439734254686d388b9abe71ea0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: a08516a1cdf968cb5bcfa76228cab88ecacec167
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412022"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112970057"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles
 
@@ -178,16 +178,16 @@ L’authentification AAD vous permet de mieux contrôler les individus ou les gr
 
 Le script **RemoteRenderingCoordinator** comporte un délégué nommé **ARRCredentialGetter**, dont l’une des méthodes retourne un objet **SessionConfiguration**, qui sert à configurer la gestion des sessions à distance. Il est possible d’affecter une autre méthode à **ARRCredentialGetter**, nous permettant d’utiliser un flux de connexion Azure pour générer un objet **SessionConfiguration** qui contient un jeton d’accès Azure. Ce jeton d’accès est propre à l’utilisateur qui se connecte.
 
-1. Suivez la [procédure : Configurer l’authentification – Authentification des applications déployées](../../../how-tos/authentication.md#authentication-for-deployed-applications), en particulier les instructions de la section [Authentification utilisateur Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) dans la documentation Azure Spatial Anchors. Cela implique d’inscrire une nouvelle application Azure Active Directory et de configurer l’accès à votre instance ARR.
+1. Suivez les instructions fournies dans [Configurer l’authentification des applications déployées](../../../how-tos/authentication.md#authentication-for-deployed-applications), qui implique l’inscription d’une nouvelle application Azure Active Directory et la configuration de l’accès à votre instance ARR.
 1. Après avoir configuré la nouvelle application AAD, vérifiez que votre application AAD se présente comme dans l’image suivante :
 
-    **Application AAD -> Authentification** ![Authentification de l’application](./media/app-authentication-public.png)
+    **Application AAD -> Authentification** :::image type="content" source="./../../../how-tos/media/azure-active-directory-app-setup.png" alt-text="Authentification de l’application":::
 
-    **Application AAD -> Autorisations de l’API** ![API d’application](./media/request-api-permissions-step-five.png)
+    **Application AAD -> Autorisations de l’API** :::image type="content" source="./media/azure-active-directory-api-permissions-granted.png" alt-text="API d’application":::    
 
 1. Après avoir configuré votre compte Remote Rendering, vérifiez que votre configuration se présente comme dans l’image suivante :
 
-    **AAR -> AccessControl (IAM)** ![Rôle ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl (IAM)** :::image type="content" source="./../../../how-tos/media/azure-remote-rendering-role-assignments.png" alt-text="Rôle ARR":::       
 
     >[!NOTE]
     > Un rôle *Propriétaire* n’est pas suffisant pour gérer les sessions via l’application cliente. Vous devez attribuer le rôle **Client Remote Rendering** à chaque utilisateur auquel vous souhaitez accorder la possibilité de gérer des sessions. Par ailleurs, vous devez attribuer le rôle **Administrateur Remote Rendering** à chaque utilisateur qui doit pouvoir gérer les sessions et convertir les modèles.
@@ -255,9 +255,9 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
     
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-    
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
-    
+
+        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
@@ -375,9 +375,12 @@ Sachant que les informations d’identification utilisateur ne sont pas stockée
 
 Dans l’éditeur Unity, quand l’authentification AAD est active, il est nécessaire de s’authentifier à chaque lancement de l’application. Sur l’appareil, l’étape d’authentification se produit la première fois et ne redevient nécessaire que lorsque le jeton arrive à expiration ou qu’il est invalidé.
 
-1. Ajoutez le composant **AADAuthentication** au GameObject **RemoteRenderingCoordinator**.
+1. Ajoutez le composant **AAD Authentication** au GameObject **RemoteRenderingCoordinator**.
 
     ![Composant d’authentification AAD](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> Si vous utilisez le projet terminé à partir du [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering), veillez à activer le composant **AAD Authentication** en cochant la case en regard de son titre.
 
 1. Entrez vos valeurs dans Client ID (ID client) et Tenant ID (ID de locataire). Ces valeurs se trouvent dans la page Vue d’ensemble de l’inscription d’application :
 
@@ -387,10 +390,10 @@ Dans l’éditeur Unity, quand l’authentification AAD est active, il est néce
     * **Azure Remote Rendering Account ID** correspond à l’**ID de compte** que vous utilisez pour **RemoteRenderingCoordinator**.
     * Le **domaine de compte Azure Remote Rendering** est identique au **domaine de compte** que vous utilisez dans **RemoteRenderingCoordinator**.
 
-    ![Capture d’écran mettant à évidence l’ID d’application (client) et l’ID de l’annuaire (locataire).](./media/app-overview-data.png)
+    :::image type="content" source="./media/azure-active-directory-app-overview.png" alt-text="Capture d’écran mettant à évidence l’ID d’application (client) et l’ID de l’annuaire (locataire).":::
 
 1. Appuyez sur Play (Lecture) dans l’éditeur Unity et acceptez l’exécution d’une session.
-    Comme le composant **AADAuthentication** dispose d’un contrôleur d’affichage, il est automatiquement connecté pour afficher une invite après le panneau modal d’autorisation de session.
+    Comme le composant **AAD Authentication** dispose d’un contrôleur d’affichage, il est automatiquement connecté pour afficher une invite après le panneau modal d’autorisation de session.
 1. Suivez les instructions figurant dans le panneau à droite de **AppMenu**.
     Vous devez voir quelque chose de semblable à ceci : ![Illustration montrant le volet d’instructions qui s’affiche à droite d’AppMenu.](./media/device-flow-instructions.png)
     

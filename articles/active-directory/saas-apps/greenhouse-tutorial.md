@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 07/21/2021
 ms.author: jeedes
-ms.openlocfilehash: a70f88857bdbff825271793b58b442e6ea78c8ee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8dc52348967963cbe5fd23b2ce01224c99e913e7
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145939"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Didacticiel : Intégration d’Azure Active Directory avec Greenhouse
 
@@ -79,22 +79,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<COMPANYNAME>.greenhouse.io`
+    a. Dans la zone de texte **Identificateur**, tapez la valeur : `greenhouse.io`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL en utilisant un des modèles suivants :
-    
-    | URL de réponse|
-    | -------------- |
-    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
-    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
-    |
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<COMPANYNAME>.greenhouse.io/<ENTITY ID>/users/saml/consume`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<COMPANYNAME>.greenhouse.io`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.greenhouse.io`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Greenhouse](https://www.greenhouse.io/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur, contactez l’[équipe de support technique Greenhouse](https://www.greenhouse.io/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -156,7 +150,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     >[!NOTE]
     >Vous pouvez également charger le fichier **XML de métadonnées de fédération** en cliquant sur l’option **Choose File** (Choisir un fichier).
 
-### <a name="create-greenhouse-test-user&quot;></a>Créer l’utilisateur de test Greenhouse
+### <a name="create-greenhouse-test-user"></a>Créer l’utilisateur de test Greenhouse
 
 Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être approvisionnés dans Greenhouse. Dans le cas de Greenhouse, l’approvisionnement est une tâche manuelle.
 
@@ -169,7 +163,7 @@ Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être app
 
 2. Accédez à **Configurer > Utilisateurs > Nouveaux utilisateurs**.
    
-    ![Utilisateurs](./media/greenhouse-tutorial/create-user-1.png &quot;Utilisateurs")
+    ![Utilisateurs](./media/greenhouse-tutorial/create-user-1.png "Utilisateurs")
 
 4. Dans la section **Ajouter de nouveaux utilisateurs**, procédez comme suit :
    

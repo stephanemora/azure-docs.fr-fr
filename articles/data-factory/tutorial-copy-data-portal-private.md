@@ -5,14 +5,14 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 555316ddf722e857914d5e99d7fadcd6539e1b8b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 0159226abb904d73262011e16fbc52fe760be123
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482576"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436817"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copier des données du stockage Blob Azure vers une base de données SQL de manière sécurisée en utilisant des points de terminaison privés
 
@@ -94,7 +94,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. Une fois la création terminée, la notification apparaît dans le centre de notifications. Sélectionnez **Accéder à la ressource** pour accéder à la page **Data Factory**.
 
-1. Sélectionnez **Créer et surveiller** pour lancer l’interface utilisateur de Data Factory dans un onglet séparé.
+1. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur de Data Factory dans un onglet distinct.
 
 ## <a name="create-an-azure-integration-runtime-in-data-factory-managed-virtual-network"></a>Création d’un runtime d’intégration Azure sur le réseau virtuel managé Data Factory
 À cette étape, vous allez créer un runtime d’intégration Azure et activer le réseau virtuel managé Data Factory.
@@ -120,9 +120,9 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez des jeux de données et des services liés lorsque vous en avez besoin pour configurer le pipeline.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Capture d’écran montrant la création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 1. Dans le volet Propriétés du pipeline, entrez **CopyPipeline** comme nom du pipeline.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du Concepteur de pipeline. Entrez **CopyFromBlobToSql** comme nom.

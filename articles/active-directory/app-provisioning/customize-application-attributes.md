@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e2b01da1b47a51309a9e26500514aea396190b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 79f001ef1483ccdc8b9a4f2e2bfde9ca87db705f
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783006"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113507069"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -151,15 +151,14 @@ Pour les applications SCIM, le nom de l’attribut doit suivre le modèle indiqu
 
 Ces instructions s’appliquent uniquement aux applications prenant en charge SCIM. Les applications telles que ServiceNow et Salesforce ne sont pas intégrées à Azure AD à l’aide de SCIM, et n’ont donc pas besoin de cet espace de noms spécifique lors de l’ajout d’un attribut personnalisé.
 
-Les attributs personnalisés ne peuvent pas être des attributs référentiels, des attributs multivaleurs ou des attributs de type complexe. Les attributs d’extension multivaleurs personnalisés et de type complexe sont actuellement pris en charge uniquement pour les applications de la galerie.  
+Les attributs personnalisés ne peuvent pas être des attributs référentiels, des attributs multivaleurs ou des attributs de type complexe. Les attributs d’extension multivaleurs personnalisés et de type complexe sont actuellement pris en charge uniquement pour les applications de la galerie. L’en-tête de schéma de l’extension personnalisée est omis dans l’exemple ci-dessous, car il n’est pas envoyé dans les requêtes du client SCIM Azure AD. Ce problème sera résolu dans le futur, et l’en-tête sera envoyé dans la requête.  
  
 **Exemple de représentation d’un utilisateur avec un attribut d’extension :**
 
 ```json
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
      "userName":"bjensen",
      "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",

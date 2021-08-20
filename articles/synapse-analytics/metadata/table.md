@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b534924be82d7ab6118f0b01b42bfd5e7242082
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548459"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460586"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tables de métadonnées partagées Azure Synapse Analytics
 
@@ -48,7 +48,7 @@ Spark fournit deux types de tables qu’Azure Synapse expose automatiquement dan
 
   Spark fournit également des moyens de créer des tables externes sur des données existantes, soit en spécifiant l’option `LOCATION`, soit en utilisant le format Hive. Ces tables externes peuvent être de divers formats de données, notamment Parquet.
 
-Azure Synapse partage actuellement uniquement les tables Spark gérées et externes qui stockent leurs données au format Parquet avec les moteurs SQL. Les tables d’autres formats ne sont pas automatiquement synchronisées. Vous pourrez peut-être synchroniser ces tables de manière explicite en tant que table externe dans votre propre base de données SQL si le moteur SQL prend en charge le format sous-jacent de la table.
+Azure Synapse partage actuellement uniquement les tables Spark gérées et externes qui stockent leurs données au format Parquet ou CSV avec les moteurs SQL. Les tables d’autres formats ne sont pas automatiquement synchronisées. Vous pourrez peut-être synchroniser ces tables de manière explicite en tant que table externe dans votre propre base de données SQL si le moteur SQL prend en charge le format sous-jacent de la table.
 
 ### <a name="share-spark-tables"></a>Partager des tables Spark
 

@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 929bcb52f724162454fc7c65939a4cec2ffd7ca6
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96029985"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112256041"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,7 +23,7 @@ Pour effectuer ce didacticiel, vous devez disposer d’un registre de conteneurs
 
 ### <a name="create-a-github-personal-access-token"></a>Créer un jeton d’accès personnel GitHub
 
-Pour déclencher une tâche basée sur une validation dans un dépôt Git, ACR Tasks a besoin d’un jeton d’accès personnel (PAT) pour accéder au dépôt. Si vous ne disposez pas encore de jeton PAT, suivez ces étapes pour en générer un dans GitHub :
+Pour déclencher une tâche basée sur une validation dans un dépôt Git, ACR Tasks a besoin d’un [jeton d’accès personnel (PAT)](../articles/container-registry/container-registry-tasks-overview.md#personal-access-token) pour accéder au dépôt. Si vous ne disposez pas encore de jeton PAT, suivez ces étapes pour en générer un dans GitHub :
 
 1. Accédez à la page de création du jeton d’accès personnel sur GitHub à l’adresse https://github.com/settings/tokens/new.
 1. Entrez une brève **description** du jeton, par exemple, « Démo ACR Tasks »

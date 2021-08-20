@@ -6,13 +6,13 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
-ms.openlocfilehash: e14c900d8acdd88191fde268fe832034f8dad2cf
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/22/2021
+ms.openlocfilehash: 7223d497a6bd1f91bcf5f313d793184026b9fe0c
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454258"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540489"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster"></a>Vue d’ensemble du cluster Azure Stream Analytics
 
@@ -68,7 +68,7 @@ Vos clusters Stream Analytics sont facturés en fonction de la capacité choisie
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>À quelles entrées et sorties puis-je me connecter en privé à partir de mon cluster Stream Analytics ?
 
-Stream Analytics prend en charge différents types d'entrées et de sorties. Vous pouvez [créer dans votre cluster des points de terminaison privés](private-endpoints.md) qui permettent aux travaux d'accéder aux ressources d'entrée et de sortie. Actuellement, Azure SQL Database, Azure Synapse Analytics, Azure Cosmos DB, Stockage Azure, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hub, Azure Functions et Azure Service Bus sont des services pris en charge pour lesquels vous pouvez créer des points de terminaison privés managés. 
+Stream Analytics prend en charge différents types d'entrées et de sorties. Vous pouvez [créer dans votre cluster des points de terminaison privés](private-endpoints.md) qui permettent aux travaux d'accéder aux ressources d'entrée et de sortie. Azure SQL Database, Azure Cosmos DB, le Stockage Azure, Azure Data Lake Storage Gen2, Azure Event Hub, Azure IoT Hub, Azure Functions et Azure Service Bus sont des services pris en charge pour lesquels vous pouvez créer des points de terminaison privés managés. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

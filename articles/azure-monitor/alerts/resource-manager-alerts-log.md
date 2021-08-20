@@ -4,13 +4,13 @@ description: Exemples de modèle Azure Resource Manager pour déployer des alert
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 6d76631313f425785b692c34629a6d408278e76b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: 0da91eedca9bbe1d44e129bf3d3e9574524b8f65
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949433"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687530"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de journal dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour créer et configurer des alertes de requête de journal dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -204,7 +204,7 @@ L’exemple suivant crée une [règle d’alerte sur la mesure de métriques](..
 }
 ```
 
-## <a name="template-for-all-resource-types-from-version-2020-05-01-preview"></a>Modèle pour tous les types de ressources (à partir de la version 2020-05-01-preview)
+## <a name="template-for-all-resource-types-from-version-2021-02-01-preview"></a>Modèle pour tous les types de ressources (à partir de la version 2021-02-01-preview)
 L’exemple suivant crée une règle qui peut cibler n’importe quelle ressource.
 
 ```json
@@ -252,6 +252,20 @@ L’exemple suivant crée une règle qui peut cibler n’importe quelle ressourc
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -332,7 +346,7 @@ L’exemple suivant crée une règle qui peut cibler n’importe quelle ressourc
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -390,7 +404,7 @@ L’exemple suivant crée une règle qui peut cibler n’importe quelle ressourc
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -417,11 +431,15 @@ L’exemple suivant crée une règle qui peut cibler n’importe quelle ressourc
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

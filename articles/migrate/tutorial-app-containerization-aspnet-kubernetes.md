@@ -5,14 +5,14 @@ services: ''
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 3/2/2021
+ms.date: 6/30/2021
 ms.author: rahugup
-ms.openlocfilehash: 24fd5cb0abbf36df74d6e2300c570e7e39b875ad
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: fcb86290012a2888c926e335fb6169b43e0898b1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108180569"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291984"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>Conteneurisation d’applications ASP.NET et leur migration vers Azure Kubernetes Service
 
@@ -20,9 +20,10 @@ Cet article explique comment conteneuriser des applications ASP.NET et les migre
 
 L’outil Conteneurisation d’applications d’Azure Migrate prend actuellement en charge les opérations suivantes :
 
-- conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur AKS ;
-- conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS. [En savoir plus](./tutorial-containerize-java-kubernetes.md)
-
+- Conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur Azure Kubernetes Service.
+- Conteneurisation d’applications ASP.NET et déploiement de celles-ci sur des conteneurs Windows sur Azure App Service. [En savoir plus](./tutorial-app-containerization-aspnet-app-service.md)
+- conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS. [En savoir plus](./tutorial-app-containerization-java-kubernetes.md)
+- Conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur App Service. [En savoir plus](./tutorial-app-containerization-java-app-service.md)
 
 L’outil Conteneurisation d’applications d’Azure Migrate vous aide à effectuer les opérations suivantes :
 
@@ -36,9 +37,9 @@ L’outil Conteneurisation d’applications d’Azure Migrate vous aide à effec
 Si toutes les applications ne tirent pas bénéfice d’un déplacement direct vers des conteneurs sans une réarchitecture conséquente, le déplacement d’applications existantes vers des conteneurs sans réécriture présente les avantages suivants :
 
 - **Amélioration de l’utilisation de l’infrastructure :** avec des conteneurs, plusieurs applications peuvent partager des ressources et être hébergées sur la même infrastructure. Cela peut vous aider à consolider l’infrastructure et à améliorer l’utilisation.
-- **Simplification de la gestion :** en hébergeant vos applications sur une plateforme d’infrastructure managée moderne telle que AKS, vous pouvez simplifier vos pratiques de gestion tout en conservant le contrôle de votre infrastructure. Pour ce faire, vous pouvez supprimer ou réduire les processus de maintenance et de gestion de l’infrastructure que vous suivriez traditionnellement avec l’infrastructure dont vous disposez.
-- **Portabilité des applications :** avec une adoption et une normalisation accrues des formats de spécification de conteneur et des plateformes d’orchestration, la portabilité des applications n’est plus une préoccupation.
-- **Adoption d’une gestion moderne avec le DevOps :** vous aide à adopter et à normaliser des pratiques modernes pour la gestion et la sécurité avec l’infrastructure en tant que code et la transition vers le DevOps.
+- **Gestion simplifiée :** En hébergeant vos applications sur une plateforme managée moderne comme AKS ou App Service, vous pouvez simplifier vos pratiques de gestion. Pour ce faire, vous pouvez supprimer ou réduire les processus de maintenance et de gestion de l’infrastructure que vous suivriez traditionnellement avec l’infrastructure dont vous disposez.
+- **Portabilité des applications :** avec une adoption et une normalisation accrues des formats de spécification de conteneur et des plateformes, la portabilité des applications n’est plus une préoccupation.
+- **Adoption d’une gestion moderne avec le DevOps :** vous aide à adopter et à normaliser des pratiques modernes pour la gestion et la sécurité ainsi que la transition vers le DevOps.
 
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -97,7 +98,6 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
 10. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire ou à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général ou le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application Azure Active Directory. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
-
 ## <a name="download-and-install-azure-migrate-app-containerization-tool"></a>Télécharger et installer l’outil Conteneurisation d’applications d’Azure Migrate
 
 1. [Téléchargez](https://go.microsoft.com/fwlink/?linkid=2134571) le programme d’installation de l’outil Conteneurisation d’applications d’Azure Migrate sur une machine Windows.
@@ -116,10 +116,10 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
 2. Si vous voyez un avertissement indiquant que votre connexion n’est pas privée, cliquez sur Avancé, puis choisissez de passer au site web. Cet avertissement s’affiche lorsque l’interface web utilise un certificat TLS/SSL auto-signé.
 3. Dans l’écran de connexion, utilisez le compte d’administrateur local sur l’ordinateur pour vous connecter.
-4. Pour spécifier le type d’application à conteneuriser, sélectionnez **Applications web ASP.NET**.
+4. Sélectionnez **Applications web ASP.NET** comme type d’application à conteneuriser.
+5. Pour spécifier le service Azure cible, sélectionnez **Conteneurs sur Azure Kubernetes Service**.
 
     ![Charge par défaut pour l’outil Conteneurisation d’applications.](./media/tutorial-containerize-apps-aks/tool-home.png)
-
 
 ### <a name="complete-tool-pre-requisites"></a>Remplir les prérequis pour l’outil
 1. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
@@ -134,7 +134,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
    - **Activer la communication à distance PowerShell** : l’outil vous invite à vous assurer que la communication à distance PowerShell est activée sur les serveurs d’applications exécutant les applications ASP.NET à conteneuriser.
 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Cliquez sur **Se connecter** pour vous connecter à votre compte Azure.
 
@@ -158,13 +158,13 @@ L’outil d’assistance Conteneurisation d’applications se connecte à distan
 
 2. Cliquez sur **Valider** pour vérifier que le serveur d’applications est accessible à partir de la machine exécutant l’outil et que les informations d’identification sont valides. Une fois la validation réussie, la colonne d’état indique l’état **Mappé**.  
 
-    ![Capture d’écran pour l’adresse IP et les informations d’identification du serveur.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
+    ![Capture d’écran pour l’adresse IP et les informations d’identification du serveur.](./media/tutorial-containerize-apps-aks/discovery-credentials-asp.png)
 
 3. Cliquez sur **Continuer** pour démarrer la découverte d’applications sur les serveurs d’applications sélectionnés.
 
 4. Une fois la découverte d’applications terminée, vous pouvez sélectionner la liste d’applications à conteneuriser.
 
-    ![Capture d’écran de l’application ASP.NET découverte.](./media/tutorial-containerize-apps-aks/discovered-app.png)
+    ![Capture d’écran de l’application ASP.NET découverte.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
 4. Utilisez la case à cocher pour sélectionner les applications à conteneuriser.
@@ -176,7 +176,7 @@ Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant 
 2. Activez la case à cocher pour paramétrer les configurations de l’application détectées.
 3. Cliquez sur **Appliquer** après avoir sélectionné les configurations à paramétrer.
 
-   ![Capture d’écran de l’application ASP.NET de paramétrage de la configuration de l’application.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
+   ![Capture d’écran de l’application ASP.NET de paramétrage de la configuration de l’application.](./media/tutorial-containerize-apps-aks/discovered-app-configs-asp.png)
 
 ### <a name="externalize-file-system-dependencies"></a>Externaliser les dépendances du système de fichiers
 
@@ -188,7 +188,7 @@ Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant 
 3. Pour ajouter plusieurs dossiers au même volume, fournissez des valeurs séparées par des virgules (`,`).
 4. Sélectionnez **Volume persistant** comme option de stockage si vous souhaitez que les dossiers soient stockés en dehors du conteneur sur un volume persistant.
 5. Cliquez sur **Enregistrer** après avoir révisé les dossiers d’applications.
-   ![Capture d’écran de la sélection du stockage des volumes d’applications.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
+   ![Capture d’écran de la sélection du stockage des volumes d’applications.](./media/tutorial-containerize-apps-aks/discovered-app-volumes-asp.png)
 
 6. Cliquez sur **Continuer** pour passer à la phase de génération de l’image conteneur.
 
@@ -225,12 +225,18 @@ Une fois l’image conteneur générée, l’étape suivante consiste à déploy
      - Si vous ne disposez pas d’un cluster AKS ou si vous souhaitez créer un cluster AKS sur lequel déployer l’application, vous pouvez choisir de créer à partir de l’outil en cliquant sur **Créer un cluster AKS**.      
           - Le cluster AKS créé à l’aide de l’outil sera créé avec un pool de nœuds Windows. Le cluster sera configuré de manière à ce qu’il puisse extraire des images de l’Azure Container Registry créé précédemment (si l’option Créer un registre a été choisie).
      - Cliquez sur **Continuer** après avoir sélectionné le cluster AKS.
+2. **Spécifier le magasin des secrets** : si vous aviez choisi de paramétrer des configurations d’application, spécifiez le magasin de secrets à utiliser pour l’application. Vous pouvez choisir les paramètres d’application Azure Key Vault ou App Service pour gérer vos secrets d’application. [En savoir plus](../app-service/configure-common.md#configure-connection-strings)
 
-2. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des dossiers et sélectionné l’option Volume persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil crée des répertoires dans ce partage de fichiers Azure pour copier les dossiers d’application configurés pour le stockage du Volume persistant. Une fois le déploiement de l’application terminé, l’outil nettoie le partage de fichiers Azure en supprimant les répertoires qu’il a créés.
+     - Si vous avez sélectionné App Service paramètres d’application pour la gestion des secrets, cliquez sur **Continuer**.
+     - Si vous souhaitez utiliser Azure Key Vault pour gérer les secrets de votre application, spécifiez l’instance Azure Key Vault que vous souhaitez utiliser.     
+         - Si vous n’avez pas d’instance Azure Key Vault ou si vous souhaitez en créer une nouvelle, vous pouvez choisir de la créer à partir de l’outil en cliquant sur **Créer un nouveau Azure Key Vault**.
+         - L’outil attribue automatiquement les autorisations nécessaires pour la gestion des secrets via Key Vault.
+
+3. **Spécifier un partage de fichiers Azure** : si vous avez ajouté des dossiers et sélectionné l’option Volume persistant, spécifiez le partage de fichiers Azure que l’outil Conteneurisation d’applications d’Azure Migrate doit utiliser pendant le processus de déploiement. L’outil crée des répertoires dans ce partage de fichiers Azure pour copier les dossiers d’application configurés pour le stockage du Volume persistant. Une fois le déploiement de l’application terminé, l’outil nettoie le partage de fichiers Azure en supprimant les répertoires qu’il a créés.
 
      - Si vous n’avez pas de partage de fichiers Azure ou si vous souhaitez créer un partage de fichiers Azure, vous pouvez choisir de continuer à le créer à partir de l’outil en cliquant sur **Créer un compte de stockage et un partage de fichiers**.  
 
-3. **Configurer le déploiement de l’application** : une fois les étapes ci-dessus accomplies, vous devez spécifier la configuration du déploiement pour l’application. Cliquez sur **Configurer** pour personnaliser le déploiement de l’application. Dans l’étape de configuration, vous pouvez fournir les personnalisations suivantes :
+4. **Configurer le déploiement de l’application** : une fois les étapes ci-dessus accomplies, vous devez spécifier la configuration du déploiement pour l’application. Cliquez sur **Configurer** pour personnaliser le déploiement de l’application. Dans l’étape de configuration, vous pouvez fournir les personnalisations suivantes :
      - **Chaîne de préfixe** : spécifiez une chaîne de préfixe à utiliser dans le nom de toutes les ressources créées pour l’application conteneurisée dans le cluster AKS.
      - **Certificat SSL** : si votre application requiert une liaison de site https, spécifiez le fichier PFX contenant le certificat à utiliser pour la liaison. Le fichier PFX ne doit pas être protégé par un mot de passe et le site d’origine ne doit pas avoir plusieurs liaisons.
      - **Jeux de réplicas** : spécifiez le nombre d’instances d’application (pods) qui doivent s’exécuter dans les conteneurs.
@@ -240,14 +246,14 @@ Une fois l’image conteneur générée, l’étape suivante consiste à déploy
      - Cliquez sur **Appliquer** pour enregistrer la configuration de déploiement.
      - Cliquez sur **Continuer** pour déployer l’application.
 
-    ![Capture d’écran de la configuration de l’application de déploiement.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config.png)
+    ![Capture d’écran de la configuration de l’application de déploiement.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config-aks.png)
 
 4. **Déployer l’application** : une fois la configuration de déploiement de l’application enregistrée, l’outil génère le YAML de déploiement Kubernetes pour l’application.
-     - Cliquez sur **Modifier** pour réviser et personnaliser le YAML de déploiement Kubernetes pour les applications.
+     - Cliquez sur **Vérifier** pour réviser et personnaliser le YAML de déploiement Kubernetes pour les applications.
      - Sélectionnez l’application à déployer.
      - Cliquez sur **Déployer** pour démarrer les déploiements des applications sélectionnées
 
-         ![Capture d’écran de la configuration du déploiement d’application.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy.png)
+         ![Capture d’écran de la configuration du déploiement d’application.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy-aks.png)
 
      - Une fois l’application déployée, vous pouvez cliquer sur la colonne *État du déploiement* pour suivre les ressources déployées pour l’application.
 
@@ -263,4 +269,6 @@ Pour résoudre tout problème lié à l’outil, vous pouvez consulter les fichi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS. [En savoir plus](./tutorial-containerize-java-kubernetes.md)
+- Conteneurisation d’applications ASP.NET et déploiement de celles-ci sur des conteneurs Windows sur App Service. [En savoir plus](./tutorial-app-containerization-aspnet-app-service.md)
+- Conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS. [En savoir plus](./tutorial-app-containerization-java-kubernetes.md)
+- Conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur App Service. [En savoir plus](./tutorial-app-containerization-java-app-service.md)

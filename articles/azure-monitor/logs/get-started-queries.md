@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 6e389cf58b5761d4069cf8a8b1e336d58db7a787
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ff65a473391f8a2435b20b88cacb6a0e18b90ba3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459293"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360736"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
@@ -53,7 +53,7 @@ SecurityEvent
 La requête ci-dessus retourne 10 résultats à partir de la table *SecurityEvent*, sans ordre spécifique. Il s’agit d’une méthode très courante pour avoir un aperçu d’une table et comprendre sa structure et son contenu. Examinons la façon dont elle est construite :
 
 * La requête commence par le nom de table *SecurityEvent* : cette partie définit l’étendue de la requête.
-* Le caractère barre verticale (|) sépare les commandes ; ainsi, la sortie de la première commande est l’entrée de la commande suivante. Vous pouvez enchaîner un nombre quelconque d’éléments avec le caractère barre verticale.
+* Le caractère barre verticale (|) sépare les commandes ; ainsi, la sortie de la première commande est l’entrée de la commande suivante. Vous pouvez enchaîner un nombre quelconque d’éléments avec le caractère barre verticale.
 * Le caractère barre verticale est suivi de la commande **take**, qui retourne un nombre spécifique d’enregistrements arbitraires à partir de la table.
 
 Nous pourrions exécuter la requête sans ajouter `| take 10` : elle serait toujours valide, mais pourrait retourner jusqu’à 10 000 résultats.
@@ -89,7 +89,7 @@ SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-L’ordre décroissant étant l’ordre de tri par défaut, nous omettons généralement l’argument **desc**. La sortie doit ressembler à ceci :
+L’ordre décroissant étant l’ordre de tri par défaut, nous omettons généralement l’argument **desc**. La sortie se présente ainsi :
 
 ![Top 10](media/get-started-queries/top10.png)
 

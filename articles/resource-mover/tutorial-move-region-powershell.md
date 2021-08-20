@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2021
 ms.author: raynew
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3489d7359b7557f0a2305a30ff3d28f05863504d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 865b4e7f93d70b9ba77e773dd3a599e8eed01376
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702243"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466921"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Déplacer des ressources entre des régions dans PowerShell
 
@@ -49,7 +49,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 La plupart des opérations de déplacement des ressources sont les mêmes, que vous utilisiez le portail Azure ou PowerShell, à quelques exceptions près.
 
-**Opération** | **PowerShell** | **Portail**
+**Opération** | **Portail** | **PowerShell**
 --- | --- | ---
 **Créer une collection de déplacement** | Une collection de déplacement (liste de toutes les ressources que vous déplacez) est créée automatiquement. Les autorisations d’identité requises sont affectées dans le back-end par le portail. | Vous utilisez des applets de commande PowerShell pour :<br/><br/> - Créer un groupe de ressources pour la collection de déplacement et spécifier la localisation correspondante<br/><br/> - Affecter une identité managée à la collection<br/><br/> - Ajouter des ressources à la collection
 **Supprimer une collection de déplacement** | Vous ne pouvez pas supprimer directement une collection de déplacement dans le portail. | Vous utilisez une applet de commande PowerShell pour supprimer une collection de déplacement.
@@ -404,7 +404,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
 ## <a name="delete-source-resources"></a>Supprimer les ressources sources
 
-Après avoir validé le déplacement et vérifié que les ressources fonctionnent comme prévu dans la région cible, vous pouvez supprimer chaque ressource source à partir du [portail Azure](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), de [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources) ou d’[Azure CLI](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
+Après avoir validé le déplacement et vérifié que les ressources fonctionnent comme prévu dans la région cible, vous pouvez supprimer chaque ressource source dans le [portail Azure](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) à l’aide de [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources) ou d’[Azure CLI](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

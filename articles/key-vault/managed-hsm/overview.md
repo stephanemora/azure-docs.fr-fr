@@ -7,19 +7,19 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/01/2021
+ms.date: 06/21/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: a9df83535bf0ee7a6c484a7682392d2ad0ef59f7
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: bccb9427f29f9982ca70f2551c48e462cfa16e00
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815321"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112522066"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>Qu’est-ce que Azure Key Vault Managed HSM ?
 
-Azure Key Vault Managed HSM est un service cloud complètement managé, à haut niveau de disponibilité et monolocataire qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de HSM certifiés **FIPS 140-2 de niveau 3**. Pour plus d’informations sur les prix, consultez la section Pools de HSM managés de la page [Tarification Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). 
+Azure Key Vault Managed HSM est un service cloud complètement managé, à haut niveau de disponibilité et monolocataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud en utilisant des modules de sécurité matériels certifiés **FIPS 140-2 de niveau 3**. Pour plus d’informations sur les prix, consultez la section Pools de HSM managés de la page [Tarification Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). 
 
 ## <a name="why-use-managed-hsm"></a>Pourquoi utiliser Managed HSM ?
 
@@ -34,7 +34,8 @@ Azure Key Vault Managed HSM est un service cloud complètement managé, à haut 
 
 - **Gestion centralisée des clés** : gérez les clés critiques et à forte valeur à l’échelle de votre organisation depuis un seul et même emplacement. Avec des autorisations précises par clé, contrôlez l’accès à chaque clé selon le principe de l’accès à privilèges minimum.
 - **Contrôle d’accès isolé** : le modèle de contrôle d’accès « RBAC local » de Managed HSM permet aux administrateurs de cluster HSM désignés de disposer d’un contrôle total sur les HSM que même les administrateurs de groupes d’administration, d’abonnements ou de groupes de ressources ne peuvent pas remplacer.
-- **HSM certifiés FIPS 140-2 de niveau 3** : protégez vos données et respectez les exigences de conformité avec des HSM certifiés FIPS (Federal Information Protection Standard) 140-2 de niveau 3. Les HSM managés utilisent les adaptateurs HSM Marvell LiquidSecurity.
+- **Points de terminaison privés** : Utilisez des points de terminaison privés pour vous connecter de façon sécurisée et privée à un HSM managé depuis votre application exécutée dans un réseau virtuel.
+- **HSM certifiés FIPS 140-2 de niveau 3** : Protégez vos données et respectez les exigences de conformité avec des HSM certifiés FIPS (Federal Information Protection Standard) 140-2 de niveau 3. Les HSM managés utilisent les adaptateurs HSM Marvell LiquidSecurity.
 - **Superviser et auditer** : entièrement intégré à Azure Monitor. Obtenez des journaux complets de toutes les activités via Azure Monitor. Utilisez Azure Log Analytics pour l’analytique et les alertes.
 - **Résidence des données** : Managed HSM ne stocke/traite pas les données client en dehors de la région dans laquelle le client déploie l’instance HSM.
 
@@ -54,3 +55,6 @@ Azure Key Vault Managed HSM est un service cloud complètement managé, à haut 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez [Démarrage rapide : Provisionner et activer un HSM managé à l’aide d’Azure CLI](quick-create-cli.md) pour créer et activer un HSM managé
 - Consultez [Bonnes pratiques pour utiliser Azure Key Vault Managed HSM](best-practices.md)
+- [État du HSM managé](https://status.azure.com)
+- [Contrat de niveau de service du HSM managé](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
+- [Disponibilité du HSM managé par région](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

@@ -2,18 +2,18 @@
 title: Portail Azure – Restreindre l’accès en importation/exportation à des disques managés avec des liaisons privées
 description: Activez des liaisons privées pour vos disques managés avec le portail Azure. Vous permet d’exporter et d’importer des disques de manière sécurisée au sein de votre réseau virtuel.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b686eac137a0531befea6fe42c31112c46b18cc9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: af8b44cbd229fc2bdf28d2885356e219b3a8198a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028646"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114288305"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utiliser le portail Azure afin de restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées
 
@@ -60,13 +60,13 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, premier panneau. Si vous ne sélectionnez pas la région appropriée, vous risquez de rencontrer des problèmes par la suite.":::
 
-1. Dans le panneau **Ressource**, sélectionnez **Se connecter à une ressource Azure dans mon annuaire**.
+1. Dans le volet **Ressource**, sélectionnez **Se connecter à une ressource Azure dans mon annuaire**.
 1. Pour **Type de ressource**, sélectionnez **Microsoft.Compute/diskAccesses**.
 1. Pour **Resource**, sélectionnez la ressource d’accès au disque créée précédemment.
 1. Pour **Sous-ressource ciblen**, conservez **disks**.
 1. Sélectionnez **Suivant : Configuration >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, deuxième panneau. Toutes les valeurs sont mises en évidence : Type de ressource, Ressource, Sous-ressource cible.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, deuxième volet. Toutes les valeurs sont mises en évidence (Type de ressource, Ressource, Sous-ressource cible)":::
 
 1. Sélectionnez le réseau virtuel auquel vous souhaitez limiter l’exportation du disque. Les autres réseaux virtuels ne pourront pas exporter votre disque.
 
@@ -76,7 +76,7 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. Sélectionner le sous-réseau approprié
 1. Sélectionnez **Revoir + créer**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, troisième panneau. Les options Réseau virtuel et Sous-réseau sont mise en évidence.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Capture d’écran du workflow de création d’un point de terminaison privé, troisième volet. Les options Réseau virtuel et Sous-réseau sont mises en évidence.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Activer un point de terminaison privé sur votre disque
 
@@ -85,11 +85,13 @@ Maintenant que vous disposez d’une ressource d’accès au disque, vous pouvez
 1. Sélectionnez **Point de terminaison privé (via l’accès de disque)** et sélectionnez l’accès au disque créé précédemment.
 1. Sélectionnez **Enregistrer**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Capture d’écran du panneau Réseau pour l’accès au disque. La sélection du point de terminaison privé et de l’accès au disque sont mises en évidence. Enregistrez pour configurer votre disque avec cet accès.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Capture d’écran du volet Réseau pour l’accès au disque managé. La sélection du point de terminaison privé et de l’accès au disque sont mises en évidence. Enregistrez pour configurer votre disque avec cet accès.":::
 
 Vous venez de terminer la configuration des liaisons privées, que vous pouvez maintenant utiliser lors de l’importation ou de l’exportation de votre disque managé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Charger un disque dur virtuel dans Azure ou copier un disque managé dans une autre région - Module [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) ou [Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- Télécharger un disque dur virtuel - [Windows](windows/download-vhd.md) ou [Linux](linux/download-vhd.md)
 - [Questions fréquentes (FAQ) sur les liaisons privées](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exporter/copier des instantanés managés en tant que disque dur virtuel vers un compte de stockage dans une région différente avec PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

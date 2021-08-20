@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02246f02226aaac1b7d9dbfd035a0479908f52cc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ef518b5dd3ee0e3657be1bf01873763eafdd221b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111539"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471835"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Bien démarrer avec l’exemple de bannière de conversation de groupe
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > [Cet exemple est disponible **sur GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)

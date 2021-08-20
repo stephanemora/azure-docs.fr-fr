@@ -3,12 +3,12 @@ title: Tutoriel - Accéder à votre cloud privé
 description: Découvrez comment accéder à un cloud privé Azure VMware Solution
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d2046acaf483022f977559fe74254ca58b8c42ea
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 81927e9ad0362ba340bb704d2d7e8b9c0927efbe
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945644"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605400"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Accéder à un cloud privé Azure VMware Solution
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Dans le groupe de ressources, sélectionnez **+ Ajouter**, recherchez et sélectionnez **Microsoft Windows 10**, puis **Créer**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Capture d’écran montrant comment ajouter une nouvelle machine virtuelle Windows 10 pour un Jumpbox." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Capture d’écran montrant comment ajouter une nouvelle machine virtuelle Windows 10 pour un Jumpbox.":::
 
 1. Entrez les valeurs nécessaires dans les champs, puis sélectionnez **Vérifier + créer**. 
 
@@ -58,7 +58,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
    Les URL et les informations d’identification de l’utilisateur pour le cloud privé vCenter et NSX-T Manager s’affichent.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Capture d’écran montrant des URL et informations d’identification vCenter et NSX Manager du cloud privé." lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Accédez à la machine virtuelle que vous avez créée à l’étape précédente et connectez-vous à cette machine. 
 
@@ -68,13 +68,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Sous l’onglet vCenter, entrez les informations d’identification de l’utilisateur `cloudadmin@vmcp.local` de l’étape précédente.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Connectez-vous au vCenter du cloud privé." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Capture d’écran montrant la page de connexion VMware vSphere." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Portail vCenter." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Capture d’écran montrant un résumé de Cluster-1 dans le client vSphere." border="true":::
 
 1. Sous le deuxième onglet du navigateur, connectez-vous à NSX-T Manager.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Sous le deuxième onglet du navigateur, connectez-vous à NSX-T Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Capture d’écran de la vue d’ensemble de NSX-T Manager." border="true":::
 
 
 
@@ -90,5 +90,4 @@ Passez au tutoriel suivant pour découvrir comment créer un réseau virtuel afi
 
 > [!div class="nextstepaction"]
 > [Créer un réseau virtuel](tutorial-configure-networking.md)
-
 

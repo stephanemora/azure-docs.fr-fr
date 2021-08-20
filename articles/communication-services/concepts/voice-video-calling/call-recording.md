@@ -10,20 +10,16 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 292210c12589bed6075378ba4fd38153c4fe10f1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 898346d69b656656c93889002109bae0f15b2dbc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105342"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464334"
 ---
 # <a name="calling-recording-overview"></a>Vue d’ensemble de l’enregistrement d’appel
 
-> [!NOTE]
-> De nombreux pays et états ont des lois et des réglementations qui s’appliquent à l’enregistrement des appels RTC, vocaux et vidéo ; elles exigent souvent le consentement des utilisateurs pour procéder à l’enregistrement de leurs communications. Il vous incombe d’utiliser les fonctionnalités d’enregistrement d’appel en conformité avec la loi. Vous devez obtenir le consentement des parties impliquées dans les communications enregistrées, d’une manière qui soit conforme aux lois applicables à chaque participant.
-
-> [!NOTE]
-> Les réglementations relatives à la maintenance des données personnelles exigent la possibilité d’exporter des données utilisateur. Afin de prendre en charge ces exigences, l’enregistrement des fichiers de métadonnées inclut l’ID participant de chaque participant à un appel dans le tableau `participants`. Vous pouvez croiser les MRI dans le tableau `participants` avec vos identités d’utilisateur internes pour identifier les participants dans un appel. Un exemple de fichier de métadonnées d’enregistrement est fourni ci-dessous pour référence.
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
 > L’enregistrement d’appel est actuellement disponible uniquement pour les ressources Communication Services créées dans la région USA.
@@ -86,6 +82,11 @@ Une notification Event Grid `Microsoft.Communication.RecordingFileStatusUpdated`
     "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
+## <a name="regulatory-and-privacy-concerns"></a>Questions liées à la réglementation et à la confidentialité
+
+De nombreux pays et états ont des lois et des réglementations qui s’appliquent à l’enregistrement des appels RTC, vocaux et vidéo ; elles exigent souvent le consentement des utilisateurs pour procéder à l’enregistrement de leurs communications. Il vous incombe d’utiliser les fonctionnalités d’enregistrement d’appel en conformité avec la loi. Vous devez obtenir le consentement des parties impliquées dans les communications enregistrées, d’une manière qui soit conforme aux lois applicables à chaque participant.
+
+Les réglementations relatives à la maintenance des données personnelles exigent la possibilité d’exporter des données utilisateur. Afin de prendre en charge ces exigences, l’enregistrement des fichiers de métadonnées inclut l’ID participant de chaque participant à un appel dans le tableau `participants`. Vous pouvez croiser les MRI dans le tableau `participants` avec vos identités d’utilisateur internes pour identifier les participants dans un appel. Un exemple de fichier de métadonnées d’enregistrement est fourni ci-dessous pour référence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez [Exemple de démarrage rapide d’enregistrement d’appel](../../quickstarts/voice-video-calling/call-recording-sample.md).

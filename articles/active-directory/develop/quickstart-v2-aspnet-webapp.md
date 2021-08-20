@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET | Azure'
+title: 'Démarrage rapide : Application web ASP.NET qui connecte les utilisateurs'
 titleSuffix: Microsoft identity platform
-description: Dans ce guide de démarrage rapide, apprenez à implémenter la connexion Microsoft dans une application web ASP.NET en utilisant OpenID Connect.
+description: Téléchargez et exécutez un exemple de code qui montre comment une application web ASP.NET peut connecter des utilisateurs Azure AD.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 87948ed04f7b50820d94993d4c4fbcf2dfd94b31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c53f816b151026c03068451aa440f12a2cbc15
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578683"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112677801"
 ---
-# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion à la Plateforme d'identités Microsoft dans une application web ASP.NET
+# <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>Démarrage rapide : Application web ASP.NET qui connecte des utilisateurs Azure AD
 
-Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application web ASP.NET peut connecter des utilisateurs à partir de n’importe quelle organisation Azure Active Directory (Azure AD). 
+Dans ce guide de démarrage rapide, vous allez télécharger et exécuter un exemple de code qui montre comment une application web ASP.NET peut connecter des utilisateurs avec des comptes Azure AD (Azure Active Directory).
 
 > [!div renderon="docs"]
 > Le diagramme suivant illustre le fonctionnement de l’exemple d’application :

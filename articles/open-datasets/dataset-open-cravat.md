@@ -7,12 +7,12 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 04/16/2021
-ms.openlocfilehash: 31a9d9bed9342470d3dc5c06516de27c3a07b0e9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 2047b5f5071f6166a7f30e7a04b79fa711c95624
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112038590"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982119"
 ---
 # <a name="opencravat-open-custom-ranked-analysis-of-variants-toolkit"></a>OpenCravat : Kit de ressources open source pour l’analyse personnalisée des variantes
 
@@ -36,9 +36,9 @@ Ce jeu de données est stocké dans les régions Azure USA Ouest 2 et USA Centr
 
 ## <a name="data-access"></a>Accès aux données
 
-USA Ouest 2 : https://datasetopencravat.blob.core.windows.net/dataset
+USA Ouest 2 : « https://datasetopencravat.blob.core.windows.net/dataset  »
 
-USA Centre-Ouest : https://datasetopencravat-secondary.blob.core.windows.net/dataset
+USA Centre-Ouest : « https://datasetopencravat-secondary.blob.core.windows.net/dataset »
 
 [Jeton SAS](../storage/common/storage-sas-overview.md) : sv=2020-04-08&st=2021-03-11T23%3A50%3A01Z&se=2025-07-26T22%3A50%3A00Z&sr=c&sp=rl&sig=J9J9wnJOXsmEy7TFMq9wjcxjXDE%2B7KhGpCUL4elsC14%3D
 
@@ -52,4 +52,4 @@ rkarchi1@jhmi.edu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Affichez les autres jeux de données dans le [Catalogue Open Datasets](dataset-catalog.md).
+Consultez les autres jeux de données du [catalogue Open Datasets](dataset-catalog.md).

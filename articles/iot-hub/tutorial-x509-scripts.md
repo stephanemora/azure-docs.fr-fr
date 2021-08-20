@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/26/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: ff4b63f49a87dd9ca6b0ef458bdcf1c285a34a18
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8170b6529ca38c54d3030514a79948678861f3bd
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378208"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214903"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Tutoriel : Utiliser les scripts fournis par Microsoft pour créer des certificats de test
 
@@ -61,13 +61,15 @@ Après avoir exécuté le script, ajoutez le nouveau certificat d'AC (RootCA.pem
 
 1. Entrez un nom d'affichage pour le certificat d'AC.
 
+1. Pour ignorer la preuve de possession, cochez la case en regard de **Définir l’état du certificat sur vérifié lors du chargement**.
+
 1. Chargez le certificat d'AC.
 
 1. Sélectionnez **Enregistrer**.
 
-### <a name="step-3---prove-possession"></a>Étape 3 : Fournir une preuve de possession
+### <a name="optional-step-3---prove-possession"></a>(Facultatif) Étape 3 : Fournir une preuve de possession
 
-Maintenant que vous avez chargé votre certificat d'AC dans votre instance d'IoT Hub, vous devez prouver que vous en êtes bien le propriétaire :
+Si vous n’avez pas choisi de vérifier automatiquement le certificat lors du chargement, vous prouvez manuellement la possession :
 
 1. Sélectionnez le nouveau certificat d'AC.
 

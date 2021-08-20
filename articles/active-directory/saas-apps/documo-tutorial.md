@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: a7536cd637339cd7a73541ddee89e8d2e11df3e6
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b73c760185e8b5d97ab03fbbee75fd399e0b0c16
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889117"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466516"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-documo"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Documo
 
@@ -78,11 +78,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
+1. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure. Si votre compte Documo a un domaine personnalisé, vous devez également disposer d’un domaine d’API personnalisé pour que l’authentification unique fonctionne. Remplacez les valeurs par défaut par votre domaine d’API personnalisé, par exemple `https://mycustomapidomain.com` et `https://mycustomapidomain.com/assert`.
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.documo.com/sso`
+    Dans la zone de texte **URL de connexion**, tapez l’URL :   
+    `https://app.documo.com/sso`
 
 1. Cliquez sur **Enregistrer**.
 
@@ -142,7 +143,7 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
     d. Entrez la valeur appropriée dans la zone de texte **Field Name in SAML Token containing Identity email** (Nom de champ dans le jeton SAML contenant l’e-mail d’identité).
 
-    e. Dans le Bloc-notes, ouvrez le fichier **XML de métadonnées de fédération** téléchargé à partir du portail Azure, puis collez son contenu dans la zone de texte **Signer Certificate** (Certificat de signataire).
+    e. Ouvrez le fichier **XML des métadonnées de fédération** téléchargé à partir du portail Azure dans le Bloc-notes. Recherchez l’étiquette `<X509Certificate>` et collez le contenu dans la zone de texte **Signer Certificate** (Certificat de signataire).
 
     f. Cliquez sur **Envoyer**.
 

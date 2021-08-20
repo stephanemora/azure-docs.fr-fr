@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ae8016251926e8afab10f1bccee8f53e204c7a7a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408044"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461105"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
@@ -44,12 +44,14 @@ Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authen
 
 Une fois l’inscription effectuée, sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’accès** et **Jetons d’ID**, puis **Enregistrer**.
 
+> Remarque : Si vous utilisez .NET 6 ou version ultérieure, vous n’avez pas besoin d’utiliser l’octroi implicite. Le modèle le plus récent utilise le navigateur MSAL 2.0 et prend en charge le flux de code d’authentification avec PKCE
+
 ## <a name="create-the-app-using-the-net-core-cli"></a>Créer l’application à l’aide de l’interface CLI .NET Core
 
 Pour créer l’application, vous avez besoin des tout derniers modèles Blazor. Vous pouvez les installer pour l’interface CLI .NET Core au moyen de la commande suivante :
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
 ```
 
 Exécutez ensuite la commande suivante pour créer l’application. Remplacez les espaces réservés dans la commande par les informations appropriées extraites de la page de présentation de votre application et exécutez la commande dans un interpréteur de commandes. L’emplacement de sortie spécifié avec l’option `-o|--output` crée un dossier de projet s’il n’existe pas et devient partie intégrante du nom de l’application.

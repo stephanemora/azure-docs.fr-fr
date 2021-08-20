@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: 618074d696804171ee5e05655c1e15557789fac9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c624a9dcdf61796dc4ce4396a0b309f84ceddaf
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165007"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279885"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -27,7 +27,7 @@ Avant de pouvoir faire quoi que ce soit, vous devez installer le [kit SDK Speech
 
 ## <a name="speech-to-text-from-microphone"></a>Reconnaissance vocale à partir du microphone
 
-Utilisez l’exemple de code suivant pour exécuter la reconnaissance vocale à partir de votre microphone d’appareil par défaut. Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région. L’exécution du script démarre une session de reconnaissance sur votre microphone par défaut et le texte de sortie.
+Utilisez l’exemple de code suivant pour exécuter la reconnaissance vocale à partir de votre microphone d’appareil par défaut. Remplacez les variables `subscription` et `region` par votre clé de voix et votre localisation/région. Consultez la page [Rechercher les clés et la localisation/région](../../../overview.md#find-keys-and-locationregion) pour rechercher votre paire clé-localisation/région. L’exécution du script démarre une session de reconnaissance sur votre microphone par défaut et le texte de sortie.
 
 ```go
 package main
@@ -67,8 +67,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
     audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
     if err != nil {
@@ -117,7 +117,7 @@ Consultez la documentation de référence pour obtenir des informations détaill
 
 ## <a name="speech-to-text-from-audio-file"></a>Reconnaissance vocale à partir d’un fichier audio
 
-Utilisez l’exemple suivant pour exécuter la reconnaissance vocale à partir d’un fichier audio. Remplacez les variables `subscription` et `region` par vos clés d’abonnement et de région. Remplacez également la variable `file` par un chemin vers un fichier .wav. L’exécution du script effectue la reconnaissance vocale à partir du fichier et fournit en sortie le texte obtenu.
+Utilisez l’exemple suivant pour exécuter la reconnaissance vocale à partir d’un fichier audio. Remplacez les variables `subscription` et `region` par votre clé de voix et votre localisation/région. Consultez la page [Rechercher les clés et la localisation/région](../../../overview.md#find-keys-and-locationregion) pour rechercher votre paire clé-localisation/région. Remplacez également la variable `file` par un chemin vers un fichier .wav. L’exécution du script effectue la reconnaissance vocale à partir du fichier et fournit en sortie le texte obtenu.
 
 ```go
 package main
@@ -131,8 +131,8 @@ import (
 )
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
     file := "path/to/file.wav"
 
     audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)

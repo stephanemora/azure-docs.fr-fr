@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 06/25/2021
 ms.author: jeedes
-ms.openlocfilehash: f756e738989775bf9c06b44a03f002c14f42e3ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85c59b42532b56d2f61cbd3a7f7e2f9e7aeb557a
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182324"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sonarqube
 
@@ -37,12 +37,12 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Sonarqube prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Sonarqube prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-sonarqube-from-the-gallery"></a>Ajout de Sonarqube à partir de la galerie
+## <a name="add-sonarqube-from-the-gallery"></a>Ajouter Sonarqube à partir de la galerie
 
 Pour configurer l’intégration de Sonarqube à Azure AD, vous devez ajouter Sonarqube à partir de la galerie à votre liste d’applications SaaS gérées.
 
@@ -72,13 +72,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **SonarQube**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL :
+    a. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://servicessonar.<YOUR_ORGANIZATION>.com`
+
+    b. Dans la zone de texte **URL d’authentification**, tapez l’une des URL suivantes :
 
     * **Pour l’environnement de production**
 
@@ -87,6 +89,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     * **Pour l’environnement de développement**
 
         `https://servicescode-dev.westus.cloudapp.azure.com`
+
+    > [!NOTE]
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle, qui sont expliquées plus loin dans le tutoriel.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -118,7 +123,6 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-sonarqube-sso"></a>Configurer l’authentification unique Sonarqube
@@ -131,12 +135,14 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     1. ID d’entité de fournisseur d’identité (IdP)
     2. URL de connexion
     3. X.509 Certificate 
+
 1. Enregistrez toutes les informations.
-    ![Fournisseur d’identité (IdP) du plug-in SAML](./media/sonarqube-tutorial/sso-idp-metadata.png)
+
+    ![Fournisseur d’identité (IdP) du plug-in SAML](./media/sonarqube-tutorial/metadata.png)
 
 1. Sur la page **SAML** , procédez comme suit :
 
-    ![Configuration de Sonarqube](./media/sonarqube-tutorial/config01.png)
+    ![Configuration de Sonarqube](./media/sonarqube-tutorial/configuration.png)
 
     a. Affectez à l’option **Enabled** (Activé) la valeur **yes** (oui).
 
@@ -166,11 +172,11 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Sonarq
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion SonarQube, où vous pouvez lancer le flux de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion SonarQube, où vous pouvez lancer le flux de connexion. 
 
-2. Accédez directement à l’URL de connexion SonarQube et lancez le flux de connexion à partir de là.
+* Accédez directement à l’URL de connexion SonarQube et lancez le flux de connexion à partir de là.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette SonarQube dans le volet d’accès vous redirige vers l’URL de connexion SonarQube. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Sonarqube dans Mes applications vous redirige vers l’URL de connexion Sonarqube. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

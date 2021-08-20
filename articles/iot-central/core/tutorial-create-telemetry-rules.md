@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0d59f50d6fa4f21676cef01ffe0dde8ed1fa4441
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768766"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301969"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutoriel : Créer une règle et configurer des notifications dans votre application Azure IoT Central
 
@@ -31,11 +31,50 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, suivez les deux guides de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) et [Ajouter un appareil simulé à votre application IoT Central](./quick-create-simulated-device.md) afin de créer le modèle d’appareil **Sensor Controller** à utiliser.
+Pour suivre les étapes de ce tutoriel, vous devez disposer des éléments suivants :
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## <a name="add-and-customize-a-device-template"></a>Ajouter et personnaliser un modèle d’appareil
+
+Ajoutez un modèle d’appareil à partir du catalogue d’appareils. Ce tutoriel utilise le modèle d’appareil **ESP32-Azure IoT Kit** :
+
+1. Pour ajouter un nouveau modèle d’appareil, sélectionnez **+ Nouveau** dans la page **Modèles d’appareil**.
+
+1. Dans la page **Sélectionner le type**, faites défiler jusqu’à la vignette **ESP32-Azure IoT Kit** dans la section **Utiliser un modèle d’appareil préconfiguré**.
+
+1. Sélectionnez la vignette **ESP32-Azure IoT Kit**, puis sélectionnez **Suivant : Vérification**).
+
+1. Dans la page **Vérifier**, sélectionnez **Créer**.
+
+Le nom du modèle que vous avez créé est **Sensor Controller**. Le modèle de capacité comprend des composants tels que **Sensor Controller**, **SensorTemp** et **Device Information interface**. Les composants définissent les fonctionnalités d’un appareil ESP32, telles que la télémétrie, les propriétés et les commandes.
+
+Ajoutez deux propriétés cloud au modèle d’appareil **Sensor Controller** :
+
+1. Sélectionnez **Propriétés du cloud**, puis **+ Ajouter une propriété cloud**. Utilisez les informations du tableau suivant pour ajouter deux propriétés cloud à votre modèle d’appareil :
+
+    | Nom d’affichage      | Type sémantique | schéma |
+    | ----------------- | ------------- | ------ |
+    | Dernière date de service | None          | Date   |
+    | Nom du client     | None          | String |
+
+1. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+
+Ajoutez un nouveau formulaire au modèle d’appareil pour gérer l’appareil :
+
+1. Après avoir sélectionné le nœud **Vues**, sélectionnez la vignette **Modification des données de l’appareil et du cloud** pour ajouter une nouvelle vue.
+
+1. Remplacez le nom du formulaire par **Gérer l’appareil**.
+
+1. Sélectionnez les propriétés cloud **Customer Name** et **Last Service Date** ainsi que la propriété **Target Temperature**. Sélectionnez ensuite **Ajouter une section**.
+
+1. Sélectionnez **Enregistrer** pour enregistrer votre nouveau formulaire.
+
+À présent, publiez le modèle d’appareil.
 
 ## <a name="create-a-rule"></a>Créer une règle
 
-Pour créer une règle de télémétrie, le modèle d’appareil doit contenir au moins une valeur de télémétrie. Ce tutoriel utilise un appareil **Sensor Controller** simulé qui envoie la télémétrie relative à la température et à l’humidité. Vous avez ajouté ce modèle d’appareil et créé un appareil simulé dans le guide de démarrage rapide [Ajouter un appareil simulé à votre application IoT Central](./quick-create-simulated-device.md). La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 70 degrés.
+Pour créer une règle de télémétrie, le modèle d’appareil doit contenir au moins une valeur de télémétrie. Ce tutoriel utilise un appareil **Sensor Controller** simulé qui envoie la télémétrie relative à la température et à l’humidité. La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 70 degrés.
 
 > [!NOTE]
 > Il existe une limite de 50 règles par application.
@@ -120,4 +159,4 @@ Dans ce didacticiel, vous avez appris à :
 Une fois que vous avez défini une règle basée sur un seuil, l’étape suivante suggérée consiste à apprendre à :
 
 > [!div class="nextstepaction"]
-> [Créez des webhooks sur des règles](./howto-create-webhooks.md).
+> [Configurer des règles](howto-configure-rules.md)

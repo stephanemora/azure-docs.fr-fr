@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7173c625ef56ea9e4d4d43d90adc18ba4fe167ab
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109284"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766544"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
 
@@ -111,7 +111,7 @@ Le tableau suivant représente l’ensemble des navigateurs pris en charge dispo
 | Plateforme     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
 | ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android      | ✔️      | ❌      | ❌               | Le partage d’écran sortant n’est pas pris en charge.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique. Le partage d’écran sortant n’est pas pris en charge. |
+| iOS          | ❌      | ✔️      | ❌               | [Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique ; le système d’exploitation contrôle la sélection du périphérique par défaut. Le partage d’écran sortant n’est pas pris en charge. |
 | macOS        | ✔️      | ✔️      | ❌               | Les versions 14+ de Safari et 11+ de macOS sont nécessaires pour la prise en charge des vidéos sortantes.                                                                                                                                                     |
 | Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
 | Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |

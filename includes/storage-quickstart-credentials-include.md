@@ -1,34 +1,38 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 11/23/2019
+ms.date: 07/23/2021
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 9e6b2dfaaccfc7d305f672a9b7d74daf3a6227b7
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 463d251cc46e0a5735b1b5146bac30b3bc506f46
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805437"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674367"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copier vos informations d’identification depuis le portail Azure
 
-Lorsque l’exemple d’application effectue une requête auprès du stockage Azure, il doit être autorisé. Pour autoriser une demande, ajoutez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Affichez les informations d'identification de votre compte de stockage en suivant ces étapes :
+Lorsque l’exemple d’application effectue une requête auprès du stockage Azure, il doit être autorisé. Pour autoriser une demande, ajoutez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Pour afficher les informations d’identification de votre compte de stockage, effectuez les étapes suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Recherchez votre compte de stockage.
-3. Dans la section **Sécurité et réseau** de la vue d’ensemble du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-4. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis sélectionnez le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
+3. Dans le volet de menu du compte de stockage, sous **Sécurité + réseau**, sélectionnez **Clés d’accès**. Ici, vous pouvez afficher les clés d’accès du compte et la chaîne de connexion complète pour chaque clé.
+
+    ![Capture d’écran montrant où se trouvent les paramètres de clé d’accès dans le portail Azure](./media/storage-access-keys-portal/portal-access-key-settings.png)
+ 
+1. Dans le volet **Clés d’accès**, sélectionnez **Afficher les clés**.
+1. Dans la section **clé1**, recherchez la valeur **Chaîne de connexion**. Sélectionnez l’icône **Copier dans le Presse-papiers** pour copier la chaîne de connexion. Vous ajouterez la valeur de chaîne de connexion à une variable d’environnement dans la section suivante.
 
     ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](./media/storage-copy-connection-string-portal/portal-connection-string.png)
 
 ### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 
-Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion.
+Après avoir copié la chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion.
 
 #### <a name="windows"></a>Windows
 
@@ -52,4 +56,4 @@ export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 
 #### <a name="restart-programs"></a>Redémarrer des programmes
 
-Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez votre environnement de développement ou éditeur avant de continuer.
+Après avoir ajouté la variable d’environnement, redémarrez tous les programmes en cours d’exécution qui devront la lire. Par exemple, redémarrez l’environnement ou l’éditeur de développement avant de continuer.

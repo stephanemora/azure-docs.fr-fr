@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8513faa74959b679eedcf95710c7915364504ca
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b3e9332706c3bcc9d4f4cabd20d10fa099271d69
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962717"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285323"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
@@ -28,7 +28,7 @@ Cette section présente les différentes configurations possibles du pare-feu Az
 
 ### <a name="key-vault-firewall-disabled-default"></a>Pare-feu Key Vault désactivé (configuration par défaut)
 
-Par défaut, quand vous créez un coffre de clés, le pare-feu Azure Key Vault est désactivé. Toutes les applications et tous les services Azure peuvent accéder au coffre de clés et lui envoyer des requêtes. Notez que cette configuration n’implique pas que tous les utilisateurs pourront effectuer des opérations sur le coffre de clés. Le coffre de clés restreint toujours l’accès aux secrets, aux clés et aux certificats qu’il stocke en exigeant des autorisations de stratégie d’accès et une authentification Azure Active Directory. Pour mieux comprendre l’authentification du coffre de clés, consultez [ici](/azure/key-vault/general/authentication.md) l’article sur les concepts de base de l’authentification du coffre de clés. Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](./access-behind-firewall.md).
+Par défaut, quand vous créez un coffre de clés, le pare-feu Azure Key Vault est désactivé. Toutes les applications et tous les services Azure peuvent accéder au coffre de clés et lui envoyer des requêtes. Notez que cette configuration n’implique pas que tous les utilisateurs pourront effectuer des opérations sur le coffre de clés. Le coffre de clés restreint toujours l’accès aux secrets, aux clés et aux certificats qu’il stocke en exigeant des autorisations de stratégie d’accès et une authentification Azure Active Directory. Pour mieux comprendre l’authentification du coffre de clés, consultez [ici](./authentication.md) l’article sur les concepts de base de l’authentification du coffre de clés. Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Pare-feu Key Vault activé (services approuvés uniquement)
 
@@ -72,7 +72,7 @@ Pour savoir comment configurer une connexion de liaison privée sur votre coffre
 
 > [!NOTE]
 > Notez les limitations de configuration suivantes :
-> * Un maximum de 127 règles de réseau virtuel et 127 règles IPv4 sont autorisées. 
+> * Un maximum de 200 règles de réseau virtuel et de 1 000 règles IPv4 sont autorisées. 
 > * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par **10.** , **172.16-31.** et **192.168.** . 
 > * Seules les adresses IPv4 sont prises en charge pour le moment.
 

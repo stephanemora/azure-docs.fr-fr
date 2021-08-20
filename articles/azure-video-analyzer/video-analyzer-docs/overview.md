@@ -3,16 +3,16 @@ title: Qu’est-ce qu’Azure Video Analyzer
 description: Cette rubrique fournit une vue d’ensemble d’Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: overview
-ms.date: 03/11/2021
-ms.openlocfilehash: c1d556662794de6127b0c455ac812b94b5a05742
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 35f13e8cd87e7e633b6836105f2d4c16911be663
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386132"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604799"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Qu’est-ce qu’Azure Video Analyzer ? (préversion)
-
+ 
 Azure Video Analyzer fournit une plateforme pour créer des applications vidéo intelligentes qui s’étendent à la périphérie et au cloud. La plateforme se compose d’un module IoT Edge et d’un service Azure associé. Elle offre la possibilité de capturer, d’enregistrer et d’analyser des vidéos en direct, et de publier les résultats : vidéo et/ou analytique vidéo. La vidéo peut être publiée à la périphérie ou dans le service cloud Video Analyzer, tandis que l’analytique vidéo peut être publiée dans les services Azure (dans le cloud et/ou à la périphérie). La plateforme peut être utilisée pour améliorer les solutions IoT avec analyse vidéo. La fonctionnalité Video Analyzer peut être associée à d’autres modules Azure IoT Edge, comme Stream Analytics sur IoT Edge, Cognitive Services sur IoT Edge et à des services Azure dans le cloud, comme Event Hub, Cognitive Services, etc. pour créer des applicables hybrides puissantes (par exemple, périphérie + cloud).
 
 Le module périphérique Video Analyzer est conçu comme une plateforme extensible qui vous permet de connecter différents modules périphériques d’analyse vidéo (par exemple, des conteneurs Cognitive Services, des modules périphériques personnalisés que vous avez générés avec des modèles Machine Learning open source ou des modèles personnalisés entraînés avec vos propres données) et de les utiliser pour analyser la vidéo en direct sans avoir à créer et exécuter un pipeline vidéo en direct, qui s’avère être une tâche complexe. Le service cloud Video Analyzer vous permet de lire les vidéos et les analyses vidéo à partir de ces workflows.

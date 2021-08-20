@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/10/2021
-ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 991dbb9027d247834f63f41de8d02d893ba9bb46
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015843"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583695"
 ---
 # <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Bien démarrer avec Recherche cognitive Azure à l’aide de Visual Studio Code
 
@@ -22,7 +22,7 @@ Cet article explique comment formuler des requêtes d’API REST de manière int
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 > [!IMPORTANT] 
-> Cette fonctionnalité est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Cette fonctionnalité est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 06/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe77b2e667ba5bfe5ab40a44efe177648a184f51
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563835"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456191"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Clever
 
@@ -37,12 +37,12 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Clever prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
+* Clever prend en charge l’authentification unique (SSO) lancée par le **fournisseur de services**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-clever-from-the-gallery"></a>Ajout de Clever depuis la galerie
+## <a name="add-clever-from-the-gallery"></a>Ajouter Clever depuis la galerie
 
 Pour configurer l’intégration de Clever avec Azure AD, vous devez ajouter Clever, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -53,12 +53,11 @@ Pour configurer l’intégration de Clever avec Azure AD, vous devez ajouter Cle
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Clever** dans la zone de recherche.
 1. Sélectionnez **Clever** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Configurer et tester l’authentification unique Azure AD pour Clever
 
 Configurez et testez l’authentification unique Azure AD avec Clever à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Clever associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Clever, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Clever, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -73,18 +72,18 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Clever**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://clever.com/in/<companyname>`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://clever.com/oauth/saml/metadata.xml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://clever.com/oauth/saml/metadata.xml`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://clever.com/<COMPANY_NAME>`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://clever.com/<companyname>`
-    
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://clever.com/in/<COMPANY_NAME>`
+
     > [!NOTE]
     >  Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir la valeur, contactez l’[équipe de support technique de Clever](https://clever.com/about/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
@@ -118,7 +117,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-clever-sso"></a>Configurer l’authentification unique Clever
 
-Suivez ce [lien](https://support.clever.com/hc/s/articles/205889768) pour obtenir des instructions afin de configurer l’authentification unique côté Clever.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au tableau de bord de district Clever en tant qu’administrateur.
+
+2. Dans la barre de navigation gauche, cliquez sur **Menu** > **Portal** > **SSO Settings** (Menu > Portail > Paramètres d’authentification unique).
+
+3. Dans la page **SAML SSO Settings** (Paramètres d’authentification unique SAML), procédez comme suit :
+    
+    a. Sélectionnez **Add Login Method** (Ajouter une méthode de connexion).
+
+    b. Sélectionnez **Active Directory Authentication** (Authentification Active Directory). 
+
+    ![Paramètres](./media/clever-tutorial/account.png "Paramètres") 
+    
+    c. Dans le Bloc-notes, ouvrez le fichier de l’**URL des métadonnées de fédération** téléchargé à partir du portail Azure, puis collez son contenu dans la zone de texte **Metadata URL** (URL des métadonnées).
+
+    ![Télécharger le certificat](./media/clever-tutorial/metadata.png "Télécharger le certificat") 
+
+    d. Cliquez sur **Save** (Enregistrer).
 
 ### <a name="create-clever-test-user"></a>Créer un utilisateur de test Clever
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: f321b18e498cf0b1f12c921feed8e0d95c410874
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11c681989d84063816decd6de0c08086327dae24
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953423"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112553780"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lexonis-talentscape"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Lexonis TalentScape
 
@@ -33,14 +33,17 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Lexonis TalentScape pour lequel l’authentification unique est activée
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Lexonis TalentScape prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* Lexonis TalentScape prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Lexonis TalentScape prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Lexonis TalentScape prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-lexonis-talentscape-from-the-gallery"></a>Ajout de Lexonis TalentScape à partir de la galerie
+## <a name="add-lexonis-talentscape-from-the-gallery"></a>Ajouter Lexonis TalentScape à partir de la galerie
 
 Pour configurer l’intégration de Lexonis TalentScape à Azure AD, vous devez ajouter Lexonis TalentScape, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -50,7 +53,6 @@ Pour configurer l’intégration de Lexonis TalentScape à Azure AD, vous devez
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Lexonis TalentScape** dans la zone de recherche.
 1. Sélectionnez **Lexonis TalentScape** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-lexonis-talentscape"></a>Configurer et tester l’authentification unique Azure AD pour Lexonis TalentScape
 
@@ -75,7 +77,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<CUSTOMER_NAME>.lexonis.com/`
 
@@ -105,6 +107,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.

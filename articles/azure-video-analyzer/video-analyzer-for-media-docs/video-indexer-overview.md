@@ -1,19 +1,20 @@
 ---
 title: Qu’est-ce qu’Azure Video Analyzer for Media (anciennement Video Indexer) ?
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Cette article offre une vue d’ensemble du service Azure Video Analyzer for Media (anciennement Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
-ms.topic: article
-ms.date: 02/05/2021
+ms.topic: overview
+ms.subservice: azure-video-analyzer-media
+ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: acaed6bedcbfeb4ccafd61f0a907f1ccfb7e8bcb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 79c6dc98bd214594b938cf74ce9176a64867fe3e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386167"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711855"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>Qu’est-ce que Video Analyzer for Media ?
 
@@ -69,7 +70,7 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 * **Déploiement de crédits** : Identifie le début et la fin des crédits à la fin des émissions de télévision et des films.
 * **Détection de personnages animés** (préversion) : Détection, regroupement et reconnaissance de personnages dans le contenu animé via l’intégration avec [Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Pour plus d’informations, consultez [Détection de personnages animés](animated-characters-recognition.md).
 * **Détection du type de plan éditorial** : Marquage de plans en fonction de leur type (par exemple, plan large, plan moyen, gros plan, très gros plan, deux plans, plusieurs personnes, extérieur et intérieur, etc.). Pour plus d’informations, consultez [Détection du type de plan éditorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Suivi des personnes observées** : Détecte les personnes dans les vidéos et fournit des informations telles que l’emplacement de la personne dans le cadre de la vidéo (à l’aide de zones englobantes) et l’horodatage exact (début, fin) ainsi que la confiance lorsqu’une personne apparaît. Pour plus d’informations, consultez [Suivre des personnes dans une vidéo](observed-people-tracing.md).
+* **Suivi des personnes observées** : Détecte les personnes dans les vidéos et fournit des informations telles que l’emplacement de la personne dans le cadre de la vidéo (à l’aide de zones englobantes) et l’horodatage exact (début, fin) ainsi que la confiance quand une personne apparaît. Pour plus d’informations, consultez [Suivre des personnes dans une vidéo](observed-people-tracing.md).
 
 ### <a name="audio-insights"></a>Insights audio
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2021
+ms.date: 06/18/2021
 ms.author: jeedes
-ms.openlocfilehash: a9ecec2456354c2d766d528d2c29ceb1833a7ad9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d43e9c784a24e6a751d97eb4deeaffec381d124e
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481721"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112423125"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-standard-for-success-accreditation"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Standard for Success Accreditation
 
@@ -24,7 +24,6 @@ Ce tutoriel explique comment intégrer Standard for Success Accreditation avec A
 
 * Contrôler dans Azure AD qui a accès à Standard for Success Accreditation.
 * Permettre aux utilisateurs de se connecter automatiquement à Standard for Success Accreditation avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,10 +38,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Standard for Success Accreditation prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 
-> [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
-
-## <a name="adding-standard-for-success-accreditation-from-the-gallery"></a>Ajout de Standard for Success Accreditation à partir de la galerie
+## <a name="add-standard-for-success-accreditation-from-the-gallery"></a>Ajouter Standard for Success Accreditation à partir de la galerie
 
 Pour configurer l’intégration de Standard for Success Accreditation à Azure AD, vous devez ajouter Standard for Success Accreditation à votre liste d’applications managées SaaS à partir de la galerie.
 
@@ -52,7 +48,6 @@ Pour configurer l’intégration de Standard for Success Accreditation à Azure�
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, tapez **Standard for Success Accreditation**.
 1. Dans le volet de résultats, sélectionnez **Standard for Success Accreditation**, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-standard-for-success-accreditation"></a>Configurer et tester l’authentification unique Azure AD pour Standard for Success Accreditation
 
@@ -77,18 +72,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `api://<ApplicationId>`
+
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
 1. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://edu.sfsed.com/access/saml_int?did=<INSTITUTIONID>`.
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://edu.sfsed.com/access/saml_int?did=<INSTITUTION-ID>`.
 
-    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTIONID>`
+    b. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://edu.sfsed.com/access/saml_consume?did=<INSTITUTION-ID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez-les à jour avec les valeurs réelles d’URL de réponse, d’URL de connexion et d’État de relais. Pour obtenir ces valeurs, contactez l’[équipe de support technique Standard for Success Accreditation](mailto:help_he@standardforsuccess.com) . Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse, l’URL de connexion et l’État de relais exacts. Pour obtenir ces valeurs, contactez l’[équipe de support technique Standard for Success Accreditation](mailto:help_he@standardforsuccess.com) . Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**.
 
@@ -101,6 +98,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Standard for Success Accreditation**, copiez les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -109,7 +107,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@institutiondomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
@@ -133,15 +131,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Faites défiler la liste jusqu’à **Paramètres d’authentification unique**, cliquez sur le lien **Authentification unique Microsoft Azure**, puis procédez comme suit.
 
-    ![Page Authentification unique Microsoft Azure.](./media/standard-for-success-accreditation-tutorial/configuration.png)
+    :::image type="content" source="./media/standard-for-success-accreditation-tutorial/configuration.png" alt-text="Capture d’écran montrant comment activer l’authentification unique Azure dans Standard for Success Accreditation.":::
 
-    a. Activez la case à cocher **Authentification unique Azure**.
+    a. Cochez la case **Enable Azure Single Sign On** (Activer l’authentification unique Azure).
 
-    b. Remplissez la zone de texte **ID de locataire Azure** avec la valeur d’ID de locataire du portail Azure.
+    b. Renseignez les champs URL et Identifier (Identificateur) avec les URL appropriées que vous avez copiées à partir de la configuration de SAML dans le portail Azure.
 
-    c. Entrez l’ID de l’application dans la zone de texte **ID de l’application**.
+    c. Entrez l’ID de l’application dans la zone de texte **Application ID**.
 
-    d. Dans la zone de texte **Empreinte du certificat**, collez la **valeur d’empreinte** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **Certificate Thumbprint** (Empreinte du certificat), collez la **valeur d’empreinte** que vous avez copiée à partir du portail Azure.
 
     e. Cliquez sur **Enregistrer**. 
 
@@ -149,7 +147,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1.  Connectez-vous à Standard for Success Accreditation en tant qu’administrateur disposant de privilèges de superutilisateur.
 
-1. Dans le menu, cliquez sur **Portail d’administration -> Créer une évaluation**, puis procédez comme suit.
+1. Dans le menu, cliquez sur **Admin Portal** > **Create New Evaluatee** (Portail d’administration -> Créer une évaluation), puis procédez comme suit.
 
     ![création d’un utilisateur de test.](./media/standard-for-success-accreditation-tutorial/new-user.png)
 
@@ -157,10 +155,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     b. Dans la zone de texte **Nom**, entrez Simon.
 
-    c. Dans la zone de texte **E-mail de l’université** , entrez l’adresse e-mail de votre organisation.
+    c. Dans la zone de texte **E-mail universitaire**, entrez l’adresse e-mail que vous avez ajoutée pour B.Simon dans Azure.
 
     d. Faites défiler vers le bas, puis cliquez sur **Créer un utilisateur**.
-
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -178,9 +175,6 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Standard for Success Accreditation dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion, et si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Standard for Success Accreditation pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir configuré Standard for Success Accreditation, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-
