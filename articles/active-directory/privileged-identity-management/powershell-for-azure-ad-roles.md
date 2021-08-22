@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 936351dd9f2b19fab4ea95012b118d00d0c87299
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548748"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532714"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
 Cet article contient des instructions concernant l’utilisation des applets de commande PowerShell Azure Active Directory (Azure AD) pour gérer les rôles Azure AD dans Privileged Identity Management (PIM). Il fournit également des informations sur la configuration à l’aide du module Azure AD PowerShell.
-
-> [!Note]
-> Notre module PowerShell officiel est pris en charge uniquement si vous utilisez la nouvelle version d’Azure AD Privileged Identity Management. Accédez à Privileged Identity Management et vérifiez que la bannière suivante apparaît dans le panneau Démarrage rapide.
-> [![vérifiez votre version de Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png "Sélectionnez Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si cette bannière n’apparaît pas, veuillez patienter, car nous sommes actuellement en phase de déploiement de cette expérience mise à jour qui sera disponible dans les prochaines semaines.
-> Les applets de commande PowerShell Privileged Identity Management sont prises en charge via le module Azure AD en préversion. Si vous utilisiez un module différent et que ce module renvoie à présent un message d’erreur, commencez à utiliser ce nouveau module. Si vous avez des systèmes de production basés sur un autre module, contactez [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com).
 
 ## <a name="installation-and-setup"></a>Installation et configuration
 
@@ -159,7 +154,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Attribuer un rôle personnalisé Azure AD](azure-ad-custom-roles-assign.md)
-- [Supprimer ou mettre à jour une attribution de rôle personnalisé Azure AD](azure-ad-custom-roles-update-remove.md)
-- [Configurer une attribution de rôle Azure AD personnalisée](azure-ad-custom-roles-configure.md)
 - [Définitions de rôles dans Azure AD](../roles/permissions-reference.md)

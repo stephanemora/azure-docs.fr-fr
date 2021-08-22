@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 618ae75367fd16469fd56a29e8dce37f4d39351d
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: bb86b02bfed6e0bd91f0b78643e00ae395b34b19
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480506"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113134372"
 ---
 # <a name="azure-storage-container-management-partners"></a>Partenaires de gestion des conteneurs du Stockage Azure
 
@@ -23,7 +23,7 @@ Cet article met en évidence les solutions de partenaires Microsoft qui permette
 
 | Partenaire | Description | Site web/lien produit |
 | ------- | ----------- | -------------------- |
-| ![Logo de l’entreprise Kasten](./media/kasten-logo.png) |**Kasten**<br>Kasten, une société Veeam, fournit une solution pour la sauvegarde Kubernetes et la récupération d’urgence. Kasten aide les entreprises à surmonter les défis liés à la gestion des données le jour 2 pour exécuter en toute confiance des applications sur Kubernetes.<br><br>La plateforme logicielle de gestion de données Kasten K10 fournit aux équipes chargées des opérations d’entreprise un système évolutif et sécurisé de continuité/reprise d’activité (BCDR) et de mobilité des applications Kubernetes.|[Page du partenaire](https://docs.kasten.io/latest/install/azure/azure.html)|
+| ![Logo de l’entreprise Kasten](./media/kasten-logo.png) |**Kasten**<br>Kasten, une société Veeam, fournit une solution pour la sauvegarde Kubernetes et la récupération d’urgence. Kasten aide les entreprises à surmonter les défis liés à la gestion des données le jour 2 pour exécuter en toute confiance des applications sur Kubernetes.<br><br>La plateforme logicielle de gestion de données Kasten K10 fournit aux équipes chargées des opérations d’entreprise un système évolutif et sécurisé de continuité/reprise d’activité (BCDR) et de mobilité des applications Kubernetes.|[Page du partenaire](https://docs.kasten.io/latest/install/azure/azure.html)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.kasten_k10_by_veeam_byol?tab=Overview)|
 | ![Logo de la société Portworx](./media/portworx-logo.png) |**Portworx**<br>Seul Portworx, par Pure Storage, fournit une solution de stockage persistant, de continuité/reprise d’activité, de sécurité des données, de multicloud et de migration des données pour les applications qui s’exécutent de manière intégrée sur Kubernetes.|[Page du partenaire](https://portworx.com/azure/)|
 | ![<n/>Logo de la société Robin.io](./media/robin-logo.png) |**<n/>Robin.io**<br>Robin.io propose une plateforme de gestion des applications et des données qui permet aux entreprises et aux fournisseurs de services de 5G de fournir des pipelines d’application complexes en tant que service. Basé sur le standard Kubernetes, Robin permet aux développeurs et aux ingénieurs de plateforme de déployer rapidement et de gérer facilement les applications centrées sur les données et sur le réseau indépendamment des ressources sous-jacentes de l’infrastructure.<br><br>Robin Cloud Native Storage (CNS) ajoute des fonctionnalités avancées de gestion de données à Microsoft Azure Kubernetes Service. Robin CNS s’intègre parfaitement au Stockage sur disque Azure pour simplifier la gestion des applications avec état. Les développeurs et les équipes DevOps peuvent déployer Robin CNS comme opérateur Kubernetes standard sur AKS. Robin Cloud Native Storage permet de simplifier les opérations de gestion des données comme la continuité de l’activité, la récupération d’urgence et le clonage d’applications entières. |[Page du partenaire](https://robin.io/robin-cloud-native-storage-for-microsoft-aks/)|
 

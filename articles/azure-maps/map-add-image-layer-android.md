@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: e1d99297c0357039606149bdf7e5a526258fc7c5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c11a1275b94eebba33819ae6c9ffeb313a3ce0b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054080"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463101"
 ---
 # <a name="add-an-image-layer-to-a-map-android-sdk"></a>Ajouter un calque d’image à une carte (Android SDK)
 
@@ -30,7 +30,7 @@ Cet article vous montre comment superposer une image à un ensemble fixe de coor
 
 ## <a name="add-an-image-layer"></a>Ajouter un calque d’images
 
-Le code suivant montre comment superposer l’image d’une [carte de Newark dans le New Jersey datant de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) à la carte principale. Cette image est ajoutée au dossier `drawable` du projet. Un calque d’image est créé en définissant l’image et les coordonnées de ses quatre angles au format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. L’ajout de calques d’image sous le calque `label` est souvent souhaitable.
+Le code suivant montre comment superposer l’image d’une carte de Newark dans le New Jersey datant de 1922 à la carte principale. Cette image est ajoutée au dossier `drawable` du projet. Un calque d’image est créé en définissant l’image et les coordonnées de ses quatre angles au format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. L’ajout de calques d’image sous le calque `label` est souvent souhaitable.
 
 ::: zone pivot="programming-language-java-android"
 

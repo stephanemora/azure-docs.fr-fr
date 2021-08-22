@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés aux différents Kits de développement logiciel (SDK) lors de l’interrogation des ressources Azure avec Azure Resource Graph.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 86d60f888dfd702e8895f560258b8ddb02d35827
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e5fecbe4d7cf01c2b2a6247f707b9ad24fb75cdf
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751478"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527679"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
 

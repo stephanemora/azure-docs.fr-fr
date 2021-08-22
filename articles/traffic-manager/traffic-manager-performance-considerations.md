@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9fc6095cc2961cf494238749b240bd90de1d0eb
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98186173"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032666"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -41,10 +41,6 @@ Il existe plusieurs sites web que vous pouvez utiliser pour comprendre les perfo
 Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP résolues pour les emplacements clients du monde entier. La plupart de ces outils ne mettent pas en cache les résultats DNS. Par conséquent, les outils affichent la recherche DNS complète chaque fois qu’un test est exécuté. Lorsque vous testez votre propre client, vous obtenez uniquement des performances de recherche DNS complètes une seule fois pendant la durée de vie.
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Exemples d’outils pour mesurer les performances DNS
-
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS offre de nombreux outils de performances. L’outil de comparaison de DNS peut vous indiquer la durée nécessaire pour résoudre le nom DNS en effectuant une comparaison avec d’autres fournisseurs de service DNS.
 
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 

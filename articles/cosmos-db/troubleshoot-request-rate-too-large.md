@@ -8,17 +8,17 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 99cad194317a2dfc7a5924635aef7484d83f8ba0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f892bd439424fdd35110dfa704e0bf319d85a0c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969280"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532516"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Diagnostiquer et résoudre des problèmes liés aux exceptions Taux de requêtes Azure Cosmos DB trop élevé (429)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Cet article contient des causes et des solutions connues pour différentes erreurs de code d’état 429 pour l’API SQL. Si vous utilisez l’API pour MongoDB, consultez l’article [Résoudre des problèmes courants dans l’API pour MongoDB](mongodb-troubleshoot.md) pour savoir comment déboguer le code d’état 16500.
+Cet article contient des causes et des solutions connues pour différentes erreurs de code d’état 429 pour l’API SQL. Si vous utilisez l’API pour MongoDB, consultez l’article [Résoudre des problèmes courants dans l’API pour MongoDB](mongodb/error-codes-solutions.md) pour savoir comment déboguer le code d’état 16500.
 
 Une exception « Taux de requêtes trop élevé », également connue sous le code d’erreur 429, indique que vos requêtes sur Azure Cosmos DB sont limitées.
 

@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: 9f2ca089a6d885227bd61940d71ec7bb7960fbd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09e39f658d0504dc8539f24c79853e03c5555f1b
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043153"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231095"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -214,8 +214,8 @@ systemctl show --property=Environment aziot-identityd
 
 Se connecter à votre IoT Edge pour Linux sur une machine virtuelle Windows :
 
-```azurepowershell-interactive
-Ssh-EflowVm
+```powershell
+Connect-EflowVm
 ```
 
 Suivez les mêmes étapes que la section Linux ci-dessus pour configurer le démon IoT Edge.
@@ -357,7 +357,7 @@ Après l’ajout des variables d’environnement, votre définition de module do
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-        "createOptions": ""
+        "createOptions": "{}"
     },
     "env": {
         "https_proxy": {

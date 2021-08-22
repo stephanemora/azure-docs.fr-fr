@@ -3,12 +3,12 @@ title: Déployer un cluster managé Service Fabric avec des types de nœud sans 
 description: Découvrez comment créer et déployer des types de nœuds sans état dans des clusters managés Service Fabric.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: a1ea4a9d37ce26ac90c2cbae0420e4dbf8797ee2
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 2e7ebd2ec3098cc90c8fb044472c348c68aed689
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109689282"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033710"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>Déployer un cluster managé Service Fabric avec des types de nœud sans état
 
@@ -63,4 +63,4 @@ Pour tous les scénarios de migration, un nouveau type de nœud sans état doit 
 Pour plus d’informations sur les clusters Service Fabric managé, consultez :
 
 > [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur les clusters Service Fabric managés](./faq-managed-cluster.md)
+> [Questions fréquentes (FAQ) sur les clusters Service Fabric managés](./faq-managed-cluster.yml)

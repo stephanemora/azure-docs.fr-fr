@@ -3,12 +3,12 @@ title: Exécution de tâche rapide à l’aide d’un modèle
 description: Mettre en file d’attente une exécution de tâche ACR pour générer une image à l’aide d’un modèle Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: af7bebc311f81bb489fcc8be419f167ff6f9460a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c79eec16798b1e1c9933ab50fb443b4427075149
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781232"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981073"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Exécuter ACR Tasks à l’aide de modèles Resource Manager
 
@@ -49,6 +49,8 @@ Pour cet exemple, fournissez des valeurs pour les paramètres de modèle suivant
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
 Déployez ensuite le modèle avec la commande [az deployment group create][az-deployment-group-create]. Cet exemple génère et envoie l’image *helloworld-node:testrun* dans un registre nommé *mycontainerregistry*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az deployment group create \

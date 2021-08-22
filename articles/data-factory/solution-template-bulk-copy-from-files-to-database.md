@@ -4,14 +4,15 @@ description: Découvrez comment utiliser un modèle de solution pour copier des 
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 63ed04d64edfa5f4c057226cac7a946289a892c5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 553dbdbed3101e6e07b24082e2bbd94f8dd171d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532628"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copie en bloc de fichiers dans une base de données
 

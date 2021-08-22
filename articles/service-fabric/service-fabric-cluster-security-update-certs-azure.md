@@ -4,12 +4,12 @@ description: Explique comment ajouter de nouveaux certificats, substituer un cer
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71096ad79f044edc003f80c838a989f694e69dd6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: be243f3c1860e2a696add5e67a86f030819eb88a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677471"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092704"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
@@ -282,6 +282,8 @@ Pour déployer un certificat dont vous vous servez pour les applications de votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
+
+* [Gestion des certificats dans des clusters Service Fabric](cluster-security-certificate-management.md)
 
 * [Processus de mise à niveau du cluster Service Fabric et attentes à votre égard](service-fabric-cluster-upgrade.md)
 * [Configurer l’accès en fonction du rôle pour les clients](service-fabric-cluster-security-roles.md)

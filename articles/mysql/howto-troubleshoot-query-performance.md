@@ -6,15 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: d01febec3972dcc26c6e9b5aa8d0c4cca5f32d0a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e4945f6013c05135ea906fb813017ca152aa9d62
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606077"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088329"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser l’instruction EXPLAIN visant à profiler les performances des requêtes dans Azure Database pour MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 **EXPLAIN** est un outil pratique pour optimiser les requêtes. L’instruction EXPLAIN permet d’obtenir des informations sur la façon dont les instructions SQL sont exécutées. La sortie suivante présente un exemple d’exécution d’une instruction EXPLAIN.
 
@@ -56,10 +57,11 @@ possible_keys: id
 ```
 
 La nouvelle instruction EXPLAIN montre que MySQL utilise à présent un index pour limiter le nombre de lignes à 1, ce qui réduit nettement le temps de recherche.
- 
+
 ## <a name="covering-index"></a>Index de couverture
+
 Un index de couverture se compose de toutes les colonnes d’une requête dans l’index pour réduire l’extraction de valeurs dans les tables de données. En voici une illustration dans l’instruction **GROUP BY**.
- 
+
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -78,10 +80,10 @@ possible_keys: NULL
 ```
 
 Comme le montre la sortie, MySQL n’utilise pas d’index, car il n’en existe aucun qui convienne. Elle indique aussi *Using temporary; Using file sort*, ce qui signifie que MySQL crée une table temporaire pour satisfaire la clause **GROUP BY**.
- 
+
 Le simple fait de créer un index dans la colonne **c2** n’apporte aucune différence, et MySQL doit quand même créer une table temporaire :
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -122,6 +124,7 @@ possible_keys: covered
 Comme le montre l’exemple d’instruction EXPLAIN ci-dessus, MySQL utilise maintenant l’index couvert et empêche la création d’une table temporaire. 
 
 ## <a name="combined-index"></a>Index combiné
+
 Un index combiné est constitué de plusieurs colonnes et peut être considéré comme un tableau de lignes triées en concaténant les valeurs des colonnes indexées.  Cette méthode peut être utile dans une instruction **GROUP BY**.
 
 ```sql
@@ -143,7 +146,7 @@ possible_keys: NULL
 
 MySQL effectue une opération de *tri de fichiers* qui est relativement lente, en particulier quand le tri porte sur un grand nombre de lignes. Pour optimiser cette requête, un index combiné peut être créé dans les deux colonnes qui font l’objet du tri.
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -162,11 +165,11 @@ possible_keys: NULL
 ```
 
 L’instruction EXPLAIN montre à présent que MySQL peut utiliser l’index combiné pour empêcher un nouveau tri, car l’index est déjà trié.
- 
+
 ## <a name="conclusion"></a>Conclusion
- 
+
 L’utilisation de l’instruction EXPLAIN et de différents types d’index peut améliorer considérablement les performances. Le fait de disposer d’un index dans la table ne signifie pas nécessairement que MySQL pourra l’utiliser pour vos requêtes. Validez toujours vos hypothèses en utilisant EXPLAIN et optimisez vos requêtes en utilisant des index.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Pour consulter les réponses d’homologues aux questions qui vous préoccupent le plus ou pour poster une nouvelle question/réponse, visitez [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

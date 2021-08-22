@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f815ef68830a55e04bcf5ab23ad70bac07b9584c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010046"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712243"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -85,15 +84,15 @@ Voici un ensemble d’en-têtes facultatifs :
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
 | X-HTTP-Method |Méthode HTTP |Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET. |
 | Content-Type |Type de contenu |Le type de contenu du corps de la requête dans les demandes PUT ou POST. |
-| client-request-id |String |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p> Les valeurs doivent être limitées à 2096 b (2k). |
+| client-request-id |Chaîne |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p> Les valeurs doivent être limitées à 2096 b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
 | En-tête | Type | Valeur |
 | --- | --- | --- |
-| request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
-| client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
+| request-id |Chaîne |Un identificateur unique pour l’opération actuelle, généré par le service. |
+| client-request-id |Chaîne |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
 | Date |Date RFC 1123 |Les date et heure auxquelles la requête a été traitée. |
 | Content-Type |Variable |Le type de contenu du corps de la réponse. |
 | Content-Encoding |Variable |Gzip ou deflate, le cas échéant. |
@@ -106,7 +105,7 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 | GET |Retourne la valeur actuelle d’un objet. |
 | POST |Crée un objet, selon les données fournies, ou envoie une commande. |
 | PUT |Remplace un objet ou crée un objet nommé (le cas échéant). |
-| Suppression |Supprime un objet. |
+| DELETE |Supprime un objet. |
 | MERGE |Met à jour un objet existant avec des modifications de propriété nommées. |
 | HEAD |Retourne les métadonnées d’un objet d’une réponse GET. |
 

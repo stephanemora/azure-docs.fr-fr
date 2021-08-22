@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
 ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 181f8f8ced4113521c8791fd9e1b5d651776783e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773338"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126461"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -197,7 +197,7 @@ En règle générale, les machines virtuelles d’un pool batch sont accessibles
 
 ### <a name="testing-connectivity-with-cloud-services-configuration"></a>Test de la connectivité avec la configuration des services cloud
 
-Vous ne pouvez pas utiliser le protocole « ping »/ICMP normal avec les services cloud, car le protocole ICMP n’est pas autorisé via l’équilibreur de charge Azure. Pour plus d’informations, consultez [Connectivité et mise en réseau pour Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+Vous ne pouvez pas utiliser le protocole « ping »/ICMP normal avec les services cloud, car le protocole ICMP n’est pas autorisé via l’équilibreur de charge Azure. Pour plus d’informations, consultez [Connectivité et mise en réseau pour Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## <a name="batch-node-underlying-dependencies"></a>Dépendances sous-jacentes du nœud Batch
 

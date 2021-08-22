@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: c003b172322892e18fdc7a0e618f00eb526a10a8
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ab706018e7c38e43ae75d5af49c3bd6c0a78d783
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892973"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403475"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -111,7 +111,7 @@ Le [référentiel Exemple de MQTT IoT](https://github.com/Azure-Samples/IoTMQTTS
 
 Ces exemples utilisent la bibliothèque Eclipse Mosquitto pour envoyer des messages au répartiteur MQTT implémenté dans le hub IoT.
 
-Pour découvrir comment adapter les exemples afin d’utiliser les conventions [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md), consultez [Tutoriel - Utiliser MQTT pour développer un client d’appareil IoT Plug-and-Play](../iot-pnp/tutorial-use-mqtt.md).
+Pour découvrir comment adapter les exemples afin d’utiliser les conventions [Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md), consultez [Tutoriel - Utiliser MQTT pour développer un client d’appareil IoT Plug-and-Play](../iot-develop/tutorial-use-mqtt.md).
 
 Ce référentiel contient les éléments suivants :
 
@@ -123,7 +123,7 @@ Ce référentiel contient les éléments suivants :
 
 * DeviceTwinMQTTWin32 : contient le code pour interroger les événements du jumeau d’un appareil dans le hub Azure IoT sur une machine Windows et s’y abonner.
 
-* PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des fonctionnalités d’appareil IoT Plug-and-Play à un hub Azure IoT, généré et exécuté sur une machine Windows. Vous pouvez en savoir plus sur [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md)
+* PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des fonctionnalités d’appareil IoT Plug-and-Play à un hub Azure IoT, généré et exécuté sur une machine Windows. Vous pouvez en savoir plus sur [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md)
 
 **Pour Linux :**
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: 259bd0128a4c5ce677e4d01f44b114aaba0cb977
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889151"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532825"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -165,7 +165,7 @@ Les fonctionnalités de réseau virtuel suivantes *ne sont pas prises en charge*
 - **Homologation Microsoft** : l’activation du [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute appairés, directement ou transitivement, avec un réseau virtuel sur lequel SQL Managed Instance réside, affecte le flux de trafic entre les composants SQL Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de SQL Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
 - **Homologation de réseau virtuel mondial** : La connectivité de [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour les instances SQL Managed Instance placées dans des sous-réseaux créés avant le 22/9/2020.
 - **AzurePlatformDNS** : L’utilisation de l’[étiquette de service](../../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait SQL Managed Instance indisponible. Même si SQL Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur du moteur, il existe une dépendance envers le système DNS de plateforme pour les opérations de plateforme.
-- **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
+- **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-gateway/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
 - **IPv6 pour réseau virtuel Azure** : Le déploiement de SQL Managed Instance sur des [réseaux virtuels IPv4/IPv6 à double pile](../../virtual-network/ipv6-overview.md) se solde par un échec. L’association d’un groupe NSG (groupe de sécurité réseau) ou d’une table UDR (table de routage) contenant des préfixes d’adresses IPv6 à un sous-réseau SQL Managed Instance, ou l’ajout de préfixes d’adresses IPv6 à un groupe NSG ou une table UDR déjà associé(e) à un sous-réseau Managed Instance, ne permet pas d’utiliser SQL Managed Instance. Les déploiements de SQL Managed Instance sur un sous-réseau avec un groupe NSG et une table UDR disposant déjà de préfixes IPv6 se soldent par un échec.
 - **Zones privées Azure DNS avec un nom réservé aux services Microsoft** : Voici la liste des noms réservés :windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. Le déploiement de SQL Managed Instance sur un réseau virtuel auquel est associée une [zone privée Azure DNS](../../dns/private-dns-privatednszone.md) avec un nom réservé aux services Microsoft échoue. L’association d’une zone privée Azure DNS avec un nom réservé à un réseau virtuel contenant Managed Instance rendrait SQL Managed Instance indisponible. Respectez la [configuration DNS du point de terminaison privé Azure](../../private-link/private-endpoint-dns.md) pour une configuration correcte d’Azure Private Link.
 - **Stratégies de point de terminaison de service pour Stockage Azure** : Le déploiement de SQL Managed instance sur un sous-réseau auquel sont associées des [stratégies de point de terminaison de service](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) échoue. Les stratégies de point de terminaison de service n’ont pas pu être associées à un sous-réseau qui héberge Managed Instance.

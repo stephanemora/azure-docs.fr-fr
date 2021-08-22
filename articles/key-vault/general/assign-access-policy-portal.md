@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09e7d954261b5bfb680486e06ed298e11974847d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6258de3e6f81ef25c4f515c956662be13eb5f1e2
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749720"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136487"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure
 
@@ -53,5 +53,5 @@ Pour plus d’informations sur la création de groupes dans Azure Active Directo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](security-features.md#identity-management)
+- [Sécurité d’Azure Key Vault](security-features.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)

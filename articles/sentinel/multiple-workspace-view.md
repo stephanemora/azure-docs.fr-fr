@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: ed1101d75685eb397eb3e45683adb886288ee49b
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 59550287dfa749e22334f9f238efa5be70b70252
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809001"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531497"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Utiliser les incidents dans plusieurs espaces de travail simultanément 
 
  Pour tirer pleinement parti des fonctionnalités d’Azure Sentinel, Microsoft recommande l’utilisation d’un environnement avec un seul espace de travail. Toutefois, il existe certains cas qui nécessitent plusieurs espaces de travail, par exemple, dans le cas d’un[ fournisseur de services de sécurité gérés (MSSP)](./multiple-tenants-service-providers.md) et de ses clients, sur plusieurs locataires. **L’affichage de plusieurs espaces de travail** vous permet de voir et de travailler avec les incidents de sécurité sur plusieurs espaces de travail en même temps, même sur plusieurs locataires, ce qui vous permet de conserver une visibilité et un contrôle complets de la réactivité de la sécurité de votre organisation.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="entering-multiple-workspace-view"></a>Accès à l’affichage de plusieurs espaces de travail
 
@@ -54,6 +56,6 @@ Dans l’**affichage de plusieurs espaces de travail**, seul l’écran **Incide
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris comment consulter et utiliser les incidents dans plusieurs espaces de travail Azure Sentinel simultanément. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
 

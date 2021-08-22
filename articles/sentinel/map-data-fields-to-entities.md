@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 247ae926dde9b07b1d627621c456333282f00a42
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 755d6ff3e4b7e82390f6bc2c961883de976f5459
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060042"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531962"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>Mapper des champs de données à des entités dans Azure Sentinel 
 
@@ -33,7 +33,7 @@ ms.locfileid: "112060042"
 
 ## <a name="introduction"></a>Introduction
 
-Le mappage d’entités fait partie intégrante de la configuration des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md). Il enrichit la sortie des règles (alertes et incidents) avec des informations essentielles qui constituent la base de tout processus d’investigation et actions correctives ultérieures.
+Le mappage d’entités fait partie intégrante de la configuration des [règles analytiques de requête planifiée](detect-threats-custom.md). Il enrichit la sortie des règles (alertes et incidents) avec des informations essentielles qui constituent la base de tout processus d’investigation et actions correctives ultérieures.
 
 La procédure détaillée ci-dessous fait partie de l’Assistant Création de règles analytiques. Elle est traitée ici indépendamment afin de prendre en charge le scénario d’ajout ou de modification de mappages d’entités dans une règle analytique existante.
 
@@ -81,5 +81,5 @@ La procédure détaillée ci-dessous fait partie de l’Assistant Création de r
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez découvert comment mapper des champs de données à des entités dans des règles analytiques Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
+- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](detect-threats-custom.md).
 - Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).

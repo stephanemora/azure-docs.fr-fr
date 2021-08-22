@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77f30c26b500f98429039710d84f77b87fb6a654
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89652594"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992204"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configuration des paramètres HTTP d'Application Gateway
 
@@ -76,7 +76,7 @@ Ce paramètre vous permet de configurer un chemin de transfert personnalisé fac
 
 ## <a name="use-for-app-service"></a>Utiliser pour App Service
 
-Il s’agit d’un raccourci d’interface utilisateur uniquement qui sélectionne les deux paramètres nécessaires au back-end Azure App Service. Ce raccourci permet de **choisir un nom d’hôte à partir d’une adresse back-end**, puis il crée une sonde personnalisée si vous n’en avez pas déjà une. (Pour plus d'informations, consultez la section du paramètre [Choisir un nom d’hôte à partir d’une adresse back-end](#pick-host-name-from-back-end-address) dans cet article). Une nouvelle sonde est créée, puis l’en-tête de la sonde est choisie à partir de l’adresse du membre back-end.
+Il s’agit d’un raccourci d’interface utilisateur uniquement qui sélectionne les deux paramètres nécessaires au back-end Azure App Service. Ce raccourci permet de **choisir un nom d’hôte à partir d’une adresse back-end**, puis il crée une sonde personnalisée si vous n’en avez pas déjà une. (Pour plus d’informations, consultez la section du paramètre [Choisir un nom d’hôte à partir d’une adresse back-end](#pick-host-name-from-back-end-address) dans cet article.) Une nouvelle sonde est créée, puis l’en-tête de la sonde est choisie à partir de l’adresse du membre back-end.
 
 ## <a name="use-custom-probe"></a>Utiliser une sonde personnalisée
 

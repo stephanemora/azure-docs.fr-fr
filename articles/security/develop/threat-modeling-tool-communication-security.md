@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a4eabf37101622ac69ae05f3bec232fb8d2fe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 265ae82f3a8d5a10e333057ebb55473c18fd36c3
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517527"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109464"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
 | Produit/Service | Article |
@@ -383,7 +383,7 @@ public class ValuesController : ApiController
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Prise en charge de TLS par Azure Redis](../../azure-cache-for-redis/cache-faq.md) |
+| **Informations de référence**              | [Prise en charge de TLS par Azure Redis](../../azure-cache-for-redis/cache-faq.yml) |
 | **Étapes** | Le serveur Redis n’offre pas une prise en charge intégrée de TLS, contrairement au Cache Azure pour Redis. Si vous vous connectez à Azure Cache pour Redis et que votre client est compatible avec TLS, par exemple StackExchange.Redis, vous devez utiliser TLS. Par défaut, le port non TLS est désactivé pour les nouvelles instances Cache Azure pour Redis. Assurez-vous que les valeurs par défaut sécurisées ne sont pas modifiées sauf s’il existe une dépendance sur la prise en charge TLS pour les clients Redis. |
 
 Notez que Redis est conçu pour être accessible par les clients approuvés dans des environnements de confiance. Cela signifie que généralement ce n’est pas une bonne idée d’exposer l’instance Redis directement sur Internet ou, en règle générale, dans un environnement où les clients non approuvés peuvent directement accéder au port TCP Redis ou socket UNIX. 

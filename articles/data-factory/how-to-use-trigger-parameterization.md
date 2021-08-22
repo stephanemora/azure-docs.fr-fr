@@ -2,17 +2,18 @@
 title: Transmettre les informations de déclencheur au pipeline
 description: Apprendre à référencer des métadonnées de déclencheur dans un pipeline
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d51377daeeb16d7e3e74a77a4379b6fc13cb94b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593643"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641561"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Référencer des métadonnées de déclencheur dans des exécutions de pipeline
 

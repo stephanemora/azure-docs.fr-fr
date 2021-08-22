@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b39a74bd06f942cf21d201c8cef48bc6dfc57d46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 113f75f548dc3cc71ac8fe430f649422b4cd89f6
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548084"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456757"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Résoudre les problèmes liés à l’utilisation du Kit SDK Java asynchrone v2 pour Azure Cosmos DB avec des comptes d’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -199,7 +199,7 @@ Pour identifier la bibliothèque qui importe RxJava-1.2.2, exécutez la commande
 ```bash
 mvn dependency:tree
 ```
-Pour en savoir plus, consultez le [guide d’arborescence des dépendances maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Pour en savoir plus, consultez le [guide d’arborescence des dépendances maven](https://maven.apache.org/plugins-archives/maven-dependency-plugin-2.10/examples/resolving-conflicts-using-the-dependency-tree.html).
 
 Une fois que vous identifiez les autres dépendances de votre projet pour lesquelles RxJava-1.2.2 est une dépendance transitive, vous pouvez modifier la dépendance sur cette bibliothèque dans votre fichier pom, et exclure la dépendance transitive à RxJava :
 

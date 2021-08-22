@@ -2,18 +2,17 @@
 title: Authentifier des appareils en aval - Azure IoT Edge | Microsoft Docs
 description: Explique comment authentifier les appareils en aval ou « appareils de nœud terminal » dans IoT Hub, et comment router leur connexion via des appareils de passerelle Azure IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8e3541fc3d9ae6fe49af4445402af17a3d3d3e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a451866654df6d73a464124537f410fd8fa94d79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770820"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532623"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 

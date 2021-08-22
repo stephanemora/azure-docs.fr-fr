@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: yelevin
-ms.openlocfilehash: fe86c963ab0ec009b527d2d6138a8af2af9ba68a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ba268f75b770dfd3d19e7bc4750f2c466245279d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890831"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531547"
 ---
 # <a name="connect-azure-key-vault-diagnostics-logs"></a>Connecter les journaux de diagnostic Azure Key Vault
 
@@ -22,6 +22,8 @@ Azure Key Vault est un service cloud permettant de stocker les secrets et d’y 
 Ce connecteur vous permet de diffuser en continu vos journaux de diagnostic Azure Key Vault dans Azure Sentinel, afin de pouvoir surveiller en continu l'activité de toutes vos instances.
 
 Apprenez-en davantage sur la [surveillance d'Azure Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) et sur la [télémétrie de diagnostic d'Azure Key Vault](../key-vault/general/logging.md).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,5 +63,5 @@ Ce connecteur utilise Azure Policy pour appliquer une configuration unique de st
 
 Ce document vous a montré comment utiliser Azure Policy pour connecter Azure Key Vault à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).

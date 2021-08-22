@@ -1,19 +1,19 @@
 ---
 title: Utiliser le suivi distribué avec Azure Spring Cloud
 description: Découvrez comment utiliser le suivi distribué de Spring Cloud par le biais d’Azure Application Insights
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 48f80d82c003677f2cacfdef2a57ae1aaa68d59d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8eaac1c68c9cff329fcc7b2c408063f01762169b
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135110"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525453"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
@@ -92,7 +92,7 @@ Par exemple, *appSettings.json* comprend les propriétés suivantes :
   }
 ```
 
-Pour plus d’informations sur le traçage distribué dans les applications Steeltoe .NET Core, consultez [Traçage distribué](https://steeltoe.io/docs/3/tracing/distributed-tracing) dans la documentation de Steeltoe.
+Pour plus d’informations sur le traçage distribué dans les applications Steeltoe .NET Core, consultez [Traçage distribué](https://docs.steeltoe.io/api/v3/tracing/) dans la documentation de Steeltoe.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 Dans cet article, vous apprendrez comment :
@@ -170,7 +170,6 @@ Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud 
            </dependency>
       </dependencies>
       ```
-
 
 1. Générez et déployez à nouveau votre service Azure Spring Cloud pour refléter ces changements.
 

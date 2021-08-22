@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: df42925b50cba4d32ea554ae54dbcb09a5e04377
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 5748b68940027269acaafe27148f0c4819cefc0a
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205950"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720323"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Guide pratique pour configurer le protocole BGP sur des passerelles VPN Azure
 
@@ -90,7 +90,7 @@ Dans le cadre de cette étape, vous allez créer une passerelle VPN avec les par
    > * Quand des adresses APIPA sont utilisées sur des passerelles VPN Azure, les passerelles ne démarrent pas de sessions de peering BGP avec des adresses IP sources APIPA. L’appareil VPN local doit démarrer des connexions de peering BGP.
    >
 
-1. Sélectionnez **Vérifier + créer** pour exécuter la validation. Une fois la validation réussie, sélectionnez **Créer** pour déployer la passerelle VPN. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.
+1. Sélectionnez **Vérifier + créer** pour exécuter la validation. Une fois la validation réussie, sélectionnez **Créer** pour déployer la passerelle VPN. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.
 
 ### <a name="3-obtain-the-azure-bgp-peer-ip-addresses"></a>3. Obtenir les adresses IP d’homologue BGP Azure
 

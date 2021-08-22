@@ -3,19 +3,19 @@ title: Entraîner et déployer un modèle Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer l’apprentissage de modèles Custom Speech et déployer ceux-ci. L’apprentissage d’un modèle de reconnaissance vocale peut améliorer l’exactitude de reconnaissance du modèle de référence Microsoft ou d’un modèle personnalisé.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.openlocfilehash: 4ba046b5461c3b734d54ad3694f0ceea2e5127c6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.author: lajanuar
+ms.openlocfilehash: a174848cf8a08942b9aa3777fc25bb0a0fcb8684
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387041"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533043"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entraîner et déployer un modèle Custom Speech
 

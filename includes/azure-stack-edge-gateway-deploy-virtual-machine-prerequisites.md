@@ -2,20 +2,29 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f96012c3ffa587a80d601447d99efc804956096e
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554353"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113120954"
 ---
 Avant de pouvoir déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez configurer votre client pour qu’il se connecte à l’appareil via Azure Resource Manager sur Azure PowerShell. Pour obtenir des instructions détaillées, consultez [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Assurez-vous de pouvoir utiliser les étapes suivantes pour accéder à l’appareil à partir de votre client. Vous avez déjà effectué cette configuration quand vous vous êtes connecté à Azure Resource Manager. Vous vérifiez maintenant que la configuration a réussi. 
 
+
+
 1. Vérifiez que la communication Azure Resource Manager fonctionne en exécutant la commande suivante :     
+
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    Add-AzEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
+    ```
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
@@ -23,7 +32,19 @@ Assurez-vous de pouvoir utiliser les étapes suivantes pour accéder à l’appa
 
 1. Pour appeler les API de l’appareil local à des fins d’authentification, entrez : 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+    ### <a name="az"></a>[Az](#tab/Az)
+
+    ```powershell
+    login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
+
+    Indiquez le nom d’utilisateur *EdgeArmUser* et votre mot de passe pour vous connecter via Azure Resource Manager.
+
+    ### <a name="azurerm"></a>[AzureRM](#tab/AzureRM)
+
+    ```powershell
+    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
 
     Indiquez le nom d’utilisateur *EdgeArmUser* et votre mot de passe pour vous connecter via Azure Resource Manager.
 

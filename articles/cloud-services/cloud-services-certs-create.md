@@ -4,16 +4,16 @@ description: Découvrez comment créer et déployer des certificats pour les ser
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c73f9812f344eecf4e51f43405b48693ddfa191b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 926d711f86a07ee22a4370e838efae9f4e0be957
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98739732"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126209"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Vue d’ensemble des certificats pour Azure Cloud Services (classique)
 
@@ -37,7 +37,7 @@ Vous pouvez charger les certificats de service dans Azure par l’intermédiaire
 Les certificats de service peuvent être gérés séparément de vos services et par différentes personnes. Par exemple, un développeur peut charger un package de services qui fait référence à un certificat précédemment chargé dans Azure par un responsable informatique. Un responsable informatique peut gérer et renouveler ce certificat (en modifiant la configuration du service) sans avoir à charger un nouveau package de services. La mise à jour sans nouveau package de service est possible par le fait que le nom logique, ainsi que le nom et l’emplacement du magasin du certificat sont spécifiés dans le fichier de définition de service, alors que l’empreinte numérique du certificat est spécifiée dans le fichier de configuration de service. Pour mettre à jour le certificat, il est uniquement nécessaire de charger un nouveau certificat et de modifier la valeur d’empreinte numérique dans le fichier de configuration de service.
 
 >[!Note]
->L’article [Forum aux questions sur Azure Cloud Services - Configuration et gestion](cloud-services-configuration-and-management-faq.md) comporte des informations utiles sur les certificats.
+>L’article [Forum aux questions sur Azure Cloud Services - Configuration et gestion](cloud-services-configuration-and-management-faq.yml) comporte des informations utiles sur les certificats.
 
 ## <a name="what-are-management-certificates"></a>Que sont les certificats de gestion ?
 Les certificats de gestion vous permettent de vous authentifier dans le modèle de déploiement classique. De nombreux programmes et outils (tels que Visual Studio ou le Kit de développement logiciel (SDK) Azure) utilisent ces certificats pour automatiser la configuration et le déploiement de divers services Azure. Ces certificats ne sont pas réellement associés aux services cloud. 

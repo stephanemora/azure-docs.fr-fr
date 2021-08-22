@@ -1,18 +1,18 @@
 ---
 title: Comprendre l’adresse IP de votre hub IoT | Microsoft Docs
 description: Apprenez à interroger l’adresse IP de votre hub IoT et ses propriétés. L’adresse IP de votre hub IoT peut changer dans certains scénarios, par exemple dans le cadre d’une reprise d’activité ou d’un basculement régional.
-author: philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 053ba5b768e9a09eb50f71a8296d42f85a9e4515
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874168"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532956"
 ---
 # <a name="iot-hub-ip-addresses"></a>Adresses IP IoT Hub
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c66f4bd7e311bdaedefe68327fc34d373fc6fec
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91762408"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301651"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Appeler des applications logiques à partir de Power Automate et Power Apps
 
@@ -24,7 +24,7 @@ Si vous souhaitez migrer votre flux de Power Automate ou Power Apps vers Logic A
 >
 > * Pour connaître les connecteurs Power Automate qui n’ont pas d’équivalents Logic Apps, consultez [Connecteurs Power Automate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Pour connaître les connecteurs Logic Apps qui n’ont pas d’équivalents Power Automate, consultez [Connecteurs Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Pour connaître les connecteurs Logic Apps qui n’ont pas d’équivalents Power Automate, consultez [Connecteurs Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Prérequis
 

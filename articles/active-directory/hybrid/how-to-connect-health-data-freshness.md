@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00518eb91e57efaacb7abc63b6ad4531619be2ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bd83071e725d68a424642f68680748247a26706
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98012867"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110076"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Les données du Service de contrôle d’intégrité ne sont pas mises à jour
 
@@ -71,4 +71,4 @@ Les étapes requises pour diagnostiquer le problème sont décrites ci-dessous. 
 Si l’une des étapes ci-dessus a détecté un problème, corrigez-le et attendez que l’alerte soit résolue. Le processus en arrière-plan d’alerte s’exécutant toutes les 2 heures, la résolution de l’alerte peut prendre jusqu’à 2 heures. 
 
 * [Stratégie de conservation de données d’Azure AD Connect Health](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Forum Aux Questions (FAQ) Azure AD Connect Health](reference-connect-health-faq.md)
+* [Forum Aux Questions (FAQ) Azure AD Connect Health](reference-connect-health-faq.yml)

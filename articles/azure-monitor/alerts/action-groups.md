@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 26f6b62ece1fcde8ca69ffbb804d9ab24b3c1ac3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060315"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455731"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -160,7 +160,7 @@ Lors de la configuration du *rôle ARM d’e-mail*, vous devez vous assurer que 
 ### <a name="function"></a>Fonction
 Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md). Pour gérer une demande, votre point de terminaison doit gérer le verbe HTTP POST.
 
-Lors de la définition de l’action Function, la clé d’accès et le point de terminaison httptrigger de Function sont enregistrés dans la définition de l’action. Par exemple : https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. Si vous modifiez la clé d’accès de la fonction, vous devrez supprimer et recréer l’action Function dans le groupe d’actions.
+Lors de la définition de l’action Function, la clé d’accès et le point de terminaison httptrigger de Function sont enregistrés dans la définition de l’action. Par exemple : `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. Si vous modifiez la clé d’accès de la fonction, vous devrez supprimer et recréer l’action Function dans le groupe d’actions.
 
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 

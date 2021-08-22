@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d26947b48ca64ea5f06f3f9566d05fd110d6e93f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097412"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091840"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressions de style basé sur les données (SDK Android)
 
@@ -221,7 +221,7 @@ Les expressions de données permettent d’accéder aux données de propriété 
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `accumulated()` | nombre | Obtient la valeur d’une propriété de cluster accumulée jusqu’à présent. |
+| `accumulated()` | nombre | Obtient la valeur d’une propriété de cluster accumulée jusqu’à présent. Elle ne peut être utilisée que dans l’option `clusterProperties` d’une source `DataSource` en cluster. |
 | `at(number | Expression, Expression)` | value | Récupère un élément à partir d’un tableau. |
 | `geometryType()` | string | Obtient le type de géométrie de la fonctionnalité : Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `get(string | Expression)` \| `get(string | Expression, Expression)` | value | Obtient la valeur de propriété à partir des propriétés de l’objet fourni. Retourne la valeur null si la propriété demandée est manquante. |

@@ -10,16 +10,16 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 03/19/2021
-ms.openlocfilehash: 37266c7a7692c59efdded9ba3fabe71458a5f674
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8363fb2dbd80f55cdae4c064177bed63ed988559
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531517"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guide de migration : Access vers Azure SQL Database
 
-Dans ce guide, vous découvrirez [comment migrer](https://azure.microsoft.com/migration/migration-journey) votre base de données Microsoft Access vers une base de données Azure SQL à l’aide de l’outil Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour Access (SSMA pour Access).
+Dans ce guide, vous découvrirez [comment migrer](https://azure.microsoft.com/migration/migration-journey) votre base de données Microsoft Access vers une base de données Azure SQL à l’aide de l’outil Assistant [Migration SQL Server](https://azure.microsoft.com/migration/sql-server/) pour Access (SSMA pour Access).
 
 Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](/data-migration). 
 
@@ -65,7 +65,7 @@ Pour créer une évaluation, procédez comme suit :
 
 ### <a name="validate-the-data-types"></a>Valider les types de données
 
-Validez les mappages de types de données par défaut et changez-les en fonction de vos exigences, si nécessaire. Pour cela, procédez de la façon suivante :
+Validez les mappages de types de données par défaut et changez-les en fonction de vos exigences, si nécessaire. Pour ce faire :
 
 1. Dans SSMA pour Access, sélectionnez **Outils**, puis **Paramètres du projet**. 
 1. Sélectionnez l’onglet **Mappage de types**. 
@@ -168,9 +168,9 @@ Pour plus d’informations sur ces problèmes et les étapes spécifiques pour l
 
 Pour plus d’informations sur l’exécution de ce scénario de migration, consultez la ressource suivante. Elle a été développée pour soutenir un engagement de projet de migration réel.
 
-| Intitulé | Description |
+| Titre | Description |
 | --- | --- |
-| [Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
+| [Outil et modèle d’évaluation d’une charge de travail de données](https://www.microsoft.com/download/details.aspx?id=103130) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 

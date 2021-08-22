@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: 34a4a37d351f144d00d926de0544c8ae56e9a314
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 5f8d78f7080c1505db4a82d9393801ad8418beed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901442"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532853"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guide d’exécution des fonctions sur .NET 5.0 dans Azure
 
@@ -44,7 +44,7 @@ Exécutées hors processus, vos fonctions .NET peuvent tirer parti des avantages
 Un projet de fonction isolé .NET est essentiellement un projet d’application de console .NET ciblant .NET 5.0. Voici les fichiers de base requis dans un projet isolé .NET :
 
 + Fichier [host.json](functions-host-json.md).
-+ Fichier [local.settings.json](functions-run-local.md#local-settings-file).
++ Fichier [local.settings.json](functions-develop-local.md#local-settings-file).
 + Fichier projet C# (.csproj) définissant le projet et les dépendances.
 + Fichier Program.cs correspondant au point d’entrée de l’application.
 
@@ -106,7 +106,7 @@ L’exemple suivant injecte une dépendance de service singleton :
 
 Le code nécessite `using Microsoft.Extensions.DependencyInjection;`. Pour plus d’informations, consultez [Injection de dépendances dans ASP.net Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-### <a name="middleware"></a>Middleware
+### <a name="middleware"></a>Middlewares
 
 Le processus isolé.NET prend également en charge l’inscription d’intergiciel, à nouveau à l’aide d’un modèle similaire à ce qui existe dans ASP.NET. Ce modèle vous donne la possibilité d’injecter une logique dans le pipeline d’appel, et avant et après l’exécution des fonctions.
 
@@ -142,7 +142,7 @@ Une fonction peut avoir zéro ou plusieurs liaisons d’entrée susceptibles de 
 
 ### <a name="output-bindings"></a>Liaisons de sortie
 
-Pour écrire dans une liaison de sortie, vous devez appliquer un attribut de liaison de sortie à la méthode de fonction qui a défini la manière d’écrire dans le service lié. La valeur renvoyée par la méthode est écrite dans la liaison de sortie. Par exemple, l’exemple suivant écrit une valeur de chaîne dans une file d’attente de messages nommée `functiontesting2` à l’aide d’une liaison de sortie :
+Pour écrire dans une liaison de sortie, vous devez appliquer un attribut de liaison de sortie à la méthode de fonction qui a défini la manière d’écrire dans le service lié. La valeur renvoyée par la méthode est écrite dans la liaison de sortie. Par exemple, l’exemple suivant écrit une valeur de chaîne dans une file d’attente de messages nommée `myqueue-output` à l’aide d’une liaison de sortie :
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 

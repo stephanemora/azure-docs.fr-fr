@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 02/05/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 642b874f5e0cf501acb1627e4388a7e4c456ef29
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9a766e3ff67a1ea76c396c304ead55ce0578739f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888725"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458776"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 
@@ -30,6 +30,8 @@ Au cours de cette procédure, vous allez apprendre à effectuer les tâches suiv
 > * Gérer les versions d'un point de terminaison
 
 Pour configurer les services de scoring par lots à l'aide du kit de développement logiciel (SDK), consultez cette [procédure](./tutorial-pipeline-batch-scoring-classification.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

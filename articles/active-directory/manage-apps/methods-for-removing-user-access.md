@@ -2,20 +2,21 @@
 title: Guide pratique pour retirer l’accès d’un utilisateur à une application dans Azure Active Directory
 description: Découvrir comment retirer l’accès d’un utilisateur à une application dans Azure Active Directory
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: mtillman
-ms.openlocfilehash: bc6dc9120b0c1f31e3c8c92343513306b1760db1
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: phsignor
+ms.openlocfilehash: 7466cfda1f4a38ea1559d68f8b1fe4779efe97d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078597"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532428"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Guide pratique pour retirer l’accès d’un utilisateur à une application
 
@@ -39,16 +40,15 @@ La désactivation du consentement de l’utilisateur pour votre annuaire entier 
 
 Pour **désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire**, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrir le panneau **Extension Azure Active Directory** 
+2. Ouvrir le panneau **Extension Azure Active Directory**
 
-3.  Cliquez sur **Applications d’entreprise** dans le menu de navigation.
+3. Cliquez sur **Applications d’entreprise** dans le menu de navigation.
 
-5.  Cliquez sur **Paramètres utilisateur**.
+4. Cliquez sur **Paramètres utilisateur**.
 
-6.  Définissez l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton Enregistrer.
-
+5. Définissez l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton Enregistrer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

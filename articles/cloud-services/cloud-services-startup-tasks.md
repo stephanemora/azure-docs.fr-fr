@@ -4,16 +4,16 @@ description: Les tâches de démarrage facilitent la préparation de votre envir
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 25190075bdd13bd4b75dd82c97ee06ee60f4c26c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: deeeca0bdae994f16741ad60c36e5aa493231a70
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743183"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093604"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud Azure (classique)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc36caf8e00a3f23928b95eedc2574072f9c474d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92072405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532320"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -30,9 +30,9 @@ Cet article, qui complète la vidéo [Intégrer la gestion des API Azure avec Ev
 Vous trouverez des instructions détaillées pour créer un hub d’événements et obtenir les chaînes de connexion nécessaires pour envoyer et recevoir des événements sur le hub dans la section [Créer un espace de noms et un hub d’événements Event Hubs avec le Portail Azure](../event-hubs/event-hubs-create.md).
 
 ## <a name="create-an-api-management-logger"></a>Créer un enregistreur d’événements de gestion des API
-Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](/rest/api/apimanagement/2019-12-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
+Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](/rest/api/apimanagement/2020-12-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
 
-Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](/rest/api/apimanagement/2020-12-01/logger/create-or-update).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configurer des stratégies Enregistrer sur event hub
 
@@ -85,7 +85,7 @@ Vous pouvez afficher un aperçu du journal dans Event Hubs à l’aide de [requ�
   * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * En savoir plus sur l’intégration de Gestion des API et Event Hubs
-  * [Référence d’entité d’enregistreur](/rest/api/apimanagement/2019-12-01/logger)
+  * [Référence d’entité d’enregistreur](/rest/api/apimanagement/2020-12-01/logger)
   * [Référence de stratégie log-to-eventhub](./api-management-advanced-policies.md#log-to-eventhub)
   * [Surveiller des API avec la Gestion des API Azure, Event Hubs et Moesif](api-management-log-to-eventhub-sample.md)  
 * En savoir plus sur [l’intégration avec Azure Application Insights](api-management-howto-app-insights.md)

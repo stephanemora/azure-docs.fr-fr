@@ -4,15 +4,16 @@ description: Utilisez cette API afin de supprimer tous les enregistrements de ra
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 7c39f8bc0db44f1d8aa885969ca09d90b0dcd332
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cb8f12061e53a89fa0380d717c0ad947515ab5f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583535"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532618"
 ---
 # <a name="delete-report-api"></a>API Supprimer le rapport
 

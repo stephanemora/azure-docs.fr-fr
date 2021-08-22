@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b423e763492a0c244982422122705039cd9de80
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025694"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302317"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -375,7 +375,7 @@ module.exports = function(context, req) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction PowerShell](functions-reference-node.md). Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
+L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction PowerShell](functions-reference-powershell.md). Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
 ```json
 {
@@ -755,7 +755,7 @@ Vous pouvez accéder par programmation à `invoke_URL_template` à l’aide des 
 
 ## <a name="working-with-client-identities"></a>Utilisation d’identités de clients
 
-S votre application de fonction utilise [Authentification d’App Service/Autorisation](../app-service/overview-authentication-authorization.md), vous pouvez afficher des informations sur les clients authentifiés à partir de votre code. Ces informations sont disponibles en tant qu’[en-têtes de demande injectées par la plateforme](../app-service/app-service-authentication-how-to.md#access-user-claims).
+S votre application de fonction utilise [Authentification d’App Service/Autorisation](../app-service/overview-authentication-authorization.md), vous pouvez afficher des informations sur les clients authentifiés à partir de votre code. Ces informations sont disponibles en tant qu’[en-têtes de demande injectées par la plateforme](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime Functions dans les versions 2.x et ultérieures. Elle n’est actuellement également disponible que pour les langages .NET.
 
@@ -827,19 +827,19 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="java"></a>[Java](#tab/java)
 
-L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+L’utilisateur authentifié est disponible par l’intermédiaire d’[en-têtes HTTP](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 
 ---
@@ -924,7 +924,7 @@ Dans les fonctions non C#, les requêtes envoyées avec le type de contenu `imag
 
 La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config) du runtime.
 
-Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout de 230 secondes, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
+Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout de 230 secondes, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

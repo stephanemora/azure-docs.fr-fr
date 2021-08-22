@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 7046ac7852585a51174c774a0ef2f1150a72ae1f
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 011420abfbd6bf5994aa65024651f2bbd34e1bf4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591959"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532418"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Règles d’évaluation pour la migration de SQL Server vers Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -65,21 +65,6 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 Informations supplémentaires : [Fonctionnalité du moteur de base de données abandonnée dans SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## <a name="change-data-capture-cdc"></a>Capture des changements de données (CDC)<a id="CDC"></a>
-
-**Titre : La capture des changements de données (CDC) n’est pas prise en charge dans Azure SQL Database**   
-**Catégorie**: Problème   
-
-
-**Description**   
-La capture des changements de données n’est pas prise en charge dans Azure SQL Database. Évaluez si vous pouvez utiliser Change Tracking à la place.  Vous pouvez également migrer vers Azure SQL Managed Instance ou SQL Server sur des machines virtuelles Azure. 
-
-
-**Recommandation**   
-La capture des changements de données n’est pas prise en charge dans Azure SQL Database. Évaluez si vous pouvez utiliser Change Tracking à la place ou envisagez de migrer vers Azure SQL Managed Instance.
-
-Informations supplémentaires : [Activer Change Tracking dans SQL Azure](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
-
 ## <a name="clr-assemblies"></a>Assemblys CLR<a id="ClrAssemblies"></a>
 
 **Titre : Les assemblys SQL CLR ne sont pas pris en charge dans Azure SQL Database**   
@@ -93,7 +78,7 @@ Azure SQL Database ne prend pas en charge les assemblys SQL CLR.
 **Recommandation**   
 Actuellement, il n’existe aucun moyen de parvenir à cela dans Azure SQL Database. Les solutions alternatives recommandées requièrent un code d’application et des modifications de base de données pour utiliser uniquement les assemblys pris en charge par Azure SQL Database. Vous pouvez également migrer vers Azure SQL Managed Instance ou SQL Server sur des machines virtuelles Azure.
 
-Informations supplémentaires : [Différences Transact-SQL non prises en charge dans SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+Informations supplémentaires : [Différences Transact-SQL non prises en charge dans SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 ## <a name="cryptographic-provider"></a>Fournisseur de chiffrement<a id="CryptographicProvider"></a>
 
@@ -249,7 +234,7 @@ Informations supplémentaires : [Transactions sur plusieurs serveurs pour Azure
 **Recommandation**   
 Azure SQL Database ne peut pas accéder aux partages de fichiers et aux dossiers Windows. Les fichiers doivent donc être importés à partir de Stockage Blob Azure. Par conséquent, seul le type de blob DATASOURCE est pris en charge dans la fonction OPENROWSET. Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure
 
-Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="openrowset-provider"></a>OPENROWSET (fournisseur)<a id="OpenRowsetWithSQLAndNonSQLProvider"></a>
@@ -264,7 +249,7 @@ OpenRowSet avec un fournisseur SQL ou non-SQL est une autre façon d’accéder 
 **Recommandation**   
 Azure SQL Database prend en charge OPENROWSET uniquement pour l’importation à partir du service Stockage Blob Azure. Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure
 
-Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="non-ansi-left-outer-join"></a>Jointure externe gauche non ANSI<a id="NonANSILeftOuterJoinSyntax"></a>
@@ -374,7 +359,7 @@ Un déclencheur est un type spécial de procédure stockée qui s’exécute en 
 **Recommandation**   
 Utilisez plutôt des déclencheurs de niveau base de données. Vous pouvez également migrer vers Azure SQL Managed Instance ou SQL Server sur des machines virtuelles Azure.
 
-Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="sql-agent-jobs"></a>Travaux SQL Agent<a id="AgentJobs"></a>
@@ -444,7 +429,7 @@ Les indicateurs de trace permettent de définir temporairement des caractéristi
 **Recommandation**   
 Consultez la section Objets affectés dans Azure Migrate pour afficher tous les indicateurs de trace qui ne sont pas pris en charge dans Azure SQL Database et évaluer s’ils peuvent être supprimés. Vous pouvez également migrer vers Azure SQL Managed Instance qui prend en charge un nombre limité d’indicateurs de trace globaux, ou vers SQL Server sur une machine virtuelle Azure.
 
-Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+Informations supplémentaires : [Résolution des différences de Transact-SQL durant la migration vers SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## <a name="windows-authentication"></a>Authentification Windows<a id="WindowsAuthentication"></a>

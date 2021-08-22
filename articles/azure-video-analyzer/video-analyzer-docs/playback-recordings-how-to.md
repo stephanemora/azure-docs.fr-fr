@@ -3,13 +3,13 @@ title: Lecture d’enregistrements vidéo – Azure Video Analyzer
 description: Vous pouvez utiliser Azure Video Analyzer pour l’enregistrement vidéo continu qui vous permet d’enregistrer des vidéos dans le cloud pendant des semaines ou des mois. Vous pouvez également limiter votre enregistrement aux clips qui présentent un intérêt, par le biais de l’enregistrement basé sur les événements. Cet article explique comment lire de tels enregistrements.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/13/2021
-ms.openlocfilehash: c2b8ceea0778634f3396ac324da093c030f5acc9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 415edea10eaf635b88786d33bbd439bc386a57fc
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386104"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602182"
 ---
 # <a name="playback-of-video-recordings"></a>Lecture d’enregistrements vidéo 
 

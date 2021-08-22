@@ -1,18 +1,18 @@
 ---
 title: Démarrer, arrêter et supprimer votre application Azure Spring Cloud | Microsoft Docs
 description: Guide pratique pour démarrer, arrêter et supprimer votre application Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: f5fcd28f35260bf3b312e089e788f765c0219745
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 73fcf419438f24c784514c723397049d50dd87be
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070908"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533017"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Démarrer, arrêter et supprimer votre application Azure Spring Cloud
 
@@ -32,7 +32,7 @@ Après avoir déployé une application, vous pouvez la démarrer, l’arrêter e
 ## <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
 
 > [!NOTE]
-> Vous pouvez utiliser des paramètres facultatifs et configurer des valeurs par défaut avec Azure CLI. Découvrez plus d’informations au sujet d’Azure CLI en lisant notre [documentation de référence](/cli/azure/spring-cloud).  
+> Vous pouvez utiliser des paramètres facultatifs et configurer des valeurs par défaut avec Azure CLI. Découvrez plus d’informations au sujet d’Azure CLI en lisant notre [documentation de référence](/cli/azure/spring-cloud).
 
 Tout d’abord, installez l’extension Azure Spring Cloud pour Azure CLI comme suit :
 

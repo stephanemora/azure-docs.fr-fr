@@ -2,19 +2,18 @@
 title: Certificats pour la sécurité des appareils - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge utilise un certificat pour valider les appareils, les modules et les appareils de nœud terminal, et pour établir des connexions sécurisées entre eux.
 author: stevebus
-manager: philmea
 ms.author: stevebus
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 6c54f935ed05451df5922ff1a3d564c775703700
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 469e7005d1def5bd2f76347fc934577eca54b435
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029350"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532504"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendre Azure IoT Edge utilise les certificats
 

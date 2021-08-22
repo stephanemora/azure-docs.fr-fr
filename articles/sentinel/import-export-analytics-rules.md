@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2021
 ms.author: yelevin
-ms.openlocfilehash: b5c9b2d6a586d440218cf4740155bc9fa3bdd3d7
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 60d72bcc687659f27e309942040f46a20aab5d3f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372748"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531760"
 ---
 # <a name="export-and-import-analytics-rules-to-and-from-arm-templates"></a>Exporter et importer des règles analytiques vers et depuis des modèles ARM
 
@@ -66,5 +66,5 @@ Le fichier comprend tous les paramètres définis dans la règle analytique. Par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez appris à exporter et importer des règles analytiques vers et à partir de modèles ARM.
-- En savoir plus sur les [règles analytiques](tutorial-detect-threats-built-in.md), notamment les [règles planifiées personnalisées](tutorial-detect-threats-custom.md).
+- En savoir plus sur les [règles analytiques](detect-threats-built-in.md), notamment les [règles planifiées personnalisées](detect-threats-custom.md).
 - En savoir plus sur les [modèles ARM](../azure-resource-manager/templates/overview.md).

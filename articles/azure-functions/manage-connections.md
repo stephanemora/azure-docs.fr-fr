@@ -4,12 +4,12 @@ description: Découvrez comment éviter les problèmes de performances dans Azur
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 6b27639ef8cccefbdec9538d0536db9b297e4039
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: b9a1659fa5d0929c6dfbe0a3c4fd5497666ba2b5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107946364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531683"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 
@@ -146,7 +146,7 @@ module.exports = async function (context) {
 Le code de votre fonction peut utiliser le fournisseur de données .NET Framework pour SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient)) afin d’établir des connexions à une base de données relationnelle SQL. Il s’agit également du fournisseur sous-jacent pour les infrastructures de données qui s’appuient sur ADO.NET, comme [Entity Framework](/ef/ef6/). Contrairement aux connexions [HttpClient](/dotnet/api/system.net.http.httpclient) et [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient), ADO.NET implémente par défaut le regroupement de connexions. Cependant, comme vous êtes toujours susceptible d’avoir un nombre insuffisant de connexions, vous devez optimiser les connexions à la base de données. Pour plus d’informations, consultez [Regroupement de connexions SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Certaines infrastructures de données, comme Entity Framework, obtiennent généralement les chaînes de connexion auprès de la section **ConnectionStrings** d’un fichier de configuration. Dans ce cas, vous devez ajouter explicitement les chaînes de connexion de base de données SQL à la collection **Chaînes de connexion** de vos paramètres d’application de fonction et dans le [fichier local.settings.json](functions-run-local.md#local-settings-file) de votre projet local. Si vous créez une instance de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) dans votre code de fonction, vous devez stocker la valeur de la chaîne de connexion dans les **Paramètres d’application** avec vos autres connexions.
+> Certaines infrastructures de données, comme Entity Framework, obtiennent généralement les chaînes de connexion auprès de la section **ConnectionStrings** d’un fichier de configuration. Dans ce cas, vous devez ajouter explicitement les chaînes de connexion de base de données SQL à la collection **Chaînes de connexion** de vos paramètres d’application de fonction et dans le [fichier local.settings.json](functions-develop-local.md#local-settings-file) de votre projet local. Si vous créez une instance de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) dans votre code de fonction, vous devez stocker la valeur de la chaîne de connexion dans les **Paramètres d’application** avec vos autres connexions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

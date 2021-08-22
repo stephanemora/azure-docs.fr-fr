@@ -1,23 +1,23 @@
 ---
-title: Configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Windows Virtual Desktop – Azure
-description: Procédure de configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Windows Virtual Desktop.
+title: Configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Azure Virtual Desktop – Azure
+description: Procédure de configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59f2ac4021a4f3ae7d2121d9e96bac96c658485c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516935"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707086"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
 Toutes les images MSIX doivent être stockées sur un partage réseau accessible par les utilisateurs d’un pool hôte avec des autorisations en lecture seule.
 
-L’attachement d’application MSIX n’a pas de dépendances par rapport au type d’infrastructure de stockage utilisé par le partage de fichiers. Les considérations relatives au partage d’attachement d’application MSIX sont identiques à celles d’un partage FSLogix. Pour en savoir plus sur les exigences en matière de stockage, consultez [Options de stockage pour conteneurs de profils FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).
+L’attachement d’application MSIX n’a pas de dépendances par rapport au type d’infrastructure de stockage utilisé par le partage de fichiers. Les considérations relatives au partage d’attachement d’application MSIX sont identiques à celles d’un partage FSLogix. Pour en savoir plus sur les exigences en matière de stockage, consultez [Options de stockage pour conteneurs de profils FSLogix dans Azure Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Exigences en matière de performances
 
@@ -35,7 +35,7 @@ La configuration requise peut varier considérablement en fonction du nombre d�
 
 ### <a name="storage-recommendations"></a>Recommandations de stockage
 
-Azure offre plusieurs options de stockage qui peuvent être utilisées pour l’attachement d’application MISX. Nous vous recommandons d’utiliser Azure Files ou Azure NetApp Files, car ces options offrent la meilleure valeur entre les coûts et les frais de gestion. L’article [Options de stockage pour conteneurs de profils FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md) compare les différentes solutions de stockage géré offertes par Azure dans le contexte de Windows Virtual Desktop.
+Azure offre plusieurs options de stockage qui peuvent être utilisées pour l’attachement d’application MISX. Nous vous recommandons d’utiliser Azure Files ou Azure NetApp Files, car ces options offrent la meilleure valeur entre les coûts et les frais de gestion. L’article [Options de stockage pour conteneurs de profils FSLogix dans Azure Virtual Desktop](store-fslogix-profile.md) compare les différentes solutions de stockage géré offertes par Azure dans le contexte de Azure Virtual Desktop.
 
 ### <a name="optimize-msix-app-attach-performance"></a>Optimiser les performances d’attachement d’application MSIX
 
@@ -53,7 +53,7 @@ Voici d’autres recommandations pour optimiser les performances de l’attachem
 
 - Séparez l’infrastructure de stockage pour l’attachement d’application MSIX des conteneurs de profils FSLogix.
 - Tous les comptes système de machines virtuelles et les comptes d’utilisateur doivent disposer d’autorisations en lecture seule pour accéder au partage de fichiers.
-- Tout plan de récupération d’urgence pour Windows Virtual Desktop doit inclure la réplication du partage de fichiers d’attachement d’application MSIX dans votre emplacement de basculement secondaire. Pour en savoir plus sur la récupération d’urgence, consultez [Configurer un plan de récupération d’urgence et de continuité d’activité](disaster-recovery.md).
+- Tout plan de récupération d’urgence pour Azure Virtual Desktop doit inclure la réplication du partage de fichiers d’attachement d’application MSIX dans votre emplacement de basculement secondaire. Pour en savoir plus sur la récupération d’urgence, consultez [Configurer un plan de récupération d’urgence et de continuité d’activité](disaster-recovery.md).
 
 ## <a name="how-to-set-up-the-file-share"></a>Procédure de configuration du partage de fichiers
 
@@ -104,7 +104,7 @@ Voici les autres opérations que vous devez effectuer après avoir configuré le
 
 Une fois que vous avez terminé, vous trouverez peut-être utiles certaines des autres ressources suivantes :
 
-- Posez vos questions concernant cette fonctionnalité à la [communauté technique de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
-- Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+- Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+- Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)

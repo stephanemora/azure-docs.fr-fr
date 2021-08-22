@@ -2,19 +2,18 @@
 title: Découvrez l’exécution de logique par les modules sur vos appareils - Azure IoT Edge | Microsoft Docs
 description: Les modules Azure IoT Edge sont des unités de logique en conteneur qui peuvent être déployées et gérées à distance afin de vous permettre d’exécuter une logique métier sur les appareils IoT Edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9b1ffb2dbcbd6e81856277f4b672cf876cc75f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3076d73fe63536b7f3ceb8d4cda6e20bc33b5699
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492368"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531779"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 

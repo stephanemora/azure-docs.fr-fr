@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 8b87cfc8276d13ccc7e12a4901489ea0b1e770a5
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 22a0fb4d06194138d5169df5005d5a23b3580569
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012504"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531551"
 ---
 # <a name="pick-initial-size-for-hyperscale-citus-server-group"></a>Choix de la taille initiale pour le groupe de serveurs Hyperscale (Citus)
 
@@ -36,11 +36,6 @@ Nombre total de vCores : quand les données de travail tiennent dans la mémoir
 RAM worker : le meilleur des cas serait de fournir suffisamment de mémoire pour que la majorité de la plage de travail tienne dans la mémoire. Le type de requêtes que votre application utilise affecte les besoins en mémoire. Vous pouvez exécuter EXPLAIN ANALYZE sur une requête pour déterminer la quantité de mémoire nécessaire. N’oubliez pas que les vCores et la RAM sont mis à l’échelle ensemble, comme décrit dans l’article sur les [options de configuration Hyperscale (Citus)](concepts-hyperscale-configuration-options.md).
 
 ## <a name="choosing-a-hyperscale-citus-tier"></a>Choix d’un niveau Hyperscale (Citus)
-
-> [!IMPORTANT]
-> Le niveau de base Hyperscale (Citus) est actuellement en préversion.  Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans les [fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
 
 Les sections ci-dessus donnent une idée du nombre de vCores et de la quantité de RAM nécessaires pour chaque cas d’usage. Vous pouvez répondre à ces exigences à l’aide d’un choix entre deux niveaux Hyperscale (Citus) : le niveau de base et le niveau standard.
 

@@ -3,20 +3,21 @@ title: Planifier votre environnement Gen1 - Azure Time Series Insights | Microso
 description: Meilleures pratiques pour la préparation, la configuration et le déploiement de votre environnement Azure Time Series Insights Gen1.
 services: time-series-insights
 ms.service: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e93c415e464b344a24593428c267fb09e6566e08
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95016205"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136829"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planifier votre environnement Azure Time Series Insights Gen1
 
@@ -33,7 +34,7 @@ Cet article explique comment planifier votre environnement Azure Time Series Ins
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Pour commencer à utiliser Azure Time Series Insights, il est conseillé de connaître la quantité de données à transmettre à la minute et la durée de stockage de vos données.  
+Pour commencer à utiliser Azure Time Series Insights, il est conseillé de connaître la quantité de données à transmettre à la minute et la durée de stockage de vos données.
 
 Pour plus d’informations sur la capacité et la rétention des deux références (SKU) Azure Time Series Insights, consultez [Tarification d’Azure Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -118,7 +119,7 @@ Il est important de vérifier si votre méthode d’envoi d’événements à Az
 Un *jeu de données de référence* est une collection d’éléments qui augmente les événements issus de votre source d’événements. Le moteur d’entrée d’Azure Time Series Insights associe chaque événement de votre source d’événements à la ligne de données correspondante dans votre jeu de données de référence. L’événement ajouté est ensuite disponible pour la requête. La jointure repose sur les colonnes de **clé privée** définies dans votre jeu de données de référence.
 
 > [!NOTE]
-> Les données de référence ne sont pas jointes rétroactivement. Seules les données d’entrée actuelles et futures sont mises en correspondance et jointes au jeu de données de référence lorsqu’il a été configuré et chargé. Si vous envisagez d’envoyer une grande quantité de données historiques à Azure Time Series Insights et de ne pas charger ou de créer tout d’abord des données de référence dans Azure Time Series Insights, vous devrez peut-être restaurer votre travail (conseil : pas très fun).  
+> Les données de référence ne sont pas jointes rétroactivement. Seules les données d’entrée actuelles et futures sont mises en correspondance et jointes au jeu de données de référence lorsqu’il a été configuré et chargé. Si vous envisagez d’envoyer une grande quantité de données historiques à Azure Time Series Insights et de ne pas charger ou de créer tout d’abord des données de référence dans Azure Time Series Insights, vous devrez peut-être restaurer votre travail (conseil : pas très fun).
 
 Pour plus d’informations sur la création, le chargement et la gestion des données de référence dans Azure Time Series Insights, lisez notre [documentation sur les jeux de données de référence](time-series-insights-add-reference-data-set.md).
 

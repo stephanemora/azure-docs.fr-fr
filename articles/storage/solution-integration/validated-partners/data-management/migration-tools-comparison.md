@@ -4,15 +4,15 @@ description: Fonctionnalités de base et comparaison entre les outils utilisés 
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: a1772179313a2465200fc1d6a2cccef836067dde
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63796f3e569849227dd4fa9c2396f3b052540586
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146596"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525578"
 ---
 # <a name="comparison-matrix"></a>Matrice de comparaison
 
@@ -149,4 +149,4 @@ La matrice de comparaison suivante montre les fonctionnalités de base des diff�
 - [Migrer vers des partages de fichiers Azure](../../../files/storage-files-migration-overview.md)
 - [Migrer vers Data Lake Storage avec WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copier ou déplacer des données vers le Stockage Azure avec AzCopy](../../../common/storage-use-azcopy-v10.md)
-- [Migrer des jeux de données volumineux vers le Stockage Blob Azure avec AzReplicate (exemple d’application)](https://github.com/Azure/AzReplicate/tree/master/)
+- [Migrer des jeux de données volumineux vers le Stockage Blob Azure avec AzReplicate (exemple d’application)](/samples/azure/azreplicate/azreplicate/)

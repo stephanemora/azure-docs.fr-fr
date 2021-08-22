@@ -1,18 +1,19 @@
 ---
 title: Copie des données à partir d’Amazon Simple Storage Service (S3) Compatible Storage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment copier des données d’Amazon Simple Storage Service (S3) vers des magasins de données récepteurs pris en charge avec Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/11/2021
-ms.openlocfilehash: 96b8ac29fadc03ca6e5b374acc269d5e19210b03
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 12d7080a9f000df1f2e7469defef820cd4231e1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103927"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641210"
 ---
 # <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon S3 Compatible Storage avec Azure Data Factory
 

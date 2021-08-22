@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 6a98571f513e25d801acd4f4a9c2901dcd56fabc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 236fcdb27bccf56cfe9bf92784f74cfa7ac3057b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869218"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285442"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 
@@ -97,7 +97,7 @@ Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles 
 Les membres de la communauté peuvent soumettre des solutions de gestion aux modèles de démarrage rapide Azure. Vous pouvez installer ces solutions directement ou en télécharger les modèles à des fins d’installation ultérieure.
 
 1. Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
-2. Accédez à [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
+2. Accédez à [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 3. Recherchez une solution qui vous intéresse.
 4. Sélectionnez la solution dans les résultats pour en afficher les détails.
 5. Cliquez sur le bouton **Déployer dans Azure**.

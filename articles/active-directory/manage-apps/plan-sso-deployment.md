@@ -2,23 +2,23 @@
 title: Planifier le déploiement de l’authentification unique Azure Active Directory
 description: Guide concernant la planification, le déploiement et la gestion de l’authentification unique au sein d’une organisation.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ef1daed862a67c5219d7ec243985340a8a20ea01
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: eacb1d03ce4d7148543948f4bf107d8a99181a0e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076957"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532427"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -26,7 +26,7 @@ Avec l’authentification unique (SSO), l’utilisateur accède à l’ensemble 
 
 ## <a name="benefits-of-sso"></a>Avantages de l’authentification unique
 
-Lorsque les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD), l’authentification unique (SSO) constitue la méthode la plus sécurisée et la plus pratique. 
+Lorsque les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD), l’authentification unique (SSO) constitue la méthode la plus sécurisée et la plus pratique.
 
 De nombreuses organisations s’appuient sur des applications SaaS, comme Microsoft 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Avant, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chacune des applications SaaS, et les utilisateurs devaient mémoriser un mot de passe pour chacune de ces applications.
 
@@ -34,13 +34,13 @@ La Place de marché Azure propose plus de 3 000 applications avec connexion S
 
 ## <a name="licensing"></a>Licence
 
-- **Gestion des licences Azure AD** - Pour les applications SaaS pré-intégrées, l’authentification unique est gratuite. Toutefois, le nombre d’objets contenus dans votre annuaire et les fonctionnalités que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Pour obtenir la liste complète des conditions de licence, consultez la page [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Gestion des licences Azure AD** - Pour les applications SaaS pré-intégrées, l’authentification unique est gratuite. Toutefois, le nombre d’objets contenus dans votre annuaire et les fonctionnalités que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Pour obtenir la liste complète des conditions de licence, consultez la page [Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - **Licences d’application** - Le type de licence que vous choisissez pour vos applications SaaS doit répondre aux besoins de votre entreprise. Contactez le propriétaire de l’application pour déterminer si les utilisateurs affectés à l’application disposent de licences adaptées à leurs rôles dans l’application. Si Azure AD gère l’attribution automatique d’utilisateurs en fonction des rôles, les rôles attribués dans Azure AD doivent s’aligner sur le nombre de licences détenues au sein de l’application. Si le nombre de licences détenues dans l’application est incorrect, cela peut entraîner des erreurs pendant l’attribution ou la mise à jour des utilisateurs.
 
 ## <a name="plan-your-sso-team"></a>Organiser l’équipe SSO
 
 - **Impliquez les bonnes personnes** - Lorsque des projets technologiques échouent, cela est souvent dû à une mauvaise entente sur les attentes (impact, résultats ou responsabilités). Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md) et à ce que les parties prenantes comprennent bien leur rôle.
-- **Prévoyez une bonne communication** - La communication est essentielle à la réussite de tout nouveau service. Communiquez de manière proactive avec vos utilisateurs sur ce qui va changer, à quel moment les changements seront appliqués et comment ils peuvent obtenir de l’aide en cas de problème. Passez en revue les différentes [façons dont les utilisateurs finaux peuvent accéder à leurs applications compatibles SSO](end-user-experiences.md), et adaptez vos communications à chaque cas de figure. 
+- **Prévoyez une bonne communication** - La communication est essentielle à la réussite de tout nouveau service. Communiquez de manière proactive avec vos utilisateurs sur ce qui va changer, à quel moment les changements seront appliqués et comment ils peuvent obtenir de l’aide en cas de problème. Passez en revue les différentes [façons dont les utilisateurs finaux peuvent accéder à leurs applications compatibles SSO](end-user-experiences.md), et adaptez vos communications à chaque cas de figure.
 
 ## <a name="plan-your-sso-protocol"></a>Planifier l’implémentation du protocole SSO
 
@@ -87,10 +87,10 @@ Du point de vue de la connexion, les applications avec comptes partagés ne sont
 
 1. Collaborez avec les utilisateurs des applications métier pour documenter les éléments suivants :
    1. Les groupes d’utilisateurs de l’organisation qui utiliseront l’application
-   1. Les informations d’identification existantes de l’application qui sont associées à chaque groupe d’utilisateur 
+   1. Les informations d’identification existantes de l’application qui sont associées à chaque groupe d’utilisateur
 1. Pour chaque combinaison groupe d’utilisateurs-informations d’identification, créez un groupe de sécurité localement ou dans le cloud, selon vos besoins.
-1. Réinitialisez les informations d’identification partagées. Une fois que l’application est déployée dans Azure AD, les utilisateurs n’ont plus besoin du mot de passe du compte partagé. Dans la mesure où Azure AD stocke le mot de passe, vous pouvez en créer un très long et très complexe. 
-1. Si l’application le prend en charge, configurez la substitution automatique du mot de passe. De cette façon, même l’administrateur qui a effectué la configuration initiale ne connaîtra pas le mot de passe du compte partagé. 
+1. Réinitialisez les informations d’identification partagées. Une fois que l’application est déployée dans Azure AD, les utilisateurs n’ont plus besoin du mot de passe du compte partagé. Dans la mesure où Azure AD stocke le mot de passe, vous pouvez en créer un très long et très complexe.
+1. Si l’application le prend en charge, configurez la substitution automatique du mot de passe. De cette façon, même l’administrateur qui a effectué la configuration initiale ne connaîtra pas le mot de passe du compte partagé.
 
 ## <a name="plan-your-authentication-method"></a>Planifier la méthode d’authentification
 
@@ -98,9 +98,9 @@ Le choix de la méthode d’authentification est une première décision essenti
 
 Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps. Vous devez choisir celle qui est la mieux adaptée à votre cas. Pour plus d’informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../hybrid/choose-ad-authn.md).
 
-## <a name="plan-your-security-and-governance"></a>Planifier la sécurité et la gouvernance 
+## <a name="plan-your-security-and-governance"></a>Planifier la sécurité et la gouvernance
 
-L’identité est le nouvel élément central de la sécurité et des investissements, car les périmètres réseau sont devenus de plus en plus poreux et de moins en moins efficaces face à l’explosion des appareils BYOD et des applications cloud. 
+L’identité est le nouvel élément central de la sécurité et des investissements, car les périmètres réseau sont devenus de plus en plus poreux et de moins en moins efficaces face à l’explosion des appareils BYOD et des applications cloud.
 
 ### <a name="plan-access-reviews"></a>Planifier les révisions d’accès
 
@@ -116,7 +116,7 @@ Voici certains éléments clés à planifier lorsque vous organisez des révisio
 
 ### <a name="plan-auditing"></a>Planifier l’audit
 
-Azure AD fournit des [rapports contenant des insights techniques et commerciaux](../reports-monitoring/overview-reports.md). 
+Azure AD fournit des [rapports contenant des insights techniques et commerciaux](../reports-monitoring/overview-reports.md).
 
 Vous pouvez utiliser des rapports de sécurité et d’activité. Les rapports de sécurité montrent les utilisateurs et les connexions considérés comme étant à risque. Les rapports d’activité vous permettent de mieux comprendre le comportement des utilisateurs de votre organisation, par le biais d’informations détaillées sur les activités de connexion et de pistes d’audit pour toutes les connexions. Vous pouvez utiliser des rapports pour gérer les risques, augmenter la productivité et superviser la conformité.
 
@@ -167,9 +167,9 @@ Il existe un ensemble préconfiguré d’attributs et de mappages d’attributs 
 
 ### <a name="certificate-requirements"></a>Configuration requise des certificats
 
-Le certificat de l’application doit être à jour. Si ce n’est pas le cas, les utilisateurs risquent de ne pas pouvoir accéder à l’application. La plupart des certificats d’application SaaS sont valides pendant 36 mois. Cette durée peut être modifiée dans le panneau de l’application. Assurez-vous de documenter l’expiration et de choisir comment gérer le renouvellement des certificats. 
+Le certificat de l’application doit être à jour. Si ce n’est pas le cas, les utilisateurs risquent de ne pas pouvoir accéder à l’application. La plupart des certificats d’application SaaS sont valides pendant 36 mois. Cette durée peut être modifiée dans le panneau de l’application. Assurez-vous de documenter l’expiration et de choisir comment gérer le renouvellement des certificats.
 
-Vous pouvez gérer vos certificats de deux façons. 
+Vous pouvez gérer vos certificats de deux façons.
 
 - **Substitution automatique des certificats** : Microsoft prend en charge la [substitution des clés de signature dans Azure AD](../develop/active-directory-signing-key-rollover.md). Il s’agit de la méthode que nous recommandons pour gérer les certificats. Toutefois, tous les éditeurs de logiciels ne prennent pas en charge ce scénario.
 
@@ -184,7 +184,7 @@ Suivez les étapes ci-dessous pour planifier et déployer votre solution dans vo
 - **Identifier les utilisateurs de test**
 
    Contactez le propriétaire de l’application et demandez-lui de créer au moins trois utilisateurs de test au sein de l’application. Vérifiez que les informations que vous allez utiliser comme identificateur principal sont correctement renseignées et qu’elles correspondent à un attribut qui est disponible dans Azure AD. Dans la plupart des cas, cela sera mappé sur « NameID » pour les applications SAML. Pour les jetons JWT, il s’agit du « preferred_username ».
-   
+
    Créez l’utilisateur manuellement en tant qu’utilisateur basé sur le cloud dans Azure AD ou synchronisez l’utilisateur à partir du système local en utilisant le moteur de synchronisation Azure AD Connect. Vérifiez que les informations correspondent aux revendications envoyées à l’application.
 
 - **Configurer l’authentification unique**
@@ -259,7 +259,7 @@ Lorsque vous aurez terminé les tests basés sur vos cas de test, vous devrez fa
 
 Ce sont les méthodes d’authentification qui sont disponibles dans votre application qui déterminent la meilleure stratégie à adopter. Veillez à toujours mettre à disposition des propriétaires d’application une documentation détaillée expliquant les étapes exactes à effectuer pour revenir à l’état de configuration de connexion d’origine, au cas où votre déploiement rencontre des problèmes.
 
-- **Si votre application prend en charge plusieurs fournisseurs d’identité**, par exemple LDAP, AD FS et Ping, ne supprimez pas la configuration de l’authentification unique existante pendant le déploiement. Désactivez-la plutôt pendant la migration au cas où vous devriez la rebasculer. 
+- **Si votre application prend en charge plusieurs fournisseurs d’identité**, par exemple LDAP, AD FS et Ping, ne supprimez pas la configuration de l’authentification unique existante pendant le déploiement. Désactivez-la plutôt pendant la migration au cas où vous devriez la rebasculer.
 
 - **Si votre application ne prend pas en charge plusieurs fournisseurs d’identité** mais permet aux utilisateurs de se connecter à l’aide de l’authentification basée sur les formulaires (nom d’utilisateur/mot de passe), assurez-vous que les utilisateurs pourront revenir à cette méthode en cas d’échec du déploiement de la nouvelle configuration SSO.
 
@@ -293,10 +293,9 @@ Les liens suivants présentent des scénarios de dépannage. Vous pouvez créer 
 
 #### <a name="sso-issues-for-applications"></a>Problèmes d’authentification unique pour les applications
 
-- [Problème avec l’authentification unique par mot de passe pour les applications](./troubleshoot-password-based-sso.md) 
+- [Problème avec l’authentification unique par mot de passe pour les applications](./troubleshoot-password-based-sso.md)
 
-- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
-
+- [Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,13 +3,13 @@ title: Développer des fonctions de bibliothèque de classes C# à l’aide d’
 description: Découvrez comment utiliser C# pour développer et publier du code en tant que bibliothèques de classes s’éxécutant in-process avec le runtime Azure Functions.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 07/24/2020
-ms.openlocfilehash: 60afc79c332385958d9f73ad1e224cab90293e1c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.date: 07/24/2021
+ms.openlocfilehash: 5681a985769f49429e5b92946311c3d10ea8ecf6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532985"
 ---
 # <a name="develop-c-class-library-functions-using-azure-functions"></a>Développer des fonctions de bibliothèque de classes C# à l’aide d’Azure Functions
 
@@ -48,7 +48,7 @@ En cas d’exécution sur Linux dans un plan Premium ou dédié (App Service), v
 Dans Visual Studio, le modèle de projet **Azure Functions** crée un projet de bibliothèque de classes C# qui contient les fichiers suivants :
 
 * [host.json](functions-host-json.md) : stocke les paramètres de configuration qui affectent toutes les fonctions dans le projet au cours d’une exécution locale ou dans Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale. Ce fichier contient des secrets et n’est pas publié dans votre application de fonction dans Azure. À la place, [ajoutez des paramètres d’application à votre Function App](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-develop-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale. Ce fichier contient des secrets et n’est pas publié dans votre application de fonction dans Azure. À la place, [ajoutez des paramètres d’application à votre Function App](functions-develop-vs.md#function-app-settings).
 
 Lorsque vous créez le projet, une structure de dossiers qui ressemble à l’exemple suivant est générée dans le répertoire de sortie de build :
 
@@ -465,7 +465,7 @@ namespace functionapp0915
 
 Dans cet exemple, les données de métriques personnalisées sont agrégées par l’hôte avant d’être envoyées à la table customMetrics. Pour plus d’informations, consultez la documentation [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) dans Application Insights. 
 
-Lors d’une exécution locale, vous devez ajouter le paramètre `APPINSIGHTS_INSTRUMENTATIONKEY` avec la clé Application Insights, au fichier [local.settings.json](functions-run-local.md#local-settings-file).
+Lors d’une exécution locale, vous devez ajouter le paramètre `APPINSIGHTS_INSTRUMENTATIONKEY` avec la clé Application Insights, au fichier [local.settings.json](functions-develop-local.md#local-settings-file).
 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)

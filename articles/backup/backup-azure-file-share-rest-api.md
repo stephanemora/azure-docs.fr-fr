@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure avec l’API REST
 description: Apprenez à utiliser l’API REST pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a305200feac635c03caa2477a08267c150219b9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88824863"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471402"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Sauvegarder un partage de fichiers Azure à l’aide de Sauvegarde Azure via l’API REST
 
@@ -32,7 +32,7 @@ Pour cet article, nous allons utiliser les ressources suivantes :
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Découvrir des comptes de stockage avec des partages de fichiers Azure non protégés
 
-Le coffre doit découvrir tous les comptes de stockage Azure dans l’abonnement avec des partages de fichiers qui peuvent être sauvegardés dans le coffre Recovery Services. Cette action est déclenchée à l’aide de l’[opération d’actualisation](/rest/api/backup/protectioncontainers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de tous les partages de fichiers Azure non protégés dans l’abonnement actuel et les « met en cache ». Une fois que le partage de fichiers est mis en cache, Recovery Services peut accéder au partage de fichiers et le protéger.
+Le coffre doit découvrir tous les comptes de stockage Azure dans l’abonnement avec des partages de fichiers qui peuvent être sauvegardés dans le coffre Recovery Services. Cette action est déclenchée à l’aide de l’[opération d’actualisation](/rest/api/backup/protection-containers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de tous les partages de fichiers Azure non protégés dans l’abonnement actuel et les « met en cache ». Une fois que le partage de fichiers est mis en cache, Recovery Services peut accéder au partage de fichiers et le protéger.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -108,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obtenir la liste des comptes de stockage avec des partages de fichiers qui peuvent être sauvegardés l’aide du coffre Recovery Services
 
-Pour confirmer qu’une « mise en cache » a bien été réalisée, répertoriez tous les comptes de stockage Azure dans l’abonnement avec des partages de fichiers qui peuvent être sauvegardés à l’aide du coffre Recovery Services. Recherchez ensuite le compte de stockage souhaité dans la réponse. Pour ce faire, utilisez l’opération [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
+Pour confirmer qu’une « mise en cache » a bien été réalisée, répertoriez tous les comptes de stockage Azure dans l’abonnement avec des partages de fichiers qui peuvent être sauvegardés à l’aide du coffre Recovery Services. Recherchez ensuite le compte de stockage souhaité dans la réponse. Pour ce faire, utilisez l’opération [GET ProtectableContainers](/rest/api/backup/protectable-containers/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -160,7 +160,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Inscrire un compte de stockage auprès du coffre Recovery Services
 
-Cette étape est nécessaire uniquement si vous n’avez pas inscrit le compte de stockage dans le coffre précédemment. Vous pouvez inscrire le coffre à l’aide de l’opération [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
+Cette étape est nécessaire uniquement si vous n’avez pas inscrit le compte de stockage dans le coffre précédemment. Vous pouvez inscrire le coffre à l’aide de l’opération [ProtectionContainers-Register](/rest/api/backup/protection-containers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -205,11 +205,11 @@ Le corps de demande de création est le suivant :
 
   "backupManagementType": "AzureStorage"
 
-
  }
+}
 ```
 
-Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous à [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous à [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer).
 
 Il s’agit d’une opération asynchrone qui retourne deux réponses : « 202 Accepté » lorsque l’opération est acceptée et « 200 OK » lorsque l’opération est terminée.  Pour suivre l’état de l’opération, utilisez l’en-tête d’emplacement pour récupérer l’état le plus récent de l’opération.
 
@@ -241,7 +241,7 @@ Vous pouvez vérifier si l’inscription a réussi à partir de la valeur du par
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Rechercher tous les partages de fichiers non protégés sous un compte de stockage
 
-Vous pouvez vous renseigner sur les éléments protégeables dans un compte de stockage à l’aide de l’opération [Protection Containers-Inquire](/rest/api/backup/protectioncontainers/inquire). Il s’agit d’une opération asynchrone et les résultats doivent être suivis à l’aide de l’en-tête d’emplacement.
+Vous pouvez vous renseigner sur les éléments protégeables dans un compte de stockage à l’aide de l’opération [Protection Containers-Inquire](/rest/api/backup/protection-containers/inquire). Il s’agit d’une opération asynchrone et les résultats doivent être suivis à l’aide de l’en-tête d’emplacement.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -276,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Sélectionner le partage de fichiers à sauvegarder
 
-Vous pouvez répertorier tous les éléments protégeables sous l’abonnement et rechercher le partage de fichiers à sauvegarder à l’aide de l’opération [GET backupprotectableItems](/rest/api/backup/backupprotectableitems/list).
+Vous pouvez répertorier tous les éléments protégeables sous l’abonnement et rechercher le partage de fichiers à sauvegarder à l’aide de l’opération [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -351,7 +351,7 @@ La réponse contient la liste de tous les partages de fichiers non protégés et
 
 ### <a name="enable-backup-for-the-file-share"></a>Activer la sauvegarde pour le partage de fichiers
 
-Une fois que le partage de fichiers approprié est identifié par le nom convivial, sélectionnez la stratégie pour le protéger. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API de liste des stratégies](/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protectionpolicies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](./backup-azure-arm-userestapi-createorupdatepolicy.md).
+Une fois que le partage de fichiers approprié est identifié par le nom convivial, sélectionnez la stratégie pour le protéger. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API de liste des stratégies](/rest/api/backup/backup-policies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protection-policies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 L’activation de la protection est une opération *PUT* asynchrone qui crée un « élément protégé ».
 

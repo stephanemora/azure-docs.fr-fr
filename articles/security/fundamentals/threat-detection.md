@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 19944b336a9140a7133b2f96d7821c56a59abe7e
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101033"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676849"
 ---
 # <a name="azure-threat-protection"></a>Protection contre les menaces Azure
 
@@ -287,7 +287,7 @@ La configuration WAF au niveau de votre passerelle d’application vous offre pl
 
 L’API Anomaly Detection est une API très utile pour détecter une variété de modèles d’anomalies dans les données de la série chronologique. L’API attribue un score d’anomalie à chaque point de données de la série chronologique, qui peut être utilisé pour générer des alertes, en établissant une surveillance via les tableaux de bord ou en créant une connexion avec vos systèmes de gestion de tickets.
 
-[L’API Anomaly Detection](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
+[L’API Anomaly Detection](/azure/architecture/data-science-process/apps-anomaly-detection-api) peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
 
 -   **Pics et creux** : quand vous supervisez le nombre d’échecs de connexion pour un service ou le nombre de validations dans un site de commerce électronique, les pics ou creux d’activité inhabituels peuvent indiquer des attaques de sécurité ou des interruptions de service.
 

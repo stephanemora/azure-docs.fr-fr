@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 33bdff8d516929e7f615f3a7f8bd77463eea0c64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 80cec6ad233a6f6dc4771e82a98601f5db774b0f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040139"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525726"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Résolution des problèmes de l’extension de machine virtuelle Log Analytics dans Azure Monitor
 Cet article présente les problèmes qui peuvent survenir avec l’extension de machine virtuelle Log Analytics sur les machines virtuelles Windows et Linux en cours d’exécution sur Microsoft Azure, puis propose des solutions possibles pour les résoudre.
@@ -36,7 +36,7 @@ Si l’extension de machine virtuelle *Microsoft Monitoring Agent* ne s’instal
 1. Vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en suivant la procédure décrite dans l’article [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-   * [Installer l’agent de machine virtuelle Azure](../vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installer l’agent de machine virtuelle Azure](../vm/monitor-virtual-machine.md#agents)
 2. Examinez les fichiers de journaux d’extension de machine virtuelle Microsoft Monitoring Agent dans `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
 3. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
 4. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 4ebdb5d092a64213727bd35d923c335c8e82210b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8175fa121828b9c50911fee8bb811115a630e919
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479898"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460537"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -25,7 +25,7 @@ Découvrez comment gérer les ressources Azure Machine Learning avec l’extensi
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree)
+- Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/)
 - Visual Studio Code. [Installez-le](https://code.visualstudio.com/docs/setup/setup-overview) si ce n’est déjà fait.
 - Extension Azure Machine Learning. Suivez le [Guide d’installation de l’extension VS Code Azure Machine Learning](how-to-setup-vs-code.md) pour configurer l’extension.
 

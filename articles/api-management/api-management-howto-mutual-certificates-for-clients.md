@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: apimpm
-ms.openlocfilehash: d000b9db658c76b5d7cdb586599f04d9078dde5d
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 6faa78dc75b67afd4c310a94ce4a81129e09cb26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812154"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532381"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
@@ -49,7 +49,7 @@ Pour plus d’informations, consultez [Stratégies de restriction des accès de 
 Vous pouvez également créer des expressions de stratégie avec la [`context` variable](api-management-policy-expressions.md#ContextVariables) pour vérifier les certificats clients. Les exemples des sections suivantes montrent des expressions qui utilisent la propriété `context.Request.Certificate` et d’autres propriétés `context`.
 
 > [!IMPORTANT]
-> À compter de mai 2021, la propriété `context.Request.Certificate` exige le certificat uniquement lorsque [`hostnameConfiguration`](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) de l’instance de Gestion des API affecte la valeur True à la propriété `negotiateClientCertificate`. Par défaut, la valeur de `negotiateClientCertificate` est définie sur False.
+> À compter de mai 2021, la propriété `context.Request.Certificate` exige le certificat uniquement lorsque [`hostnameConfiguration`](/rest/api/apimanagement/2020-12-01/api-management-service/create-or-update#hostnameconfiguration) de l’instance de Gestion des API affecte la valeur True à la propriété `negotiateClientCertificate`. Par défaut, la valeur de `negotiateClientCertificate` est définie sur False.
 
 ### <a name="checking-the-issuer-and-subject"></a>Vérification de l’émetteur et du sujet
 

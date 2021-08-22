@@ -3,12 +3,12 @@ title: Configurer la surveillance de GPU à l’aide de Container Insights | Mic
 description: Cet article explique comment configurer la surveillance des clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide de Container Insights.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f18628b2814305d8629d3216bb0a0d1bab092fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524529"
 ---
 # <a name="configure-gpu-monitoring-with-container-insights"></a>Configurer la surveillance de GPU avec Container Insights
 
@@ -39,7 +39,7 @@ Container Insights démarre automatiquement la surveillance de l’utilisation d
 
 ## <a name="gpu-performance-charts"></a>Graphiques de performances de GPU 
 
-Container Insights inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur GPU pour chaque cluster. Pour une description des classeurs disponibles dans Container insights, consultez [Classeurs dans Container Insights](../insights/container-insights-reports.md).
+Container Insights inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur GPU pour chaque cluster. Pour une description des classeurs disponibles dans Container insights, consultez [Classeurs dans Container Insights](container-insights-reports.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

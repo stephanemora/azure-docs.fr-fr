@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 98e0137c8e48696737cd5d8d1fd4d3de925b9f7f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: dbc82b67206f6453101b0d6f419718b928506f79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579783"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003851"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administration des services pour Recherche cognitive Azure sur le portail Azure
 
@@ -73,7 +73,7 @@ Recherche cognitive tire parti d’autres services Azure pour effectuer une surv
 
 Lorsque vous ouvrez la page de présentation du service de recherche, les autorisations attribuées à votre compte déterminent les pages qui sont à votre disposition. La page de présentation au début de l’article montre les pages du portail qu’un administrateur ou un contributeur verra.
 
-Dans une ressource Azure, les droits d’administration sont accordés par le biais de l’attribution de rôles. Dans le cadre de Recherche cognitive Azure, les [attributions de rôles](search-security-rbac.md) déterminent les personnes qui peuvent allouer des réplicas et des partitions ou gérer des clés API, qu’elles utilisent le portail, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md) ou les [API REST de gestion](/rest/api/searchmanagement/search-howto-management-rest-api) :
+Dans une ressource Azure, les droits d’administration sont accordés par le biais de l’attribution de rôles. Dans le cadre de Recherche cognitive Azure, les [attributions de rôles](search-security-rbac.md) déterminent les personnes qui peuvent allouer des réplicas et des partitions ou gérer des clés API, qu’elles utilisent le portail, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md) ou les [API REST de gestion](/rest/api/searchmanagement) :
 
 > [!TIP]
 > L’approvisionnement ou le retrait du service lui-même peut être effectué par un administrateur d’abonnement Azure ou un coadministrateur. En utilisant des mécanismes à l’échelle d’Azure, vous pouvez verrouiller un abonnement ou une ressource pour empêcher la suppression accidentelle ou non autorisée de votre service de recherche par les utilisateurs disposant de droits d’administration. Pour plus d’informations, consultez [Verrouiller les ressources pour en empêcher la suppression](../azure-resource-manager/management/lock-resources.md).

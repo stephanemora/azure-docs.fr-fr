@@ -7,12 +7,12 @@ author: stuartatmicrosoft
 ms.author: stkirk
 ms.service: azure-redhat-openshift
 keywords: chiffrement, byok, aro, cmk, openshift, red hat
-ms.openlocfilehash: f6c80bab6f821dc7c85352bf57ebe255ae712d43
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 12920f45528911c755035dacd9b9bc0dfa5908ba
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783518"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231410"
 ---
 # <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Chiffrer des revendications de volume persistant avec une clé gérée par le client (CMK) sur Azure Red Hat OpenShift (ARO) (préversion)
 
@@ -102,7 +102,7 @@ Nous devons autoriser le cluster ARO à utiliser le jeu de chiffrement de disque
 
 ```azurecli-interactive
 # First, get the Azure Application ID of the service principal used in the ARO cluster.
-aroSPAppId="$(oc get secret azure-credentials -n kube-system -o jsonpath='{.data.azure_client_id}' | base64 --decode)"
+aroSPAppId="$(az aro show -n $aroCluster -g $buildRG -o tsv --query servicePrincipalProfile.clientId)"
 
 # Next, get the object ID of the service principal used in the ARO cluster.
 aroSPObjId="$(az ad sp show --id $aroSPAppId -o tsv --query [objectId])"

@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519ed24e313f718efd92ba63f3d03f6dc9e4a13d
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89279463"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110580"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -75,7 +75,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Immersion technique](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [Questions fréquentes (FAQ)](how-to-connect-pta-faq.md)  : réponses aux questions fréquentes.
+- [Questions fréquentes (FAQ)](how-to-connect-pta-faq.yml)  : réponses aux questions fréquentes.
 - [Résolution des problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [Immersion dans la sécurité](how-to-connect-pta-security-deep-dive.md) : informations techniques supplémentaires sur la fonctionnalité.
 - [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.

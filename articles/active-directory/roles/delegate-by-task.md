@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9869a90c0159a7f60929c1ff9b0cf3319d60d5b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439023"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136343"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -55,6 +55,7 @@ Dans cet article, vous trouverez les informations nécessaires pour restreindre 
 > | Créer, lire, mettre à jour et supprimer des flux utilisateur d’inscription |Administrateur de flux d’utilisateurs ID externe |  |
 > | Créer, lire, mettre à jour et supprimer des attributs utilisateur | Administrateur d’attribut de flux d’utilisateurs ID externe |  |
 > | Créer, lire, mettre à jour et supprimer des utilisateurs | Administrateur d'utilisateurs |  |
+> | Configurer les paramètres de collaboration B2B externe | Administrateur général |  |
 > | Lire toute la configuration | Lecteur général |  |
 > | Lire les journaux d’audit B2C | Lecteur général ([consultez la documentation](../../active-directory-b2c/faq.yml)) |  |
 
@@ -165,8 +166,8 @@ Dans cet article, vous trouverez les informations nécessaires pour restreindre 
 > [!div class="mx-tableFixed"]
 > | Tâche | Rôle moins privilégié | Autres rôles |
 > | ---- | --------------------- | ---------------- |
-> | Ajouter des ressources à un catalogue | Administrateur d'utilisateurs | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
-> | Ajouter des sites SharePoint Online au catalogue | Administrateur général |  |
+> | Ajouter des ressources à un catalogue | Administrateur Identity Governance | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
+> | Ajouter des sites SharePoint Online au catalogue | Administrateur SharePoint |  |
 
 ## <a name="groups"></a>Groupes
 
@@ -225,7 +226,7 @@ Dans cet article, vous trouverez les informations nécessaires pour restreindre 
 > [!div class="mx-tableFixed"]
 > | Tâche | Rôle moins privilégié | Autres rôles |
 > | ---- | --------------------- | ---------------- |
-> | Lire les journaux d’activité de connexion | Lecteur de rapports | Lecteur de sécurité<br/>Security Administrator |
+> | Lire les journaux d’activité de connexion | Lecteur de rapports | Lecteur de sécurité<br/>Security Administrator<br/> Lecteur général |
 
 ## <a name="multi-factor-authentication"></a>Authentification multifacteur
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d9628c9d10818b2b7a8a731b14537e4b533af74e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532975"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
 Le journal d’activité est un [journal de plateforme](./platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](../logs/data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
@@ -63,7 +63,7 @@ Vous pouvez également accéder aux événements du journal d’activité à l�
 - Aucuns frais d’ingestion des données pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
 - Aucuns frais de rétention des données pendant 90 jours pour les données de journal d’activité stockées dans un espace de travail Log Analytics.
 
-[Créez un paramètre de diagnostic](./diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. La collecte des journaux de plusieurs locataires nécessite [Azure Lighthouse](../../lighthouse/index.yml).
+[Créez un paramètre de diagnostic](./diagnostic-settings.md) pour envoyer le journal d’activité à un espace de travail Log Analytics. Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail. 
 
 Les données du journal d’activité d’un espace de travail Log Analytics sont stockées dans une table appelée *AzureActivity* que vous pouvez récupérer à l’aide d’une [requête de journal](../logs/log-query-overview.md) dans [Log Analytics](../logs/log-analytics-tutorial.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-schema.md). Pour obtenir une description des propriétés de la table, consultez la [référence des données d’Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 

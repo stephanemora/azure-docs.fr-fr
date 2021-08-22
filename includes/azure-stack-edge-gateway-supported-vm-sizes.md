@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: f1e6ff675c7754b1eaa8705f335818053b80ef40
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: c772d2722c90cefb99c9f2fdd111e2d654d11659
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846575"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279936"
 ---
 La taille de machine virtuelle détermine la quantité de ressources de calcul (comme l’UC, le GPU et la mémoire) qui sont mises à la disposition de la machine virtuelle. Vous devez créer des machines virtuelles en utilisant une taille de machine virtuelle adaptée à la charge de travail. Même si toutes les machines vont s’exécuter sur le même matériel, leur taille ont des limites différentes pour l’accès au disque. Cela peut vous aider à gérer l’accès global au disque sur toutes vos machines virtuelles. Si une charge de travail augmente, vous pouvez également redimensionner une machine virtuelle existante.
 
@@ -26,7 +26,8 @@ La création des machines virtuelles suivantes est prise en charge sur votre app
 | **Standard_D11_v2**  | 2     | 14            | 100                 | 1 000                           | 6000                                | 500                              | 8               | 2         |
 | **Standard_D12_v2**  | 4     | 28            | 200                 | 1 000                           | 12 000                               | 500                              | 16              | 4         |
 | **Standard_D13_v2**  | 8     | 56            | 400                 | 1 000                           | 24 000                               | 500                              | 32              | 8         |
-| **Standard_D14_v2**  | 16    | 114           | 800                 | 1 000                           | 48 000                               | 500                              | 64              | 8         |
+
+<!--| **Standard_D14_v2**  | 16    | 114           | 800                 | 1000                           | 48000                               | 500                              | 64              | 8         |-->
 
 
 ### <a name="dsv2-series"></a>Séries DSv2
@@ -40,7 +41,8 @@ La création des machines virtuelles suivantes est prise en charge sur votre app
 | **Standard_DS11_v2**  | 2     | 14            | 28                  | 2000                           | 8000                                | 2300                             | 8               | 2         |
 | **Standard_DS12_v2**  | 4     | 28            | 56                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
 | **Standard_DS13_v2**  | 8     | 56            | 112                 | 2000                           | 32000                               | 2300                             | 32              | 8         |
-| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64 000                               | 2300                             | 64              | 8         |
+
+<!--| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |-->
 
 Pour plus d’informations, consultez [Série Dv2 et DSv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 

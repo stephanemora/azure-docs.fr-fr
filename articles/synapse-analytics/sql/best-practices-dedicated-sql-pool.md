@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b11a76be94fc52285482e13dadbc8c7c92af1374
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d37cabb8b74fea3a72ddafdf3322d20379f8d29
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608633"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532950"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Meilleures pratiques pour les pools SQL dédiés dans Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Pour obtenir des conseils sur le chargement des pools SQL dédiés, consultez le
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Réduire les coûts avec les opérations de suspension et de mise à l’échelle
 
-Pour plus d’informations sur la réduction des coûts au travers de la suspension et de la mise à l’échelle, consultez [Gérer le calcul](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour plus d’informations sur la réduction des coûts au travers de la suspension et de la mise à l’échelle, consultez [Gérer le calcul](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="maintain-statistics"></a>Mettre à jour les statistiques
 
@@ -63,13 +63,13 @@ Les charges PolyBase peuvent être exécutées à l’aide de CTAS ou d’INSERT
 
 Pour maximiser le débit lors de l’utilisation de fichiers texte Gzip, divisez les fichiers en 60 fichiers ou plus pour optimiser le parallélisme de votre charge. Pour un débit total plus rapide, envisagez le chargement simultané des données. Vous trouverez des informations supplémentaires sur les sujets relatifs à cette section dans les articles suivants :
 
-- [Chargement des données](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Chargement des données](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context)
 - [Guide d’utilisation de PolyBase](data-loading-best-practices.md)
 - [Modèles et stratégies de chargement de pools SQL dédiés](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
-- [Téléchargement de données avec Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Déplacer les données avec Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Téléchargement de données avec Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context)
+- [Déplacer les données avec Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?context=/azure/synapse-analytics/context/context)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
-- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 
 ## <a name="load-then-query-external-tables"></a>Charger, puis interroger les tables externes
 
@@ -91,7 +91,7 @@ Par exemple, si vous avez une table de commandes distribuée par order_id, et un
 Les liens d’articles ci-dessous vous permettent d’accéder à des informations supplémentaires sur l’amélioration des performances en sélectionnant une colonne de distribution. Vous y trouverez également des informations sur la définition d’une table distribuée dans la clause WITH de votre instruction CREATE TABLE :
 
 - [Vue d’ensemble des tables](develop-tables-overview.md)
-- [Distribution de table](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Distribution de table](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)
 - [Sélection d’une distribution de tables](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true)
@@ -104,7 +104,7 @@ Un trop grand nombre de partitions peut réduire l’efficacité des index colum
 
 L’une des options à prendre en compte est l’utilisation d’une granularité inférieure à celle que vous avez implémentée à l’aide de SQL Server. Par exemple, envisagez d’utiliser des partitions hebdomadaires ou mensuelles plutôt que quotidiennes.
 
-Pour plus d’informations sur le partitionnement, consultez l’article [Partitionnement de tables](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour plus d’informations sur le partitionnement, consultez l’article [Partitionnement de tables](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="minimize-transaction-sizes"></a>Minimiser la taille des transactions
 
@@ -119,10 +119,10 @@ Pour les tables non partitionnées, utilisez une instruction CTAS pour écrire l
 
 Pour plus d’informations sur le contenu lié à cette section, consultez les articles suivants :
 
-- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)
 - [Présentation des transactions](develop-transactions.md)
-- [Optimizing transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Partitionnement de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Optimizing transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context)
+- [Partitionnement de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)
 - [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
@@ -148,7 +148,7 @@ Pour des conseils supplémentaires, consultez les articles [Tables temporaires](
 
 Les index columnstore en cluster sont l’une des méthodes les plus efficaces pour stocker vos données dans un pool SQL dédié.  Par défaut, les tables du pool SQL dédié sont créées en tant que ColumnStore en cluster.  Pour obtenir les meilleures performances pour les requêtes sur les tables columnstore, la qualité du segment est importante.  Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée.  
 
-La qualité d’un segment peut se mesurer au nombre de lignes dans un groupe de lignes compressé. Consultez la section [Causes de la qualité médiocre des index columnstore](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) dans l’article [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour obtenir des instructions étape par étape sur la détection et l’amélioration de la qualité de segment pour les tables columnstore en cluster.  
+La qualité d’un segment peut se mesurer au nombre de lignes dans un groupe de lignes compressé. Consultez la section [Causes de la qualité médiocre des index columnstore](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context#causes-of-poor-columnstore-index-quality) dans l’article [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context) pour obtenir des instructions étape par étape sur la détection et l’amélioration de la qualité de segment pour les tables columnstore en cluster.  
 
 Étant donné que la qualité des segments columnstore est importante, nous vous conseillons d’utiliser des ID d’utilisateurs qui se trouvent dans la classe de ressource de moyenne ou grande taille pour le chargement des données. L’utilisation d’[unités DWU (Data Warehouse Unit)](resource-consumption-models.md) inférieures signifie que vous souhaitez assigner une classe de ressource plus grande à votre utilisateur de chargement.
 
@@ -162,7 +162,7 @@ Si vous partitionnez vos données, chaque partition doit compter 1 million de l
 Si votre table ne contient pas 6 milliards lignes, vous avez deux options principales. Réduire le nombre de partitions ou envisager d’utiliser une table de segments de mémoire à la place.  Il peut également être intéressant d’expérimenter pour voir si de meilleures performances peuvent être obtenues en utilisant une table de segments de mémoire avec des index secondaires plutôt qu’avec une table columnstore.
 
 Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus vite si vous sélectionnez uniquement les colonnes dont vous avez besoin.  Vous trouverez des informations supplémentaires sur les index table et columnstore dans les articles suivants :
-- [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)
 - [Guide des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
 - [Reconstruction des index columnstore](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
 - [Réglage des performances avec un index columnstore en cluster ordonné](../sql-data-warehouse/performance-tuning-ordered-cci.md)
@@ -173,7 +173,7 @@ Les pools SQL utilisent des groupes de ressources pour allouer de la mémoire au
 
 Certaines requêtes, telles que des grandes jointures ou des charges dans des tables columnstore en cluster, bénéficieront d’allocations de mémoire supérieures.  Certaines requêtes comme des analyses pures n’en tireront aucun bénéfice. L’utilisation de classes de ressources de plus grande taille a une incidence sur la concurrence. Gardez donc ces faits à l’esprit avant de déplacer tous vos utilisateurs vers une classe de ressources de grande taille.
 
-Pour plus d’informations sur les classes de ressources, consultez l’article [Classes de ressources pour la gestion des charges de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour plus d’informations sur les classes de ressources, consultez l’article [Classes de ressources pour la gestion des charges de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Utiliser une classe de ressources de plus petite taille pour augmenter la concurrence
 
@@ -185,7 +185,7 @@ Pour plus d’informations, consultez les articles [Classes de ressources pour l
 
 Les pools SQL dédiés disposent de plusieurs vues de gestion dynamique qui peuvent être utilisées pour surveiller l’exécution de requête.  L’article sur la surveillance ci-dessous fournit des instructions détaillées sur la façon de consulter les détails d’une requête en cours d’exécution.  Pour trouver rapidement des requêtes dans ces DMV, l’utilisation de l’option LABEL avec vos requêtes peut aider. Pour plus d’informations détaillées, consultez les articles figurant dans la liste ci-dessous :
 
-- [Surveiller votre charge de travail à l'aide de vues de gestion dynamique](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Surveiller votre charge de travail à l'aide de vues de gestion dynamique](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context)
 
 - [LABEL](develop-label.md)
 - [OPTION](/sql/t-sql/queries/option-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -199,7 +199,7 @@ Les pools SQL dédiés disposent de plusieurs vues de gestion dynamique qui peuv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez également notre article [Dépannage](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) concernant les problèmes courants et leurs solutions.
+Consultez également notre article [Dépannage](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?context=/azure/synapse-analytics/context/context) concernant les problèmes courants et leurs solutions.
 
 Si vous avez besoin d’informations non fournies dans cet article, la [page de questions Microsoft Q&A sur Azure Synapse](/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit Azure Synapse Analytics.  
 

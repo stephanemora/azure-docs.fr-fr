@@ -2,17 +2,17 @@
 title: Résolution des exceptions FabricInternalServerError et ServiceAllocationFailure lors du déploiement d’un service cloud (classique) sur Azure | Microsoft Docs
 description: Cet article explique comment résoudre une exception FabricInternalServerError ou ServiceAllocationFailure lors du déploiement d’un service cloud (classique) sur Azure.
 services: cloud-services
-author: mamccrea
-ms.author: mamccrea
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 0883178779179df2e531123b8a500c62d42530e4
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: ad5feb622f97a446420c151917907785c35e2f0c
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877441"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090004"
 ---
 # <a name="troubleshoot-fabricinternalservererror-or-serviceallocationfailure-when-deploying-a-cloud-service-classic-to-azure"></a>Résolution des exceptions FabricInternalServerError et ServiceAllocationFailure lors du déploiement d’un service cloud (classique) sur Azure
 

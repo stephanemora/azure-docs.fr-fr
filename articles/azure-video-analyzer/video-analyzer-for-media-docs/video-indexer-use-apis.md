@@ -1,20 +1,21 @@
 ---
 title: Utiliser l’API Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Cet article explique comment bien démarrer avec l’API Azure Video Analyzer for Media (anciennement Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d5fbb5d5ec094930f73bf8f2a081475ada794e1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a5f7b2bcc861ae92016c1eece0db19026bc233c9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385675"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118819"
 ---
 # <a name="tutorial-use-the-video-analyzer-for-media-api"></a>Didacticiel : utiliser l’API Azure Video Analyzer for Media
 

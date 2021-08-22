@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7da8062f18d737af9d19df54863bc56c7268910c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 243aa85ed2e52fe73efcb0e81c5b3de70b43039e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776912"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532020"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Créer et gérer des réseaux virtuels pour Azure Database pour MySQL - Serveur flexible à l’aide d’Azure CLI
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
@@ -23,7 +25,7 @@ Le serveur flexible Azure Database pour MySQL prend en charge deux types de mét
 - Accès public (adresses IP autorisées)
 - Accès privé (intégration au réseau virtuel)
 
-Dans cet article, nous allons nous concentrer sur la création d’un serveur MySQL avec l’option **Accès privé (intégration au réseau virtuel)** à l’aide d’Azure CLI. Avec l’option *Accès privé (intégration au réseau virtuel)* , vous pouvez déployer votre serveur flexible sur votre propre [réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md). Les réseaux virtuels Azure offrent des communications réseau privées et sécurisées. Dans un accès privé, les connexions au serveur MySQL sont limitées à votre réseau virtuel uniquement. Pour en savoir plus à ce sujet, reportez-vous à [Accès privé (intégration au réseau virtuel)](./concepts-networking.md#private-access-vnet-integration).
+Dans cet article, nous allons nous concentrer sur la création d’un serveur MySQL avec l’option **Accès privé (intégration au réseau virtuel)** à l’aide d’Azure CLI. Avec l’option *Accès privé (intégration au réseau virtuel)* , vous pouvez déployer votre serveur flexible sur votre propre [réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md). Les réseaux virtuels Azure offrent des communications réseau privées et sécurisées. Dans un accès privé, les connexions au serveur MySQL sont limitées à votre réseau virtuel uniquement. Pour en savoir plus à ce sujet, reportez-vous à [Accès privé (intégration au réseau virtuel)](./concepts-networking-vnet.md).
 
 Dans Azure Database pour MySQL - Serveur flexible, vous pouvez uniquement déployer le serveur sur un réseau virtuel et un sous-réseau lors de la création du serveur. Une fois le serveur flexible déployé sur un réseau virtuel et un sous-réseau, vous ne pouvez pas le déplacer vers un autre réseau virtuel ou sous-réseau, ni vers l’*accès public (adresses IP autorisées)* .
 
@@ -84,4 +86,4 @@ Pour obtenir la liste complète des paramètres CLI configurables, reportez-vou
 ## <a name="next-steps"></a>Étapes suivantes
 - Explorez les [réseaux sur le serveur flexible Azure Database pour MySQL](./concepts-networking.md).
 - [Créez et gérez un réseau virtuel de serveur flexible Azure Database pour MySQL à l’aide du portail Azure](./how-to-manage-virtual-network-portal.md).
-- Découvrez plus en détail le [réseau virtuel de serveur flexible Azure Database pour MySQL](./concepts-networking.md#private-access-vnet-integration).
+- Découvrez plus en détail le [réseau virtuel de serveur flexible Azure Database pour MySQL](./concepts-networking-vnet.md#private-access-vnet-integration).

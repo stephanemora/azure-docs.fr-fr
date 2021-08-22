@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2e54eb0ea8166b32dd4bcc794bfcf401d9196884
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d0459e8ac0002f69ac0e4d33a921bd64fc385d5
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469242"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533114"
 ---
 # <a name="azure-storage-migration-overview"></a>Présentation de la migration de données Stockage Azure
 
@@ -125,4 +125,4 @@ Pour savoir quelles sont les charges de travail à migrer et connaître l’appr
 - [Migrer vers des partages de fichiers Azure](../files/storage-files-migration-overview.md)
 - [Migrer vers Data Lake Storage avec WANdisco LiveData Platform for Azure](../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copier ou déplacer des données vers le service Stockage Azure avec AzCopy](./storage-use-azcopy-v10.md)
-- [Migrer des jeux de données volumineux vers le service Stockage Blob Azure avec AzReplicate](https://github.com/Azure/AzReplicate/tree/master/)
+- [Migrer des jeux de données volumineux vers le service Stockage Blob Azure avec AzReplicate](/samples/azure/azreplicate/azreplicate/)

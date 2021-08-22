@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: yelevin
-ms.openlocfilehash: a0056391dddec25511deb7033d37f59db3d835c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b023745d8882d639cf9a39fd483dd7b82d1a782d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98567810"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531833"
 ---
 # <a name="connect-your-thycotic-secret-server-to-azure-sentinel"></a>Connecter Thycotic Secret Server à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Thycotic Secret Server est actuellement disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Cet article explique comment connecter votre appliance Thycotic Secret Server à Azure Sentinel. Le connecteur de données Thycotic Secret Server vous permet de connecter facilement vos journaux Thycotic Secret Server à Azure Sentinel, ce qui vous permet ensuite de consulter les données dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer l’investigation. L’intégration entre Thycotic et Azure Sentinel utilise le connecteur de données CEF pour analyser et afficher correctement les messages Secret Server Syslog.
 
@@ -51,7 +53,7 @@ Pour récupérer ses journaux dans Azure Sentinel, configurez votre appliance Th
 
     1. Sous **1. Configurer l’agent Syslog Linux** : Effectuez cette étape si vous n’avez pas encore de redirecteur de journal en cours d’exécution, ou si vous en avez besoin d’un autre. Consultez [ÉTAPE 1 : Déployer le redirecteur de journal](connect-cef-agent.md) dans la documentation d’Azure Sentinel pour obtenir des instructions et des explications plus détaillées.
 
-    1. Sous **2. Transférer les journaux d’activité au format CEF vers l’agent Syslog** : Suivez les instructions de Thycotic pour [configurer Secret Server](https://thy.center/ss/link/syslog). Cette configuration doit inclure les éléments suivants :
+    1. Sous **2. Transférer les journaux d’activité au format CEF vers l’agent Syslog** : Suivez les instructions de Thycotic pour [configurer Secret Server](https://docs.thycotic.com/ssi/1.0.0/splunk/splunk-on-prem/config/syslog-events.md). Cette configuration doit inclure les éléments suivants :
         - Destination du journal : nom d’hôte et/ou adresse IP de votre serveur de transfert de journaux
         - Protocole et port : **TCP 514** (si cela est recommandé, veillez à effectuer la modification parallèle dans le démon Syslog sur votre serveur de transfert de journaux)
         - Format du journal : CEF
@@ -78,6 +80,6 @@ Consultez l’onglet **Étapes suivantes** de la page du connecteur pour obtenir
 
 Ce document vous a montré comment connecter Thycotic Secret Server à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

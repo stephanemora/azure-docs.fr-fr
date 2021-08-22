@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 06/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b66ab52a65dd848997d8f13dde7bfba944ad520b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ff0e43570b9bf30b84538cfeca841a69d025b26b
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744392"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090382"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -69,30 +69,32 @@ Avec une stratégie à deux verrous, les administrateurs n’ont pas la possibil
 La stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une adresse e-mail, une application d’authentification ou un numéro de téléphone. Une stratégie à deux verrous s’applique dans les conditions suivantes :
 
 * Tous les rôles d’administrateur suivants sont concernés :
-  * Administrateur du support technique
-  * Administrateur de support de service
+  * Administrateur d’application
+  * Administrateur de services de proxy d’application
+  * Administrateur d’authentification
+  * Administrateur local de l’appareil joint Azure AD
   * Administrateur de facturation
+  * Administrateur de conformité
+  * Administrateurs d’appareils
+  * Comptes de synchronisation d’annuaires
+  * Enregistreurs de répertoire
+  * Administrateur Dynamics 365
+  * Administrateur Exchange
+  * Administrateur général ou administrateur d’entreprise
+  * Administrateur du support technique
+  * Administrateur Intune
+  * Administrateur de boîte aux lettres
   * Prise en charge de niveau 1 de partenaire
   * Prise en charge de niveau 2 de partenaire
-  * Administrateur Exchange
-  * Administrateur de boîte aux lettres
+  * Administrateur de mots de passe
+  * Administrateur de services Power BI
+  * Administrateur d’authentification privilégié
+  * Administrateur de rôle privilégié
+  * Administrateur SharePoint
+  * Administrateur de sécurité
+  * Administrateur de support de service
   * Administrateur Skype Entreprise
   * Administrateur d’utilisateurs
-  * Enregistreurs de répertoire
-  * Administrateur général ou administrateur d’entreprise
-  * Administrateur SharePoint
-  * Administrateur de conformité
-  * Administrateur d’application
-  * Administrateur de sécurité
-  * Administrateur de rôle privilégié
-  * Administrateur Intune
-  * Administrateur local de l’appareil joint Azure AD
-  * Administrateur de services de proxy d’application
-  * Administrateur Dynamics 365
-  * Administrateur de services Power BI
-  * Administrateur d’authentification
-  * Administrateur de mots de passe
-  * Administrateur d’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
 * Un domaine personnalisé a été configuré pour votre locataire Azure AD, par exemple *contoso.com* ; ou
@@ -117,7 +119,7 @@ Vous pouvez également utiliser des applets de commande PowerShell pour supprime
 Ces conseils s’appliquent à d’autres fournisseurs, tels que Intune et Microsoft 365, qui s’appuient également sur Azure AD pour les services d’identité et d’annuaire. L’expiration du mot de passe est la seule partie de la stratégie qui peut être modifiée.
 
 > [!NOTE]
-> Par défaut, seuls les mots de passe de comptes d’utilisateurs non synchronisés par le biais d’Azure AD Connect peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter AD à Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization#password-expiration-policy).
+> Par défaut, seuls les mots de passe de comptes d’utilisateurs non synchronisés par le biais d’Azure AD Connect peuvent être configurés pour ne pas expirer. Pour plus d’informations sur la synchronisation d’annuaires, consultez [Connecter AD à Azure AD](../hybrid/how-to-connect-password-hash-synchronization.md#password-expiration-policy).
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>Définir ou vérifier les stratégies de mot de passe à l’aide de PowerShell
 

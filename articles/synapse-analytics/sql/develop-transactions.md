@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44e4b35d7e67e566b3ccef61cf5fa22077e844c7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594765"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532970"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utiliser des transactions avec un pool SQL dédié dans Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
 ## <a name="gen2"></a>Deuxième génération
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200c |1.5 |60 |90 |6 000 000 |360 000 000 |
@@ -64,7 +64,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
 ## <a name="gen1"></a>Première génération
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU](resource-consumption-models.md#data-warehouse-units) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6 000 000 |360 000 000 |
@@ -81,7 +81,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
 La limite de taille de transaction est appliquée par transaction ou opération. Elle n’est pas appliquée à toutes les transactions simultanées. Par conséquent, chaque transaction est autorisée à écrire cette quantité de données dans le journal.
 
-Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour optimiser et réduire la quantité de données écrites dans le journal, consultez l’article [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context).
 
 > [!WARNING]
 > La taille de transaction maximale ne peut être obtenue que pour les tables distribuées HASH ou ROUND_ROBIN où la répartition des données est égale. Si la transaction écrit les données de manière asymétrique dans les distributions, alors la limite est susceptible d’être atteinte avant la taille de transaction maximale.
@@ -204,4 +204,4 @@ En ce qui concerne les transactions, le pool SQL dédié présente quelques rest
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Des guides supplémentaires sur les meilleures pratiques sont également fournis pour le [Pool SQL dédié](best-practices-dedicated-sql-pool.md) et le [Pool SQL serverless](best-practices-serverless-sql-pool.md).
+Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?context=/azure/synapse-analytics/context/context). Des guides supplémentaires sur les meilleures pratiques sont également fournis pour le [Pool SQL dédié](best-practices-dedicated-sql-pool.md) et le [Pool SQL serverless](best-practices-serverless-sql-pool.md).

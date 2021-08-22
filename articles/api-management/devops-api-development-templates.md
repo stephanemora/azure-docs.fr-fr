@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 49dc71dac6d246907de3498ed0a39541a3caf522
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e7d0515262fc06d850b61f257e7cd577797bcf39
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888425"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532379"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD pour la gestion des API à l’aide de modèles de Azure Resource Manager
 
@@ -67,7 +67,7 @@ Les développeurs d’API rencontrent des difficultés lors de l’utilisation d
 
 * Les éditeurs d’API peuvent valider la demande de tirage (pull request) et vérifier que les modifications sont sûres et conformes. Par exemple, ils peuvent vérifier si seul le protocole HTTPs est autorisé à communiquer avec l’API. La plupart des validations peuvent être automatisées comme une étape dans le pipeline CI/CD.
 
-* Une fois les modifications approuvées et fusionnées avec succès, les éditeurs d’API peuvent choisir de les déployer sur l’instance de production selon la planification ou à la demande. Le déploiement des modèles peut être automatisé à l’aide de [GitHub Actions](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)ou d’autres outils.
+* Une fois les modifications approuvées et fusionnées avec succès, les éditeurs d’API peuvent choisir de les déployer sur l’instance de production selon la planification ou à la demande. Le déploiement des modèles peut être automatisé à l’aide de [GitHub Actions](https://docs.github.com/en/actions), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)ou d’autres outils.
 
 
 Avec cette approche, une organisation peut automatiser le déploiement des modifications d’API dans les instances Gestion des API, et il est facile de promouvoir les modifications d’un environnement à un autre. Étant donné que différentes équipes de développement d’API travaillent sur différents ensembles de modèles et de fichiers d’API, cela empêche les interférences entre les différentes équipes.

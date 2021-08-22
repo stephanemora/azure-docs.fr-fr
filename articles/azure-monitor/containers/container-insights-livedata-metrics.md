@@ -4,12 +4,12 @@ description: Cet article décrit l’affichage en temps réel de métriques sans
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5dffc98e73a9d9e85b301d3272869b7fb5118ab5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731848"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532643"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Comment afficher les mesures en temps réel
 
@@ -82,4 +82,4 @@ Ce graphique de performances mappe vers un équivalent de l’appel de `kubectl 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.
+Consultez [Exemples de requêtes de journal](container-insights-log-query.md) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.

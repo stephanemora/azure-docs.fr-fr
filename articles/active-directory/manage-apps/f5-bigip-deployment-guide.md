@@ -2,22 +2,23 @@
 title: Guide de déploiement d’un accès hybride sécurisé à Azure AD avec F5 | Microsoft Docs
 description: Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition (VE) dans Azure IaaS pour un accès hybride sécurisé
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aeb48b5ee2bd3fbb127b3a88e7dda4946e96c163
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: miccohen
+ms.openlocfilehash: f33e9a8207e3b8e6986999b7ea19aedbcb19b4da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184781"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532720"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition dans Azure IaaS pour un accès hybride sécurisé
 
@@ -249,7 +250,7 @@ Par défaut, les réseaux virtuels Azure et les sous-réseaux associés sont des
  |Adresses IP de destination|Liste séparée par des virgules de toutes les adresses IP privées secondaires de la machine virtuelle BIG-IP|
  |Ports de destination| 80,443|
  |Protocole| TCP |
- |Action| Autoriser|
+ |Action| Allow|
  |Priority|Valeur disponible la plus basse entre 100 et 4096|
  |Nom | Nom descriptif, par exemple : `BIG-IP-VM_Web_Services_80_443`|
 
@@ -273,7 +274,7 @@ Une fois que vous êtes prêt, confirmez que vous pouvez vous connecter à la co
 
 - Si vous vous connectez à partir d’une machine virtuelle sur son réseau interne ou via un VPN, connectez-vous directement à l’adresse IP principale et au port de configuration web du système BIG-IP. Par exemple : `https://<BIG-IP-VM_Primary_IP:8443`. Votre navigateur vous indiquera que la connexion n’est pas sécurisée, mais vous pouvez ignorer l’invite jusqu’à ce que le système BIG-IP soit configuré. Si le navigateur insiste pour bloquer l’accès, effacez son cache et réessayez.
 
-- Si vous avez publié la configuration web via le proxy d’application, utilisez l’URL définie pour accéder en externe à la configuration web, sans ajouter le port, par exemple, `https://big-ip-vm.contoso.com`. L’URL interne doit être définie à l’aide du port de configuration web, par exemple, `https://big-ip-vm.contoso.com:8443` 
+- Si vous avez publié la configuration web via le proxy d’application, utilisez l’URL définie pour accéder en externe à la configuration web, sans ajouter le port, par exemple, `https://big-ip-vm.contoso.com`. L’URL interne doit être définie à l’aide du port de configuration web, par exemple, `https://big-ip-vm.contoso.com:8443`
 
 Un système BIG-IP peut également être géré via son environnement SSH sous-jacent, qui est généralement utilisé pour les tâches de ligne de commande (interface CLI) et l’accès au niveau racine. Plusieurs options existent pour la connexion à l’interface CLI, y compris :
 
@@ -474,14 +475,14 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
--   [Réinitialiser le mot de passe BIG-IP VE dans Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
-    -   [Réinitialiser le mot de passe sans utiliser le portail](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
+- [Réinitialiser le mot de passe BIG-IP VE dans Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
+- [Réinitialiser le mot de passe sans utiliser le portail](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
 
--   [Changer la carte réseau utilisée pour la gestion de BIG-IP VE](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
+- [Changer la carte réseau utilisée pour la gestion de BIG-IP VE](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
 
--   [À propos des routes dans une configuration à une seule carte réseau](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
+- [À propos des routes dans une configuration à une seule carte réseau](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
 
--   [Microsoft Azure : Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
+- [Microsoft Azure : Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

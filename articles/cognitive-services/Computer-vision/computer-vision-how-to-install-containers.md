@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: 42f840c9237d22638236efb758c9b789501b0ce5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 18827a1c301125b722995d43869f4a4439f36e12
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773428"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301700"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Installer des conteneurs Docker OCR Read
 
@@ -472,5 +472,5 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](computer-vision-resource-container-config.md).
 * Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de la reconnaissance optique de caractères](overview-ocr.md).
 * Reportez-vous à l’ [API Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) pour plus d’informations sur les méthodes prises en charge par le conteneur.
-* Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.md).
+* Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.yml).
 * Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

@@ -4,16 +4,16 @@ description: Cet article explique comment installer manuellement .NET Framework 
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: aa05fc9f02c26192762ed34db54b60b4760bf3bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e092d5e704667f3db16eb4a862269dc42b835fe
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99061849"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091606"
 ---
 # <a name="install-net-on-azure-cloud-services-classic-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services (classique)
 
@@ -34,7 +34,7 @@ Pour télécharger le programme d'installation web de .NET Framework, sélection
 
 * [Programme d’installation web de .NET Framework 4.8](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [Programme d’installation web du .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Programme d’installation web du .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
+* [Programme d’installation web du .NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462)
 
 Pour ajouter le programme d’installation pour un rôle *web* :
   1. Dans l’**Explorateur de solutions**, dans votre projet de service cloud, sous **Rôles**, cliquez avec le bouton droit sur votre rôle *web*, puis sélectionnez **Ajouter** > **Nouveau dossier**. Créez un dossier intitulé **bin**.
@@ -96,7 +96,7 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** https://go.microsoft.com/fwlink/?LinkId=671729
-   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
+   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://dotnet.microsoft.com/download/dotnet-framework/net462
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262

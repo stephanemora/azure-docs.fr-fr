@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Managed Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 7d3cd36dd0f03db7cc701c618b40f58dc9873659
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: b7ca60a674a044e5fa37604eadad7ca5cbbfddf3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982013"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524809"
 ---
 # <a name="edge-managed-certification-requirements"></a>Conditions requises pour la certification Edge Managed
 
@@ -51,7 +51,7 @@ La certification Edge Managed requiert que toutes les exigences du [programme de
 | **SE**                  | [Système d’exploitation de niveau1 et niveau2](../iot-edge/support.md)                 |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | AICS valide la capacité de déploiement du runtime IoT Edge installé. **1.** L’utilisateur doit spécifier un système d’exploitation spécifique (le système d’exploitation ne se trouvant pas dans la liste de niveau 1/2 n’est pas accepté) **2.** AICS génère son fichier config.yaml et déploie le [module de périphérie de capteur Temp simulé](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-iot.simulated-temperature-sensor?tab=Overview) canonique **3.** AICS confirme que le sous-système de conteneur compatible avec l’ancrage (Moby) est installé sur l’appareil **4.** Le résultat de test est déterminé en fonction de la réussite du déploiement du module de périphérie de capteur temporaire simulé et de la fonctionnalité du sous-système de conteneur compatible avec l’ancrage                                                    |
-| **Ressources**           | **a)** [Blog AICS](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Étapes de certification](./overview.md) (a toutes les ressources supplémentaires), **c)** [Exigences](./program-requirements-azure-certified-device.md) |
+| **Ressources**           | **a)** [Blog AICS](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Étapes de certification](./overview.md) (a toutes les ressources supplémentaires), **c)** [Exigences](./program-requirements-azure-certified-device.md) |
 | **Recommandé par Azure :**     | N/A                                                    |
 
 ### <a name="capability-template"></a>Modèle de capacité :
@@ -65,5 +65,5 @@ La certification Edge Managed requiert que toutes les exigences du [programme de
 | **SE**                  | [Système d’exploitation de niveau1 et niveau2](../iot-edge/support.md)                                                     |
 | **Type de validation**     | Manuel/labo vérifié                                                    |
 | **Validation**          | OEM doit expédier l’appareil physique à l’administration IoT (HCL). HCL effectue une validation manuelle sur l’appareil physique à vérifier : **1.** EdgeRT utilise le sous-système Moby (version de redistribution autorisée). Pas docker **2.** Choisissez le dernier module Edge pour valider la possibilité de déployer Edge.                                                     |
-| **Ressources**           | **a)** [Blog AICS](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Étapes de certification](./overview.md), **c)** [Exigences](./program-requirements-azure-certified-device.md) |
+| **Ressources**           | **a)** [Blog AICS](https://azure.microsoft.com/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [Étapes de certification](./overview.md), **c)** [Exigences](./program-requirements-azure-certified-device.md) |
 | **Recommandé par Azure :**     | N/A                                                    |

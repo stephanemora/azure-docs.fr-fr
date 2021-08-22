@@ -2,19 +2,18 @@
 title: Exemple de compétence personnalisée utilisant l’API Recherche d’entités Bing
 titleSuffix: Azure Cognitive Search
 description: Présente l’utilisation du service Recherche d’entités Bing dans une compétence personnalisée mappée à un pipeline d’indexation IA dans Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b962282ee4e488d026b6475c63fc32e6a77cee74
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 88ea321087cc8745184249d323895a356cd9dbbc
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591527"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729428"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 
@@ -312,7 +311,7 @@ namespace SampleSkills
 
 Veillez à entrer votre propre valeur de *clé* dans la constante `key`en fonction de la clé que vous avez obtenue lors de l’inscription à l’API Recherche d’entités Bing.
 
-Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette qualification dans le [référentiel des qualifications puissantes](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette qualification dans le [référentiel des qualifications puissantes](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch).
 
 Vous pouvez bien sûr renommer le fichier de `Function1.cs` en `BingEntitySearch.cs`.
 

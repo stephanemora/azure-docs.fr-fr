@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: fca5c1a0aee6e62890d734e3233177549d932672
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c24b7ee5154ec7f79bbbf19ffc6c59b8bf6221b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643667"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532405"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -43,7 +43,7 @@ Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](
   - **Asie Sud-Est**
   - **USA Ouest 2**
 
-- Cet article suppose que vous savez envoyer des messages de télémétrie aux hubs IoT. Vous devez avoir suivi le [guide de démarrage rapide sur l’envoi de données de télémétrie en C](quickstart-send-telemetry-c.md).
+- Cet article suppose que vous savez envoyer des messages de télémétrie aux hubs IoT. Vous devez avoir suivi le [guide de démarrage rapide sur l’envoi de données de télémétrie en C](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 - Inscrivez un appareil auprès de votre hub IoT (les étapes sont indiquées dans tous les guides de démarrage rapide), puis notez la chaîne de connexion.
 
@@ -144,7 +144,7 @@ Ces instructions concernent la création de l’exemple sur un système Windows
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    Remplacez la valeur de la constante `connectionString` par la chaîne de connexion d’appareil que vous avez notée dans la section [Inscrire un appareil](./quickstart-send-telemetry-c.md#register-a-device) du [Guide de démarrage rapide sur l’envoi de données de télémétrie en C](./quickstart-send-telemetry-c.md).
+    Remplacez la valeur de la constante `connectionString` par la chaîne de connexion d’appareil que vous avez notée dans la section [Inscrire un appareil](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) du [Guide de démarrage rapide sur l’envoi de données de télémétrie en C](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 1. Définissez `MESSAGE_COUNT` sur `5000` :
 

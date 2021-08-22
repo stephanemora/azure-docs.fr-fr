@@ -4,12 +4,12 @@ description: Découvrez comment configurer un fournisseur OpenID Connect en tant
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befedca9fa872575d990ceea786a09d60a5773ca
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90983870"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092926"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurer votre application App Service ou Azure Functions pour la connexion à l’aide d’un fournisseur OpenID Connect (préversion)
 
@@ -48,7 +48,7 @@ Si vous ne pouvez pas utiliser un document de métadonnées de configuration, vo
 ## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>Ajouter des informations sur le fournisseur à votre application
 
 > [!NOTE]
-> La configuration requise est dans un nouveau format d’API, actuellement pris en charge uniquement par la [configuration basée sur fichier (préversion)](.\app-service-authentication-how-to.md#config-file). Vous devrez suivre les étapes ci-dessous à l’aide d’un fichier de ce type.
+> La configuration requise est dans un nouveau format d’API, actuellement pris en charge uniquement par la [configuration basée sur fichier (préversion)](configure-authentication-file-based.md). Vous devrez suivre les étapes ci-dessous à l’aide d’un fichier de ce type.
 
 Cette section vous guide tout au long de la mise à jour de la configuration pour inclure votre nouveau fournisseur d’identité. Voici un exemple de configuration.
 

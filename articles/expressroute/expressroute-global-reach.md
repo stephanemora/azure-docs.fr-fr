@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 512f2529e5426e97187f5cb2840dcab27a32c1d6
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: e8fdac875bf6469363dbcf95f7ff347fad4cb55b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541601"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531912"
 ---
 # <a name="expressroute-global-reach"></a>Service Global Reach d’ExpressRoute
 ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. Vous pouvez accéder à de nombreux services cloud Microsoft, comme Azure et Microsoft 365, à partir de votre centre de données privé ou de votre réseau d’entreprise. Par exemple, vous pouvez avoir une succursale à San Francisco avec un circuit ExpressRoute dans la Silicon Valley, et une autre à Londres avec un circuit ExpressRoute dans cette même ville. Les deux succursales disposent d’une connectivité haut débit avec les ressources Azure situées dans les régions USA Ouest et Royaume-Uni Sud, mais elles ne peuvent pas se connecter et envoyer des données directement entre elles. En d’autres termes, 10.0.1.0/24 peut envoyer des données aux réseaux 10.0.3.0/24 et 10.0.4.0/24, mais PAS au réseau 10.0.2.0/24.
@@ -52,6 +52,7 @@ La fonctionnalité ExpressRoute Global Reach est prise en charge aux emplacement
 * Afrique du Sud (Johannesbourg uniquement)
 * Suède
 * Suisse
+* Taïwan
 * Royaume-Uni
 * États-Unis
 

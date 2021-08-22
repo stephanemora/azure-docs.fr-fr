@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: 88a1524875f168b49f50f1684c650d5bc178bf38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35c9650d7e476fd0e7c498d2c3db7102a8801ff1
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542658"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641108"
 ---
 # <a name="restart-azure-database-for-mysql-flexible-server-using-azure-portal"></a>Redémarrer un serveur flexible Azure Database pour MySQL à l’aide du portail Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 Cette rubrique explique comment redémarrer un serveur flexible Azure Database pour MySQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
 
 Le redémarrage du serveur est bloqué si le service est occupé. Par exemple, le service peut traiter une opération précédemment demandée, telle que la mise à l’échelle de vCores.
@@ -21,6 +24,7 @@ Le redémarrage du serveur est bloqué si le service est occupé. Par exemple, l
 Le temps nécessaire à un redémarrage varie selon le processus de récupération de MySQL. Pour réduire le délai de redémarrage, nous vous recommandons de diminuer la quantité d’activités se produisant sur le serveur avant le redémarrage.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur flexible Azure Database pour MySQL](quickstart-create-server-portal.md)
 

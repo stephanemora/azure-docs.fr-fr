@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c21d78e9731bc1711e62d26d6cca269868ac1714
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101712927"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532463"
 ---
 # <a name="create-a-translator-resource"></a>Créer une ressource pour Translator
 
-Dans cet article, vous allez apprendre à créer une ressource Translator au sein du portail Azure. [Azure Translator](translator-info-overview.md) est un service de traduction automatique cloud, qui fait partie de la famille [Azure Cognitive Services](../what-are-cognitive-services.md) des API REST. Les ressources Azure sont des instances de services que vous créez. Toutes les requêtes d’API adressées aux services Azure nécessitent une URL de **point de terminaison** et une **clé d’abonnement** en lecture seule pour l’authentification de l’accès.
+Dans cet article, vous allez apprendre à créer une ressource Translator au sein du portail Azure. [Azure Translator](translator-overview.md) est un service de traduction automatique cloud, qui fait partie de la famille [Azure Cognitive Services](../what-are-cognitive-services.md) des API REST. Les ressources Azure sont des instances de services que vous créez. Toutes les requêtes d’API adressées aux services Azure nécessitent une URL de **point de terminaison** et une **clé d’abonnement** en lecture seule pour l’authentification de l’accès.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,7 +32,7 @@ Le service Translator est accessible via deux types de ressource distincts :
 * Les types de ressource **monoservice** permettent d’accéder à une seule clé API et un seul point de terminaison de service.  
 
 * Les types de ressource **multiservices** permettent d’accéder à plusieurs instances de Cognitive Services à l’aide d’une seule clé API et d’un seul point de terminaison. La ressource Cognitive Services est disponible pour les services suivants :
-  * Langage ([Translator](../translator/translator-info-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Analyse de texte](../text-analytics/overview.md))  
+  * Langage ([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Analyse de texte](../text-analytics/overview.md))  
   * Vision ([Vision par ordinateur](../computer-vision/overview.md)), ([Visage](../face/overview.md))  
   * Décision ([Content Moderator](../content-moderator/overview.md))  
 

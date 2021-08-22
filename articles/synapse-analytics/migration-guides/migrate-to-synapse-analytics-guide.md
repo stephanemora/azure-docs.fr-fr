@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 3564eaf27339c39975a23160c6d269a925317fea
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5d2dc316d5f58374792e04460f1abd8e63002243
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143194"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524202"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrer un entrepôt de données vers un pool SQL dédié dans Azure Synapse Analytics
 
@@ -51,14 +51,14 @@ L’un des obstacles critiques auxquels les clients sont confrontés lors d’un
 Pour migrer votre entrepôt de données SQL Server vers Azure Synapse Analytics, vérifiez que vous disposez des prérequis suivants :
 
 - Entrepôt de données ou charge de travail analytique
-- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) pour la migration des objets SQL Server vers des objets Azure Synapse.
+- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061) pour la migration des objets SQL Server vers des objets Azure Synapse.
 - [Pool SQL dédié](../get-started-create-workspace.md) dans un espace de travail Azure Synapse.
 
 # <a name="migrate-from-netezza"></a>[Migrer à partir de Netezza](#tab/migratefromNetezza)
 
 Pour migrer votre entrepôt de données Netezza vers Azure Synapse Analytics, vérifiez que vous disposez des prérequis suivants :
 
-- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) pour la migration des objets SQL Server vers des objets Azure Synapse.
+- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061) pour la migration des objets SQL Server vers des objets Azure Synapse.
 - [Pool SQL dédié](../get-started-create-workspace.md) dans un espace de travail Azure Synapse.
 
 Pour plus d’informations, consultez [Solutions Azure Synapse Analytics et migration pour Netezza](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza).
@@ -67,7 +67,7 @@ Pour plus d’informations, consultez [Solutions Azure Synapse Analytics et migr
 
 Pour migrer votre entrepôt de données Snowflake vers Azure Synapse Analytics, vérifiez que vous disposez des prérequis suivants :
 
-- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) pour la migration des objets Snowflake vers des objets Azure Synapse.
+- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=103061) pour la migration des objets Snowflake vers des objets Azure Synapse.
 - [Pool SQL dédié](../get-started-create-workspace.md) dans un espace de travail Azure Synapse.
 
 # <a name="migrate-from-oracle"></a>[Migrer à partir d’Oracle](#tab/migratefromOracle)
@@ -76,7 +76,7 @@ Pour migrer votre entrepôt de données Oracle vers Azure Synapse Analytics, vé
 
 - Entrepôt de données ou charge de travail analytique
 - Téléchargez l’Assistant Migration SQL Server pour Oracle afin de convertir les objets Oracle vers SQL Server. Pour plus d’informations, consultez [Migration de bases de données Oracle vers SQL Server (OracleToSQL)](/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql).
-- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=102787) pour la migration des objets SQL Server vers des objets Azure Synapse.
+- Téléchargez la version la plus récente de l’outil [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=103061) pour la migration des objets SQL Server vers des objets Azure Synapse.
 - [Pool SQL dédié](../get-started-create-workspace.md) dans un espace de travail Azure Synapse.
 
 Pour plus d’informations, consultez [Solutions Azure Synapse Analytics et migration pour un entrepôt de données Oracle](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata).
@@ -109,7 +109,7 @@ Pour plus d’informations sur l’exécution de ce scénario de migration, cons
 | Titre/lien                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Outil et modèle d’évaluation de charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Cet outil fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour une charge de travail donnée. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
-| [Gestion des problèmes de codage des données lors du chargement de données dans Azure Synapse Analytics](https://azure.microsoft.com/en-us/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Ce billet de blog fournit des informations sur certains des problèmes de codage des données que vous pouvez rencontrer lors de l’utilisation de PolyBase pour charger des données dans SQL Data Warehouse. Cet article fournit également des options que vous pouvez utiliser pour surmonter ce type de problèmes et charger les données avec succès. |
+| [Gestion des problèmes de codage des données lors du chargement de données dans Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Ce billet de blog fournit des informations sur certains des problèmes de codage des données que vous pouvez rencontrer lors de l’utilisation de PolyBase pour charger des données dans SQL Data Warehouse. Cet article fournit également des options que vous pouvez utiliser pour surmonter ce type de problèmes et charger les données avec succès. |
 | [Obtention des tailles de table dans le pool SQL Azure dédié à Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | L’une des tâches clés qu’un architecte doit effectuer consiste à obtenir des mesures sur un nouvel environnement après la migration. Les exemples incluent la collecte des temps de chargement depuis un site local vers le cloud et la collecte des temps de chargement Polybase. L’une des tâches les plus importantes est de déterminer la taille de stockage dans SQL Data Warehouse par rapport à la plateforme actuelle du client. |
 | [Utilitaire permettant de déplacer des connexions SQL Server locales vers Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Un script PowerShell crée un script de commande T-SQL visant à recréer les connexions et certains utilisateurs de base de données d’une instance SQL Server locale vers un service Azure SQL PaaS. Cet outil permet de mapper automatiquement des comptes Windows Server Active Directory à des comptes Azure Active Directory ou d’effectuer des recherches de nom d’utilisateur principal (UPN) pour chaque connexion par rapport au Windows Server Active Directory local. L’outil peut également migrer les connexions natives SQL Server. Les rôles personnalisés de serveur et de base de données font l’objet d’un script, tout comme l’appartenance à un rôle, le rôle de base de données et les autorisations de l’utilisateur. Les bases de données autonomes ne sont pas prises en charge et seul un sous-ensemble des autorisations SQL Server possibles est scripté. Des informations supplémentaires sont disponibles dans le document de support et le script contient des commentaires pour faciliter la compréhension. |
 

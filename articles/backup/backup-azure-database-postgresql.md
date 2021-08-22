@@ -4,12 +4,12 @@ description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conser
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 4f8e44bbaba87581b3c988602a436ed18b1a1a20
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8c3540ee686eb69304f95e31126a1a29a48aeea8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061765"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213900"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -42,6 +42,12 @@ Vous pouvez utiliser cette solution indépendamment ou en plus de la solution de
 - La sauvegarde inter-régions n’est pas prise en charge. Cela signifie que vous ne pouvez pas sauvegarder un serveur Azure PostgreSQL dans un coffre qui se trouve dans une autre région. De même, vous pouvez restaurer une sauvegarde seulement sur un serveur situé dans la même région que le coffre.
 - Seules les données sont récupérées lors de la restauration. Les « rôles » ne sont pas restaurés.
 - Avec la préversion, nous vous recommandons d’exécuter la solution uniquement sur votre environnement de test.
+
+## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Autorisations prérequises pour configurer la sauvegarde et la restauration
+
+Sauvegarde Azure suit des recommandations strictes en matière de sécurité. Bien qu’il s’agisse d’un service Azure natif, les autorisations sur la ressource ne sont pas accordées par défaut : elles doivent être explicitement données par l’utilisateur.  De même, les informations d’identification pour la connexion à la base de données ne sont pas stockées. Ceci est important pour protéger vos données. Au lieu de cela, nous utilisons l’authentification Azure Active Directory.
+
+[Téléchargez ce document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) pour obtenir un script automatisé et les instructions associées. Il va accorder un ensemble d’autorisations approprié à un serveur Azure PostgreSQL pour la sauvegarde et la restauration.
 
 ## <a name="backup-process"></a>Processus de sauvegarde
 
@@ -212,11 +218,7 @@ Suivez ce guide pas à pas pour déclencher une restauration :
 >[!NOTE]
 >La prise en charge de l’archivage pour Azure Database pour PostgreSQL est en préversion publique limitée.
 
-## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Autorisations prérequises pour configurer la sauvegarde et la restauration
 
-Sauvegarde Azure suit des recommandations strictes en matière de sécurité. Bien qu’il s’agisse d’un service Azure natif, les autorisations sur la ressource ne sont pas accordées par défaut : elles doivent être explicitement données par l’utilisateur.  De même, les informations d’identification pour la connexion à la base de données ne sont pas stockées. Ceci est important pour protéger vos données. Au lieu de cela, nous utilisons l’authentification Azure Active Directory.
-
-[Téléchargez ce document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) pour obtenir un script automatisé et les instructions associées. Il va accorder un ensemble d’autorisations approprié à un serveur Azure PostgreSQL pour la sauvegarde et la restauration.
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Gérer les bases de données Azure PostgreSQL sauvegardées
 

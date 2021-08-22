@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5f981e40d82a1f5b4d775832752d4b169ab73db0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6dcd14f12b557ef63337890b10e69d6cdf92498a
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750026"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031172"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-ios-client"></a>Se connecter à Azure Virtual Desktop (classique) avec le client iOS
 
 > S’applique à : iOS 13.0 ou ultérieur. Compatible avec iPhone, iPad et iPod touch.
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../connect-ios.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../user-documentation/connect-ios.md).
 
 Vous pouvez accéder aux ressources Azure Virtual Desktop à partir de votre appareil iOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client iOS.
 
@@ -45,7 +45,7 @@ Pour s’abonner à un flux :
 
 Le Centre de connexion doit ensuite afficher les ressources distantes.
 
-Une fois que vous êtes abonné à un flux, son contenu est automatiquement mis à jour de façon régulière. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
+Une fois que vous êtes abonné à un flux, son contenu est mis à jour automatiquement et régulièrement. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

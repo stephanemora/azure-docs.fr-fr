@@ -2,17 +2,18 @@
 title: Surveiller par programmation une fabrique de données Azure
 description: Découvrez comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK).
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-python
-ms.openlocfilehash: 4c6c54138f7966c505ec0cdea2a90d2a8c1655f8
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 93187bd3f46fc85375289e911a816e2cb3e3da12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005516"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532758"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Surveiller par programmation une fabrique de données Azure
 
@@ -37,7 +38,7 @@ Pour les propriétés d’exécution de pipeline, consultez la [référence de l
 * Opération réussie
 * Échec
 * Canceling
-* Opération annulée
+* Annulé
 
 ## <a name="net"></a>.NET
 Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide du Kit de développement logiciel (SDK) .NET, consultez [Créer une fabrique de données et un pipeline avec .NET](quickstart-create-data-factory-dot-net.md).

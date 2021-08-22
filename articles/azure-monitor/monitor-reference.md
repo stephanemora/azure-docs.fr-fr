@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 3fa167233c5afe7b50b2794f6c0fff5458e9acf7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089053"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531941"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -29,7 +29,7 @@ Les Insights offrent une expérience de surveillance personnalisée pour des app
 | [Insights Cosmos DB](insights/cosmosdb-insights-overview.md) | Fournit une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée. |
 | [Network Insights (préversion)](insights/network-insights-overview.md) | Fournit une vue complète de l’intégrité et des métriques pour toutes vos ressources réseau. La fonctionnalité de recherche avancée vous aide à identifier les dépendances de ressources, par l’activation de scénarios tels que l’identification des ressources qui hébergent votre site Web, en recherchant simplement le nom de votre site Web. |
 [Insights du groupe de ressources (préversion)](insights/resource-group-insights.md) |  Facilite la classification et le diagnostic des problèmes que rencontrent vos ressources, tout en offrant un contexte en lien avec l’intégrité et les performances du groupe de ressources dans son ensemble. |
-| [Insights de stockage](insights/storage-insights-overview.md) | Fournit une supervision complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. |
+| [Insights de stockage](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Fournit une supervision complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. |
 | [VM Insights](vm/vminsights-overview.md) | Supervise les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. |
 | [Insights Key Vault (préversion)](./insights/key-vault-insights-overview.md) | Offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault. |
 | [Azure Cache pour Redis Insights (préversion)](insights/redis-cache-insights-overview.md) |  Offre une vue unifiée et interactive des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle. |
@@ -154,7 +154,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |SQL Database | Oui | Oui | Non |  |
 |SQL Server Stretch Database | Oui | Oui | Non |  |
 |Pile | Non | Non | Non |  |
-|Stockage | Oui | Non | [Oui](insights/storage-insights-overview.md) |  |
+|Stockage | Oui | Non | [Oui](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) |  |
 |Cache de stockage | Non | Non | Non |  |
 |Services de synchronisation de stockage | Non | Non | Non |  |
 |Stream Analytics | Oui | Oui | Non |  |
@@ -243,4 +243,3 @@ Azure Monitor peut collecter des données à partir de ressources situées en de
 - Suivez un [tutoriel sur la supervision d’une ressource Azure](essentials/tutorial-resource-logs.md).
 - Suivez un [tutoriel sur l’écriture d’une requête de journal pour analyser des données dans les journaux Azure Monitor](essentials/tutorial-resource-logs.md).
 - Suivez un [tutoriel sur la création d’un graphique de métriques pour analyser des données dans les métriques Azure Monitor](essentials/tutorial-metrics-explorer.md).
-

@@ -7,20 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94e7b6b351d13a85a516b4a4bc6c54c31754bc12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92107570"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532308"
 ---
 # <a name="azure-data-studio-dashboards"></a>Tableaux de bord Azure Data Studio
 
 [Azure Data Studio](/sql/azure-data-studio/what-is) fournit une expérience similaire à celle du portail Azure pour visualiser les informations sur vos ressources Azure Arc.  Ces vues sont appelées **tableaux de bord**, et si leur présentation et leurs options sont similaires à celles que vous pouvez voir sur une ressource donnée dans le portail Azure, elles vous donnent la possibilité de voir ces informations localement dans votre environnement au cas où vous n’auriez pas de connexion disponible à Azure.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="connecting-to-a-data-controller"></a>Connexion à un contrôleur de données
 

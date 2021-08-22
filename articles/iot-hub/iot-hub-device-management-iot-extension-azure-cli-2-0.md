@@ -1,21 +1,20 @@
 ---
 title: Gestion des appareils Azure IoT avec l’extension IoT pour Azure CLI | Microsoft Docs
 description: Utilisez l’outil Extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub, avec les méthodes Direct et les options de gestion des propriétés souhaitées du jumeau.
-author: chrissie926
+author: robinsh
 manager: ''
 keywords: gestion des appareils iot azure, gestion des appareils azure iot hub, gestion des appareils iot, gestion des appareils iot hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
-ms.author: menchi
-ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: robinsh
+ms.openlocfilehash: c67e9fc7cb6a2530c752efee760b2fb7fcb7f277
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773896"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727097"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utiliser l’extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub
 
@@ -43,7 +42,7 @@ Les représentations d’appareil sont des documents JSON qui stockent des infor
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp). Ces articles demandent les éléments suivants :
 
   * Un abonnement Azure actif.
   * Une instance Azure IoT Hub associée à votre abonnement.

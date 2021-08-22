@@ -3,22 +3,22 @@ title: Authentification unique (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: En savoir plus sur la création d’expériences d’authentification unique à l’aide de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 6ff627b09c6bc1d1b88a106c18fa4bdf9d241120
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077137"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527803"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Authentification unique avec MSAL.js
 
@@ -47,7 +47,7 @@ const myMSALObj = new UserAgentApplication(config);
 
 ## <a name="sso-between-apps"></a>Authentification unique entre les applications
 
-Lorsqu’un utilisateur s’authentifie, un cookie de session est défini sur le domaine Azure AD dans le navigateur. Le fichier MSAL.js s’appuie sur ce cookie de session pour assurer l’authentification unique de l’utilisateur entre les différentes applications. Il met également en cache les jetons d’ID et jetons d’accès de l’utilisateur dans le stockage de navigateur par domaine d’application. Par conséquent, le comportement de l’authentification unique varie selon les cas :  
+Lorsqu’un utilisateur s’authentifie, un cookie de session est défini sur le domaine Azure AD dans le navigateur. Le fichier MSAL.js s’appuie sur ce cookie de session pour assurer l’authentification unique de l’utilisateur entre les différentes applications. Il met également en cache les jetons d’ID et jetons d’accès de l’utilisateur dans le stockage de navigateur par domaine d’application. Par conséquent, le comportement de l’authentification unique varie selon les cas :
 
 ### <a name="applications-on-the-same-domain"></a>Applications sur le même domaine
 
@@ -76,7 +76,7 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
@@ -132,14 +132,14 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
 
 ## <a name="sso-in-adaljs-to-msaljs-update"></a>Authentification unique dans ADAL.js pour la mise à jour de MSAL.js
 
-Le fichier MSAL.js fournit une fonctionnalité de parité avec ADAL.js, pour les scénarios d’authentification Azure AD. Pour faciliter la migration depuis ADAL.js vers MSAL.js et éviter l’envoi d’invites d’authentification à vos utilisateurs, la bibliothèque lit le jeton d’ID représentant la session de l’utilisateur dans le cache du fichier ADAL.js, et le connecte en toute transparence via MSAL.js.  
+Le fichier MSAL.js fournit une fonctionnalité de parité avec ADAL.js, pour les scénarios d’authentification Azure AD. Pour faciliter la migration depuis ADAL.js vers MSAL.js et éviter l’envoi d’invites d’authentification à vos utilisateurs, la bibliothèque lit le jeton d’ID représentant la session de l’utilisateur dans le cache du fichier ADAL.js, et le connecte en toute transparence via MSAL.js.
 
 Pour tirer parti du comportement de l’authentification unique lors de la mise à jour du fichier ADAL.js, vous devez vous assurer que les bibliothèques utilisent le paramètre `localStorage` pour la mise en cache des jetons. Définissez le paramètre `cacheLocation` sur `localStorage` dans la configuration des fichiers MSAL.js et ADAL.js lors de l’initialisation, en procédant comme suit :
 

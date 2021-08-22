@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1fd1d77a8b2e6f7da3a88bc4d7f57336d18237c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532031"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Partage de GPU sur votre appareil Azure Stack Edge Pro GPU
 
@@ -26,7 +26,7 @@ De nombreuses charges de travail de Machine Learning ou de calcul peuvent ne pas
 
 ## <a name="using-gpu-with-vms"></a>Utilisation du GPU avec des machines virtuelles
 
-Sur votre appareil Azure Stack Edge Pro, un GPU ne peut pas être partagé lors du déploiement de charges de travail de machine virtuelle. Un GPU ne peut être mappé qu’à une seule machine virtuelle. Cela implique que vous ne pouvez avoir qu’une seule machine virtuelle GPU sur un appareil avec un GPU, et deux machines virtuelles sur un appareil équipé de deux GPU. D’autres facteurs doivent également être pris en considération lors de l’utilisation de machines virtuelles GPU sur un appareil disposant de Kubernetes configuré pour les charges de travail conteneurisées. Pour plus d’informations, consultez [Machines virtuelles GPU et Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes).
+Sur votre appareil Azure Stack Edge Pro, un GPU ne peut pas être partagé lors du déploiement de charges de travail de machine virtuelle. Un GPU ne peut être mappé qu’à une seule machine virtuelle. Cela implique que vous ne pouvez avoir qu’une seule machine virtuelle GPU sur un appareil avec un GPU, et deux machines virtuelles sur un appareil équipé de deux GPU. D’autres facteurs doivent également être pris en considération lors de l’utilisation de machines virtuelles GPU sur un appareil disposant de Kubernetes configuré pour les charges de travail conteneurisées. Pour plus d’informations, consultez [Machines virtuelles GPU et Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 
 
 ## <a name="using-gpu-with-containers"></a>Utilisation de GPU avec des conteneurs

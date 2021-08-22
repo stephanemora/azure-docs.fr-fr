@@ -7,13 +7,12 @@ ms.date: 08/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: f290395f4bd7afccace5067a97e63dda553f183c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd73c1ef16b48340a77ce6a64823465a4f893b05
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532582"
 ---
 # <a name="toggle-live-chat"></a>Activer ou désactiver les conversations en direct
 
@@ -49,4 +48,4 @@ Pour afficher la conversation, choisissez **Afficher la conversation** dans le v
 Maintenant que vous savez comment activer/désactiver les conversations en direct dans Azure IoT Central, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Ajouter des vignettes à votre tableau de bord](howto-add-tiles-to-your-dashboard.md)
+> [Ajouter des vignettes à votre tableau de bord](howto-manage-dashboards.md)

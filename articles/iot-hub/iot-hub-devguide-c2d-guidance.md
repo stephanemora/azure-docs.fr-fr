@@ -2,7 +2,6 @@
 title: Options cloud vers appareil Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : conseils pour l’utilisation de méthodes directes, les propriétés souhaitées des jumeaux d’appareil ou les messages cloud-à-appareil pour les communications cloud à appareil.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 105374dc214ad77978973a5e7288ac1dd487941b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093020"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531648"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Conseils pour les communications cloud-à-appareil
 
@@ -30,7 +29,7 @@ IoT Hub propose trois options pour les applications pour appareil afin d’expos
 
 * [Messages cloud-à-appareil](iot-hub-devguide-messages-c2d.md), pour les notifications unidirectionnelles vers l’application de l’appareil.
 
-Pour savoir comment [Azure IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md) utilise ces options afin de contrôler les appareils IoT Plug-and-Play, consultez le [Guide du développeur du service IoT Plug-and-Play](../iot-pnp/concepts-developer-guide-service.md).
+Pour savoir comment [Azure IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md) utilise ces options afin de contrôler les appareils IoT Plug-and-Play, consultez le [Guide du développeur du service IoT Plug-and-Play](../iot-develop/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,6 +47,6 @@ Voici une comparaison détaillée des différentes options de communication clou
 
 Découvrez comment utiliser les méthodes directes, les propriétés souhaitées et les messages cloud-à-appareil grâce aux didacticiels suivants :
 
-* [Utiliser des méthodes directes](quickstart-control-device-node.md)
+* [Utiliser des méthodes directes](quickstart-control-device.md)
 * [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md) 
 * [Envoyer des messages cloud-à-appareil](iot-hub-node-node-c2d.md)

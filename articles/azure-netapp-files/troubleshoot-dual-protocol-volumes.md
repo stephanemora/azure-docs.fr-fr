@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 02/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 29a1251ed390ec3aefbb45a02a3c4284ca1848b8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1ec2b7c3c9f4aaccd168031b718bbb5b50394506
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142456"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531998"
 ---
 # <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>Résoudre les problèmes des volumes SMB ou à deux protocoles
 
@@ -32,7 +32,7 @@ Cet article décrit les résolutions des conditions d’erreur que vous pouvez r
 | Le protocole LDAP sur TLS est activé et la création d’un volume à deux protocoles échoue avec l’erreur `This Active Directory has no Server root CA Certificate`.    |     Si cette erreur se produit lorsque vous créez un volume à deux protocoles, assurez-vous que le certificat racine de l’autorité de certification est chargé dans votre compte NetApp.    |
 | La création d’un volume à deux protocoles échoue avec l’erreur `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  L’enregistrement du pointeur (PTR) de l’ordinateur hôte AD est peut-être manquant sur le serveur DNS. Vous devez créer une zone de recherche inversée sur le serveur DNS, puis ajouter un enregistrement PTR de l’ordinateur hôte AD dans cette zone de recherche inversée. <br> Par exemple, supposons que l’adresse IP de l’ordinateur AD est `10.x.x.x`, le nom d’hôte de l’ordinateur AD (trouvé à l’aide de la commande `hostname`) est `AD1` et le nom de domaine est `contoso.com`.  L’enregistrement PTR ajouté à la zone de recherche inversée doit être `10.x.x.x` -> `contoso.com`.   |
 | La création d’un volume à deux protocoles échoue avec l’erreur `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 10.x.x.x, port 88 using TCP\\n**[ 950] FAILURE`. |     Cette erreur indique que le mot de passe AD est incorrect lorsqu’Active Directory est joint au compte NetApp. Mettez à jour la connexion AD avec le mot de passe correct, puis réessayez. |
-| La création d’un volume à deux protocoles échoue avec l’erreur `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Cette erreur indique que DNS n’est pas accessible. Cela peut être dû au fait que l’adresse IP DNS est incorrecte ou qu’il y a un problème réseau. Vérifiez l’adresse IP DNS entrée dans la connexion AD et assurez-vous que l’adresse IP est correcte. <br> En outre, assurez-vous que l’instance AD et le volume se trouvent dans la même région et dans le même réseau virtuel. S’ils se trouvent dans des réseaux virtuels différents, assurez-vous que l’appairage de réseaux virtuels est établi entre les deux réseaux virtuels.|
+| La création d’un volume à deux protocoles échoue avec l’erreur `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Cette erreur indique que DNS n’est pas accessible. Cela peut être dû au fait que l’adresse IP DNS est incorrecte ou qu’il y a un problème réseau. Vérifiez l’adresse IP DNS entrée dans la connexion AD et assurez-vous que l’adresse IP est correcte. <br> En outre, assurez-vous que l’instance AD et le volume se trouvent dans la même région et dans le même réseau virtuel. S’ils se trouvent dans des réseaux virtuels différents, assurez-vous que l’appairage de réseaux virtuels est établi entre les deux réseaux virtuels. <br> Voir [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md#azure-native-environments) pour plus de détails. |
 | Erreur « Autorisation refusée » lors du montage d’un volume à deux protocoles. | Un volume à double protocoles prend en charge les protocoles NFS et SMB.  Lorsque vous tentez d’accéder au volume monté sur le système UNIX, celui-ci tente de mapper l’utilisateur UNIX que vous utilisez à un utilisateur Windows. Si aucun mappage n’est trouvé, l’erreur « Autorisation refusée » se produit. <br> Cette situation s’applique également lorsque vous utilisez l’utilisateur « racine » pour l’accès. <br> Pour éviter l’erreur « Autorisation refusée », assurez-vous que Windows Active Directory inclut `pcuser` avant d’accéder au point de montage. Si vous ajoutez `pcuser` après avoir rencontré l’erreur « Autorisation refusée », patientez 24 heures jusqu’à ce que l’entrée du cache s’efface avant de réessayer d’accéder. |
 
 ## <a name="common-errors-for-smb-and-dual-protocol-volumes"></a>Erreurs courantes pour les volumes SMB et double protocole

@@ -2,17 +2,18 @@
 title: Automatisation de l’installation du runtime d’intégration auto-hébergé à l’aide de scripts PowerShell locaux
 description: Pour automatiser l’installation du runtime d’intégration auto-hébergé sur des ordinateurs locaux.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 54699a5641b98cde5bbff1f55add8b8345d6a1ac
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: c64f71e6cdd008efa74d7279e3dc275bd24825f0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488282"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532098"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatisation de l’installation du runtime d’intégration auto-hébergé à l’aide de scripts PowerShell locaux
 Pour automatiser l’installation du runtime d’intégration auto-hébergé sur des ordinateurs locaux (autres que des machines virtuelles Azure pour lesquelles nous pouvons tirer parti du modèle Resource Manager), vous pouvez utiliser des scripts PowerShell locaux. Cet article présente deux scripts que vous pouvez utiliser.

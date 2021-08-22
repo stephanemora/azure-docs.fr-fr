@@ -6,22 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: bdd44bf81e34b60ee648b71c6dc3bde5a96d3deb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ef54d3a252baa8d84588481b2a73d1b365bb8c13
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443010"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721398"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Collecte de journaux proactive sur votre appareil Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-La collection proactive de journaux rassemble les indicateurs d’intégrité du système sur votre appareil Azure Stack Edge pour vous aider à résoudre les problèmes sur tous les appareils. La collecte proactive des journaux est activée par défaut. Cet article décrit ce qui est enregistré, comment Microsoft gère les données et comment désactiver ou activer la collecte proactive de journaux. 
-
-Les informations de cet article s’appliquent aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
+La collection proactive de journaux rassemble les indicateurs d’intégrité du système sur votre appareil Azure Stack Edge pour vous aider à résoudre les problèmes sur tous les appareils. La collecte proactive des journaux est activée par défaut. Cet article décrit ce qui est enregistré, comment Microsoft gère les données et comment désactiver ou activer la collecte proactive de journaux.
 
 ## <a name="about-proactive-log-collection"></a>À propos de la collecte de journaux proactive
 
