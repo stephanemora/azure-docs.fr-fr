@@ -5,14 +5,15 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 349a768af9b1e7693840880df5e870991336a8ba
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 0e469df360fed09924dbf6759bdd84c15671c7f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532192"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
 
@@ -20,7 +21,7 @@ ms.locfileid: "107903639"
 
 Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.
 
-| Nom | Unicité du nom | Contrôles de validation |
+| Name | Unicité du nom | Contrôles de validation |
 |:--- |:--- |:--- |
 | Fabrique de données | Unique sur Microsoft Azure. Les noms ne respectent pas la casse, c’est-à-dire que `MyDF` et `mydf` font référence à la même fabrique de données. |<ul><li>Chaque fabrique de données est liée à un seul abonnement Azure.</li><li>Les noms d’objet doivent commencer par une lettre ou un chiffre, et peuvent comporter uniquement des lettres, des chiffres et des tirets (-).</li><li>Chaque tiret (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre. Les tirets consécutifs ne sont pas autorisés dans les noms de conteneurs.</li><li>Le nom doit contenir entre 3 et 63 caractères.</li></ul> |
 | Services, jeux de données, pipelines et flux de données liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. |<ul><li>Les noms d’objets doivent commencer par une lettre.</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », «  ? », « / », « < », « > », « * », « % », « & », «  : », « \\ »</li><li>Les tirets (« - ») ne sont pas autorisés dans les noms de services liés, les flux de données et les jeux de données.</li></ul>  |

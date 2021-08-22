@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: linux
 ms.date: 09/21/2018
-ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4823ea421153b5e95f80b4ebc7cde1f9bcbf64c5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554783"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487558"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
 
@@ -99,7 +99,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Vous pouvez utiliser des modèles pour déployer une ou plusieurs machines virtuelles, installer le client Chef, vous connecter au serveur Chef et effectuer la configuration initiale sur le serveur, comme définie par [Run-list](https://docs.chef.io/run_lists.html)
 
-Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/chef/chef-json-parameters-linux-vm).
 
 La configuration JSON pour une extension de machine virtuelle peut être imbriquée à l’intérieur de la ressource de machine virtuelle ou placée à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement de la configuration JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/templates/child-resource-name-type.md).
 

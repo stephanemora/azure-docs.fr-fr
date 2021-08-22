@@ -4,12 +4,12 @@ description: Découvrez comment supprimer l’accès aux ressources qui ont ét�
 ms.date: 05/11/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9456d7b910c71305f321d0a4874aab0f4f368cd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: bae8407e09ab07a13c12abe3ee6371c04155cced
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700128"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389839"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
@@ -22,7 +22,7 @@ La suppression d’une délégation peut être effectuée par un utilisateur dan
 
 ## <a name="customers"></a>Clients
 
-Les utilisateurs du locataire du client qui disposent d’un rôle ayant l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), peuvent supprimer l’accès du fournisseur de services à cet abonnement (ou aux groupes de ressources de cet abonnement). Pour ce faire, les utilisateurs peuvent accéder à la [page Fournisseurs de services](view-manage-service-providers.md#add-or-remove-service-provider-offers) du portail Azure, rechercher l’offre sur l’écran **Offres du fournisseur de services**, puis sélectionner l’icône de la corbeille sur la ligne de cette offre.
+Les utilisateurs du locataire du client qui disposent d’un rôle ayant l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), peuvent supprimer l’accès du fournisseur de services à cet abonnement (ou aux groupes de ressources de cet abonnement). Pour ce faire, les utilisateurs peuvent accéder à la [page Fournisseurs de services](view-manage-service-providers.md#remove-service-provider-offers) du portail Azure, rechercher l’offre sur l’écran **Offres du fournisseur de services**, puis sélectionner l’icône de la corbeille sur la ligne de cette offre.
 
 Une fois la suppression confirmée, aucun utilisateur du locataire du fournisseur de services ne pourra accéder aux ressources précédemment déléguées.
 

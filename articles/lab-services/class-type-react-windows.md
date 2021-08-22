@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 0fe26d50a7afcb08325396d7c9a22279b01bfd9b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 089ec3d3d4836b4dadb5a0a60023b85ebf9950e0
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482773"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112456541"
 ---
 # <a name="set-up-lab-for-react-on-windows"></a>Configurer un labo pour React sur Windows
 
@@ -67,7 +67,7 @@ Par exemple, si vous utilisez la [fenêtre Node.js interactive](/visualstudio/ja
 .npm install react-jsx
 ```
 
-Pour créer votre première Node.js avec l’application React dans Visual Studio, consultez [Didacticiel : créer une application Node.js et React dans Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx.md?view=vs-2019&preserve-view=true).
+Pour créer votre première Node.js avec l’application React dans Visual Studio, consultez [Didacticiel : créer une application Node.js et React dans Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx?view=vs-2019&preserve-view=true).
 
 ### <a name="install-debugger-extensions"></a>Installer les extensions de débogueur
 

@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 988b9d364f09a4c88bcaab1fe81ae80c8de5d4d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e022023ba9ceefd8426280b07d62b78a79d83e5
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96491568"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913672"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense dans Azure Stream Analytics Tools pour Visual Studio Code
 
-IntelliSense est disponible pour le [langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fbread%2ftoc.json&toc=https%253a%2f%2fdocs.microsoft.com%2fazure%2fstream-analytics%2ftoc.json) dans [Azure Stream Analytics Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Les fonctionnalités IntelliSense sont parfois désignées sous d'autres noms tels que « saisie semi-automatique de code », « assistance au contenu » et « optimisation de code ».
+IntelliSense est disponible pour le [langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference?toc=/azure/stream-analytics/toc.json) dans [Azure Stream Analytics Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Les fonctionnalités IntelliSense sont parfois désignées sous d'autres noms tels que « saisie semi-automatique de code », « assistance au contenu » et « optimisation de code ».
 
 ![Démo d'IntelliSense](./media/vs-code-intellisense/intellisense.gif)
 

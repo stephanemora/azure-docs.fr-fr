@@ -1,14 +1,14 @@
 ---
 title: Évaluer l’impact d’une nouvelle définition Azure Policy
 description: Découvrez le processus à suivre quand vous introduisez une nouvelle définition de stratégie dans votre environnement Azure.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 56fa5aa0467bed94625b2233ee8b582d4d61ff63
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 25e59423e8102d62130339a39e5dc520e6b7d8c4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752918"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122535049"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Évaluer l’impact d’une nouvelle définition Azure Policy
 

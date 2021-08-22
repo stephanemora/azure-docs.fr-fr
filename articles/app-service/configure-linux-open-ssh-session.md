@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 0220c16d7ea3673f55d57ec4c4e0d29b30672683
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: f97f12f25a6ac9a42e597bcb59496511372d92aa
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017658"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112296278"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Ouvrir une session SSH sur un conteneur Linux dans Azure App Service
 
@@ -127,4 +127,4 @@ Pour plus d’informations sur Web App pour conteneurs, consultez :
 * [Présentation du débogage distant des applications Node.js sur Azure App Service à partir de VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Démarrage rapide : Exécuter un conteneur personnalisé sur App Service](quickstart-custom-container.md?pivots=container-linux)
 * [Utiliser Ruby dans Azure App Service sur Linux](quickstart-ruby.md)
-* [Forum aux questions sur Azure App Service Web App for Containers](faq-app-service-linux.md)
+* [Forum aux questions sur Azure App Service Web App for Containers](faq-app-service-linux.yml)

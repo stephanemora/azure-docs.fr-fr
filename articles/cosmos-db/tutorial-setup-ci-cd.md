@@ -1,19 +1,19 @@
 ---
 title: Configurer le pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 description: Didacticiel sur la configuration des workflows de création et de mise en production dans Azure DevOps à l’aide de la tâche de génération de l’émulateur Cosmos DB
-author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.author: dech
+ms.author: esarroyo
+author: StefArroyo
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c1e7f83d4cd428a162db7d736005be748225a9c
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560529"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113354175"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer le pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB dans Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 5/17/2021
 ms.author: edoyle
 ms.custom: support-help-page
-ms.openlocfilehash: a4f83d6ddf09ca449da74f163a82baf2b12adc91
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3b84f85a01ebaff9c3901672d31a135586280e13
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950066"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633540"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -81,20 +81,6 @@ Signalez les problèmes concernant Azure Service Fabric sur la [page Service Fab
 </div>
 
 L’étiquette `azure-service-fabric` sur [StackOverflow][stackoverflow] est utilisée pour poser des questions générales sur le fonctionnement de la plateforme et sur la manière dont vous pouvez l’utiliser pour accomplir certaines tâches.
-
-## <a name="submit-feedback-on-azure-feedback"></a>Envoyer des commentaires sur Azure Feedback
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-Le [forum de commentaires Azure pour Service Fabric][uservoice-forum] est le meilleur endroit pour soumettre des idées de fonctionnalités de produit importantes. Nous examinons les demandes les plus populaires et les prenons en compte dans notre planification à moyen et à long terme. Nous vous encourageons à chercher l’appui de la communauté pour vos suggestions.
-
-
-> [!Note]
-> **Les préversions de Service Fabric ne sont pas prises en charge pour une utilisation en production.** Nous créons parfois des versions préliminaires spéciales contenant des modifications significatives de fonctionnalités pour lesquelles nous aimerions avoir un retour d’information rapide. Vous devez utiliser ces versions préliminaires uniquement dans des environnements de test isolés qui ne traitent pas de charges de travail de production. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Nous n’offrons aucune option de support technique payant pour ces versions préliminaires.
->
-> Les versions préliminaires commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric est disponible en préversion et ne doit être utilisée que dans les clusters de test. Ces versions préliminaires sont également annoncées sur le [blog de l’équipe Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) et s’accompagnent d’informations sur les fonctionnalités incluses. Utilisez l’une des options ci-dessus pour fournir des commentaires.
-
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
 

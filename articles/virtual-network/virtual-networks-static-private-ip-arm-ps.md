@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d8c9b30923f6b3fd79a42542cac43cbfa09964
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6361aa197076db3e36a36d5b770ccc2d6e0e4f
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678627"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431939"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP privée statique à l’aide de PowerShell
 
-Vous pouvez créer une machine virtuelle avec une adresse IP privée statique. Attribuez une adresse IP privée statique, plutôt qu’une adresse dynamique, si vous souhaitez sélectionner quelle adresse d’un sous-réseau attribuer à une machine virtuelle. Découvrez plus en détail les [adresses IP privées statiques](./public-ip-addresses.md#allocation-method). Pour modifier le type de l’adresse IP privée attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP publiques, consultez [Add, change, or remove IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md) (Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure).
+Vous pouvez créer une machine virtuelle avec une adresse IP privée statique. Attribuez une adresse IP privée statique, plutôt qu’une adresse dynamique, si vous souhaitez sélectionner quelle adresse d’un sous-réseau attribuer à une machine virtuelle. Découvrez plus en détail les [adresses IP privées statiques](./public-ip-addresses.md#ip-address-assignment). Pour modifier le type de l’adresse IP privée attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP publiques, consultez [Add, change, or remove IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md) (Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

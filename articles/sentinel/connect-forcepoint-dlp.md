@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 62ed3915dcaf596d144a2f59817626cdf8ec47e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56ed14cf3010b967965eddf0605d36bafebdbb57
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100092772"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534858"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Connexion de Forcepoint DLP à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur de données de protection contre la perte de données (DLP, Data Loss Prevention) Forcepoint dans Azure Sentinel est actuellement en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 Le connecteur Forcepoint DLP permet d’exporter automatiquement des données d’incident de protection contre la perte de données dans Azure Sentinel. Vous pouvez l’utiliser pour bénéficier d’une visibilité sur les activités des utilisateurs et les incidents de perte de données. Il permet également d’établir des corrélations avec les données issues des charges de travail Azure et d’autres flux, et améliore la capacité de monitoring des classeurs dans Azure Sentinel.
@@ -52,6 +53,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à connecter Forcepoint DLP à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

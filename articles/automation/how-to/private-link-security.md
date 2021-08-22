@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f4c314b65a27c71c7620ff5941463b1ea68b55
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 547889b63bcaa7e8a43d62c639ac40715949e89d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831453"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524368"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation
 
@@ -64,7 +64,7 @@ Vous pouvez démarrer des runbooks en exécutant une PUBLICATION sur l’URL du 
 
 La fonctionnalité Runbook Worker hybride utilisateur d’Azure Automation vous permet d’exécuter des runbooks directement sur la machine Azure ou non-Azure, y compris les serveurs inscrits auprès de serveurs avec Azure Arc. Sur l’ordinateur ou le serveur qui héberge le rôle, vous pouvez exécuter les runbooks directement et avec les ressources disponibles dans l’environnement pour gérer ces ressources locales.
 
-Un point de terminaison JRDS est utilisé par le Worker hybride pour démarrer/arrêter des runbooks, télécharger les runbooks sur le Worker et renvoyer le flux du journal de tâches au service Automation. Une fois le point de terminaison JRDS activé, l’URL ressemble à ceci : `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`. De la sorte, l’exécution d’un runbook sur le Worker hybride connecté au réseau virtuel Azure est en mesure d’exécuter des tâches sans avoir à ouvrir de connexion sortante vers Internet.  
+Un point de terminaison JRDS est utilisé par le Worker hybride pour démarrer/arrêter des runbooks, télécharger les runbooks sur le Worker et renvoyer le flux du journal de tâches au service Automation. Une fois le point de terminaison JRDS activé, l’URL ressemble à ceci : `https://<automationaccountID>.jrds.<region>.privatelink.azure-automation.net`. De la sorte, l’exécution d’un runbook sur le Worker hybride connecté au réseau virtuel Azure est en mesure d’exécuter des tâches sans avoir à ouvrir de connexion sortante vers Internet.  
 
 > [!NOTE]
 >Avec l’implémentation actuelle des liaisons privées pour Azure Automation, seule est prise en charge l’exécution de tâches sur le Runbook Worker hybride connecté à un réseau virtuel Azure (les tâches cloud ne sont pas prises en charge).
@@ -77,7 +77,7 @@ Pour comprendre et configurer Update Management, consultez [Vue d’ensemble d�
 
 Si vous souhaitez que vos machines configurées pour Update Management se connectent à Automation et à l’espace de travail Log Analytics de manière sécurisée via un canal Private Link, vous devez activer Private Link pour l’espace de travail Log Analytics lié au compte Automation configuré avec Private Link.
 
-Vous pouvez contrôler la façon dont un espace de travail Log Analytics peut être atteint en dehors des étendues Private Link en suivant les étapes décrites dans [Configurer Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail.
+Vous pouvez contrôler la façon dont un espace de travail Log Analytics peut être atteint en dehors des étendues Private Link en suivant les étapes décrites dans [Configurer Log Analytics](../../azure-monitor/logs/private-link-configure.md#configure-access-to-your-resources). Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail.
 
 Utilisez la sous-ressource cible **DSCAndHybridWorker** afin d’activer Private Link pour les Workers hybrides système et utilisateur.
 

@@ -12,18 +12,21 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 535e80b9a916e3d60d42bb58def77258c7117ab9
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4d8d60c1c90173f2821890801d679328880b5dd8
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498896"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122641207"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Comment encoder avec une transformation personnalisée - REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Lors de l’encodage avec Azure Media Services, vous pouvez commencer rapidement avec l’un des préréglages intégrés recommandés et basés sur les bonnes pratiques, comme illustré dans le didacticiel [Streaming de fichiers](stream-files-tutorial-with-rest.md#create-a-transform). Vous pouvez également créer un préréglage personnalisé pour les besoins de votre scénario ou votre appareil.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ## <a name="considerations"></a>Considérations
 

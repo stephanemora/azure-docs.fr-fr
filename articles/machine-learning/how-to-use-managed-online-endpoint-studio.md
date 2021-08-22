@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints
+ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 96ec383d5110b3acf4ca3b83bd40526443df887a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4f2b69a4a4009784e7943d57b0ec5653528a418e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382590"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448170"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Créer et utiliser des points de terminaison en ligne managés (préversion) dans le studio
 
@@ -56,9 +56,9 @@ Vous pouvez aussi créer un point de terminaison en ligne managé à partir de l
 1. Sélectionnez un modèle en cochant le cercle à côté de son nom.
 1. Sélectionnez **Déployer** > **Déployer sur un point de terminaison (préversion)** .
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-create-managed-online-endpoint.png" alt-text="Créer un point de terminaison en ligne managé à partir de l’onglet Modèles":::
-
 Suivez l’Assistant Installation pour configurer votre point de terminaison en ligne managé.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-page-deployment-latest.png" alt-text="Créer un point de terminaison en ligne managé à partir de l’onglet Modèles":::
 
 ## <a name="view-managed-online-endpoints-preview"></a>Afficher des points de terminaison en ligne managés (préversion)
 
@@ -167,4 +167,8 @@ Dans cet article, vous avez appris à utiliser des points de terminaison en lign
 
 - [Que sont les points de terminaison ?](concept-endpoints.md)
 - [Guide pratique pour déployer des points de terminaison en ligne managés avec Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [Déployer des modèles avec REST (préversion)](how-to-deploy-with-rest.md)
 - [Guide pratique pour superviser des points de terminaison en ligne managés](how-to-monitor-online-endpoints.md)
+- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md)
+- [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

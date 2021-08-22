@@ -2,13 +2,13 @@
 title: Azure Event Grid - Événements de partenaire
 description: Envoyez des événements de partenaires SaaS et PaaS Event Grid tiers directement à des services Azure avec Azure Event Grid.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: 5a215d8d007f411066d25d8751299ae6a73038dc
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94506144"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533353"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Événements de partenaire dans Azure Event Grid (préversion)
 La fonctionnalité **Événements de partenaire** permet à un fournisseur SaaS tiers de publier des événements depuis ses services afin que les consommateurs puissent s’abonner à ces événements. Cette fonctionnalité offre une expérience interne aux sources d’événements tierces, en exposant un type de [rubrique](concepts.md#topics) et une **rubrique de partenaire**. Les abonnés créent des abonnements à cette rubrique pour consommer des événements. Elle fournit également un nouveau modèle clair de publication-abonnement, en séparant les préoccupations et la propriété des ressources qui sont utilisées par les éditeurs d’événements et les abonnés.
@@ -48,12 +48,10 @@ Il peut être intéressant pour vous d’utiliser Événements de partenaire si 
 ## <a name="available-third-party-event-publishers"></a>Éditeurs d’événements tiers disponibles
 Un éditeur d’événements tiers doit suivre un [processus d’intégration](partner-onboarding-overview.md) avant qu’un abonné puisse commencer à consommer ses événements. 
 
-Si vous êtes un abonné et que vous souhaitez qu’un service tiers expose ses événements via Event Grid, 
 
 ### <a name="auth0"></a>Auth0
 **Auth0** est le premier éditeur partenaire disponible. Vous pouvez créer une [rubrique de partenaire Auth0](auth0-overview.md) pour connecter vos comptes Auth0 et Azure. Cette intégration vous permet de traiter, journaliser et superviser les événements Auth0 en temps réel. Pour l’essayer, consultez [Intégrer Azure Event Grid à Auto0](auth0-how-to.md)
 
-Si vous souhaitez qu’un service tiers expose ses événements par le biais d’Event Grid, soumettez cette idée sur le [portail User Voice](https://feedback.azure.com/forums/909934-azure-event-grid).
  
 ## <a name="resources-managed-by-event-publishers"></a>Ressources gérées par les éditeurs d’événements
 Les éditeurs d’événements créent et gèrent les ressources suivantes :

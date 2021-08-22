@@ -3,12 +3,12 @@ title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
 ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: bc52790c5652f9571e3a63023314ff8e97fb7e99
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e8044732cd1cb544515bcfe5b2c0ac3b40bf0cfe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965067"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389252"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -45,14 +45,14 @@ Si vous mettez à jour l’offre pour ajuster les autorisations uniquement et qu
 
 :::image type="content" source="../media/update-delegation.jpg" alt-text="Diagramme illustrant quand modifier mspOfferName et supprimer une délégation précédente.":::
 
-La suppression de l’accès à la délégation peut être effectuée par n’importe quel utilisateur du locataire gestionnaire qui a reçu le rôle [Suppression de l’attribution d’inscription de services gérés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) dans la délégation d’origine. Si aucun utilisateur de votre locataire gestionnaire n’a ce rôle, vous pouvez demander au client de [supprimer l’accès à l’offre dans le portail Azure](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+La suppression de l’accès à la délégation peut être effectuée par n’importe quel utilisateur du locataire gestionnaire qui a reçu le rôle [Suppression de l’attribution d’inscription de services gérés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) dans la délégation d’origine. Si aucun utilisateur de votre locataire gestionnaire n’a ce rôle, vous pouvez demander au client de [supprimer l’accès à l’offre dans le portail Azure](view-manage-service-providers.md#remove-service-provider-offers).
 
 > [!TIP]
 > Si vous avez supprimé la délégation précédente en suivant les étapes ci-dessus et que vous ne parvenez toujours pas à déployer le nouveau modèle ARM, vous devrez peut-être [supprimer complètement la définition d’inscription](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Tout utilisateur disposant d’un rôle ayant l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), dans le locataire client peut le faire.  
 
 ## <a name="deploy-the-arm-template"></a>Déployer le modèle ARM
 
-Votre client peut [déployer le modèle mis à jour](onboard-customer.md#deploy-the-azure-resource-manager-templates) de la même manière qu’auparavant : dans le portail Azure, à l’aide de PowerShell ou à l’aide d’Azure CLI.
+Votre client peut [déployer le modèle mis à jour](onboard-customer.md#deploy-the-azure-resource-manager-template) de la même manière qu’auparavant : dans le portail Azure, à l’aide de PowerShell ou à l’aide d’Azure CLI.
 
 Une fois le déploiement terminé, [confirmez sa réussite](onboard-customer.md#confirm-successful-onboarding). Les autorisations mises à jour seront alors appliquées pour l’abonnement ou les groupes de ressources que le client a délégués.
 

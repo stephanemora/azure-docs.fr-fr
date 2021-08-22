@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: ad0936fddacf8f5b2e4917441f5feaa41aad9de4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8148cbd1fa4e34610c4b27609910821323a2acea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739797"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524428"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -134,7 +135,7 @@ Remplacez `{tenant id}`, `{application id}` et `{redirect uri}` en suivant les i
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Appel d’opérations de sauvegarde et de restauration
 
-Les API REST sont [Service Gestion des API - Sauvegarde](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) et [Service Gestion des API - Restauration](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
+Les API REST sont [Service Gestion des API - Sauvegarde](/rest/api/apimanagement/2020-12-01/api-management-service/backup) et [Service Gestion des API - Restauration](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
 
 Avant d’appeler les opérations de « sauvegarde et de restauration » décrites dans les sections suivantes, définissez l’en-tête de demande d’autorisation de votre appel REST.
 
@@ -155,7 +156,7 @@ où :
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API que vous tentez de sauvegarder
 -   `resourceGroupName` : nom du groupe de ressources de votre service Gestion des API Azure
 -   `serviceName` : Nom du service Gestion des API que vous sauvegardez, spécifié au moment de sa création
--   `api-version` : à remplacer par `2019-12-01`
+-   `api-version` : à remplacer par `2020-12-01`
 
 Dans le corps de la demande, spécifiez le nom du compte de stockage Azure cible, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
@@ -185,7 +186,7 @@ où :
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API dans lequel vous restaurez une sauvegarde
 -   `resourceGroupName` : Nom du groupe de ressources qui contient le service Gestion des API Azure dans lequel vous restaurez une sauvegarde
 -   `serviceName` : Nom du service Gestion des API en cours de restauration, spécifié au moment de sa création
--   `api-version` : à remplacer par `api-version=2019-12-01`
+-   `api-version` : à remplacer par `api-version=2020-12-01`
 
 Dans le corps de la demande, spécifiez l’emplacement du fichier de sauvegarde. C’est-à-dire, ajoutez le nom du compte de stockage Azure, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 

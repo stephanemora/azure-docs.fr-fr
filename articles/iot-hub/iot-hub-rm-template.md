@@ -2,7 +2,6 @@
 title: Créer un IoT Hub Azure à l’aide d’un modèle (.NET) | Microsoft Docs
 description: Comment utiliser un modèle Azure Resource Manager pour créer un IoT Hub avec un programme C#.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: db4b676e65d36a9476fd72b66cc8ccfa38af4d85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b54ba1314cbb95b2bc56c47ae39a92ff7252a79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532799"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (.NET)
 
@@ -85,7 +84,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
-          "type": "string"
+          "type&quot;: &quot;string"
         }
       },
       "resources": [

@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da7d31d018853b340be4506af48a602e7cb2765b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94695552"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437933"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Résoudre les erreurs courantes dans des déploiements Azure avec Azure Load Balancer
 
@@ -35,7 +35,7 @@ Cet article décrit certaines erreurs courantes liées au déploiement Azure Loa
 |CannotUseInactiveHealthProbe| Vous ne pouvez pas avoir une sonde qui n’est utilisée par aucune règle configurée pour l’intégrité du groupe de machines virtuelles identiques. Assurez-vous que la sonde qui est configurée est effectivement utilisée. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Vous ne pouvez pas avoir plusieurs équilibreurs de charge du même type (interne, public). Vous pouvez avoir au maximum un équilibreur de charge interne et un équilibreur de charge public. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer n’est pas pris en charge pour les groupes de machines virtuelles identiques de groupe multiplacement ou pour un groupe de machines virtuelles identiques inter-zones de disponibilité. Utilisez Standard Load Balancer à la place. |
-|MarketplacePurchaseEligibilityFailed | Basculez vers le compte d’administration approprié pour autoriser les achats en lien avec le caractère EA de l’abonnement. Vous trouverez plus d’informations [ici](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Basculez vers le compte d’administration approprié pour autoriser les achats en lien avec le caractère EA de l’abonnement. Vous trouverez plus d’informations [ici](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-). |
 |ResourceDeploymentFailure| Si votre équilibreur de charge est dans un état d’échec, procédez comme suit pour le rétablir :<ol><li>Accédez au site https://resources.azure.com et connectez-vous avec vos informations d’identification pour le Portail Azure.</li><li>Sélectionnez **Lecture/écriture**.</li><li>Sur la gauche, développez **Abonnements**, puis l’abonnement dont le Load Balancer doit être mis à jour.</li><li>Développez **ResourceGroups**, puis le groupe de ressources dont le Load Balancer doit être mis à jour.</li><li>Sélectionnez **Microsoft.Network** > **LoadBalancers**, puis le Load Balancer à mettre à jour, **LoadBalancer_1**.</li><li>Sur la page d’affichage de **LoadBalancer_1**, sélectionnez **GET** > **Modifier**.</li><li>Mettez à jour la valeur **ProvisioningState** de **Échec** à **Opération réussie**.</li><li>Sélectionnez **PUT**.</li></ol>|
 |  |  |
 

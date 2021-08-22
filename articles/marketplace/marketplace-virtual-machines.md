@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4278a3b0e022015a1e12542cac7699590150b5e4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480866"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602572"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planifier une offre de machine virtuelle
 
@@ -23,7 +23,7 @@ Avant de commencer, vous devez [créer un compte sur la Place de marché commerc
 
 ### <a name="technical-fundamentals"></a>Notions de base techniques
 
-Le processus de conception, de création et de test des offres prend du temps et nécessite une expertise en ce qui concerne la plateforme Azure et les technologies utilisées pour créer votre offre. Votre équipe d’ingénierie doit disposer d’une connaissance pratique des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), du service [Stockage Azure](https://azure.microsoft.com/services/?filter=storage#storage) et des services de [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking#networking), ainsi que de compétences en matière de [conception et d’architecture d’applications Azure](https://azure.microsoft.com/solutions/architecture/). Consultez les ressources techniques supplémentaires suivantes : 
+Le processus de conception, de création et de test des offres prend du temps et nécessite une expertise en ce qui concerne la plateforme Azure et les technologies utilisées pour créer votre offre. Votre équipe d’ingénierie doit disposer d’une connaissance pratique des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), du service [Stockage Azure](https://azure.microsoft.com/services/?filter=storage#storage) et des services de [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking#networking), ainsi que de compétences en matière de [conception et d’architecture d’applications Azure](https://azure.microsoft.com/solutions/architecture/). Consultez les ressources techniques supplémentaires suivantes :
 
 - Tutoriels
   - [Machines virtuelles Linux](../virtual-machines/linux/tutorial-manage-vm.md)

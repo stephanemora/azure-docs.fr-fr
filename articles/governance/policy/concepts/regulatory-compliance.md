@@ -1,14 +1,14 @@
 ---
 title: Conformité réglementaire dans les définitions d’initiative
 description: Décrit comment utiliser une définition d’initiative pour regrouper des stratégies par domaine réglementaire, par exemple le contrôle d’accès, la gestion de la configuration, etc.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: d408d4c2c720a81de315680f774482592b7552b3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a9b32f22136b91bc57aee33a5cdfc99f77212436
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752684"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527696"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformité réglementaire dans Azure Policy
 

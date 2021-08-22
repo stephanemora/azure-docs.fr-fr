@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b85fae82a6faf08fa45a659a216818d77fc747e9
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93394609"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551917"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
@@ -86,4 +86,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez utilisé des jetons SAP au lieu de clés de compte pour soumettre un flux de travail au service Microsoft Genomics via le client Python `msgen`. Pour plus d’informations sur la soumission du flux de travail et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez notre [FAQ](frequently-asked-questions-genomics.md).
+Dans cet article, vous avez utilisé des jetons SAP au lieu de clés de compte pour soumettre un flux de travail au service Microsoft Genomics via le client Python `msgen`. Pour plus d’informations sur la soumission du flux de travail et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez notre [FAQ](frequently-asked-questions-genomics.yml).

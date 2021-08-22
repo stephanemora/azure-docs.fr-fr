@@ -1,19 +1,21 @@
 ---
 title: Configurer l’accès Azure Active Directory - Azure Blockchain Service
 description: Comment configurer Azure Blockchain Service avec un accès Azure Active Directory
-ms.date: 11/22/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea08a6cb59bdf5f8a18b05b897b8e6161c86f337
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85208771"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641077"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Guide pratique pour configurer un accès Azure Active Directory pour Azure Blockchain Service
 
 Dans cet article, vous allez apprendre à octroyer l’accès et vous connecter aux nœuds Azure Blockchain Service à l’aide d’un compte d’utilisateur, d’un groupe ou d’un ID d’application Azure Active Directory (Azure AD).
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Azure AD assure la gestion des identités basée sur le cloud, et permet aux clients d’utiliser une seule et même identité dans l’ensemble d’une entreprise et d’accéder aux applications sur Azure. Azure Blockchain Service s’intègre à Azure AD et offre ainsi différents avantages, tels que la fédération d’ID, l’authentification unique et l’authentification multifacteur.
 
@@ -66,7 +68,7 @@ Suivez la section de démarrage rapide du fichier **Lisez-moi** pour générer l
 1. Exécutez la commande ci-après pour vous authentifier à l’aide d’un compte d’utilisateur Azure AD. Remplacez \<myAADDirectory\> par un domaine Azure AD. Par exemple : `yourdomain.onmicrosoft.com`.
 
     ```
-    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
+    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory>
     ```
 
 1. Azure AD vous invite à entrer des informations d’identification.

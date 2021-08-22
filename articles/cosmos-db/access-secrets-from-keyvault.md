@@ -1,19 +1,19 @@
 ---
 title: Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder
 description: Utilisez Azure Key Vault pour stocker une chaîne de connexion, des clés et des points de terminaison Azure Cosmos DB et y accéder.
-author: markjbrown
-ms.author: mjbrown
+author: ThomasWeiss
+ms.author: thweiss
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d09fb5f728ec430991f487b8b4acba937f7262c
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359318"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355804"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 904b4ec201b38a817fe7a84d88878c62629b2625
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1789f70b0bf649bb4dc25aeace6973a159df1537
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785928"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524655"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -223,7 +223,7 @@ Si le type d’authentification est défini sur `ApiKeyHeader`, l’élément **
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Nom de l’en-tête HTTP, tel que `x-functions-key` ou `x-api-key`. | Oui | Clé utilisée pour l’authentification. |
+| Nom de l’en-tête HTTP, tel que `x-functions-key` ou `x-api-key`. | Yes | Clé utilisée pour l’authentification. |
 
 > [!NOTE]
 > À ce stade, Azure AD B2C prend en charge un seul en-tête HTTP pour l’authentification. Si votre appel RESTful requiert plusieurs en-têtes, tels qu’un ID client et une clé secrète client, vous devrez effectuer un proxy de la requête.
@@ -291,5 +291,5 @@ Consultez les articles suivants pour obtenir des exemples d’utilisation d’un
 
 - [Intégrer les échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md)
 - [Procédure pas à pas : ajouter un connecteur d’API à un flux d’utilisateur d’inscription](add-api-connector.md)
-- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Sécuriser vos services d’API REST](secure-rest-api.md)

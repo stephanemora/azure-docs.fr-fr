@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 01289345ee6bebc0ab1a4608eb83cb8a2827e924
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: abefaa06cb8d2c0c815d86c6e1386f82e39c52fe
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "108745358"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462264"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Network Attached Storage (NAS) vers un déploiement de cloud hybride avec Azure File Sync
 
@@ -27,6 +27,13 @@ Si votre scénario est différent, consultez le [tableau des guides de migration
 
 Azure File Sync fonctionne sur les emplacements DAS (Direct Attached Storage) et ne prend pas en charge la synchronisation avec les emplacements NAS (Network Attached Storage).
 En fait, la migration de vos fichiers est nécessaire et cet article vous guide tout au long de la planification et de l’exécution de cette migration.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 

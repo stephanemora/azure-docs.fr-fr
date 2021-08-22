@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment suivre et gérer les tâches d
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4f1a0c3701e2b2d46a555f82433642e5a013b24
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88890278"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438081"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Suivi des tâches de sauvegarde et de restauration à l’aide de l’API REST
 
@@ -33,7 +33,7 @@ Une opération telle que le déclenchement d’une sauvegarde renvoie toujours u
 }
 ```
 
-La tâche de sauvegarde de machine virtuelle est identifiée par le champ « jobId » et peut être suivie comme indiqué [ici](/rest/api/backup/jobdetails/) en utilisant une simple requête *GET*.
+La tâche de sauvegarde de machine virtuelle est identifiée par le champ « jobId » et peut être suivie comme indiqué [ici](/rest/api/backup/job-details) en utilisant une simple requête *GET*.
 
 ## <a name="tracking-the-job"></a>Suivi de la tâche
 
@@ -47,7 +47,7 @@ L’`{jobName}` est « jobId » comme indiqué précédemment. La réponse est
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/job-details/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Exemple de réponse
 

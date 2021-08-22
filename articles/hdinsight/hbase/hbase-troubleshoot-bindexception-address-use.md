@@ -4,12 +4,12 @@ description: 'BindException : adresse déjà utilisée dans Azure HDInsight'
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/16/2019
-ms.openlocfilehash: c0a7bc7629b5c2a2e458ba94d62e341f578fdd25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 720cdf4ddcb14351076d209011a087c3b30123e6
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946394"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369462"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Scénario : BindException : adresse déjà utilisée dans Azure HDInsight
 
@@ -43,7 +43,7 @@ Redémarrage des serveurs de région Apache HBase pendant une activité impliqua
 
 ## <a name="resolution"></a>Résolution
 
-Réduisez la charge sur les serveurs de région HBase avant de lancer un redémarrage. En outre, il est judicieux de commencer par vider toutes les tables. Pour plus d’informations sur le vidage des tables, consultez [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Réduisez la charge sur les serveurs de région HBase avant de lancer un redémarrage. En outre, il est judicieux de commencer par vider toutes les tables. Pour plus d’informations sur le vidage des tables, consultez [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](/archive/blogs/azuredatalake/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables).
 
 Vous pouvez également essayer de redémarrer manuellement les serveurs de région sur les nœuds Worker à l’aide des commandes suivantes :
 

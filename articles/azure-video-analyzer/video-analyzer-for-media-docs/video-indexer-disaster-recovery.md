@@ -1,23 +1,24 @@
 ---
 title: Basculement et reprise d’activité avec Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Découvrez comment basculer vers un compte Azure Video Analyzer for Media (anciennement Video Indexer) secondaire en cas de défaillance d’un centre de données régional ou de sinistre.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
 ms.workload: ''
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: e3f1f09f58d79ce3927b137cae20db5e1d55af14
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a7361f75a9327a6fbc88132e67e87f9be7ed5f84
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385608"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118840"
 ---
 # <a name="video-analyzer-for-media-failover-and-disaster-recovery"></a>Basculement et reprise d’activité avec Azure Video Analyzer for Media
 

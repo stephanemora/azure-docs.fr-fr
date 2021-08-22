@@ -7,12 +7,12 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d182d88d62183e7848ad6fed00b1f3eb93d3239e
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5a8227b862328f1d1f7f282b7d89febaa0a66040
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317664"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533122"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -36,7 +36,7 @@ Azure SQL Analytics est une solution de surveillance cloud uniquement prenant 
 | [Paramètres de diagnostic](../essentials/diagnostic-settings.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Azure Monitor directement par Azure. |
 | [Compte Azure Storage](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Non | Azure Monitor ne lit pas les données d’un compte de stockage. |
 | [Agents Windows](../agents/agent-windows.md) | Non | Les agents Windows directs ne sont pas utilisés par Azure SQL Analytics. |
-| [Agents Linux](../vm/quick-collect-linux-computer.md) | Non | Les agents Linux directs ne sont pas utilisés par Azure SQL Analytics. |
+| [Agents Linux](../vm/monitor-virtual-machine.md) | Non | Les agents Linux directs ne sont pas utilisés par Azure SQL Analytics. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../agents/om-agents.md) | Non | Azure SQL Analytics n’utilise pas de connexion directe entre l’agent Operations Manager et Azure Monitor. |
 
 ## <a name="azure-sql-analytics-options"></a>Options Azure SQL Analytics
@@ -300,4 +300,3 @@ Azure SQL Analytics est gratuite, mais toute consommation de la télémétrie de
 - Utilisez les [requêtes de journaux dans Azure Monitor](../logs/log-query-overview.md) pour afficher des données détaillées Azure SQL.
 - [Créer un tableau de bord personnalisé](../visualize/tutorial-logs-dashboards.md) comportant les données Azure SQL.
 - [Create and manage alert rules in Log Analytics with the OMS portal](../alerts/alerts-overview.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).
-

@@ -4,16 +4,16 @@ description: Apprenez à charger un disque dur virtuel sur un disque managé Azu
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 06/15/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 0f48856f085737040ca16afcca1e56be1da4843e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 4928cb098990a0f91fd0d6a4fbde4844a81ed338
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816743"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358378"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 

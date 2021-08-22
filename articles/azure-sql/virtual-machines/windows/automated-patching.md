@@ -16,12 +16,12 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a3b0dda56f0039d61f8ef4ff1dd27dd09ec8b71
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: cd1d81362534f4de7357ebbbc6877aa7c3f72f2e
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666118"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434747"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server sur des machines virtuelles Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -89,9 +89,7 @@ Pour plus d’informations, consultez [Provisionner une machine virtuelle SQL Se
 
 ### <a name="existing-vms"></a>Machines virtuelles existantes
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-Pour les machines virtuelles SQL Server existantes, ouvrez votre [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) et sélectionnez **Mise à jour corrective** sous **Paramètres**. 
+Pour les machines virtuelles SQL Server existantes, ouvrez votre [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-resource) et sélectionnez **Mise à jour corrective** sous **Paramètres**. 
 
 ![Mise à jour corrective automatisée SQL pour les machines virtuelles existantes](./media/automated-patching/azure-sql-rm-patching-existing-vms.png)
 

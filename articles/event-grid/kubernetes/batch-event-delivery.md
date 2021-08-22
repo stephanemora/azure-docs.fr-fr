@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: a246ee493b89051ad35436cd9213462a09a5d1b0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 46ae19af49b827af857f5f224ee5f0013d620a43
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385664"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414590"
 ---
 # <a name="event-grid-on-kubernetes---batch-event-delivery"></a>Event Grid sur Kubernetes - Distribuer des événements par lot 
 Event Grid sur Kubernetes avec Azure Arc permet de distribuer plusieurs événements dans une même demande de distribution. Cette fonctionnalité permet d’augmenter le débit de distribution global sans augmenter les coûts par requête HTTP. La distribution d’événements par lot est désactivée par défaut et peut être activée en utilisant la configuration de l’abonnement aux événements. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 > [!WARNING]
 > La durée maximale autorisée pour traiter chaque demande de distribution ne change pas, même si le code du gestionnaire d’événements doit potentiellement faire plus de travail par demande traitée par lot. Par défaut, le délai de livraison est de 60 secondes.

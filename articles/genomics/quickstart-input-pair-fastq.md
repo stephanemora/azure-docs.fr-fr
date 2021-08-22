@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 3806b165e5abb661e53c6a315650d025fd42e17f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19c22f835f14fff880817c0452e6c0245b24be41
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248558"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551881"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Soumettre un workflow à l’aide d’entrées de fichiers FASTQ dans Microsoft Genomics
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Envoyez le fichier `config.txt` avec cet appel : `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez chargé une paire de fichiers FASTQ dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur la soumission du workflow et d’autres commandes pouvant être utilisées avec le service Microsoft Genomics, voir notre [FAQ](frequently-asked-questions-genomics.md). 
+Dans cet article, vous avez chargé une paire de fichiers FASTQ dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur la soumission du workflow et d’autres commandes pouvant être utilisées avec le service Microsoft Genomics, voir notre [FAQ](frequently-asked-questions-genomics.yml). 

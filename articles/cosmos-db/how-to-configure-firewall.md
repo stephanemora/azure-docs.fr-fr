@@ -1,18 +1,18 @@
 ---
 title: Configurer un pare-feu IP pour votre compte Azure Cosmos DB
 description: Découvrez comment configurer les stratégies de contrôle d’accès IP pour la prise en charge du pare-feu dans les comptes Azure Cosmos.
-author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/03/2021
-ms.author: mjbrown
+ms.author: thweiss
+author: ThomasWeiss
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d92693b699c2ca0eb2827d37be0c37aeb9f8d954
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: eb448630424939ef7d17144c6c0d385474fdf917
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681753"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360250"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -4,24 +4,21 @@ description: Découvrez comment migrer vers Azure Cloud Services (support étend
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: b1a3d6f1c30cf6c52dde3f70f222d9cbb0fce556
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b900b691ee02f438b4e222cdd69ac64e46f15d38
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293167"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431534"
 ---
 # <a name="migrate-to-cloud-services-extended-support-using-the-azure-portal"></a>Migrer vers Azure Cloud Services (support étendu) à l’aide du portail Azure
 
 Cet article explique comment utiliser le portail Azure pour migrer d’[Azure Cloud Services (classique)](../cloud-services/cloud-services-choose-me.md) vers [Azure Cloud Services (support étendu)](overview.md).
-
-> [!IMPORTANT]
-> La migration d’Azure Cloud Services (classique) vers Azure Cloud Services (support étendu) à l’aide de l’outil de migration est actuellement disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -66,7 +63,7 @@ Si vous n'êtes pas en mesure d'ajouter un coadministrateur, contactez un admini
 
     Si la préparation aboutit, la migration est prête pour la validation.
     
-    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Image illustrant la réussite de la validation dans le portail Azure.":::
+    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Image illustrant la réussite de la validation dans le portail Azure."::: 
 
     Si la préparation échoue, examinez l’erreur, résolvez les problèmes éventuels, puis recommencez la préparation. 
 
@@ -94,4 +91,5 @@ Si vous n'êtes pas en mesure d'ajouter un coadministrateur, contactez un admini
     Entrez « Oui » pour confirmer et valider la migration. La migration est à présent terminée. Le déploiement des services Cloud Servies (support étendu) migrés est déverrouillé pour toutes les opérations. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez la section [Modifications après la migration](in-place-migration-overview.md#post-migration-changes) pour voir les modifications apportées aux fichiers de déploiement, à l’automatisation et à d’autres attributs de votre nouveau déploiement d’Azure Cloud Services (support étendu).
+
+Consultez la section [Modifications après la migration](post-migration-changes.md) pour voir les modifications apportées aux fichiers de déploiement, à l’automatisation et à d’autres attributs de votre nouveau déploiement d’Azure Cloud Services (support étendu).

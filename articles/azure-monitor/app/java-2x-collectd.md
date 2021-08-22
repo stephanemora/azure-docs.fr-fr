@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: eaa064a8a266bb68bacff8e42fd5dd6794c0f682
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 93ab5cf44286a4fcba638f14e1c7b29698a02e55
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104173"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358018"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd : métriques de performances Linux dans Application Insights [Déconseillé]
 
@@ -35,7 +35,7 @@ Effectuez une copie de la clé d’instrumentation, qui identifie la ressource.
 Sur vos ordinateurs serveurs Linux :
 
 1. Installez [collectd](https://collectd.org/) version 5.4.0 ou ultérieure.
-2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Notez le numéro de version.
+2. Téléchargez le [plug-in d'écriture collectd Application Insights](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal). Notez le numéro de version.
 3. Copiez le fichier JAR du plug-in dans `/usr/share/collectd/java`.
 4. Modifiez `/etc/collectd/collectd.conf`:
    * Vérifiez que [le plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) est activé.

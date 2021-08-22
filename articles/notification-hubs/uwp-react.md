@@ -7,12 +7,12 @@ ms.service: notification-hubs
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.custom: template-concept
-ms.openlocfilehash: 7158fa486483f1ff26599e47e43ee3219a23045a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 229de776e7e2dace0253d7cc4495663969cb3e62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082653"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285237"
 ---
 # <a name="send-notifications-to-android-and-ios-applications"></a>Envoyer des notifications aux applications Android et iOS
 
@@ -53,7 +53,7 @@ L’exemple d’application sur GitHub contient les dossiers suivants :
 
 - **NotificationHub.Sample.API** : solution d’API web ASP.NET Visual Studio 2019 qui agit comme un back end.
 - **app** : application React Native multiplateforme qui permet de distribuer des notifications avec une connexion de manager, puis de recevoir des notifications avec une connexion d’utilisateur d’enquête.
-- **azure-template** : modèles Azure Resource Manager (`parameters.json` et `template.json`) que vous pouvez utiliser pour déployer toutes les ressources nécessaires à la configuration de ce déploiement dans votre abonnement Azure. Pour plus d’informations sur le déploiement de modèles Resource Manager, consultez [Créer et déployer des modèles ARM à l’aide du portail Azure](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+- **azure-template** : modèles Azure Resource Manager (`parameters.json` et `template.json`) que vous pouvez utiliser pour déployer toutes les ressources nécessaires à la configuration de ce déploiement dans votre abonnement Azure. Pour plus d’informations sur le déploiement de modèles Resource Manager, consultez [Créer et déployer des modèles ARM à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="sample-overview"></a>Vue d’ensemble de l’exemple
 
@@ -355,9 +355,9 @@ Pour exécuter l’exemple, les prérequis suivants sont indispensables :
 
 - **[Instance Azure Notification Hubs](#create-resource-notification-hub) :** un hub de notification configuré sur Azure.
 - **[Instance de base de données SQL Server](#create-resource-sql-database) :** une base de données SQL Server hébergée sur Azure.
-- **Back end de l’application ASP.NET :** un back end d’API web reposant sur .NET 5.0, qui se connecte à Azure Notification Hubs hébergé en tant que Azure App Service. Pour plus d’informations, consultez [Démarrage rapide : Déployer une application web ASP.NET](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
+- **Back end de l’application ASP.NET :** un back end d’API web reposant sur .NET 5.0, qui se connecte à Azure Notification Hubs hébergé en tant que Azure App Service. Pour plus d’informations, consultez [Démarrage rapide : Déployer une application web ASP.NET](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=net50).
 
-Si vous ne souhaitez pas déployer toutes les ressources manuellement, vous pouvez utiliser le fichier template.json d’Azure Resource Manager fourni dans le référentiel GitHub pour déployer toutes les instances nécessaires en une seule étape. Le fichier de modèle est disponible dans le référentiel dans /azure-template. Pour plus d’informations sur l’utilisation des modèles Resource Manager, consultez [Tutoriel : Utiliser les modèles de démarrage rapide Azure](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
+Si vous ne souhaitez pas déployer toutes les ressources manuellement, vous pouvez utiliser le fichier template.json d’Azure Resource Manager fourni dans le référentiel GitHub pour déployer toutes les instances nécessaires en une seule étape. Le fichier de modèle est disponible dans le référentiel dans /azure-template. Pour plus d’informations sur l’utilisation des modèles Resource Manager, consultez [Tutoriel : Utiliser les modèles de démarrage rapide Azure](../azure-resource-manager/templates/template-tutorial-quickstart-template.md?tabs=azure-powershell).
 
 ### <a name="set-up-notifications-for-android-and-ios"></a>Configurer des notifications pour Android et iOS
 
@@ -370,7 +370,7 @@ Pour générer l’exemple, suivez ces étapes.
 
 ### <a name="create-resource-sql-database"></a>Créer une ressource : base de données SQL
 
-[Créez une instance de base de données SQL Server](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) dans le portail Azure. Par exemple :
+[Créez une instance de base de données SQL Server](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) dans le portail Azure. Par exemple :
 
 :::image type="content" source="media/uwp-react/resources-sql.png" alt-text="Ressources d’une instance SQL":::
 

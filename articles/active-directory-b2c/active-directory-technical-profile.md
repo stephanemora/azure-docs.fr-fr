@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f92bfe98a45117264c957481a75493de652abc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62a1894fe63bcf24e19671a146cd16bb6fe59b0b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97508099"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122641069"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) prend en charge la gestion des utilisa
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom complet de l’assembly du gestionnaire de protocole`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Faisant suite au [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack), les profils techniques Azure AD incluent le profil technique **AAD-Common**. Les profils techniques Azure AD ne spécifient pas le protocole parce que celui-ci est configuré dans le profil technique **AAD-Common** :
+Faisant suite au [pack de démarrage de stratégie personnalisée](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), les profils techniques Azure AD incluent le profil technique **AAD-Common**. Les profils techniques Azure AD ne spécifient pas le protocole parce que celui-ci est configuré dans le profil technique **AAD-Common** :
  
 - **AAD-UserReadUsingAlternativeSecurityId** et **UserReadUsingAlternativeSecurityId-AAD-NoError** : rechercher un compte de réseau social dans le répertoire.
 - **AAD-UserWriteUsingAlternativeSecurityId** : créer un compte de réseau social.

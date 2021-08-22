@@ -2,18 +2,18 @@
 title: Azure PowerShell - Activez les clés gérées par le client avec les disques managés - SSE
 description: Activez le chiffrement côté serveur à l’aide de clés gérées par le client sur vos disques managés avec Azure PowerShell.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbf75c870b0133c7e8c9edb21975415a672f8b11
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c5d0bf7f209683668ddbffff7be11f932f3eeaee
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669100"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359029"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - Activez les clés gérées par le client avec les disques managés - chiffrement côté serveur
 

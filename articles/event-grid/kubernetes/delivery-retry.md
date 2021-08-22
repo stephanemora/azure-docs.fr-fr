@@ -6,22 +6,22 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c62ffc4374a461036d2e766fd57d96ec1906face
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6a37945461a61167e2fee7d7d3ef6a8fbccf3372
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385655"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525512"
 ---
 # <a name="event-grid-on-kubernetes---event-delivery-and-retry"></a>Event Grid sur Kubernetes - Distribution des événements et nouvelles tentatives
 Event Grid sur Kubernetes avec Azure Arc tente de distribuer immédiatement chaque message au moins une fois pour chaque abonnement correspondant. S’il n’obtient pas une réponse HTTP 200 de réussite de la part de l’abonné ou s’il y a un échec, Event Grid Kubernetes retente la distribution en fonction d’une planification fixe des nouvelles tentatives et d’une stratégie de nouvelle tentative. 
 
 Par défaut, Event Grid sur Kubernetes distribue un seul événement à la fois à l’abonné. Cependant, la charge utile de la demande de distribution est un tableau avec un seul événement. Il peut distribuer plusieurs événements à la fois si vous activez la fonctionnalité de traitement par lot des sorties. Pour plus d’informations sur cette fonctionnalité, consultez [Distribution des événements par lot](batch-event-delivery.md).
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 > [!NOTE]
-> Pendant la préversion, les fonctionnalités d’Event Grid sur Kubernetes sont prises en charge via l’API version [2020-10-15-Preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate). 
+> Pendant la préversion, les fonctionnalités d’Event Grid sur Kubernetes sont prises en charge via l’API version [2020-10-15-Preview](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update). 
 
 
 ## <a name="retry-schedule"></a>Planification des nouvelles tentatives
@@ -41,7 +41,7 @@ Deux configurations déterminent la stratégie de nouvelles tentatives. Les voic
 Un événement est supprimé si une des limites de la stratégie de nouvelle tentative est atteinte. La configuration de ces limites est effectuée par abonnement. La section suivante décrit chacune d’elles de façon plus détaillées.
 
 ### <a name="configuring-defaults-per-subscriber"></a>Configuration des valeurs par défaut par abonné
-Vous pouvez également spécifier des limites de stratégie de nouvelles tentatives pour chaque abonnement. Pour plus d’informations sur la configuration des valeurs par défaut par abonné, consultez notre [documentation sur l’API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate). Les valeurs par défaut du niveau d’abonnement remplacent les configurations de niveau du module Event Grid sur Kubernetes.
+Vous pouvez également spécifier des limites de stratégie de nouvelles tentatives pour chaque abonnement. Pour plus d’informations sur la configuration des valeurs par défaut par abonné, consultez notre [documentation sur l’API](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update). Les valeurs par défaut du niveau d’abonnement remplacent les configurations de niveau du module Event Grid sur Kubernetes.
 
 L’exemple suivant configure un abonnement de Webhook avec `maxNumberOfAttempts` défini sur 3 et `eventTimeToLiveInMinutes` défini sur 30 minutes.
 

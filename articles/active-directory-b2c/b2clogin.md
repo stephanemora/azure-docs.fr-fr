@@ -11,24 +11,16 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 20df5fc3a4d7c392be62df2b7778854d1e2e1cba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95fe619ecb33e3b7e79c37b4cddb5950836b4cd5
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109060"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223713"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
 Quand vous configurez un fournisseur d’identité pour l’inscription et la connexion à votre application Azure AD B2C (Azure Active Directory B2C) , vous devez spécifier une URL de redirection. Vous ne devez plus référencer *login.microsoftonline.com* dans vos applications et API pour authentifier les utilisateurs avec Azure AD B2C. Utilisez à la place *b2clogin.com* pour toutes les nouvelles applications, et migrez les applications existantes de *login.microsoftonline.com* vers *b2clogin.com*.
-
-## <a name="deprecation-of-loginmicrosoftonlinecom"></a>Dépréciation de login.microsoftonline.com
-
-**Mise à jour d’octobre 2020 :** Nous accordons une période de grâce pour les locataires qui ne sont pas en mesure de respecter la date de dépréciation initialement annoncée du 4 décembre 2020. La mise hors service de login.microsoftonline.com interviendra désormais au plus tôt le **14 janvier 2021**.
-
-**Contexte** : Le 4 décembre 2019, nous avions initialement [annoncé](https://azure.microsoft.com/updates/b2c-deprecate-msol/) la mise hors service de la prise en charge de login.microsoftonline.com dans Azure AD B2C prévue pour le 4 décembre 2020. Cela a donné un (1) an aux locataires existants pour migrer vers b2clogin.com. Les nouveaux locataires créés après le 4 décembre 2019 n’accepteront pas les demandes de login.microsoftonline.com. Toutes les fonctionnalités restent les mêmes sur le point de terminaison b2clogin.com.
-
-La dépréciation de login.microsoftonline.com n’a aucun impact sur les locataires Azure Active Directory. Seuls les locataires Azure Active Directory B2C sont concernés par cette modification.
 
 ## <a name="what-endpoints-does-this-apply-to"></a>Points de terminaison concernés
 La transition vers b2clogin.com s’applique uniquement aux points de terminaison d’authentification qui utilisent des stratégies Azure AD B2C (flux utilisateur ou stratégies personnalisées) pour authentifier les utilisateurs. Ces points de terminaison ont un paramètre `<policy-name>` qui spécifie la stratégie qu’Azure AD B2C doit utiliser. [En savoir plus sur les stratégies Azure AD B2C](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 

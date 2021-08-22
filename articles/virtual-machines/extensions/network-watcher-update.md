@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ae30f01dd951d2780d8ef4ee31096ce1c02df80a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c468dccd9058125169181c3fc456b71b7ea7ffec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669647"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524659"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Mettre à jour l’extension Network Watcher vers la dernière version
 
@@ -34,7 +34,7 @@ Cet article suppose que l’extension Network Watcher est installée sur votre m
 
 ## <a name="latest-version"></a>Version la plus récente
 
-La version la plus récente de l’extension Network Watcher est actuellement `1.4.1693.1`.
+La version la plus récente de l’extension Network Watcher est actuellement `1.4.1884.1`.
 
 ## <a name="update-your-extension-using-a-powershell-script"></a>Mettre à jour votre extension à l’aide d’un script PowerShell
 Clients avec des déploiements à grande échelle qui doivent mettre à jour plusieurs machines virtuelles à la fois. Pour la mise à jour manuelle de machines virtuelles sélectionnées, consultez la section suivante. 

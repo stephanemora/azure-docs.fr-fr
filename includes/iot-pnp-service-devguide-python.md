@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: a925c3a17988ef6f4b95a1e3cf4dd5fb8baa4829
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faf4bd0bd87f71af8f62064297f8288b3977ec8d
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102510629"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405035"
 ---
 Les ressources suivantes sont également disponibles :
 
@@ -19,7 +19,7 @@ Les ressources suivantes sont également disponibles :
 
 ## <a name="iot-hub-service-client-examples"></a>Exemples de clients du service IoT Hub
 
-Cette section présente des exemples Python utilisant le client de service IoT Hub et les classes **IoTHubRegistryManager** et **CloudToDeviceMethod**. Vous utilisez la classe **IoTHubRegistryManager** pour interagir avec l’état de l’appareil à l’aide de jumeaux d’appareil. Vous pouvez également utiliser la classe **IoTHubRegistryManager** pour [interroger les inscriptions d’appareils](../articles/iot-hub/iot-hub-devguide-query-language.md) dans votre IoT Hub. Vous utilisez la classe **CloudToDeviceMethod** pour appeler des commandes sur l’appareil. Le modèle [DTDL](../articles/iot-pnp/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente. Dans les extraits de code, la variable `device_id` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
+Cette section présente des exemples Python utilisant le client de service IoT Hub et les classes **IoTHubRegistryManager** et **CloudToDeviceMethod**. Vous utilisez la classe **IoTHubRegistryManager** pour interagir avec l’état de l’appareil à l’aide de jumeaux d’appareil. Vous pouvez également utiliser la classe **IoTHubRegistryManager** pour [interroger les inscriptions d’appareils](../articles/iot-hub/iot-hub-devguide-query-language.md) dans votre IoT Hub. Vous utilisez la classe **CloudToDeviceMethod** pour appeler des commandes sur l’appareil. Le modèle [DTDL](../articles/iot-develop/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente. Dans les extraits de code, la variable `device_id` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
 
 ### <a name="get-the-device-twin-and-model-id"></a>Récupérer le jumeau d’appareil et l’ID de modèle
 
@@ -129,7 +129,7 @@ print(result.payload)
 
 ## <a name="iot-hub-digital-twin-examples"></a>Exemples de jumeaux numériques IoT Hub
 
-Vous utilisez la classe **DigitalTwinClient** pour interagir avec l’état de l’appareil à l’aide de jumeaux numériques. Le modèle [DTDL](../articles/iot-pnp/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente.
+Vous utilisez la classe **DigitalTwinClient** pour interagir avec l’état de l’appareil à l’aide de jumeaux numériques. Le modèle [DTDL](../articles/iot-develop/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente.
 
 La variable `device_id` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
 
@@ -224,7 +224,7 @@ else:
 
 Les appareils IoT Plug-and-Play envoient la télémétrie définie dans le modèle DTDL à IoT Hub. Par défaut, IoT Hub achemine la télémétrie vers un point de terminaison Event Hubs où vous pouvez l’utiliser. Pour en savoir plus, consultez [Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](../articles/iot-hub/iot-hub-devguide-messages-d2c.md).
 
-L’extrait de code suivant montre comment lire la télémétrie du point de terminaison Event Hubs par défaut. Le code de cet extrait provient du démarrage rapide IoT Hub [Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire depuis ce hub avec une application back-end](../articles/iot-hub/quickstart-send-telemetry-python.md) :
+L’extrait de code suivant montre comment lire la télémétrie du point de terminaison Event Hubs par défaut. Le code de cet extrait provient du démarrage rapide IoT Hub [Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire depuis ce hub avec une application back-end](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) :
 
 ```python
 import asyncio

@@ -4,16 +4,20 @@ description: Découvrez comment gérer les membres d’un consortium Azure Block
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: zeyadr
-ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72f8e1fc5de0b48b23627f8590a08e06865cac12
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85211338"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641078"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Gérer les membres d’un consortium dans Azure Blockchain Service à l’aide de PowerShell
 
-Vous pouvez utiliser PowerShell pour gérer les membres d’un consortium blockchain pour votre service Azure Blockchain Service. Les membres qui disposent des privilèges d’administrateur peuvent inviter, ajouter, supprimer et modifier des rôles pour tous les participants dans le consortium blockchain. Les membres qui disposent des privilèges d’utilisateur peuvent visualiser tous les participants du consortium blockchain et modifier leur nom complet de membre.
+Vous pouvez utiliser PowerShell pour gérer les membres d’un consortium blockchain pour votre service Azure Blockchain Service.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Les membres qui disposent des privilèges d’administrateur peuvent inviter, ajouter, supprimer et modifier des rôles pour tous les participants dans le consortium blockchain. Les membres qui disposent des privilèges d’utilisateur peuvent visualiser tous les participants du consortium blockchain et modifier leur nom complet de membre.
 
 ## <a name="prerequisites"></a>Prérequis
 

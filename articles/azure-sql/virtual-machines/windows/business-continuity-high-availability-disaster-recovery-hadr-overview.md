@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: a5fe3157d419b199f1e83f44485e507812c0b80c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569589"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434841"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ Ou vous pouvez configurer un environnement de basculement hybride avec un répli
 
 Pour plus d’informations, consultez les [conditions de licence du produit](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Sélectionnez **Configurer** sous **Paramètres**, puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
+Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-resource). Sélectionnez **Configurer** sous **Paramètres**, puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
 
 ![Configurer un réplica de reprise d’activité dans Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 

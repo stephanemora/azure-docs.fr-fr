@@ -1,19 +1,19 @@
 ---
 title: Créer une image de machine virtuelle et utiliser une identité managée affectée par l’utilisateur pour accéder aux fichiers dans le stockage Azure
 description: Créez l’image de machine virtuelle à l’aide du générateur d’images Azure, qui peut accéder aux fichiers stockés dans le stockage Azure à l’aide d’identités managées affectées par l’utilisateur.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.openlocfilehash: 94bde3351f74c3388e137cc738f2b970654416bd
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: c122907ffc43f8e7e108773330b64da8c6acd96e
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439599"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593667"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Créer une image et utiliser une identité managée affectée par l’utilisateur pour accéder aux fichiers dans le stockage Azure 
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971157"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431516"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Service de détection d’anomalie pour la facturation à l’usage
 
-Le [service de mesure de la consommation du marketplace](../marketplace-metering-service-apis-faq.md) vous permet de créer des offres dans le cadre du programme du marketplace commercial qui sont facturées en fonction d’unités non standard. Avec la facturation à l’usage, vous envoyez des événements d’utilisation relatifs à l’utilisation de votre client à Microsoft et nous préparons la facturation en fonction de cette utilisation.
+Le [service de mesure de la consommation du marketplace](../marketplace-metering-service-apis-faq.yml) vous permet de créer des offres dans le cadre du programme du marketplace commercial qui sont facturées en fonction d’unités non standard. Avec la facturation à l’usage, vous envoyez des événements d’utilisation relatifs à l’utilisation de votre client à Microsoft et nous préparons la facturation en fonction de cette utilisation.
 
 Des données d’utilisation incorrectes peuvent avoir des causes diverses, telles que des bogues, des erreurs de configuration dans votre suivi de la consommation ou des fraudes. Des données d’utilisation incorrectes entraînent des frais d’utilisation incorrects et des litiges de facturation.
 
@@ -67,7 +67,7 @@ Si l’un des cas suivants s’applique, vous pouvez ajuster le montant d’util
 
 Pour envoyer un ticket de support lié à des anomalies de facturation mesurée :
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) à l’aide de votre compte professionnel.
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) à l’aide de votre compte professionnel.
 1. Dans le menu en haut à droite de la page, sélectionnez l’icône **Support**. Le volet **Aide et support** s’affiche sur le côté droit de la page.
 1. Pour obtenir de l’aide concernant le marketplace commercial, sélectionnez **Marketplace commercial**.
    ![Illustre le volet de support.](../media/support/commercial-marketplace-support-pane.png)

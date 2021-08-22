@@ -1,19 +1,19 @@
 ---
 title: Migrer vos machines virtuelles Windows vers le Stockage Premium Azure à l’aide d’Azure Site Recovery
 description: Découvrez comment migrer vos disques de machine virtuelle d’un compte de stockage standard vers un compte de stockage Premium à l’aide d’Azure Site Recovery.
-author: luywang
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
-ms.author: luywang
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a8b58c72ee4e6d9d38dccb369a3d38c46f0c4afe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 749ad687f77b497c66a96de883c6f5566054112e
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046842"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113360430"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 

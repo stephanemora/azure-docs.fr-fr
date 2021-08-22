@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
 ms.author: kumud
-ms.openlocfilehash: 34e31bacbb276feb5b11d1b955096877376e989b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 072c26444c3a3fe84cfc9a0690571a524f7db6dc
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107701"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113436043"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
@@ -67,7 +67,7 @@ Le service Azure Bastion est un nouveau service PaaS complètement managé par l
 :::image type="content" source="./media/networking-overview/architecture.png" alt-text="Architecture d’Azure Bastion":::
 
 ### <a name="virtual-network-nat-gateway"></a><a name="nat"></a>Passerelle NAT de réseau virtuel
-Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la connectivité Internet sortante uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. Une connectivité sortante est possible sans équilibreur de charge ni adresses IP publiques directement attachées aux machines virtuelles. Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle NAT de réseau virtuel ?](../../virtual-network/nat-overview.md).
+Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la connectivité Internet sortante uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. Une connectivité sortante est possible sans équilibreur de charge ni adresses IP publiques directement attachées aux machines virtuelles. Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle NAT de réseau virtuel ?](../../virtual-network/nat-gateway/nat-overview.md).
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Passerelle NAT de réseau virtuel":::
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: caya
-ms.openlocfilehash: 2329dc7426b223ef2c81dd0e2e607bccf73192e6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 15655ba313a3a3cba23289c6d829523db6735129
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230884"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532211"
 ---
 # <a name="export-a-trusted-client-ca-certificate-chain-to-use-with-client-authentication"></a>Exporter une chaîne de certificats d'autorité de certification clients approuvés à utiliser avec l'authentification client
 Pour configurer l'authentification mutuelle avec le client, ou l'authentification client, Application Gateway exige qu'une chaîne de certificats d'autorité de certification clients approuvés soit chargée sur la passerelle. Si vous disposez de plusieurs chaînes de certificats, vous devez créer les chaînes séparément et les charger sous forme de fichiers distincts sur l'instance d'Application Gateway. Dans cet article, vous allez apprendre à exporter une chaîne de certificats d'autorité de certification clients approuvés que vous pourrez utiliser dans votre configuration d'authentification client sur votre passerelle.  
@@ -55,7 +55,7 @@ Les étapes suivantes vous aideront à exporter le fichier .pem ou .cer de votre
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
     > [!div class="mx-imgBorder"]
-    > ![Capture d’écran montrant l’Assistant Exportation de certificat une fois l’exportation de fichier terminée.](./media/certificates-for-backend-authentication/finish.png)
+    > ![Capture d’écran montrant l’Assistant Exportation de certificat une fois l’exportation de fichier terminée.](./media/certificates-for-backend-authentication/finish-screen.png)
 
 7. Votre certificat est correctement exporté.
 

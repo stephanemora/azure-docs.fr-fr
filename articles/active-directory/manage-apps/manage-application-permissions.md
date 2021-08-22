@@ -2,22 +2,22 @@
 title: Gérer les autorisations des utilisateurs et des administrateurs – Azure Active Directory | Microsoft Docs
 description: Apprenez à examiner et gérer les autorisations relatives à une application sur Azure AD. Par exemple, révoquez toutes les autorisations octroyées à une application.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: mtillman
-ms.reviewer: luleonpla
+ms.author: davidmu
+ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa8611fb932fadcdf8cd7c8a361fb840babf16b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7585ad6816a8d9fd0a331ae9fcb1e1cea81ddbac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075877"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532385"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.
 
@@ -72,10 +72,10 @@ Si vous le souhaitez, vous pouvez désactiver l’application pour empêcher les
 Nous vous recommandons de restreindre l’accès à l’application en activant le paramètre **Affectation d’utilisateurs**. Examinez ensuite les autorisations que les utilisateurs et les administrateurs ont accordées à l’application.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
-3. Sélectionnez **Azure Active Directory (Azure Active Directory)**  > **Enterprise applications (Applications d’entreprise)** .
-5. Sélectionnez l’application dont vous souhaitez restreindre l’accès.
-6. Sélectionnez **Propriétés**, puis définissez **Droits d’accès requis pour l’utilisateur** sur **Oui**.
-7. Sélectionnez **Autorisations** et vérifiez les autorisations consenties par l’administrateur et l’utilisateur.
+2. Sélectionnez **Azure Active Directory (Azure Active Directory)**  > **Enterprise applications (Applications d’entreprise)** .
+3. Sélectionnez l’application dont vous souhaitez restreindre l’accès.
+4. Sélectionnez **Propriétés**, puis définissez **Droits d’accès requis pour l’utilisateur** sur **Oui**.
+5. Sélectionnez **Autorisations** et vérifiez les autorisations consenties par l’administrateur et l’utilisateur.
 
 Éventuellement, à l’aide de PowerShell, vous pouvez :
 

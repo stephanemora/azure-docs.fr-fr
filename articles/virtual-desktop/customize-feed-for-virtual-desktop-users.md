@@ -7,12 +7,12 @@ ms.date: 09/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 24174d7ac9fa33cb1fb3ca6e325537dde346b3c3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d2a1e8df23bca2e57f2d26bd83fc06ad93847903
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752006"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113032936"
 ---
 # <a name="customize-the-feed-for-azure-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs d’Azure Virtual Desktop
 
@@ -120,8 +120,8 @@ Vous pouvez changer le nom d’affichage pour un Bureau à distance publié en d
 
 Maintenant que vous avez personnalisé le flux pour les utilisateurs, connectez-vous à un client Azure Virtual Desktop pour faire des tests. Pour cela, passez aux rubriques de procédures Se connecter à Azure Virtual Desktop :
 
- * [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-10.md)
- * [Se connecter avec le client web](connect-web.md)
- * [Se connecter avec le client Android](connect-android.md)
- * [Se connecter avec le client iOS](connect-ios.md)
- * [Se connecter avec le client macOS](connect-macos.md)
+ * [Se connecter avec Windows 10 ou Windows 7](./user-documentation/connect-windows-7-10.md)
+ * [Se connecter avec le client web](./user-documentation/connect-web.md)
+ * [Se connecter avec le client Android](./user-documentation/connect-android.md)
+ * [Se connecter avec le client iOS](./user-documentation/connect-ios.md)
+ * [Se connecter avec le client macOS](./user-documentation/connect-macos.md)

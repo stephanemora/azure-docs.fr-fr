@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587790"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535230"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -96,7 +96,7 @@ Les programmes d’installation se trouvent dans le dossier %ProgramData%\ASR\ho
 Sur chaque machine virtuelle que vous souhaitez répliquer, installez le service selon l’une des méthodes suivantes :
 
 - [Installation Push](vmware-physical-mobility-service-overview.md#push-installation)
-- [Installation manuelle](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) à partir de l’interface utilisateur ou de PowerShell
+- [Installation manuelle](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-classic) à partir de l’interface utilisateur ou de PowerShell
 - Déploiement à l’aide d’un outil de déploiement tel que [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## <a name="managed-disks"></a>Disques managés

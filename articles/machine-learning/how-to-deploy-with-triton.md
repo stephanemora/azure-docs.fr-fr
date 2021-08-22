@@ -11,12 +11,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b8ccc8eb55031f583eba24368fca66e0943124b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 894b95b1fb00402f9cfed2614639b29ac5412f4b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064843"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446428"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -37,7 +37,7 @@ Triton est une infrastructure *optimisée pour l’inférence*. Elle offre une m
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un **abonnement Azure**. Si vous n’en avez pas, essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 * Vous savez [comment et où déployer un modèle](how-to-deploy-and-where.md) avec Azure Machine Learning.
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/) **ou** [Azure CLI](/cli/azure/) et [l’extension de Machine Learning](reference-azure-machine-learning-cli.md).
 * Une installation fonctionnelle de Docker pour le test local. Pour plus d’informations sur l’installation et la validation de Docker, consultez [Orientation et installation](https://docs.docker.com/get-started/) dans la documentation.
@@ -135,6 +135,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 ---
 
 [Pour plus d’informations sur le déploiement de modèles, consultez cette documentation](how-to-deploy-and-where.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ### <a name="call-into-your-deployed-model"></a>Appeler votre modèle déployé
 

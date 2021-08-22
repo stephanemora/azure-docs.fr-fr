@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 5eb5c351462279fe5c4f790e052f73201d211cfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8183d00f9846d3006ff0d246c8ea55407c45ac4b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94961173"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430247"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
@@ -71,7 +71,7 @@ Votre appareil doit synchroniser l’heure pour s’authentifier auprès du four
 
 Au moment de configurer le serveur NTP, vérifiez que votre réseau autorise le trafic NTP à passer de votre centre de données à Internet. Quand vous spécifiez un serveur NTP public, vous devez veiller à ce que vos pare-feu réseau et autres dispositifs de sécurité soient configurés pour autoriser le trafic NTP à transiter vers et à partir du réseau externe. Si le trafic NTP bidirectionnel n’est pas autorisé, vous devez utiliser un serveur NTP interne (un contrôleur de domaine Windows assure cette fonction). Si votre appareil ne peut pas synchroniser l’heure, il ne pourra peut-être pas communiquer avec votre fournisseur de stockage cloud.
 
-Pour consulter la liste des serveurs NTP publics, accédez au [site web des serveurs NTP](https://support.ntp.org/bin/view/Servers/WebHome).
+Pour consulter la liste des serveurs NTP publics, accédez au [site web des serveurs NTP](https://www.pool.ntp.org/zone/us).
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>Que se passe-t-il si l’appareil est déployé dans un autre fuseau horaire ?
 

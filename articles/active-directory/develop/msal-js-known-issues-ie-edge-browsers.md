@@ -3,22 +3,22 @@ title: Problèmes liés sur Internet Explorer et Microsoft Edge (MSAL.js) | Azur
 titleSuffix: Microsoft identity platform
 description: Apprenez-en davantage sur les problèmes connus d’utilisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec les navigateurs Internet Explorer et Microsoft Edge.
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/18/2020
-ms.author: mtillman
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9323558aec1cb330cc5253f8d380706854aaeae9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 91ef36a5dbbfb7e0edb7fe1d75d77d2f2dc4870b
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077227"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357604"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problèmes connus sur les navigateurs Internet Explorer et Microsoft Edge (MSAL.js)
 
@@ -36,7 +36,7 @@ La cause de la plupart de ces problèmes est la suivante. Le stockage de session
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **La fenêtre contextuelle ne se ferme pas ou est bloquée lors de l’utilisation de la connexion via la fenêtre contextuelle pour l’authentification**. Lors de l’authentification via une fenêtre contextuelle dans Microsoft Edge ou IE (InPrivate), une fois la saisie des informations d’identification et la connexion effectuées, si plusieurs domaines dans les zones de sécurité sont impliqués dans la navigation, la fenêtre contextuelle ne se ferme pas parce que MSAL.js perd le descripteur de la fenêtre contextuelle.  
+- **La fenêtre contextuelle ne se ferme pas ou est bloquée lors de l’utilisation de la connexion via la fenêtre contextuelle pour l’authentification**. Lors de l’authentification via une fenêtre contextuelle dans Microsoft Edge ou IE (InPrivate), une fois la saisie des informations d’identification et la connexion effectuées, si plusieurs domaines dans les zones de sécurité sont impliqués dans la navigation, la fenêtre contextuelle ne se ferme pas parce que MSAL.js perd le descripteur de la fenêtre contextuelle.
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Mise à jour : Correctif disponible dans MSAL.js 0.2.3
 Des correctifs pour les problèmes de boucle de redirection d’authentification ont été publiés dans [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Activez l’indicateur `storeAuthStateInCookie` dans la configuration MSAL.js pour tirer parti de ce correctif. Par défaut, cet indicateur est défini sur false.
@@ -49,7 +49,7 @@ Lorsque l’indicateur `storeAuthStateInCookie` est activé, MSAL.js utilise les
 Utilisez les solutions de contournement ci-dessous.
 
 #### <a name="other-workarounds"></a>Autres solutions de contournement
-Avant de mettre en œuvre ces solutions de contournement, testez pour vérifier que votre problème ne se produit que sur cette version du navigateur Microsoft Edge et fonctionne sur les autres navigateurs.  
+Avant de mettre en œuvre ces solutions de contournement, testez pour vérifier que votre problème ne se produit que sur cette version du navigateur Microsoft Edge et fonctionne sur les autres navigateurs.
 1. En guise de première étape, pour résoudre ces problèmes, assurez-vous que le domaine d’application et tous les autres sites impliqués dans les redirections du flux d’authentification sont ajoutés en tant que sites de confiance dans les paramètres de sécurité du navigateur, de sorte qu’ils appartiennent à la même zone de sécurité.
 Pour ce faire, procédez comme suit :
     - Ouvrez **Internet Explorer**, puis cliquez sur **Paramètres** (icône d’engrenage) dans l’angle supérieur droit.

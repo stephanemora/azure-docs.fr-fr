@@ -2,18 +2,17 @@
 title: Mettre à l’échelle et gérer des compétences personnalisées
 titleSuffix: Azure Cognitive Search
 description: Découvrez les outils et techniques permettant de mettre à l’échelle efficacement une compétence personnalisée pour un débit maximal. Les compétences personnalisées appellent des modèles d’IA ou une logique définis par l’utilisateur que vous pouvez ajouter à un pipeline d’indexation enrichi par l’IA dans la Recherche cognitive Azure.
-manager: luisca
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6b44cc3bde1a2e36cdd902a7366df8841795891a
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125586"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728430"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Faire évoluer efficacement une compétence personnalisée
 

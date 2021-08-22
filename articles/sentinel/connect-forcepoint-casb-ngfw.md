@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e02131d6a72af64f919021d688864667f042a89
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77588227"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534875"
 ---
 # <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Connecter vos produits Forcepoint à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur de données des produits Forcepoint dans Azure Sentinel est actuellement en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Cet article explique comment connecter vos produits Forcepoint à Azure Sentinel. 
 
@@ -52,8 +53,8 @@ Configurez le produit Forcepoint pour transférer les messages Syslog au format 
 
 Dans ce document, vous avez appris à connecter les produits Forcepoint à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
 
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
 
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

@@ -4,12 +4,12 @@ description: Découvrez comment isoler les clusters Azure HDInsight dans un rés
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c5e30bfd7afd8a7cd8974544324f6e610736846
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98939364"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113438473"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Sécuriser et isoler les clusters Azure HDInsight avec Azure Private Link (préversion)
 
@@ -28,7 +28,7 @@ Les équilibreurs de charge de base utilisés dans l’architecture de réseau v
 
 La configuration de `resourceProviderConnection` sur Sortante vous permet également d’accéder à des ressources spécifiques au cluster, telles que des metastores Azure Data Lake Storage Gen2 ou externes, en utilisant des points de terminaison privés. L’utilisation de points de terminaison privés pour ces ressources n’est pas obligatoire, mais si vous prévoyez d’avoir des points de terminaison privés pour ces ressources, vous devez configurer des points de terminaison privés et les entrées DNS `before` (avant) de créer le cluster HDInsight. Nous vous recommandons de créer et de fournir toutes les bases de données SQL externes dont vous avez besoin, comme Apache Ranger, Ambari, Oozie et les metastores Hive, au moment de la création du cluster. Toutes ces ressources doivent être accessibles depuis l’intérieur du sous-réseau du cluster, par le biais de leur propre point de terminaison privé ou d’une autre manière.
 
-L’utilisation de points de terminaison privés pour Azure Key Vault n’est pas prise en charge. Si vous utilisez Azure Key Vault pour le chiffrement CMK au repos, le point de terminaison Azure Key Vault doit être accessible à partir du sous-réseau HDInsight sans point de terminaison privé.
+Lorsque vous vous connectez à Azure Data Lake Storage Gen2 sur un point de terminaison privé, assurez-vous que le compte de stockage Gen2 dispose d'un point de terminaison défini pour « blob » et « dfs ». Pour plus d'informations, consultez [Créer un point de terminaison privé](../storage/common/storage-private-endpoints.md).
 
 Le diagramme suivant montre à quoi peut ressembler une potentielle architecture de réseau virtuel HDInsight lorsque `resourceProviderConnection` est définie sur Sortante :
 
@@ -53,7 +53,7 @@ Azure Private Link, qui est désactivé par défaut, requiert des connaissances 
 
 Lorsque `privateLink` est définie sur *activé*, des [équilibreurs de charge standard](../load-balancer/load-balancer-overview.md) (SLB) internes sont créés et un service Azure Private Link est approvisionné pour chaque SLB. Le service Azure Private Link vous permet d’accéder au cluster HDInsight à partir de points de terminaison privés.
 
-Les équilibreurs de charge standard n’approvisionnent pas automatiquement la [NAT sortante publique](../load-balancer/load-balancer-outbound-connections.md) comme le font les équilibreurs de charge de base. Vous devez fournir votre propre solution NAT, par exemple [NAT de réseau virtuel Azure](../virtual-network/nat-overview.md) ou un [pare-feu](./hdinsight-restrict-outbound-traffic.md), pour les dépendances sortantes. Votre cluster HDInsight doit toujours avoir accès à ses dépendances sortantes. Si ces dépendances sortantes ne sont pas autorisées, la création du cluster peut échouer.
+Les équilibreurs de charge standard n’approvisionnent pas automatiquement la [NAT sortante publique](../load-balancer/load-balancer-outbound-connections.md) comme le font les équilibreurs de charge de base. Vous devez fournir votre propre solution NAT, par exemple [NAT de réseau virtuel Azure](../virtual-network/nat-gateway/nat-overview.md) ou un [pare-feu](./hdinsight-restrict-outbound-traffic.md), pour les dépendances sortantes. Votre cluster HDInsight doit toujours avoir accès à ses dépendances sortantes. Si ces dépendances sortantes ne sont pas autorisées, la création du cluster peut échouer.
 
 ### <a name="prepare-your-environment"></a>Préparation de votre environnement
 

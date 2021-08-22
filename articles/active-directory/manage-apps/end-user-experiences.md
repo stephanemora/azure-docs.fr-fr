@@ -2,21 +2,21 @@
 title: Expériences d’utilisateurs finaux auprès des applications - Azure Active Directory
 description: Azure Active Directory (Azure AD) offre plusieurs moyens personnalisables pour déployer des applications pour les utilisateurs finaux de votre organisation.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mtillman
-ms.reviewer: arvindh
-ms.openlocfilehash: 9280cf669bb766ea82f2e668a56d2b3f743315fb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: lenalepa
+ms.openlocfilehash: 5cf4fe927d7079d866e90a789bb210730a6c4867
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081404"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532141"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory
 
@@ -31,9 +31,9 @@ Les méthodes que vous choisissez de déployer dans votre organisation sont à v
 
 ## <a name="azure-ad-my-apps"></a>Mes applications Azure AD
 
-Mes applications à l’adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d’un compte professionnel dans Azure Active Directory de voir et de lancer les applications auxquelles l’administrateur Azure AD lui a donné accès. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les capacités de gestion de groupes en libre-service via Mes applications.
+Mes applications à l’adresse <https://myapps.microsoft.com> est un portail web qui permet à un utilisateur final disposant d’un compte professionnel dans Azure Active Directory de voir et de lancer les applications auxquelles l’administrateur Azure AD lui a donné accès. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), vous pouvez également utiliser les capacités de gestion de groupes en libre-service via Mes applications.
 
-Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des collections pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des collections pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, consultez [Créer des collections sur le portail Mes applications](access-panel-collections.md). 
+Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des collections pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des collections pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, consultez [Créer des collections sur le portail Mes applications](access-panel-collections.md).
 
 Mes applications est distinct du portail Azure. Pour y accéder, les utilisateurs n’ont pas besoin d’un abonnement Azure ou Microsoft 365.
 

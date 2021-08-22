@@ -2,13 +2,13 @@
 title: Analyse de vidéo en direct sans enregistrement – Azure
 description: Vous pouvez utiliser une topologie de pipeline pour simplement extraire des analyses d’un flux vidéo en direct, sans avoir à les enregistrer en périphérie ou dans le cloud. Cet article aborde ce concept.
 ms.topic: conceptual
-ms.date: 03/27/2021
-ms.openlocfilehash: af3c1438814a77a4687c2fdd58e3a6e6f9589b32
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 8444759d231153419873679624645a96e07058ce
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384871"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535429"
 ---
 # <a name="analyzing-live-videos-without-recording"></a>Analyse de vidéos en direct sans enregistrement
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser une topologie de pipeline pour analyser une vidéo en direc
 La topologie de pipeline ci-dessous se compose d’un nœud [source RTSP](pipeline.md#rtsp-source), d’un nœud [processeur de détection de mouvement](pipeline.md#motion-detection-processor) et d’un nœud [récepteur de messages IoT Hub](pipeline.md#iot-hub-message-sink). Vous pouvez voir les paramètres utilisés dans sa [représentation JSON](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-detection/topology.json). Cette topologie vous permet de détecter des mouvements dans les flux vidéo en direct entrants et de transmettre les événements à d’autres applications et services via le nœud récepteur de messages du IoT Hub. Les applications ou services externes peuvent déclencher une alerte ou envoyer une notification aux personnes appropriées.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detection.svg" alt-text="Détection de mouvement dans une vidéo en direct":::
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Détection de mouvement dans une vidéo en direct":::
 
 ### <a name="analyzing-video-using-a-custom-vision-model"></a>Analyse de vidéos à l’aide d’un modèle Custom Vision 
 

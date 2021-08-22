@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5abe1755e22ac20e210aece956056ea647393dc1
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: d3fa9b89cb1fa7b0f7fa33025f908ae8ba5af7a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896240"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531956"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Tutoriel : configurer Arkose Labs avec Azure Active Directory B2C
 
@@ -157,7 +157,7 @@ Pour redéployer l’instance locale pendant le test, répétez les étapes 1 �
 
 Cet exemple protège le point de terminaison de l’API web à l’aide de [l’authentification HTTP de base](https://tools.ietf.org/html/rfc7617).
 
-Le nom d’utilisateur et le mot de passe sont stockés sous la forme de variables d’environnement et non dans le référentiel. Pour plus d’informations, consultez le fichier [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file).
+Le nom d’utilisateur et le mot de passe sont stockés sous la forme de variables d’environnement et non dans le référentiel. Pour plus d’informations, consultez le fichier [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file).
 
 1. Créer un fichier local.settings.json dans votre dossier racine
 

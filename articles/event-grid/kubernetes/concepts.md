@@ -6,17 +6,17 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: e9d7fff98a6d6c062f529528f9f1d3071a038049
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 911a67644ac50906ee7e4b3009658043cfa022d6
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385776"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414572"
 ---
 # <a name="event-grid-on-kubernetes---concepts"></a>Event Grid sur Kubernetes - Concepts
 Cet article explique les concepts principaux d’Event Grid sur Kubernetes avec Azure Arc (préversion)
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="events"></a>Événements
 Un événement est un enregistrement de données qui annonce un fait concernant le fonctionnement d’un système logiciel. En général, un événement annonce un changement d’état en raison d’un signal déclenché par le système ou d’un signal observé par le système. Les événements contiennent deux types d’informations : 

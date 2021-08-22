@@ -4,14 +4,14 @@ description: Explique comment ajouter, modifier, analyser et supprimer des volum
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/09/2017
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5653fdcaa37b1adb728a23454317c6088b9efbc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547544"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525264"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
@@ -38,7 +38,7 @@ Les volumes épinglés localement sont des volumes entièrement configurés qui 
 
 Les volumes épinglés localement sont totalement configurés. Vous devez donc disposer de suffisamment d’espace sur votre appareil lorsque vous les créez. Vous pouvez configurer des volumes épinglés localement jusqu’à une taille maximale de 8 To sur un appareil StorSimple 8100 et de 20 To sur un appareil 8600. StorSimple réserve l’espace restant local de l’appareil pour les instantanés, les métadonnées et le traitement des données. Vous pouvez augmenter la taille d’un volume épinglé localement pour qu’il occupe l’espace maximal disponible, mais vous ne pouvez pas réduire la taille d’un volume après sa création.
 
-Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées. Pour plus d’informations sur les volumes locaux, reportez-vous au [forum aux questions sur les volumes épinglés localement](storsimple-8000-local-volume-faq.md).
+Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées. Pour plus d’informations sur les volumes locaux, reportez-vous au [forum aux questions sur les volumes épinglés localement](storsimple-8000-local-volume-faq.yml).
 
 ### <a name="tiered-volumes"></a>Volumes hiérarchisés
 
@@ -315,7 +315,7 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 2. Dans la liste tabulaire de volumes, sélectionnez le volume et cliquez avec le bouton droit pour ouvrir le menu contextuel. Sélectionnez **Modifier**.
 3. Dans le panneau **Modifier le volume**, pour **Analyse**, sélectionnez **Activer** ou **Désactiver** afin d’activer ou de désactiver l’analyse.
 
-    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
+    ![Désactiver l’analyse](./media/storsimple-8000-manage-volumes-u2/monitor-volume-01.png) 
 
 4. Cliquez sur **Enregistrer** puis, lorsque vous êtes invité à confirmer l’opération, cliquez sur **Oui**. Le portail Azure affiche une notification de mise à jour du volume, puis un message de réussite, une fois que le volume est à jour.
 

@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 2b698ffaddb4bc818eaabda34022ab58ff05fe5f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9fb994968835d6fb609c079f008f87d4b37ef85b
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786348"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004877"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Déplacer Analysis Services vers une autre région
 
@@ -40,7 +40,7 @@ Avant de déplacer un serveur vers une autre région, il est recommandé de cré
 > Les applications clientes et les chaînes de connexion se connectent à Analysis Services à l’aide du nom complet du serveur, qui représente un URI incluant la région dans laquelle se trouve le serveur. Par exemple : `asazure://westcentralus.asazure.windows.net/advworks01`. Lors du déplacement d’un serveur vers une autre région, vous créez en fait une nouvelle ressource de serveur dans une autre région, qui aura une région différente dans l’URI du nom de serveur. Les applications clientes et les chaînes de connexion utilisées dans les scripts doivent se connecter au nouveau serveur à l’aide de l’URI du nouveau nom de serveur. L’utilisation d’un [alias de nom de serveur](analysis-services-server-alias.md) peut réduire le nombre d’emplacements où l’URI de nom de serveur doit être modifié, mais cet alias doit être implémenté avant le déplacement d’une région.
 
 > [!IMPORTANT]
-> Les régions Azure utilisent des plages d’adresses IP différentes. Si vous avez configuré des exceptions de pare-feu pour la région dans laquelle se trouve votre serveur et/ou votre compte de stockage, il peut être nécessaire de configurer une autre plage d’adresses IP. Pour en savoir plus, voir [Forum aux questions sur la connectivité réseau Analysis Services](analysis-services-network-faq.md).
+> Les régions Azure utilisent des plages d’adresses IP différentes. Si vous avez configuré des exceptions de pare-feu pour la région dans laquelle se trouve votre serveur et/ou votre compte de stockage, il peut être nécessaire de configurer une autre plage d’adresses IP. Pour en savoir plus, voir [Forum aux questions sur la connectivité réseau Analysis Services](analysis-services-network-faq.yml).
 
 > [!NOTE]
 > Cet article décrit la restauration d’une sauvegarde de base de données sur un serveur cible à partir d’un conteneur de stockage dans la région du serveur source. Dans certains cas, la restauration de sauvegardes à partir d’une autre région peut entraîner des performances médiocres, en particulier pour les bases de données volumineuses. Pour des performances optimales lors de la restauration de la base de données, migrez ou créez un nouveau conteneur de stockage dans la région du serveur cible. Copiez les fichiers de sauvegarde .abf du conteneur de stockage de la région source vers le conteneur de stockage de la région cible avant de restaurer la base de données sur le serveur cible. Même si cela dépasse le cadre de cet article, dans certains cas, en particulier avec les bases de données très volumineuses, le script d’une base de données à partir de votre serveur source, la recréation, puis le traitement sur le serveur cible pour charger les données de la base de données peuvent être plus rentables que l’utilisation d’une sauvegarde/restauration.

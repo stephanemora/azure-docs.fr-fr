@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 97cd4d51da70b9b1cca501c7f04a3b0ccfc51305
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 18e176f11da9c8dca86c5f3477cb282c478664cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059672"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532669"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Faire apparaître des détails d'événements personnalisés dans les alertes d'Azure Sentinel 
 
@@ -29,7 +29,7 @@ ms.locfileid: "112059672"
 
 ## <a name="introduction"></a>Introduction
 
-Les [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md) analysent les **événements** issus des sources de données connectées à Azure Sentinel, et produisent des **alertes** lorsque le contenu de ces événements est significatif du point de vue de la sécurité. Ces alertes sont ensuite analysées, regroupées et filtrées par les différents moteurs d'Azure Sentinel et transformées en **incidents** qui nécessitent l'attention d'un analyste du centre des opérations de sécurité (SOC). Mais lorsque l'analyste visualise l'incident, seules les propriétés des alertes de composant proprement dites sont immédiatement visibles. Pour accéder au contenu réel (informations contenues dans les événements), il faut creuser un peu.
+Les [règles analytiques de requête planifiée](detect-threats-custom.md) analysent les **événements** issus des sources de données connectées à Azure Sentinel, et produisent des **alertes** lorsque le contenu de ces événements est significatif du point de vue de la sécurité. Ces alertes sont ensuite analysées, regroupées et filtrées par les différents moteurs d'Azure Sentinel et transformées en **incidents** qui nécessitent l'attention d'un analyste du centre des opérations de sécurité (SOC). Mais lorsque l'analyste visualise l'incident, seules les propriétés des alertes de composant proprement dites sont immédiatement visibles. Pour accéder au contenu réel (informations contenues dans les événements), il faut creuser un peu.
 
 À l'aide de la fonctionnalité **Détails personnalisés** de l'**Assistant de règle analytique**, vous pouvez faire apparaître des données d'événements dans les alertes générées à partir de ces événements, en intégrant ces données aux propriétés des alertes. Vous bénéficiez ainsi d'une visibilité immédiate sur le contenu des événements au sein de vos incidents, ce qui vous permet de trier, d'examiner, de tirer des conclusions et de réagir avec beaucoup plus de rapidité et d'efficacité.
 
@@ -70,5 +70,5 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à faire apparaître des détails personnalisés dans les alertes à l'aide des règles analytiques d'Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
+- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](detect-threats-custom.md).
 - Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).

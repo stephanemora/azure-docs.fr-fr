@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa5f2e51549baeaea6373a2d24e54f780d508bce
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92778384"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596260"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrer un profil Azure CDN depuis Verizon standard vers Verizon Premium
 
@@ -36,7 +36,7 @@ Pour mettre à niveau un profil **Azure CDN standard de Verizon**, contactez le 
 
 ## <a name="profile-comparison"></a>Comparaison des profils
 Les profils **Azure CDN Premium de Verizon** présentent les caractéristiques suivantes par rapport aux profils **Azure CDN standard de Verizon** :
-- Pour certaines fonctionnalités Azure CDN comme la [compression](cdn-improve-performance.md), la [mise en cache des règles](cdn-caching-rules.md) et le [géofiltrage](cdn-restrict-access-by-country.md), vous ne pouvez pas utiliser l’interface d’Azure CDN ; vous devez utiliser le portail de Verizon par le biais du bouton **Gérer**.
+- Pour certaines fonctionnalités Azure CDN comme la [compression](cdn-improve-performance.md), la [mise en cache des règles](cdn-caching-rules.md) et le [géofiltrage](cdn-restrict-access-by-country-region.md), vous ne pouvez pas utiliser l’interface d’Azure CDN ; vous devez utiliser le portail de Verizon par le biais du bouton **Gérer**.
 - API : à la différence de Verizon standard, vous ne pouvez pas utiliser l’API pour contrôler les fonctionnalités qui sont accessibles à partir du portail Verizon Premium. Toutefois, vous pouvez utiliser l’API pour contrôler d’autres fonctionnalités courantes, telles que la création/suppression d’un point de terminaison, le vidage/le chargement de ressources mises en cache et l’activation/la désactivation d’un domaine personnalisé.
 - Prix : Verizon Premium a une structure tarifaire pour les transferts de données différente de celle de Verizon standard. Pour plus d’informations, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 

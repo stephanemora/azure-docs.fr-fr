@@ -2,19 +2,18 @@
 title: Exemple de compétence personnalisée (Python)
 titleSuffix: Azure Cognitive Search
 description: En tant que développeur Python, découvrez les outils et les techniques qui vous permettront de créer une compétence personnalisée avec Azure Functions et Visual Studio. Les compétences personnalisées contiennent une logique ou des modèles définis par l’utilisateur que vous pouvez ajouter à un pipeline d’indexation enrichi par l’IA dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: effa3aede0c0020a32935ae58b702d234488411e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936127"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524668"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemple : Créer une compétence personnalisée avec Python
 
@@ -34,7 +33,7 @@ La conception de la compétence personnalisée est simple (elle concatène deux 
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Extension Azure Functions pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-## <a name="create-an-azure-function"></a>Création d’une fonction Azure
+## <a name="create-an-azure-function"></a>Créer une fonction Azure
 
 Cet exemple utilise une fonction Azure pour illustrer le concept d’hébergement d’une API web. Toutefois, d’autres approches sont possibles. Pour autant que vous respectiez les [exigences d’interface pour une compétence cognitive](cognitive-search-custom-skill-interface.md), l’approche que vous adoptez est sans importance. Toutefois, Azure Functions facilite la création d’une compétence personnalisée.
 
@@ -56,7 +55,7 @@ Le modèle de projet Azure Functions dans Visual Studio Code crée un projet qui
 1. Sélectionnez **Fonction** comme niveau d’autorisation. Cela signifie que nous allons fournir une [clé de fonction](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) pour appeler le point de terminaison HTTP de la fonction. 
 1. Sélectionnez la façon dont vous souhaitez ouvrir votre projet. Pour cette étape, sélectionnez **Ajouter à l’espace de travail** afin de créer l’application de fonction dans l’espace de travail actuel.
 
-Visual Studio Code crée le projet d’application de fonction dans un nouvel espace de travail. Ce projet contient les fichiers de configuration [host.json](../azure-functions/functions-host-json.md) et [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), ainsi que des fichiers de projet spécifiques au langage. 
+Visual Studio Code crée le projet d’application de fonction dans un nouvel espace de travail. Ce projet contient les fichiers de configuration [host.json](../azure-functions/functions-host-json.md) et [local.settings.json](../azure-functions/functions-develop-local.md#local-settings-file), ainsi que des fichiers de projet spécifiques au langage. 
 
 Une nouvelle fonction déclenchée via HTTP est également créée dans le dossier **Concatenator** du projet d’application de fonction. Vous trouverez dans celui-ci un fichier nommé « \_\_init_.py » dont le contenu est le suivant :
 

@@ -3,20 +3,20 @@ title: Résoudre les problèmes d’intégrité des ressources, de disponibilit�
 description: Servez-vous des métriques disponibles pour diagnostiquer votre équilibreur de charge Azure Standard Load Balancer Azure à l’état dégradé ou indisponible.
 services: load-balancer
 documentationcenter: na
-author: erichrt
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
-ms.author: errobin
-ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: 8c43a0125dac9931e68ae9567f47d63b3409f878
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955618"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357226"
 ---
 # <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Résoudre les problèmes d’intégrité des ressources et de disponibilité entrante 
 

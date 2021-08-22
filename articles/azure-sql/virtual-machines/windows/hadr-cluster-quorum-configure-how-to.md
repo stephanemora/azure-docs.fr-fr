@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/30/2021
+ms.date: 06/01/2021
 ms.author: chadam
-ms.openlocfilehash: 6b974628adeb1d1562d3735fcb55704adc8e2d98
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: b1db3b5d809c8dd80b0d03d5bdd15636115fdef0
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111573238"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581940"
 ---
 # <a name="configure-cluster-quorum-for-sql-server-on-azure-vms"></a>Configurer le quorum de cluster pour SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -212,7 +212,7 @@ Pour en savoir plus, consultez :
 
 - [Paramètres HADR pour SQL Server sur des machines virtuelles Azure](hadr-cluster-best-practices.md)
 - [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Groupes de disponibilité Always On avec SQL Server sur des machines virtuelles Azure](availability-group-overview.md)
-- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
+- [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
+- [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
 - [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
