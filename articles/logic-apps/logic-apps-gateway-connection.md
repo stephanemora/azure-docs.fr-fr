@@ -3,15 +3,15 @@ title: Accéder à des sources de données locales
 description: Se connecter à des sources de données locales à partir d’Azure Logic Apps en créant une ressource de passerelle de données dans Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 490750fecf1634f8d0bbcd92bd71cdf3cb531c71
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 07/14/2021
+ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888587"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204823"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -35,18 +35,20 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 Dans Azure Logic Apps, la passerelle de données locale prend en charge les [connecteurs locaux](../connectors/managed.md#on-premises-connectors) pour les sources de données suivantes :
 
-* BizTalk Server 2016
-* Système de fichiers
-* IBM DB2  
-* IBM Informix
-* IBM MQ
-* MySQL
-* Oracle Database
-* PostgreSQL
-* SAP
-* SharePoint Server
-* SQL Server
-* Teradata
+* [Apache Impala](/connectors/impala)
+* [BizTalk Server](/connectors/biztalk)
+* [Système de fichiers](/connectors/filesystem)
+* [HTTP avec Azure AD](/connectors/webcontents)
+* [IBM DB2](/connectors/db2)
+* [IBM Informix](/connectors/informix)
+* [IBM MQ](/connectors/mq)
+* [MySQL](/connectors/mysql)
+* [Base de données Oracle](/connectors/oracle)
+* [PostgreSQL](/connectors/postgresql)
+* [SAP](/connectors/sap)
+* [SharePoint Server](/connectors/sharepointonline)
+* [SQL Server](/connectors/sql)
+* [Teradata](/connectors/teradata)
 
 Vous pouvez aussi créer des [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) qui se connectent à des sources de données via HTTP ou HTTPS en utilisant REST ou SOAP. Bien que la passerelle proprement dite n’entraîne pas de frais supplémentaires, le [modèle tarifaire de Logic Apps](../logic-apps/logic-apps-pricing.md) s’applique à ces connecteurs et à d’autres opérations dans Azure Logic Apps.
 

@@ -3,12 +3,12 @@ title: Utiliser Bicep pour déployer des ressources sur des groupes de ressource
 description: Décrit comment déployer des ressources dans un fichier Bicep. Montre comment cibler plusieurs groupes de ressources.
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: f32ee9ce08b447a776ae74d19c0edabba233f345
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 4d68d0d28763c21574a3fd4f2f4c57561759e51e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025862"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634475"
 ---
 # <a name="resource-group-deployments-with-bicep-files"></a>Déploiements de groupes de ressources avec des fichiers Bicep
 
@@ -87,16 +87,16 @@ Pour déployer des ressources dans le groupe de ressources cible, ajoutez ces re
 // resource deployed to target resource group
 resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
-} 
+}
 ```
 
 Pour obtenir un exemple de modèle, consultez [Déployer dans le groupe de ressources cible](#deploy-to-target-resource-group).
 
 ### <a name="scope-to-different-resource-group"></a>Définir l’étendue sur un autre groupe de ressources
 
-Pour déployer des ressources sur un groupe de ressources qui n’est pas le groupe de ressources cible, ajoutez un [module](modules.md). Utilisez la [fonction resourceGroup](bicep-functions-scope.md#resourcegroup) pour définir la propriété `scope` de ce module. 
+Pour déployer des ressources sur un groupe de ressources qui n’est pas le groupe de ressources cible, ajoutez un [module](modules.md). Utilisez la [fonction resourceGroup](bicep-functions-scope.md#resourcegroup) pour définir la propriété `scope` de ce module.
 
-Si le groupe de ressources se trouve dans un autre abonnement, fournissez l’ID d’abonnement et le nom du groupe de ressources. Si le groupe de ressources se trouve dans le même abonnement que le déploiement en cours, fournissez uniquement le nom du groupe de ressources. Si vous ne spécifiez pas d’abonnement dans la [fonction resourceGroup](bicep-functions-scope.md#resourcegroup), l’abonnement actuel est utilisé. 
+Si le groupe de ressources se trouve dans un autre abonnement, fournissez l’ID d’abonnement et le nom du groupe de ressources. Si le groupe de ressources se trouve dans le même abonnement que le déploiement en cours, fournissez uniquement le nom du groupe de ressources. Si vous ne spécifiez pas d’abonnement dans la [fonction resourceGroup](bicep-functions-scope.md#resourcegroup), l’abonnement actuel est utilisé.
 
 L’exemple qui suit montre un module qui cible un groupe de ressources dans un autre abonnement.
 
@@ -127,9 +127,9 @@ Pour obtenir un exemple de modèle, consultez [Déployer sur plusieurs groupes d
 
 ### <a name="scope-to-subscription"></a>Étendue à l’abonnement
 
-Pour déployer des ressources sur un abonnement, ajoutez un module. Utilisez la [fonction d’abonnement](bicep-functions-scope.md#subscription) pour définir sa propriété `scope`. 
+Pour déployer des ressources sur un abonnement, ajoutez un module. Utilisez la [fonction d’abonnement](bicep-functions-scope.md#subscription) pour définir sa propriété `scope`.
 
-Pour effectuer un déploiement sur l’abonnement actuel, utilisez la fonction d’abonnement sans paramètre. 
+Pour effectuer un déploiement sur l’abonnement actuel, utilisez la fonction d’abonnement sans paramètre.
 
 ```bicep
 
@@ -191,7 +191,7 @@ Pour plus d’informations, consultez [Groupe d’administration](deploy-to-mana
 
 Pour déployer des ressources dans le groupe de ressources cible, définissez ces ressources dans la section `resources` du modèle. Le modèle suivant crée un compte de stockage dans le groupe de ressources qui est spécifié dans l’opération de déploiement.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/get-started-with-bicep-files/add-output/azuredeploy.bicep":::
 
 ## <a name="deploy-to-multiple-resource-groups"></a>Déployer dans plusieurs groupes de ressources
 

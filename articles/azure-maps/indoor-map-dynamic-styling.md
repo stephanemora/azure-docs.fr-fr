@@ -7,13 +7,12 @@ ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 85b64f52fc1832ec1d25767c1cdfef8977d96fe8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 05e169667067033428d5fc995af4d866dc46d20b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030320"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525319"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
@@ -68,33 +67,27 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 
 1. Dans l’application Postman, sélectionnez **New** (Nouveau).
 
-2. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.
+2. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP).
 
-3. Sélectionnez **Nouveau**.
+3. Entrez un **Request name** (Nom de demande) pour la demande, par exemple *POST Data Upload*.
 
-4. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande).
-
-5. Entrez un **Request name** (Nom de demande) pour la demande, par exemple *POST Data Upload*.
-
-6. Sélectionnez la collection que vous avez créée, puis **Save** (Enregistrer).
-
-7. Entrez l’URL suivante pour l’[API des états de mise à jour des fonctionnalités](/rest/api/maps/v2/feature-state/update-states) (remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale et `statesetId` par le `statesetId`) :
+4. Entrez l’URL suivante pour l’[API des états de mise à jour des fonctionnalités](/rest/api/maps/v2/feature-state/update-states) (remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale et `statesetId` par le `statesetId`) :
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-8. Sélectionnez l’onglet **En-têtes**.
+5. Sélectionnez l’onglet **En-têtes**.
 
-9. Dans le champ **KEY** (CLÉ), sélectionnez `Content-Type`. Dans le champ **VALUE** (VALEUR), sélectionnez `application/json`.
+6. Dans le champ **KEY** (CLÉ), sélectionnez `Content-Type`. Dans le champ **VALUE** (VALEUR), sélectionnez `application/json`.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Informations sur l’onglet En-têtes pour la création de stateset.":::
 
-10. Sélectionnez l’onglet **Corps** .
+7. Sélectionnez l’onglet **Corps** .
 
-11. Dans les listes déroulantes, sélectionnez **raw** (brut) et **JSON**.
+8. Dans les listes déroulantes, sélectionnez **raw** (brut) et **JSON**.
 
-12. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
+9. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
 
     ```json
     {
@@ -111,13 +104,13 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
     >[!IMPORTANT]
     >La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique.
 
-13. Modifiez l’URL que vous avez utilisée à l’étape 7 en remplaçant `UNIT26` par `UNIT27` :
+10. Modifiez l’URL que vous avez utilisée à l’étape 7 en remplaçant `UNIT26` par `UNIT27` :
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-14. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
+11. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
 
     ``` json
     {

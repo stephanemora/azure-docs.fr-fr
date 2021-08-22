@@ -8,17 +8,19 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 21f9b3dcb94be105c8b7279e6ac447540da65447
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd1be8c63e295aedead72fdd5c6ce407179dc660
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110098"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641113"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Configurer les paramètres de serveur dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
-> [!IMPORTANT] 
-> Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
+> Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
 Vous pouvez répertorier, afficher et mettre à jour les paramètres d’un serveur flexible Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure. Les paramètres de serveur sont configurés avec la valeur par défaut et la valeur recommandée lors de la création du serveur.  
 
@@ -28,11 +30,14 @@ Cet article explique comment répertorier, afficher et mettre à jour les param�
 > Les paramètres de serveur peuvent être mis à jour globalement au niveau du serveur à partir d’[Azure CLI](./how-to-configure-server-parameters-cli.md) ou du [portail Azure](./how-to-configure-server-parameters-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
+
 - Un [serveur flexible Azure Database pour MySQL](quickstart-create-server-cli.md).
 - L’utilitaire en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur.
 
 ## <a name="list-server-parameters-for-azure-database-for-mysql-flexible-server"></a>Répertorier les paramètres de serveur pour Azure Database pour MySQL – Serveur flexible
+
 Pour répertorier tous les paramètres dans un serveur, ainsi que leurs valeurs, exécutez la commande [az mysql flexible-server parameter list](/cli/azure/mysql/flexible-server/parameter).
 
 Vous pouvez répertorier les paramètres de serveur pour le serveur **mydemoserver.mysql.database.azure.com** du groupe de ressources **myresourcegroup**.
@@ -42,6 +47,7 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 Pour obtenir la définition de chacun des paramètres répertoriés, consultez la section de référence MySQL dans [Server System Variables (Variables système du serveur)](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-parameter-details"></a>Afficher les détails des paramètres du serveur
+
 Pour afficher les détails d’un paramètre particulier pour un serveur, exécutez la commande [az mysql flexible-server parameter show](/cli/azure/mysql/flexible-server/parameter).
 
 Cet exemple affiche les détails du paramètre de serveur **slow\_query\_log** pour le serveur **mydemoserver.mysql.database.azure.com** du groupe de ressources **myresourcegroup**.
@@ -49,6 +55,7 @@ Cet exemple affiche les détails du paramètre de serveur **slow\_query\_log** p
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>Modifier une valeur de paramètre de serveur
+
 Vous pouvez également modifier la valeur d’un paramètre de serveur, ce qui a pour effet de mettre à jour la valeur de configuration sous-jacente du moteur du serveur MySQL. Pour mettre à jour le paramètre de serveur, utilisez la commande [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter). 
 
 Pour mettre à jour le paramètre de serveur **slow\_query\_log** du serveur **mydemoserver.mysql.database.azure.com** du groupe de ressources **myresourcegroup**.
@@ -63,7 +70,7 @@ Ce code réinitialise le paramètre **slow\_query\_log** à la valeur par défau
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Définition des paramètres de serveur non modifiables
 
-Si le paramètre de serveur que vous souhaitez mettre à jour n’est pas modifiable, vous pouvez éventuellement définir le paramètre au niveau de la connexion avec `init_connect`. Cela définit les paramètres de serveur pour chaque client qui se connecte. 
+Si le paramètre de serveur que vous souhaitez mettre à jour n’est pas modifiable, vous pouvez éventuellement définir le paramètre au niveau de la connexion avec `init_connect`. Cela définit les paramètres de serveur pour chaque client qui se connecte.
 
 Mettez à jour le paramètre de serveur **init\_connect** du serveur **mydemoserver.mysql.database.azure.com** dans le groupe de ressources **myresourcegroup** pour définir les valeurs comme jeu de caractères.
 ```azurecli-interactive
@@ -86,7 +93,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Vous devez redémarrer le serveur pour vous assurer que les tables des fuseaux horaires sont correctement remplies.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
+>Vous devez redémarrer le serveur pour vous assurer que les tables des fuseaux horaires sont correctement remplies.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
 
 Pour afficher les valeurs de fuseau horaire disponibles, exécutez la commande suivante :
 

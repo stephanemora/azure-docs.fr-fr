@@ -3,21 +3,21 @@ title: Guide de démarrage rapide sur la création de mot clé - Service de reco
 titleSuffix: Azure Cognitive Services
 description: Votre appareil est toujours à l’écoute d’un mot (ou d’une phrase) clé. Quand l’utilisateur prononce le mot clé, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot clé.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: a1ec49ca9ee9d0adcbae97eae2e4093274a524c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 439bbb40ac58ea0f3f0870bb86e6c9f4a29980a5
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099637"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525508"
 ---
 # <a name="get-started-with-custom-keyword"></a>Bien démarrer avec Mot clé personnalisé
 

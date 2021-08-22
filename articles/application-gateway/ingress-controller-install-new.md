@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a8f3090fd1599cbf30f783df1c501fa797cdff
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593737"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287944"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Comment installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une nouvelle instance Application Gateway
 
@@ -250,7 +250,7 @@ Pour installer AAD Pod Identity sur votre cluster :
     ```
 
    Valeurs :
-     - `verbosityLevel`: définit le niveau de détail de l’infrastructure de journalisation AGIC. Pour connaître les valeurs possibles, consultez [Niveaux de journalisation](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels).
+     - `verbosityLevel`: définit le niveau de détail de l’infrastructure de journalisation AGIC. Pour connaître les valeurs possibles, consultez [Niveaux de journalisation](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.yml#logging-levels).
      - `appgw.subscriptionId`: l’ID d’abonnement Azure dans lequel Application Gateway réside. Exemple : `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: nom du groupe de ressources Azure dans lequel la passerelle Application Gateway a été créée. Exemple : `app-gw-resource-group`
      - `appgw.name`: nom de la passerelle Application Gateway. Exemple : `applicationgatewayd0f0`

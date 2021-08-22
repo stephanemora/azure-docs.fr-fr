@@ -4,12 +4,12 @@ description: Découvrez comment déployer un groupe de conteneurs sur un réseau
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 44be66957aa745179ffe4cd00db75f1d47237dfc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f107b5b04726047bea4d7c05a6c031d921f26547
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771044"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300162"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -115,7 +115,7 @@ La sortie du journal doit montrer que `wget` a réussie à se connecter le fichi
 
 ### <a name="example---yaml"></a>Exemple – YAML
 
-Vous pouvez également déployer un groupe de conteneurs sur un réseau virtuel existant en utilisant un fichier YAML, un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+Vous pouvez également déployer un groupe de conteneurs sur un réseau virtuel existant en utilisant un fichier YAML, un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ) ou une autre méthode de programmation, telle que le Kit de développement logiciel (SDK) Python. 
 
 Par exemple, lors de l’utilisation d’un fichier YAML, vous pouvez effectuer un déploiement sur un réseau virtuel avec un sous-réseau délégué à Azure Container Instances. Spécifiez les propriétés suivantes :
@@ -224,7 +224,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer un réseau virtuel, un sous-réseau, un profil réseau et un groupe de conteneurs nouveaux à l’aide d’un modèle Resource Manager, consultez [Créer un groupe de conteneurs Azure avec un réseau virtuel](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+Pour déployer un réseau virtuel, un sous-réseau, un profil réseau et un groupe de conteneurs nouveaux à l’aide d’un modèle Resource Manager, consultez [Créer un groupe de conteneurs Azure avec un réseau virtuel](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 ).
 
 <!-- IMAGES -->

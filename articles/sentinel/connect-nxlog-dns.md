@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
-ms.openlocfilehash: 880aad438d98605d11e5a2a7c314d89bd8beb5c5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b80141d79807aea89e328b166d419e583a646ad5
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743258"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525966"
 ---
 # <a name="connect-your-nxlog-windows-dns-logs-to-azure-sentinel"></a>Connecter vos journaux DNS Windows NXLog à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur des journaux DNS NXLog est actuellement disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur [Journaux DNS NXLog](https://nxlog.co/documentation/nxlog-user-guide/windows-dns-server.html) vous permet d’exporter facilement tous vos événements de serveur Windows DNS vers Azure Sentinel en temps réel, ce qui vous donne un aperçu de l’activité du serveur de noms de domaine au sein de votre organisation. Il utilise le [Suivi des événements pour Windows (ETW)](https://nxlog.co/documentation/nxlog-user-guide/windows-dns-server.html#dns_windows_etw) haute performance pour collecter les événements de serveur DNS d’audit et d’analyse en temps réel, et prend en charge l’enrichissement des événements avec des champs personnalisés. L’intégration entre les journaux DNS NXLog et Azure Sentinel est facilitée via l’API REST.
 
@@ -53,6 +55,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à utiliser NXLog pour ingérer les journaux DNS Windows dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

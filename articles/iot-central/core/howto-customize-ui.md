@@ -7,13 +7,12 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 689c1fc223a7853ad63c5187eccd503767cdb897
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 02c3dde025ccd8bb02b3ba5535a21cacfa8e6dbe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760802"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524465"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personnaliser l’interface utilisateur d’Azure IoT Central
 
@@ -76,4 +75,4 @@ Vous pouvez également ajouter de nouvelles entrées au menu d’aide et supprim
 Maintenant que vous avez découvert comment personnaliser l’interface utilisateur de votre application Azure IoT Central, voici quelques suggestions d’étapes suivantes :
 
 - [Administrer votre application](./howto-administer.md)
-- [Ajouter des vignettes à votre tableau de bord](howto-add-tiles-to-your-dashboard.md)
+- [Ajouter des vignettes à votre tableau de bord](howto-manage-dashboards.md)

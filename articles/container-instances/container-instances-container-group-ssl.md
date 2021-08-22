@@ -3,12 +3,12 @@ title: Activer TLS avec un conteneur side-car
 description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances en exécutant Nginx dans un conteneur side-car
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 17467cab93f3a930c8290f73c5f4c971b53f12b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d2bd750849f99229d6bc4b487e21b42702980ceb
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090529"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525802"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison TLS dans un conteneur side-car
 
@@ -154,7 +154,7 @@ properties:
   containers:
   - name: nginx-with-ssl
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports:
       - port: 443
         protocol: TCP

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b8507f29d157cd715d6423c773b01a561a5e181
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94656988"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562751"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Surveiller l’intégrité de vos connecteurs de données avec ce classeur Azure Sentinel
 
@@ -66,4 +66,4 @@ Ce classeur comporte trois sections dotées d’onglets :
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="Page d’informations de l’agent du classeur d’analyse du fonctionnement du connecteur de données" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md), [connecter des sources de données](connect-data-sources.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).
+Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md), [connecter des sources de données](connect-data-sources.md) et [obtenir une visibilité de vos données et des menaces potentielles](get-visibility.md).

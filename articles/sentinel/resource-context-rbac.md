@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 1c4a32e79f54bd2626f2eb4f3a3cc97266d3bab0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 95ff033ab83fee6e9dacbf15b12db33f8b36c3c0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524083"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gérer l’accès aux données d’Azure Sentinel par ressource
 
@@ -149,6 +149,7 @@ Par exemple, le code suivant illustre un exemple de fichier de configuration Log
 Quand vous collectez à l’aide de l’[API de collecteur de données Log Analytics](../azure-monitor/logs/data-collector-api.md), vous pouvez attribuer à des événements un ID de ressource à l’aide de l’en-tête de requête HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers).
 
 Si vous utilisez un RBAC dans le contexte de la ressource et souhaitez que les événements collectés par l’API soient disponibles pour des utilisateurs spécifiques, utilisez l’ID de ressource du groupe de ressources que vous avez [créé pour vos utilisateurs](#explicitly-configure-resource-context-rbac).
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

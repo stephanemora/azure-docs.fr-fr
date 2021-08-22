@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 442400754d4c103a4f26724ff2ca731c8ae5250f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199900"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525610"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 
@@ -79,7 +79,7 @@ En fonction de vos besoins, il existe plusieurs méthodes pour installer l’age
 - [VM Insights](../vm/vminsights-enable-overview.md) fournit plusieurs méthodes activant des agents à grande échelle. Cela inclut l’installation de l’agent Log Analytics et de l’agent Dependency. 
 - [Azure Security Center peut approvisionner l’agent Log Analytics](../../security-center/security-center-enable-data-collection.md) sur toutes les machines virtuelles Azure prises en charge et sur toutes les nouvelles créées si vous l’autorisez à surveiller les menaces et les failles de sécurité.
 - L’extension de machine virtuelle Log Analytics pour [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) peut être installée avec le portail Azure, Azure CLI, Azure PowerShell ou un modèle Azure Resource Manager.
-- Effectuez l’installation pour les machines virtuelles Azure individuelles [manuellement à partir du portail Azure](../vm/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+- Effectuez l’installation pour les machines virtuelles Azure individuelles [manuellement à partir du portail Azure](../vm/monitor-virtual-machine.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>Machine virtuelle Windows locale ou dans un autre cloud
 
@@ -91,7 +91,7 @@ En fonction de vos besoins, il existe plusieurs méthodes pour installer l’age
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>Machine virtuelle Linux locale ou dans un autre cloud
 
 - Utilisez des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md) pour déployer et gérer l’extension de machine virtuelle Log Analytics.
-- [Installez manuellement](../vm/quick-collect-linux-computer.md) l’agent qui appelle un script wrapper hébergé sur GitHub.
+- [Installez manuellement](../vm/monitor-virtual-machine.md) l’agent qui appelle un script wrapper hébergé sur GitHub.
 - Intégrez [System Center Operations Manager](./om-agents.md) avec Azure Monitor pour transférer les données collectées à partir d’ordinateurs Windows rendant compte à un groupe d’administration.
 
 ## <a name="workspace-id-and-key"></a>ID et clé d’espace de travail

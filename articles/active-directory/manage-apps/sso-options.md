@@ -2,21 +2,21 @@
 title: Options d’authentification unique dans Azure AD
 description: En savoir plus sur les options disponibles pour l’authentification unique (SSO) dans Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: mtillman
-ms.reviewer: arvindh, japere
-ms.openlocfilehash: 965c3898a0175bbf448d8c59b9f7853c8aeb37bd
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: 99d478738c8fc7a2e67bb0585b997afe4b42ecb2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524711"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Options d’authentification unique dans Azure AD
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur l’authentification unique, consultez [Qu’est-ce que 
 
 Vous pouvez configurer une application pour l’authentification unique de plusieurs façons. Le choix d’une méthode d’authentification unique dépend de la façon dont l’application est configurée pour l’authentification.
 
-- Pour l’authentification unique, les applications cloud peuvent utiliser les méthodes suivantes : OpenID, OAuth, SAML, par mot de passe, liée ou désactivée. 
+- Pour l’authentification unique, les applications cloud peuvent utiliser les méthodes suivantes : OpenID, OAuth, SAML, par mot de passe, liée ou désactivée.
 - Pour l’authentification unique, les applications locales peuvent utiliser les méthodes suivantes : par mot de passe, authentification Windows intégrée, basée sur l’en-tête, liée ou désactivée. Les choix pour les applications locales fonctionnent quand les applications sont configurées pour le proxy d’application.
 
 Ce diagramme de flux vous permet de décider quelle méthode d’authentification unique est la plus adaptée à votre situation.
@@ -132,6 +132,7 @@ Quand l’utilisateur final gère les informations d’identification :
 - Les administrateurs sont toujours en mesure de définir de nouvelles informations d’identification pour l’application.
 
 ## <a name="linked-sign-on"></a>Authentification liée
+
 L’authentification unique liée permet à Azure AD de fournir l’authentification unique à une application qui est déjà configurée pour l’authentification unique dans un autre service. L’application liée peut apparaître aux utilisateurs finaux dans le portail Office 365 ou dans le portail Azure AD MyApps. Par exemple, un utilisateur peut lancer une application qui est configurée pour l’authentification unique dans les services de fédération Active Directory (AD FS) 2.0 à partir du portail Office 365. Des rapports supplémentaires sont également disponibles pour les applications liées qui sont lancées à partir du portail Office 365 ou du portail Azure AD MyApps. Pour configurer une application pour l’authentification liée, consultez [Configurer l’authentification liée](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Authentification liée pour la migration de l’application
@@ -141,7 +142,7 @@ L’authentification liée peut fournir une expérience utilisateur homogène lo
 Une fois qu’un utilisateur s’est authentifié avec une application liée, un enregistrement de compte doit être créé avant que l’utilisateur final obtienne l’accès par authentification unique. Le provisionnement de cet enregistrement de compte peut se produire automatiquement ou il peut être effectué manuellement par un administrateur.
 
 >[!NOTE]
->Vous ne pouvez pas appliquer de stratégies d’accès conditionnel ni d’authentification multifacteur à une application liée. Cela est dû au fait qu’une application liée ne fournit pas de possibilité d’authentification unique via Azure AD. Quand vous configurez une application liée, vous ajoutez simplement un lien qui apparaîtra dans le lanceur d’applications ou le portail MyApps. 
+>Vous ne pouvez pas appliquer de stratégies d’accès conditionnel ni d’authentification multifacteur à une application liée. Cela est dû au fait qu’une application liée ne fournit pas de possibilité d’authentification unique via Azure AD. Quand vous configurez une application liée, vous ajoutez simplement un lien qui apparaîtra dans le lanceur d’applications ou le portail MyApps.
 
 ## <a name="disabled-sso"></a>Authentification unique désactivée
 
@@ -164,6 +165,7 @@ Choisissez le mode d'authentification unique Authentification Windows intégrée
 Pour configurer une application locale pour l’authentification Windows intégrée, consultez [Délégation contrainte Kerberos pour l’authentification unique auprès de vos applications avec le proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>Fonctionnement de l’authentification unique avec KCD
+
 Ce diagramme explique le flux quand un utilisateur accède à une application locale qui utilise I’authentification Windows intégrée.
 
 ![Diagramme de flux de l’authentification Microsoft Azure AD](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
@@ -185,8 +187,8 @@ Choisissez l’authentification unique basée sur l’en-tête lorsque le proxy 
 
 Pour en savoir plus sur l’authentification basée sur l’en-tête, consultez [Authentification unique basée sur l’en-tête](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-* [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)
-* [Planifier un déploiement de l’authentification unique](plan-sso-deployment.md)
-* [Authentification unique avec les applications locales](../app-proxy/application-proxy-config-sso-how-to.md)
+
+- [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)
+- [Planifier un déploiement de l’authentification unique](plan-sso-deployment.md)
+- [Authentification unique avec les applications locales](../app-proxy/application-proxy-config-sso-how-to.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 45433268a61772f499b5d2672a8b81044c1e3414
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 669b03d0d1d6f5f328cc4af368a756d0bbdab787
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764456"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727829"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-active-directory-application-proxy"></a>Activation de l’accès à distance à SharePoint avec le Proxy d’application Azure Active Directory
 
@@ -26,7 +26,7 @@ Ce guide détaillé explique comment intégrer une batterie de serveurs SharePoi
 
 Pour effectuer la configuration, vous avez besoin des ressources suivantes :
 - Une batterie de serveurs SharePoint 2013 ou version ultérieure.
-- Un locataire Azure AD avec un plan qui inclut le proxy d’application. En savoir plus sur les [formules et la tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+- Un locataire Azure AD avec un plan qui inclut le proxy d’application. En savoir plus sur les [formules et la tarification Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - Un [domaine vérifié personnalisé](../fundamentals/add-custom-domain.md) dans le locataire Azure AD.
 - Le service Active Directory local a été synchronisé avec Azure AD Connect, ce qui permet aux utilisateurs de [se connecter à Azure](../hybrid/plan-connect-user-signin.md).
 - Un connecteur de proxy d’application installé et en cours d’exécution sur un ordinateur au sein du domaine d’entreprise.

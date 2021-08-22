@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 268f248c879d1a6872713159bfb1aa44879d21ad
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730380"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122262363"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -68,8 +68,11 @@ Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installation de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!WARNING]
+> [!IMPORTANT]
 > Vous ne pouvez pas utiliser le micro de votre ordinateur lorsque vous exécutez l’interface CLI de Speech dans un conteneur Docker. Toutefois, vous pouvez lire et enregistrer des fichiers audio dans votre répertoire monté local. 
+
+> [!NOTE]
+> L’exemple suivant tire (pull) une image conteneur publique à partir de Docker Hub. Nous vous recommandons de vous authentifier avec votre compte Docker Hub (`docker login`) au lieu de créer une demande de tirage (pull request) anonyme. Pour une plus grande fiabilité lors de l’utilisation de contenu public, importez et gérez l’image dans un registre de conteneurs Azure privé. [En savoir plus sur l’utilisation des images publiques](../../../container-registry/buffer-gate-public-content.md).
 
 Suivez la procédure ci-dessous pour installer l’interface CLI Speech dans un conteneur Docker :
 

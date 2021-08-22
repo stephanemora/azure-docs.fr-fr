@@ -3,12 +3,12 @@ title: Autorisations pour des référentiels dans Azure Container Registry
 description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre Premium pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 8cdcd3e09603f24c37ad7323a273ca97f76fcd0c
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 796d98173a5ec850af2f8dbec3e8bfd1db902ca0
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930494"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220431"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
@@ -28,7 +28,7 @@ Cette fonctionnalité est disponible uniquement au niveau de service **Premium**
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
 * Vous ne pouvez pas actuellement attribuer des autorisations délimites par le référentiel à une identité Azure Active Directory telle qu’un principal de service ou une identité managée.
-* Vous ne pouvez pas créer de mappage d’étendue dans un registre activé pour l’[accès en extraction anonyme](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
+* Vous ne pouvez pas créer de mappage d’étendue dans un registre activé pour l’[accès en extraction anonyme](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-).
 
 ## <a name="concepts"></a>Concepts
 

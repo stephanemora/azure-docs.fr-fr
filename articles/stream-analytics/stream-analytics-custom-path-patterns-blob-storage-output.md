@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2021
 ms.custom: seodec18
-ms.openlocfilehash: 91ba1280262a7d13afa71d5dc0e2b7eb0e545ecc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 59226a105df2a05e693c7d83f2488a43143914b6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787711"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525579"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -70,7 +70,7 @@ Notez que chaque enregistrement dans l’objet blob comporte une colonne **clien
 
 4. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.
 
-5. Si la sortie d’objet blob est [configurée comme non modifiable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics crée un objet blob chaque fois que des données sont envoyées.
+5. Si la sortie d’objet blob est [configurée comme non modifiable](../storage/blobs/immutable-storage-overview.md), Stream Analytics crée un objet blob chaque fois que des données sont envoyées.
 
 ## <a name="custom-datetime-path-patterns"></a>Modèles de chemin DateTime personnalisés
 

@@ -4,12 +4,12 @@ description: Découvrez comment créer une stratégie Guest Configuration pour d
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28d7f0ccd2f4b8cca7bdb5015dce6e8ee8f2f17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89f4e64f6448f93a4b746ae4301450707f832cde
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762980"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287008"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -17,7 +17,7 @@ Avant de créer des stratégies personnalisées, lisez les informations de prés
 
 Pour en savoir plus sur la création de stratégies Guest Configuration pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md)
 
-Lors de l’audit de Linux, Guest Configuration utilise [Chef InSpec](https://www.inspec.io/). Le profil InSpec définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
+Lors de l’audit de Linux, Guest Configuration utilise [Chef InSpec](https://community.chef.io/tools/chef-inspec). Le profil InSpec définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
 
 La [configuration d’invité Azure Policy](../concepts/guest-configuration.md) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
 
@@ -26,7 +26,7 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 > [!IMPORTANT]
 > Les définitions de stratégie personnalisées avec la configuration invité dans les environnements Azure Government et Azure China 21Vianet sont des fonctionnalités d’évaluation.
 >
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez la définition de stratégie suivante : `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> L’extension Guest Configuration (Configuration d’invité) est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez la définition de stratégie suivante : `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 >
 > N’utilisez pas de secrets ni d’informations confidentielles dans les packages de contenu personnalisés.
 
@@ -94,7 +94,7 @@ Les cmdlets PowerShell aident à créer le package. Aucun dossier de niveau raci
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuration Guest Configuration personnalisée sur Linux
 
-Guest Configuration sur Linux utilise la ressource `ChefInSpecResource` pour fournir au moteur le nom du [profil InSpec](https://www.inspec.io/docs/reference/profiles/). **Name** est la seule propriété de ressource obligatoire. Créez un fichier YAML et un fichier de script Ruby, comme indiqué ci-dessous.
+Guest Configuration sur Linux utilise la ressource `ChefInSpecResource` pour fournir au moteur le nom du [profil InSpec](https://docs.chef.io/inspec/profiles/). **Name** est la seule propriété de ressource obligatoire. Créez un fichier YAML et un fichier de script Ruby, comme indiqué ci-dessous.
 
 Tout d’abord, créez le fichier YAML utilisé par InSpec. Le fichier fournit des informations de base sur l’environnement. Un exemple est fourni ci-dessous :
 
@@ -401,7 +401,7 @@ Paramètres de la cmdlet `Protect-GuestConfigurationPackage` :
 
 Vous trouverez une bonne référence de création de clés GPG à utiliser avec les machines Linux dans cet article sur GitHub, [Génération d’une clé GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-L’agent GuestConfiguration s’attend à trouver la clé publique du certificat dans le chemin d’accès `/usr/local/share/ca-certificates/extra` sur des machines Linux. Pour que le nœud vérifie le contenu signé, installez la clé publique du certificat sur la machine avant d’appliquer la stratégie personnalisée. Ce processus peut être effectué à l’aide de n’importe quelle technique à l’intérieur de la machine virtuelle, ou à l’aide d’Azure Policy. Vous trouverez un exemple modèle en suivant [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+L’agent GuestConfiguration s’attend à trouver la clé publique du certificat dans le chemin d’accès `/usr/local/share/ca-certificates/extra` sur des machines Linux. Pour que le nœud vérifie le contenu signé, installez la clé publique du certificat sur la machine avant d’appliquer la stratégie personnalisée. Ce processus peut être effectué à l’aide de n’importe quelle technique à l’intérieur de la machine virtuelle, ou à l’aide d’Azure Policy. Vous trouverez un exemple modèle en suivant [ce lien](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 La stratégie d’accès Key Vault doit autoriser le fournisseur de ressources de calcul à accéder aux certificats lors des déploiements. Pour les étapes détaillées, consultez [Configurer Key Vault pour des machines virtuelles dans Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Une fois votre contenu publié, ajoutez une balise nommée `GuestConfigPolicyCertificateValidation` et avec une valeur `enabled` à toutes les machines virtuelles où la signature du code doit être requise. Pour plus d'informations sur la façon dont les balises peuvent être délivrées à grande échelle à l'aide d'Azure Policy, consultez les [Exemples de balises](../samples/built-in-policies.md#tags). Une fois cette balise en place, la définition de stratégie générée via la cmdlet `New-GuestConfigurationPolicy` met en œuvre l’exigence via l’extension Guest Configuration.

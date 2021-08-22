@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 16379380fc35bb2355c496dc857e9de3b41347f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df7af81b51428f53beb7722c7f224dc7afdd28cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096902"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562336"
 ---
 # <a name="the-azure-defender-dashboard"></a>Le tableau de bord Azure Defender
 
@@ -27,7 +27,7 @@ Pour accéder au tableau de bord Azure Defender, sélectionnez **Azure Defender*
 
 ## <a name="whats-shown-on-the-dashboard"></a>Éléments affichés dans le tableau de bord
 
-:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Exemple de tableau de bord Azure Defender" lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
+:::image type="content" source="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png" alt-text="Exemple de tableau de bord Azure Defender." lightbox="./media/azure-defender-dashboard/sample-defender-dashboard-numbered.png":::
 
 Le tableau de bord inclut les sections suivantes :
 
@@ -46,7 +46,7 @@ Le tableau de bord inclut les sections suivantes :
 
 Dans cet article, vous avez découvert le tableau de bord Azure Defender. 
 
-Pour plus d’informations sur Azure Defender, consultez [Présentation d’Azure Defender](azure-defender.md)
-
 > [!div class="nextstepaction"]
 > [Activer Azure Defender](enable-azure-defender.md)
+
+Pour plus d’informations sur Azure Defender, consultez [Présentation d’Azure Defender](azure-defender.md)

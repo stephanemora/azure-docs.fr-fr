@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 7a1aa061bb8c8be3a676e0e5bb690b2a9749b6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 589c0a4ab358bb1b25fa58c2083dd82b13315d64
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94536130"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641098"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procédures stockées de gestion Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Des procédures stockées sont disponibles sur les serveurs Azure Database pour MySQL afin de faciliter la gestion de votre serveur MySQL. Cela comprend la gestion des connexions de votre serveur, des requêtes et de la configuration de la réplication des données entrantes.  
 

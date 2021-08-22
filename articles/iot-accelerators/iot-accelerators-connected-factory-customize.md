@@ -9,19 +9,19 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a95807bc3b209a2b410b205b6d473560b454b2b0
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645551"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758225"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser la façon dont l’accélérateur de solution Usine connectée présente les données à partir de vos serveurs OPC UA
 
 > [!IMPORTANT]
 > Pendant la mise à jour de cet article, consultez [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) pour obtenir le contenu le plus récent.
 
-La solution Usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur l’UA OPC, consultez les [questions fréquentes (FAQ) relatives à Usine connectée](iot-accelerators-faq-cf.md).
+La solution Usine connectée agrège et affiche les données des serveurs OPC UA qui y sont connectés. Vous pouvez parcourir les serveurs OPC UA et leur envoyer des commandes dans votre solution. Pour plus d’informations sur l’UA OPC, consultez les [questions fréquentes (FAQ) relatives à Usine connectée](iot-accelerators-faq-cf.yml).
 
 Des exemples de données agrégées dans la solution incluent l’efficacité globale des équipements (OEE) et les indicateurs de performance clés (KPI), que vous pouvez afficher dans le tableau de bord au niveau d’une usine, d’une ligne de production et d’un poste. La capture d’écran suivante illustre les valeurs d’OEE et de KPI pour le poste d’assemblage **Assembly** de la ligne de production **Production line 1** dans l’usine de **Munich** :
 
@@ -83,7 +83,7 @@ Le référentiel **azure-iot-connected-factory** inclut un script PowerShell **b
 Pour en savoir plus sur l’accélérateur de solution Usine connectée, consultez les articles suivants :
 
 * [Autorisations sur le site azureiotsolutions.com][lnk-permissions]
-* [Questions fréquentes (FAQ) sur l’Usine connectée](iot-accelerators-faq-cf.md)
+* [Questions fréquentes (FAQ) sur l’Usine connectée](iot-accelerators-faq-cf.yml)
 * [FORUM AUX QUESTIONS][lnk-faq]
 
 
@@ -95,4 +95,4 @@ Pour en savoir plus sur l’accélérateur de solution Usine connectée, consult
 
 
 [lnk-permissions]: iot-accelerators-permissions.md
-[lnk-faq]: iot-accelerators-faq.md
+[lnk-faq]: iot-accelerators-faq.yml

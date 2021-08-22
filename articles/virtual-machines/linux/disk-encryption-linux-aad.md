@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c3a1e26b8e24c357aa5be914aaa3b8f8c2d91281
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a88fd0cd1e973118cc52456030046b3478d07e7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673224"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524849"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)
 
@@ -341,7 +341,7 @@ Vous pouvez désactiver le chiffrement en utilisant Azure PowerShell, Azure CLI 
      ```azurecli-interactive
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
-- **Désactiver le chiffrement avec un modèle Resource Manager :** pour désactiver le chiffrement, utilisez le modèle [Désactiver le chiffrement sur une machine virtuelle Linux en cours d’exécution](https://aka.ms/decrypt-linuxvm).
+- **Désactiver le chiffrement avec un modèle Resource Manager :** pour désactiver le chiffrement, utilisez le modèle [Désactiver le chiffrement sur une machine virtuelle Linux en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm).
      1. Sélectionnez **Déployer sur Azure**.
      2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement, les conditions juridiques et le contrat.
      3. Sélectionnez **Acheter** pour désactiver le chiffrement de disque sur une machine virtuelle Windows en cours d’exécution.

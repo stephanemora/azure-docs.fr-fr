@@ -1,17 +1,17 @@
 ---
 title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 059a1888b529487f2b0d17509370897222a20d83
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a814cce09a134f007fbd136b8c142a60fb099a1b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563019"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524457"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -50,7 +50,6 @@ L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute.
 - Vérifiez que l’appliance peut se connecter à ces [URL Azure](./migrate-appliance.md#url-access). 
 - Vous pouvez utiliser Azure ExpressRoute avec le peering Microsoft. Le peering public, déconseillé, n’est pas disponible pour les nouveaux circuits ExpressRoute.
 - Le peering privé seul n’est pas prise en charge.
-
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L’analyse de l’appliance affecte-t-elle les performances ?
 
@@ -142,7 +141,7 @@ Non. Pour découvrir des serveurs dans un environnement VMware, vous devez dispo
 
 ## <a name="how-do-i-update-the-appliance"></a>Comment mettre à jour l’appliance ?
 
-Par défaut, l’appliance et ses agents installés sont mis à jour automatiquement. L’appliance vérifie les mises à jour toutes les 24 heures. Les mises à jour qui échouent sont retentées. 
+Par défaut, l’appliance et ses agents installés sont mis à jour automatiquement. L’appliance vérifie les mises à jour toutes les 24 heures. Les mises à jour qui échouent sont retentées.
 
 Seuls l’appliance et les agents de l’appliance sont mis à jour par ces mises à jour automatiques. Le système d’exploitation n’est pas mis à jour par les mises à jour automatiques Azure Migrate. Utilisez Windows Updates pour tenir le système d’exploitation à jour.
 
@@ -155,13 +154,14 @@ Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’
 Oui, nous prenons désormais en charge plusieurs informations d’identification de serveur pour effectuer l’inventaire logiciel (découverte des applications installées), l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server. [Apprenez-en davantage](tutorial-discover-vmware.md#provide-server-credentials) sur la façon de fournir des informations d’identification sur le gestionnaire de configuration de l’appliance.
 
 ## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Quels types d’informations d’identification de serveur puis-je ajouter à l’appliance VMware ?
+
 Vous pouvez fournir des informations d’identification d’authentification de domaine/Windows (hors domaine)/Linux (hors domaine)/SQL Server sur le gestionnaire de configuration de l’appliance. [Apprenez-en davantage](add-server-credentials.md) sur la manière de fournir des informations d’identification et la façon dont nous les traitons.
 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quels types de propriétés de connexion SQL Server Azure Migrate prend-il en charge pour la découverte SQL ?
+
 Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur TRUE). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 Si aucun certificat n'est présent sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

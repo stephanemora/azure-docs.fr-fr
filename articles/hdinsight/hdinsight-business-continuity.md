@@ -5,12 +5,12 @@ keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3cbae5df6e9a4e5ff17bf1245fcaf190efbbf84
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933314"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371515"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuité de l’activité Azure HDInsight
 
@@ -81,7 +81,7 @@ Il n’y a pas toujours besoin d’un événement catastrophique pour nuire aux 
 
 ### <a name="hdinsight-metastore"></a>Metastore HDInsight
 
-HDInsight utilise [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) comme metastore, qui propose un contrat SLA de 99,99 %. Trois réplicas de données persistent dans un centre de données à l’aide de la réplication synchrone. En cas de perte d’un réplica, un autre réplica prend le relais en toute transparence. La [géoréplication active](../azure-sql/database/active-geo-replication-overview.md) est prise en charge dès le départ avec un maximum de quatre centres de données. En cas de basculement, manuel ou initié par le centre de données, le premier réplica de la hiérarchie devient automatiquement accessible en lecture-écriture. Pour plus d’informations, consultez [Continuité de l’activité Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight utilise [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) comme metastore, qui propose un contrat SLA de 99,99 %. Trois réplicas de données persistent dans un centre de données à l’aide de la réplication synchrone. En cas de perte d’un réplica, un autre réplica prend le relais en toute transparence. La [géoréplication active](../azure-sql/database/active-geo-replication-overview.md) est prise en charge dès le départ avec un maximum de quatre centres de données. En cas de basculement, manuel ou initié par le centre de données, le premier réplica de la hiérarchie devient automatiquement accessible en lecture-écriture. Pour plus d’informations, consultez [Continuité de l’activité Azure SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### <a name="hdinsight-storage"></a>Stockage HDInsight
 

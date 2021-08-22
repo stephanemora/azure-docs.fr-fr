@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier Include
 services: event-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 051dc952381800667fc3b36cdcf32f2aa2f6844c
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 97c3013586e9671d7d9cce55c5e6253cb8a368f4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416634"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733885"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
 Vous pouvez utiliser les protocoles suivants avec Azure Event Hubs pour envoyer et recevoir des événements :
@@ -75,7 +75,7 @@ Si vous utilisez la **redondance de zone** pour votre espace de noms, vous devez
 ### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>Quelles adresses IP clientes envoient ou reçoivent des événements vers/depuis mon espace de noms ?
 Tout d’abord, activez le [Filtrage IP](../event-hubs-ip-filtering.md) sur l’espace de noms. 
 
-Activez ensuite les journaux de diagnostic pour [Événements de connexion au réseau virtuel Event Hubs](../event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) en suivant les instructions dans [Activer les journaux de diagnostic](../event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Vous verrez l’adresse IP pour laquelle la connexion est refusée.
+Activez ensuite les journaux de diagnostic pour [Événements de connexion au réseau virtuel Event Hubs](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) en suivant les instructions dans [Activer les journaux de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md). Vous verrez l’adresse IP pour laquelle la connexion est refusée.
 
 ```json
 {

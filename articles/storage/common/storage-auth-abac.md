@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 8e424bd03e69affebac6f9bb614d2449e6ec45c0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 355eaa0c7e907dea1e1fe88e0640d3b09463fa09
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070819"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729017"
 ---
 # <a name="authorize-access-to-blobs-using-azure-role-assignment-conditions-preview"></a>Autoriser l'accès aux objets blob à l'aide des conditions d'attribution de rôle Azure (préversion)
 
@@ -28,7 +28,7 @@ Le contrôle d'accès en fonction des attributs (ABAC) est une stratégie d'auto
 
 ## <a name="overview-of-conditions-in-azure-storage"></a>Vue d'ensemble des conditions dans le service Stockage Azure
 
-Le service Stockage Azure permet d'[utiliser Azure Active Directory](storage-auth-aad.md) (Azure AD) pour autoriser les requêtes adressées aux services Stockage Blob et Stockage File d'attente. Azure AD autorise les droits d’accès aux ressources sécurisées à l’aide d’Azure RBAC. Le service Stockage Azure définit des [rôles intégrés](../../role-based-access-control/built-in-roles.md#storage) Azure englobant les ensembles communs d'autorisations qui permettent d'accéder aux données blob et aux données de file d'attente. Vous pouvez également définir des rôles personnalisés avec certains ensembles d'autorisations. Le service Stockage Azure prend en charge les attributions de rôles pour les comptes de stockage ou les conteneurs d'objets blob.
+Le service Stockage Azure permet d'[utiliser Azure Active Directory](authorize-data-access.md) (Azure AD) pour autoriser les requêtes adressées aux services Stockage Blob et Stockage File d'attente. Azure AD autorise les droits d’accès aux ressources sécurisées à l’aide d’Azure RBAC. Le service Stockage Azure définit des [rôles intégrés](../../role-based-access-control/built-in-roles.md#storage) Azure englobant les ensembles communs d'autorisations qui permettent d'accéder aux données blob et aux données de file d'attente. Vous pouvez également définir des rôles personnalisés avec certains ensembles d'autorisations. Le service Stockage Azure prend en charge les attributions de rôles pour les comptes de stockage ou les conteneurs d'objets blob.
 
 Cependant, dans certains cas, vous devrez peut-être accorder un accès plus fin aux ressources de stockage ou simplifier les centaines d’attributions de rôles d’une ressource de stockage. Vous pouvez configurer des [conditions sur les attributions de rôles](../../role-based-access-control/conditions-overview.md) pour [DataActions](../../role-based-access-control/role-definitions.md#dataactions) afin d’atteindre ces objectifs. Vous pouvez utiliser des conditions avec un [rôle personnalisé](../../role-based-access-control/custom-roles.md) ou sélectionner des rôles intégrés. Notez que les conditions ne sont pas prises en charge pour les [Actions](../../role-based-access-control/role-definitions.md#actions) de gestion via le [Fournisseur de ressources de stockage](/rest/api/storagerp).
 

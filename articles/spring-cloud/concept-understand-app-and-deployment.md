@@ -1,18 +1,18 @@
 ---
 title: Application et déploiement dans Azure Spring Cloud
 description: Cette rubrique explique la différence entre application et déploiement dans Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8a543d3f6a875c41b3657ccc947c6f697bbcfd09
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b5a48a562781e68d7b653d55eb63d8a9edc71228
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525392"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>Application et déploiement dans Azure Spring Cloud
 
@@ -27,6 +27,7 @@ Vous pouvez avoir plusieurs instances de service au sein d’un seul abonnement 
 Le niveau Standard d’Azure Spring Cloud permet à une application de disposer d’un déploiement de production et d’un déploiement intermédiaire, ce qui vous permet d’effectuer facilement un déploiement bleu/vert.
 
 ## <a name="app"></a>Application
+
 Les fonctionnalités/propriétés suivantes sont définies au niveau de l’application.
 
 | Fonctionnalités | Description |
@@ -58,4 +59,5 @@ Les fonctionnalités/propriétés suivantes sont définies au niveau du déploie
 * **La gestion du déploiement n’est pas disponible au niveau de service De base** : utilisez le niveau Standard pour obtenir la capacité de déploiement bleu/vert.
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Configurer un environnement intermédiaire dans Azure Spring Cloud](./how-to-staging-environment.md)

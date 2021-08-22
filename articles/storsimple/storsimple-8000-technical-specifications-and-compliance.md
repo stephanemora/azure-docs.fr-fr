@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89f4172b08d56a0ec139f18519a3a9bcd081e08b
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "68965291"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113688520"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -83,7 +83,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Capacité utilisable totale* |~ 15 To |~ 38 To |
 | Capacité totale de la solution (y compris le cloud) |200 To |500 To |
 
-<sup>* </sup>- *La capacité totale utilisable inclut la capacité disponible pour les données, les métadonnées et les mémoires tampon. Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To sur l’appareil 8100 ou de 22,5 To sur l’appareil 8600. Pour plus d’informations, consultez [Volumes épinglés localement StorSimple](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *La capacité totale utilisable inclut la capacité disponible pour les données, les métadonnées et les mémoires tampon. Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To sur l’appareil 8100 ou de 22,5 To sur l’appareil 8600. Pour plus d’informations, consultez [Volumes épinglés localement StorSimple](storsimple-8000-local-volume-faq.yml).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensions et poids des boîtiers
 

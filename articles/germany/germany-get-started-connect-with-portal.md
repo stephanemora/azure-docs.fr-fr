@@ -1,27 +1,22 @@
 ---
 title: Se connecter à Azure Allemagne avec le Portail Azure | Microsoft Docs
 description: Informations sur la gestion de votre abonnement dans Azure Allemagne avec le portail
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: be067acb7af25f785b7c7ba25d389354b6759d7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: 6004a3ec95b47440b3cdb80bf40a65ebdd5689e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033540"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "122523952"
 ---
 # <a name="connect-to-azure-germany-by-using-the-azure-portal"></a>Se connecter à Azure Allemagne avec le Portail Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Le [Portail Azure](https://portal.microsoftazure.de/) est le principal vecteur par lequel la plupart des gens se connectent à Azure Allemagne. 
 
@@ -30,7 +25,6 @@ Le [Portail Azure](https://portal.microsoftazure.de/) est le principal vecteur p
 >
 
 Vous pouvez créer des abonnements pour votre compte en vous rendant sur la [page d’accueil du compte](https://account.windowsazure.de).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la connexion à Azure Allemagne, consultez les ressources suivantes :

@@ -1,24 +1,24 @@
 ---
 title: Stratégies de déploiement bleu-vert dans Azure Spring Cloud
 description: Cette rubrique décrit deux approches de déploiements bleu-vert dans Azure Spring Cloud.
-author: yevster
+author: karlerickson
 ms.author: yebronsh
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 3ed83d0bcc1998b63738eb586acaf83b3a281ee6
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: bce33a40933e5c40b5eab0948880d44f4b23edcd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838786"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562330"
 ---
 # <a name="blue-green-deployment-strategies-in-azure-spring-cloud"></a>Stratégies de déploiement bleu-vert dans Azure Spring Cloud
 
 Cet article décrit la prise en charge de déploiement bleu-vert dans Azure Spring Cloud.
 
-Azure Spring Cloud (niveau Standard et supérieur) autorise deux déploiements pour chaque application, un seul reçoit le trafic de production. Ce modèle est connu sous le nom de déploiement bleu-vert. La prise en charge par Azure Spring Cloud du déploiement bleu-vert, avec un pipeline de [livraison continue (CD)](/azure/devops/learn/what-is-continuous-delivery) et des tests automatisés rigoureux, permet des déploiements d’applications agiles avec un niveau de confiance élevé.
+Azure Spring Cloud (niveau Standard et supérieur) autorise deux déploiements pour chaque application, un seul reçoit le trafic de production. Ce modèle est connu sous le nom de déploiement bleu-vert. La prise en charge par Azure Spring Cloud du déploiement bleu-vert, avec un pipeline de [livraison continue (CD)](/devops/deliver/what-is-continuous-delivery) et des tests automatisés rigoureux, permet des déploiements d’applications agiles avec un niveau de confiance élevé.
 
 ## <a name="alternating-deployments"></a>Déploiements alternés
 

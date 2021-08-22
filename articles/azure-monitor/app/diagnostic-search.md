@@ -3,12 +3,12 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: e9da2acea857f2b295fd2333988507babd967c88
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 020e602ec52c40c66439df09275f7d4936a57229
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059389"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293074"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
@@ -148,4 +148,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 * [Écrire des requêtes complexes dans Analytics](../logs/log-analytics-tutorial.md)
 * [Envoi des journaux d’activité et de la télémétrie personnalisée à Application Insights](./asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](./monitor-web-app-availability.md)
-* [Dépannage](../faq.md)
+* [Dépannage](../faq.yml)

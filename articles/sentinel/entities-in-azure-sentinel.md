@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e92f28d36f9dd4e08338ac90b703f9536cf767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456165"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562250"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Classer et analyser les données à l'aide d'entités dans Azure Sentinel
 
@@ -103,7 +103,7 @@ Vous pouvez choisir le **délai d’exécution** parmi plusieurs options prédé
 
 Les types d’éléments suivants sont inclus dans la chronologie :
 
-- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’**entité mappée**. Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./tutorial-detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
+- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’**entité mappée**. Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
 
 - Signets – signets incluant l’entité affichée sur la page.
 

@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: b196cae267a8d7dc878f055f6b2d70a3ff6f9313
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/20/2021
+ms.openlocfilehash: 4f15fea365fc242f3c7253a39b6a877dd672deb1
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773960"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453286"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -993,7 +993,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ReservationRecommendations | Non | Non |
 > | ReservationSummaries | Non | Non |
 > | ReservationTransactions | Non | Non |
-> | Balises | Non | Non |
+> | Étiquettes | Non | Non |
 > | tenants | Non | Non |
 > | Termes | Non | Non |
 > | UsageDetails | Non | Non |
@@ -1619,7 +1619,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
-> | actionGroups | Oui | Oui |
+> | actionGroups | Oui | Non |
 > | activityLogAlerts | Oui | Oui |
 > | alertrules | Oui | Oui |
 > | autoscalesettings | Oui | Oui |
@@ -1962,7 +1962,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Oui | Non |
 > | netAppAccounts / accountBackups | Non | Non |
-> | netAppAccounts / capacityPools | Oui | Non |
+> | netAppAccounts / capacityPools | Oui | Oui |
 > | netAppAccounts / capacityPools / volumes | Oui | Non |
 > | netAppAccounts / capacityPools / volumes / snapshots | Non | Non |
 > | netAppAccounts / volumeGroups | Non | Non |
@@ -2567,7 +2567,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers / restorableDroppedDatabases | Non | Non |
 > | servers / serviceobjectives | Non | Non |
 > | servers / tdeCertificates | Non | Non |
-> | virtualClusters | Oui | Oui |
+> | virtualClusters | Non | Non |
 
 <a id="sqlnote"></a>
 

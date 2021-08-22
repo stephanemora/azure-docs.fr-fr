@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 591436de14916a919f0179978825b88dcc80117c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5e87051bb27e097f507435582cc919f05fd78aeb
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129726"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403056"
 ---
 # <a name="troubleshoot-your-iot-plug-and-play-certification-project"></a>Résoudre les problèmes liés à votre projet de certification IoT Plug-and-Play
 
@@ -42,7 +42,7 @@ Lors de l’exécution des tests, si vous recevez un résultat `Passed with warn
 
 ## <a name="when-you-need-help-with-the-model-repository"></a>Si vous avez besoin d’aide avec le référentiel de modèles
 
-Pour les problèmes IoT Plug-and-Play liés au référentiel de modèles, reportez-vous à [notre guide de documentation sur le référentiel de modèles d’appareil](../iot-pnp/concepts-model-repository.md).
+Pour les problèmes IoT Plug-and-Play liés au référentiel de modèles, reportez-vous à [notre guide de documentation sur le référentiel de modèles d’appareil](../iot-develop/concepts-model-repository.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

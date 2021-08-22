@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 367d2679b360bfc90d84609384c61c9b66ba3706
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 2079905f81b770039a9b71b2e8e4f21553da099f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538324"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202987"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
@@ -87,6 +87,9 @@ $domain = "contoso.corp.com"
 
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
+
+If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
+you will see web-based popup and complete the U/P and MFA there
 
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential

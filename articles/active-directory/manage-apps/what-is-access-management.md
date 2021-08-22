@@ -2,20 +2,21 @@
 title: Gestion de l’accès aux applications à l’aide d’Azure AD
 description: Décrit comment Azure Active Directory permet aux organisations de spécifier les applications auxquelles chaque utilisateur a accès.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: mtillman
-ms.openlocfilehash: b50f93dc13eb5fbd5934462b7084c521a6686ae0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 2dc66adcce209b29579bb88184272fd2bda1353c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079388"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524710"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 
@@ -61,6 +62,7 @@ Azure AD offre [plusieurs moyens personnalisables qui permettent de déployer d
 Vous pouvez déterminer si les utilisateurs attribués à une application d'entreprise peuvent voir celle-ci dans le lanceur d'applications Microsoft 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exemple : Affectation d’application complexe avec Azure AD
+
 Considérez une application comme Salesforce. Dans de nombreuses organisations, Salesforce est principalement utilisé par des équipes commerciales et marketing. Souvent, les membres de l’équipe marketing disposent d’un accès hautement privilégié à Salesforce, contrairement aux membres de l’équipe de ventes. Dans de nombreux cas, la majorité des travailleurs de l’information n’a qu’un accès limité à l’application. Les exceptions à ces règles compliquent les choses. C’est souvent la prérogative des équipes de direction marketing ou de ventes d’accorder un accès à un utilisateur ou de modifier son rôle indépendamment de ces règles génériques.
 
 Avec Azure AD, les applications telles que Salesforce peuvent être préconfigurées pour l’authentification unique (SSO) et l’automatisation de l’approvisionnement. Dès que l’application est configurée, un administrateur peut créer et affecter des groupes appropriés une bonne fois pour toutes. Dans cet exemple, un administrateur peut exécuter les affectations suivantes :
@@ -82,16 +84,18 @@ Les applications Microsoft (comme Exchange, SharePoint, Yammer, etc.) sont attri
 
 Il existe trois méthodes principales pour se connecter à une application publiée par Microsoft.
 
-- Pour les applications de la suite Microsoft 365 ou d'autres suites payantes, les utilisateurs peuvent obtenir un accès par le biais de l'**attribution de licence**, soit directement sur leur compte d'utilisateur, soit par l'intermédiaire d'un groupe à l'aide de la fonctionnalité d'attribution de licence de groupe.
-- Pour les applications publiées et fournies gratuitement par Microsoft ou un tiers, les utilisateurs peuvent obtenir un accès via le [consentement de l’utilisateur](configure-user-consent.md). Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
-- Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent également obtenir un accès via le [consentement de l’administrateur](manage-consent-requests.md). Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
+* Pour les applications de la suite Microsoft 365 ou d'autres suites payantes, les utilisateurs peuvent obtenir un accès par le biais de l'**attribution de licence**, soit directement sur leur compte d'utilisateur, soit par l'intermédiaire d'un groupe à l'aide de la fonctionnalité d'attribution de licence de groupe.
+* Pour les applications publiées et fournies gratuitement par Microsoft ou un tiers, les utilisateurs peuvent obtenir un accès via le [consentement de l’utilisateur](configure-user-consent.md). Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
+
+* Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent également obtenir un accès via le [consentement de l’administrateur](manage-consent-requests.md). Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
 
 Quelques applications combinent ces méthodes. Par exemple, certaines applications Microsoft font partie d'un abonnement Microsoft 365, mais exigent toujours le consentement.
 
-Les utilisateurs peuvent accéder aux applications Microsoft 365 via leur portail Office 365. Vous pouvez également afficher ou masquer des applications Microsoft 365 dans Mes applications en [activant/désactivant la visibilité d'Office 365](hide-application-from-user-portal.md) dans les **Paramètres utilisateur** de votre annuaire. 
+Les utilisateurs peuvent accéder aux applications Microsoft 365 via leur portail Office 365. Vous pouvez également afficher ou masquer des applications Microsoft 365 dans Mes applications en [activant/désactivant la visibilité d'Office 365](hide-application-from-user-portal.md) dans les **Paramètres utilisateur** de votre annuaire.
 
 Comme avec les applications d’entreprise, vous pouvez [affecter des utilisateurs](assign-user-or-group-access-portal.md) à certaines applications Microsoft via le portail Azure ou, si l’option du portail n’est pas disponible, à l’aide de PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Protection des applications avec un accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](../enterprise-users/groups-self-service-management.md)

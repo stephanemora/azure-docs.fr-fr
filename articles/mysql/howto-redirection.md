@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44275c7e6469c63f037a7b24d5435aa5ce3941d6
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98201431"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641152"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Se connecter à Azure Database pour MySQL avec la redirection
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cette rubrique explique comment connecter une application à votre serveur Azure Database pour MySQL avec le mode de redirection. La redirection vise à réduire la latence réseau entre les applications clientes et les serveurs MySQL en permettant aux applications de se connecter directement aux nœuds du serveur back-end.
 

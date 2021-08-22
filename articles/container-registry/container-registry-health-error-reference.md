@@ -3,12 +3,12 @@ title: Référence des erreurs pour les contrôles d’intégrité d’un regist
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
 ms.date: 01/25/2021
-ms.openlocfilehash: 12cdd1e75a51097bab3830cdd0e6567e53f91dce
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f4672d114c963717eb77725f0a159b8a21525f9a
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537416"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220396"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
@@ -114,7 +114,7 @@ Cette erreur indique que l’interface CLI n’est pas compatible avec la versio
 
 Consultez la rubrique [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md) pour découvrir plus d’options de vérification de l’intégrité d’un Registre.
 
-Consultez la section [FAQ](container-registry-faq.md) pour voir les questions fréquemment posées et d’autres problèmes connus relatifs à Azure Container Registry.
+Consultez la section [FAQ](container-registry-faq.yml) pour voir les questions fréquemment posées et d’autres problèmes connus relatifs à Azure Container Registry.
 
 
 

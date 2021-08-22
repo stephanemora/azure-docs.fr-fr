@@ -7,17 +7,19 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 6f441572ea57789f6700194a24e7f1af663d0f4f
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 0327e725534f7b56171814e99098cee365785d8c
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750354"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205010"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible Azure Database pour MySQL avec Azure CLI
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!NOTE]
-> Le serveur flexible Azure Database pour MySQL est en préversion publique. 
+> Le serveur flexible Azure Database pour MySQL est en préversion publique.
 
 Cet article explique comment vous pouvez activer ou désactiver la configuration de la haute disponibilité avec redondance interzone au moment de la création du serveur dans votre serveur flexible. Vous pouvez également désactiver la haute disponibilité redondante interzone après la création du serveur. L’activation de la haute disponibilité redondante interzone après la création du serveur n’est pas prise en charge.
 
@@ -27,35 +29,38 @@ La fonctionnalité de haute disponibilité provisionne physiquement des réplica
 > La haute disponibilité redondante interzone est disponible dans un ensemble limité de régions. Consultez [ici](./overview.md#azure-regions) les régions prises en charge. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
--  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+- Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
     ```azurecli-interactive
     az login
     ````
 
 - Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel vous souhaitez créer le serveur à l’aide de la commande ```az account set```.
-`
+
     ```azurecli
     az account set --subscription <subscription id>
     ```
 
 ## <a name="enable-high-availability-during-server-creation"></a>Activer la haute disponibilité lors de la création du serveur
+
 Vous pouvez uniquement créer des serveurs en utilisant les niveaux tarifaires Usage général ou Mémoire optimisée avec une haute disponibilité. Vous ne pouvez activer la haute disponibilité pour un serveur qu’au moment de sa création.
 
 **Utilisation :**
 
-```azurecli
-az mysql flexible-server create [--high-availability {Disabled, Enabled}]
-                                [--resource-group]
-                                [--name]
-```
+   ```azurecli
+    az mysql flexible-server create [--high-availability {Disabled, Enabled}]
+                                    [--resource-group]
+                                    [--name]
+   ```
 
 **Exemple :**
-```azurecli
-az mysql flexible-server create --name myservername --sku-name Standard-D2ds_v4 --resource-group myresourcegroup --high-availability Enabled
-```
+
+   ```azurecli
+    az mysql flexible-server create --name myservername --sku-name Standard-D2ds_v4 --resource-group myresourcegroup --high-availability Enabled
+   ```
 
 ## <a name="disable-high-availability"></a>Désactiver la haute disponibilité
 
@@ -68,12 +73,12 @@ az mysql flexible-server update [--high-availability {Disabled, Enabled}]
 ```
 
 **Exemple :**
-```azurecli
-az mysql flexible-server update --resource-group myresourcegroup --name myservername --high-availability Disabled
-```
 
+   ```azurecli
+    az mysql flexible-server update --resource-group myresourcegroup --name myservername --high-availability Disabled
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
--   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
+- Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
+- Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)

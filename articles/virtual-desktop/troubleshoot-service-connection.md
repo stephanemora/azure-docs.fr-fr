@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: cce3d219158111d147849e45fb0990f41e2423ab
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8f87adc97039eda25b29116108069d685fd0a8bd
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756740"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767122"
 ---
 # <a name="azure-virtual-desktop-service-connections"></a>Connexions au service Azure Virtual Desktop
 
@@ -22,7 +22,7 @@ Appuyez-vous sur cet article pour résoudre les problèmes liés aux connexions 
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Vous pouvez nous fournir des commentaires et discuter du service Azure Virtual Desktop avec l’équipe de produit et d’autres membres actifs de la communauté dans [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Vous pouvez nous fournir des commentaires et discuter du service Azure Virtual Desktop avec l’équipe de produit et d’autres membres actifs de la communauté dans [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum).
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Lorsqu’un utilisateur se connecte, rien ne s’affiche (aucun flux)
 

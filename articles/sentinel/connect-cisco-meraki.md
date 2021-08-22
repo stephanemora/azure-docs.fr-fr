@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: dc2d2a0724f18a02a5b667eb1004963a326ec360
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 64828011cc92145e6635c995294f234754999a8b
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743259"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525657"
 ---
 # <a name="connect-your-cisco-meraki-to-azure-sentinel"></a>Connecter votre Cisco Meraki à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Cisco Meraki est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Cet article explique comment connecter votre ou vos appliances Cisco Meraki (MX/MS/MR) à Azure Sentinel. Le connecteur de données Cisco Meraki vous permet de connecter facilement vos journaux Cisco Meraki à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’intégration entre Cisco Meraki et Azure Sentinel utilise un serveur Syslog avec l’agent Log Analytics installé. Elle utilise également un analyseur de journal personnalisé basé sur une fonction Kusto.
 
@@ -73,6 +75,6 @@ Pour obtenir des exemples de requêtes utiles, consultez l’onglet **Étapes su
 
 Dans ce document, vous avez découvert comment connecter Cisco Meraki à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

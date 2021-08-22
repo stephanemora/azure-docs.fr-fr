@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 921a2c6425010dbf98c170d8435267e440883aa5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: eeaccd4fa186d4a415e1d573ffa933c7a5f44375
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075139"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298328"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -129,7 +129,7 @@ Dans votre instance Key Vault, sélectionnez **Certificats** et **Générer/Impo
 
 Dans votre modèle, indiquez le nom du certificat pour le `keyVaultSecretName`.
 
-Pour un exemple de modèle, consultez [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Déployer un certificat d’application web à partir d’un secret Key Vault et l’utiliser pour créer une liaison SSL).
+Pour un exemple de modèle, consultez [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault) (Déployer un certificat d’application web à partir d’un secret Key Vault et l’utiliser pour créer une liaison SSL).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

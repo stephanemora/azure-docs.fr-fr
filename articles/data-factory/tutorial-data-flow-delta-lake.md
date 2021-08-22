@@ -4,15 +4,16 @@ description: Ce tutoriel fournit des instructions pas à pas pour l’utilisatio
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/16/2021
-ms.openlocfilehash: 4a88ed2df74d3eebb96c42e2cdc87b14153419cd
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 06/04/2021
+ms.openlocfilehash: dff3972bfc9da83312a1fdf4fc7c6169f932c410
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641305"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformer des données dans Delta Lake à l’aide de flux de données de mappage
 
@@ -53,9 +54,9 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
 Au cours de cette étape, vous allez créer un pipeline qui contient une activité de flux de données.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil, sélectionnez **Orchestrer**.
 
-   ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 
 1. Dans l’onglet **Général** du pipeline, entrez **DeltaLake** pour le **nom** du pipeline.
 1. Dans le volet **Activités**, développez la section **Déplacer et transformer**. Faites glisser et déposez l’activité **Flux de données** à partir du volet vers le canevas du pipeline.

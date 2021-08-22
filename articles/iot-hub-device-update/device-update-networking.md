@@ -1,17 +1,17 @@
 ---
 title: Exigences réseau pour le service Device Update pour IoT Hub | Microsoft Docs
 description: Le service Device Update pour IoT Hub utilise un grand nombre de ports réseau à des fins différentes.
-author: philmea
-ms.author: philmea
+author: vimeht
+ms.author: vimeht
 ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0512308fbaa0a725c6ecca573c70c90d8c04e247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aeeffa55a4f7f90742616e137328948f3ffa7a5c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525417"
 ---
 # <a name="ports-used-with-device-update-for-iot-hub"></a>Ports utilisés avec le service Device Update pour IoT Hub
 ADU utilise un grand nombre de ports réseau à des fins différentes.

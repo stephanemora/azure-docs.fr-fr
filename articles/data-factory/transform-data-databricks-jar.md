@@ -1,17 +1,20 @@
 ---
 title: Transformer des données avec Databricks Jar
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment traiter ou transformer des données en exécutant une activité Databricks Jar dans un pipeline Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
 ms.date: 02/10/2021
-ms.openlocfilehash: ccfe8fbf330e1c7f6f415b64a1f18d93a084a0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d713decf0a82b5e501b7c2065a358e8ccc754d8e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374012"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641340"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Jar dans Azure Databricks
 

@@ -7,12 +7,12 @@ ms.date: 06/05/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: f92dd750a7238b0784fa12d00606a5b84e7d56c0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: aae1f58eb9fc5e006254f6fdfd620c057e6d6fc3
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755282"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762506"
 ---
 # <a name="azure-virtual-desktop-powershell"></a>Azure Virtual Desktop PowerShell
 
@@ -23,9 +23,9 @@ Cet article vous aide à résoudre des problèmes et erreurs rencontrés lors de
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
+Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
 
-## <a name="powershell-commands-used-during-azure-virtual-desktop-setup"></a>Commandes PowerShell utilisées pendant la configuration de Azure Virtual Desktop
+## <a name="powershell-commands-used-during-azure-virtual-desktop-setup"></a>Commandes PowerShell utilisées pendant la configuration d’Azure Virtual Desktop
 
 Cette section répertorie les commandes PowerShell qui sont généralement utilisées lors de la configuration de Azure Virtual Desktop, et explique comment résoudre des problèmes qui peuvent se produire lors de leur utilisation.
 

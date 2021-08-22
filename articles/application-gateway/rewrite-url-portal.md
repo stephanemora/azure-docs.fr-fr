@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
 ms.author: azhussai
-ms.openlocfilehash: c0a99d2c2885de59ccc903b9f505b8049d922b43
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8bcaa692fe33229ef7d71f717879f39ffa88279
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205194"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562945"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Réécriture d’URL avec Azure Application Gateway – Portail Azure
 
@@ -97,7 +97,7 @@ Dans l’exemple ci-dessous, chaque fois que l’URL de la demande contient */ar
 
    e. Dans **Valeur de la chaîne de requête URL**, entrez la nouvelle valeur de la chaîne de requête d’URL. Dans cet exemple, nous utiliserons **id={var_uri_path_1}&title={var_uri_path_2}** .
     
-    `{var_uri_path_1}` et `{var_uri_path_1}` permettent d’extraire les sous-chaînes capturées lors de l’évaluation de la condition dans cette expression `.*article/(.*)/(.*)`.
+    `{var_uri_path_1}` et `{var_uri_path_2}` permettent d’extraire les sous-chaînes capturées lors de l’évaluation de la condition dans cette expression `.*article/(.*)/(.*)`.
     
    f. Sélectionnez **OK**.
 

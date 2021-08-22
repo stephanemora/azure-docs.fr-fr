@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/21/2021
+ms.date: 07/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa9bc861ffdc2c8671f062bb41499c8ffee1123d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 12bb1d26c8c9abbf3d2312b1d0186b8b4303c746
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524765"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -134,9 +134,8 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
             "riskState":"none",
             "riskEventTypes":[],
             "resourceDisplayName":"windows azure service management api",
-            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013",
-            "authenticationMethodsUsed":[]
-        }
+            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013"
+         }
 }
 ```
 
@@ -168,6 +167,8 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | Level | - | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
 | Emplacement | - | Indique l’emplacement de l’activité de connexion. |
 | Propriétés | - | Répertorie toutes les propriétés associées aux connexions.|
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/29/2020
-ms.openlocfilehash: 8b08a60d484aa3d52600b8aef2f53d6ca8a04f9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: 4708cdc0a7937749e0df9a65267067f5dc31198d
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952165"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525880"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -28,10 +28,10 @@ L’une des fonctionnalités de plateforme d’Azure Purview permet d’afficher
 ### <a name="data-processing-system"></a>Système de traitement des données
 Les outils d’intégration de données et ETL peuvent envoyer les données de traçabilité dans Azure Purview au moment de l’exécution. Les outils tels que Data Factory, Data Share, Synapse, Azure Databricks, etc., appartiennent à cette catégorie de systèmes de données. Les systèmes de traitement des données référencent les jeux de données comme source à partir de différentes bases de données et solutions de stockage pour créer des jeux de données cibles. La liste des systèmes de traitement de données actuellement intégrés avec Purview pour la traçabilité est répertoriée dans le tableau ci-dessous.
 
-
 | Système de traitement des données | Portée prise en charge |
 | ---------------------- | ------------|
-| Azure Data Factory | [Activité de copie](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Activité de flux de données](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Activité Exécuter le package SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Activité de copie](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Activité de flux de données](how-to-link-azure-data-factory.md#data-flow-support) <br> [Activité Exécuter le package SSIS](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
+| Azure Synapse Analytics | [Activité de copie](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
 | Azure Data Share | [Partager l’instantané](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>Systèmes de stockage de données

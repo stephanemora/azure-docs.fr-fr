@@ -1,18 +1,20 @@
 ---
 title: Plusieurs branches dans le flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Réplication de flux de données dans le flux de données de mappage avec plusieurs branches
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: synapse
 ms.date: 04/16/2021
-ms.openlocfilehash: f9f2bf2e2204e6b74bb8a31ac856dbe276a6e983
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: e84b1d1a2130c2d1c621ade1b21f92c485709100
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641409"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>Création d’une nouvelle branche dans le flux de données de mappage
 

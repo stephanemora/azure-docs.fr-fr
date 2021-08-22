@@ -2,22 +2,22 @@
 title: Configuration en un clic de l’authentification unique (SSO) pour votre application sur la Place de marché Azure | Microsoft Docs
 description: Étapes de la configuration en un clic de l’authentification unique pour votre application à partir de la Place de marché Azure.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766c1446a2fad9cff1103a726043d6c61d503020
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: ergreenl
+ms.openlocfilehash: bec4df252a98fc105f0eec1480452021fefb0031
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562541"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuration en un clic de l’authentification unique pour une application
 
@@ -80,5 +80,5 @@ La fonctionnalité d’authentification SSO en un clic a été conçue pour conf
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-access.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Présentation de l’Extension de navigateur de connexion sécurisée à Mes applications](../user-help/my-apps-portal-end-user-access.md)

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 31b3c0a1894280e90f696f6c107b67a3af7b1880
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b4e306a39261da6c1422ba81ccb164e3903fbcd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605346"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562212"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -46,6 +46,8 @@ Vous pouvez définir la période de conservation pour ce stockage à court terme
 Pour une conservation à long terme des journaux et l’analyse des journaux, vous pouvez télécharger les fichiers .log et les utiliser dans un service tiers. Vous pouvez télécharger les fichiers à l’aide du [portail Azure](howto-configure-server-logs-in-portal.md) et [d’Azure CLI](howto-configure-server-logs-using-cli.md). Vous pouvez également configurer les paramètres de diagnostic d’Azure Monitor pour émettre automatiquement vos journaux (au format JSON) à des emplacements à plus long terme. Pour plus d’informations sur cette option, consultez la section ci-dessous. 
 
 Vous pouvez arrêter la génération de fichiers .log en définissant le paramètre `logging_collector` sur Désactivé. Désactiver la génération du fichier .log est recommandée si vous utilisez les paramètres de diagnostic d’Azure Monitor. Cette configuration permet de réduire l’impact sur les performances de la journalisation supplémentaire.
+> [!NOTE]
+> Redémarrez le serveur pour appliquer les modifications.
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
 

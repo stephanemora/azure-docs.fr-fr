@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: c28514490b77917f16ae4687a62d3a8963d57537
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: cf65fcfe297cfbff60490b165771095e6d3b402a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887399"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524508"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -137,7 +137,7 @@ Pour rechercher les plages d’adresses IP qui ont été autorisées, utilisez [
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --query apiServerAccessProfile.authorizedIpRanges'
+    --query apiServerAccessProfile.authorizedIpRanges
 ```
 
 ## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Mettre à jour, désactiver et rechercher les plages d’adresses IP autorisées à l’aide du portail Azure
@@ -161,7 +161,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
->> [!NOTE]
+> [!NOTE]
 > L’exemple ci-dessus ajoute les plages d’adresses IP autorisées par le serveur d’API sur le cluster. Pour désactiver les plages d’adresses IP autorisées, utilisez la commande « az aks update » et spécifiez une plage vide "". 
 
 Une autre option consiste à utiliser la commande ci-dessous sur les systèmes Windows pour obtenir l’adresse IPv4 publique, ou vous pouvez suivre les étapes décrites dans [Rechercher votre adresse IP](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
@@ -180,7 +180,7 @@ Pour plus d’informations, consultez [Concepts de sécurité pour les applicati
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/index.yml#aks-cluster-network-requirements
+[dev-spaces-ranges]: /previous-versions/azure/dev-spaces/#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

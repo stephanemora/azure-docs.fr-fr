@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 576a791ee8c252a8bc1fa73cd98174e6958cf606
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8e893a95337801db4ee35cfdc00e2d97f8d12db6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751430"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285848"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -188,7 +188,7 @@ Après avoir préparé l’image pour le téléchargement, assurez-vous que la m
 
 Cette section s’applique uniquement lorsque l’image principale a été créée localement.
 
-Les instructions suivantes vous indiqueront comment charger votre image principale dans un compte de stockage Azure. Si vous ne disposez pas d’un compte de stockage Azure, suivez les instructions de [cet article](/azure/developer/javascript/tutorial-vscode-static-website-node-03) pour en créer un.
+Les instructions suivantes vous indiqueront comment charger votre image principale dans un compte de stockage Azure. Si vous ne disposez pas d’un compte de stockage Azure, suivez les instructions de [cet article](../storage/common/storage-account-create.md) pour en créer un.
 
 1. Convertissez l’image de machine virtuelle (VHD) sur Fixed si vous ne l’avez pas déjà fait. Si l’image n’est pas convertie sur Fixed, elle ne sera pas correctement créée.
 

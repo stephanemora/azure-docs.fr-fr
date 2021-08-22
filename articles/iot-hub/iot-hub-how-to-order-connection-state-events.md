@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 00765a51ad07cd53fde403ed1cfabb73c5692026
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5035515c843db2ce7feb06090029c7e5995769cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076866"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287974"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Le numéro de séquence est la représentation d’un nombre hexadécimal sous l
 
 * Une collection dans votre base de données. Consultez [Ajouter une collection](../cosmos-db/create-sql-api-java.md#add-a-container) pour une procédure pas à pas. Lorsque vous créez votre collection, utilisez `/id` pour la clé de partition.
 
-* Un Hub IoT dans Azure. Si vous n’en avez pas encore créé un, consultez [Prise en main d’IoT Hub](./quickstart-send-telemetry-dotnet.md) pour obtenir une procédure pas à pas.
+* Un Hub IoT dans Azure. Si vous n’en avez pas encore créé un, consultez [Prise en main d’IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) pour obtenir une procédure pas à pas.
 
 ## <a name="create-a-stored-procedure"></a>Créer une procédure stockée
 

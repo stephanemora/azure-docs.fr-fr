@@ -2,13 +2,13 @@
 title: Schéma CloudEvents v1.0 avec Azure Event Grid
 description: Décrit comment utiliser le schéma CloudEvents v1.0 pour les événements dans Azure Event Grid. Le service prend en charge les événements dans l’implémentation JSON de CloudEvents.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: d17e92c28784ca31f3c9809c93e885b22c6a38d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: 668ff0c1d09441459b28112173735828f347c50a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91324176"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442680"
 ---
 # <a name="cloudevents-v10-schema-with-azure-event-grid"></a>Schéma CloudEvents v1.0 avec Azure Event Grid
 

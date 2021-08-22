@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 04/23/2021
-ms.openlocfilehash: 443dd0a1172c98b67282b50659ffeb3611470413
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 14b3487a158062e3186b485a8bcbd4584a0f09d2
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163766"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665346"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -158,7 +158,7 @@ Dans Visual Studio, si votre application logique existe en tant que fichier JSON
 Pour modifier le type d’emplacement ou l’emplacement de votre application logique, vous devez ouvrir le fichier de définition de flux de travail de votre application logique (.json) à partir de l’Explorateur de solutions à l’aide du Concepteur d’application logique. Vous ne pouvez pas modifier ces propriétés à l’aide de Cloud Explorer.
 
 > [!IMPORTANT]
-> La modification du type d’emplacement de **Région** à [**Environnement de service d’intégration**](connect-virtual-network-vnet-isolated-environment-overview.md) affecte le [modèle de tarification](logic-apps-pricing.md#fixed-pricing) de votre application logique lequel est utilisé pour la facturation, [les limites](logic-apps-limits-and-config.md#integration-account-limits), [la prise en charge des comptes d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), etc. Avant de sélectionner un autre type d’emplacement, assurez-vous que vous comprenez l’impact qui en résulte sur votre application logique.
+> La modification du type d’emplacement de **Région** à [**Environnement de service d’intégration**](connect-virtual-network-vnet-isolated-environment-overview.md) affecte le [modèle de tarification](logic-apps-pricing.md#ise-pricing) de votre application logique lequel est utilisé pour la facturation, [les limites](logic-apps-limits-and-config.md#integration-account-limits), [la prise en charge des comptes d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), etc. Avant de sélectionner un autre type d’emplacement, assurez-vous que vous comprenez l’impact qui en résulte sur votre application logique.
 
 1. Dans Visual Studio, ouvrez le projet Azure Resource Group qui contient votre application logique.
 

@@ -4,12 +4,12 @@ description: Résoudre les problèmes liés à Azure HDInsight. La documentation
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: e36388fb49ebbcdeee8c5ed046faaf756c65bd60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd5082440cdfc5cf3a8407ff7473164a29c64b5d
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871892"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370092"
 ---
 # <a name="troubleshoot-azure-hdinsight"></a>Résoudre les problèmes liés à Azure HDInsight
 
@@ -26,11 +26,11 @@ ms.locfileid: "104871892"
 
 | Pour obtenir des informations sur | Reportez-vous aux articles suivants |
 | --- | --- |
-| HDInsight sur Linux et optimisation | - [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)<br>- [Résolution des problèmes liés aux performances et à la mémoire Apache Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Performances des requêtes Apache Hive](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
+| HDInsight sur Linux et optimisation | - [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)<br>- [Résolution des problèmes liés aux performances et à la mémoire Apache Hadoop](hdinsight-hadoop-stack-trace-error-messages.md) |
 | Journaux d’activité et dumps | - [Accéder aux journaux d’activité d’applications YARN Apache Hadoop sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Activer les dumps de tas pour les services Apache Hadoop sous Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | Erreurs | - [Comprendre et résoudre les erreurs WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Paramètres Apache Hive pour résoudre l’erreur OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Outils | - [Optimiser les requêtes Apache Hive](hdinsight-hadoop-optimize-hive-query.md)<br>- [Outil HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Outil HDInsight Eclipse](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Outil HDInsight VSCode](hdinsight-for-vscode.md)<br>- [Outil HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

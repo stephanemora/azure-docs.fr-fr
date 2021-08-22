@@ -2,17 +2,18 @@
 title: Installer des composants sous licence pour le runtime d’intégration Azure-SSIS
 description: Découvrez comment un éditeur de logiciels indépendant peut développer et installer des composants personnalisés payants ou sous licence pour le runtime d’intégration Azure-SSIS.
 ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd62822e111346ee9a81a5d1bcce55191b19da02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c12c6bf17b5a773e9ef7f5ef122dfd8f466f3822
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562769"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
 

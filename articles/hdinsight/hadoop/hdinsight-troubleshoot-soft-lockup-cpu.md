@@ -4,12 +4,12 @@ description: 'L’erreur « watchdog: BUG: soft lockup - CPU » apparaît dans
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
-ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2deb421dce440c1c8f949c858269fed038ac3d5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944351"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299750"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : erreur « watchdog : BUG : blocage logiciel - CPU » à partir d’un cluster Azure HDInsight
 
@@ -53,4 +53,4 @@ Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Lin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -1,19 +1,21 @@
 ---
 title: Transformation de filtre dans un flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Filtrer des lignes à l’aide de la transformation de filtre dans un flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/26/2020
-ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f313791d08c625714432953363e785e6e95b321c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84112808"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641415"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformation de filtre dans un flux de données de mappage
 

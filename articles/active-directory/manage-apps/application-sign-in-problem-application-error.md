@@ -2,22 +2,22 @@
 title: Un message d’erreur apparaît sur la page de l’application après la connexion | Microsoft Docs
 description: Comment résoudre les problèmes de connexion à Azure AD quand l’application renvoie un message d’erreur.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
-ms.reviewer: asteen
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ca0589da8cfa03553916755c4eb56ab74324501
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081746"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524725"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Une page d’application affiche un message d’erreur une fois que l’utilisateur est connecté
 
@@ -25,11 +25,11 @@ Dans ce scénario, Azure Active Directory (Azure AD) connecte l’utilisateur. 
 
 De nombreuses raisons peuvent expliquer pourquoi l’application n’a pas accepté la réponse d’Azure AD. Si le message d’erreur n’identifie pas clairement ce qui manque dans la réponse, essayez ce qui suit :
 
--   Si l’application en question est la galerie Azure AD, vérifiez que vous avez suivi les étapes de l’article [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](./debug-saml-sso-issues.md).
+- Si l’application en question est la galerie Azure AD, vérifiez que vous avez suivi les étapes de l’article [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](./debug-saml-sso-issues.md).
 
--   Utilisez un outil tel que [Fiddler](https://www.telerik.com/fiddler) pour capturer la requête, la réponse et le jeton SAML.
+- Utilisez un outil tel que [Fiddler](https://www.telerik.com/fiddler) pour capturer la requête, la réponse et le jeton SAML.
 
--   Envoyez la réponse SAML à l’éditeur de l’application et demandez-lui ce qui manque.
+- Envoyez la réponse SAML à l’éditeur de l’application et demandez-lui ce qui manque.
 
 ## <a name="attributes-are-missing-from-the-saml-response"></a>Attributs manquants dans la réponse SAML
 
@@ -58,7 +58,7 @@ Pour ajouter un attribut dans la configuration Azure AD qui sera envoyée dans 
 
    1. Sélectionnez **Ajouter un attribut**. Entrez le **nom**, puis sélectionnez la **valeur** dans la liste déroulante.
 
-   1.  Sélectionnez **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
+   1. Sélectionnez **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
 9. Enregistrez la configuration.
 
@@ -124,9 +124,9 @@ Pour modifier les parties du jeton SAML qui sont signées numériquement par Azu
 
 9. Sélectionnez l’**option de signature** que l’application attend parmi ces options :
 
-   * **Signer la réponse SAML**
-   * **Signer la réponse et l’assertion SAML**
-   * **Signer l’assertion SAML**
+   - **Signer la réponse SAML**
+   - **Signer la réponse et l’assertion SAML**
+   - **Signer l’assertion SAML**
 
    La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera la partie de la réponse SAML sélectionnée.
 
@@ -160,4 +160,5 @@ Pour modifier l’algorithme de signature, procédez comme suit :
    La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera le jeton SAML à l’aide de l’algorithme SHA-1.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](./debug-saml-sso-issues.md).

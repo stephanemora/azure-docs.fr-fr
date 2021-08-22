@@ -1,17 +1,20 @@
 ---
 title: Copier des données à partir de PostgreSQL avec Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de PostgreSQL vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jianleishen
-ms.openlocfilehash: 5b63d37f6e6d3823e93485ba87fab52cd072f2ab
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 86b82e15346063348ec1e5a1a30c74753998380b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485690"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641513"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

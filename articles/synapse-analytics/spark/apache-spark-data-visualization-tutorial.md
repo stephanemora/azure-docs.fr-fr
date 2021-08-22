@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: beef6768f9b2fb05efb77c16c32b0acbe46d1e85
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942269"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524445"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analyser des données avec Apache Spark
 
 Dans ce tutoriel, vous découvrirez comment effectuer une analyse exploratoire des données à l’aide d’Azure Open Datasets et d’Apache Spark. Vous visualiserez ensuite les résultats dans un notebook Synapse Studio dans Azure Synapse Analytics.
 
-Nous analyserons en particulier le jeu de données [New York City (NYC) Taxi](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Les données sont disponibles dans Azure Open Datasets. Ce sous-ensemble du jeu de données contient des données sur les courses de taxis jaunes, qui incluent des informations sur chaque course, les heures et lieux de départ et d’arrivée, le prix et d’autres attributs intéressants.
+Nous analyserons en particulier le jeu de données [New York City (NYC) Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Les données sont disponibles dans Azure Open Datasets. Ce sous-ensemble du jeu de données contient des données sur les courses de taxis jaunes, qui incluent des informations sur chaque course, les heures et lieux de départ et d’arrivée, le prix et d’autres attributs intéressants.
   
 ## <a name="before-you-begin"></a>Avant de commencer
 Créez un pool Apache Spark en suivant le [didacticiel Créer un pool Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md). 

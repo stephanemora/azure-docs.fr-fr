@@ -3,12 +3,12 @@ title: Limites de capacité dans Azure Lab Services
 description: Découvrez les limites de capacité (limites de machines virtuelles) dans Azure Lab Services.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 344ca5950e38d3c4850accdbfb5062a011059919
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491016"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294505"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Limites de capacité dans Azure Lab Services
 Azure Lab Services a des limites de capacité par défaut sur les abonnements Azure pour respecter les limitations de quota d’Azure Compute ainsi que pour atténuer la fraude. Tous les abonnements Azure ont une limite de capacité initiale, qui peut varier en fonction du type d’abonnement, du nombre de cœurs de calcul standard et des cœurs de GPU disponibles dans Azure Lab Services. Ainsi, il existe une limite au nombre de machines virtuelles que vous pouvez créer dans vos labos avant toute demande d’augmentation de cette limite.  
@@ -51,4 +51,4 @@ Une fois que vous enverrez la demande de support, nous la passerons en revue. Si
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article suivant :
 - [Guide de l’administrateur : dimensionnement des machines virtuelles](administrator-guide.md#vm-sizing).
-- [Forum aux questions](classroom-labs-faq.md).
+- [Forum aux questions](classroom-labs-faq.yml).

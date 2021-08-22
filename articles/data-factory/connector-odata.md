@@ -1,17 +1,20 @@
 ---
 title: Copier des données de sources OData à l’aide d’Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de sources OData vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 91d1206bcaf80d054c6adde1ee5a23456083b97b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: bab8c4b27103ad1cd8ca057942add558d907d73f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485186"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641379"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -357,7 +360,7 @@ Pour copier des données à partir de Project Online, vous pouvez utiliser le co
     - **Authentication type** (Type d’authentification) : Sélectionnez **Anonymous** (Anonyme).
     - **Auth headers** (En-têtes d’authentification) :
         - **Property name** (Nom de propriété) : Choisissez **Authorization** (Autorisation).
-        - **Value** (Valeur) : Entrez le **jeton d’accès** copié à l’étape 1.
+        - **Valeur** : Entrez `Bearer <access token from step 1>`.
     - Testez le service lié.
 
     ![Créer le service lié OData](./media/connector-odata/odata-project-online-linked-service.png)

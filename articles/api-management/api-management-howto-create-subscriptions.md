@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 191323a4c150c00c93245be35c9c8af381e26b42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d15249bc5a7451931c6bdc23d590aa96512dbb26
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87904855"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202451"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Créer des abonnements dans Gestion des API Azure
 
@@ -49,4 +49,4 @@ Sachez-en plus sur la Gestion des API :
 
 + Découvrez les autres [concepts](api-management-terminology.md) de la Gestion des API.
 + Suivez nos [tutoriels](import-and-publish.md) sur la Gestion des API.
-+ Consultez notre [page de FAQ](api-management-faq.md) pour prendre connaissance des questions courantes.
++ Consultez notre [page de FAQ](api-management-faq.yml) pour prendre connaissance des questions courantes.

@@ -8,12 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 04/22/2021
 ms.author: yelevin
-ms.openlocfilehash: f1ef860f1b84de84c42996a7523af8ce174d5981
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 96068491bd4be59c34d62375db30edad504823a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524210"
 ---
 # <a name="connect-azure-kubernetes-service-diagnostics-logs"></a>Connecter des journaux de diagnostic Azure Kubernetes Service
 
@@ -21,7 +21,9 @@ AKS (Azure Kubernetes service) est un service d’orchestration de conteneurs op
 
 Ce connecteur vous permet de streamer vos journaux de diagnostic AKS (Azure Kubernetes Service) dans Azure Sentinel, ce qui vous permet de superviser continuellement l’activité dans toutes vos instances. 
 
-Apprenez-en davantage sur la [supervision d’Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) et sur la [télémétrie de diagnostic AKS](../aks/view-control-plane-logs.md).
+Apprenez-en davantage sur la [supervision d’Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) et sur la [télémétrie de diagnostic AKS](../aks/monitor-aks-reference.md#resource-logs).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,5 +63,5 @@ Ce connecteur utilise Azure Policy pour appliquer une configuration unique de st
 
 Ce document vous a montré comment utiliser Azure Policy pour connecter Azure Kubernetes Service à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).

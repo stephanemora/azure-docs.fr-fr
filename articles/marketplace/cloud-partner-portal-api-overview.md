@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5813b08a14a95a8b7bbb51b3d6593fe374a83ba6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92425776"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282040"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Référence d’API pour le portail Cloud Partner
 
@@ -36,7 +36,7 @@ Avant d’utiliser les API, consultez :
 | **API** | **Description de la modification** | **Impact** |
 | ------- | ---------------------- | ---------- |
 | POST Publish, GoLive, Cancel | Pour les offres migrées, l’en-tête de réponse aura un format différent, mais continuera à fonctionner de la même façon, indiquant un chemin relatif pour récupérer l’état de l’opération. | Lors de l’envoi d’une des requêtes de publication correspondantes pour une offre, l’en-tête d’emplacement aura l’un des deux formats suivants en fonction de l’état de migration de l’offre :<ul><li>Offres non migrées<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offres migrées<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| Opération GET | Pour les types d’offres qui prenaient auparavant en charge le champ « notification-email » dans la réponse, ce champ est déprécié et n’est plus retourné pour les offres migrées. | Pour les offres migrées, nous n’enverrons plus de notifications à la liste des e-mails spécifiés dans les requêtes. Au lieu de cela, le service d’API s’alignera sur le processus de notification par e-mail dans l’Espace partenaires pour envoyer des e-mails. Plus précisément, les notifications seront envoyées à l’adresse e-mail définie dans la section Coordonnées du vendeur de vos paramètres de compte dans l’Espace partenaires, pour vous informer de la progression de l’opération.<br><br>Veuillez vousérifiez l’adresse e-mail définie dans la section Coordonnées du vendeur de vos [Paramètres du compte](https://partner.microsoft.com/dashboard/account/management) dans l’Espace partenaires afin de vous assurer que l’adresse e-mail correcte est fournie pour les notifications.  |
+| Opération GET | Pour les types d’offres qui prenaient auparavant en charge le champ « notification-email » dans la réponse, ce champ est déprécié et n’est plus retourné pour les offres migrées. | Pour les offres migrées, nous n’enverrons plus de notifications à la liste des e-mails spécifiés dans les requêtes. Au lieu de cela, le service d’API s’alignera sur le processus de notification par e-mail dans l’Espace partenaires pour envoyer des e-mails. Plus précisément, les notifications seront envoyées à l’adresse e-mail définie dans la section Coordonnées du vendeur de vos paramètres de compte dans l’Espace partenaires, pour vous informer de la progression de l’opération.<br><br>Veuillez vousérifiez l’adresse e-mail définie dans la section Coordonnées du vendeur de vos [Paramètres du compte](https://go.microsoft.com/fwlink/?linkid=2165291) dans l’Espace partenaires afin de vous assurer que l’adresse e-mail correcte est fournie pour les notifications. |
 
 ## <a name="common-tasks"></a>Tâches courantes
 

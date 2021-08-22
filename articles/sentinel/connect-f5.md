@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 632b55b699df409049f77abecfca4c3cf75d3e73
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655695"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525930"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Connecter ASM F5 à Azure Sentinel
 
 Cet article explique comment utiliser le connecteur de données ASM F5 pour tirer (pull) facilement vos journaux ASM F5 dans Azure Sentinel. Cela vous permet d’afficher des données ASM F5 dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer l’investigation. Les données ASM F5 dans Azure Sentinel vous permettent d'obtenir davantage d'informations sur la sécurité de l’application web au sein de votre organisation et améliorent vos fonctionnalités d’opérations de sécurité. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="configure-your-f5-asm-to-send-cef-messages"></a>Configurer votre ASM F5 pour envoyer des messages CEF
 
@@ -42,6 +44,6 @@ Cet article explique comment utiliser le connecteur de données ASM F5 pour tire
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous découvrirez comment connecter ASM F5 à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

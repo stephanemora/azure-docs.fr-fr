@@ -3,12 +3,12 @@ title: Points de terminaison de service de réseau virtuel - Azure Event Hubs | 
 description: Cet article fournit des informations sur l’ajout d’un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: bc13878be3b596d514ad2ed8ad024064df6e6fb4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 33ae280b49b4f2afca39e8de8954f836737c9d7c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375334"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416215"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Autoriser l'accès à un espace de noms Azure Event Hubs à partir de réseaux virtuels spécifiques 
 
@@ -78,7 +78,7 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
     > [!NOTE]
     > Pour restreindre l'accès à des adresses ou plages d'adresses IP spécifiques, consultez [Autoriser l'accès à partir d'adresses ou de plages d'adresses IP spécifiques](event-hubs-ip-filtering.md).
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
 Le modèle Resource Manager suivant ajoute une règle de réseau virtuel à un espace de noms Event Hubs. Pour la règle de réseau, elle spécifie l’ID d’un sous-réseau dans un réseau virtuel. 

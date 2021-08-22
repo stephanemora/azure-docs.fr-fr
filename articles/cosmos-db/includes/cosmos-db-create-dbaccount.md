@@ -5,12 +5,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 07/02/2021
 ms.custom: include file
-ms.openlocfilehash: a295c5bda4c6d5822d762f23372d3b2b5d206a3a
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: f03bf23140131b34b3d97c0dda6c707984b5d5c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801724"
 ---
 1. Dans le menu du portail Azure ou dans la **page d’accueil**, sélectionnez **Créer une ressource**.
 
@@ -51,7 +51,7 @@ ms.locfileid: "113280132"
 1. Si vous le souhaitez, vous pouvez configurer des informations supplémentaires sous les onglets suivants :
 
    * **Réseau** :configurez l’[accès à partir d’un réseau virtuel](../how-to-configure-vnet-service-endpoint.md).
-   * **Stratégie de sauvegarde** : configurez une stratégie de sauvegarde [périodique](../configure-periodic-backup-restore.md) ou [continue](../continuous-backup-restore-portal.md).
+   * **Stratégie de sauvegarde** : configurez une stratégie de sauvegarde [périodique](../configure-periodic-backup-restore.md) ou [continue](../provision-account-continuous-backup.md).
    * **Chiffrement** : utilisez une clé gérée par le service ou une [clé gérée par le client](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Étiquettes** : les étiquettes sont des paires nom/valeur qui vous permettent de catégoriser les ressources et d’afficher une facturation centralisée en appliquant la même étiquette à plusieurs ressources et groupes de ressources.
 

@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: digital-twins
 ms.service: digital-twins
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 9af31fb52a888148f33268a30c37609a5e8f2cd3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2f5ef1ff77ccbae4170b84c325f97f2cb7dc390
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110487572"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122263280"
 ---
 Ce qui suit résume les limites clés dans Azure Time Series Insights Gen1.
 
@@ -60,4 +60,4 @@ Au maximum deux sources d’événements par instance sont prise en charge.
 
 ### <a name="api-limits"></a>Limites de l’API
 
-Les limites de l’API REST pour Azure Time Series Insights Gen1 sont spécifiées dans la [documentation de référence sur l’API REST](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).
+Les limites de l’API REST pour Azure Time Series Insights Gen1 sont spécifiées dans la [documentation de référence sur l’API REST](/rest/api/time-series-insights/gen1-reference-data-api#current-limits).

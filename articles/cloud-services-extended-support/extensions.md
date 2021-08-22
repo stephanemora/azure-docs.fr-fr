@@ -8,16 +8,22 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 58377252e163894cdfee83d9c68146a9131f94c5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 84b27bc4ae30e28a1d97fb8e9931602a1eb14504
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288775"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444783"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensions pour Cloud Services (support étendu)
 
-Les extensions sont de petites applications qui proposent des tâches de configuration et d’automatisation post-déploiement sur les rôles. Par exemple, vous pouvez activer une connexion Bureau à distance dans votre rôle pendant le déploiement du service cloud (support étendu) à l’aide de l’extension Bureau à distance.  
+Les extensions sont de petites applications qui proposent des tâches de configuration et d’automatisation post-déploiement sur les rôles. Par exemple, vous pouvez activer une connexion Bureau à distance dans votre rôle pendant le déploiement du service cloud (support étendu) à l’aide de l’extension Bureau à distance. 
+
+## <a name="key-vault-extension"></a>Extension Key Vault
+
+L’extension de machine virtuelle Key Vault assure l’actualisation automatique des certificats stockés dans un coffre de clés Azure Key Vault. Plus précisément, elle supervise une liste de certificats stockés dans des coffres de clés. Lorsqu’une modification est détectée, elle récupère et installe les certificats correspondants. Elle autorise également la référence inter-région/inter-abonnement des certificats pour Cloud Services (support étendu).
+
+Pour plus d’informations, consultez [Configuration de l’extension Key Vault pour Cloud Services (support étendu)](./enable-key-vault-virtual-machine.md).
 
 ## <a name="remote-desktop-extension"></a>Extension Bureau à distance
 
@@ -48,5 +54,5 @@ Pour en savoir plus sur Azure Antimalware, consultez [cette page](../security/fu
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
+- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

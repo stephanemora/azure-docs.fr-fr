@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: 72cf06049ae272e3e55017dd8a0207739c25d960
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b92984b5579c13e873fdd136c0f06379f16c068a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738752"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641111"
 ---
 # <a name="configure-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Configurer des journaux des requêtes lentes pour un serveur flexible Azure Database pour MySQL à l’aide de l’interface Azure CLI
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
@@ -21,16 +23,17 @@ ms.locfileid: "108738752"
 L’article vous montre comment configurer des [journaux de requêtes lentes](concepts-slow-query-logs.md) pour votre serveur flexible MySQL à l’aide d’Azure CLI. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
--  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+- Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
     ```azurecli-interactive
     az login
     ````
 
 - Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel vous souhaitez créer le serveur à l’aide de la commande ```az account set```.
-`
+
     ```azurecli
     az account set --subscription <subscription id>
     ```
@@ -43,13 +46,14 @@ L’article vous montre comment configurer des [journaux de requêtes lentes](co
 
 ## <a name="configure-slow-query-logs"></a>Configurer des journaux de requêtes lentes
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
 
 Activez et configurez les journaux de requêtes lentes pour votre serveur.
 
 ```azurecli
 # Turn on statement level log
+
 az mysql flexible-server parameter set \
 --name log_statement \
 --resource-group myresourcegroup \
@@ -58,7 +62,9 @@ az mysql flexible-server parameter set \
 
 
 # Set log_min_duration_statement time to 10 sec
+
 # This setting will log all queries executing for more than 10 sec. Please adjust this threshold based on your definition for slow queries
+
 az mysql server configuration set \
 --name log_min_duration_statement \
 --resource-group myresourcegroup \
@@ -66,13 +72,16 @@ az mysql server configuration set \
 --value 10000
 
 # Enable Slow query logs
+
+
+
 az mysql flexible-server parameter set \
 --name slow_query_log \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --value ON
-
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - En savoir plus sur les [journaux des requêtes lentes](concepts-slow-query-logs.md)

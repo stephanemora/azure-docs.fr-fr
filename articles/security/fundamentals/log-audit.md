@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 0d85cf6ae501a7d50f20e48543e361149f4b57d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7481e22b9d03d7f49f4ee383bb52c4772631c16
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580557"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525639"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Journal de sécurité et audit Azure
 
@@ -51,7 +51,7 @@ Le tableau suivant liste les principaux types de journaux d’activité disponib
 |[Journaux d’activité](../../azure-monitor/essentials/platform-logs-overview.md)|Événements de plan de contrôle sur les ressources d’Azure Resource Manager|    Fournissent des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.|    API Rest, [Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)|
 |[Journaux de ressources Azure](../../azure-monitor/essentials/platform-logs-overview.md)|Données fréquentes sur les opérations des ressources Azure Resource Manager de l’abonnement| Fournissent des insights sur les opérations que votre ressource réalise elle-même.| Azure Monitor|
 |[Compte-rendu Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Journaux d’activité et rapports | Signalent les activités de connexion des utilisateurs et fournissent des informations sur l’activité système relative à la gestion des utilisateurs et des groupes.|[API Graph](../../active-directory/develop/microsoft-graph-intro.md)|
-|[Machines virtuelles et services cloud](../../azure-monitor/vm/quick-collect-azurevm.md)|Service du journal des événements Windows et Syslog Linux| Capture les données système et les données de journalisation sur les machines virtuelles, puis les transfère vers un compte de stockage de votre choix.|   Windows (avec le stockage Diagnostics Azure pour Windows [[WAD](../../azure-monitor/agents/diagnostics-extension-overview.md)]) et Linux dans Azure Monitor|
+|[Machines virtuelles et services cloud](../../azure-monitor/vm/monitor-virtual-machine.md)|Service du journal des événements Windows et Syslog Linux|   Capture les données système et les données de journalisation sur les machines virtuelles, puis les transfère vers un compte de stockage de votre choix.|   Windows (avec le stockage Diagnostics Azure pour Windows [[WAD](../../azure-monitor/agents/diagnostics-extension-overview.md)]) et Linux dans Azure Monitor|
 |[Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics)|Journalisation du stockage, fournit les données de métriques d’un compte de stockage|Fournit des informations sur les demandes de trace, analyse les tendances d’utilisation et diagnostique les problèmes de votre compte de stockage.| API REST ou [bibliothèque cliente](/dotnet/api/overview/azure/storage)|
 |[Journaux de flux du groupe de sécurité réseau (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|Format JSON, affiche les flux entrants et sortants, par règle|Affiche des informations sur le trafic IP entrant et sortant via un groupe de sécurité réseau.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Application Insights](../../azure-monitor/app/app-insights-overview.md)|Journaux d’activité, exceptions et diagnostics personnalisés|  Fournit un service de monitoring des performances de l’application (APM) aux développeurs web sur de nombreuses plateformes.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

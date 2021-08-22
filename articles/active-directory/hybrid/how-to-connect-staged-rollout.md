@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3474d14b84e41fdf808b5a5b5c612b3a872f2c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5e35f88ef38367a9c25da6a77b556f4009880af0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562732"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
@@ -87,7 +87,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
 
-- Lorsque les utilisateurs sont dans Lancement intermédiaire, quand EnforceCloudPasswordPolicyForPasswordSyncedUsers est activé, la stratégie d’expiration du mot de passe est définie sur 90 jours sans option pour la personnaliser. 
+- Quand des utilisateurs sont sélectionnés pour le lancement intermédiaire, la stratégie d’expiration de mot de passe est définie sur 90 jours sans option de personnalisation. 
 
 - Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour les versions de Windows 10 antérieures à la version 1903. Ce scénario revient au point de terminaison WS-Trust du serveur de fédération, même si l’utilisateur qui se connecte figure dans l’étendue du déploiement par étapes.
 
@@ -98,7 +98,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Si vous disposez d’un certificat de confiance hybride Windows Hello Entreprise avec des certificats émis par le biais de votre serveur de fédération agissant en tant qu’autorité d’inscription ou utilisateur de carte à puce, le scénario n’est pas pris en charge dans un déploiement par étapes. 
 
   >[!NOTE]
-  >Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) et [Migrer de la fédération à l’authentification directe](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
+  >Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe](./migrate-from-federation-to-cloud-authentication.md) et [Migrer de la fédération à l’authentification directe](./migrate-from-federation-to-cloud-authentication.md).
   
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire
 
@@ -266,7 +266,6 @@ A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [Changer la méthode de connexion pour la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [Changer la méthode de connexion pour l’authentification directe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Changer la méthode de connexion pour la synchronisation de hachage de mot de passe](./migrate-from-federation-to-cloud-authentication.md)
+- [Changer la méthode de connexion pour l’authentification directe](./migrate-from-federation-to-cloud-authentication.md)
 - [Guide interactif du déploiement par étapes](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
-

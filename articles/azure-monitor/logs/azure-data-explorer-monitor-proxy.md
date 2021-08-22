@@ -1,27 +1,23 @@
 ---
-title: Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
+title: Interroger des données dans Azure Monitor avec Azure Data Explorer
 description: Utilisez Azure Data Explorer pour effectuer des requêtes interproduits entre Azure Data Explorer, des espaces de travail Log Analytics et des applications Application Insights classiques dans Azure Monitor.
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 65dba60a798b1157a44a7a198b8eba7de1e8fe81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9faa9ff9c0635c84ebc5c56a343db0426873f945
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031257"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524590"
 ---
-# <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
+# <a name="query-data-in-azure-monitor-using-azure-data-explorer"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer
 
 Azure Data Explorer prend en charge les requêtes interservices entre Azure Data Explorer, [Application Insights (AI)](../app/app-insights-overview.md) et [Log Analytics (LA)](./data-platform-logs.md). Vous pouvez ensuite interroger votre espace de travail Log Analytics/Application Insights à l'aide des outils Azure Data Explorer et y faire référence dans une requête interservices. L'article explique comment effectuer une requête interservices et comment ajouter l'espace de travail Log Analytics/Application Insights à l'interface utilisateur web d'Azure Data Explorer.
 
 Le flux de requêtes interservices Azure Data Explorer : :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flux de proxy Azure Data Explorer.":::
-
-> [!NOTE]
-> * La fonctionnalité permettant d'interroger les données Azure Monitor à partir d'Azure Data Explorer, soit directement à partir des outils clients Azure Data Explorer, soit indirectement en exécutant une requête sur un cluster Azure Data Explorer, est en préversion.
->* Pour toute question, contactez l'équipe [Requête interservices](mailto:adxproxy@microsoft.com).
 
 ## <a name="add-a-log-analyticsapplication-insights-workspace-to-azure-data-explorer-client-tools"></a>Ajouter un espace de travail Log Analytics/Application Insights aux outils clients Azure Data Explorer
 
@@ -89,7 +85,8 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Requête interservices à partir d'Azure Data Explorer.":::
 
-L'utilisation de l'[opérateur `join`](/azure/data-explorer/kusto/query/joinoperator), au lieu de l'opérateur union, peut nécessiter un [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) pour l'exécuter sur un cluster natif Azure Data Explorer.
+>[!TIP]
+>* L'utilisation de l'[opérateur `join`](/azure/data-explorer/kusto/query/joinoperator), au lieu de l'opérateur union, peut nécessiter un [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) pour l'exécuter sur un cluster natif Azure Data Explorer.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Joindre les données d’un cluster Azure Data Explorer dans un locataire avec une ressource Azure Monitor située dans un autre
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a9aecec9e11a41b22b3f1639f653c14a6e7fce
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94491073"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285082"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Utiliser Marketo pour gérer les prospects de marketplaces commerciaux
 
@@ -67,7 +67,7 @@ Cet article explique comment configurer votre système CRM Marketo de manière �
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit. 
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Sélectionnez votre offre, puis accédez à l’onglet **Configuration de l’offre**.
 

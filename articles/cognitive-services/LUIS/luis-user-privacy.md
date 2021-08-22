@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/08/2020
-ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 3582bb71c51923ee64d5ea24c329da475dfdd9a2
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228280"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293934"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
 
@@ -30,7 +30,7 @@ Le contenu du client est chiffré dans le stockage Azure régional Microsoft et 
 - Contenu du compte utilisateur collecté lors de l’inscription
 - Données de formation requises pour créer les modèles
 - Demandes utilisateur enregistrées utilisées par l’ [apprentissage actif](luis-concept-review-endpoint-utterances.md) pour aider à améliorer le modèle
-  - Les utilisateurs peuvent désactiver la journalisation des requêtes en ajoutant `&log=false` à la demande. Pour plus de détails, voir [ici](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Les utilisateurs peuvent désactiver la journalisation des requêtes en ajoutant `&log=false` à la demande. Pour plus de détails, voir [ici](./troubleshooting.yml#how-can-i-disable-the-logging-of-utterances-)
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 Les utilisateurs de LUIS contrôlent totalement la suppression de tout contenu utilisateur, via le portail web de LUIS ou à l’aide des API de création (également appelées programmatiques) de LUIS. Le tableau suivant affiche les liens d’assistance pour les deux :

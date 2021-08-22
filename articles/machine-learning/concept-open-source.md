@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/14/2020
-ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec9aaf2222924718ad21cf0654d138be22c2d19
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98223072"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114293375"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Intégration open source aux projets Azure Machine Learning
 
@@ -89,7 +89,7 @@ Pour plus d'informations sur ONNX et sur l’utilisation des modèles ONNX, cons
 
 ### <a name="package-and-deploy-models-as-containers"></a>Créer des packages de modèles et les déployer en tant que conteneurs
 
-Les technologies de conteneur telles que Docker constituent une manière de déployer des modèles en tant que services web. Les conteneurs fournissent une plateforme et des ressources indépendantes pour créer et orchestrer des environnements logiciels reproductibles. Grâce à ces technologies de base, vous pouvez utiliser [des environnements préconfigurés](./how-to-use-environments.md), [des images de conteneur préconfigurées](./how-to-deploy-custom-docker-image.md) ou des images personnalisées pour déployer vos modèles Machine Learning sur des [clusters Kubernetes](./how-to-deploy-azure-kubernetes-service.md?tabs=python), par exemple. Pour les flux de travail gourmands en GPU, vous pouvez utiliser des outils tels que le serveur d’inférence NVIDIA Triton pour [effectuer des prédictions à l’aide des GPU](how-to-deploy-with-triton.md?tabs=python).
+Les technologies de conteneur telles que Docker constituent une manière de déployer des modèles en tant que services web. Les conteneurs fournissent une plateforme et des ressources indépendantes pour créer et orchestrer des environnements logiciels reproductibles. Grâce à ces technologies de base, vous pouvez utiliser [des environnements préconfigurés](./how-to-use-environments.md), [des images de conteneur préconfigurées](./how-to-deploy-custom-container.md) ou des images personnalisées pour déployer vos modèles Machine Learning sur des [clusters Kubernetes](./how-to-deploy-azure-kubernetes-service.md?tabs=python), par exemple. Pour les flux de travail gourmands en GPU, vous pouvez utiliser des outils tels que le serveur d’inférence NVIDIA Triton pour [effectuer des prédictions à l’aide des GPU](how-to-deploy-with-triton.md?tabs=python).
 
 ### <a name="secure-deployments-with-homomorphic-encryption"></a>Déploiements sécurisés avec chiffrement homomorphe
 
@@ -101,4 +101,4 @@ Les opérations de Machine Learning (MLOps), généralement considérées comme 
 
 À l’aide de pratiques DevOps comme l’intégration continue (CI) et le déploiement continu (CD), vous pouvez automatiser le cycle de vie de Machine Learning de bout en bout et capturer les données de gouvernance connexes. Vous pouvez définir votre [pipeline CI/CD de Machine Learning dans des actions GitHub](./how-to-github-actions-machine-learning.md) pour exécuter les tâches de formation et de déploiement Azure Machine Learning. 
 
-La capture des dépendances logicielles, des métriques, des métadonnées, des données et du contrôle de version des modèles constitue une partie importante du processus MLOps, afin de générer des pipelines transparents, reproductibles et pouvant être audités. Pour cette tâche, vous pouvez [utiliser MLFlow dans Azure Machine Learning](how-to-use-mlflow.md), ainsi que lorsque vous [effectuez l’apprentissage de modèles Machine Learning dans Azure Databricks](./how-to-use-mlflow-azure-databricks.md). Vous pouvez également [déployer des modèles MLflow sous forme de service web Azure](how-to-deploy-mlflow-models.md). 
+La capture des dépendances logicielles, des métriques, des métadonnées, des données et du contrôle de version des modèles constitue une partie importante du processus MLOps, afin de générer des pipelines transparents, reproductibles et pouvant être audités. Pour cette tâche, vous pouvez [utiliser MLFlow dans Azure Machine Learning](how-to-use-mlflow.md), ainsi que lorsque vous [effectuez l’apprentissage de modèles Machine Learning dans Azure Databricks](./how-to-use-mlflow-azure-databricks.md). Vous pouvez également [déployer des modèles MLflow sous forme de service web Azure](how-to-deploy-mlflow-models.md).

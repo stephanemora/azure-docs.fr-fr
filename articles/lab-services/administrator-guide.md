@@ -3,12 +3,12 @@ title: Azure Lab Services – Guide de l’administrateur | Microsoft Docs
 description: Ce guide aide les administrateurs qui créent et gèrent des comptes lab à l’aide d’Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 9f37fb8bb2eae6c4d7db7f4eed161cef6fd2a918
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 567a6ad5cd7eae6fb6963dbcdb781fc2d7667f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191372"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562760"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs informatiques qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Après avoir configuré un compte lab, les administrateurs ou enseignants créent des labos dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -241,7 +241,7 @@ De nombreux outils de gestion des points de terminaison, par exemple [Microsoft 
 
 Avec Lab Services, même si vous utilisez une image *généralisée* pour créer un laboratoire, le modèle de machine virtuelle et les machines virtuelles des élèves auront tous le même SID de machine.  Les machines virtuelles ont le même SID, car l’image du modèle de machine virtuelle est dans un état *spécialisé* lorsqu’elle est publiée pour créer les machines virtuelles des élèves.
 
-Par exemple, les images de la Place de marché Azure sont généralisées.  Si vous créez un laboratoire à partir de l’image de la Place de marché Win 10 et que vous publiez le modèle de machine virtuelle, toutes les machines virtuelles des élèves au sein d’un laboratoire auront le même SID de machine que le modèle de machine virtuelle.  Les SID de machine peuvent être vérifiés à l’aide d’un outil comme [PsGetSid](https://docs.microsoft.com/sysinternals/downloads/psgetsid).
+Par exemple, les images de la Place de marché Azure sont généralisées.  Si vous créez un laboratoire à partir de l’image de la Place de marché Win 10 et que vous publiez le modèle de machine virtuelle, toutes les machines virtuelles des élèves au sein d’un laboratoire auront le même SID de machine que le modèle de machine virtuelle.  Les SID de machine peuvent être vérifiés à l’aide d’un outil comme [PsGetSid](/sysinternals/downloads/psgetsid).
 
 Si vous comptez utiliser un outil de gestion des points de terminaison ou un logiciel similaire, nous vous recommandons de le tester avec des machines virtuelles de laboratoire pour vous assurer que cet outil ou logiciel fonctionne correctement lorsque les SID de machine sont identiques.  
 
@@ -291,7 +291,7 @@ Dans cet exemple, le coût est le suivant :
 * 1 image personnalisée (32 Go) &times; 2 versions &times; 8 régions des États-Unis &times; 1,54 USD = 24,64 USD par mois
 
 > [!NOTE]
-> Le calcul précédent est fourni à titre d’exemple uniquement. Il couvre les coûts de stockage associés à l’utilisation du service Shared Image Gallery et n’inclut *pas* les coûts de sortie. Pour obtenir la tarification réelle du stockage, consultez [Tarification des disques managés](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+> Le calcul précédent est fourni à titre d’exemple uniquement. Il couvre les coûts de stockage associés à l’utilisation du service Shared Image Gallery et n’inclut *pas* les coûts de sortie. Pour obtenir la tarification réelle du stockage, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### <a name="cost-management"></a>la gestion des coûts ;
 

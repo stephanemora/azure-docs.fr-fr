@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2c1840acae64940561133a90cb1450c4af80a19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a5ad3a5fb542476eb4cdeb1ffe67907a7209d0c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952751"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112232554"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -249,7 +249,7 @@ Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="activate-a-subscription"></a>Activer un abonnement
 
@@ -302,7 +302,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable. L’abonnement SaaS est à l’état *Unsubscribed*.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-list-of-all-subscriptions"></a>Obtenir la liste de tous les abonnements
 
@@ -411,7 +411,7 @@ Code : 403 Interdit. Le jeton d'autorisation n'est pas disponible, n’est pas 
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
-Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-subscription"></a>Obtenir un abonnement
 
@@ -481,7 +481,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable.  L’abonnement SaaS avec la valeur `subscriptionId` spécifiée est introuvable.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="list-available-plans"></a>Liste des plans disponibles
 
@@ -536,7 +536,7 @@ Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="change-the-plan-on-the-subscription"></a>Modifier le plan de l’abonnement
 
@@ -595,7 +595,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable.  L’abonnement SaaS avec `subscriptionId` est introuvable.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!NOTE]
 >Le plan ou la quantité de postes peut être modifié(e), mais pas simultanément.
@@ -661,7 +661,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable.  L’abonnement SaaS avec `subscriptionId` est introuvable.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!Note]
 >Un plan ou une quantité peut être modifié(e), mais pas les deux simultanément.
@@ -720,7 +720,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable.  L’abonnement SaaS avec `subscriptionId` est introuvable.
 
-Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ### <a name="operations-apis"></a>API d’opérations
 
@@ -783,7 +783,7 @@ Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](
 
 Code : 404 Introuvable.  L’abonnement SaaS avec `subscriptionId` est introuvable.
 
-Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="get-operation-status"></a>Obtenir l’état d’une opération
 
@@ -843,7 +843,7 @@ Code : 404 Introuvable.
 * L’abonnement avec `subscriptionId` est introuvable.
 * L’opération avec `operationId` est introuvable.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### <a name="update-the-status-of-an-operation"></a>Mettre à jour l’état d’une opération
 
@@ -895,7 +895,7 @@ Code : 404 Introuvable.
 
 Code : 409 Conflit.  Par exemple, une mise à jour plus récente est déjà traitée.
 
-Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implémentation d’un webhook sur le service SaaS
 

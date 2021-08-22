@@ -2,23 +2,17 @@
 title: Activer la rotation automatique des certificats dans un pool Batch
 description: Vous pouvez créer un pool batch avec une identité managée et un certificat qui seront automatiquement renouvelés.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: e8bea49b2980deb8f20258ab7ea5619ece8cd2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 9a8f4d785c9a411df6c867724f057b1dc9b29722
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104962271"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362415"
 ---
 # <a name="enable-automatic-certificate-rotation-in-a-batch-pool"></a>Activer la rotation automatique des certificats dans un pool Batch
 
  Vous pouvez créer un pool Batch avec un certificat qui sera automatiquement renouvelé. Pour ce faire, votre pool doit être créé avec une [identité managée affectée par l’utilisateur](managed-identity-pools.md) qui aura accès au certificat dans [Azure Key Vault](../key-vault/general/overview.md).
-
-> [!IMPORTANT]
-> La prise en charge des pools Azure Batch avec des identités managées affectées par l’utilisateur est actuellement en préversion publique pour les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est, US Gov Arizona et US Gov Virginie.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-user-assigned-identity"></a>Créer une identité attribuée par l’utilisateur
 

@@ -2,19 +2,18 @@
 title: Découvrir comment le runtime gère les appareils - Azure IoT Edge | Microsoft Docs
 description: Découvrez comment runtime IoT Edge gère les modules, la sécurité, la communication et les rapports sur vos appareils
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 74cfe4ba3c92d8d96dd196ef6f612b9ed7c0da9d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 30690cb90fcaa57f955b531e1902333dc43976f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496250"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524786"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 

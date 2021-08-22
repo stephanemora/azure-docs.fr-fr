@@ -7,14 +7,16 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
-ms.openlocfilehash: 0414aaad5a1cf6edb9c2152eed70f8753946cca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: def4794d091155cbf10a854d304d4390659626bf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92546430"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641142"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Vue d’ensemble de la connexion et des requêtes pour Azure Database pour MySQL - Serveur unique
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Le document suivant comprend des liens vers des exemples montrant comment se connecter et exécuter des requêtes avec un serveur unique Azure Database pour MySQL. Ce guide comprend également des bibliothèques et des recommandations TLS que vous pouvez utiliser pour vous connecter au serveur dans les langages pris en charge ci-dessous.
 

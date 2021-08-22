@@ -6,14 +6,17 @@ ms.author: alau
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 4b3d750c930defbfcb7db6d4d67210e001e3ce8b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 97f4e55b1d1888de00502d70c911f0bf24d31782
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315241"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641192"
 ---
 # <a name="azure-advisor-for-mysql"></a>Azure Advisor pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Découvrez la procédure d’application d’Azure Advisor à Azure Database pour MySQL et obtenez des réponses aux questions courantes.
 ## <a name="what-is-azure-advisor-for-mysql"></a>Qu’est-ce qu’Azure Advisor pour MySQL ?
 Le système Azure Advisor se sert de la télémétrie pour émettre des recommandations en matière de performances et de fiabilité pour votre base de données MySQL. Les recommandations d’Advisor sont réparties dans nos offres de base de données MySQL :

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c6611b7437bdaf873caaaf4722e30fb644b5f13
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 40be574b048575a1cf056fcdcd97bc09d4f21098
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617240"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729611"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -115,14 +115,14 @@ Divers facteurs influencent les stratégies d’accès conditionnel pour les uti
 
 ### <a name="device-based-conditional-access"></a>Accès conditionnel basé sur les appareils
 
-En matière d’accès conditionnel, il existe une option pour exiger que [l’appareil d’un utilisateur soit conforme ou joint à Azure AD Hybride](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Les utilisateurs invités B2B peuvent uniquement satisfaire à la conformité si le locataire de la ressource peut gérer leur appareil. Les appareils ne peuvent pas être gérés par plusieurs organisations à la fois. Les utilisateurs invités B2B ne peuvent pas effectuer la jonction Azure AD Hybride, car ils n’ont pas de compte AD local. L’utilisateur invité peut inscrire ou enregistrer son appareil dans le locataire de la ressource, puis le rendre conforme, seulement si cet appareil n’est pas géré. L’utilisateur peut alors satisfaire au contrôle d’octroi.
+En matière d’accès conditionnel, il existe une option pour exiger que [l’appareil d’un utilisateur soit conforme ou joint à Azure AD Hybride](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Les utilisateurs invités B2B peuvent uniquement satisfaire à la conformité si le locataire de la ressource peut gérer leur appareil. Les appareils ne peuvent pas être gérés par plusieurs organisations à la fois. Les utilisateurs invités B2B ne peuvent pas effectuer la jonction Azure AD Hybride, car ils n’ont pas de compte AD local. 
 
 >[!Note]
 >Il n’est pas recommandé d’exiger un appareil géré pour les utilisateurs externes.
 
 ### <a name="mobile-application-management-policies"></a>Stratégies de gestion des applications mobiles
 
-Les contrôles d’octroi d’accès conditionnel comme **Exiger des applications client approuvées** et **Exiger des stratégies de protection d’application** nécessitent que l’appareil soit inscrit dans le locataire. Ces contrôles peuvent uniquement être appliqués à des [appareils iOS et Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). En revanche, aucun de ces contrôles ne peut être appliqué à des utilisateurs invités B2B si l’appareil de l’utilisateur est déjà géré par une autre organisation. Un appareil mobile ne peut pas être inscrit dans plusieurs locataires à la fois. Si l’appareil mobile est géré par une autre organisation, l’utilisateur est bloqué. Un utilisateur invité peut inscrire son appareil dans le locataire de la ressource, seulement si cet appareil n’est pas géré. L’utilisateur peut alors satisfaire au contrôle d’octroi.  
+Les contrôles d’octroi d’accès conditionnel comme **Exiger des applications client approuvées** et **Exiger des stratégies de protection d’application** nécessitent que l’appareil soit inscrit dans le locataire. Ces contrôles peuvent uniquement être appliqués à des [appareils iOS et Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). En revanche, aucun de ces contrôles ne peut être appliqué à des utilisateurs invités B2B si l’appareil de l’utilisateur est déjà géré par une autre organisation. Un appareil mobile ne peut pas être inscrit dans plusieurs locataires à la fois. Si l’appareil mobile est géré par une autre organisation, l’utilisateur est bloqué. 
 
 >[!NOTE]
 >Il n’est pas recommandé d’exiger une stratégie de protection d’application pour les utilisateurs externes.
@@ -153,5 +153,5 @@ Pour plus d’informations, consultez les articles suivants sur Azure AD B2B Co
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](./what-is-b2b.md)
 - [Utilisateurs Identity Protection et B2B](../identity-protection/concept-identity-protection-b2b.md)
-- [Prix des identités externes](https://azure.microsoft.com/pricing/details/active-directory/)
+- [Prix des identités externes](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
 - [Questions fréquentes (FAQ)](./faq.yml)

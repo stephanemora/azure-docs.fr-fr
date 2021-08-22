@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf0de37d2736f84505708b26d4cab9274b3621e0
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836493"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730781"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -80,7 +80,7 @@ Détails relatifs aux questions de décision :
 5. Quelle que soit la méthode de connexion choisie, pour générer le rapport *Utilisateurs avec des informations d’identification divulguées*, Azure AD Identity Protection nécessite une synchronisation du hachage de mot de passe. Les organisations peuvent basculer vers une synchronisation du hachage de mot de passe si leur méthode de connexion principale échoue alors qu’elle a été configurée avant l’événement d’échec.
 
 > [!NOTE]
-> Azure AD Identity Protection nécessite des licences [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection nécessite des licences [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="detailed-considerations"></a>Considérations détaillées
 
@@ -95,7 +95,7 @@ Détails relatifs aux questions de décision :
     Les organisations qui exigent une authentification multifacteur avec synchronisation du hachage de mot de passe doivent utiliser Azure AD Multi-Factor Authentication ou les [contrôles personnalisés d'accès conditionnel](../../active-directory/conditional-access/controls.md#custom-controls-preview). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
 
 > [!NOTE]
-> L’accès conditionnel Azure AD requiert des licences [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
+> L’accès conditionnel Azure AD requiert des licences [Azure AD Premium P1](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 * **Continuité des activités**. La synchronisation de hachage du mot de passe avec authentification cloud est un service cloud hautement disponible qui s’adapte à tous les centres de données Microsoft. Pour vous assurer que la synchronisation de hachage du mot de passe ne baisse pas pendant de longues périodes, déployez un second serveur Azure AD Connect en mode préproduction dans une configuration de secours.
 
@@ -114,7 +114,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Expérience utilisateur**. Pour améliorer l’expérience de connexion des utilisateurs, déployez l’authentification unique transparente avec l’authentification directe. L’authentification unique transparente élimine les invites inutiles quand les utilisateurs sont connectés.
 
-* **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé lorsque l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur.
+* **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé lorsque l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](../../active-directory/hybrid/how-to-connect-pta-faq.yml#what-happens-if-my-user-s-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication-) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur.
 
     Les organisations qui exigent une authentification multifacteur avec authentification directe doivent utiliser Azure AD Multi-Factor Authentication (MFA) ou les [contrôles personnalisés d'accès conditionnel](../../active-directory/conditional-access/controls.md#custom-controls-preview). Ces organisations ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
 
@@ -124,7 +124,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Considérations**. Vous pouvez utiliser la synchronisation de hachage de mot de passe comme une méthode d’authentification de secours pour l’authentification directe, et les agents ne peuvent pas valider les informations d’identification d’un utilisateur en raison d’un incident local. Le basculement vers la synchronisation de hachage du mot de passe ne se produit pas automatiquement et vous devez utiliser Azure AD Connect pour basculer manuellement la méthode de connexion.
 
-    Pour découvrir d’autres considérations sur l’authentification directe, notamment la prise en charge d’ID de connexion de substitution, consultez le [forum aux questions](../../active-directory/hybrid/how-to-connect-pta-faq.md).
+    Pour découvrir d’autres considérations sur l’authentification directe, notamment la prise en charge d’ID de connexion de substitution, consultez le [forum aux questions](../../active-directory/hybrid/how-to-connect-pta-faq.yml).
 
 Pour obtenir les étapes de déploiement à suivre, consultez [Implémentation de l’authentification directe](../../active-directory/hybrid/how-to-connect-pta.md).
 
@@ -180,7 +180,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Y a-t-il une exigence de certificat TLS/SSL ?|Non|Non|Oui|
 |Existe-t-il une solution de supervision de l’intégrité ?|Non requis|État de l’agent fourni par le [Centre d’administration Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Les utilisateurs obtiennent-ils une authentification unique auprès des ressources cloud à partir d’appareils joints au domaine au sein du réseau d’entreprise ?|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui|
-|Quels types de connexion sont pris en charge ?|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + mot de passe<br><br>sAMAccountName + mot de passe<br><br>Authentification Windows intégrée<br><br>[Authentification par certificat et carte à puce](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de connexion de substitution](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Quels types de connexion sont pris en charge ?|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-pta-faq.yml)|UserPrincipalName + mot de passe<br><br>sAMAccountName + mot de passe<br><br>Authentification Windows intégrée<br><br>[Authentification par certificat et carte à puce](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de connexion de substitution](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello Entreprise est-il pris en charge ?|[Modèle de confiance de clé](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modèle de confiance de clé](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Nécessite le niveau fonctionnel de domaine Windows Server 2016*|[Modèle de confiance de clé](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modèle de certificat de confiance ](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quelles sont les options d’authentification multifacteur ?|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Serveur Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA tiers](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|
 |Quels sont les états de compte d’utilisateur pris en charge ?|Comptes désactivés<br>(délai pouvant atteindre 30 minutes)|Comptes désactivés<br><br>Compte verrouillé<br><br>Compte expiré<br><br>Mot de passe expiré<br><br>Heures de connexion|Comptes désactivés<br><br>Compte verrouillé<br><br>Compte expiré<br><br>Mot de passe expiré<br><br>Heures de connexion|

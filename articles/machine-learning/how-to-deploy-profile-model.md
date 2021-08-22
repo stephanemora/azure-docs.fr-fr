@@ -12,12 +12,12 @@ ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 4583d65a38b4d1f3400d58c69e3615e9cb50556f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: c222eebc1c2705cc2a5a65b5e11eb12b9a014d6e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885161"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296362"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profiler votre modèle pour déterminer l’utilisation des ressources
 
@@ -137,9 +137,8 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](./how-to-deploy-custom-container.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
 * [Créer des alertes d’événement et des déclencheurs pour les déploiements de modèle](how-to-use-event-grid.md)
-

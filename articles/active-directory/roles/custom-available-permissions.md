@@ -13,16 +13,20 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258dcb7c66b043828e55d6c0dbfe101c0992f8c6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 996a3f5f48685630a6946a5708c26cfecaf3b0a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092887"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562199"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’inscription d’application pour les rôles personnalisés dans Azure Active Directory
 
 Cet article contient les autorisations d’inscription d’application actuellement disponibles pour les définitions de rôle personnalisées dans Azure Active Directory (Azure AD).
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="permissions-for-managing-single-tenant-applications"></a>Autorisations pour la gestion des applications à locataire unique
 
@@ -32,7 +36,7 @@ Pour accorder l’accès uniquement à la gestion des applications à locataire 
 
 Consultez la [vue d’ensemble des rôles personnalisés](custom-overview.md) pour obtenir une explication des termes généraux du sous-type, de l’autorisation et du jeu de propriétés. Les informations suivantes sont spécifiques aux inscriptions d’applications.
 
-### <a name="create-and-delete"></a>Créer et supprimer
+## <a name="create-and-delete"></a>Créer et supprimer
 
 Deux autorisations sont disponibles pour accorder la possibilité de créer des inscriptions d’applications, chacune avec un comportement différent :
 
@@ -65,7 +69,7 @@ Donne la possibilité de supprimer des inscriptions d’applications limitées �
 > [!NOTE]
 > Lors de l’affectation d’un rôle qui contient des autorisations de création, l’attribution de rôle doit être effectuée au niveau de l’étendue du répertoire. Une autorisation de création affectée à une étendue de ressource n’accorde pas la possibilité de créer des inscriptions d’applications.
 
-### <a name="read"></a>Lire
+## <a name="read"></a>Lire
 
 Tous les utilisateurs membres de l’organisation peuvent lire les informations d’inscription de l’application par défaut. Toutefois, cela n’est pas possible pour les utilisateurs invités et les principaux du service d’application. Si vous envisagez d’affecter un rôle à un utilisateur ou une application invité, vous devez inclure les autorisations de lecture appropriées.
 
@@ -91,7 +95,7 @@ Accorde l’accès en lecture des propriétés d’inscription d’application s
 
 Octroie les mêmes autorisations que microsoft.directory/applications/standard/read, mais uniquement pour les applications monolocataire.
 
-### <a name="update"></a>Update
+## <a name="update"></a>Update
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
@@ -162,10 +166,6 @@ Possibilité de mettre à jour les autorisations déléguées, les autorisations
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 Octroie les mêmes autorisations que microsoft.directory/applications/permissions/update, mais uniquement pour les applications monolocataire.
-
-## <a name="license-requirements"></a>Conditions de licence :
-
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

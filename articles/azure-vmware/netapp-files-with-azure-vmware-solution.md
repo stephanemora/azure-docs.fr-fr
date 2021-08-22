@@ -3,12 +3,12 @@ title: Intégrer Azure NetApp Files avec Azure VMware Solution
 description: Utilisez Azure NetApp Files avec des machines virtuelles Azure VMware Solution pour migrer et synchroniser des données entre des serveurs locaux, des machines virtuelles Azure VMware Solution et des infrastructures cloud.
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 3383ee2afe271fbf50def125bd1fd4366b8b6165
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4c07765bd54e59109f15f8a0cdfd067f48dd14b4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755714"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443778"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-vmware-solution"></a>Intégrer Azure NetApp Files avec Azure VMware Solution
 
@@ -27,7 +27,7 @@ Services où Azure NetApp Files est utilisé :
 
 Le diagramme montre une connexion par le biais d’Azure ExpressRoute à un cloud privé Azure VMware Solution. L'environnement Azure VMware Solution accède au partage Azure NetApp Files monté sur des machines virtuelles Azure VMware Solution.
 
-![Diagramme représentant NetApp Files pour l’architecture Azure VMware Solution.](media/net-app-files/net-app-files-topology.png)
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagramme représentant NetApp Files pour l’architecture Azure VMware Solution." border="false":::
 
 
 ## <a name="prerequisites"></a>Prérequis 
@@ -60,13 +60,13 @@ Vous allez vérifier les volumes Azure NetApp Files préconfigurés créés dans
 
 1. Dans le portail Azure, sous **STOCKAGE**, sélectionnez **Azure NetApp Files**. Une liste de vos instances Azure NetApp Files configurées s’affiche. 
 
-   :::image type="content" source="media/net-app-files/azure-net-app-files-list.png" alt-text="Capture d’écran montrant la liste des volumes Azure NetApp Files préconfigurés."::: 
+   :::image type="content" source="media/netapp-files/azure-netapp-files-list.png" alt-text="Capture d’écran montrant la liste des volumes Azure NetApp Files préconfigurés."::: 
 
 2. Sélectionnez un compte de fichiers NetApp configuré pour afficher ses paramètres. Par exemple, sélectionnez **Contoso-anf2**. 
 
 3. Sélectionnez **Pools de capacités** pour vérifier le pool configuré. 
 
-   :::image type="content" source="media/net-app-files/net-app-settings.png" alt-text="Capture d’écran montrant les options permettant d’afficher les pools de capacité et les volumes d’un compte NetApp Files configuré.":::
+   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Capture d’écran montrant les options permettant d’afficher les pools de capacité et les volumes d’un compte NetApp Files configuré.":::
 
    La page Pools de capacité s’ouvre et affiche la capacité et le niveau de service. Dans cet exemple, le pool de stockage est configuré avec 4 Tio et un niveau de service Premium.
 
@@ -74,11 +74,11 @@ Vous allez vérifier les volumes Azure NetApp Files préconfigurés créés dans
 
 5. Sélectionnez un volume pour voir sa configuration.  
 
-   :::image type="content" source="media/net-app-files/azure-net-app-volumes.png" alt-text="Capture d’écran montrant les volumes créés sous le pool de capacités.":::
+   :::image type="content" source="media/netapp-files/azure-netapp-volumes.png" alt-text="Capture d’écran montrant les volumes créés sous le pool de capacités.":::
 
    La fenêtre qui s’ouvre affiche les détails de configuration du volume.
 
-   :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Capture d’écran montrant les détails de configuration d’un volume.":::
+   :::image type="content" source="media/netapp-files/configuration-of-volume.png" alt-text="Capture d’écran montrant les détails de configuration d’un volume.":::
 
    Vous pouvez voir que la taille du volume anfvolume est de 200 Gio et qu'il se trouve dans le pool de capacité anfpool1. Il est exporté en tant que partage de fichiers NFS via 10.22.3.4:/ANFVOLUME. Une adresse IP privée du réseau virtuel Azure (VNet) a été créée pour Azure NetApp Files et le chemin NFS à monter sur la machine virtuelle.
 

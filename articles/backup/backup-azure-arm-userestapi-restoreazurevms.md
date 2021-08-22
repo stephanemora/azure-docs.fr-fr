@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4789285f4cc95f1885dbf9121bc5189fce02d6de
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452150"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460933"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -19,7 +19,7 @@ Quelle que soit l’opération de restauration, il faut commencer par identifier
 
 ## <a name="select-recovery-point"></a>Sélectionner un point de récupération
 
-[L’API REST Lister les points de récupération](/rest/api/backup/recoverypoints/list) permet de lister les points de récupération disponibles d’un élément de sauvegarde. Il s’agit d’une simple opération *GET* avec toutes les valeurs nécessaires.
+[L’API REST Lister les points de récupération](/rest/api/backup/recovery-points/list) permet de lister les points de récupération disponibles d’un élément de sauvegarde. Il s’agit d’une simple opération *GET* avec toutes les valeurs nécessaires.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -33,7 +33,7 @@ L’URI *GET* contient tous les paramètres obligatoires. Il n’est pas nécess
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
+|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recovery-points/list#recoverypointresourcelist)      |       OK  |
 
 #### <a name="example-response"></a>Exemple de réponse
 
@@ -246,7 +246,7 @@ Le corps de demande suivant définit les propriétés requises pour déclencher 
 
 ### <a name="restore-disks-selectively"></a>Restaurer des disques de manière sélective
 
-Si vous [sauvegardez des disques de manière sélective](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la liste de disques sauvegardés est fournie dans le [résumé des points de récupération](#select-recovery-point) et la [réponse détaillée](/rest/api/backup/recoverypoints/get). Vous pouvez également restaurer des disques de manière sélective. Plus de détails sont disponibles [ici](selective-disk-backup-restore.md#selective-disk-restore). Pour restaurer un disque de manière sélective dans la liste des disques sauvegardés, recherchez le numéro d’unité logique du disque à partir de la réponse du point de récupération et ajoutez la propriété **restoreDiskLunList** au [corps de la demande ci-dessus](#example-request) comme indiqué ci-dessous.
+Si vous [sauvegardez des disques de manière sélective](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la liste de disques sauvegardés est fournie dans le [résumé des points de récupération](#select-recovery-point) et la [réponse détaillée](/rest/api/backup/recovery-points/get). Vous pouvez également restaurer des disques de manière sélective. Plus de détails sont disponibles [ici](selective-disk-backup-restore.md#selective-disk-restore). Pour restaurer un disque de manière sélective dans la liste des disques sauvegardés, recherchez le numéro d’unité logique du disque à partir de la réponse du point de récupération et ajoutez la propriété **restoreDiskLunList** au [corps de la demande ci-dessus](#example-request) comme indiqué ci-dessous.
 
 ```json
 {
@@ -332,6 +332,7 @@ Comme expliqué [ci-dessus](#restore-operations), le corps de requête suivant d
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
+          }
      }
  }
 ```

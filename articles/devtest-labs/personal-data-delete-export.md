@@ -3,12 +3,12 @@ title: Supprimer et exporter des données personnelles à partir d’Azure DevTe
 description: Découvrez comment supprimer et exporter des données personnelles à partir du service Azure DevLast Labs pour prendre en charge vos obligations dans le cadre du Règlement général sur la protection des données (RGPD).
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21c2187b603794f60f736c89d06983f5784730ce
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483514"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282814"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporter ou supprimer des données personnelles à partir d’Azure DevTest Labs
 Cet article fournit des étapes pour supprimer et exporter des données personnelles à partir du service Azure DevTest Labs. 
@@ -71,11 +71,11 @@ En tant qu’utilisateur de laboratoire, vous pouvez demander une exportation de
 
     ![Télécharger le fichier CSV](./media/personal-data-delete-export/download-csv-file.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell&quot;></a>Azure PowerShell
 
 ```powershell
 Param (
-    [Parameter (Mandatory=$true, HelpMessage="The storage account name where to store usage data")]
+    [Parameter (Mandatory=$true, HelpMessage=&quot;The storage account name where to store usage data")]
     [string] $storageAccountName,
 
     [Parameter (Mandatory=$true, HelpMessage="The storage account key")]
@@ -207,4 +207,4 @@ Les données exportées peuvent être manipulées et visualisées à l’aide d�
 Voir les articles suivants : 
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-set-lab-policy.md)
-- [Forum aux questions](devtest-lab-faq.md)
+- [Forum aux questions](devtest-lab-faq.yml)

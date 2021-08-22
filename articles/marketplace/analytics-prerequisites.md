@@ -4,15 +4,16 @@ description: Découvrez les exigences qu’il vous faut respecter pour accéder 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106800"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525182"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Conditions préalables à l’accès programmatique aux données d’analyse
 
@@ -30,7 +31,7 @@ Les informations d’identification habituelles de l’utilisateur ne peuvent pa
 
 L’application Azure AD que vous avez créée dans le portail Azure doit être liée à votre compte Espace partenaires. La procédure comporte trois étapes :
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En haut à droite, sélectionnez l’icône d’engrenage, puis **Paramètres du compte**.
 1. Dans le menu **Paramètres du compte** , sélectionnez **Gestion des utilisateurs**.
 1. Sélectionnez **Applications Azure AD** , puis **+ Créer une application Azure AD**.

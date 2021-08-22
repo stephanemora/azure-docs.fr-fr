@@ -3,14 +3,17 @@ title: Déploiement d’hôtes minimal initial
 description: Le déploiement initial minimal est de trois hôtes.
 ms.topic: include
 ms.date: 04/28/2021
-ms.openlocfilehash: 32ed19a8ac3535f407549bea87acb6b433004b02
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: d0efae1a8f3bf30360d2649b9d638f5cc800179f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111430319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747620"
 ---
-<!-- Used in production-ready-deployment-steps.md and concepts-private-clouds-clusters.md -->
+<!-- Used in plan-private-cloud-deployment.md and concepts-private-clouds-clusters.md -->
 
 Pour chaque cloud privé créé, il existe un cluster vSAN par défaut. Vous pouvez ajouter, supprimer et mettre à l’échelle des clusters.  Le nombre minimal d’hôtes par cluster et pour le déploiement initial s’élève à trois. 
 

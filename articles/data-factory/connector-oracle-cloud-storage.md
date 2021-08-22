@@ -1,17 +1,19 @@
 ---
 title: Copier des données de Oracle Cloud Storage à l’aide d’Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser Azure Data Factory pour copier des données de Oracle Cloud Storage vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: jianleishen
-ms.openlocfilehash: 47f6897f6cd7a62da9edc9984f71f1c23e411194
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 817b1a8c1b98f5eae3277f906cbd970e7ccebb9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103933"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641282"
 ---
 # <a name="copy-data-from-oracle-cloud-storage-by-using-azure-data-factory"></a>Copier des données de Oracle Cloud Storage à l’aide d’Azure Data Factory
 

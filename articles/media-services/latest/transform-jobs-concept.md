@@ -96,7 +96,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 ## <a name="see-also"></a>Voir aussi
 
 * [Codes d’erreur](/rest/api/media/jobs/get#joberrorcode)
-* [Filtrage, classement et pagination d’entités Media Services](filter-order-page-entitites-how-to.md)
+* [Filtrage, classement et pagination d’entités Media Services](filter-order-page-entities-how-to.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

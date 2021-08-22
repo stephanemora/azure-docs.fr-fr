@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 324fcb85bfe1be87dc10736c8b5c233432e07146
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ad0391b91def898d252c429040380eab40522cd8
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026271"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378463"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Convertir la galerie de modèles du portail en specs de modèle
 
@@ -22,7 +22,7 @@ Pour voir si vous avez des modèles à convertir, consultez la [galerie de modè
 
 Pour simplifier la conversion des modèles dans la galerie de modèles, utilisez un script PowerShell du référentiel de modèles de démarrage rapide Azure. Lorsque vous exécutez le script, vous pouvez créer une spec de modèle pour chaque modèle ou télécharger un modèle qui crée la spec de modèle. Le script ne supprime pas le modèle de la galerie de modèles.
 
-1. Copiez le [script de migration](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Enregistrez une copie locale sous le nom *Migrate-GalleryItems.ps1*.
+1. Copiez le [script de migration](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.resources/templatespec-migrate-create/Migrate-GalleryItems.ps1). Enregistrez une copie locale sous le nom *Migrate-GalleryItems.ps1*.
 1. Pour créer des specs de modèle, fournissez des valeurs pour les paramètres `-ResourceGroupName` et `-Location`.
 
    Définissez `ItemsToExport` sur `MyGalleryItems` pour exporter vos modèles. Définissez sa valeur sur `AllGalleryItems` pour exporter tous les modèles auxquels vous avez accès.
@@ -43,7 +43,7 @@ Pour simplifier la conversion des modèles dans la galerie de modèles, utilisez
 
    Pour savoir comment déployer le modèle qui crée la spec de modèle, consultez [Démarrage rapide : Créer et déployer une spec de modèle](quickstart-create-template-specs.md).
 
-Pour plus d’informations sur le script et ses paramètres, consultez [Créer des specs de modèle à partir de modèles de la galerie de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/201-templatespec-migrate-create).
+Pour plus d’informations sur le script et ses paramètres, consultez [Créer des specs de modèle à partir de modèles de la galerie de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/templatespec-migrate-create).
 
 ## <a name="manually-convert-through-portal"></a>Convertir manuellement via le portail
 

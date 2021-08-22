@@ -3,12 +3,12 @@ title: Adresse IP statique pour un groupe de conteneurs
 description: Créer un groupe de conteneurs dans un réseau virtuel et utiliser une passerelle d’application Azure pour exposer une adresse IP front-end statique à une application web conteneurisée
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46b04534a6beae5a2e102aa0167815da44ae21ed
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084220"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219259"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposer une adresse IP statique pour un groupe de conteneurs
 
@@ -31,7 +31,7 @@ Dans un cas classique, vous disposez peut-être déjà d’un réseau virtuel Az
 
 Si vous en avez besoin, créez un groupe de ressources Azure. Par exemple :
 
-```azureci
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 

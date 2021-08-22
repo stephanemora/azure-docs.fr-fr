@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 006abf62c605c2ca34fd1adeadee8e29ae0fb8fb
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 1a5e665636e725252b18c2086471b272f40466cd
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588307"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291836"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Résoudre les erreurs d’installation de bibliothèque 
 Pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Les packages répertoriés dans le fichier requirements.txt sont téléchargés à partir de PyPi au démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
@@ -67,7 +67,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Si une erreur s’affiche, vous ne disposez probablement pas des autorisations requises. Pour découvrir comment obtenir les autorisations requises, consultez ce document: [Attribuez des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
+Si une erreur s’affiche, vous ne disposez probablement pas des autorisations requises. Pour découvrir comment obtenir les autorisations requises, consultez ce document: [Attribuez des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage](../../storage/blobs/assign-azure-role-data-access.md).
 
 En outre, si vous exécutez un pipeline, le fichier MSI de l’espace de travail doit également posséder des autorisations Propriétaire des données Blob du stockage ou Contributeur aux données Blob du stockage. Pour apprendre à accorder cette autorisation à l’identité de votre espace de travail, consultez : [Octroyez des autorisations à une identité managée de l’espace de travail](../security/how-to-grant-workspace-managed-identity-permissions.md).
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 07/13/2021
 ms.author: baselden
 author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 272eaf3a21992cb5fecf1c02e5ab1000af149bcc
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285769"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687836"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -62,7 +62,7 @@ Azure Active Directory fonctionne sur la base d'une licence unique par utilisate
 
 Pour comparer les éditions et les fonctionnalités et en savoir plus sur l'activation des licences utilisateur ou de groupe, consultez [Conditions de licence pour la réinitialisation de mot de passe en libre-service Azure AD](./concept-sspr-licensing.md).
 
-Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="prerequisites"></a>Prérequis
 

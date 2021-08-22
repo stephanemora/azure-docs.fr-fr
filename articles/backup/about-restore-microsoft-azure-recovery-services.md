@@ -4,12 +4,12 @@ description: Découvrez les options de restauration disponibles avec l’agent M
 ms.reviewer: mepand
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: cebe13f6e72a9d8db346171384182756fb474ecd
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c77ee568b4f6c7643672d38ba543f5eab7db369
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970465"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295711"
 ---
 # <a name="about-restore-using-the-microsoft-azure-recovery-services-mars-agent"></a>À propos de la restauration avec l’agent MARS (Microsoft Azure Recovery Services) 
 
@@ -19,7 +19,7 @@ Cet article décrit les options de restauration disponibles avec l’agent MARS 
 
 - Vérifiez que la dernière version de l’[agent MARS](https://aka.ms/azurebackup_agent) est installée.
 - Assurez-vous que la [limitation du réseau](backup-windows-with-mars-agent.md#enable-network-throttling) est désactivée.
-- Vérifiez qu’un stockage haute vitesse avec suffisamment d’espace pour le [dossier de cache de l’agent](/azure/backup/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder) est disponible.
+- Vérifiez qu’un stockage haute vitesse avec suffisamment d’espace pour le [dossier de cache de l’agent](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder) est disponible.
 - Supervisez la mémoire et la ressource processeur, et assurez-vous que suffisamment de ressources sont disponibles pour décompresser et déchiffrer les données.
 - Lors de l’utilisation de la fonctionnalité **Restauration instantanée** pour monter un point de récupération en tant que disque, utilisez **robocopy** avec l’option de copie multithread (commutateur /MT) pour copier les fichiers efficacement à partir du point de récupération monté.
 

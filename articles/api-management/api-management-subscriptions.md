@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: cdc7668b06308bd5532f4885d0e1365fc34ae989
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 288f82d55749e50c9e9520784497ade2c9387f78
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511244"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199355"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -64,4 +64,4 @@ Sachez-en plus sur la Gestion des API :
 
 + Découvrez les autres [concepts](api-management-terminology.md) de la Gestion des API.
 + Suivez nos [tutoriels](import-and-publish.md) sur la Gestion des API.
-+ Consultez notre [page de FAQ](api-management-faq.md) pour prendre connaissance des questions courantes.
++ Consultez notre [page de FAQ](api-management-faq.yml) pour prendre connaissance des questions courantes.

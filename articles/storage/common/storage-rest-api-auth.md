@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87c73dc2d5afaf4969a04e850811375d7d46cf07
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89010900"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728981"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Appeler des opérations de l’API REST avec l’autorisation de clé partagée
 
@@ -268,7 +268,7 @@ Maintenant que vous comprenez comment créer la requête, appeler le service et 
 ## <a name="creating-the-authorization-header"></a>Création de l’en-tête d’autorisation
 
 > [!TIP]
-> Le Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets blob et les files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [Autoriser avec Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+> Le Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets blob et les files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [Autoriser avec Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](authorize-data-access.md).
 
 Un article explique de manière conceptuelle (sans code) comment [autoriser les demandes à Stockage Azure](/rest/api/storageservices/authorize-requests-to-azure-storage).
 

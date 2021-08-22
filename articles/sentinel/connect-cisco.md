@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82e9775b085a5b969c175ef0b9af09d2f9bea988
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85566040"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525939"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Connecter Cisco ASA à Azure Sentinel
 
@@ -28,6 +28,7 @@ ms.locfileid: "85566040"
 
 Cet article explique comment connecter votre appliance Cisco ASA à Azure Sentinel. Le connecteur de données Cisco ASA vous permet de connecter facilement vos journaux Cisco ASA à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’utilisation de Cisco ASA sur Azure Sentinel vous permettra d’obtenir davantage d’informations sur l’utilisation d’Internet au sein de votre organisation et améliorera ses fonctionnalités de sécurité. 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 ## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Transférer les journaux Cisco ASA à l’agent Syslog
@@ -47,8 +48,6 @@ Comme Cisco ASA ne prend pas en charge le format CEF, les journaux sont envoyés
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter les appliances Cisco ASA à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-
-
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

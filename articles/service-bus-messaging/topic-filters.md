@@ -2,13 +2,13 @@
 title: Filtres de rubrique Azure Service Bus | Microsoft Docs
 description: Cet article explique comment les abonnés peuvent définir les messages qu’ils souhaitent recevoir d’une rubrique en spécifiant des filtres.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/19/2021
+ms.openlocfilehash: f813c9a635fde70e2f72ab3dab0d2e01197c6fff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651661"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448659"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
@@ -52,7 +52,7 @@ Les règles de filtre complexes nécessitent une plus grande capacité de traite
 
 ## <a name="actions"></a>Actions
 
-Avec les conditions de filtre SQL, vous pouvez définir une action qui annote le message en ajoutant, en supprimant ou en remplaçant des propriétés et leurs valeurs. L’action [utilise une expression de type SQL](service-bus-messaging-sql-filter.md) dont la syntaxe se rapproche de celle de l’instruction SQL UPDATE. L’action est effectuée sur le message après la mise en correspondance du message et avant la sélection du message dans l’abonnement. Les modifications apportées aux propriétés du message s’appliquent uniquement au message copié dans l’abonnement.
+Avec les conditions de filtre SQL, vous pouvez définir une action qui annote le message en ajoutant, en supprimant ou en remplaçant des propriétés et leurs valeurs. L’action [utilise une expression de type SQL](service-bus-messaging-sql-rule-action.md) dont la syntaxe se rapproche de celle de l’instruction SQL UPDATE. L’action est effectuée sur le message après la mise en correspondance du message et avant la sélection du message dans l’abonnement. Les modifications apportées aux propriétés du message s’appliquent uniquement au message copié dans l’abonnement.
 
 ## <a name="usage-patterns"></a>Modèles d’usage
 

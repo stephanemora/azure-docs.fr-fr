@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 422ba2ecaed8803a49c0a82b85d821d3f55c9bbd
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 63da1c8f36f9e2db9593256a071d71ac70ea18bd
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071978"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380029"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy
 Même si certaines fonctionnalités Azure Monitor sont configurées une fois pour toutes ou un nombre de fois limité, pour d’autres, l’opération doit être répétée pour chacune des ressources que vous voulez superviser. Cet article décrit des méthodes pour implémenter Azure Monitor à la bonne échelle avec Azure Policy et garantir une configuration cohérente et précise de la supervision pour toutes vos ressources Azure.
@@ -42,7 +42,7 @@ Pour consulter les définitions de stratégie intégrées en rapport avec la sup
 
   ![Capture d’écran de la page de définitions d’Azure Policy dans le Portail Azure montrant une liste de définitions de stratégie pour la catégorie Supervision et le type Intégré.](media/deploy-scale/builtin-policies.png)
 
-## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (préversion)
+## <a name="azure-monitor-agent"></a>Agent Azure Monitor
 L’[agent Azure Monitor](agents/azure-monitor-agent-overview.md) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles Azure et les remet à Azure Monitor. Il utilise des [règles de collecte de données](agents/data-collection-rule-overview.md) pour configurer les données à récupérer depuis chaque agent, ce qui permet de gérer plus facilement les paramètres de collecte à grande échelle tout en gardant des configurations délimitées et uniques pour des sous-ensembles de machines.  
 Utilisez les stratégies et les initiatives de stratégie ci-dessous pour installer automatiquement l’agent et l’associer à une règle de collecte de données, chaque fois que vous créez une machine virtuelle.
 

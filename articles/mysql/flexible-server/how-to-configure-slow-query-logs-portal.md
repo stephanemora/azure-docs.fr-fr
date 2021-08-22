@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a61c8e3451d661dae2e5ad56a0d4a947252ec873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e28e11c8addc83cfe913a28cb91d3bc0d4580a8e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94540061"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641110"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurer et consulter des journaux des requêtes lentes pour Azure Database pour MySQL – Serveur flexible à l’aide du portail Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
@@ -21,9 +23,11 @@ ms.locfileid: "94540061"
 Vous pouvez configurer, répertorier et télécharger les [journaux des requêtes lentes](concepts-slow-query-logs.md) de serveur flexible Azure Database pour MySQL à partir du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Les étapes décrites dans cet article nécessitent un [serveur flexible](quickstart-create-server-portal.md).
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
+
 Configurer l’accès au journal des requêtes lentes de MySQL. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).

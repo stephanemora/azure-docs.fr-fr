@@ -3,13 +3,13 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/21/2019
-ms.openlocfilehash: c2869b2b30722495523a9f0dfb2d70a17a205854
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 02/21/2021
+ms.openlocfilehash: d7ed95080763d32f8a940066c2c6c5d80c25b0dc
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871270"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525432"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -69,7 +69,7 @@ Ces conditions préalables sont requises uniquement pour [exécuter et déboguer
 
 + [Extension de débogueur pour Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
-+ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) recommandé. Pour les autres versions prises en charge, consultez [Versions Java](functions-reference-java.md#java-versions).
++ [Java 8](/azure/developer/java/fundamentals/java-support-on-azure) recommandé. Pour les autres versions prises en charge, consultez [Versions Java](functions-reference-java.md#java-versions).
 
 + [Maven 3 ou version ultérieure](https://maven.apache.org/)
 
@@ -129,7 +129,7 @@ Le modèle de projet crée un projet dans le langage choisi, et installe les dé
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lorsque vous exécutez des fonctions localement, et lorsque vous les exécutez dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
 
-* **local.settings.json** : maintient à jour les paramètres utilisés lorsque vous exécutez des fonctions localement. Ces paramètres sont utilisés uniquement lorsque vous exécutez des fonctions localement. Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings-file).
+* **local.settings.json** : maintient à jour les paramètres utilisés lorsque vous exécutez des fonctions localement. Ces paramètres sont utilisés uniquement lorsque vous exécutez des fonctions localement. Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings).
 
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet.
@@ -383,7 +383,7 @@ Lors de l’exécution de fonctions dans Azure, l’extension utilise votre comp
 
 ### <a name="run-functions-locally"></a>Exécuter des fonctions localement
 
-Le runtime local est le même runtime que celui qui héberge votre application de fonction dans Azure. Les paramètres locaux sont lus à partir du [fichier local.settings.json](#local-settings-file). Pour exécuter votre projet Functions localement, vous devez vous conformer à des [exigences supplémentaires](#run-local-requirements).
+Le runtime local est le même runtime que celui qui héberge votre application de fonction dans Azure. Les paramètres locaux sont lus à partir du [fichier local.settings.json](#local-settings). Pour exécuter votre projet Functions localement, vous devez vous conformer à des [exigences supplémentaires](#run-local-requirements).
 
 #### <a name="configure-the-project-to-run-locally"></a>Configurer le projet pour une exécution locale
 
@@ -399,7 +399,7 @@ Pour définir la chaîne de connexion de compte de stockage :
 
 3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.
 
-Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings-file).
+Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings).
 
 #### <a name="debug-functions-locally"></a><a name="debugging-functions-locally"></a>Déboguer les fonctions localement  
 
@@ -503,7 +503,7 @@ L’extension Azure Functions fournit une interface graphique utile dans la zone
 | **Connect to GitHub Repository** | Connecte votre application de fonction à un dépôt GitHub. |
 | **Copy Function URL** | Obtient l’URL distante d’une fonction déclenchée via HTTP qui est exécutée dans Azure. Pour plus d’informations, consultez [Obtenir l’URL de la fonction déployée](#get-the-url-of-the-deployed-function). |
 | **Create function app in Azure** | Crée une application de fonction sur votre abonnement dans Azure. Pour plus d’informations, consultez la section sur la façon de [Publier vers une nouvelle application de fonction dans Azure](#publish-to-azure).        |
-| **Decrypt Settings** | Déchiffre les [paramètres locaux](#local-settings-file) qui ont été chiffrés par **Azure Functions: Encrypt Settings**.  |
+| **Decrypt Settings** | Déchiffre les [paramètres locaux](#local-settings) qui ont été chiffrés par **Azure Functions: Encrypt Settings**.  |
 | **Delete Function App** | Supprime une application de fonction de votre abonnement dans Azure. Lorsqu’il n’y a aucune autre application dans le plan App Service, vous avez la possibilité de le supprimer également. Les autres ressources, comme les comptes de stockage et les groupes de ressources, ne sont pas supprimées. Pour supprimer toutes les ressources, vous devez utiliser la commande [Supprimer le groupe de ressources](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Votre projet local n’est pas affecté. |
 |**Delete Function**  | Supprime une fonction existante à partir d’une application de fonction dans Azure. Étant donné que cette suppression n’affecte pas votre projet local, envisagez de supprimer la fonction en local, puis [republiez votre projet](#republish-project-files). |
 | **Delete Proxy** | Supprime un proxy d’Azure Functions de votre application de fonction dans Azure. Pour en savoir plus sur les proxys, consultez [Utilisation d’Azure Functions Proxies](functions-proxies.md). |
@@ -511,7 +511,7 @@ L’extension Azure Functions fournit une interface graphique utile dans la zone
 | **Disconnect from Repo**  | Supprime la connexion de [déploiement continu](functions-continuous-deployment.md) entre une application de fonction dans Azure et un dépôt de contrôle de code source. |
 | **Download Remote Settings** | Télécharge les paramètres de l’application de fonction choisie dans Azure dans votre fichier local.settings.json. Si le fichier local est chiffré, il est déchiffré, mis à jour et chiffré à nouveau. Si des paramètres comportent des valeurs conflictuelles dans les deux emplacements, vous êtes invité à choisir la procédure à suivre. Veillez à enregistrer les modifications dans votre fichier local.settings.json avant d’exécuter cette commande. |
 | **Edit settings** | Modifie la valeur d’un paramètre d’application de fonction existant dans Azure. Cette commande n’affecte pas les paramètres de votre fichier local.settings.json.  |
-| **Encrypt settings** | Chiffre les éléments individuels du tableau `Values` des [paramètres locaux](#local-settings-file). Dans ce fichier, `IsEncrypted` est également défini sur `true`, ce qui indique que le runtime local déchiffre les paramètres avant de les utiliser. Chiffrez les paramètres locaux pour réduire le risque de fuite d’informations précieuses. Dans Azure, les paramètres d’application sont toujours stockés chiffrés. |
+| **Encrypt settings** | Chiffre les éléments individuels du tableau `Values` des [paramètres locaux](#local-settings). Dans ce fichier, `IsEncrypted` est également défini sur `true`, ce qui indique que le runtime local déchiffre les paramètres avant de les utiliser. Chiffrez les paramètres locaux pour réduire le risque de fuite d’informations précieuses. Dans Azure, les paramètres d’application sont toujours stockés chiffrés. |
 | **Execute Function Now** | Démarre manuellement une fonction à l’aide des API d’administrateur. Cette commande est utilisée à des fins de test, à la fois localement pendant le débogage et sur les fonctions qui s’exécutent dans Azure. Lors du déclenchement d’une fonction dans Azure, l’extension obtient d’abord automatiquement une clé d’administrateur, qu’elle utilise pour appeler les API d’administrateur distante qui démarrent les fonctions dans Azure. Le corps du message envoyé à l’API dépend du type de déclencheur. Les déclencheurs de minuteur ne vous obligent pas à transmettre de données. |
 | **Initialize Project for Use with VS Code** | Ajoute les fichiers de projet Visual Studio Code requis à un projet Functions existant. Cette commande permet de travailler sur un projet que vous avez créé à l’aide du package Core Tools. |
 | **Install ou Update Azure Functions Core Tools** | Installe ou met à jour [Azure Functions Core Tools] qui est utilisé pour l’exécution de fonctions en local. |

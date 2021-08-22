@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 5a35cfb293ca7cda0a9a1d24f4faf88ef0ed733d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d1732e6f997af622bd7435b6b2f1a3033bc05a79
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378315"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112412730"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutoriel : transférer des événements vers le cloud Event Grid
 
@@ -30,7 +30,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
 * **Appareil Azure IoT Hub et IoT Edge** : suivez les étapes du guide de démarrage rapide pour les appareils [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) si vous n’en avez pas encore.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Créer une rubrique et un abonnement Event Grid dans le cloud
 
 Créez une rubrique et un abonnement Event Grid dans le cloud en suivant [ce didacticiel](../custom-event-quickstart-portal.md). Notez les valeurs `topicURL`, `sasKey` et `topicName` de la rubrique que vous venez de créer. Vous les utiliserez ultérieurement dans le didacticiel.
@@ -82,7 +82,7 @@ Par exemple, si vous avez créé une rubrique nommée `testegcloudtopic` dans la
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Créer un abonnement Event Grid à la périphérie
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Créez subscription3.json avec le contenu suivant. Pour plus d’informations sur la charge utile, voir la [documentation sur l’API](api.md).
 

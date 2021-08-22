@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f356bce141ece3f92e6f482cfa4aff1a914fbb61
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724436"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525942"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Connexion des solutions Agari Phishing Defense et Agari Brand Protection à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Agari Phishing Defense and Brand Protection est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur Agari Phishing Defense and Brand Protection vous permet de connecter facilement les journaux de vos solutions Brand Protection et Phishing Defense à Azure Sentinel. Vous pourrez ainsi afficher les données dans des classeurs, les interroger pour créer des alertes personnalisées et les incorporer pour améliorer l’investigation. Les solutions Agari s’intègrent à Azure Sentinel avec Azure Functions et l’API REST.
 
@@ -58,7 +60,7 @@ Les solutions Agari peuvent intégrer et exporter directement des journaux dans 
 
 1. **(Facultatif) Activez l’API Security Graph :** 
 
-    L’application de fonction Agari permet de partager des informations sur les menaces avec Azure Sentinel via l’API Security Graph. Pour utiliser cette fonctionnalité, vous devez activer le [connecteur Sentinel Threat Intelligence Platforms](connect-threat-intelligence.md) et [inscrire une application](/graph/auth-register-app-v2) dans Azure Active Directory.
+    L’application de fonction Agari permet de partager des informations sur les menaces avec Azure Sentinel via l’API Security Graph. Pour utiliser cette fonctionnalité, vous devez activer le [connecteur Sentinel Threat Intelligence Platforms](./connect-threat-intelligence-tip.md) et [inscrire une application](/graph/auth-register-app-v2) dans Azure Active Directory.
 
     À l’issue de ce processus, vous disposerez de trois informations à utiliser lors du déploiement de l’application de fonction ci-dessous : **l’ID de locataire Graph**, **l’ID de client Graph** et la **Clé secrète client Graph**.
 
@@ -118,6 +120,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à connecter les solutions Agari Phishing Defense et Agari Brand Protection à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 51f4bd3be4334d65504e8e72bc7595989e8b6be7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226207"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443872"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggestions et bonnes pratiques pour Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Définissez l’architecture de vos applications et services, inventoriez les sy
 | Créer l’architecture d’une solution de bout en bout | Incluez toutes les dépendances de vos applications lors de la planification d’une intégration d’Azure AD B2C. Tenez compte de tous les services et produits figurant actuellement dans votre environnement ou qui peuvent avoir besoin d’être ajoutés à la solution, tels qu’Azure Functions, les systèmes de gestion de la relation client (CRM), la passerelle de gestion des API Azure et les services de stockage. Prenez en compte la sécurité et la scalabilité pour tous les services. |
 | Documenter les expériences de vos utilisateurs | Détaillez tous les parcours utilisateur que vos clients peuvent rencontrer dans votre application. Incluez tous les écrans et tous les flux de branchement qu’ils peuvent rencontrer en interagissant avec les aspects d’identité et de profil de votre application. Incluez la facilité d’utilisation, l’accessibilité et la localisation dans votre planification. |
 | Choisir le protocole d’authentification approprié |  Pour une répartition des différents scénarios d’application et de leurs flux d’authentification recommandés, consultez [Scénarios et flux d’authentification pris en charge](../active-directory/develop/authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). |
-| Piloter une expérience utilisateur de bout en bout de type preuve de concept (POC) | Commencez avec nos [exemples de code Microsoft](code-samples.md) et nos [exemples de la communauté](https://github.com/azure-ad-b2c/samples). |
+| Piloter une expérience utilisateur de bout en bout de type preuve de concept (POC) | Commencez avec nos [exemples de code Microsoft](integrate-with-app-code-samples.md) et nos [exemples de la communauté](https://github.com/azure-ad-b2c/samples). |
 | Créer un plan de migration |Une planification anticipée peut rendre la migration plus fluide. Apprenez-en davantage sur la [migration utilisateur](user-migration.md).|
 | Facilité d’utilisation et sécurité | Votre solution doit bien équilibrer la facilité d’utilisation des applications et le niveau de risque que votre organisation peut accepter. |
 | Déplacer les dépendances locales vers le cloud | Pour garantir une solution résiliente, envisagez de déplacer les dépendances des applications existantes vers le cloud. |

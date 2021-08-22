@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e1621acb66e62b03418b59f184ba4e7fa031a164
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0dc5960b3aa24b220f23f5bd56650c48ca4ccde9
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472107"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370506"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -129,7 +129,7 @@ Sqoop utilise MapReduce pour importer et exporter les données, fournir une tol�
 
 Apache Flume est un service distribué, fiable et disponible pour la collecte, l’agrégation et le déplacement efficaces de grandes quantités de données de journal. Son architecture flexible basée est sur des flux de données de diffusion en continu. Flume est robuste et tolérant aux pannes, et intègre des mécanismes de fiabilité réglables. Il possède de nombreux mécanismes de basculement et de récupération. Flume utilise un simple modèle de données extensible qui autorise l’application analytique en ligne.
 
-Apache Flume ne peut pas être utilisé avec Azure HDInsight. Cependant, une installation Hadoop locale peut utiliser Flume pour envoyer des données à Stockage Blob Azure ou à Azure Data Lake Storage. Pour plus d’informations, consultez [Utilisation d’Apache Flume avec HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume ne peut pas être utilisé avec Azure HDInsight. Cependant, une installation Hadoop locale peut utiliser Flume pour envoyer des données à Stockage Blob Azure ou à Azure Data Lake Storage. Pour plus d’informations, consultez [Utilisation d’Apache Flume avec HDInsight](/archive/blogs/bigdatasupport/using-apache-flume-with-hdinsight).
 
 ## <a name="transform"></a>Transformer
 

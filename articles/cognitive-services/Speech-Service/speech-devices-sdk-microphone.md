@@ -3,19 +3,19 @@ title: Recommandations sur le réseau de microphones pour le SDK Speech Devices
 titleSuffix: Azure Cognitive Services
 description: Recommandations sur le réseau de microphones pour le SDK Speech Devices. Ces géométries de réseau sont recommandées pour une utilisation avec la pile audio Microsoft.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
-ms.author: erhopf
-ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 13ee7f12ad6fe170d846128c72a60d20a59e3054
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015339"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525569"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recommandations sur le réseau de microphones pour le SDK Speech Devices
 

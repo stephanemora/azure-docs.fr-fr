@@ -1,19 +1,19 @@
 ---
 title: Se connecter à un espace de travail Synapse à l’aide de liens privés
 description: Cet article explique comment se connecter à un espace de travail Azure Synapse à l’aide de liens privés.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a1205647f4895407bff9301415249a055990f6e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218261"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524660"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Se connecter à un espace de travail Azure Synapse en utilisant des liaisons privées
 

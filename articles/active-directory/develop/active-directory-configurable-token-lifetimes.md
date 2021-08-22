@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e1753391c7b61b6e9bd9e6ac0d142b4ee94502d8
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f67e02d0da3d7f7c1083cdb96436c8b82cae2cef
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363969"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728063"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
@@ -36,7 +36,7 @@ Pour obtenir des exemples, consultez des [exemples de configuration des durées 
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
-L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Les clients avec [des licences Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel.
 
@@ -62,7 +62,7 @@ Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Stratégies de durée de vie des jetons d’actualisation et de session
 
-Vous ne pouvez pas définir les stratégies de durée de vie des jetons d’actualisation et de session.
+Vous ne pouvez pas définir les stratégies de durée de vie des jetons d’actualisation et de session. Pour obtenir des informations sur la durée de vie, le délai d’attente et la révocation des jetons d’actualisation, consultez [Jetons d'actualisation](refresh-tokens.md).
 
 > [!IMPORTANT]
 > Depuis le 30 janvier 2021, vous ne pouvez plus configurer la durée de vie des jetons d’actualisation et de session. Azure Active Directory n’honore plus la configuration des jetons d’actualisation et de session dans les stratégies existantes.  Les nouveaux jetons émis après l’expiration des jetons existants sont maintenant [configurés par défaut](#configurable-token-lifetime-properties). Vous pouvez toujours configurer la durée de vie des jetons d’accès, SAML et d’ID après la mise hors service de la configuration des jetons d’actualisation et de session.

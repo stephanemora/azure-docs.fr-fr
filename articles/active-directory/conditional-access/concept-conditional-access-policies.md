@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a62afbcd120a7404b1677a8c8adb62723a119d5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d92f00281a06357f2135fe148f923b0671e10304
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070261"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203455"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
@@ -77,9 +77,9 @@ Les données d’emplacement sont fournies par les données de géolocalisation 
 
 #### <a name="client-apps"></a>Applications clientes
 
-Par défaut, les stratégies d’accès conditionnel s’appliquent aux applications de navigateur, aux applications mobiles et aux clients de bureau qui prennent en charge l’authentification moderne. 
+Par défaut, toutes les stratégies d’accès conditionnel nouvellement créées s’appliquent à tous les types d’applications clientes, même si la condition des applications clientes n’est pas configurée.
 
-Cette condition d’affectation permet aux stratégies d’accès conditionnel de cibler des applications clientes spécifiques n’utilisant pas l’authentification moderne. Ces applications incluent les clients Exchange ActiveSync, les anciennes applications Office n’utilisant pas l’authentification moderne et les protocoles de messagerie comme IMAP, MAPI, POP et SMTP.
+Le comportement de la condition des applications clientes a été mis à jour en août 2020. Si vous disposez de stratégies d’accès conditionnel, elles restent inchangées. Toutefois, si vous cliquez sur une stratégie, le bouton bascule de configuration a été supprimé et les applications clientes auxquelles la stratégie s’applique sont sélectionnées.
 
 #### <a name="device-state"></a>État de l’appareil
 

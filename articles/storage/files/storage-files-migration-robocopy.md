@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 53c0ad42e51e8ffc562827e9a67e01b132dafd89
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 76fb327eaf2f95bd96513f6382a00e29a54fe893
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776720"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462243"
 ---
 # <a name="use-robocopy-to-migrate-to-azure-file-shares"></a>Utiliser RoboCopy pour migrer vers des partages de fichiers Azure
 
@@ -23,6 +23,13 @@ Cet article décrit l’utilisation de RoboCopy pour déplacer ou migrer des fic
 > * Route de migration : stockage source &rArr; ordinateur Windows avec RoboCopy &rArr; partage de fichiers Azure
 
 Il existe de nombreuses routes de migration différentes pour différentes combinaisons de sources et de déploiements. Examinez le [tableau des guides de migration](storage-files-migration-overview.md#migration-guides) pour trouver la migration qui correspond le mieux à vos besoins.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="azcopy-vs-robocopy"></a>AzCopy ou RoboCopy
 AzCopy et RoboCopy sont deux outils de copie de fichiers fondamentalement différents. RoboCopy utilise n’importe quelle version du protocole SMB. AzCopy est un outil « né dans le cloud » qui peut être utilisé pour déplacer des données tant que la cible est dans le stockage Azure. AzCopy dépend d’un protocole REST.

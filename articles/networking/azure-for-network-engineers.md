@@ -1,21 +1,21 @@
 ---
-title: 'Azure ExpressRoute : Azure pour les ingénieurs réseau'
+title: Azure pour les ingénieurs réseau
 description: Cette page explique aux ingénieurs réseau traditionnels comment fonctionnent les réseaux dans Azure.
 documentationcenter: na
 services: networking
-author: osamaz
+author: osamazia
 manager: tracsman
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c73ea7c9e2f399e479f7d3f8bef5797feabb83ec
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234203"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525901"
 ---
 # <a name="azure-for-network-engineers"></a>Azure pour les ingénieurs réseau
 En tant qu’ingénieur réseau classique, vous avez eu affaire à des biens matériels tels que des routeurs, des commutateurs, des câbles et des pare-feu pour créer une infrastructure. Dans une couche logique, vous avez configuré le réseau local virtuel (VLAN), le protocole STP (Spanning Tree Protocol) et des protocoles de routage (RIP, OSPF, BGP). Vous avez géré votre réseau à l’aide d’outils de gestion et de l’interface CLI. La mise en réseau dans le cloud est différente lorsque les points de terminaison réseau sont logiques et que l’utilisation de protocoles de routage est minimale. Vous utiliserez l’API Azure Resource Manager, Azure CLI et PowerShell pour configurer et gérer des ressources dans Azure. Vous allez commencer votre parcours réseau dans le cloud en comprenant les tenants fondamentaux du réseau Azure. 

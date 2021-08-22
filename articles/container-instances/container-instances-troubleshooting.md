@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes courants quand vous dé
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ce7e3018e470df3840eb01127a7bf2ffa01b5cbc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f00b20751b60549b9b10409539354605ea4bd355
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771062"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292255"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
-Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md).
+Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.yml).
 
 Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -45,7 +45,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 }
 ```
 
-Cette erreur se produit généralement lors du déploiement d'images Windows basées sur les versions 1709 ou 1803 du canal semi-annuel, qui ne sont pas prises en charge. Pour les images Windows prises en charge dans Azure Container Instances, consultez le [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Cette erreur se produit généralement lors du déploiement d'images Windows basées sur les versions 1709 ou 1803 du canal semi-annuel, qui ne sont pas prises en charge. Pour les images Windows prises en charge dans Azure Container Instances, consultez le [Forum aux questions](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
@@ -187,7 +187,7 @@ Il existe une autre façon de réduire l’impact de l’extraction de l’image
 
 #### <a name="cached-images"></a>Images mises en cache
 
-Azure Container Instances utilise un mécanisme de mise en cache afin d'accélérer le démarrage des conteneurs pour les images générées à partir d'[images Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) courantes, notamment `nanoserver:1809`, `servercore:ltsc2019` et `servercore:1809`. Les images Linux couramment utilisées, telles que `ubuntu:1604` et `alpine:3.6`, sont également mises en cache. Pour les images Windows et Linux, évitez d’utiliser la balise `latest`. Pour obtenir de l’aide, consultez les [meilleures pratiques relatives aux balises d’image](../container-registry/container-registry-image-tag-version.md) de Container Registry. Pour obtenir une liste à jour des images et balises mises en cache, utilisez l'API [Liste des images mises en cache][list-cached-images].
+Azure Container Instances utilise un mécanisme de mise en cache afin d'accélérer le démarrage des conteneurs pour les images générées à partir d'[images Windows](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) courantes, notamment `nanoserver:1809`, `servercore:ltsc2019` et `servercore:1809`. Les images Linux couramment utilisées, telles que `ubuntu:1604` et `alpine:3.6`, sont également mises en cache. Pour les images Windows et Linux, évitez d’utiliser la balise `latest`. Pour obtenir de l’aide, consultez les [meilleures pratiques relatives aux balises d’image](../container-registry/container-registry-image-tag-version.md) de Container Registry. Pour obtenir une liste à jour des images et balises mises en cache, utilisez l'API [Liste des images mises en cache][list-cached-images].
 
 > [!NOTE]
 > L’utilisation d’images basées sur Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.

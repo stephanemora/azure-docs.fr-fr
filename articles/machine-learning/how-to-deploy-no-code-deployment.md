@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: d1d74369dde0118d055261b8c04df36d250221b4
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 094005b471bd1f4ea996defddf1f080481fa7c7b
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889409"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296390"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
 
@@ -134,7 +134,7 @@ print(output)
 * [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](./how-to-deploy-custom-container.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)

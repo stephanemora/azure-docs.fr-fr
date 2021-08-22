@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.openlocfilehash: d68a6714d336615f25a5fb937b845ca151472ca9
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3642a48b1b8a5df9a3bc98079873415842b5c1a4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227269"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727955"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -80,7 +80,7 @@ Pour des informations détaillées, consultez [KCD pour l’authentification uni
 
    * La **publication et l’administration d’applications** nécessitent le rôle d’*administrateur d’application*. Les administrateurs d’application peuvent gérer toutes les applications dans l’annuaire, y compris les inscriptions, les paramètres d’authentification unique, les licences et les affectations d’utilisateurs et de groupes, les paramètres du proxy d’application et le consentement. Il n’accorde pas la possibilité de gérer l’accès conditionnel. L’*administrateur d’application cloud* dispose des mêmes droits que l’administrateur d’application, sauf qu’il ne peut pas gérer les paramètres du proxy d’application.
 
-* **Licences**. Le proxy d’application est disponible via l’abonnement Azure AD Premium. Pour obtenir la liste complète des options et des fonctionnalités de chaque licence, reportez-vous à la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* **Licences**. Le proxy d’application est disponible via l’abonnement Azure AD Premium. Pour obtenir la liste complète des options et des fonctionnalités de chaque licence, reportez-vous à la [page des tarifs Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="application-discovery"></a>Découverte des applications
 

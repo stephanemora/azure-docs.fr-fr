@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57916a7f142663711215fdb2a7f641e35fd9ad0f
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670445"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389975"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
@@ -25,7 +25,7 @@ Avant d’utiliser l’offre de la Place de marché pour déployer un cluster Op
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Déployer à l’aide de l’offre Place de marché
 
-La façon la plus simple de déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure consiste à utiliser l’[offre de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+La façon la plus simple de déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure consiste à utiliser l’offre de la Place de marché Azure.
 
 Cette option est la plus simple, mais les possibilités de personnalisation sont limitées. L’offre de la place de marché déploie OpenShift Container Platform 3.11.82 et comprend les options de configuration suivantes :
 

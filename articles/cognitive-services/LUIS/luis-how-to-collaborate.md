@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 044c690688bfc83ce1b4ebc13008ad9a2f37034a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 5a320d6368d4fdecaf4001fc9255c4c0ff3b276c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026882"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285592"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
@@ -26,7 +26,7 @@ Un propriétaire d’application peut ajouter des contributeurs à des applicati
 
 Vous avez migré si votre expérience de création LUIS est liée à une ressource de création dans la page **Gérer -> Ressources Azure** du portail LUIS.
 
-Dans le portail Azure, recherchez votre ressource de création LUIS (Language Understanding). Son type est `LUIS.Authoring`. Dans la page **Contrôle d’accès (IAM)** de la ressource, ajoutez le rôle **Contributeur** pour l’utilisateur que vous voulez ajouter. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](/azure/role-based-access-control/role-assignments-portal).
+Dans le portail Azure, recherchez votre ressource de création LUIS (Language Understanding). Son type est `LUIS.Authoring`. Dans la page **Contrôle d’accès (IAM)** de la ressource, ajoutez le rôle **Contributeur** pour l’utilisateur que vous voulez ajouter. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="view-the-app-as-a-contributor"></a>Afficher l’application en tant que contributeur
 

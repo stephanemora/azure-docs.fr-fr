@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: f2f99ad89b1fd0c62b329d314e897ee95fc3520b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 07055d8a8cb3d4957a3dcb934f951afc943773fc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539741"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525346"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Ressources de documentation pour l’enrichissement de l’IA dans la recherche cognitive Azure
 
@@ -44,7 +44,7 @@ Vous trouverez ci-dessous une liste consolidée de la documentation sur l’enri
 + [Créer une base de connaissances à l’aide de REST et Postman](knowledge-store-create-rest.md)
 + [Visualiser une base de connaissances avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
 + [Connecter une base de connaissances à Power BI](knowledge-store-connect-power-bi.md)
-+ [Exemples de projection (comment mettre en forme et exporter des enrichissements)](knowledge-store-projections-examples.md)
++ [Définir des projections dans une base de connaissances](knowledge-store-projections-examples.md)
 
 ## <a name="custom-skills-advanced"></a>Compétences personnalisées (avancé)
 

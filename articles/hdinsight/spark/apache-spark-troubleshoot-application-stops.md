@@ -4,12 +4,12 @@ description: Une application de diffusion en continu Apache Spark s’arrête ap
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
-ms.openlocfilehash: b702cbf915e4991df4c202564677ea7e0a02f9c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8d446063c7e8836a1163e0b6327539b055c41476
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929467"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288934"
 ---
 # <a name="scenario-apache-spark-streaming-application-stops-after-executing-for-24-days-in-azure-hdinsight"></a>Scénario : L’application de diffusion en continu Apache Spark s’arrête après 24 jours d’exécution dans Azure HDInsight
 
@@ -31,4 +31,4 @@ Remplacez `<yourclustername>` par le nom de votre cluster HDInsight tel qu'indiq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

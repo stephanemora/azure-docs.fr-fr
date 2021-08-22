@@ -4,12 +4,12 @@ description: Vue d’ensemble du contrôle d’accès Service Bus avec des signa
 ms.topic: article
 ms.date: 04/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 622a1dd877be98053fdb9b21bfbb40a81c749f02
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5659e159604c80ffe19cbc4b57dea5d99c1acb98
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760622"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379813"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -68,7 +68,7 @@ Les recommandations suivantes relatives à l’utilisation des signatures d’ac
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuration de l’authentification de signature d’accès partagé
 
-Vous pouvez configurer la stratégie Shared Access Authorization sur les espaces de noms, les files d’attente ou les rubriques Service Bus. La configuration sur un abonnement Service Bus n’est actuellement pas prise en charge, mais vous pouvez utiliser les règles configurées dans des espaces de noms ou des rubriques pour sécuriser l’accès aux abonnements. Pour obtenir un exemple fonctionnel qui illustre cette procédure, consultez l’exemple [Utilisation de l’authentification de signature d’accès partagé (SAS) avec les abonnements Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+Vous pouvez configurer la stratégie Shared Access Authorization sur les espaces de noms, les files d’attente ou les rubriques Service Bus. La configuration sur un abonnement Service Bus n’est actuellement pas prise en charge, mais vous pouvez utiliser les règles configurées dans des espaces de noms ou des rubriques pour sécuriser l’accès aux abonnements. 
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 

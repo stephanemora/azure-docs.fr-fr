@@ -3,12 +3,12 @@ title: Vue d’ensemble de Event Hubs Premium (préversion)
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Premium, un service permettant le déploiement multi-locataire de Event Hubs pour des besoins de diffusion en continu haut de gamme.
 ms.topic: article
 ms.date: 5/25/2021
-ms.openlocfilehash: 7ae58a46484f6f83fdd737ac32e559a5dd90c627
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: d60469937324226b8d928fb257d83966c52dce7e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409952"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415010"
 ---
 # <a name="overview-of-event-hubs-premium-preview"></a>Vue d’ensemble de Event Hubs Premium (préversion)
 
@@ -67,7 +67,7 @@ Le niveau Premium offre toutes les fonctionnalités du plan Standard, améliore 
 
 ## <a name="faqs"></a>FAQ
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-premium-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-premium-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

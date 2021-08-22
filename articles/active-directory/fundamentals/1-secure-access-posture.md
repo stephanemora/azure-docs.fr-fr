@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fb5d74f0c912db098b5e309793963d5f07fbd58
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725439"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730349"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Déterminer votre posture de sécurité pour l’accès externe 
 
@@ -67,7 +67,7 @@ Les objectifs de l’accès régi par informatique et de l'accès délégué dif
 
 Quel que soit celui que vous mettez en œuvre pour votre organisation et vos scénarios, vous devez : 
 
-* **Contrôler l’accès aux applications, aux données et au contenu**. Cela peut être accompli par le biais de différentes méthodes, en fonction de vos versions d’[Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) et de [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
+* **Contrôler l’accès aux applications, aux données et au contenu**. Cela peut être accompli par le biais de différentes méthodes, en fonction de vos versions d’[Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) et de [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
 * **Réduire la surface d’attaque**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [prévention contre la perte de données (DLP),](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) et les [fonctionnalités de chiffrement](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) réduisent la surface d’attaque.
 

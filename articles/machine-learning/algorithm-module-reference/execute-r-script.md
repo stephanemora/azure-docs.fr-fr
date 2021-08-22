@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f47833ab0fa36e4f58063640d60e188d850ea73f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98119007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524885"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
@@ -50,7 +50,7 @@ Pour installer des packages R supplémentaires, utilisez la méthode `install.p
 
 > [!NOTE]
 > Il n’est **PAS** recommandé d’installer le package R à partir du groupe de scripts. Il est recommandé d’installer les packages directement dans l’éditeur de script.
-> Spécifiez le référentiel CRAN lors de l’installation de packages, par exemple : `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+> Spécifiez le référentiel CRAN lors de l’installation de packages, par exemple : `install.packages("zoo",repos = "https://cloud.r-project.org")`.
 
 > [!WARNING]
 > Le module d’exécution de script R ne prend pas en charge l’installation de packages pour lesquels une compilation native est nécessaire (par exemple le package `qdap` qui exige Java et le package `drc` qui exige C++). En effet, il est exécuté dans un environnement préinstallé avec une autorisation non administrateur.
@@ -74,7 +74,7 @@ Cet exemple montre comment installer Zoo :
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   
-  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
+  if(!require(zoo)) install.packages("zoo",repos = "https://cloud.r-project.org")
   library(zoo)
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
@@ -99,32 +99,6 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="uploading-files"></a>Chargement de fichiers
-Le module Exécuter un script R prend en charge le chargement de fichiers à l'aide du kit de développement logiciel (SDK) Azure Machine Learning R.
-
-L'exemple suivant montre comment charger un fichier image dans le module Exécuter un script R :
-```R
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-
-  # Generate a jpeg graph
-  img_file_name <- "rect.jpg"
-  jpeg(file=img_file_name)
-  example(rect)
-  dev.off()
-
-  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
-
-
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
-Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu de l’image dans le panneau de droite du module.
-
-> [!div class="mx-imgBorder"]
-> ![Aperçu de l’image chargée](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 
@@ -147,7 +121,7 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 1. Dans la zone de texte **Script R**, tapez ou collez un script R valide.
 
     > [!NOTE]
-    > Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées, ou des modules ou fonctions non importés. Faites également attention à la liste des packages préinstallés à la fin de cet article. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script. par exemple `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
+    > Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées, ou des modules ou fonctions non importés. Faites également attention à la liste des packages préinstallés à la fin de cet article. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script. par exemple `install.packages("zoo",repos = "https://cloud.r-project.org")`.
     
     Pour vous aider à commencer, la zone de texte **Script R** est préremplie avec un exemple de code, que vous pouvez modifier ou remplacer.
     

@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d6e4926d9bad317027d1b290e0365c667b867df6
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467146"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729647"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
 
 La tarification des identités externes Azure Active Directory (Azure AD) est basée sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois à la collaboration d’utilisateur invité Azure AD (B2B) et aux [locataires B2C Azure AD](../../active-directory-b2c/billing.md). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Cet article décrit la facturation MAU et la liaison de vos locataires Azure AD à un abonnement.
 
 > [!IMPORTANT]
-> Cet article ne contient pas de détails sur la tarification. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+> Cet article ne contient pas de détails sur la tarification. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## <a name="what-do-i-need-to-do"></a>Que dois-je faire ?
 
@@ -39,7 +39,7 @@ Pour tirer parti de la facturation MAU, votre locataire Azure AD doit être li�
 
 Dans votre locataire Azure AD, le recours à la collaboration d’utilisateur invité est facturé en fonction du nombre d’utilisateurs invités uniques associé à une activité d’authentification au cours d’un mois civil. Ce modèle remplace le modèle de facturation selon le rapport 1:5, qui autorise jusqu’à cinq utilisateurs invités pour chaque licence de Azure AD Premium disponible dans votre locataire. Lorsque votre locataire est lié à un abonnement et que vous utilisez des fonctionnalités d’identités externes pour collaborer avec des utilisateurs invités, vous êtes automatiquement facturé à l’aide du modèle basé MAU.
 
-Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur le niveau tarifaire le plus élevé attribué à votre locataire Azure AD. Pour plus d’informations, consultez [Tarifs d’Azure Active Directory External Identities](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/).
+Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur le niveau tarifaire le plus élevé attribué à votre locataire Azure AD. Pour plus d’informations, consultez [Tarifs d’Azure Active Directory External Identities](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Lier votre locataire Azure AD à un abonnement
 
@@ -74,4 +74,4 @@ Une fois ces étapes accomplies, votre abonnement Azure est facturé sur la base
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir les informations les plus récentes sur la tarification, consultez les [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Pour obtenir les informations les plus récentes sur la tarification, consultez les [Tarification Azure Active Directory](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

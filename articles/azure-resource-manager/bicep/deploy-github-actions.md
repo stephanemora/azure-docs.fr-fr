@@ -6,12 +6,12 @@ ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: e2c1ffce703646389318dba289d20ab0084759a4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 69ff8bbb54a6ed495f6ccab4f1a32dd2700d74e7
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025817"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633964"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Déployer des fichiers Bicep à l’aide de GitHub Actions
 
@@ -87,7 +87,7 @@ Vous devez créer des secrets pour vos informations d’identification, votre gr
 Ajoutez un fichier Bicep à votre référentiel GitHub. Le fichier Bicep suivant crée un compte de stockage :
 
 ```url
-https://raw.githubusercontent.com/mumian/azure-docs-json-samples/master/get-started-with-templates/add-variable/azuredeploy.bicep
+https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
 ```
 
 Le fichier Bicep prend un paramètre appelé **storagePrefix** avec 3 à 11 caractères.
@@ -128,6 +128,7 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.bicep
             parameters: storagePrefix=mystore
+            failOnStdErr: false
     ```
 
     Remplacez **mystore** par votre propre préfixe de nom de compte de stockage.

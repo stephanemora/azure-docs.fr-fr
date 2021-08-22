@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: f32f36399eec2b54b872ae9750ea2ddf2fb5a218
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 3fd74e0fddedba5f69176c83aea5a5522bc54c2a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683782"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113758012"
 ---
 # <a name="use-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Utiliser le pont d’appareil IoT Central pour connecter d’autres clouds IoT à IoT Central
 
@@ -91,13 +91,13 @@ Chaque clé de l’objet `measurements` doit correspondre au nom d’un type de 
 
 Vous pouvez inclure un champ `timestamp` dans le corps pour spécifier la date et l’heure UTC du message. Ce champ doit être au format ISO 8601. Par exemple : `2020-06-08T20:16:54.602Z`. Si vous n’incluez pas de timestamp, la date et l’heure actuelles sont utilisées.
 
-Vous pouvez inclure un champ `modelId` dans le corps. Utilisez ce champ pour associer l’appareil à un modèle d’appareil pendant le provisionnement. Cette fonctionnalité est uniquement prise en charge par les [applications v3](howto-get-app-info.md).
+Vous pouvez inclure un champ `modelId` dans le corps. Utilisez ce champ pour associer l’appareil à un modèle d’appareil pendant le provisionnement. Cette fonctionnalité est uniquement prise en charge par les [applications v3](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 L’élément `deviceId` doit être alphanumérique, en minuscules et peut contenir des traits d’union.
 
-Si vous n’incluez pas le champ `modelId`, ou si IoT Central ne reconnaît pas l’ID du modèle, un message avec un `deviceId` non reconnu crée un nouvel _appareil non associé_ dans IoT Central. Un opérateur peut migrer manuellement l’appareil vers le modèle d’appareil approprié. Pour plus d’informations, consultez [Gérer les appareils dans votre application Azure IoT Central > Migration d’appareils vers un modèle](howto-manage-devices.md).
+Si vous n’incluez pas le champ `modelId`, ou si IoT Central ne reconnaît pas l’ID du modèle, un message avec un `deviceId` non reconnu crée un nouvel _appareil non associé_ dans IoT Central. Un opérateur peut migrer manuellement l’appareil vers le modèle d’appareil approprié. Pour plus d’informations, consultez [Gérer les appareils dans votre application Azure IoT Central > Migration d’appareils vers un modèle](howto-manage-devices-individually.md).
 
-Dans les [applications v2](howto-get-app-info.md), le nouvel appareil apparaît sur la page **Explorateur d’appareils > Appareil non associés**. Sélectionnez **Associer** et choisissez un modèle d’appareil pour commencer à recevoir les données de télémétrie entrantes de l’appareil.
+Dans les [applications v2](howto-faq.yml#how-do-i-get-information-about-my-application-), le nouvel appareil apparaît sur la page **Explorateur d’appareils > Appareil non associés**. Sélectionnez **Associer** et choisissez un modèle d’appareil pour commencer à recevoir les données de télémétrie entrantes de l’appareil.
 
 > [!NOTE]
 > Tant que l’appareil n’est pas associé à un modèle, tous les appels HTTP à la fonction retournent un état d’erreur 403.
@@ -283,4 +283,4 @@ Le pont d’appareil transfère uniquement les messages à IoT Central et ne ren
 Maintenant que vous savez comment déployer le pont d’appareil IoT Central, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Gestion de vos appareils](howto-manage-devices.md)
+> [Gestion de vos appareils](howto-manage-devices-individually.md)

@@ -1,19 +1,21 @@
 ---
 title: Configurer les nœuds de transaction Azure Blockchain Service
 description: Configuration des nœuds de transaction Azure Blockchain Service
-ms.date: 11/20/2019
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 436c7721bac29e8a18a333e385f12a70e0701ba5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091263"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641080"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 
 Les nœuds de transaction permettent d’envoyer des transactions blockchain à Azure Blockchain Service par le biais d’un point de terminaison public. Le nœud de transaction par défaut contient la clé privée du compte Ethereum inscrit sur la blockchain et n’est pas supprimable en tant que tel.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Pour visualiser les détails du nœud de transaction par défaut :
 
@@ -99,7 +101,7 @@ Vous pouvez visualiser les détails de la clé d’accès d’un nœud de transa
 
 ### <a name="firewall-rules"></a>Règles de pare-feu
 
-Les règles de pare-feu vous permettent de limiter les adresses IP qui peuvent tenter de s’authentifier auprès de votre nœud de transaction.  Si aucune règle de pare-feu n’est configurée pour votre nœud de transaction, ce dernier n’est accessible par aucun tiers.  
+Les règles de pare-feu vous permettent de limiter les adresses IP qui peuvent tenter de s’authentifier auprès de votre nœud de transaction.  Si aucune règle de pare-feu n’est configurée pour votre nœud de transaction, ce dernier n’est accessible par aucun tiers.
 
 Pour visualiser les règles de pare-feu d’un nœud de transaction, accédez à l’un des nœuds de transaction de votre membre Azure Blockchain Service, puis sélectionnez **Règles de pare-feu** dans les paramètres.
 

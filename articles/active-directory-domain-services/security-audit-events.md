@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6847d803a40797802e9cb1589979bf22062fc5db
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 443650e71323d8eef4c9f4b9ac04541b76e1cc03
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285949"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728261"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services
 
@@ -187,7 +187,7 @@ Affichez les événements de connexion de compte survenus sept jours plus tôt p
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### <a name="sample-query-5"></a>Exemple de requête 5
@@ -198,7 +198,7 @@ Affichez les événements de connexion de compte survenus sept jours plus tôt p
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### <a name="sample-query-6"></a>Exemple de requête 6
@@ -208,7 +208,7 @@ Affichez le nombre d’événements de connexion de compte survenus sept jours p
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 | summarize count()
 ```
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 06/14/2021
-ms.openlocfilehash: f8a9706fac53ad5ea44a53f44317b18956f57504
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0fa4491f9d4fa955dfc9be7033e4eab9137b5672
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078866"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294967"
 ---
 # <a name="cognitive-services-docs-whats-new-for-may-1-2021---may-31-2021"></a>Documentation de Cognitive Services : Nouveautés pour la période du 1er mai 2021 au 31 mai 2021
 
@@ -30,20 +30,20 @@ Découvrez les nouveautés de la documentation de Cognitive Services pour la pé
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Étiquettes et notes de publication des images conteneur Azure Cognitive Services](/azure/cognitive-services/containers/container-image-tags.md)
+- [Étiquettes et notes de publication des images conteneur Azure Cognitive Services](./containers/container-image-tags.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-- [Informations de référence : Bibliothèque cliente Azure Form Recognizer v3.0.0 et API REST v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [Informations de référence : Bibliothèque cliente Azure Form Recognizer v3.0.0 et API REST v2.0](./form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Modèle de cartes de visite prédéfini Form Recognizer](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [Démarrage rapide : Bien démarrer avec les SDK de bibliothèque cliente ou l’API REST](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
-- [Nouveautés de Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Page d’arrivée de Form Recognizer](/azure/cognitive-services/form-recognizer/form-recognizer.md)
+- [Modèle de cartes de visite prédéfini Form Recognizer](./form-recognizer/concept-business-cards.md)
+- [Démarrage rapide : Bien démarrer avec les SDK de bibliothèque cliente ou l’API REST](./form-recognizer/quickstarts/client-library.md)
+- [Nouveautés de Form Recognizer](./form-recognizer/whats-new.md)
+- [Page d’arrivée de Form Recognizer](./form-recognizer/index.yml)
 
 ## <a name="translator"></a>Convertisseur
 
@@ -60,17 +60,17 @@ Découvrez les nouveautés de la documentation de Cognitive Services pour la pé
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Nouveautés de Personalizer](/azure/cognitive-services/personalizer/whats-new.md)
+- [Nouveautés de Personalizer](./personalizer/whats-new.md)
 
 ## <a name="text-analytics"></a>Analyse de texte
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
-- [Tutoriel : Intégrer Power BI au service cognitif Analyse de texte](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
-- [Extraire des informations dans Excel avec Analyse de texte et Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information.md)
-- [Comment appeler l’API REST Analyse de texte](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Nouveautés de l’API Analyse de texte](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Tutoriel : Intégrer Power BI au service cognitif Analyse de texte](./text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
+- [Extraire des informations dans Excel avec Analyse de texte et Power Automate](./text-analytics/tutorials/extract-excel-information.md)
+- [Comment appeler l’API REST Analyse de texte](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Nouveautés de l’API Analyse de texte](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>Contributeurs de la communauté
 

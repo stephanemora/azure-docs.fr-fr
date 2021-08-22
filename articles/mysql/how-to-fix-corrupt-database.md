@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9b79ba83613a854610eae8fee6392d6e12ef935
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91766887"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641141"
 ---
 # <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Résoudre des problèmes de corruption de base de données dans Azure Database pour MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 La corruption d’une base de données peut entraîner un temps d’arrêt de votre application. Il est également essentiel de résoudre les problèmes de corruption à temps afin d’éviter toute perte de données. En cas de corruption d’une base de données, l’erreur suivante s’affiche dans les journaux de votre serveur : `InnoDB: Database page corruption on disk or a failed.`
 

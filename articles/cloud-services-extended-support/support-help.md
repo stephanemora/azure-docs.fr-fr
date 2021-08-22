@@ -1,29 +1,29 @@
 ---
-title: Options d’aide et de support Azure Cloud Services (support étendu)
-description: Comment obtenir de l’aide et un support en cas de questions ou problèmes quand vous créez des solutions avec les services Azure Cloud Services (support étendu).
+title: Options de support et d’aide Azure Cloud Services (support étendu)
+description: Guide pratique pour obtenir de l’aide et un support en cas de questions ou de problèmes pour créer des solutions avec Azure Cloud Services (support étendu).
 author: mimckitt
 ms.author: mimckitt
 ms.service: cloud-services-extended-support
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 7e918b02304058e043dcd0507a33fa8ba172b9bc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 836811e721a586ca9dcc25d16f27d7393ff8f82b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969472"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463067"
 ---
-# <a name="support-and-troubleshooting-for-azure-cloud-services-extended-support"></a>Support technique et dépannage pour Azure Cloud Services (support étendu)
+# <a name="support-and-troubleshooting-for-azure-cloud-services-extended-support"></a>Support et résolution des problèmes pour Azure Cloud Services (support étendu)
 
-Voici quelques suggestions pour obtenir de l’aide lors du développement de vos solutions Azure Cloud Services (support étendu).
+Voici quelques suggestions pour obtenir de l’aide lors du développement de solutions Azure Cloud Services (support étendu).
 
-## <a name="self-help-troubleshooting"></a>Dépannage autonome
+## <a name="self-help-troubleshooting"></a>Résolution des problèmes autonome
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
-Pour les problèmes courants et les solutions de contournement, consultez [Résoudre les problèmes de démarrage des rôles Azure Cloud Services (support étendu)](role-startup-failure.md) et le [Forum aux questions](faq.md)
+Pour les problèmes courants et les solutions de contournement, consultez [Résolution des problèmes de démarrage des rôles Azure Cloud Services (support étendu)](role-startup-failure.md) et la [FAQ](faq.yml).
 
 
 
@@ -37,7 +37,7 @@ Recevez les réponses à vos questions concernant Service Fabric directement de 
 
 [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) est la source recommandée d’Azure pour le support de la communauté.
 
-Si vous ne trouvez pas de solution à votre problème en effectuant une recherche dans Microsoft Q&A, envoyez une nouvelle question. Veillez à publier votre question avec la balise [**azure-cloud-services-extended-support**](/answers/topics/azure-cloud-services-extended-support.html). Voici quelques conseils de Microsoft Q&A pour rédiger des [questions de qualité](/answers/articles/24951/how-to-write-a-quality-question.html).
+Si vous ne trouvez pas de solution à votre problème en effectuant une recherche dans Microsoft Q&A, envoyez une nouvelle question. Veillez à publier votre question avec l’étiquette [**azure-cloud-services-extended-support**](/answers/topics/azure-cloud-services-extended-support.html). Voici quelques conseils de Microsoft Q&A pour rédiger des [questions de qualité](/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 

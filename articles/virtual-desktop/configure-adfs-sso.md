@@ -6,21 +6,16 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: helohr
-ms.openlocfilehash: c85186d8338918dbcf2af56abd959f5cbff6ad56
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3c6e61754d9332cbdfbea6b971363c1b0d6cb4fe
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967281"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289429"
 ---
 # <a name="configure-ad-fs-single-sign-on-for-azure-virtual-desktop"></a>Configurer l’authentification unique AD FS pour Azure Virtual Desktop
-
-> [!IMPORTANT]
-> L’authentification unique AD FS est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article vous guide tout au long du processus de configuration de l’authentification unique (SSO) Active Directory Federation Service (AD FS) pour Azure Virtual Desktop.
 
@@ -29,15 +24,12 @@ Cet article vous guide tout au long du processus de configuration de l’authent
 
 ## <a name="requirements"></a>Spécifications
 
-> [!IMPORTANT]
-> Pendant la préversion publique, vous devez configurer votre pool d’hôtes pour qu’il se trouve dans l’[environnement de validation](create-validation-host-pool.md).
-
 Avant de configurer l’authentification unique AD FS, vous devez exécuter la configuration suivante dans votre environnement :
 
 * Vous devez déployer le rôle **Services de certificats Active Directory**. Tous les serveurs qui ont ce rôle doivent être joints à un domaine, avoir les dernières mises à jour Windows et être configurés en tant qu’[Autorités de certification d’entreprise](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
 * Vous devez déployer le rôle **Services ADFS (Active Directory Federation Services)** . Tous les serveurs qui ont ce rôle doivent être joints à un domaine, avoir les dernières mises à jour Windows et exécuter Windows Server 2016 ou ultérieur. Consultez notre [tutoriel sur la fédération](../active-directory/hybrid/tutorial-federation.md) pour commencer à configurer ce rôle.
 * Nous vous recommandons de configurer le rôle **Proxy d’application web** pour sécuriser la connexion de votre environnement aux serveurs AD FS. Tous les serveurs qui ont ce rôle doivent avoir les dernières mises à jour Windows et exécuter Windows Server 2016 ou ultérieur. Consultez ce [Guide du proxy d’application web](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) pour commencer à configurer ce rôle.
-* Vous devez déployer **Azure AD Connect** pour synchroniser les utilisateurs avec Azure AD. Azure AD Connect doit être configuré en [mode Fédération](../active-directory/connect/active-directory-aadconnect-get-started-custom.md).
+* Vous devez déployer **Azure AD Connect** pour synchroniser les utilisateurs avec Azure AD. Azure AD Connect doit être configuré en [mode Fédération](../active-directory/hybrid/how-to-connect-install-custom.md).
 * [Configurez votre environnement PowerShell](powershell-module.md) pour Azure Virtual Desktop sur le serveur AD FS.
 * Lorsque vous utilisez Windows 10 20H1 ou 20H2 pour vous connecter à Azure Virtual Desktop, vous devez installer la **mise à jour cumulative 2021-04 pour Windows 10 (KB5001330)** ou ultérieur pour que l’authentification unique fonctionne correctement.
 
@@ -48,8 +40,8 @@ Avant de configurer l’authentification unique AD FS, vous devez exécuter la 
 
 Les clients Azure Virtual Desktop suivants prennent en charge cette fonctionnalité :
 
-* [Client Windows Desktop](connect-windows-7-10.md)
-* [Client web](connect-web.md)
+* [Client Windows Desktop](./user-documentation/connect-windows-7-10.md)
+* [Client web](./user-documentation/connect-web.md)
 
 ## <a name="configure-the-certificate-authority-to-issue-certificates"></a>Configurer l’Autorité de certification pour délivrer des certificats
 
@@ -232,9 +224,6 @@ Ce script n’a qu’un seul paramètre obligatoire, *ADFSAuthority*, qui est l�
 
 ## <a name="configure-your-azure-virtual-desktop-host-pool"></a>Configurer votre pool d’hôtes Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Pendant la préversion publique, vous devez configurer votre pool d’hôtes pour qu’il se trouve dans l’[environnement de validation](create-validation-host-pool.md).
-
 Il est temps de configurer les paramètres d’authentification unique AD FS sur votre pool d’hôtes Azure Virtual Desktop. Pour ce faire, [configurez votre environnement PowerShell](powershell-module.md) pour Azure Virtual Desktop si vous ne vous êtes pas encore connecté à votre compte.
 
 Ensuite, mettez à jour les informations d’authentification unique pour votre pool d’hôtes en exécutant l’une des deux applets de commande suivantes dans la même fenêtre PowerShell sur la machine virtuelle AD FS :
@@ -291,5 +280,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Maintenant que vous avez configuré l’authentification unique, vous pouvez vous connecter à un client Azure Virtual Desktop pris en charge pour le tester dans une session utilisateur. Si vous voulez apprendre à vous connecter à une session avec vos nouvelles informations d’identification, consultez les articles suivants :
 
-* [Se connecter avec le client Windows Desktop](connect-windows-7-10.md)
-* [Se connecter avec le client web](connect-web.md)
+* [Se connecter avec le client Windows Desktop](./user-documentation/connect-windows-7-10.md)
+* [Se connecter avec le client web](./user-documentation/connect-web.md)

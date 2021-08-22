@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 4ada570502d913283ba9ee4cc4c65b7bdd853935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ed49208a79436d3dd1bb2679129b0eafab39cca
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743089"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525967"
 ---
 # <a name="connect-your-google-workspace-to-azure-sentinel"></a>Connecter votre Google Workspace à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Google Workspace est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur de données [Google Workspace (anciennement G Suite)](https://workspace.google.com/) offre la possibilité d’ingérer des événements d’activité Google Workspace dans Azure Sentinel via l’API REST. Le connecteur apporte à ces [événements](https://developers.google.com/admin-sdk/reports/reference/rest/v1/activities) la visibilité de votre SOC, ce qui vous permet d’examiner les risques de sécurité potentiels, d’analyser la collaboration de votre équipe, de diagnostiquer des problèmes de configuration, de savoir qui se connecte et quand, d’analyser l’activité de l’administrateur, de comprendre comment les utilisateurs créent et partagent du contenu, et de passer en revue d’autres événements au sein de votre organisation.
 
@@ -77,6 +79,6 @@ Consultez l’onglet **Étapes suivantes** de la page du connecteur pour obtenir
 
 Ce document vous a montré comment connecter Google Workspace à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

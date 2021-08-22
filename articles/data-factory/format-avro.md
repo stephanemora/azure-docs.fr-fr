@@ -1,17 +1,20 @@
 ---
 title: Format Avro dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Cette rubrique décrit comment traiter le format Avro dans Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jianleishen
-ms.openlocfilehash: 0efd4ed26f5057df2cc045940553b29c362513ff
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3ec0382328ad8a0651a1a5d5f291ad1f932a3af5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090218"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641254"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 

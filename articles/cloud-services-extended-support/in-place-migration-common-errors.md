@@ -4,17 +4,17 @@ description: Vue d’ensemble des erreurs courantes lors de la migration de Clou
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 2e56e3d6b5f29996d8fe9606ac9a1b3778201803
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288721"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525295"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Erreurs courantes et problèmes connus lors de la migration vers Azure Cloud Services (support étendu)
 
@@ -48,7 +48,7 @@ Erreurs courantes de migration et mesures d’atténuation.
 | La migration du déploiement nom-déploiement dans le service cloud nom-service-cloud n’est pas prise en charge, car il se trouve dans la région nom-région. Régions autorisées : [liste des régions disponibles]. | La région n’est pas encore prise en charge pour la migration. | 
 | Le déploiement nom-déploiement dans service le cloud nom-service-cloud ne peut pas être migré car aucun sous-réseau n’est associé au rôle nom-rôle. Associez tous les rôles à un sous-réseau, puis réessayez la migration du service cloud. | Mettez à jour le déploiement du service cloud (classique) en le plaçant dans un sous-réseau avant la migration. |  
 | Le déploiement nom-déploiement dans le service cloud nom-service-cloud ne peut pas être migré car le déploiement nécessite au moins une fonctionnalité qui n’est pas inscrite sur l’abonnement dans Azure Resource Manager. Inscrivez toutes les fonctionnalités requises pour migrer ce déploiement. Fonctionnalité(s) manquante(s) : [liste des fonctionnalités manquantes]. | Contactez le support technique pour accéder aux indicateurs de fonctionnalités inscrits. | 
-| Impossible de migrer le déploiement, car le service cloud du déploiement a deux emplacements occupés. La migration des services cloud est uniquement prise en charge pour les déploiements qui sont le seul déploiement dans leur service cloud. Supprimez l’autre déploiement dans le service cloud pour poursuivre la migration de ce déploiement. | Consultez la liste de [scénarios non pris en charge](in-place-migration-overview.md#unsupported-configurations--migration-scenarios) pour plus de détails. | 
+| Impossible de migrer le déploiement, car le service cloud du déploiement a deux emplacements occupés. La migration des services cloud est uniquement prise en charge pour les déploiements qui sont le seul déploiement dans leur service cloud. Supprimez l’autre déploiement dans le service cloud pour poursuivre la migration de ce déploiement. | Consultez la liste de [scénarios non pris en charge](in-place-migration-technical-details.md#unsupported-configurations--migration-scenarios) pour plus de détails. | 
 | Le déploiement nom-déploiement dans le service hébergé cloud nom-service-cloud est dans l’état intermédiaire : état. Migration non autorisée. | Le déploiement est en cours de création, de suppression ou de mise à jour. Attendez que l’opération se termine et réessayez. | 
 | Le déploiement nom-déploiement dans le service hébergé cloud nom-service-cloud a une ou plusieurs adresses IP réservées, mais aucun nom d’adresse IP réservée. Pour résoudre ce problème, mettez à jour le nom d’adresse IP réservée ou contactez le service d’assistance Microsoft Azure. | Mettez à jour le déploiement du service cloud. | 
 | Le déploiement nom-déploiement dans le service hébergé cloud nom-service-cloud a une ou plusieurs adresses IP réservées nom-IP-réservée, mais aucun point de terminaison sur l’adresse IP réservée. Pour résoudre ce problème, ajoutez au moins un point de terminaison à l’adresse IP réservée. | Ajoutez un point de terminaison à une adresse IP réservée. | 

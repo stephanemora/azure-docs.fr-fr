@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5c1bdadf92d72ebec7ffa122b3c49c5878e2d2b8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0be29603225361b2f275f081c1ad52c5c6c394db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745166"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562668"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-azure-virtual-desktop-classic"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Azure Virtual Desktop (classique)
 
@@ -32,7 +32,7 @@ Nous vous recommandons d'utiliser Log Analytics pour analyser les données de di
 
 ## <a name="before-you-get-started"></a>Avant de commencer
 
-Avant de pouvoir utiliser Log Analytics avec la fonctionnalité de diagnostic, vous devrez [créer un espace de travail](../../azure-monitor/vm/quick-collect-windows-computer.md#create-a-workspace).
+Avant de pouvoir utiliser Log Analytics avec la fonctionnalité de diagnostic, vous devrez [créer un espace de travail](../../azure-monitor/logs/quick-create-workspace.md).
 
 Après avoir créé votre espace de travail, suivez les instructions de la section [Connecter des ordinateurs Windows à Azure Monitor](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) pour obtenir les informations suivantes :
 

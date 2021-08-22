@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 519dc53f6373ae1a9c8853d3fa90d137e9fa934b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 91e5effe1cfb948329a784fed06bd2bce0694c3d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435407"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284093"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
 
@@ -30,7 +30,7 @@ Les clusters Azure HDInsight sont conçus pour une utilisation de calcul de type
 |IoT/diffusion en continu|Kafka, Storm, Spark|
 |Traitement transactionnel NoSQL|hbase|
 |Requêtes interactives et plus rapides avec la mise en cache en mémoire|Interactive Query|
-|Science des données|ML Services, Spark|
+|Science des données| Spark|
 
 Le tableau suivant présente les différentes méthodes permettant de créer un cluster HDInsight.
 

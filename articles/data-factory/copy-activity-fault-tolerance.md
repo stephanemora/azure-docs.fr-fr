@@ -1,17 +1,20 @@
 ---
 title: Tolérance de panne de l’activité de copie dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment ajouter une tolérance de panne à l’activité de copie dans Azure Data Factory en ignorant les données incompatibles.
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: cb3a7b66d27fcf7669d3d2f863f104a46387e90f
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 55d8c089bd73a3e85666208ed6edc13c654c24bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902480"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641477"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -132,7 +135,7 @@ Colonne | Description
 -------- | -----------  
 Timestamp | Timestamp lorsqu’Azure Data Factory ignore le fichier.
 Level | Niveau de journalisation de cet élément. Il sera au niveau « Avertissement » pour l’élément indiquant que le fichier est ignoré.
-OperationName | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
+NomOpération | Comportement opérationnel de l’activité de copie Azure Data Factory sur chaque fichier. Le fichier à ignorer sera indiqué par la mention « FileSkip ».
 OperationItem | Noms des fichiers à ignorer.
 Message | Informations supplémentaires permettant d’expliquer la raison pour laquelle le fichier est ignoré.
 

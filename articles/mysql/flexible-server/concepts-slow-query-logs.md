@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7550fafa0a1fdf67baca4f9c777a4a064f522728
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579185"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641116"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Journaux des requêtes lentes dans le serveur flexible Azure Database pour MySQL (préversion)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
 Dans le serveur flexible Azure Database pour MySQL, le journal des requêtes lentes disponible peut être configuré et consulté par les utilisateurs. Les journaux des requêtes lentes sont désactivés par défaut et peuvent être activés pour faciliter l’identification de goulots d’étranglement des performances lors de la résolution des problèmes.
@@ -33,7 +35,7 @@ Les autres paramètres que vous pouvez ajuster pour contrôler le comportement d
 - **log_throttle_queries_not_using_indexes** : limite le nombre de requêtes hors index qui peuvent être écrites dans le journal des requêtes lentes. Ce paramètre prend effet lorsque `log_queries_not_using_indexes` est défini sur *ACTIVÉ*
 
 > [!IMPORTANT]
-> Si vos tables ne sont pas indexées, la définition des paramètres `log_queries_not_using_indexes` et `log_throttle_queries_not_using_indexes` sur **ACTIVÉ** peut affecter les performances de MySQL, car toutes les requêtes exécutées sur ces tables non indexées sont écrites dans le journal des requêtes lentes.
+>Si vos tables ne sont pas indexées, la définition des paramètres `log_queries_not_using_indexes` et `log_throttle_queries_not_using_indexes` sur **ACTIVÉ** peut affecter les performances de MySQL, car toutes les requêtes exécutées sur ces tables non indexées sont écrites dans le journal des requêtes lentes.
 
 Consultez [la documentation MySQL consacrée au journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 

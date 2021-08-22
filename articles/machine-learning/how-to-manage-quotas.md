@@ -8,26 +8,25 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
-ms.date: 05/25/2021
+ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: b9890ad85bea81b918a9b625a2cd62adb11a5820
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 66fe4d7e5b145b5f32fc0a881c4a9270872d9cac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562831"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
 Azure utilise des limites et des quotas pour empêcher les dépassements de budget dus à des fraudes et pour respecter les contraintes de capacité d’Azure. Tenez compte de ces limites lors de la mise à l’échelle des charges de travail de production. Cet article porte sur les points suivants :
 
 > [!div class="checklist"]
-> + Limites par défaut des ressources Azure relatives à [Azure Machine Learning](overview-what-is-azure-ml.md).
+> + Limites par défaut des ressources Azure relatives à [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 > + Création de quotas au niveau de l’espace de travail.
 > + Consultation de vos quotas et limites.
 > + Demande d’augmentations de quota.
-> + Point de terminaison privé et quotas DNS.
 
 En plus de la gestion des quotas, vous pouvez également apprendre à [planifier et gérer les coûts pour Azure Machine Learning](concept-plan-manage-cost.md) ou découvrir les [limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md).
 
@@ -199,35 +198,8 @@ Lorsque vous demandez une augmentation du quota, sélectionnez le service auquel
 > [!NOTE]
 > Les [abonnements d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p) ne permettent pas de bénéficier d’augmentations de la limite ou du quota. Si vous disposez d’un abonnement d’essai gratuit, vous pouvez le mettre à niveau vers un abonnement avec [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/). Pour en savoir plus, consultez la rubrique [Mise à niveau de la version d’évaluation gratuite d’Azure vers le paiement à l’utilisation](../cost-management-billing/manage/upgrade-azure-subscription.md) et la [FAQ sur le compte gratuit Azure](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="private-endpoint-and-private-dns-quota-increases"></a>Augmentations du quota pour le point de terminaison privé et le domaine DNS privé
-
-Il existe des limites quant au nombre de points de terminaison privés et de zones DNS privées que vous pouvez créer dans un abonnement.
-
-Azure Machine Learning crée des ressources dans votre abonnement (client), mais certains scénarios créent des ressources dans un abonnement appartenant à Microsoft.
-
- Dans les scénarios suivants, vous devrez peut-être demander une allocation de quota dans l’abonnement appartenant à Microsoft :
-
-* Espace de travail activé pour Azure Private Link avec une clé gérée par le client (CMK)
-* Attachement d’un cluster Azure Kubernetes Service avec Private Link activé à votre espace de travail
-
-Pour demander une allocation pour ces scénarios, procédez comme suit :
-
-1. [Créez une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) et sélectionnez les options suivantes dans la section __Concepts de base__ :
-
-    | Champ | Sélection |
-    | ----- | ----- |
-    | Type de problème | **Technique** |
-    | Service | **Mes services**. Sélectionnez ensuite __Machine Learning__ dans la liste déroulante. |
-    | Type de problème | **Configuration et sécurité de l’espace de travail** |
-    | Sous-type de problème | **Demande d’allocation pour la zone DNS privée et le point de terminaison privé** |
-
-2. Dans la section __Détails__, utilisez le champ __Description__ pour indiquer la région Azure et le scénario que vous prévoyez d’utiliser. Si vous devez demander des augmentations de quota pour plusieurs abonnements, indiquez les ID des abonnements dans ce champ.
-
-3. Sélectionnez __Créer__ pour créer la demande.
-
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Capture d’écran d’un point de terminaison privé et d’une demande d’augmentation de quota de DNS privé.":::
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 + [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md)
 + [Limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md)
++ [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)

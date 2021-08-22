@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57187a9f7ecf3e1d00fa395d25d98fd03f5d2698
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92171456"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461020"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -23,7 +23,7 @@ Supposons que vous souhaitez protéger une machine virtuelle « testVM » sous
 
 ### <a name="discover-unprotected-azure-vms"></a>Découvrir les machines virtuelles Azure non protégées
 
-Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuelle Azure. Cette action est déclenchée à l’aide de l’[opération d’actualisation](/rest/api/backup/protectioncontainers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de toutes les machines virtuelles non protégées dans l’abonnement actuel et les « met en cache ». Une fois que la machine virtuelle est « mise en cache », Recovery Services est en mesure d’y accéder et de la protéger.
+Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuelle Azure. Cette action est déclenchée à l’aide de l’[opération d’actualisation](/rest/api/backup/protection-containers/refresh). Il s’agit d’une opération *POST* asynchrone qui garantit que le coffre obtient la liste la plus récente de toutes les machines virtuelles non protégées dans l’abonnement actuel et les « met en cache ». Une fois que la machine virtuelle est « mise en cache », Recovery Services est en mesure d’y accéder et de la protéger.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Sélection de la machine virtuelle Azure appropriée
 
- Vous pouvez vérifier que la « mise en cache » est effectuée en [listant tous les éléments pouvant être protégés](/rest/api/backup/backupprotectableitems/list) sous l’abonnement et rechercher la machine virtuelle souhaitée dans la réponse. [La réponse de cette opération](#example-responses-to-get-operation) vous fournit également des informations sur la façon dont Recovery Services identifie une machine virtuelle.  Une fois que vous êtes familiarisé avec le modèle, vous pouvez ignorer cette étape et passer directement à l’[activation de la protection](#enabling-protection-for-the-azure-vm).
+ Vous pouvez vérifier que la « mise en cache » est effectuée en [listant tous les éléments pouvant être protégés](/rest/api/backup/backup-protectable-items/list) sous l’abonnement et rechercher la machine virtuelle souhaitée dans la réponse. [La réponse de cette opération](#example-responses-to-get-operation) vous fournit également des informations sur la façon dont Recovery Services identifie une machine virtuelle.  Une fois que vous êtes familiarisé avec le modèle, vous pouvez ignorer cette étape et passer directement à l’[activation de la protection](#enabling-protection-for-the-azure-vm).
 
 Cette opération est une opération *GET*.
 
@@ -106,7 +106,7 @@ L’URI *GET* contient tous les paramètres obligatoires. Aucun corps de demande
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backup-protectable-items/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### <a name="example-responses-to-get-operation"></a>Exemples de réponses à l’opération de récupération
 
@@ -162,7 +162,7 @@ Dans l’exemple, les valeurs ci-dessus sont traduites en :
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Activation de la protection pour la machine virtuelle Azure
 
-Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](/rest/api/backup/backuppolicies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protectionpolicies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
+Une fois la machine virtuelle appropriée « mise en cache » et « identifiée », sélectionnez la stratégie de protection. Pour en savoir plus sur les stratégies existantes dans le coffre, reportez-vous à l’[API lister les stratégies](/rest/api/backup/backup-policies/list). Sélectionnez ensuite la [stratégie appropriée](/rest/api/backup/protection-policies/get) en faisant référence au nom de la stratégie. Pour créer des stratégies, reportez-vous au [tutoriel de création de stratégies](backup-azure-arm-userestapi-createorupdatepolicy.md). La stratégie « DefaultPolicy » est sélectionnée dans l’exemple ci-dessous.
 
 L’activation de la protection est une opération *PUT* asynchrone qui crée un « élément protégé ».
 
@@ -184,7 +184,7 @@ Pour créer un élément protégé, voici les composants du corps de la demande.
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriétés de ressource ProtectedItem         |
 
-Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST créer un élément protégé](/rest/api/backup/protecteditems/createorupdate#request-body).
+Pour obtenir la liste complète des définitions du corps de la demande et d’autres détails, reportez-vous au [document sur l’API REST créer un élément protégé](/rest/api/backup/protected-items/create-or-update#request-body).
 
 ##### <a name="example-request-body"></a>Exemple de corps de demande
 
@@ -210,7 +210,7 @@ Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autr
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protected-item-operation-results/get#protecteditemresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
 
 ##### <a name="example-responses-to-create-protected-item-operation"></a>Exemples de réponses à l’opération de création d’élément protégé
@@ -437,7 +437,7 @@ Si la machine virtuelle Azure est déjà sauvegardée, vous pouvez spécifier la
 > [!IMPORTANT]
 > Le corps de la demande ci-dessus est toujours la copie finale des disques de données à exclure ou à inclure. Cela n’*ajoute* rien à la configuration précédente. Par exemple : si vous mettez d’abord à jour la protection avec « Exclure le disque de données 1 », puis répétez l’opération avec « Exclure le disque de données 2 », *seul le disque de données 2 est exclu* dans les sauvegardes suivantes, et le disque de données 1 sera inclus. C’est toujours la dernière liste qui sera incluse/exclue dans les sauvegardes ultérieures.
 
-Pour récupérer la liste actuelle des disques qui sont exclus ou inclus, récupérez les informations relatives aux éléments protégés comme indiqué [ici](/rest/api/backup/protecteditems/get). La réponse fournira la liste des numéros d’unités logiques de disques de données et indiquera s’ils sont inclus ou exclus.
+Pour récupérer la liste actuelle des disques qui sont exclus ou inclus, récupérez les informations relatives aux éléments protégés comme indiqué [ici](/rest/api/backup/protected-items/get). La réponse fournira la liste des numéros d’unités logiques de disques de données et indiquera s’ils sont inclus ou exclus.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrêter la protection tout en conservant les données existantes
 
@@ -457,7 +457,7 @@ La réponse suivra le même format que celui mentionné [pour le déclenchement 
 
 ### <a name="stop-protection-and-delete-data"></a>Arrêter la protection et supprimer les données
 
-Pour supprimer la protection sur une machine virtuelle protégée ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](/rest/api/backup/protecteditems/delete).
+Pour supprimer la protection sur une machine virtuelle protégée ainsi que les données de sauvegarde, effectuez une opération de suppression comme indiqué [ici](/rest/api/backup/protected-items/delete).
 
 L’arrêt de la protection avec suppression des données est une opération *DELETE*.
 

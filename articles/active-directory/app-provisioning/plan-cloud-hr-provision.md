@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fb2f36e1b51ed5fbb7c3f2c002760d07f3723645
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 12b909b467b7f53d568e80f60c8b30f701820216
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590447"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113728513"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -75,7 +75,7 @@ Cette fonctionnalité d’approvisionnement informatique axé sur les ressources
 
 ### <a name="licensing"></a>Licence
 
-Pour configurer l’application RH cloud à l’intégration de l’approvisionnement d’utilisateurs Azure AD, vous devez disposer d’une [licence Premium Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) valide et d’une licence pour l’application RH cloud telle que Workday ou SuccessFactors.
+Pour configurer l’application RH cloud à l’intégration de l’approvisionnement d’utilisateurs Azure AD, vous devez disposer d’une [licence Premium Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) valide et d’une licence pour l’application RH cloud telle que Workday ou SuccessFactors.
 
 Vous avez également besoin d’une licence valide à un abonnement Azure AD Premium P1 ou supérieur pour chaque utilisateur provenant de l’application RH cloud et approvisionné dans Active Directory ou Azure AD. Tout nombre incorrect de licences détenues dans l’application RH cloud peut entraîner des erreurs pendant l’approvisionnement d’utilisateurs.
 

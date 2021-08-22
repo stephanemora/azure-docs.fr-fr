@@ -4,16 +4,20 @@ description: Utilisez le connecteur Ethereum Blockchain avec Azure Logic Apps po
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0eb4056567692ddb221f3207ac92b3373f6bdff2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96763789"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641076"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 
-Utilisez le [connecteur Ethereum Blockchain](/connectors/blockchainethereum/) avec [Azure Logic Apps](../../logic-apps/index.yml) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent. Cet article explique comment vous utiliser le connecteur Ethereum Blockchain pour envoyer des informations de blockchain à un autre service ou appeler une fonction de blockchain. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
+Utilisez le [connecteur Ethereum Blockchain](/connectors/blockchainethereum/) avec [Azure Logic Apps](../../logic-apps/index.yml) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Cet article explique comment vous utiliser le connecteur Ethereum Blockchain pour envoyer des informations de blockchain à un autre service ou appeler une fonction de blockchain. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
 
 ## <a name="prerequisites"></a>Prérequis
 

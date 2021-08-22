@@ -1,19 +1,21 @@
 ---
 title: Gérer le graphique des flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Gérer et modifier efficacement le graphique des flux de données de mappage
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/02/2020
-ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf274ce49a2b83fca49bc039c1ba3c7980531979
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97590458"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641395"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Gérer le graphique des flux de données de mappage
 
@@ -25,11 +27,11 @@ Les flux de données de mappage sont créés à l'aide d'une aire de conception 
 
 À mesure que vos flux de données gagnent en complexité, utilisez les mécanismes suivants pour gérer efficacement le graphique des flux de données et y naviguer. 
 
-## <a name="moving-transformations"></a>Déplacer les transformations
+## <a name="moving-transformations&quot;></a>Déplacer les transformations
 
 Dans les flux de données de mappage, un ensemble de logiques de transformation connectées s'appelle un **flux**. Le champ **Flux entrant** détermine quel flux de données alimente la transformation en cours. Chaque transformation est associée à un ou deux flux entrants, selon sa fonction, et représente un flux de sortie. Le schéma de sortie des flux entrants détermine quelles métadonnées de colonne peuvent être référencées par la transformation en cours.
 
-![Déplacer le nœud](media/data-flow/move-nodes.png "Déplacer le nœud")
+![Déplacer le nœud](media/data-flow/move-nodes.png &quot;Déplacer le nœud")
 
 Contrairement aux canevas de pipeline, la modification des transformations de flux de données ne s'effectue pas à l'aide d'un modèle glisser-déposer. Pour modifier le flux entrant ou « déplacer » une transformation, choisissez une autre valeur dans la liste déroulante **Flux entrant**. Toutes les transformations situées en aval se déplacent alors avec la transformation modifiée. Le graphique est automatiquement mis à jour pour afficher le nouveau flux logique. Si vous remplacez le flux entrant par une transformation qui dispose déjà d'une transformation en aval, une nouvelle branche ou un nouveau flux de données parallèle est créé. Découvrez-en plus sur les [nouvelles branches d'un flux de données de mappage](data-flow-new-branch.md).
 

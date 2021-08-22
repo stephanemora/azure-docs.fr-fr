@@ -4,12 +4,12 @@ description: Écrivez des processeurs de télémétrie et des initialiseurs de t
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fac7a4f02a67def7f5089e3e793e61c510ad074
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98927745"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289366"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -553,5 +553,5 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 * [Recherche d’événements et de journaux d’activité](./diagnostic-search.md)
 * [Échantillonnage](./sampling.md)
-* [Dépannage](../faq.md)
+* [Dépannage](../faq.yml)
 

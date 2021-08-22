@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
-ms.openlocfilehash: 046a38da67db86592e91f103f3139b425e59f6a0
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 01ac58f4c462861ba422a869f38b9fbf53690886
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578895"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112377275"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Guide pratique pour utiliser Apache Spark (alimenté par Azure Synapse Analytics) dans votre pipeline Machine Learning (préversion)
 
@@ -38,7 +38,7 @@ Vous créez et administrez vos pools Apache Spark dans un espace de travail Azur
 Une fois que votre espace de travail Azure Machine Learning et vos espaces de travail Azure Synapse Analytics sont liés, vous pouvez attacher un pool de Apache Spark via 
 * [Azure Machine Learning Studio](how-to-link-synapse-ml-workspaces.md#attach-a-pool-via-the-studio)
 * le Kit de développement logiciel (SDK) Python ([comme indiqué ci-dessous](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
-* Modèle de Azure Resource Manager (ARM) (consultez cet [exemple de modèle ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+* Modèle de Azure Resource Manager (ARM) (consultez cet [exemple de modèle ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)). 
     * Vous pouvez utiliser la ligne de commande pour suivre le modèle ARM, ajouter le service lié et attacher le pool Apache Spark à l’aide du code suivant :
     ```azurecli
     az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"

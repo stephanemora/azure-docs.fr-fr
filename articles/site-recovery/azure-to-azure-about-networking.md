@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0e1d7bba91ca9283b00432a06e24d1b8beaa49fc
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 8627a8989a4fbd64c66d8af7299baacacee22b56
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811312"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285048"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -59,7 +59,7 @@ login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentific
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Connectivité sortante à l’aide d’étiquettes de service
 
-Outre le contrôle des URL, vous pouvez également utiliser des étiquettes de service pour contrôler la connectivité. Pour ce faire, vous devez d’abord créer un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/network-security-group-how-it-works) dans Azure. Une fois qu’il est créé, vous devez utiliser nos étiquettes de service existantes et créer une règle de groupe de sécurité réseau pour autoriser l’accès aux services Azure Site Recovery. 
+Outre le contrôle des URL, vous pouvez également utiliser des étiquettes de service pour contrôler la connectivité. Pour ce faire, vous devez d’abord créer un [groupe de sécurité réseau](../virtual-network/network-security-group-how-it-works.md) dans Azure. Une fois qu’il est créé, vous devez utiliser nos étiquettes de service existantes et créer une règle de groupe de sécurité réseau pour autoriser l’accès aux services Azure Site Recovery. 
 
 Par rapport au contrôle de la connectivité à l’aide d’adresses IP, l’avantage d’utiliser des étiquettes de service pour contrôler la connectivité est qu’il n’existe aucune dépendance dure sur une adresse IP particulière pour rester connecté à nos services. Dans un tel scénario, si l’adresse IP de l’un de nos services change, la réplication en cours n’est pas affectée pour vos machines. En revanche, une dépendance vis-à-vis d’adresses IP codées en dur entraîne un état critique de la réplication et expose vos systèmes à des risques. De plus, les étiquettes de service garantissent une sécurité, une stabilité et une résilience accrues par rapport aux adresses IP codées en dur.
 

@@ -12,12 +12,12 @@ metadata:
   manager: daveba
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2c43149c2a15c7ea35c87aca8188a01e6350df77
-  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+  ms.openlocfilehash: 8fa75d1baae917e7e60ca99f4d5c3cc33ff85f0a
+  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/30/2021
-  ms.locfileid: "111907208"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112200747"
 title: FAQ sur l’itinérance des paramètres et des données
 summary: Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 sections:
@@ -149,7 +149,7 @@ sections:
   - question: >
       Que se passe-t-il quand mon organisation achète un abonnement comprenant Azure Rights Management après avoir utilisé l’itinérance ?
     answer: >
-      Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’abonnement gratuit à Azure Rights Management en utilisation limitée, l’achat d’un [abonnement payant](https://azure.microsoft.com/pricing/details/information-protection/) au service de protection Azure Rights Management n’a aucun impact sur les fonctionnalités de l’itinérance et votre administrateur informatique n’a pas non plus besoin de changer la configuration.
+      Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’abonnement gratuit à Azure Rights Management en utilisation limitée, l’achat d’un [abonnement payant](https://azure.microsoft.com/services/information-protection/) au service de protection Azure Rights Management n’a aucun impact sur les fonctionnalités de l’itinérance et votre administrateur informatique n’a pas non plus besoin de changer la configuration.
   - question: >
       Problèmes connus
     answer: "Pour obtenir la liste des problèmes connus, consultez la documentation indiquée dans la section [Résolution des problèmes](enterprise-state-roaming-troubleshooting.md). \n"

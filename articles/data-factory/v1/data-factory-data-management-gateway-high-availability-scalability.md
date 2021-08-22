@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a76479a358366591d1c4edef0755dd26ce23cd81
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391726"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289870"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -99,7 +99,7 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
         ![Passerelle de gestion des données - Installation terminée](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Si vous approvisionnez la passerelle sur une machine virtuelle Azure, vous pouvez utiliser [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Ce script crée une passerelle logique, installe le logiciel de la passerelle de gestion des données sur les machines virtuelles et les inscrit auprès de la passerelle logique. 
+        > Si vous approvisionnez la passerelle sur une machine virtuelle Azure, vous pouvez utiliser [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/mutiple-vms-with-data-management-gateway). Ce script crée une passerelle logique, installe le logiciel de la passerelle de gestion des données sur les machines virtuelles et les inscrit auprès de la passerelle logique. 
 6. Dans le portail Azure, lancez la page **Passerelle** : 
     1. Dans la page d’accueil de la fabrique de données dans le portail, cliquez sur **Services liés**.
     

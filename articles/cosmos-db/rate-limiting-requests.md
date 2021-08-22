@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/07/2021
 ms.author: pelasne
-ms.openlocfilehash: 01bde3cdcb5ee39dfc3e1959165523cfd05c3481
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f9130808da0f833246e013e56f081b92fa461ac9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104150"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562155"
 ---
 # <a name="optimize-your-azure-cosmos-db-application-using-rate-limiting"></a>Optimiser votre application Azure Cosmos DB en utilisant la limitation du débit
 
@@ -83,10 +83,10 @@ Il existe quelques concepts clés pour mesurer les coûts :
 La méthode permettant de déterminer le coût d’une requête est différente pour chaque API :
 
 * [API Core](find-request-unit-charge.md)
-* [API Cassandra](find-request-unit-charge-cassandra.md)
+* [API Cassandra](cassandra/find-request-unit-charge-cassandra.md)
 * [API Gremlin](find-request-unit-charge-gremlin.md)
-* [API MongoDB](find-request-unit-charge-mongodb.md)
-* [API de table](find-request-unit-charge-table.md)
+* [API MongoDB](mongodb/find-request-unit-charge-mongodb.md)
+* [API de table](table/find-request-unit-charge.md)
 
 ## <a name="write-requests"></a>Demandes d’écriture
 

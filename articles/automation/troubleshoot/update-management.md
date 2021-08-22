@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f773bdedcbcb014e15436732e489f9b15900f58
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cc65a1c0cd72d9da9208e7377eaef7a887119f43
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951753"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524367"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -193,7 +193,7 @@ Cela peut provenir de problèmes de configuration locaux ou d’une configuratio
    | summarize by Computer, Solutions
    ```
 
-    Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/agents/agent-windows.md).
 
     Si votre ordinateur est répertorié dans les résultats de la requête, vérifiez sous la propriété **Solutions** que les **mises à jour** sont répertoriées. Cela permet de vérifier qu’il est inscrit auprès d’Update Management. Si ce n’est pas le cas, recherchez les problèmes de configuration de l’étendue. La [configuration de l’étendue](../update-management/scope-configuration.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Pour paramétrer la configuration de l’étendue pour l’ordinateur cible, consultez [Activer des machines dans l’espace de travail](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -342,7 +342,7 @@ Bien que les machines apparaissent bien dans les résultats de la requête Azure
 
    - À partir de votre [compte Automation](../update-management/enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure, notamment des serveurs compatibles avec Arc.
 
-   - Utilisation du [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** pour automatiser l’intégration des machines virtuelles Azure.
+   - En utilisant le [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** pour automatiser l’intégration des machines virtuelles Azure.
 
    - Pour une [machine virtuelle Azure sélectionnée](../update-management/enable-from-vm.md) dans la page **Machine virtuelle** du portail Azure. Ce scénario est disponible pour les machines virtuelles Linux et Windows.
 

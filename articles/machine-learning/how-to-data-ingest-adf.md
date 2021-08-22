@@ -12,16 +12,16 @@ ms.reviewer: larryfr
 ms.date: 01/26/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 2874878c8b03b6cf63c2a5214a0de68000d51569
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 401b565d69797bc4880729dd5f5c4af3e0012f6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885629"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524617"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestion des données avec Azure Data Factory
 
-Dans cet article, vous allez découvrir les options disponibles pour la création d’un pipeline d’ingestion de données avec [Azure Data Factory](../data-factory/introduction.md). Ce pipeline Azure Data Factory est utilisé pour ingérer des données à utiliser avec [Azure Machine Learning](overview-what-is-azure-ml.md). Data Factory vous permet d’extraire, de transformer et de charger (ETL) facilement des données. Une fois les données transformées et chargées dans le stockage, elles peuvent être utilisées pour entraîner vos modèles Machine Learning dans Azure Machine Learning.
+Dans cet article, vous allez découvrir les options disponibles pour la création d’un pipeline d’ingestion de données avec [Azure Data Factory](../data-factory/introduction.md). Ce pipeline Azure Data Factory est utilisé pour ingérer des données à utiliser avec [Azure Machine Learning](overview-what-is-azure-machine-learning.md). Data Factory vous permet d’extraire, de transformer et de charger (ETL) facilement des données. Une fois les données transformées et chargées dans le stockage, elles peuvent être utilisées pour entraîner vos modèles Machine Learning dans Azure Machine Learning.
 
 Une transformation simple des données peut être effectuée avec les activités et les instruments Data Factory natifs, tels que le [flux de données](../data-factory/control-flow-execute-data-flow-activity.md). Lorsqu’il s’agit de scénarios plus compliqués, les données peuvent être traitées avec du code personnalisé. Par exemple, le code Python ou R.
 

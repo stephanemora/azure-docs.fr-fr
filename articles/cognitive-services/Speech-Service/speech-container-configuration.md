@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 07/22/2021
 ms.author: aahi
-ms.openlocfilehash: 400770a99e12bfb200b3e480d1546a26ce2aca6c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: f86de9cbb7bf6235af6d112f9eae396b43a911f8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495243"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441389"
 ---
 # <a name="configure-speech-service-containers"></a>Configurer des conteneurs Speech
 
@@ -76,7 +76,7 @@ Utilisez des montages de liaisons pour lire et écrire des données vers et à p
 
 Les conteneurs Speech standard n’utilisent pas de montage d’entrée ou de sortie pour stocker des données d’entraînement ou de service. Toutefois, les conteneurs de reconnaissance vocale personnalisée s’appuient sur des montages de volume.
 
-La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](speech-container-howto.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service docker et les autorisations de l’emplacement de montage de l’hôte.
+La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](speech-container-howto.md#host-computer-requirements-and-recommendations) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service docker et les autorisations de l’emplacement de montage de l’hôte.
 
 | Facultatif | Nom | Type de données | Description |
 | -------- | ---- | --------- | ----------- |

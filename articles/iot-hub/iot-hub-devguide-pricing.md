@@ -2,7 +2,6 @@
 title: Présentation des tarifs Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : informations concernant le fonctionnement des mesures et des tarifs IoT Hub, avec des exemples.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -11,12 +10,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5b67f505a71d2af7950422a86ab45ef8aebb3bf4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 809a38425adc376d72bed1330f077db2841ea8cd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056434"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563020"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 

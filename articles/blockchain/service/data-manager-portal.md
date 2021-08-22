@@ -4,16 +4,18 @@ description: Créez et gérez Blockchain Data Manager pour Azure Blockchain Serv
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b80bbc1b302579f0145e7b5cb6c5e3e0561d2ef7
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85200679"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122641073"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurer Blockchain Data Manager avec le Portail Azure
 
 Configurez Blockchain Data Manager pour Azure Blockchain Service afin de capturer des données Blockchain et les envoyer à une rubrique Azure Event Grid.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Pour configurer une instance Data Manager Blockchain, vous devez :
 

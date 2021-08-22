@@ -4,12 +4,12 @@ description: Cet article décrit l’affichage en temps réel de Kubernetes Depl
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ae515f2addf21f8183aed83ab26922e77f981
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713913"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562576"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Guide pratique pour voir Déploiements (préversion) en temps réel
 
@@ -64,4 +64,4 @@ Vous pouvez également filtrer par événements au niveau du cluster ou de l’e
 
 - Pour continuer à découvrir comment utiliser Azure Monitor et surveiller les autres aspects de votre cluster AKS, consultez [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).
 
-- Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.
+- Consultez [Exemples de requêtes de journal](container-insights-log-query.md) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.

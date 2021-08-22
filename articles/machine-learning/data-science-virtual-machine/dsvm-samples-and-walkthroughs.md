@@ -9,12 +9,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d907be8262fdc403f1e7b550d57c1aeaf77491fa
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087901"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369053"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemples sur Data Science Virtual Machine
 
@@ -29,7 +29,6 @@ Pour exécuter ces exemples, vous devez avoir approvisionné une [Data Science V
 ## <a name="available-samples"></a>Exemples disponibles
 | Catégorie d’exemples | Description | Emplacements |
 | ------------- | ------------- | ------------- |
-| Langage R  | Les exemples illustrent des scénarios tels que la connexion aux magasins de données cloud basés sur Azure et la comparaison de R et de Microsoft Machine Learning Server open source. Ils expliquent également comment rendre les modèles opérationnels sur Microsoft Machine Learning Server et SQL Server. <br/> [Langage R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Langage Python  | Les exemples décrivent des scénarios tels que la connexion aux magasins de données cloud basés sur Azure et l’utilisation d’Azure Machine Learning.  <br/> [Langage Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Langage Julia  | Fournit une description détaillée du traçage et du Deep Learning dans Julia. Explique également comment appeler les langages C et Python à partir de Julia. <br/> [Langage Julia](#julia-language) |<br/> Windows :<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux :<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Générez des modèles Machine Learning et d’apprentissage profond avec Machine Learning. Déployez-les n’importe où. Utilisez le réglage intelligent des hyperparamètres et le réglage Machine Learning automatisé, ainsi que la gestion des modèles et la formation distribuée. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|

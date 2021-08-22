@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: troubleshooting
 ms.date: 4/28/2021
 ms.custom: support-help-page
-ms.openlocfilehash: 7c064a460be8bf3f15eba404a208c0cad15a282a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e6330abbe05c161672c30c3555249d37eb74060d
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956496"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634408"
 ---
 # <a name="support-and-troubleshooting-for-azure-virtual-machine-scale-sets"></a>Support et résolution de problèmes pour les groupes de machines virtuelles identiques Azure
 
@@ -87,19 +87,6 @@ Si vous avez besoin d’aide avec le langage et les outils utilisés pour dével
 | Terraform | https://github.com/Azure/terraform/issues | 
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
-
-
-## <a name="submit-feature-requests-on-azure-feedback"></a>Envoyer des demandes de fonctionnalités sur Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Partagez vos idées pour améliorer les groupes de machines virtuelles identiques Azure.
-
-| Service                       | URL Azure Feedback |
-|-------------------------------|---------------|
-| Machines virtuelles Azure  | https://feedback.azure.com/forums/216843-virtual-machines 
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
 

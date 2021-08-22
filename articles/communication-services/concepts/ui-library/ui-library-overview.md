@@ -6,15 +6,15 @@ author: ddematheu2
 manager: chrispalm
 services: azure-communication-services
 ms.author: dademath
-ms.date: 05/11/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4176bdf61cafdf50aef71e76b832a0e669f1535c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 86ef660c5d4b0f0132218df1df37c8934f27ec08
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468801"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641194"
 ---
 # <a name="ui-library-overview"></a>Vue d’ensemble de la bibliothèque d’interface utilisateur
 
@@ -53,8 +53,8 @@ Les développeurs peuvent facilement instancier le composite à l’aide d’un 
 
 | Composite    | Cas d’usage  | 
 | ------------ | ---------- |
-| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite--basic-example) | Appel de l’expérience qui permet aux utilisateurs de démarrer ou de rejoindre un appel. Dans l’expérience, les utilisateurs peuvent configurer leurs appareils, participer à l’appel avec la vidéo et voir les autres participants, notamment ceux qui ont activé la vidéo. Pour l’interopérabilité avec Teams, la fonctionnalité de salle d’attente est comprise, permettant à l’utilisateur de patienter jusqu’à ce qu’il soit admis. |
-| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--basic-example)    | Expérience de conversation dans laquelle l’utilisateur peut envoyer et recevoir des messages. Les événements de fil de conversation, comme la saisie, les lectures, les participants qui entrent dans la conversation ou la quittent, sont affichés à l’utilisateur dans le cadre du fil de conversation.                                                                                                                          |
+| [CallComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-call--basic-example) | Appel de l’expérience qui permet aux utilisateurs de démarrer ou de rejoindre un appel. Dans l’expérience, les utilisateurs peuvent configurer leurs appareils, participer à l’appel avec la vidéo et voir les autres participants, notamment ceux qui ont activé la vidéo. Pour l’interopérabilité avec Teams, la fonctionnalité de salle d’attente est comprise, permettant à l’utilisateur de patienter jusqu’à ce qu’il soit admis. |
+| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chat--basic-example)    | Expérience de conversation dans laquelle l’utilisateur peut envoyer et recevoir des messages. Les événements de fil de conversation, comme la saisie, les lectures, les participants qui entrent dans la conversation ou la quittent, sont affichés à l’utilisateur dans le cadre du fil de conversation.                                                                                                                          |
 
 ## <a name="ui-component-overview"></a>Vue d’ensemble des composants IU
 
@@ -63,17 +63,16 @@ Les composants IU prennent en charge la personnalisation pour donner aux composa
 
 | Domaine    | Composant    | Description       |
 | ------- | ------------ | ----------------- |
-| Appel | [Disposition de grille](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout-component)                | Composant de grille pour organiser les vignettes vidéo dans une grille NxN                                            |
-|         | [Vignette vidéo](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile-component)                   | Composant qui affiche le flux vidéo le cas échéant et un composant statique par défaut quand la vidéo n’est pas active        |
-|         | [Barre de contrôle](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar-component)                | Conteneur pour organiser DefaultButtons pour qu’ils se raccordent à des actions d’appel spécifiques, comme la désactivation du micro ou le partage de l’écran |
+| Appel | [Disposition de grille](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout)                | Composant de grille pour organiser les vignettes vidéo dans une grille NxN                                            |
+|         | [Vignette vidéo](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)                   | Composant qui affiche le flux vidéo le cas échéant et un composant statique par défaut quand la vidéo n’est pas active        |
+|         | [Barre de contrôle](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar)                | Conteneur pour organiser DefaultButtons pour qu’ils se raccordent à des actions d’appel spécifiques, comme la désactivation du micro ou le partage de l’écran |
 |         | [Galerie vidéo](https://azure.github.io/communication-ui-library/?path=/story/ui-components-video-gallery--video-gallery)                                           | Composant de la galerie vidéo clé en main qui change dynamiquement à mesure que des participants sont ajoutés               |
-| Conversation    | [Fil de message](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread-component)       | Conteneur permettant d’afficher les messages de conversation, les messages système et les messages personnalisés                          |
-|         | [Boîte d’envoi](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box-component)                         | Composant d’entrée de texte avec un bouton Envoyer discret                                                   |
-|         | [Indicateur d’état du message](https://azure.github.io/communication-ui-library/?path=/story/ui-components-message-status-indicator--message-status-indicator)        | Composant de confirmation de lecture à plusieurs états pour afficher l’état du message envoyé                                   |
-|         | [Indicateur de saisie](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator-component) | Composant de texte permettant d’afficher les participants en train de taper activement un message sur un fil de conversation                      |
-| Courant  | [Élément participant](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item-component) | Composant commun permettant d’afficher un participant d’un appel ou d’une conversation, notamment son avatar et nom d’affichage            |
-|         | [Liste des participants](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participant-list--participant-list)                                 | Composant commun permettant d’afficher la liste des participants d’un appel ou d’une conversation, notamment les avatars et noms d’affichage       |
-
+| Conversation    | [Fil de message](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread)       | Conteneur permettant d’afficher les messages de conversation, les messages système et les messages personnalisés                          |
+|         | [Boîte d’envoi](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box)                         | Composant d’entrée de texte avec un bouton Envoyer discret                                                   |
+|         | [Indicateur d’état du message](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagestatusindicator--message-status-indicator)        | Composant de confirmation de lecture à plusieurs états pour afficher l’état du message envoyé                                   |
+|         | [Indicateur de saisie](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | Composant de texte permettant d’afficher les participants en train de taper activement un message sur un fil de conversation                      |
+| Courant  | [Élément participant](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | Composant commun permettant d’afficher un participant d’un appel ou d’une conversation, notamment son avatar et nom d’affichage            |
+|         | [Liste des participants](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantlist--participant-list)                                 | Composant commun permettant d’afficher la liste des participants d’un appel ou d’une conversation, notamment les avatars et noms d’affichage       |
 
 ## <a name="what-ui-artifact-is-best-for-my-project"></a>Quel artefact d’interface utilisateur convient le mieux à mon projet ?
 

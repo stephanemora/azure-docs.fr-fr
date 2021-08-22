@@ -3,14 +3,17 @@ title: Capacités de disque des ordinateurs hôtes
 description: Les hôtes utilisés pour créer ou mettre à l’échelle des clusters proviennent d’un pool isolé d’hôtes.
 ms.topic: include
 ms.date: 04/23/2021
-ms.openlocfilehash: 7ee15fbfd668d5db24282a6e4de8e4dfc6639c3e
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 847f69950a47208b27976972da8dc3427727e774
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945746"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747629"
 ---
-<!-- Used in production-ready-deployment-steps.md and concepts-private-cloud-clusters.md -->
+<!-- Used in plan-private-cloud-deployment.md and concepts-private-cloud-clusters.md -->
 
 
 Les clusters Azure VMware Solution sont basés sur une infrastructure nue hyperconvergée. Le tableau suivant indique les capacités de mémoire RAM, de processeur et de disque de l’ordinateur hôte.

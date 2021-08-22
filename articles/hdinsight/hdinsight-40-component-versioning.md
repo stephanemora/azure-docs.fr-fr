@@ -3,15 +3,13 @@ title: Composants et versions d’Apache Hadoop – Azure HDInsight 4.0
 description: Découvrez les composants et les versions d’Apache Hadoop dans Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-author: deshriva
-ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: c661304fcb9e88f01d139c0d8b6950f316391586
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 088498a5a8ab7732bc4e657e3575998c899ffd42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203108"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562922"
 ---
 # <a name="hdinsight-40-component-versions"></a>Composants et versions de HDInsight 4.0
 

@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 3914c1ce732161828f9c2653edd5c43d86310dae
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524616"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Déployer des modèles ML sur des réseaux de portes programmables in situ (FGPA, field-programmable gate array) avec Azure Machine Learning 
 
-Dans cet article, vous allez en apprendre davantage sur les FPGA et le déploiement de vos modèles ML sur un FPGA Azure à l’aide du [package Python de modèles accélérés matériellement](/python/api/azureml-accel-models/azureml.accel) d’[Azure Machine Learning](overview-what-is-azure-ml.md).
+Dans cet article, vous allez en apprendre davantage sur les FPGA et le déploiement de vos modèles ML sur un FPGA Azure à l’aide du [package Python de modèles accélérés matériellement](/python/api/azureml-accel-models/azureml.accel) d’[Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
 ## <a name="what-are-fpgas"></a>Présentation des FPGA
 Les FPGA contiennent un tableau de blocs logiques programmables et une hiérarchie d’interconnexions reconfigurables. Les interconnexions permettent la configuration de ces blocs de différentes façons après leur fabrication. Par rapport aux autres circuits intégrés, les FPGA offrent une combinaison de programmabilité et de performances. 

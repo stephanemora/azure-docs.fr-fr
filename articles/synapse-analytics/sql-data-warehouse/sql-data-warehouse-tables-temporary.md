@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9898bc94aa79b374174f80592dc250e660f7f8c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93310676"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562595"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>Tables temporaires dans le pool SQL dédié
 
@@ -30,8 +30,6 @@ Les tables temporaires sont utiles lors du traitement des données, notamment lo
 Elles sont uniquement visibles pour la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  
 
 Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.
-
-Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation lorsque les résultats intermédiaires sont temporaires. Avec un pool SQL dédié, les tables temporaires existent au niveau de la session.  Elles sont visibles uniquement dans la session dans laquelle elles ont été créées. Ainsi, elles sont automatiquement supprimées à la fermeture de cette session. 
 
 ## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tables temporaires dans le pool SQL dédié
 

@@ -3,12 +3,12 @@ title: À propos du processus de restauration de machine virtuelle Azure
 description: Découvrez comment le service Sauvegarde Azure restaure les machines virtuelles Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: d298b56ca5588e6d950684f234cb1c4396864a9e
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: a01b3f06f34ac184913227d025f854589ce698aa
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061485"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295888"
 ---
 # <a name="about-azure-vm-restore"></a>À propos de la restauration de machine virtuelle Azure
 
@@ -45,11 +45,11 @@ Cet article décrit la manière dont le [service Sauvegarde Azure](./backup-over
 | [Restaurer pour créer une machine virtuelle](./backup-azure-arm-restore-vms.md) | Restaure l’ensemble de la machine virtuelle à l’emplacement d’origine (si la machine virtuelle source existe toujours) ou à un autre emplacement | <li> Si la machine virtuelle source est perdue ou endommagée, vous pouvez la restaurer dans sa totalité  <li> Vous pouvez créer une copie de la machine virtuelle  <li> Vous pouvez effectuer une simulation de restauration à des fins d’audit ou de conformité  <li> Cette option ne fonctionne pas pour des machines virtuelles Azure créées à partir d’images de la Place de marché (c’est-à-dire qui ne sont pas disponibles parce que la licence a expiré). |
 | [Restaurer des disques de la machine virtuelle](./backup-azure-arm-restore-vms.md#restore-disks) | Restaure les disques attachés à la machine virtuelle                             |  Tous les disques : cette option crée le modèle et restaure le disque. Vous pouvez modifier ce modèle avec des configurations spéciales (par exemple, des groupes à haute disponibilité) pour répondre à vos besoins, puis utiliser le modèle et restaurer le disque afin de recréer la machine virtuelle. |
 | [Restaurer des fichiers spécifiques à l’intérieur de la machine virtuelle](./backup-azure-restore-files-from-vm.md) | Choisissez un point de restauration, parcourez, sélectionnez des fichiers, puis restaurez-les sur le même système d’exploitation (ou un système compatible) que la machine virtuelle sauvegardée. |  Si vous connaissez les fichiers spécifiques à restaurer, utilisez cette option au lieu de restaurer la machine virtuelle entière. |
-| [Restaurer une machine virtuelle chiffrée](./backup-azure-vms-encryption.md) | À partir du portail, restaurez les disques, puis utilisez PowerShell pour créer la machine virtuelle | <li> [Machine virtuelle chiffrée avec Azure Active Directory](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Machine virtuelle chiffrée sans Azure AD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Machine virtuelle chiffrée *avec Azure AD* migrée *sans Azure AD*](/azure/virtual-machines/windows/disk-encryption-faq#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
+| [Restaurer une machine virtuelle chiffrée](./backup-azure-vms-encryption.md) | À partir du portail, restaurez les disques, puis utilisez PowerShell pour créer la machine virtuelle | <li> [Machine virtuelle chiffrée avec Azure Active Directory](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Machine virtuelle chiffrée sans Azure AD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Machine virtuelle chiffrée *avec Azure AD* migrée *sans Azure AD*](../virtual-machines/windows/disk-encryption-faq.yml#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app-) |
 | [Restauration entre régions](./backup-azure-arm-restore-vms.md#cross-region-restore) | Crée une machine virtuelle ou restaure des disques dans une région secondaire (région jumelé Azure) | <li> **Interruption complète** :  avec la fonctionnalité de restauration entre régions, il n’y a pas de temps d’attente pour récupérer des données dans la région secondaire. Vous pouvez lancer des restaurations dans la région secondaire, même avant qu’Azure déclare une interruption. <li> **Interruption partielle** : un temps d’arrêt peut survenir dans des clusters de stockage spécifiques où le service Sauvegarde Azure stocke vos données sauvegardées, voire dans le réseau, en connectant Sauvegarde Azure et les clusters de stockage associés à vos données sauvegardées. Avec une restauration entre régions, vous pouvez effectuer une restauration dans la région secondaire à l’aide d’un réplica des données sauvegardées dans la région secondaire. <li> **Aucune interruption** : vous pouvez effectuer des simulations continuité d’activité et reprise d’activité (BCDR) à des fins d’audit ou de conformité avec les données de la région secondaire. Cela vous permet d’effectuer une restauration des données sauvegardées dans la région secondaire, même en cas d’interruption complète ou partielle dans la région primaire à des fins de continuité d’activité et reprise d’activité.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Forum aux questions sur la restauration de machine virtuelle](/azure/backup/backup-azure-vm-backup-faq.yml#restore)
+- [Forum aux questions sur la restauration de machine virtuelle](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Méthodes de restauration prises en charge](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Résoudre les problèmes de restauration](./backup-azure-vms-troubleshoot.md#restore)

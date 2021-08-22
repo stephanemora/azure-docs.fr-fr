@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0541b626168fb680daa2fc5c0c14df5bc8a4ea7c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 023bef17efd0d61031f51d37ab48b633b297ef23
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904172"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234498"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Déployer un modèle Machine Learning sur Azure Functions à l’aide d’Azure Cache pour Redis
 
@@ -304,7 +304,7 @@ Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver le
 Sinon, si vous en avez fini avec le démarrage rapide, vous pouvez supprimer les ressources Azure que vous y avez créées afin d’éviter des frais.
 
 > [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
+> La suppression d’un groupe de ressources est irréversible. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l'hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement sur la gauche, au lieu de supprimer l'intégralité du groupe de ressources.
 
 ### <a name="to-delete-a-resource-group"></a>Pour supprimer un groupe de ressources
 

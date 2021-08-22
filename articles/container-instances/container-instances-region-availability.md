@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 26d1bf74656c63f4957df1129746a3f8fd33c554
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 69dc12c0a74855535e173868951c15a3acfcfd75
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959110"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371523"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -32,6 +32,7 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Région | Utilisation maximale du processeur | Mémoire max. (GB) | Utilisation maximale du processeur du réseau virtuel | Mémoire maximale du réseau virtuel (Go) | Stockage (Go) | Références SKU de GPU (préversion) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Australie Est | 4 | 16 | 4 | 16 | 50 | N/A |
+| Sud-Australie Est | 4 | 14 | N/A | N/A | 50 | N/A |
 | Brésil Sud | 4 | 16 | 2 | 8 | 50 | N/A |
 | Centre du Canada | 4 | 16 | 4 | 16 | 50 | N/A |
 | Est du Canada | 4 | 16 | 4 | 16 | 50 | N/A |
@@ -47,12 +48,13 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Centre de la Corée | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europe Nord | 4 | 16 | 4 | 16 | 50 | K80 |
+| Norvège Est | 4 | 16 | N/A | N/A | 50 | N/A |
 | États-Unis - partie centrale méridionale | 4 | 16 | 4 | 16 | 50 | V100 |
 | Asie Sud-Est | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Inde Sud | 4 | 16 | N/A | N/A | 50 | K80 |
 | Suisse Nord | 4 | 16 | N/A | N/A | 50 | N/A |
 | Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
-| Ouest du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
+| Ouest du Royaume-Uni | 4 | 16 | N/A | N/A | 50 | N/A |
 | Émirats arabes unis Nord | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre-USA Ouest| 4 | 16 | 4 | 16 | 50 | N/A |
 | Europe Ouest | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -75,7 +77,7 @@ Les ressources maximales suivantes sont accessibles à un groupe de conteneurs d
 
 ## <a name="windows-container-groups"></a>Groupes de conteneurs Windows
 
-Les régions et les ressources maximales suivantes sont accessibles aux groupes de conteneurs Windows Server 2019 (préversion) avec les conteneurs Windows Server [pris en charge ou en préversion](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Les régions et les ressources maximales suivantes sont accessibles aux groupes de conteneurs Windows Server 2019 (préversion) avec les conteneurs Windows Server [pris en charge ou en préversion](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 > [!IMPORTANT]
 > À ce stade, les déploiements avec des groupes de conteneurs Windows ne sont pas pris en charge dans le déploiement d’un réseau virtuel Azure.

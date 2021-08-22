@@ -6,22 +6,26 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4ff27243643a5c0fbb833a05a07e9e117196a6f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91315012"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641109"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Gérer les paramètres de maintenance planifiée dans Azure Database pour MySQL – Serveur flexible
- 
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 Vous pouvez spécifier des options de maintenance pour chaque serveur flexible dans votre abonnement Azure. Les options incluent la planification de maintenance et les paramètres de notification pour les événements de maintenance à venir et terminés.
 
 > [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est en préversion.
- 
+
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser ce guide pratique, il vous faut :
+
 - Un [Azure Database pour MySQL – Serveur flexible](quickstart-create-server-portal.md)
  
 ## <a name="specify-maintenance-schedule-options"></a>Spécifier les options de planification de la maintenance

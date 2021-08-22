@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a59d2e1931b07e035d85632cf84803989de14871
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e0f20b558e94010c948201b886fe376050cf3694
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320724"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525607"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -45,7 +45,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](./../agents/agent-windows.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](../vm/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Agents Linux](../vm/monitor-virtual-machine.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
 | [Groupe d’administration SCOM](../agents/om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 

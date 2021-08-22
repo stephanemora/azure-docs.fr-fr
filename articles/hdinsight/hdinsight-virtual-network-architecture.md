@@ -4,12 +4,12 @@ description: Découvrez les ressources disponibles pour créer un cluster HDInsi
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511f1b1bba227e58303a47994d7a6f7bd8b14604
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871671"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290986"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architecture de réseau virtuel Azure HDInsight
 
@@ -24,7 +24,6 @@ Les clusters Azure HDInsight présentent différents types de machines virtuelle
 | Nœud principal |  Pour tous les types de cluster, à l’exception d’Apache Storm, les nœuds principaux hébergent les processus en charge de l'exécution de l’application distribuée. Le nœud principal est aussi le nœud sur lequel vous pouvez établir une connexion SSH et exécuter des applications ensuite coordonnées pour s’exécuter sur les ressources du cluster. Le nombre de nœuds principaux est fixé à deux pour tous les types de cluster. |
 | Nœud Zookeeper | Zookeeper coordonne les tâches entre les nœuds qui assurent le traitement des données. Il désigne également le nœud principal et suit le nœud principal qui exécute un service maître spécifique. Le nombre de nœuds ZooKeeper est fixé à trois. |
 | Nœud Worker | Représente les nœuds qui prennent en charge des fonctionnalités de traitement des données. Les nœuds Worker peuvent être ajoutés ou supprimés du cluster pour mettre à l'échelle les capacités de calcul et gérer les coûts. |
-| Nœud de périphérie R Server | Le nœud de périphérie R Server représente le nœud sur lequel vous pouvez établir une connexion SSH et exécuter des applications ensuite coordonnées pour s’exécuter sur les ressources de cluster. Un nœud de périphérie ne participe pas activement à l’analyse de données au sein du cluster. Ce nœud héberge également R Studio Server, ce qui vous permet d’exécuter l’application R à l’aide d’un navigateur. |
 | Nœud de région | Pour le type de cluster HBase, le nœud de région (également appelé nœud de données) s’exécute le serveur de région. Les serveurs de région gèrent une partie des données gérées par HBase. Les nœuds région peuvent être ajoutés ou supprimés du cluster pour mettre à l'échelle les capacités de calcul et gérer les coûts.|
 | Nœud Nimbus | Pour le type de cluster Storm, le nœud Nimbus offre des fonctionnalités similaires à celles du nœud principal. Le nœud Nimbus attribue des tâches aux autres nœuds d'un cluster via Zookeeper, qui coordonne l’exécution des topologies Storm. |
 | Nœud superviseur | Pour le type de cluster Storm, le nœud superviseur exécute les instructions fournies par le nœud Nimbus afin de procéder au traitement. |

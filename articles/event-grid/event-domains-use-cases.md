@@ -3,18 +3,18 @@ title: Cas d’usage pour les domaines d’événements dans Azure Event Grid
 description: Cet article présente quelques cas d’usage des domaines d’événements dans Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 00318fc78053ed55e3599c329746d89d2eee4f99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 24a338717b44567bad0ec1575d98ddaeada71113
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204210"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413618"
 ---
 # <a name="use-cases-for-event-domains-in-azure-event-grid"></a>Cas d’usage pour les domaines d’événements dans Azure Event Grid
 Cet article présente quelques cas d’usage des domaines d’événements dans Azure Event Grid. 
 
 ## <a name="use-case-1"></a>Cas d’utilisation 1 
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="use-case-2"></a>Cas d’utilisation 2
 Il existe une limite de 500 abonnements aux événements lors de l’utilisation des rubriques système. Si vous avez besoin de plus de 500 abonnements aux événements pour une rubrique système, vous pouvez utiliser des domaines. 

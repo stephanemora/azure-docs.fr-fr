@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: be97b88156600121deb1b870940a1a40af84fbfc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 429a15c222e47bab29b314b0d11f7e077281b635
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025823"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635001"
 ---
 # <a name="variable-iteration-in-bicep"></a>Itération de variable dans Bicep
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs variables en procédan
 
   ```
 
-- Itération sur les éléments d’un tableau.
+- Par une itération sur les éléments d’un tableau.
 
   ```bicep
   var <variable-name> = [for <item>, <index> in <collection>: {
@@ -39,7 +39,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs variables en procédan
   }]
   ```
 
-- Utilisation d’un index de boucle.
+- Par l’utilisation de l’index d’une boucle.
 
   ```bicep
   var <variable-name> = [for <index> in range(<start>, <stop>): {
@@ -49,7 +49,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs variables en procédan
 
 ## <a name="loop-limits"></a>Limites des boucles
 
-Le nombre d’itérations de boucle du fichier Bicep ne peut être ni négatif, ni supérieur à 800. Pour déployer des fichiers Bicep, installez la dernière version des [outils Bicep](install.md).
+Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations. Pour déployer des fichiers Bicep, installez la dernière version des [outils Bicep](install.md).
 
 ## <a name="variable-iteration"></a>Itération de variable
 
@@ -127,17 +127,17 @@ Les exemples suivants illustrent des scénarios courants de création de plusieu
 
 |Modèle  |Description  |
 |---------|---------|
-|[Variables de boucle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopvariables.bicep) | Montre comment effectuer une itération sur des variables. |
-|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.bicep) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. Pour le paramètre, consultez [plusieurs fichiers de paramètre NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Variables de boucle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | Montre comment effectuer une itération sur des variables. |
+|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. Pour le paramètre, consultez [plusieurs fichiers de paramètre NSG](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître d’autres utilisations possibles des boucles, consultez :
+- Pour connaître les autres utilisations possibles des boucles, consultez :
   - [Itération de ressource dans les fichiers Bicep](loop-resources.md)
   - [Itération de propriété dans les fichiers Bicep](loop-properties.md)
   - [Itération de sortie dans les fichiers Bicep](loop-outputs.md)
 - Pour plus d’informations sur les différentes sections d’un fichier Bicep, consultez [Présentation de la structure et de la syntaxe des fichiers Bicep](file.md).
 - Pour plus d’informations sur le déploiement de plusieurs ressources, consultez [Utiliser des modules Bicep](modules.md).
-- Pour définir des dépendances sur des ressources créées dans une boucle, consultez [Définir des dépendances de ressources](./resource-declaration.md#set-resource-dependencies).
+- Pour définir des dépendances sur des ressources créées dans une boucle, consultez [Définir des dépendances de ressource](./resource-declaration.md#set-resource-dependencies).
 - Pour savoir comment effectuer un déploiement avec PowerShell, consultez [Déployer des ressources avec Bicep et Azure PowerShell](deploy-powershell.md).
 - Pour savoir comment effectuer un déploiement avec Azure CLI, consultez [Déployer des ressources avec Bicep et Azure CLI](deploy-cli.md).

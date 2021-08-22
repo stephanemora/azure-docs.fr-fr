@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82123180ca49510441f3e00228351a16c16bc10f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1d49d222ff26198be0b9b07df900fa4dfac6c07d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087289"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294111"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 
@@ -153,8 +153,6 @@ Un aspect à prendre en compte lors du choix d’une nouvelle valeur de réserva
 > [!IMPORTANT]
 > Les paramètres **maxmemory-reserved** and **maxfragmentationmemory-reserved** sont uniquement disponibles pour les caches Standard et Premium.
 >
-> La stratégie d’éviction `noeviction` est la seule stratégie de mémoire disponible pour un cache de niveau d’entreprise.
->
 
 #### <a name="keyspace-notifications-advanced-settings"></a>Notifications de Keyspace (paramètres avancés)
 
@@ -191,10 +189,10 @@ Chaque niveau tarifaire est associé à des limites spécifiques concernant les 
 
 | Métrique du cache Azure pour Redis | Informations complémentaires |
 | --- | --- |
-| Utilisation de la bande passante réseau |[Performances du cache - Bande passante disponible](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilisation de la bande passante réseau |[Performances du cache - Bande passante disponible](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Clients connectés |[Configuration du serveur Redis par défaut - nombre maximum de clients](#maxclients) |
 | Charge du serveur |[Graphiques d’utilisation - Charge du serveur Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilisation de la mémoire |[Performance du cache - Taille](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilisation de la mémoire |[Performance du cache - Taille](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 Pour mettre à niveau votre cache, sélectionnez **Mettre à niveau maintenant** afin de modifier le niveau tarifaire et de [mettre à l’échelle](#scale) votre cache. Pour plus d’informations sur le choix d’un niveau tarifaire, consultez [Choix du niveau approprié](cache-overview.md#choosing-the-right-tier).
 
@@ -424,7 +422,7 @@ Les nouvelles instances de cache Azure pour Redis sont configurées avec les val
   * P4 (53 à 530 Go) - jusqu’à 64 bases de données
   * Tous les caches de niveau Premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache Premium avec cluster Redis activé soit effectivement 1 et que la commande [Sélectionner](https://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-development-faq.md#what-are-redis-databases)
+Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-development-faq.yml#what-are-redis-databases-)
 
 > [!NOTE]
 > Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -517,4 +515,4 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-development-faq.md#how-can-i-run-redis-commands).
+* Pour plus d’informations sur l’utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-development-faq.yml#how-can-i-run-redis-commands-).

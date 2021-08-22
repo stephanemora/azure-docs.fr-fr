@@ -1,19 +1,20 @@
 ---
 title: Personnaliser un modèle de personne avec l’API Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Découvrez comment personnaliser un modèle de personne avec l’API Azure Video Analyzer for Media (anciennement Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 758b2b62b0ea7b321e20c2e724609b212abb6ef6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 01205b70b3f4195be290075727bece30d57c515e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385771"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121393"
 ---
 # <a name="customize-a-person-model-with-the-video-analyzer-for-media-api"></a>Personnaliser un modèle de personne avec l’API Video Analyzer for Media
 

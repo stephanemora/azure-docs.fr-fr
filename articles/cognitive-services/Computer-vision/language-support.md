@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9a52020ae09ff454af1d756dbff4041e96b2f798
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 2602dd939affff05fc658efcc3d13b6e99c30653
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901562"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322185"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -29,7 +29,7 @@ Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`|✔ | | |
 |Albanais |`sq`|✔ | | |
-|Arabe | `ar`| ✔ | | |
+|Arabe | `ar`|  | ✔ | |
 |Asturien |`ast`|✔ | | |
 |Basque  |`eu`| ✔ | | |
 |Bichelamar   |`bi`|✔ | | |

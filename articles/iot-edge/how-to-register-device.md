@@ -2,19 +2,18 @@
 title: Inscrire un nouvel appareil Azure IoT Edge | Microsoft Docs
 description: Inscrire un seul appareil IoT Edge dans IoT Hub pour l’approvisionnement manuel avec des clés symétriques ou certificats X.509
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b5d761cfa947b3fd4e5f718e603219c650e8dd72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c617b4c3558be2409c8bf2272e805a8b8cb9d349
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524153"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>Inscrire un appareil IoT Edge dans IoT Hub
 

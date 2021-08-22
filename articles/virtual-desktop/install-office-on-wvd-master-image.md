@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 09dda24d7bd177764f9d715256762e25cb4729a3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ca466110a3ac876df444aa380a4a2dde0384f1fa
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757568"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294122"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 
@@ -159,7 +159,7 @@ Voici la marche à suivre pour installer OneDrive en mode ordinateur par ordinat
 
 Azure Virtual Desktop ne prend pas en charge Skype Entreprise.
 
-Pour obtenir de l’aide sur l’installation de Microsoft Teams, consultez [Utilisation de Microsoft Teams sur Azure Virtual Desktop](teams-on-wvd.md). L’optimisation des médias pour Microsoft Teams sur Azure Virtual Desktop est disponible en préversion.
+Pour obtenir de l’aide sur l’installation de Microsoft Teams, consultez [Utilisation de Microsoft Teams sur Azure Virtual Desktop](./teams-on-avd.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

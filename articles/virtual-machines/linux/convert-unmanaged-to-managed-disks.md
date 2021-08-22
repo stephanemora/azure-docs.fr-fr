@@ -2,18 +2,18 @@
 title: Convertir une machine virtuelle Linux pour transformer les disques non managés en disques managés
 description: Découvrez comment convertir une machine virtuelle Linux pour transformer les disques non managés en disques managés à l’aide d’Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 136aa45783fb225901f5ea0221162890b8ba6309
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1a0bca9446cd6a04b8568ccebd8df006641e6dca
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026684"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297704"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 

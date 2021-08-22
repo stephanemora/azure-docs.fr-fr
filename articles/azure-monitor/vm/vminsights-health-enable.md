@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 472700f50175c115305bad332efa6b0e77fb74ce
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3855cc3dff2d29c659c6613e1321529745239c7c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315288"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634101"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Activer l’intégrité de l’invité de VM Insights (préversion)
 L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
@@ -38,6 +38,7 @@ La machine virtuelle doit se trouver dans l’une des régions suivantes :
 - Centre de l’Australie
 - Australie Est
 - Sud-Australie Est
+- Brésil Sud
 - Centre du Canada
 - Inde centrale
 - USA Centre
@@ -48,13 +49,16 @@ La machine virtuelle doit se trouver dans l’une des régions suivantes :
 - France Centre
 - Allemagne Centre-Ouest
 - Japon Est
+- OuJapon Est
 - Centre de la Corée
 - Centre-Nord des États-Unis
 - Europe Nord
+- Norvège Est
 - États-Unis - partie centrale méridionale
 - Afrique du Sud Nord
 - Asie Sud-Est
 - Suisse Nord
+- Émirats arabes unis Nord
 - Sud du Royaume-Uni
 - Ouest du Royaume-Uni
 - Centre-USA Ouest
@@ -68,6 +72,8 @@ L’espace de travail Log Analytics doit se trouver dans l’une des régions su
 - Centre de l’Australie
 - Australie Est
 - Sud-Australie Est
+- Brésil Sud
+- Brésil Sud-Est
 - Centre du Canada
 - Canada Inde
 - USA Centre
@@ -77,11 +83,15 @@ L’espace de travail Log Analytics doit se trouver dans l’une des régions su
 - USA Est 2 (EUAP)
 - France Centre
 - Japon Est
+- OuJapon Est
 - Centre-Nord des États-Unis
 - Europe Nord
+- Norvège Est
 - États-Unis - partie centrale méridionale
 - Asie Sud-Est
 - Suisse Nord
+- Suisse Ouest
+- Émirats arabes unis Nord
 - Sud du Royaume-Uni
 - Région Europe Ouest
 - USA Ouest
@@ -355,13 +365,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

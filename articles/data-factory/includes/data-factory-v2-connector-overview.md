@@ -2,14 +2,14 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/01/2021
+ms.date: 07/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: 0082bac41a615d078854ccfc76524c41db14c595
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: cd015ad73755ceaeb89b27b85df253f76440b927
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761233"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641516"
 ---
 | Category              | Banque de données                                                   | [Activité de copie](../copy-activity-overview.md) (source/récepteur) | [Mappage de flux de données](../concepts-data-flow-overview.md) (source/récepteur) | [Activité de recherche](../control-flow-lookup-activity.md) | [Activité d'obtention des métadonnées](../control-flow-get-metadata-activity.md)/[Activité de validation](../control-flow-validation-activity.md) | [Supprimer l’activité](../delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -71,7 +71,7 @@ ms.locfileid: "111761233"
 | **Protocole générique**  | [HTTP générique](../connector-http.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [OData générique](../connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [ODBC générique](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [REST générique](../connector-rest.md)   | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [REST générique](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              |
 | **Services et applications** | [Service web Amazon Marketplace](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Concur (préversion)](../connector-concur.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dataverse](../connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |

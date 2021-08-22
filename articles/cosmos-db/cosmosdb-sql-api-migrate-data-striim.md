@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 927711efc4469d26b3aaf00d38c11ad24466dfe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339594"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562509"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrer des données vers un compte d’API SQL Azure Cosmos DB à l’aide de Striim
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -199,6 +199,6 @@ En utilisant la solution Striim dans Azure, vous pouvez migrer en continu des do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Si vous migrez des données vers une API SQL Azure Cosmos DB, veuillez consulter [Comment migrer des données vers l’API Cassandra compte à l’aide de Striim](cosmosdb-cassandra-api-migrate-data-striim.md)
+* Si vous migrez des données vers une API SQL Azure Cosmos DB, veuillez consulter [Comment migrer des données vers l’API Cassandra compte à l’aide de Striim](cassandra/migrate-data-striim.md)
 
 * [Surveiller et déboguer vos données avec les métriques Azure Cosmos DB](use-metrics.md)

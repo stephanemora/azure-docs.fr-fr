@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: a3e21abe2f4ed24726256689af16b48ed6721ce8
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 9166b2fae5943f1ab264d0c69ad91c630337e1cb
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366145"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525446"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel .Node.js Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107366145"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -43,7 +43,7 @@ ms.locfileid: "107366145"
 |Télécharger le SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Documentation de l’API  |  [Documentation de référence sur le SDK JavaScript](/javascript/api/%40azure/cosmos/)
 |Instructions d’installation du SDK  |  [Instructions d’installation](https://github.com/Azure/azure-sdk-for-js)
-|Contribuer au SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+|Contribuer au SDK | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main)
 | Exemples | [Exemples de code Node.js](sql-api-nodejs-samples.md)
 | Tutoriel pour bien démarrer | [Bien démarrer avec le SDK JavaScript](sql-api-nodejs-get-started.md)
 | Tutoriel basé sur une application web | [Générer une application web Node.js à l’aide d’Azure Cosmos DB](sql-api-nodejs-application.md)
@@ -474,7 +474,7 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 | [1.0.0](#1.0.0) |8 avril 2015 |30 août 2020 |
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

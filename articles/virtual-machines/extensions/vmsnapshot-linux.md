@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9d7ad92e864e3da7860d08e8e3f569dd8ca14399
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d4f308857101cebefea0f37f2fe2c4f3ca9bfcef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789557"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112279772"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extension Linux de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 
@@ -77,7 +77,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de capture instant
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Cependant, la méthode recommandée permettant d’ajouter une extension de capture instantanée de machine virtuelle à une machine virtuelle passe par l’activation de la sauvegarde sur la machine virtuelle. Vous pouvez l’obtenir par le biais d’un modèle Resource Manager.  Un exemple de modèle Resource Manager activant la sauvegarde sur une machine virtuelle est à votre disposition dans la [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Cependant, la méthode recommandée permettant d’ajouter une extension de capture instantanée de machine virtuelle à une machine virtuelle passe par l’activation de la sauvegarde sur la machine virtuelle. Vous pouvez l’obtenir par le biais d’un modèle Resource Manager.  Un exemple de modèle Resource Manager activant la sauvegarde sur une machine virtuelle est à votre disposition dans la [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
@@ -92,9 +92,9 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
-## <a name="azure-powershell-deployment"></a>Déploiement d’Azure PowerShell
+## <a name="azure-powershell-deployment"></a>Déploiement Azure PowerShell
 
-Il est possible d’utiliser Azure Powershell pour activer la sauvegarde sur une machine virtuelle. Une fois la sauvegarde configurée, la première sauvegarde planifiée qui suit installe l’extension de capture instantanée de machine virtuelle sur la machine virtuelle.
+Il est possible d'utiliser Azure Powershell pour activer la sauvegarde sur une machine virtuelle. Une fois la sauvegarde configurée, la première sauvegarde planifiée qui suit installe l'extension de capture instantanée de machine virtuelle sur la machine virtuelle.
 
 ```azurepowershell
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "myResourceGroup" -Name "myRecoveryServicesVault"

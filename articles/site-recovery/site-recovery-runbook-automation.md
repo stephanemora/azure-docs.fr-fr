@@ -1,18 +1,18 @@
 ---
 title: Ajouter des runbooks Azure Automation à des plans de récupération Site Recovery
 description: Apprenez à étendre des plans de récupération avec Azure Automation pour la récupération d'urgence à l'aide d'Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.author: ramamill
-ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 07/15/2021
+ms.openlocfilehash: b6adcfb9a6756872bb7180606acdbbdceeb16d2f
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89424869"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219465"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 

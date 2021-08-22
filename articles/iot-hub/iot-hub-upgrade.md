@@ -2,18 +2,17 @@
 title: Mettre à niveau Azure IoT Hub | Microsoft Docs
 description: Modifier le niveau de tarification et de mise à l’échelle pour IoT Hub afin d’obtenir davantage de fonctionnalités de gestion de la messagerie et de l’appareil.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f306186fd079a32df68631055fcae6594d997d0d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "61440209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562917"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Procédure de mise à niveau de votre IoT Hub
 

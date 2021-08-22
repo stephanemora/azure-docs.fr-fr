@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
 ms.date: 02/28/2020
-ms.openlocfilehash: 6077db17258c40cef5c6cd987469612171e344d2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 874782828c4d7e63c0e1ad5ea607ddbd09b31881
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558563"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291264"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Se connecter à HDInsight (Apache Hadoop) avec SSH
 
@@ -22,7 +22,6 @@ Le tableau suivant contient les informations d’adresse et de port nécessaires
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nœud principal primaire |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nœud principal secondaire |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nœud de périphérie (ML Services sur HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nœud de périphérie (n’importe quel autre type de cluster, si un nœud de périphérie existe) |
 
 Remplacez `<clustername>` par le nom de votre cluster. Remplacez `<edgenodename>` par le nom du nœud de périmètre.
