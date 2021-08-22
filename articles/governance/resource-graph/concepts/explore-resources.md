@@ -1,14 +1,14 @@
 ---
 title: Explorer vos ressources Azure
 description: Apprenez à utiliser le langage de requête Resource Graph pour explorer vos ressources et découvrir comment elles sont connectées.
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: f76d163ca113617aa25917feb24908eb72d4f515
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 37650c3da17de5cbe3ae8c37da31d0975ea0cdf0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750878"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563894"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 

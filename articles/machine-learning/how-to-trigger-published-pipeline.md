@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 53f438fe6ccb1659bde65ffbc8de0acee85c1b28
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 473c6bde1e75070e0103137d9e24849f38c6d684
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884369"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112466696"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>Déclencher des pipelines de Machine Learning
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez apprendre à planifier un pipeline de manière prog
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
 * Environnement Python dans lequel le kit de développement logiciel (SDK) Azure Machine Learning pour Python est installé. Pour plus d’informations, consultez [Créez et gérez des environnements réutilisables pour la formation et le déploiement avec Azure Machine Learning.](how-to-use-environments.md)
 

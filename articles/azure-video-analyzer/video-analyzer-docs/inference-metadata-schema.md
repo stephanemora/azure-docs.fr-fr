@@ -2,13 +2,13 @@
 title: Schéma des métadonnées d’inférence – Azure
 description: Dans Azure Video Analyzer, chaque objet d’inférence, qu’un contrat basé sur HTTP ou sur gRPC soit utilisé, suit le modèle objet décrit dans cette rubrique.
 ms.topic: reference
-ms.date: 04/11/2021
-ms.openlocfilehash: 4400978fca931741a1a12531d7923b82a5ead3e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: bacf69638b3b9f9b8feb86030b1a8498eb69260a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386247"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601527"
 ---
 # <a name="inference-metadata-schema"></a>Schéma des métadonnées d’inférence 
 

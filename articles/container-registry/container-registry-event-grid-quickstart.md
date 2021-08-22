@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous activez les événements E
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 43dea2640c9c9445ea464205f6c586bc1e486206
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f355bb6db09d8e97d0678644ba94831fd4ca5253
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784022"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983821"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -142,6 +142,8 @@ Maintenant que l’exemple d’application est opérationnel et en cours d’ex�
 ### <a name="build-and-push-image"></a>Générer et envoyer (push) une image
 
 Exécutez la commande Azure CLI suivante pour générer une image de conteneur à partir du contenu d’un dépôt GitHub. Par défaut, ACR Tasks envoie (push) automatiquement une image générée avec succès à votre registre, ce qui génère l’événement `ImagePushed`.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main

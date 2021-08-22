@@ -8,12 +8,12 @@ ms.date: 06/01/2021
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.openlocfilehash: 550af8bda0768738dc2162a0dc0bf767d1c54741
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 7079c1ee309db9563142c54eea88ccd4ba6f6e28
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783027"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463636"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flux de travail d’intégration continue et de livraison continue pour LUIS DevOps
 
@@ -30,9 +30,9 @@ Dans votre gestionnaire de contrôle des services (GCL), configurez les pipeline
 
 Le **flux de travail CI/CD** combine deux processus de développement complémentaires :
 
-* [L’intégration continue (CI)](/azure/devops/learn/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment le code dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Associé à une approche de [test](luis-concept-devops-testing.md) automatisé, l’intégration continue nous permet de vérifier que, pour chaque mise à jour, la source LUDown est toujours valide et peut être importée dans une application LUIS, mais également qu’elle réussit les tests qui vérifient que l’application entraînée peut reconnaître les intentions et les entités requises pour votre solution.
+* [L’intégration continue (CI)](/devops/develop/what-is-continuous-integration) est la pratique d’ingénierie consistant à valider fréquemment le code dans un référentiel partagé et à effectuer une génération automatisée sur celle-ci. Associé à une approche de [test](luis-concept-devops-testing.md) automatisé, l’intégration continue nous permet de vérifier que, pour chaque mise à jour, la source LUDown est toujours valide et peut être importée dans une application LUIS, mais également qu’elle réussit les tests qui vérifient que l’application entraînée peut reconnaître les intentions et les entités requises pour votre solution.
 
-* La [livraison continue](/azure/devops/learn/what-is-continuous-delivery) (CD) permet au concept d’intégration continue de déployer automatiquement l’application dans un environnement de tests plus approfondis. Grâce à la livraison continue, nous pouvons découvrir rapidement tous les problèmes imprévus qui résultent des modifications apportées, mais aussi en savoir plus sur les potentielles failles de nos tests.
+* La [livraison continue](/devops/deliver/what-is-continuous-delivery) (CD) permet au concept d’intégration continue de déployer automatiquement l’application dans un environnement de tests plus approfondis. Grâce à la livraison continue, nous pouvons découvrir rapidement tous les problèmes imprévus qui résultent des modifications apportées, mais aussi en savoir plus sur les potentielles failles de nos tests.
 
 L’objectif de l’intégration continue et de la livraison continue est de s’assurer que la branche principale est toujours accessible. Pour une application LUIS, cela signifie que nous pourrions, si nécessaire, prendre n’importe quelle version de l’application de la branche principale LUIS et la livrer en production.
 

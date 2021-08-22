@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e9ba6dcf0a8f6f987206cac2881ada098a8bcc
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97724780"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635183"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utiliser le Stockage Azure pour la sauvegarde et la restauration de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +50,7 @@ Les composants Azure suivants sont utilisés pour les sauvegardes sur le stockag
 
 | Composant | Description |
 | --- | --- |
-| **Compte de stockage** |Le compte de stockage constitue le point de départ de tous les services de stockage. Pour accéder au stockage Blob Azure, commencez par créer un compte de stockage Azure. Pour plus d’informations sur le stockage Blob Azure, consultez [Utilisation du stockage Blob Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
+| **Compte de stockage** |Le compte de stockage constitue le point de départ de tous les services de stockage. Pour accéder au stockage Blob Azure, commencez par créer un compte de stockage Azure. SQL Server est indépendant du type de redondance de stockage utilisé. La sauvegarde vers des objets blob de pages et des objets blob de blocs est prise en charge pour chaque redondance de stockage (LRS\ZRS\GRS\RA-GRS\RA-GZRS\etc.). Pour plus d’informations sur le stockage Blob Azure, consultez [Utilisation du stockage Blob Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Conteneur** |Un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un stockage Blob Azure, au moins un conteneur racine doit être créé. |
 | **Objet blob** |Fichier de tout type et de toute taille. Les objets blob sont adressables au format d’URL suivant : `https://<storageaccount>.blob.core.windows.net/<container>/<blob>`. Pour plus d’informations sur les blobs, consultez [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) |
 

@@ -2,13 +2,13 @@
 title: Utilisez les modèles Azure Resource Manager pour créer des rubriques système dans Azure Event Grid
 description: Cet article explique comment utiliser les modèles Azure Resource Manager pour créer des rubriques système dans Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: 8420e60dd7336d17845a0a1c6b4e5e6637fe9c8a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86115160"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469458"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Créer des rubriques système dans Azure Event Grid à l’aide de modèles Resource Manager
 Cet article vous montre comment créer et gérer des rubriques système dans Resource Manager. Pour une présentation des rubriques système, consultez [Rubriques système](system-topics.md).

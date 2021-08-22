@@ -4,16 +4,16 @@ description: Dans cet article, vous apprendrez à créer et gérer des stratégi
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d874f9a75673d45a8f22f6c1523a4b77bdb9641
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89179604"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438064"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 
-Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure Recovery Services sont décrites dans la [documentation sur l’API REST policy](/rest/api/backup/protectionpolicies/createorupdate). Nous allons utiliser ce document comme référence pour créer une stratégie pour la sauvegarde de machine virtuelle Azure.
+Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure Recovery Services sont décrites dans la [documentation sur l’API REST policy](/rest/api/backup/protection-policies/create-or-update). Nous allons utiliser ce document comme référence pour créer une stratégie pour la sauvegarde de machine virtuelle Azure.
 
 ## <a name="create-or-update-a-policy"></a>Créer ou mettre à jour une stratégie
 
@@ -31,10 +31,10 @@ Par exemple, voici les composants du corps de la requête pour une stratégie de
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](/rest/api/backup/protection-policies/create-or-update#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
 |tags     |         | Object        |  Balises de ressource       |
 
-Pour obtenir la liste complète des définitions de corps de la requête, reportez-vous au [document sur l’API REST backup policy](/rest/api/backup/protectionpolicies/createorupdate).
+Pour obtenir la liste complète des définitions de corps de la requête, reportez-vous au [document sur l’API REST backup policy](/rest/api/backup/protection-policies/create-or-update).
 
 ### <a name="example-request-body"></a>Exemple de corps de demande
 
@@ -139,7 +139,7 @@ Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autr
 
 |Nom  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protection-policies/create-or-update#protectionpolicyresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
 
 ### <a name="example-responses"></a>Exemples de réponses

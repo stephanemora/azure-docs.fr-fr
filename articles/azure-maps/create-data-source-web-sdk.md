@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 60c15909f542ca4ef3e1f3fb87a98e66c12368ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792063"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669069"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
@@ -83,10 +83,10 @@ Une source de vignettes vectorielles décrit comment accéder à un calque de vi
 
 Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec), qui est un standard ouvert. Azure Maps fournit les services de vignettes vectorielles suivants dans le cadre de la plateforme :
 
-- Vignettes routières : [Documentation](/rest/api/maps/renderv2/getmaptilepreview) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Vignettes routières : [Documentation](/rest/api/maps/render-v2/get-map-tile) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Incidents de circulation : [Documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Débit de circulation : [Documentation](/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu V2-API Get Map Tile](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu V2-API Get Map Tile](/rest/api/maps/render-v2/get-map-tile)
 
 > [!TIP]
 > Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `{azMapsDomain}`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: fb28a431f9f2f136d177a5d51398bc2427a7134d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3c03a6a712190e972347b1e40c5583b5dc74792f
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540153"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564054"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -28,6 +28,8 @@ La solution Azure Cognitive Services correspond à des services cloud avec des A
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Créer une ressource Azure Cognitive Services
 

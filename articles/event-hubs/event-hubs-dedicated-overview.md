@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft 
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 5468588c0dc1dc8660c2ddfbb44c554029cffa0c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c398bd6bc17ef29f7a8fce30940ae4000b317754
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376115"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112412958"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -46,7 +46,7 @@ L’expérience en libre-service permettant de [créer un cluster Event Hubs](ev
 
 ## <a name="faqs"></a>FAQ
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

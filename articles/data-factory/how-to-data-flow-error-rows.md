@@ -3,15 +3,16 @@ title: Gérer les lignes d’erreur avec un mappage de flux de données dans Azu
 description: Découvrez comment gérer les erreurs de troncation SQL dans Azure Data Factory à l’aide du mappage de flux de données.
 author: kromerm
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: a7a03ff1a58f50f16ebefce48b9e2772a16a011a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4f4c1c334bb3720118b050947da6345116ef22f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386337"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641971"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Gérer les lignes d’erreur de troncation SQL dans Data Factory en mappant les flux de données
 

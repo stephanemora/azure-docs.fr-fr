@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7bf62eb2ab8d2ce82ce73e3e8ae26cf303b8ba67
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765878"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112452365"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Exécuter des scripts dans votre machine virtuelle Windows
 
@@ -35,7 +35,7 @@ Pour automatiser les tâches ou résoudre les problèmes, vous devrez peut-être
 La fonctionnalité [Commande d’exécution](run-command.md) permet l’administration de la machine virtuelle et de l’application, ainsi que le dépannage, à l’aide de scripts. Elle est disponible même lorsque la machine virtuelle n’est pas accessible, par exemple, si le pare-feu invité n’a pas le port RDP ou SSH ouvert.
 
 * Exécutez des scripts dans des machines virtuelles Azure.
-* L’exécution peut se faire à l’aide du [portail Azure](run-command.md), de [l’API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), de la [CLI Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) ou de [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* L’exécution peut se faire à l’aide du [portail Azure](run-command.md), de [l’API REST](/rest/api/compute/virtual-machines-run-commands/run-command), de la [CLI Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) ou de [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Exécutez rapidement un script et affichez la sortie, puis répétez autant que nécessaire dans le portail Azure.
 * Le script peut être tapé directement, ou vous pouvez exécuter l’un des scripts intégrés.
 * Exécutez le script PowerShell sur des ordinateurs Windows et le script Bash sur des ordinateurs Linux.

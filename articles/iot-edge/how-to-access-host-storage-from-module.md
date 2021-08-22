@@ -2,18 +2,17 @@
 title: Utiliser le stockage local d’un appareil IoT Edge à partir d’un module - Azure IoT Edge | Microsoft Docs
 description: Utilisez des variables d’environnement et créez des options pour permettre à un module d’accéder au stockage local d’un appareil IoT Edge.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 78752d4da42fe07461ae0e82b10343dc7219ad91
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6f2732f03b990d10b3ae15e472bf7600114c3a33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482056"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524237"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fournir à des modules l’accès au stockage local d’un appareil
 

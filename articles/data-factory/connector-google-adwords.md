@@ -1,18 +1,20 @@
 ---
 title: Copier des données à partir de Google AdWords
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Google AdWords vers des banques de données réceptrices prises en charge.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 10/25/2019
-ms.openlocfilehash: 38ba36c049076059192385694d10008615b0eafe
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 302fad48922c794e8cacde418dbc8ef7e29eac30
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487976"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641958"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory
 

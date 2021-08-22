@@ -9,17 +9,19 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd1ec5d11083c21511b39ba08fa2bfcf159bfc54
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655899"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525266"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Connecter les données du pare-feu d’application web (WAF) Azure
 
 Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. Le pare-feu d’applications web (WAF) Azure offre une protection centralisée de vos applications web contre les exploitations de faille de sécurité et des menaces telles que des injections de code et des scripts intersites. Le WAF Azure peut être déployé sur le service [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), le service [Azure Front Door](../web-application-firewall/afds/afds-overview.md), et via une stratégie de WAF [Azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) (en préversion).
 Vous pouvez connecter des journaux de WAF Azure à Azure Sentinel, ce qui vous permet d’afficher les données des journaux dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer votre investigation.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -66,5 +68,5 @@ Vous pouvez connecter des journaux de WAF Azure à Azure Sentinel, ce qui vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a appris à connecter les journaux du WAF Azure à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).

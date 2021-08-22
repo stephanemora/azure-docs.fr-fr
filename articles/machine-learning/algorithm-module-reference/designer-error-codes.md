@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
-ms.openlocfilehash: 1df93a987348ed54303f2d9118337dbc710bc3bc
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 03ae1ed134f6d25128d9846c5e5c9949a96f36fa
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001415"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679687"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -1092,9 +1092,9 @@ Le message d’erreur Hive est normalement rapporté dans le journal des erreurs
 
 Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive dans le cadre de l’apprentissage automatique :
 
-+ [Créer des tables Hive et charger des données à partir de Stockage Blob Azure](../team-data-science-process/move-hive-tables.md)
-+ [Explorer les données dans des tables avec des requêtes Hive](../team-data-science-process/explore-data-hive-tables.md)
-+ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](../team-data-science-process/create-features-hive.md)
++ [Créer des tables Hive et charger des données à partir de Stockage Blob Azure](/azure/architecture/data-science-process/move-hive-tables)
++ [Explorer les données dans des tables avec des requêtes Hive](/azure/architecture/data-science-process/explore-data-hive-tables)
++ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](/azure/architecture/data-science-process/create-features-hive)
 + [Aide-mémoire pour les utilisateurs Hive pour SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) (en anglais)
 
   

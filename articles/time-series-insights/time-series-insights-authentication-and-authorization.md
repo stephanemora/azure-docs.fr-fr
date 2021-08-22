@@ -10,13 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 68b7300219953b0f80bd40522c3f4ec961ec5262
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: bc479521d99111dd8cdfd36de981b83717068ed0
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613541"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527840"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -150,7 +150,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 | En-tête de requête obligatoire | Description |
 | --- | --- |
-| Autorisation | Pour l’authentification auprès d’Azure Time Series Insights, un jeton du porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate). |
+| Autorisation | Pour l’authentification auprès d’Azure Time Series Insights, un jeton du porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2020-12-01/authorization-server/create-or-update). |
 
 > [!TIP]
 > Pour savoir comment s’authentifier par programmation auprès des API Azure Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.

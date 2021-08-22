@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: 7c7476a3ab885e9c127cbd571ad723864bf0d898
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4ffafa5618de85a0d47a5cf8317aae6d6b5d6987
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534560"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563881"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurer des clés gérées par le client avec Azure Key Vault pour Cognitive Services
 
@@ -23,7 +23,7 @@ Le processus d’activation des clés gérées par le client avec Azure Key Vaul
 
 * [Chiffrement Custom Vision des données au repos](../custom-vision-service/encrypt-data-at-rest.md)
 * [Chiffrement des données au repos des services Visage](../face/encrypt-data-at-rest.md)
-* [Chiffrement Form Recognizer des données au repos](../form-recognizer/encrypt-data-at-rest.md)
+* [Chiffrement Form Recognizer des données au repos](../../applied-ai-services/form-recognizer/encrypt-data-at-rest.md)
 
 ## <a name="language"></a>Langage
 
@@ -39,7 +39,6 @@ Le processus d’activation des clés gérées par le client avec Azure Key Vaul
 
 * [Chiffrement des données au repos de Content Moderator](../Content-Moderator/encrypt-data-at-rest.md)
 * [Chiffrement des données au repos de Personalizer](../personalizer/encrypt-data-at-rest.md)
-* [Chiffrement des données au repos Metrics Advisor](../metrics-advisor/encryption.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

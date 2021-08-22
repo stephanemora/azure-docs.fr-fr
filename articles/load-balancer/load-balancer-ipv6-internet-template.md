@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f0c4f7f70dc186c29ffa5d90c6a7ea2f245f431
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90562517"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298076"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -50,7 +50,7 @@ Dans ce scénario, vous allez créer les ressources Azure suivantes :
 
 ## <a name="deploying-the-template-using-the-azure-portal"></a>Déploiement du modèle à l’aide du portail Azure
 
-Cet article fait référence à un modèle publié dans la galerie [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/). Vous pouvez télécharger le modèle à partir de la galerie ou lancer le déploiement dans Azure directement à partir de la galerie. Cet article suppose que vous avez téléchargé le modèle sur votre ordinateur local.
+Cet article fait référence à un modèle publié dans la galerie [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/). Vous pouvez télécharger le modèle à partir de la galerie ou lancer le déploiement dans Azure directement à partir de la galerie. Cet article suppose que vous avez téléchargé le modèle sur votre ordinateur local.
 
 1. Ouvrez le portail Azure, et connectez-vous avec un compte disposant des autorisations pour créer les machines virtuelles et les ressources de réseau au sein d’un abonnement Azure. En outre, sauf si vous utilisez des ressources existantes, le compte requiert une autorisation pour créer un groupe de ressources et un compte de stockage.
 2. Cliquez sur « +Nouveau » dans le menu, puis saisissez « modèle » dans la zone de recherche. Sélectionnez « Déploiement de modèle » dans les résultats de recherche.

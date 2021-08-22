@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
-ms.openlocfilehash: 33752c1ebb83c5d63e8e1cb396c52f01f07046cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a12d49a8057dfe059cecf6fd7896fd0a1567647
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244793"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114405074"
 ---
 Les ressources suivantes sont également disponibles :
 
@@ -19,7 +19,7 @@ Les ressources suivantes sont également disponibles :
 
 ## <a name="iot-hub-service-client-examples"></a>Exemples de clients du service IoT Hub
 
-Cette section présente des exemples Java utilisant le client de service IoT Hub et les classes **DeviceTwin** et **DeviceMethod** de l’espace de noms **com.microsoft.azure.sdk.iot.service.devicetwin**. Vous utilisez la classe **DeviceTwin** pour interagir avec l’état de l’appareil à l’aide de jumeaux d’appareil. Vous pouvez également utiliser la classe **DeviceTwin** pour [interroger les inscriptions d’appareils](../articles/iot-hub/iot-hub-devguide-query-language.md) dans votre IoT Hub. Vous utilisez la classe **DeviceMethod** pour appeler des commandes sur l’appareil. Le modèle [DTDL](../articles/iot-pnp/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente. Dans les extraits de code, la variable `deviceId` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
+Cette section présente des exemples Java utilisant le client de service IoT Hub et les classes **DeviceTwin** et **DeviceMethod** de l’espace de noms **com.microsoft.azure.sdk.iot.service.devicetwin**. Vous utilisez la classe **DeviceTwin** pour interagir avec l’état de l’appareil à l’aide de jumeaux d’appareil. Vous pouvez également utiliser la classe **DeviceTwin** pour [interroger les inscriptions d’appareils](../articles/iot-hub/iot-hub-devguide-query-language.md) dans votre IoT Hub. Vous utilisez la classe **DeviceMethod** pour appeler des commandes sur l’appareil. Le modèle [DTDL](../articles/iot-develop/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente. Dans les extraits de code, la variable `deviceId` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
 
 ### <a name="get-the-device-twin-and-model-id"></a>Récupérer le jumeau d’appareil et l’ID de modèle
 
@@ -115,7 +115,7 @@ System.out.println("Method result status is: " + result.getStatus());
 
 ## <a name="iot-hub-digital-twin-examples"></a>Exemples de jumeaux numériques IoT Hub
 
-Vous utilisez la classe **DigitalTwinAsyncClient** de l’espace de noms **com.microsoft.azure.sdk.iot.service.digitaltwin** pour interagir avec l’état de l’appareil à l’aide de jumeaux numériques. Les exemples suivants utilisent également les classes **UpdateOperationUtility** et **BasicDigitalTwin** à partir du même espace de noms. Le modèle [DTDL](../articles/iot-pnp/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente.
+Vous utilisez la classe **DigitalTwinAsyncClient** de l’espace de noms **com.microsoft.azure.sdk.iot.service.digitaltwin** pour interagir avec l’état de l’appareil à l’aide de jumeaux numériques. Les exemples suivants utilisent également les classes **UpdateOperationUtility** et **BasicDigitalTwin** à partir du même espace de noms. Le modèle [DTDL](../articles/iot-develop/concepts-digital-twin.md) pour l’appareil définit la télémétrie, les propriétés et les commandes que l’appareil implémente.
 
 La variable `digitalTwinid` contient l’ID d’appareil de l’appareil IoT Plug-and-Play inscrit auprès de votre hub IoT.
 
@@ -304,7 +304,7 @@ private static String prettyString(String str)
 
 Les appareils IoT Plug-and-Play envoient la télémétrie définie dans le modèle DTDL à IoT Hub. Par défaut, IoT Hub achemine la télémétrie vers un point de terminaison Event Hubs où vous pouvez l’utiliser. Pour en savoir plus, consultez [Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](../articles/iot-hub/iot-hub-devguide-messages-d2c.md).
 
-L’extrait de code suivant montre comment lire la télémétrie du point de terminaison Event Hubs par défaut. Le code de cet extrait provient du démarrage rapide IoT Hub [Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire depuis ce hub avec une application back-end](../articles/iot-hub/quickstart-send-telemetry-java.md) :
+L’extrait de code suivant montre comment lire la télémétrie du point de terminaison Event Hubs par défaut. Le code de cet extrait provient du démarrage rapide IoT Hub [Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire depuis ce hub avec une application back-end](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) :
 
 ```java
 import com.azure.messaging.eventhubs.EventHubClientBuilder;

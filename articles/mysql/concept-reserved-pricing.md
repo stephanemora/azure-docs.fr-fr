@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b1f51cd9e9f310c68834c16f83c182250a1a4eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e64acd29e8b1e2e60b3ae1b855f8552e277e824
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598034"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641125"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial pour le serveur MySQL, sur une période d’un ou de trois ans, afin de bénéficier d’une remise importante sur les coûts de calcul. Pour acheter une capacité réservée Azure Database pour MySQL, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme. </br>
 

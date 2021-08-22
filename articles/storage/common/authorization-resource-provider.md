@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09853e6dd96f41f966ff4344f886f1e6323b6c2c
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92789673"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733643"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -28,7 +28,7 @@ Microsoft fournit deux API REST pour l’utilisation des ressources Stockage Azu
 
 Une demande qui lit ou écrit des données d’objet blob nécessite des autorisations différentes d’une demande qui effectue une opération de gestion. Azure RBAC fournit un contrôle précis sur les autorisations pour les deux types de ressources. Quand vous affectez un rôle Azure à un principal de sécurité, veillez à bien comprendre les autorisations qui seront accordées à ce principal. Pour des informations de référence détaillées décrivant les actions associées à chaque rôle Azure intégré, consultez [Rôles Azure intégrés](../../role-based-access-control/built-in-roles.md).
 
-Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les demandes sur Stockage Blob et Stockage File d’attente. Pour plus d’informations sur les rôles Azure pour les opérations sur des données d’objet blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory](storage-auth-aad.md).
+Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les demandes sur Stockage Blob et Stockage File d’attente. Pour plus d’informations sur les rôles Azure pour les opérations sur des données d’objet blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory](authorize-data-access.md).
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Attribuer des autorisations de gestion avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)
 

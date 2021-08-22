@@ -3,19 +3,19 @@ title: Mettre à jour une commande à partir d’un point de terminaison web
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment mettre à jour l’état d’une commande à l’aide d’un appel à un point de terminaison web.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 9900d873de5efac89db13b80c0cc37167a0cee05
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563446"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>Mettre à jour une commande à partir d’un point de terminaison web
 
@@ -120,7 +120,7 @@ Connectons la fonction Azure à l’application Commandes personnalisées exista
 1. Sélectionnez **Test**.
 1. Envoyez `increment` plusieurs fois (il s’agit de l’exemple de phrase pour la commande `IncrementCounter`).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Capture d’écran montrant un exemple de compteur d’incréments.":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example-no-mic.png" alt-text="Capture d’écran montrant un exemple de compteur d’incréments.":::
 
 Notez que la fonction Azure incrémente la valeur du paramètre `Counter` à chaque passage.
 

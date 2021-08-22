@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 06fc48f8e90a0851613b2fe44410557c89862ac5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8100bca5d3628e571dc088de9d47a42e4035f109
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453508"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583605"
 ---
 # <a name="get-supported-document-formats"></a>Obtenir les formats de document pris en charge
 
@@ -33,7 +33,7 @@ Découvrez comment déterminer votre [nom de domaine personnalisé](../get-start
 > [!IMPORTANT]
 >
 > * **Toutes les requêtes d’API adressées au service Traduction de documentation nécessitent un point de terminaison de domaine personnalisé**.
-> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de document.
+> * Vous ne pouvez pas utiliser le point de terminaison qui se trouve dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP au service Traduction de documentation.
 
 ## <a name="request-headers"></a>En-têtes de requête
 
@@ -264,9 +264,43 @@ Code d’état : 200
                 "application/vnd.oasis.opendocument.spreadsheet"
             ],
             "versions": []
+        },
+        {
+            "format": "Markdown",
+            "fileExtensions": [
+                ".markdown",
+                ".mdown",
+                ".mkdn",
+                ".md",
+                ".mkd",
+                ".mdwn",
+                ".mdtxt",
+                ".mdtext",
+                ".rmd"
+            ],
+            "contentTypes": [
+                "text/markdown",
+                "text/x-markdown",
+                "text/plain"
+            ],
+            "versions": []
+        },
+        {
+            "format": "Mhtml",
+            "fileExtensions": [
+                ".mhtml",
+                ".mht"
+            ],
+            "contentTypes": [
+                "message/rfc822",
+                "application/x-mimearchive",
+                "multipart/related"
+            ],
+            "versions": []
         }
     ]
 }
+
 ```
 
 ### <a name="example-error-response"></a>Exemple de réponse d’erreur

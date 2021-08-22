@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 6dac3b8230a0bad9c6492b236eac5dddc1839471
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498861"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895775"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Démarrage mesuré et attestation de l’hôte
 Cet article explique la façon dont Microsoft garantit l’intégrité et la sécurité des hôtes par le biais du démarrage mesuré et de l’attestation de l’hôte.
@@ -55,6 +55,7 @@ Le [démarrage sécurisé](secure-boot.md) d’UEFI garantit que seuls les logic
 Pour plus d’informations sur ce que nous faisons pour assurer l’intégrité et la sécurité de la plateforme, consultez :
 
 - [Sécurité de microprogramme](firmware.md)
+- [Intégrité du code de la plateforme](code-integrity.md)
 - [Démarrage sécurisé](secure-boot.md)
 - [Project Cerberus](project-cerberus.md)
 - [Chiffrement au repos](encryption-atrest.md)

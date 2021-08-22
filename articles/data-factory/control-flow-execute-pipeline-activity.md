@@ -1,18 +1,21 @@
 ---
 title: Activité d’exécution du pipeline dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment vous pouvez utiliser l’activité d’exécution de pipeline pour appeler un pipeline Data Factory à partir d’un autre pipeline Data Factory.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c2f3d601e991fab77281351116624fa55a3b4dce
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b46fbddb2a6446eaa711a8ba2c548fff634eee48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641990"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activité d’exécution du pipeline dans Azure Data Factory
 
@@ -65,7 +68,7 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 name | Nom de l’activité d’exécution du pipeline. | String | Oui
 type | Doit avoir la valeur : **ExecutePipeline**. | String | Oui
 pipeline | Référence de pipeline au pipeline dépendant que pipeline appelle. Un objet de référence de pipeline comporte deux propriétés : **referenceName** et **type**. La propriété referenceName spécifie le nom du pipeline de référence. La propriété de type doit être définie sur PipelineReference. | PipelineReference | Oui
-parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | Non
+parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | No
 waitOnCompletion | Définit si l’exécution de l’activité attend l’exécution du pipeline dépendant. La valeur par défaut est false. | Boolean | Non
 
 ## <a name="sample"></a>Exemple

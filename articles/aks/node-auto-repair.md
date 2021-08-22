@@ -4,12 +4,12 @@ description: Découvrez la fonctionnalité de réparation automatique des nœuds
 services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 95783000739fd42e39ef1bbce88c3b8e62d4a8dc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6ca726445e7593898609c39e0a503405852098fc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073195"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563186"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Réparation automatique des nœuds AKS
 
@@ -40,7 +40,6 @@ Si AKS identifie un nœud non sain qui reste dans cet état pendant 10 minutes,
 
 1. Redémarrez le nœud.
 1. Si le redémarrage échoue, réinitialisez le nœud.
-1. Si la réinitialisation échoue, créez et réinitialisez un nouveau nœud.
 
 Des solutions alternatives sont étudiées par les ingénieurs d’AKS si la réparation automatique échoue. 
 

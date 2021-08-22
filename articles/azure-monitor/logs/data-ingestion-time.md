@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a6e63a1c5bbcf8c44f46cd87463fecb5d8b82f62
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035691"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122528010"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -80,7 +80,7 @@ La durée d’ingestion peut varier pour différentes ressources dans différent
 
 | Étape | Propriété ou fonction | Commentaires |
 |:---|:---|:---|
-| Enregistrement créé au niveau de la source de données | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Si la source de données ne définit pas cette valeur, elle est définie à la même heure que _TimeReceived. |
+| Enregistrement créé au niveau de la source de données | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>Si la source de données ne définit pas cette valeur, elle est définie à la même heure que _TimeReceived. |
 | Enregistrement reçu par le point de terminaison d’ingestion Azure Monitor | [_TimeReceived](./log-standard-columns.md#_timereceived) | Ce champ n’est pas optimisé pour le traitement de masse et ne doit pas être utilisé pour filtrer de grands jeux de données. |
 | Enregistrement stocké dans l’espace de travail et disponible pour les requêtes | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | Il est recommandé d’utiliser ingestion_time() s’il est nécessaire de filtrer uniquement les enregistrements qui ont été ingérés au cours d’une certaine fenêtre de temps. Dans ce cas, il est recommandé d’ajouter également un filtre TimeGenerated avec une plus grande plage. |
 
@@ -145,4 +145,4 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez le [contrat de niveau de service (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/) Azure Monitor.
+* Consultez le [contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/monitor/v1_3/) Azure Monitor.

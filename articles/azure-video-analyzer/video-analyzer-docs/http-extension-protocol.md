@@ -2,13 +2,13 @@
 title: Protocole d’extension HTTP – Azure
 description: Azure Video Analyzer vous permet d’étendre ses fonctionnalités de traitement via un nœud d’extension de pipeline. Le processeur d’extension HTTP permet des scénarios d’extensibilité à l’aide du protocole HTTP, où les performances et/ou l’utilisation optimale des ressources ne constituent pas la préoccupation principale.
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: 1f000ffd6368578ba9a6b5206af4b8ae5bf6cf00
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 0c87bf83692798fd416f9d416d1f2a217c99d40a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385780"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604847"
 ---
 # <a name="use-the-http-extension-protocol"></a>Utiliser le protocole d’extension HTTP 
 

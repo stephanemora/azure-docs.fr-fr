@@ -3,13 +3,13 @@ title: Enregistrer une vidéo pour la lire avec Azure Video Analyzer
 description: Cet article décrit l’enregistrement d’une vidéo à lire avec Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/30/2021
-ms.openlocfilehash: 73f4f1ba473910c9bad5d700f9b5a4b7475592d9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 4c5d0121df90791d8eb77782fb6d949548a0185e
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386199"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604357"
 ---
 # <a name="record-video-for-playback"></a>Enregistrer une vidéo à lire
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 06/23/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: ed3495bb7267c54f9b95f7fc3465d76ddde2faaa
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582024"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581886"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
@@ -28,7 +28,7 @@ Parmi les types d’informations d’identification qu’une application peut ut
 
 ## <a name="assertion-format"></a>Format d’assertion
 
-Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliothèques JWT dans la langue de votre choix. Pour permettre cela, [MSAL utilise `.WithCertificate()`](msal-net-client-assertions.md). Les informations sont transmises par le jeton dans son [En-tête ](#header), ses [Revendications](#claims-payload) et sa [Signature](#signature).
+Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliothèques JWT dans la langue de votre choix. Pour permettre cela, [MSAL utilise `.WithCertificate()`](msal-net-client-assertions.md). Les informations sont transmises par le jeton dans son En-tête , ses Revendications et sa Signature.
 
 ### <a name="header"></a>En-tête
 

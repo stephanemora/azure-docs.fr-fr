@@ -2,41 +2,42 @@
 title: Configurer l’attribution d’applications en libre-service | Microsoft Docs
 description: Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 506e29abe9c9a5c1c68fc3c0e53650ec51baf1b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: phsignor
+ms.openlocfilehash: 98848b4ee117a0c2e34e21b30a920fe22c8e02be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081152"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525210"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
 
-Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis Mes applications, vous devez activer l’option d’**accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. Cette fonctionnalité est disponible pour les applications qui ont été ajoutées à partir d’[Azure AD Gallery](./add-application-portal.md), d’[Azure AD Application Proxy](../app-proxy/application-proxy.md) ou par l’intermédiaire du [consentement utilisateur ou administrateur](../develop/application-consent-experience.md). 
+Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis Mes applications, vous devez activer l’option d’**accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. Cette fonctionnalité est disponible pour les applications qui ont été ajoutées à partir d’[Azure AD Gallery](./add-application-portal.md), d’[Azure AD Application Proxy](../app-proxy/application-proxy.md) ou par l’intermédiaire du [consentement utilisateur ou administrateur](../develop/application-consent-experience.md).
 
 Cette fonctionnalité est un excellent moyen pour un groupe informatique d’économiser du temps et de l’argent, et elle est recommandée dans le cadre d’un déploiement d’applications modernes avec Azure Active Directory.
 
 À l’aide de cette fonctionnalité, vous pouvez :
 
--   autoriser les utilisateurs à découvrir eux-mêmes des applications à partir de [Mes applications](https://myapps.microsoft.com/) sans déranger le groupe informatique.
+- autoriser les utilisateurs à découvrir eux-mêmes des applications à partir de [Mes applications](https://myapps.microsoft.com/) sans déranger le groupe informatique.
 
--   Ajouter ces utilisateurs à un groupe préconfiguré pour vous permettre de voir qui a demandé l’accès, de retirer l’accès et de gérer les rôles qui leur ont été attribués.
+- Ajouter ces utilisateurs à un groupe préconfiguré pour vous permettre de voir qui a demandé l’accès, de retirer l’accès et de gérer les rôles qui leur ont été attribués.
 
--   Éventuellement, autoriser un approbateur d’entreprise à approuver les demandes d’accès aux applications à la place du groupe informatique.
+- Éventuellement, autoriser un approbateur d’entreprise à approuver les demandes d’accès aux applications à la place du groupe informatique.
 
--   Éventuellement, configurer jusqu'à 10 personnes qui peuvent autoriser l’accès à cette application.
+- Éventuellement, configurer jusqu'à 10 personnes qui peuvent autoriser l’accès à cette application.
 
--   Éventuellement, autoriser un approbateur d’entreprise à définir des mots de passe dont ces utilisateurs peuvent se servir pour se connecter à l’application, directement depuis [Mes applications](https://myapps.microsoft.com/) sous l’approbateur d’entreprise.
+- Éventuellement, autoriser un approbateur d’entreprise à définir des mots de passe dont ces utilisateurs peuvent se servir pour se connecter à l’application, directement depuis [Mes applications](https://myapps.microsoft.com/) sous l’approbateur d’entreprise.
 
--   Éventuellement, attribuer automatiquement directement un rôle d’application à des utilisateurs affectés en libre-service.
+- Éventuellement, attribuer automatiquement directement un rôle d’application à des utilisateurs affectés en libre-service.
 
 > [!NOTE]
 > Une licence Azure Active Directory Premium (P1 ou P2) est requise pour que les utilisateurs puissent demander à rejoindre une application libre-service et pour permettre aux propriétaires d’approuver ou de refuser les demandes. Sans licence Azure Active Directory Premium, les utilisateurs ne peuvent pas ajouter d’applications libre-service.
@@ -78,4 +79,5 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 Lorsque vous avez terminé la configuration d’applications en libre-service, les utilisateurs peuvent accéder à [Mes applications](https://myapps.microsoft.com/) et cliquer sur le bouton **Ajouter des applications en libre-service** pour trouver les applications pour lesquelles vous avez activé l’accès en libre-service. Les approbateurs d’entreprise reçoivent également une notification dans [Mes applications](https://myapps.microsoft.com/). Vous pouvez leur envoyer une notification par e-mail les avertissant qu’un utilisateur a demandé l’accès à une application nécessitant leur approbation.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](../enterprise-users/groups-self-service-management.md)

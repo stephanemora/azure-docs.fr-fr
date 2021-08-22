@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 12/17/2020
-ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 770ee01d054aec084e9abd609af28e8125844e0f
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678424"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895865"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Vue d’ensemble de la sécurité pour Azure Data Share
 
@@ -30,8 +30,7 @@ Les contrôles d’accès à Azure Data Share peuvent être définis au niveau d
 Une fois qu’un partage a été créé ou reçu, les utilisateurs disposant des autorisations appropriées sur la ressource Data Share peuvent y apporter des modifications. Si un utilisateur ayant créé ou reçu un partage quitte l’organisation, cela n’entraine pas l’interruption du partage ou l’arrêt du flux des données. Les autres utilisateurs disposant des autorisations appropriées sur la ressource Data Share peuvent continuer à gérer le partage.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>Partager des données à partir de ou vers des magasins de données avec le pare-feu activé
-Pour partager des données à partir de ou vers des comptes de stockage avec le pare-feu activé, vous devez sélectionner **Autoriser les services Microsoft approuvés** dans votre compte de stockage. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](
-https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) pour obtenir des détails.
+Pour partager des données à partir de ou vers des comptes de stockage avec le pare-feu activé, vous devez sélectionner **Autoriser les services Microsoft approuvés** dans votre compte de stockage. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](../storage/common/storage-network-security.md#trusted-microsoft-services) pour obtenir des détails.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

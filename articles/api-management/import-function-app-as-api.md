@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: apimpm
-ms.openlocfilehash: 8e8047fc6865bab8f4aac2315b269bf7526b1e42
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: cf4ff32af5b0960d22496512e8d624df0f4cf5e5
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599286"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669243"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -125,7 +125,7 @@ L’importation d’une application de fonction Azure génère automatiquement :
 * Une clé d’hôte au sein de l’application de fonction portant le nom apim-{*nom de votre instance de service Gestion des API Azure*}.
 * Une valeur nommée au sein de l’instance de Gestion des API Azure portant le nom {*nom de votre instance d’Azure Function App*}-key, qui contient la clé d’hôte créée.
 
-Pour les API créées après le 4 avril 2019, la clé d’hôte est passée dans les requêtes HTTP de la Gestion des API vers l’application de fonction dans un en-tête. Les API plus anciennes transmettent la clé d’hôte sous la forme d’[un paramètre de requête](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Vous pouvez changer ce comportement par le biais de l’[appel à l’API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sur l’entité *Back-end* associée à l’application de fonction.
+Pour les API créées après le 4 avril 2019, la clé d’hôte est passée dans les requêtes HTTP de la Gestion des API vers l’application de fonction dans un en-tête. Les API plus anciennes transmettent la clé d’hôte sous la forme d’[un paramètre de requête](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Vous pouvez changer ce comportement par le biais de l’[appel à l’API REST](/rest/api/apimanagement/2020-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sur l’entité *Back-end* associée à l’application de fonction.
 
 > [!WARNING]
 > En cas de suppression ou de modification de la valeur de la clé d’hôte Azure Function App ou de la valeur nommée de Gestion des API Azure, la communication entre les services est interrompue. Les valeurs ne se synchronisent pas automatiquement.

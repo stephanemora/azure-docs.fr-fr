@@ -3,12 +3,12 @@ title: Exporter vers SQL à partir d’Application Insights | Microsoft Docs
 description: Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 7627ae6dabb75782549ed17fc6e590b7bc7da77d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4629a99aba45df1ae834ec8236131dd8214b13b5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092743"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767202"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 Cet article explique comment déplacer vos données de télémétrie d’[Azure Application Insights][start] vers Azure SQL Database à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -20,6 +20,9 @@ L’exportation continue déplace vos données de télémétrie vers le stockage
 Nous allons partir du principe que vous disposez déjà de l’application que vous voulez analyser.
 
 Dans cet exemple, nous allons utiliser les données d’affichage de page. Toutefois, le même modèle peut facilement être étendu à d’autres types de données, tels que des événements et des exceptions personnalisés. 
+
+> [!IMPORTANT]
+> L’exportation continue est déconseillée. Elle n’est prise en charge que pour les ressources Application Insights classiques. [Migrez vers une ressource Application Insights basée sur un espace de travail](convert-classic-resource.md) pour utiliser les [paramètres de diagnostic](export-telemetry.md#diagnostic-settings-based-export) pour l’exportation des données de télémétrie.
 
 ## <a name="add-application-insights-to-your-application"></a>Ajouter Application Insights à votre application
 Pour commencer :

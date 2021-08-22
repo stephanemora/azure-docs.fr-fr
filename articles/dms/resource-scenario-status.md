@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 237de7e75007de85054501ed76b253a6eedf4346
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: a57f13b9dc54c69e079e652be94f4b08b716a079
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528367"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112523057"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -53,12 +53,12 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Machine virtuelle Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB pour MySQL – Serveur unique** | MySQL | ✔ | Version préliminaire publique  |
-|   | RDS MySQL | ✔ | Version préliminaire publique  |
-|   | Azure DB pour MySQL* | ✔ | Version préliminaire publique  |
-| **Azure DB pour MySQL – Serveur flexible** | MySQL | ✔ | Version préliminaire publique  |
-|   | RDS MySQL | ✔ | Version préliminaire publique  |
-|   | Azure DB pour MySQL* | ✔ | Version préliminaire publique  |
+| **Azure DB pour MySQL – Serveur unique** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB pour MySQL* | ✔ | GA  |
+| **Azure DB pour MySQL – Serveur flexible** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB pour MySQL* | ✔ | GA  |
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **Azure DB pour PostgreSQL – Serveur flexible** | PostgreSQL | X |
@@ -81,8 +81,8 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Machine virtuelle Azure SQL** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Base de données Azure pour MySQL** | MySQL | ✔ | GA |
-|   | RDS MySQL | ✔ | GA |
+| **Base de données Azure pour MySQL** | MySQL | X |  |
+|   | RDS MySQL | X |  |
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | ✔ | GA |
 |   | Azure DB pour PostgreSQL - Serveur unique* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d86e0fe4a1dac4d9d780e0e14d6736b755f932
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339272"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524101"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -69,14 +69,11 @@ Vous pouvez paralléliser le traitement des modifications sur plusieurs clients,
 
 Il n’existe aucune garantie de remise « au moins une fois » avec le modèle pull. Le modèle pull vous permet de contrôler avec précision comment gérer les erreurs.
 
-> [!NOTE]
-> Le modèle pull du flux de modification n’est actuellement disponible qu’en [préversion dans le SDK .NET Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview). La préversion n’est pas encore disponible pour d’autres versions du SDK.
-
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Flux de modification dans les API pour Cassandra et MongoDB
 
-La fonctionnalité de flux de modification apparaît comme des flux de modification dans l’API MongoDB et sous la forme Interroger avec un prédicat dans l’API Cassandra. Pour en savoir plus sur les détails d’implémentation de l’API MongoDB, consultez les [flux de modification dans l’API Azure Cosmos DB pour MongoDB](mongodb-change-streams.md).
+La fonctionnalité de flux de modification apparaît comme des flux de modification dans l’API MongoDB et sous la forme Interroger avec un prédicat dans l’API Cassandra. Pour en savoir plus sur les détails d’implémentation de l’API MongoDB, consultez les [flux de modification dans l’API Azure Cosmos DB pour MongoDB](mongodb/change-streams.md).
 
-Native Apache Cassandra propose la capture des changements de données (CDC), un mécanisme de marquage de tables spécifiques à des fins d’archivage, mais aussi de rejet des écritures dans ces tables une fois que la taille sur disque configurable du journal CDC est atteinte. La fonctionnalité de flux de modification dans l’API Azure Cosmos DB pour Cassandra améliore la capacité à interroger les modifications avec un prédicat par le biais du langage CQL. Pour en savoir plus sur les détails d’implémentation, consultez [Flux de modification dans l’API Azure Cosmos DB pour Cassandra](cassandra-change-feed.md).
+Native Apache Cassandra propose la capture des changements de données (CDC), un mécanisme de marquage de tables spécifiques à des fins d’archivage, mais aussi de rejet des écritures dans ces tables une fois que la taille sur disque configurable du journal CDC est atteinte. La fonctionnalité de flux de modification dans l’API Azure Cosmos DB pour Cassandra améliore la capacité à interroger les modifications avec un prédicat par le biais du langage CQL. Pour en savoir plus sur les détails d’implémentation, consultez [Flux de modification dans l’API Azure Cosmos DB pour Cassandra](cassandra/cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

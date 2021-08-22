@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 930fecda6a962c031b3e358fc640a41cc7b85d68
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 05df955e85bf5de12e3cc8892b1a2323947dd66f
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075094"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114227859"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
 
@@ -42,7 +42,7 @@ Si vous avez un environnement hybride, avec Azure AD et un AD local, il est prob
 >[!NOTE]
 > Windows Hello Entreprise nécessite une configuration supplémentaire pour activer l’authentification unique locale depuis un appareil joint à Azure AD. Pour plus d’informations, consultez [Configurer des appareils joints à Azure AD pour l’authentification unique locale avec Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 >
-> L’authentification sans mot de passe basée sur une clé de sécurité FIDO2 avec Windows 10 exige une configuration supplémentaire pour activer l’authentification unique locale à partir d’un appareil joint Azure AD. Pour plus d’informations, consultez [Activation de la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). 
+> L’authentification sans mot de passe basée sur une clé de sécurité FIDO2 avec Windows 10 exige une configuration supplémentaire pour activer l’authentification unique locale à partir d’un appareil joint Azure AD. Pour plus d’informations, consultez [Activation de la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
 
 Lors d’une tentative d’accès à une ressource demandant Kerberos ou NTLM dans l’environnement local de l’utilisateur, l’appareil :
 
@@ -75,4 +75,4 @@ Vous ne pouvez pas partager des fichiers avec d’autres utilisateurs sur un app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md). 
+Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).

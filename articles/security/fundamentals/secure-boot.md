@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: feb28b1d448d0146046ed789d1389a3a42f344de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: e14bd525f2f81cfdf0a61f29df919f5579f0be17
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557349"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893939"
 ---
 # <a name="secure-boot"></a>Démarrage sécurisé
 
@@ -56,6 +56,7 @@ Valider que les codes de hachage db et dbx sont corrects garantit que :
 Pour plus d’informations sur ce que nous faisons pour assurer l’intégrité et la sécurité de la plateforme, consultez :
 
 - [Sécurité de microprogramme](firmware.md)
+- [Intégrité du code de la plateforme](code-integrity.md)
 - [Démarrage mesuré et attestation de l’hôte](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)
 - [Chiffrement au repos](encryption-atrest.md)

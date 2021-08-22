@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a452808b1c349e2aec91759675e269e3680f0598
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 750fc421cd644ec41384d43705b41602df24719b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567959"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525402"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Optimiser la qualité du rowgroup pour améliorer le niveau de performance de l’index columnstore
 
@@ -137,8 +137,8 @@ OPTION (MAXDOP 1);
 
 La taille de DWU et la classe de ressources utilisateur déterminent ensemble la quantité de mémoire disponible pour une requête utilisateur. Pour augmenter l’allocation de mémoire pour une requête de chargement, vous pouvez augmenter soit le nombre de DWU, soit la classe de ressources.
 
-- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
+- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](../sql-data-warehouse/quickstart-scale-compute-portal.md?context=/azure/synapse-analytics/context/context).
+- Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context#change-a-users-resource-class).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

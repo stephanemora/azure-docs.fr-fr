@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 863b10f0ff41c1e28a59357f07be983715adbb55
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e6ef72031f000c0b638d47e235b75eccf3f885f8
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131419"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461392"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Mettre à niveau le système d’exploitation hôte de l’instance de calcul et du cluster de calcul
 
@@ -40,7 +40,7 @@ Si vous avez des clusters de calcul ou des instances de calcul existants créés
     * Si le cluster est configuré avec __min nodes = 0__, il est automatiquement mis à niveau lorsque toutes les tâches sont terminées et qu’il est réduit à zéro nœud.
     * Si __min nodes > 0__, modifiez temporairement le nombre minimal de nœuds sur zéro et autorisez le cluster à être réduit à zéro nœud.
 
-    Pour plus d’informations sur la modification du minimum de nœuds, consultez la commande Azure CLI [az ml computetarget update amlcompute](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) ou la référence du SDK pour [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
+    Pour plus d’informations sur la modification du minimum de nœuds, consultez la commande Azure CLI [az ml computetarget update amlcompute](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_amlcompute) ou la référence du SDK pour [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
 
 * __Instance de calcul Azure Machine Learning__ : créez une nouvelle instance de calcul (qui utilisera Ubuntu 18.04) et supprimez l’ancienne.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 05/19/2021
 ms.author: tomfitz
-ms.openlocfilehash: 1dd2c8af8c58a78a891ca4863200623d938383c5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 201f04b8553ce31c016074b483b23cb329e4fb7c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482177"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563394"
 ---
 # <a name="what-is-elastic-integration-with-azure"></a>Qu’est-ce que l’intégration d’Elastic à Azure ?
 
@@ -36,7 +36,7 @@ Voici les principales fonctionnalités fournies par l’intégration d’Elastic
 
 ## <a name="elastic-links"></a>Liens Elastic
 
-Pour plus d’informations sur l’utilisation du service Elastic, consultez la [documentation d’Elastic](https://azure-native-02.docs-preview.app.elstc.co/guide/en/cloud/master/ec-azure-marketplace-native.html) relative à l’intégration à Azure.
+Pour plus d’informations sur l’utilisation du service Elastic, consultez la [documentation d’Elastic](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) relative à l’intégration à Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

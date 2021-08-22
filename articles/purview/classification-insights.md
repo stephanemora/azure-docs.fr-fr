@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 057d097eb66eddffc15bb65bfb9e6fb64209e5f8
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666522"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527777"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
@@ -35,7 +35,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
-- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
 

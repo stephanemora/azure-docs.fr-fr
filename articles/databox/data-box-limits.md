@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/05/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 820daf5400d60df85973d45840bd7a4a1c553198
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900159"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463916"
 ---
 # <a name="azure-data-box-limits"></a>Limites d’Azure Data Box
 
@@ -51,7 +51,7 @@ Les mises en garde Data Box pour un ordre d’exportation incluent :
 - En présence de balises en double dans les fichiers d’entrée ou de balises faisant référence aux mêmes données, l’exportation Data Box peut ignorer ou remplacer les fichiers. Le nombre de fichiers et la taille des données affichés sur le portail Azure peuvent différer de la taille réelle des données sur l’appareil. 
 - Data Box exporte des données vers un système Windows sur SMB et est soumis aux limitations SMB pour les fichiers et les dossiers. Les fichiers et dossiers dont les noms ne sont pas pris en charge ne sont pas exportés.
 - Il existe un mappage de 1:1 entre le préfixe et le conteneur.
-- La taille maximale du nom de fichier est de 1 024 caractères. Les noms de fichiers qui dépassent cette longueur ne sont pas exportés.
+- La taille maximale du nom de fichier est de 1 024 caractères. Les noms de fichiers qui dépassent cette longueur ne sont pas exportés. 
 - Les préfixes dupliqués dans le fichier *xml* (chargé lors de la création de l’ordre) sont exportés. Les préfixes dupliqués ne sont pas ignorés.
 - Les objets blob de pages et les noms de conteneur respectent la casse. Si la casse ne correspond pas, les objets blob et/ou les conteneurs sont introuvables.
  

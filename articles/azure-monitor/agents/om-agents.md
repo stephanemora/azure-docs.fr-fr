@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 99a8e331e265e686d1de06f8143d2345e51143f1
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 6f5085bbb39aef007c0bda840240fc3c064f8e6a
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612998"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690815"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -108,7 +108,7 @@ Lors de l’inscription initiale de votre groupe d’administration Operations M
 
 1. Ouvrez une invite de commande avec élévation de privilèges.
    a. Allez à **Démarrer** et entrez **cmd**.
-   b. Cliquez avec le bouton de droite sur **Invite de commande** et sélectionnez Exécuter en tant qu’administrateur**.
+   b. Cliquez avec le bouton droit sur **Invite de commandes** et sélectionnez **Exécuter en tant qu’administrateur**.
 1. Saisissez la commande suivante, puis appuyez sur **Entrée** :
 
     `netsh winhttp set proxy <proxy>:<port>`

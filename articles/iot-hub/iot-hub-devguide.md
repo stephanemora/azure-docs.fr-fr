@@ -2,19 +2,18 @@
 title: Guide du développeur pour Azure IoT Hub | Microsoft Docs
 description: Le guide du développeur Azure IoT Hub porte sur les points de terminaison, la sécurité, le registre des identités, la gestion des appareils, les méthodes directes, les jumeaux d’appareil, les chargements de fichiers, les tâches, le langage de requête IoT Hub et la messagerie.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cecb59c065a223f433fc1f4c516a67e42af559c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009196"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524287"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guide du développeur Azure IoT Hub
 

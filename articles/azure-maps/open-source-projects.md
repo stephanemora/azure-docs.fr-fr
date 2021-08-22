@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b00561875d7c8c08061c9fcbe46a88815ef2f32c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 245979140b2d5214dcbb9ba8456cc90d8b8fd864
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784640"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669331"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -59,7 +59,7 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 |-|-|
 | [Exemples de code Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Collection d’exemples de code pour l’utilisation d’Azure Maps dans des applications basées sur le web. |
 | [Exemples de code Azure Maps Gov Cloud](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Collection d’exemples de code pour l’utilisation d’Azure Maps via Azure Government Cloud. |
-| [Exemples Azure Maps et Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Collection d’exemples qui montrent comment utiliser Azure Active Directory avec Azure Maps. | 
+| [Exemples Azure Maps et Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Collection d’exemples qui montrent comment utiliser Azure Active Directory avec Azure Maps. |
 | [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Exemple d’application permettant de visualiser en direct des données IoT sur des cartes d’intérieur en utilisant Azure Maps Creator. |
 | [Exemples Jupyter Notebook Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Collection d’exemples python utilisant les services Azure Maps REST. |
 | [Contrôle à distance IoT UWP Azure Maps .NET](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Cet exemple d’application montre comment créer une carte contrôlée à distance à l’aide des services Azure Maps et IoT Hub. |
@@ -70,9 +70,9 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 
 | Nom du projet | Description |
 |-|-|
-| [Plug-in Cesium Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Plug-in [Cesium JS](https://cesium.com/cesiumjs/) qui facilite l’intégration de services Azure Maps tels que les [couches de mosaïques](/rest/api/maps/renderv2/getmaptilepreview) et les [services de géocodage](/rest/api/maps/search). |
-| [Plug-in Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet) | Plug-in JavaScript de [Leaflet](https://leafletjs.com/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
- | [Plug-in OpenLayers Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Plug-in JavaScript [OpenLayers](https://www.openlayers.org/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+| [Plug-in Cesium Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Plug-in [Cesium JS](https://cesium.com/cesiumjs/) qui facilite l’intégration de services Azure Maps tels que les [couches de mosaïques](/rest/api/maps/render-v2/get-map-tile) et les [services de géocodage](/rest/api/maps/search). |
+| [Plug-in Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet) | Plug-in JavaScript de [Leaflet](https://leafletjs.com/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/render-v2/get-map-tile). |
+ | [Plug-in OpenLayers Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Plug-in JavaScript [OpenLayers](https://www.openlayers.org/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](/rest/api/maps/render-v2/get-map-tile). |
 
 **Outils et ressources**
 

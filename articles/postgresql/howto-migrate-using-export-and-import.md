@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 4ee296ae5f4d5036c1b0540dfb3eed3bc7f5e964
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5b8f07ed32931533383475f936a3d1f08b7e3960
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135524"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527899"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migration de votre base de données PostgreSQL par exportation et importation
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
@@ -30,7 +30,7 @@ Suivez ces étapes pour exporter et importer votre base de données PostgreSQL.
 Pour exporter votre base de données PostgreSQL existante en local ou dans une machine virtuelle vers un fichier de script sql, exécutez la commande suivante dans votre environnement existant :
 
 ```bash
-pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
+pg_dump --host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
 Par exemple, si vous avez un serveur local contenant une base de données appelée **testdb** :
 ```bash

@@ -2,14 +2,14 @@
 title: Authentifier l’accès à Azure Event Hubs à l’aide de signatures d’accès partagé
 description: Cet article explique comment authentifier l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 12e129686bdde9b03e1c284e0f54cb31e32469c3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: f647dd21db2920bff01ac5929c527e66f8d7350b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903002"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708529"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -222,7 +222,7 @@ Pour authentifier les applications back-end qui consomment des données génér�
 Voir les articles suivants :
 
 - [Autorisation avec des signatures d’accès partagé](authenticate-shared-access-signature.md)
-- [Autorisation avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](authenticate-shared-access-signature.md)
+- [Autorisation avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](authorize-access-azure-active-directory.md)
 - [En savoir plus sur Event Hubs](event-hubs-about.md)
 
 Consultez les articles associés suivants :

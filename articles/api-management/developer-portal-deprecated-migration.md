@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 6ef07743b7def1c49744185f153d13bb24719652
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738879"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667912"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrer vers le nouveau portail des développeurs
 
@@ -53,7 +53,7 @@ Lorsque vous migrez depuis le portail déconseillé, gardez à l’esprit les mo
 - Si vous avez modifié les modèles de notification par e-mail par défaut pour inclure une URL du portail déconseillé qui est explicitement définie, modifiez-les pour qu’ils utilisent le paramètre « URL du portail » ou pointent vers l’URL du nouveau portail. Si les modèles utilisent le paramètre « URL du portail » intégré à la place, aucune modification n’est requise.
 - *Problèmes* et *Applications* ne sont pas pris en charge dans le nouveau portail des développeurs.
 - L’intégration directe à Facebook, Microsoft, Twitter et Google comme fournisseurs d’identité n’est pas prise en charge dans le nouveau portail des développeurs. Vous pouvez intégrer ces fournisseurs à l’aide d’Azure AD B2C.
-- Si vous utilisez la délégation, modifiez l’URL de retour dans vos applications et utilisez le [point de terminaison d’API *Recevoir un jeton d’accès partagé*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) au lieu du point de terminaison *Générer l’URL SSO*.
+- Si vous utilisez la délégation, modifiez l’URL de retour dans vos applications et utilisez le [point de terminaison d’API *Recevoir un jeton d’accès partagé*](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) au lieu du point de terminaison *Générer l’URL SSO*.
 - Si vous utilisez Azure AD en tant que fournisseur d’identité :
 
     - Modifiez l’URL de retour dans votre application pour qu’elle pointe vers le nouveau domaine du portail des développeurs.

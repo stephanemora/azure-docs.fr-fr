@@ -6,12 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e45a9cfe8a372247c7ac3550c65a5a30e3fd7cb6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578323"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525592"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Mise en corrélation de données Application Insights avec des sources de données personnalisées
 
@@ -31,7 +31,7 @@ Vous pouvez avoir besoin de données personnalisées dans les situations suivant
 
 Dans cette section, vous allez importer vos données dans les journaux d’activité Azure Monitor.
 
-Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../vm/quick-collect-azurevm.md) jusqu’à l’étape relative à la « création d’un espace de travail ».
+Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../vm/monitor-virtual-machine.md) jusqu’à l’étape relative à la « création d’un espace de travail ».
 
 Pour commencer à envoyer des données de journal dans Azure Monitor. Vous disposez de plusieurs options :
 

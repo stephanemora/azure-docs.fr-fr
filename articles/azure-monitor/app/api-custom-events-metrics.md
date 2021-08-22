@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 75576056162bf869c20706bed22c31785a8ea2a0
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 648c9ee1de00ef638354a287e43fa234610e9dc7
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060297"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291501"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -177,7 +177,7 @@ Pour envoyer une seule valeur métrique :
 *JavaScript*
 
 ```javascript
-appInsights.trackMetric("queueLength", 42.0);
+appInsights.trackMetric({name: "queueLength", average: 42});
 ```
 
 *C#*
@@ -1087,7 +1087,6 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
   * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » quand vous inspectez un événement dans la Recherche de diagnostic.
   * **Name** : un identificateur, généralement l’URL de la requête HTTP.
   * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, elle est exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session**: la session utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
 * **Utilisateur** : informations utilisateur.
 
@@ -1126,4 +1125,4 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
 * [Recherche d’événements et de journaux d’activité](./diagnostic-search.md)
-* [Dépannage](../faq.md)
+* [Dépannage](../faq.yml)

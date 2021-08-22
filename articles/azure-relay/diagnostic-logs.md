@@ -2,13 +2,13 @@
 title: Journaux de diagnostic pour les connexions hybrides
 description: Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics disponibles pour Azure Relay.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 06/23/2021
+ms.openlocfilehash: cfcbdacb7b4266601f4669a20013bb6a5a5331a6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079095"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666266"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Activer les journaux de diagnostic pour les connexions hybrides Azure Relay
 Lorsque vous commencez à utiliser vos connexions hybrides Azure Relay, vous pouvez surveiller le mode et le moment d’ouverture et de fermeture de vos écouteurs et expéditeurs, ainsi que la façon dont vos connexions hybrides sont créées et les messages envoyés. Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics fournis par le service Azure Relay. 

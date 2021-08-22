@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: alsin
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 99371b8618756c196b75858288c5c4785272a7e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e9fba5ff9dc10e0691423da689024af3e2b72bc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650463"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468344"
 ---
 # <a name="move-an-azure-automanage-virtual-machine-to-a-different-region"></a>Déplacement d’une machine virtuelle Azure Automanage dans une autre région
 Cet article explique comment maintenir Automanage activé sur une machine virtuelle lorsque vous la déplacez dans une autre région. On peut être amené à déplacer ses machines virtuelles dans une autre région pour différentes raisons. Par exemple, pour tirer parti d’une nouvelle région Azure, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter des exigences de planification de la capacité. Il peut arriver que les machines virtuelles déplacées soient actuellement autogérées et qu’elles doivent le rester à l’issue du déplacement.
@@ -33,4 +33,4 @@ Une fois que vous avez déplacé vos machines virtuelles d’une région à l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur Azure Automanage](./automanage-virtual-machines.md)
-* [Consulter la FAQ sur Azure Automanage](./faq.md)
+* [Consulter la FAQ sur Azure Automanage](./faq.yml)

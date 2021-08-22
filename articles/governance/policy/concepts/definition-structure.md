@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 926ee1d44d0f0ce523e883c36203fb278023e6c4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b09d11e6f1c5ea8f4882021530dc4d06d2d2f350
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753062"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527750"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -16,7 +16,7 @@ Azure Policy établit des conventions pour les ressources. Les définitions de s
 
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que les ressources soient marquées avec une balise particulière. Les ressources enfants héritent des attributions de stratégie. Si une attribution de stratégie est appliquée à un groupe de ressources, elle s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
-Le schéma de la définition de stratégie _policyRule_ se trouve ici : [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+Le schéma de la définition de stratégie _policyRule_ se trouve ici : [https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
@@ -807,7 +807,7 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
-  - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
+  - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2021-09-01`).
     Cette valeur est la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
 
 - `policy()`

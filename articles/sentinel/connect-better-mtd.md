@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 4828e31b9d15f101740c158ee62c90c95673c9a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3f5c2c2a22dd46d008a002db64c045af8132c8d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98541505"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563714"
 ---
 # <a name="connect-your-better-mobile-threat-defense-mtd-to-azure-sentinel"></a>Connecter BETTER Mobile Threat Defense (MTD) à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur BETTER Mobile Threat Defense (MTD) est actuellement disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur BETTER Mobile Threat Defense (MTD) vous permet de connecter facilement tous les journaux de votre solution de sécurité BETTER MTD à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’investigation. L’intégration entre BETTER Mobile Threat Defense et Azure Sentinel utilise l’API REST.
 
@@ -63,6 +65,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez appris à connecter BETTER Mobile Threat Defense (MTD) à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

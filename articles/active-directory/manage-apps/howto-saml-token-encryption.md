@@ -2,33 +2,33 @@
 title: Chiffrement des jetons SAML dans Azure Active Directory
 description: Découvrez comment configurer le chiffrement des jetons SAML Azure Active Directory.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mtillman
-ms.reviewer: paulgarn
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303a6e63a429ed77d5c613bb85626c11055ba04a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563191"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Guide pratique : configurer le chiffrement de jeton SAML Azure AD
 
 > [!NOTE]
-> Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+> Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 Le chiffrement des jetons SAML permet d’utiliser des assertions SAML chiffrées avec une application qui le prend en charge. Quand il est configuré pour une application, Azure AD chiffre les assertions SAML qu’il émet pour celle-ci à l’aide de la clé publique obtenue à partir d’un certificat stocké dans Azure AD. L’application doit utiliser la clé privée correspondante pour déchiffrer le jeton avant que celui-ci ne puisse être utilisé comme preuve d’authentification pour l’utilisateur connecté.
 
 Le chiffrement des assertions SAML entre Azure AD et l’application fournit une garantie supplémentaire que le contenu du jeton ne peut pas être intercepté et que des données personnelles ou professionnelles ne peuvent pas être compromises.
 
-Même sans le chiffrement des jetons, les jetons SAML Azure AD ne sont jamais transmis en clair sur le réseau. Azure AD exige que les échanges de demande/réponse de jeton s’effectuent via des canaux chiffrés HTTPS/TLS afin que les communications entre le fournisseur d’identité, le navigateur et l’application se déroulent sur des liaisons chiffrées. Considérons la valeur de chiffrement des jetons dans votre situation par rapport à la surcharge de gestion de certificats supplémentaires.   
+Même sans le chiffrement des jetons, les jetons SAML Azure AD ne sont jamais transmis en clair sur le réseau. Azure AD exige que les échanges de demande/réponse de jeton s’effectuent via des canaux chiffrés HTTPS/TLS afin que les communications entre le fournisseur d’identité, le navigateur et l’application se déroulent sur des liaisons chiffrées. Considérons la valeur de chiffrement des jetons dans votre situation par rapport à la surcharge de gestion de certificats supplémentaires.
 
 Pour configurer le chiffrement des jetons, vous devez charger un fichier de certificat X.509 qui contient la clé publique dans l’objet d’application Azure AD qui représente l’application. Pour obtenir le certificat X.509, vous pouvez le télécharger à partir de l’application elle-même ou l’obtenir auprès du fournisseur de l’application dans les cas où ce dernier fournit des clés de chiffrement. Dans les cas où l’application s’attend à ce que vous fournissiez une clé privée, il peut être créé à l’aide d’outils de chiffrement, la partie clé privée étant chargée dans le magasin de clés de l’application et le certificat de clé publique correspondant étant chargé dans Azure AD.
 

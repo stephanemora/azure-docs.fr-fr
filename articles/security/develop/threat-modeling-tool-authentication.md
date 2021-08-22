@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 717142f5e97d68b844bc15a2f335390d1951ec0c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 8bc827605147f229ea82475d98eac35dec2d6a22
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487508"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290360"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction
 
@@ -457,7 +457,7 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 | **Phase SDL**               | Build |
 | **Technologies applicables** | Générique, C#, Node.JS  |
 | **Attributs**              | N/A, choix de passerelle - Azure IoT Hub |
-| **Informations de référence**              | N/A, [Mise en route d’Azure IoT Hub (.NET)](../../iot-hub/quickstart-send-telemetry-dotnet.md), [Mise en route d’Azure IoT Hub (Node)](../../iot-hub/quickstart-send-telemetry-node.md), [Contrôler l’accès à IoT Hub](../../iot-hub/iot-hub-dev-guide-sas.md), [référentiel Git](https://github.com/Azure/azure-iot-sdks/) |
+| **Informations de référence**              | N/A, [Mise en route d’Azure IoT Hub (.NET)](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [Mise en route d’Azure IoT Hub (Node)](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [Contrôler l’accès à IoT Hub](../../iot-hub/iot-hub-dev-guide-sas.md), [référentiel Git](https://github.com/Azure/azure-iot-sdks/) |
 | **Étapes** | <ul><li>**Générique :** authentifiez l’appareil à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Utilisez Azure AD, OAuth.</li><li>**C# :** par défaut, la méthode de création Create crée une instance DeviceClient qui utilise le protocole AMQP pour communiquer avec IoT Hub. Pour utiliser le protocole HTTPS, remplacez la méthode Create afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTPS, vous devez également ajouter le package NuGet `Microsoft.AspNet.WebApi.Client` à votre projet de manière à inclure l’espace de noms `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Exemple

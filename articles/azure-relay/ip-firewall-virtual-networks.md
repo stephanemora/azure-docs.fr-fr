@@ -2,13 +2,13 @@
 title: Configurer le pare-feu IP pour l’espace de noms Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu pour autoriser les connexions d’adresses IP spécifiques à des espaces de noms Azure Relay.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: fe5e1eac2f5ba90b2a1bcc461668d673ffc22965
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999500"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667737"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurer le pare-feu IP pour un espace de noms Azure Relay
 Par défaut, les espaces de noms Azure Relay sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

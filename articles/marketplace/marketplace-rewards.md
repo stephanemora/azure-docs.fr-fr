@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/28/2021
-ms.openlocfilehash: 0be8e50ef500f746d26605048d577c5e806e7b9c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 665f91147bca5ed209d426d3864f5baa68b15d43
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110709260"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289624"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -36,7 +36,7 @@ Pour vérifier votre éligibilité au programme Récompenses de la Place de marc
 Les étapes à suivre pour démarrer sont simples :
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
-1. Pour afficher votre liste d’avantages, accédez à la page [Récompenses de la Place de marché](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente**.
+1. Pour afficher votre liste d’avantages, accédez à la page [Récompenses de la Place de marché](https://go.microsoft.com/fwlink/?linkid=2165388) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente**.
 1. Pour activer l’avantage de marketing et de vente, vous devez d’abord attribuer un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
 1. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
 
@@ -51,6 +51,6 @@ Les étapes à suivre pour démarrer sont simples :
 1. La façon d’utiliser les avantages du parrainage Azure sera partagée via un e-mail à mesure que vous déverrouillerez ces avantages.
 
 >[!NOTE]
->Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, consultez Espace partenaires pour savoir qui est le propriétaire de l’offre en question dans votre organisation. Cette personne devrait disposer de la communication et des étapes suivantes. Si vous n'avez aucun moyen d'identifier le propriétaire ou si celui-ci a quitté votre entreprise, ouvrez un [ticket de support](https://aka.ms/marketplacepublishersupport).
+>Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, consultez Espace partenaires pour savoir qui est le propriétaire de l’offre en question dans votre organisation. Cette personne devrait disposer de la communication et des étapes suivantes. Si vous n'avez aucun moyen d'identifier le propriétaire ou si celui-ci a quitté votre entreprise, ouvrez un [ticket de support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.

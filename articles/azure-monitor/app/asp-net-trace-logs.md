@@ -4,12 +4,12 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 5f94920d44e37aae17c484be4f8e74a4f351e1b1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8b956c0e63f96dbfbcf3204c260952ccf2f2c22a
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082771"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552871"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -141,7 +141,7 @@ Par exemple :
 ```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 var telemetryClient = new TelemetryClient(configuration);
-telemetry.TrackTrace("Slow response - database01");
+telemetryClient.TrackTrace("Slow response - database01");
 ```
 
 l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.
@@ -231,6 +231,6 @@ Si votre application envoie de grandes quantités de données et si vous utilise
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [start]: ./app-insights-overview.md
 

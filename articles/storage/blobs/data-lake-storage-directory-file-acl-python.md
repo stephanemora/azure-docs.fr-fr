@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: a143c0aa19241b532cabff95fe6bf85679e4007c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2db4734650f4af2f0ed67040c7f94eeda5f7c69
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652290"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453099"
 ---
 # <a name="use-python-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser Python pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
@@ -94,7 +94,7 @@ Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur.
 
 Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename_directory**. Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
 
-Cet exemple renomme un sous-répertoire avec le nom `my-subdirectory-renamed`.
+Cet exemple renomme un sous-répertoire avec le nom `my-directory-renamed`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 

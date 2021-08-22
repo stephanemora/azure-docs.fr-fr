@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a2762a0937efbceaa168f8a2d6409e2e3a7ae4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aed9a608dd8a958a298b3a7f502dac6d587b2a2e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967225"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466745"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -39,9 +39,9 @@ Pour plus d’informations, consultez le [guide pratique de gestion des inscript
 
 Il est également possible de supprimer des inscriptions et des enregistrements d’inscription en utilisant des API REST :
 
-* Pour supprimer les informations d’inscription d’un seul appareil, utilisez [Inscription de l’appareil - Supprimer](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
-* Pour supprimer les informations d’inscription d’un groupe d’appareils, utilisez [Inscription du groupe d’appareils - Supprimer](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
-* Pour supprimer les informations sur les appareils approvisionnés, utilisez [État de l’inscription - Supprimer l’état de l’inscription](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
+* Pour supprimer les informations d’inscription d’un seul appareil, utilisez [Inscription de l’appareil - Supprimer](/rest/api/iot-dps/service/individual-enrollment/delete).
+* Pour supprimer les informations d’inscription d’un groupe d’appareils, utilisez [Inscription du groupe d’appareils - Supprimer](/rest/api/iot-dps/service/enrollment-group/delete).
+* Pour supprimer les informations sur les appareils approvisionnés, utilisez [État de l’inscription - Supprimer l’état de l’inscription](/rest/api/iot-dps/service/device-registration-state/delete).
 
 ## <a name="exporting-customer-data"></a>Exportation des données client
 
@@ -53,9 +53,9 @@ Pour plus d’informations sur la gestion des inscriptions, consultez le [guide 
 
 Il est également possible d’exporter des inscriptions et des enregistrements d’inscription en utilisant des API REST :
 
-* Pour exporter les informations d’inscription d’un seul appareil, utilisez [Inscription de l’appareil - Obtenir](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
-* Pour exporter les informations d’inscription d’un groupe d’appareils, utilisez [Inscription du groupe d’appareils - Obtenir](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
-* Pour exporter les informations sur les appareils approvisionnés, utilisez [État de l’inscription - Obtenir l’état de l’inscription](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
+* Pour exporter les informations d’inscription d’un seul appareil, utilisez [Inscription de l’appareil - Obtenir](/rest/api/iot-dps/service/individual-enrollment/get).
+* Pour exporter les informations d’inscription d’un groupe d’appareils, utilisez [Inscription du groupe d’appareils - Obtenir](/rest/api/iot-dps/service/enrollment-group/get).
+* Pour exporter les informations sur les appareils approvisionnés, utilisez [État de l’inscription - Obtenir l’état de l’inscription](/rest/api/iot-dps/service/device-registration-state/get).
 
 > [!NOTE]
 > Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux d’activité générés par le système. Certains journaux d’activité générés par le système du service Device Provisioning ne sont pas accessibles ou exportables par les administrateurs clients. Ces journaux d’activité, qui consignent les actions factuelles effectuées au sein du service et les données de diagnostic relatives aux appareils individuels.

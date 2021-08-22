@@ -2,17 +2,18 @@
 title: Déployer le runtime d’intégration Azure-SSIS avec PowerShell
 description: Ce script PowerShell crée un runtime d’intégration Azure-SSIS qui peut exécuter des packages SSIS dans le cloud.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: article
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
-ms.openlocfilehash: f037ef0050a6a9e93e0ae98cbfa1d2b9d68d5939
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8698a5852eb557d5ec8016f1ec8f3181c9d43275
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563271"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script PowerShell - Déployer le runtime d’intégration Azure-SSIS
 

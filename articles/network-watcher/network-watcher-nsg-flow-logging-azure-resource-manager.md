@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 6aab2d1d681cbfd55cc275b1f647562d54a08f0c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aebcf680fec069fdb28114ef8a1a0f6fd8547e63
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791328"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458575"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurer des journaux de flux NSG avec un modèle Azure Resource Manager
 
@@ -32,7 +32,7 @@ ms.locfileid: "110791328"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) est la méthode native et puissante d’Azure pour gérer votre [infrastructure en tant que code](/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) est la méthode native et puissante d’Azure pour gérer votre [infrastructure en tant que code](/devops/deliver/what-is-infrastructure-as-code).
 
 Cet article explique comment activer les [journaux de flux NSG](./network-watcher-nsg-flow-logging-overview.md) programmatiquement avec un modèle Azure Resource Manager et Azure PowerShell. Nous commençons par fournir une vue d’ensemble des propriétés de l’objet de journal de flux NSG, suivie de quelques exemples de modèles. Ensuite, nous déployons le modèle à l’aide d’une instance PowerShell locale.
 

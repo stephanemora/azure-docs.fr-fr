@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/28/2021
-ms.openlocfilehash: 66630d10c5b79927c8388138c3ab639134909d26
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e9c804868c64d84b8cbe98093f75c4a45d568ec3
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888533"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112458755"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Démarrage rapide : Créer un répartiteur Azure Cache pour Redis à l’aide d’un modèle ARM
 
@@ -43,10 +43,10 @@ Les ressources suivantes sont définies dans le modèle :
 Des modèles Resource Manager pour le nouveau [niveau Premium](cache-overview.md#service-tiers) sont également disponibles.
 
 * [Créer un cache Azure Premium pour Redis avec clustering](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
-* [Créer un cache Azure Premium pour Redis avec persistance des données](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
+* [Créer un cache Azure Premium pour Redis avec persistance des données](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Créer un Cache Redis Premium déployé dans un réseau virtuel](https://azure.microsoft.com/resources/templates/redis-premium-vnet/)
 
-Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) et recherchez _Azure Cache pour Redis_.
+Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) et recherchez _Azure Cache pour Redis_.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

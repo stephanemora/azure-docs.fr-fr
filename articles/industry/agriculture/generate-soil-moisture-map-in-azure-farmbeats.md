@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 4b796af22604a2f09482bcb9a321159ebaafea11
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d318f7aad20f4bdf8ccb8db53c20c2426216b4dd
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756770"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422495"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Générer une carte thermique d’humidité du sol
 
@@ -36,7 +36,7 @@ Une ferme est une zone d’intérêt géographique pour laquelle vous souhaitez 
 
 ## <a name="deploy-sensors"></a>Déployer des capteurs
 
-Vous devez déployer physiquement des capteurs d’humidité du sol dans la ferme. Vous pouvez acheter des capteurs d’humidité du sol auprès de nos partenaires agréés [Davis instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) et [Teralytic](https://teralytic.com/). Vous devez vous organiser avec votre fournisseur de capteurs pour effectuer la mise en place physique dans votre ferme.
+Vous devez déployer physiquement des capteurs d’humidité du sol dans la ferme. Vous pouvez acheter des capteurs d’humidité du sol auprès de nos partenaires agréés [Davis instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) et [Teralytic](https://teralytic.com/). Vous devez vous organiser avec votre fournisseur de capteurs pour effectuer la mise en place physique dans votre ferme.
 
 ## <a name="get-soil-moisture-sensor-data-from-partner"></a>Obtenir les données des capteurs d’humidité du sol auprès du partenaire
 

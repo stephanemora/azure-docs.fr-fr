@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28bd7af9722bd76d6580257ffaf0446c79522502
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595492"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112461546"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -177,15 +177,15 @@ DevOps permet aux équipes de proposer des solutions plus sécurisées et de mei
 
 Les plateformes cloud comme Microsoft Azure ont supprimé les goulots d’étranglement traditionnels et aidé à faire de l’infrastructure une marchandise. Dans tous les secteurs, ce sont les logiciels qui font la différence dans les résultats des entreprises. Aucune organisation, aucun développeur ni aucun professionnel de l’informatique ne peut se permettre d’ignorer le mouvement DevOps.
 
-Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivantes. Ces pratiques [impliquent de faire appel à des collaborateurs](/azure/devops/learn/what-is-devops-culture) pour concevoir des stratégies basées sur les scénarios spécifiques de l’entreprise. Les outils contribuent à automatiser les différentes pratiques.
+Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivantes. Ces pratiques [impliquent de faire appel à des collaborateurs](/devops/what-is-devops) pour concevoir des stratégies basées sur les scénarios spécifiques de l’entreprise. Les outils contribuent à automatiser les différentes pratiques.
 
 - Des techniques de [planification et gestion de projets agiles](https://www.visualstudio.com/learn/what-is-agile/) sont utilisées pour planifier et répartir le travail en sprints, pour gérer la capacité de l’équipe et pour aider les équipes à s’adapter rapidement à l’évolution des besoins de l’entreprise.
-- Le [contrôle de version, généralement avec Git](/azure/devops/learn/git/what-is-git), permet à des équipes situées n’importe où dans le monde de partager la source et d’effectuer des intégrations avec des outils de développement logiciel pour automatiser le pipeline de mise en production.
-- L’[intégration continue ](/azure/devops/learn/what-is-continuous-integration) stimule la fusion et le test de code en continu, ce qui permet de trouver les erreurs plus tôt.  Les autres avantages sont notamment un gain de temps sur la résolution des problèmes de fusion et la rapidité des retours pour les équipes de développement.
-- La [livraison continue](/azure/devops/learn/what-is-continuous-delivery) de solutions logicielles dans les environnements de production et de test permet aux organisations de corriger rapidement les bogues et de répondre aux besoins de l’entreprise en constante évolution.
-- La [surveillance](/azure/devops/learn/what-is-monitoring) des applications en cours d’exécution, y compris des environnements de production pour l’intégrité des applications et l’utilisation par les clients, aide les organisations à formuler une hypothèse et à confirmer/infirmer rapidement des stratégies.  Les données enrichies sont capturées et stockées dans divers formats d’enregistrement.
-- L’[infrastructure en tant que code (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) est une pratique qui permet d’automatiser et de valider la création et la suppression de réseaux et de machines virtuelles afin de fournir des plateformes stables et sûres pour l’hébergement d’applications.
-- L’architecture en [microservices](/azure/devops/learn/what-are-microservices) permet d’isoler des cas d’usage métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
+- Le [contrôle de version, généralement avec Git](/devops/develop/git/what-is-git), permet à des équipes situées n’importe où dans le monde de partager la source et d’effectuer des intégrations avec des outils de développement logiciel pour automatiser le pipeline de mise en production.
+- L’[intégration continue ](/devops/develop/what-is-continuous-integration) stimule la fusion et le test de code en continu, ce qui permet de trouver les erreurs plus tôt.  Les autres avantages sont notamment un gain de temps sur la résolution des problèmes de fusion et la rapidité des retours pour les équipes de développement.
+- La [livraison continue](/devops/deliver/what-is-continuous-delivery) de solutions logicielles dans les environnements de production et de test permet aux organisations de corriger rapidement les bogues et de répondre aux besoins de l’entreprise en constante évolution.
+- La [surveillance](/devops/operate/what-is-monitoring) des applications en cours d’exécution, y compris des environnements de production pour l’intégrité des applications et l’utilisation par les clients, aide les organisations à formuler une hypothèse et à confirmer/infirmer rapidement des stratégies.  Les données enrichies sont capturées et stockées dans divers formats d’enregistrement.
+- L’[infrastructure en tant que code (IaC)](/devops/deliver/what-is-infrastructure-as-code) est une pratique qui permet d’automatiser et de valider la création et la suppression de réseaux et de machines virtuelles afin de fournir des plateformes stables et sûres pour l’hébergement d’applications.
+- L’architecture en [microservices](/devops/deliver/what-are-microservices) permet d’isoler des cas d’usage métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

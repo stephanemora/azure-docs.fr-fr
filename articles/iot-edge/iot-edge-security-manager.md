@@ -4,17 +4,16 @@ description: Gère le principe de sécurité d’appareil IoT Edge et l’intég
 services: iot-edge
 keywords: sécurité, élément sécurisé, enclave, TEE, IoT Edge
 author: eustacea
-manager: philmea
 ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ed73c114c015ce38fefa02d2b71e27e8f85dca39
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a04f99151a10a2bfea7341eda47566ab54eca537
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028670"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563058"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 

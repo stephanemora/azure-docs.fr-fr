@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: da7c0ea670b4c4201930ce5d0f01e7bd9d9835e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fdfa1541e928491aecc039d51338f7ef1f1ef3d
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581039"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563579"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Linux
 
@@ -62,7 +62,7 @@ Le contrôle du système d’exploitation permet de vérifier si le runbook Work
 
 ### <a name="log-analytics-agent"></a>Agent Log Analytics
 
-Cette vérification garantit que l’agent Log Analytics pour Linux est installé. Pour obtenir des instructions sur son installation, consultez [Installer l’agent pour Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
+Cette vérification garantit que l’agent Log Analytics pour Linux est installé. Pour obtenir des instructions sur son installation, consultez [Installer l’agent pour Linux](../../azure-monitor/vm/monitor-virtual-machine.md#agents).
 
 ### <a name="log-analytics-agent-status"></a>État de l’agent Log Analytics
 

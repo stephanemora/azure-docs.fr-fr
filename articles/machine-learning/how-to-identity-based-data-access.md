@@ -11,12 +11,12 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 2ca7eec3bcc40d5c0f93c43cc32b9395feb1e5d0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 3552a8191fc5482f8a58cc3365302f44f2f364a3
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790412"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284325"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access-preview"></a>Se connecter au stockage avec l’accès aux données basé sur l’identité (préversion)
 
@@ -59,7 +59,7 @@ Certains scénarios Machine Learning supposent des modèles d’entraînement av
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Un compte de stockage Azure avec un type de stockage pris en charge. Les types de stockage suivants sont pris en charge dans la préversion : 
     - [Stockage Blob Azure](../storage/blobs/storage-blobs-overview.md)
@@ -84,7 +84,7 @@ L’accès aux données basé sur l’identité prend uniquement en charge les c
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-Pour accéder à ces services de stockage, vous devez disposer au minimum de l’accès [Lecteur des données blob de stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Seuls les propriétaires de comptes de stockage peuvent [modifier votre niveau d’accès via le portail Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+Pour accéder à ces services de stockage, vous devez disposer au minimum de l’accès [Lecteur des données blob de stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Seuls les propriétaires de comptes de stockage peuvent [modifier votre niveau d’accès via le portail Azure](../storage/blobs/assign-azure-role-data-access.md).
 
 Si vous entraînez un modèle sur une cible de calcul distante, l’identité de calcul doit être accordée avec au moins le rôle de lecteur des données blob de stockage du service de stockage. Découvrez comment [configurer une identité managée sur une instance de cluster de calcul](how-to-create-attach-compute-cluster.md#managed-identity).
 

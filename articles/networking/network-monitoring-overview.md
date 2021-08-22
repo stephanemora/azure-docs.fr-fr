@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 5eb5d73d6820260702f9b0190cf4e190b10f2c54
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f076e942ac578a138fb75843bb9a7d3654f68c5a
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029996"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114387739"
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
 
@@ -124,4 +124,4 @@ Liens connexes :
 
 ## <a name="miscellaneous"></a>Divers
 
-* [Pricing Changes for Azure Network Performance Monitor](../azure-monitor/insights/network-performance-monitor-pricing-faq.md) (Modifications apportées à la tarification d’Azure Network Performance Monitor)
+* [Pricing Changes for Azure Network Performance Monitor](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml) (Modifications apportées à la tarification d’Azure Network Performance Monitor)

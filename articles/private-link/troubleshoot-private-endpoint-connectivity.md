@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 2a4f86d9fae7b78a57cf8da7ab42d2d4a4cd7be5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: cb66b9ad3106b9cad5b9b22cbe32838e13f56c28
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835395"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524610"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Résoudre les problèmes de connectivité d’Azure Private Endpoint
 
@@ -39,7 +39,7 @@ Passez en revue ces étapes pour vous assurer que toutes les configurations habi
 
 1. Passez en revue la configuration du point de terminaison privé en parcourant la ressource.
 
-    a. Accédez au **Centre Private Link**.
+    a. Accédez au [Centre Private Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Centre de liaisons privées](./media/private-endpoint-tsg/private-link-center.png)
 

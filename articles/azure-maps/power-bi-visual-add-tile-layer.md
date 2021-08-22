@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aee3c8213221775e3fde21003055fd9cc973455
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896206"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669348"
 ---
 # <a name="add-a-tile-layer"></a>Ajouter un calque de vignettes
 
@@ -57,7 +57,7 @@ URL de la vignette : URL HTTPS vers un modèle d’URL de vignette qui utilise 
 -   `{quadkey}` : identificateur `quadkey` de la vignette basé sur la convention de nommage du système de vignettes de Bing Maps.
 -   `{bbox-epsg-3857}` : chaîne de cadre englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 
-En guise d’exemple, voici une URL de vignette mise en forme pour le [service de vignettes de radar météo](/rest/api/maps/renderv2/getmaptilepreview) dans Azure Maps. Notez que `[subscription-key]` est un espace réservé pour votre clé d’abonnement Azure Maps.
+En guise d’exemple, voici une URL de vignette mise en forme pour le [service de vignettes de radar météo](/rest/api/maps/render-v2/get-map-tile) dans Azure Maps. Notez que `[subscription-key]` est un espace réservé pour votre clé d’abonnement Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 

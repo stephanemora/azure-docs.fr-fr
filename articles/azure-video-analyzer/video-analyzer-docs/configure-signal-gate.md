@@ -2,13 +2,13 @@
 title: Configuration d’une porte de signal pour l’enregistrement vidéo basé sur les événements - Azure
 description: Cet article fournit des conseils d’aide sur la configuration d’une porte de signal dans un pipeline.
 ms.topic: how-to
-ms.date: 4/12/2021
-ms.openlocfilehash: e03524e7e12a0081172918159e9f2d2ed2e4a7d6
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/01/2021
+ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413426"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114604074"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuration d’une porte de signal pour l’enregistrement vidéo basé sur les événements
 
@@ -155,7 +155,40 @@ Exemple de diagramme :
 > [!IMPORTANT]
 > Les diagrammes précédents présupposent que chaque événement arrive au même instant en temps physique et en temps du média. Autrement dit, ils présupposent qu’il n’y a pas d’arrivées tardives.
 
+### <a name="naming-video-or-files"></a>Nommage de vidéos ou de fichiers
+
+Les pipelines permettent d’enregistrer des vidéos dans le cloud ou sous forme de fichiers MP4 sur le périphérique. Il est possible de générer ces vidéos par [enregistrement vidéo continu](use-continuous-video-recording.md) ou par [enregistrement vidéo basé sur un événement](record-event-based-live-video.md).
+
+La structure de nommage recommandée pour l’enregistrement dans le cloud consiste à nommer la ressource vidéo « <anytext>-${System.TopologyName}-${System.PipelineName} ». Un pipeline en direct donné ne pouvant se connecter qu’à une seule caméra IP prenant en charge le protocole RTSP, vous devez enregistrer l’entrée de cette caméra sur une seule ressource vidéo. Par exemple, vous pouvez définir `VideoName` sur le récepteur vidéo comme suit :
+
+```
+"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
+```
+Notez que le modèle de substitution est défini par le signe `$` suivi d’accolades : **${variableName}** .
+
+Lors de l’enregistrement dans des fichiers MP4 sur le périphérique à l’aide de l’enregistrement basé sur un événement, vous pouvez utiliser :
+
+```
+"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
+```
+
+> [!Note]
+> Dans l’exemple ci-dessus, la variable **fileSinkOutputName** est un exemple de nom de variable que vous définissez lors de la création du pipeline en direct. Il **ne s’agit pas** d’une variable système. Notez comment l’utilisation de **DateTime** garantit un nom de fichier MP4 unique pour chaque événement.
+
+#### <a name="system-variables"></a>Variables système
+
+Variables définies par le système que vous pouvez utiliser :
+
+| Variable système        | Description                                                  | Exemple              |
+| :--------------------- | :----------------------------------------------------------- | :------------------- |
+| System.Runtime.DateTime        | Date/heure UTC au format conforme de fichier ISO8601 (représentation de base AAAAMMJJThhmmss). | 20200222T173200Z     |
+| System.Runtime.PreciseDateTime | Date/heure UTC au format conforme de fichier ISO8601 avec les millisecondes (représentation de base AAAAMMJJThhmmss.sss). | 20200222T173200.123Z |
+| System.TopologyName    | Nom fourni par l’utilisateur de la topologie de pipeline en cours d’exécution.          | IngestAndRecord      |
+| System.PipelineName    | Nom fourni par l’utilisateur du pipeline en direct en cours d’exécution.          | camera001            |
+
+> [!Tip]
+> System.Runtime.PreciseDateTime et System.Runtime.DateTime ne peuvent pas être utilisés lors de nommage de vidéos dans le cloud.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Essayez de suivre le [Tutoriel d’enregistrement vidéo basé sur les événements](record-event-based-live-video.md). Commencez par modifier le fichier [topology.json](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json). Modifiez les paramètres du nœud signalgateProcessor, puis suivez le reste du tutoriel. Examinez les enregistrements vidéo pour analyser l’effet des paramètres.
-

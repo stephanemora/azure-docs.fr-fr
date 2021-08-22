@@ -3,16 +3,16 @@ title: Utiliser des données d’emplacement dans une solution Azure IoT Central
 description: Découvrez comment utiliser les données d’emplacement envoyées à partir d’un appareil connecté à votre application IoT Central. Tracer les données d’emplacement sur une carte ou créer des règles de geofencing.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/08/2021
+ms.date: 06/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: e93da2bec3753ba6efda2b4eb16d6ef78b42234b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 57f1bb47ceaa0552053cb61321dc54a3d2b19293
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747212"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964509"
 ---
 # <a name="use-location-data-in-an-azure-iot-central-solution"></a>Utiliser des données d’emplacement dans une solution Azure IoT Central
 

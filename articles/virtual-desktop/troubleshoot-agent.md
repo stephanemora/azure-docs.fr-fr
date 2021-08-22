@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1ca3d938851b1aa54e13a29638fa3e4c1f8569d1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 718648be0f4a5ec9dd3520127552138b8471d57c
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751412"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710480"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Azure Virtual Desktop
 
@@ -144,7 +144,7 @@ Pour résoudre ce problème :
 3. Assurez-vous que le [service d’agent est en cours d’exécution](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) et que [l’écouteur de pile fonctionne](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
 4. Assurez-vous que [l’agent peut se connecter au répartiteur](#error-agent-cannot-connect-to-broker-with-invalid_form).
 5. Assurez-vous que [votre machine virtuelle dispose d’un jeton d’inscription valide](#error-invalid_registration_token).
-6. Assurez-vous que [le jeton d’inscription de la machine virtuelle n’a pas expiré](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
+6. Assurez-vous que [le jeton d’inscription de la machine virtuelle n’a pas expiré](/azure/virtual-desktop/faq#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## <a name="error-installmsiexception"></a>Erreur : InstallMsiException
 

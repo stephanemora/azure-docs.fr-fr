@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 0d935cac68fc1b9e8d97a875c4b6e48078324fb8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 235dc8fa484212a8322b24d32f7516af5441978a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143608"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652921"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
@@ -86,7 +86,7 @@ Pour installer l’agent sur un serveur Windows :
 4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
-Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisant une solution automatisée telle que Configuration Manager ou [Intigua](https://www.intigua.com/intigua-for-azure-migration).
+Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisant une solution automatisée telle que Configuration Manager ou Intigua.
 - [En savoir plus](../azure-monitor/agents/log-analytics-agent.md#installation-options) sur l’utilisation de ces méthodes pour installer l’agent MMA.
 - Ce [script](https://github.com/brianbar-MSFT/Install-MMA) permet également d’installer l’agent MMA.
 - [En savoir plus](../azure-monitor/agents/agents-overview.md#supported-operating-systems) sur les systèmes d’exploitation Windows pris en charge par MMA.

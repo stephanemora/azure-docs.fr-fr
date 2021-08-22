@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676557"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563968"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
@@ -42,7 +42,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
-- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Étiqueter automatiquement vos données dans Azure Purview](create-sensitivity-label.md).
 

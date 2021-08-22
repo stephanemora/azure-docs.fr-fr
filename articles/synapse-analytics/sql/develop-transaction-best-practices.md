@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b47342a0013eafe9444c30ced4d00a96500ccdab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d309e2786a1ec56a5e34f2594520e7e36bbcf6b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592980"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563379"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimiser des transactions avec un pool SQL dédié dans Azure Synapse Analytics 
 
@@ -44,7 +44,7 @@ Les limites de sécurité des transactions s’appliquent uniquement aux opérat
 
 Les opérations suivantes peuvent faire l’objet d’une journalisation minimale :
 
-* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json))
+* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -84,7 +84,7 @@ Le chargement de données dans une table non vide avec un index cluster comporte
 
 ## <a name="optimize-deletes"></a>Optimiser les suppressions
 
-DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour permuter l’ancienne table et la table nouvellement créée.
+DELETE est une opération entièrement journalisée.  Si vous avez besoin de supprimer un volume important de données dans une table ou une partition, il est souvent plus judicieux d’appliquer une opération `SELECT` aux données que vous souhaitez conserver, qui peut être exécutée en tant qu’opération de journalisation minimale.  Pour sélectionner les données, créez une nouvelle table avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context).  Une fois la table créée, utilisez [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) pour permuter l’ancienne table et la table nouvellement créée.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -177,11 +177,11 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Les fonctionnalités de gestion de la charge de travail du pool SQL dédié peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Les fonctionnalités de gestion de la charge de travail du pool SQL dédié peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context).
 
 ## <a name="optimize-with-partition-switching"></a>Optimisation avec basculement de partitions
 
-Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
+Si vous devez procéder à des modifications à grande échelle au sein d’une [partition de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context), il est plus judicieux d’adopter un modèle de basculement de partitions. Si la modification de données est considérable et relative à plusieurs partitions, vous obtiendrez un résultat identique en effectuant une itération sur les partitions.
 
 Les étapes constitutives d’un basculement de partitions sont les suivantes :
 
@@ -406,7 +406,7 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Conseils sur la suspension et la mise à l’échelle
 
-Azure Synapse Analytics vous permet de [suspendre, reprendre et mettre à l’échelle](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) votre pool SQL dédié à la demande. 
+Azure Synapse Analytics vous permet de [suspendre, reprendre et mettre à l’échelle](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context) votre pool SQL dédié à la demande. 
 
 Quand vous suspendez ou mettez à l’échelle votre pool SQL dédié, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées, ce qui entraîne la restauration de toute transaction ouverte. 
 

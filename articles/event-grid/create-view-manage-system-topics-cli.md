@@ -2,13 +2,13 @@
 title: Créer, afficher et gérer des rubriques système Azure Event Grid avec l’interface CLI
 description: Cet article explique comment utiliser Azure CLI pour créer, afficher et supprimer des rubriques système.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 34a098406762fd57dc9dc4b58fc375286f5d5b13
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 07/22/2021
+ms.openlocfilehash: e8ea2e1351b5faf93e58d5a96561555050ce05b6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874294"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469414"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Créer, afficher et gérer des rubriques système Event Grid avec l’interface Azure CLI
 Cet article vous montre comment créer et gérer des rubriques système dans l’interface Azure CLI. Pour une présentation des rubriques système, consultez [Rubriques système](system-topics.md).

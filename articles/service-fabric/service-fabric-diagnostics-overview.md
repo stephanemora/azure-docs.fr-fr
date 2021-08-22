@@ -3,12 +3,12 @@ title: Vue d’ensemble de la surveillance et des diagnostics Azure Service Fabr
 description: Découvrez la surveillance et les diagnostics pour les clusters, applications et services Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 71ec86f26de1e94b4e17e0990d2eafd1fff954e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3a7060b7a12cb9a57a78c1bbb3fc0b58656ef6d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627742"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112455155"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Surveillance et diagnostics pour Azure Service Fabric
 
@@ -52,7 +52,7 @@ De plus, nous laissons même les utilisateurs remplacer l’intégrité des enti
 
 
 ### <a name="watchdogs"></a>Agents de surveillance
-En général, un agent de surveillance est un service distinct capable de surveiller l’intégrité et la charge des services, d’effectuer des tests ping sur les points de terminaison et de créer des rapports d’intégrité pour n’importe quel élément du cluster. Cela permet d’éviter des erreurs qui ne seraient pas détectées à partir de l’affichage d’un service unique. Les agents de surveillance sont également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Vous trouverez un exemple d’implémentation de service d’agent de surveillance [ici](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+En général, un agent de surveillance est un service distinct capable de surveiller l’intégrité et la charge des services, d’effectuer des tests ping sur les points de terminaison et de créer des rapports à partir des événements non sains du cluster. Cela vous permet de détecter plus facilement les erreurs que vous n’auriez pas pu détecter en vous basant uniquement sur les performances d’un seul service. Les agents de surveillance constituent également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Si vous souhaitez un service de surveillance SF open source entièrement implémenté qui comprend un modèle d’extensibilité de surveillance facile à utiliser et qui s’exécute dans les clusters Windows et Linux, consultez le projet [FabricObserver](https://github.com/Azure-Samples/service-fabric-watchdog-service). FabricObserver est un logiciel prêt pour la production. Nous vous encourageons à déployer FabricObserver sur vos clusters de test et de production et à l’étendre pour répondre à vos besoins par le biais de son modèle de plug-in ou en le dupliquant et en écrivant vos propres observateurs intégrés. Ce dernier (plug-in) est l’approche recommandée.
 
 ## <a name="infrastructure-performance-monitoring"></a>Supervision de l’infrastructure (performances)
 Maintenant que nous avons couvert les diagnostics dans votre application et sur la plateforme, comment savons-nous que le matériel fonctionne comme prévu ? Le monitoring de l’infrastructure sous-jacente est essentiel pour comprendre l’état de votre cluster et l’utilisation de vos ressources. La mesure des performances système dépend de nombreux facteurs qui peuvent être subjectifs en fonction de vos charges de travail. Ces facteurs sont généralement mesurés via des compteurs de performances. Ces compteurs de performances peuvent provenir de diverses sources, y compris du système d’exploitation, du .NET Framework ou de la plateforme Service Fabric proprement dite. Voici quelques scénarios dans lesquels ils peuvent être utiles :

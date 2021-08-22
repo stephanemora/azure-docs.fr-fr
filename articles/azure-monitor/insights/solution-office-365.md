@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 674e8036463a317d6e578750bc7ed3802ae776e4
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728635"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563600"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -91,10 +91,10 @@ ms.locfileid: "101728635"
 > ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>Q : Comment utiliser le contenu de sécurité prêt à l’emploi d’Azure Sentinel ?
 > Azure Sentinel fournit diverses fonctionnalités de sécurité prêtes à l’emploi, comme les tableaux de bord, les requêtes d’alertes personnalisées, les requêtes de chasse, les investigations et les réponses automatisées, basées sur les journaux Office 365 et Azure AD. Explorez le dépôt GitHub et les tutoriels Azure Sentinel pour en savoir plus :
 >
-> - [Détection des menaces prête à l’emploi](../../sentinel/tutorial-detect-threats-built-in.md)
-> - [Créer des règles d’analytique personnalisées pour détecter les menaces suspectes](../../sentinel/tutorial-detect-threats-custom.md)
-> - [Superviser vos données](../../sentinel/tutorial-monitor-your-data.md)
-> - [Examiner les incidents avec Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Détection des menaces prête à l’emploi](/azure/azure-monitor/insights/articles/sentinel/detect-threats-built-in.md)
+> - [Créer des règles d’analytique personnalisées pour détecter les menaces suspectes](/azure/azure-monitor/insights/articles/sentinel/detect-threats-custom.md)
+> - [Superviser vos données](/azure/azure-monitor/insights/articles/sentinel/monitor-your-data.md)
+> - [Examiner les incidents avec Azure Sentinel](/azure/azure-monitor/insights/articles/sentinel/investigate-cases.md)
 > - [Configurer des réponses automatisées aux menaces dans Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Dépôt GitHub de la communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -474,4 +474,4 @@ Le tableau suivant fournit des exemples de requêtes dans les journaux d’enreg
 
 * Utilisez les [requêtes de journaux dans Azure Monitor](../logs/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../visualize/tutorial-logs-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
-* [Créez des alertes](../alerts/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.  
+* [Créez des alertes](../alerts/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.

@@ -3,13 +3,13 @@ title: Développer et déployer un serveur d’inférence gRPC - Azure Video Ana
 description: Cet article fournit des conseils d’aide sur le développement et le déploiement d’un serveur d’inférence gRPC à utiliser avec Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/01/2021
-ms.openlocfilehash: 499620dd0fc2f200f0f0a5080b9ab540a07f1df3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 5d0e09bc4d1f542de0e59a7dc6da37248d2e0674
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385827"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601445"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>Développer et déployer un serveur d’inférence gRPC
 
@@ -42,7 +42,7 @@ Effectuez les étapes nécessaires pour déployer le module Video Analyzer, et l
 1. Choisissez l’un des nombreux langages pris en charge par gRPC : C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implémentez un serveur gRPC qui va communiquer avec Video Analyzer à l’aide des [fichiers proto3](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="Serveur gRPC qui va communiquer avec Video Analyzer à l’aide des fichiers proto3":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.svg" alt-text="Serveur gRPC qui va communiquer avec Video Analyzer à l’aide des fichiers proto3":::
 
     Au sein de ce service :
     1. Gérez l’échange de messages de description de session entre le serveur et le client.

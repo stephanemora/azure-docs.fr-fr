@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
-ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f581594e6830efcf849f4ba51b218ce849bf3f9c
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668567"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527762"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux extensions de fichier de vos données à partir d’Azure Purview 
 
@@ -34,7 +34,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
-- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).

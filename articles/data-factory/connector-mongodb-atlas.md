@@ -1,18 +1,20 @@
 ---
 title: Copier des données depuis ou vers MongoDB Atlas
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment copier des données de MongoDB Atlas vers des banques de données réceptrices prises en charge, ou depuis des banques de données réceptrices prises en charge vers MongoDB Atlas, à l’aide de l’activité de copie disponible dans le pipeline Azure Data Factory.
-author: jianleishen
-ms.author: jianleishen
+ms.author: chez
+author: chez-charlie
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: synapse
 ms.date: 06/01/2021
-ms.openlocfilehash: 07e3d801f1f8d6cfebd6c31daf00d92ccc7b8444
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9e42ff971f2ea0a374fe40815ac8cf7fddb29189
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747488"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642072"
 ---
 # <a name="copy-data-from-or-to-mongodb-atlas-using-azure-data-factory"></a>Copier des données depuis ou vers MongoDB Atlas à l’aide d’Azure Data Factory
 

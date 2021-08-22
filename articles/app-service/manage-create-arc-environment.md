@@ -2,13 +2,13 @@
 title: Configurer Azure Arc pour App Service, Functions et Logic Apps
 description: Pour vos clusters Kubernetes avec Azure Arc, découvrez comment activer des applications App Service, des applications de fonction et des applications logiques.
 ms.topic: article
-ms.date: 05/26/2021
-ms.openlocfilehash: e5e1b1ec8dd9a7e7ddf006222d2990bb6c354cd8
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.date: 08/17/2021
+ms.openlocfilehash: f6d917a9bd18c16e283f8c61e6cb6d15fcd4882f
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890129"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563943"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Configurer un cluster Kubernetes avec Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)
 
@@ -64,6 +64,8 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 1. Créez un cluster dans Azure Kubernetes Service avec une adresse IP publique. Remplacez `<group-name>` par le nom de groupe de ressources souhaité.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
     aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
@@ -75,6 +77,22 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
     staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
+    $aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
+    $resourceLocation="eastus" # "eastus" or "westeurope"
+
+    az group create -g $aksClusterGroupName -l $resourceLocation
+    az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
+    $infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
+    az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
+    $staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
+    ```
+
+    ---
     
 2. Récupérez le fichier [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) et testez votre connexion au cluster. Par défaut, le fichier kubeconfig est enregistré dans `~/.kube/config`.
 
@@ -86,19 +104,44 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 3. Créez un groupe de ressources pour accueillir vos ressources Azure Arc. Remplacez `<group-name>` par le nom de groupe de ressources souhaité.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     groupName="<group-name>" # Name of resource group for the connected cluster
 
     az group create -g $groupName -l $resourceLocation
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $groupName="<group-name>" # Name of resource group for the connected cluster
+
+    az group create -g $groupName -l $resourceLocation
+    ```
+
+    ---
     
 4. Connectez le cluster que vous avez créé à Azure Arc.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     clusterName="${groupName}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $groupName --name $clusterName
     ```
+    
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+
+    ```powershell
+    $clusterName="${groupName}-cluster" # Name of the connected cluster resource
+
+    az connectedk8s connect --resource-group $groupName --name $clusterName
+    ```
+
+    ---
     
 5. Validez la connexion à l’aide de la commande suivante. Elle devrait afficher la propriété `provisioningState` avec la valeur `Succeeded`. Si ce n’est pas le cas, réexécutez la commande après une minute.
 
@@ -112,6 +155,8 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
 
 1. Par souci de simplicité, créez l’espace de travail maintenant.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     workspaceName="$groupName-workspace" # Name of the Log Analytics workspace
     
@@ -119,8 +164,22 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
         --resource-group $groupName \
         --workspace-name $workspaceName
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $workspaceName="$groupName-workspace"
+
+    az monitor log-analytics workspace create `
+        --resource-group $groupName `
+        --workspace-name $workspaceName
+    ```
+
+    ---
     
 2. Exécutez les commandes suivantes pour obtenir l’ID d’espace de travail encodé et la clé partagée pour un espace de travail Log Analytics existant. Vous aurez besoin de ces informations à l’étape suivante.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show \
@@ -137,18 +196,51 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
     logAnalyticsKeyEncWithSpace=$(printf %s $logAnalyticsKey | base64)
     logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show `
+        --resource-group $groupName `
+        --workspace-name $workspaceName `
+        --query customerId `
+        --output tsv)
+    $logAnalyticsWorkspaceIdEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsWorkspaceId))# Needed for the next step
+    $logAnalyticsKey=$(az monitor log-analytics workspace get-shared-keys `
+        --resource-group $groupName `
+        --workspace-name $workspaceName `
+        --query primarySharedKey `
+        --output tsv)
+    $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
+    ```
     
+    ---
+
 ## <a name="install-the-app-service-extension"></a>Installer l’extension App Service
 
 1. Définissez les variables d’environnement suivantes pour le nom souhaité de l’[extension App service](overview-arc-integration.md), l’espace de noms de cluster dans lequel les ressources doivent être approvisionnées, et le nom de l’environnement Kubernetes App service. Choisissez un nom unique pour `<kube-environment-name>`, car il fera partie du nom de domaine pour l’application créée dans l’environnement Kubernetes App Service.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash
     extensionName="appservice-ext" # Name of the App Service extension
     namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
     kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $extensionName="appservice-ext" # Name of the App Service extension
+    $namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
+    $kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
+    ```
+
+    ---
     
 2. Installez l’extension App Service sur votre cluster connecté Azure Arc, avec Log Analytics activé. Là encore, si Log Analytics n’est pas requis, vous ne pouvez pas l’ajouter à l’extension ultérieurement. Il est donc plus facile de le faire maintenant.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az k8s-extension create \
@@ -175,6 +267,35 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    az k8s-extension create `
+        --resource-group $groupName `
+        --name $extensionName `
+        --cluster-type connectedClusters `
+        --cluster-name $clusterName `
+        --extension-type 'Microsoft.Web.Appservice' `
+        --release-train stable `
+        --auto-upgrade-minor-version true `
+        --scope cluster `
+        --release-namespace $namespace `
+        --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
+        --configuration-settings "appsNamespace=${namespace}" `
+        --configuration-settings "clusterName=${kubeEnvironmentName}" `
+        --configuration-settings "loadBalancerIp=${staticIp}" `
+        --configuration-settings "keda.enabled=true" `
+        --configuration-settings "buildService.storageClassName=default" `
+        --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" `
+        --configuration-settings "customConfigMap=${namespace}/kube-environment-config" `
+        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" `
+        --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" `
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+    ```
+
+    ---
+
     > [!NOTE]
     > Pour installer l’extension sans l’intégration de Log Analytics, supprimez les trois paramètres `--configuration-settings` de la commande.
     >
@@ -199,6 +320,8 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
         
 3. Enregistrez la propriété `id` de l’extension App service pour plus tard.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```azurecli-interactive
     extensionId=$(az k8s-extension show \
         --cluster-type connectedClusters \
@@ -208,6 +331,20 @@ Bien qu’un [espace de travail Log Analytics](../azure-monitor/logs/quick-creat
         --query id \
         --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $extensionId=$(az k8s-extension show `
+        --cluster-type connectedClusters `
+        --cluster-name $clusterName `
+        --resource-group $groupName `
+        --name $extensionName `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
 
 4. Attendez que l’extension soit complètement installée avant de continuer. Il se peut que vous deviez faire attendre votre session de terminal jusqu’à ce que l’opération soit terminée en exécutant la commande suivante :
 
@@ -231,13 +368,27 @@ L’[emplacement personnalisé](../azure-arc/kubernetes/custom-locations.md) dan
 
 1. Définissez les variables d’environnement suivantes pour le nom souhaité de l’emplacement personnalisé et pour l’ID du cluster connecté Azure Arc.
 
+    # <a name="bash"></a>[bash](#tab/bash)
+
     ```bash
     customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    $customLocationName="my-custom-location" # Name of the custom location
     
-3. Créez l’emplacement personnalisé :
+    $connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
+    ```
+
+    ---
+    
+2. Créez l’emplacement personnalisé :
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az customlocation create \
@@ -247,18 +398,31 @@ L’[emplacement personnalisé](../azure-arc/kubernetes/custom-locations.md) dan
         --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    az customlocation create `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --host-resource-id $connectedClusterId `
+        --namespace $namespace `
+        --cluster-extension-ids $extensionId
+    ```
+
+    ---
     
     <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
 
-4. Vérifiez que l’emplacement personnalisé a été correctement créé avec la commande suivante. La sortie devrait afficher la propriété `provisioningState` avec la valeur `Succeeded`. Si ce n’est pas le cas, réexécutez la commande après une minute.
+3. Vérifiez que l’emplacement personnalisé a été correctement créé avec la commande suivante. La sortie devrait afficher la propriété `provisioningState` avec la valeur `Succeeded`. Si ce n’est pas le cas, réexécutez la commande après une minute.
 
     ```azurecli-interactive
-    az customlocation show \
-        --resource-group $groupName \
-        --name $customLocationName
+    az customlocation show --resource-group $groupName --name $customLocationName
     ```
     
-5. Enregistrez l’ID d’emplacement personnalisé pour l’étape suivante.
+4. Enregistrez l’ID d’emplacement personnalisé pour l’étape suivante.
+
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     customLocationId=$(az customlocation show \
@@ -267,12 +431,26 @@ L’[emplacement personnalisé](../azure-arc/kubernetes/custom-locations.md) dan
         --query id \
         --output tsv)
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    $customLocationId=$(az customlocation show `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
     
 ## <a name="create-the-app-service-kubernetes-environment"></a>Créer l’environnement Kubernetes App Service
 
 Avant de pouvoir commencer à créer des applications à l’emplacement personnalisé, vous avez besoin d’un [environnement Kubernetes App service](overview-arc-integration.md#app-service-kubernetes-environment).
 
 1. Créez l’environnement Kubernetes App Service :
+    
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```azurecli-interactive
     az appservice kube create \
@@ -281,13 +459,23 @@ Avant de pouvoir commencer à créer des applications à l’emplacement personn
         --custom-location $customLocationId \
         --static-ip $staticIp
     ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```azurecli-interactive
+    az appservice kube create `
+        --resource-group $groupName `
+        --name $kubeEnvironmentName `
+        --custom-location $customLocationId `
+        --static-ip $staticIp
+    ```
+
+    ---
     
 2. Vérifiez que l’environnement Kubernetes App Service est correctement créé avec la commande suivante. La sortie devrait afficher la propriété `provisioningState` avec la valeur `Succeeded`. Si ce n’est pas le cas, réexécutez la commande après une minute.
 
     ```azurecli-interactive
-    az appservice kube show \
-        --resource-group $groupName \
-        --name $kubeEnvironmentName
+    az appservice kube show --resource-group $groupName --name $kubeEnvironmentName
     ```
     
 

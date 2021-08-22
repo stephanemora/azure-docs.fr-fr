@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b860510610330d6c5d60f41dccc9e82bc77685f5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ba72960c40031dd49189f151fd3f35190e116
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969446"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463618"
 ---
 # <a name="devops-practices-for-luis"></a>Pratiques DevOps pour LUIS
 
@@ -183,7 +183,7 @@ Une application LUIS au format LUDown étant lisible par l’homme, la communica
 
 ## <a name="versioning"></a>Contrôle de version
 
-Une application est constituée de plusieurs composants qui peuvent inclure des éléments tels qu’un bot s’exécutant dans [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), le [service Azure Speech](../speech-service/overview.md) et bien plus encore. Pour que les applications soient faiblement couplées, utilisez la [gestion de version](/azure/devops/learn/git/what-is-version-control) afin que la version de chaque composant d’une application soit gérée de manière indépendante, ce qui permet aux développeurs de détecter les changements cassants ou les mises à jour en examinant simplement le numéro de version. Il est plus facile de gérer la version de votre application LUIS indépendamment des autres composants si vous conservez celle-ci dans son propre dépôt.
+Une application est constituée de plusieurs composants qui peuvent inclure des éléments tels qu’un bot s’exécutant dans [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), le [service Azure Speech](../speech-service/overview.md) et bien plus encore. Pour que les applications soient faiblement couplées, utilisez la [gestion de version](/devops/develop/git/what-is-version-control) afin que la version de chaque composant d’une application soit gérée de manière indépendante, ce qui permet aux développeurs de détecter les changements cassants ou les mises à jour en examinant simplement le numéro de version. Il est plus facile de gérer la version de votre application LUIS indépendamment des autres composants si vous conservez celle-ci dans son propre dépôt.
 
 Un schéma de gestion de versions doit être appliqué à l’application LUIS pour la branche primaire. Quand vous fusionnez des mises à jour du fichier `.lu` pour une application LUIS dans la branche primaire, vous importez cette source mise à jour dans une nouvelle version de l’application LUIS pour la branche primaire.
 

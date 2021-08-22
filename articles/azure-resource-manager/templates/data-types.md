@@ -4,13 +4,13 @@ description: Décrit les types de données disponibles dans les modèles Azure R
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 05/07/2021
-ms.openlocfilehash: 4905dbe184301ea9bcf86d63d527d07276a95c9e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/24/2021
+ms.openlocfilehash: 4fc69126ee1f555e71e152a7c0369e4b81b8bf6a
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957937"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894227"
 ---
 # <a name="data-types-in-arm-templates"></a>Types de données dans les modèles ARM
 
@@ -43,6 +43,17 @@ Les tableaux commencent par un crochet ouvrant (`[`) et se terminent par un croc
     ]
   }
 },
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('exampleArray')]"
+  },
+  "firstExampleArrayElement": {
+    "type": "int",
+    "value": "[parameters('exampleArray')[0]]"
+  }
+}
 ```
 
 Les éléments d’un tableau peuvent être du même type ou de types différents.
@@ -55,6 +66,17 @@ Les éléments d’un tableau peuvent être du même type ou de types différent
     true,
     "example string"
   ]
+}
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('mixedArray')]"
+  },
+  "firstMixedArrayElement": {
+    "type": "string",
+    "value": "[variables('mixedArray')[0]]"
+  }
 }
 ```
 

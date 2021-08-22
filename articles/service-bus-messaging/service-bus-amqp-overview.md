@@ -3,12 +3,12 @@ title: Vue d’ensemble d’AMQP 1.0 dans Azure Service Bus
 description: Découvrez comment Azure Service Bus prend en charge Advance Message Queueing Protocol (AMQP), un protocole standard ouvert.
 ms.topic: article
 ms.date: 04/08/2021
-ms.openlocfilehash: 006511789bfa93f8e7d578ed21a73a2563fb4c6b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0e976f0cba4a599b64fde57f3a271a1565f93417
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304412"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416902"
 ---
 # <a name="advanced-message-queueing-protocol-amqp-10-support-in-service-bus"></a>Prise en charge du protocole AMQP (Advanced Message Queueing Protocol) 1.0 dans Service Bus
 Le service cloud Azure Service Bus utilise le [protocole AMQP 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) comme principal moyen de communication. Microsoft s’est associée à des partenaires du secteur, des clients et des fournisseurs de répartiteurs de messages concurrents, pour développer et faire évoluer les AMQP au cours des dernières années, avec de nouvelles extensions développées au sein de l’[OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1.0 est une norme ISO et CEI ([ISO 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -70,7 +70,7 @@ Toutes les bibliothèques clientes Service Bus prises en charge disponibles via 
 - [Modules Azure Service Bus pour JavaScript et TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
 - [Bibliothèques Azure Service Bus pour Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
-[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]
 
 En outre, vous pouvez utiliser Service Bus à partir de n’importe quelle pile de protocol compatible AMQP 1.0 :
 

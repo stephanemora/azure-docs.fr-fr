@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service vous permet d’assurer les fo
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77ba7e71570e235de297bd0eabc466b5ea180ece
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87073733"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895226"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Déplacer une application App Service vers une autre région
 
@@ -29,7 +29,7 @@ Identifiez toutes les ressources App Service que l’application impactée util
 - [Plans App Service](overview-hosting-plans.md)
 - [Emplacements de déploiement](deploy-staging-slots.md)
 - [Domaines personnalisés achetés dans Azure](manage-custom-dns-buy-domain.md)
-- [Certificats SSL](configure-ssl-certificate.md)
+- [Certificats TLS/SSL](configure-ssl-certificate.md)
 - [Intégration de Réseau virtuel Microsoft Azure](web-sites-integrate-with-vnet.md)
 - [Connexions hybrides](app-service-hybrid-connections.md)
 - [Identités managées](overview-managed-identity.md)

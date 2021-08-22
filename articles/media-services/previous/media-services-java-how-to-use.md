@@ -15,19 +15,18 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-java
-ms.openlocfilehash: 5fa9f1eb4c9468c5cabaab6ee0430f165f339ed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a34f3af846e6dcde2dc65be0ad5cd48e7d36806f
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014908"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706325"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Prise en main du Kit de développement logiciel du client Java pour Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel Java.
 

@@ -6,17 +6,17 @@ ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 187e51d049d965d0fb9cef1af93a5036819e957f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f40e3478a10a1a141e02510d88f4564062ff2ce5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563332"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscription automatique auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,7 @@ Vous pouvez activer la fonctionnalité d’inscription automatique pour plusieur
 
 Pour ce faire, procédez comme suit :
 
-1. Enregistrez [ce script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/AutoRegTools.psm1).
+1. Enregistrez [ce script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Accédez à l’emplacement où vous avez enregistré le script à l’aide d’une invite de commandes d’administration ou d’une fenêtre PowerShell. 
 1. Connectez-vous à Azur (`az login`).
 1. Exécutez le script en passant SubscriptionIds comme paramètres, comme   

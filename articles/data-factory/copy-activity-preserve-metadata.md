@@ -1,17 +1,20 @@
 ---
 title: Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Apprenez à conserver les métadonnées et les listes de contrôle d'accès (ACL) pendant la copie à l'aide de l'outil Copier l'activité d'Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jianleishen
-ms.openlocfilehash: 15221c5884ca52d5560fe46dc36ba1647bdea394
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1883d1192a1908611e3440ea2d39e770b4599bc6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488588"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642027"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
 

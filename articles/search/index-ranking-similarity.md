@@ -2,18 +2,17 @@
 title: Configurer l’algorithme de similarité
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment activer BM25 sur des services de recherche plus anciens et comment les paramètres BM25 peuvent être modifiés pour mieux prendre en charge le contenu de vos index.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc046516b154ac1e3b7a1361e78e157902b6bff6
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232832"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968696"
 ---
 # <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Configurer l’algorithme de classement des similitudes dans Recherche cognitive Azure
 

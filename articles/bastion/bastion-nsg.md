@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 84f32755a4838fbcb29b3d85d8308b5288d746ea
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537902"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112464740"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
 
@@ -48,7 +48,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
    * **Trafic d’entrée à partir d’Azure Load Balancer :** Pour les sondes d’intégrité, activez le port 443 entrant à partir de la balise de service **AzureLoadBalancer**. Azure Load Balancer peut ainsi détecter la connectivité
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Capture d’écran montrant des règles de sécurité de trafic entrant pour la connectivité Azure Bastion.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Capture d’écran montrant des règles de sécurité de trafic entrant pour la connectivité Azure Bastion." lightbox="./media/bastion-nsg/inbound.png":::
 
 * **Trafic de sortie :**
 
@@ -58,7 +58,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau ***AzureBastion
    * **Trafic de sortie vers Internet :** Azure Bastion doit pouvoir communiquer avec Internet pour valider les sessions et les certificats. Nous vous recommandons donc d’activer le port 80 sortant vers **Internet**.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Capture d’écran montrant les règles de sécurité de trafic sortant pour la connectivité Azure Bastion.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Capture d’écran montrant les règles de sécurité de trafic sortant pour la connectivité Azure Bastion." lightbox="./media/bastion-nsg/outbound.png":::
 
 ### <a name="target-vm-subnet"></a>Sous-réseau de la machine virtuelle cible
 Il s’agit du sous-réseau qui contient la machine virtuelle cible à laquelle vous souhaitez vous connecter via RDP/SSH.

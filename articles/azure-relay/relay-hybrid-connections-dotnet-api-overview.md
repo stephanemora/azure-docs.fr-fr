@@ -3,13 +3,13 @@ title: Vue d’ensemble des API .NET standard Azure Relay | Microsoft Docs
 description: Cet article résume une partie de la clé de Azure Relay Connexions hybrides .NET Standard API.
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 827df7b0344535161053e9a61f768ef42638ca84
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625129"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668163"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Présentation des API .NET standard pour les connexions hybrides Azure Relay
 

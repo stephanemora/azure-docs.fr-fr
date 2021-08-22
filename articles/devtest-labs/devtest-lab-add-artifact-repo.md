@@ -3,12 +3,12 @@ title: Ajouter un dépôt Git à un laboratoire dans Azure DevTest Labs | Micros
 description: Découvrez comment ajouter un dépôt GitHub ou un Git Azure DevOps Services pour votre source d’artefacts personnalisés dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2024c94c433559f067874fa852478a37e41eb53d
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483140"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539886"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -19,7 +19,7 @@ Nous mettons à votre disposition un [dépôt GitHub d’artefacts](https://gith
 Quand vous créez une machine virtuelle, vous pouvez enregistrer le modèle Resource Manager, le personnaliser éventuellement, puis l’utiliser pour créer des machines virtuelles supplémentaires. Vous devez créer votre propre dépôt privé afin de stocker vos modèles Resource Manager personnalisés.  
 
 * Pour découvrir comment créer un dépôt GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Pour savoir comment créer un projet Azure DevOps Services qui a un dépôt Git, consultez [Se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Pour savoir comment créer un projet Azure DevOps Services qui a un dépôt Git, consultez [Se connecter à Azure DevOps Services](https://azure.microsoft.com/services/devops/).
 
 La figure suivante illustre un dépôt contenant des artefacts dans GitHub :  
 

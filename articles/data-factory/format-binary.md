@@ -1,17 +1,20 @@
 ---
 title: Format Binaire dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Cette rubrique décrit comment traiter le format Binaire dans Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
-ms.openlocfilehash: 1fcc84f5f72bda1aa132ee054c71ad4e1cffbbd4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 32a1f7f9cc84adc3142bd7f03b399c759b01f824
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641984"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format Binaire dans Azure Data Factory
 

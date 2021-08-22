@@ -2,14 +2,14 @@
 title: Quotas et limites du service
 description: En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 6e17a90cc573205bcb964a0428e0b7320323b8a6
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ad5701c65f9f2068a1a68084b755f8d0a013b8c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553547"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465571"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -63,7 +63,7 @@ Ces limites supplémentaires sont définies par le service Batch. Contrairement 
 | **Ressource** | **Limite maximale** |
 | --- | --- |
 | [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul | 4 x nombre de cœurs de nœud |
-| [Applications](batch-application-packages.md) par compte Batch | 20 |
+| [Applications](batch-application-packages.md) par compte Batch | 200 |
 | Packages d’applications par application | 40 |
 | Packages d’applications par pool | 10 |
 | Durée de vie maximale de la tâche | 180 jours<sup>1</sup> |
