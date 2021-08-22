@@ -6,15 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5500a197b7cb2566b3ea78b6c2acba9403a7a8ae
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90929859"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641167"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Gérer un serveur flexible Azure Database pour MySQL (préversion) à l’aide du portail Azure
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
@@ -22,6 +23,7 @@ ms.locfileid: "90929859"
 Cet article vous explique comment gérer vos serveurs flexibles Azure Database pour MySQL (préversion). Les tâches de gestion comprennent la mise à l’échelle du calcul et du stockage, la réinitialisation du mot de passe de l’administrateur du serveur et la suppression de votre serveur.
 
 ## <a name="sign-in"></a>Se connecter
+
 Connectez-vous au [portail Azure](https://portal.azure.com). Accédez à la ressource de votre serveur flexible dans le portail Azure.
 
 ## <a name="scale-compute-and-storage"></a>Mettre à l’échelle le calcul et le stockage
@@ -35,7 +37,8 @@ Après la création d’un serveur, vous pouvez modifier les différents [niveau
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/howto-manage-server-portal/scale-server.png" alt-text="mise à l’échelle du stockage du serveur flexible":::
 
-   > [!Important]
+   
+> [!IMPORTANT]
    > - Le stockage ne peut pas faire l’objet d’un scale-down.
    > - La mise à l’échelle des vCores entraîne un redémarrage du serveur.
 

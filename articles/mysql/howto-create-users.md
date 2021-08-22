@@ -6,22 +6,21 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 9a6346a2b62c81dd74cf0ebe9a85df12d3488679
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7319e0bf5a1c382d6a6f0b2984d5428be6131c5e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251248"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088599"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Créer des bases de données et des utilisateurs dans Azure Database pour MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Cet article explique comment créer des utilisateurs dans Azure Database pour MySQL.
 
 > [!NOTE]
 > Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
->
 
 Quand vous avez créé votre serveur Azure Database pour MySQL, vous avez fourni un nom d’utilisateur et un mot de passe d’administrateur de serveur. Pour plus d’informations, consultez ce [démarrage rapide](quickstart-create-mysql-server-database-using-azure-portal.md). Vous pouvez déterminer le nom d’utilisateur de l’administrateur de serveur dans le portail Azure.
 
@@ -69,18 +68,17 @@ Après avoir créé un serveur Azure Database pour MySQL, vous pouvez utiliser l
 
 5. Connectez-vous au serveur en spécifiant la base de données désignée et en utilisant les nouveaux nom d’utilisateur et mot de passe. Cet exemple montre la ligne de commande mysql. Lorsque vous utilisez cette commande, vous êtes invité à entrer le mot de passe de l’utilisateur. Utilisez le nom de votre serveur, le nom de votre base de données et votre nom d’utilisateur.
 
-   ### <a name="single-server"></a>[Serveur unique](#tab/single-server)
+### <a name="single-server"></a>[Serveur unique](#tab/single-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-   ### <a name="flexible-server"></a>[Serveur flexible](#tab/flexible-server)
+### <a name="flexible-server"></a>[Serveur flexible](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
    ```
- ---
 
 ## <a name="to-create-more-admin-users-in-azure-database-for-mysql"></a>Pour créer des utilisateurs administrateurs supplémentaires dans Azure Database pour MySQL
 

@@ -5,19 +5,20 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: ''
 ms.date: 6/3/2020
-ms.openlocfilehash: 1804cef5baf70fad303c2813286e2bad500e63d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2c212922ebf550b75ee140637717a48beec9de02
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073375"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641176"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database pour MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur de stockage InnoDB. Le service prend en charge toutes les versions majeures actuelles prises en charge par la communauté, à savoir MySQL 5.6, 5.7 et 8.0. MySQL utilise le schéma de nommage X.Y.Z, où X est la version majeure, Y la version mineure et Z la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
-
-
 
 ## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Se connecter à un nœud de passerelle qui exécute une version spécifique de MySQL
 
@@ -34,7 +35,6 @@ Dans le service Azure Database pour MySQL, les nœuds de passerelle écoutent le
 
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Azure Database pour MySQL prend actuellement en charge les versions majeures et mineures suivantes de MySQL :
 
-
 | Version | [Serveur unique](overview.md) <br/> Version mineure actuelle |[Serveur flexible (préversion)](./flexible-server/overview.md) <br/> Version mineure actuelle  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Mise hors service) | Non pris en charge|
@@ -44,6 +44,7 @@ Dans le service Azure Database pour MySQL, les nœuds de passerelle écoutent le
 Découvrez la stratégie de prise en charge des versions pour les versions mises hors service dans la [documentation relative à la stratégie de prise en charge des versions](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
+
 Le service gère automatiquement les correctifs pour les mises à jour des versions des correctifs de bogues. Par exemple, 5.7.20 à 5.7.21.  
 
 La mise à niveau des versions principales est actuellement prise en charge par le service pour les mises à niveau de MySQL v5.6 à v5.7. Pour plus d’informations, consultez [comment effectuer des mises à niveau des versions principales](how-to-major-version-upgrade.md). Si vous voulez effectuer une mise à niveau de la version 5.7 vers la version 8.0, nous vous recommandons d’effectuer [le vidage et la restauration](./concepts-migrate-dump-restore.md) sur un serveur créé avec la nouvelle version du moteur.

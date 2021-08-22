@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4356a4f432572920bd07fd8d7ea8c7e5f6663e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718741"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641174"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Suivre l’activité de la base de données avec les journaux d’audit dans le serveur flexible Azure Database pour MySQL
 
-> [!IMPORTANT] 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 
 Le serveur flexible Azure Database pour MySQL offre aux utilisateurs la possibilité de configurer des journaux d’audit. Les journaux d’audit peuvent être utilisés pour suivre l’activité au niveau de la base de données, y compris les événements relatifs aux connexions, à l’administration, au langage de description de données et au langage de manipulation de données. Ces types de journaux sont couramment utilisés à des fins de conformité.

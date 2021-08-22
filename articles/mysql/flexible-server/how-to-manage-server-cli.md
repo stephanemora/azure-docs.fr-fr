@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 4ef1408d5f7afc3b78ab021cdd25eedd75110849
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2c55f2fa9bed7290d77baafd6adcc08d0f2875c0
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776929"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641168"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Gérer un serveur flexible Azure Database pour MySQL (préversion) à l’aide de l’interface de ligne de commande Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
@@ -21,6 +23,7 @@ ms.locfileid: "107776929"
 Cet article vous explique comment gérer votre serveur flexible (préversion) déployé sur Azure. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer. Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
@@ -35,8 +38,8 @@ Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la com
 az account set --subscription <subscription id>
 ```
 
-> [!Important]
-> Si vous n’avez pas encore créé de serveur flexible, créez-en un pour vous familiariser avec ce guide.
+> [!IMPORTANT]
+>Si vous n’avez pas encore créé de serveur flexible, créez-en un pour vous familiariser avec ce guide.
 
 ## <a name="scale-compute-and-storage"></a>Mettre à l’échelle le calcul et le stockage
 
@@ -55,8 +58,8 @@ resource-group | myResourceGroup | Indiquez le nom du groupe de ressources Azure
 sku-name|Standard_D4ds_v4|Entrez le nom du niveau de calcul et de la taille. Respecte la convention Standard_ {taille de machine virtuelle} en abrégé. Pour plus d’informations, consultez les [niveaux tarifaires](../concepts-pricing-tiers.md).
 storage-size | 6144 | Capacité de stockage du serveur (en mégaoctets). 5120 minimum et augmente par incrément de 1024.
 
-> [!Important]
-> - Le stockage peut être monté en puissance (mais pas descendu en puissance)
+> [!IMPORTANT]
+>- Le stockage peut être monté en puissance (mais pas descendu en puissance)
 
 
 ## <a name="manage-mysql-databases-on-a-server"></a>Gérez des bases de données MySQL sur un serveur.
@@ -75,8 +78,8 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur avec cette comm
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
 ```
 
-> [!Important]
->  Assurez-vous que le mot de passe compte huit caractères minimum et 128 caractères maximum.
+> [!IMPORTANT]
+> Assurez-vous que le mot de passe compte huit caractères minimum et 128 caractères maximum.
 > Le mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
 
 ## <a name="delete-a-server"></a>Supprimer un serveur

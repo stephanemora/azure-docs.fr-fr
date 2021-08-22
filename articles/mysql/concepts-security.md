@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ede3650aa185e178f6df21ff285115e4230b521f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2e089532ce0091c633bab86ee5bed0fcf948e98
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471952"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641180"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Security dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Il existe plusieurs couches de sécurité qui permettent de protéger les données d’un serveur Azure Database pour MySQL. Cet article décrit ces différentes options de sécurité.
 

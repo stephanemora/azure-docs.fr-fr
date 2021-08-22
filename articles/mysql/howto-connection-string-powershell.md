@@ -7,14 +7,16 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/5/2020
-ms.openlocfilehash: 9f960d32dcf1f359327dccc01eeb06825cc3a062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83a33f1f2f22af6aafbe207c56cdc022a4b9510a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541468"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641158"
 ---
 # <a name="how-to-generate-an-azure-database-for-mysql-connection-string-with-powershell"></a>Comment générer une chaîne de connexion à Azure Database for MySQL avec PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cet article montre comment générer une chaîne de connexion pour un serveur Azure Database pour MySQL. Vous pouvez utiliser une chaîne de connexion pour vous connecter à une base de données Azure Database pour MySQL depuis de nombreuses applications différentes.
 

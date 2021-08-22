@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: be52bbe58f6c2ff6ee21703860e8d8e00ec30072
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c257941079c3a43639337dd1b010002ddac4672e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110149"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641171"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database pour MySQL - Serveur flexible 
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
 Cet article explique comment configurer des alertes Azure Database pour MySQL à l’aide du portail Azure. Vous pouvez recevoir une alerte basée sur des métriques de surveillance pour vos services Azure.
@@ -23,16 +25,19 @@ Cet article explique comment configurer des alertes Azure Database pour MySQL à
 L’alerte se déclenche quand la valeur d’une métrique spécifiée dépasse le seuil que vous avez défini. L’alerte se déclenche une première fois lorsque la condition est vérifiée, puis une deuxième fois quand elle cesse de l’être. Les alertes de métrique sont avec état ; autrement dit, elles envoient uniquement des notifications lorsque l’état change.
 
 Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de son déclenchement :
+
 * Envoyer des notifications par e-mail à l’administrateur du service et aux coadministrateurs
 * Envoyer un e-mail à d’autres adresses que vous spécifiez
 * Appeler un webhook
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
+
 * [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
+
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur flexible Azure Database pour MySQL à superviser.
 2. Sous la section **Supervision** de la barre latérale, sélectionnez **Alertes**.
 3. Sélectionnez **+ Nouvelle règle d’alerte**.
