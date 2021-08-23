@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f4e813de7a07384701a617b8ec4ccef099207812
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 84a0722a85e08de34841fef752ac8bb36c32f8b9
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107520"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357061"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Options d’aide et de support pour Azure Communication Services
 
@@ -31,3 +31,15 @@ Si vous ne trouvez pas de réponse à votre problème en effectuant une recherch
 ## <a name="post-a-question-on-stack-overflow"></a>Poser une question sur Stack Overflow
 
 Vous pouvez également poser votre question sur Stack Overflow, qui possède une grande communauté de développeurs et un écosystème. Azure Communication Services y possède également une [balise dédiée](https://stackoverflow.com/questions/tagged/azure-communication-services).
+
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Pour fournir des commentaires sur des fonctionnalités spécifiques fournies par Azure communication services sur Portail Azure, envoyez vos commentaires via des boutons ou des liens qui ont cette :::image type="content" source="./media/give-feedback-icon.png" alt-text="image d’icône de l’icône de commentaires."::: 
+
+Voici quelques exemples : 
+- Pour envoyer des commentaires sur les numéros de téléphone, cliquez sur le bouton « Envoyer des commentaires » dans la barre de commandes du panneau Numéros de téléphone.
+:::image type="content" source="./media/give-feedback-in-command-bar.png" alt-text="Image du bouton Envoyer des commentaires dans la barre de commandes du panneau Numéros de téléphone.":::
+- Pour envoyer des commentaires sur l’expérience de connexion à un hub de notification, cliquez sur le lien suivant, comme indiqué ci-dessous.  
+:::image type="content" source="./media/give-feedback-in-page.png" alt-text="Image du lien Envoyer des commentaires dans le panneau du hub de notification.":::
+
+Nous apprécions vos commentaires et votre énergie pour nous aider à améliorer nos services. Faites-nous savoir si vous êtes satisfait d’Azure Communication Services par le biais de cette [enquête](https://aka.ms/ACS_CAT_Survey). 

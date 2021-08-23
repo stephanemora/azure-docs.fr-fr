@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 07/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 1cab6f6f9db0650cee51b3863d521089b500bee9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: eecdead171e68915430aefe9aebeb24833485789
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461306"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688976"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro FPGA  
 
@@ -54,16 +55,32 @@ Avant de commencer, assurez-vous que :
 
 * Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge.
 
-* Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Azure Stack Edge / Data Box Gateway, IoT Hub et Stockage Azure.
+* Rôles RBAC : vous avez les attributions de rôles suivantes dans le contrôle d’accès en fonction du rôle (RBAC) Azure :
 
-  * Vous devez être **propriétaire** au niveau de l’abonnement pour accorder l’accès contributeur. Pour accorder un accès contributeur à quelqu’un d’autre, dans le portail Azure, accédez à **Tous les services** > **Abonnements** > **Contrôle d’accès (IAM)**  >  **+Ajouter** > **Ajouter une attribution de rôle**. Pour plus d’informations, consultez [Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure](../role-based-access-control/quickstart-assign-role-user-portal.md).
+  * Pour créer des ressources de stockage Azure Stack Edge, IoT Hub et Azure, un utilisateur doit avoir le rôle contributeur ou propriétaire au niveau de l’étendue du groupe de ressources.
 
-  * Pour créer une ressource Azure Stack Edge / Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur de ressources `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription d’un fournisseur de ressources, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * Pour créer une ressource IoT Hub, vérifiez que le fournisseur Microsoft.Devices est bien inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
+  * Pour attribuer le rôle collaborateur à un utilisateur au niveau de l’étendue du groupe de ressources, vous devez avoir le rôle de propriétaire au niveau de l’étendue de l’abonnement.
+
+  Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+
+* Fournisseurs de ressources : les fournisseurs de ressources suivants sont inscrits : 
+
+  * Pour créer une ressource Azure Stack Edge/Data Box Gateway, assurez-vous que le fournisseur `Microsoft.DataBoxEdge` est inscrit.
+
+  * Pour créer une ressource IoT Hub, vérifiez que le fournisseur `Microsoft.Devices` est bien inscrit.
+
+  * Pour créer une ressource stockage Azure, assurez-vous que stockage Azure est inscrit. Le fournisseur de ressources stockage Azure est par défaut un fournisseur de ressources inscrit, mais dans certains cas, l’inscription peut être nécessaire.
+
+  **Pour inscrire un fournisseur de ressources, vous devez avoir reçu le rôle RBAC associé, ci-dessus.**
+
+  Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+
 * Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 * Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
+
 * Vous n’êtes pas bloqué par une stratégie Azure configurée par votre administrateur système. Pour plus d’informations sur les stratégies, consultez [Démarrage rapide : Création d’une affectation de stratégie pour identifier les ressources non conformes](../governance/policy/assign-policy-portal.md).
+
 
 ### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Pour l'appareil Azure Stack Edge Pro FPGA
 

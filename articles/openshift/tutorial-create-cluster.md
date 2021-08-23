@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: dda4fc6a80bbe07977f8d2a5ffcbea895a4e1fe6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 219ff986e88bca31912cfe8be72e9dba179b9236
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771836"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112289564"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -26,6 +26,15 @@ Dans ce tutoriel, première partie d’une série qui en compte trois, vous alle
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel vous demande d’exécuter Azure CLI version 2.6.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requiert a minimum de 40 cœurs pour créer et exécuter un cluster OpenShift. Le quota de ressources Azure par défaut pour un nouvel abonnement Azure ne répond pas à cette exigence. Pour demander une augmentation de votre limite de ressources, consultez [Quota standard : augmenter les limites par série de machines virtuelles](../azure-portal/supportability/per-vm-quota-requests.md).
+
+* Par exemple, pour vérifier le quota d'abonnement actuel de la plus petite famille de machines virtuelles prises en charge, utilisez le SKU "Standard DSv3" :
+
+    ```azurecli-interactive
+    LOCATION=eastus
+    az vm list-usage -l $LOCATION \
+    --query "[?contains(name.value, 'standardDSv3Family')]" \
+    -o table
+    ```
 
 Le secret d’extraction ARO ne modifie pas le coût de la licence RH OpenShift pour ARO.
 

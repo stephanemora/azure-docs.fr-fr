@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 9200c669df4e9ca756a037f7dd05823e9caf21df
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 56918491f2fad1357f565ed5c07942d0c65c4114
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062667"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
 
@@ -32,6 +32,9 @@ Pour configurer l’intégration d’Azure AD à Procore SSO, vous avez besoin d
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Procore SSO pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -115,7 +118,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Capture d’écran affichant le site d’entreprise Procore avec l’élément Directory sélectionné.](./media/procoresso-tutorial/admin.png)
 
-3. Collez les valeurs dans les zones comme décrit ci-dessous :
+3. Collez les valeurs dans les zones comme décrit ci-dessous.
 
     ![Capture d’écran montrant la boîte de dialogue Add a Person.](./media/procoresso-tutorial/setting.png)   
 
@@ -139,7 +142,7 @@ Effectuez les étapes ci-dessous pour créer un utilisateur de test Procore côt
 
     ![Capture d’écran affichant le site d’entreprise Procore avec l’élément Directory sélectionné dans la boîte à outils.](./media/procoresso-tutorial/directory.png)
 
-3. Cliquez sur l’option **Ajouter une personne** pour ouvrir le formulaire et réglez les options suivantes -
+3. Cliquez sur l’option **Ajouter une personne** pour ouvrir le formulaire et réglez les options suivantes.
 
     ![Capture d’écran affichant la zone d’ajout d’une personne à Boylan Construction, dans laquelle vous pouvez entrer des informations sur l’utilisateur.](./media/procoresso-tutorial/user.png)
 

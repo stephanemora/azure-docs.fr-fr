@@ -1,32 +1,32 @@
 ---
-title: Concepts de l’intégration de la téléphonie RTCP pour Azure Communication Services
+title: Concepts d’intégration du réseau public commuté (RTCP) pour Azure Communication Services
 description: Découvrez comment intégrer des fonctionnalités d’appel RTCP dans votre application Azure Communication Services.
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5fba53125e22eed6797db7ada6b99e679e136ea8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ef77648a87a22eda950704a6d86b2e699dc61ebe
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092401"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762739"
 ---
 # <a name="telephony-concepts"></a>Concepts de la téléphonie
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Les kits SDK Appel Azure Communication Services peuvent être utilisés pour ajouter la téléphonie et le RTC à vos applications. Cette page récapitule les concepts et les fonctionnalités clés de la téléphonie. Pour plus d’informations sur les langages et les fonctionnalités spécifiques du kit SDK, consultez [bibliothèque d’appel](../../quickstarts/voice-video-calling/calling-client-samples.md).
+Les kits SDK Appel Azure Communication Services peuvent être utilisés pour ajouter la téléphonie et le RTCP à vos applications. Cette page récapitule les concepts et les fonctionnalités clés de la téléphonie. Pour plus d’informations sur les langages et les fonctionnalités spécifiques du kit SDK, consultez [bibliothèque d’appel](../../quickstarts/voice-video-calling/calling-client-samples.md).
 
 ## <a name="overview-of-telephony"></a>Vue d’ensemble de la téléphonie
 Chaque fois que vos utilisateurs interagissent avec un numéro de téléphone traditionnel, les appels sont facilités par les appels vocaux RTCP (réseau téléphonique commuté public). Pour émettre et recevoir des appels RTPC, vous devez ajouter des fonctionnalités de téléphonie à votre ressource Azure Communication Services. Dans ce cas, la signalisation et le contenu multimédia utilisent une combinaison de technologies basées sur IP et RTPC pour connecter vos utilisateurs. Communication Services offre deux moyens discrets d’atteindre le réseau RTC : les appels vocaux (RTC) et le routage direct Azure.
 
 ### <a name="voice-calling-pstn"></a>Appels vocaux (RTC)
 
-Un moyen simple d’ajouter une connectivité RTCP à votre application ou service ; dans ce cas, Microsoft est votre fournisseur de télécommunication. Vous pouvez acheter des numéros directement auprès de Microsoft. Azure Cloud Calling est une solution de téléphonie entièrement cloud pour les services de communication. C’est l’option la plus simple qui connecte ACS au RTCP pour permettre les appels aux réseaux filaires et aux téléphones portables dans le monde entier. Avec cette option, Microsoft agit comme opérateur RTCP, comme le montre le diagramme suivant :
+Un moyen simple d’ajouter une connectivité RTCP à votre application ou service ; dans ce cas, Microsoft est votre fournisseur de télécommunication. Vous pouvez acheter des numéros directement auprès de Microsoft. Azure Cloud Calling est une solution de téléphonie entièrement cloud pour Communication Services. C’est l’option la plus simple qui connecte Communication Services au RTCP pour permettre les appels aux réseaux filaires et aux téléphones portables dans le monde entier. Microsoft agit comme opérateur RTCP, comme le montre le diagramme suivant :
 
 ![Diagramme des appels vocaux (RTC).](../media/telephony-concept/azure-calling-diagram.png)
 
@@ -46,15 +46,15 @@ Pour l’appel au cloud, les appels sortants sont facturés par minute en foncti
 
 ### <a name="azure-direct-routing"></a>Routage direct Azure
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Avec cette option, vous pouvez connecter la téléphonie locale héritée et l’opérateur de votre choix à Azure Communication Services. Elle fournit des fonctionnalités d’appel RTC à vos applications ACS, même les appels vocaux (RTC) ne sont pas disponibles dans votre pays/région. 
+Avec cette option, vous pouvez connecter la téléphonie locale héritée et l’opérateur de votre choix à Azure Communication Services. Elle fournit des fonctionnalités d’appel RTC à vos applications Communication Services, même les appels vocaux (RTC) ne sont pas disponibles dans votre pays/région. 
 
 ![Diagramme du routage direct Azure.](../media/telephony-concept/sip-interface-diagram.png)
 
 Si vous répondez « oui » à une des questions suivantes, le routage direct Azure est la bonne solution pour vous :
 
-- Vous voulez utiliser ACS avec des fonctionnalités d’appel RTCP.
+- Vous voulez utiliser Communication Services avec des fonctionnalités d’appel RTCP.
 - Vous devez conserver votre opérateur RTCP actuel.
 - Vous voulez combiner le routage, avec certains appels passant par la technologie des appels vocaux (RTC) et d’autres passant par votre opérateur.
 - Vous devez interagir avec des PABX et/ou des équipements de tiers, comme des haut-parleurs de plafond, des appareils analogiques, etc.
@@ -62,11 +62,11 @@ Si vous répondez « oui » à une des questions suivantes, le routage direct 
 Avec cette option :
 
 - Vous connectez vos propres SBC pris en charge à Azure Communication Services sans avoir besoin de logiciels locaux supplémentaires.
-- Vous pouvez utiliser absolument n’importe quel opérateur de téléphonie avec ACS.
+- Vous pouvez utiliser absolument n’importe quel opérateur de téléphonie avec Communication Services.
 - Vous pouvez choisir de configurer et de gérer cette option, ou bien elle peut être configurée et gérée par votre opérateur ou votre partenaire (demandez si votre opérateur ou votre partenaire fournit cette option).
-- Vous pouvez configurer l’interopérabilité entre votre équipement de téléphonie, par exemple un PABX et des appareils analogiques de tiers, et ACS.
+- Vous pouvez configurer l’interopérabilité entre votre équipement de téléphonie, par exemple un PABX et des appareils analogiques de tiers, et Communication Services.
 
-Cette option nécessite les conditions suivantes :
+Cette option requiert :
 
 - Une connexion sans interruptions à Azure.
 - Le déploiement et la maintenance d’un SBC pris en charge.
@@ -78,6 +78,7 @@ Cette option nécessite les conditions suivantes :
 
 - [Types de numéros de téléphone dans Azure Communication Services](./plan-solution.md)
 - [Planifier le routage direct Azure](./sip-interface-infrastructure.md)
+- [Contrôleurs SBC certifiés pour le routage direct Azure Communication Services](./certified-session-border-controllers.md)
 - [Tarification](../pricing.md)
 
 ### <a name="quickstarts"></a>Démarrages rapides

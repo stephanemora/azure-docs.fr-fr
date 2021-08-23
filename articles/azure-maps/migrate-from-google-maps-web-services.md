@@ -3,18 +3,18 @@ title: Tutoriel – Migrer des services web à partir de Google Maps | Microsoft
 description: Didacticiel sur la migration de services web de Google Maps vers Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/19/2020
+ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: caed40f91ef6a6c1e8bdb353c6548aee699dbc07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: f1220d7368eb0bca48364dc239944a95d29be276
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795425"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578880"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutoriel : Migrer un service web à partir de Google Maps
 
@@ -60,7 +60,7 @@ Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Ma
 - Nearest Roads (routes les plus proches) : cette fonctionnalité est proposée par le SDK web comme indiqué [ici](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic) mais n’est pas disponible comme service pour l’instant.
 - Affichage des rues statiques
 
-Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
+Azure Maps offre d’autres services web REST qui peuvent être utiles :
 
 - [Opérations spatiales](/rest/api/maps/spatial) : déchargez vers un service les calculs et les opérations spatiales complexes, par exemple le geofencing.
 - [Trafic](/rest/api/maps/traffic) : accédez en temps réel aux données sur le trafic et les incidents.
@@ -203,7 +203,6 @@ Le service de routage Azure Maps fournit les API suivantes pour le calcul des it
 
 - [**Calculer l’itinéraire**](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d’un grand nombre de points de cheminement ou lors de l’utilisation de nombreuses options de routage pour s’assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
 - [**Itinéraire par lots**](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
-- [**Services Mobility (préversion)** ](/rest/api/maps/mobility) : calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Google Maps et les paramètres d’API comparables dans Azure Maps.
 
@@ -221,8 +220,6 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* : cette fonctionnalité est liée au géocodage. Utilisez le paramètre *countrySet* lorsque vous utilisez l'API de géocodage d’Azure Maps.  |
 | `traffic_model`               | *N/A* : permet uniquement de spécifier si les données de trafic doivent être utilisées avec le paramètre *traffic*. |
-| `transit_mode`                | Voir la [documentation sur les services Mobility (préversion)](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Voir la [documentation sur les services Mobility (préversion)](/rest/api/maps/mobility) |
 | `units`                        | *N/A* : Azure Maps utilise uniquement le système métrique.  |
 | `waypoints`                    | `query`                            |
 
@@ -375,7 +372,7 @@ Ajoutez des lignes et un polygone à une image de carte statique à l’aide du 
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-Utilisez des styles supplémentaires en ajoutant des paramètres `path` supplémentaires à l’URL avec un style et un jeu de localisations différents.
+Pour utiliser des styles supplémentaires, ajoutez des paramètres `path` supplémentaires à l’URL avec un style et un jeu de localisations différents.
 
 Les localisations de tracés sont spécifiés au format `latitude1,longitude1|latitude2,longitude2|…`. Les chemins d’accès peuvent être encodés ou contenir des adresses de points.
 
@@ -402,7 +399,7 @@ Ajoutez des lignes et des polygones à une image de carte statique en spécifian
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-En ce qui concerne les localisations de tracés, Azure Maps demande que les coordonnées soient au format « longitude latitude ». Google Maps utilise le format « latitude,longitude ». Un espace, et non une virgule, sépare la longitude de la latitude au format Azure Maps. Azure Maps ne prend pas en charge les adresses ou les tracés encodés pour des points. Chargez les plus grands jeux de données sous forme de fichier GeoJSON dans l’API de stockage de données Azure Maps, comme documenté [ici](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+En ce qui concerne les localisations de tracés, Azure Maps demande que les coordonnées soient au format « longitude latitude ». Google Maps utilise le format « latitude,longitude ». Un espace, et non une virgule, sépare la longitude de la latitude au format Azure Maps. Azure Maps ne prend pas en charge les adresses ou les tracés encodés pour des points. Chargez les plus grands jeux de données sous forme de fichier GeoJSON dans l’API de stockage de données Azure Maps, comme documenté [ici](how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Ajoutez des styles de tracés au format `optionNameValue`. Séparez les différents styles à l’aide de barres verticales (\|), comme ceci : `optionName1Value1|optionName2Value2`. Les noms et les valeurs des options ne sont pas séparés. Utilisez les noms d’options de style suivants pour appliquer un style à des tracés dans Azure Maps :
 
@@ -468,7 +465,7 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-En plus de cette API, Azure Maps fournit un certain nombre d’API de fuseau horaire. Ces API convertissent l’heure en fonction des noms ou des ID du fuseau horaire :
+En plus de cette API, Azure Maps fournit plusieurs API de fuseau horaire. Ces API convertissent l’heure en fonction des noms ou des ID du fuseau horaire :
 
 - [**Fuseau horaire par ID**](/rest/api/maps/timezone/gettimezonebyid) : Renvoie les informations de fuseau horaire actuelles, historiques et futures pour l'ID de fuseau horaire IANA spécifié.
 - [**Fuseau horaire avec Enum IANA**](/rest/api/maps/timezone/gettimezoneenumiana) : Renvoie une liste complète des ID de fuseau horaire IANA. Les mises à jour du service IANA sont reflétées dans le système dans un délai de 24 heures.

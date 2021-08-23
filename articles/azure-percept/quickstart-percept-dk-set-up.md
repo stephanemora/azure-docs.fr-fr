@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3bc89555f3526048f2e4876724503d0137f21fbf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3a6a00fd13165deb1a0ec10d3c6d24fed5a5c278
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964389"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709908"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -49,14 +49,14 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 1. Dans la liste, sélectionnez votre abonnement. Si vous ne voyez pas votre abonnement, vérifiez que vous êtes connecté avec le compte Azure approprié. Si vous voulez créer un abonnement, effectuez [les étapes suivantes](../cost-management-billing/manage/create-subscription.md).
 
 1. Dans le menu Abonnement, sélectionnez **Contrôle d’accès (IAM)** .
-1. Cliquez sur **Afficher mon accès**.
+1. Sélectionnez **Afficher mon accès**.
 1. Vérifiez le rôle :
     - Si le rôle est répertorié en tant que **Lecteur** ou si vous recevez un message indiquant que vous ne disposez pas des autorisations appropriées pour afficher les rôles, vous devez suivre le processus nécessaire dans votre organisation pour que le rôle de votre compte soit élevé.
     - Si votre rôle est répertorié en tant que **propriétaire** ou **contributeur**, votre compte fonctionne avec Azure Percept, et vous pouvez poursuivre l’installation.
 
 ## <a name="launch-the-azure-percept-dk-setup-experience"></a>Lancer l’expérience d’installation du DK Azure Percept
 
-1. Connectez votre ordinateur hôte directement au point d’accès Wi-Fi du kit de développement. Comme pour la connexion à tout autres réseaux Wi-Fi, ouvrez les paramètres réseaux et Internet sur votre ordinateur, cliquez sur le réseau suivant, puis entrez le mot de passe réseau lorsque vous y êtes invité :
+1. Connectez votre ordinateur hôte directement au point d’accès Wi-Fi du kit de développement. Comme pour la connexion à tout autres réseaux Wi-Fi, ouvrez les paramètres réseaux et Internet sur votre ordinateur, sélectionnez le réseau suivant, puis entrez le mot de passe réseau lorsque vous y êtes invité :
 
     - **Nom réseau** : selon la version du système d’exploitation de votre kit de développement, le nom du point d’accès Wi-Fi est **scz-xxxx** ou **apd-xxxx** (où « xxxx » correspond aux quatre derniers chiffres de l’adresse MAC du kit de développement)
     - **Mot de passe** : disponible sur la carte de bienvenue fournie avec le kit de développement
@@ -73,13 +73,16 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 ## <a name="complete-the-azure-percept-dk-setup-experience"></a>Finaliser l’expérience d’installation du DK Azure Percept
 
-1. Cliquez sur **Suivant** dans l’écran de **Bienvenue**.
+1. Dans l’écran **Bienvenue**, sélectionnez **Suivant**.
 
-1. Sur la page de **Connexion réseau**, cliquez sur **Connexion à un nouveau réseau WiFi**.
+1. Sur la page de **Connexion réseau**, sélectionnez **Connexion à un nouveau réseau WiFi**.
 
-    Si vous avez déjà connecté votre kit de développement à votre réseau Wi-Fi, cliquez sur **Ignorer**.
+    Si vous avez déjà connecté votre kit de développement à votre réseau Wi-Fi, sélectionnez **Ignorer**.
 
 1. Sélectionnez votre réseau Wi-Fi dans la liste des réseaux disponibles, puis cliquez sur **Se connecter**. Entrez votre mot de passe réseau lorsque vous y êtes invité.
+
+    > [!NOTE]
+    > **Utilisateurs Mac** : lors de l’installation sur un Mac, il s’ouvre initialement dans une fenêtre plutôt que dans un navigateur Web. La fenêtre n’est pas conservée une fois que la connexion bascule du point d’accès de l’appareil au Wi-Fi. Ouvrez un navigateur Web et accédez à https://10.1.1.1, ce qui vous permettra d’effectuer l’installation.
 
 1. Une fois que votre kit de développement s’est correctement connecté au réseau choisi, la page affiche l’adresse IPv4 attribuée à votre kit de développement. **Notez l’adresse IPv4 affichée sur la page.** Vous avez besoin de l’adresse IP lors de la connexion à votre kit de développement sur SSH pour la résolution des problèmes et les mises à jour de l’appareil.
 
@@ -99,11 +102,14 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Sur la page suivante, cliquez sur **Installer en tant que nouvel appareil** pour créer un nouvel appareil dans votre compte Azure.
 
-1. Cliquez sur **Copier** pour copier le code de votre appareil. Cliquez ensuite sur **Connexion à Azure**.
+1. Cliquez sur **Copier** pour copier le code de votre appareil. Sélectionnez ensuite sur **Connexion à Azure**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Copiez le code de l’appareil.":::
 
-1. Un nouvel onglet de navigateur s’ouvre avec une fenêtre qui indique **Entrer le code**. Collez le code dans la fenêtre et cliquez sur **Suivant**. Ne fermez pas l’onglet **Bienvenue** avec l’expérience d’installation.
+    > [!NOTE]
+    > Si vous recevez ce message d’erreur lorsque vous tentez de recevoir le code de l’appareil : *Impossible d’obtenir le code de l’appareil. Vérifiez que l’appareil est connecté à Internet*. La cause la plus courante est celle de votre réseau sur site.  Essayez de brancher un câble Ethernet au kit de développement ou de vous connecter à un autre réseau de Wi-Fi, puis réessayez.  Les causes les moins courantes peuvent être que la date/l’heure de votre ordinateur hôte soient désactivées. 
+
+1. Un nouvel onglet de navigateur s’ouvre avec une fenêtre qui indique **Entrer le code**. Collez le code dans la fenêtre et sélectionnez **Suivant**. Ne fermez pas l’onglet **Bienvenue** avec l’expérience d’installation.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-09-enter-code.png" alt-text="Entrez le code de l’appareil.":::
 
@@ -135,7 +141,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
     > [!NOTE]
     > Si vous avez besoin d’un [débit de message](../iot-hub/iot-hub-scaling.md#message-throughput) supérieur pour vos applications périphériques d’IA, vous pouvez à tout moment [mettre à niveau votre IoT Hub vers un niveau standard plus élevé](../iot-hub/iot-hub-upgrade.md) dans le Portail Azure. Les niveaux B et F ne prennent pas en charge Azure Percept.
 
-1. Ce déploiement IoT Hub peut prendre quelques minutes. Une fois le déploiement terminé, cliquez sur **Inscrire**.
+1. Ce déploiement IoT Hub peut prendre quelques minutes. Une fois le déploiement terminé, sélectionnez **Inscrire**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="Hub IoT correctement déployé.":::
 
@@ -154,7 +160,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Connectez votre ordinateur hôte au réseau Wi-Fi auquel votre kit de développement est connecté durant l’étape 2.
 
-1. Cliquez sur **Continuer vers le portail Azure**.
+1. Sélectionnez **Continuer vers le portail Azure**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-Azure-portal-continue.png" alt-text="Accédez à Azure Percept Studio.":::
 
@@ -168,9 +174,9 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-02-select-device.png" alt-text="Sélectionnez votre appareil.":::
 
-1. Cliquez sur **View your device stream** (Afficher le flux de votre appareil). S’il s’agit de la première fois que vous affichez le flux vidéo de votre appareil, une notification indiquant qu’un nouveau modèle est déployé s’affiche dans le coin supérieur droit. Cela peut prendre quelques minutes.
+1. Sélectionnez **Afficher le flux de votre appareil**. S’il s’agit de la première fois que vous affichez le flux vidéo de votre appareil, une notification indiquant qu’un nouveau modèle est déployé s’affiche dans le coin supérieur droit. Cela peut prendre quelques minutes.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="Affichez votre flux vidéo.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/view-stream.png" alt-text="Affichez votre flux vidéo.":::
 
     Une fois que le modèle est déployé, vous obtenez une autre notification avec un lien **Afficher le flux**. Cliquez sur le lien pour afficher le flux vidéo de votre caméra Azure Percept Vision dans une nouvelle fenêtre de navigateur. Le kit de développement est préchargé avec un modèle d’IA qui effectue automatiquement la détection d’objets pour de nombreux objets communs.
 
@@ -178,13 +184,13 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
 
 1. Azure Percept Studio possède également un certain nombre d’échantillons de modèles d’IA. Pour déployer un échantillon de modèle dans votre kit de développement, revenez à la page de votre appareil, puis cliquez sur **Déployer un échantillon de modèle**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explorez les modèles prédéfinis.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/deploy-sample-model.png" alt-text="Explorez les modèles prédéfinis.":::
 
 1. Sélectionnez un échantillon de modèle dans la bibliothèque et cliquez sur **Déployer sur l’appareil**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Examinez la détection d’objet en action.":::
 
-1. Une fois que le modèle a été déployé avec succès, une notification avec un lien **Afficher le flux** s’affiche dans le coin supérieur droit de l’écran. Pour afficher l’inférence de modèle en action, cliquez sur le lien dans la notification ou revenez sur la page de l’appareil, puis cliquez sur **Afficher le flux de votre appareil**. Tous les modèles qui se sont exécutés précédemment sur le kit de développement sont désormais remplacés par le nouveau modèle.
+1. Une fois que le modèle a été déployé avec succès, une notification avec un lien **Afficher le flux** s’affiche dans le coin supérieur droit de l’écran. Pour afficher l’inférence de modèle en action, sélectionnez le lien dans la notification ou revenez sur la page de l’appareil, puis cliquez sur **Afficher le flux de votre appareil**. Tous les modèles qui se sont exécutés précédemment sur le kit de développement sont désormais remplacés par le nouveau modèle.
 
 ## <a name="video-walkthrough"></a>Vidéo de procédure pas à pas
 

@@ -5,14 +5,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
 ms.author: trbye
-ms.openlocfilehash: 4ac14a82fa5698faf6f79c97cd1cdd729f1966a8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2ffcb79bb2bb192566e7f6b7e0f933cacce84a77
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769434"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593186"
 ---
-Pour terminer le démarrage rapide de reconnaissance de l’intention, vous devez créer un compte LUIS et un projet à partir de la préversion du portail LUIS. Ce démarrage rapide nécessite uniquement un abonnement LUIS. Il n’est *pas* nécessaire de disposer d’un abonnement au service Speech.
+Pour terminer le démarrage rapide de reconnaissance de l’intention, vous devez créer un compte LUIS et un projet à partir de la préversion du portail LUIS. Ce guide de démarrage rapide nécessite un abonnement LUIS [dans une région où la reconnaissance d’intention est disponible](/azure/cognitive-services/speech-service/regions#intent-recognition). Il n’est *pas* nécessaire de disposer d’un abonnement au service Speech.
 
 La première chose à faire est de créer un compte et une application LUIS à partir de la préversion du portail LUIS. L’application LUIS que vous créez utilisera un domaine prédéfini pour la domotique, qui fournit des intentions, des entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS s’exécutant dans le cloud et que vous pourrez appeler à l’aide du kit SDK Speech. 
 

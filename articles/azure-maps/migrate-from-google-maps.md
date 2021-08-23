@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6241f6156b01c3c90f00578ae5416e4e77270930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2263b27cd2f505bc76f02f24e17d54ec5f6475b2
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386796"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578844"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>Tutoriel : Migrer de Google Maps vers Azure Maps
 
@@ -34,7 +34,7 @@ Cet article fournit des insights sur la migration d’applications web, mobiles 
 
 ## <a name="azure-maps-platform-overview"></a>Vue d’ensemble de la plateforme Azure Maps
 
-Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Les fonctionnalités tirent parti de données cartographiques régulièrement mises à jour, afin de fournir un contexte géographique pour les applications web et mobiles. Azure Maps dispose d’un ensemble d’API REST conformes à l’API Azure One. Les API REST offrent des fonctionnalités de rendu de cartes, de recherche, d’itinéraires, de trafic, de fuseaux horaires, de géolocalisation, de geofencing, de données cartographiques, de météo, de mobilité et d’opérations spatiales. Les opérations sont accompagnées de SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
+Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Les fonctionnalités tirent parti de données cartographiques régulièrement mises à jour, afin de fournir un contexte géographique pour les applications web et mobiles. Azure Maps dispose d’un ensemble d’API REST conformes à l’API Azure One. Les API REST offrent des fonctionnalités de rendu de cartes, de recherche, d’itinéraires, de trafic, de fuseaux horaires, de géolocalisation, de geofencing, de données cartographiques, de météo et d’opérations spatiales. Les opérations sont accompagnées de SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
 
 ## <a name="high-level-platform-comparison"></a>Comparaison générale de plateformes
 

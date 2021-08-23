@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: d4139ddc0d0befce228e18a65ecfb83065c740dc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985991"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443156"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -26,7 +26,7 @@ Pour intégrer Azure Sentinel, vous devez d’abord activer Azure Sentinel, puis
 Après avoir connecté vos sources de données, opérez votre choix dans une galerie de classeurs créés par des experts, qui mettent en avant des insights sur la base de vos données. Vous pouvez aisément adapter ces classeurs à vos besoins.
 
 >[!IMPORTANT] 
-> Pour plus d’informations sur les frais liés à l’utilisation d’Azure Sentinel, consultez les [tarifs Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> Pour plus d’informations sur les frais liés à l’utilisation d’Azure Sentinel, consultez les [Tarifs Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) et [Coûts et facturation Azure Sentinel](azure-sentinel-billing.md).
 
 ## <a name="global-prerequisites"></a>Conditions préalables globales
 
@@ -47,13 +47,20 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
     | Zone géographique/région de l’espace de travail | Zone géographique/région des données générées par Azure Sentinel |
     | --- | --- |
-    | États-Unis<br>Inde<br>Brésil<br>Afrique<br>Corée du Sud<br>Émirats arabes unis | États-Unis |
-    | Europe<br>France<br>Suisse | Europe |
+    | États-Unis<br>Inde<br>Afrique | États-Unis |
+    | Europe<br>France | Europe |
     | Australie | Australie |
     | Royaume-Uni | Royaume-Uni |
     | Canada | Canada |
     | Japon | Japon |
     | Asie Sud-Est (Singapour) | Asie Sud-Est (Singapour)* |
+    | Brésil | Brésil |
+    | Norvège | Norvège |
+    | Afrique du Sud | Afrique du Sud |
+    | Corée du Sud | Corée du Sud |
+    | Allemagne | Allemagne |
+    | Émirats arabes unis | Émirats arabes unis |
+    | Suisse | Suisse |
     |
     
     \* Il n’existe aucune région associée pour l’Asie Sud-Est.
@@ -103,7 +110,17 @@ Par exemple, si vous sélectionnez la source de données **Azure Active Director
 Une fois que vos données sources sont connectées, elles commencent à être diffusées en continu dans Azure Sentinel et peuvent être utilisées. Vous pouvez afficher les journaux dans les [classeurs intégrés](quickstart-get-visibility.md) et commencer à créer des requêtes dans Log Analytics pour [examiner les données](tutorial-investigate-cases.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à intégrer et connecter des sources de données à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Diffusez des données en streaming depuis des [appliances Common Event Format](connect-common-event-format.md) dans Azure Sentinel.
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- **Options de déploiement de substitution** :
+
+    - [Déployer Azure Sentinel via une API](/rest/api/securityinsights/)
+    - [Déployer Azure Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
+    - [Déployer Azure Sentinel via un modèle ARM](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+
+- **Démarrage** :
+    - [Bien démarrer avec Azure Sentinel](quickstart-get-visibility.md)
+    - [Créer des règles d’analytique personnalisées pour détecter des menaces](tutorial-detect-threats-custom.md)
+    - [Connectez votre solution externe en utilisant le format CEF](connect-common-event-format.md)
+

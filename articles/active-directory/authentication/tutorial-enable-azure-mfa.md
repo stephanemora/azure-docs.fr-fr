@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 06/29/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91010f100aa0a464ec61f763b38150ebb4efcf4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97881308"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090346"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutoriel : Événements de connexion utilisateur sécurisée avec Azure AD Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 
 * Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P1 ou une licence d’évaluation activée.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un compte avec des privilèges d’*administrateur général*.
+* Un compte avec des privilèges d’*administrateur général*. Certains paramètres MFA peuvent également être gérés par un administrateur de stratégie d’authentification. Pour en savoir plus, consultez [Administrateur des stratégies d’authentification](../roles/permissions-reference.md#authentication-policy-administrator).
 * Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*. Vous testez l’expérience Azure AD Multi-Factor Authentication de l’utilisateur final à l’aide de ce compte dans ce tutoriel.
     * Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un groupe dont l’utilisateur non-administrateur est membre, par exemple *MFA-Test-Group*. Vous activez Azure AD Multi-Factor Authentication pour ce groupe dans ce tutoriel.

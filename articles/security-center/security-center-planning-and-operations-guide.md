@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 57390f57366959cecc82782254099532d832d303
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 058a60758e20a36d3490e40ea96a35c21b3db563
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558635"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237220"
 ---
 # <a name="planning-and-operations-guide"></a>Guide Planification et opérations
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -38,7 +38,7 @@ Dans la section suivante, vous allez apprendre à planifier chacun de ces aspect
 ## <a name="security-roles-and-access-controls"></a>Rôles de sécurité et contrôles d’accès
 Selon la taille et la structure de votre entreprise, plusieurs personnes et équipes peuvent utiliser le Centre de sécurité pour différentes tâches liées à la sécurité. Le diagramme suivant vous présente un exemple de personnes fictives avec leurs responsabilités et rôles respectifs en termes de sécurité :
 
-![Rôles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
+![Rôles.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
 Le Centre de sécurité permet à ces personnes d’assumer ces différentes responsabilités. Par exemple :
 
@@ -170,7 +170,7 @@ Après la configuration initiale et la mise en œuvre des recommandations du Cen
 
 La vue d’ensemble sur Security Center offre une vision unifiée de la sécurité sur toutes les ressources Azure et non-Azure que vous avez connectées. L’exemple ci-dessous montre un environnement dans lequel plusieurs problèmes sont à régler :
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![tableau de bord.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Le Centre de sécurité n’interfère pas avec vos procédures de fonctionnement normales. Il surveille passivement vos déploiements et fournit des recommandations en fonction des stratégies de sécurité activées.
@@ -199,7 +199,7 @@ Le Centre de sécurité détecte les menaces et vous les signale dès qu’elles
 
 Même si cet article ne vise pas à vous aider à créer votre propre plan de réponse aux incidents, nous allons utiliser le cycle de vie Microsoft Azure Security Response in the Cloud comme base pour les étapes de réponse aux incidents. Les étapes sont présentées dans le diagramme suivant :
 
-![Étapes de la réponse aux incidents dans le cycle de vie du cloud](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Étapes de la réponse aux incidents dans le cycle de vie du cloud.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > Vous pouvez utiliser le document [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guide de gestion des incidents de sécurité informatique) du NIST (National Institute of Standards and Technology) comme référence pour vous aider à créer votre plan.
@@ -215,7 +215,7 @@ Chaque alerte de sécurité fournit des informations permettant de mieux compren
 
 L’exemple suivant montre une activité RDP suspecte :
 
-![Activité suspecte](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
+![Activité suspecte.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Cette page affiche des informations sur l’heure de l’attaque, le nom d’hôte source, la machine virtuelle cible, et détaille une procédure recommandée. Parfois, aucune information ne sera disponible concernant la source de l’attaque. Pour plus d’informations sur ce type de comportement, voir [Missing Source Information in Azure Security Center Alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) (Informations sur la source manquantes dans les alertes Azure Security Center).
 

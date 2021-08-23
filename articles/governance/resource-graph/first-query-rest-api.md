@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête d’API REST'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’appeler le point de terminaison Resource Graph pour l’API REST et exécutez votre première requête.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: cab1cdd30403ffb8c055016afe21a45fe0b73f98
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: 258bda8df671dac3440edef37d8ea5a1c7f362b5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112320853"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460055"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’API REST
 
@@ -54,7 +54,7 @@ La variable `$response` contient le résultat de l’applet de commande `Invoke-
 
 ## <a name="run-your-first-resource-graph-query"></a>Exécuter votre première requête Resource Graph
 
-Une fois les outils d’API REST ajoutés à l’environnement de votre choix, vous pouvez exécuter une requête Resource Graph simple. La requête retourne les cinq premières ressources Azure avec le nom (**Name**) et le **Type** de chaque ressource.
+Une fois les outils d’API REST ajoutées à l’environnement de votre choix, vous pouvez exécuter une requête Resource Graph simple basée sur un abonnement. La requête retourne les cinq premières ressources Azure avec le nom (**Name**) et le **Type** de chaque ressource. Pour effectuer une requête par [groupe d’administration](../management-groups/overview.md), utilisez `managementgroups` au lieu de `subscriptions`. Pour interroger l'ensemble du locataire, omettez les propriétés `managementgroups` et `subscriptions` dans le corps de la requête.
 
 Le corps de la demande de chaque appel d’API REST contient une variable que vous devez remplacer par votre propre valeur :
 
@@ -65,7 +65,7 @@ Le corps de la demande de chaque appel d’API REST contient une variable que vo
    - URI de l’API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Corps de la requête
@@ -87,7 +87,7 @@ Le corps de la demande de chaque appel d’API REST contient une variable que vo
    - URI de l’API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Corps de la requête
@@ -109,7 +109,7 @@ Le corps de la demande de chaque appel d’API REST contient une variable que vo
    - URI de l’API REST
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Corps de la requête

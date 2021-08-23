@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 07/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ff8196ff4e30aa6ed036cabe00a72bfa8a5c51f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c665a3c6a990f81c654f3acb7389c3c95435810
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515319"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689862"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Prezi
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Prezi à Azure Active 
 * Contrôler qui a accès à Prezi dans Azure AD.
 * Permettre aux utilisateurs de se connecter automatiquement à Prezi avec leur compte Azure AD.
 * Gérer vos comptes dans le portail Azure.
-
-Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,7 +39,6 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Prezi prend en charge l’authentification unique lancée par le fournisseur de services et le fournisseur d’identité.
 * Prezi prend en charge le provisionnement d’utilisateurs juste-à-temps.
-* Après avoir configuré Prezi, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -50,7 +47,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de Prezi à Azure AD, vous devez ajouter Prezi à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Sélectionnez **Azure Active Directory** dans le volet le plus à gauche.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
@@ -61,7 +58,7 @@ Pour configurer l’intégration de Prezi à Azure AD, vous devez ajouter Prezi
 
 Configurez et testez l’authentification unique Azure AD avec Prezi à l’aide d’un utilisateur de test appelé B.Simon. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Prezi associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Prezi, suivez les indications de ces sections :
+Pour configurer et tester l’authentification SSO Azure AD avec Prezi, effectuez les étapes suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-sso) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique (SSO) Azure AD avec B.Simon.
@@ -74,9 +71,9 @@ Pour configurer et tester l’authentification unique Azure AD avec Prezi, suive
 
 Pour activer l’authentification unique Azure AD dans le portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Prezi**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Prezi**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône **Modifier** pour modifier les paramètres dans **Configuration SAML de base**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de stylo pour modifier les paramètres dans **Configuration SAML de base**.
 
    ![Modifier les paramètres Configuration SAML de base](common/edit-urls.png)
 
@@ -84,7 +81,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure
 
 1. Sélectionnez **Définir des URL supplémentaires** et effectuez l’étape suivante si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
 
-    Dans la zone **URL de connexion**, entrez l’URL : `https://prezi.com/login/sso/`.
+    Dans la zone **URL de connexion**, tapez l’URL :  `https://prezi.com/login/sso/`.
 
 1. Sélectionnez **Enregistrer**.
 
@@ -126,13 +123,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Prezi**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien Utilisateurs et groupes](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
@@ -147,7 +138,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Accédez à la section **Single Sign-On (SSO)** (Authentification unique), puis activez le bouton bascule pour activer l’authentification unique.
     
-    ![Bouton bascule Authentification unique](./media/prezi-tutorial/single-signon.png)
+    ![Bouton bascule Authentification unique](./media/prezi-tutorial/single-sign-on.png)
 
 1. Dans la section **Single Sign-On (SSO)** , effectuez les étapes suivantes :
 
@@ -167,15 +158,20 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Prezi. P
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous sélectionnez la vignette Prezi dans le volet d’accès, vous devez être connecté automatiquement au compte Prezi pour lequel vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Prezi, d’où vous pouvez lancer le flux de connexion.  
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-- [Essayer Prezi avec Azure AD](https://aad.portal.azure.com/)
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-- [Guide pratique pour protéger Prezi avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+* Accédez directement à l’URL de connexion à Prezi pour lancer le flux de connexion.
+
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+
+* En cliquant sur **Tester cette application** dans le portail Azure, vous devez être connecté automatiquement à l’instance de Prezi pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Prezi dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Prezi pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir configuré Prezi, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

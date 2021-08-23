@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 4ad66b5a5116e650983dd72ffe4875d89c390ced
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 5e4091138f51fdd5af4052895cdb75c2390f7ce5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540520"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459728"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -167,10 +167,13 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 *  Si la création d’un utilisateur n’aboutit pas et qu’il existe un événement de journal d’audit doté du code « 1789003 », cela signifie que l’utilisateur provient d’un domaine non vérifié.
+*  Dans certains cas, les utilisateurs reçoivent l'erreur « ERREUR : Champ E-mail manquant : Vous devez fournir une adresse électronique Erreur renvoyée par Facebook : Le traitement de la requête HTTP a entraîné une exception. » Pour plus d’informations, consultez la réponse HTTP renvoyée par la propriété « Response » de cette exception. Cette opération a été retentée 0 fois. Une nouvelle tentative sera effectuée après cette date. Cette erreur est due au fait que les clients mappent les messages, plutôt que userPrincipalName, à la messagerie Facebook, mais que certains utilisateurs n’ont pas d’attribut de messagerie. Pour éviter les erreurs et provisionner avec succès les utilisateurs qui ont échoué dans Workplace from Facebook, modifiez le mappage de l'attribut de l'email de Workplace from Facebook en Coalesce([mail],[userPrincipalName]) ou désassignez l'utilisateur de Workplace from Facebook, ou fournissez une adresse email pour l'utilisateur.  
+
 
 ## <a name="change-log"></a>Journal des modifications
 
 * 09/10/2020 : ajout de la prise en charge des attributs d’entreprise « division », « organization », « costCenter » et « employeeNumber ». Ajout de la prise en charge des attributs personnalisés « startDate », « auth_method » et « frontline »
+* 07/22/2021 - Mise à jour des conseils de dépannage pour les clients avec un mappage d’e-mail à Facebook, mais certains utilisateurs n’ont pas d’attribut de messagerie
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

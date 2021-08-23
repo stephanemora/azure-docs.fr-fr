@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 07/06/2021
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, service de traduction, traduire du texte, translittérer du texte, détection de la langue
-ms.openlocfilehash: 6d10b954bbb5663d5e63f4b38fc49d8a3953f10a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 10e879df320d527ab6c853a03e9eb49d1b4d50de
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537543"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113355882"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Démarrage rapide : Bien démarrer avec Translator
 
@@ -33,8 +33,11 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * Une fois que vous avez un abonnement Azure, [créez une ressource Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) dans le portail Azure pour obtenir vos clé et point de terminaison. À la fin du déploiement, sélectionnez **Accéder à la ressource**.
-  * Vous aurez besoin de la clé et du point de terminaison de la ressource pour connecter votre application au service Translator. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
-  * Vous pouvez utiliser le niveau tarifaire Gratuit (F0) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+  * Vous aurez besoin de la clé et du point de terminaison de la ressource pour connecter votre application au service Translator. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide. Vous pouvez trouver ces valeurs sur la page **Clés et Points de terminaison** du portail Azure :
+
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Capture d'écran : Page des clés et des points de terminaison du portail Azure.":::
+
+* Vous pouvez utiliser le niveau tarifaire Gratuit (F0) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
 ## <a name="platform-setup"></a>Configuration de la plateforme
 
@@ -2820,9 +2823,19 @@ Quand l’appel aboutit, vous devez voir la réponse suivante. Pour plus d’inf
 
 ## <a name="troubleshooting"></a>Dépannage
 
+### <a name="common-http-status-codes"></a>Codes d'état HTTP courants
+
+| Code d'état HTTP | Description | Raison possible |
+|------------------|-------------|-----------------|
+| 200 | OK | La demande a abouti. |
+| 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
+| 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. *Voir aussi* [Authentification](reference/v3-0-reference.md#authentication).|
+| 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
+| 502 | Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
+
 ### <a name="java-users"></a>Utilisateurs de Java
 
-Si vous rencontrez des problèmes de connexion, il est possible que votre certificat SSL ait expiré. Pour résoudre ce problème, installez [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) dans votre magasin privé. 
+Si vous rencontrez des problèmes de connexion, il est possible que votre certificat SSL ait expiré. Pour résoudre ce problème, installez [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) dans votre magasin privé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

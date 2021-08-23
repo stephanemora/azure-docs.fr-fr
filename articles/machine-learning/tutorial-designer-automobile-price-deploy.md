@@ -1,26 +1,28 @@
 ---
-title: 'Tutoriel : Déployer des modèles Machine Learning avec le concepteur'
+title: 'Tutoriel : (concepteur) Déployer des modèles sans code'
 titleSuffix: Azure Machine Learning
-description: Créez une solution d’analytique prédictive dans le concepteur Azure Machine Learning. Entraînez, évaluez et déployez un modèle Machine Learning à l’aide de modules de type glisser-déplacer.
+description: Déployez un modèle de Machine Learning pour prédire les prix des voitures avec le concepteur d’Azure Machine Learning.
 author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/25/2021
-ms.custom: designer
-ms.openlocfilehash: 73cc893815cf591812c95c8d8b092a4b58697917
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: a9fe604673ee53aa6772e6f382a4a3e3a53fb903
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457645"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115006"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
+# <a name="tutorial-designer---deploy-a-machine-learning-model"></a>Tutoriel : (concepteur) Déployer un modèle Machine Learning
+
+Utilisez le concepteur pour déployer un modèle de Machine Learning afin de prédire le prix des voitures. Ce tutoriel est le deuxième d’une série de deux.
 
 
-Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la première partie, vous avez entraîné votre modèle. À présent, il est temps de générer des prédictions basées sur des entrées utilisateur. Dans cette partie du tutoriel, vous allez :
+Dans la [première partie du tutoriel](tutorial-designer-automobile-price-train-score.md), vous avez formé un modèle de régression linéaire sur les prix des voitures. Dans la deuxième partie, vous déployez le modèle pour permettre aux autres utilisateurs de l’utiliser. Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créez un pipeline d’inférence en temps réel.

@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: bc83af43fab3871bf693635ddbdd446c2f4bb2e2
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684358"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586506"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutoriel : Créer une application connectée de gestion des déchets
 
@@ -22,7 +22,7 @@ Plus précisément, vous apprenez à :
 
 > [!div class="checklist"]
 > * Utiliser le modèle de *gestion connectée des déchets* Azure IoT Central pour créer votre application.
-> * Explorer et personnaliser le tableau de bord de l’opérateur 
+> * Explorer et personnaliser le tableau de bord. 
 > * Explorer le modèle d’appareil pour conteneur connecté de déchets.
 > * Explorer les appareils simulés.
 > * Explorer et configurer les règles.
@@ -47,7 +47,7 @@ Dans cette section, vous utilisez le modèle de gestion connectée des déchets 
 
     ![Capture d’écran de la page de création Azure IoT Central.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
-1. Sélectionnez le modèle d’application **Gestion connectée des déchets**. Ce modèle comprend un exemple de modèle d’appareil pour conteneur connecté de déchets, un appareil simulé, un tableau de bord d’opérateur et des règles de supervision préconfigurées.    
+1. Sélectionnez le modèle d’application **Gestion connectée des déchets**. Ce modèle comprend un exemple de modèle d’appareil pour conteneur connecté de déchets, un appareil simulé, un tableau de bord et des règles de supervision préconfigurées.    
 
 1. Sélectionnez **Créer une application**, ce qui ouvre la boîte de dialogue **Nouvelle application**. Renseignez les champs suivants :
     * **Application name** (Nom de l’application). Par défaut, le nom de l’application est **Gestion connectée des déchets** suivi d’une chaîne d’ID unique générée par IoT Central. Si vous le souhaitez, vous pouvez choisir un nom d’application convivial. Vous pouvez également modifier le nom de l’application.
@@ -62,7 +62,7 @@ Dans cette section, vous utilisez le modèle de gestion connectée des déchets 
 
  
 Dans l’application que vous venez de créer, les éléments suivants sont préconfigurés :
-* Exemples de tableaux de bord d’opérateur
+* Exemples de tableaux de bord.
 * Exemples de modèles d’appareil préconfigurés pour conteneur connecté de déchets.
 * Appareils simulés pour conteneur connecté de déchets.
 * Règles et travaux
@@ -70,7 +70,7 @@ Dans l’application que vous venez de créer, les éléments suivants sont pré
 
 Cette application est la vôtre et vous pouvez la modifier à tout moment. Nous allons maintenant explorer l’application et effectuer certaines personnalisations.  
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>Explorer et personnaliser le tableau de bord de l’opérateur 
+## <a name="explore-and-customize-the-dashboard"></a>Explorer et personnaliser le tableau de bord 
 
 Jetez un coup d’œil sur le **tableau de bord de gestion des déchets Wide World**, qui s’affiche une fois que vous avez créé votre application.
 
@@ -89,7 +89,7 @@ Le tableau de bord est constitué de différentes vignettes :
 
 * **Vignette de KPI du niveau de remplissage** : Cette vignette présente une valeur signalée par un capteur de *niveau de remplissage* dans un conteneur de déchets. Pour un conteneur de déchets, il est possible de superviser à distance le niveau de remplissage et d’autres capteurs, comme la *mesure des odeurs* ou le *poids*. Un opérateur peut effectuer une action, comme envoyer un camion de ramassage des ordures. 
 
-* **Carte de la zone de supervision des déchets** : Cette vignette utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de la carte présente l’emplacement des appareils. Essayez de survoler la carte et d’en tester les contrôles, comme le zoom avant, le zoom arrière ou l’agrandissement.
+* **Carte de la zone de supervision des déchets** : Cette vignette utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de la carte présente l’[emplacement](../core/howto-use-location-data.md) des appareils. Essayez de survoler la carte et d’en tester les contrôles, comme le zoom avant, le zoom arrière ou l’agrandissement.
 
      ![Capture d’écran de la carte du tableau de bord du modèle de gestion connectée des déchets.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 

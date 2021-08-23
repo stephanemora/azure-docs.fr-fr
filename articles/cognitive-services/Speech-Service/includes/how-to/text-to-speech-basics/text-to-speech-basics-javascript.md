@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2021
+ms.date: 07/02/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d228388d951314b03ecd950052f76a20b6e4166
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 69c4d1fa56c6ff98989b4f9a5ae54209eb76be13
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108905"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113659375"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -68,23 +68,23 @@ Pour plus d’informations sur `require`, consultez la <a href="https://nodejs.o
 
 ## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
 
-Pour appeler le service Speech à l’aide du SDK Speech, vous devez créer une classe [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). Cette classe comprend des informations sur votre ressource, par exemple votre clé ainsi que la région, le point de terminaison, l’hôte ou le jeton d’autorisation associés.
+Pour appeler le service Speech à l’aide du SDK Speech, vous devez créer une classe [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). Celle-ci comprend des informations sur votre ressource, telles que votre clé Speech et l’emplacement/la région, le point de terminaison, l’hôte ou le jeton d’autorisation associés.
 
 > [!NOTE]
 > Quand vous procédez à une reconnaissance vocale, une synthèse vocale, une traduction ou une reconnaissance intentionnelle, vous devez toujours créer une configuration.
 
 Vous pouvez initialiser une [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) de plusieurs façons :
 
-* Avec une ressource : transmettez une clé et la région associée.
-* Avec un point de terminaison : transmettez un point de terminaison de service Speech. Une clé ou un jeton d’autorisation est facultatif.
-* Avec un hôte : transmettez une adresse d’hôte. Une clé ou un jeton d’autorisation est facultatif.
-* Avec un jeton d’autorisation : transmettez un jeton d’autorisation et la région associée.
+* Avec une ressource : transmettez une clé Speech et l’emplacement/la région qui lui correspond.
+* Avec un point de terminaison : transmettez un point de terminaison de service Speech. Une clé Speech ou un jeton d’autorisation est facultatif.
+* Avec un hôte : transmettez une adresse d’hôte. Une clé Speech ou un jeton d’autorisation est facultatif.
+* Avec un jeton d’autorisation : transmettez un jeton d’autorisation et la localisation/la région qui lui correspond.
 
-Dans cet exemple, vous créez un [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) à l’aide d’une clé de ressource et d’une région. Pour obtenir ces informations d’identification, suivez les étapes indiquées dans [Essayer le service Speech gratuitement](../../../overview.md#try-the-speech-service-for-free). Vous pouvez aussi créer un code réutilisable de base à utiliser pour le reste de cet article, que vous modifiez pour différentes personnalisations.
+Dans cet exemple, vous créez un [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) à l’aide d’une clé Speech et d’un emplacement/d’une région. Pour obtenir ces informations d’identification, suivez les étapes indiquées dans [Essayer le service Speech gratuitement](../../../overview.md#try-the-speech-service-for-free). Vous pouvez aussi créer un code réutilisable de base à utiliser pour le reste de cet article, que vous modifiez pour différentes personnalisations.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 }
 
 synthesizeSpeech();
@@ -98,8 +98,8 @@ Pour commencer, créez un `AudioConfig` pour écrire automatiquement la sortie d
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
 
@@ -107,8 +107,8 @@ Ensuite, instanciez un `SpeechSynthesizer` transmettant votre objet `speechConfi
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path-to-file.wav");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -135,8 +135,8 @@ Dans certains cas, vous pouvez souhaiter sortir directement la synthèse vocale 
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -173,7 +173,7 @@ Le code suivant fonctionne pour le code côté client.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
@@ -195,7 +195,7 @@ Pour le code serveur, si vous devez utiliser les données sous forme de flux à 
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
@@ -234,7 +234,7 @@ Dans cet exemple, vous allez spécifier un format RIFF haute fidélité `Riff24K
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
@@ -286,7 +286,7 @@ Pour plus d’informations sur `readFileSync`, consultez <a href="https://nodejs
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
 
     const ssml = xmlToString("ssml.xml");

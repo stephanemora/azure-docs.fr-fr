@@ -1,23 +1,25 @@
 ---
-title: 'Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)'
+title: 'Démarrage rapide : Supprimer une application de votre locataire'
+titleSuffix: Azure AD
 description: Ce guide de démarrage rapide utilise le portail Azure pour supprimer une application de votre locataire Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 1/5/2021
-ms.author: mtillman
-ms.openlocfilehash: 70129123a842ef123992df4614fa7b9a35a774b9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 04e4e011773426b5be7f6ef9c00f7969c35d20fd
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075895"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668421"
 ---
-# <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)
+# <a name="quickstart-delete-an-application-from-your-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire
 
 Ce guide de démarrage rapide utilise le portail Azure pour supprimer une application qui a été ajoutée à votre locataire Azure Active Directory (Azure AD).
 
@@ -38,13 +40,18 @@ Pour supprimer une application de votre locataire Azure AD, vous avez besoin des
 >[!IMPORTANT]
 >Pour tester les étapes de ce guide de démarrage rapide, utilisez un environnement de non-production.
 
+> [!NOTE]
+>Pour supprimer une application d’Azure AD, un utilisateur doit se voir attribuer l’un des rôles suivants : administrateur général, administrateur d’application Cloud, administrateur d’application ou propriétaire du principal de service.
+
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Supprimer une application de votre locataire Azure AD
 
 Pour supprimer une application de votre locataire Azure AD :
 
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez supprimer. En l’occurrence, nous allons supprimer l’application **GitHub_test** que nous avons ajoutée à l’occasion du guide de démarrage rapide précédent.
+1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application que vous souhaitez supprimer. Dans ce cas, nous voulons supprimer **360 en ligne**.
 1. À la section **Gérer** dans le volet gauche, sélectionnez **Propriétés**.
 1. Sélectionnez **Supprimer**, puis sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application de votre locataire Azure AD.
+
+:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="Capture d’écran de l’écran Propriétés illustrant le changement de logo.":::
 
 > [!TIP]
 > Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).

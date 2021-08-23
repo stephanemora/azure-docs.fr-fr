@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdebe0d29f6ef781cc4b4747ff80010eeac9ff7e
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: fdab861cc122fe738cce4da049154ecb4039ca65
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684250"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588972"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
 
@@ -23,7 +23,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser le modèle **Water quality monitoring** (Suivi de la qualité de l’eau) pour créer une application de suivi de la qualité de l’eau.
-> * Explorer et personnaliser le tableau de bord de l’opérateur.
+> * Explorer et personnaliser un tableau de bord.
 > * Explorer un modèle d’appareil de suivi de la qualité de l’eau.
 > * Explorer les appareils simulés.
 > * Explorer et configurer les règles.
@@ -48,7 +48,7 @@ Dans cette section, vous utilisez le modèle Azure IoT Central **Water quality m
 
     ![Modèles d’application pour le secteur public](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
-1. Sélectionnez le modèle d’application **Water quality monitoring** (Suivi de la qualité de l’eau). Ce modèle d’application comprend un modèle d’appareil pour la qualité de l’eau, des appareils simulés, un tableau de bord d’opérateur et des règles de supervision préconfigurées.
+1. Sélectionnez le modèle d’application **Water quality monitoring** (Suivi de la qualité de l’eau). Ce modèle d’application comprend un modèle d’appareil pour la qualité de l’eau, des appareils simulés, un tableau de bord et des règles de supervision préconfigurées.
 
 1. Sélectionnez **Créer une application**. Le volet **New application** (Nouvelle application) s’ouvre et affiche les éléments suivants :
 
@@ -66,7 +66,7 @@ Vous avez désormais créé une application de suivi de la qualité de l’eau �
 
 Votre nouvelle application est accompagnée des composants préconfigurés suivants :
 
-* Tableaux de bord d’opérateur
+* Tableaux de bord
 * Modèles d’appareil de suivi de la qualité de l’eau
 * Appareils simulés de suivi de la qualité de l’eau
 * Règles et travaux
@@ -76,7 +76,7 @@ Vous pouvez modifier votre application à tout moment.
 
 Nous allons maintenant explorer l’application et effectuer certaines personnalisations.
 
-## <a name="explore-and-customize-the-operator-dashboard"></a>Explorer et personnaliser le tableau de bord de l’opérateur
+## <a name="explore-and-customize-the-dashboard"></a>Explorer et personnaliser le tableau de bord
 
 Une fois l’application créée, le volet **Wide World water quality dashboard** (Tableau de bord de qualité de l’eau dans le monde) s’ouvre.
 
@@ -92,7 +92,7 @@ Le tableau de bord inclut les types de vignettes suivants :
 
 * **Vignettes d’indicateur de performance clé de pH moyen** : des vignettes de KPI comme **pH moyen au cours des 30 dernières minutes** figurent en haut du volet de tableau de bord. Vous pouvez personnaliser les vignettes de KPI et définir chacune sur un type et une plage de temps différents.
 
-* **Water monitoring area map** (Carte des zones de suivi de l’eau) : Azure IoT Central utilise Azure Maps, que vous pouvez configurer directement dans votre application pour afficher l’emplacement des appareils. Vous pouvez également mapper les informations d’emplacement de votre application sur votre appareil, puis utiliser Azure Maps pour afficher les informations sur une carte. Survolez la carte et essayez les contrôles.
+* **Carte des zones de suivi de l’eau** : Azure IoT Central utilise Azure Maps, que vous pouvez configurer directement dans votre application pour afficher l’[emplacement](../core/howto-use-location-data.md) des appareils. Vous pouvez également mapper les informations d’emplacement de votre application sur votre appareil, puis utiliser Azure Maps pour afficher les informations sur une carte. Survolez la carte et essayez les contrôles.
 
 * **Carte thermique de distribution moyenne du pH** : Vous pouvez sélectionner différents graphiques de visualisation pour afficher les données de télémétrie des appareils de la manière la plus appropriée à votre application.
 

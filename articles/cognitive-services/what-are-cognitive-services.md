@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 09279e476f2d130c4938937e2c9e60df863c688d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4badad1f7e22fcb82e122a56e219fc61973634a2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450603"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451261"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 

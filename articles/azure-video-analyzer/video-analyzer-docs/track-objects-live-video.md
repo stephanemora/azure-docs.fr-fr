@@ -2,13 +2,13 @@
 title: Suivre des objets dans une vidéo en direct avec Azure Video Analyzer
 description: Ce guide de démarrage rapide vous montre comment utiliser le module périphérique Azure Video Analyzer pour suivre des objets dans un flux vidéo en direct provenant d’une caméra IP (simulée). Vous allez voir comment appliquer un modèle de vision par ordinateur pour détecter des objets dans un sous-ensemble d’images dans le flux vidéo en direct. Vous pouvez ensuite utiliser un nœud de suivi d’objets pour suivre ces objets dans les autres images.
 ms.topic: quickstart
-ms.date: 05/01/2021
-ms.openlocfilehash: 76723d1fb5dfff47e4ad436e1e4bd18fafa7c102
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 211b51660be74d2b2b3b024ead72c93b3a0d8449
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386056"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603922"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Démarrage rapide : Suivre des objets dans une vidéo en direct
 
@@ -48,7 +48,7 @@ Dans ce guide de démarrage rapide, vous allez :
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 
-## <a name="set-up-your-development-environment"></a>Configurer l’environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## <a name="deploy-the-required-modules"></a>Déployer les modules nécessaires
@@ -105,7 +105,7 @@ Ouvrez l’URL de la topologie de pipeline dans un navigateur et examinez les pa
    }
 ```
 
-Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le suivi d’objets est capable de suivre des objets sur environ 15 images. Si la vidéo en direct a une fréquence de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence : `maximumSamplesPerSecond` est donc défini sur 2.
+Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence d’images de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence. Votre modèle IA a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
     
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
@@ -162,7 +162,7 @@ Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’ex
     * Un deuxième appel à `livePipelineList` qui indique que le pipeline en direct est dans l’état En cours d’exécution.
 1. La sortie de la fenêtre TERMINAL s’interrompt avec l’invite Appuyez sur Entrée pour continuer. N’appuyez pas encore sur Entrée. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
 1. Basculez vers la fenêtre SORTIE de Visual Studio Code. Vous voyez des messages indiquant que le module périphérique Video Analyzer effectue des envois au hub IoT. La section suivante de ce guide de démarrage rapide décrit ces messages.
-1. Le pipeline en direct continue à s’exécuter et affiche des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline en direct, retournez à la fenêtre **TERMINAL** et sélectionnez Entrée.
+1. Le pipeline en direct continue à s’exécuter et imprime des résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le pipeline en direct, retournez à la fenêtre **TERMINAL** et sélectionnez Entrée.
 1. La série d’appels suivante nettoie les ressources :
 
     * Un appel à `livePipelineDeactivate` désactive le pipeline en direct.
@@ -205,7 +205,7 @@ Dans ce message, notez les informations suivantes :
 
 ## <a name="object-tracking-events"></a>Événements de suivi d’objet
 
-Le nœud de processeur d’extension HTTP envoie les images 0, 15, 30, ... etc. au module yolov3, et reçoit les résultats de l’inférence. Il envoie ensuite ces résultats et toutes les images vidéo au nœud de suivi d’objets. Supposons qu’un objet a été détecté sur l’image 0 : le suivi d’objets va affecter un `sequenceId` unique à cet objet. Ensuite, dans les images 1, 2,..., 14, s’il peut suivre cet objet, il va générer un résultat avec le même `sequenceId`. Dans les extraits de code suivants des résultats, notez comment `sequenceId` est répété, mais l’emplacement du cadre englobant a changé, car l’objet se déplace.
+Le nœud processeur d’extension HTTP envoie les images 0, 15, 30 et ainsi de suite au module yolov3 et reçoit les résultats de l’inférence. Il envoie ensuite ces résultats et toutes les images vidéo au nœud de suivi d’objets. Supposons qu’un objet a été détecté sur l’image 0 : le suivi d’objets va affecter un `sequenceId` unique à cet objet. Ensuite, dans les images 1, 2,..., 14, s’il peut suivre cet objet, il va générer un résultat avec le même `sequenceId`. Dans les extraits de code suivants des résultats, notez comment `sequenceId` est répété, mais l’emplacement du cadre englobant a changé, car l’objet se déplace.
 
 Depuis l’image M :
 

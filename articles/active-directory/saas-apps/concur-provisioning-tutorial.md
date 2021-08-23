@@ -10,16 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca9585ab1b6d02cec5e9addbbd8ca230745a5838
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358209"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114370900"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutoriel : Configurer Concur pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Concur et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Concur.
+
+> [!WARNING]
+> Cette intégration du provisionnement n'est plus prise en charge. De ce fait, la fonctionnalité de provisionnement de l’application SAP Concur sera bientôt supprimée de la Galerie d’applications d’entreprise Azure Active Directory. La fonctionnalité d’authentification unique (SSO) de l’application reste intacte. Si Microsoft collabore actuellement avec SAP Concur pour créer une nouvelle intégration de provisionnement modernisée, aucune date d’arrivée ne peut pour l’heure être communiquée.
 
 ## <a name="prerequisites"></a>Prérequis
 

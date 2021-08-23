@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 07/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 653159c2e40d3375a422f0da14274f57130de1fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13d427ea5cc73f9cbd4176332c351453891b2e7a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93359678"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707567"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -36,7 +36,7 @@ Ce démarrage rapide vous indique comment utiliser une identité affectée par l
 
 - Compréhension des identités managées. Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](overview.md). 
 - Un compte Azure. [Inscrivez-vous pour obtenir un compte gratuit](https://azure.microsoft.com/free/).
-- Vous avez également besoin d’une machine virtuelle Linux sur laquelle les identités managées attribuées par le système sont activées.
+- Vous avez également besoin d’une machine virtuelle Linux sur laquelle les identités managées attribuées par le système sont activées. Si vous disposez d’une machine virtuelle, mais que vous devez activer les [identités gérées attribuées](qs-configure-portal-windows-vm.md) par le système, vous pouvez le faire dans la section identité des propriétés de l’ordinateur virtuel. 
   - Si vous devez créer une machine virtuelle pour ce tutoriel, vous pouvez suivre les instructions de l’article intitulé [Créer une machine virtuelle Linux avec le portail Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ## <a name="grant-access"></a>Accorder l'accès

@@ -3,15 +3,15 @@ title: Qu’est-ce qu’Azure Virtual Desktop ? - Azure
 description: Une vue d’ensemble d’Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 76d6574be61b7d1cd92733496d335c64d64bf7a1
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031388"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757707"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Qu’est-ce qu’Azure Virtual Desktop ?
 
@@ -85,7 +85,7 @@ Conditions utilisateur nécessaires pour se connecter à Azure Virtual Desktop 
 
 Les machines virtuelles Azure que vous créez pour Azure Virtual Desktop doivent :
 
-* être [standard jointes à un domaine](../active-directory-domain-services/compare-identity-solutions.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
+* être [standard jointes à un domaine](../active-directory-domain-services/compare-identity-solutions.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles [jointes à Azure AD](deploy-azure-ad-joined-vm.md) sont disponibles en version préliminaire.
 * exécuter l’une des images de [système d’exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
 
 >[!NOTE]

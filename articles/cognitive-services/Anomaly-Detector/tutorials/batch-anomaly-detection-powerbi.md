@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: fc2667dfddf4442acaf39f6783190e8640b22a89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b95e471d3ac003991a131cf1e04b1384a7454e3
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561727"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296610"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi-univariate"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI (univarié)
 
 Ce tutoriel vous aide à rechercher par lot des anomalies au sein d’un jeu de données de série chronologique. À l’aide de Power BI Desktop, vous allez prendre un fichier Excel, préparer les données pour l’API Détecteur d’anomalies et visualiser les anomalies statistiques dans toutes ces données.
 
@@ -171,8 +171,3 @@ Après avoir cliqué sur **OK**, vous aurez un champ `Value for True` en bas de 
 Appliquez des couleurs à votre graphique en cliquant sur l’outil **Format** et sur **Couleurs des données**. Votre graphique doit ressembler à ceci :
 
 ![Image du graphique final](../media/tutorials/final-chart.png)
-
-## <a name="next-steps"></a>Étapes suivantes
-
-> [!div class="nextstepaction"]
->[Streaming de la détection d’anomalie avec Azure Databricks](../overview.md)

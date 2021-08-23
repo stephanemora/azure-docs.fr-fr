@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a8eb9ec2b71495011dfa7ebe9dbf1dcf8cd5d19e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067759"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449414"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutoriel : Vérifier votre facture d’abonnement Azure
 
@@ -103,6 +103,8 @@ La section **Frais d’utilisation** de votre facture affiche la valeur totale (
 ![Frais d’utilisation indiqués sur la facture](./media/review-individual-bill/invoice-usage-charges.png)
 
 Dans votre fichier d’utilisation CSV, filtrez par *MeterName* pour la ressource correspondante indiquée sur votre facture. Ensuite, additionnez les valeurs *Cost* pour les éléments de la colonne. Voici un exemple qui se focalise sur le nom du compteur (disques P10) correspondant à la même ligne sur la facture.
+
+Pour rapprocher vos frais d’achat de réservation, dans votre fichier d’utilisation CSV, filtrez par *ChargeType* en tant qu’achat, il affichera tous les frais d’achat de réservation pour le mois. Vous pouvez comparer ces frais en examinant *MeterName* et *MeterSubCategory* dans le fichier d’utilisation sur la ressource et en type dans votre facture.
 
 ![Valeur additionnée pour MeterName dans le fichier d’utilisation](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

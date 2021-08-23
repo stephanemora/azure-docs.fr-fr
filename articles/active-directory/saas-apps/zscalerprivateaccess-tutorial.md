@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 06/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 58e2a19f2d57eafc7d2967141d584dc7a22fe76c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c086440cce663f6c22b05b9a52c33b526106355
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955667"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559713"
 ---
 # <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutoriel : Intégrer Zscaler Private Access (ZPA) à Azure Active Directory
 
@@ -41,6 +41,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. 
 
 * Zscaler Private Access (ZPA) prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Zscaler Private Access (ZPA) prend en charge l'[approvisionnement **automatique** des utilisateurs](zscaler-private-access-provisioning-tutorial.md).
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Ajouter Zscaler Private Access (ZPA) à partir de la galerie
 
@@ -53,7 +56,7 @@ Pour configurer l’intégration de Zscaler Private Access (ZPA) à Azure AD, v
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Zscaler Private Access (ZPA)** dans la zone de recherche.
 1. Sélectionnez **Zscaler Private Access (ZPA)** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-zscaler-private-access-zpa"></a>Configurer et tester Azure AD SSO pour Zscaler Private Access (ZPA)
 
 Configurez et testez l’authentification unique Azure AD avec Zscaler Private Access (ZPA) à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Zscaler Private Access (ZPA) associé.
 
@@ -76,11 +79,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
-
-    1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+1. Dans la page **Configuration SAML de base**, effectuez les étapes suivantes :
 
     1. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://samlsp.private.zscaler.com/auth/metadata`
+
+    1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://samlsp.private.zscaler.com/auth/login?domain=<DOMAIN_NAME>`
 
     > [!NOTE]
     > La valeur du champ **URL de connexion** n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Contactez l’[équipe de support client de Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -154,6 +157,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 ### <a name="create-zscaler-private-access-zpa-test-user"></a>Créer un utilisateur de test Zscaler Private Access (ZPA)
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Zscaler Private Access (ZPA). Collaborez avec [l’équipe de support technique Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) pour ajouter les utilisateurs dans la plate-forme Zscaler Private Access (ZPA).
+
+Zscaler Private Access (ZPA) prend également en charge l’attribution automatique d’utilisateurs. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](zscaler-private-access-provisioning-tutorial.md).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

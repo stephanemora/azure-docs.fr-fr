@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: fec8e3c9c0922b0b6137bbf93502663890b8bc8c
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: b62f531c355852dd8a66f8186d4bd73a875e6948
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991538"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371627"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -135,4 +135,6 @@ Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une connexion site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutoriel : Créer une connexion de site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Module Learn : Introduction à Azure Front Door](/learn/modules/introduction-azure-virtual-wan/)
+

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: b259ef022d2fca8f6531a35eca619ef890019ff3
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072774"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467078"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Inscrire et analyser une base de données de metastore Hive
 
@@ -85,79 +85,81 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
 5.  Fournissez les renseignements ci-dessous :
 
-    a.  **Nom** : nom de l’analyse
+    1. **Nom** : nom de l’analyse
 
-    b.  **Se connecter via le runtime d’intégration** : sélectionnez le runtime d’intégration auto-hébergé configuré.
+    1. **Se connecter via le runtime d’intégration** : sélectionnez le runtime d’intégration auto-hébergé configuré.
 
-    c.  **Informations d’identification** : sélectionnez les informations d’identification pour vous connecter à votre source de données. Veillez à respecter les points suivants :
+    1. **Informations d’identification** : sélectionnez les informations d’identification pour vous connecter à votre source de données. Veillez à respecter les points suivants :
 
-    -   Sélectionnez Authentification de base quand vous créez des informations d’identification.
-    -   Spécifiez le nom d’utilisateur du metastore dans le champ d’entrée Nom d’utilisateur
-    -   Stockez le mot de passe du metastore dans la clé secrète.
+       - Sélectionnez Authentification de base quand vous créez des informations d’identification.
+       - Spécifiez le nom d’utilisateur du metastore dans le champ d’entrée Nom d’utilisateur
+       - Stockez le mot de passe du metastore dans la clé secrète.
 
-    Pour plus d’informations sur les informations d’identification, reportez-vous à [ce lien](manage-credentials.md). 
+       Pour plus d’informations sur les informations d’identification, reportez-vous à [ce lien](manage-credentials.md). 
 
-    **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
+       **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
 
-    Le nom d’utilisateur et le mot de passe sont accessibles à partir des deux propriétés, comme indiqué ci-dessous.
+       Le nom d’utilisateur et le mot de passe sont accessibles à partir des deux propriétés, comme indiqué ci-dessous.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
-    d. **Emplacement du pilote JDBC Metastore** : spécifiez le chemin de l’emplacement du pilote JDBC sur votre machine virtuelle où s’exécute le runtime d’intégration auto-hébergé. Ce doit être le chemin vers l’emplacement du dossier des fichiers JAR valides.
+    1. **Emplacement du pilote JDBC Metastore** : spécifiez le chemin de l’emplacement du pilote JDBC sur votre machine virtuelle où s’exécute le runtime d’intégration auto-hébergé. Ce doit être le chemin vers l’emplacement du dossier des fichiers JAR valides.
 
-    Si vous analysez Databricks, reportez-vous à la section sur Databricks ci-dessous.
+       Si vous analysez Databricks, reportez-vous à la section sur Databricks ci-dessous.
 
-    > [!Note]
-    > Le pilote doit être accessible à tous les comptes de la machine virtuelle. Ne procédez pas à l’installation dans un compte d’utilisateur.
+       > [!Note]
+       > Le pilote doit être accessible à tous les comptes de la machine virtuelle. Ne procédez pas à l’installation dans un compte d’utilisateur.
 
-    e.  **Classe du pilote JDBC Metastore** : spécifiez le nom de la classe du pilote de connexion. Par exemple : \com.microsoft.sqlserver.jdbc.SQLServerDriver.
+    1. **Classe du pilote JDBC Metastore** : spécifiez le nom de la classe du pilote de connexion. Par exemple : \com.microsoft.sqlserver.jdbc.SQLServerDriver.
     
-    **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
+       **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
     
-    La classe du pilote est accessible à partir de la propriété, comme indiqué ci-dessous.
+       La classe du pilote est accessible à partir de la propriété, comme indiqué ci-dessous.
     :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
-    f.  **URL JDBC du metastore** : spécifiez la valeur de l’URL de connexion et définissez la connexion à l’URL du serveur de base de données du metastore. Par exemple : jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300
+    1. **URL JDBC du metastore** : spécifiez la valeur de l’URL de connexion et définissez la connexion à l’URL du serveur de base de données du metastore. Par exemple,     `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
 
-    **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
+       **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
     
-    L’URL JDBC est accessible à partir de la propriété URL de connexion, comme indiqué ci-dessous.
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
-
-    À cette URL, ajoutez le chemin de l’emplacement où le certificat SSL est placé sur votre machine virtuelle. Le certificat SSL peut être téléchargé à partir d’[ici](../mysql/howto-configure-ssl.md).
-
-    L’URL JDBC du metastore est donc :
+       L’URL JDBC est accessible à partir de la propriété URL de connexion, comme indiqué ci-dessous.
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
     
-    jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem
+       > [!NOTE]
+       > Lorsque vous copiez l’URL de *hive-site.xml*, assurez-vous de supprimer `amp;` de la chaîne ou l’analyse échouera.
 
-    g.  **Nom de la base de données du metastore** : spécifiez le nom de la base de données du metastore Hive
+       À cette URL, ajoutez le chemin de l’emplacement où le certificat SSL est placé sur votre machine virtuelle. Le certificat SSL peut être téléchargé à partir d’[ici](../mysql/howto-configure-ssl.md).
+
+       L’URL JDBC du metastore est donc :
     
-    Si vous analysez Databricks, reportez-vous à la section sur Databricks ci-dessous.
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
 
-    **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
-
-    Le nom de la base de données est accessible à partir de la propriété URL JDBC, comme indiqué ci-dessous. Par exemple : organization1829255636414785 :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
-
-    h.  **Schéma** : spécifiez une liste de schémas Hive à importer. Par exemple : schema1; schema2. 
+    1. **Nom de la base de données du metastore** : spécifiez le nom de la base de données du metastore Hive.
     
-    Tous les schémas utilisateur sont importés si cette liste est vide. Tous les schémas système (par exemple, SysAdmin) et les objets sont ignorés par défaut. 
+       Si vous analysez Databricks, reportez-vous à la section sur Databricks ci-dessous.
 
-    Si la liste est vide, tous les schémas disponibles sont importés.
-    Les modèles de nom de schéma acceptables utilisant la syntaxe d’expressions de type SQL LIKE incluent l’utilisation de %, par exemple A%; %B; %C%; D
+       **Utilisation de Databricks** : accédez à votre cluster Databricks -> Applications -> Lancer le terminal web. Exécutez l’applet de commande **cat /databricks/hive/conf/hive-site.xml**
 
-    -   commençant par A ou    
-    -   se terminant par B ou    
-    -   contenant C ou    
-    -   égalant D
+       Le nom de la base de données est accessible à partir de la propriété URL JDBC, comme indiqué ci-dessous. Par exemple : organization1829255636414785
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
 
-    L’utilisation de NOT et des caractères spéciaux n’est pas autorisée.
+    1. **Schéma** : spécifiez une liste de schémas Hive à importer. Par exemple : schema1; schema2. 
+    
+        Tous les schémas utilisateur sont importés si cette liste est vide. Tous les schémas système (par exemple, SysAdmin) et les objets sont ignorés par défaut. 
 
-    i.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la base de données du metastore Hive à analyser.
-    > [!Note]
-    > **Pour analyser le metastore Databricks**
-    >
+        Si la liste est vide, tous les schémas disponibles sont importés. Les modèles de nom de schéma acceptables utilisant la syntaxe d’expressions de type SQL LIKE incluent l’utilisation de %, par exemple A%; %B; %C%; D
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="analyser une source Hive" border="true":::
+        - commençant par A ou    
+        - se terminant par B ou    
+        - contenant C ou    
+        - égalant D
+
+        L’utilisation de NOT et des caractères spéciaux n’est pas autorisée.
+
+     1. **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la base de données du metastore Hive à analyser.
+
+        :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="analyser une source Hive" border="true":::
 
 6.  Cliquez sur **Continuer**.
 

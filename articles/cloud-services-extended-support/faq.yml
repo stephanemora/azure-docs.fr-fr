@@ -1,0 +1,154 @@
+### YamlMime:FAQ
+metadata:
+  title: Foire aux questions concernant Azure Cloud Services (support étendu)
+  description: Foire aux questions concernant Azure Cloud Services (support étendu)
+  ms.topic: conceptual
+  ms.service: cloud-services-extended-support
+  author: gachandw
+  ms.author: gachandw
+  ms.reviewer: mimckitt
+  ms.date: 10/13/2020
+  ms.custom: references_regions
+  ms.openlocfilehash: 4b8cd236bad28c93949610dd26f45042bc0debc7
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114481435"
+title: Questions fréquentes (FAQ) sur Azure Cloud Services (support étendu)
+summary: Cet article traite des questions fréquemment posées relatives à Azure Cloud Services (support étendu).
+sections:
+- name: Général
+  questions:
+  - question: >
+      Quel est le nom de la ressource pour Azure Cloud Services (classique) et Azure Cloud Services (support étendu) ?
+    answer: >
+      - Azure Cloud Services (classique) : `microsoft.classiccompute/domainnames`
+
+      - Azure Cloud Services (support étendu) : `microsoft.compute/cloudservices`
+  - question: >
+      Quels sont les emplacements disponibles pour déployer Azure Cloud Services (support étendu) ?
+    answer: >
+      Azure Cloud Services (support étendu) est disponible dans toutes les régions du cloud public.
+  - question: "Comment mon quota change-t-il ? \n"
+    answer: >
+      Les clients devront demander un quota en utilisant les mêmes processus que pour tout autre produit Azure Resource Manager. Dans Azure Resource Manager, le quota est régional, et une demande de quota distincte est nécessaire pour chaque région.
+  - question: >
+      Pourquoi ne puis-je plus voir d’emplacement de production et de préproduction ?
+    answer: >
+      Azure Cloud Services (support étendu) ne prend pas en charge le concept logique d’un service hébergé, qui comprenait deux emplacements (production et préproduction). Chaque déploiement est un déploiement indépendant d’Azure Cloud Services (support étendu). Pour tester et mettre en place une nouvelle version d’un service cloud, déployez un service cloud (support étendu) et marquez-le pour indiquer que son adresse IP virtuelle peut être échangée avec celle d’un autre service cloud (support étendu).
+  - question: >
+      Pourquoi ne puis-je plus créer de service cloud vide ?
+    answer: >
+      Le concept de noms de services hébergés n’existe plus. Vous ne pouvez donc pas créer d’instance vide d’Azure Cloud Services (support étendu).
+  - question: >
+      Azure Cloud Services (support étendu) prend-il en charge Resource Health Check (RHC) ?
+    answer: >
+      Non, Azure Cloud Services (support étendu) ne prend pas en charge Resource Health Check (RHC).
+  - question: >
+      En quoi les métriques d’instance de rôle changent-elles ?
+    answer: "Il n’y a aucune modification dans les métriques d’instance de rôle. \n"
+  - question: >
+      En quoi les rôles Worker et web changent-ils ?
+    answer: "Il n’y a pas de changement dans la conception, l’architecture ou les composants des rôles Worker et web. \n"
+  - question: >
+      En quoi les instances de rôle changent-elles ?
+    answer: "Il n’y a pas de changement dans la conception, l’architecture ou les composants des instances de rôle. \n"
+  - question: >
+      En quoi les mises à jour du système d’exploitation invité seront différentes ?
+    answer: Il n’y a aucune modification apportée à la méthode de lancement. Azure Cloud Services (classique) et Azure Cloud Services (support étendu) obtiennent les mêmes mises à jour.
+  - question: >
+      Azure Cloud Services (support étendu) prend-il en charge les états Arrêté (alloué) et Arrêté (désalloué) ?
+    answer: "Le déploiement d’Azure Cloud Services (support étendu) prend uniquement en charge l’état Arrêté (alloué) qui apparaît comme « arrêté » dans le portail Azure. L’état Arrêté (désalloué) n’est pas pris en charge. \n"
+  - question: >
+      Les déploiements d’Azure Cloud Services (support étendu) prennent-ils en charge la mise à l’échelle entre les clusters, les zones de disponibilité et les régions ?
+    answer: "Les déploiements d’Azure Cloud Services (support étendu) ne peuvent pas être mis à l’échelle sur plusieurs clusters, zones de disponibilité et régions. \n"
+  - question: >
+      Comment obtenir l’ID de déploiement pour mon service cloud (support étendu)
+    answer: >
+      L’ID de déploiement, ou ID privé, est accessible à l’aide de l’API [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). Il est également disponible sur le portail Azure sous le panneau rôle et instances du service cloud (support étendu)
+  - question: >
+      Existe-t-il des différences de tarification entre Azure Cloud Services (classique) et Azure Cloud Services (support étendu) ?
+    answer: "Azure Cloud Services (support étendu) utilise Azure Key Vault et des IP publiques du niveau De base (ARM). Les clients ayant besoin de certificats doivent utiliser Azure Key Vault pour la gestion des certificats ([en savoir plus](https://azure.microsoft.com/pricing/details/key-vault/) sur la tarification d’Azure Key Vault).  Chaque IP publique pour Azure Cloud Services (support étendu) est facturée séparément ([en savoir plus](https://azure.microsoft.com/pricing/details/ip-addresses/) sur la tarification des IP publiques.) \n"
+- name: Ressources
+  questions:
+  - question: >
+      Quelles sont les ressources relatives à un déploiement d’Azure Cloud Services (support étendu) qui doivent se trouvent dans le même groupe de ressources ?
+    answer: "Les équilibreurs de charge, les groupes de sécurité réseau et les tables de routage doivent se trouvent dans la même région et le même groupe de ressources. \n"
+  - question: >
+      Quelles sont les ressources relatives à un déploiement d’Azure Cloud Services (support étendu) qui doivent se trouvent dans la même région ?
+    answer: >
+      Key Vault, le réseau virtuel, les IP publiques, les groupes de sécurité réseau et les tables de routage doivent se trouver dans la même région.
+  - question: >
+      Quelles sont les ressources relatives à un déploiement d’Azure Cloud Services (support étendu) qui doivent se trouvent dans le même réseau virtuel ?
+    answer: "Les IP publiques, les équilibreurs de charge, les groupes de sécurité réseau et les tables de routage doivent se trouvent dans le même réseau virtuel. \n"
+- name: Fichiers de déploiement
+  questions:
+  - question: >
+      Comment puis-je utiliser un modèle pour déployer ou gérer mon déploiement ?
+    answer: "Les fichiers de modèle et de paramètres peuvent être transmis comme paramètre en utilisant REST, PowerShell ou l’interface CLI. Ils peuvent également être chargés à l’aide du portail Azure.  \n"
+  - question: >
+      Ai-je besoin de gérer quatre fichiers maintenant ? (modèle, paramètre, csdef, cscfg)
+    answer: >
+      Les fichiers de modèle et de paramètres sont utilisés uniquement pour l’automatisation du déploiement. Comme pour Azure Cloud Services (classique), vous pouvez créer manuellement des ressources dépendantes, puis un déploiement d’Azure Cloud Services (support étendu) à l’aide de PowerShell, de commandes CLI ou via le portail avec le fichier .csdef existant, le fichier .cscfg.
+  - question: >
+      Comment mon code d’application est-il modifié sur Azure Cloud Services (support étendu) ?
+    answer: "Aucune modification n’est requise pour votre code d’application empaqueté au format cspkg. Vos applications existantes continueront à fonctionner comme avant. \n"
+  - question: >
+      Cloud Services (support étendu) autorise-t-il le format de package CTP ?
+    answer: >
+      Le format de package CTP n’est pas pris en charge dans Cloud Services (support étendu). Toutefois, il permet une limite de taille de package améliorée de 800 Mo
+- name: Migration
+  questions:
+  - question: >
+      Azure Cloud Services (support étendu) atténue-t-il les échecs dus aux échecs d’allocation ?
+    answer: "Non, les déploiements d’Azure Cloud Services (support étendu) sont liés à un cluster, tout comme Azure Cloud Services (classique). Par conséquent, les échecs d’allocation continuent d’exister si le cluster est plein. \n"
+  - question: "Quand dois-je effectuer la migration ? \n"
+    answer: >
+      L’estimation du temps nécessaire et de la complexité de la migration dépend d’une série de variables. La planification est l’étape la plus efficace pour comprendre l’étendue du travail, les blocages et la complexité de la migration.
+- name: Réseau
+  questions:
+  - question: >
+      Pourquoi ne puis-je pas créer de déploiement sans réseau virtuel ?
+    answer: "Les réseaux virtuels sont une ressource obligatoire pour tout déploiement sur Azure Resource Manager. Le déploiement d’Azure Cloud Services (support étendu) doit se trouver dans un réseau virtuel. \n"
+  - question: "Pourquoi vois-je maintenant autant de ressources de mise en réseau ? \n"
+    answer: >
+      Dans Azure Resource Manager, les composants de votre déploiement d’Azure Cloud Services (support étendu) sont exposés comme ressource pour une meilleure visibilité et un meilleur contrôle. Le même type de ressources était utilisé dans Azure Cloud Services (classique), mais elles étaient simplement masquées. Un exemple de ce type de ressource est l’équilibreur de charge public, qui est maintenant une ressource « en lecture seule » explicite créée automatiquement par la plateforme.
+  - question: >
+      Quelles restrictions s’appliquent à un sous-réseau avec Azure Cloud Services (support étendu) ?
+    answer: >
+      Un sous-réseau contenant des déploiements d’Azure Cloud Services (support étendu) ne peut pas être partagé avec des déploiements d’autres produits de calcul tels que des Machines Virtuelles, Virtual Machine Scale Sets, Service Fabric, etc.
+  - question: >
+      Quelles sont les méthodes d’allocation d’adresses IP prises en charge sur Azure Cloud Services (support étendu) ?
+    answer: >
+      Azure Cloud Services (support étendu) prend en charge les méthodes d’allocation d’adresses IP dynamiques et statiques. Les adresses IP statiques sont référencées en tant qu’adresses IP réservées dans le fichier cscfg.
+  - question: >
+      Pourquoi les adresses IP me sont-elles facturées ?
+    answer: "Les clients sont facturés pour l’utilisation des adresses IP sur Azure Cloud Services (support étendu) tout comme les utilisateurs sont facturés pour les adresses IP associées aux machines virtuelles. \n"
+  - question: >
+      L’adresse IP réservée peut-elle être mise à jour après un déploiement réussi ?
+    answer: >
+      Impossible d’ajouter, de supprimer ou de modifier une adresse IP réservée pendant la mise à jour ou la mise à niveau du déploiement. Si les adresses IP doivent être modifiées, utilisez un service cloud remplaçable ou déployez deux services cloud avec un enregistrement CName dans Azure DNS\Traffic Manager afin que l’adresse IP puisse être pointée.
+  - question: "Puis-je utiliser un nom DNS avec Azure Cloud Services (support étendu) ? \n"
+    answer: >
+      Oui. Azure Cloud Services (support étendu) peut également recevoir un nom DNS. Avec Azure Resource Manager, l’étiquette DNS est une propriété facultative de l’IP publique qui est attribuée au service cloud. Le format du nom DNS pour les déploiements basés sur Azure Resource Manager est `<userlabel>.<region>.cloudapp.azure.com`.
+  - question: "Puis-je mettre à jour ou modifier la référence de réseau virtuel pour un service cloud existant (support étendu) ? \n"
+    answer: "Non. La référence de réseau virtuel est obligatoire lors de la création d’un service cloud. Pour un service cloud existant, la référence de réseau virtuel ne peut pas être modifiée. L’espace d’adressage du réseau virtuel lui-même peut être modifié à l’aide des API VNet. \n"
+- name: Certificats et coffres de clés
+  questions:
+  - question: >
+      Pourquoi dois-je gérer mes certificats sur Azure Cloud Services (support étendu) ?
+    answer: "Azure Cloud Services (support étendu) a adopté le même processus que les autres offres de calcul où les certificats résident dans des coffres de clés gérés par le client. Cela permet aux clients d’avoir un contrôle total sur leurs secrets et leurs certificats. \n"
+  - question: >
+      Puis-je utiliser un coffre de clés pour tous mes déploiements dans toutes les régions ?
+    answer: >
+      Non. Azure Key Vault est une ressource régionale et les clients ont besoin d’un coffre de clés dans chaque région. Toutefois, un coffre de clés peut être utilisé pour tous les déploiements dans une région donnée.
+  - question: >
+      Lorsque vous spécifiez des secrets/certificats à installer sur un service cloud, la ressource de coffre de clés doit-elle se trouver dans le même abonnement Azure ?
+    answer: >
+      Oui. Nous n'autorisons pas les références croisées entre abonnements et coffres-forts dans Microsoft Azure Cloud Services afin de nous protéger contre les attaques par escalade de privilèges via CS-ES. L’abonnement n’est pas une limite que CS-ES va traverser pour les références aux secrets.  La raison pour laquelle nous n’autorisons pas les références inter-abonnements est la dernière étape importante pour empêcher des utilisateurs malveillants d’utiliser CS-ES comme mécanisme d’escalade de privilèges pour accéder aux secrets d’autres utilisateurs. L’abonnement n’est pas une limite de sécurité, mais la défense en profondeur est une exigence. Toutefois, vous pouvez utiliser l’extension Key Vault pour obtenir une prise en charge inter-abonnement et inter-région pour vos certificats. Reportez-vous à la documentation [ici](./enable-key-vault-virtual-machine.md)
+  - question: >
+      Lorsque vous spécifiez des secrets/certificats à installer sur un service cloud, la ressource de coffre de clés doit-elle se trouver dans la même région ?
+    answer: >
+      Oui. La raison pour laquelle nous appliquons des limites de région est d’empêcher les utilisateurs de créer des architectures qui ont des dépendances entre régions. L’isolation régionale est un principe de conception clé des applications basées sur le Cloud. Toutefois, vous pouvez utiliser l’extension Key Vault pour obtenir une prise en charge inter-abonnement et inter-région pour vos certificats. Reportez-vous à la documentation [ici](./enable-key-vault-virtual-machine.md)
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nPour commencer à utiliser Azure Cloud Services (support étendu), consultez [Déployer un service cloud (support étendu) à l’aide de PowerShell](deploy-powershell.md)."

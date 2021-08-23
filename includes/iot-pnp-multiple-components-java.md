@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 966f6fb48053743995163bb608c13d52f98d33c7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 81553d1a16b00ab165eb2c5dc41f57f9c088c630
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110487214"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400060"
 ---
 Ce tutoriel montre comment créer un exemple d’application d’appareil IoT Plug-and-Play incluant plusieurs composants, comment le connecter à votre hub IoT et comment utiliser Azure CLI pour afficher les données de télémétrie qu’il envoie. L’exemple d’application est écrit en Java et est inclus dans l’Azure IoT device SDK pour Java. Un créateur de solutions peut utiliser Azure CLI pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner du code d’appareil.
 
@@ -36,7 +36,7 @@ Pour effectuer ce tutoriel sur Windows, vous devez installer les logiciels suiva
 
 ## <a name="download-the-code"></a>Téléchargement du code
 
-Si vous avez terminé [Démarrage rapide : Connecter un exemple d'application d'appareil IoT Plug-and-Play s'exécutant sous Windows à IoT Hub (Java)](../articles/iot-pnp/quickstart-connect-device.md), vous avez déjà cloné le référentiel.
+Si vous avez terminé [Tutoriel : Connecter un exemple d’application pour appareil IoT Plug-and-Play s’exécutant sur Windows à IoT Hub (Java)](../articles/iot-develop/tutorial-connect-device.md), vous avez déjà cloné le référentiel.
 
 Ouvrez une invite de commandes dans le répertoire de votre choix. Exécutez la commande suivante pour cloner le dépôt GitHub de [kits de développement logiciel (SDK) et de bibliothèques Java Azure IoT](https://github.com/Azure/azure-iot-sdk-java) dans cet emplacement :
 
@@ -74,7 +74,7 @@ Une fois l’exemple de client d’appareil démarré, utilisez l’outil Explor
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-pnp/concepts-modeling-guide.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
+Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-develop/concepts-modeling-guide.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
 
 Le code d’appareil utilise la classe `DeviceClient` standard pour se connecter à votre hub IoT. L’appareil envoie l’ID de modèle du modèle DTDL qu’il implémente dans la demande de connexion. Un appareil qui envoie un ID de modèle est un appareil IoT Plug-and-Play :
 

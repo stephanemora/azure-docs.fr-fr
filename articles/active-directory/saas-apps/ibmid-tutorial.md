@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c1c0131a2771c843cbd636c4a80a8cb7e4d6c08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65c743f57b715b2be89e6c5d627571b9597b8c83
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649387"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibmid"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à IBMid
 
@@ -37,10 +37,13 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* IBMid prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
-* IBMid prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* IBMid prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
+* IBMid prend en charge le provisionnement d’utilisateurs **juste à temps**.
 
-## <a name="adding-ibmid-from-the-gallery"></a>Ajout d’IBMid à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
+## <a name="add-ibmid-from-the-gallery"></a>Ajouter IBMid à partir de la galerie
 
 Pour configurer l’intégration d’IBMid à Azure AD, vous devez ajouter IBMid, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -50,7 +53,6 @@ Pour configurer l’intégration d’IBMid à Azure AD, vous devez ajouter IBMi
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **IBMid** dans la zone de recherche.
 1. Sélectionnez **IBMid** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-ibmid"></a>Configurer et tester l’authentification unique Azure AD pour IBMid
 
@@ -75,30 +77,31 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez l’une des URL suivantes :
 
     | Identificateur |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20` |
+    | Production : |
     | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | Préproduction : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
     |
 
-    a. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
+    b. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
 
     | URL de réponse |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20/login` |
+    | Production : |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
+    | Préproduction : |
     | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez l’URL : `https://myibm.ibm.com/`
-
 
 1. Cliquez sur **Enregistrer**.
 

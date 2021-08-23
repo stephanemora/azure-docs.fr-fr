@@ -5,13 +5,13 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
-ms.date: 09/30/2019
-ms.openlocfilehash: f5259294734b3b0c33835759beadb2ad4e1089a9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/08/2021
+ms.openlocfilehash: 0a11f8954637fe93aa8d0dc5ee8266347d822ded
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744716"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362466"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
 
@@ -41,7 +41,7 @@ Ce guide visuel offre une vue d’ensemble générale de l’architecture Data F
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="Guide visuel détaillé de l’architecture système complète d’Azure Data Factory, présenté dans une image haute résolution unique." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-Pour afficher plus de détails, cliquez sur l’image précédente afin d’effectuer un zoom avant ou accédez à l’[image haute résolution](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox). 
+Pour afficher plus de détails, cliquez sur l’image précédente afin d’effectuer un zoom avant ou accédez à l’[image haute résolution](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
 
 ### <a name="connect-and-collect"></a>Se connecter et collecter
 
@@ -96,6 +96,9 @@ Data Factory fait appel aux services liés pour deux raisons :
 - Pour représenter un **magasin de données** qui inclut, sans s’y limiter, une base de données SQL Server, une base de données Oracle, un partage de fichiers ou un compte de stockage d’objets blob Azure. Pour obtenir la liste des banques de données prises en charge, consultez l’article sur l’[activité de copie](copy-activity-overview.md).
 
 - Pour représenter une **ressource de calcul** qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsightHive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements Compute pris en charge, consultez l’article sur la [transformation des données](transform-data.md).
+
+### <a name="integration-runtime"></a>Runtime d’intégration
+Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par l'activité ou le service lié, et fournit l'environnement Compute dans lequel l'activité s'exécute ou depuis lequel elle est envoyée. L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
 
 ### <a name="triggers"></a>Déclencheurs
 Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements.

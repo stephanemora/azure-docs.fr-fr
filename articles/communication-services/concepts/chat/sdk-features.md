@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1f01d6efc29d4d275762ce7f5699c036ee885ba9
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 36b528d7899b2b5cda7c05752a7cbb42dec6adbc
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112686"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459293"
 ---
 # <a name="chat-sdk-overview"></a>Vue d’ensemble du kit SDK Conversation 
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Les kits SDK Conversation Azure Communication Services peuvent être utilisés pour ajouter la fonctionnalité de conversation en temps réel riche à vos applications.
     
@@ -43,6 +41,8 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | Obtenir tous les messages d’un fil de conversation                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Envoyer des emojis Unicode dans le contenu d’un message                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|                   | Ajouter des métadonnées aux messages de conversation                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | Ajouter un nom complet à la notification de l’indicateur de saisie                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |Notifications en temps réel (activées par le package de signalisation propriétaire**)|  Les clients de conversation peuvent s’abonner pour obtenir des mises à jour en temps réel sur les messages entrants et les autres opérations qui se produisent dans un fil de conversation. Si vous souhaitez voir la liste des mises à jour prises en charge pour les notifications en temps réel, consultez [Concepts de Conversation](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 | Intégration à Azure Event Grid             | Utilisez les événements de conversation disponibles dans Azure Event Grid pour connecter des services de notifications personnalisées, ou publier un événement particulier dans un Webhook de façon à exécuter une logique métier telle que la mise à jour des enregistrements CRM à la fin d’une conversation.   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 | Rapports </br>(Ces informations sont disponibles sous l’onglet Supervision de votre ressource Communication Services sur le portail Azure)      | Comprendre le trafic d’API à partir de votre application de conversation avec la supervision des métriques publiées dans Azure Metrics Explorer et définir des alertes pour détecter les anomalies     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  

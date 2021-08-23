@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0ab04c21cb904baf7ede72fd69f6d6b8375b07cc
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110323"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289888"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
     | Nom de l’adresse IP publique | Fournissez un nom pour l’adresse IP publique. |
 
     > [!IMPORTANT]
-    > Si vous prévoyez d’utiliser un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner une référence (SKU) AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) pour **Référence (SKU)** .
+    > Si vous envisagez d’utiliser l’homologation privée IPv6 sur ExpressRoute, reportez-vous à la [documentation PowerShell](./expressroute-howto-add-gateway-resource-manager.md) pour créer votre passerelle avec une adresse IP publique de type standard, statique.
     > 
     > 
 

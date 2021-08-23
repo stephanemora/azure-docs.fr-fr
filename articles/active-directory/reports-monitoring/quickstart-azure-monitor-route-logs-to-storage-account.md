@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd278968eeb430bf57f279bb8b7e5d4ee9248ce1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a50ef779dd65696ae62b6b08b04e65ca19291944
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965711"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113233401"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutoriel : Archiver des journaux Azure AD dans un compte de stockage Azure
 
@@ -40,38 +40,38 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
-2. Sélectionnez **Azure Active Directory** > **Activité** > **Journaux d’audit**. 
+2. Sélectionnez **Azure Active Directory** > **Supervision** > **Journaux d’audit**. 
 
-3. Sélectionnez **Paramètres d’exportation**. 
+3. Sélectionnez **Exporter les paramètres de données**. 
 
 4. Dans le volet **Paramètres de diagnostic**, effectuez l’une des opérations suivantes :
-   * Pour modifier les paramètres existants, sélectionnez **Modifier le paramètre**.
-   * Pour ajouter de nouveaux paramètres, sélectionnez **Ajouter un paramètre de diagnostic**.  
-     Vous pouvez avoir jusqu’à trois paramètres. 
+    1. Pour modifier un paramètre existant, sélectionnez **Modifier le paramètre** en regard du paramètre de diagnostic que vous souhaitez mettre à jour.
+    1. Pour ajouter de nouveaux paramètres, sélectionnez **Ajouter un paramètre de diagnostic**.  
+
+    Vous pouvez avoir jusqu’à trois paramètres.
 
      ![Paramètres d’exportation](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. Entrez un nom convivial pour le paramètre afin de vous rappeler son rôle (par exemple, *Envoyer à un compte de stockage Azure*). 
+5. Une fois dans le volet **Paramètres de diagnostic**, si vous créez un nouveau paramètre, attribuez un nom au paramètre pour vous rappeler son objectif (par exemple, *Envoyer au compte de stockage Azure*). Vous ne pouvez pas changer le nom d’un paramètre existant.
 
-6. Cochez la case **Archiver dans un compte de stockage**, puis sélectionnez **Compte de stockage**. 
+6. Sous **Détails de la destination**, activez la case à cocher **Archiver dans un compte de stockage**. 
 
-7. Sélectionnez l’abonnement Azure et compte de stockage vers lesquels vous voulez acheminer les journaux d’activité.
- 
-8. Cliquez sur **OK** pour quitter la configuration.
+7. Sélectionnez l’abonnement Azure dans le menu déroulant **Abonnement** et le compte de stockage dans le menu déroulant **Compte de stockage** dans lequel vous souhaitez acheminer les journaux.
 
-9. Effectuez une ou plusieurs des actions suivantes :
-    * Cochez la case **AuditLogs** pour envoyer les journaux d’audit vers le compte de stockage. 
-    * Cochez la case **SignInLogs** pour envoyer les journaux d’activité de connexion vers le compte de stockage.
+8. Sélectionnez toutes les catégories appropriées sous **Détails de la catégorie** :
 
-10. Utilisez le curseur pour définir la rétention de vos données de journal. Par défaut, cette valeur est *0*, ce qui signifie que les journaux d’activité sont conservés indéfiniment dans le compte de stockage. Si vous définissez une valeur différente, les événements plus anciens que le nombre de jours indiqué sont automatiquement effacés.
-
-11. Sélectionnez **Enregistrer** pour enregistrer le paramètre.
+    Effectuez une ou plusieurs des actions suivantes :
+    1. Cochez la case **AuditLogs** pour envoyer les journaux d’audit vers le compte de stockage.
+    
+    1. Cochez la case **SignInLogs** pour envoyer les journaux d’activité de connexion vers le compte de stockage.
 
     ![Paramètres de diagnostic](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. Après environ 15 minutes, vérifiez que les journaux d’activité sont transmis à votre compte de stockage. Accédez au [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, sélectionnez le compte de stockage que vous avez utilisé précédemment, puis sélectionnez **Blobs**. Dans **Journaux d’audit**, sélectionnez **insights-log-audit**. Dans **Journaux d’activité de connexion**, sélectionnez **insights-logs-signin**.
+9. Une fois les catégories sélectionnées, dans le champ **Jours de rétention**, tapez le nombre de jours de rétention dont vous avez besoin pour vos données de journal. Par défaut, cette valeur est *0*, ce qui signifie que les journaux d’activité sont conservés indéfiniment dans le compte de stockage. Si vous définissez une valeur différente, les événements plus anciens que le nombre de jours indiqué sont automatiquement effacés.
+ 
+10. Sélectionnez **Enregistrer** pour enregistrer le paramètre.
 
-    ![Compte de stockage](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
+11. Fermez la fenêtre pour revenir au volet Paramètres de diagnostic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

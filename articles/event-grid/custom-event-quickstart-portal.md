@@ -1,18 +1,25 @@
 ---
-title: 'Démarrage rapide : Envoyer des événements personnalisés à un point de terminaison web - Event Grid, Portail Azure'
+title: Envoyer des événements personnalisés à un point de terminaison web - Event Grid, Portail Azure
 description: 'Démarrage rapide : Utilisez Azure Event Grid et le portail Azure pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique. Les événements sont gérés par une application web.'
-ms.date: 04/22/2021
+ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 91ac5cfd65910a6297f78f34943331d5b911559b
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a2d259707e6bfbcc5216b345107507413da71523
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895736"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232445"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec le portail Azure et Event Grid
+# <a name="route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Router des événements personnalisés vers un point de terminaison web avec le portail Azure et Event Grid
+Event Grid est un service entièrement géré qui vous permet de facilement gérer des événements dans de nombreux services et applications Azure. Il simplifie la création d’applications pilotées par les événements et serverless. Pour une présentation du service, consultez [Vue d’ensemble d’Event Grid](overview.md).
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le Portail Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+Dans cet article, vous utilisez le portail Azure pour effectuer les tâches suivantes : 
+
+1. Créez une rubrique personnalisée.
+1. Abonnez-vous à la rubrique personnalisée.
+1. Déclenchez l'événement.
+1. Affichez le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+
 
 ## <a name="prerequisites"></a>Prérequis
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
@@ -20,16 +27,13 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Dans 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
-
 Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans la barre de recherche de la rubrique, tapez **Rubriques Event Grid**, puis sélectionnez **Rubriques Event Grid** dans la liste déroulante. 
 
     Rechercher et sélectionner :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Rubriques Event Grid":::
-3. Dans la page **Rubriques Event Grid**, sélectionnez **+ Ajouter** dans la barre d’outils. 
-
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Bouton d’ajout de rubrique Event Grid":::
+3. Dans la page **Rubriques Event Grid**, sélectionnez **+ Créer** dans la barre d’outils. 
 4. Dans la page **Créer une rubrique**, procédez comme suit :
     1. Sélectionnez votre **abonnement** Azure.
     2. Sélectionnez un groupe de ressources existant ou sélectionnez **Créer**, puis entrez un **nom** pour le **groupe de ressources**.
@@ -41,14 +45,9 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
     6. Sous l’onglet **Vérifier + créer** de la page **Créer une rubrique**, sélectionnez **Créer**. 
     
         :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Vérifier les paramètres et créer":::
-5. Une fois le déploiement correctement effectué, retapez **Rubriques Event Grid** dans la barre de recherche, puis sélectionnez **Rubriques Event Grid** dans la liste déroulante comme vous l’avez fait précédemment. 
-6. Sélectionnez la rubrique que vous avez créée dans la liste. 
+5. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** pour voir la page **Rubrique système Event Grid** pour votre rubrique. Ne fermez pas cette page. Vous l’utiliserez plus loin dans le guide de démarrage rapide. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Sélectionner votre rubrique dans la liste":::
-
-7. La page **Rubrique Event Grid** associée à votre rubrique apparaît. Ne fermez pas cette page. Vous l’utiliserez plus loin dans le guide de démarrage rapide. 
-
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Page d’accueil de la rubrique Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Capture d’écran montrant la page d’hébergement de la rubrique Event Grid":::
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 Avant de créer un abonnement pour la rubrique personnalisée, créez un point de terminaison pour le message d’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
@@ -56,12 +55,27 @@ Avant de créer un abonnement pour la rubrique personnalisée, créez un point d
 1. Dans la page de l’article, sélectionnez **Déployer sur Azure** pour déployer la solution sur votre abonnement. Dans le portail Azure, indiquez des valeurs pour les paramètres.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
-1. Le déploiement peut prendre quelques minutes. Une fois le déploiement réussi, affichez votre application web pour vérifier qu’elle s’exécute. Dans un navigateur web, accédez à : `https://<your-site-name>.azurewebsites.net`
+2. Dans la page **Déploiement personnalisé**, procédez comme suit : 
+    1. Pour **Groupe de ressources**, sélectionnez le groupe de ressources que vous avez créé lors de la création du compte de stockage. Il sera plus facile pour vous de nettoyer une fois que vous aurez terminé le tutoriel en supprimant le groupe de ressources.  
+    2. Pour **Nom du site**, entrez un nom pour l’application web.
+    3. Pour **Nom du plan d’hébergement**, entrez un nom pour le plan App Service à utiliser pour l’hébergement de l’application web.
+    5. Sélectionnez **Revoir + créer**. 
 
-    Si le déploiement échoue, consultez le message d’erreur. L’échec peut être dû au fait que le nom du site web est déjà pris. Redéployez le modèle et choisissez un autre nom pour le site. 
-1. Vous voyez le site, mais aucun événement n’est encore posté sur celui-ci.
+        :::image type="content" source="./media/blob-event-quickstart-portal/template-deploy-parameters.png" alt-text="Capture d’écran montrant la page Déploiement personnalisé.":::
+1. Dans la page **Vérifier + créer**, sélectionnez **Créer**. 
+1. Le déploiement peut prendre quelques minutes. Sélectionnez Alertes (icône représentant une cloche) dans le portail, puis **Accéder au groupe de ressources**. 
 
-   ![Afficher le nouveau site](./media/custom-event-quickstart-portal/view-site.png)
+    ![Alerte - Accédez au groupe de ressources.](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+4. Dans la page **Groupe de ressources**, dans la liste des ressources, sélectionnez l’application web que vous avez créée. Vous pouvez également voir le plan App Service et le compte de stockage dans cette liste. 
+
+    ![Sélectionnez un site web.](./media/blob-event-quickstart-portal/resource-group-resources.png)
+5. Dans la page **App Service** de votre application web, sélectionnez l’URL pour accéder au site web. L’URL doit être au format suivant : `https://<your-site-name>.azurewebsites.net`.
+    
+    ![Accédez au site web.](./media/blob-event-quickstart-portal/web-site.png)
+
+6. Confirmez que vous voyez le site, mais qu’aucun événement n’a encore été posté sur celui-ci.
+
+   ![Affichez le nouveau site.](./media/blob-event-quickstart-portal/view-site.png)
 
 ## <a name="subscribe-to-custom-topic"></a>S’abonner à une rubrique personnalisée
 
@@ -203,8 +217,8 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 
 Consultez les exemples suivants pour en savoir plus sur la publication d’événements sur Event Grid et leur consommation avec différents langages de programmation. 
 
-- [Exemples Azure Event Grid pour .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
-- [Exemples Azure Event Grid pour Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
-- [Exemples Azure Event Grid pour Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
-- [Exemples Azure Event Grid pour JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
-- [Exemples Azure Event Grid pour TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)
+- [Exemples Azure Event Grid pour .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Exemples Azure Event Grid pour Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Exemples Azure Event Grid pour Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Exemples Azure Event Grid pour JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Exemples Azure Event Grid pour TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

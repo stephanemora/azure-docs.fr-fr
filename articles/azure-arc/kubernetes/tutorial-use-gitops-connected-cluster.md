@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 9f6fe063faa9abfa59d7999da17940aae9ccd264
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1c639c323fcd0dd0ed9f417070d679defeb4cf1e
+ms.sourcegitcommit: 20abee54e48f9b40b83d39c5b970bd0193812cb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463177"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113632427"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
@@ -39,15 +39,17 @@ Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps 
     >[!TIP]
     > Si l'extension `k8s-configuration` est déjà installée, vous pouvez la mettre à jour vers la version la plus récente à l'aide de la commande suivante - `az extension update --name k8s-configuration`
 
+- Si votre référentiel git est situé en dehors du pare-feu et que le protocole git est utilisé avec le paramètre de dépôt de configuration, TCP sur le port 9418 (`git://:9418`) doit être activé pour l’accès sortant sur le pare-feu.
+
 ## <a name="create-a-configuration"></a>Créer une configuration
 
 L’[exemple de dépôt](https://github.com/Azure/arc-k8s-demo) utilisé dans cet article est structuré autour d’un personnage, l’opérateur de cluster. Les manifestes de ce dépôt provisionnent quelques espaces de noms, déploient des charges de travail et fournissent une configuration spécifique à l’équipe. L’utilisation de ce dépôt avec GitOps permet de créer les ressources suivantes sur votre cluster :
 
 * Espaces de noms : `cluster-config`, `team-a`, `team-b`
-* Déploiement : `cluster-config/azure-vote`
+* Déploiement : `arc-k8s-demo`
 * ConfigMap : `team-a/endpoints`
 
-Le `config-agent` interroge Azure sur l’existence de configurations nouvelles ou mises à jour. Cette tâche peut prendre jusqu’à 30 secondes.
+Le `config-agent` interroge Azure sur l’existence de configurations nouvelles ou mises à jour. Cette tâche peut prendre jusqu’à 5 minutes.
 
 Si vous associez un dépôt privé à la configuration, effectuez les étapes ci-dessous dans [Appliquer une configuration à partir d’un dépôt Git privé](#apply-configuration-from-a-private-git-repository).
 

@@ -4,13 +4,13 @@ description: Découvrez dans ce tutoriel comment utiliser les fonctionnalités d
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2020
-ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 06/28/2021
+ms.openlocfilehash: 6a78bcdb6f8f3036da4f273256d681f94f87a1bb
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799290"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356632"
 ---
 # <a name="log-analytics-tutorial"></a>Tutoriel Log Analytics
 Log Analytics est un outil du portail Azure permettant de modifier et d’exécuter des requêtes de journal à partir de données collectées par les journaux Azure Monitor et d’analyser leurs résultats de manière interactive. Vous pouvez utiliser des requêtes Log Analytics pour récupérer des enregistrements correspondant à des critères particuliers, identifier des tendances, analyser des modèles et fournir divers insights sur vos données. 
@@ -36,91 +36,89 @@ Ouvrez l’[environnement de démonstration Log Analytics](https://ms.portal.azu
 
 Vous pouvez voir l’étendue dans l’angle supérieur gauche de l’écran. Si vous utilisez votre propre environnement, vous verrez une option permettant de sélectionner une autre étendue, mais cette option n’est pas disponible dans l’environnement de démonstration.
 
-[![Étendue de requête](media/log-analytics-tutorial/scope.png)](media/log-analytics-tutorial/scope.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/scope.png" alt-text="Étendue Log Analytics" lightbox="media/log-analytics-tutorial/scope.png":::
 
 ## <a name="table-schema"></a>Schéma de table
 Le côté gauche de l’écran comprend l’onglet **Tables**, qui vous permet d’inspecter les tables disponibles dans l’étendue actuelle. Celles-ci sont regroupées par **Solution** par défaut, mais vous pouvez modifier leur regroupement ou les filtrer. 
 
-Développez la solution **Gestion des journaux** et recherchez la table **AzureActivity**. Vous pouvez développer la table pour afficher son schéma, ou pointer sur son nom pour afficher des informations supplémentaires à son sujet. 
+Développez la solution **Gestion des journaux** et recherchez la table **AppRequests**. Vous pouvez développer la table pour afficher son schéma, ou pointer sur son nom pour afficher des informations supplémentaires à son sujet. 
 
-[![Affichage de tables](media/log-analytics-tutorial/table-details.png)](media/log-analytics-tutorial/table-details.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Affichage de tables" lightbox="media/log-analytics-tutorial/table-details.png":::
 
-Cliquez sur **En savoir plus** pour accéder à la référence des tables qui documente chaque table et ses colonnes. Cliquez sur **Aperçu des données** pour jeter un œil à quelques enregistrements récents dans la table. Cela peut être utile pour s’assurer qu’il s’agit bien des données que vous attendez, avant d’exécuter une requête avec elles.
+Cliquez sur **Liens utiles** pour accéder à la référence des tables qui documente chaque table et ses colonnes. Cliquez sur **Aperçu des données** pour jeter un œil à quelques enregistrements récents dans la table. Cela peut être utile pour s’assurer qu’il s’agit bien des données que vous attendez, avant d’exécuter une requête avec elles.
 
-[![Exemple de données](media/log-analytics-tutorial/sample-data.png)](media/log-analytics-tutorial/sample-data.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/sample-data.png" alt-text="Exemples de données" lightbox="media/log-analytics-tutorial/sample-data.png":::
 
 ## <a name="write-a-query"></a>Écrivez votre requête.
-Commençons par écrire une requête à l’aide de la table **AzureActivity**. Double-cliquez sur son nom pour l’ajouter à la fenêtre de requête. Vous pouvez également taper directement dans la fenêtre et même faire en sorte qu’IntelliSense vous aide à compléter les noms des tables dans l’étendue actuelle et les commandes KQL.
+Commençons par écrire une requête à l’aide de la table **AppRequests**. Double-cliquez sur son nom pour l’ajouter à la fenêtre de requête. Vous pouvez également taper directement dans la fenêtre et même faire en sorte qu’IntelliSense vous aide à compléter les noms des tables dans l’étendue actuelle et les commandes KQL.
 
 Il s’agit de la requête la plus simple que nous pouvons écrire. Elle retourne simplement tous les enregistrements d’une table. Exécutez-la en cliquant sur le bouton **Exécuter** ou en appuyant sur Maj+Entrée avec le curseur positionné n’importe où dans le texte de la requête.
 
-[![Résultats de la requête](media/log-analytics-tutorial/query-results.png)](media/log-analytics-tutorial/query-results.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results.png" alt-text="Résultats de la requête" lightbox="media/log-analytics-tutorial/query-results.png":::
 
 Vous pouvez constater que nous avons des résultats. Le nombre d’enregistrements retournés par la requête est affiché dans le coin inférieur droit. 
 
 ## <a name="filter"></a>Filtrer
 
-Ajoutons un filtre à la requête pour réduire le nombre d’enregistrements retournés. Sélectionnez l’onglet **Filtrer** dans le volet gauche. Cela présente différentes colonnes dans les résultats de la requête, que vous pouvez utiliser pour filtrer les résultats. Les valeurs les plus élevées de ces colonnes sont affichées avec le nombre d’enregistrements ayant cette valeur. Cliquez sur **Administrative** sous **CategoryValue**, puis sur **Appliquer et Exécuter**. 
+Ajoutons un filtre à la requête pour réduire le nombre d’enregistrements retournés. Sélectionnez l’onglet **Filtrer** dans le volet gauche. Cela présente différentes colonnes dans les résultats de la requête, que vous pouvez utiliser pour filtrer les résultats. Les valeurs les plus élevées de ces colonnes sont affichées avec le nombre d’enregistrements ayant cette valeur. Cliquez sur **200** sous **ResultCode**, puis **Appliquer et exécuter**. 
 
-[![Volet Requête](media/log-analytics-tutorial/query-pane.png)](media/log-analytics-tutorial/query-pane.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-pane.png" alt-text="Volet Requête" lightbox="media/log-analytics-tutorial/query-pane.png":::
 
 Une instruction **where** est ajoutée à la requête avec la valeur que vous avez sélectionnée. Les résultats incluent désormais uniquement les enregistrements ayant cette valeur, ce qui vous permet de voir que le nombre d’enregistrements est réduit.
 
-[![Résultats de la requête filtrés](media/log-analytics-tutorial/query-results-filter-01.png)](media/log-analytics-tutorial/query-results-filter-01.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter-01.png" alt-text="Résultats de la requête filtrés" lightbox="media/log-analytics-tutorial/query-results-filter-01.png":::
 
 
 ## <a name="time-range"></a>Plage temporelle
 Toutes les tables d’un espace de travail Log Analytics ont une colonne nommée **TimeGenerated** qui correspond à l’heure de création de l’enregistrement. Toutes les requêtes ont une plage de temps qui limite les résultats aux enregistrements ayant une valeur **TimeGenerated** comprise dans cette plage. La plage de temps peut être définie dans la requête ou avec le sélecteur en haut de l’écran.
 
-Par défaut, la requête retourne les enregistrements des dernières 24 heures. Sélectionnez la liste déroulante **Plage de temps** et choisissez **7 jours**. Cliquez à nouveau sur **Exécuter** pour retourner les résultats. Vous pouvez constater que des résultats sont retournés, mais nous avons un message indiquant que nous ne voyons pas tous les résultats. Cela est dû au fait que Log Analytics peut retourner un maximum de 30 000 enregistrements, et que notre requête en a retourné davantage. 
+Par défaut, la requête retourne les enregistrements des dernières 24 heures. Vous devriez voir un message ici indiquant que nous ne voyons pas tous les résultats. Cela est dû au fait que Log Analytics peut retourner un maximum de 30 000 enregistrements, et que notre requête en a retourné davantage. Sélectionnez la liste déroulante **Plage de temps** et choisissez **12 heures**. Cliquez à nouveau sur **Exécuter** pour retourner les résultats. 
 
-[![Plage temporelle](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-max.png" alt-text="Plage temporelle" lightbox="media/log-analytics-tutorial/query-results-max.png":::
 
 
 ## <a name="multiple-query-conditions"></a>Plusieurs conditions de requête
-Nous allons réduire les résultats en ajoutant une autre condition de filtre. Une requête peut inclure un nombre quelconque de filtres pour cibler exactement le jeu d’enregistrements souhaité. Sélectionnez **Réussite** sous **ActivityStatusValue**, puis cliquez sur **Appliquer et exécuter**. 
+Nous allons réduire les résultats en ajoutant une autre condition de filtre. Une requête peut inclure un nombre quelconque de filtres pour cibler exactement le jeu d’enregistrements souhaité. Sélectionnez **Accéder à la page d’accueil/d’index** sous **Nom**, puis cliquez sur **Appliquer et exécuter**. 
 
-[![Résultats de la requête avec plusieurs filtres](media/log-analytics-tutorial/query-results-filter-02.png)](media/log-analytics-tutorial/query-results-filter-02.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter-02.png" alt-text="Résultats de la requête avec plusieurs filtres" lightbox="media/log-analytics-tutorial/query-results-filter-02.png":::
 
 
 ## <a name="analyze-results"></a>Analyser les résultats
 En plus de vous aider à écrire et à exécuter des requêtes, Log Analytics offre des fonctionnalités permettant d’exploiter les résultats. Commencez par développer un enregistrement pour afficher les valeurs de toutes ses colonnes.
 
-[![Développer un enregistrement](media/log-analytics-tutorial/expand-record.png)](media/log-analytics-tutorial/expand-record.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/expand-record.png" alt-text="Développer un enregistrement" lightbox="media/log-analytics-tutorial/expand-record.png":::
 
 Cliquez sur le nom d’une colonne pour trier les résultats en fonction de cette colonne. Cliquez sur l’icône de filtre en regard de celle-ci pour spécifier une condition de filtre. Cela est similaire à l’ajout d’une condition de filtre à la requête elle-même, sauf que ce filtre est effacé si la requête est réexécutée. Appliquez cette méthode si vous souhaitez analyser rapidement un jeu d’enregistrements dans le cadre de l’analyse interactive.
 
-Par exemple, définissez un filtre sur la colonne **CallerIpAddress** pour limiter les enregistrements à un seul appelant. 
+Par exemple, définissez un filtre sur la colonne **DurationMs** pour limiter les enregistrements à ceux qui ont pris plus de **100** millisecondes. 
 
-[![Filtre des résultats de la requête](media/log-analytics-tutorial/query-results-filter.png)](media/log-analytics-tutorial/query-results-filter.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-filter.png" alt-text="Filtre des résultats de la requête" lightbox="media/log-analytics-tutorial/query-results-filter.png":::
 
 Au lieu de filtrer les résultats, vous pouvez regrouper les enregistrements par une colonne particulière. Effacez le filtre que vous venez de créer, puis activez le curseur **Regrouper les colonnes**. 
 
-[![Regrouper les colonnes](media/log-analytics-tutorial/query-results-group-columns.png)](media/log-analytics-tutorial/query-results-group-columns.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Grouper la colonne" lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
 
-À présent, faites glisser la colonne **CallerIpAddress** sur la ligne de regroupement. Les résultats sont désormais organisés d’après cette colonne, et vous pouvez réduire chaque groupe pour vous aider dans votre analyse.
+À présent, faites glisser la colonne **Url** sur la ligne de regroupement. Les résultats sont désormais organisés d’après cette colonne, et vous pouvez réduire chaque groupe pour vous aider dans votre analyse.
 
-[![Résultats de la requête regroupés](media/log-analytics-tutorial/query-results-grouped.png)](media/log-analytics-tutorial/query-results-grouped.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Résultats de la requête regroupés" lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 
 ## <a name="work-with-charts"></a>Utiliser des graphiques
 Examinons une requête qui utilise des données numériques que nous pouvons afficher dans un graphique. Au lieu de créer une requête, nous allons sélectionner un exemple de requête.
 
 Dans le volet gauche, cliquez sur **Requêtes**. Ce volet comprend des exemples de requêtes que vous pouvez ajouter à la fenêtre de requête. Si vous utilisez votre propre espace de travail, vous devez disposer de diverses requêtes dans plusieurs catégories, mais si vous utilisez l’environnement de démonstration vous ne verrez qu’une seule catégorie **Espaces de travail Log Analytics**. Développez-la pour afficher les requêtes de la catégorie.
 
-Cliquez sur la requête nommée **Nombre de requêtes par ResponseCode**. Cette opération ajoute la requête à la fenêtre de requête. Notez que la nouvelle requête est séparée de l’autre par une ligne vide. Une requête en KQL se termine lorsqu’elle rencontre une ligne vide. Elles sont donc considérées comme des requêtes distinctes. 
+Cliquez sur la requête appelée **Taux d’erreur de fonction** dans la catégorie **Applications**. Cette opération ajoute la requête à la fenêtre de requête. Notez que la nouvelle requête est séparée de l’autre par une ligne vide. Une requête en KQL se termine lorsqu’elle rencontre une ligne vide. Elles sont donc considérées comme des requêtes distinctes. 
 
-[![Nouvelle requête](media/log-analytics-tutorial/example-query.png)](media/log-analytics-tutorial/example-query.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/example-query.png" alt-text="Nouvelle requête" lightbox="media/log-analytics-tutorial/example-query.png":::
 
 La requête active est celle sur laquelle le curseur est positionné. Vous pouvez voir que la première requête est mise en surbrillance, indiquant qu’il s’agit de la requête active. Cliquez n’importe où dans la nouvelle requête pour la sélectionner, puis cliquez sur le bouton **Exécuter** pour l’exécuter.
 
-[![Graphique des résultats de la requête](media/log-analytics-tutorial/example-query-output-chart.png)](media/log-analytics-tutorial/example-query-output-chart.png#lightbox)
+:::image type="content" source="media/log-analytics-tutorial/example-query-output-table.png" alt-text="Tableau des résultats de la requête" lightbox="media/log-analytics-tutorial/example-query-output-table.png":::
 
-Notez que cette sortie est un graphique, et non un tableau comme avec la dernière requête. Cela est dû au fait que l’exemple de requête utilise une commande [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) à la fin. Notez qu’il existe différentes options pour manipuler le graphique, par exemple pour le remplacer par un autre type.
+Pour afficher les résultats dans un graphique, sélectionnez **Graphique** dans le volet des résultats.  Notez qu’il existe différentes options pour manipuler le graphique, par exemple pour le remplacer par un autre type.
 
-Essayez de sélectionner **Résultats** pour afficher la sortie de la requête sous forme de tableau. 
 
-[![Tableau des résultats de la requête](media/log-analytics-tutorial/example-query-output-table.png)](media/log-analytics-tutorial/example-query-output-table.png#lightbox)
-
+:::image type="content" source="media/log-analytics-tutorial/example-query-output-chart.png" alt-text="Graphique des résultats de la requête" lightbox="media/log-analytics-tutorial/example-query-output-chart.png":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

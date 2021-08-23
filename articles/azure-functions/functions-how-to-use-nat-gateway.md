@@ -4,16 +4,16 @@ description: Tutoriel pas à pas qui montre comment configurer la traduction d�
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 5bb491e367ed813f09197a193745c231261c88c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104658115"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432263"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure
 
-La traduction d’adresses réseau (NAT) simplifie la connectivité Internet sortante-uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. NAT peut être utile pour les fonctions Azure ou les applications web qui doivent consommer un service tiers qui utilise une liste verte d’adresses IP comme mesure de sécurité. Pour plus d’informations, consultez [Qu’est-ce que le service NAT de Réseau virtuel ?](../virtual-network/nat-overview.md).
+La traduction d’adresses réseau (NAT) simplifie la connectivité Internet sortante-uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées. NAT peut être utile pour les fonctions Azure ou les applications web qui doivent consommer un service tiers qui utilise une liste verte d’adresses IP comme mesure de sécurité. Pour plus d’informations, consultez [Qu’est-ce que le service NAT de Réseau virtuel ?](../virtual-network/nat-gateway/nat-overview.md).
 
 Ce tutoriel montre comment utiliser la traduction d’adresses réseau de réseau virtuel pour router le trafic sortant à partir d’une fonction déclenchée par HTTP. Cette fonction vous permet de vérifier sa propre adresse IP sortante. Dans ce tutoriel, vous allez :
 
@@ -48,7 +48,7 @@ Si vous avez déjà suivi le tutoriel d’[intégration de fonctions avec un ré
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Subscription | Sélectionnez votre abonnement.|
+    | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
     | Nom | Entrez *myResourceGroup-vnet*. |
     | Location | Sélectionnez **USA Est**.|
@@ -66,6 +66,8 @@ Si vous avez déjà suivi le tutoriel d’[intégration de fonctions avec un ré
 Maintenant, vous allez créer une application de fonction dans le [plan Premium](functions-premium-plan.md). Ce plan fournit une mise à l’échelle serverless lors de la prise en charge de l’intégration d’un réseau virtuel.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Créer une application de fonction sur le plan Premium
+
+Ce tutoriel vous montre comment créer votre application de fonction dans un [plan Premium](functions-premium-plan.md). La même fonctionnalité est également disponible lors de l’utilisation d’un [plan dédié (App service)](dedicated-plan.md).
 
 > [!NOTE]  
 > Pour une expérience optimale dans ce tutoriel, choisissez .NET pour la pile d’exécution et Windows comme système d’exploitation. Créez votre application de fonction dans la même région que votre réseau virtuel.

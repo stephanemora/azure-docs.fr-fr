@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/08/2021
-ms.openlocfilehash: da265e1be47a7ee1a98f6e8169f2531110b5c772
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f4fa21c99a17111b1045b66713490b86592e04bf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756596"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467113"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -120,7 +120,14 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 
 ### <a name="firewall-settings"></a>Paramètres du pare-feu
 
-Votre serveur de base de données doit autoriser l’activation des connexions Azure. Cela permettra à Azure Purview d’atteindre et de connecter le serveur. Vous pouvez suivre le guide pratique pour des [connexions à partir d’Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+Si un pare-feu est activé sur votre serveur de base de données, vous devez mettre à jour le pare-feu pour autoriser l’accès de l’une des deux manières suivantes :
+
+1. Autorisez les connexions Azure via le pare-feu.
+1. Installez un runtime d'intégration auto-hébergé et donnez-lui accès par le biais du pare-feu.
+
+#### <a name="allow-azure-connections"></a>Autoriser les connexions Azure
+
+L’activation des connexions Azure permettra à Azure Purview d’atteindre et de connecter le serveur sans mettre à jour le pare-feu lui-même. Vous pouvez suivre le guide pratique pour des [connexions à partir d’Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
 
 1. Accédez à votre compte de base de données.
 1. Dans la page **Vue d’ensemble**, sélectionnez le nom du serveur.
@@ -128,9 +135,14 @@ Votre serveur de base de données doit autoriser l’activation des connexions A
 1. Sélectionnez **Oui** pour **Autoriser les services et les ressources Azure à accéder à ce serveur**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Autoriser les services et les ressources Azure à accéder à ce serveur" border="true":::
-    
-> [!Note]
-> Actuellement, Azure Purview ne prend pas en charge la configuration de réseau virtuel. Par conséquent, vous ne pouvez pas utiliser de paramètres de pare-feu basés sur IP.
+
+#### <a name="self-hosted-integration-runtime"></a>Runtime d’intégration auto-hébergé
+
+Un runtime d’intégration auto-hébergé (SHIR) peut être installé sur un ordinateur pour se connecter à une ressource d’un réseau privé.
+
+1. [Créez et installez un runtime d’intégration auto-hébergé](/azure/purview/manage-integration-runtimes) sur un ordinateur personnel ou sur un ordinateur situé dans le même réseau virtuel que votre serveur de base de données.
+1. Vérifiez le pare-feu de votre serveur de base de données pour vérifier que l’ordinateur SHIR a accès par le biais du pare-feu. Ajoutez l’adresse IP de la machine si elle ne dispose pas déjà d’un accès.
+1. Si votre SQL Server Azure se trouve derrière un point de terminaison privé ou dans un réseau virtuel, vous pouvez utiliser un [point de terminaison privé](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) d’ingestion pour garantir l’isolement réseau de bout en bout.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Inscrire une source de données Azure SQL Database
 

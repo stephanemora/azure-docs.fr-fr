@@ -7,14 +7,19 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92631136"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432911"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé
+> 
+
+
 ## <a name="overview"></a>Vue d’ensemble ##
 
 L’environnement Azure App Service est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Cette fonctionnalité peut héberger vos :
@@ -76,7 +81,7 @@ Pour plus d’informations sur le fonctionnement des environnements App Service 
 
 App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
 
-Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir effectuer un scale-out de votre plan App Service, vous devez d’abord effectuer un scale-out du pool de workers où vous voulez héberger le plan.
+Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole TLS/SSL basé sur IP. Pour pouvoir effectuer un scale-out de votre plan App Service, vous devez d’abord effectuer un scale-out du pool de workers où vous voulez héberger le plan.
 
 Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les frontends ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 

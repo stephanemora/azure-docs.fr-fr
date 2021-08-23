@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 07/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6da5dfcded067420fd6d43f4a5b2841da060898a
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7ecd8cf1330cec20131e5015a62691d7cf704f03
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738119"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688534"
 ---
 # <a name="what-is-azure-data-box"></a>Qu’est-ce qu’Azure Data Box ?
 
@@ -71,7 +71,7 @@ Dans cette version, l’appareil Data Box affiche les caractéristiques suivante
 | Poids                                                  | < 50 lbs.                |
 | Dimensions                                              | Largeur de l’appareil : 309 mm Hauteur : 430,4 mm Profondeur : 502 mm |            
 | Espace en rack                                              | 7 U lorsque l’appareil est placé sur le côté dans le rack (ne peut pas être monté en rack)|
-| Câbles requis                                         | 1 câble d’alimentation (inclus) <br> 2 câbles RJ45 <br> 2 câbles en cuivre Twinax SFP+|
+| Câbles requis                                         | 1 câble d’alimentation (inclus) <br> 2 câbles RJ45 (non inclus)<br> 2 X SFP + câbles Twinax cuivre (non inclus)|
 | Capacité de stockage                                        | L’appareil de 100 To dispose d’une capacité utile de 80 To après protection RAID 5|
 | Puissance nominale                                            | Le bloc d’alimentation est évalué à 700 W. <br> En règle générale, il consomme 375 W.|
 | Interfaces réseau                                      | 2 interfaces 1 GbE : MGMT, DATA 3. <br> MGMT : pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale <br> DATA 3 : pour les données, configurable par l’utilisateur, dynamique par défaut <br> MGMT et DATA 3 peuvent également fonctionner en tant qu’interface 10 GbE <br> 2 interfaces 10 GbE : DATA 1, DATA 2 <br> Ces deux interfaces sont dédiées aux données et peuvent être configurées en mode dynamique (par défaut) ou statique |
@@ -119,7 +119,7 @@ Un flux d’importation type inclut les étapes suivantes :
 
 1. **Commande** - Créez une commande dans le portail Azure et indiquez les informations d’expédition et le compte de stockage de destination Azure de vos données. Si l’appareil est disponible, Azure le prépare et l’expédie avec un ID de suivi d’expédition.
 
-2. **Réception** : une fois l’appareil livré, connectez-le au réseau et à l’alimentation à l’aide des câbles spécifiés. Mettez l’appareil sous tension et connectez-vous à l’appareil. Configurez le réseau de l’appareil et montez les partages sur l’ordinateur hôte à l’emplacement à partir duquel vous souhaitez copier les données.
+2. **Réception** : une fois l’appareil livré, connectez-le au réseau et à l’alimentation à l’aide des câbles spécifiés. (Les câbles d’alimentation sont inclus avec l’appareil. Vous devez acquérir les câbles de données.) Activez et connectez-vous à l’appareil. Configurez le réseau de l’appareil et montez les partages sur l’ordinateur hôte à l’emplacement à partir duquel vous souhaitez copier les données.
 
 3. **Copie des données** : copiez les données vers les partages Data Box.
 
@@ -134,7 +134,7 @@ Un flux d’exportation type inclut les étapes suivantes :
 
 1. **Commande** : créez une commande d’exportation dans le portail Azure, en indiquant les informations d’expédition et le compte de stockage source Azure de vos données. Si l’appareil est disponible, Azure prépare un appareil. Les données sont copiées à partir de votre compte Stockage Azure vers le Data Box. Une fois la copie des données terminée, Microsoft envoie l’appareil avec un ID de suivi d’expédition.
 
-2. **Réception** : une fois l’appareil livré, connectez-le au réseau et à l’alimentation à l’aide des câbles spécifiés. Mettez l’appareil sous tension et connectez-vous à l’appareil. Configurez le réseau de l’appareil et montez les partages sur l’ordinateur hôte sur lequel vous souhaitez copier les données.
+2. **Réception** : une fois l’appareil livré, connectez-le au réseau et à l’alimentation à l’aide des câbles spécifiés. (Les câbles d’alimentation sont inclus avec l’appareil. Vous devez acquérir les câbles de données.) Activez et connectez-vous à l’appareil. Configurez le réseau de l’appareil et montez les partages sur l’ordinateur hôte sur lequel vous souhaitez copier les données.
 
 3. **Copie des données** : copiez les données à partir des partages Data Box vers les serveurs de données locaux.
 

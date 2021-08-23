@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: b943be684d84e1e193d9318e9f1c6423dcd38795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fb9d5be9068731607550eb904a8bf3d43044510
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648916"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469544"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutoriel : Intégrer JFrog Artifactory à Azure Active Directory
 
@@ -76,27 +76,27 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<servername>.jfrog.io`
+    a. Dans la zone de texte **Identificateur**, entrez une URL au format de l’URL d’Artifactory.
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
     
-    - Pour Artifactory 6.x : `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
-    - Pour Artifactory 7.x : `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    - Pour l’auto-hébergement d’Artifactory : `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - Pour le SaaS Artifactory : `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
-    - Pour Artifactory 6.x : `https://<servername>.jfrog.io/<servername>/webapp/`
-    - Pour Artifactory 7.x : `https://<servername>.jfrog.io/ui/login`
+    - Pour l’auto-hébergement d’Artifactory : `https://<servername>.jfrog.io/<servername>/webapp/`
+    - Pour le SaaS Artifactory : `https://<servername>.jfrog.io/ui/login`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique JFrog Artifactory](https://support.jfrog.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Votre application JFrog Artifactory s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue des attributs utilisateur.
+1. Votre application JFrog Artifactory s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue des attributs et des revendications utilisateur.
 
     ![Capture d’écran montrant Attributs utilisateur avec le contrôle d’édition activé.](common/edit-attribute.png)
 
-1. En plus de ce qui précède, l’application JFrog Artifactory s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe (préversion)** , effectuez les étapes suivantes :
+1. En plus de ce qui précède, l’application JFrog Artifactory s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur**, cliquez sur **Ajouter une revendications de groupe**, effectuez les étapes suivantes :
 
     a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
@@ -114,8 +114,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 6. Configurez (Nom du fournisseur de services SAML) Artifactory avec le champ « Identificateur » (voir l’étape 4). Dans la section **Configurer JFrog Artifactory**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-   - Pour Artifactory 6.x : `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
-   - Pour Artifactory 7.x : `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+   - Pour l’auto-hébergement d’Artifactory : `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - Pour le SaaS Artifactory : `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 

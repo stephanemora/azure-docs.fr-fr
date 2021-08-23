@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: cb00337446df3062fe640127a37adfb522e45345
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751145"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300985"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -65,8 +65,14 @@ Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est 
 
 Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Synapse Studio de deux manières :
 
-* Ouvrez votre espace de travail Synapse dans le [portail Azure](https://portal.azure.com). Dans la section **Vue d’ensemble** de l’espace de travail Synapse, sélectionnez **Ouvrir** dans la zone Ouvrir Synapse Studio.
-* Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
+1. Ouvrez votre espace de travail Synapse dans le [portail Azure](https://portal.azure.com). Dans la section **Vue d’ensemble** de l’espace de travail Synapse, sélectionnez **Ouvrir** dans la zone Ouvrir Synapse Studio.
+1. Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
+
+    ![Se connecter à l’espace de travail](./security/media/common/login-workspace.png)
+
+> [!NOTE]
+> Pour vous connecter à votre espace de travail, il existe deux **méthodes de sélection de compte**. L’un est de l'**abonnement Azure**, l’autre est l'**entrée manuelle**. Si vous avez le rôle de Synapse Azure ou les rôles Azure de niveau supérieur, vous pouvez utiliser les deux méthodes pour vous connecter à l’espace de travail. Si vous n’avez pas les rôles Azure associés et que vous avez été accordé en tant que rôle de contrôle de la connexion au sein de l’espace de travail, **Entrer manuellement** est le seul moyen de vous connecter à l’espace de travail. Pour en savoir plus sur le RBAC de Synapse, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) Synapse](./security/synapse-workspace-synapse-rbac.md).
+
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Placer les exemples de données dans le compte de stockage principal
 Nous allons utiliser un petit jeu de données de 100 000 lignes provenant des données NYX Taxi Cab pour de nombreux exemples de ce guide de démarrage. Nous commençons par le placer dans le compte de stockage principal que vous avez créé pour l’espace de travail.

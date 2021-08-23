@@ -1,22 +1,22 @@
 ---
 title: Scénarios courants de gestion des applications pour Azure Active Directory | Microsoft Docs
 description: Centralisation de la gestion des applications avec Azure AD
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc6e389bab894619eb0c974ef6f9829328fe2b0e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ac71272cd878e5413de799acb0fde70380bbc18f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081728"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467043"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
 
@@ -24,46 +24,44 @@ Partout dans le monde, la gestion des mots de passe constitue un véritable cauc
 
 **Scénarios courants**
 
-
 > [!div class="checklist"]
 > * Authentification unique pour toutes vos applications
-> * Approvisionnement et déprovisionnement automatisés 
+> * Approvisionnement et déprovisionnement automatisés
 > * Sécurisation de vos applications
 > * Gouverner l’accès à vos applications
 > * Accès sécurisé hybride
 
 ## <a name="scenario-1-set-up-sso-for-all-your-applications"></a>Scénario 1 : Configurer l’authentification unique pour toutes vos applications
 
-Plus aucun mot de passe à gérer. Accédez en toute sécurité à toutes les ressources dont vous avez besoin avec vos informations d’identification d’entreprise. 
+Plus aucun mot de passe à gérer. Accédez en toute sécurité à toutes les ressources dont vous avez besoin avec vos informations d’identification d’entreprise.
 
 |Fonctionnalité  | Description | Recommandation |
 |---------|---------|---------|
 |SSO|L’authentification unique fédérée basée sur des normes s’appuie des normes industrielles approuvées.|Utilisez toujours [SAML / OIDC](../develop/v2-howto-app-gallery-listing.md) pour activer l’authentification unique si votre application prend en charge cette norme.|
 |Mes applications|Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs.| Déployez [Mes applications](my-apps-deployment-plan.md) dans votre organisation une fois que vous avez intégré vos applications à Azure AD pour l’authentification unique.|
 
-## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scénario 2 : Approvisionnement et déprovisionnement automatisés 
+## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scénario 2 : Approvisionnement et déprovisionnement automatisés
 
-
-La plupart des applications requièrent l’approvisionnement d’un utilisateur dans l’application avant de pouvoir accéder aux ressources nécessaires. L’utilisation de fichiers CSV ou de scripts complexes peut être coûteuse et difficile à gérer. En outre, les clients doivent s’assurer que les comptes sont supprimés lorsqu’un utilisateur ne devrait plus y accéder. Tirez parti des outils ci-dessous pour automatiser l’approvisionnement et le déprovisionnement. 
-
+La plupart des applications requièrent l’approvisionnement d’un utilisateur dans l’application avant de pouvoir accéder aux ressources nécessaires. L’utilisation de fichiers CSV ou de scripts complexes peut être coûteuse et difficile à gérer. En outre, les clients doivent s’assurer que les comptes sont supprimés lorsqu’un utilisateur ne devrait plus y accéder. Tirez parti des outils ci-dessous pour automatiser l’approvisionnement et le déprovisionnement.
 
 |Fonctionnalité  |Description|Recommandation |
 |---------|---------|---------|
 |Approvisionnement SCIM|[SCIM](https://aka.ms/SCIMOverview) est une méthode recommandée par l’industrie pour l’automatisation de l’approvisionnement des utilisateurs. Toute application compatible avec SCIM peut être intégrée à Azure AD. Créez, mettez à jour et supprimez automatiquement des comptes d’utilisateur sans avoir à gérer les fichiers CSV, les scripts personnalisés ou les solutions locales.|Consultez la liste croissante des applications [préintégrées](../saas-apps/tutorial-list.md) dans la Galerie d’applications Azure AD|
 |Microsoft Graph|Tirez parti de toute la variété et de l’étendue des données Azure AD pour enrichir votre application avec les données dont elle a besoin.|Tirez parti de [Microsoft Graph](https://developer.microsoft.com/graph/) pour récupérer des données sur l’écosystème Microsoft. |
 
-
 ## <a name="scenario-3-secure-your-applications"></a>Scénario 3 : Sécurisation de vos applications
-L’identité est le pilier de votre sécurité. Si une identité est compromise, il est extrêmement difficile d’arrêter l’effet de domino avant qu’il ne soit trop tard. En moyenne, plus de 100 jours s’écoulent avant que les organisations découvrent qu’une identité a été compromise. Utilisez les outils fournis par Azure AD pour améliorer le niveau de sécurité de vos applications. 
+
+L’identité est le pilier de votre sécurité. Si une identité est compromise, il est extrêmement difficile d’arrêter l’effet de domino avant qu’il ne soit trop tard. En moyenne, plus de 100 jours s’écoulent avant que les organisations découvrent qu’une identité a été compromise. Utilisez les outils fournis par Azure AD pour améliorer le niveau de sécurité de vos applications.
 
 |Fonctionnalité  |Description| Recommandation |
 |---------|---------| ---------|
 |Azure AD MFA|Azure AD Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure AD MFA contribue à sécuriser l’accès à vos données et à vos applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple.| [Activez MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) pour vos utilisateurs.  |
-|Accès conditionnel|Avec l’accès conditionnel, vous pouvez mettre en œuvre des décisions de contrôle d’accès automatisées pour déterminer qui peut accéder à vos applications cloud, sur la base de conditions.| Passez en revue les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md) et les [stratégies communes](../conditional-access/concept-conditional-access-policy-common.md) que vos clients utilisent. | 
-|Identity Protection|Pour protéger vos utilisateurs, Identity Protection s'appuie sur les connaissances acquises par Microsoft au niveau des organisations avec Azure AD, de l'espace grand public avec les comptes Microsoft et des jeux avec Xbox. Microsoft analyse 6 500 milliards de signaux par jour pour identifier les menaces et protéger les clients.|Activez les [stratégies de protection d’identité par défaut](../identity-protection/concept-identity-protection-policies.md) fournies par notre service. | 
+|Accès conditionnel|Avec l’accès conditionnel, vous pouvez mettre en œuvre des décisions de contrôle d’accès automatisées pour déterminer qui peut accéder à vos applications cloud, sur la base de conditions.| Passez en revue les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md) et les [stratégies communes](../conditional-access/concept-conditional-access-policy-common.md) que vos clients utilisent. |
+|Identity Protection|Pour protéger vos utilisateurs, Identity Protection s'appuie sur les connaissances acquises par Microsoft au niveau des organisations avec Azure AD, de l'espace grand public avec les comptes Microsoft et des jeux avec Xbox. Microsoft analyse 6 500 milliards de signaux par jour pour identifier les menaces et protéger les clients.|Activez les [stratégies de protection d’identité par défaut](../identity-protection/concept-identity-protection-policies.md) fournies par notre service. |
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Scénario 4 : Gouverner l’accès à vos applications
-Identity Governance aide les organisations à trouver un équilibre entre productivité (vitesse à laquelle des personnes peuvent accéder aux applications dont elles ont besoin, par exemple pour joindre mon organisation) et sécurité (comment leur accès doit évoluer au fil du temps, par exemple à la suite de modifications de leur statut professionnel). 
+
+Identity Governance aide les organisations à trouver un équilibre entre productivité (vitesse à laquelle des personnes peuvent accéder aux applications dont elles ont besoin, par exemple pour joindre mon organisation) et sécurité (comment leur accès doit évoluer au fil du temps, par exemple à la suite de modifications de leur statut professionnel).
 
 |Fonctionnalité  |Description|Recommandation |
 |---------|---------| ---------|
@@ -71,20 +69,20 @@ Identity Governance aide les organisations à trouver un équilibre entre produc
 |Révisions d’accès|L’accès de l’utilisateur aux applications peut être passé en revue régulièrement pour vérifier que seules les personnes appropriées continuent de bénéficier d’un accès.| [Révisez l’accès](../governance/access-reviews-overview.md) à vos applications les plus sensibles. |
 |Log Analytics|Générez des rapports sur les utilisateurs qui accèdent aux applications et stockez-les dans l’outil SIEM de votre choix pour mettre en corrélation les informations de différentes sources de données au fil du temps.| Activez [Log Analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) et configurez des alertes pour les événements critiques liés à vos applications. |
 
-
 ## <a name="scenario-5-hybrid-secure-access"></a>Scénario 5 : Accès sécurisé hybride
+
 L’identité peut vous servir de plan de contrôle uniquement si elle peut se connecter à toutes les applications dans le cloud et locales. Tirez parti des outils fournis par Azure AD et ses partenaires pour sécuriser l’accès aux applications basées sur l’authentification héritée.
 
 |Fonctionnalité  |Description|Recommandation |
 |---------|---------|---------|
 |Application Proxy (Proxy d’application)|Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils doivent accéder aux applications SaaS dans le cloud et aux applications d’entreprise locales. Le proxy Azure AD Application offre cet accès sans réseaux privés virtuels (VPN) ni zones démilitarisées (DMZ), qui sont des systèmes coûteux et complexes.|Configurez l’[accès à distance](../app-proxy/application-proxy.md) pour vos applications locales. |
-|F5, Akamai, Zscaler|Votre contrôleur de livraison et de mise en réseau vous permet de protéger facilement vos applications héritées, qui sont toujours critiques pour vos processus d’entreprise, mais que vous ne pouviez pas protéger avant avec Azure AD. Il est probable que vous disposiez déjà de tout ce dont vous avez besoin pour commencer à protéger ces applications.| Vous utilisez Akamai, Citrix, F5 ou Zscaler ? Consultez nos [solutions prédéfinies](./secure-hybrid-access.md). | 
+|F5, Akamai, Zscaler|Votre contrôleur de livraison et de mise en réseau vous permet de protéger facilement vos applications héritées, qui sont toujours critiques pour vos processus d’entreprise, mais que vous ne pouviez pas protéger avant avec Azure AD. Il est probable que vous disposiez déjà de tout ce dont vous avez besoin pour commencer à protéger ces applications.| Vous utilisez Akamai, Citrix, F5 ou Zscaler ? Consultez nos [solutions prédéfinies](./secure-hybrid-access.md). |
 
 ## <a name="related-articles"></a>Articles connexes
 
-- [Gestion des applications](./index.yml)
-- [Approvisionnement d’applications](../app-provisioning/user-provisioning.md)
-- [Accès sécurisé hybride](./secure-hybrid-access.md)
-- [Gouvernance des identités](../governance/identity-governance-overview.md)
-- [Plateforme d’identité Microsoft](../develop/v2-overview.md)
-- [Identité et sécurité](../conditional-access/index.yml)
+* [Gestion des applications](./index.yml)
+* [Approvisionnement d’applications](../app-provisioning/user-provisioning.md)
+* [Accès sécurisé hybride](./secure-hybrid-access.md)
+* [Gouvernance des identités](../governance/identity-governance-overview.md)
+* [Plateforme d’identité Microsoft](../develop/v2-overview.md)
+* [Identité et sécurité](../conditional-access/index.yml)

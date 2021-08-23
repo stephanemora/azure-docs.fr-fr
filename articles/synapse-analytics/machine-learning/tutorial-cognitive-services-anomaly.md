@@ -6,15 +6,15 @@ ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
-ms.date: 11/20/2020
+ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: c54300bf37f6f4526c525b1502d902e5f4336ed7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed86453b76d7f7afa0ba7fcccd2e4d7519621fb8
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943502"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362069"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Tutoriel : Détection d’anomalie avec Cognitive Services (préversion)
 
@@ -56,7 +56,7 @@ Vous avez besoin d’une table Spark pour ce tutoriel.
 
 ## <a name="open-the-cognitive-services-wizard"></a>Ouvrir l’Assistant Cognitive Services
 
-1. Cliquez avec le bouton droit sur la table Spark créée à l’étape précédente. Sélectionnez **Machine Learning** > **Enrichir avec un modèle existant** pour ouvrir l’Assistant.
+1. Cliquez avec le bouton droit sur la table Spark créée à l’étape précédente. Sélectionnez **Machine Learning** > **Prédire avec un modèle** pour ouvrir l’Assistant.
 
    ![Capture d’écran montrant les sélections permettant d’ouvrir l’Assistant de scoring.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 

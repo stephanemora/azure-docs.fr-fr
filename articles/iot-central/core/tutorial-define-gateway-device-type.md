@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 75b818382102642ecc8380b257c9c31382b8283d
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084571"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588414"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -30,8 +30,14 @@ En plus de permettre à des appareils en aval de communiquer avec votre applicat
 * Répondre aux mises à jour de propriétés accessibles en écriture effectuées par un opérateur. Par exemple, un opérateur peut modifier l’intervalle d’envoi de la télémétrie.
 * Répondre à des commandes, comme le redémarrage de l’appareil.
 
+Dans ce tutoriel, vous allez apprendre à :
+
 > [!div class="checklist"]
-> Créer des modèles d’appareil en aval Créer un modèle d’appareil de passerelle Publier le modèle d’appareil Créer les appareils simulés
+>
+> * Créer des modèles d’appareils en aval
+> * Créer un modèle d’appareil de passerelle
+> * Publier le modèle d’appareil
+> * Créer les appareils simulés
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -92,7 +98,6 @@ Pour ajouter un nouveau modèle d’appareil à votre application :
 
 1. Sélectionnez **Enregistrer**.
 
-
 ### <a name="add-relationships"></a>Ajouter des relations
 
 Ensuite, vous ajoutez des relations aux modèles pour les modèles d’appareil en aval :
@@ -129,7 +134,7 @@ Pour ajouter des propriétés cloud au modèle **Smart Building gateway device**
 En tant que générateur, vous pouvez personnaliser l’application pour présenter des informations pertinentes sur l’appareil capteur environnemental à un opérateur. Vos personnalisations permettent à l’opérateur de gérer l’appareil capteur environnemental raccordé à l’application. Vous pouvez créer deux types de vues permettant à un opérateur d’interagir avec des appareils :
 
 * Formulaires pour voir et modifier les propriétés de l’appareil et du cloud
-* Tableaux de bord pour visualiser les appareils
+* Affichages pour visualiser les appareils.
 
 Pour générer les vues par défaut pour le modèle **Smart Building gateway device**:
 
@@ -207,6 +212,33 @@ Vos appareils en aval simulés sont maintenant connectés à votre appareil de p
 
 ![Vue Appareils en aval](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
+## <a name="connect-real-downstream-devices"></a>Connecter des appareils en aval réels
+
+Dans le tutoriel [Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md), l’exemple de code montre comment inclure l’ID de modèle à partir du modèle d’appareil dans la charge utile d’approvisionnement que l’appareil envoie. L'ID du modèle permet à IoT Central d'associer l'appareil au bon modèle d'appareil. Par exemple :
+
+```python
+async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
+  provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+    provisioning_host=provisioning_host,
+    registration_id=registration_id,
+    id_scope=id_scope,
+    symmetric_key=symmetric_key,
+  )
+
+  provisioning_device_client.provisioning_payload = {"modelId": model_id}
+  return await provisioning_device_client.register()
+```
+
+Lorsque vous connectez un appareil en aval, vous pouvez modifier la charge utile d’approvisionnement pour inclure l’ID de l’appareil de passerelle. L'ID du modèle permet à IoT Central d'associer l'appareil au bon modèle d'appareil en aval. L’ID de passerelle permet à IoT Central d’établir la relation entre l’appareil en aval et sa passerelle. Dans ce cas, la charge utile d’approvisionnement que l’appareil envoie ressemble au code JSON suivant :
+
+```json
+{
+  "modelId": "dtmi:rigado:S1Sensor;2",
+  "iotcGateway":{
+    "iotcGatewayId": "gateway-device-001"
+  }
+}
+```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

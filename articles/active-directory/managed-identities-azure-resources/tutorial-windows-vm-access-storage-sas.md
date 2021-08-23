@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4f8b23d8f717e430e865e391a40692773f0beace
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.openlocfilehash: 7f5ae30f7bb476b5bc3c76c2a22d4dda2fc402d8
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776390"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966317"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure via des informations d’identification SAP
 
@@ -75,14 +75,18 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une identité managée pour récupérer une SAP de stockage à partir du Gestionnaire des ressources, puis utiliser cette SAP pour accéder au stockage.  Dans cette étape, vous autorisez votre identité managée affectée par le système de machine virtuelle à accéder à la SAP de votre compte de stockage.   
 
 1. Revenez à votre compte de stockage nouvellement créé.   
-2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  
-3. Cliquez sur **+ Ajouter une attribution de rôle** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
-4. Définissez **Rôle** sur « Contributeur de comptes de stockage » sur le côté droit de la page.  
-5. Dans la liste déroulante suivante, définissez **Attribuer l’accès à** sur la ressource « Machine virtuelle ».  
-6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
-7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Windows dans la liste déroulante, puis cliquez sur **Enregistrer**. 
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Contributeur de compte de stockage |
+    | Attribuer l’accès à | Identité managée |
+    | Attribué par le système | Machine virtuelle |
+    | Sélectionnez | &lt;votre machine virtuelle Windows&gt; |
 
-    ![Texte de remplacement d’image](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure Resource Manager 
 

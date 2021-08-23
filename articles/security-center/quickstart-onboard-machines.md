@@ -3,17 +3,17 @@ title: Connecter vos machines non-Azure à Azure Security Center
 description: Découvrez comment connecter vos machines non-Azure à Security Center
 author: memildin
 ms.author: memildin
-ms.date: 11/16/2020
+ms.date: 07/12/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8ca3f7c9104fa655536762ac38f50c78cb96ad3a
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 3bda35f3973a5125a3e780448b651425bc054cce
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237943"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113641446"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -30,11 +30,17 @@ Les deux méthodes sont décrites dans cette page.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Ajouter des machines autres qu’Azure avec Azure Arc
 
-Azure Arc enabled servers constitue le meilleur moyen d’ajouter vos machines non-Azure à Azure Security Center.
+Le meilleur moyen d’ajouter vos ordinateurs non Azure à Azure Security Center est d’utiliser des [serveurs Azure Arc](../azure-arc/servers/overview.md).
 
-Une machine avec Azure Arc enabled servers devient une ressource Azure et s’affiche dans Security Center avec des recommandations telles que vos autres ressources Azure.
+Un ordinateur avec des serveurs Azure Arc devient une ressource Azure et lorsque vous avez installé l’agent Log Analytics sur celui-ci, il apparaît dans Security Center avec des recommandations comme vos autres ressources Azure.
 
-De plus, Azure Arc enabled servers offre des fonctionnalités améliorées, notamment l’option permettant d’activer des stratégies Guest Configuration sur la machine, de déployer l’agent Log Analytics en tant qu’extension, de simplifier le déploiement avec d’autres services Azure et plus encore. Pour une présentation des avantages, consultez [Scénarios pris en charge](../azure-arc/servers/overview.md#supported-scenarios).
+De plus, Azure Arc enabled servers offre des fonctionnalités améliorées, notamment l’option permettant d’activer des stratégies Guest Configuration sur la machine, de simplifier le déploiement avec d’autres services Azure et plus encore. Pour une présentation des avantages, consultez [Scénarios pris en charge](../azure-arc/servers/overview.md#supported-scenarios).
+
+> [!NOTE]
+> Les outils de déploiement automatique de Security Center pour le déploiement de l’agent Log Analytics ne prennent pas en charge les machines qui exécutent Azure Arc. Une fois que vous avez connecté vos machines à l’aide d’Azure Arc, utilisez la recommandation de Security Center appropriée pour déployer l’agent et tirer parti de l’ensemble des protections offertes par Security Center :
+>
+> - [L’agent Log Analytics doit être installé sur vos machines Azure Arc Linux](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
+> - [L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
 Découvrez-en plus sur [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
@@ -44,7 +50,7 @@ Découvrez-en plus sur [Azure Arc enabled servers](../azure-arc/servers/overview
 - Pour connecter plusieurs ordinateurs à grande échelle à Azure Arc enabled servers, consultez [Connecter des machines hybrides à Azure à grande échelle](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> Si vous intégrez des machines exécutées sur AWS, le connecteur de Security Center pour AWS gère de façon transparente le déploiement d’Azure Arc pour vous. Apprenez-en davantage dans [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md).
+> Si vous intégrez des machines exécutées sur Amazon Web Services (AWS), le connecteur de Security Center pour AWS gère de façon transparente le déploiement d’Azure Arc pour vous. Apprenez-en davantage dans [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md).
 
 ::: zone-end
 

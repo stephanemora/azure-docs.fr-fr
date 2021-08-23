@@ -3,12 +3,12 @@ title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution pour déployer et gérer des charges de travail VMware dans Azure. Le Contrat de niveau de service d’Azure VMware Solution garantit que les outils de gestion Azure VMware (vCenter Server et NSX Manager) seront disponibles au moins 99,9 % du temps.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 8a75038d9552e62b1bc67265ff2965fea9d8b8d6
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 79739f230b057b030da7a90501e9fb3fb2630eba
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950871"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433577"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Présentation d’Azure VMware Solution
 
@@ -18,7 +18,7 @@ Azure VMware Solution est une solution validée par VMware, qui teste et valide 
 
 Le diagramme illustre la contiguïté entre les clouds privés et les réseaux virtuels dans Azure, les services Azure et les environnements locaux. L’accès réseau des clouds privés vers les services Azure ou les réseaux virtuels fournit une intégration pilotée par SLA des points de terminaison de service Azure. ExpressRoute Global Reach connecte votre environnement local à votre cloud privé Azure VMware Solution. 
 
-![Image de la contiguïté du cloud privé Azure VMware Solution avec Azure et les environnements locaux](./media/adjacency-overview-drawing-final.png)
+:::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagramme de la contiguïté du cloud privé Azure VMware Solution avec Azure et les environnements locaux." border="false":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hôtes, clusters et clouds privés
 
@@ -66,5 +66,4 @@ L’étape suivante consiste à se familiariser avec les [concepts clés des clo
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
 

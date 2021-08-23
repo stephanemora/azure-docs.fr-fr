@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3258bc59146d6e5fbdb3532005d9b9da5334af5c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86254654"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468532"
 ---
 # <a name="about-api-management"></a>En savoir plus sur la Gestion des API
 
@@ -105,7 +105,7 @@ Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles per
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow](./api-management-advanced-policies.md#choose) et [Set variable](./api-management-advanced-policies.md#set-variable), sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées](./api-management-advanced-policies.md#AdvancedPolicies) et [Expressions de stratégie](./api-management-policy-expressions.md).
 
 
-Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d'informations sur l'utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d'un produit avec des stratégies de limite de débit et de quota, consultez la page [Création et configuration de paramètres produit avancés][How create and configure advanced product settings].
+Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d'informations sur l'utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d’un produit avec des stratégies de limite de débit et de quota, référez-vous à la page [Création et configuration de paramètres de produit avancés][How to create and configure advanced product settings].
 
 
 ## <a name="developer-portal"></a><a name="developer-portal"> </a> Portail des développeurs
@@ -140,7 +140,7 @@ Terminez le démarrage rapide suivant et commencez à utiliser la Gestion des AP
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: transform-api.md
+[How to create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
