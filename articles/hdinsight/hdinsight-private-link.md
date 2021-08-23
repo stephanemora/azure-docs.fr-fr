@@ -4,12 +4,12 @@ description: Découvrez comment isoler les clusters Azure HDInsight dans un rés
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4c5e30bfd7afd8a7cd8974544324f6e610736846
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: fe3b9617db20f445d4139c006c283bbfe537d544
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438473"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616476"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Sécuriser et isoler les clusters Azure HDInsight avec Azure Private Link (préversion)
 
@@ -53,7 +53,7 @@ Azure Private Link, qui est désactivé par défaut, requiert des connaissances 
 
 Lorsque `privateLink` est définie sur *activé*, des [équilibreurs de charge standard](../load-balancer/load-balancer-overview.md) (SLB) internes sont créés et un service Azure Private Link est approvisionné pour chaque SLB. Le service Azure Private Link vous permet d’accéder au cluster HDInsight à partir de points de terminaison privés.
 
-Les équilibreurs de charge standard n’approvisionnent pas automatiquement la [NAT sortante publique](../load-balancer/load-balancer-outbound-connections.md) comme le font les équilibreurs de charge de base. Vous devez fournir votre propre solution NAT, par exemple [NAT de réseau virtuel Azure](../virtual-network/nat-gateway/nat-overview.md) ou un [pare-feu](./hdinsight-restrict-outbound-traffic.md), pour les dépendances sortantes. Votre cluster HDInsight doit toujours avoir accès à ses dépendances sortantes. Si ces dépendances sortantes ne sont pas autorisées, la création du cluster peut échouer.
+Les équilibreurs de charge standard n’approvisionnent pas automatiquement la [NAT sortante publique](../load-balancer/load-balancer-outbound-connections.md) comme le font les équilibreurs de charge de base. Vous devez fournir votre propre solution NAT, par exemple [NAT de réseau virtuel Azure](../virtual-network/nat-overview.md) ou un [pare-feu](./hdinsight-restrict-outbound-traffic.md), pour les dépendances sortantes. Votre cluster HDInsight doit toujours avoir accès à ses dépendances sortantes. Si ces dépendances sortantes ne sont pas autorisées, la création du cluster peut échouer.
 
 ### <a name="prepare-your-environment"></a>Préparation de votre environnement
 

@@ -11,12 +11,12 @@ ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 6dc2fb12ebd166f62f04a1ecb9833edaad18f539
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9749cb2e01950c05daf88bae831500c27033d31d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110789608"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112279754"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extension Windows de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 
@@ -75,7 +75,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de capture instant
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Cependant, la méthode recommandée permettant d’ajouter une extension de capture instantanée de machine virtuelle à une machine virtuelle passe par l’activation de la sauvegarde sur la machine virtuelle. Vous pouvez l’obtenir par le biais d’un modèle Resource Manager.  Un exemple de modèle Resource Manager activant la sauvegarde sur une machine virtuelle est à votre disposition dans la [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Cependant, la méthode recommandée permettant d’ajouter une extension de capture instantanée de machine virtuelle à une machine virtuelle passe par l’activation de la sauvegarde sur la machine virtuelle. Vous pouvez l’obtenir par le biais d’un modèle Resource Manager.  Un exemple de modèle Resource Manager activant la sauvegarde sur une machine virtuelle est à votre disposition dans la [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure

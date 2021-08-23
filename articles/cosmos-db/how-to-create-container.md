@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6aa233e82ca272b9b5b9e4a9bee4ef2b57f2de77
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e9fc377acf528d564411a5c65c5fce9d6282118a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563231"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Créer un conteneur dans l’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique les différentes façons de créer un conteneur dans l’API SQL Azure Cosmos DB. Il montre comment créer un conteneur à l’aide du portail Azure, d’Azure CLI, de PowerShell ou des kits de développement logiciel pris en charge. Cet article montre comment créer un conteneur, spécifier la clé de partition et provisionner le débit.
 
-Cet article explique les différentes façons de créer un conteneur dans l’API SQL Azure Cosmos DB. Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-create-container-mongodb.md), [API Cassandra](how-to-create-container-cassandra.md), [API Gremlin](how-to-create-container-gremlin.md) et [API Table](how-to-create-container-table.md) pour créer le conteneur.
+Cet article explique les différentes façons de créer un conteneur dans l’API SQL Azure Cosmos DB. Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-create-container-mongodb.md), [API Cassandra](cassandra/how-to-create-container-cassandra.md), [API Gremlin](how-to-create-container-gremlin.md) et [API Table](table/how-to-create-container.md) pour créer le conteneur.
 
 > [!NOTE]
 > Lorsque vous créez des conteneurs, veillez à ne pas créer deux conteneurs dont les noms ne se distinguent que par la casse. En effet, certaines parties de la plateforme Azure ne respectant pas la casse, cela peut entraîner une confusion ou collision de la télémétrie et des actions sur les conteneurs ainsi nommés.

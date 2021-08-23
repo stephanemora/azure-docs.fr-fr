@@ -2,21 +2,22 @@
 title: Accès hybride sécurisé à Azure AD avec F5 | Microsoft Docs
 description: Intégration de F5 BIG-IP Access Policy Manager et Azure Active Directory pour l’accès hybride sécurisé
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: miccohen
+ms.openlocfilehash: cc55eff7c5ed3a4773a016bcd73bbd33708d9595
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499806"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562794"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Intégration de F5 BIG-IP Access Policy Manager et Azure Active Directory pour l’accès hybride sécurisé
 
@@ -34,7 +35,6 @@ Le fait qu'Azure AD pré-authentifie l'accès aux services publiés de BIG-IP p
 - [Accès conditionnel](../conditional-access/overview.md) préemptif et [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
 - [Identity Protection](../identity-protection/overview-identity-protection.md) : contrôle adaptatif via le profilage des risques des utilisateurs et des sessions
-
 
 - [Détection des informations d’identification divulguées](../identity-protection/concept-identity-protection-risks.md)
 
@@ -117,19 +117,19 @@ L’intégration de F5 BIG-IP à Azure AD pour SHA impose les conditions préala
 
 - Une licence APM F5 BIG-IP active, via l’une des options suivantes :
 
-   - F5 BIG-IP® Best Bundle (ou)
+  - F5 BIG-IP® Best Bundle (ou)
 
-   - Licence autonome F5 BIG-IP Access Policy Manager™
+    - Licence autonome F5 BIG-IP Access Policy Manager™
 
-   - Licence de composant additionnel F5 BIG-IP Access Policy Manager™ (APM) sur une instance existante de BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+    - Licence de composant additionnel F5 BIG-IP Access Policy Manager™ (APM) sur une instance existante de BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
 
-   - Une [licence d’essai](https://www.f5.com/trial/big-ip-trial.php) BIG-IP Access Policy Manager™ (APM) de 90 jours
+    - Une [licence d’essai](https://www.f5.com/trial/big-ip-trial.php) BIG-IP Access Policy Manager™ (APM) de 90 jours
 
 - Gestion des licences Azure AD via l’une des options suivantes :
 
-   - Un [abonnement gratuit](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) Azure AD fournit la configuration minimale requise pour l’implémentation de SHA avec l’authentification sans mot de passe
+  - Un [abonnement gratuit](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) Azure AD fournit la configuration minimale requise pour l’implémentation de SHA avec l’authentification sans mot de passe
 
-   - Un [abonnement Premium](https://azure.microsoft.com/pricing/details/active-directory/) fournit tous les avantages supplémentaires décrits dans la préface, notamment [Accès conditionnel](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md) et [Identity Protection](../identity-protection/overview-identity-protection.md)
+  - Un [abonnement Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) fournit tous les avantages supplémentaires décrits dans la préface, notamment [Accès conditionnel](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md) et [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Aucune expérience ni connaissance préalable de F5 BIG-IP n’est requise pour implémenter SHA, mais nous vous recommandons de vous familiariser avec la terminologie de F5 BIG-IP. La riche [base de connaissances](https://www.f5.com/services/resources/glossary) de F5 est également un excellent endroit pour commencer à acquérir des connaissances sur BIG-IP.
 

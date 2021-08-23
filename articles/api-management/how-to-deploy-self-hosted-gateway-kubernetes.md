@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 05/25/2021
-ms.openlocfilehash: fa62dc3470ef4d4ab79045379a8b76b057b44628
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 645fce68e408b65299090e4661b36690f7ca140c
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379214"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690486"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Déployer une passerelle auto-hébergée sur Kubernetes
 
@@ -68,13 +68,13 @@ Cet article explique comment déployer la passerelle auto-hébergée de la Gesti
 ### <a name="access-token"></a>Access token (Jeton d’accès)
 Sans un jeton d’accès valide, une passerelle auto-hébergée ne peut pas accéder aux données de configuration ni les télécharger à partir du point de terminaison du service Gestion des API associé. Le jeton d’accès reste valide pendant un maximum de 30 jours. Le jeton doit être regénéré, et le cluster doit être configuré avec un nouveau jeton, manuellement ou via l’automatisation, avant son expiration.
 
-Lorsque vous automatisez l’actualisation des jetons, utilisez cette [opération d’API de gestion](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) pour générer un nouveau jeton. Pour plus d’informations sur la gestion des secrets Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Lorsque vous automatisez l’actualisation des jetons, utilisez cette [opération d’API de gestion](/rest/api/apimanagement/2020-12-01/gateway/generate-token) pour générer un nouveau jeton. Pour plus d’informations sur la gestion des secrets Kubernetes, consultez le [site Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Espace de noms
 Les [espaces de noms](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes permettent de diviser un cluster entre plusieurs équipes, projets ou applications. Les espaces de noms fournissent une étendue pour les ressources et les noms. Ils peuvent être associés à un quota de ressources et à des stratégies de contrôle des accès.
 
 Le Portail Azure fournit des commandes pour créer des ressources de passerelle auto-hébergées dans l’espace de noms **par défaut**. Cet espace de noms est automatiquement créé, il existe dans chaque cluster et il ne peut pas être supprimé.
-Dans un environnement de production, il est conseillé de [créer et déployer](https://kubernetesbyexample.com/ns/) une passerelle auto-hébergée dans un espace de noms distinct.
+Dans un environnement de production, il est conseillé de [créer et déployer](https://www.kubernetesbyexample.com/) une passerelle auto-hébergée dans un espace de noms distinct.
 
 ### <a name="number-of-replicas"></a>Nombre de réplicas
 Le nombre minimal de réplicas adaptés à la production est de deux.

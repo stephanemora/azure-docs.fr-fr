@@ -2,17 +2,17 @@
 title: Créer un point de terminaison personnalisé | Microsoft Docs
 description: Dans cet article, découvrez comment configurer un point de terminaison personnalisé à mesurer avec votre ressource Internet Analyzer.
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
-ms.openlocfilehash: 6ca71bce726f16eeacc96e10eb654bb3e21c5924
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: kumud
+ms.openlocfilehash: caf4f93dc1a9341a4dca3b7df110f263eb47fd16
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84744083"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455103"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Mesurer les points de terminaison personnalisés à évaluer dans vos tests Internet Analyzer 
 

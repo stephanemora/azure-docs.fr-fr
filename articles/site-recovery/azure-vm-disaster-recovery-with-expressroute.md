@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c6e5bfb3e014540f4b23438cfe4869ace1f1345
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88654376"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524922"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer ExpressRoute avec la récupération d'urgence pour les machines virtuelles Azure
 
@@ -166,7 +166,7 @@ Cette configuration permet de se protéger contre les défaillances du circuit E
 
 Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que le circuit ait une connexion redondante au cas où une des deux soit défaillante, un circuit avec une seule route n’offre pas de résilience si votre région de peering connaît une défaillance. Notez les points suivants :
 
-- Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au [même emplacement géographique](azure-to-azure-support-matrix.md#region-support). Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Vous ne pouvez pas connecter simultanément les réseaux virtuels sources et cibles au circuit si le même espace d’adressage IP est utilisé sur la région cible. Dans ce scénario :    
     -  Déconnectez la connexion du côté source, puis établissez la connexion du côté cible. Cette modification de la connexion peut faire l’objet d’un script dans le cadre d’un plan de récupération Site Recovery. Notez les points suivants :
         - En cas de défaillance régionale, si la région primaire n’est pas accessible, l’opération de déconnexion peut échouer. Ceci peut affecter la création d’une connexion vers la région cible.

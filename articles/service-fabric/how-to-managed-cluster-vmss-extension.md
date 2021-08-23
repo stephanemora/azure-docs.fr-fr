@@ -3,12 +3,12 @@ title: Ajouter une extension de groupe de machines virtuelles identiques à un t
 description: Voici comment ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric
 ms.topic: article
 ms.date: 5/10/2021
-ms.openlocfilehash: 9aaddd912407849133a115116dd769d2090767dd
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 0c0aac8d7804caeb6c08657b1ed36c45958a0ea5
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683404"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033692"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type"></a>Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé Service Fabric
 
@@ -58,4 +58,4 @@ Pour plus d’informations sur la configuration de types de nœuds de cluster ma
 Pour plus d’informations sur les clusters Service Fabric managé, consultez :
 
 > [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur les clusters Service Fabric managés](./faq-managed-cluster.md)
+> [Questions fréquentes (FAQ) sur les clusters Service Fabric managés](./faq-managed-cluster.yml)

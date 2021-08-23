@@ -2,18 +2,17 @@
 title: Historique et navigation dans la version d’IoT Edge – Azure IoT Edge
 description: Découvrez les nouveautés d’IoT Edge avec des informations sur les nouvelles fonctionnalités et capacités des dernières versions.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d3473e975e7c69a83c359b040a2de0defaac69b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6afc61c53d2e7e48686a5d2f69862b4dc08bc1c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310465"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531556"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Versions d’Azure IoT Edge et notes de publication
 

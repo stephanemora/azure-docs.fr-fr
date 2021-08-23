@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: fd6fb0cebe33d8511185c396c95faa8927941e6e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5108949527f0f63cd6aa7048eccf83c95927c8bd
+ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103973"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113516388"
 ---
 # <a name="edit-an-existing-device-template"></a>Modification d’un modèle d’appareil existant
 
@@ -116,6 +116,6 @@ Vous pouvez créer plusieurs versions d’un modèle d’appareil. Au fil du tem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous êtes un opérateur ou un créateur de solution, l’étape suivante suggérée consiste à [apprendre à gérer vos appareils](./howto-manage-devices.md).
+Si vous êtes un opérateur ou un créateur de solution, l’étape suivante suggérée consiste à [apprendre à gérer vos appareils](./howto-manage-devices-individually.md).
 
 Si vous êtes un développeur d’appareils, nous vous suggérons de vous renseigner sur les [appareils Azure IoT Edge et Azure IoT Central](./concepts-iot-edge.md).

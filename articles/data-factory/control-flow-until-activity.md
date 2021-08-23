@@ -1,19 +1,21 @@
 ---
 title: Activité Until dans Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: L’activité Until exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true ou expire.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b69910daab3172a6c7ba2cd134cb9ed41ebaaa79
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: 2191dd75f2dbf24a59dbb7c43f8ef9ec62705aee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674978"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641487"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,8 +57,8 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 name | Nom de l’activité `Until`. | String | Oui
 type | Doit être défini sur **Until**. | String | Oui
 expression | Expression qui doit retourner true ou false | Expression.  | Oui
-délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | Non
-Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
+délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | No
+Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Yes
 
 ## <a name="example-1"></a>Exemple 1
 

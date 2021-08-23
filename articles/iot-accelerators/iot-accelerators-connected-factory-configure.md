@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 863734596861f3116418cb322a1e4a8ae9c8ea40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645545"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532583"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -32,7 +32,7 @@ Chaque usine de Contoso possède des lignes de production se composant de trois 
 * Poste de test
 * Poste d’emballage
 
-Ces serveurs OPC UA comprennent des nœuds OPC UA. [OPC Publisher](overview-opc-publisher.md) envoie les valeurs de ces nœuds à Usine connectée. notamment :
+Ces serveurs OPC UA comprennent des nœuds OPC UA. [OPC Publisher](/previous-versions/azure/iot-accelerators/overview-opc-publisher) envoie les valeurs de ces nœuds à Usine connectée. notamment :
 
 * L’état opérationnel actuel, tel que la consommation d’énergie actuelle.
 * Des informations relatives à la production, telles que le nombre de produits fabriqués.
@@ -310,7 +310,7 @@ Pour certaines opérations, telles que la visualisation de la dernière valeur o
 
   Identifie la valeur du nœud dans le serveur OPC UA. Le format de la propriété doit être tel que défini dans la spécification OPC UA. Dans les messages ingérés, cette propriété est envoyée en tant que **NodeId**.
 
-Pour plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée, consultez [Définition d’OPC Publisher](overview-opc-publisher.md).
+Pour plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée, consultez [Définition d’OPC Publisher](/previous-versions/azure/iot-accelerators/overview-opc-publisher).
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemple : mode de calcul de KPI1
 

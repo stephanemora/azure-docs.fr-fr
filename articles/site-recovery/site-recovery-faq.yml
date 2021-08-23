@@ -4,12 +4,12 @@ metadata:
   description: Cet article traite des questions générales fréquemment posées sur Azure Site Recovery.
   ms.topic: conceptual
   ms.date: 05/27/2021
-  ms.openlocfilehash: f2a5f42b4e65f9f801ae6a56af13ed5e8a6d8080
-  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.openlocfilehash: e652f3f293d793cdf1d10d7f3b9ceee84f60f4c7
+  ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113136817"
+  ms.lasthandoff: 05/27/2021
+  ms.locfileid: "111907296"
 title: Questions générales sur Azure Site Recovery
 summary: >
   Cet article résume les questions fréquentes sur Azure Site Recovery. Pour des scénarios spécifiques, veuillez consulter les articles suivants
@@ -342,7 +342,7 @@ sections:
       Pour comprendre comment Site Recovery génère les points de récupération, voyons un exemple de stratégie de réplication. Cette stratégie de réplication utilise un point de récupération avec une fenêtre de rétention de 24 heures et une capture instantanée de cohérence des applications à la fréquence d’une heure.
 
 
-      Site Recovery crée un point de récupération cohérent en cas d’incident toutes les 5 minutes. Vous ne pouvez pas modifier cette fréquence. Pour l’heure la plus récente, vous pouvez choisir parmi 12 points de cohérence en cas d’incident et 1 point de cohérence des applications. À mesure que le temps passe, Site Recovery nettoie tous les points de récupération au-delà de la dernière heure et n’enregistre qu’un seul point de récupération par heure pendant jusqu’à 24 heures, et un seul point de récupération toutes les 2 heures pendant jusqu’à 72 heures.
+      Site Recovery crée un point de récupération cohérent en cas d’incident toutes les 5 minutes. Vous ne pouvez pas modifier cette fréquence. Pour la dernière heure, vous pouvez choisir parmi 12 points de cohérence en cas d’incident et 1 point de cohérence des applications. Au fil du temps, au-delà de la dernière heure, Site Recovery élague les points de récupération pour n’en enregistrer qu’un seul par heure.
 
 
       La capture d’écran suivante illustre cet exemple. Dans la capture d’écran :

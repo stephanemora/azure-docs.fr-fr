@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4faa7e68b50b83368837b75cd04be566d816f6d3
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 0854150e4299e7f2bf02750d66bdd7ba459ce584
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102119805"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "122641070"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -73,8 +73,8 @@ L’élément CryptographicKeys contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Oui | Certificat X509 (jeu de clés RSA) à utiliser pour signer le jeton JSON Web Token. Il s’agit de la clé `B2C_1A_TokenSigningKeyContainer` que vous avez configurée à l’étape [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Oui | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer le jeton d'actualisation. Vous avez configuré la clé `B2C_1A_TokenEncryptionKeyContainer` à l’étape [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md) |
+| issuer_secret | Oui | Certificat X509 (jeu de clés RSA) à utiliser pour signer le jeton JSON Web Token. Il s’agit de la clé `B2C_1A_TokenSigningKeyContainer` que vous avez configurée à l’étape [Bien démarrer avec les stratégies personnalisées](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
+| issuer_refresh_token_key | Oui | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer le jeton d'actualisation. Vous avez configuré la clé `B2C_1A_TokenEncryptionKeyContainer` à l’étape [Bien démarrer avec les stratégies personnalisées](tutorial-create-user-flows.md?pivots=b2c-custom-policy) |
 
 ## <a name="session-management"></a>Gestion des sessions
 

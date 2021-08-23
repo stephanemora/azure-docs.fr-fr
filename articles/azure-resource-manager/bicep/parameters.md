@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 353dd6a3e41a9bd9b628c3ad48c6a606ffecd7ad
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 8701d437a34d364ff6f6e2d58cbf84dc28a79798
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111025858"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634210"
 ---
 # <a name="parameters-in-bicep"></a>Paramètres dans Bicep
 
@@ -208,8 +208,8 @@ Les exemples suivants illustrent des scénarios d’utilisation de paramètres.
 
 |Modèle  |Description  |
 |---------|---------|
-|[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Montre comment utiliser les fonctions Bicep durant la définition des valeurs par défaut des paramètres. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
-|[Objet de paramètre](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Montre comment utiliser un objet pour un paramètre. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
+|[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Montre comment utiliser les fonctions Bicep durant la définition des valeurs par défaut des paramètres. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
+|[Objet de paramètre](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Montre comment utiliser un objet pour un paramètre. Le fichier Bicep ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

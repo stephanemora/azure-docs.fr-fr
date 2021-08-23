@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 39e4b23b4f007c790dcfe495661628a53a9293d8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e53bcbca2e40ef9a9587e0b571f2798132c2a829
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111743888"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033584"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurer le type d’affectation d’un pool hôte de bureau personnel
 
@@ -30,7 +30,7 @@ Cet article suppose que vous avez déjà téléchargé et installé le module Po
 
 ## <a name="configure-automatic-assignment"></a>Configurer l’affectation automatique
 
-L’affectation automatique est le type d’affectation par défaut des nouveaux pools hôtes de bureau personnel créés dans l’environnement Azure Virtual Desktop. Elle ne nécessite pas d’hôte de session spécifique.
+L’affectation automatique est le type d’affectation par défaut des pools d’hôtes de bureau personnel créés dans l’environnement Azure Virtual Desktop. Elle ne nécessite pas d’hôte de session spécifique.
 
 Pour affecter automatiquement des utilisateurs, affectez-les d’abord au pool hôte de bureau personnel pour qu’ils puissent voir le bureau dans leur flux. Quand un utilisateur affecté lance le bureau dans son flux, il demande un hôte de session disponible s’il n’est pas encore connecté au pool hôte, ce qui termine le processus d’affectation.
 
@@ -85,10 +85,10 @@ Pour affecter directement un utilisateur à un hôte de session dans le portail 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez configuré le type d’affectation de bureau personnel, connectez-vous à un client Azure Virtual Desktop pour le tester dans le cadre d’une session utilisateur. Ces deux procédures suivantes vous indiquent comment vous connecter à une session à l’aide du client de votre choix :
+Maintenant que vous avez configuré le type d’affectation de bureau personnel, vous pouvez vous connecter à un client Azure Virtual Desktop pour le tester dans le cadre d’une session utilisateur. Ces deux procédures suivantes vous indiquent comment vous connecter à une session à l’aide du client de votre choix :
 
-- [Se connecter avec le client Windows Desktop](connect-windows-7-10.md)
-- [Se connecter avec le client web](connect-web.md)
-- [Se connecter avec le client Android](connect-android.md)
-- [Se connecter avec le client iOS](connect-ios.md)
-- [Se connecter avec le client macOS](connect-macos.md)
+- [Se connecter avec le client Windows Desktop](./user-documentation/connect-windows-7-10.md)
+- [Se connecter avec le client web](./user-documentation/connect-web.md)
+- [Se connecter avec le client Android](./user-documentation/connect-android.md)
+- [Se connecter avec le client iOS](./user-documentation/connect-ios.md)
+- [Se connecter avec le client macOS](./user-documentation/connect-macos.md)

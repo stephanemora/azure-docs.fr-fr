@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 8050b4f173476d7af66cb858ff5f785e5a12af43
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 08cdd477eb6729550e168dd292219ab8138eee1b
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046570"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563766"
 ---
 # <a name="connect-your-aruba-clearpass-to-azure-sentinel"></a>Connecter votre Aruba ClearPass à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Aruba ClearPass est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Cet article explique comment connecter votre appliance Aruba ClearPass à Azure Sentinel. Le connecteur de données Aruba ClearPass vous permet de connecter facilement vos journaux Aruba ClearPass à Azure Sentinel, de façon à pouvoir afficher les données dans des classeurs, les interroger pour créer des alertes personnalisées, et les incorporer pour améliorer l’investigation. L’intégration entre Aruba ClearPass et Azure Sentinel utilise Syslog au format CEF, un redirecteur de journaux Linux, et l’agent Log Analytics. Elle utilise également un analyseur de journal personnalisé basé sur une fonction Kusto.
 
@@ -73,6 +75,6 @@ Pour obtenir des exemples de requêtes utiles, consultez l’onglet **Étapes su
 
 Ce document vous a montré comment connecter Aruba ClearPass à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

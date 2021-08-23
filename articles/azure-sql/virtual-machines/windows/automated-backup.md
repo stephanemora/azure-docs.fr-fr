@@ -15,12 +15,12 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 557d43829d8e235611d1e75cddd8f941e43433ee
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a93214a8577dc298551e4e819282a58f10a72f38
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666179"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532601"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée v2 pour les machines virtuelles Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,9 +128,7 @@ Sous l’onglet **Paramètres SQL Server**, sélectionnez **Activer** sous **Sau
 
 ## <a name="configure-existing-vms"></a>Configurer des machines virtuelles existantes
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-Pour les machines virtuelles SQL Server existantes, accédez à la [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Sauvegardes** pour configurer vos sauvegardes automatisées.
+Pour les machines virtuelles SQL Server existantes, accédez à la [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-resource), puis sélectionnez **Sauvegardes** pour configurer vos sauvegardes automatisées.
 
 ![Sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/automated-backup/sql-server-configuration.png)
 
@@ -317,7 +315,7 @@ Vous pouvez d’abord interroger l’état en appelant [msdb.managed_backup.sp_g
 Une autre possibilité consiste à tirer parti de la fonctionnalité intégrée de messagerie de base de données pour les notifications.
 
 1. Appelez la procédure stockée [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) pour affecter une adresse e-mail au paramètre **SSMBackup2WANotificationEmailIds**. 
-1. Activez [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) pour envoyer les e-mails à partir de la machine virtuelle Azure.
+1. Activez [SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) pour envoyer les e-mails à partir de la machine virtuelle Azure.
 1. Utilisez le nom d’utilisateur et le serveur SMTP pour configurer la messagerie de base de données. Vous pouvez configurer la messagerie de base de données dans SQL Server Management Studio ou à l’aide de commandes Transact-SQL. Pour plus d’informations, consultez [Messagerie de base de données](/sql/relational-databases/database-mail/database-mail).
 1. [Configurez SQL Server Agent pour qu’il utilise la messagerie de base de données](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Vérifiez que le port SMTP est autorisé dans le pare-feu local de la machine virtuelle et le groupe de sécurité réseau pour la machine virtuelle.

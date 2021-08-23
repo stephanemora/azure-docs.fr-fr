@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 67d29dcf0ea4e68354f7b0fad2be7e57e85f8fe7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b01595353dd9857409c75ab95271452fb3cee7b0
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962203"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228564"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Déployer le proxy d’application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure Active Directory Domain Services
 
@@ -75,7 +75,7 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
         > Par exemple, si le domaine Azure AD est *contoso.com*, l’administrateur général doit être `admin@contoso.com` ou tout autre alias valide sur ce domaine.
 
    * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur la machine virtuelle sur laquelle vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Pour autoriser l’accès, suivez les instructions du message d’erreur ou désactivez la sécurité renforcée d’Internet Explorer au cours du processus d’installation.
-   * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](/azure/active-directory/app-proxy/application-proxy-troubleshoot).
+   * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](../active-directory/app-proxy/application-proxy-troubleshoot.md).
 1. À la fin de l’installation, une remarque s’affiche pour les environnements avec un proxy sortant. Pour configurer le connecteur de Proxy d’application Azure AD et qu’il fonctionne par le biais du proxy sortant, exécutez le script fourni, tel que `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. Dans la page du proxy d’application du Portail Azure, le nouveau connecteur est répertorié avec l’état *Actif*, comme indiqué dans l’exemple suivant :
 

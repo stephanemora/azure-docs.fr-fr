@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a18d78fdc6714894a9ce038f1e67e72e0acc0b87
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6eb6dd71ae95b3af4ee913e1ac88d9988d2b23a9
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744536"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762534"
 ---
 # <a name="host-pool-creation"></a>Création d’un pool d’hôtes
 
@@ -23,7 +23,7 @@ Cet article décrit les problèmes pouvant survenir lors de la configuration ini
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
+Rendez-vous sur le site [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) pour discuter du service Azure Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisition de l’image Windows 10 Entreprise multisession
 
@@ -122,11 +122,11 @@ Pour corriger cela, effectuez les actions suivantes :
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du message d’échec du déploiement indiquant l’échec du provisionnement du terminal](media/failure-vmextensionprovisioning.png)
 
-**Cause 1 :** erreur temporaire au niveau de l’environnement Azure Virtual Desktop.
+**Cause 1 :** Erreur temporaire dans l’environnement Azure Virtual Desktop.
 
 **Cause 2 :** Erreur temporaire au niveau de la connexion.
 
-**Correctif :** vérifiez que l’environnement Azure Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
+**Correctif :** vérifiez que l’environnement Azure Virtual Desktop est sain en vous connectant avec PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 

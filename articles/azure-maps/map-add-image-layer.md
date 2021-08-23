@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 67a564b813014ffc25049f0694ef05977d65efe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047483"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463050"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 
@@ -38,7 +38,7 @@ Le calque d’images prend en charge les formats d’image suivants :
 
 ## <a name="add-an-image-layer"></a>Ajouter un calque d’images
 
-Le code suivant montre comment superposer l’image d’une [carte de Newark dans le New Jersey datant de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) à la carte principale. Un [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) est créé en passant une URL à une image ainsi que les coordonnées des quatre angles, au format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+Le code suivant montre comment superposer l’image d’une carte de Newark dans le New Jersey datant de 1922 à la carte principale. Un [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) est créé en passant une URL à une image ainsi que les coordonnées des quatre angles, au format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.

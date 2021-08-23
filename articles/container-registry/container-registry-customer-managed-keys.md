@@ -2,14 +2,14 @@
 title: Chiffrer un registre avec une clé gérée par le client
 description: Apprenez-en davantage sur le chiffrement au repos de votre registre de conteneurs Azure et sur la façon de chiffrer votre registre Premium avec une clé gérée par le client, stockée dans Azure Key Vault
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 05/27/2021
 ms.custom: ''
-ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 84a949e26bbf5677888185741e06139ed2d35db2
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817032"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412742"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
@@ -26,7 +26,7 @@ Cette fonctionnalité est disponible uniquement au niveau de service **Premium**
 
 ## <a name="things-to-know"></a>À savoir
 
-* Vous pouvez actuellement activer une clé gérée par le client uniquement lorsque vous créez un registre. Quand vous activez la clé, vous configurez une identité managée *affectée par l’utilisateur* pour accéder au coffre de clés.
+* Vous pouvez actuellement activer une clé gérée par le client uniquement lorsque vous créez un registre. Quand vous activez la clé, vous configurez une identité managée *affectée par l’utilisateur* pour accéder au coffre de clés. Plus tard, vous pouvez activer l’identité gérée par le système du registre pour l’accès au coffre de clés, si nécessaire.
 * Après avoir activé le chiffrement avec une clé gérée par le client sur un registre, vous ne pouvez pas le désactiver.  
 * Azure Container Registry prend en charge uniquement les clés RSA ou RSA-HSM. Les clés à courbe elliptique ne sont actuellement pas prises en charge.
 * L’[approbation de contenu](container-registry-content-trust.md) n’est actuellement pas prise en charge dans un registre chiffré avec une clé gérée par le client.
@@ -516,11 +516,14 @@ az keyvault delete-policy \
   --object-id $identityPrincipalID
 ```
 
-La révocation de la clé bloque efficacement l’accès à toutes les données du registre, car le registre ne peut pas accéder à la clé de chiffrement. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, votre registre choisira la clé afin de vous permettre d’accéder de nouveau aux données de registre chiffrées.
+La révocation de la clé bloque efficacement l’accès à toutes les données du registre, car le registre ne peut pas accéder à la clé de chiffrement. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, votre registre choisira la clé afin de vous permettre d’accéder de nouveau aux données de registre chiffrées. 
 
 ## <a name="advanced-scenario-key-vault-firewall"></a>Scénario avancé : Pare-feu Key Vault
 
-Vous pouvez stocker la clé de chiffrement à l'aide d'un coffre de clés Azure existant configuré avec un [pare-feu Key Vault](../key-vault/general/network-security.md), qui refuse l'accès public et autorise uniquement un point de terminaison privé ou les réseaux virtuels sélectionnés. 
+> [!IMPORTANT]
+> Actuellement, pendant le déploiement du registre, l’identité *affectée à l'utilisateur* d’un registre peut être configurée uniquement pour accéder à une clé de chiffrement dans un coffre de clés qui autorise un accès public, et non un [pare-feu Key Vault](../key-vault/general/network-security.md). 
+> 
+> Pour accéder à un coffre de clés protégé par un pare-feu Key Vault, le registre doit contourner le pare-feu à l’aide de son identité *gérée par le système*. Actuellement, ces paramètres ne peuvent être configurés qu’après le déploiement du registre. 
 
 Pour ce scénario, commencez par créer une identité attribuée par l'utilisateur, un coffre de clés et un registre de conteneurs chiffré avec une clé gérée par le client, à l’aide d'[Azure CLI](#enable-customer-managed-key---cli), du [portail](#enable-customer-managed-key---portal)ou d'un [modèle](#enable-customer-managed-key---template). Les étapes détaillées sont présentées dans les sections précédentes de cet article.
    > [!NOTE]

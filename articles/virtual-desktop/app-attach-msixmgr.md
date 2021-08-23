@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f7c0af3ef2992fdd2c337ff6d1172f6da6db5f56
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 7b997f817e8e430d6f2985f73e4005da86dcda10
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708781"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745526"
 ---
 # <a name="using-the-msixmgr-tool"></a>Utilisation de l’outil MSIXMGR
 
@@ -84,4 +84,4 @@ Pour découvrir comment configurer l’attachement d’application, consultez le
 - [Préparer une image MSIX pour Azure Virtual Desktop](app-attach-image-prep.md)
 - [Configurer un partage de fichiers pour l’attachement d’application MSIX](app-attach-file-share.md)
 
-Si vous avez des questions sur l’attachement d’application MSIX, consultez notre [FAQ sur l’attachement d’application](app-attach-faq.yml) et le [Glossaire Attachement d’application](app-attach-glossary.md).
+Si vous avez des questions sur l’attachement d’application MSIX, consultez notre [FAQ sur l’attachement d’application](app-attach-faq.md) et le [Glossaire Attachement d’application](app-attach-glossary.md).

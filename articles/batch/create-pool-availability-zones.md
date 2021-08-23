@@ -2,13 +2,13 @@
 title: Créer un pool dans des zones de disponibilité
 description: Découvrez comment créer un pool Batch avec une stratégie zonale pour vous protéger contre les défaillances.
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+ms.openlocfilehash: 0abec404b0ec951bb398cfb06ae41290e986a241
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562879"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Créer un pool Azure Batch dans des zones de disponibilité
 

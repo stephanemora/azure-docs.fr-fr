@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
-ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/24/2021
+ms.openlocfilehash: 64c1a42147a55423336c9994246f08046f44adf5
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94557387"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895649"
 ---
 # <a name="firmware-security"></a>Sécurité de microprogramme
 Cet article décrit comment Microsoft sécurise l’écosystème matériel du cloud et les chaînes d’approvisionnement.
@@ -50,6 +50,7 @@ Les fournisseurs et les vendeurs de matériel cloud pour Azure doivent égalemen
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur ce que nous faisons pour assurer l’intégrité et la sécurité de la plateforme, consultez :
 
+- [Intégrité du code de la plateforme](code-integrity.md)
 - [Démarrage sécurisé](secure-boot.md)
 - [Démarrage mesuré et attestation de l’hôte](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)

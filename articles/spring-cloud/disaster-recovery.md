@@ -1,18 +1,18 @@
 ---
 title: Géorécupération d’urgence Azure Spring Cloud | Microsoft Docs
 description: Découvrez comment protéger votre application Spring Cloud contre les pannes régionales
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 69dbe496745ebbe3fbc9547a1ffc381ec0cae905
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144652"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525407"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Récupération d’urgence Azure Spring Cloud
 
@@ -26,9 +26,9 @@ Les applications Azure Spring Cloud s’exécutent dans une région spécifique.
 
 Pour garantir la haute disponibilité et la protection contre les sinistres, vous devez déployer vos applications Spring Cloud dans plusieurs régions.  Azure fournit une liste de [régions jumelées](../best-practices-availability-paired-regions.md) pour vous permettre de planifier vos déploiements Spring Cloud sur des paires régionales.  Nous vous recommandons de prendre en compte trois facteurs clés lors de la conception de votre architecture de micro-service : la disponibilité des régions, les régions jumelées Azure et la disponibilité du service.
 
-*  Disponibilité dans les régions :  Choisissez une zone géographique proche de vos utilisateurs pour réduire la latence réseau et la durée de transmission.
-*  Régions jumelées Azure :  Choisissez des régions jumelées au sein de votre zone géographique choisie pour garantir des mises à jour de plateforme coordonnées et des efforts de récupération hiérarchisés si nécessaire.
-*  Disponibilité du service :   Décidez si vos régions appairées doivent avoir un niveau de disponibilité chaud/chaud, chaud/tiède ou chaud/froid.
+* Disponibilité dans les régions :  Choisissez une zone géographique proche de vos utilisateurs pour réduire la latence réseau et la durée de transmission.
+* Régions jumelées Azure :  Choisissez des régions jumelées au sein de votre zone géographique choisie pour garantir des mises à jour de plateforme coordonnées et des efforts de récupération hiérarchisés si nécessaire.
+* Disponibilité du service :   Décidez si vos régions appairées doivent avoir un niveau de disponibilité chaud/chaud, chaud/tiède ou chaud/froid.
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Utiliser Azure Traffic Manager pour router le trafic
 
@@ -39,7 +39,7 @@ Si vous avez des applications Azure Spring Cloud dans plusieurs régions, utilis
 ## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Créer le service Azure Traffic Manager pour le service Azure Spring Cloud
 
 1. Créez un service Azure Spring Cloud dans deux régions différentes.
-Vous aurez besoin de deux instances du service Azure Spring Cloud déployées dans deux régions différentes (USA Est et Europe Ouest). Lancez une application Azure Spring Cloud existante à l’aide du portail Azure pour créer deux instances du service. Chacune servira de point de terminaison principal et de point de terminaison de basculement pour le trafic. 
+Vous aurez besoin de deux instances du service Azure Spring Cloud déployées dans deux régions différentes (USA Est et Europe Ouest). Lancez une application Azure Spring Cloud existante à l’aide du portail Azure pour créer deux instances du service. Chacune servira de point de terminaison principal et de point de terminaison de basculement pour le trafic.
 
 **Informations sur les deux instances de service :**
 
@@ -54,14 +54,14 @@ Vous aurez besoin de deux instances du service Azure Spring Cloud déployées da
 
 Voici le profil du gestionnaire de trafic :
 * Nom DNS du gestionnaire de trafic : `http://asc-bcdr.trafficmanager.net`
-* Profils de point de terminaison : 
+* Profils de point de terminaison :
 
 | Profil | Type | Cible | Priority | Paramètres d’en-têtes personnalisés |
 |--|--|--|--|--|
 | Profil A de point de terminaison | Point de terminaison externe | service-sample-a.asc-test.net | 1 | hôte : bcdr-test.contoso.com |
 | Profil B de point de terminaison | Point de terminaison externe | service-sample-b.asc-test.net | 2 | hôte : bcdr-test.contoso.com |
 
-4. Créez un enregistrement CNAME dans la zone DNS : bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+4. Créez un enregistrement CNAME dans la zone DNS : bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
 
 5. L’environnement est maintenant entièrement configuré. Les clients doivent pouvoir accéder à l’application via : bcdr-test.contoso.com
 

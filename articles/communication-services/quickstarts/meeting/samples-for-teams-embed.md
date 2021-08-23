@@ -3,16 +3,16 @@ title: Utilisation de la bibliothèque Azure Communication Services Teams Embed
 description: En savoir plus sur les capacités de la bibliothèque Communication Services Teams Embed.
 author: palatter
 ms.author: palatter
-ms.date: 02/24/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: 27f574676b17ed2e1f7defec7e555350c39d685f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d5ddb8589343bca55554ad71327b6adfd0202976
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803020"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113215115"
 ---
 # <a name="use-the-communication-services-teams-embed-library"></a>Utiliser la bibliothèque Communication Services Teams Embed
 

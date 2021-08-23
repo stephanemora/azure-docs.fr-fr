@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 05/20/2021
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1f997ff34703e95c498a0f3c1646bf3acb0129e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557540"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469988"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -42,7 +42,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 
 1. Cliquez sur l’onglet **Administrateurs classiques**.
 
-    ![Capture d’écran qui ouvre Administrateurs classiques](./media/classic-administrators/classic-administrators.png)
+    ![Capture d’écran qui ouvre Administrateurs classiques](./media/shared/classic-administrators.png)
 
 1. Cliquez sur **Ajouter** > **Ajouter un coadministrateur** pour ouvrir le volet Ajouter des coadministrateurs.
 
@@ -97,7 +97,9 @@ Pour plus d’informations comparant les utilisateurs membres et les utilisateur
 
 ## <a name="change-the-service-administrator"></a>Changement d’administrateur de services
 
-Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, quand vous vous inscrivez à un abonnement Azure, l’Administrateur de services est le même que l’Administrateur de compte. L’utilisateur avec le rôle Administrateur de compte n’a pas accès au portail Azure. L’utilisateur avec le rôle Administrateur de service a un accès complet au portail Azure. Si l’Administrateur de compte et l’Administrateur de service sont le même utilisateur et que vous remplacez l’Administrateur de service par un autre utilisateur, alors l’Administrateur de compte perd l’accès au portail Azure. Toutefois, l’administrateur de compte peut toujours utiliser le centre des comptes pour se réaffecter le rôle d’administrateur de services fédérés à lui-même.
+Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, quand vous vous inscrivez à un abonnement Azure, l’Administrateur de services est le même que l’Administrateur de compte.
+
+L’utilisateur ayant le rôle d’administrateur de compte peut accéder au Portail Azure et gérer la facturation, mais il ne peut pas annuler les abonnements. L’utilisateur avec le rôle d’administrateur de service a un accès complet au Portail Azure et peut annuler les abonnements. L’administrateur de compte peut se changer lui-même en administrateur de service.
 
 Procédez comme suit pour modifier l’administrateur de services fédérés dans le portail Azure.
 
@@ -109,7 +111,7 @@ Procédez comme suit pour modifier l’administrateur de services fédérés dan
 
 1. Dans le volet de navigation gauche, cliquez sur **Propriétés**.
 
-1. Cliquez sur **Administrateur de services fédérés**.
+1. Cliquez sur **Changer l'administrateur de service**.
 
     ![Capture d’écran montrant les propriétés de l’abonnement dans le portail Azure](./media/classic-administrators/service-admin.png)
 

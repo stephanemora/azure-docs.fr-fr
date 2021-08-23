@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08f4c00d5d0d1d0d6d060d2170024ac166c308b8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735503"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458552"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
@@ -95,7 +95,7 @@ Pour plus d’informations, consultez [Personnaliser le plan de récupération](
 Pour que la batterie de serveurs web IIS fonctionne correctement, vous devrez peut-être effectuer certaines opérations sur les machines virtuelles Azure, après le basculement ou lors d’un test de basculement. Vous pouvez automatiser certaines opérations après le basculement. Par exemple, vous pouvez mettre à jour l’entrée DNS, modifier une liaison de site ou une chaîne de connexion en ajoutant au plan de récupération les scripts correspondants. L’article [Ajouter un script VMM à un plan de récupération](./hyper-v-vmm-recovery-script.md) explique comment configurer les tâches automatisées à l’aide d’un script.
 
 #### <a name="dns-update"></a>Mise à jour DNS
-Si le système DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles le mettent généralement à jour avec la nouvelle adresse IP dès leur démarrage. Si vous voulez ajouter une étape explicite afin de mettre à jour le DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez un [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action post-basculement dans les groupes de plan de récupération.  
+Si le système DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles le mettent généralement à jour avec la nouvelle adresse IP dès leur démarrage. Si vous voulez ajouter une étape explicite afin de mettre à jour le DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez un [script pour mettre à jour les adresses IP dans DNS](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-DNS-UpdateIP.ps1) en tant qu’action post-basculement dans les groupes de plan de récupération.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Chaîne de connexion dans le fichier web.config d’une application
 La chaîne de connexion spécifie la base de données avec laquelle le site web communique. Si la chaîne de connexion porte le nom d’une machine virtuelle de base de données, aucune étape postérieure au basculement n’est nécessaire. L’application peut communiquer automatiquement avec la base de données. De plus, si l’adresse IP de la machine virtuelle base de données est conservée, il n’est pas nécessaire de mettre à jour la chaîne de connexion. 

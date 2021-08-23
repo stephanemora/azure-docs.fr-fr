@@ -12,13 +12,13 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/26/2020
-ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/21/2021
+ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072443"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563282"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Bien démarrer avec l’audit Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,6 +27,9 @@ L’audit [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) su
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
 - permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur les programmes Azure qui prennent en charge la conformité aux normes, consultez le [Centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité.
+
+> [!IMPORTANT]
+> L’audit pour Azure SQL Database, Azure Synapse et Azure SQL Managed Instance est optimisé pour la disponibilité et les performances. En cas de très forte activité ou de charge réseau élevée, Azure SQL Database, Azure Synapse et Azure SQL Managed Instance permettent aux opérations de se poursuivre et peuvent ne pas enregistrer certains événements audités.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurer l’audit de votre serveur sur Stockage Azure
 
@@ -55,7 +58,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
       ![Créer une configuration de conteneur d’objets blob](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Les clients souhaitant configurer un magasin de journaux immuable pour leurs événements d’audit au niveau du serveur ou de la base de données doivent suivre les [instructions fournies par Stockage Azure](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). (Vérifiez que vous avez sélectionné **Autoriser les ajouts supplémentaires** quand vous configurez le stockage d’objets blob immuables.)
+    > Les clients souhaitant configurer un magasin de journaux immuable pour leurs événements d’audit au niveau du serveur ou de la base de données doivent suivre les [instructions fournies par Stockage Azure](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). (Vérifiez que vous avez sélectionné **Autoriser les ajouts supplémentaires** quand vous configurez le stockage d’objets blob immuables.)
   
 3. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour les journaux d’activité de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms) :
 

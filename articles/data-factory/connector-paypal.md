@@ -1,17 +1,20 @@
 ---
 title: Copier des données de PayPal avec Azure Data Factory (préversion)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie pour copier des données de PayPal vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jianleishen
-ms.openlocfilehash: ab6ab70ff61e86c2939bce12f1d63d2f454a84f2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 005b50eaa3dc050048a12ac557ebc7ac028dd2dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487130"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641517"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copier des données de PayPal avec Azure Data Factory (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

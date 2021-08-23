@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: yelevin
-ms.openlocfilehash: ef38176db69ea019254ced89e3e18f035633f2d5
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 51bc9923ce01116137b4ff447b94d08262b0c758
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811740"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562601"
 ---
 # <a name="use-soc-ml-anomalies-to-detect-threats-in-azure-sentinel"></a>Utiliser des anomalies SOC-ML pour détecter les menaces dans Azure Sentinel
 
@@ -45,4 +45,4 @@ Les anomalies peuvent être des outils puissants, mais elles sont notoirement tr
 Dans ce document, vous avez appris comment SOC-ML vous aide à détecter les anomalies dans Azure Sentinel.
 
 - Découvrez comment [afficher, créer, gérer et affiner les règles d’anomalie](work-with-anomaly-rules.md).
-- En savoir plus sur les [autres types de règles d’analyse](tutorial-detect-threats-built-in.md).
+- En savoir plus sur les [autres types de règles d’analyse](detect-threats-built-in.md).

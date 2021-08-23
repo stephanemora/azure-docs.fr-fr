@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 07/02/2021
 ms.author: aahi
 keywords: local, Docker, conteneur, Kubernetes
-ms.openlocfilehash: 9a0dbba69b6317ab5a3df0b87e5f288d5a95872c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: adc449be1aa1673540e02269d15823b819bc37c1
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752654"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285517"
 ---
 # <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
@@ -78,9 +78,9 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | Service |  Conteneur | Description | Disponibilité |
 |--|--|--|--|
 | [Vision par ordinateur][cv-containers] | **Lire OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Le conteneur Read OCR vous permet d’extraire du texte imprimé et manuscrit à partir d’images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](./computer-vision/overview-ocr.md). | Préversion contrôlée. [Demandez l’accès][request-access]. |
-| [Analyse spatiale][spa-containers] | **Analyse spatiale** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyser le flux vidéo en temps réel afin de comprendre les relations spatiales entre les personnes, leurs déplacements et les interactions avec des objets dans des environnements physiques. | Préversion contrôlée. [Demandez l’accès][request-access]. |
+| [Analyse spatiale][spa-containers] | **Analyse spatiale** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyser le flux vidéo en temps réel afin de comprendre les relations spatiales entre les personnes, leurs déplacements et les interactions avec des objets dans des environnements physiques. | Préversion |
 | [Visage][fa-containers] | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées. | Non disponible |
-| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. | Non disponible | 
+| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. | Préversion contrôlée. [Demandez l’accès][request-access]. | 
 
 
 <!--
@@ -135,7 +135,7 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: face/face-how-to-install-containers.md
-[fr-containers]: form-recognizer/form-recognizer-container-howto.md
+[fr-containers]: ./form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md

@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 74a44a4f3cb17084c0c2f433ad66a77928e037a6
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 0e592e89e208d8a2ddf1b8fc1d30e53609ac7f41
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006797"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453999"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,9 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 
 Cet article suppose également que vous disposez d’[un domaine personnalisé][custom-domain] avec une [zone DNS][dns-zone] dans le même groupe de ressources que votre cluster AKS.
 
-Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée NGINX et cert-manager. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès aux référentiels Helm *ingress-nginx* et *jetstack*. Pour des instructions de mise à niveau, consultez la [documentation d’installation de Helm][helm-install]. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
+Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée Nginx sur une [version prise en charge de Kubernetes][aks-supported versions]. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès aux référentiels Helm *ingress-nginx* et *jetstack*. Les étapes décrites dans cet article peuvent ne pas être compatibles avec les versions précédentes du Helm Chart, NGINX Ingres Controller ou Kubernetes.
+
+Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm]. Pour obtenir des instructions de mise à niveau, consultez la [documentation d’installation de Helm][helm-install].
 
 Pour les besoins de cet article, vous devez également exécuter Azure CLI version 2.0.64 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
@@ -464,3 +466,4 @@ Vous pouvez également :
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-supported versions]: supported-kubernetes-versions.md

@@ -1,20 +1,19 @@
 ---
 title: Utiliser Azure Image Builder et Shared Image Gallery pour les machines virtuelles Linux
 description: Découvrez comment utiliser Azure Image Builder et Azure CLI pour créer une version d’une image dans Shared Image Gallery, puis distribuer l’image.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
-ms.openlocfilehash: 8ba997980de6e28fbe2b12fc9541a1d11667922d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 9c3af46cbb3eb669aa864f5d6b1fa95c82cf8e1b
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028502"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113596512"
 ---
 # <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Créer une image Linux et la distribuer à une galerie d’images partagées 
 

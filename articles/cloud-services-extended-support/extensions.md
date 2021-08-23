@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 84b27bc4ae30e28a1d97fb8e9931602a1eb14504
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c9ee7e475957ca41c9094cab3b149f53e48a3764
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114444783"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900901"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensions pour Cloud Services (support étendu)
 
@@ -23,7 +23,7 @@ Les extensions sont de petites applications qui proposent des tâches de configu
 
 L’extension de machine virtuelle Key Vault assure l’actualisation automatique des certificats stockés dans un coffre de clés Azure Key Vault. Plus précisément, elle supervise une liste de certificats stockés dans des coffres de clés. Lorsqu’une modification est détectée, elle récupère et installe les certificats correspondants. Elle autorise également la référence inter-région/inter-abonnement des certificats pour Cloud Services (support étendu).
 
-Pour plus d’informations, consultez [Configuration de l’extension Key Vault pour Cloud Services (support étendu)](./enable-key-vault-virtual-machine.md).
+Pour plus d’informations, consultez [Configuration de l’extension Key Vault pour Cloud Services (support étendu)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine).
 
 ## <a name="remote-desktop-extension"></a>Extension Bureau à distance
 
@@ -54,5 +54,5 @@ Pour en savoir plus sur Azure Antimalware, consultez [cette page](../security/fu
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).
+- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

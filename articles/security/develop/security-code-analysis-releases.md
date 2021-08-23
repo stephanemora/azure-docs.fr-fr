@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7596df66dbcbe1b7cdefab4811da7174bc83ac65
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 137e4cf1392db8b1ee10d4441769f602802d6ac6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801177"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115958"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Versions Microsoft Security Code Analysis et feuille de route
 
@@ -80,4 +80,4 @@ Le service de test aléatoire MSRD déprécié sera remplacé par une plateforme
 
 Pour obtenir des instructions sur l'intégration et l'installation de Microsoft Security Code Analysis, consultez notre [Guide d'intégration et d'installation](security-code-analysis-onboard.md).
 
-Si vous avez d’autres questions sur l’extension et les outils proposés, voir notre [page FAS](security-code-analysis-faq.md).
+Si vous avez d’autres questions sur l’extension et les outils proposés, voir notre [page FAS](security-code-analysis-faq.yml).

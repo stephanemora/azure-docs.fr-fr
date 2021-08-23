@@ -5,20 +5,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 7d39163fa2890eb16a455d505baa0a6bbeddd42e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b0b75ac30ec0dfccb059222709f71bc74ae0b940
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950627"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282382"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Créer des clusters Apache Hadoop dans HDInsight avec des modèles Resource Manager
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Vous trouverez dans cet article différentes façons de créer des clusters Azure HDInsight à l’aide de [modèles Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md). Pour découvrir d’autres outils et fonctions de création de clusters, cliquez sur le sélecteur d’onglets situé en haut de cette page. Voir aussi [Méthodes de création de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
 

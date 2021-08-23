@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3f486e1f46cc4ed21dc3da89d242d50010178e7d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790536"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532184"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuité d’activité et reprise d’activité pour Azure Logic Apps
 
@@ -348,7 +348,7 @@ Vous pouvez configurer la journalisation des exécutions de votre application lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de la résilience pour Azure](/azure/architecture/framework/resiliency/overview)
+* [Concevoir des applications Azure fiables](/azure/architecture/framework/resiliency/app-design)
 * [Liste de vérification de la résilience pour des services Azure spécifiques](/azure/architecture/checklist/resiliency-per-service)
 * [Gestion des données pour la résilience dans Azure](/azure/architecture/framework/resiliency/data-management)
 * [Sauvegarde et reprise d’activité pour les applications Azure](/azure/architecture/framework/resiliency/backup-and-recovery)

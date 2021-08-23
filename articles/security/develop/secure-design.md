@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 6f99ce0f0229de5423a6dde4472b5b11b992f7e8
+ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792508"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112422711"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -86,7 +86,7 @@ Le Top 10 OWASP traite des risques de sécurité critiques pour les applications
 La connaissance de ces risques de sécurité peut vous aider dans vos prises de décision en matière d’exigences et de conception pour diminuer ces risques dans votre application.
 
 Réfléchir aux contrôles de sécurité pour empêcher les violations est important.
-Vous voulez néanmoins également [envisager qu’une violation de la sécurité](/azure/devops/learn/devops-at-microsoft/security-in-devops) puisse se produise. Partir du principe qu’une faille existe permet de répondre en avance à certaines questions cruciales sur la sécurité, pour ne pas avoir à y répondre dans l’urgence :
+Vous voulez néanmoins également [envisager qu’une violation de la sécurité](/devops/operate/security-in-devops) puisse se produise. Partir du principe qu’une faille existe permet de répondre en avance à certaines questions cruciales sur la sécurité, pour ne pas avoir à y répondre dans l’urgence :
 
   - Comment détecter une attaque ?
 

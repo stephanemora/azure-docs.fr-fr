@@ -3,16 +3,16 @@ title: Optimiser les coûts de Stockage sur disque Azure avec des réservations
 description: Apprenez-en davantage sur l’achat de réservations Stockage sur disque Azure pour réduire les coûts liés aux disques managés SSD Premium.
 author: roygara
 ms.author: rogarana
-ms.date: 01/30/2020
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60ccfe222b06e9c250eab3b8fa568cc4e5a925b2
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602641"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356178"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Réduire les coûts avec la réservation de disques Azure
 

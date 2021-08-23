@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fecd1fca22b003892817f8fd33db88b1eea6127
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94651310"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531714"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Suivi des données lors du repérage avec Azure Sentinel
 
@@ -30,7 +30,7 @@ Vous pouvez revenir consulter vos données marquées d’un signet à tout momen
 
 L’affichage des signets de la table vous permet de filtrer et de synthétiser les données marquées d’un signet, ainsi que de les joindre à d’autres sources de données, ce qui facilite la recherche de preuves pour la confirmation.
 
-Actuellement en préversion, si vous trouvez des éléments qui doivent être traités de manière urgente dans vos journaux, en quelques clics, vous pouvez créer un signet et le transformer en incident, ou ajouter le signet à un incident existant. Pour plus d’informations sur les incidents, consultez [Didacticiel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md). 
+Actuellement en préversion, si vous trouvez des éléments qui doivent être traités de manière urgente dans vos journaux, en quelques clics, vous pouvez créer un signet et le transformer en incident, ou ajouter le signet à un incident existant. Pour plus d’informations sur les incidents, consultez [Didacticiel : Examiner les incidents avec Azure Sentinel](investigate-cases.md). 
 
 Également en préversion, vous pouvez visualiser vos données avec signet en cliquant sur **Examiner** dans les détails du signet. Cette opération lance l’expérience d’examen dans laquelle vous pouvez afficher, examiner et communiquer visuellement vos résultats à l’aide d’un diagramme d’entité-graphique interactif et d’une chronologie.
 
@@ -94,7 +94,7 @@ Actuellement en préversion, si vous trouvez des éléments qui doivent être tr
 
 3. Cliquez sur **Examiner** pour afficher le signet dans le graphe d’examen.
 
-Pour savoir comment utiliser le graphe d’examen, consultez [Utiliser le graphe d’examen pour approfondir les recherches](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+Pour savoir comment utiliser le graphe d’examen, consultez [Utiliser le graphe d’examen pour approfondir les recherches](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 ## <a name="add-bookmarks-to-a-new-or-existing-incident"></a>Ajouter des signets à un incident nouveau ou existant
 

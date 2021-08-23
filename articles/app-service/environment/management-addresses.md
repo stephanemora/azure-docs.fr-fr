@@ -7,14 +7,17 @@ ms.topic: article
 ms.date: 03/22/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions, devx-track-azurecli
-ms.openlocfilehash: 796ee38140e72a56f1f22b0594dd904a43ac53c0
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1480b23f4c213d1c251e47678b235c9f8c8d45df
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865222"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432893"
 ---
 # <a name="app-service-environment-management-addresses"></a>Adresses de gestion App Service Environment
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 L’environnement ASE (App Service Environment) est un déploiement monolocataire d’Azure App Service, qui s’exécute sur votre réseau virtuel Azure.  Bien que l’environnement ASE s’exécute sur votre réseau virtuel, il doit toujours être accessible à partir d’un certain nombre d’adresses IP dédiées utilisées par Azure App Service pour gérer le service.  Dans le cas d’un environnement ASE, le trafic de gestion traverse le réseau contrôlé par l’utilisateur. Si ce trafic est bloqué ou incorrectement routé, l’environnement ASE est suspendu. Pour plus d’informations sur les dépendances réseau d’un ASE, consultez [Considérations relatives à la mise en réseau pour un environnement App Service Environment][networking]. Pour obtenir des informations générales sur l’environnement ASE, vous pouvez commencer par consulter la page [Présentation de l’environnement App Service Environment][intro].
 

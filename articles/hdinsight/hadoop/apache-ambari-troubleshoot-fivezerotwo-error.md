@@ -4,12 +4,12 @@ description: Erreur 502 de l’interface utilisateur d’Apache Ambari quand vo
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
-ms.openlocfilehash: 750232b19bd5ef0674a9df79fdf3972a679eda7d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da396873fe91777130c407c2b679b0192141cae1
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946792"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291418"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scénario : erreur 502 de l’interface utilisateur Apache Ambari dans Azure HDInsight
 
@@ -64,4 +64,4 @@ Error Processing URI: /api/v1/clusters/xxxxxx/host_components - (java.lang.OutOf
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

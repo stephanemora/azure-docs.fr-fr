@@ -4,18 +4,20 @@ description: Découvrez comment sauvegarder et restaurer un serveur dans Azure D
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.devlang: azurepowershel
+ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c5ebcb4d5807c93349f0e748bf3723899ea2a36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94539010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531445"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Comment sauvegarder et restaurer un serveur Azure Database pour MySQL à l’aide de PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 

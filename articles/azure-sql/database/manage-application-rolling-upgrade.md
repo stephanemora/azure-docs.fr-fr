@@ -11,12 +11,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 02/13/2019
-ms.openlocfilehash: 30b5d1f7e5fd3a052ecce3c28b75fe020b2257c9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dd71998eaa3254e31d123a9ca011339d1aaeee10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694257"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524752"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gérer les mises à niveau propagées des applications cloud à l’aide de la géoréplication active Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,16 +106,16 @@ Une fois les étapes de préparation terminées, l’environnement de préproduc
 
 ```sql
 -- Set the production database to read-only mode
-ALTER DATABASE <Prod_DB>
-SET (ALLOW_CONNECTIONS = NO)
+ALTER DATABASE [<Prod_DB>]
+SET READ_ONLY
 ```
 
 2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) est également disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABASE <Prod_DB>
-REMOVE SECONDARY ON SERVER <Partner-Server>
+ALTER DATABASE [<Prod_DB>]
+REMOVE SECONDARY ON SERVER [<Partner-Server>]
 ```
 
 3. Exécutez le script de mise à niveau sur `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` et la base de données primaire de préproduction (12). Les modifications apportées à la base de données sont répliquées automatiquement sur la secondaire de préproduction.

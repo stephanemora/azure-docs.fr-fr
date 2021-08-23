@@ -4,12 +4,12 @@ description: Un travail Apache Spark s’exécute lentement quand le conteneur d
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/21/2019
-ms.openlocfilehash: d256292956b42c65722ea5f9c87d6835297d1d40
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 21fd9d14b2d289a3cf652b553891cc8bdf0d616b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219091"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282220"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
 
@@ -39,4 +39,4 @@ Pour chaque énième micro-lot où N % 100 == 0 (100 n’est qu’un exemple),
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

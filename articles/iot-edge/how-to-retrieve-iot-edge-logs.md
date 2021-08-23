@@ -2,7 +2,6 @@
 title: Récupérer les journaux IoT Edge – Azure IoT Edge
 description: Le module IoT Edge permet de récupérer les journaux et de les charger dans Stockage Blob Azure.
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 19183da24a3652757626cb37fae96027ed01a8ea
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 53ea8657535cb353b2da0f2a5b35398aa972128a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563021"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -35,7 +34,7 @@ Bien qu’il ne soit pas obligatoire, pour une meilleure compatibilité avec cet
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}` doit être au format `yyyy-MM-dd hh:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+`{Timestamp}` doit être au format `yyyy-MM-dd HH:mm:ss.fff zzz`, et `{Log Level}` doit suivre le tableau ci-dessous, qui dérive ses niveaux de gravité du [Code de gravité dans la norme Syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
 
 | Valeur | Gravité |
 |-|-|
@@ -53,6 +52,9 @@ La [classe de journalisation dans IoT Edge](https://github.com/Azure/iotedge/blo
 ## <a name="retrieve-module-logs"></a>Récupérer les journaux de module
 
 Utilisez la méthode directe **GetModuleLogs** pour récupérer les journaux d’un module IoT Edge.
+
+>[!TIP]
+>La page de résolution des problèmes d’IoT Edge dans le portail Azure fournit une expérience simplifiée pour afficher les journaux du module. Pour plus d’informations, consultez [Surveiller et résoudre les problèmes des appareils IoT Edge à partir du portail Azure](troubleshoot-in-portal.md).
 
 Cette méthode accepte une charge utile JSON avec le schéma suivant :
 
@@ -76,7 +78,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | items | Tableau JSON | Tableau avec les tuples `id` et `filter`. |
@@ -185,7 +187,7 @@ Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, ave
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -199,7 +201,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -302,7 +304,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
@@ -323,7 +325,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -381,7 +383,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Nom | Type | Description |
+| Name | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |

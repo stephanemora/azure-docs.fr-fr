@@ -3,12 +3,12 @@ title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager (modèles ARM) pour le déploiement de ressources.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419981"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531585"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -18,7 +18,7 @@ Pour relever ces défis, vous pouvez automatiser les déploiements et utiliser l
 
 Pour implémenter une infrastructure en tant que code pour vos solutions Azure, utilisez des modèles Azure Resource Manager (modèles ARM). Le modèle est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. Dans le modèle, vous spécifiez les ressources à déployer et les propriétés de ces ressources.
 
-Nous avons ajouté un nouveau langage pour le développement des modèles ARM. Ce langage se nomme Bicep, et il est actuellement en préversion. Les modèles Bicep et JSON offrent les mêmes fonctionnalités. Vous pouvez convertir un modèle d’un langage à l’autre. Bicep fournit une syntaxe qui est plus facile à utiliser pour créer des modèles. Pour plus d’informations, consultez [Qu’est-ce que Bicep (préversion) ?](bicep-overview.md).
+Nous avons introduit un nouveau langage nommé Bicep qui est utilisé pour développer le JSON du modèle ARM. Les fichiers Bicep et modèles JSON offrent les mêmes fonctionnalités. Vous pouvez convertir des modèles d’un langage à l’autre. Bicep fournit une syntaxe qui est plus facile à utiliser pour créer des modèles. Pour plus d’informations, voir [Qu’est-ce que Bicep ?](../bicep/overview.md).
 
 Pour en savoir plus sur la prise en main des modèles ARM, visionnez la vidéo suivante.
 
@@ -44,7 +44,7 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
 * **Test** : Vous pouvez vérifier que votre modèle suit les recommandations en le testant avec le kit d’outils de modèle ARM (arm-ttk). Ce kit de test est un script PowerShell que vous pouvez télécharger à partir de [GitHub](https://github.com/Azure/arm-ttk). Le kit d’outils vous permet de développer plus facilement une expertise à l’aide de la langue du modèle.
 
-* **Aperçu des modifications** : Vous pouvez utiliser l’[opération de simulation](template-deploy-what-if.md) pour obtenir un aperçu des modifications avant de déployer le modèle. Avec la simulation, vous pouvez voir quelles ressources seront créées, mises à jour ou supprimées ainsi que les propriétés de ressource qui seront modifiées. L’opération de simulation vérifie l’état actuel de votre environnement et élimine la nécessité de gérer l’état.
+* **Aperçu des modifications** : Vous pouvez utiliser l’[opération de simulation](./deploy-what-if.md) pour obtenir un aperçu des modifications avant de déployer le modèle. Avec la simulation, vous pouvez voir quelles ressources seront créées, mises à jour ou supprimées ainsi que les propriétés de ressource qui seront modifiées. L’opération de simulation vérifie l’état actuel de votre environnement et élimine la nécessité de gérer l’état.
 
 * **Validation intégrée** : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
 
@@ -68,15 +68,15 @@ Dans votre modèle, vous pouvez écrire des [expressions de modèle](template-ex
 
 Le modèle comprend les sections suivantes :
 
-* [Paramètres](template-parameters.md) - Pendant le déploiement, fournissez des valeurs qui permettent d’utiliser le même modèle avec différents environnements.
+* [Paramètres](./parameters.md) - Pendant le déploiement, fournissez des valeurs qui permettent d’utiliser le même modèle avec différents environnements.
 
-* [Variables](template-variables.md) - Définissez des valeurs qui sont réutilisées dans vos modèles. Elles peuvent être construites à partir de valeurs de paramètres.
+* [Variables](./variables.md) - Définissez des valeurs qui sont réutilisées dans vos modèles. Elles peuvent être construites à partir de valeurs de paramètres.
 
-* [Fonctions définies par l’utilisateur](template-user-defined-functions.md) - Créez des fonctions personnalisées qui simplifient votre modèle.
+* [Fonctions définies par l’utilisateur](./user-defined-functions.md) - Créez des fonctions personnalisées qui simplifient votre modèle.
 
 * [Ressources](resource-declaration.md) - Spécifiez les ressources à déployer.
 
-* [Sorties](template-outputs.md) - Retournez des valeurs à partir des ressources déployées.
+* [Sorties](./outputs.md) - Retournez des valeurs à partir des ressources déployées.
 
 ## <a name="template-deployment-process"></a>Processus de déploiement de modèle
 
@@ -149,8 +149,8 @@ Cette approche signifie que vous pouvez partager en toute sécurité des modèle
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Tutoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
+* Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
 * Pour en savoir plus sur les modèles ARM par le biais d’un ensemble prédéfini de modules Microsoft Learn, consultez [Déployer et gérer des ressources dans Azure en utilisant des modèles ARM](/learn/paths/deploy-manage-resource-manager-templates/).
-* Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).
-* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](./frequently-asked-questions.yml).

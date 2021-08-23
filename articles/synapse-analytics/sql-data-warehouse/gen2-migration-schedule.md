@@ -2,8 +2,8 @@
 title: Migrer votre pool SQL dédié (anciennement SQL DW) vers Gen2
 description: Instructions concernant la migration d’un pool SQL dédié existant (anciennement SQL DW) vers Gen2 et la planification de la migration par région.
 services: synapse-analytics
-author: mlee3gsd
-ms.author: anjangsh
+author: rothja
+ms.author: jroth
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0ce07ff3ca5fbcc9776792129d3bfb4ef54efe7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59ebd89701f23979a8a359fecfd68a4796bf6d9c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120119"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472108"
 ---
 # <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>Mettre à niveau votre pool SQL dédié (anciennement SQL DW) vers Gen2
 
@@ -34,12 +34,8 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 
 | **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
 |:--- |:--- |:--- |
-| Est du Canada |1er juin 2020 |1er juillet 2020 |
 | Chine orientale |\* |\* |
 | Chine du Nord |\* |\* |
-| Centre de l’Allemagne |\* |\* |
-| Allemagne Centre-Ouest |Disponible |1 mai 2020 |
-| Inde Ouest |Disponible |1 mai 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f71084e9c13bd1a30f5d5f01a04172671074db03
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721016"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525207"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -52,7 +52,7 @@ Le service MySQL n’autorise pas l’accès direct au système de fichiers sous
 Les éléments suivants ne sont pas pris en charge :
 - Rôle d’administrateur de base de données : Restreint. Sinon, vous pouvez utiliser le rôle d’utilisateur Administrateur (généré lors de la création d’un serveur) qui vous permet d’exécuter la plupart des instructions DDL et DML. 
 - Privilège de superutilisateur : de la même façon, le [privilège de superutilisateur](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) est limité.
-- DEFINER : requiert des privilèges de superutilisateur pour créer et est limité. Si vous importez des données à l'aide d'une sauvegarde, supprimez les commandes `CREATE DEFINER` manuellement ou à l'aide de la commande `--skip-definer` lors de l'exécution de mysqldump.
+- DEFINER : requiert des privilèges de superutilisateur pour créer et est limité. Si vous importez des données à l’aide d’une sauvegarde, supprimez les commandes `CREATE DEFINER` manuellement ou avec la commande `--skip-definer` lorsque vous effectuez une opération [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html).
 - Bases de données système : La [base de données système mysql](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) est en lecture seule ; elle est utilisée pour prendre en charge diverses fonctionnalités PaaS. Vous ne pouvez pas apporter de modifications à la base de données système `mysql`.
 - `SELECT ... INTO OUTFILE`: Pas de prise en charge dans le service.
 - `LOAD_FILE(file_name)`: Pas de prise en charge dans le service.

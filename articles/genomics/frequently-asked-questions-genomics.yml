@@ -1,0 +1,72 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions courantes - FAQ
+  titleSuffix: Microsoft Genomics
+  description: Recevez des réponses à des questions fréquemment posées sur l’utilisation du service Microsoft Genomics, dont des informations techniques, le SLA et la facturation.
+  services: genomics
+  author: grhuynh
+  manager: cgronlun
+  ms.author: grhuynh
+  ms.service: genomics
+  ms.topic: troubleshooting
+  ms.date: 12/07/2017
+  ms.openlocfilehash: 0060ebfc207c6f0027e1387f859c71a917bf7b1b
+  ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113559062"
+title: 'Microsoft Genomics : Questions courantes'
+summary: "Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md). Pour plus d’informations sur la résolution des problèmes, consultez notre [Guide de résolution des problèmes](troubleshooting-guide-genomics.md). \n"
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Comment exécuter des flux de travail GATK4 sur Microsoft Genomics ?
+    answer: >
+      Dans le fichier config.txt du service Microsoft Genomics, définissez l'argument process_name sur `gatk4`. Notez que vous serez facturé au tarif standard.
+  - question: >
+      Comment activer la compression de sortie ?
+    answer: >
+      Vous pouvez compresser le fichier VCF ou GVCF de sortie à l’aide d’un argument facultatif pour la compression de sortie. Cela équivaut à exécuter `-bgzip` suivi de `-tabix` sur la sortie vcf ou gvcf afin de produire des fichiers `.gz` (sortie bgzip) et `.tbi` (sortie tabix). `bgzip` compresse le fichier vcf ou gvcf, et `tabix` crée un index pour le fichier compressé. L’argument est une valeur booléenne, qui est définie sur `false` par défaut pour la sortie vcf, et sur `true` par défaut pour la sortie gcvf. Pour l’utiliser sur la ligne de commande, spécifiez `-bz` ou `--bgzip-output` comme `true` (exécuter bgzip et tabix) ou `false`. Pour utiliser cet argument dans le fichier config.txt, ajoutez `bgzip_output: true` ou `bgzip_output: false` au fichier.
+  - question: >
+      Quel contrat de niveau de service utiliser pour Microsoft Genomics ?
+    answer: >
+      Dans 99,9 % des cas, nous garantissons que le service Microsoft Genomics sera disponible pour recevoir des demandes d’API de workflow. Pour plus d’informations, consultez [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
+  - question: >
+      Comment l’utilisation de Microsoft Genomics apparaît-elle sur ma facture ?
+    answer: >
+      Les factures Microsoft Genomics indiquent le nombre de gigabases traitées par workflow. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/genomics/).
+  - question: >
+      Où puis-je trouver une liste de l’ensemble des commandes et arguments possibles pour le client `msgen` ?
+    answer: >
+      Vous pouvez obtenir une liste complète des commandes et arguments disponibles en exécutant `msgen help`. Si aucun autre argument n’est fourni, vous pouvez vous reporter aux sections d’aide proposées, une pour chaque valeur `submit`, `list`, `cancel` et `status`. Pour obtenir de l’aide sur une commande spécifique, tapez `msgen help command`. Par exemple, `msgen help submit` répertorie toutes les options de type submit.
+  - question: >
+      Quelles sont les commandes les plus couramment utilisées pour le client `msgen` ?
+    answer: "Les commandes les plus couramment utilisées pour le client `msgen` sont des arguments : \n\n |**Commande**          |  **Description du champ** |\n |:--------------------|:-------------         |\n |`list`               |Renvoie une liste des travaux soumis. Pour les arguments, consultez `msgen help list`.  |\n |`submit`             |Envoie une requête de workflow au service. Pour les arguments, consultez `msgen help submit`.|\n |`status`             |Renvoie l’état du workflow spécifié par `--workflow-id`. Voir aussi `msgen help status`. |\n |`cancel`             |Envoie une requête d’annulation du traitement du workflow spécifié par `--workflow-id`. Voir aussi `msgen help cancel`. |\n"
+  - question: >
+      Où puis-je obtenir la valeur de `--api-url-base` ?
+    answer: >
+      Accédez au portail Azure, puis ouvrez la page de votre compte Microsoft Genomics. Sous le titre **Gestion**, choisissez **Clés d’accès**. Vous y trouvez à la fois l’URL de l’API et vos clés d’accès.
+  - question: >
+      Où puis-je obtenir la valeur de `--access-key` ?
+    answer: >
+      Accédez au portail Azure, puis ouvrez la page de votre compte Microsoft Genomics. Sous le titre **Gestion**, choisissez **Clés d’accès**. Vous y trouvez à la fois l’URL de l’API et vos clés d’accès.
+  - question: >
+      Pourquoi ai-je besoin de deux clés d’accès ?
+    answer: >
+      Vous avez besoin de deux clés d’accès au cas où vous souhaiteriez les mettre à jour (régénérer) sans interrompre l’utilisation du service. Par exemple, si vous souhaitez mettre à jour la première clé, tous les nouveaux flux de travail doivent utiliser la deuxième clé. Attendez ensuite que tous les flux de travail qui utilisent la première clé soient terminés avant de la mettre à jour.
+  - question: >
+      Enregistrez-vous mes clés de compte de stockage ?
+    answer: >
+      Votre clé de compte de stockage sert à créer des jetons d’accès à court terme pour le service Microsoft Genomics afin de lire les fichiers d’entrée et d’écrire les fichiers de sortie. La durée de vie par défaut d’un jeton est de 48 heures. Vous pouvez modifier la durée du jeton avec l’option `-sas/--sas-duration` de la commande submit. La valeur est exprimée en heures.
+  - question: >
+      Le service Microsoft Genomics stocke-t-il les données client ?
+    answer: >
+      Non. Microsoft Genomics ne stocke pas de données client.
+  - question: >
+      Quelle référence au génome puis-je utiliser ?
+    answer: "Voici les références prises en charge :\n\n |Informations de référence              | Valeur de `-pa/--process-args` |\n |:-------------         |:-------------                 |\n |b37                    | `R=b37m1`                     |\n |hg38                   | `R=hg38m1`                    |      \n |hg38 (sans analyse alt) | `R=hg38m1x`                   |  \n |hg19                   | `R=hg19m1`                    |    \n"
+  - question: "Comment formater les arguments de ligne de commande dans un fichier de configuration ? \n"
+    answer: "msgen comprend les fichiers de configuration dont le format est le suivant :\n* Toutes les options sont fournies en tant que paires clé-valeur, les valeurs étant séparées des clés par le signe deux-points.\n  Un espace blanc est ignoré.\n* Les lignes commençant par `#` sont ignorées.\n* Tous les arguments de ligne de commande au format long peuvent être convertis en une clé en supprimant les tirets du début et en remplaçant les tirets entre les mots par des traits de soulignement. Voici quelques exemples de conversion :\n\n  |Argument de ligne de commande            | Ligne du fichier de configuration |\n  |:-------------                   |:-------------                 |\n  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |\n  |`-k/--access-key KEY`            | *access_key:KEY*              |      \n  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nUtilisez les ressources suivantes pour prendre en main Microsoft Genomics :\n- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow par le biais du service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)\n- Envoyer vos propres données pour traitement par le service Microsoft Genomics : [FASTQ couplé](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Plusieurs FASTQ ou BAM](quickstart-input-multiple.md)"

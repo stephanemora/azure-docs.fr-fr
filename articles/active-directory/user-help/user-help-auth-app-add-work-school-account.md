@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 11/15/2020
+ms.date: 05/11/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04c9bc429d9663f7ac36b6ba8f40abf225eb71c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 329ddb32282d91ec5e990753057aea606622a266
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359106"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535182"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator
 
@@ -35,7 +35,7 @@ Vous pouvez ajouter vos comptes professionnels ou scolaires à l’application M
 ### <a name="sign-in-with-your-credentials"></a>Se connecter avec les informations d’identification
 
 >[!Note]
->Cette fonctionnalité est réservée aux utilisateurs dont les administrateurs ont activé la connexion par téléphone à l’aide de l’application d’authentification.
+>Vous pouvez maintenant vous connecter à l'application Microsoft Authenticator pour ajouter votre compte professionnel ou scolaire.
 
 Pour ajouter un compte en vous connectant à votre compte professionnel ou scolaire à l’aide de vos informations d’identification :
 
@@ -43,15 +43,15 @@ Pour ajouter un compte en vous connectant à votre compte professionnel ou scola
 
 1. Entrez les informations d'identification de votre compte professionnel ou scolaire. Le cas échéant, vous pouvez vous connecter à l’aide d’un mot de passe d'accès temporaire (TAP). À ce stade, vous risquez de ne pas pouvoir continuer en raison de l’une des conditions suivantes :
 
-   - Si vous n’avez pas assez de méthodes d’authentification sur votre compte pour obtenir un jeton d’authentification fort, vous ne pourrez pas ajouter de compte.
+   - Si vous ne disposez pas de suffisamment de méthodes d'authentification sur votre compte pour obtenir un jeton d'authentification renforcée, vous ne pouvez pas procéder à l'ajout d'un compte.
 
-   - Si vous recevez le message `You might be signing in from a location that is restricted by your admin`, vous êtes bloqué et un administrateur devra vous débloquer dans la section [Informations de sécurité](https://mysignins.microsoft.com/security-info).
+   - Si vous recevez le message `You might be signing in from a location that is restricted by your admin`, cela signifie que votre administrateur n'a pas activé cette fonctionnalité pour vous. Vous pouvez essayer de configurer votre compte en scannant un code QR sur la page **Vérification de sécurité supplémentaire** ou dans [Informations de sécurité](https://mysignins.microsoft.com/security-info).
 
-   - Si votre administrateur ne vous bloque pas la connexion par téléphone à l’aide de l’application d’authentification, vous pouvez effectuer l’inscription de l’appareil pour configurer la connexion par téléphone sans mot de passe et l’authentification multifacteur Azure Multi-Factor Authentication (MFA).
+1. Si votre administrateur vous autorise à utiliser la connexion par téléphone à l'aide de l'application Authenticator, vous pourrez procéder à l'inscription de l'appareil afin de configurer la connexion par téléphone sans mot de passe et l'authentification multifacteur Azure (MFA). Mais vous pourrez toujours configurer l'authentification multifacteur, que vous ayez activé ou non la connexion par téléphone.
 
 1. À ce stade, vous pouvez être invité à scanner un code QR fourni par votre organisation pour configurer un compte local avec authentification multifacteur dans l’application. Vous ne devez effectuer cette opération que si votre organisation utilise un serveur MFA local.
 
-1. Sur votre appareil, appuyez sur le compte et vérifiez à l’écran que votre compte est correct et qu’un code de vérification à six chiffres lui est associé. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
+1. Sur votre appareil, appuyez sur le compte et vérifiez dans l'affichage plein écran que votre compte est correct. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
 
 ## <a name="sign-in-with-a-qr-code"></a>Se connecter avec un code QR
 
@@ -71,7 +71,17 @@ Pour ajouter un compte en scannant un code QR, procédez comme suit :
 
 Si vous n’êtes pas invité à utiliser votre appareil photo pour scanner un code QR, dans les paramètres de votre téléphone, assurez-vous que l’application d’authentification a accès à l’appareil photo du téléphone.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="sign-in-on-a-remote-computer"></a>Se connecter sur un ordinateur distant
+
+De nombreuses applications vous permettent de vous authentifier en saisissant un code sur un autre appareil tel qu'un PC. Si vous souhaitez vous connecter sur un ordinateur distant pour installer l'application Microsoft Authenticator :
+
+1. Ouvrez l'application Microsoft Authenticator, sélectionnez le bouton **+** &gt; **Ajouter un compte professionnel ou scolaire** &gt; **Se connecter**.
+1. Sélectionnez **Connexion à partir d’un autre appareil**.
+1. Sur l'écran distant, ouvrez la page [**Connectez-vous à votre compte** ](https://microsoft.com/devicelogin) et entrez le code fourni dans votre application Authenticator.
+1. Sur votre écran distant, connectez-vous à l'aide des informations d'identification de votre compte professionnel ou scolaire. Le cas échéant, vous pouvez vous connecter à l’aide d’un mot de passe d'accès temporaire (TAP).
+1. Une fois authentifié sur l'écran distant, revenez à l'application Authenticator pour finaliser l'installation.
+
+ ## <a name="next-steps"></a>Étapes suivantes
 
 - Après avoir ajouté vos comptes à l’application, vous pouvez vous connecter à l’aide de l’application Authenticator sur votre appareil. Pour plus d’informations, consultez l’article [Se connecter à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
 

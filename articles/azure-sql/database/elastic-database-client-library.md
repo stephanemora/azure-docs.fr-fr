@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 09/25/2018
-ms.openlocfilehash: 408434145d3bea15fe13eebd26ce13695bef3d7e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 05ad9620046f19984d26dc78bcc3de06d054b5eb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706297"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004121"
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ Pour télécharger :
 13. [Bibliothèque cliente de bases de données élastiques avec Dapper](elastic-scale-working-with-dapper.md)
 14. [Outil de fractionnement et de fusion](elastic-scale-overview-split-and-merge.md)
 15. [Compteurs de performances pour le Gestionnaire de cartes de partitions](elastic-database-client-library.md) 
-16. [FAQ des outils de bases de données élastiques](elastic-scale-faq.md)
+16. [FAQ des outils de bases de données élastiques](elastic-scale-faq.yml)
 
 ## <a name="client-capabilities"></a>Fonctionnalités du client
 

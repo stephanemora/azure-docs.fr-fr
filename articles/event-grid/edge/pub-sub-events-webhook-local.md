@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 4080fc274f03cbc4e5ba48b3c3e2ac5699886c96
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d965d5a65fa6f5015b1e39b22238f3aa6fd1d7b7
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377206"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112413531"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : publier, s’abonner à des événements localement
 
@@ -58,7 +58,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
    * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Options de création de conteneur** :
 
-   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+   [!INCLUDE [event-grid-edge-module-version-update](../includes/event-grid-edge-module-version-update.md)]
 
     ```json
         {
@@ -160,7 +160,7 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
 
 Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, vous devez créer un abonnement Event Grid pour un sujet qui vous intéresse.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Créez subscription.json avec le contenu suivant. Pour plus d’informations sur la charge utile, consultez notre [documentation sur l’API](api.md)
 

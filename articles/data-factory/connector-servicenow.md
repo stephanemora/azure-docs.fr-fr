@@ -1,18 +1,20 @@
 ---
 title: Copier des données à partir de ServiceNow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de ServiceNow vers des banques de données réceptrices prises en charge.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 08/01/2019
-ms.openlocfilehash: 95d4fe599aa36c6f3057492014afd53f063c4537
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: df7f1a37ac5b6779220595609a81b76b01952097
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482864"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641270"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -163,7 +165,7 @@ Si votre requête contient un filtre, utilisez le schéma « Actual » pour b�
 
 ### <a name="index"></a>Index
 
-L’index de table ServiceNow peut contribuer à améliorer les performances des requêtes. Consultez [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+L’index de table ServiceNow peut contribuer à améliorer les performances des requêtes. Consultez [Create a table index](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/task/t_CreateCustomIndex.html).
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

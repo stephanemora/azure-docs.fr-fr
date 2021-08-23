@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabb6e657db7ea39bf0fb746bb596f496bc5efaf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24ea1fa02a70e63c8eaab21acff1d1c7b625e9a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958303"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562292"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -117,7 +117,7 @@ La méthode la plus simple et recommandée d’activation de l’authentificatio
 
 Que vous choisissiez la synchronisation de hachage du mot de passe ou l’authentification directe, n’oubliez pas d’activer l’[authentification unique transparente](./how-to-connect-sso.md) pour permettre aux utilisateurs d’accéder aux applications cloud sans saisir constamment leurs nom d’utilisateur et mot de passe dans l’application lorsqu’ils utilisent des appareils Windows 7 et 8 sur votre réseau d’entreprise. Sans l’authentification unique, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit également créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Microsoft 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application. La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance.
 
-Pour les organisations qui utilisent déjà AD FS ou un autre fournisseur d’authentification local, le basculement vers Azure AD comme fournisseur d’identité peut réduire la complexité et améliorer la disponibilité. Sauf si vous rencontrez des cas d’usage spécifiques de fédération, nous vous recommandons de migrer de l’authentification fédérée vers la synchronisation de hachage du mot de passe ou l’authentification directe et l’authentification unique transparente ou l’authentification directe et l’authentification unique transparente pour tirer profit des avantages d’empreinte locale réduite et de la flexibilité du cloud avec de meilleures expériences utilisateurs. Pour plus d’informations, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
+Pour les organisations qui utilisent déjà AD FS ou un autre fournisseur d’authentification local, le basculement vers Azure AD comme fournisseur d’identité peut réduire la complexité et améliorer la disponibilité. Sauf si vous rencontrez des cas d’usage spécifiques de fédération, nous vous recommandons de migrer de l’authentification fédérée vers la synchronisation de hachage du mot de passe ou l’authentification directe et l’authentification unique transparente ou l’authentification directe et l’authentification unique transparente pour tirer profit des avantages d’empreinte locale réduite et de la flexibilité du cloud avec de meilleures expériences utilisateurs. Pour plus d’informations, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>Activer le déprovisionnement automatique de comptes
 

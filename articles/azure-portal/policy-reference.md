@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour le Portail Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour le Portail Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 437e9ad23f975c5d708d946a3739745fa57b822c
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 20ffdd49a1866b1dc9675a72c0daf886e7a0d9d0
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017592"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607234"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Définitions intégrées d’Azure Policy pour le Portail Azure
 

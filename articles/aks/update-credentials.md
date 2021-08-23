@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949143"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562971"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Pour vérifier la date d’expiration de votre principal de service, utilisez la
 ```azurecli
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
-az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+az ad sp credential list --id "$SP_ID" --query "[].endDate" -o tsv
 ```
 
 ### <a name="reset-the-existing-service-principal-credential"></a>Réinitialisation des informations d’identification du principal de service existant
@@ -59,7 +59,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 Avec un jeu de variables contenant l’ID du principal de service, réinitialisez les informations d’identification en utilisant [az ad sp credential reset][az-ad-sp-credential-reset]. L’exemple suivant permet à la plateforme Azure de générer un nouveau secret sécurisé pour le principal du service. Ce nouveau secret sécurisé est également stocké dans une variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name "$SP_ID" --query password -o tsv)
 ```
 
 Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification du principal de service](#update-aks-cluster-with-new-service-principal-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
@@ -106,8 +106,8 @@ az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --reset-service-principal \
-    --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --service-principal "$SP_ID" \
+    --client-secret "$SP_SECRET"
 ```
 
 La mise à jour des informations d’identification du principal de service dans AKS prend quelques instants pour les petits clusters et les clusters de taille moyenne.

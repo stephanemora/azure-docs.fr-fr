@@ -4,14 +4,15 @@ description: Découvrez comment configurer les propriétés d’Azure-SSIS Integ
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93fdb913da430241835d448945747ba5ab736f45
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364390"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563224"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 

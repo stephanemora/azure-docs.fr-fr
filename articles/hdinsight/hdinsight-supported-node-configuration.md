@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/14/2020
-ms.openlocfilehash: d41ee2554d30a56bc2e025bbe2c93aee143d75e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d65f68802f332092fbf2fa3676880d6263b2cab1
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931643"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291076"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quelles sont les configurations de nœud par défaut et recommandées pour Azure HDInsight ?
 
@@ -50,31 +50,28 @@ Pour plus d’informations sur les spécifications de chaque type de machine vir
 > [!Note]
 > Pour obtenir l’identificateur de référence (SKU) à utiliser dans PowerShell et d’autres scripts, ajoutez `Standard_` au début de toutes les références (SKU) de machine virtuelle dans les tableaux ci-dessous. Par exemple, `D12_v2` deviendrait `Standard_D12_v2`.
 
-| Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server | Kafka |
-|---|---|---|---|---|---|---|---|
-| Head : taille de machine virtuelle par défaut | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| Head : tailles de machine virtuelle recommandées minimum | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| Worker : taille de machine virtuelle par défaut | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4 D12_v2 avec 2 disques S30 par répartiteur |
-| Worker : tailles de machine virtuelle recommandées minimum | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
-| Zookeeper : taille de machine virtuelle par défaut |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| ZooKeeper : tailles de machine virtuelle recommandées minimum |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
-| ML Services : taille de machine virtuelle par défaut |  |  |  |  |  | D4_v2 |  |
-| ML Services : tailles de machine virtuelle recommandées minimum |  |  |  |  |  | D4_v2 |  |
+| Type de cluster                            | Hadoop | hbase  | Interactive Query | Storm | Spark                | Kafka                                |
+|-----------------------------------------|--------|--------|-------------------|-------|----------------------|--------------------------------------|
+| Head : taille de machine virtuelle par défaut                   | D12_v2 | D12_v2 | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| Head : tailles de machine virtuelle recommandées minimum      | D5_v2  | D3_v2  | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| Worker : taille de machine virtuelle par défaut                 | D4_v2  | D4_v2  | D14_v2            | D3_v2 | D13_v2               | 4 D12_v2 avec 2 disques S30 par répartiteur |
+| Worker : tailles de machine virtuelle recommandées minimum    | D5_v2  | D3_v2  | D13_v2            | D3_v2 | D12_v2               | D3_v2                                |
+| Zookeeper : taille de machine virtuelle par défaut              |        | A4_v2  | A4_v2             | A4_v2 |                      | A4_v2                                |
+| ZooKeeper : tailles de machine virtuelle recommandées minimum |        | A4_v2  | A4_v2             | A2_v2 |                      | A4_v2                                |
 
 \* = Tailles de machine virtuelle pour les clusters du Pack Sécurité Entreprise (ESP) Spark
 
 ### <a name="brazil-south-and-japan-west-only"></a>Brésil Sud et Japon Ouest uniquement
 
-| Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Services |
-|---|---|---|---|---|---|---|
-| Head : taille de machine virtuelle par défaut | D12 | D12 | D13 | A4_v2 | D12 | D12 |
-| Head : tailles de machine virtuelle recommandées minimum | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
-| Worker : taille de machine virtuelle par défaut | D4 | D4 | D14 | D3 | D13 | D4 |
-| Worker : tailles de machine virtuelle recommandées minimum | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 |
-| Zookeeper : taille de machine virtuelle par défaut |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ZooKeeper : tailles de machine virtuelle recommandées minimum |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ML Services : tailles de machine virtuelle par défaut |  |  |  |  |  | D4 |
-| ML Services : tailles de machine virtuelle recommandées minimum |  |  |  |  |  | D4_v2 |
+| Type de cluster                            | Hadoop | hbase | Interactive Query | Storm | Spark  |
+|-----------------------------------------|--------|-------|-------------------|-------|--------|
+| Head : taille de machine virtuelle par défaut                   | D12    | D12   | D13               | A4_v2 | D12    |
+| Head : tailles de machine virtuelle recommandées minimum      | D5_v2  | D3_v2 | D13_v2            | A4_v2 | D12_v2 |
+| Worker : taille de machine virtuelle par défaut                 | D4     | D4    | D14               | D3    | D13    |
+| Worker : tailles de machine virtuelle recommandées minimum    | D5_v2  | D3_v2 | D13_v2            | D3_v2 | D12_v2 |
+| Zookeeper : taille de machine virtuelle par défaut              |        | A4_v2 | A4_v2             | A4_v2 |        |
+| ZooKeeper : tailles de machine virtuelle recommandées minimum |        | A4_v2 | A4_v2             | A4_v2 |        |
+
 
 > [!NOTE]
 > - Head est appelé *Nimbus* pour le type de cluster Storm.

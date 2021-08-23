@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 4d66b766e1fb3996194b34f88abb4245398f70d2
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 2711950a875542b36ce95f3b77387feeb7f00648
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017064"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536999"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurer une application Java pour Azure App Service
 
@@ -81,7 +81,7 @@ Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/
 
 Pour déployer des fichiers .war sur JBoss, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-war-file).
 
-Pour déployer des fichiers .ear, [utilisez FTP](deploy-ftp.md).
+Pour déployer des fichiers .ear, [utilisez FTP](deploy-ftp.md). Votre application. ear sera déployée à la racine du contexte définie dans la configuration de votre application. Par exemple, si la racine du contexte de votre application est `<context-root>myapp</context-root>`, vous pouvez parcourir le site dans le chemin `/myapp` suivant : `http://my-app-name.azurewebsites.net/myapp`. Si vous souhaitez que l’application web soit servie dans le chemin racine, assurez-vous que votre application définit la racine du contexte sur le chemin racine : `<context-root>/</context-root>`. Pour plus d’informations, consultez le document [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -156,7 +156,7 @@ Pendant l’intervalle de 30 secondes, vous pouvez vérifier le déroulement de 
 
 #### <a name="continuous-recording"></a>Enregistrement continu
 
-Vous pouvez utiliser la boîte noire SQL Zulu pour profiler en continu votre application Java avec un impact minimal sur les performances du runtime ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Pour ce faire, exécutez la commande d’Azure CLI suivante pour créer un paramètre d’application nommé JAVA_OPTS avec la configuration nécessaire. Le contenu du paramètre d’application JAVA_OPTS est transmis à la commande `java` au démarrage de votre application.
+Vous pouvez utiliser la boîte noire SQL Zulu pour profiler en continu votre application Java avec un impact minimal sur les performances du runtime. Pour ce faire, exécutez la commande d’Azure CLI suivante pour créer un paramètre d’application nommé JAVA_OPTS avec la configuration nécessaire. Le contenu du paramètre d’application JAVA_OPTS est transmis à la commande `java` au démarrage de votre application.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -189,7 +189,7 @@ La journalisation du Stockage Blob Azure pour les services App Services Linux ne
 
 ::: zone-end
 
-Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux d’activité de traces Java dans Application Insights](../azure-monitor/app/java-trace-logs.md).
+Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux d’activité de traces Java dans Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
 
 ## <a name="customization-and-tuning"></a>Personnalisation et réglage
 
@@ -361,7 +361,54 @@ Vous pouvez interagir ou déboguer l'outil Java Key Tool en [ouvrant une connexi
 
 ## <a name="configure-apm-platforms"></a>Configurer des plateformes d’APM
 
-Cette section explique comment connecter des applications Java déployées sur Azure App Service sur Linux avec les plateformes de supervision des performances d’application (APM) NewRelic et AppDynamics.
+Cette section explique comment connecter des applications Java déployées sur Azure App Service avec Azure Monitor Application Insights, NewRelic et des plateformes de surveillance des performances d’application AppDynamics.
+
+### <a name="configure-application-insights"></a>Configurer Application Insights
+
+Azure Monitor Application Insights est un service de surveillance des applications natif Cloud, qui permet aux clients d’observer les défaillances, les goulots d’étranglement et les modèles d’utilisation pour améliorer les performances des applications et réduire le temps moyen de résolution (MTTR). Quelques clics ou commandes de l’interface CLI suffisent pour activer la surveillance de vos applications Node.js ou Java, qui collecte automatiquement les journaux, métriques et traces distribuées, éliminant ainsi la nécessité d’inclure un kit de développement logiciel (SDK) dans votre application.
+
+#### <a name="azure-portal"></a>Portail Azure
+
+Pour activer Application Insights à partir du portail Azure, accédez à **Application Insights** dans le menu de gauche, puis sélectionnez **Activer Application Insights**. Par défaut, une nouvelle ressource Application Insights du même nom que votre application web est utilisée. Vous pouvez choisir d’utiliser une ressource Application Insights existante ou de modifier le nom. Cliquez sur **Appliquer** en bas
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Pour activer Application Insights via Azure CLI, vous devez créer une ressource Application Insights et définir deux paramètres d’application sur le portail pour connecter Application Insights à votre application web.
+
+1. Activer l’extension Application Insights
+
+    ```bash
+    az extension add -n application-insights
+    ```
+
+2. Créez une ressource Application Insights à l’aide de la commande de l’interface CLI ci-dessous. Remplacez les espaces réservés par le nom de ressource et le groupe de votre choix.
+
+    ```bash
+    az monitor app-insights component create --app <resource-name> -g <resource-group> --location westus2  --kind web --application-type web
+    ```
+
+    Notez les valeurs pour `connectionString` et `instrumentationKey`, car vous en aurez besoin à l’étape suivante.
+
+    > Pour récupérer une liste d’autres emplacements, exécutez la commande `az account list-locations`.
+
+::: zone pivot="platform-windows"
+    
+3. Définissez la clé d’instrumentation, la chaîne de connexion et la version de l’agent de surveillance en tant que paramètres d’application sur l’application web. Remplacez `<instrumentationKey>` et `<connectionString>` par les valeurs notées à l’étape précédente.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
+    ```
+
+::: zone-end
+::: zone pivot="platform-linux"
+    
+3. Définissez la clé d’instrumentation, la chaîne de connexion et la version de l’agent de surveillance en tant que paramètres d’application sur l’application web. Remplacez `<instrumentationKey>` et `<connectionString>` par les valeurs notées à l’étape précédente.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
+    ```
+
+::: zone-end
 
 ### <a name="configure-new-relic"></a>Configurer New Relic
 
@@ -956,13 +1003,18 @@ Pour confirmer que la source de source a été ajoutée au serveur JBoss, connec
 
 ## <a name="choosing-a-java-runtime-version"></a>Choix d’une version du runtime Java
 
-App Service permet aux utilisateurs de choisir la version majeure de la JVM, telle que Java 8 ou Java 11, ainsi que sa version mineure, telle que 1.8.0_232 ou 11.0.5. Vous pouvez également décider de mettre à jour automatiquement la version mineure quand de nouvelles versions mineures sont disponibles. Dans la plupart des cas, les sites de production doivent utiliser des versions mineures épinglées de la JVM. Cela empêchera des interruptions non anticipées lors d’une mise à jour automatique de la version mineure.
+App Service permet aux utilisateurs de choisir la version majeure de la JVM, telle que Java 8 ou Java 11, ainsi que sa version mineure, telle que 1.8.0_232 ou 11.0.5. Vous pouvez également décider de mettre à jour automatiquement la version mineure quand de nouvelles versions mineures sont disponibles. Dans la plupart des cas, les sites de production doivent utiliser des versions mineures épinglées de la JVM. Cela empêchera des interruptions non anticipées lors d’une mise à jour automatique de la version mineure. Toutes les applications web Java utilisant des JVM 64 bits, cela n’est pas configurable.
 
 Si vous choisissez d’épingler la version mineure, vous devrez mettre à jour régulièrement la version mineure de la JVM sur le site. Pour vous assurer que votre application exécute la version mineure la plus récente, créez un emplacement de préproduction et incrémentez la version mineure sur le site intermédiaire. Une fois que vous avez confirmé que l’application s’exécute correctement sur la nouvelle version mineure, vous pouvez permuter les emplacements de préproduction et de production.
 
-## <a name="jboss-eap-hardware-options"></a>Options matérielles de JBoss EAP
+::: zone pivot="platform-linux"
 
-JBoss EAP est disponible uniquement sur les options matérielles Premium et Isolé. Les clients qui ont créé un site JBoss EAP sur un niveau Gratuit, Partagé, De base ou Standard pendant la préversion publique doivent évoluer vers le niveau matériel Premium ou Isolé pour éviter un comportement inattendu.
+## <a name="jboss-eap-app-service-plans"></a>Plans App Services pour JBoss EAP
+<a id="jboss-eap-hardware-options"></a>
+
+JBoss EAP est disponible uniquement sur les types de plans App Service Premium v3 et Isolé v2. Les clients qui ont créé un site JBoss EAP sur un niveau différent pendant la préversion publique doivent effectuer un scale-up vers le niveau de matériel Premium ou Isolé pour éviter un comportement inattendu.
+
+::: zone-end
 
 ## <a name="java-runtime-statement-of-support"></a>Informations de prise en charge du runtime Java
 

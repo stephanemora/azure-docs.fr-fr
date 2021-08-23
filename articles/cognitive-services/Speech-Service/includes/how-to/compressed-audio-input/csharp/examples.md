@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1ad4ffc070f03095ad80d2a57065f91be10e99fe
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e6a11521cd0694bd46a37f830e0f61105e4d7a91
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993310"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122263003"
 ---
 Pour configurer le SDK Speech afin d’accepter l’entrée audio compressée, créez `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux en spécifiant le format de compression du flux. Recherchez des exemples d’extraits de code connexes dans [À propos de l’API de flux d’entrée audio du Kit de développement logiciel (SDK) Speech](../../../../how-to-use-audio-input-streams.md).
 

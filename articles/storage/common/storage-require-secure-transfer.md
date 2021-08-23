@@ -6,27 +6,27 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7b62265d75aa7c7c09f1f6e55632dcbe98efc411
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1b45af43c9a5c76169deaef08c91ea7a9e8670c1
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128926"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371684"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
 Vous pouvez configurer votre compte de stockage pour accepter les demandes émanant des connexions sécurisées uniquement en définissant la propriété **Transfert sécurisé requis** pour le compte de stockage. Lorsque vous avez besoin d’un transfert sécurisé, toutes les demandes provenant d’une connexion non sécurisée sont rejetées. Microsoft vous recommande de toujours exiger un transfert sécurisé pour tous vos comptes de stockage.
 
-Lorsque le transfert sécurisé est exigé, un appel vers une opération de l’API REST de stockage Azure doit être effectué via HTTPS. Toute requête effectuée via HTTP est rejetée.
+Lorsque le transfert sécurisé est exigé, un appel vers une opération de l’API REST de stockage Azure doit être effectué via HTTPS. Toute requête effectuée via HTTP est rejetée. Par défaut, la propriété **Transfert sécurisé requis** est activée quand vous créez un compte de stockage.
 
-La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lorsque le transfert sécurisé est requis pour le compte de stockage. Parmi les exemples de connexions non sécurisées figurent celles effectuées sur SMB 2.1, SMB 3.0 sans chiffrement ou certaines versions du client SMB Linux.
+Azure Policy fournit une stratégie intégrée pour veiller à ce qu’un transfert sécurisé soit exigé pour vos comptes de stockage. Pour plus d’informations, consultez la section **Stockage** dans [Définitions de stratégies intégrées Azure Policy](../../governance/policy/samples/built-in-policies.md#storage).
 
-Par défaut, la propriété **Transfert sécurisé requis** est activée quand vous créez un compte de stockage.
+La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lorsque le transfert sécurisé est requis pour le compte de stockage. Parmi les exemples de connexions non sécurisées figurent celles effectuées sur SMB 2.1 ou SMB 3 sans chiffrement.
 
 > [!NOTE]
 > Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé. En outre, les comptes de stockage classiques ne sont pas pris en charge.

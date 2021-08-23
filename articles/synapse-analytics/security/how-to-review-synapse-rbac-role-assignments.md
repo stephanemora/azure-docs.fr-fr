@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9065ca9c7638f3d2bda36e4831b81963936f4b45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102153"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784026"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Guide pratique pour passer en revue les attributions de rôles RBAC Synapse
 
@@ -24,7 +24,7 @@ Cet article explique comment passer en revue les attributions de rôles actuelle
 Avec un rôle RBAC Synapse, vous pouvez répertorier les attributions de rôles RBAC Synapse pour toutes les étendues, y compris les attributions pour des objets auxquels vous n’avez pas accès. Seul un administrateur Synapse peut accorder un accès RBAC Synapse.  
 
 >[!Note]
->Les utilisateurs invités (utilisateurs d’un autre locataire Active Directory) ne peuvent pas voir ou gérer les attributions de rôles, même s’ils ont le rôle Administrateur Synapse.    
+> Les utilisateurs invités (utilisateurs d'un autre locataire AD) peuvent également voir et gérer l'attribution des rôles après avoir obtenu le rôle d'Administrateur Synapse.    
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio  
 

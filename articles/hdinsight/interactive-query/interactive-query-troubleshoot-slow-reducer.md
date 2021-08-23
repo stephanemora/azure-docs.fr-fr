@@ -4,12 +4,12 @@ description: Le réducteur est lent dans Azure HDInsight à partir d’une éven
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: f9b6e0d862d17badb1caa672852214cdd86abb49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 951dd8b4bc9ee68c88e6bae481482e041ae89054
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930818"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290590"
 ---
 # <a name="scenario-reducer-is-slow-in-azure-hdinsight"></a>Scénario : Le réducteur est lent dans Azure HDInsight
 
@@ -37,4 +37,4 @@ La valeur `true` est logique lorsque le nombre de partitions est plus grand et q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

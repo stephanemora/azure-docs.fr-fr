@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7cee2be3c1d7a97b87560873d6cef07ec361ee99
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d9d817077b1bdfb0bd53ec18f25def1c9615d2fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524613"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur unique
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l'article [Niveaux de tarification](concepts-pricing-tiers.md).
@@ -65,7 +65,7 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 - La restauration d’un serveur supprimé n’est pas prise en charge.
 
 ### <a name="utf-8-characters-on-windows"></a>Caractères UTF-8 sur Windows
-- Dans certains scénarios, les caractères UTF-8 ne sont pas entièrement pris en charge dans PostgreSQL open source sur Windows, ce qui affecte la base de données Azure pour PostgreSQL. Veuillez consulter la conversation sur [le bogue 15476 # dans l’archive postgresql](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) pour plus d’informations.
+- Dans certains scénarios, les caractères UTF-8 ne sont pas entièrement pris en charge dans PostgreSQL open source sur Windows, ce qui affecte la base de données Azure pour PostgreSQL. Veuillez consulter la conversation sur [le bogue 15476 # dans l’archive postgresql](https://www.postgresql.org/message-id/2101.1541220270%40sss.pgh.pa.us) pour plus d’informations.
 
 ### <a name="gss-error"></a>Erreur GSS
 Si vous voyez une erreur relative à **GSS**, vous utilisez probablement une version plus récente du client/pilote qui n’est pas encore entièrement prise en charge par Azure Postgres Single Server. Cette erreur est connue pour affecter les [versions 42.2.15 et 42.2.16 du pilote JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).

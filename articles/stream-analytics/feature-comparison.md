@@ -6,12 +6,12 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb51198fec12590b497f94b23fce8b32b67bb8c
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020534"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527756"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
 
@@ -37,13 +37,13 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Répertorier les travaux et afficher les entités de travail     |Oui         |Oui        |Oui         |
 |Exporter un travail vers un projet local     |Non          |Oui         |Oui         |
 |Envoyer, lancer et arrêter des tâches     |Oui         |Oui         |Oui         |
-|Afficher les métriques de tâche et le diagramme     |Oui         |Oui         |Ouvrir dans le portail         |
-|Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Non          |
-|Journaux d’activité de ressources     |Oui         |Non         |Non          |
-|Propriétés de message personnalisées     |Oui         |Oui         |Non        |
-|Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non |
+|Afficher les métriques de tâche et le diagramme     |Oui         |Oui         |Oui         |
+|Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Oui         |
+|Journaux d’activité de ressources     |Oui         |Non         |Oui         |
+|Propriétés de message personnalisées     |Oui         |Oui         |Oui       |
+|Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Oui|
 |UDF et UDA JavaScript     |Oui         |Oui         |Windows uniquement         |
-|Machine Learning Service     |Oui        |Oui         |Non         |
+|Machine Learning Service     |Oui        |Oui         |Oui         |
 |Azure Machine Learning Studio (classique)|Oui, mais la requête ne peut pas être testée        |Oui |Non          |
 |Niveau de compatibilité     |1.0</br>1.1</br>1.2 (valeur par défaut)         |1.0</br>1.1</br>1.2 (valeur par défaut)           |1.0</br>1.1</br>1.2 (valeur par défaut)           |
 |Fonctions de détection d’anomalie ML intégrées     |Oui         |Oui         |Oui         |

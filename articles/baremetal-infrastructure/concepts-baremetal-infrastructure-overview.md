@@ -3,20 +3,19 @@ title: Qu'est-ce que BareMetal Infrastructure sur Azure ?
 description: Fournit une vue d'ensemble de BareMetal Infrastructure sur Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
-ms.date: 04/14/2021
-ms.openlocfilehash: c0fd250a63ce93d3f8b62dfe76fe753c928801ce
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 05/27/2021
+ms.openlocfilehash: c0f3303f02332e9fc7766b1c73c9bbfa607a30c1
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536896"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653270"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>Qu'est-ce que BareMetal Infrastructure sur Azure ?
 
 Microsoft Azure offre une infrastructure cloud qui englobe un large éventail de services cloud intégrés permettant de répondre aux besoins de votre entreprise. Mais dans certains cas, vous pouvez être amené à exécuter des services sur des serveurs nus sans couche de virtualisation. Et vous pouvez avoir besoin d'un accès racine, ainsi que d'un contrôle sur le système d'exploitation. Afin de répondre à ce besoin, Azure propose BareMetal Infrastructure pour différentes applications stratégiques et à forte valeur ajoutée.
 
-BareMetal Infrastructure se compose d'instances BareMetal dédiées (instances de calcul), d'un stockage hautes performances et adapté aux applications (NFS, ISCSI et Fibre Channel), ainsi que d'un ensemble de réseaux locaux virtuels (VLAN) spécifiques aux fonctions au sein d'un environnement isolé. Le stockage peut être partagé entre plusieurs instances BareMetal pour bénéficier de fonctionnalités telles que des clusters scale-out ou pour créer des paires haute disponibilité avec STONITH.
+L’infrastructure BareMetal est constituée d’instances BareMetal dédiées (instances de calcul). Elle dispose d'un stockage hautes performances et adapté aux applications (NFS, ISCSI et Fibre Channel), ainsi que d'un ensemble de réseaux locaux virtuels (VLAN) spécifiques aux fonctions au sein d'un environnement isolé. Le stockage peut être partagé entre plusieurs instances BareMetal pour bénéficier de fonctionnalités telles que des clusters scale-out ou des paires haute disponibilité avec STONITH.
  
 Cet environnement dispose également de réseaux VLAN spéciaux auxquels vous pouvez accéder si vous exécutez des machines virtuelles sur un ou plusieurs réseaux virtuels (VNet) Azure dans le cadre de votre abonnement Azure. L'ensemble de l'environnement est représenté sous forme de groupe de ressources dans votre abonnement Azure.
 
@@ -28,13 +27,16 @@ Certaines charges de travail centrales de l'entreprise sont constituées de tech
 
 BareMetal Infrastructure est conçu, certifié et testé pour une sélection d'applications. Azure, qui a été le premier à proposer de telles solutions, garde une longueur d'avance sur la concurrence en proposant le plus large portefeuille et les systèmes les plus sophistiqués.
 
-BareMetal Infrastructure offre les avantages suivants : 
+### <a name="baremetal-benefits"></a>Avantages BareMetal  
 
-- Instances dédiées
+L’infrastructure Bare Metal est conçue pour les charges de travail critiques qui requièrent une certification pour exécuter vos applications d’entreprise. Les instances BareMetal sont dédiées à vous uniquement et vous disposez d’un accès complet (accès racine) au système d’exploitation (SE). Vous gérez l’installation du SE et des applications en fonction de vos besoins. Pour des besoins de sécurité, les instances sont approvisionnées au sein de votre réseau virtuel Azure (VNet) sans connectivité Internet. Seuls les services s’exécutant sur vos machines virtuelles et d’autres services Azure dans le même réseau de Niveau 2 peuvent communiquer avec vos instances BareMetal.  
+
+BareMetal Infrastructure offre les avantages suivants :
+
 - Matériel certifié pour les charges de travail spécialisées
     - SAP (reportez-vous à la [Note SAP N°1928533](https://launchpad.support.sap.com/#/notes/1928533))
     - Oracle (reportez-vous au [Document Oracle N°948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
-- Matériel nu (aucune virtualisation du calcul)
+- Instance BareMetal non hypervisée, propriété de locataire unique
 - Faible latence entre les machines virtuelles d'applications hébergées sur Azure et les instances BareMetal (0,35 ms)
 - Tous les disques SSD Flash et NVMe
     - Jusqu'à 1 Po/locataire 
@@ -45,23 +47,6 @@ BareMetal Infrastructure offre les avantages suivants :
 - Composants échangeables à chaud pour remplacements en cas de panne (sans reconfiguration)
 - Fenêtres de maintenance coordonnées par le client
 - Captures instantanées, archivage, mise en miroir et clonage prenant en charge les applications
-
-
-## <a name="baremetal-benefits"></a>Avantages BareMetal  
-
-L’infrastructure Bare Metal est conçue pour les charges de travail critiques qui requièrent une certification pour exécuter vos applications d’entreprise. Les instances BareMetal sont dédiées à vous uniquement et vous disposez d’un accès complet (accès racine) au système d’exploitation (SE). Vous gérez l’installation du SE et des applications en fonction de vos besoins. Pour des besoins de sécurité, les instances sont approvisionnées au sein de votre réseau virtuel Azure (VNet) sans connectivité Internet. Seuls les services s’exécutant sur vos machines virtuelles et d’autres services Azure dans le même réseau de Niveau 2 peuvent communiquer avec vos instances BareMetal.  
-
-BareMetal Infrastructure offre les avantages suivants : 
-
-- Matériel certifié pour les charges de travail spécialisées
-- SAP (reportez-vous à la [Note SAP N°1928533](https://launchpad.support.sap.com/#/notes/1928533))
-- Oracle (reportez-vous au [Document Oracle N°948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
-- Instance BareMetal non hypervisée, propriété de locataire unique
-- Faible latence entre les machines virtuelles d'applications hébergées sur Azure et les instances BareMetal (0,35 ms)
-- Support de tous les disques SSD Flash et NVMe
-- Base de données jusqu’à 1 Po/locataire 
-- IOPS jusqu'à 1,2 million/locataire 
-- Bande passante réseau de 50 Go 
 
 ## <a name="sku-availability-in-azure-regions"></a>Disponibilité des références dans les régions Azure
 
@@ -92,6 +77,7 @@ Une fois l’infrastructure Bare Metal approvisionnée, le SE, les réseaux, les
 Toutes les ressources BareMetal Infrastructure, ainsi que leurs états et attributs, sont visibles sur le portail Azure. Vous pouvez également utiliser les instances, et ouvrir des demandes de service et des tickets de support à partir de là. 
 
 ## <a name="operational-model"></a>Modèle opérationnel
+
 BareMetal Infrastructure est conforme aux normes ISO 27001, ISO 27017, SOC 1 et SOC 2. Elle utilise également un modèle BYOL : système d’exploitation, charge de travail spécialisée et applications tierces.  
 
 Dès que vous recevez un accès racine et le contrôle total, vous assumez la responsabilité des éléments suivants :
@@ -120,6 +106,7 @@ Dans l’infrastructure multilocataire du tampon BareMetal, les clients sont dé
 >Un client déployant une instance BareMetal est isolé dans un locataire. Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et de calcul attribuées à différents locataires ne peuvent pas se voir ni communiquer entre elles sur leurs instances BareMetal.
 
 ## <a name="operating-system"></a>Système d’exploitation
+
 Pendant l’approvisionnement de l’instance BareMetal, vous pouvez sélectionner le système d’exploitation que vous souhaitez installer sur les ordinateurs. 
 
 >[!NOTE]
@@ -130,6 +117,7 @@ Les versions disponibles du système d’exploitation Linux sont les suivantes 
 - SLES (SUSE Linux Enterprise Server)
 
 ## <a name="storage"></a>Stockage
+
 BareMetal Infrastructure fournit un stockage NFS et un stockage Fibre Channel hautement redondants. L'infrastructure offre une intégration en profondeur pour les charges de travail d'entreprise telles que SAP, SQL, etc. Elle offre également des fonctionnalités de protection et de gestion des données cohérentes avec les applications. Les outils de gestion en libre-service fournissent des fonctionnalités de capture instantanée, de clonage et de réplication granulaire à faible encombrement, ainsi qu'une surveillance au sein d'un volet unique. L'infrastructure offre des fonctionnalités zéro RPO et RTO pour répondre aux besoins de disponibilité des données et de continuité de l'activité. 
 
 L'infrastructure de stockage offre les avantages suivants :
@@ -147,6 +135,7 @@ Les protocoles d'accès aux données suivants sont pris en charge :
 - NVMe over FC  
 
 ## <a name="networking"></a>Mise en réseau
+
 L’architecture des services réseau Azure est un composant clé de la réussite du déploiement des charges de travail spécialisées sur les instances BareMetal. Il est probable que certains systèmes informatiques ne trouvent pas encore dans Azure. Azure offre une technologie réseau qui lui permet de se présenter comme un centre de données virtuel pour vos déploiements de logiciels locaux. Les fonctionnalités réseau Azure requises pour les instances BareMetal sont les suivantes :
 
 - Réseaux virtuels Azure connectés au circuit Azure ExpressRoute qui se connecte à vos ressources réseau locales.

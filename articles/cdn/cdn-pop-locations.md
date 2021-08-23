@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: e58ce2b4fa016a79050425dad4e4dd0b784f0c9c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f51ca01988a090c4c61b821c16ec67f20d2c679f
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472356"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416998"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Couverture Azure CDN par Metro 
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Cet article répertorie les éléments métros actuels contenant des emplacement
 | Afrique | Johannesbourg, Afrique du Sud <br/> Nairobi, Kenya | Afrique du Sud |
 | Moyen-Orient | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar<br />Émirats Arabes Unis |
 | Inde | Bengaluru (Bangalore), Inde<br />Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br /> | Inde |
-| Asia | Hong Kong (R.A.S.)<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan<br />Taipei, Taiwan <br />Manille, Philippines | Hong Kong (R.A.S.)<br />Indonésie<br />Israël<br />Japon<br />Macao (R.A.S.)<br />Malaisie<br />Philippines<br />Singapour<br />Corée du Sud<br />Taïwan<br />Thaïlande<br />Turquie<br />Vietnam |
+| Asia | Hong Kong (R.A.S.)<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Kaohsiung, Taïwan<br />Taipei, Taiwan <br />Manille, Philippines | Hong Kong (R.A.S.)<br />Indonésie<br />Israël<br />Japon<br />Macao (R.A.S.)<br />Malaisie<br />Philippines<br />Singapour<br />Corée du Sud<br />Taïwan<br />Thaïlande<br />Turquie<br />Vietnam |
 | Australie et Nouvelle Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
 
 ## <a name="next-steps"></a>Étapes suivantes

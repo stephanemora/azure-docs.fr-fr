@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2021
-ms.openlocfilehash: db614d99a3c25e6f782c0be6bea95ec82124b8e5
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 73512b0c1729fbdbbc62e0063670de8405ddbcb5
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554837"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113000281"
 ---
 # <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Accès d’indexeur au service Stockage Azure à l’aide de l’exception de service approuvé (Recherche cognitive Azure)
 
@@ -27,7 +27,7 @@ Les indexeurs d’un service Recherche cognitive Azure qui accèdent aux donnée
 Suivez les instructions de la page [Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée](search-howto-managed-identities-storage.md). Lorsque vous avez terminé, vous aurez inscrit votre service de recherche auprès de Azure Active Directory en tant que service approuvé, et vous aurez accordé des autorisations dans le stockage Azure qui donne à l’identité de recherche des droits spécifiques pour accéder aux données ou aux informations.
 
 > [!NOTE]
-> Les instructions vous guident dans une approche utilisant le portail pour configurer Recherche cognitive en tant que service approuvé. Pour réaliser cette opération dans le code, vous pouvez utiliser l’[API REST](/rest/api/searchmanagement/services/createorupdate), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) ou [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
+> Les instructions vous guident dans une approche utilisant le portail pour configurer Recherche cognitive en tant que service approuvé. Pour réaliser cette opération dans le code, vous pouvez utiliser l’[API REST](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity) ou [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Étape 2 : Autoriser les services Microsoft approuvés à accéder au compte de stockage
 

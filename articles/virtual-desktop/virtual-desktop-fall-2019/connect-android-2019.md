@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 35170dd87833f7e38d3829fca43c03f0e6725174
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 53f4ed035fc9f3a010a0677fa448a05ef189e20b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031208"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749990"
 ---
 # <a name="connect-to-azure-virtual-desktop-classic-with-the-android-client"></a>Connexion à Azure Virtual Desktop (classique) avec le client Android
 
 > S’applique à : Android 4.1 et versions ultérieures, Chromebooks avec ChromeOS 53 et versions ultérieures.
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../user-documentation/connect-android.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../connect-android.md).
 
 Vous pouvez accéder aux ressources Azure Virtual Desktop sur votre appareil Android avec notre client téléchargeable. Vous pouvez également utiliser le client Android sur des appareils Chromebook qui prennent en charge le Google Play Store. Ce guide explique comment configurer le client Android.
 

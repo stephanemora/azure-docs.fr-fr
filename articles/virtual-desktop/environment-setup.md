@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: bc854669c5d724da92c19c19a01f56ebe91f78ee
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b6162657520f91168f46c43c1d6d7f5cbfbe6d38
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757784"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031732"
 ---
 # <a name="azure-virtual-desktop-environment"></a>Environnement Azure Virtual Desktop
 
@@ -61,8 +61,8 @@ Pour découvrir comment configurer votre pool d’hôtes Azure Virtual Desktop, 
 
 Pour découvrir comment vous connecter à Azure Virtual Desktop, consultez les articles suivants :
 
-- [Se connecter avec Windows 10 ou Windows 7](connect-windows-7-10.md)
-- [Se connecter avec un navigateur web](connect-web.md)
-- [Se connecter avec le client Android](connect-android.md)
-- [Se connecter avec le client macOS](connect-macos.md)
-- [Se connecter avec le client iOS](connect-ios.md)
+- [Se connecter avec Windows 10 ou Windows 7](./user-documentation/connect-windows-7-10.md)
+- [Se connecter avec un navigateur web](./user-documentation/connect-web.md)
+- [Se connecter avec le client Android](./user-documentation/connect-android.md)
+- [Se connecter avec le client macOS](./user-documentation/connect-macos.md)
+- [Se connecter avec le client iOS](./user-documentation/connect-ios.md)

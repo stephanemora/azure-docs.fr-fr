@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4963e616b4a24ec502f0c571593e6433dcddb61c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85564557"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525985"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Connecter Palo Alto Networks à Azure Sentinel
 
@@ -28,6 +28,7 @@ ms.locfileid: "85564557"
 
 Cet article explique comment connecter votre appliance Palo Alto Networks à Azure Sentinel. Le connecteur de données Palo Alto Networks vous permet de connecter facilement vos journaux Palo Alto Networks à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’utilisation de Palo Alto Networks sur Azure Sentinel vous permet d’obtenir davantage d’informations sur l’utilisation d’Internet de votre organisation et améliore ses fonctionnalités de sécurité. 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Transférer les journaux Palo Alto Networks à l’agent Syslog
 
@@ -52,8 +53,6 @@ Configurez Palo Alto Networks pour transférer les messages Syslog au format CEF
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter les appliances Palo Alto Networks à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-
-
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

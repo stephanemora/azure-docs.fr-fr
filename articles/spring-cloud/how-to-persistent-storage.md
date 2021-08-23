@@ -1,18 +1,18 @@
 ---
 title: Guide pratique pour utiliser le stockage persistant dans Azure Spring Cloud | Microsoft Docs
 description: Guide pratique pour utiliser le stockage persistant dans Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 77ccfa08d5e2076a83c5a11df3ce6caf597c2d2f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 925f1d8113f08f1bc8b063623dcc85ac79964047
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134858"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525487"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Utiliser le stockage persistant dans Azure Spring Cloud
 
@@ -61,6 +61,7 @@ Si nécessaire, installez l’extension Spring Cloud pour l’interface de ligne
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 Autres opérations :
 
 * Créez une application avec un stockage persistant activé :

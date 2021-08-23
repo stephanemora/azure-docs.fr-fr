@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac603cef478b821d1fea72fce22004fc72860914
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744464"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228376"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure AD Multi-Factor Authentication avec des applications héritées à l'aide de mots de passe d'application
 
@@ -103,7 +103,7 @@ Lorsque les utilisateurs procèdent à leur inscription initiale à Azure AD Mul
 
 Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Pour obtenir plus d’informations ainsi que les étapes détaillées à suivre par les utilisateurs, consultez les ressources suivantes :
 * [Que sont les mots de passe d’application dans Azure AD Multi-Factor Authentication ?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [Créer des mots de passe d’application à partir de la page Informations de sécurité](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
+* [Créer des mots de passe d’application à partir de la page Informations de sécurité](../user-help/security-info-app-passwords.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

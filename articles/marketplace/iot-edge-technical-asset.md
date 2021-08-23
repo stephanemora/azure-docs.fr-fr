@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: 8ab847eee55eb9f2fc4d0d4ee7de1fa9eef3bcf0
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4804d1b315ce70a3ee145616f9fecbc1edc5e293
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294298"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540570"
 ---
 # <a name="prepare-iot-edge-module-technical-assets"></a>Préparer les ressources techniques du module Azure IoT Edge
 
@@ -66,11 +66,11 @@ Copiez ce texte HTML ou utilisez les fonctions de texte enrichi correspondantes 
 
 ### <a name="configuration"></a>Configuration
 
-Votre module doit inclure des paramètres de configuration par défaut pour rendre le déploiement sur un appareil IoT Edge aussi simple que possible. Ces informations peuvent être fournies dans la page **Configuration technique** du plan dans l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290). Le conteneur peut également inclure le SDK IoT Edge pour permettre la communication avec le hub de périphérie et IoT Hub.
+Votre module doit inclure des paramètres de configuration par défaut pour rendre le déploiement sur un appareil IoT Edge aussi simple que possible. Ces informations peuvent être fournies dans la page **Configuration technique** du plan dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace). Le conteneur peut également inclure le SDK IoT Edge pour permettre la communication avec le hub de périphérie et IoT Hub.
 
 #### <a name="default-configuration"></a>Configuration par défaut
 
-Les modules IoT Edge doivent pouvoir démarrer avec les paramètres par défaut fournis dans la page **Configuration technique** du plan dans l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290). Les paramètres par défaut suivants sont disponibles :
+Les modules IoT Edge doivent pouvoir démarrer avec les paramètres par défaut fournis dans la page **Configuration technique** du plan dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace). Les paramètres par défaut suivants sont disponibles :
 
 - **Itinéraires** par défaut
 - **Propriétés souhaitées du jumeau de module** par défaut
@@ -85,7 +85,7 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 #### <a name="configuration-documentation"></a>Documentation de configuration
 
-Tous les paramètres de configuration d’un module IoT Edge doivent être clairement documentés. Par exemple, vous devez documenter l’utilisation de ses routes, propriétés souhaitées du jumeau, variables d’environnement, options de création, etc. Vous devez fournir un lien vers votre documentation ou intégrer celle-ci à la description de votre offre ou plan. Vous pouvez fournir ces informations dans les pages **Description de l’offre** et **Liste des plans** de l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290).
+Tous les paramètres de configuration d’un module IoT Edge doivent être clairement documentés. Par exemple, vous devez documenter l’utilisation de ses routes, propriétés souhaitées du jumeau, variables d’environnement, options de création, etc. Vous devez fournir un lien vers votre documentation ou intégrer celle-ci à la description de votre offre ou plan. Vous pouvez fournir ces informations dans les pages **Description de l’offre** et **Liste des plans** de l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace).
 
 #### <a name="tags-and-versioning"></a>Balises et contrôle de version
 
@@ -133,7 +133,7 @@ Les partenaires reçoivent une notification à chaque changement cassant qui aff
 - Runtime IoT Edge
 - Directives de certification de module IoT Edge
 
-Les partenaires doivent mettre à jour et recertifier leurs offres en les republiant sur l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290).
+Les partenaires doivent mettre à jour et recertifier leurs offres en les republiant sur l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace).
 
 Votre offre est également recertifiée si vous la mettez à jour, par exemple, en ajoutant de nouvelles étiquettes d’image.
 

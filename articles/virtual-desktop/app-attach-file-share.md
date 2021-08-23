@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 80de8767d96cacc5fdec95f26efec88c55e2ceb3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707086"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745688"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
@@ -107,4 +107,4 @@ Une fois que vous avez terminé, vous trouverez peut-être utiles certaines des 
 - Posez vos questions concernant cette fonctionnalité à la [communauté technique d’Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - Vous pouvez également formuler vos commentaires concernant Azure Virtual Desktop sur le [Hub de commentaires Azure Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)

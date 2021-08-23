@@ -10,18 +10,18 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00b81e57a656afbfce13027a8855104faf889146
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96023821"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551737"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
 Voici quelques conseils de dépannage pour certains des problèmes courants que vous pouvez rencontrer lors de l’utilisation du service Microsoft Genomics, ou MSGEN.
 
- Pour accéder aux questions fréquentes (FAQ), qui ne sont pas liées à la résolution des problèmes, consultez [Questions courantes](frequently-asked-questions-genomics.md).
+ Pour accéder aux questions fréquentes (FAQ), qui ne sont pas liées à la résolution des problèmes, consultez [Questions courantes](frequently-asked-questions-genomics.yml).
 ## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Étape 1 : Rechercher les codes d’erreur associés au flux de travail
 
 Vous pouvez localiser les messages d’erreur associés au flux de travail en :
@@ -142,4 +142,4 @@ Si vos tâches continuent d’échouer, ou si vous avez d’autres questions, co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à résoudre les problèmes courants liés au service Microsoft Genomics. Pour plus d’informations et pour consulter les questions fréquentes (FAQ) plus générales, consultez [Questions courantes](frequently-asked-questions-genomics.md). 
+Dans cet article, vous avez appris à résoudre les problèmes courants liés au service Microsoft Genomics. Pour plus d’informations et pour consulter les questions fréquentes (FAQ) plus générales, consultez [Questions courantes](frequently-asked-questions-genomics.yml). 

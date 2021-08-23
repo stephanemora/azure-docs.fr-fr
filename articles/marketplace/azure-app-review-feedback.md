@@ -4,15 +4,15 @@ description: Gérez les commentaires relatifs à votre offre d’application Azu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 56e6de0faeeba6824f17bbe179e7c9b5421163d8
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 06127505c992c842bde27508b69132b62c145cf0
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231320"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111542473"
 ---
 # <a name="handle-review-feedback-for-azure-application-offers"></a>Gérer les commentaires de révision des offres d’applications Azure
 

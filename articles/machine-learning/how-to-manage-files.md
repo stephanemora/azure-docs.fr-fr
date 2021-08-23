@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 57392991be00d8e34a378309cf8a0f124e988236
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739022"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460555"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>Créer et gérer des fichiers dans votre espace de travail
 
@@ -23,7 +23,7 @@ Découvrez comment créer et gérer des fichiers dans votre espace de travail Az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-files"></a><a name="create"></a> Créer des fichiers

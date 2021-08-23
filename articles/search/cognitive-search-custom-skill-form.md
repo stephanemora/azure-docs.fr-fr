@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 170d6078863feb76582974e4b1581ea60edca7c2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 1f0085695d810a2e6c30da410ca4d11fe4d5f490
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527687"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556007"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemple : Créer une compétence personnalisée Form Recognizer
 
@@ -26,7 +26,7 @@ Dans cet exemple d’ensemble de compétences de la Recherche cognitive Azure, v
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
-[!INCLUDE [create resource](../applied-ai-services/form-recognizer/includes/create-resource.md)]
+[!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
 
 ## <a name="train-your-model"></a>Entraîner votre modèle
 
@@ -34,7 +34,7 @@ Vous devez entraîner un modèle Form Recognizer avec vos formulaires d’entré
 
 ## <a name="set-up-the-custom-skill"></a>Configurer la compétence personnalisée
 
-Ce tutoriel utilise le projet [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) dans le dépôt GitHub [Super compétences de la Recherche Azure](https://github.com/Azure-Samples/azure-search-power-skills). Clonez ce dépôt sur votre ordinateur local, puis naviguez vers **Vision/AnalyzeForm/** pour accéder au projet. Ouvrez ensuite _AnalyzeForm.csproj_ dans Visual Studio. Ce projet crée une ressource Azure Function qui satisfait l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md) et qui peut être utilisée pour l’enrichissement de la Recherche cognitive Azure. Il prend des documents de formulaire comme entrées et génère (sous forme de texte) les paires clé/valeur que vous spécifiez.
+Ce tutoriel utilise le projet [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) dans le dépôt GitHub [Super compétences de la Recherche Azure](https://github.com/Azure-Samples/azure-search-power-skills). Clonez ce dépôt sur votre ordinateur local, puis naviguez vers **Vision/AnalyzeForm/** pour accéder au projet. Ouvrez ensuite _AnalyzeForm.csproj_ dans Visual Studio. Ce projet crée une ressource Azure Function qui satisfait l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md) et qui peut être utilisée pour l’enrichissement de la Recherche cognitive Azure. Il prend des documents de formulaire comme entrées et génère (sous forme de texte) les paires clé/valeur que vous spécifiez.
 
 Tout d’abord, ajoutez des variables d’environnement au niveau du projet. Localisez le projet **AnalyzeForm** dans le volet gauche, cliquez dessus avec le bouton droit, puis sélectionnez **Propriétés**. Dans la fenêtre **Propriétés**, cliquez sur l’onglet **Débogage**, puis recherchez le champ **Variables d’environnement**. Cliquez sur **Ajouter** pour ajouter les variables suivantes :
 * `FORMS_RECOGNIZER_ENDPOINT_URL` avec la valeur définie sur l’URL de votre point de terminaison.

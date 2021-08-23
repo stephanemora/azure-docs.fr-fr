@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7327af790eb8a3ddda646f0da208083d4431934a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870498"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280222"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -296,7 +296,7 @@ Configurez la publication d’adresses IP pour permettre à un client de se con
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 Les étapes décrites dans ce document ont permis de créer des clusters dans différents groupes de ressources Azure. Pour supprimer toutes les ressources créées, vous pouvez supprimer les deux groupes ressources créés : **kafka-principal-rg** et **kafka-secondary_rg**. La suppression de ces groupes de ressources supprime toutes les ressources créées par la suite dans ce document, y compris les clusters, réseaux virtuels et comptes de stockage.
 

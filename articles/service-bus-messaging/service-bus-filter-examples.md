@@ -3,12 +3,12 @@ title: Définir des filtres d’abonnement dans Azure Service Bus | Microsoft Do
 description: Cet article fournit des exemples qui permettent de définir des filtres et des actions sur les abonnements aux rubriques Azure Service Bus.
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: bcbb72901ed8e2dfe0932163ee18683e0011ce70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8146e1be1af354b820ea0d3fed7ba9434a4d4e1d
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100656321"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302605"
 ---
 # <a name="set-subscription-filters-azure-service-bus"></a>Définir des filtres d’abonnement (Azure Service Bus)
 Cet article fournit quelques exemples de définition de filtres sur les abonnements aux rubriques Service Bus. Pour obtenir des informations conceptuelles sur les filtres, consultez [Filtres](topic-filters.md).
@@ -62,7 +62,7 @@ DateTimeMp2-DateTimeMp1 <= @timespan
 ## <a name="using-in-and-not-in"></a>Utilisation des clauses IN et NOT IN
 
 ```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
+StoreId IN('Store1', 'Store2', 'Store3')
 
 sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
 

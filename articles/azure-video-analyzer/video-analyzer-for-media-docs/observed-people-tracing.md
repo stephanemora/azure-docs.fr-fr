@@ -1,20 +1,21 @@
 ---
 title: Tracer les personnes observées dans une vidéo
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Cette rubrique offre une vue d’ensemble du traçage des personnes observées dans une vidéo.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.service: azure-video-analyzer
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 04/30/2021
 ms.author: juliako
-ms.openlocfilehash: c1e4ca3dc15bb7d390d8525d1819fe9efa3e4ba8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 469073650bbcf00ba2634ac5be68c10bf7ac49ee
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385979"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115411"
 ---
 # <a name="trace-observed-people-in-a-video"></a>Tracer les personnes observées dans une vidéo
 

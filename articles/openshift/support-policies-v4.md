@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: b652087db880cf9bd85d5d3eb00b989bc7be18e4
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: d6f3368619395934dd358536e39f227bc66dfbfd
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893525"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497396"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Stratégie de prise en charge d’Azure Red Hat OpenShift
 
@@ -30,6 +30,7 @@ Certaines configurations pour les clusters Azure Red Hat OpenShift 4 peuvent aff
 * Ne supprimez pas ou ne modifiez pas la journalisation du service Azure Red Hat OpenShift (pods MDSD).
 * Ne supprimez pas ou ne modifiez pas le secret d’extraction de cluster « arosvc.azurecr.io ».
 * Toutes les machines virtuelles du cluster doivent disposer d’un accès Internet sortant direct, du moins aux points de terminaison Azure Resource Manager (ARM), et de la journalisation des services (Geneva).  Aucune forme de proxy HTTPS n’est prise en charge.
+* Ne modifiez pas la configuration DNS du réseau virtuel du cluster. Vous devez utiliser le programme de résolution Azure DNS par défaut.
 * Ne remplacez pas les objets MachineConfig du cluster (par exemple, la configuration kubelet) de quelque manière que ce soit.
 * Ne définissez pas d’options unsupportedConfigOverrides. La définition de ces options empêche les mises à niveau de versions mineures.
 * Le service Azure Red Hat OpenShift accède à votre cluster par le biais du service de liaison privée.  Ne supprimez pas et ne modifiez pas l’accès au service.

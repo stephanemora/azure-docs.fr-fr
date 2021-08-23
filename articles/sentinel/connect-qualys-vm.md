@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 8e11c4182520e143007b46c8a7907b5e71bfb27d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 111db39a1822e47fb8a14e10d3833fd58153f5b5
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097583"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563741"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions
 
 > [!IMPORTANT]
 > Le connecteur de données Qualys VM dans Azure Sentinel est actuellement en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur Qualys Vulnerability Management (VM) vous permet de connecter facilement tous les journaux de votre solution de sécurité [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’intégration entre Qualys VM et Azure Sentinel utilise Azure Functions pour extraire des données de journal à l’aide de l’API REST.
 
@@ -54,6 +56,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à connecter Qualys VM à Azure Sentinel à l’aide d’applications de fonction Azure. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95462d60a9c77b78f9674a41d6ca44801f3e5ac0
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704359"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563642"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -32,7 +32,7 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 vSphere ESXi Host 5.5, 6.0 et 6.5
 
 #### <a name="prepare-a-linux-server"></a>Préparer un serveur Linux
-Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../vm/quick-collect-linux-computer.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux d’activité à un seul serveur Linux, comme dans l’exemple suivant.
+Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../vm/monitor-virtual-machine.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux d’activité à un seul serveur Linux, comme dans l’exemple suivant.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -199,4 +199,3 @@ Il peut y avoir plusieurs raisons :
 * Utiliser des [requêtes de journal](../logs/log-query-overview.md) dans Log Analytics pour afficher des données détaillées sur l’hôte VMware.
 * [Créer vos propres tableaux de bord](../visualize/tutorial-logs-dashboards.md) affichant des données de l’hôte VMware.
 * [Créer des alertes](../alerts/alerts-overview.md) lorsque des événements d’hôte VMware spécifiques se produisent.
-

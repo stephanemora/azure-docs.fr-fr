@@ -1,14 +1,14 @@
 ---
 title: Obtenir les changements des ressources
 description: Découvrez comment savoir quand une ressource a été modifiée, obtenir une liste des propriétés modifiées et évaluer les différences.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 103ebf0303ee2b8613ccafd13d9c8916ed7e1fbc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ff82a5c3d2f58ade8637d2f44308f9eeda11d09a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751604"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527742"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 

@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 06/01/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: fa7d17b208c4a950e82a8bdc4db243ebb44e4c41
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 21ea2dcb6f7ffc70a1ed5db15117b39b5b0016bd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896276"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796556"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Fonctionnalités du Pare-feu Azure Premium - Préversion
 
@@ -54,7 +54,7 @@ Pour en savoir plus sur les conditions requises pour les certificats d’autorit
 
 Un système IDPS (Intrusion Detection and Prevention System) vous permet de surveiller les activités malveillantes, de consigner des informations sur ces activités, de les signaler, voire de les bloquer. 
 
-Le Pare-feu Azure Premium propose un système IDPS basé sur les signatures pour permettre une détection rapide des attaques en recherchant des modèles spécifiques, tels que des séquences d’octets dans le trafic réseau ou des séquences d’instructions malveillantes connues utilisées par un programme malveillant. Les signatures IDPS sont complètement managées et mises à jour en permanence.
+Le Pare-feu Azure Premium propose un système IDPS basé sur les signatures pour permettre une détection rapide des attaques en recherchant des modèles spécifiques, tels que des séquences d’octets dans le trafic réseau ou des séquences d’instructions malveillantes connues utilisées par un programme malveillant. Les signatures IDPS sont complètement managées et mises à jour en permanence. Les fournisseurs peuvent être appliqués au trafic entrant, au trafic spoke-to-spoke (est-ouest) et au trafic sortant.
 
 Les signatures/ensembles de règles du Pare-feu Azure incluent les éléments suivants :
 - Accent mis sur la prise d’empreinte numérique des logiciels malveillants, des centres de commande et de contrôle, des kits de code malveillant exploitant une faille de sécurité et des diverses activités malveillantes manquées par les méthodes de protection traditionnelles

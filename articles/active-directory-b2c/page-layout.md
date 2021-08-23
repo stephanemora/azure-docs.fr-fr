@@ -8,19 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/05/2021
+ms.date: 05/26/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: bb2a0cbba9d1aaf4a4465de7d4b994cde45f6df1
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443404"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590177"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
 Les packages de mise en page sont régulièrement mis à jour afin d’ajouter des correctifs et des améliorations à leurs éléments de page. Le journal des modifications suivant indique les modifications introduites dans chaque version.
+
+> [!IMPORTANT]
+> Azure Active Directory B2C publie des améliorations et des correctifs avec chaque nouvelle version de mise en page. Nous vous recommandons vivement de maintenir vos versions de mise en page à jour afin que tous les éléments de la page reflètent les dernières améliorations en matière de sécurité et de normes d’accessibilité ainsi que vos commentaires.
+>
 
 ## <a name="jquery-version"></a>Version jQuery
 
@@ -33,6 +37,12 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 |1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Page autodéclarée (selfasserted)
+
+**2.1.6**
+- Correction d’une erreur de mot de passe effacé lorsque vous tapez trop rapidement dans un autre champ.
+
+**2.1.5**
+- Correction du problème de saut de curseur sur iOS lors de la modification au milieu du texte.
 
 **2.1.4**
 - JQuery mis à jour vers la version 3.5.1.
@@ -93,6 +103,10 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 
 > [!TIP]
 > Si vous localisez votre page pour prendre en charge plusieurs paramètres régionaux ou langues dans un flux utilisateur. L’article [ID de localisation](localization-string-ids.md) fournit la liste des ID de localisation que vous pouvez utiliser pour la version de page que vous sélectionnez.
+
+**2.1.5**
+- Correction d’un problème dans l’ordre de tabulation lorsque le modèle de sélecteur IDP est utilisé sur la page de connexion.
+- Correction d’un problème d’encodage sur le texte du lien de connexion.
 
 **2.1.4**
 - JQuery mis à jour vers la version 3.5.1.

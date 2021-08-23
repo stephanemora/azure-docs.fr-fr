@@ -1,6 +1,6 @@
 ---
-title: Comment créer des plans pour votre offre SaaS dans le Centre pour partenaires Microsoft
-description: Comment créer des plans pour une nouvelle offre de logiciel en tant que service (SaaS) à l’aide du portail de la Place de marché commerciale Microsoft dans l’Espace partenaires.
+title: Créer des plans pour une offre SaaS dans la Place de marché Azure
+description: Créer des plans pour une nouvelle offre Software as a Service (SaaS) dans la Place de marché Azure.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,28 +8,25 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 714197288708691cb35e887975d1fabbe27cb406
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044717"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555377"
 ---
-# <a name="how-to-create-plans-for-your-saas-offer"></a>Comment créer des plans pour votre offre SaaS
+# <a name="create-plans-for-a-saas-offer"></a>Créer des plans pour une offre SaaS
 
 Les offres vendues par le biais de la Place de marché commerciale Microsoft doivent avoir au moins un plan. Vous pouvez créer divers plans avec différentes options dans la même offre. Ces plans (parfois appelés références SKU) peuvent différer en termes de version, de monétisation ou de niveaux de service. Pour obtenir des conseils détaillés sur les plans, consultez [Plans et tarification des offres de la Place de marché commerciale](plans-pricing.md).
 
 > [!NOTE]
-> Si vous choisissez de traiter les transactions indépendamment, vous ne verrez pas cette option. Au lieu de cela, passez à [Comment vendre votre offre SaaS](create-new-saas-offer-marketing.md).
+> Si vous choisissez de traiter les transactions indépendamment, vous ne verrez pas cette option. Au lieu de cela, passez à [Vendre une offre SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="create-a-plan"></a>Créer un plan
 
 1. Vers le haut de l’onglet **Vue d’ensemble du plan** , sélectionnez **+ Créer un plan**.
-
 1. Dans la boîte de dialogue qui s’affiche, dans la zone **ID du plan**, entrez un ID de plan unique. Utilisez jusqu’à 50 caractères alphanumériques en minuscules, tirets ou traits de soulignement. Vous ne pouvez pas modifier l’ID de plan une fois que vous avez sélectionné **Créer**.
-
 1. Dans la zone **Nom du plan**, entrez un nom unique pour ce plan. Utilisez un maximum de 50 caractères.
-
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="define-the-plan-listing"></a>Définir la liste des plans
@@ -37,7 +34,6 @@ Les offres vendues par le biais de la Place de marché commerciale Microsoft doi
 Dans l’onglet **Liste des plans**, vous pouvez définir le nom et la description du plan comme vous souhaitez qu’ils apparaissent dans la Place de marché commerciale.
 
 1. Dans la zone **Nom du plan**, le nom que vous avez fourni précédemment pour ce plan s’affiche. Vous pouvez le modifier à tout moment. Ce nom apparaîtra dans la Place de marché commerciale comme titre du plan logiciel de votre offre.
-
 1. La zone **Description du plan** permet d’expliquer ce qui rend ce plan logiciel unique et de pointer les différences par rapport aux autres plans dans votre offre. Cette description peut contenir jusqu’à 500 caractères.
 1. Sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant : **Tarification et disponibilité**.
 
@@ -152,9 +148,9 @@ Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensem
 
 ## <a name="before-you-publish-your-offer"></a>Avant de publier votre offre
 
-Si vous ne l’avez pas déjà fait, créez une offre Développement et test pour tester votre offre avant de la publier en production. Pour en savoir plus, consultez [Créer une offre Développement et test](create-saas-dev-test-offer.md).
+Si vous ne l’avez pas déjà fait, créez une offre Développement et test pour tester votre offre avant de la publier en production. Pour plus d’informations, consultez [Créer une offre de test SaaS](create-saas-dev-test-offer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez le [guide pratique pour vendre votre offre SaaS](create-new-saas-offer-marketing.md) par le biais des programmes **Co-vente avec Microsoft** et **Revente via des fournisseurs de solutions Cloud**.
-- [Comment tester et publier une offre SaaS sur la Place de marché commerciale](test-publish-saas-offer.md).
+- [Vendre votre offre SaaS](create-new-saas-offer-marketing.md) par le biais des programmes **Co-vente avec Microsoft** et **Revente via des fournisseurs de solutions cloud**.
+- [Tester et publier une offre SaaS](test-publish-saas-offer.md).

@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 14660ca026dc51bc6e722559a28ef4a77361100b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714917"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094561"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -46,7 +46,7 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 | **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
 | **Démarrage UEFI**                  | Pris en charge. Les machines virtuelles UEFI seront migrées vers des machines virtuelles Azure de 2e génération.  |
 | **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.|
-| **Taille du disque**                  | 2 To pour le disque du système d’exploitation (démarrage du BIOS) ; 4 To pour le disque du système d’exploitation (démarrage d'UEFI) ; 4 To pour les disques de données.|
+| **Taille du disque**                  | jusqu’à 2 To pour le disque de système d’exploitation, 8 To pour les disques de données.|
 | **Nombre de disques** | Un maximum de 16 disques par machine virtuelle.|
 | **Disques/volumes chiffrés**    | Non pris en charge pour la migration.|
 | **RDM/disques directs**      | Non pris en charge pour la migration.|

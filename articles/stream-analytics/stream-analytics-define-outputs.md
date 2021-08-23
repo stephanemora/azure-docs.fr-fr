@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b2de0d25c8bdba99e6559bdec1902e9cda7b35c
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019344"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583092"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Sorties d’Azure Stream Analytics
 
@@ -25,10 +25,10 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 | Type de sortie | Partitionnement | Sécurité | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Oui|Utilisateur Azure Active Directory </br> , Identité managée|
-|[Azure SQL Database](sql-database-output.md)|Oui, facultatif.|Authentification utilisateur SQL, </br> Identité managée (préversion)|
+|[Azure SQL Database](sql-database-output.md)|Oui, facultatif.|Authentification utilisateur SQL, </br> Identité managée|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Oui|Authentification utilisateur SQL, </br> Identité managée (préversion)|
-|[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|Clé d’accès, </br> Identité managée (préversion)|
-|[Azure Event Hubs](event-hubs-output.md)|Oui, vous devez définir la colonne clé de partition dans la configuration de sortie.|Clé d’accès, </br> Identité managée (préversion)|
+|[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|Clé d’accès, </br> Identité managée|
+|[Azure Event Hubs](event-hubs-output.md)|Oui, vous devez définir la colonne clé de partition dans la configuration de sortie.|Clé d’accès, </br> Identité managée|
 |[Power BI](power-bi-output.md)|Non|Utilisateur Azure Active Directory, </br> Identité managée|
 |[Stockage Table Azure](table-storage-output.md)|Oui|Clé de compte|
 |[Files d’attente Azure Service Bus](service-bus-queues-output.md)|Oui|Clé d’accès|

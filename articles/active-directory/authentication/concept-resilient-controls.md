@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db90d49034fb61c26bf4528045d2b3f54d7a30fc
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: fe5f9987cb99aa90d1452b4f442e326d4e95bcee
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963835"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687800"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -72,7 +72,7 @@ Intégrez les contrôles d’accès suivants aux stratégies d’accès conditio
 5. Si vous protégez l’accès au VPN à l’aide de l’extension NPS Azure AD MFA, envisagez de fédérer votre solution VPN en tant [qu’application SAML](../manage-apps/view-applications-portal.md) et déterminez la catégorie de l’application, comme cela est recommandé ci-dessous. 
 
 >[!NOTE]
-> Pour implémenter des stratégies basées sur les risques, des licences [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) sont requises.
+> Pour implémenter des stratégies basées sur les risques, des licences [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) sont requises.
 
 L'exemple suivant décrit les stratégies que vous devez créer pour fournir un contrôle d'accès résilient permettant à l'utilisateur d'accéder à ses applications et ressources. Dans cet exemple, vous aurez besoin d'un groupe de sécurité **AppUsers** pour les utilisateurs cibles auxquels vous souhaitez octroyer l'accès, d'un groupe **CoreAdmins** pour les administrateurs principaux et d'un groupe **EmergencyAccess** pour les comptes d'accès d'urgence.
 Cet exemple de jeu de stratégies permettra aux utilisateurs sélectionnés du groupe **AppUsers** d'accéder aux applications sélectionnées s'ils se connectent à partir d'un appareil approuvé OU fournira une authentification forte, telle que l'authentification multifacteur. Il exclut les comptes d'urgence et les administrateurs principaux.

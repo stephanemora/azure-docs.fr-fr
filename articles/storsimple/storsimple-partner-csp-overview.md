@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa712d3d93c715f37972ac20174f92ffab530e01
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94964913"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085143"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Qu’est-ce que StorSimple pour le programme des fournisseurs de solutions cloud ?
 
@@ -32,7 +32,7 @@ La baie virtuelle StorSimple pour le programme des fournisseurs de solutions clo
 
 Pour plus d’informations sur StorSimple pour le programme des fournisseurs de solutions cloud, accédez à la page [Vue d’ensemble du programme des fournisseurs de solutions cloud Azure](/azure/cloud-solution-provider/overview/azure-csp-overview).
 
-Pour plus d’informations sur la facturation, la tarification, les offres incitatives et obtenir l’assistance relative aux fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions). 
+Pour plus d’informations sur la facturation, la tarification, les offres incitatives et obtenir l’assistance relative aux fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.yml) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions). 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Déployer et gérer StorSimple pour le programme des fournisseurs de solutions cloud
 
@@ -42,5 +42,5 @@ Pour plus d’informations, consultez [Deploy StorSimple Virtual Array for Cloud
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions).
+- Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.yml) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions).
 - Si vous êtes prêt à déployer votre solution StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer la baie virtuelle StorSimple pour le programme des fournisseurs de solutions cloud).

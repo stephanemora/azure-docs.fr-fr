@@ -11,12 +11,12 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 24bf347aa617e1a05aa8bf3284169aa669b297db
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6fe0fdf53235ce1ec42a2b46e95291c111ed2dff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707447"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562958"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Charger des données d’un fichier CSV sur Azure SQL Database ou SQL Managed Instance (fichiers plats)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Dans la base de données SQL, définissez une table en tant que table de destina
 
 Pour créer une table, ouvrez une invite de commandes et utilisez sqlcmd.exe pour exécuter la commande suivante :
 
-```sql
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
     CREATE TABLE DimDate2
     (
@@ -61,7 +61,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Ouvrez le Bloc-notes, copiez les lignes de données suivantes dans un nouveau fichier texte, puis enregistrez ce fichier dans votre répertoire temporaire local C:\Temp\DimDate2.txt. Ces données sont au format ASCII.
 
-```
+```txt
 20150301,1,3
 20150501,2,4
 20151001,4,2
@@ -78,7 +78,7 @@ Ouvrez le Bloc-notes, copiez les lignes de données suivantes dans un nouveau fi
 
 (Facultatif) Pour exporter vos données à partir d’une base de données SQL Server, ouvrez une invite de commandes et exécutez la commande suivante. Remplacez TableName, ServerName, DatabaseName, Username et Password par vos propres informations.
 
-```bcp
+```cmd
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ,
 ```
 
@@ -86,13 +86,13 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 Pour charger les données, ouvrez une invite de commandes et exécutez la commande suivante, en remplaçant les valeurs de ServerName, DatabaseName, Username, et Password par vos propres informations.
 
-```bcp
+```cmd
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Cette commande permet de vérifier que les données ont été correctement chargées.
 
-```bcp
+```cmd
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

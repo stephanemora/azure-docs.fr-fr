@@ -2,21 +2,21 @@
 title: Éléments de langage T-SQL dans le pool SQL dédié
 description: Liens vers la documentation relative aux éléments de langage T-SQL pris en charge pour un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/13/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3793da7fc9bbb0f8253f60d2324b48917f1aece1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5eb95ba359305d703a159f7bc163b916d46a603
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737504"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634329"
 ---
 # <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Éléments de langage T-SQL pour le pool SQL dédié dans Azure Synapse Analytics 
 

@@ -3,12 +3,12 @@ title: Activer l’identité managée dans le groupe de conteneurs
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure dans Azure Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f8f3c646487d86f4e1bce13ccbf28992b8b1497a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763984"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219277"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -278,13 +278,13 @@ az container exec \
 
 Exécutez les commandes suivantes dans le shell bash du conteneur. Connectez-vous d’abord à Azure CLI à l’aide de l’identité managée :
 
-```bash
+```azurecli
 az login --identity
 ```
 
 À partir du conteneur en cours d’exécution, récupérez le secret du coffre de clés :
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -292,7 +292,7 @@ az keyvault secret show \
 
 La valeur du secret est récupérée :
 
-```bash
+```output
 "Hello Container Instances"
 ```
 

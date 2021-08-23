@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 550e3bf40a8b1ebb65fc351c4f3a049638b4ebfd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6c181b456dd4fe5ea49a3888dce7efbc22981167
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080463"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289240"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -26,7 +26,7 @@ Afin d’obtenir l’observabilité sur l’ensemble de votre environnement, vou
 
 - [Azure DevOps Projects](../devops-project/overview.md) vous offre une expérience simplifiée avec votre code et dépôt Git existants, mais vous pouvez choisir d’utiliser un des exemples d’application pour créer un pipeline d’intégration continue (CI) et de déploiement continu (CD) vers Azure.
 - La [supervision continue dans votre pipeline de mise en production DevOps](./app/continuous-monitoring.md) vous permet de réguler ou de restaurer votre déploiement en fonction des données de supervision.
-- [Status Monitor](./app/monitor-performance-live-website-now.md) vous permet d’instrumenter une application .NET dynamique sur Windows avec Azure Application Insights, sans avoir besoin de modifier ou de redéployer votre code.
+- [Status Monitor](./app/status-monitor-v2-overview.md) vous permet d’instrumenter une application .NET dynamique sur Windows avec Azure Application Insights, sans avoir besoin de modifier ou de redéployer votre code.
 - Si vous avez accès au code de votre application, activez la supervision complète avec [Application Insights](./app/app-insights-overview.md) en installant le SDK Azure Monitor Application Insights pour [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-in-process-agent.md), [Node.js](./app/nodejs-quick-start.md) ou [autres langages de programmation](./app/platforms.md). Vous pouvez alors spécifier des événements, métriques ou vues de page personnalisés qui correspondent à votre application et à votre activité.
 
 

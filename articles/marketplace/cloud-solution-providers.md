@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 64ad2c4311ade34314edde6e841e747745378e8c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 754504374fc9955a0327d2fb2aa19c6cf1f2d4d3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716255"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295756"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
@@ -99,7 +99,7 @@ Si vous avez autorisé un partenaire dans le programme CSP et que ce partenaire 
 
 Si un partenaire du programme CSP n’a pas vendu votre produit à ses clients et que vous souhaitez supprimer le CSP après la publication de votre offre, suivez les instructions ci-dessous :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://go.microsoft.com/fwlink/?linkid=2165533). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -118,7 +118,7 @@ Utilisez cette section pour naviguer entre les trois options pour le revendeur C
 
 Si votre offre est actuellement **Option 1 : Tous les partenaires du programme CSP** et que vous souhaitez accéder à l’une des deux autres options, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://go.microsoft.com/fwlink/?linkid=2165533). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -136,7 +136,7 @@ Si votre offre est actuellement **Option 1 : Tous les partenaires du programme 
 
 Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 1 : Tous les partenaires du programme CSP**, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://go.microsoft.com/fwlink/?linkid=2165533). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -149,7 +149,7 @@ Si votre offre est actuellement **Option 2 : Partenaires spécifiques du progra
 
  Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 3 : Aucun partenaire du programme CSP**, vous ne pouvez accéder à cette option que si les partenaires du programme CSP que vous aviez précédemment autorisés n’ont pas revendu votre offre aux clients finaux. Utilisez les instructions suivantes pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://go.microsoft.com/fwlink/?linkid=2165533). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.

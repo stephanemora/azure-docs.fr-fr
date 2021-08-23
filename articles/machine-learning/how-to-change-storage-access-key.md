@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 6b6883910c68f719478b9da6f141720592a4392a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 039baa02a9504d0df9681370f31fef45f6c2ed99
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060486"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291010"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 
@@ -25,7 +25,7 @@ Découvrez comment changer les clés d’accès des comptes Stockage Azure utili
 Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’accès d’un compte Stockage Azure. Lorsque vous régénérez la clé d’accès, Azure Machine Learning doit être mis à jour pour utiliser la nouvelle clé. Azure Machine Learning peut utiliser le compte de stockage à la fois pour le stockage des modèles et comme banque de données.
 
 > [!IMPORTANT]
-> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure associé à l’espace de travail. Si la [suppression réversible](../key-vault/general/soft-delete-overview.md) est activée pour votre coffre de clés, cet article fournit des instructions pour la mise à jour des informations d’identification. Si vous désinscrivez le magasin de données et essayez de le réinscrire sous le même nom, l’action échoue. Consultez [Activer la suppression réversible pour un coffre de clés existant](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) pour savoir comment activer la suppression réversible dans ce scénario.
+> Les informations d’identification enregistrées avec les magasins de données sont enregistrées dans votre coffre de clés Azure associé à l’espace de travail. Si la [suppression réversible](../key-vault/general/soft-delete-overview.md) est activée pour votre coffre de clés, cet article fournit des instructions pour la mise à jour des informations d’identification. Si vous désinscrivez le magasin de données et essayez de le réinscrire sous le même nom, l’action échoue. Consultez [Activer la suppression réversible pour un coffre de clés existant](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault) pour savoir comment activer la suppression réversible dans ce scénario.
 
 ## <a name="prerequisites"></a>Prérequis
 

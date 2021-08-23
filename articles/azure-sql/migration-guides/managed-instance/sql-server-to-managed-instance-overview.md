@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 02/18/2020
-ms.openlocfilehash: c3d4b882a83b457527fcf71424357b8a51a86d84
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 345ef497ecb14279c117932bd2c9a1cf7b42ba1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783266"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532416"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Vue d’ensemble de la migration : de SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -217,11 +217,9 @@ Pour obtenir une aide supplémentaire, consultez les ressources suivantes qui on
 
 |Asset  |Description  |
 |---------|---------|
-|[Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Cet outil fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour une charge de travail. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer l’évaluation des grands patrimoines en fournissant un processus automatisé et uniforme de prise de décision concernant la plateforme cible.|
-|[Utilitaire DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|Vous pouvez utiliser DBLoader pour charger des données dans SQL Server à partir de fichiers texte délimités. Cet utilitaire de console Windows utilise l’interface de chargement en bloc SQL Server Native Client. L’interface fonctionne sur toutes les versions de SQL Server, ainsi qu’avec Azure SQL Managed Instance.|
-|[Utilitaire permettant de déplacer des connexions SQL Server locales vers Azure SQL Managed Instance](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|Un script PowerShell peut créer un script de commande T-SQL visant à recréer les connexions et certains utilisateurs de base de données d’un serveur SQL local vers Azure SQL Managed Instance. Cet outil permet de mapper automatiquement des comptes Windows Server Active Directory à des comptes Azure AD et, éventuellement, de migrer des connexions natives SQL Server.|
-|[Automatisation de la collecte des données perfmon à l’aide de Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Vous pouvez utiliser l’outil Logman pour collecter des données Perfmon (pour vous aider à comprendre les performances de base) et obtenir des recommandations sur la cible de la migration. Cet outil se sert de logman.exe pour créer la commande qui va créer, démarrer, arrêter et supprimer les compteurs de performances définis sur une instance SQL distante.|
-|[Migration de base de données vers Azure SQL Managed Instance en restaurant des sauvegardes complètes et différentielles](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|Ce livre blanc fournit une aide et des étapes pour accélérer les migrations de SQL Server vers Azure SQL Managed Instance si vous avez uniquement des sauvegardes différentielles et complètes (et aucune capacité de sauvegarde de fichier journal).|
+|[Outil et modèle d’évaluation d’une charge de travail de données](https://www.microsoft.com/download/details.aspx?id=103130)| Cet outil fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour une charge de travail. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer l’évaluation des grands patrimoines en fournissant un processus automatisé et uniforme de prise de décision concernant la plateforme cible.|
+|[Utilitaire permettant de déplacer des connexions SQL Server locales vers Azure SQL Managed Instance](https://www.microsoft.com/download/details.aspx?id=103111)|Un script PowerShell peut créer un script de commande T-SQL visant à recréer les connexions et certains utilisateurs de base de données d’un serveur SQL local vers Azure SQL Managed Instance. Cet outil permet de mapper automatiquement des comptes Windows Server Active Directory à des comptes Azure AD et, éventuellement, de migrer des connexions natives SQL Server.|
+|[Automatisation de la collecte des données perfmon à l’aide de Logman](https://www.microsoft.com/download/details.aspx?id=103114)|Vous pouvez utiliser l’outil Logman pour collecter des données Perfmon (pour vous aider à comprendre les performances de base) et obtenir des recommandations sur la cible de la migration. Cet outil se sert de logman.exe pour créer la commande qui va créer, démarrer, arrêter et supprimer les compteurs de performances définis sur une instance SQL distante.|
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 

@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: 1cdc286376d53bcf6491cd6d29f74a62df8b68fb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ba8904713f9623cf80f259ad096a4dbfaddad393
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967675"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552907"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>Basculement de la continuité d’activité et reprise d’activité
 
@@ -150,7 +150,8 @@ Les exécutions dans Azure Machine Learning sont définies par une spécificatio
       > Les pipelines créés dans le concepteur Studio ne peuvent actuellement pas être exportés en tant que code.
 
 * Gérez les configurations en tant que code.
-    * Évitez les références codées en dur à l’espace de travail. Au lieu de cela, configurez une référence à l’instance de l’espace de travail à l’aide d’un [fichier de configuration](how-to-configure-environment.md#workspace) et utilisez [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) pour initialiser l’espace de travail. Pour automatiser le processus, utilisez la commande [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach) de l’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md).
+
+    * Évitez les références codées en dur à l’espace de travail. Au lieu de cela, configurez une référence à l’instance de l’espace de travail à l’aide d’un [fichier de configuration](how-to-configure-environment.md#workspace) et utilisez [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) pour initialiser l’espace de travail. Pour automatiser le processus, utilisez la commande [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach) de l’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md).
     * Utilisez des assistants d’envoi d’exécution, tels que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) et [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Utilisez [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) pour enregistrer vos définitions d’environnement.
     * Utilisez un Dockerfile si vous utilisez des images Docker personnalisées.
@@ -180,11 +181,10 @@ Les artefacts suivants peuvent être exportés et importés entre les espaces de
 | ----- | ----- | ----- |
 | Modèles | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/model) |
 | Environnements | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
-| Pipelines Azure ML (générés par code) | [az ml pipeline get --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
+| Pipelines Azure ML (générés par code) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
 
 > [!TIP]
-> * Les __jeux de données inscrits__ ne peuvent pas être téléchargés ou déplacés. Cela comprend les jeux de données générés par Azure ML, comme les jeux de données de pipeline intermédiaire. Toutefois, les jeux de données qui font référence à un emplacement de fichier partagé auquel les deux espaces de travail peuvent accéder, ou où le stockage de données sous-jacent est répliqué, peuvent être inscrits sur les deux espaces de travail. Utilisez la commande [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext_azure_cli_ml_az_ml_dataset_register) pour inscrire un jeu de données.
->
+> * Les __jeux de données inscrits__ ne peuvent pas être téléchargés ou déplacés. Cela comprend les jeux de données générés par Azure ML, comme les jeux de données de pipeline intermédiaire. Toutefois, les jeux de données qui font référence à un emplacement de fichier partagé auquel les deux espaces de travail peuvent accéder, ou où le stockage de données sous-jacent est répliqué, peuvent être inscrits sur les deux espaces de travail. Utilisez la commande [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register) pour inscrire un jeu de données.
 > * Les __sorties d’exécution__ sont stockées dans le compte de stockage par défaut associé à un espace de travail. Si les sorties d’exécution peuvent devenir inaccessibles à partir de l’interface utilisateur de Studio en cas de panne d’un service, vous pouvez accéder directement aux données via le compte de stockage. Pour plus d’informations sur l’utilisation des données stockées dans des objets blob, consultez [Créer, télécharger et lister des objets blob avec Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## <a name="next-steps"></a>Étapes suivantes
 

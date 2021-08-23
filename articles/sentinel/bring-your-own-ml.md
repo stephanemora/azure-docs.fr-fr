@@ -15,20 +15,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: e912cabd27bac52792ffb2d71027170f4e53f310
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 839d235412b70669dd3cb9b9942509ef9af7b3c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784518"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532671"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Intégrer votre propre Machine Learning (BYO-ML) dans Azure Sentinel
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le Machine Learning (ML ou apprentissage automatique) est l’un des fondements majeurs d’Azure Sentinel, et l’un des principaux attributs qui le distinguent. Azure Sentinel offre l’apprentissage automatique au travers de diverses expériences : intégré au moteur de corrélation [Fusion](fusion.md) et aux blocs-notes Jupyter, ainsi qu’à la nouvelle plateforme BYO ML (Construire votre propre ML). 
 
 Les modèles de détection de ML peuvent s’adapter à des environnements individuels ainsi qu’à des modifications du comportement des utilisateurs afin de réduire le nombre de [faux positifs](false-positives.md) et d’identifier des menaces qu’une approche traditionnelle ne permettrait pas de détecter. Si bon nombre d’organisations de sécurité comprennent la valeur de l’apprentissage automatique pour la sécurité, la plupart d’entre elles n’ont pas les moyens de s’entourer de professionnels disposant d’une expertise tant en matière de sécurité qu’en matière d’apprentissage automatique. Nous avons conçu l’infrastructure présentée ici afin de permettre aux organisations et aux professionnels de la sécurité de se développer avec nous en lien avec l’apprentissage automatique. Les organisations qui découvrent l’apprentissage automatique ou qui ne disposent pas de l’expertise nécessaire peuvent trouver une protection significative dans les fonctionnalités intégrées d’apprentissage automatique d’Azure Sentinel.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="Infrastructure d’apprentissage automatique":::
+
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Qu’est-ce que la plateforme Intégrer votre propre Machine Learning (BYO-ML) ?
 
@@ -163,7 +166,7 @@ Pour afficher vos résultats de scoring avec les détails du journal associés, 
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Créer une règle d’analytique personnalisée avec des résultats de ML
 
-Après avoir vérifié que les résultats de ML figurent dans la table des journaux personnalisés, lorsque vous êtes satisfait de la fidélité du scoring, vous pouvez créer une détection basée sur les résultats. Accédez à **Analytics** à partir du portail Azure Sentinel, et [créez une règle de détection](tutorial-detect-threats-custom.md). Vous trouverez ci-dessous un exemple de requête utilisée pour créer la détection.
+Après avoir vérifié que les résultats de ML figurent dans la table des journaux personnalisés, lorsque vous êtes satisfait de la fidélité du scoring, vous pouvez créer une détection basée sur les résultats. Accédez à **Analytics** à partir du portail Azure Sentinel, et [créez une règle de détection](detect-threats-custom.md). Vous trouverez ci-dessous un exemple de requête utilisée pour créer la détection.
 
 :::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Créer une règle d’analytique personnalisée pour les détections BYO-ML":::
 

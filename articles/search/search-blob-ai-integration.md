@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdf5f2708daee0a3dc05ec8bc3d861633a3b7b7f
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99222046"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590573"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Utiliser l’intelligence artificielle pour traiter et analyser le contenu d’un objet blob dans Recherche cognitive Azure
 
@@ -96,7 +96,7 @@ Dans Stockage Azure, une base de connaissances peut prendre deux formes : celle
 
 + Un conteneur d’objets blob capture les documents enrichis dans leur intégralité, ce qui est utile si vous souhaitez alimenter d’autres processus. 
 
-+ En revanche, Stockage Table peut accueillir des projections physiques de documents enrichis. Vous pouvez créer des tranches ou des couches de documents enrichis qui incluent ou excluent des parties spécifiques. Pour l’analyse dans Power BI, les tables stockées dans Table Azure deviennent la source de données pour une visualisation et une exploration plus poussées.
++ En revanche, Stockage Table peut accueillir des projections physiques de documents enrichis. Vous pouvez créer des tranches ou des couches de documents enrichis qui incluent ou excluent des parties spécifiques. Pour l’analyse dans Power BI, les tables dans Stockage Table Azure deviennent la source de données pour une visualisation et une exploration plus poussées.
 
 Un document enrichi à la fin du pipeline est différent de sa version d’entrée initiale du fait de la présence de champs supplémentaires contenant les nouvelles informations extraites ou générées pendant l’enrichissement. Ainsi, vous pouvez utiliser en même temps du contenu d’origine et du contenu créé, quelle que soit la structure de sortie que vous utilisez.
 
@@ -104,7 +104,7 @@ Un document enrichi à la fin du pipeline est différent de sa version d’entr�
 
 L’enrichissement par IA offre bien plus de possibilités, qui permettent d’exploiter au mieux les données contenues dans Stockage Azure. Vous pouvez notamment combiner les services Cognitive Services de différentes manières ou créer des compétences personnalisées s’il n’existe pas de service cognitif pour le scénario. Pour en savoir plus, suivez les liens ci-dessous.
 
-+ [Charger, télécharger et répertorier des blobs à l’aide du portail Azure (Stockage blob Azure)](../storage/blobs/storage-quickstart-blobs-portal.md)
++ [Charger, télécharger et répertorier des blobs à l’aide du Portail Azure (Stockage Blob Azure)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Configurer un indexeur blob (Recherche cognitive Azure)](search-howto-indexing-azure-blob-storage.md) 
 + [Vue d’ensemble de l’enrichissement de l’IA (Recherche cognitive Azure)](cognitive-search-concept-intro.md) 
 + [Créer un ensemble de compétences (Recherche cognitive Azure)](cognitive-search-defining-skillset.md)

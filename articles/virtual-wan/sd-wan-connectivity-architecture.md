@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: eb6ae05b0e3c296a1ca56d3ea6085b8cd4586c23
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 08e20a497c7fddfe00e70fcf1d9d4c6e5f76054f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165692"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563808"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architecture de connectivité SD-WAN avec Azure Virtual WAN
 
@@ -42,7 +42,7 @@ Dans ce modèle, il est possible que certaines optimisations du trafic propriét
 
 Avec Virtual WAN, les utilisateurs peuvent obtenir une sélection de chemin d’accès Azure, qui est la sélection de chemin d’accès basée sur une stratégie entre plusieurs liens ISP de l’équipement local du client côté branche à des passerelles VPN de Virtual WAN. Virtual WAN permet de configurer plusieurs liens (chemins d’accès) à partir du même équipement SD-WAN local du client côté branche. Chaque lien représente une connexion à deux tunnels à partir d’une adresse IP publique unique d’équipement SD-WAN côté branche vers deux instances différentes de la passerelle VPN de d’Azure Virtual WAN. Les fournisseurs de SD-WAN peuvent implémenter le chemin d’accès optimal vers Azure, en fonction des stratégies de trafic définies par leur moteur de stratégies sur les liens d’équipement local du client. Côté Azure, toutes les connexions entrantes sont traitées de la même façon.
 
-## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Modèle d’interconnexion directe avec NVA-in-VWAN-hub
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct-nva"></a>Modèle d’interconnexion directe avec NVA-in-VWAN-hub
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Modèle d’interconnexion directe avec NVA-in-VWAN-hub":::
 

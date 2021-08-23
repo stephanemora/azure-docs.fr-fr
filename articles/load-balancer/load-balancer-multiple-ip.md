@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 844f7095d52e9e5779f0f0174ada9f0d3309564c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417822"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297243"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -193,4 +193,4 @@ La dernière étape consiste à configurer vos enregistrements de ressource DNS 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux d’activité, consultez [Journaux d’activité Azure Monitor pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux d’activité, consultez [Journaux d’activité Azure Monitor pour Azure Load Balancer](./monitor-load-balancer.md).

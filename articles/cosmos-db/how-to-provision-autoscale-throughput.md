@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/18/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ce17b54905861759c437c2df735dd5515991b507
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 95f201a7809184b511c3187cf3fcf5fadd233168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456614"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531575"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB - API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans l’API SQL Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données.
 
-Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-provision-throughput-mongodb.md), [API Cassandra](how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
+Si vous utilisez une autre API, consultez les articles [API pour MongoDB](mongodb/how-to-provision-throughput-mongodb.md), [API Cassandra](cassandra/how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
 
 ## <a name="azure-portal"></a>Portail Azure
 

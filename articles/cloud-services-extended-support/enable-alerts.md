@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4591253e1a305632b7f41afe692f297d71366382
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32f140ae27501b9f4f3b66e5f5815b8f3f20b3ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743952"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445108"
 ---
 # <a name="enable-monitoring-for-cloud-services-extended-support-using-the-azure-portal"></a>Activer la surveillance pour des services cloud (support étendu) à l’aide du portail Azure
 
@@ -40,5 +40,5 @@ Cet article explique comment activer des alertes sur des déploiements de servic
 6. Une fois que vous avez fini de configurer des alertes, enregistrez les modifications et, en fonction des métriques configurées, des alertes apparaîtront au fur et à mesure dans le panneau **Alertes**.
 
 ## <a name="next-steps"></a>Étapes suivantes 
-- Consultez les [questions fréquentes (FAQ)](faq.md) concernant Cloud Services (support étendu).
+- Consultez les [questions fréquentes (FAQ)](faq.yml) concernant Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

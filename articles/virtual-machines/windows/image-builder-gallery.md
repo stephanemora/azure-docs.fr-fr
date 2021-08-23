@@ -1,5 +1,5 @@
 ---
-title: Utiliser le Générateur d’images Azure avec une galerie d’images pour machines virtuelles Windows (préversion)
+title: Utiliser Azure Image Builder avec une galerie d’images pour machines virtuelles Windows
 description: Créer des versions d'images Azure Shared Gallery à l'aide d'Azure Image Builder et d'Azure PowerShell.
 author: cynthn
 ms.author: cynthn
@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: e8caf9f742217161c60ce90351989999f18adabb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: dd821ac9f5722047ec5c233feaaf2a48d4de3b41
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694085"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031148"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Windows et la distribuer sur une bibliothèque d’images partagées 
+# <a name="create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Créer une image Windows et la distribuer sur une bibliothèque d’images partagées 
 
 Cet article explique comment utiliser Azure Image Builder et Azure PowerShell pour créer une version d'image dans une instance de [Shared Image Gallery](../shared-image-galleries.md) avant de distribuer l'image dans le monde entier. Vous pouvez également effectuer cette opération à l'aide d'[Azure CLI](../linux/image-builder-gallery.md).
 
@@ -27,24 +28,9 @@ Azure Image Builder exécute automatiquement sysprep pour généraliser l'image.
 
 Tenez compte du nombre de personnalisations que vous effectuez. Vous pouvez exécuter la commande Sysprep jusqu'à 8 fois sur une même image Windows. Après avoir exécuté Sysprep 8 fois, vous devrez recréer votre image Windows. Pour plus d'informations, consultez [Nombre d'exécutions maximum de Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
-> [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
-
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Vérifiez l’état d’inscription de la fonctionnalité.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Attendez que `RegistrationState` soit `Registered` avant de passer à l'étape suivante.
+Pour utiliser Azure Image Builder, vous devez inscrire cette fonctionnalité.
 
 Vérifiez les inscriptions de votre fournisseur. Assurez-vous que chacun renvoie `Registered`.
 

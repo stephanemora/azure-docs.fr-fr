@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eb4dc8ee58d9ced141c7c4e4404596ace727f0c
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797271"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112459131"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Déplacer des ressources entre régions (à partir d’un groupe de ressources)
 
 Dans cet article explique comment déplacer des ressources au sein d’un groupe de ressources spécifique vers une autre région Azure. Dans le groupe de ressources, sélectionnez les ressources à déplacer. Ensuite, déplacez-les à l’aide du service [Azure Resource Mover](overview.md).
-
-> [!IMPORTANT]
-> Azure Resource Mover est actuellement en préversion publique.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -119,7 +115,7 @@ Préparez de la manière suivante :
 
 1. Dans **Entre régions**, sélectionnez le groupe de ressources source > **Préparer**.
 2. Dans **Préparer les ressources**, sélectionnez **Préparer**.
-1. 
+
     ![Bouton pour préparer le groupe de ressources source](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
     Pendant le processus de préparation, Resource Mover génère des modèles Azure Resource Manager (ARM) à l’aide des paramètres du groupe de ressources. Les ressources à l’intérieur du groupe de ressources ne sont pas affectées.
@@ -137,7 +133,7 @@ Lancez le déplacement de la manière suivante :
 2. Dans **Déplacer des ressources**, sélectionnez **Lancer le déplacement**. Le groupe de ressources passe à l’état *Lancement du déplacement en cours*.
 3. Après l’initialisation du déplacement, le groupe de ressources cible est créé, en fonction du modèle ARM généré. Le groupe de ressources source passe à l’état *Validation du déplacement en attente*.
 
-![Statut présentant la validation du déplacement](./media/move-region-availability-zone/commit-move-pending.png)
+    ![Statut présentant la validation du déplacement](./media/move-region-availability-zone/commit-move-pending.png)
 
 Pour valider et terminer la procédure de déplacement :
 

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 02a3a7ad73bf0434a215c5ab7a6e89c299e9518b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28d66477c31db9ee274fb1e8aaa1690365a4fa72
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019854"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112912786"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Résoudre les problèmes liés aux sorties Azure Stream Analytics
 
@@ -74,7 +74,7 @@ Quand vous configurez une base de données Azure SQL comme sortie d’une tâche
 
 Quand vous configurez des contraintes de clé unique sur la table SQL, Azure Stream Analytics supprime les enregistrements en double. Il fractionne les données en lots qu’il insère les lots de manière récursive jusqu'à trouver un seul enregistrement en double. Le processus de fractionnement et d’insertion ignore les doublons un par un. Pour un travail de diffusion en continu comportant plusieurs lignes en double, le processus est inefficace et prend du temps. Si vous voyez plusieurs messages d’avertissement de violation de clé dans votre journal d’activité pour l’heure précédente, il est probable que votre sortie SQL ralentit l’intégralité de la tâche.
 
-Pour résoudre ce problème, [configurez l’index]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) qui provoque la violation de clé en activant l’option IGNORE_DUP_KEY. Cette option permet à SQL d’ignorer les valeurs dupliquées lors des insertions en bloc. Azure SQL Database produit simplement un message d’avertissement au lieu d’une erreur. Par conséquent, Azure Stream Analytics ne produit plus d’erreurs de violation de clé primaire.
+Pour résoudre ce problème, [configurez l’index](/sql/t-sql/statements/create-index-transact-sql) qui provoque la violation de clé en activant l’option IGNORE_DUP_KEY. Cette option permet à SQL d’ignorer les valeurs dupliquées lors des insertions en bloc. Azure SQL Database produit simplement un message d’avertissement au lieu d’une erreur. Par conséquent, Azure Stream Analytics ne produit plus d’erreurs de violation de clé primaire.
 
 Notez les observations suivantes lors de la configuration d’IGNORE_DUP_KEY pour plusieurs types d’index :
 

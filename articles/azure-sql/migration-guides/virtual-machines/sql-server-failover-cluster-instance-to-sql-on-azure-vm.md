@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: d21a9b91a7030deb805c80034ca0515e2b226b16
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27b0841e601fb7d2eaa7712495b7440a0b886d7c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954591"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769252"
 ---
 # <a name="migrate-failover-cluster-instance-to-sql-server-on-azure-vms"></a>Migrer une instance de cluster de basculement vers SQL Server sur machines virtuelles Azure
 
@@ -379,7 +379,7 @@ Votre instance de cluster de basculement SQL Server est prête.
     - Déployez [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
-    - Envisagez de déployer [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md) pour surveiller l’utilisation et les coûts des ressources.
+    - Envisagez de déployer [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) pour surveiller l’utilisation et les coûts des ressources.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

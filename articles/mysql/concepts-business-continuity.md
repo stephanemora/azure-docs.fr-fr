@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: e58508e561a33a73e6f6752fc12bc5938b8d7488
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a02457c177e509280a93d7e6939143da3f7e9a84
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309779"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641191"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---single-server"></a>Vue d’ensemble de la continuité d’activité avec le serveur flexible Azure Database pour MySQL - Serveur unique
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Cet article décrit les fonctionnalités d’Azure Database pour MySQL en matière de continuité d’activité et de récupération d’urgence. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 

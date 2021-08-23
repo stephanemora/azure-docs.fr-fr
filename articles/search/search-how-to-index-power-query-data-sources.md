@@ -2,19 +2,18 @@
 title: Indexer des données à l’aide de connecteurs Power Query (préversion)
 titleSuffix: Azure Cognitive Search
 description: Importez des données à partir de différentes sources de données à l’aide des connecteurs Power Query.
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0b886d195942f5f6334c983e464e812129466640
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e943452a285f943c05982a558c92315428e9829c
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949264"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729530"
 ---
 # <a name="index-data-using-power-query-connectors-preview"></a>Indexer des données à l’aide de connecteurs Power Query (préversion)
 

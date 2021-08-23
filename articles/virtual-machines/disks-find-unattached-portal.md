@@ -2,17 +2,17 @@
 title: Identifier les disques Azure non attachés - Portail Azure
 description: Comment rechercher à l’aide du portail Azure les disques managés et non managés (disques durs virtuels/objets blob de pages) Azure non attachés.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 815e4bd34ecce3e77fafb95520632df6570cebb3
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898153"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361150"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trouver et supprimer les disques managés et non managés Azure non attachés - Portail Azure
 

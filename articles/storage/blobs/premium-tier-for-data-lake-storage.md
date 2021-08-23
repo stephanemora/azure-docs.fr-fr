@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.custom: references_regions
-ms.date: 10/30/2020
+ms.date: 06/21/2021
 ms.author: normesta
-ms.openlocfilehash: a9ed305dbd081486f0b892fcc38ada83e9666bd9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22ed6d6e4c9280d79027918615a51da305f2457f
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143338"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453913"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Niveau Premium pour Azure Data Lake Storage
 
@@ -70,39 +69,6 @@ L’illustration suivante montre ce paramètre dans la page **Créer un compte d
 
 > [!div class="mx-imgBorder"]
 > ![Paramètre d’espace de noms hiérarchique](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
-
-## <a name="regional-availability"></a>Disponibilité régionale
-
-Le niveau Premium pour Azure Data Lake Storage est disponible dans les régions suivantes.
-
-|Région|Redondance|
-|--|--|
-|USA Est|LRS, ZRS|
-|USA Est 2|LRS, ZRS|
-|USA Centre|LRS|
-|USA Ouest|LRS|
-|USA Ouest 2|LRS, ZRS|
-|Centre-USA Ouest|LRS|
-|États-Unis - partie centrale méridionale|LRS|
-|Centre du Canada|LRS|
-|Est du Canada|LRS|
-|Europe Nord|LRS, ZRS|
-|Europe Ouest|LRS, ZRS|
-|Sud du Royaume-Uni|LRS|
-|Ouest du Royaume-Uni|LRS|
-|France Centre|LRS|
-|Asie de l’Est|LRS|
-|Centre de la Corée|LRS|
-|Corée du Sud|LRS|
-|Inde centrale|LRS|
-|Inde Ouest|LRS|
-|Émirats arabes unis Nord|LRS|
-|Japon Est|LRS|
-|OuJapon Est|LRS|
-|Asie Sud-Est|LRS, ZRS|
-|Australie Est|LRS, ZRS|
-|Sud-Est de l’Australie|LRS|
-|Brésil Sud|LRS|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

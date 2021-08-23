@@ -3,19 +3,19 @@ title: À propos du SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel (SDK) Speech expose de nombreuses fonctionnalités du service Speech, ce qui facilite le développement d'applications à reconnaissance vocale.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
-ms.openlocfilehash: cc5ed68fa7a26a347f0cb85c94bb0b7b79ccb055
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 3f97558a9efbc9a1cff11baaae6d4d8869e02915
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525532"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
@@ -48,12 +48,14 @@ La [Synthèse vocale ](text-to-speech.md) convertit le texte en discours synthé
 
 La **Synthèse vocale (TTS)** est disponible sur les plateformes suivantes :
 
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
+  - C++/Windows & Linux & macOS
+  - C#(Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (JRE et Android)
+  - JavaScript (navigateur et NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - L’API REST TTS peut être utilisée dans tous les autres cas.
 
 ### <a name="voice-assistants"></a>Assistants vocaux
@@ -135,7 +137,7 @@ Le service Speech fournit d'excellentes fonctionnalités avec ses modèles par d
 
 ### <a name="custom-speech-to-text"></a>Reconnaissance vocale personnalisée
 
-Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles acoustiques, linguistiques et de prononciation personnalisés pour traiter le bruit ambiant ou le vocabulaire spécifique au secteur. La création et la gestion de modèles vocaux personnalisés sans code sont disponibles via le [portail Custom Speech](https://aka.ms/customspeech). Une fois le modèle Custom Speech publié, il peut être utilisé par le SDK Speech.
+Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles acoustiques, linguistiques et de prononciation personnalisés pour traiter le bruit ambiant ou le vocabulaire spécifique au secteur. La création et la gestion de modèles vocaux personnalisés sans code sont disponibles via le [portail Custom Speech](./custom-speech-overview.md). Une fois le modèle Custom Speech publié, il peut être utilisé par le SDK Speech.
 
 ### <a name="custom-text-to-speech"></a>Synthèse vocale personnalisée
 

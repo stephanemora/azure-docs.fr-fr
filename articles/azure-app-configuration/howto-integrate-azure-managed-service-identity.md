@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: ff7c2b6ced87c8254283923a9163e51f06ae6ef6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 2aefa7ed7ce63b1ecbe735f21d372133ba4c7825
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114298171"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592409"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utiliser des identités managées pour accéder à App Configuration
 
@@ -164,9 +164,9 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
 ## <a name="deploy-your-application"></a>Déployer votre application
 
-L’utilisation des identités gérées vous oblige à déployer votre application sur un service Azure. Les identités gérées ne peuvent pas être utilisées pour l’authentification des applications exécutées localement. Pour déployer l’application .NET Core que vous avez créée à l’aide du démarrage rapide [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md) et la modifier pour utiliser des identités gérées, suivez les instructions de la section [Publier votre application Web](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
+L’utilisation des identités gérées vous oblige à déployer votre application sur un service Azure. Les identités gérées ne peuvent pas être utilisées pour l’authentification des applications exécutées localement. Pour déployer l’application .NET Core que vous avez créée à l’aide du démarrage rapide [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md) et la modifier pour utiliser des identités gérées, suivez les instructions de la section [Publier votre application Web](/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs#publish-your-web-app).
 
-En plus de App Service, de nombreux autres services Azure prennent en charge les identités gérées. Pour plus d'informations, consultez [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+En plus de App Service, de nombreux autres services Azure prennent en charge les identités gérées. Pour plus d'informations, consultez [Services prenant en charge les identités managées pour les ressources Azure](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

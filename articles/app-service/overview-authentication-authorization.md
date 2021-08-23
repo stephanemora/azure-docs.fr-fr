@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a362e99e9da7cf4c41f042364792a05a27b1aa6a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075336"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892685"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
@@ -138,7 +138,7 @@ Pour [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincip
 
 Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
 
-À l’heure actuelle, ASP.NET Core ne prend pas en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation. Cependant, certains [composants intergiciels open source tiers](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) existent pour vous aider à combler cette lacune.
+Pour .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) prend en charge le remplissage de l’utilisateur actuel à l’aide de la fonctionnalité d’authentification/autorisation. Pour en savoir plus, consultez le [wiki Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb), ou regardez une démonstration dans [ce tutoriel ayant trait à une application web qui accède à Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
 
 #### <a name="token-store"></a>Magasin de jetons
 

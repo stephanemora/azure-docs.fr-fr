@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 5/19/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2c8b4c121c14cb9bff59cf1c70367dec6702139
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b3433031beba287d1412d0c2254941b7a3e9e118
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786444"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968408"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiver les journaux et créer des rapports sur la gestion des droits d’utilisation Azure AD dans Azure Monitor
 
@@ -82,6 +82,8 @@ Utilisez la procédure suivante pour voir les événements :
 
     Chaque ligne comprend l’heure, l’ID de package d’accès, le nom de l’opération, l’ID d’objet, l’UPN et le nom d’affichage de l’utilisateur qui a démarré l’opération.  Des détails supplémentaires sont inclus dans le JSON.   
 
+1. Pour voir si des modifications ont été apportées aux attributions de rôle d’application non destinées aux attributions de package d’accès (par un administrateur général attribuant directement des rôles d’application à un utilisateur, par exemple), vous pouvez sélectionner le classeur nommé *Activité d’attribution de rôle d’application*.
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Créer des requêtes Azure Monitor personnalisées à l’aide du portail Azure
 Vous pouvez créer vos propres requêtes sur les événements d’audit Azure AD, y compris les événements de gestion des droits d’utilisation.  
@@ -108,7 +110,7 @@ Si vous souhaitez connaître les événements d’audit les plus anciens et les 
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-Pour plus d’informations sur les colonnes stockées pour les événements d’audit dans Azure Monitor, consultez [Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor](../reports-monitoring/reference-azure-monitor-audit-log-schema.md).
+Pour plus d’informations sur les colonnes stockées pour les événements d’audit dans Azure Monitor, consultez [Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor](../reports-monitoring/overview-reports.md).
 
 ## <a name="create-custom-azure-monitor-queries-using-azure-powershell"></a>Créer des requêtes Azure Monitor personnalisées à l’aide d’Azure PowerShell
 

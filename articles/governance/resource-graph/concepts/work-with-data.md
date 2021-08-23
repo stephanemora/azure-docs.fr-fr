@@ -1,15 +1,15 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 05/17/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d860ea4af08c8982e2205bb98c82b5475734d35c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b306b52c02a251abf1d781ccce586e4b94c8264b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099169"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563877"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -34,7 +34,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), le contrôle est **$top** et fait partie de **QueryRequestOptions**.
+Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), le contrôle est **$top** et fait partie de **QueryRequestOptions**.
 
 Le contrôle _le plus restrictif_ l’emporte. Par exemple, si votre requête utilise les opérateurs **top** ou **limit** et aurait pour effet de retourner plus d’enregistrements qu’avec l’opérateur **First**, le nombre maximal d’enregistrements retournés est égal à celui obtenu avec l’opérateur **First**. De même, si les opérateurs **top** ou **limit** ont pour effet de retourner un nombre d’enregistrements inférieur à celui que retournerait l’opérateur **First**, le jeu d’enregistrements retourné est celui comprenant le plus petit nombre d’enregistrements retournés par les opérateurs **top** ou **limit**.
 
@@ -60,11 +60,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), le contrôle est **$skip** et fait partie de **QueryRequestOptions**.
+Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), le contrôle est **$skip** et fait partie de **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Résultats de pagination
 
-S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**. **resultTruncated** est une valeur booléenne qui informe le consommateur s’il existe davantage d’enregistrements non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
 
 **resultTruncated** a pour valeur **true** quand la pagination est désactivée ou qu’elle est impossible en raison de l’absence de colonne `id` ou de l’insuffisance de ressources pour l’exécution d’une requête. Quand la valeur **resultTruncated** est **true**, la propriété **$skipToken** n’est pas définie.
@@ -82,7 +82,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est absent de la requête, la réponse n’inclut pas le **$skipToken**.
 
-Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query) dans la documentation de l’API REST.
+Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query) dans la documentation de l’API REST.
 
 ## <a name="formatting-results"></a>Mise en forme des résultats
 

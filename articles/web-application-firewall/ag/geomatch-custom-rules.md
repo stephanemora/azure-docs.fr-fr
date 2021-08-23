@@ -5,23 +5,20 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 01/31/2020
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: b92b7ff4839bf2bf51c281942ed6d15d2dc1f86c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 42fcc0daf7fd494918d04dacf4fb65661c837acf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455503"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562364"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Règles personnalisées Geomatch (préversion)
+# <a name="geomatch-custom-rules"></a>Règles personnalisées Geomatch
 
 Vous pouvez créer des règles personnalisées pour répondre aux besoins exacts de vos applications et stratégies de sécurité. À présent, vous pouvez restreindre l’accès à vos applications web par pays ou par région. Comme avec toutes les règles personnalisées, cette logique peut être composée d’autres règles pour répondre aux besoins de votre application.
 
 Pour créer une règle personnalisée de filtrage géographique dans le Portail Azure, sélectionnez simplement *Géolocalisation* comme type de correspondance, puis sélectionnez le pays/la région que vous souhaitez autoriser ou bloquer à partir de votre application. Lorsque vous créez des règles de filtrage géographique avec Azure PowerShell ou Azure Resource Manager, utilisez la variable match `RemoteAddr` et l’opérateur `Geomatch`. Pour plus d’informations, consultez [Comment créer des règles personnalisées dans PowerShell](configure-waf-custom-rules.md) et d’autres [exemples de règles personnalisées](create-custom-waf-rules.md).
-
-> [!IMPORTANT]
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="countryregion-codes"></a>Codes pays ou région
 

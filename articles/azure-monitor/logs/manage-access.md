@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82e34bff573b746f7d9c4185fe6c24fa92de0394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 38d0b9db730d82642fafda4a42751c35d6cac0f8
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321048"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533135"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -285,7 +285,7 @@ Les exemples ci-dessus définissent une liste des tables autorisées. Cet exempl
 
 ### <a name="custom-logs"></a>Journaux d’activité personnalisés
 
- Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](./log-analytics-tutorial.md#table-schema).
+ Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](./log-analytics-tutorial.md#view-table-information).
 
  Vous ne pouvez pas accorder l’accès à des journaux personnalisés individuels, mais vous pouvez accorder l’accès à tous les journaux personnalisés. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
 
@@ -312,4 +312,4 @@ Parfois, les journaux personnalisés proviennent de sources qui ne sont pas dire
 
 * Consultez [Présentation de l’agent Log Analytics](../agents/log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 
-* Pour configurer la collecte de données à partir de machines virtuelles Azure, voir [Collecter des données sur les machines virtuelles Azure](../vm/quick-collect-azurevm.md).
+* Pour configurer la collecte de données à partir de machines virtuelles Azure, voir [Collecter des données sur les machines virtuelles Azure](../vm/monitor-virtual-machine.md).

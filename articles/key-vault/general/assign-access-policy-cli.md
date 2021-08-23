@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 349d7453962a736c9f15bb7d31d5a44098f463a4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aec0feb938841e9d6bba6cf876577c67bcaad441
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791946"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136469"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Attribuer une stratégie d’accès Key Vault
 
@@ -74,6 +74,5 @@ Vous avez uniquement besoin d’inclure `--secret-permissions`, `--key-permissio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](security-overview.md#identity-management)
-- [Sécuriser votre coffre de clés](security-overview.md)
+- [Sécurité d’Azure Key Vault](security-features.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)

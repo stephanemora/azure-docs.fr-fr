@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 06f7bfea9a88627733eb9ce9166e05d05790e23a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9571e7692a70d36155f395ec57bdedafe5970ac8
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213060"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112369768"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurer l’authentification Azure Active Directory pour un cluster Azure Red Hat OpenShift 4 (CLI)
 
@@ -143,7 +143,7 @@ az ad app permission add \
 
 Les applications inscrites dans un locataire Azure Active Directory (Azure AD) sont, par défaut, disponibles pour tous les utilisateurs du locataire qui parviennent à s’authentifier. Azure AD permet aux développeurs et administrateurs de locataires de limiter une application à un ensemble spécifique d’utilisateurs ou de groupes de sécurité dans le locataire.
 
-Suivez les instructions de la documentation d’Azure Active Directory pour [affecter des utilisateurs et des groupes à l’application](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
+Suivez les instructions de la documentation d’Azure Active Directory pour [affecter des utilisateurs et des groupes à l’application](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurer l’authentification OpenShift OpenID
 

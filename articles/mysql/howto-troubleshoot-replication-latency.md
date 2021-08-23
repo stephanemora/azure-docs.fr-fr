@@ -7,16 +7,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44752024c8bd2ddbceed1495067260bce3ce0037
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98249769"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113088383"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 La fonctionnalité de [réplica en lecture](concepts-read-replicas.md) vous permet de répliquer les données d’un serveur Azure Database pour MySQL sur un serveur réplica en lecture seule. Vous pouvez effectuer un scale-out des charges de travail en acheminant les requêtes de lecture et de rapport de l’application vers les serveurs de réplication. Cette configuration réduit la pression sur le serveur source. Il améliore également les performances globales et la latence de l’application au fur et à mesure qu’elle évolue.
 

@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9d8a10d4adcad2072282f59641b157364fecad2
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72249163"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113551899"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Soumettre un workflow à l’aide d’une entrée de fichier BAM
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Envoyez le fichier `config.txt` avec cet appel : `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez chargé un fichier BAM dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour plus d’informations sur la soumission du workflow et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez notre [FAQ](frequently-asked-questions-genomics.md). 
+Dans cet article, vous avez chargé un fichier BAM dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour plus d’informations sur la soumission du workflow et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez notre [FAQ](frequently-asked-questions-genomics.yml). 

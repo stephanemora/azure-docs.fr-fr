@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7331f9a894d36ee15702a8fe53804efd53049762
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 82e5b16ef4f7892a52ea0ec3d332104cbf99bb68
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284117"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113765489"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administration des rôles de l’Accord Entreprise Azure
 
@@ -208,10 +208,10 @@ Le tableau suivant montre la relation entre les rôles d’administrateur Contra
 |Rôle d’administrateur Contrat Entreprise|Stratégie d’affichage des frais pour le rôle|Rôle Azure|Affichage des tarifs|
 |---|---|---|---|
 |Propriétaire du compte OU Administrateur de service|✔ Activée|Propriétaire|Tarifs Contrat Entreprise de l’organisation|
-|Propriétaire du compte OU Administrateur de service|✘ Désactivée|Propriétaire|Tarifs au détail|
+|Propriétaire du compte OU Administrateur de service|✘ Désactivée|Propriétaire|Aucun tarif|
 |Propriétaire du compte OU Administrateur de service|✔ Activée |Aucun|Aucun tarif|
 |Propriétaire du compte OU Administrateur de service|✘ Désactivée |Aucun|Aucun tarif|
-|None|Non applicable |Propriétaire|Tarifs au détail|
+|None|Non applicable |Propriétaire|Aucun tarif|
 
 Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégies d’affichage des frais dans Enterprise Portal. Vous pouvez mettre à jour le rôle Azure dans le portail Azure. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](../../role-based-access-control/role-assignments-portal.md).
 

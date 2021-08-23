@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: bd54b662e48ef6f66ea2bfef10863e2d7627289f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1d1fd5a15d889ead669a5c7c880ed59f5a66ba8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966432"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525285"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Passer en revue les erreurs de copie dans les chargements à partir d’appareils Azure Data Box et Azure Data Box Heavy
 
@@ -110,7 +110,7 @@ D’autres erreurs d’API REST peuvent se produire pendant les chargements de d
 
 **Description de l’erreur :** Si un conteneur de stockage d’objets blob est configuré au format WORM (Write Once, Read Many), le chargement des objets blob déjà stockés dans le conteneur échoue.
 
-**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés ne font pas partie d’un conteneur de stockage immuable. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](../storage/blobs/storage-blob-immutable-storage.md).
+**Suivi :** Vous ne pouvez pas corriger cette erreur dans le chargement actuel. Le chargement s’est terminé avec des erreurs. Avant de procéder à un transfert réseau ou de démarrer une nouvelle commande d’importation, vérifiez que les objets blob listés ne font pas partie d’un conteneur de stockage immuable. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](../storage/blobs/immutable-storage-overview.md).
 
 
 ### <a name="the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit"></a>La capacité provisionnée totale des partages ne peut pas dépasser la taille maximale du compte

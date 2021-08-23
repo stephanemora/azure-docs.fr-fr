@@ -2,18 +2,18 @@
 title: Modification du niveau de performance des disques managés Azure avec le Portail Azure
 description: Découvrez comment modifier le niveau de performance de nouveaux disques managés et de disques existants avec le Portail Azure.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a82865930a5ed770b742c3d5e8906d4e69be3f64
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 37069bb17e0ce6a104ae3c1b79714da160737fe8
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079405"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113356272"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Modification du niveau de performance avec le Portail Azure
 

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: tomfitz
-ms.openlocfilehash: 157db0aa85fe086e656cfc98c7b94527416350d0
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 42e4198f2597ca3708e58bbc7a25545eab96b8c6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027746"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634585"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Opération de simulation du déploiement Bicep
 
@@ -196,7 +196,7 @@ Les résultats suivants illustrent les deux formats de sortie :
 
 ### <a name="set-up-environment"></a>Configurer l’environnement
 
-Pour voir comment fonctionne la simulation, nous allons exécuter des tests. Tout d’abord, déployez un [fichier Bicep qui crée un réseau virtuel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). Vous utiliserez ce réseau virtuel pour tester dans quelle mesure les modifications sont signalées par l’opération de simulation. Téléchargez une copie du fichier Bicep.
+Pour voir comment fonctionne la simulation, nous allons exécuter des tests. Tout d’abord, déployez un [fichier Bicep qui crée un réseau virtuel](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep). Vous utiliserez ce réseau virtuel pour tester dans quelle mesure les modifications sont signalées par l’opération de simulation. Téléchargez une copie du fichier Bicep.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -224,7 +224,7 @@ az deployment group create \
 
 ### <a name="test-modification"></a>Modification de test
 
-Une fois le déploiement terminé, vous êtes prêt à tester l’opération de simulation. Cette fois, vous déployez un [fichier Bicep qui modifie le réseau virtuel](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). Il manque une des balises d’origine, un sous-réseau a été supprimé et le préfixe de l’adresse a changé. Téléchargez une copie du fichier Bicep.
+Une fois le déploiement terminé, vous êtes prêt à tester l’opération de simulation. Cette fois, vous déployez un [fichier Bicep qui modifie le réseau virtuel](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep). Il manque une des balises d’origine, un sous-réseau a été supprimé et le préfixe de l’adresse a changé. Téléchargez une copie du fichier Bicep.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

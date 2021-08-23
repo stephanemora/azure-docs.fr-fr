@@ -4,14 +4,15 @@ description: Prenez un schéma de base de données normalisé existant d’Azure
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d37496d8f29585c8a9ad956e3f5790ac11fb748e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383940"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562500"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrer un schéma de base de données normalisé d’Azure SQL Database vers un conteneur dénormalisé Azure Cosmos DB
 

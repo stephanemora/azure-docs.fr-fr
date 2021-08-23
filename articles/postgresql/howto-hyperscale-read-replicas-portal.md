@@ -6,20 +6,15 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
-ms.openlocfilehash: 7bf5cc43ca173aa787c1cde4d5727b48206872af
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 08/03/2021
+ms.openlocfilehash: 74c9df5ee9eb6cd6a61104b4c9cce91b284dbb29
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315504"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524213"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---hyperscale-citus-from-the-azure-portal"></a>Créez et gérez les réplicas en lecture dans Azure Database pour PostgreSQL - Hyperscale (Citus) depuis le portail Azure.
-
-> [!IMPORTANT]
-> Les réplicas en lecture dans Hyperscale (Citus) sont actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans [Fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Hyperscale (Citus) à partir du portail Azure. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-hyperscale-read-replicas.md).
 

@@ -12,12 +12,12 @@ ms.date: 06/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 17be85bd21a61ced7772786bb1fdaad1c947e4d1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8aeb818104e1424d96374bf535d4c02a870f4705
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962268"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453877"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Gérer votre locataire Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Azure AD B2C repose sur la plateforme Azure AD. Les fonctionnalités Azure AD su
 | [Noms de domaine personnalisés](../active-directory/fundamentals/add-custom-domain.md) |  Vous pouvez utiliser des domaines personnalisés Azure AD pour les comptes d’administration uniquement. | Les [comptes consommateur](user-overview.md#consumer-user) peuvent se connecter à l’aide d’un nom d’utilisateur, d’un numéro de téléphone ou d’une adresse e-mail. Vous pouvez utiliser des [domaines personnalisés](custom-domain.md) dans vos URL de redirection.|
 | [Accès conditionnel](../active-directory/conditional-access/overview.md) | Entièrement pris en charge pour les comptes d’utilisateur et d’administration. | Un sous-ensemble des fonctionnalités d’accès conditionnel Azure AD est pris en charge avec les [comptes consommateur](user-overview.md#consumer-user) Découvrez la procédure de configuration de l’[accès conditionnel](conditional-access-user-flow.md) Azure AD B2C.|
 | [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Entièrement pris en charge pour les fonctionnalités d’Azure AD Premium P1. Par exemple, [Protection par mot de passe](../active-directory/authentication/concept-password-ban-bad.md), [Identités hybrides](../active-directory/hybrid/whatis-hybrid-identity.md), [Accès conditionnel](../active-directory/roles/permissions-reference.md#), [Groupes dynamiques](../active-directory/enterprise-users/groups-create-rule.md), etc. | Un sous-ensemble de fonctionnalités d’accès conditionnel d’Azure AD sont prises en charge avec des [comptes consommateur](user-overview.md#consumer-user). Découvrez comment configurer un [accès conditionnel](conditional-access-user-flow.md) Azure AD B2C.|
-| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory.md) | Entièrement pris en charge pour les fonctionnalités d’Azure AD Premium P2. Par exemple, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) et [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un sous-ensemble de fonctionnalités d’Azure AD Identity Protection sont prises en charge avec des [comptes de consommateurs](user-overview.md#consumer-user). Découvrez comment [Investiguer les risques avec Identity Protection](identity-protection-investigate-risk.md) et configurer un [accès conditionnel](conditional-access-user-flow.md) Azure AD B2C. |
+| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) | Entièrement pris en charge pour les fonctionnalités d’Azure AD Premium P2. Par exemple, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) et [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un sous-ensemble de fonctionnalités d’Azure AD Identity Protection sont prises en charge avec des [comptes de consommateurs](user-overview.md#consumer-user). Découvrez comment [Investiguer les risques avec Identity Protection](identity-protection-investigate-risk.md) et configurer un [accès conditionnel](conditional-access-user-flow.md) Azure AD B2C. |
 
 ## <a name="other-azure-resources-in-your-tenant"></a>Autres ressources Azure dans votre locataire
 
@@ -206,4 +206,3 @@ Pour récupérer votre ID de locataire Azure AD B2C, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)
-

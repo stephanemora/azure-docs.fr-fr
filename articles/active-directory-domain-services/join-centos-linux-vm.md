@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 06/17/2021
 ms.author: justinha
-ms.openlocfilehash: 76fc11384b55337f581a74239d4a40b90b284f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d78416308647af62bac1e44366b0ea978670889b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619655"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284434"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé par Azure Active Directory Domain Services
 
@@ -79,7 +79,7 @@ Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide 
 La machine virtuelle a besoin de packages supplémentaires pour être jointe au domaine managé. Pour installer et configurer ces packages, mettez à jour et installez les outils de jonction de domaine à l’aide de `yum` :
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>Joindre la machine virtuelle au domaine managé
@@ -109,7 +109,7 @@ Maintenant que les packages nécessaires sont installés sur la machine virtuell
 1. Enfin, joignez la machine virtuelle au domaine managé à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur faisant partie du domaine managé et spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
-    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
 La jonction de la machine virtuelle au domaine managé prend quelques instants. L’exemple de sortie suivant montre que la machine virtuelle a bien été jointe au domaine managé :

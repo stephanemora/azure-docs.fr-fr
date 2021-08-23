@@ -3,13 +3,13 @@ title: Application hybride Azure Windows Communication Foundation (WCF) Relay lo
 description: Découvrir comment exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
-ms.openlocfilehash: 6f12133277d60560a19f35dead3a30be7c934adf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/23/2021
+ms.openlocfilehash: 2b332db84d3350b04a0ac4adfb94639c5f167c39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137704"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669804"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay
 
@@ -70,7 +70,7 @@ Une fois l’installation terminée, vous disposez de tous les éléments néces
 
 La première étape consiste à créer un espace de noms et à obtenir une clé de [signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). Un espace de noms fournit une limite d’application pour chaque application exposée via le service de relais. Une clé SAS est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Azure des informations d’identification permettant d’authentifier l’accès à une application.
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## <a name="create-an-on-premises-server"></a>Création d’un serveur local
 

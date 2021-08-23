@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 3312eed71865508e5e83d37c7ced8cf220f13ca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18dcd909ef55894e7548129a9b5836b68a30efe0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97835106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562252"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connecter des données à partir de Microsoft Cloud App Security 
 
 Le connecteur [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) vous permet de diffuser en continu des alertes et des [journaux Cloud Discovery](/cloud-app-security/tutorial-shadow-it) entre MCAS et Azure Sentinel. Vous bénéficiez ainsi d’une visibilité accrue sur vos applications, de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces, et contrôlez le déplacement de vos données.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,5 +61,5 @@ Si Cloud App Security est déployé et ingère vos données, les données d’al
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Microsoft Cloud App Security à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Commencez à détecter les menaces avec Azure Sentinel à l’aide de règles [intégrées](./tutorial-detect-threats-built-in.md) ou [personnalisées](tutorial-detect-threats-custom.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Commencez à détecter les menaces avec Azure Sentinel à l’aide de règles [intégrées](./detect-threats-built-in.md) ou [personnalisées](detect-threats-custom.md).

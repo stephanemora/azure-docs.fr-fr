@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26f8f5a4688eb5ccd472d7f402e6a543e318a7e2
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935532"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559848"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ Avant d’examiner la syntaxe, revenons sur quelques concepts importants pour mi
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
 
-Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
+Dans Stockage Blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
 
 Le contexte par défaut étant `"/document"`, la liste de personnes peut désormais être référencée comme `"/document/people"`. En l’occurrence, `"/document/people"` est une annotation qui peut maintenant être mappée à un champ dans un index, ou utilisée dans une autre compétence du même jeu de compétences.
 

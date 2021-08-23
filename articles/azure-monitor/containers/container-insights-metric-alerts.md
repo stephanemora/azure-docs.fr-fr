@@ -3,12 +3,12 @@ title: Alertes métriques de Container Insights
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Container Insights en préversion publique.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8280b567adb36511c4eb58d7ec72b775d36feb6a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728890"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531942"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertes métriques recommandées (préversion) de Container Insights
 
@@ -248,6 +248,6 @@ Quelques minutes peuvent être nécessaires pour que la modification de configur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Consultez les [exemples de requêtes de journal](container-insights-log-query.md) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
 
 - Pour en savoir plus sur Azure Monitor et sur la façon de surveiller d’autres aspects de votre cluster Kubernetes, consultez [Afficher les performances du cluster Kubernetes](container-insights-analyze.md).

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 83c455d6a8c952e8f4258dbb90d1d6726e8fcd65
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865697"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447910"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utiliser des certificats avec Azure Cloud Services (support étendu)
 
@@ -55,5 +55,5 @@ Key Vault est utilisé pour stocker les certificats associés aux services cloud
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
-- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).
+- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

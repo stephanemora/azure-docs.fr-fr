@@ -1,21 +1,21 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Kubernetes Service
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Kubernetes Service. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cb21ad4cb8b127494b526fb099bf73a1ae6400b3
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: d5f289cf20ba27f30342f37925cd3ef67186eaa5
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020058"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608523"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Définitions intégrées d’Azure Policy pour Azure Kubernetes Service
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Kubernetes Service. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="initiatives"></a>Initiatives
 

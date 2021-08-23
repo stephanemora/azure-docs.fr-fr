@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 09ed5297bb6432640d6cce7674c2246088823d37
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 398cf852d789b61a1f2b1e7a7e6ef4bad50e329a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750602"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524146"
 ---
 # <a name="supported-data-stores"></a>Magasins de données pris en charge
 
@@ -31,14 +31,18 @@ Purview prend en charge les banques de données suivantes. Cliquez sur chaque ba
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Pool SQL dédié Azure (anciennement SQL DW)](register-scan-azure-synapse-analytics.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Azure Synapse Analytics (Espace de travail)](register-scan-synapse-workspace.md)|Oui| Oui| Non| Oui| Oui| Oui|
-|Base de données|[Hive Metastore DB](register-scan-oracle-source.md)|Oui| Oui| Non| Non| Non| Oui|
+|Base de données|[Cassandra](register-scan-cassandra-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[Google BigQuery](register-scan-google-bigquery-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[Hive Metastore DB](register-scan-oracle-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[Oracle DB](register-scan-oracle-source.md)|Oui| Oui| Non| Non| Non| Oui|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Teradata](register-scan-teradata-source.md)|Oui| Oui| Non| Non| Non| Oui|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Oui| Oui| Non| Non| Non| Oui|
-|Services et applications|[SAP ECC](register-scan-sapecc-source.md)|Oui| Oui| Non| Oui| Oui| Oui|
-||[SAP S4HANA](register-scan-saps4hana-source.md)|Oui| Oui| Non| Oui| Oui| Oui|
-|Multi-cloud|[Amazon S3](register-scan-amazon-s3.md)|Oui| Oui| Non| Non| Non| Oui|
+|Services et applications|[Erwin](register-scan-erwin-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[Looker](register-scan-looker-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[SAP ECC](register-scan-sapecc-source.md)|Oui| Oui| Non| Non| Non| Oui|
+||[SAP S4HANA](register-scan-saps4hana-source.md)|Oui| Oui| Non| Non| Non| Oui|
+|Multi-cloud|[Amazon S3](register-scan-amazon-s3.md)|Oui| Oui| Oui| Oui| Oui| Oui|
 
 ## <a name="scan-regions"></a>Analyser des régions
 Voici une liste de toutes les régions de la source de données Azure (centre de données) sur lesquelles l’analyseur Purview s’exécute. Si votre source de données Azure se trouve dans une région qui ne figure pas dans cette liste, l’analyseur s’exécutera dans la région de votre instance de Purview.

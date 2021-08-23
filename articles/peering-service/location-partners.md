@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: cd57825172f69811dfa63e1d1dea048bbf1d5c82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 79d9d15ff2707dfac7e206cf5a289d7eac00ffb4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626195"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447563"
 ---
 # <a name="peering-service-partners"></a>Partenaires de Peering Service
 
@@ -34,7 +34,7 @@ Le tableau présenté dans cet article fournit des informations sur les partenai
 | [BBIX](https://www.bbix.net/en/service/) |Japon |
 | [CCL](https://concepts.co.nz/news/general-news/) |Océanie |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asie|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, Amérique du Nord |
+| [DE-CIX](https://www.de-cix.net/)|Europe, Amérique du Nord |
 | [IIJ](https://www.iij.ad.jp/en/) | Japon |
 | [InterCloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Océanie  |
@@ -54,7 +54,7 @@ Le tableau présenté dans cet article fournit des informations sur les partenai
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir le Peering Service, consultez [Vue d’ensemble du Peering Service](about.md).
-- Pour en savoir plus sur le Peering Service, consultez le [Forum aux questions sur le Peering Service](faq.md).
+- Pour en savoir plus sur le Peering Service, consultez le [Forum aux questions sur le Peering Service](faq.yml).
 - Pour découvrir l’intégration de partenaires et la configuration du Peering Service, consultez [Configuration du Peering Service](connection.md).
 - Pour en savoir plus sur la connexion Peering Service, consultez [Connexion Peering Service](connection.md).
 - Pour en savoir plus sur la télémétrie des connexions Peering Service, consultez [Télémétrie des connexions Peering Service](connection-telemetry.md).

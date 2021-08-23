@@ -1,17 +1,20 @@
 ---
 title: Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez le connecteur Teradata du service Data Factory, qui vous permet de copier des données Teradata Vantage vers des magasins de données pris en charge par Data Factory en tant que récepteurs.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9ebf320dc92ef8a39bc8b7569272ce2d0e2b2a68
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 2c8665217aa1f6bcf73caa59e6b7e35ffe193699
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642030"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 

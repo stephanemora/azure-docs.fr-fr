@@ -3,13 +3,13 @@ title: Enregistrement vidéo continu à partir de la périphérie -Azure Video A
 description: L’enregistrement vidéo continu (CVR) fait référence au processus d’enregistrement vidéo continu qui est effectué à partir d’une source vidéo en direct. Cette rubrique explique ce qu’est l’enregistrement vidéo continu et comment l’utiliser avec Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/10/2021
-ms.openlocfilehash: 19bf86d03178ad1242430bc9faf2c141ab7d4189
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: a7909fab420302fe8246e8f1ce2cd050d1f854f8
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385948"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603976"
 ---
 # <a name="continuous-video-recording"></a>Enregistrement de vidéo continu    
 
