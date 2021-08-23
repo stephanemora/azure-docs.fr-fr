@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 06/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0473a266cffb083a82ffc9afb333da7eecf59c
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 471cf0ae11910b74f6aabd8fd858ed6f6dd2f31c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015696"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029762"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurer un passe d’accès temporaire dans Azure AD pour inscrire des méthodes d’authentification sans mot de passe (préversion)
 
@@ -141,8 +141,8 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 
 - Un utilisateur ne peut avoir qu’un seul passe d’accès temporaire. Le code secret est utilisable entre les heures de début et de fin du passe d’accès temporaire.
 - Si l’utilisateur a besoin d’un nouveau passe d’accès temporaire :
-  - Si le passe d’accès temporaire existant est valide, l’administrateur doit le supprimer et en créer un nouveau. La suppression d’un passe d’accès temporaire valide a pour effet de révoquer les sessions de l’utilisateur. 
-  - Si le passe d’accès temporaire existant a expiré, un nouveau passe remplace le passe existant sans que cela ait pour effet de révoquer les sessions de l’utilisateur.
+  - Si le passe d’accès temporaire existant est valide, l’administrateur doit le supprimer et en créer un nouveau. 
+  - Si le passe d’accès temporaire existant a expiré, un nouveau passe remplace celui existant.
 
 Pour plus d’informations sur les normes NIST pour l’intégration et la récupération, consultez la [publication spéciale 800-63 du NIST](https://pages.nist.gov/800-63-3/sp800-63a.html#sec4).
 
@@ -154,7 +154,7 @@ Gardez ces limites à l’esprit :
 - Des utilisateurs invités ne peuvent pas se connecter avec un passe d’accès temporaire.
 - Le passe d’accès temporaire est en préversion publique et n’est actuellement pas disponible dans Azure pour le gouvernement des États-Unis.
 - Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) *ou* par la [stratégie d’inscription de l’authentification multifacteur Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)seront tenus d’inscrire des méthodes d’authentification après s’être connectés avec un passe d’accès temporaire. Les utilisateurs concernés par ces stratégies seront redirigés vers le [mode d’interruption de l’inscription combinée](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Cette expérience ne prend actuellement pas en charge l’inscription de FIDO2 et de la connexion par téléphone. 
-- Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS), ou pendant l’expérience OOBE ( Setup/Out-of-Box-Experience) Windows et AutoPilot. 
+- Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS) ou pendant l’expérience OOBE (Setup/Out-of-Box-Experience) Windows et Autopilot. 
 - Lorsque l’authentification unique fluide est activée sur le locataire, les utilisateurs sont invités à entrer un mot de passe. Le lien **Utiliser plutôt un passe d’accès temporaire** sera disponible pour que l’utilisateur se connecte avec un passe d’accès temporaire.
 
   ![Capture d’écran de l’utilisation d’un passe d’accès temporaire à la place](./media/how-to-authentication-temporary-access-pass/alternative.png)

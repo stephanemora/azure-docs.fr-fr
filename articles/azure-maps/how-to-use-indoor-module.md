@@ -1,5 +1,5 @@
 ---
-title: Utiliser le module Azure Maps Indoor Maps avec les services Microsoft Creator (préversion)
+title: Utilisation du module Indoor Maps d’Azure Maps avec les services Microsoft Creator
 description: Découvrez comment utiliser le module Cartes d’intérieur d’Azure Maps pour afficher les cartes en incorporant les bibliothèques JavaScript du module.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,25 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59521aa0be652ef37c39f45bb323fbc49a93b99d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708677"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030410"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utiliser le module Cartes d’intérieur d’Azure Maps
 
-> [!IMPORTANT]
-> Les services Azure Maps Creator sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Le Kit de développement logiciel (SDK) web Azure Maps comprend le module *Cartes d’intérieur Azure*. Le module *Azure Maps Indoor Maps* vous permet d’afficher des cartes d’intérieur créées dans les services Azure Maps Creator (préversion). 
+Le Kit de développement logiciel (SDK) web Azure Maps comprend le module *Cartes d’intérieur Azure*. Le module *Indoor Maps d’Azure Maps* permet d’afficher des cartes d’intérieur créées dans les services Azure Maps Creator.
 
 ## <a name="prerequisites"></a>Prérequis
 
 1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Créer une ressource Creator (préversion)](how-to-manage-creator.md)
+2. [Créer une ressource de Créateur](how-to-manage-creator.md)
 3. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 4. Procurez-vous un `tilesetId` et un `statesetId` en suivant le [tutoriel pour créer des cartes d’intérieur](tutorial-creator-indoor-maps.md).
  Vous devez utiliser ces identificateurs pour afficher des cartes d’intérieur avec le module Cartes d’intérieur d’Azure Maps.
@@ -151,7 +147,7 @@ Cet exemple montre comment utiliser le module *Cartes d’intérieur d’Azure M
 4. Initialisez un *objet Map*. L’*objet Map* prend en charge les options suivantes :
     - `Subscription key` est votre clé d’abonnement principale Azure Maps.
     - `center` définit une latitude et une longitude pour l’emplacement du centre de votre carte d’intérieur. Fournissez une valeur pour `center` si vous ne souhaitez pas fournir de valeur pour `bounds`. Le format doit être `center`: [-122.13315, 47.63637].
-    - `bounds` est la plus petite forme rectangulaire qui englobe les données cartographiques du tileset. Définissez une valeur pour `bounds` si vous ne souhaitez pas définir de valeur pour `center`. Vous pouvez trouver vos limites de carte en appelant l’[API de liste de tileset](/rest/api/maps/tileset/listpreview). L’API de liste de tileset retourne la valeur `bbox`, que vous pouvez analyser et assigner à `bounds`. Le format doit apparaître comme `bounds` : [# west, # south, # east, # north].
+    - `bounds` est la plus petite forme rectangulaire qui englobe les données cartographiques du tileset. Définissez une valeur pour `bounds` si vous ne souhaitez pas définir de valeur pour `center`. Vous pouvez trouver vos limites de carte en appelant l’[API de liste de tileset](/rest/api/maps/v2/tileset/list). L’API de liste de tileset retourne la valeur `bbox`, que vous pouvez analyser et assigner à `bounds`. Le format doit apparaître comme `bounds` : [# west, # south, # east, # north].
     - `style` vous permet de définir la couleur de l’arrière-plan. Pour afficher un arrière-plan blanc, définissez `style` sur « vide ».
     - `zoom` vous permet de spécifier les niveaux de zoom minimum et maximum pour votre carte.
 
@@ -255,7 +251,7 @@ En savoir plus sur les API relatives au module *Cartes d’intérieur d’Azure 
 > [exigences du package de dessin](drawing-requirements.md)
 
 >[!div class="nextstepaction"]
-> [Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)
+> [Créateur pour cartes d’intérieur](creator-indoor-maps.md)
 
 En savoir plus sur l’ajout de données à votre carte :
 

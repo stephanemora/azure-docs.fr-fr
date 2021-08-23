@@ -7,12 +7,13 @@ ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 646045df9a6586d80969ec3e80081d45d4dcd249
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+manager: philmea
+ms.openlocfilehash: c3e6632f607ca9168f63538e4c2a6d96d6197d8a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531523"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032138"
 ---
 # <a name="creator-for-indoor-maps"></a>Créateur pour cartes d’intérieur
 
@@ -116,7 +117,7 @@ Une application peut utiliser un stateset de caractéristique pour restituer de 
 
 ### <a name="render-v2-get-map-tile-api"></a>API Render V2-Get Map Tile
 
-L’[API Render V2-Get Map Tile](/rest/api/maps/render-v2/get-map-tile) d’Azure Maps a été étendue pour prendre en charge les tilesets de Creator.
+L’[API Render V2-Get Map Tile](/rest/api/maps/renderv2/getmaptilepreview) d’Azure Maps a été étendue pour prendre en charge les tilesets de Creator.
 
 Les applications peuvent utiliser l’API Render V2-Get Map Tile pour demander des tilesets. Les tilesets peut ensuite être intégré dans un contrôle de carte ou un Kit de développement logiciel (SDK). Pour obtenir un exemple de contrôle de carte utilisant le service Render v2, consultez [Module Cartes d’intérieur](#indoor-maps-module).
 
@@ -145,7 +146,7 @@ Lorsque vous commencez à développer des solutions pour des cartes d’intérie
  Vous pouvez utiliser l’API Azure Maps Creator Lister, Mettre à jour et Supprimer pour répertorier, mettre à jour et supprimer vos jeux de données, tilesets et ensembles d’états de fonctionnalité.
 
 >[!NOTE]
->Lorsque vous examinez une liste d’éléments pour savoir si vous devez les supprimer, pensez à l’impact de cette suppression sur l’ensemble des applications ou API dépendantes. Par exemple, si vous supprimez un tileset utilisé par une application au moyen de l’[API Render V2-Get Map Tile ](/rest/api/maps/render-v2/get-map-tile), l’application ne parviendra pas à afficher ce tileset.
+>Lorsque vous examinez une liste d’éléments pour savoir si vous devez les supprimer, pensez à l’impact de cette suppression sur l’ensemble des applications ou API dépendantes. Par exemple, si vous supprimez un tileset utilisé par une application au moyen de l’[API Render V2-Get Map Tile ](/rest/api/maps/renderv2/getmaptilepreview), l’application ne parviendra pas à afficher ce tileset.
 
 ### <a name="example-updating-a-dataset"></a>Exemple : Mise à jour d’un jeu de données
 

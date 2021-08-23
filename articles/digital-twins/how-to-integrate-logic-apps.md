@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d293afdcbbf99fd1a01708b537a81bad70fb1fe8
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6adbbb55c01c42c0318a610cb825007af3a4a6e3
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790088"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208776"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Intégrer à Logic Apps à l’aide d’un connecteur personnalisé
 
@@ -28,7 +28,7 @@ Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.co
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous ne disposez pas d’abonnement Azure, **créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** avant de commencer.
 Connectez-vous au [portail Azure](https://portal.azure.com) avec ce compte. 
 
 Vous devez également accomplir les étapes suivantes dans le cadre de la configuration requise. Le reste de cette section vous guidera dans les étapes suivantes :
@@ -43,7 +43,7 @@ Vous devez également accomplir les étapes suivantes dans le cadre de la config
 
 Cet article utilise Logic Apps pour mettre à jour un jumeau dans votre instance Azure Digital Twins. Pour continuer, vous devez ajouter au moins un jumeau dans votre instance. 
 
-Vous pouvez ajouter des jumeaux à l’aide des [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de la [CLI Azure Digital Twins](concepts-cli.md). Pour obtenir des instructions détaillées sur la façon de créer des jumeaux à l’aide de ces méthodes, consultez [Procédure : Gérer des jumeaux numériques](how-to-manage-twin.md).
+Vous pouvez ajouter des jumeaux à l’aide des [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir des instructions détaillées sur la façon de créer des jumeaux à l’aide de ces méthodes, consultez [Procédure : Gérer des jumeaux numériques](how-to-manage-twin.md).
 
 Vous aurez besoin de **_l’ID du jumeau_** dans votre instance que vous avez créée.
 
@@ -55,11 +55,11 @@ Vous aurez besoin de **_l’ID du jumeau_** dans votre instance que vous avez cr
 
 Vous devrez également créer un **_secret client_** pour l’inscription de votre application Azure AD. Pour ce faire, accédez à la page [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Sélectionnez l’inscription que vous avez créée lors de la section précédente dans la liste, afin d’ouvrir ses détails. 
 
-Sélectionnez *Certificats et secrets* dans le menu de l’inscription, puis *+ Nouveau secret client*.
+Appuyez sur *Certificats et secrets* dans le menu de l’inscription, puis sélectionnez *+ Nouveau secret client*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
-Entrez les valeurs de votre choix pour *Description* et *Expire le*, puis sélectionnez *Ajouter*.
+Entrez les valeurs de votre choix pour *Description* et *Expire le*, puis appuyez sur *Ajouter*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Ajouter une clé secrète client":::
 
@@ -71,32 +71,32 @@ Entrez les valeurs de votre choix pour *Description* et *Expire le*, puis sélec
 
 Vous être maintenant prêt à créer un [connecteur Logic Apps personnalisé](../logic-apps/custom-connector-overview.md) pour les API Azure Digital Twins. Après cela, vous pourrez raccorder Azure Digital Twins lors de la création d’une application logique dans la section suivante.
 
-Accédez à la page [Connecteur personnalisé Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Sélectionnez *Ajouter*.
+Accédez à la page [Connecteur personnalisé Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher la page dans la barre de recherche du portail). Appuyez sur *+ Ajouter*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Page « Connecteur personnalisé Logic Apps » dans le portail Azure. Bouton « Ajouter » mis en surbrillance":::
 
-Dans la page *Créer un connecteur personnalisé Logic Apps* qui suit, sélectionnez votre abonnement et votre groupe de ressources, ainsi qu’un nom et un emplacement de déploiement pour votre nouveau connecteur. Sélectionnez *Revoir + créer*. 
+Dans la page *Créer un connecteur personnalisé Logic Apps* qui suit, sélectionnez votre abonnement et votre groupe de ressources, ainsi qu’un nom et un emplacement de déploiement pour votre nouveau connecteur. Appuyez sur *Vérifier + créer*. 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Page « Créer un connecteur personnalisé Logic Apps » dans le portail Azure.":::
 
-Cela vous permet d’atteindre l’onglet *Vérifier + créer*, où vous pouvez sélectionner *Créer* en bas pour créer votre ressource.
+Cela vous permet d’atteindre l’onglet *Vérifier + créer*, où vous pouvez appuyer sur *Créer* en bas pour créer votre ressource.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Onglet « Vérifier + créer » de la page « Vérifier un connecteur personnalisé Logic Apps » dans le portail Azure. Bouton « Créer » mis en surbrillance":::
 
-Vous serez dirigé vers la page de déploiement pour le connecteur. Une fois le déploiement terminé, sélectionnez le bouton *Accéder à la ressource* pour afficher les détails du connecteur dans le portail.
+Vous serez dirigé vers la page de déploiement pour le connecteur. Une fois le déploiement terminé, cliquez sur le bouton *Accéder à la ressource* pour afficher les détails du connecteur dans le portail.
 
 ### <a name="configure-connector-for-azure-digital-twins"></a>Configurer le connecteur pour Azure Digital Twins
 
 Ensuite, vous allez configurer le connecteur que vous avez créé pour atteindre Azure Digital Twins.
 
-Tout d’abord, téléchargez un fichier Swagger Azure Digital Twins personnalisé qui a été modifié pour fonctionner avec Logic Apps. Téléchargez les [exemples de Swaggers personnalisés Azure Digital Twins (connecteur Logic Apps)](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) en sélectionnant le bouton *Télécharger le ZIP*. Accédez au dossier téléchargé *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* et décompressez-le. 
+Tout d’abord, téléchargez un fichier Swagger Azure Digital Twins personnalisé qui a été modifié pour fonctionner avec Logic Apps. Téléchargez les [exemples de Swaggers personnalisés Azure Digital Twins (connecteur Logic Apps)](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) en cliquant sur le bouton *Télécharger le ZIP*. Accédez au dossier téléchargé *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* et décompressez-le. 
 
 L’exemple de Swagger personnalisé pour ce tutoriel se trouve dans le dossier ***Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps**_. Ce dossier contient des sous-dossiers appelés _stable* et *preview*, qui contiennent des versions différentes de Swagger organisées par date. Le dossier dont la date est la plus récente contient la copie la plus récente de Swagger. Quelle que soit la version que vous sélectionnez, le fichier Swagger est nommé _** digitaltwins.json**_.
 
 > [!NOTE]
 > À moins que vous ne travailliez avec une fonctionnalité d’évaluation, il est généralement recommandé d’utiliser la version *stable* le plus récente de Swagger. Toutefois, les versions antérieures et les préversions des Swagger continuent également d’être prises en charge. 
 
-Ensuite, accédez à la page Vue d’ensemble de votre connecteur dans le [portail Azure](https://portal.azure.com), puis sélectionnez *Modifier*.
+Ensuite, accédez à la page Vue d’ensemble de votre connecteur dans le [portail Azure](https://portal.azure.com), puis cliquez sur *Modifier*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Page « Vue d’ensemble » pour le connecteur créé à l’étape précédente. Bouton « Modifier » mis en surbrillance":::
 
@@ -104,7 +104,7 @@ Dans la page *Modifier le connecteur personnalisé Logic Apps* qui suit, configu
 * **Connecteurs personnalisés**
     - Point de terminaison d’API : REST (conservez la valeur par défaut)
     - Mode d’importation : Fichier OpenAPI (conservez la valeur par défaut)
-    - Fichier : Il s’agit du fichier Swagger personnalisé que vous avez téléchargé précédemment. Sélectionnez *Import*, recherchez le fichier sur votre ordinateur (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json*), puis sélectionnez *Ouvrir*.
+    - Fichier : Il s’agit du fichier Swagger personnalisé que vous avez téléchargé précédemment. Cliquez sur *Importer*, localisez le fichier sur votre machine (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps\...\digitaltwins.json*), puis cliquez sur *Ouvrir*.
 * **Informations générales**
     - Icône : Téléchargez une icône qui vous plaît
     - Couleur d’arrière-plan de l’icône : Entrez le code hexadécimal au format « #xxxxxx » pour votre couleur.
@@ -113,11 +113,11 @@ Dans la page *Modifier le connecteur personnalisé Logic Apps* qui suit, configu
     - Hôte : Le *nom d’hôte* de votre instance Azure Digital Twins.
     - URL de base : / (conservez la valeur par défaut)
 
-Ensuite, sélectionnez le bouton *Sécurité* au bas de la fenêtre pour passer à l’étape de configuration suivante.
+Ensuite, appuyez sur le bouton *Sécurité* au bas de la fenêtre pour passer à l’étape de configuration suivante.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Capture d’écran du bas de la page « Modifier le connecteur personnalisé Logic Apps ». Mise en surbrillance du bouton permettant d’accéder à Sécurité":::
 
-Dans l’étape Sécurité, sélectionnez *Modifier* et configurez ces informations :
+À l’étape Sécurité, appuyez sur *Modifier* et configurez les informations suivantes :
 * **Type d'authentification** : OAuth 2.0
 * **OAuth 2.0** :
     - Fournisseur d’identité : Azure Active Directory
@@ -129,7 +129,7 @@ Dans l’étape Sécurité, sélectionnez *Modifier* et configurez ces informati
     - Étendue : Directory.AccessAsUser.All
     - URL de redirection : (conservez la valeur par défaut pour l’instant)
 
-Notez que le champ URL de redirection indique *Enregistrer le connecteur personnalisé pour générer l’URL de redirection*. Pour cela, sélectionnez *Mettre à jour le connecteur* en haut du volet pour confirmer les paramètres du connecteur.
+Notez que le champ URL de redirection indique *Enregistrer le connecteur personnalisé pour générer l’URL de redirection*. Pour cela, appuyez sur *Mettre à jour le connecteur* en haut du volet pour confirmer les paramètres du connecteur.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Capture d’écran du haut de la page « Modifier le connecteur personnalisé Logic Apps ». Bouton « Mettre à jour le connecteur » mis en surbrillance":::
 
@@ -142,7 +142,7 @@ Revenez au champ URL de redirection et copiez la valeur qui a été générée. 
 Il s’agit de toutes les informations nécessaires à la création de votre connecteur (inutile de passer de l’étape Sécurité à l’étape Définition). Vous pouvez fermer le volet *Modifier le connecteur personnalisé Logic Apps*.
 
 >[!NOTE]
->De retour dans la page Vue d’ensemble de votre connecteur, où vous avez sélectionné *Modifier*, notez que le fait de sélectionner à nouveau sur *Modifier* redémarre tout le processus de saisie de vos choix de configuration. Cette opération ne renseigne pas vos valeurs entrées la dernière fois. Par conséquent, si vous souhaitez enregistrer une configuration mise à jour avec des valeurs modifiées, vous devez entrer à nouveau toutes les autres valeurs également pour éviter qu’elles ne soient remplacées par les valeurs par défaut.
+>De retour dans la page Vue d’ensemble de votre connecteur, où vous avez appuyez sur *Modifier*, notez que le fait d’appuyer à nouveau sur *Modifier* redémarre tout le processus de saisie de vos choix de configuration. Cette opération ne renseigne pas vos valeurs entrées la dernière fois. Par conséquent, si vous souhaitez enregistrer une configuration mise à jour avec des valeurs modifiées, vous devez entrer à nouveau toutes les autres valeurs également pour éviter qu’elles ne soient remplacées par les valeurs par défaut.
 
 ### <a name="grant-connector-permissions-in-the-azure-ad-app"></a>Accorder des autorisations de connecteur dans l’application Azure AD
 
@@ -154,7 +154,7 @@ Sous *Authentification* dans le menu de l’inscription, ajoutez un URI.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Page Authentification pour l’inscription de l’application dans le portail Azure. « Authentification » dans le menu est mis en surbrillance, et dans la page, le bouton « Ajouter un URI » est mis en surbrillance."::: 
 
-Entrez *l’URL de redirection* du connecteur personnalisé dans le nouveau champ, puis sélectionnez l’icône *Enregistrer*.
+Entrez *l’URL de redirection* du connecteur personnalisé dans le nouveau champ, puis cliquez sur l’icône *Enregistrer*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Page Authentification pour l’inscription de l’application dans le portail Azure. La nouvelle URL de redirection est mise en surbrillance, ainsi que le bouton « Enregistrer » pour la page.":::
 
@@ -164,17 +164,17 @@ Vous avez maintenant terminé la configuration d’un connecteur personnalisé q
 
 Ensuite, vous allez créer une application logique qui utilisera votre nouveau connecteur pour automatiser les mises à jour Azure Digital Twins.
 
-Dans le [portail Azure](https://portal.azure.com), recherchez *Logic Apps* dans la barre de recherche. La sélection de cette option a pour effet de vous diriger vers la page *Logic Apps*. Sélectionnez le bouton *Créer une application logique* pour créer une application logique.
+Dans le [portail Azure](https://portal.azure.com), recherchez *Logic Apps* dans la barre de recherche. La sélection de cette option a pour effet de vous diriger vers la page *Logic Apps*. Appuyez sur le bouton *Créer une application logique* pour créer une application logique.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Page « Logic Apps » dans le portail Azure. Sélectionnez le bouton « Ajouter »":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Page « Logic Apps » dans le portail Azure. Appuyez sur le bouton « Ajouter »":::
 
 Dans la page *Application logique* qui suit, entrez votre abonnement et votre groupe de ressources. Choisissez également un nom pour votre application logique, et sélectionnez l’emplacement du déploiement.
 
-Sélectionnez le bouton _Vérifier + Créer_.
+Appuyez sur le bouton _Vérifier + créer_.
 
-Cela vous permet d’atteindre l’onglet *Vérifier + créer*, dans lequel vous pouvez vérifier vos détails et sélectionner *Créer* en bas pour créer votre ressource.
+Cela vous permet d’atteindre l’onglet *Vérifier + créer*, dans lequel vous pouvez vérifier vos détails et appuyer sur *Créer* en bas pour créer votre ressource.
 
-Vous serez dirigé vers la page de déploiement pour l’application logique. Une fois le déploiement terminé, sélectionnez le bouton *Accéder à la ressource* pour accéder à *Concepteur Logic Apps*, où vous allez renseigner la logique du flux de travail.
+Vous serez dirigé vers la page de déploiement pour l’application logique. Une fois le déploiement terminé, appuyez sur le bouton *Accéder à la ressource* pour accéder à *Concepteur Logic Apps*, où vous allez renseigner la logique du flux de travail.
 
 ### <a name="design-workflow"></a>Flux de travail de conception
 
@@ -184,7 +184,7 @@ Dans le *Concepteur Logic Apps*, sous *Démarrer avec un déclencheur courant*, 
 
 Dans la page *Concepteur Logic Apps* qui suit, définissez la fréquence de **Récurrence** sur *Seconde*, afin que l’événement soit déclenché toutes les 3 secondes. Cela vous permettra de voir plus facilement les résultats, sans avoir à attendre très longtemps.
 
-Sélectionnez *+ Nouvelle étape*.
+Appuyez sur *+ Nouvelle étape*.
 
 Cela ouvre une zone *Choisir une action*. Basculez vers l’onglet *Personnalisé*. Votre connecteur personnalisé précédemment doit s’afficher dans la zone supérieure.
 
@@ -195,11 +195,11 @@ Sélectionnez-le pour afficher la liste des API contenues dans ce connecteur. Ut
 Vous serez peut-être invité à entrer vos informations d’identification Azure pour vous connecter au connecteur. Si une boîte de dialogue *Autorisations demandées* s’affiche, suivez les invites afin d’accorder le consentement pour votre application et d’accepter.
 
 Dans la nouvelle zone *DigitalTwinsAdd*, renseignez les champs comme suit :
-* _id_ : Renseignez l’*ID de jumeau* du jumeau numérique dans l’instance que l’application logique doit mettre à jour.
+* _ID_ : Renseignez *l’ID de jumeau* du jumeau numérique dans votre instance que l’application logique doit mettre à jour.
 * _jumeau_ : Ce champ vous permet d’entrer le corps requis par la demande d’API choisie. Pour *DigitalTwinsUpdate*, ce corps est sous la forme d’un code de correctif JSON. Pour plus d’informations sur la structuration d’un correctif JSON afin de mettre à jour votre jumeau, consultez la section [Mettre à jour un jumeau numérique](how-to-manage-twin.md#update-a-digital-twin) dans *Procédure : Gestion des jumeaux numériques*.
 * _api-version_ : Version la plus récente de l’API. Actuellement, cette valeur est *2020-10-31*.
 
-Sélectionnez *Enregistrer* dans le Concepteur Logic Apps.
+Appuyez sur *Enregistrer* dans le Concepteur Logic Apps.
 
 Vous pouvez choisir d’autres opérations en sélectionnant _+ Nouvelle étape_ dans la même fenêtre.
 
@@ -209,7 +209,7 @@ Vous pouvez choisir d’autres opérations en sélectionnant _+ Nouvelle étape_
 
 Maintenant que votre application logique a été créée, l’événement de mise à jour du jumeau que vous avez défini dans le Concepteur Logic Apps doit se produire avec une récurrence toutes les trois secondes. Cela signifie qu’au bout de trois secondes, vous devriez être en mesure d’interroger votre jumeau et de voir les nouvelles valeurs corrigées.
 
-Vous pouvez interroger votre jumeau par le biais de la méthode de votre choix (par exemple, une [application cliente personnalisée](tutorial-command-line-app.md), [l’exemple d’application Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), les [SDK et les API](concepts-apis-sdks.md) ou la [CLI](concepts-cli.md)). 
+Vous pouvez interroger votre jumeau par le biais de la méthode de votre choix (par exemple, une [application cliente personnalisée](tutorial-command-line-app.md), [l’exemple d’application Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), les [SDK et les API](how-to-use-apis-sdks.md) ou la [CLI](how-to-use-cli.md)). 
 
 Pour plus d’informations sur l’interrogation de votre instance Azure Digital Twins, consultez [Procédure : Interroger le graphique de jumeaux](how-to-query-graph.md).
 
@@ -217,4 +217,4 @@ Pour plus d’informations sur l’interrogation de votre instance Azure Digital
 
 Dans cet article, vous avez créé une application logique qui met régulièrement à jour un jumeau dans votre instance Azure Digital Twins avec un correctif que vous avez fourni. Vous pouvez essayer de sélectionner d’autres API dans le connecteur personnalisé afin de créer des applications Logic Apps pour effectuer diverses actions sur votre instance.
 
-Pour en savoir plus sur les opérations d’API disponibles et les détails requis, consultez [Concepts : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins](concepts-apis-sdks.md).
+Pour en savoir plus sur les opérations d’API disponibles et les détails requis, consultez [Procédure : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md).

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: ab8065a14aac9e798bfe7d632aa5b33c44706190
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 850586db4edf721981315c67317790429dd67d64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775825"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465987"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -25,10 +25,10 @@ Vous pouvez configurer l’intégration de AKS à ACR à l’aide de quelques co
 
 Ces exemples requièrent les éléments suivants :
 
-* Le rôle **Propriétaire** ou **Administrateur de compte Azure** sur **l’abonnement Azure**
+* Le rôle **Propriétaire**, **Administrateur de compte Azure**, ou **Coadministrateur Azure** sur **l’abonnement Azure**
 * Azure CLI version 2.7.0 ou ultérieure
 
-Pour ne pas devoir utiliser un rôle **Propriétaire** ou **Administrateur de compte Azure**, vous pouvez configurer une identité managée manuellement, ou utiliser une identité managée existante afin d’authentifier ACR à partir d’AKS. Pour plus d’informations, consultez [Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure](../container-registry/container-registry-authentication-managed-identity.md).
+Pour ne pas devoir utiliser un rôle **Propriétaire**, **Administrateur de compte Azure**, ou **Coadministrateur Azure**, vous pouvez utiliser une identité managée existante afin d’authentifier ACR à partir d’AKS. Pour plus d’informations, consultez [Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Créer un nouveau cluster AKS avec l’intégration ACR
 
@@ -71,6 +71,9 @@ ou
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
+
+> [!NOTE]
+> L’exécution de `az aks update --attach-acr` utilise les autorisations de l’utilisateur qui exécute la commande pour créer l’attribution de rôle ACR. Ce rôle est attribué à l’identité managée kubelet. Pour plus d’informations sur les identités gérées par AKS, consultez [Résumé des identités gérées][summary-msi].
 
 Vous pouvez également supprimer l’intégration entre ACR et un cluster AKS à l’aide de ce qui suit
 
@@ -151,9 +154,11 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 
 ### <a name="troubleshooting"></a>Dépannage
 * Exécutez la commande [az aks check-acr](/cli/azure/aks#az_aks_check_acr) pour vérifier que le registre est accessible à partir du cluster AKS.
-* En savoir plus sur les [Diagnostics de l’ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Apprenez-en davantage sur la [supervision ACR](../container-registry/monitor-service.md)
 * En savoir plus sur l’[Intégrité de l’ACR](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks#az_aks_create
 [Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities

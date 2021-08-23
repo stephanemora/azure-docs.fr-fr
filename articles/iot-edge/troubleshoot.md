@@ -8,12 +8,12 @@ ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 78dff59e1cd902b6f503d9dc75213d0bd4822baa
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 0ab6ddcf3566164746dce8e0b9ff4b4a2aa32b84
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634722"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537980"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Résoudre les problèmes de votre appareil IoT Edge
 
@@ -267,11 +267,17 @@ Sur Windows :
 
 Une fois que le démon de sécurité IoT Edge s’exécute, vérifiez si les journaux des conteneurs signalent des problèmes. Commencez par les conteneurs déployés, puis examinez les conteneurs qui composent le runtime IoT Edge : Edge Agent et Edge Hub. En général, les journaux d’activité de l’agent IoT Edge fournissent des informations sur le cycle de vie de chaque conteneur. Les journaux d’activité du hub IoT Edge fournissent des informations sur la messagerie et le routage.
 
-```cmd
-iotedge logs <container name>
-```
+Il est possible de récupérer les journaux de conteneur à plusieurs endroits :
 
-Vous pouvez également utiliser un appel de [méthode directe](how-to-retrieve-iot-edge-logs.md#upload-module-logs) à destination d’un modèle de votre appareil pour charger les journaux de ce module dans Stockage Blob Azure.
+* Sur l’appareil IoT Edge, exécutez la commande suivante pour afficher les journaux :
+
+  ```cmd
+  iotedge logs <container name>
+  ```
+
+* Sur le Portail Azure, utilisez l’outil de résolution des problèmes intégré. Pour plus d’informations, consultez [Surveillance et résolution des problèmes des appareils IoT Edge sur le Portail Azure](troubleshoot-in-portal.md).
+
+* Utilisez la [méthode directe UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs) pour charger les journaux d’un module dans le Stockage Blob Azure.
 
 ## <a name="clean-up-container-logs"></a>Nettoyer les journaux de conteneur
 
@@ -357,7 +363,9 @@ Vous pouvez également vérifier les messages échangés entre IoT Hub et les ap
 
 ## <a name="restart-containers"></a>Redémarrer les conteneurs
 
-Après avoir examiné les journaux d’activité et les messages pour obtenir plus d’informations, vous pouvez essayer de redémarrer les conteneurs :
+Une fois que vous avez examiné les journaux d’activité et les messages pour obtenir des informations, vous pouvez essayer de redémarrer les conteneurs.
+
+Sur l’appareil IoT Edge, utilisez les commandes suivantes pour redémarrer les modules :
 
 ```cmd
 iotedge restart <container name>
@@ -368,6 +376,8 @@ Redémarrez les conteneurs du runtime IoT Edge :
 ```cmd
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
+
+Vous pouvez également redémarrer les modules à distance sur le Portail Azure. Pour plus d’informations, consultez [Surveillance et résolution des problèmes des appareils IoT Edge sur le Portail Azure](troubleshoot-in-portal.md).
 
 ## <a name="check-your-firewall-and-port-configuration-rules"></a>Vérifier vos règles de configuration de pare-feu et de port
 

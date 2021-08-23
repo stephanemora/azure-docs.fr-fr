@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-ms.openlocfilehash: 8c0f233c2eb154636d64f747bb43bd392295aa9b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7b383c4fdc0d1b5a04c100a574b814938ed83f2b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792378"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087775"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption pour Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -34,7 +34,7 @@ Pour obtenir la liste complète des conditions préalables requises, consultez [
 
 Il existe deux versions du schéma d’extension pour Azure Disk Encryption (ADE) :
 - v1.1 : nouveau schéma recommandé qui n’utilise pas les propriétés Azure Active Directory (AAD).
-- v0.1 : ancien schéma qui exige des propriétés Azure Active Directory (AAD). 
+- v0.1 : ancien schéma qui exige des propriétés Azure Active Directory (AAD).
 
 Pour pouvoir sélectionner un schéma cible, vous devez définir la propriété `typeHandlerVersion` sur la version du schéma que vous souhaitez utiliser.
 
@@ -69,7 +69,7 @@ Le schéma v1.1 est recommandé et n’exige pas de propriétés Azure Active Di
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schéma v0.1 : avec AAD 
+### <a name="schema-v01-with-aad"></a>Schéma v0.1 : avec AAD
 
 Le schéma 0.1 exige `AADClientID` et `AADClientSecret` ou `AADClientCertificate`.
 
@@ -142,12 +142,12 @@ Utilisation de `AADClientCertificate`:
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1.1, 0.1 | int |
-| (schéma 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (schéma 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid |
 | (schéma 0.1) AADClientSecret | mot de passe | string |
 | (schéma 0.1) AADClientCertificate | thumbprint | string |
 | (facultatif) (schéma 0.1) Passphrase | mot de passe | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dictionnaire JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string |
 | (facultatif – par défaut, RSA-OAEP) KeyEncryptionAlgorithm | « RSA-OAEP », « RSA-OAEP-256 », « RSA1_5 » | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
@@ -160,12 +160,12 @@ Utilisation de `AADClientCertificate`:
 
 Pour un exemple de déploiement de modèle basé sur le schéma v1.1, consultez le modèle de démarrage rapide Azure [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
 
-Pour un exemple de déploiement de modèle basé sur le schéma v0.1, consultez le modèle de démarrage rapide Azure [201-encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
+Pour un exemple de déploiement de modèle basé sur le schéma v0.1, consultez le modèle de démarrage rapide Azure [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm).
 
 >[!WARNING]
 > - Si vous avez déjà utilisé Azure Disk Encryption avec Azure AD pour chiffrer une machine virtuelle, vous devez continuer à utiliser cette option pour chiffrer votre machine virtuelle.
-> - Lors du chiffrement de volumes de système d’exploitation Linux, la machine virtuelle ne devrait pas être disponible. Nous vous recommandons vivement d'éviter les connexions SSH pendant le chiffrement afin d'éviter tout problème risquant de bloquer les fichiers ouverts qui devront être accessibles pendant le processus de chiffrement. Pour vérifier la progression, utilisez la cmdlet PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) ou la commande CLI [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). Ce processus peut prendre quelques heures pour un volume de système d’exploitation de 30 Go, et du temps supplémentaire pour le chiffrement des volumes de données. La durée de chiffrement de volume de données est proportionnelle à la taille et à la quantité des volumes de données, sauf si l’option « EncryptFormatAll » est utilisée. 
-> - La désactivation du chiffrement sur les machines virtuelles Linux est prise en charge seulement pour les volumes de données. Elle n’est pas prise en charge sur les volumes de données ou de système d’exploitation si le volume du système d’exploitation a été chiffré. 
+> - Lors du chiffrement de volumes de système d’exploitation Linux, la machine virtuelle ne devrait pas être disponible. Nous vous recommandons vivement d'éviter les connexions SSH pendant le chiffrement afin d'éviter tout problème risquant de bloquer les fichiers ouverts qui devront être accessibles pendant le processus de chiffrement. Pour vérifier la progression, utilisez la cmdlet PowerShell [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) ou la commande CLI [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). Ce processus peut prendre quelques heures pour un volume de système d’exploitation de 30 Go, et du temps supplémentaire pour le chiffrement des volumes de données. La durée de chiffrement de volume de données est proportionnelle à la taille et à la quantité des volumes de données, sauf si l’option « EncryptFormatAll » est utilisée.
+> - La désactivation du chiffrement sur les machines virtuelles Linux est prise en charge seulement pour les volumes de données. Elle n’est pas prise en charge sur les volumes de données ou de système d’exploitation si le volume du système d’exploitation a été chiffré.
 
 >[!NOTE]
 > Par ailleurs, si le paramètre `VolumeType` a la valeur All, les disques de données ne sont chiffrés que s’ils sont correctement montés.
@@ -178,7 +178,7 @@ Pour la résolution des problèmes, reportez-vous au [guide de dépannage Azure 
 
 ### <a name="support"></a>Support
 
-Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/community/). 
+Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/community/).
 
 Vous pouvez également signaler un incident au support Azure. Accédez à [Support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez Obtenir de l’aide. Pour plus d’informations sur l’utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5513aff9bed85293978061f8989c1389e9e7a9c4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008772"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954954"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Microsoft 365, qui utilisent Azure AD comme fournisseur d’identité.
@@ -66,13 +66,16 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
            Vous pouvez personnaliser le texte de la page de connexion que vous avez entré. Pour commencer un nouveau paragraphe, utilisez deux fois la touche Entrée. Vous pouvez également modifier la mise en forme du texte pour y inclure le gras, l’italique, le soulignement ou un lien hypertexte. Pour ajouter une mise en forme au texte, utilisez la syntaxe suivante : 
 
-          > Lien hypertexte : ```[text](link)``` 
+          > Lien hypertexte : `[text](link)` 
           
-          > Gras : ``` **text** ``` ou ``` __text__ ``` 
+          > Gras : `**text**` ou `__text__` 
           
-          > Italique : ``` *text* ``` ou ``` _text_ ``` 
+          > Italique : `*text*` ou `_text_` 
           
-          > Souligné : ``` ++text++ ``` 
+          > Souligné : `++text++` 
+         
+          > [!IMPORTANT]
+          > Les liens hypertexte ajoutés avec le texte de la page de connexion sont rendus sous forme de texte dans les environnements natifs, comme dans les applications de bureau et mobiles.
 
     - **Paramètres avancés**
             

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: d2ea08551299d66edd919a828877c134c84ef938
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107477772"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061999"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1284,7 +1284,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjTHH:mm:ss.fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1326,8 +1326,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
-| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjTHH:mm:ss.fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1369,7 +1369,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjTHH:mm:ss.fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -2591,7 +2591,7 @@ Et retourne ce résultat :
 
 Cet exemple utilise les fonctions `json()` et `xml()` pour convertir du code XML dont l’élément racine comporte un seul élément enfant en un objet JSON nommé `person` pour cet élément enfant :
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Et retourne ce résultat :
 
@@ -2614,7 +2614,7 @@ Et retourne ce résultat :
 
 Cet exemple utilise les fonctions `json()` et `xml()` pour convertir du code XML dont l’élément racine comporte plusieurs éléments enfants en un tableau nommé `person` contenant des objets JSON pour ces éléments enfants :
 
-`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+`json(xml('<?xml version="1.0"?> <root> <person id="1"> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id="2"> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Et retourne ce résultat :
 
@@ -4754,9 +4754,9 @@ xml('<value>')
 
 *Exemple 1*
 
-Cet exemple illustre la création de la version XML de cette chaîne, qui contient un objet JSON :
+Cet exemple illustre la conversion de la chaîne au format XML :
 
-`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+`xml('<name>Sophia Owen</name>')`
 
 Et retourne le résultat XML suivant :
 
@@ -4765,6 +4765,18 @@ Et retourne le résultat XML suivant :
 ```
 
 *Exemple 2*
+
+Cet exemple illustre la création de la version XML de cette chaîne, qui contient un objet JSON :
+
+`xml(json('{ "name": "Sophia Owen" }'))`
+
+Et retourne le résultat XML suivant :
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Exemple 3*
 
 Supposons que vous disposiez de cet objet JSON :
 
@@ -4779,7 +4791,7 @@ Supposons que vous disposiez de cet objet JSON :
 
 Cet exemple illustre la création d’un élément XML pour une chaîne qui contient l’objet JSON :
 
-`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+`xml(json('{"person": {"name": "Sophia Owen", "city": "Seattle"}}'))`
 
 Et retourne le résultat XML suivant :
 

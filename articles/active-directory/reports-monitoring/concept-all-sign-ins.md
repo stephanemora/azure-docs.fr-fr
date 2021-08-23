@@ -1,6 +1,6 @@
 ---
-title: Journaux des connexions dans Azure Active Directory - préversion | Microsoft Docs
-description: Présentation des connexions des connexions dans Azure Active Directory, y compris les nouvelles fonctionnalités de la préversion.
+title: Journaux de connexion dans Azure Active Directory - préversion | Microsoft Docs
+description: Présentation des journaux de connexion dans Azure Active Directory, y compris des nouvelles fonctionnalités de la préversion.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2021
+ms.date: 06/11/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25fc61fe99a5c7df19b7c0ecb8265f4dcc681cc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: baf000169c993290dc45ef6ec9ed4591f87d1def
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137018"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030639"
 ---
-# <a name="sign-ins-logs-in-azure-active-directory---preview"></a>Journaux des connexions dans Azure Active Directory - préversion
+# <a name="sign-in-logs-in-azure-active-directory---preview"></a>Journaux de connexion dans Azure Active Directory - préversion
 
 En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
 Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
 
-- **[Connexions](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Connexion](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
 - **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
 - **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
 
 
-Le rapport classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois journaux de connexion supplémentaires actuellement en préversion :
+Le journal classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois journaux de connexion supplémentaires actuellement en préversion :
 
 - Connexions utilisateur non interactives
 
@@ -49,7 +49,7 @@ Cet article présente une vue d’ensemble du rapport d’activité de connexion
 
 ## <a name="what-can-you-do-with-it"></a>Que pouvez-vous faire avec ?
 
-Le rapport de connexions contient des réponses à des questions comme :
+Le journal des connexions contient des réponses à des questions telles que les suivantes :
 
 - Quel est le modèle de connexion d’un utilisateur, d’une application ou d’un service ?
 
@@ -77,11 +77,11 @@ Votre client doit avoir une licence Azure AD Premium associée pour afficher les
 
 Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
 
-![Ouvrir les journaux des connexions](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Ouvrir les journaux de connexion](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-En outre, vous pouvez accéder directement aux journaux des connexions à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+En outre, vous pouvez accéder directement au journal de connexion à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-Dans le panneau du rapport de connexions, vous pouvez basculer entre les deux affichages suivants :
+Sur la page des connexions, vous pouvez basculer entre les deux affichages suivants :
 
 - **Connexions utilisateur interactives** – Connexions où un utilisateur fournit un facteur d’authentification, tel qu’un mot de passe, une réponse via une application d’authentification multifacteur, un facteur biométrique ou un code QR.
 
@@ -92,11 +92,11 @@ Dans le panneau du rapport de connexions, vous pouvez basculer entre les deux af
 - **Connexions avec identités managées pour ressources Azure** – Connexions établies par des ressources Azure dont les secrets sont gérés par Azure. Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md) 
 
 
-![Types de rapports de connexions](./media/concept-all-sign-ins/sign-ins-report-types.png)
+![Types de journaux de connexion](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
 
-Chaque onglet du panneau des connexions affiche les colonnes par défaut ci-dessous. Certains onglets contiennent des colonnes supplémentaires :
+Chaque onglet de la page des connexions affiche les colonnes par défaut ci-dessous. Certains onglets contiennent des colonnes supplémentaires :
 
 - Date de la connexion
 
@@ -118,12 +118,12 @@ Chaque onglet du panneau des connexions affiche les colonnes par défaut ci-dess
 Les connexions utilisateur interactives sont des connexions où un utilisateur fournit un facteur d’authentification à Azure AD ou interagit directement avec Azure AD ou une application auxiliaire telle que l’application Microsoft Authenticator. Les facteurs que les utilisateurs fournissent incluent des mots de passe, des réponses à des demandes d’authentification multifacteur, des facteurs biométriques ou des codes QR qu’un utilisateur fournit à Azure AD ou à une application auxiliaire.
 
 > [!NOTE]
-> Ce rapport comprend également des connexions fédérées de fournisseurs d’identité qui sont fédérés à Azure AD.  
+> Ce journal comprend également des connexions fédérées de fournisseurs d’identité qui sont fédérés à Azure AD.  
 
 
 
 > [!NOTE] 
-> Le rapport des connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
+> Le journal des connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le journal des connexions utilisateur interactives pour une meilleure visibilité. Une fois le journal des connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des connexions non interactives ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
 
 
 **Taille du rapport :** petite <br> 
@@ -138,7 +138,7 @@ Les connexions utilisateur interactives sont des connexions où un utilisateur f
 - Un utilisateur est fédéré à Azure AD avec une assertion SAML AD FS.
 
 
-En plus des champs par défaut, le rapport de connexions interactives affiche les informations suivantes : 
+En plus des champs par défaut, le journal des connexions interactives affiche les informations suivantes : 
 
 - Emplacement de la connexion
 
@@ -184,7 +184,7 @@ Les connexions utilisateur non interactives sont des connexions établies par un
 
 
 
-En plus des champs par défaut, le rapport de connexions non interactives affiche les informations suivantes : 
+En plus des champs par défaut, le journal des connexions non-interactives affiche les informations suivantes : 
 
 - ID de ressource
 
@@ -226,7 +226,7 @@ Vous pouvez :
 
 ## <a name="service-principal-sign-ins"></a>Connexions de principal de service
 
-Contrairement aux connexions utilisateur interactives et non interactives, les connexions de principal de service n’impliquent pas d’utilisateur. Au lieu de cela, il s’agit de connexions établies par n’importe quel compte non-utilisateur, par exemple, des applications ou des principaux de service (à l’exception des connexions d’identités managées qui sont incluses uniquement dans le rapport homonyme). Dans le cadre de ces connexions, l’application ou le service fournit ses propres informations d’identification, telles qu’un certificat ou un secret d’application, pour s’authentifier ou accéder à des ressources.
+Contrairement aux connexions utilisateur interactives et non interactives, les connexions de principal de service n’impliquent pas d’utilisateur. Au lieu de cela, il s’agit de connexions établies par n’importe quel compte non-utilisateur, par exemple, des applications ou des principaux de service (à l’exception des connexions d’identités managées qui sont incluses uniquement dans le journal homonyme). Dans le cadre de ces connexions, l’application ou le service fournit ses propres informations d’identification, telles qu’un certificat ou un secret d’application, pour s’authentifier ou accéder à des ressources.
 
 
 **Taille du rapport :** grand <br>

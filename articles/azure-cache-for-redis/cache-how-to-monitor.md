@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94863fb8c21bf061547e0faa6ed209513d79c2ab
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584629"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810153"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Surveillance d’Azure Cache pour Redis
 
@@ -46,15 +46,18 @@ La section **utilisation** du panneau **Vue d’ensemble** affiche les graphique
 
 **Niveau tarifaire** affiche le niveau tarifaire du cache et peut être utilisé pour la [mise à l’échelle](cache-how-to-scale.md) du cache à un autre niveau tarifaire.
 
-## <a name="view-metrics-with-azure-monitor"></a>Afficher les mesures avec Azure Monitor
+## <a name="view-metrics-charts-for-all-your-caches-with-azure-monitor-for-azure-cache-for-redis"></a>Afficher les graphiques de métriques de tous vos caches avec Azure Monitor pour Azure Cache pour Redis
 
-Pour afficher les mesures Redis et créer des graphiques personnalisés à l’aide d’Azure Monitor, cliquez sur **Mesures** depuis le **menu Ressource** et personnalisez votre graphique à l’aide des mesures souhaitées, de l’intervalle de consignation désiré, du type de graphique voulu et bien plus encore.
+Utilisez [Azure Monitor pour Azure Cache pour Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (préversion) pour obtenir une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cache pour Redis dans une expérience interactive unifiée personnalisable, qui vous permet d’accéder à des informations détaillées sur des ressources individuelles. Azure Monitor pour Azure Cache pour Redis est basé sur la [fonctionnalité des classeurs d’Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) qui fournit des visualisations enrichies pour les métriques et d’autres données. Plus d’informations, consultez l’article [Explorer Azure Monitor pour Azure Cache pour Redis](../azure-monitor/insights/redis-cache-insights-overview.md).
+
+## <a name="view-metrics-with-azure-monitor-metrics-explorer"></a>Afficher les métriques avec l’Explorateur de métriques Azure Monitor
+
+Dans les scénarios où vous n’avez pas besoin de la flexibilité totale d’Azure Monitor pour Azure Cache pour Redis, vous pouvez à la place afficher les métriques et créer des graphiques personnalisés à l’aide de l’Explorateur de métriques Azure Monitor. Cliquez sur **Métriques** dans le **menu Ressource** et personnalisez votre graphique à l’aide des métriques, de l’intervalle de consignation, du type de graphique désirés, et bien plus encore.
 
 ![Dans le volet de navigation de gauche de contoso55, Mesures est une option sous Supervision, et elle est mise en surbrillance. La zone Mesures affiche une liste de mesures. Les options Accès au cache et Absences dans le cache sont sélectionnées.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure Monitor, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
 
-<a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exporter les mesures de cache
 

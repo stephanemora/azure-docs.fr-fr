@@ -1,7 +1,7 @@
 ---
 title: Personnaliser les revendications d’application de locataire Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
-description: Cette page décrit le mappage de revendications Azure Active Directory.
+description: Découvrez comment personnaliser des revendications émises dans des jetons pour une application au sein d’un locataire Azure Active Directory spécifique.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,37 +10,39 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 06/10/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e77155f8a6efd3916ae90fcb562d688bb5b5126f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bb44904379e7a9b784f4e2d9bb7c93673718ed37
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598888"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983039"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
+# <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>Personnaliser des revendications émises dans des jetons pour une application spécifique au sein d’un locataire
 
-> [!NOTE]
-> Cette fonctionnalité remplace la [personnalisation des revendications](active-directory-saml-claims-customization.md) offerte au moyen du portail aujourd'hui. Sur la même application, si vous personnalisez des revendications à l’aide du portail en plus de la méthode Graph/PowerShell détaillée dans ce document, les jetons émis pour cette application ignorent la configuration définie dans le portail. Les configurations effectuées au moyen des méthodes décrites dans ce document n’apparaissent pas dans le portail.
-
-> [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans tout abonnement Azure Active Directory (Azure AD) durant la période de préversion publique. Toutefois, quand la fonctionnalité sera généralement disponible, il se peut que certains de ses aspects nécessitent un abonnement Azure AD Premium. Cette fonctionnalité prend en charge la configuration des stratégies de mappage de revendications pour les protocoles WS-Fed, SAML, OAuth et OpenID Connect.
-
-Les administrateurs de locataire utilisent cette fonctionnalité pour personnaliser les revendications émises dans des jetons pour une application spécifique dans leur locataire. Vous pouvez utiliser des stratégies de mappage de revendications pour effectuer les opérations suivantes :
+Les administrateurs de locataire utilisent la personnalisation des revendications pour personnaliser les revendications émises dans des jetons pour une application spécifique au sein de leur locataire. Vous pouvez utiliser des stratégies de mappage de revendications pour effectuer les opérations suivantes :
 
 - sélectionner les revendications incluses dans les jetons ;
 - créer des types de revendications inexistants ;
 - choisir ou modifier la source des données émises dans des revendications spécifiques.
 
-Dans cet article, nous décrivons quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le [type de stratégie de mappage de revendications](reference-claims-mapping-policy-type.md).
+La personnalisation des revendications prend en charge la configuration des stratégies de mappage de revendications pour les protocoles WS-Fed, SAML, OAuth et OpenID Connect.
 
-Quand vous créez une stratégie de mappage de revendications, vous pouvez également émettre une revendication à partir d’un attribut d’extension de schéma d’annuaire dans des jetons. Utilisez *ExtensionID* pour l’attribut d’extension au lieu de *ID* dans l’élément `ClaimsSchema`.  Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire](active-directory-schema-extensions.md).
+> [!NOTE]
+> Cette fonctionnalité remplace la [personnalisation des revendications](active-directory-saml-claims-customization.md) proposée via le portail Azure. Sur la même application, si vous personnalisez des revendications à l’aide du portail en plus de la méthode Microsoft Graph/PowerShell détaillée dans ce document, les jetons émis pour cette application ignorent la configuration définie dans le portail. Les configurations effectuées au moyen des méthodes décrites dans ce document n’apparaissent pas dans le portail.
+
+Dans cet article, nous décrivons quelques scénarios courants susceptibles de vous aider à comprendre comment utiliser le [type de stratégie de mappage de revendications](reference-claims-mapping-policy-type.md).
+
+Lorsque vous créez une stratégie de mappage de revendications, vous pouvez également émettre une revendication à partir d’un attribut d’extension de schéma d’annuaire dans des jetons. Utilisez *ExtensionID* pour l’attribut d’extension au lieu de *ID* dans l’élément `ClaimsSchema`.  Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire](active-directory-schema-extensions.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Des stratégies de mappage de revendications peuvent être attribuées uniquement à des objets de principal du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
+
+> [!NOTE]
+> La [préversion publique du module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview) est nécessaire pour configurer les stratégies de mappage de revendications. Le module PowerShell étant en préversion, vous devez vous préparer à annuler ou supprimer les modifications. 
 
 Pour commencer, suivez les étapes ci-dessous :
 
@@ -156,6 +158,6 @@ Si vous n’utilisez pas un domaine vérifié, Azure AD retourne un code d’err
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez l’article de référence sur le [type de stratégie de mappage des revendications](reference-claims-mapping-policy-type.md) .
+- Pour plus d’informations, consultez l’article de référence relatif au [type de stratégie de mappage des revendications](reference-claims-mapping-policy-type.md).
 - Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)
 - Pour plus d’informations sur les attributs d’extension, consultez [Utiliser des attributs de l’extension de schéma d’annuaire dans les revendications](active-directory-schema-extensions.md).

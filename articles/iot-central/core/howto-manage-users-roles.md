@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 620274962f56173ff7e729d2a71c3ee50a277489
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 00dd677610924fba58f8b0c6c709b162dd2088bf
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733487"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794168"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
 
@@ -29,13 +29,13 @@ Pour en savoir plus, consultez [Aide sur le compte Microsoft](https://support.mi
 
 1. Pour ajouter un utilisateur à une application IoT Central, accédez à la page **Utilisateurs** dans la section **Administration**.
 
-  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Gérer les utilisateurs":::
+    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Capture d’écran de la gestion des utilisateurs.":::
 
-1. Pour ajouter un utilisateur, dans la page **Utilisateurs**, choisissez **+ Ajouter un utilisateur**.
+1. Pour ajouter un utilisateur, dans la page **Utilisateurs**, choisissez **+ Attribuer un utilisateur**.
 
 1. Choisissez un rôle pour l’utilisateur dans la liste déroulante **Rôle**. En savoir plus sur les rôles dans la section [Gérer les rôles](#manage-roles) de cet article.
 
-  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Ajouter un utilisateur et sélectionner un rôle.":::
+    :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Capture d’écran d’ajout d’un utilisateur et de sélection d’un rôle.":::
 
   > [!NOTE]
   > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
@@ -58,8 +58,8 @@ Pour supprimer des utilisateurs, sélectionnez une ou plusieurs cases à cocher 
 
 Les rôles vous permettent de contrôler qui, au sein de votre organisation, peut effectuer différentes tâches dans IoT Central. Vous pouvez attribuer trois rôles intégrés aux utilisateurs de votre application. Vous pouvez également [créer des rôles personnalisés](#create-a-custom-role) si vous avez besoin d’un contrôle plus fin.
 
-> [!div class="mx-imgBorder"]
-> ![Gérer la sélection de rôles](media/howto-manage-users-roles/manage-roles-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Capture d’écran de la sélection de gestion des rôle.":::
+
 
 ### <a name="administrator"></a>Administrateur
 
@@ -81,8 +81,8 @@ Si votre solution nécessite des contrôles d’accès plus précis, vous pouvez
 
 Vous pouvez ajouter des utilisateurs à votre rôle personnalisé de la même façon que vous ajoutez des utilisateurs à un rôle intégré.
 
-> [!div class="mx-imgBorder"]
-> ![Créer un rôle personnalisé](media/howto-manage-users-roles/create-custom-role-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Capture d’écran de la création d’un rôle personnalisé.":::
+
 
 ### <a name="custom-role-options"></a>Options de rôle personnalisé
 

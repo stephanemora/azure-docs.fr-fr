@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/13/2021
-ms.openlocfilehash: bff07f18d0c72e4c4dc4e6b079924b9062442c9d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.date: 03/10/2021
+ms.openlocfilehash: eb50a6418c296e98b12af481df33509af3f0a06d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633876"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536578"
 ---
-# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Consulter et publier une offre sur la place de marché commerciale
 
-Cet article vous montre comment utiliser Espace Partenaires pour soumettre votre offre à la publication, afficher un aperçu de votre offre, puis la publier sur le marketplace commercial. Nous aborderons également la vérification de l’état de publication au fur et à mesure de la procédure de publication. Vous devez avoir déjà créé une offre que vous souhaitez publier.
+Cet article vous montre comment utiliser Espace Partenaires pour soumettre votre offre à la publication, afficher un aperçu de votre offre, puis la publier sur le marketplace commercial. Il explique également comment vérifier le statut de votre publication au fil des étapes de publication. Vous devez avoir déjà créé une offre à publier.
 
 ## <a name="offer-status"></a>État de l’offre
 
@@ -30,17 +30,17 @@ Vous pouvez consulter l’état de votre offre dans l’onglet **Vue d’ensembl
 | Attention requise | Nous avons découvert un problème critique au cours de la certification ou au cours d’une autre phase de publication. |
 | PRÉVERSION | L’offre a été certifiée par Microsoft et doit maintenant faire l’objet d’une vérification finale par l’éditeur. Sélectionnez **Mise en ligne** pour proposer l’offre en direct. |
 | En direct | L’offre est également disponible en direct dans la Place de marché. Des clients peuvent la voir et l’acheter. |
-| Dépréciation en attente | L’éditeur a sélectionné « Déprécier (anciennement Arrêter la vente) » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
+| Arrêt de la vente en attente | L’éditeur a sélectionné « Arrêter la vente » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
 | Non disponible dans la Place de marché | Une offre publiée sur la place de marché a été supprimée. |
-|||
+|
 
 ## <a name="validation-and-publishing-steps"></a>Étapes de validation et de publication
 
 Lorsque vous êtes prêt à soumettre votre offre à la publication, sélectionnez **Vérifier et publier** dans le coin supérieur droit du portail. La page **Vérifier et publier** affiche l’état de chaque page de votre offre, qui peut être l’un des états suivants :
 
-   - **Non démarré** : la page n’est pas démarrée.
-   - **Incomplète** : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
-   - **Complète** : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
+- **Non démarré** : la page n’est pas démarrée.
+- **Incomplète** : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
+- **Complète** : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
 
 Si l’un des pages présente un état autre que **Complète**, vous devez corriger le problème sur cette page, puis revenir à la page **Vérifier et publier** pour confirmer que l’état s’affiche comme **Complète**. Certains types d’offres nécessitent un test. Si c’est le cas, vous verrez un champ **Notes pour la certification** dans lequel vous devez fournir des instructions de test à l’équipe de certification et toutes autres notes utiles pour comprendre votre application.
 
@@ -54,6 +54,10 @@ Une fois que toutes les pages sont terminées et que vous avez entré les notes 
 | [Approbation de l’éditeur](#publisher-sign-off-phase) | Nous vous envoyons un e-mail vous demandant de regarder votre offre et de l’approuver. |
 | [Publier](#publish-phase) | Nous exécutons une série d’étapes pour vérifier que l’offre en préversion est publiée en direct sur la place de marché commerciale. |
 |||
+
+Pour plus d’informations sur la vérification dans la Place de marché Azure, consultez [Instructions relatives aux listes de la Place de marché Azure](marketplace-criteria-content-validation.md).
+
+Pour plus d’informations sur les instructions de test et la réalisation d’une première publication, consultez [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
 
 ## <a name="automated-validation-phase"></a>Phase de validation automatique
 
@@ -150,7 +154,7 @@ Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le 
 
 Une fois que l’offre est prête à être revue et approuvée, nous vous enverrons un e-mail pour vous demander de consulter et d’approuver la version préliminaire de votre offre. Vous pouvez également actualiser la page **Vue d’ensemble de l’offre** depuis votre navigateur pour voir si votre offre a atteint la phase d’approbation de publication. Si c’est le cas, le bouton **Go Live** et les liens d’aperçu seront disponibles.
 
-La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** dans le programme du marketplace commercial d’Espace partenaires. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre. Notez que la phase de certification peut se produire pendant la soumission à la préversion ou à la mise en ligne selon le type d’offre.
+La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** dans le programme du marketplace commercial d’Espace partenaires. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre. La phase de certification peut intervenir pendant la soumission à la préversion ou à la mise en ligne selon le type d’offre.
 
 ![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](./media/publish-status-publisher-signoff.png)
 
@@ -166,7 +170,7 @@ Dans la page **Vue d’ensemble de l’offre**, vous verrez des liens d’aperç
 
 Une fois que vous avez approuvé votre préversion, sélectionnez **Mise en ligne** pour publier votre offre sur le marketplace commercial. 
 
-Si vous souhaitez apporter des modifications après avoir visualisé un aperçu de l’offre, vous pouvez modifier et soumettre à nouveau votre demande de publication. Si votre offre est déjà en ligne et accessible au public sur le marketplace, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous n’aurez pas sélectionné **Mise en ligne*. Pour plus d’informations, consultez [Mettre à jour une offre existante dans le marketplace commercial](partner-center-portal/update-existing-offer.md).
+Si vous souhaitez apporter des modifications après avoir visualisé un aperçu de l’offre, vous pouvez modifier et soumettre à nouveau votre demande de publication. Si votre offre est déjà en ligne et accessible au public sur le marketplace, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous n’aurez pas sélectionné **Mise en ligne*. Pour plus d’informations, consultez [Mettre à jour une offre existante dans le marketplace commercial](update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Phase de publication
 
@@ -200,18 +204,18 @@ La page **Historique** dans Espace partenaires affiche les événements de publi
 
 Pour afficher l’historique de votre offre :
 
-1.    Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2.    Dans le menu de navigation situé à gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
-3.    Sélectionnez votre offre.
-4.    Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+2. Dans le menu de navigation situé à gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
+3. Sélectionnez votre offre.
+4. Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
 
 |Événement    |Description    |
 |---------|---------------|
 |Offre créée    |L’offre a été créée dans Espace partenaires. Un utilisateur a sélectionné le type d’offre, l’ID d’offre et l’alias d’offre dans **Marketplace commercial** > **Vue d’ensemble**.    |
 |Plan créé : *nom du plan*    |Un utilisateur a créé un nouveau plan en entrant l’ID et le nom du plan dans l’onglet **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Plan supprimé  |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Initiation d’une dépréciation de plan : *nom du plan*    |Un utilisateur a initié une dépréciation de plan (anciennement Arrêter la vente) en sélectionnant **Déprécier** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
-|Annulation d’une dépréciation de plan : *nom du plan*    |Un utilisateur a annulé une dépréciation de plan (anciennement Arrêter la vente) en sélectionnant **Annuler la dépréciation (anciennement Arrêter la vente)** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Plan supprimé    |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Initiation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a initié un plan de fin de vente en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Annulation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a annulé un plan de fin de vente en sélectionnant **Annuler la fin de vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
 |Offre soumise à la préversion    |Un utilisateur a soumis l’offre à la préversion en sélectionnant **Publier** dans la page **Vérifier et publier**.    |
 |Annulation de la soumission initiée à la préversion    |Un utilisateur a demandé l’annulation de la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la soumission à la préversion    |Un utilisateur a annulé la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
@@ -219,7 +223,7 @@ Pour afficher l’historique de votre offre :
 |Annulation de la publication initiée sur le marketplace    |Un utilisateur a demandé l’annulation de la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
 |Annulation de la publication sur le marketplace commercial    |Un utilisateur a annulé la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
 |Synchronisation des audiences privées    |Un utilisateur a mis à jour et synchronisé l’audience privée en sélectionnant **Synchroniser l’audience privée** dans la page **Vue d’ensemble du plan** dans la page **Tarification et disponibilité du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans privés*.    |
-|Déprécier l’offre (anciennement Arrêter la vente)    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Déprécier** dans la page **Vue d’ensemble de l’offre**.    |
+|Arrêt de la vente du plan    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble de l’offre**.    |
 
 > [!NOTE]
 > La page Historique n’indique pas quand un brouillon d’offre a été enregistré.
@@ -228,21 +232,22 @@ Pour afficher l’historique de votre offre :
 
 Vous pouvez utiliser des filtres pour réduire l’historique complet de votre offre à des événements de publication spécifiques :
 
-1.    Sélectionnez le bouton de filtre situé dans l’angle supérieur droit de la page.
-2.    Choisissez un filtre, puis sélectionnez **Appliquer** pour voir quels événements d’historique correspondent aux critères que vous avez sélectionnés.
-3.    Sélectionnez **Effacer les filtres** pour revenir à l’historique complet de votre offre.
+1. Sélectionnez le bouton de filtre situé dans l’angle supérieur droit de la page.
+2. Choisissez un filtre, puis sélectionnez **Appliquer** pour voir quels événements d’historique correspondent aux critères que vous avez sélectionnés.
+3. Sélectionnez **Effacer les filtres** pour revenir à l’historique complet de votre offre.
 
 Il existe quatre filtres :
-* Événements
-* Utilisateurs
-* Date
-* Pages
+
+- Événements
+- Utilisateurs
+- Date
+- Pages
 
 Lorsque vous choisissez le filtre **Pages**, vous pouvez sélectionner n’importe quelle page d’Espace partenaires applicable à votre type d’offre. Lorsqu’il est appliqué, le filtre **Pages** affiche tous les événements **Offre soumise à la préversion** avec les modifications apportées à la page que vous avez sélectionnée.
 
-* Pour toutes les offres, la page **Configuration de l’offre** est incluse par défaut pour chaque événement d’envoi.
-* Pour les offres qui prennent en charge les plans, la page **Vue d’ensemble du plan** est incluse pour chaque événement d’envoi.
-* Pour les offres qui prennent en charge les versions d’évaluation, la page **Version d’évaluation** est incluse pour chaque événement d’envoi.
+- Pour toutes les offres, la page **Configuration de l’offre** est incluse par défaut pour chaque événement d’envoi.
+- Pour les offres qui prennent en charge les plans, la page **Vue d’ensemble du plan** est incluse pour chaque événement d’envoi.
+- Pour les offres qui prennent en charge les versions d’évaluation, la page **Version d’évaluation** est incluse pour chaque événement d’envoi.
 
 ### <a name="users"></a>Utilisateurs
 
@@ -274,4 +279,4 @@ Aucun utilisateur n’est affiché pour les processus système qui correspondent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md)
+- [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](analytics.md)

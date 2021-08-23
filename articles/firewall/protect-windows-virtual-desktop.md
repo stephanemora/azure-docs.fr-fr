@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b9de22a3209a75cec680ae3ea04d2e1f54c956c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566024"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110453264"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utiliser le Pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop
 
@@ -35,18 +35,18 @@ Pour en savoir plus sur les environnements Windows Virtual Desktop, consultez [E
 
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent avoir accès à plusieurs noms de domaine complets (FQDN) pour fonctionner correctement. Le Pare-feu Azure fournit une étiquette FQDN Windows Virtual Desktop pour simplifier cette configuration. Procédez comme suit pour autoriser le trafic sortant de la plateforme Windows Virtual Desktop :
 
-- Déployez le Pare-feu Azure et configurez la route définie par l’utilisateur (UDR) du sous-réseau de pool d’hôtes Windows Virtual Desktop afin que le trafic transite par le Pare-feu Azure. La route par défaut pointe maintenant vers le pare-feu.
+- Déployez le Pare-feu Azure et configurez la route définie par l’utilisateur (UDR) du sous-réseau de pool d’hôtes Windows Virtual Desktop afin que le trafic par défaut (0.0.0.0/0) transite par le Pare-feu Azure. La route par défaut pointe maintenant vers le pare-feu.
 - Créez une collection de règles d’application et ajoutez une règle pour activer l’étiquette FQDN *WindowsVirtualDesktop*. La plage d’adresses IP source est le réseau virtuel du pool d’hôtes, le protocole est **https** et la destination est **WindowsVirtualDesktop**.
 
 - L’ensemble des comptes de stockage et Service Bus requis pour votre pool d’hôtes Windows Virtual Desktop étant propre au déploiement, il n’est pas encore capturé dans l’étiquette FQDN WindowsVirtualDesktop. Vous pouvez résoudre cette situation de l’une des manières suivantes :
 
-   - Autorisez l’accès https à partir de votre sous-réseau de pool d’hôtes vers *xt.blob.core.windows.net, *eh.servicebus.windows.net et *xt.table.core.windows.net. Ces noms de domaine complets génériques permettent l’accès requis, mais sont moins restrictifs.
-   - Utilisez la requête Log Analytics suivante pour lister les noms de domaine complets requis exacts, puis autorisez-les explicitement dans les règles d’application de votre pare-feu :
+   - Autorisez l’accès https à partir de votre sous-réseau de pool d’hôtes vers *xt.blob.core.windows.net, *eh.servicebus.windows.net. Ces noms de domaine complets génériques permettent l’accès requis, mais sont moins restrictifs.
+   - Utilisez la requête Log Analytics suivante pour lister les noms de domaine complets requis exacts après déploiement d’un pool d’hôte WVD, puis autorisez-les explicitement dans les règles d’application de votre pare-feu :
    ```
    AzureDiagnostics
    | where Category == "AzureFirewallApplicationRule"
    | search "Deny"
-   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net" or "gsm*xt.table.core.windows.net"
+   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net"
    | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" *
    | project TimeGenerated,Protocol,FQDN
    ```

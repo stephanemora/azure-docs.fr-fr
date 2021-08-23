@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: b4549978925f2e7016b54ce3004eabadaa8e985f
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113134345"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847868"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 
@@ -50,7 +50,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 | wr |Il y a un enregistreur actif (ce qui signifie que les 6 requêtes en attente ne sont pas ignorées) bytes/activewriters |
 | commencer |Aucun lecteur n’est actif et aucun octet n’est disponible en lecture sur la carte réseau octets/lecteurs actifs |
 
-Dans l’exemple d’exception précédent, les sections `IOCP` et `WORKER` contiennent chacune une valeur `Busy` supérieure à la valeur `Min`. La différence signifie que vous devez ajuster vos paramètres `ThreadPool`. Vous pouvez [configurer les paramètres de votre pool de threads](cache-management-faq.yml#important-details-about-threadpool-growth) pour vous assurer qu’il effectue rapidement un scale-up en cas d’augmentation du trafic.
+Dans l’exemple d’exception précédent, les sections `IOCP` et `WORKER` contiennent chacune une valeur `Busy` supérieure à la valeur `Min`. La différence signifie que vous devez ajuster vos paramètres `ThreadPool`. Vous pouvez [configurer les paramètres de votre pool de threads](cache-management-faq.md#important-details-about-threadpool-growth) pour vous assurer qu’il effectue rapidement un scale-up en cas d’augmentation du trafic.
 
 Vous pouvez utiliser les étapes suivantes pour rechercher les causes racines possibles.
 
@@ -123,5 +123,5 @@ Vous pouvez utiliser les étapes suivantes pour rechercher les causes racines po
 
 - [Résoudre les problèmes côté client liés à Azure Cache pour Redis](cache-troubleshoot-client.md)
 - [Résoudre les problèmes côté serveur liés à Azure Cache pour Redis](cache-troubleshoot-server.md)
-- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
+- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Surveillance du cache Azure pour Redis](cache-how-to-monitor.md)

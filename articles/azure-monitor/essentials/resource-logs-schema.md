@@ -3,12 +3,12 @@ title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 5021f6fcfdd981989e2c30edb7605bd080725142
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715499"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026432"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -47,7 +47,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 
 | Service | Schéma et documentation |
 | --- | --- |
-| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/overview-reports.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services - Configurer la journalisation des diagnostics](../../analysis-services/analysis-services-logging.md) |
 | Gestion des API | [Journaux de ressource de Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | App Service | [Journaux App Service](../../app-service/troubleshoot-diagnostic-logs.md)
@@ -55,6 +55,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Azure Automation |[Log Analytics pour Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation d’Azure Batch](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
+| Container Instances | [Journalisation pour Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Réseau de distribution de contenu | [Journaux Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |

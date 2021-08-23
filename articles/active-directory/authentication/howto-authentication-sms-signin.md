@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84d55e2d3a2f49a870c1e57eeed3c5c0caeba4a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530408"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982701"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurer l’authentification utilisateur par SMS via Azure Active Directory 
 
@@ -38,14 +38,15 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * [Enterprise Mobility + Security (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
-## <a name="limitations"></a>Limites
+## <a name="known-issues"></a>Problèmes connus
 
-Les limitations suivantes s’appliquent à l’authentification par SMS :
+Voici quelques problèmes connus :
 
 * L'authentification par SMS n'est pas compatible avec Azure AD Multi-Factor Authentication.
 * À l’exception de Teams, l’authentification par SMS n’est pas compatible avec les applications Office natives.
 * L’authentification par SMS n’est pas recommandée pour les comptes B2B.
 * Les utilisateurs fédérés ne s’authentifient pas dans le locataire de base. Ils s’authentifient uniquement dans le cloud.
+* Si la méthode de connexion par défaut d’un utilisateur est un message texte ou un appel à votre numéro de téléphone, le code SMS ou l’appel vocal est envoyé automatiquement pendant l’authentification multifacteur. Depuis juin 2021, certaines applications demandent aux utilisateurs de choisir **Texte** ou **Appel** d’abord. Cette option empêche l’envoi d’un trop grand nombre de codes de sécurité pour différentes applications. Si la méthode de connexion par défaut est l’application Microsoft Authenticator ([que nous recommandons vivement](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), la notification de l’application est envoyée automatiquement.
 
 ## <a name="enable-the-sms-based-authentication-method"></a>Activer la méthode d’authentification par SMS
 

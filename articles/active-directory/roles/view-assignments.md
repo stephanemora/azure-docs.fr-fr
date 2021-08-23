@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de546ef091b1a8e996f286b0c9af45e93488b5b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f8fe57b5b6df03e135bf77e9064e14f376c57ac9
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467649"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796355"
 ---
 # <a name="list-azure-ad-role-assignments"></a>Répertorier les attributions de rôle Azure AD
 
@@ -27,11 +27,18 @@ Cet article explique comment répertorier les rôles que vous avez attribués da
 - Les attributions de rôles au niveau de l’étendue de l’organisation sont ajoutées à et peuvent être consultées dans la liste des attributions de rôle d’application unique.
 - Les attributions de rôles au niveau d’une application unique ne sont pas ajoutées à et ne peuvent pas être affichées dans la liste des attributions à l’échelle de l’organisation.
 
+## <a name="prerequisites"></a>Prérequis
+
+- Module AzureADPreview (avec PowerShell)
+- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+
+Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou l’Afficheur Graph](prerequisites.md).
+
 ## <a name="list-role-assignments-in-the-azure-portal"></a>Répertorier les attributions de rôle dans le portail Azure
 
 Cette procédure décrit comment répertorier les attributions de rôle avec une étendue à l’échelle de l’organisation.
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 1. Sélectionnez **Azure Active Directory**, sélectionnez **Rôles et administrateurs**, puis sélectionnez un rôle pour l’ouvrir et voir ses propriétés.
 1. Sélectionnez **Attributions** pour répertorier les attributions de rôle.
 
@@ -47,31 +54,9 @@ Pour télécharger toutes les attributions d’un rôle spécifique, dans la pag
 
 ![Télécharger toutes les attributions d’un rôle](./media/view-assignments/download-role-assignments.png)
 
-## <a name="list-role-assignments-using-azure-ad-powershell"></a>Répertorier les attributions de rôle à l’aide d’Azure AD PowerShell
+## <a name="list-role-assignments-using-powershell"></a>Répertorier les attributions de rôle à l’aide de PowerShell
 
 Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation. Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles). Pour afficher les attributions pour une application unique à l’aide de PowerShell, vous pouvez utiliser les applets de commande dans [Attribuer des rôles personnalisés avec PowerShell.](custom-assign-powershell.md)
-
-### <a name="prepare-powershell"></a>Préparer PowerShell
-
-Vous devez tout d’abord [télécharger le module de préversion Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
-
-Pour installer le module PowerShell Azure AD, utilisez les commandes suivantes :
-
-``` PowerShell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-Pour vérifier que le module est prêt à l’emploi, utilisez la commande suivante :
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
-```
-
-### <a name="list-role-assignments"></a>Répertorier les attributions de rôles
 
 Exemple de liste des attributions de rôle.
 
@@ -86,7 +71,7 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="list-role-assignments-using-microsoft-graph-api"></a>Répertorier les attributions de rôle à l’aide de l’API Microsoft Graph
+## <a name="list-role-assignments-using-the-microsoft-graph-api"></a>Répertorier les attributions de rôle à l’aide de l’API Microsoft Graph
 
 Cette section décrit comment répertorier les attributions de rôle avec une étendue à l’échelle de l’organisation.  Pour répertorier les attributions de rôle à l’échelle d’une seule application à l’aide de l’API Graph, vous pouvez utiliser les opérations dans [Attribuer des rôles personnalisés avec l’API Graph](custom-assign-graph.md).
 
@@ -114,7 +99,7 @@ HTTP/1.1 200 OK
 
 Cette section décrit comment répertorier les attributions de rôle à l’échelle d’une seule application. Cette fonctionnalité est actuellement disponible en préversion publique.
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’inscription d’application pour afficher ses propriétés. Vous devrez peut-être sélectionner **Toutes les applications** pour afficher la liste complète des inscriptions d’applications dans votre organisation Azure AD.
 
     ![Créer ou modifier des inscriptions d’applications à partir de la page Inscriptions d’applications](./media/view-assignments/app-reg-all-apps.png)
@@ -130,5 +115,5 @@ Cette section décrit comment répertorier les attributions de rôle à l’éch
 ## <a name="next-steps"></a>Étapes suivantes
 
 * N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Pour plus d’informations sur les rôles et l’attribution de rôle d’administrateur, consultez [Attribuer des rôles d’administrateur](permissions-reference.md).
+* Pour plus d’informations sur les autorisations associées aux rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md).
 * Pour les autorisations d’utilisateur par défaut, consultez une [comparaison des autorisations par défaut d’un utilisateur invité et d’un membre](../fundamentals/users-default-permissions.md).

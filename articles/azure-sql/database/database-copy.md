@@ -4,19 +4,19 @@ description: Créez une copie cohérente au niveau transactionnel d’une base d
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sashan
-ms.reviewer: wiassaf
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 895219622999334c4d5a91e7af922ae9d54f30a5
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073950"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694558"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -182,6 +182,7 @@ AS COPY OF source_server_name.source_database_name;
 
 > [!TIP]
 > La copie de base de données à l’aide de T-SQL prend en charge la copie d’une base de données d’un abonnement dans un locataire Azure différent. Cette fonctionnalité n’est prise en charge que lors de l’utilisation d’une connexion d’authentification SQL pour se connecter au serveur cible.
+> La création d’une copie de base de données sur un serveur logique dans un autre locataire Azure n’est pas prise en charge lorsque l’authentification [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) est activée sur le serveur logique source ou cible.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 
