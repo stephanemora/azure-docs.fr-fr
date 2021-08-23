@@ -546,7 +546,7 @@ Voici un exemple de Google Maps avec la langue définie sur « fr ».
 
 Azure Maps propose trois méthodes pour définir la langue et la vue locale de la carte. La première option consiste à transmettre les informations de la langue et de la vue locale à la classe `AzureMaps`. Cette option utilise les méthodes statiques `setLanguage` et `setView` globalement. Cela signifie que la langue et la vue locale par défaut sont définis pour tous les contrôles Azure Maps chargés dans votre application. Cet exemple spécifie le français à l’aide du code de langue « fr-FR ».
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 static {
