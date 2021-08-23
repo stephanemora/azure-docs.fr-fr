@@ -4,12 +4,12 @@ description: La vue Apache Ambari Tez peut se charger lentement ou ne pas se cha
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: 4fe66b3104be0351a9b0e1df6b6545f71ff276ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0078a01e691844e6ad2e3b4133fa4d0913b240db
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930761"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290572"
 ---
 # <a name="scenario-apache-ambari-tez-view-loads-slowly-in-azure-hdinsight"></a>Scénario : La vue Apache Ambari Tez se charge lentement dans Azure HDInsight
 
@@ -29,4 +29,4 @@ Il s’agit d’un problème qui a été corrigé en octobre 2017. Si vous recr�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

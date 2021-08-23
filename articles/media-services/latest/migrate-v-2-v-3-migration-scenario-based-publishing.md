@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0a0052fa3d78a3b77094cfccbd4c011321ac5925
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d8cba5c69802828a0bd486d902d85199f3ae1d00
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279015"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563817"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’empaquetage et de livraison
 
@@ -26,14 +26,14 @@ ms.locfileid: "106279015"
 
 Cet article fournit des recommandations basées sur un scénario pour l’empaquetage et la livraison, qui vous aideront à opérer une migration de la version v2 vers la version v3 d’Azure Media Services.
 
-Modifications majeures apportées à la façon dont le contenu est publié dans l’API v3. Le nouveau modèle de publication est simplifié et utilise moins d’entités pour créer un localisateur de streaming. L’API a été réduite à deux entités par rapport aux quatre entités précédemment requises. Les stratégies de clé de contenu et les localisateurs de streaming remplacent désormais le besoin de `ContentKeyAuthoriationPolicy`, `AssetDeliveyPolicy`, `ContentKey` et `AccessPolicy`.
+Modifications majeures apportées à la façon dont le contenu est publié dans l’API v3. Le nouveau modèle de publication est simplifié et utilise moins d’entités pour créer un localisateur de streaming. L’API a été réduite à deux entités par rapport aux quatre entités précédemment requises. Les stratégies de clé de contenu et les localisateurs de streaming remplacent désormais le besoin de `ContentKeyAuthorizationPolicy`, `AssetDeliveryPolicy`, `ContentKey` et `AccessPolicy`.
 
 ## <a name="packaging-and-delivery-in-v3"></a>Empaquetage et livraison dans la version v3
 
 1. Créez des [Stratégie de clé de contenu](drm-content-key-policy-concept.md).
 1. Créez des [Localisateurs de streaming](stream-streaming-locators-concept.md).
 1. Obtenez les [Chemins de streaming](create-streaming-locator-build-url.md). 
-    1. Configurez pour un lecteur [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) ou [HLS](encode-dynamic-packaging-concept.md#hls-protocol).
+    1. Configurez pour un lecteur [DASH](encode-dynamic-packaging-concept.md#deliver-dash) ou [HLS](encode-dynamic-packaging-concept.md#deliver-hls).
 
 Pour connaître les étapes spécifiques, consultez les concepts, tutoriels et guides pratiques relatifs à la publication.
 

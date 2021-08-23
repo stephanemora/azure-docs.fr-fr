@@ -5,12 +5,12 @@ ms.date: 05/03/2021
 ms.topic: how-to
 recommendations: false
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 6521c02686da55142d9a9d9f1faf569d584ef593
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1de1aaf8f293621d69534897add89c8a29a7916e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111589989"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532899"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Développer et publier des fonctions .NET 5 à l’aide d’Azure Functions 
 
@@ -89,7 +89,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     cd LocalFunctionProj
     ```
 
-    Ce dossier contient divers fichiers pour le projet, notamment les fichiers de configuration [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
+    Ce dossier contient divers fichiers pour le projet, notamment les fichiers de configuration [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
 
 1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction (HttpExample) et où l’argument `--template` spécifie le déclencheur de la fonction (HTTP).
 
@@ -110,7 +110,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
 
 1. Pour les paramètres **Créer une application Azure Functions**, utilisez les valeurs du tableau suivant :
 
-    | Paramètre      | Value  | Description                      |
+    | Paramètre      | Valeur  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Version de .NET** | **.NET 5 (isolé)** | Cette valeur crée un projet de fonction qui s’exécute sur .NET 5.0 dans un processus isolé.   |
     | **Modèle de fonction** | **Déclencheur HTTP** | Cette valeur crée une fonction déclenchée par une requête HTTP. |

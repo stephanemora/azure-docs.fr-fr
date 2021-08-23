@@ -8,16 +8,16 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 1ed37ebd798f7ebef59ea48ce7e2084b331d2bba
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ed43f73de5296a465d1878647a80135aa95c065a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065410"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524090"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Créer des jeux de données Azure Machine Learning à partir de Azure Open Datasets
 
-Dans cet article, vous allez apprendre à intégrer des données d’enrichissement organisées dans vos expériences d’apprentissage automatique locales ou distantes grâce à des jeux de données [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) et [Azure Open Datasets](./index.yml). 
+Dans cet article, vous allez apprendre à intégrer des données d’enrichissement organisées dans vos expériences d’apprentissage automatique locales ou distantes grâce à des jeux de données [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) et [Azure Open Datasets](./index.yml). 
 
 En créant un [jeu de données Azure Machine Learning](../machine-learning/how-to-create-register-datasets.md), vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Étant donné que les jeux de données sont évalués tardivement et que les données restent à leur emplacement existant :
 * Vous n’engagez aucun coût de stockage supplémentaire.
@@ -26,7 +26,7 @@ En créant un [jeu de données Azure Machine Learning](../machine-learning/how-t
 
 Pour comprendre où figurent les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](../machine-learning/concept-data.md#data-workflow).
 
-Les jeux de données Azure Open Datasets sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios afin d’enrichir vos solutions prédictives et d’améliorer leur précision. Reportez-vous au [catalogue Open Datasets](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) pour obtenir des données du domaine public qui peuvent vous aider à effectuer l’apprentissage de modèles Machine Learning, par exemple :
+Les jeux de données Azure Open Datasets sont des jeux de données publics organisés que vous pouvez utiliser pour ajouter des fonctionnalités spécifiques à des scénarios afin d’enrichir vos solutions prédictives et d’améliorer leur précision. Reportez-vous au [catalogue Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/) pour obtenir des données du domaine public qui peuvent vous aider à effectuer l’apprentissage de modèles Machine Learning, par exemple :
 
 * [météo](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [recensement](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

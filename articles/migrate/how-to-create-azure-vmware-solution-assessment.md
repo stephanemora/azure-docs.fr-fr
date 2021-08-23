@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f7014f8a403614740bdbc05abab4e7024f83c196
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562868"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Créer une évaluation Azure VMware Solution
 
@@ -150,7 +150,7 @@ Une évaluation Azure VMware Solution (AVS) indique :
     - **État de la préparation inconnu** : Azure Migrate n’a pas pu déterminer l’état de préparation du serveur, car les métadonnées collectées dans l’environnement local sont insuffisantes.
 
 3. Vérifiez l’outil suggéré :
-    - **VMware HCX ou Enterprise** : pour les serveurs VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/tutorial-deploy-vmware-hcx.md)
+    - **VMware HCX ou Enterprise** : pour les serveurs VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/configure-vmware-hcx.md)
     - **Inconnue** : Pour les serveurs importés via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les serveurs VMware, il est cependant suggéré d’utiliser la solution VMware Hybrid Cloud Extension (HCX). 
 
 4. Cliquez sur un état **Préparé pour Azure VMware Solution**. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.

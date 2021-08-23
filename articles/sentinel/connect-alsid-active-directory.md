@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 654ecb65068e4321b85594d96e8ca7a7f73cde7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50b1256849bd469c2729896f6a3e10b90431fe91
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99566562"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563710"
 ---
 # <a name="connect-your-alsid-for-active-directory-ad-to-azure-sentinel"></a>Connecter votre Alsid pour Active Directory (AD) à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur Alsid pour Active Directory est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Cet article explique comment connecter votre solution Alsid pour AD à Azure Sentinel. Le connecteur de données Alsid pour Active Directory vous permet de connecter facilement vos journaux Alsid pour AD à Azure Sentinel de façon à pouvoir consulter les données dans des classeurs, les interroger pour créer des alertes personnalisées et les incorporer pour améliorer l’investigation. L’intégration entre Alsid pour AD et Azure Sentinel utilise un serveur Syslog avec l’agent Log Analytics installé. Elle utilise également un analyseur de journal personnalisé basé sur une fonction Kusto.
 
@@ -194,6 +196,6 @@ Pour obtenir plus d’exemples de requêtes, consultez l’onglet **Étapes suiv
 
 Ce document vous a montré comment connecter Alsid pour AD à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

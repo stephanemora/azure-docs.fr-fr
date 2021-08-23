@@ -2,7 +2,6 @@
 title: Développer avec un kit de développement logiciel (SDK) Azure IoT | Microsoft Docs
 description: 'Guide du développeur : informations et liens vers des rubriques que vous pouvez utiliser pour créer des applications d’appareil et des applications back-end sans utiliser de kit de développement logiciel (SDK) Azure IoT.'
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -13,18 +12,18 @@ ms.custom:
 - amqp
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34476ee99dcf455886a72d3fcef2356ab4e6229f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461716"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122523995"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Développer sans utiliser de kit de développement logiciel (SDK) Azure IoT Hub
 
 Cette rubrique fournit des informations et des liens utiles pour les développeurs qui souhaitent développer des applications d’appareil ou back-end sans utiliser les kits de développement logiciel (SDK) Azure IoT.
 
-Microsoft recommande vivement d’utiliser un kit de développement logiciel (SDK) Azure IoT. Les kits de développement logiciel (SDK) Azure IoT d’appareil et service sont publiés sur de nombreuses plateformes populaires. Les kits de développement logiciel (SDK) fournissent une couche pratique qui gère la majeure partie de la complexité du protocole de communication sous-jacent, y compris la connexion et la reconnexion des appareils, et la stratégie de nouvelles tentatives. Les kits de développement logiciel (SDK) sont régulièrement mis à jour pour fournir les fonctionnalités les plus récentes exposées par IoT Hub, ainsi que les mises à jour de sécurité. L’utilisation des kits de développement logiciel (SDK) peut vous aider à réduire le temps de développement et le temps consacrés à la maintenance du code. Pour en savoir plus sur les kits de développement logiciel (SDK) Azure IoT, consultez [Kits de développement logiciel (SDK) Azure IoT d’appareil et de service](iot-hub-devguide-sdks.md). Pour plus d’informations sur les avantages de l’utilisation d’un kit de développement logiciel (SDK) Azure IoT, consultez les [Avantages de l’utilisation des kits de développement logiciel (SDK) Azure IoT et pièges à éviter si vous ne ](https://azure.microsoft.com/en-us/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) billet de blog.
+Microsoft recommande vivement d’utiliser un kit de développement logiciel (SDK) Azure IoT. Les kits de développement logiciel (SDK) Azure IoT d’appareil et service sont publiés sur de nombreuses plateformes populaires. Les kits de développement logiciel (SDK) fournissent une couche pratique qui gère la majeure partie de la complexité du protocole de communication sous-jacent, y compris la connexion et la reconnexion des appareils, et la stratégie de nouvelles tentatives. Les kits de développement logiciel (SDK) sont régulièrement mis à jour pour fournir les fonctionnalités les plus récentes exposées par IoT Hub, ainsi que les mises à jour de sécurité. L’utilisation des kits de développement logiciel (SDK) peut vous aider à réduire le temps de développement et le temps consacrés à la maintenance du code. Pour en savoir plus sur les kits de développement logiciel (SDK) Azure IoT, consultez [Kits de développement logiciel (SDK) Azure IoT d’appareil et de service](iot-hub-devguide-sdks.md). Pour plus d’informations sur les avantages de l’utilisation d’un kit de développement logiciel (SDK) Azure IoT, consultez les [Avantages de l’utilisation des kits de développement logiciel (SDK) Azure IoT et pièges à éviter si vous ne ](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) billet de blog.
 
 Même si IoT Hub prend en charge AMQP, AMQP sur WebSockets, HTTPS, MQTT et MQTT sur WebSockets pour la communication avec les appareils, nous vous recommandons d’utiliser MQTT si votre appareil le prend en charge.
 

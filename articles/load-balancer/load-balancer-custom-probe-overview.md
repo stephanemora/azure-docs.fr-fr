@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 6aa21dda1f19335a542edf729135d55a9f3b9176
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c6dbfd0020598c280e006e863467a4dfa9b29a0c
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083473"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284522"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -37,7 +37,7 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 >Consultez ce document dans son intégralité, y compris [les conseils de conception](#design) importants fournis ci-dessous pour créer un service fiable.
 
 >[!IMPORTANT]
->Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations. Pour voir ce trafic de sondes au sein de votre instance back-end, consultez [ce forum aux questions](load-balancer-faqs.md#probes).
+>Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations. Pour voir ce trafic de sondes au sein de votre instance back-end, consultez [ce forum aux questions](/azure/load-balancer/load-balancer-faqs#probes).
 
 >[!IMPORTANT]
 >Quel que soit le seuil du délai d'expiration configuré, les sondes d’intégrité de l’équilibreur de charge HTTP(S) analysent automatiquement une instance si le serveur retourne un code d’état qui n’est pas HTTP 200 OK ou si la connexion est interrompue par une réinitialisation TCP.
@@ -253,7 +253,7 @@ N’activez pas les [horodatages TCP](https://tools.ietf.org/html/rfc1323).  L�
 
 Les [Standard Load Balancer](./load-balancer-overview.md) publics et internes exposent l’état des sondes d’intégrité par point de terminaison et par point de terminaison back-end comme des métriques multidimensionnelles par le biais d’Azure Monitor. Ces métriques peuvent être utilisées par d’autres services Azure ou par des applications partenaires. 
 
-Une instance Load Balancer publique de base expose l’état de la sonde d’intégrité résumé, par pool principal, via les journaux Azure Monitor.  Les journaux Azure Monitor ne sont pas disponibles pour les instances Load Balancer de base internes.  Vous pouvez utiliser les [journaux Azure Monitor](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+Une instance Load Balancer publique de base expose l’état de la sonde d’intégrité résumé, par pool principal, via les journaux Azure Monitor.  Les journaux Azure Monitor ne sont pas disponibles pour les instances Load Balancer de base internes.  Vous pouvez utiliser les [journaux Azure Monitor](./monitor-load-balancer.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
 
 ## <a name="limitations"></a>Limites
 

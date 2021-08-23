@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: b26ce91b005fc7bd4d5b89ccf5306dc03a040b0f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 426a83836a16fd3d4a403b3cda015dd5f49af22e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106748"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531972"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu pour Azure Database pour MySQL – Serveur flexible à l’aide du portail Azure
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
@@ -23,7 +25,7 @@ Le serveur flexible Azure Database pour MySQL prend en charge deux types de mét
 1. Accès public (adresses IP autorisées)
 2. Accès privé (intégration au réseau virtuel)
 
-Cet article se concentrer sur la création d’un serveur MySQL avec **accès public (adresses IP autorisées)** à l’aide du portail Azure, et fournira une vue d’ensemble de la gestion des règles de pare-feu après la création d’un serveur flexible. Avec un *accès public (adresses IP autorisées)* , les connexions au serveur MySQL sont limitées aux adresses IP autorisées. Les adresses IP des clients doivent être autorisées dans les règles de pare-feu. Pour en savoir plus à ce sujet, consultez [Accès public (adresses IP autorisées)](./concepts-networking.md#public-access-allowed-ip-addresses). Vous pouvez définir les règles de pare-feu au moment de la création du serveur (recommandé), mais aussi les ajouter ultérieurement. Cet article fournit une vue d’ensemble de la façon de créer et de gérer des règles de pare-feu à l’aide d’un accès public (adresses IP autorisées).
+Cet article se concentrer sur la création d’un serveur MySQL avec **accès public (adresses IP autorisées)** à l’aide du portail Azure, et fournira une vue d’ensemble de la gestion des règles de pare-feu après la création d’un serveur flexible. Avec un *accès public (adresses IP autorisées)* , les connexions au serveur MySQL sont limitées aux adresses IP autorisées. Les adresses IP des clients doivent être autorisées dans les règles de pare-feu. Pour en savoir plus à ce sujet, consultez [Accès public (adresses IP autorisées)](./concepts-networking-public.md#public-access-allowed-ip-addresses). Vous pouvez définir les règles de pare-feu au moment de la création du serveur (recommandé), mais aussi les ajouter ultérieurement. Cet article fournit une vue d’ensemble de la façon de créer et de gérer des règles de pare-feu à l’aide d’un accès public (adresses IP autorisées).
 
 ## <a name="create-a-firewall-rule-when-creating-a-server"></a>Créer une règle de pare-feu lors de la création d’un serveur
 
@@ -37,7 +39,7 @@ Cet article se concentrer sur la création d’un serveur MySQL avec **accès pu
    > Le serveur flexible Azure Database pour MySQL crée un pare-feu au niveau du serveur. Il empêche les applications et les outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si vous créez une règle de pare-feu pour ouvrir le pare-feu à des adresses IP spécifiques.
 
 7. Sélectionnez **Vérifier + créer** pour passer en revue la configuration de votre serveur flexible.
-8.  Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut prendre quelques minutes.
+8. Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut prendre quelques minutes.
 
 ## <a name="create-a-firewall-rule-after-server-is-created"></a>Créer une règle de pare-feu une fois le serveur créé
 
@@ -73,7 +75,7 @@ Quand une application dans Azure tente de se connecter à votre serveur, le pare
 Les ressources ne doivent pas obligatoirement se trouver sur le même réseau virtuel (VNET) ou dans le même groupe de ressources pour que la règle de pare-feu autorise ces connexions. Si la tentative de connexion n’est pas autorisée, la demande n’atteint pas le serveur flexible Azure Database pour MySQL.
 
 > [!IMPORTANT]
-> Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
+>Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
 >
 > Nous vous recommandons de choisir **Accès privé (intégration au réseau virtuel)** pour accéder de manière sécurisée au serveur flexible.
 >
@@ -88,6 +90,7 @@ Répétez les étapes suivantes pour gérer les règles de pare-feu.
 - Pour supprimer une règle existante, cliquez sur les points de suspension [...], puis sur **Supprimer**. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Apprenez-en davantage sur la [Mise en réseau dans le serveur flexible Azure Database pour MySQL](./concepts-networking.md)
-- Apprenez-en davantage sur les [Règles de pare-feu de serveur flexible Azure Database pour MySQL](./concepts-networking.md#public-access-allowed-ip-addresses)
-- [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](./how-to-manage-firewall-cli.md).
+- Apprenez-en davantage sur les [Règles de pare-feu de serveur flexible Azure Database pour MySQL](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+- [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](./how-to-manage-firewall-cli.md)

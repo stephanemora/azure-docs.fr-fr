@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2764624d4f29432c10e0e7aa3ab49bb5a678d5e3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85850364"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533136"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exposer un service AKS via HTTP ou HTTPS à l’aide d’Application Gateway 
 
@@ -164,20 +164,20 @@ L’entrée suivante vous permettra d’ajouter des chemins supplémentaires dan
 
 ```yaml
 apiVersion: extensions/v1beta1
-  kind: Ingress
-  metadata:
-    name: guestbook
-    annotations:
-      kubernetes.io/ingress.class: azure/application-gateway
-  spec:
-    rules:
-    - http:
-        paths:
-        - path: </other/*>
-          backend:
-            serviceName: <other-service>
-            servicePort: 80
-        - backend:
-            serviceName: frontend
-            servicePort: 80
+kind: Ingress
+metadata:
+  name: guestbook
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - http:
+      paths:
+      - path: </other/*>
+        backend:
+          serviceName: <other-service>
+          servicePort: 80
+       - backend:
+          serviceName: frontend
+          servicePort: 80
 ```

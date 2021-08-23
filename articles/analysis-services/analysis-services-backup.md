@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 6c2ea063e37660767d266c15dcfc471ee5d73a02
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7f12ca1530b40885dea456763bd231d487ba5cb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732106"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004625"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Sauvegarde et restauration de bases de données Analysis Services
 
@@ -25,7 +25,7 @@ La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Se
 > 
 
 > [!NOTE]
-> Si le compte de stockage se trouve dans une autre région, les paramètres du pare-feu du compte de stockage doivent être configurés de façon à autoriser l’accès à partir des **Réseaux sélectionnés**. Dans la **plage d’adresses** du pare-feu, spécifiez la plage d’adresses IP pour la région dans laquelle se trouve le serveur Analysis Services. La configuration des paramètres de pare-feu de compte de stockage pour autoriser l’accès à partir de tous les réseaux est prise en charge, mais il est préférable de choisir des réseaux sélectionnés et de spécifier une plage d’adresses IP. Pour en savoir plus, consultez [FAQ sur la connectivité réseau](analysis-services-network-faq.md#backup-and-restore).
+> Si le compte de stockage se trouve dans une autre région, les paramètres du pare-feu du compte de stockage doivent être configurés de façon à autoriser l’accès à partir des **Réseaux sélectionnés**. Dans la **plage d’adresses** du pare-feu, spécifiez la plage d’adresses IP pour la région dans laquelle se trouve le serveur Analysis Services. La configuration des paramètres de pare-feu de compte de stockage pour autoriser l’accès à partir de tous les réseaux est prise en charge, mais il est préférable de choisir des réseaux sélectionnés et de spécifier une plage d’adresses IP. Pour en savoir plus, consultez [FAQ sur la connectivité réseau](/azure/analysis-services/analysis-services-network-faq#backup-and-restore).
 
 Les sauvegardes sont enregistrées avec l’extension .abf. Pour les modèles tabulaires en mémoire, les données et les métadonnées de modèle sont enregistrées. Pour les modèles tabulaires DirectQuery, seules les métadonnées de modèle sont stockées. Les sauvegardes peuvent être compressées et chiffrées, en fonction des options que vous avez choisies.
 
@@ -109,4 +109,4 @@ Utilisez l’applet de commande [Restore-ASDatabase](/powershell/module/sqlserve
 
 [Des comptes de stockage Azure](../storage/common/storage-account-create.md)  
 [Haute disponibilité](analysis-services-bcdr.md)      
-[FAQ sur la connectivité réseau d’Analysis Services](analysis-services-network-faq.md)
+[FAQ sur la connectivité réseau d’Analysis Services](analysis-services-network-faq.yml)

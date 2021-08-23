@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 15ef67fb452b4302cc848b88b3dab89d46fb8793
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ebe95bbd0b00ace152587604fb9f7543b24188e2
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746462"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535222"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -24,6 +24,7 @@ Le conteneur d’analyse spatiale vous permet d’analyser le flux vidéo en tem
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
+* [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Créer une ressource Vision par ordinateur"  target="_blank">créez une ressource Vision par ordinateur </a> pour le niveau Standard S1 dans le portail Azure afin d’obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour exécuter le conteneur d’analyse spatiale. Vous utiliserez votre clé et votre point de terminaison ultérieurement.
 
@@ -316,7 +317,10 @@ Une machine virtuelle Azure avec un GPU peut également être utilisée pour ex�
 
 Ouvrez l’Assistant [Création d’une machine virtuelle](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) dans le portail Azure.
 
-Donnez un nom à votre machine virtuelle et sélectionnez (USA) USA Ouest 2 comme région. Veillez à définir `Availability Options` sur « Aucune redondance d’infrastructure requise ». Reportez-vous à la figure ci-dessous pour obtenir la configuration complète et à l’étape suivante pour trouver la bonne taille de machine virtuelle. 
+Donnez un nom à votre machine virtuelle et sélectionnez (USA) USA Ouest 2 comme région. 
+
+> [!IMPORTANT]
+> Veillez à définir `Availability Options` sur « Aucune redondance d’infrastructure requise ». Reportez-vous à la figure ci-dessous pour obtenir la configuration complète et à l’étape suivante pour trouver la bonne taille de machine virtuelle. 
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Détails de la configuration de la machine virtuelle" lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 

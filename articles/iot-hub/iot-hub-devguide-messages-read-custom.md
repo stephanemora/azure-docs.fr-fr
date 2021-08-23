@@ -2,18 +2,17 @@
 title: Présentation des points de terminaison Azure IoT Hub personnalisés | Microsoft Docs
 description: 'Guide du développeur : Utilisation de requêtes de routage pour router les messages appareil-à-cloud vers des points de terminaison.'
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: ebc9240e75e5b30b9159f15f4ec1825c1d2b03ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532251"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 

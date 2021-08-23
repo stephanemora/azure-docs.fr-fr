@@ -4,16 +4,16 @@ description: Découvrez comment configurer des points de terminaison réseau Azu
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 706ce7fbcc727be365c8b9ebc65d8ac2c9817c2f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 6d92350a46319400cb0c5ec8dce4b87ef1da5487
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287623"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224973"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuration des points de terminaison réseau Azure Files
 
@@ -26,6 +26,13 @@ Le compte de stockage Azure comprend à la fois des points de terminaison public
 Cet article se concentre sur la configuration des points de terminaison d’un compte de stockage pour accéder directement au partage de fichiers Azure. La plupart des détails fournis dans ce document s’appliquent également à la façon dont Azure File Sync interagit avec les points de terminaison publics et privés du compte de stockage. Toutefois, pour plus d’informations sur la configuration des réseaux dans le cadre d’un déploiement Azure File Sync, consultez [Configuration des paramètres de proxy et de pare-feu d’Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 Avant de lire le présent guide, nous vous recommandons de lire [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md).
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 ## <a name="prerequisites"></a>Prérequis
 

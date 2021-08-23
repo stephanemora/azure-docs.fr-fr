@@ -3,19 +3,19 @@ title: API Audio long – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment l’API Audio long est conçue pour la synthèse asynchrone de texte de long en parole.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.author: trbye
-ms.openlocfilehash: 92a41c3b18b96dc7d12fe7a0cfdae022fcb4d363
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: lajanuar
+ms.openlocfilehash: 62546d4f7a1cd93d787faee22132d967bb0def8d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079153"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533055"
 ---
 # <a name="long-audio-api"></a>API Audio long
 

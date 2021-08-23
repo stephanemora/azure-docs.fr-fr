@@ -1,19 +1,20 @@
 ---
 title: Créer un compte Azure Video Analyzer for Media (anciennement Video Indexer) connecté à Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Découvrez comment créer un compte Azure Video Analyzer for Media (anciennement Video Indexer) connecté à Azure.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 28f8bb6a610e13aa0e7cf76adf52f13972215365
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7bc5188c5987d393d63049a0a87a84605e4fa372
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386043"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121583"
 ---
 # <a name="create-a-video-analyzer-for-media-account"></a>Créer un compte Video Analyzer for Media
 
@@ -241,6 +242,10 @@ Si vous souhaitez supprimer un compte Video Analyzer for Media, vous pouvez supp
 Sélectionnez le compte -> **Paramètres** -> **Supprimer ce compte**. 
 
 Le compte sera définitivement supprimé après 90 jours.
+
+## <a name="firewall"></a>Pare-feu
+
+Consultez [Compte de stockage qui se trouve derrière un pare-feu](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

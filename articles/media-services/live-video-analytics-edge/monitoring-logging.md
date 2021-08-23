@@ -3,12 +3,12 @@ title: Supervision et journalisation dans Live Video Analytics – Azure
 description: Cet article offre une vue d’ensemble de la supervision et de la journalisation dans Azure Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 4bc69192d0d36d01755d625ee46cd77cd9eec1b9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0eb6f63b139a9a0ca9fc65c80dd6284d1a476f6d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372136"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297087"
 ---
 # <a name="monitoring-and-logging-in-live-video-analytics-on-iot-edge"></a>Supervision et journalisation dans Live Video Analytics sur IoT Edge
 
@@ -417,7 +417,7 @@ Le module écrira maintenant les journaux de débogage dans un format binaire so
 
 ## <a name="faq"></a>Forum Aux Questions
 
-Si vous avez des questions, consultez la [FAQ sur la supervision et les métriques](faq.md#monitoring-and-metrics).
+Si vous avez des questions, consultez la [FAQ sur la supervision et les métriques](/azure/media-services/live-video-analytics-edge/faq#monitoring-and-metrics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

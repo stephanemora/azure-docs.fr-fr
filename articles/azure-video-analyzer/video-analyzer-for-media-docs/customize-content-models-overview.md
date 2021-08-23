@@ -1,19 +1,20 @@
 ---
 title: Personnalisation des modèles de contenu dans Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Cet article fournit des liens vers des articles conceptuels qui expliquent les avantages de chaque type de personnalisation. Il contient également des liens vers des guides pratiques qui montrent comment implémenter la personnalisation de chaque modèle.
-services: media-services
+services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6ea6aa8ebdf37a176d10279d0d3b2a30aa429ed4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 11801b9f2434250a42c6a505d08fa286b95d6c02
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385732"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123254"
 ---
 # <a name="customizing-content-models-in-video-analyzer-for-media"></a>Personnalisation des modèles de contenu dans Video Analyzer for Media
 

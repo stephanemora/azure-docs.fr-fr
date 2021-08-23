@@ -2,7 +2,6 @@
 title: Bien démarrer avec la gestion des appareils Azure IoT Hub (Java) | Microsoft Docs
 description: Guide d’utilisation de la gestion des appareils Azure IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour Java afin d’implémenter une application de service qui appelle la méthode directe.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0706fd53bf6a9c23a3a38280845220ab68b8c569
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 7b64236c27063ad7aab2e22cd2d6fbf9bc534714
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887466"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524938"
 ---
 # <a name="get-started-with-device-management-java"></a>Prise en main de la gestion d’appareils (Java)
 

@@ -2,13 +2,13 @@
 title: Utiliser des extensions avec des pools Batch
 description: Les extensions sont de petites applications qui facilitent la configuration et l’installation post-approvisionnement sur des nœuds de calcul Batch.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: 406de8ea1c781ac742e7ca3fff8f84f03727a031
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/06/2021
+ms.openlocfilehash: b9c34dd5d191253352181158ece29218657f8d75
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476103"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524021"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Utiliser des extensions avec des pools Batch
 

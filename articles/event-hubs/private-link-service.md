@@ -4,12 +4,12 @@ description: Découvrir comment intégrer Azure Event Hubs au service Azure Priv
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 76f205d97c7c77ff75f0143181631319c6a23b97
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48688c9f16330830111aff5dd26292825370fcb9
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706042"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415554"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -92,7 +92,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 
     ![Point de terminaison privé créé](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 Pour autoriser les services approuvés à accéder à votre espace de noms, basculez vers l’onglet **Pare-feu et réseaux virtuels** dans la page **Réseau**, puis sélectionnez **Oui** pour **Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?** . 
 

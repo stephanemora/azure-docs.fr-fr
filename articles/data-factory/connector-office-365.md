@@ -1,17 +1,20 @@
 ---
 title: Copier des données depuis Office 365 avec Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jianleishen
-ms.openlocfilehash: 4779d8830e0b4e78aea0cd4e9de0401806a85af7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 537fc48141712c4113076e253ed3c93c7c89d066
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641526"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

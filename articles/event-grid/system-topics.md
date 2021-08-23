@@ -2,13 +2,13 @@
 title: Rubriques système dans Azure Event Grid
 description: Décrit les rubriques système d’Azure Event Grid.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: ca59dd6bb99b9b7d06f0622e8c0cb4e4234e21ff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/19/2021
+ms.openlocfilehash: cb054b8085c422f56a6cf8c6cc492470aaa4be95
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105733041"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437028"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Rubriques système dans Azure Event Grid
 Une rubrique système dans Event Grid représente un ou plusieurs événements publiés par les services Azure, tels que Stockage Azure et Azure Event Hubs. Par exemple, une rubrique système peut représenter **tous les événements blob** ou uniquement les événements **de création de blob** et **de suppression de blob** publiés pour un **compte de stockage spécifique**. Dans cet exemple, lorsqu’un blob est chargé sur le compte de stockage, le service Stockage Azure publie un événement **de création de blob** dans la rubrique système d’Event Grid, qui transfère ensuite l’événement aux [abonnés](event-handlers.md) de la rubrique qui reçoivent et traitent l’événement. 
@@ -19,12 +19,14 @@ Une rubrique système dans Event Grid représente un ou plusieurs événements p
 ## <a name="azure-services-that-support-system-topics"></a>Services Azure qui prennent en charge les rubriques système
 Voici la liste actuelle des services Azure qui prennent en charge la création de rubriques système.
 
+- [Gestion des API Azure](event-schema-api-management.md)
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Stockage Blob Azure](event-schema-blob-storage.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure FarmBeats](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)

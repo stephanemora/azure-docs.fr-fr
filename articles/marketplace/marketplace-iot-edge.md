@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 70bb18984f5ed3ca6887fd01ec0e98e6f3d41595
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 28017bb8649e748ddf2299748f3d718ae4896a68
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547588"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416197"
 ---
 # <a name="plan-an-iot-edge-modules-offer"></a>Planifier une offre de modules IoT Edge
 
@@ -114,5 +114,4 @@ Pour faciliter la création de votre offre, préparez ces éléments à l’avan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
 - [Créez une offre de module IoT Edge](./iot-edge-offer-setup.md) dans l’Espace partenaires.

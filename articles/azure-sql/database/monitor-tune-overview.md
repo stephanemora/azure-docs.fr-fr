@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
-ms.openlocfilehash: 4c9edaea75215bc4b471cd2e0ac50c4e69546bb0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 428bc56ed2bcd4cf3da434bff1e399e04706db7d
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592130"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121767"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervision et réglage des performances dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

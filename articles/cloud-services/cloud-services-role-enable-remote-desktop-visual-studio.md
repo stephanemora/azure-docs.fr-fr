@@ -4,16 +4,16 @@ description: Configuration de l’application de service cloud Azure pour autori
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 103841fdafe082d1a6ca609b2c52456ab5816af8
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743234"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092452"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services (classique) avec Visual Studio
 

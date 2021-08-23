@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 84846aacb435cfef861acf046b7f623697445da2
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 43af18f508a0e9b4239dedb793a3de9565ee5f03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525098"
 ---
 # <a name="work-with-anomaly-detection-analytics-rules-in-azure-sentinel"></a>Utiliser des règles d’analyse de détection d’anomalie dans Azure Sentinel
 
@@ -30,7 +30,7 @@ ms.locfileid: "112059649"
 
 ## <a name="view-soc-ml-anomaly-rule-templates"></a>Afficher les modèles de règles d’anomalie SOC-ML
 
-La [fonctionnalité d’anomalies SOC-ML](soc-ml-anomalies.md) d’Azure Sentinel fournit des [modèles d’anomalies intégrés](tutorial-detect-threats-built-in.md#anomaly) pour une valeur immédiate prête à l’emploi. Ces modèles d’anomalies ont été développés pour être robustes en utilisant des milliers de sources de données et des millions d’événements, mais cette fonctionnalité vous permet également de modifier facilement les seuils et les paramètres des anomalies dans l’interface utilisateur. Les règles d’anomalie doivent être activées avant de générer des anomalies, que vous pouvez trouver dans la table **Anomalies** de la section **Journaux**.
+La [fonctionnalité d’anomalies SOC-ML](soc-ml-anomalies.md) d’Azure Sentinel fournit des [modèles d’anomalies intégrés](detect-threats-built-in.md#anomaly) pour une valeur immédiate prête à l’emploi. Ces modèles d’anomalies ont été développés pour être robustes en utilisant des milliers de sources de données et des millions d’événements, mais cette fonctionnalité vous permet également de modifier facilement les seuils et les paramètres des anomalies dans l’interface utilisateur. Les règles d’anomalie doivent être activées avant de générer des anomalies, que vous pouvez trouver dans la table **Anomalies** de la section **Journaux**.
 
 1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Analytique**.
 
@@ -150,4 +150,4 @@ Cela est prévu pour vous donner la possibilité de comparer les résultats gén
 Dans ce document, vous avez appris à utiliser des règles d’analyse de détection d’anomalie SOC-ML dans Azure Sentinel.
 
 - Obtenez des informations générales sur [SOC-ML](soc-ml-anomalies.md).
-- Explorez d’autres [types de règles d’analyse](tutorial-detect-threats-built-in.md).
+- Explorez d’autres [types de règles d’analyse](detect-threats-built-in.md).

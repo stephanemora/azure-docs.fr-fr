@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddea6f64aa4c3f78116e30ba8c9731acebfbb006
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84690300"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531949"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 
@@ -84,9 +84,6 @@ Pour chaque modèle de message, l'objet est au format texte et le corps au forma
 ![Email template editor][api-management-email-template]
 
 La liste **Paramètres** contient une liste de paramètres qui, lorsqu'ils sont insérés dans l'objet ou dans le corps du message, sont remplacés par une valeur définie lorsque le message est envoyé. Pour insérer un paramètre, placez le curseur là où vous voulez insérer le paramètre, puis cliquez sur la flèche à gauche du nom du paramètre.
-
-> [!NOTE]
-> Les paramètres ne sont pas remplacés par les valeurs réelles lors de l’aperçu ou du test.
 
 Pour enregistrer les changements apportés au modèle d’e-mail, cliquez sur **Enregistrer**. Pour annuler les changements, cliquez sur **Abandonner**.
 

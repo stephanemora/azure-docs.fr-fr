@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4247cce1ad43c2ba25085e3db41b838337e56486
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524155"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari simplifie la gestion et la surveillance d’un cluster Apache Hadoop. Cette simplification s’effectue en fournissant une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight, et sert à surveiller le cluster et à apporter des modifications de configuration.
 
@@ -85,7 +85,7 @@ Vous pouvez gérer les méthodes d’alerte et créer des notifications d’aler
 
 Enfin, en sélectionnant __Gérer les paramètres d’alerte__ à partir du menu __Actions__, vous pouvez définir le nombre d’occurrences d’une alerte avant l’envoi d’une notification. Ce paramètre peut être utilisé pour empêcher les notifications des erreurs temporaires.
 
-Pour obtenir un tutoriel sur les notifications d’alerte à l’aide d’un compte [SendGrid](../sendgrid-dotnet-how-to-send-email.md) gratuit, consultez [Configurer des notifications par e-mail Apache Ambari dans Azure HDInsight](./apache-ambari-email.md).
+Pour obtenir un tutoriel sur les notifications d’alerte à l’aide d’un compte [SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) gratuit, consultez [Configurer des notifications par e-mail Apache Ambari dans Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22c9163b0b8e809fba3c870393c03dd7c0d3c194
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007668"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433757"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Créer un pool Azure Batch sans adresses IP publiques
 
@@ -35,7 +35,7 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
 - **Un réseau virtuel Azure**. Si vous créez votre pool dans un [réseau virtuel](batch-virtual-network.md), vous devez respecter les exigences et appliquer les configurations qui suivent. Pour préparer un réseau virtuel avec un ou plusieurs sous-réseaux à l’avance, vous pouvez utiliser le portail Azure, Azure PowerShell, l’interface de ligne de commande Azure (CLI) ou d’autres méthodes.
   - Le réseau virtuel doit se trouver dans la même région et le même abonnement que le compte Batch utilisé pour créer le pool.
   - Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit.
-  - Vous devez désactiver les stratégies relatives aux services de liaison privée et aux réseaux de points de terminaison. Pour cela, vous pouvez utiliser Azure CLI : ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Vous devez désactiver les stratégies relatives aux services de liaison privée et aux réseaux de points de terminaison. Pour cela, vous pouvez utiliser Azure CLI : ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Pour chaque groupe de 100 nœuds dédiés ou basse priorité, Batch alloue un service de liaison privée et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être [demander une augmentation du quota](batch-quota-limit.md#increase-a-quota) pour une ou plusieurs de ces ressources. En outre, aucun verrou de ressource ne doit être appliqué à une ressource créée par Batch, puisque cela empêche le nettoyage des ressources à la suite d’actions lancées par l’utilisateur, telles que la suppression d’un pool ou le redimensionnement à zéro.
@@ -110,7 +110,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 ## <a name="outbound-access-to-the-internet"></a>Accès sortant vers Internet
 
-Dans un pool sans adresses IP publiques, vos machines virtuelles ne pourront pas accéder à l’Internet public si vous ne configurez pas votre réseau correctement, par exemple, à l’aide de la [traduction d'adresses réseau (NAT) de réseau virtuel](../virtual-network/nat-overview.md). Notez que la NAT autorise uniquement l’accès sortant à Internet à partir des machines virtuelles du réseau virtuel. Les nœuds de calcul créés par Batch ne sont pas accessibles publiquement, car ils n’ont pas d’adresses IP publiques.
+Dans un pool sans adresses IP publiques, vos machines virtuelles ne pourront pas accéder à l’Internet public si vous ne configurez pas votre réseau correctement, par exemple, à l’aide de la [traduction d'adresses réseau (NAT) de réseau virtuel](../virtual-network/nat-gateway/nat-overview.md). Notez que la NAT autorise uniquement l’accès sortant à Internet à partir des machines virtuelles du réseau virtuel. Les nœuds de calcul créés par Batch ne sont pas accessibles publiquement, car ils n’ont pas d’adresses IP publiques.
 
 Pour fournir une connectivité sortante, vous pouvez également utiliser un routage défini par l’utilisateur (UDR). Cela vous permet de router le trafic vers un ordinateur proxy disposant d’un accès Internet public.
 

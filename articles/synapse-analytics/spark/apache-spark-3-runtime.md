@@ -8,12 +8,13 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 05/26/2021
 ms.author: midesa
-ms.openlocfilehash: 1a129b7db413f7b4104f2d3f21e11f638ef6ee23
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa8942ac11549d5c9e7c6e068d7003297e016b2
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579409"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535169"
 ---
 # <a name="azure-synapse-runtime-for-apache-spark-30-preview"></a>Runtime Azure Synapse pour Apache Spark 3.0 (préversion)
 
@@ -1277,5 +1278,5 @@ zipp=0.6.0
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Documentation Apache Spark](https://spark.apache.org/docs/2.4.4/)
+- [Documentation Apache Spark](https://spark.apache.org/docs/3.0.2/)
 - [Concepts Apache Spark](apache-spark-concepts.md)

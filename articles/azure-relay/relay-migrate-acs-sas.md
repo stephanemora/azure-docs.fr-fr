@@ -2,13 +2,13 @@
 title: Azure Relay - Migrer vers l’autorisation de signature d’accès partagé
 description: Explique comment faire passer les applications Azure Relay d’une utilisation d’Azure Active Directory Access Control Service à une utilisation de l’autorisation de signature d’accès partagé.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 30e656b3e4960cb7e2a8bdb23a2d8ce1aa91edbf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87532864"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668713"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay - Migrer depuis le service Access Control Service d’Azure Active Directory vers l’autorisation de signature d’accès partagé
 

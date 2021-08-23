@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809604439caa6a1a0c20ca7d22fac21dd6c1ab2b
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861338"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913560"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -98,9 +98,9 @@ Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell V
 1. Démarrez Windows PowerShell avec les privilèges administrateur.
 2. Installez le module Azure AD, version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou ultérieure.
 
-```powershell
-    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
-```
+   ```powershell
+       Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+   ```
 
 Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’une connexion est établie avec votre locataire, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre annuaire.
 
@@ -162,27 +162,25 @@ Pour garantir que la révocation persiste, vous devez définir la propriété **
 
 Les étapes suivantes décrivent le processus de mise à jour et d’invalidation du jeton d’autorisation avec la définition du champ **StsRefreshTokenValidFrom** .
 
-**Pour configurer la révocation :**
-
 1. Connectez-vous au service MSOL avec les informations d’identification administrateur :
 
-```powershell
-        $msolcred = get-credential
-        connect-msolservice -credential $msolcred
-```
+   ```powershell
+           $msolcred = get-credential
+            connect-msolservice -credential $msolcred
+   ```
 
 2. Récupérez la valeur StsRefreshTokensValidFrom actuelle pour un utilisateur :
 
-```powershell
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
-        $user.StsRefreshTokensValidFrom
-```
+   ```powershell
+           $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
+           $user.StsRefreshTokensValidFrom
+   ```
 
 3. Configurez une nouvelle valeur StsRefreshTokensValidFrom pour l’utilisateur. Elle doit être égale à l’horodateur actuel :
 
-```powershell
-        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
-```
+   ```powershell
+           Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+   ```
 
 La date que vous définissez doit être dans le futur. Si la date n’est pas dans le futur, la propriété **StsRefreshTokensValidFrom** n’est pas définie. Si la date est dans le futur, la propriété **StsRefreshTokensValidFrom** est définie sur l’heure actuelle (et non la date indiquée par la commande Set-MsolUser).
 
@@ -199,11 +197,9 @@ Si votre connexion est réussie, vous savez que :
 
 ### <a name="testing-office-mobile-applications"></a>Test des applications Office mobiles
 
-**Pour tester l’authentification par certificat sur votre application Office mobile :**
-
 1. Sur votre appareil de test, installez une application mobile Office (par exemple, OneDrive).
-3. Lancez l’application.
-4. Entrez votre nom d’utilisateur et sélectionnez le certificat utilisateur que vous souhaitez utiliser.
+1. Lancez l’application.
+1. Entrez votre nom d’utilisateur et sélectionnez le certificat utilisateur que vous souhaitez utiliser.
 
 Vous devez être connecté.
 
@@ -220,8 +216,6 @@ Le profil EAS doit contenir les informations suivantes :
 Un profil EAS peut être configuré et placé sur l’appareil via l’utilisation de la gestion des appareils mobiles (MDM), comme Intune, ou en plaçant manuellement le certificat dans le profil EAS sur l’appareil.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Test des applications clientes EAS sur Android
-
-**Pour tester l’authentification par certificat :**
 
 1. Configurez un profil EAS dans l’application, qui respecte les spécifications citées dans la section précédente.
 2. Ouvrez l’application et vérifiez la synchronisation de la messagerie.

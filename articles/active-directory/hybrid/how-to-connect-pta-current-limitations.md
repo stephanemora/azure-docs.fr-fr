@@ -16,17 +16,14 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89280194"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135029"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limites actuelles
-
->[!IMPORTANT]
->L’authentification directe Azure Active Directory (Azure AD) est une fonctionnalité gratuite que vous pouvez utiliser sans avoir besoin d’aucune édition payante d’Azure AD. L’authentification directe est disponible seulement dans l’instance mondiale d’Azure AD, et pas sur le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) ni sur le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -58,7 +55,7 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/ADFSTOPTADPDownload) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
 - [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
-- [Forum Aux Questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.
+- [Forum Aux Questions](how-to-connect-pta-faq.yml) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.
 - [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.

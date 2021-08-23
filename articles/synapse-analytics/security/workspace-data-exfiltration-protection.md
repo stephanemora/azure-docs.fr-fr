@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5fed7649353c0ef6cb222c0b0c91a5203665e9fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 792197b3558a16706fee52204fa90a8ef8d0735a
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598046"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232047"
 ---
 # <a name="data-exfiltration-protection-for-azure-synapse-analytics-workspaces"></a>Protection contre l’exfiltration de données pour les espaces de travail Azure Synapse Analytics
 Cet article explique la protection contre l’exfiltration de données dans Azure Synapse Analytics
@@ -34,9 +34,7 @@ Utilisons un exemple pour illustrer la protection contre l’exfiltration de don
 
 >[!IMPORTANT]
 >
-> - Les ressources dans les locataires autres que le locataire de l’espace de travail ne doivent pas avoir de règles de pare-feu bloquantes pour que les pools SQL puissent s’y connecter. Les ressources au sein du réseau virtuel managé de l’espace de travail, comme les clusters Spark, peuvent se connecter via des liaisons privées managées aux ressources protégées par un pare-feu.
->
-> - Le metastore est désactivé dans les espaces de travail Synapse disposant d’un réseau virtuel managé où la protection contre l’exfiltration des données est activée. Vous ne pouvez pas utiliser Spark SQL dans ces espaces de travail.
+> Les ressources dans les locataires autres que le locataire de l’espace de travail ne doivent pas avoir de règles de pare-feu bloquantes pour que les pools SQL puissent s’y connecter. Les ressources au sein du réseau virtuel managé de l’espace de travail, comme les clusters Spark, peuvent se connecter via des liaisons privées managées aux ressources protégées par un pare-feu.
 > >
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,19 +1,20 @@
 ---
 title: Identifier et transcrire automatiquement du contenu multilingue avec Azure Video Analyzer for Media (anciennement Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Cette rubrique montre comment identifier et transcrire automatiquement du contenu multilingue avec Azure Video Analyzer for Media (anciennement Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 38e6c809d2201e56ae3cae9a7ca44daca1db2077
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a0466a8123a3732e78cd35826290b3e29e3c8c50
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385660"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119210"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content"></a>Identifier et transcrire automatiquement du contenu multilingue
 

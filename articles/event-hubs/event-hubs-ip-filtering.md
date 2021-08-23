@@ -3,12 +3,12 @@ title: Règles de pare-feu dans Azure Event Hubs | Microsoft Docs
 description: Utilisez les règles de pare-feu pour autoriser les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: e0cefa24db8728ebe9d268c00718c2276ed7cee4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: eb8f83d03fffe514fcd34a394943d4a0fef27c0c
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375004"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417115"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -53,7 +53,7 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
     > [!NOTE]
     > Pour restreindre l’accès à des réseaux virtuels spécifiques, consultez [Autoriser l’accès à partir de réseaux spécifiques](event-hubs-service-endpoints.md).
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager

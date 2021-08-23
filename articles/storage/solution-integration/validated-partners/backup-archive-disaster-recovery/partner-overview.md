@@ -8,16 +8,16 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: b9ee3b76b1762034e6c1c5d29654b00d31022ff2
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: dc2c284bf1d44ca4fbdd4ddbea95048c38cdbf55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838084"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562321"
 ---
 # <a name="azure-storage-archive-backup-and-disaster-recovery-partners"></a>Partenaires d’archivage, de sauvegarde et de récupération d’urgence du Stockage Azure
 
-Cet article présente les partenaires Microsoft intégrés au stockage Azure pour les charges de travail d’archivage, de sauvegarde et de continuité/reprise d’activité (BCDR). Ces solutions de partenaires tirent parti des avantages de l’évolutivité et du coût du stockage Azure. Vous pouvez utiliser les solutions pour résoudre les problèmes de sauvegarde, créer un site de récupération d’urgence ou archiver du contenu inutilisé pour la conservation à long terme. Avec toutes les normes de conformité auxquelles le stockage Azure satisfait, ainsi que les fonctionnalités Azure comme le [stockage immuable](../../../blobs/storage-blob-immutable-storage.md) et la [lgestion du cycle de vie](../../../blobs/storage-lifecycle-management-concepts.md), ces solutions peuvent facilement remplacer les sauvegardes sur bande et proposer un site de récupération économique à la demande.
+Cet article présente les partenaires Microsoft intégrés au stockage Azure pour les charges de travail d’archivage, de sauvegarde et de continuité/reprise d’activité (BCDR). Ces solutions de partenaires tirent parti des avantages de l’évolutivité et du coût du stockage Azure. Vous pouvez utiliser les solutions pour résoudre les problèmes de sauvegarde, créer un site de récupération d’urgence ou archiver du contenu inutilisé pour la conservation à long terme. Avec toutes les normes de conformité auxquelles le stockage Azure satisfait, ainsi que les fonctionnalités Azure comme le [stockage immuable](../../../blobs/immutable-storage-overview.md) et la [lgestion du cycle de vie](../../../blobs/storage-lifecycle-management-concepts.md), ces solutions peuvent facilement remplacer les sauvegardes sur bande et proposer un site de récupération économique à la demande.
 
 ## <a name="verified-partners"></a>Partenaires vérifiés
 

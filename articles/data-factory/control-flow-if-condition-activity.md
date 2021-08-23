@@ -1,19 +1,21 @@
 ---
 title: Activité IfCondition dans Azure Data Factory | Microsoft Docs
+titleSuffix: Azure Data Factory & Azure Synapse
 description: L’activité IfCondition vous permet de contrôler le flux de traitement en fonction d’une condition.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a1df46f3f54cdbab62d50aca71c850e776aa9ff
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: cc897e9657120b3a290c151a4c6582f29e905b4e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675036"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641371"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

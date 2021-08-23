@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 50f08ffc304962cc66f6eed07adcb5b7e4aa6692
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c386714fbc24c5e5f2f7e71234e2838aa2e5f216
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011150"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542235"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 
@@ -52,7 +52,7 @@ Le client Power BI Desktop doit également être installé sur votre ordinateur,
 
 ### <a name="steps"></a>Étapes
 
-1. Téléchargez et ouvrez le modèle Power BI suivant dans l’application Power BI Desktop : [Modèle de journaux de flux Network Watcher PowerBI](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Téléchargez et ouvrez le modèle Power BI suivant dans l’application Power BI Desktop : [Modèle de journaux de flux Network Watcher PowerBI](https://aka.ms/networkwatcherflowlogspowerbitemplate)
 1. Entrez les paramètres de requête obligatoires
    1. **StorageAccountName** : spécifie le nom du compte de stockage contenant les journaux de flux NSG que vous souhaitez charger et visualiser.
    1. **NumberOfLogFiles** : spécifie le nombre de fichiers journaux que vous souhaitez télécharger et visualiser dans Power BI. Par exemple, si vous spécifiez 50, il s’agit des 50 derniers fichiers journaux. Si vous avez activé 2 groupes de sécurité réseau et que vous les avez configurés pour envoyer des journaux de flux NSG sur ce compte, vous pourrez visualiser les 25 dernières heures de journaux d’activité.

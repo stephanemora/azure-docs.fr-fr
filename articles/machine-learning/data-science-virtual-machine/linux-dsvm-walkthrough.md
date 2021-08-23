@@ -8,12 +8,12 @@ author: timoklimmer
 ms.author: tklimmer
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 453b7558ac4f26395186a6aabc54ce831b5ef9b5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10695c20bc177abd084d6a3724ae3d379d4ca74a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071881"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284571"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Ubuntu sur Azure
 
@@ -326,7 +326,7 @@ rattle()
 > [!NOTE]
 > Vous n’avez pas besoin d’installer Rattle sur la DSVM. Toutefois, vous pouvez être invité à installer des packages supplémentaires quand Rattle s’ouvre.
 
-Rattle utilise une interface basée sur des onglets. La plupart des onglets correspondent aux étapes du [Processus de science des données de l’équipe](../team-data-science-process/index.yml), telles que le chargement de données ou leur exploration. Le processus de science des données se déroule de gauche à droite à travers les onglets. Le dernier onglet contient un journal des commandes R exécutées par Rattle.
+Rattle utilise une interface basée sur des onglets. La plupart des onglets correspondent aux étapes du [Processus de science des données de l’équipe](/azure/architecture/data-science-process/overview), telles que le chargement de données ou leur exploration. Le processus de science des données se déroule de gauche à droite à travers les onglets. Le dernier onglet contient un journal des commandes R exécutées par Rattle.
 
 Pour charger et configurer le jeu de données :
 

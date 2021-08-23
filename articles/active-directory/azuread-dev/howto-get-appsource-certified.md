@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 020b9f61af668e1e0e29a3a93ee5cdc5d8803e81
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649343"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440287"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 
@@ -47,7 +47,7 @@ Pour plus d’informations sur l’architecture mutualisée, consultez [Comment 
 
 Une *application à locataire unique* est une application qui accepte uniquement les connexions des utilisateurs d’une instance Azure AD définie. Les utilisateurs externes (y compris les comptes professionnels ou scolaires d’autres organisations ou les comptes personnels) peuvent se connecter à une application à locataire unique après l’ajout de chaque utilisateur en tant que compte invité à l’instance Azure AD auprès de laquelle l’application est inscrite. 
 
-Vous pouvez ajouter des utilisateurs en tant que comptes invités à Azure AD via la [collaboration Azure AD B2B](../external-identities/what-is-b2b.md) et vous pouvez le faire [par programmation](../../active-directory-b2c/code-samples.md). Lorsque vous utilisez B2B, les utilisateurs peuvent créer un portail en libre-service ne nécessitant pas d’invitation pour s’y connecter. Pour plus d’informations, consultez [Portail d’inscription en libre-service pour Azure AD B2B Collaboration](../external-identities/self-service-portal.md).
+Vous pouvez ajouter des utilisateurs en tant que comptes invités à Azure AD via la [collaboration Azure AD B2B](../external-identities/what-is-b2b.md) et vous pouvez le faire [par programmation](../../active-directory-b2c/integrate-with-app-code-samples.md). Lorsque vous utilisez B2B, les utilisateurs peuvent créer un portail en libre-service ne nécessitant pas d’invitation pour s’y connecter. Pour plus d’informations, consultez [Portail d’inscription en libre-service pour Azure AD B2B Collaboration](../external-identities/self-service-portal.md).
 
 Les applications à locataire unique peuvent activer l’expérience *Me contacter*, mais si vous souhaitez activer l’expérience d’essai gratuit/d’un simple clic qu’AppSource recommande, activez l’architecture mutualisée de votre application à la place.
 

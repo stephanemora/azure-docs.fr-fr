@@ -7,18 +7,25 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585199f1898d3e2857f69c5c62fdfe4d07448bd5
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472142"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112118075"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
 [Azure Files](storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) via deux types de services de domaine : Active Directory Domain Services (AD DS) en local et Azure Active Directory Domain Services (Azure AD DS). Nous vous recommandons vivement de consulter la section [Fonctionnement](./storage-files-active-directory-overview.md#how-it-works) pour sélectionner le service de domaine approprié pour l’authentification. L’installation est différente selon le service de domaine que vous choisissez. Cette série d’articles se concentre sur l’activation et la configuration d’AD DS en local pour l’authentification auprès de partages de fichiers Azure.
 
 Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de lire notre [guide de planification](storage-files-planning.md) avant de vous lancer dans les articles suivants.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="supported-scenarios-and-restrictions"></a>Scénarios pris en charge et restrictions
 

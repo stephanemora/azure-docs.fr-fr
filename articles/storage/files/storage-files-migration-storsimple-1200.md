@@ -7,18 +7,25 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 67ddcf5fd7d3ef3c1def12a325eb19980176a8ba
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 96cc983cba992452882a8f3307974e83683c39a9
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756212"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "114462185"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
 
 StorSimple série 1200 est une appliance virtuelle exécutée dans un centre de données local. Il est possible d’effectuer une migration des données de cette appliance vers un environnement Azure File Sync. Azure File Sync est le service Azure à long terme stratégique et par défaut vers lequel les appliances StorSimple peuvent être migrées.
 
 StorSimple série 1200 atteindra sa [fin de vie](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) en décembre 2022.  Il est important de commencer à planifier votre migration dès que possible. Cet article décrit les étapes à suivre pour effectuer correctement une migration vers Azure File Sync et fournit les connaissances générales nécessaires. 
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 

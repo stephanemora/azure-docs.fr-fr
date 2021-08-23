@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ff1e43ca78583e5ccda56b7c813ec580050e3288
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 01d8aa850c5f816026561ca64541724bd8c3b832
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524706"
 ---
 # <a name="update-service-principal-credentials"></a>Mettre à jour les informations d’identification du principal de service
 
@@ -22,7 +22,6 @@ Lorsque les informations d’identification du principal de service changent, vo
 
 Par exemple, si vous avez déployé le contrôleur de données à l’aide d’un ensemble spécifique de valeurs pour l’ID de l’abonné du principal de service, l’ID client et la clé secrète client, puis modifiez une ou plusieurs de ces valeurs, vous devez mettre à jour les secrets dans le contrôleur de données.  Voici les instructions pour mettre à jour l’ID d’abonné, l’ID client ou la clé secrète client. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="background"></a>Arrière-plan
 

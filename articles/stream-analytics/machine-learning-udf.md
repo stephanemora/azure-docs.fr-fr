@@ -7,16 +7,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9856b3b6c44c293c77582ba9c6fba9891d897a5d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532390"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
-Vous pouvez implémenter des modèles Machine Learning en tant que fonctions définies par l’utilisateur dans vos tâches Azure Stream Analytics pour effectuer le scoring et les prédictions en temps réel sur vos données d’entrée de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) vous permet d’utiliser n’importe quel outil open source populaire, comme Tensorflow, scikit-learn ou PyTorch pour préparer, entraîner et déployer des modèles.
+Vous pouvez implémenter des modèles Machine Learning en tant que fonctions définies par l’utilisateur dans vos tâches Azure Stream Analytics pour effectuer le scoring et les prédictions en temps réel sur vos données d’entrée de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) vous permet d’utiliser n’importe quel outil open source populaire, comme Tensorflow, scikit-learn ou PyTorch pour préparer, entraîner et déployer des modèles.
 
 ## <a name="prerequisites"></a>Prérequis
 

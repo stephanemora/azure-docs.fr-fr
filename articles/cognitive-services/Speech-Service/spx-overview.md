@@ -3,20 +3,20 @@ title: L’Interface de ligne de commande Azure Speech
 titleSuffix: Azure Cognitive Services
 description: L’interface CLI Speech est un outil en ligne de commande qui vous permet d’utiliser le service Speech sans avoir à écrire de code. L’interface de ligne de commande Speech requiert une configuration minimale et il est facile de commencer immédiatement à expérimenter les fonctionnalités clés du service Speech pour déterminer si vos cas d’utilisation peuvent être atteints.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 4a2b1ca8a852f775b61bf378998e46a1e6d580f1
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106120"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533086"
 ---
 # <a name="what-is-the-speech-cli"></a>Qu’est-ce que l’interface CLI Speech ?
 

@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7466a2e620a9489fe7b3b69967388d3ad4b7ab85
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c790ff5d5c9a56326e8e7180c9944d04f5f4cafc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065316"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525293"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB - API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cet article explique comment approvisionner le débit standard (manuel) sur une base de données dans l’API SQL Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Pour savoir quand utiliser le débit au niveau du conteneur et au niveau de la base de données, voir [Cas d’usage de l’approvisionnement du débit des conteneurs et des bases de données](set-throughput.md). Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
 
-Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-provision-throughput-mongodb.md), [API Cassandra](how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
+Si vous utilisez une autre API, consultez les articles [API pour MongoDB](mongodb/how-to-provision-throughput-mongodb.md), [API Cassandra](cassandra/how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
 

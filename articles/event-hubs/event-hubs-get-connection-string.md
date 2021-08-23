@@ -2,14 +2,13 @@
 title: Obtenir une chaîne de connexion - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des instructions pour obtenir une chaîne de connexion utilisable par les clients pour se connecter à Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4975fd3f0b33306f2a2d2b9b6ff2144dd7529321
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/23/2021
+ms.openlocfilehash: 67a20adb89ffe67546e9704896542f308a243dc3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692129"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665382"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
 
@@ -36,14 +35,12 @@ Cet article vous guide dans les différentes façons d’obtenir la chaîne de c
 3. Sélectionnez **Event Hubs** dans la section **Analytics**. 
 4. Dans la liste de hubs d’événements, sélectionnez votre Event Hub.
 6. Sur la page **Espace de noms Event Hubs**, cliquez sur **Stratégies d’accès partagé** dans le menu de gauche.
-
-    ![Élément de menu des stratégies d’accès partagées](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
 7. Sélectionnez une **stratégie d’accès partagé** dans la liste des stratégies. Le nom par défaut est le suivant : **RootManageSharedAccessPolicy**. Vous pouvez ajouter une stratégie avec les autorisations appropriées (lecture, écriture) et utiliser cette stratégie. 
 
-    ![Stratégies d’accès partagé Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png" alt-text="Stratégies d’accès partagé Event Hubs":::
 8. Cliquez sur le bouton **copier** à côté du champ **Clé primaire de la chaîne de connexion**. 
 
-    ![Obtenir la chaîne de connexion Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png" alt-text="Obtenir la chaîne de connexion Event Hubs":::
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obtention de la chaîne de connexion avec Azure PowerShell
 
@@ -52,20 +49,20 @@ Cet article vous guide dans les différentes façons d’obtenir la chaîne de c
 Vous pouvez utiliser [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) afin d’obtenir la chaîne de connexion pour la stratégie ou le nom de règle spécifié, comme indiqué ci-dessous :
 
 ```azurepowershell-interactive
-Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName MYRESOURCEGROUP -NamespaceName MYEHUBNAMESPACE -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obtention de la chaîne de connexion avec Azure CLI
 Vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’espace de noms :
 
 ```azurecli-interactive
-az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
+az eventhubs namespace authorization-rule keys list --resource-group MYRESOURCEGROUP --namespace-name MYEHUBNAMESPACE --name RootManageSharedAccessKey
 ```
 
 Ou vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’entité EventHub :
 
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+az eventhubs eventhub authorization-rule keys list --resource-group MYRESOURCEGROUP --namespace-name MYEHUBNAMESPACE --eventhub-name MYEHUB --name RootManageSharedAccessKey
 ```
 
 Pour plus d’informations sur les commandes Azure CLI pour Event Hubs, consultez [Azure CLI pour Event Hubs](/cli/azure/eventhubs).

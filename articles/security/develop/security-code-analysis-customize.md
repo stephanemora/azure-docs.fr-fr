@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 763369fbbd52ed14b547e2a23dfa0bb977a1b9a4
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802010"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116142"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -202,4 +202,4 @@ Pour plus d’informations sur la configuration YAML de cette tâche, consultez 
 
 Pour plus d’informations sur la configuration basée sur YAML, reportez-vous à notre [guide de configuration YAML](yaml-configuration.md).
 
-Si vous avez d'autres questions sur l'extension Microsoft Security Code Analysis et les outils proposés, consultez notre [page Forum aux questions](security-code-analysis-faq.md).
+Si vous avez d'autres questions sur l'extension Microsoft Security Code Analysis et les outils proposés, consultez notre [page Forum aux questions](security-code-analysis-faq.yml).

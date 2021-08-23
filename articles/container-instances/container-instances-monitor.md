@@ -3,12 +3,12 @@ title: Surveiller les instances de conteneur
 description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f485efc5bdc29760f0b4278b746940c947777e3
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589291"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219226"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 
@@ -51,7 +51,7 @@ Dans un groupe de conteneurs comportant plusieurs conteneurs, utilisez une [dime
 Les métriques des instances de conteneurs peuvent également être collectées à l’aide d’Azure CLI. Tout d’abord, obtenez l’ID du groupe de conteneurs à l’aide de la commande suivante. Remplacez `<resource-group>` par le nom de votre groupe de ressources et `<container-group>` par le nom de votre groupe de conteneurs.
 
 
-```console
+```azurecli
 CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <container-group> --query id --output tsv)
 ```
 

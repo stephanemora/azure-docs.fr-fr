@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 558610a23098a64f0f36ccb5c04ee71e8a7343cb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 7652f1562050b3253b0df7ee16c4eff5dd6f8e85
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408458"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376861"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-and-attach-apache-spark-poolspreview"></a>Lier des espaces de travail Azure Synapse Analytics et Azure Machine Learning et attacher des pools Apache Spark (préversion)
 
@@ -26,7 +26,7 @@ Une fois l’espace de travail Azure Machine Learning lié à votre espace de tr
 
 Vous pouvez lier votre espace de travail ML et votre espace de travail Synapse par le biais du [SDK Python](#link-sdk) ou d’[Azure Machine Learning Studio](#link-studio).
 
-Vous pouvez aussi lier des espaces de travail et attacher un pool Synapse Spark avec un seul [modèle Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json).
+Vous pouvez aussi lier des espaces de travail et attacher un pool Synapse Spark avec un seul [modèle Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json).
 
 >[!IMPORTANT]
 > L’intégration d’Azure Machine Learning et d’Azure Synapse est disponible en préversion. Les fonctionnalités du package `azureml-synapse` qui sont présentées sont des fonctionnalités [expérimentales](/python/api/overview/azure/ml/#stable-vs-experimental) en préversion et peuvent changer à tout moment.
@@ -134,7 +134,7 @@ Après avoir récupéré le service lié, attachez un pool Synapse Apache Spark 
 
 Vous pouvez attacher des pools Apache Spark en utilisant :
 * Azure Machine Learning Studio
-* [Modèles Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
+* [Modèles Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)
 * Le kit SDK Python d’Azure Machine Learning 
 
 ### <a name="attach-a-pool-via-the-studio"></a>Attacher un pool par le biais du studio

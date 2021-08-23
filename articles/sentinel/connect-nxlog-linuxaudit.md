@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
-ms.openlocfilehash: 2010b21a3cdb81f2b2aa4180f87857862cd02bf5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b10a0c4b1a655d998d9a418dde679c0c6b68b10
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743040"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563722"
 ---
 # <a name="connect-your-nxlog-linuxaudit-to-azure-sentinel"></a>Connecter votre NXLog LinuxAudit à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur NXLog LinuxAudit est actuellement en disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur [NXLog LinuxAudit](https://nxlog.co/documentation/nxlog-user-guide/im_linuxaudit.html) vous permet d’exporter facilement de événements de sécurité Linux vers Azure Sentinel en temps réel, ce qui vous donne une insight de l’activité du serveur de noms de domaine au sein de votre organisation. Le module NXLog LinuxAudit prend en charge les règles d’audit personnalisées, et collecte des journaux sans auditid ou tout autre logiciel d’espace utilisateur. Les adresses IP et les ID de groupe/utilisateur sont résolus dans leurs noms respectifs, ce qui rend les journaux [d’audit Linux](https://nxlog.co/documentation/nxlog-user-guide/linux-audit.html) plus intelligibles pour les analystes de sécurité. L’intégration entre NXLog LinuxAudit et Azure Sentinel est facilitée par l’API REST.
 
@@ -53,6 +55,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Ce document vous a montré comment utiliser NXLog LinuxAudit pour ingérer des événements de sécurité Linux dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

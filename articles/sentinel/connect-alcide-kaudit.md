@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: b146e228de13109975a76b0e4c6c9fd183fd362d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 418a1289b6f584e58b88e2fb0f571f724ba5d800
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600402"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563737"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Connecter votre instance Alcide kAudit à Azure Sentinel
 
 > [!IMPORTANT]
 > Le connecteur de données Alcide kAudit dans Azure Sentinel est actuellement disponible en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) vous permet d’identifier les comportements Kubernetes anormaux et de vous concentrer sur les violations et les incidents rencontrés par Kubernetes, tout en réduisant le temps de détection. Cet article explique comment connecter votre solution Alcide kAudit à Azure Sentinel. Le connecteur de données Alcide kAudit vous permet de placer facilement vos données de journal kAudit dans Azure Sentinel, ce qui vous permet ensuite de les consulter dans des classeurs, de les utiliser pour créer des alertes personnalisées et de les incorporer pour améliorer l’investigation. L’intégration entre Alcide kAudit et Azure Sentinel utilise l’API REST.
 
@@ -71,6 +73,6 @@ Dans ce document, vous avez appris à connecter Alcide kAudit à Azure Sentinel.
 
 Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: cdbb34c147b3629384d7173c3c20d75aac3c7da1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627903"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108798"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -91,6 +91,6 @@ L’authentification unique via PRT fonctionne une fois que les appareils sont i
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
 - [**Plan de déploiement**](../manage-apps/plan-sso-deployment.md) : plan de déploiement étape par étape.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.yml) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

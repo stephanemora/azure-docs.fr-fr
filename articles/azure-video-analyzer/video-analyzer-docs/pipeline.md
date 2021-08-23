@@ -2,13 +2,13 @@
 title: Pipeline Azure Video Analyzer
 description: Un pipeline Azure Video Analyzer vous permet de définir l’emplacement où les données d’entrée doivent être capturées, la manière dont elles doivent être traitées ainsi que l’emplacement où les résultats doivent être remis. Un pipeline se compose de nœuds connectés pour obtenir le flux de données souhaité.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: deed7eec980272dd3dd001219016eee139f22ad6
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/01/2021
+ms.openlocfilehash: 5e874cc71752fa6690a4ca3fc9f3cd33665dc381
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591239"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602255"
 ---
 # <a name="pipeline"></a>Pipeline
 

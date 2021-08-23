@@ -3,19 +3,17 @@ title: Accéder à des magasins de données et à des partages de fichiers avec 
 description: Découvrez comment configurer le catalogue SSIS dans Azure SQL Database et Azure-SSIS Integration Runtime dans Azure Data Factory pour exécuter des packages qui accèdent à des magasins de données et à des partages de fichiers avec l’authentification Windows.
 ms.date: 10/27/2020
 ms.topic: conceptual
-ms.prod: sql
-ms.prod_service: integration-services
-ms.custom: ''
-ms.technology: integration-services
+ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
-ms.openlocfilehash: 8cb92407954ab5376850e57b0ee91d934480b025
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0777b13eb394ac221bc85679c2ea05925b156c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786887"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562499"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Accéder à des magasins de données et à des partages de fichiers avec l’authentification Windows à partir de packages SSIS sur Azure
 

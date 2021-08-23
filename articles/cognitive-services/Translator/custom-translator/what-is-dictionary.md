@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b0708f83ff7ef54da19fdf8219fe594a540e678
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895558"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362185"
 ---
 # <a name="what-is-a-dictionary"></a>Qu’est un dictionnaire ?
 
 Un dictionnaire est une paire alignée de documents qui spécifie une liste d’expressions ou de phrases avec les traductions correspondantes. Utilisez un dictionnaire dans votre apprentissage si vous souhaitez que Microsoft Translator traduise toujours toutes les instances de l’expression ou de la phrase source selon la traduction que vous avez indiquée dans le dictionnaire. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques. On peut considérer le dictionnaire comme un « copier-remplacer » en force pour tous les termes listés. En outre, le service Microsoft Custom Translator crée et utilise ses propres dictionnaires à usage général pour améliorer la qualité de sa traduction. Toutefois, un dictionnaire fourni par le client est prioritaire et fera en premier l’objet de recherches pour des mots ou des phrases.
 
-Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un modèle de réseau neuronal global Microsoft entièrement pris en charge. [Affichez la liste complète des langues](../language-support.md#customization).
+Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un modèle de réseau neuronal global Microsoft entièrement pris en charge. [Affichez la liste complète des langues](../language-support.md).
 
 ## <a name="phrase-dictionary"></a>Dictionnaire d’expressions
 Le dictionnaire d’expressions respecte la casse. Il s’agit d’une opération de recherche et de remplacement exacts. Si un dictionnaire d’expressions est ajouté dans le cadre de l’apprentissage du modèle, tous les mots et expressions listés sont traduits de la manière spécifiée. La traduction du reste de la phrase reste inchangée. Vous pouvez utiliser un dictionnaire d’expressions pour spécifier des expressions à ne pas traduire : indiquez pour cela la même expression non traduite dans le fichier source et dans le fichier cible du dictionnaire.

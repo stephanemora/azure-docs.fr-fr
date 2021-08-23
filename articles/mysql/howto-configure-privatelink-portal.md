@@ -6,14 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c1f9d565cd6e3bafd5caa36d8da9266a3f1edb6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 26b2bc1d2ba1d31aaa7269b3fdb861b69ce70eac
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076327"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641130"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans cet article, vous apprendrez à utiliser le portail Azure pour créer une machine virtuelle dans un réseau virtuel Azure et un serveur Azure Database pour MySQL avec un point de terminaison privé Azure.
 
@@ -35,7 +37,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |

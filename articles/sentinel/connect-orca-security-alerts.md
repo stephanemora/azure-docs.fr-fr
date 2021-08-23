@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 18a50e3d06135f2c17b7e7c5b2969be33f408c62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d90b6fb67d2cb00bb86ca10eca03d07f1135559
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100093078"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563726"
 ---
 # <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Connecter vos alertes Orca Security à Azure Sentinel 
 
 > [!IMPORTANT]
 > Le connecteur d’alertes Orca Security dans Azure Sentinel est actuellement disponible en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Le connecteur des alertes de sécurité Orca vous permet de placer facilement vos [alertes de sécurité Orca](https://orca.security/) dans Azure Sentinel, pour pouvoir les consulter dans des classeurs, les utiliser pour créer des alertes personnalisées et les incorporer pour améliorer l’investigation. L’intégration entre les alertes de sécurité Orca et Azure Sentinel utilise l’API REST.
 
@@ -51,7 +53,6 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter les alertes de sécurité Orca à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

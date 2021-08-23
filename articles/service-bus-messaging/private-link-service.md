@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 03/29/2021
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f735bb7803ccbccafe86df4426690f365f9c864b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 867e9b77b2986bbabfc7ead4d791e805ad3cd768
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688721"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112417034"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Service Bus via des points de terminaison privés
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Service Bus, le Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un **point de terminaison privé** de votre réseau virtuel.
@@ -105,7 +105,7 @@ Si vous avez déjà un espace de noms, vous pouvez créer un point de terminaiso
 
     ![Point de terminaison privé créé](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Ajouter un point de terminaison privé avec PowerShell
 L’exemple suivant montre comment utiliser Azure PowerShell pour créer une connexion de point de terminaison privé à un espace de noms Service Bus.

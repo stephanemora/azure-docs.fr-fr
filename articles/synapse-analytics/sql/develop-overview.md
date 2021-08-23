@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d842414d3046692c982ca3203957a96f8a01b37
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 17df008ccc5fcada0ad58313622fc997ccfa3f77
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377328"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532918"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour les fonctionnalités SQL Synapse dans Azure Synapse Analytics
 Dans cet article, vous trouverez une liste de ressources pour le pool SQL dédié et les fonctions de pool SQL serverless de Synapse SQL. Les articles recommandés sont répartis dans deux sections : Principaux choix de conception et techniques de développement et de codage.
@@ -28,14 +28,14 @@ Les articles ci-dessous mettent en évidence les concepts et les choix de concep
 | Article | Pool SQL dédié | Pool SQL serverless |
 | ------- | -------- | ------------- |
 | [Connexions](connect-overview.md)                    | Oui | Oui |
-| [Classes de ressources et concurrence](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Oui    | Non |
+| [Classes de ressources et concurrence](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) | Oui    | Non |
 | [Transactions](develop-transactions.md)              | Oui | Non |
 | [Schémas définis par l’utilisateur](develop-user-defined-schemas.md) | Oui | Oui |
-| [Distribution de table](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Oui | Non |
-| [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Oui | Non |
-| [Partitions de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Oui | Non |
+| [Distribution de table](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)                 | Oui | Non |
+| [Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)                           | Oui | Non |
+| [Partitions de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)                     | Oui | Non |
 | [Statistiques](develop-tables-statistics.md)            | Oui | Oui |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Oui | Non |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context)                                             | Oui | Non |
 | [Tables externes](develop-tables-external-tables.md) | Oui | Oui |
 | [CETAS](develop-tables-cetas.md)                     | Oui | Oui |
 
@@ -56,5 +56,5 @@ Vous trouverez ci-dessous des articles essentiels qui mettent en évidence des t
 | [Attribution de variables](develop-variable-assignment.md) | Oui                | Oui                     |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez [Instructions T-SQL pour le pool SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour plus d’informations, consultez [Instructions T-SQL pour le pool SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?context=/azure/synapse-analytics/context/context).
 

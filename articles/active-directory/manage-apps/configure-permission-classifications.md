@@ -2,22 +2,22 @@
 title: Configurer des classifications d’autorisations avec Azure AD
 description: Découvrez comment gérer les classifications d’autorisations déléguées.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6bab71412dea05f9217af93ea806fc6d9cd65981
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6d0432c93a0ab3f47b68e071026301c49e8c670c
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076165"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567964"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
@@ -126,4 +126,5 @@ Pour en savoir plus :
 * [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
+
 * [Azure AD sur Microsoft Q&A](/answers/topics/azure-active-directory.html)

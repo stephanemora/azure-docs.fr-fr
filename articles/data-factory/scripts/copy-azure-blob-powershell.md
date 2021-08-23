@@ -4,15 +4,16 @@ description: Ce script PowerShell copie des données d’un emplacement dans un 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: article
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 03/12/2020
-ms.openlocfilehash: b14d0eae07715f6979210f0608fd1b91848afd26
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4377f2bb3c17d5d41acc1e6f6fbe7c30d4251ca2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665551"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563273"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données dans le cloud
 

@@ -3,13 +3,13 @@ title: Enregistrer et streamer des métadonnées d’inférence avec une vidéo 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Analyzer pour enregistrer des métadonnées de vidéo et d’inférence dans le cloud et lire l’enregistrement avec les métadonnées d’inférence visuelle.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.openlocfilehash: 89aef5db89110ee7e12a313820f8f62d0b010faf
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/01/2021
+ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755161"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562518"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
   
@@ -132,7 +132,7 @@ Ensuite, accédez au dossier src/cloud-to-device-console-app. Vous y voyez le fi
 1. Ensuite, sous les nœuds **livePipelineSet** et **pipelineTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de pipeline précédente :
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-cvr-with-inference-metadata`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.  
+1. Ouvrez la [topologie de pipeline](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json) dans un navigateur, puis examinez la valeur de videoName ; vous verrez qu’elle est codée en dur dans `sample-cvr-with-inference-metadata`. C’est acceptable dans un tutoriel. En production, vous devrez faire en sorte que chaque caméra RTSP soit enregistrée dans une ressource vidéo sous un nom unique.  
 
 1. Examinez les paramètres du nœud d’extension HTTP.
 
@@ -143,7 +143,8 @@ Ensuite, accédez au dossier src/cloud-to-device-console-app. Vous y voyez le fi
     }
   ```
 
-Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud traceur d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence : `maximumSamplesPerSecond` est donc défini sur 2.
+Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud traceur d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Votre modèle AI a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
+
 
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
@@ -384,12 +385,11 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Capture d’écran de la lecture de vidéo":::
 
-> [!NOTE]
-> Comme la source de la vidéo était un conteneur simulant le flux d’une caméra, les horodatages de la vidéo représentent le moment où vous avez activé le pipeline en direct et celui où vous l’avez désactivé.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous envisagez d’essayer les autres tutoriels, tenez-vous en aux ressources créées. Sinon, accédez au portail Azure et à vos groupes de ressources, sélectionnez le groupe de ressources sous lequel vous avez exécuté ce tutoriel, puis supprimez le groupe de ressources.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

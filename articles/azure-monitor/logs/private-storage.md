@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8fa3c329afe26979e6f557d075aff478e79d10e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025354"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562275"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 
@@ -22,7 +22,7 @@ Log Analytics s’appuie sur Stockage Azure dans différents scénarios. Cette u
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingestion des journaux de l’extension Azure Diagnostics (WAD/LAD)
 Les agents de l’extension Azure Diagnostics (également appelés WAD et LAD pour les agents Windows et Linux, respectivement) recueillent différents journaux du système d’exploitation et les stockent sur un compte de stockage géré par le client. Vous pouvez ensuite ingérer ces journaux dans Log Analytics pour les examiner et les analyser.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Procédure de collecte des journaux de l’extension Azure Diagnostics à partir de votre compte de stockage
-Connectez le compte de stockage à votre espace de travail Log Analytics en tant que source de données de stockage à l’aide du [portail Azure](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou en appelant l’[API Storage Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
+Connectez le compte de stockage à votre espace de travail Log Analytics en tant que source de données de stockage à l’aide du [portail Azure](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) ou en appelant l’[API Storage Insights](/rest/api/loganalytics/storage-insights/create-or-update).
 
 Types de données pris en charge :
 * syslog
@@ -100,7 +100,7 @@ Pour remplacer un compte de stockage utilisé pour l’ingestion :
 Lorsque vous utilisez votre propre compte de stockage, la rétention est laissée à votre discrétion. Log Analytics ne supprimera pas les journaux stockés sur votre stockage privé. Au lieu de cela, vous devez configurer une stratégie pour gérer la charge en fonction de vos préférences.
 
 #### <a name="consider-load"></a>Prendre en compte la charge
-Les comptes de stockage peuvent gérer une certaine charge de requêtes de lecture et d’écriture avant de commencer à limiter les requêtes (pour plus d’informations, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../../storage/common/scalability-targets-standard-account.md)). La limitation a une incidence sur le temps nécessaire à l’ingestion des journaux. Si votre compte de stockage est surchargé, inscrivez un compte de stockage supplémentaire afin de répartir la charge. Pour surveiller la capacité et le niveau de performance de votre compte de stockage, consultez ses [insights dans le portail Azure]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
+Les comptes de stockage peuvent gérer une certaine charge de requêtes de lecture et d’écriture avant de commencer à limiter les requêtes (pour plus d’informations, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../../storage/common/scalability-targets-standard-account.md)). La limitation a une incidence sur le temps nécessaire à l’ingestion des journaux. Si votre compte de stockage est surchargé, inscrivez un compte de stockage supplémentaire afin de répartir la charge. Pour surveiller la capacité et le niveau de performance de votre compte de stockage, consultez ses [insights dans le portail Azure](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ### <a name="related-charges"></a>Frais connexes
 Les comptes de stockage sont facturés en fonction du volume de données stockées, du type de stockage et du type de redondance. Pour plus d’informations, consultez [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs) et [Tarification de Stockage Table](https://azure.microsoft.com/pricing/details/storage/tables).

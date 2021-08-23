@@ -4,15 +4,16 @@ description: Utilisez cette API pour reprendre l’exécution planifiée d’un 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 4a11783b28352cb62c5a3c0d38e45dcdc47a8d86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caaf20a86e871e247f8aa6908672df8c36e8891d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583453"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532687"
 ---
 # <a name="resume-report-executions-api"></a>API Reprendre les exécutions de rapport
 

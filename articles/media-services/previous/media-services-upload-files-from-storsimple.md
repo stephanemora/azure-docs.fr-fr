@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0521904f0ed46b4c5309e5f9df980b1cd7d7d858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fb1dd99a86dcdda515d77d7a051ca88df26f089
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009022"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114712131"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Charger des fichiers dans un compte Azure Media Services à partir d’Azure StorSimple 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
-> [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 >
 > 
 > Azure StorSimple Data Manager est actuellement disponible en version préliminaire privée. 

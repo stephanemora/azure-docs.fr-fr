@@ -1,24 +1,24 @@
 ---
 title: Utilisation de l’outil MSIXMGR – Azure
-description: Guide pratique pour utiliser l’outil MSIXMGR pour Windows Virtual Desktop.
+description: Guide pratique pour utiliser l’outil MSIXMGR pour Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b2cab56fb99bda7da361cc2068396e53e794501d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f7c0af3ef2992fdd2c337ff6d1172f6da6db5f56
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448336"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114708781"
 ---
 # <a name="using-the-msixmgr-tool"></a>Utilisation de l’outil MSIXMGR
 
-L’outil MSIXMGR sert au développement d’applications empaquetées MSIX dans des images MSIX. L’outil utilise une application empaquetée par MSIX (.MSIX) et la développe dans un fichier VHD, VHDx ou CIM. L’image MSIX obtenue est stockée dans le compte Stockage Azure utilisé par votre déploiement Windows Virtual Desktop. Cet article vous explique comment utiliser l’outil MSIXMGR.
+L’outil MSIXMGR sert au développement d’applications empaquetées MSIX dans des images MSIX. L’outil utilise une application empaquetée par MSIX (.MSIX) et la développe dans un fichier VHD, VHDx ou CIM. L’image MSIX obtenue est stockée dans le compte Stockage Azure utilisé par votre déploiement Azure Virtual Desktop. Cet article vous explique comment utiliser l’outil MSIXMGR.
 
 >[!NOTE]
->Pour garantir la compatibilité, assurez-vous que les modèles CIM qui stockent vos images MSIX sont générées sur la version du système d’exploitation que vous utilisez dans vos pools d’hôtes de Windows Virtual Desktop. MSIXMGR peut créer des fichiers CIM, mais vous ne pouvez utiliser ces fichiers qu’avec un pool d’hôtes exécutant Windows 10 20H2.
+>Pour garantir la compatibilité, assurez-vous que les modèles CIM qui stockent vos images MSIX sont générées sur la version du système d’exploitation que vous utilisez dans vos pools d’hôtes de Azure Virtual Desktop. MSIXMGR peut créer des fichiers CIM, mais vous ne pouvez utiliser ces fichiers qu’avec un pool d’hôtes exécutant Windows 10 20H2.
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -81,7 +81,7 @@ Pour découvrir comment configurer l’attachement d’application, consultez le
 - [Configurer l’attachement d’application MSIX avec le portail Azure](app-attach-azure-portal.md)
 - [Configurer l’attachement d’application MSIX avec PowerShell](app-attach-powershell.md)
 - [Créer des scripts PowerShell pour l’attachement d’application MSIX](app-attach.md)
-- [Préparer une image MSIX pour Windows Virtual Desktop](app-attach-image-prep.md)
+- [Préparer une image MSIX pour Azure Virtual Desktop](app-attach-image-prep.md)
 - [Configurer un partage de fichiers pour l’attachement d’application MSIX](app-attach-file-share.md)
 
-Si vous avez des questions sur l’attachement d’application MSIX, consultez notre [FAQ sur l’attachement d’application](app-attach-faq.md) et le [Glossaire Attachement d’application](app-attach-glossary.md).
+Si vous avez des questions sur l’attachement d’application MSIX, consultez notre [FAQ sur l’attachement d’application](app-attach-faq.yml) et le [Glossaire Attachement d’application](app-attach-glossary.md).

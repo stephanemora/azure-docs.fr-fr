@@ -6,12 +6,12 @@ ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: 25a647df5d1afcb5212b4e717e1a70f9a68f4ac5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 71abc9acdcf8796591e7241a7fcfeded1cd3139a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385724"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283120"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Déployer une passerelle de gestion des API Azure sur Azure Arc (préversion)
 
@@ -48,14 +48,15 @@ Le déploiement de la passerelle Gestion des API sur un cluster Kubernetes avec 
 1. Dans votre ressource de passerelle approvisionnée, cliquez sur **Déploiement** dans le menu de navigation latéral.
 1. Notez les valeurs de **Jeton** et **URL de configuration** pour l’étape suivante.
 1. Dans Azure CLI, déployez l’extension de passerelle à l’aide de la commande `az k8s-extension create`. Renseignez les valeurs `token` et `configuration URL`.
-    * L’exemple suivant utilise la configuration d’extension `service.Type='NodePort'`. Voir plus de [configurations d’extension disponibles](#available-extension-configurations).
+    * L’exemple suivant utilise la configuration d’extension `service.type='LoadBalancer'`. Voir plus de [configurations d’extension disponibles](#available-extension-configurations).
 
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> \
       --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway \
       --scope namespace --target-namespace <namespace> \
       --configuration-settings gateway.endpoint='<Configuration URL>' \
-      --configuration-protected-settings gateway.authKey='<token>' --release-train preview
+      --configuration-protected-settings gateway.authKey='<token>' \
+      --configuration-settings service.type='LoadBalancer' --release-train preview
     ```
 
     > [!TIP]
@@ -92,7 +93,7 @@ Les configurations d’extension suivantes sont **obligatoires**.
 | ------- | ----------- | 
 | `gateway.endpoint` | URL de configuration du point de terminaison de la passerelle. |
 | `gateway.authKey` | Jeton pour l’accès à la passerelle. | 
-| `service.Type` | Configuration du service Kubernetes pour la passerelle : `LoadBalancer`, `NodePort` ou `ClusterIP`. |
+| `service.type` | Configuration du service Kubernetes pour la passerelle : `LoadBalancer`, `NodePort` ou `ClusterIP`. |
 
 ### <a name="log-analytics-settings"></a>Paramètres de Log Analytics
 

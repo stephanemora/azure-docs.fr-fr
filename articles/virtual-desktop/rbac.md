@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f19035ea08e95d5535903467ddbc11fc53c0deb7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 25628d4982e2675a6ea818284f4c629b16f22064
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753104"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563151"
 ---
 # <a name="built-in-roles-for-azure-virtual-desktop"></a>Rôles intégrés pour Azure Virtual Desktop
 
@@ -46,7 +46,7 @@ Le rôle Lecteur de virtualisation des services Bureau vous permet d’afficher 
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="host-pool-contributor"></a>Contributeur du pool d’hôtes
+## <a name="desktop-virtualization-host-pool-contributor"></a>Contributeur de pool d’hôtes de virtualisation de poste de travail
 
 Le rôle Contributeur du pool d’hôtes vous permet de gérer tous les aspects des pools hôtes, y compris l’accès aux ressources. Vous aurez besoin d’un rôle contributeur supplémentaire, Contributeur de machine virtuelle, pour créer des machines virtuelles. Vous aurez besoin des rôles Contributeur de groupe d’applications et Contributeur d’espace de travail pour créer un pool d’hôtes à l’aide du portail, ou vous pouvez utiliser le rôle Contributeur de virtualisation des services Bureau.
 
@@ -59,7 +59,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="host-pool-reader"></a>Lecteur de pool d’hôtes
+## <a name="desktop-virtualization-host-pool-reader"></a>Lecteur de pool d’hôtes de virtualisation de poste de travail
 
 Le rôle Lecteur de pool d’hôtes vous permet d’afficher tout le contenu du pool d’hôtes, mais pas d’y apporter des modifications.
 
@@ -70,7 +70,7 @@ Le rôle Lecteur de pool d’hôtes vous permet d’afficher tout le contenu du 
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="application-group-contributor"></a>Contributeur de groupe d’applications
+## <a name="desktop-virtualization-application-group-contributor"></a>Contributeur du groupe d’applications de virtualisation de poste de travail
 
 Le rôle Contributeur de groupe d’applications vous permet de gérer tous les aspects des groupes d’applications. Si vous souhaitez publier des groupes d’applications vers des utilisateurs ou groupes d’utilisateurs, vous avez besoin du rôle Administrateur de l’accès utilisateur.
 
@@ -85,7 +85,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="application-group-reader"></a>Lecteur de groupe d’applications
+## <a name="desktop-virtualization-application-group-reader"></a>Lecteur du groupe d’applications de virtualisation de poste de travail
 
 Le rôle Lecteur de groupe d’applications vous permet d’afficher tout le contenu du groupe d’applications, mais pas d’y apporter des modifications.
 
@@ -101,7 +101,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="workspace-contributor"></a>Contributeur d’espace de travail
+## <a name="desktop-virtualization-workspace-contributor"></a>Contributeur d’espace de travail de virtualisation de poste de travail
 
 Le rôle Contributeur d’espace de travail vous permet de gérer tous les aspects des espaces de travail. Pour recevoir des informations sur les applications ajoutées aux groupes d’applications, le rôle Lecteur de groupe d’applications doit également vous être attribué.
 
@@ -115,7 +115,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="workspace-reader"></a>Lecteur d’espace de travail
+## <a name="desktop-virtualization-workspace-reader"></a>Lecteur d’espace de travail de virtualisation de poste de travail
 
 Le rôle Lecteur d’espace de travail vous permet d’afficher tout le contenu de l’espace de travail, mais pas d’y apporter des modifications.
 
@@ -129,7 +129,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="user-session-operator"></a>Opérateur de session utilisateur
+## <a name="desktop-virtualization-user-session-operator"></a>Opérateur de session utilisateur de virtualisation de poste de travail
 
 Le rôle Opérateur de session utilisateur vous permet d’envoyer des messages, de déconnecter des sessions et d’utiliser la fonction « logoff » pour signer des sessions hors de l’hôte de la session. Toutefois, ce rôle ne vous permet pas de gérer l’hôte de la session, par exemple, de le supprimer, d’en modifier le mode maintenance, et ainsi de suite. Ce rôle peut voir les affectations, mais ne peut pas modifier les administrateurs. Nous vous recommandons d’attribuer ce rôle à des pools d’hôtes spécifiques. Si vous accordez cette autorisation au niveau d’un groupe de ressources, l’administrateur dispose de l’autorisation de lecture sur tous les pools d’hôtes d’un groupe de ressources.
 
@@ -144,7 +144,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 - Microsoft.Insights/alertRules/\*
 - Microsoft.Support/\*
 
-## <a name="session-host-operator"></a>Contributeur d’hôte de session
+## <a name="desktop-virtualization-session-host-operator"></a>Opérateur d’hôte de session de virtualisation de virtualisation de poste de travail
 
 Le rôle Opérateur d’hôte de session vous permet d’afficher et de supprimer des hôtes de session, ainsi que de modifier le mode maintenance. Vous ne pouvez pas ajouter d’hôtes de session à l’aide du Portail Azure, car vous n’avez pas d’autorisation d’écriture pour des objets pool d’hôtes. Si le jeton d’inscription est valide (généré et non expiré), vous pouvez utiliser ce rôle pour ajouter des hôtes de session au pool d’hôtes en dehors du portail Azure si l’administrateur dispose d’autorisations de calcul via le rôle Contributeur de machine virtuelle.
 

@@ -9,18 +9,18 @@ ms.topic: how-to
 author: cawrites
 ms.author: chadam
 ms.date: 03/19/2021
-ms.openlocfilehash: 3126877833774f0f2e874e2a2dfd6cf5cb6181d8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bcd9758fe77f2b5623c7aba1e145de07e6396e60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796045"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532529"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guide de migration : SAP ASE vers Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Dans ce guide, vous allez [apprendre à migrer](https://azure.microsoft.com/migration/migration-journey) vos bases de données SAP Adapter Server Enterprise (ASE) vers une base de données Azure SQL à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour SAP Adapter Server Entreprise.
+Dans ce guide, vous allez [apprendre à migrer](https://azure.microsoft.com/migration/migration-journey) vos bases de données SAP Adapter Server Enterprise (ASE) vers une base de données Azure SQL à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/migration/sql-server/) pour SAP Adapter Server Entreprise.
 
 Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](/data-migration). 
 
@@ -29,7 +29,7 @@ Pour d’autres guides sur la migration, consultez [Guide sur la migration de ba
 Avant de commencer à migrer votre base de données SAP SE sur votre base de données SQL, suivez les étapes suivantes :
 
 - Vérifiez que votre environnement source est pris en charge. 
-- Téléchargez et installez l’[Assistant Migration SQL Server pour SAP Adaptive Server Enterprise (anciennement SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
+- Téléchargez et installez l’[Assistant Migration SQL Server pour SAP Adaptive Server Enterprise (anciennement SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256).
 - Veillez à avoir de la connectivité et les autorisations suffisantes pour accéder à la source et à la cible.
 
 ## <a name="pre-migration"></a>Prémigration
@@ -38,7 +38,7 @@ Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la 
 
 ### <a name="assess"></a>Évaluer
 
-Si vous utilisez [l’outil Assistant Migration SQL Server (SSMA) pour SAP Adaptive Server Enterprise (anciennement SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), vous pouvez examiner les données et les objets de base de données, évaluer les bases de données en vue de leur migration, migrer les objets de base de données Sybase vers votre base de données SQL, puis migrer les données vers la base de données SQL. Pour plus d’informations, consultez [Assistant Migration SQL Server pour Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
+Si vous utilisez [l’outil Assistant Migration SQL Server (SSMA) pour SAP Adaptive Server Enterprise (anciennement SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256), vous pouvez examiner les données et les objets de base de données, évaluer les bases de données en vue de leur migration, migrer les objets de base de données Sybase vers votre base de données SQL, puis migrer les données vers la base de données SQL. Pour plus d’informations, consultez [Assistant Migration SQL Server pour Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
 Pour créer une évaluation, procédez comme suit : 
 

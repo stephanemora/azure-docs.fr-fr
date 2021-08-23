@@ -4,17 +4,21 @@ description: Apprenez à déployer vos environnements App Service pour que vos a
 author: ccompy
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98624723"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432803"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Prise en charge des zones de disponibilité pour les environnements App Service
+
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 Les environnements App Service Environment (ASE) peuvent être déployés dans des zones de disponibilité (AZ).  Les clients peuvent déployer un ASE d’équilibreur de charge interne (ILB) dans une zone de disponibilité spécifique au sein d’une région Azure. Si vous épinglez votre ASE ILB à une zone de disponibilité spécifique, les ressources utilisées par un ASE ILB seront épinglées à la zone de disponibilité spécifiée ou déployées de manière redondante dans une zone.  
 

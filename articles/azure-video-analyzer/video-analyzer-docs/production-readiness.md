@@ -2,13 +2,13 @@
 title: Préparation à la production et bonnes pratiques
 description: Cet article fournit des conseils sur la configuration et le déploiement du module Azure Video Analyzer dans des environnements de production.
 ms.topic: reference
-ms.date: 04/26/2021
-ms.openlocfilehash: af353c6845259f09edf4f1cb6ee4282f0fae6ba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 1f7477be52d99bdfca91fd0d122d2db63ef27827
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386091"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602130"
 ---
 # <a name="production-readiness-and-best-practices"></a>Préparation à la production et bonnes pratiques
 
@@ -123,40 +123,6 @@ Ensuite, à partir des options de création du module de périphérie dans le ma
 Si vous examinez les exemples de pipelines pour le démarrage rapide et des tutoriels tels que [Enregistrement vidéo continu](use-continuous-video-recording.md), vous remarquerez que le répertoire du cache multimédia (`localMediaCachePath`) utilise un sous-répertoire sous `applicationDataDirectory`. Il s'agit de l'approche recommandée, car le cache contient des données temporaires.
 
 Notez également que `allowedUnsecuredEndpoints` a la valeur `true`, comme recommandé pour les environnements de production où vous allez utiliser le chiffrement TLS pour sécuriser le trafic.
-
-### <a name="naming-video-or-files"></a>Nommage de vidéos ou de fichiers
-
-Les pipelines permettent d’enregistrer des vidéos dans le cloud ou sous forme de fichiers MP4 sur le périphérique. Il est possible de générer ces vidéos par [enregistrement vidéo continu](use-continuous-video-recording.md) ou par [enregistrement vidéo basé sur un événement](record-event-based-live-video.md).
-
-La structure de nommage recommandée pour l’enregistrement dans le cloud consiste à nommer la ressource vidéo « <anytext>-${System.TopologyName}-${System.PipelineName} ». Un pipeline en direct donné ne pouvant se connecter qu’à une seule caméra IP prenant en charge le protocole RTSP, vous devez enregistrer l’entrée de cette caméra sur une seule ressource vidéo. Par exemple, vous pouvez définir `VideoName` sur le récepteur vidéo comme suit :
-
-```
-"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
-```
-Notez que le modèle de substitution est défini par le signe `$` suivi d’accolades : **${variableName}** .
-
-Lors de l’enregistrement dans des fichiers MP4 sur le périphérique à l’aide de l’enregistrement basé sur un événement, vous pouvez utiliser :
-
-```
-"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
-```
-
-> [!Note]
-> Dans l’exemple ci-dessus, la variable **fileSinkOutputName** est un exemple de nom de variable que vous définissez lors de la création du pipeline en direct. Il **ne s’agit pas** d’une variable système. Notez comment l’utilisation de **DateTime** garantit un nom de fichier MP4 unique pour chaque événement.
-
-#### <a name="system-variables"></a>Variables système
-
-Variables définies par le système que vous pouvez utiliser :
-
-| Variable système        | Description                                                  | Exemple              |
-| :--------------------- | :----------------------------------------------------------- | :------------------- |
-| System.Runtime.DateTime        | Date/heure UTC au format conforme de fichier ISO8601 (représentation de base AAAAMMJJThhmmss). | 20200222T173200Z     |
-| System.Runtime.PreciseDateTime | Date/heure UTC au format conforme de fichier ISO8601 avec les millisecondes (représentation de base AAAAMMJJThhmmss.sss). | 20200222T173200.123Z |
-| System.TopologyName    | Nom fourni par l’utilisateur de la topologie de pipeline en cours d’exécution.          | IngestAndRecord      |
-| System.PipelineName    | Nom fourni par l’utilisateur du pipeline en direct en cours d’exécution.          | camera001            |
-
-> [!Tip]
-> System.Runtime.PreciseDateTime et System.Runtime.DateTime ne peuvent pas être utilisés lors de nommage de vidéos dans le cloud.
 
 ### <a name="tips-about-maintaining-your-edge-device"></a>Conseils sur la maintenance de votre périphérique
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e62bd96fc21f5cb2cfbf1aca6d3a2187e9b417
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339646"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524985"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,6 @@ Téléchargez les [aide-mémoires pour les requêtes au format A3 Azure Cosmos D
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’écriture de requêtes, consultez les articles suivants :
 * Pour les requêtes de l’API SQL, consultez [Requête à l’aide de l’API SQL](tutorial-query-sql-api.md), [Requêtes SQL pour Azure Cosmos DB](./sql-query-getting-started.md) et [Référence de la syntaxe SQL](./sql-query-getting-started.md)
-* Pour les requêtes MongoDB, consultez [Interroger avec l’API pour MongoDB d’Azure Cosmos DB](tutorial-query-mongodb.md) et [Syntaxe et prise en charge des fonctionnalités de l’API pour MongoDB d’Azure Cosmos DB](mongodb-feature-support.md)
+* Pour les requêtes MongoDB, consultez [Interroger avec l’API pour MongoDB d’Azure Cosmos DB](mongodb/tutorial-query-mongodb.md) et [Syntaxe et prise en charge des fonctionnalités de l’API pour MongoDB d’Azure Cosmos DB](mongodb/feature-support-32.md)
 * Pour les requêtes de l’API Gremlin, voir [Requête à l’aide de l’API Gremlin](tutorial-query-graph.md) et [Prise en charge du graphique Gremlin Azure Cosmos DB](gremlin-support.md)
-* Pour les requêtes de l’API de Table, consultez [Requête à l’aide de l’API de Table](tutorial-query-table.md)
+* Pour les requêtes de l’API de Table, consultez [Requête à l’aide de l’API de Table](table/tutorial-query-table.md)

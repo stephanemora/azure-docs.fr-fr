@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505900"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525144"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guide de planification et d’implémentation de la plateforme SAP BusinessObjects BI sur Azure
 
@@ -80,13 +80,13 @@ La figure ci-dessous illustre l'architecture d'un déploiement à grande échell
   Dans Azure, vous pouvez utiliser [Azure Premium Files](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) pour File Repository Server. Ces deux services Azure proposent une fonctionnalité de redondance intégrée.
 
   > [!Important]
-  > Le protocole SMB pour Azure Files est en disponibilité générale tandis que la prise en charge du protocole NFS pour Azure Files est actuellement en préversion. Pour plus d'informations, consultez [La prise en charge de NFS 4.1 pour Azure Files est désormais disponible en préversion](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
+  > Le protocole SMB pour Azure Files est en disponibilité générale tandis que la prise en charge du protocole NFS pour Azure Files est actuellement en préversion. Pour plus d'informations, consultez [La prise en charge de NFS 4.1 pour Azure Files est désormais disponible en préversion](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
 
 - Base de données CMS et Audit
   
   SAP BOBI Platform doit disposer d'une base de données pour stocker ses données système, appelées base de données CMS. Celle-ci permet de stocker les informations de BI Platform, comme les détails relatifs à l'utilisateur, au serveur, au dossier, au document, à la configuration et à l'authentification.
 
-  Azure propose une offre DBaaS (Base de données en tant que service) [MySQL Database](https://azure.microsoft.com/en-us/services/mysql/) et [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) qui peut être utilisée pour la base de données CMS et la base de données Audit. Comme il s'agit d'une offre PaaS, le client n'a pas à se soucier de l'exploitation, de la disponibilité et de la maintenance des bases de données. En fonction de ses besoins, le client peut également choisir sa propre base de données pour le référentiel CMS et Audit.
+  Azure propose une offre DBaaS (Base de données en tant que service) [MySQL Database](https://azure.microsoft.com/services/mysql/) et [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) qui peut être utilisée pour la base de données CMS et la base de données Audit. Comme il s'agit d'une offre PaaS, le client n'a pas à se soucier de l'exploitation, de la disponibilité et de la maintenance des bases de données. En fonction de ses besoins, le client peut également choisir sa propre base de données pour le référentiel CMS et Audit.
 
 ## <a name="support-matrix"></a>Matrice de prise en charge
 
@@ -119,11 +119,11 @@ BI Platform doit disposer d'une base de données pour le système de gestion de 
 
 - Microsoft SQL Server
 
-- [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) (base de données prise en charge pour SAP BOBI Platform sous Windows uniquement)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (base de données prise en charge pour SAP BOBI Platform sous Windows uniquement)
 
   Il s'agit d'un moteur de base de données SQL Server complètement managé, qui s'appuie sur la dernière édition Entreprise stable de SQL Server. Azure SQL Database prend en charge la plupart des fonctions de gestion de base de données, telles que la mise à niveau, la mise à jour corrective et la surveillance sans intervention de l'utilisateur. Avec Azure SQL Database, vous pouvez créer une couche de stockage de données hautement disponible et très performante pour les applications et les solutions dans Azure. Pour plus d'informations, consultez la documentation [Azure SQL Database](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md).
 
-- [Azure Database pour MySQL](https://azure.microsoft.com/en-us/services/mysql/) (Suivez les mêmes instructions de compatibilité que celles mentionnées pour MySQL AB dans le Tableau de disponibilité des produits SAP)
+- [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql/) (Suivez les mêmes instructions de compatibilité que celles mentionnées pour MySQL AB dans le Tableau de disponibilité des produits SAP)
 
   Il s'agit d'un service de base de données relationnelle alimenté par MySQL Community Edition. En sa qualité d'offre DBaaS (Base de données en tant que service) complètement managée, ce service peut gérer des charges de travail critiques avec des performances prévisibles et une scalabilité dynamique. Il intègre la haute disponibilité, les sauvegardes automatiques, les mises à jour correctives des logiciels, la détection automatique des défaillances et la récupération jusqu'à 35 jours dans le passé, ce qui réduit considérablement les tâches opérationnelles. Pour plus d'informations, consultez la documentation d'[Azure Database pour MySQL](../../../mysql/overview.md).
 
@@ -145,7 +145,7 @@ Le dimensionnement est un processus qui consiste à déterminer la configuration
 
 Pour satisfaire les besoins en stockage de SAP BOBI Platform, Azure propose différents types de [Disques managés](../../managed-disks-overview.md). Pour le répertoire d'installation de SAP BOBI, utilisez de préférence un disque managé premium, et pour la base de données exécutée sur les machines virtuelles, suivez les instructions fournies dans [Déploiement de SGBD pour une charge de travail SAP](dbms_guide_general.md).
 
-Azure prend en charge deux offres DBaaS pour la couche Données de SAP BOBI Platform : [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database) (application BI exécutée sous Windows) et [Azure Database pour MySQL](https://azure.microsoft.com/en-us/services/mysql) (application BI exécutée sous Linux et Windows). Ainsi, en fonction du résultat du dimensionnement, vous pouvez choisir le modèle d'achat qui correspond le mieux à vos besoins.
+Azure prend en charge deux offres DBaaS pour la couche Données de SAP BOBI Platform : [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (application BI exécutée sous Windows) et [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql) (application BI exécutée sous Linux et Windows). Ainsi, en fonction du résultat du dimensionnement, vous pouvez choisir le modèle d'achat qui correspond le mieux à vos besoins.
 
 > [!Tip]
 > Pour bénéficier d'une référence de dimensionnement rapide, sachez que 800 SAPS = 1 processeur virtuel lors du mappage du résultat en SAPS de la couche Base de données de SAP BOBI Platform avec Azure Database-as-a-Service (Azure SQL Database ou Azure Database pour MySQL).
@@ -204,7 +204,7 @@ Azure Database pour MySQL est fourni avec trois niveaux tarifaires différents. 
 
 La région Azure est un centre de données (ou un ensemble de centres de données) qui contient l'infrastructure permettant d'exécuter et d'héberger différents services Azure. Cette infrastructure comprend un grand nombre de nœuds qui font office de nœuds de calcul ou de nœuds de stockage, ou qui exécutent des fonctionnalités réseau. Toutes les régions n'offrent pas les mêmes services.
 
-SAP BI Platform contient différents composants qui peuvent nécessiter des types de machine virtuelle spécifiques, un stockage tel qu'Azure Files ou Azure NetApp Files, ou DBaaS (Base de données en tant que service) pour sa couche Données, mais ces composants peuvent ne pas être disponibles dans certaines régions. Vous trouverez des informations précises sur les types de machine virtuelle, les types de stockage Azure ou d'autres services Azure sur le site [Disponibilité des produits par région](https://azure.microsoft.com/en-us/global-infrastructure/services/). Si vous exécutez déjà vos systèmes SAP sur Azure, votre région est probablement identifiée. Dans ce cas, vous devez d'abord vérifier que les services nécessaires sont disponibles dans ces régions pour décider de l'architecture de SAP BI Platform.
+SAP BI Platform contient différents composants qui peuvent nécessiter des types de machine virtuelle spécifiques, un stockage tel qu'Azure Files ou Azure NetApp Files, ou DBaaS (Base de données en tant que service) pour sa couche Données, mais ces composants peuvent ne pas être disponibles dans certaines régions. Vous trouverez des informations précises sur les types de machine virtuelle, les types de stockage Azure ou d'autres services Azure sur le site [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Si vous exécutez déjà vos systèmes SAP sur Azure, votre région est probablement identifiée. Dans ce cas, vous devez d'abord vérifier que les services nécessaires sont disponibles dans ces régions pour décider de l'architecture de SAP BI Platform.
 
 ### <a name="availability-zones"></a>Zones de disponibilité
 
@@ -249,7 +249,7 @@ Stockage Azure propose aux clients différents types de stockage, présentés en
 
 - Azure Premium Files ou Azure NetApp Files
 
-  Dans SAP BOBI Platform, File Repository Server (FRS) fait référence aux répertoires de disque où sont stockés des contenus tels que les rapports, les univers et les connexions utilisés par tous les serveurs d'applications du système. Un stockage [Azure Premium Files](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) peut être utilisé comme système de fichiers partagé pour les applications SAP BOBI FRS. Cette offre de stockage n'étant pas disponible dans certaines régions, consultez le site [Disponibilité des produits par région](https://azure.microsoft.com/en-us/global-infrastructure/services/) pour bénéficier d'informations à jour.
+  Dans SAP BOBI Platform, File Repository Server (FRS) fait référence aux répertoires de disque où sont stockés des contenus tels que les rapports, les univers et les connexions utilisés par tous les serveurs d'applications du système. Un stockage [Azure Premium Files](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) peut être utilisé comme système de fichiers partagé pour les applications SAP BOBI FRS. Cette offre de stockage n'étant pas disponible dans certaines régions, consultez le site [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/) pour bénéficier d'informations à jour.
 
   Si le service n'est pas disponible dans votre région, vous pouvez créer un serveur NFS à partir duquel vous pourrez partager le système de fichiers avec l'application SAP BOBI. Mais vous devrez également tenir compte de sa haute disponibilité.
 

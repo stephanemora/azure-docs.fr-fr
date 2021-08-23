@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 9edfb63f5ce43ed325b4c4a1fa67e0e9ca52dc89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 339c455b4301012a8aee7a5d5113647c4bc31a3f
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110863"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113652488"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
@@ -48,7 +48,7 @@ Si vous souhaitez appeler des API ACS manuellement à l’aide d’une clé d’
 
 Les identités managées offrent davantage de sécurité et de facilité d’utilisation par rapport à d’autres options d’autorisation. Par exemple, Azure AD vous permet d’éviter de devoir stocker votre clé d’accès au compte avec votre code, comme vous le faites avec l’autorisation par clé d’accès. Bien qu’il vous soit possible de continuer à utiliser l’autorisation par clé d’accès avec les applications Communication Services, Microsoft recommande de migrer vers Azure AD dans la mesure du possible. 
 
-Pour configurer une identité managée, [créez une application inscrite à partir d’Azure CLI](../quickstarts/managed-identity-from-cli.md). Le point de terminaison et les informations d’identification peuvent ensuite être utilisés pour authentifier les Kits de développement logiciel (SDK). Consultez des exemples d’utilisation de l' [identité managée](../quickstarts/managed-identity.md).
+Pour configurer une identité managée, [créez une application inscrite à partir d’Azure CLI](../quickstarts/identity/service-principal-from-cli.md). Le point de terminaison et les informations d’identification peuvent ensuite être utilisés pour authentifier les Kits de développement logiciel (SDK). Consultez des exemples d’utilisation de l' [identité managée](../quickstarts/identity/service-principal.md).
 
 ### <a name="user-access-tokens"></a>Jetons d’accès utilisateur
 
@@ -58,7 +58,7 @@ Les jetons d’accès utilisateur sont générés à l’aide du Kit de dévelop
 
 > [!div class="nextstepaction"]
 > [Créer et gérer des ressources Communication Services](../quickstarts/create-communication-resource.md)
-> [Créer une application d’identité managée Azure Active Directory à partir d’Azure CLI](../quickstarts/managed-identity-from-cli.md)
+> [Créer une application d’identité managée Azure Active Directory à partir d’Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
 > [Créer des jetons d’accès utilisateur](../quickstarts/access-tokens.md)
 
 Pour plus d’informations, consultez les articles suivants :

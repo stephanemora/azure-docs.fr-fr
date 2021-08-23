@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 16cf1b89c2660d2505685fa931cc8b97ccb42a9b
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 536a9b0fe4cacdc48f4429e1b85b5a47c4dbd449
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992287"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524548"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Connecter des données de Microsoft 365 Defender à Azure Sentinel
 
@@ -30,6 +30,8 @@ ms.locfileid: "107992287"
 > **Microsoft Defender for Endpoint** était précédemment appelé **Microsoft Defender Advanced Threat Protection**, ou **MDATP**.
 >
 > Vous pouvez voir les anciens noms encore en cours d’utilisation pendant un certain temps.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="background"></a>Arrière-plan
 
@@ -131,5 +133,5 @@ Sous l’onglet **Étapes suivantes**, vous trouverez des classeurs, exemples de
 
 Ce document vous a montré comment intégrer des incidents de Microsoft 365 Defender et des données d’événement de repérage avancé de Microsoft Defender pour Endpoint dans Azure Sentinel, à l’aide du connecteur Microsoft 365 Defender. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./detect-threats-built-in.md).

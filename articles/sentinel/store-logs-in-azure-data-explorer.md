@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 584f108ea534b8703b941d91b7d03b6275ea6134
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1f9d0a146c557f50c0cea776c6e3ae6853377df5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525146"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Intégrer Azure Data Explorer pour la conservation des journaux à long terme
 
@@ -31,7 +31,7 @@ Le stockage des journaux dans Azure Data Explorer réduit les coûts tout en con
 
 Azure Data Explorer est une plateforme d’analyse du Big Data qui est hautement optimisée pour l’analyse des journaux et des données. Comme Azure Data Explorer utilise le langage de requête Kusto Query Language (KQL), il s’agit d’une bonne alternative au stockage de données Azure Sentinel. L’utilisation d’Azure Data Explorer pour votre stockage de données vous permet d’exécuter des requêtes multiplateformes et de visualiser des données à la fois sur Azure Data Explorer et sur Azure Sentinel.
 
-Pour plus d’informations, consultez la [documentation](/azure/data-explorer/) et le [blog](https://azure.microsoft.com/en-us/blog/tag/azure-data-explorer/) d’Azure Data Explorer.
+Pour plus d’informations, consultez la [documentation](/azure/data-explorer/) et le [blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/) d’Azure Data Explorer.
 
 ### <a name="when-to-integrate-with-azure-data-explorer"></a>Quand intégrer à Azure Data Explorer
 
@@ -239,5 +239,5 @@ Quel que soit l’emplacement de stockage de vos données, poursuivez la chasse 
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Tutoriel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md)
+- [Tutoriel : Examiner les incidents avec Azure Sentinel](investigate-cases.md)
 - [Repérer les menaces avec Azure Sentinel](hunting.md)

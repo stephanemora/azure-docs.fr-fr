@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 89b812fff9856fda2bd1da896261481eddfdc566
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d79e36c77505635cb37573712a028b98b66af1ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316674"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472329"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Récapitulatif et accès pour la conversion du Concepteur de vues en classeurs
 Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs, qui offrent des fonctionnalités supplémentaires. Cet article explique en détail comment vous pouvez créer un récapitulatif de la vue d’ensemble et les autorisations nécessaires pour accéder aux classeurs.
@@ -33,10 +33,7 @@ Vous pouvez également épingler plusieurs visualisations à partir du classeur 
 
 ![Épingler tout](media/view-designer-conversion-access/pin-all.png)
 
-
-
 ## <a name="sharing-and-viewing-permissions"></a>Partage et visualisation des autorisations 
-Les classeurs présentent l’avantage d’être des document privés ou partagés. Par défaut, les classeurs enregistrés sont enregistrés sous **Mes rapports**, ce qui signifie que seul le créateur peut visualiser ce classeur.
 
 Vous pouvez partager vos classeurs en sélectionnant l’icône **Partager** dans la barre d’outils du haut quand vous êtes en **Mode d’édition**. Vous êtes invité à déplacer votre classeur vers **Rapports partagés**, ce qui génère un lien qui fournit un accès direct au classeur.
 

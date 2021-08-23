@@ -4,12 +4,12 @@ description: Découvrez comment activer le chiffrement de disque pour les nœuds
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 800ebb11c1d191ca68222b1fa473cebbca0e8912
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b10c5fbade903ec9eb5786fc33eaaddff212956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671320"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284124"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-nodes"></a>Activer le chiffrement de disque pour les nœuds de cluster managé Service Fabric
 
@@ -37,7 +37,7 @@ Azure Disk Encryption exige Azure Key Vault pour contrôler et gérer les clés 
 
 ### <a name="create-key-vault-with-disk-encryption-enabled"></a>Créer un coffre de clés avec le chiffrement de disque activé
 
-Exécutez les commandes suivantes qui permettent de créer un coffre de clés pour le chiffrement de disque. Assurez-vous que la région de votre coffre de clés est [prise en charge pour les clusters managés Service Fabric](faq-managed-cluster.md#what-regions-are-supported) et qu’il s’agit de la même région que votre cluster.
+Exécutez les commandes suivantes qui permettent de créer un coffre de clés pour le chiffrement de disque. Assurez-vous que la région de votre coffre de clés est [prise en charge pour les clusters managés Service Fabric](./faq-managed-cluster.yml#what-regions-are-supported-) et qu’il s’agit de la même région que votre cluster.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

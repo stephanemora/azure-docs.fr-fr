@@ -2,18 +2,18 @@
 title: Chiffrement côté serveur de disques managés Azure
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
-ms.date: 04/15/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 48b7fb11f3f0127358ee92ddea9262b805264500
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146290"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524730"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -51,17 +51,6 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 #### <a name="supported-regions"></a>Régions prises en charge
 
 Les clés gérées par le client sont disponibles dans toutes les régions où les disques managés le sont également.
-
-La rotation automatique des clés est en préversion et n’est disponible que dans les régions suivantes :
-
-- USA Est
-- USA Est 2
-- États-Unis - partie centrale méridionale
-- USA Ouest
-- USA Ouest 2
-- Europe Nord
-- Europe Ouest
-- France Centre
 
 > [!IMPORTANT]
 > Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Quand vous configurez des clés gérées par le client, une identité managée est automatiquement affectée à vos ressources à l’arrière plan. Si par la suite vous déplacez l’abonnement, le groupe de ressources ou le disque managé d’un répertoire Azure AD à un autre, l’identité managée associée aux disques gérés n’est pas transférée vers le nouveau locataire, de sorte que les clés gérées par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez [Transfert d’un abonnement entre des répertoires Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

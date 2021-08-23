@@ -1,27 +1,23 @@
 ---
 title: Images Azure Allemagne | Microsoft Docs
 description: Cet article fournit une vue d’ensemble des images incluses dans la Place de marché Azure Allemagne.
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 34c45418f47e6e5238cfab5946a7f9b6ae61bdad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: dd43ef428426037696fb2fcfdf6bac58c9b27dc4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033733"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "122531359"
 ---
 # <a name="azure-germany-images"></a>Images Azure Allemagne
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Lors du déploiement de nouveaux serveurs virtuels dans Azure Allemagne, les clients peuvent choisir de déployer des images prédéfinies à partir de Microsoft ou de télécharger leurs propres disques durs virtuels. Cette flexibilité signifie que vous pouvez déployer vos propres images normalisées si nécessaire.
 
@@ -32,7 +28,7 @@ Voici une liste des images disponibles dans la Place de marché Azure Allemagne.
 
 ## <a name="images-for-deployments-with-azure-resource-manager"></a>Images pour les déploiements avec Azure Resource Manager
 
-|Publisher|Offre|SKU|Versions|
+|Serveur de publication|Offre|SKU|Versions|
 | --- | --- | --- | --- |
 | Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201603150 12.04.201605160 12.04.201608290 12.04.201610201 12.04.201701100 |
 | Canonical | UbuntuServer | 14.04.4-LTS | 14.04.201604060 14.04.201605160 14.04.201608300 |
@@ -99,16 +95,16 @@ Voici une liste des images disponibles dans la Place de marché Azure Allemagne.
 | OpenLogic | CentOS | 6.5 | 6.5.20170207 |
 | OpenLogic | CentOS | 6.7 | 6.7.20160310 |
 | OpenLogic | CentOS | 6.8 | 6.8.20160620 6.8.20161026 6.8.20170105 |
-| OpenLogic | CentOS | 7,2 | 7.2.20160325 7.2.20160620 7.2.20161026 7.2.20161116 7.2.20170105 |
+| OpenLogic | CentOS | 7.2 | 7.2.20160325 7.2.20160620 7.2.20161026 7.2.20161116 7.2.20170105 |
 | OpenLogic | CentOS | 7.3 | 7.3.20161221 |
 | Red Hat | RHEL | 6.8 | 6.8.20161028 6.8.20161214 6.8.20170224 6.8.2017032020 |
 | Red Hat | RHEL | 6.9 | 6.9.2017032807 |
-| Red Hat | RHEL | 7,2 | 7.2.20161026 7.2.20170203 7.2.20170224 7.2.2017032020 |
+| Red Hat | RHEL | 7.2 | 7.2.20161026 7.2.20170203 7.2.20170224 7.2.2017032020 |
 | Red Hat | RHEL | 7.3 | 7.3.20161104 7.3.20170202 7.3.20170224 7.3.2017032020 |
 | Red Hat | RHEL-SAP-APPS | 6.8 | 6.8.201703130 |
 | Red Hat | RHEL-SAP-APPS | 7.3 | 7.3.201703130 |
 | Red Hat | RHEL-SAP-HANA | 6.7 | 6.7.20170310 |
-| Red Hat | RHEL-SAP-HANA | 7,2 | 7.2.20170310 |
+| Red Hat | RHEL-SAP-HANA | 7.2 | 7.2.20170310 |
 | SUSE | Infrastructure | SMT |  |
 | SUSE | openSUSE-Leap | 42.1 | 2016.04.15 2016.11.21 |
 | SUSE | openSUSE-Leap | 42.2 | 2017.01.24 2017.03.20 |
@@ -125,7 +121,7 @@ Voici une liste des images disponibles dans la Place de marché Azure Allemagne.
 
 
 ## <a name="images-for-deployments-with-azure-service-manager-classic"></a>Images pour les déploiements avec Azure Service Manager (« classique »)
-| Publisher | Nom de l'image | SE |
+| Publisher | Nom de l'image | Système d''exploitation |
 |  ---  |  ---  |  ---  |
 |  Credativ  |  Debian 7 Wheezy  |  Linux  |
 |  Credativ  |  Debian 8 Jessie  |  Linux  |
@@ -244,7 +240,7 @@ Pour découvrir les différences de programmation au niveau des points de termin
 Pour plus d’informations sur les déploiements à partir de la Place de marché ou la création de votre propre disque dur virtuel, consultez les ressources suivantes :  
 
 * [Déploiement d’une machine virtuelle Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [FAQ sur les machines virtuelles Windows](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [FAQ sur les machines virtuelles Windows](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Créer une image personnalisée de machine virtuelle Linux](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

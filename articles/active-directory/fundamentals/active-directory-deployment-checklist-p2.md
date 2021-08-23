@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43388c2750c7f82d407d59b6923258046fa00c7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175871"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733103"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -32,7 +32,7 @@ La plupart des suggestions de ce guide peuvent être implémentées avec Azure A
 
 Des informations de licence supplémentaires sont disponibles dans les pages suivantes :
 
-* [Gestion des licences Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Gestion des licences Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365 Entreprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Tarification d’Azure AD External Identities](../external-identities/external-identities-pricing.md)
@@ -99,7 +99,7 @@ Dans l’étape 4, les administrateurs appliquent le principe du moindre privil
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Détails des prix et des licences AD Azure](https://azure.microsoft.com/pricing/details/active-directory/)
+[Détails des prix et des licences AD Azure](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

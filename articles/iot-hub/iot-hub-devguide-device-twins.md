@@ -2,7 +2,6 @@
 title: Présentation des jumeaux d’appareil Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Utiliser des jumeaux d’appareil pour synchroniser les données d’état et de configuration entre IoT Hub et vos appareils
 author: nehsin
-manager: philmea
 ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
@@ -11,12 +10,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: cc1f9aaa0409300f99535b0b64f5719f8e8c97ad
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1bea2bab5a930d16ebc7675a14bfa4486dc35951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484610"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524288"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -43,7 +42,7 @@ Pour des conseils sur l’utilisation des propriétés rapportées, des messages
 
 Pour des conseils sur l’utilisation des propriétés souhaitées, des méthodes directes ou des messages cloud-à-appareil, consultez [Recommandations sur les communications cloud-à-appareil](iot-hub-devguide-c2d-guidance.md).
 
-Pour découvrir dans quelle mesure les jumeaux d’appareil sont liés au modèle d’appareil utilisé par un appareil Azure IoT Plug-and-Play, consultez [Comprendre les jumeaux numériques IoT Plug-and-Play](../iot-pnp/concepts-digital-twin.md).
+Pour découvrir dans quelle mesure les jumeaux d’appareil sont liés au modèle d’appareil utilisé par un appareil Azure IoT Plug-and-Play, consultez [Comprendre les jumeaux numériques IoT Plug-and-Play](../iot-develop/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Jumeaux d’appareil
 

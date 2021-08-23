@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6920d6cd190927747a69fc4dc0f0791278665abe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bbe3e3471101df5d147c5079d6cd4a7e5ce00cb
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451696"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114287556"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Schémas définis par l’utilisateur dans SQL Synapse
 
@@ -118,7 +118,7 @@ FROM    [edw].customer
 > [!NOTE]
 > Toute modification portant sur la stratégie de schéma nécessite une révision du modèle de sécurité de la base de données. Dans de nombreux cas, il est possible de simplifier le modèle de sécurité en attribuant des autorisations au niveau du schéma.
 
-S’il vous faut des autorisations plus granulaires, vous pouvez utiliser des rôles de base de données. Pour en savoir plus sur les rôles de base de données, consultez l’article [Gérer les rôles et les utilisateurs de base de données](../../analysis-services/analysis-services-database-users.md).
+S’il vous faut des autorisations plus granulaires, vous pouvez utiliser des rôles de base de données. Pour en savoir plus sur les rôles de base de données, consultez l’article [Gérer les rôles et les utilisateurs de base de données](/sql/relational-databases/security/authentication-access/database-level-roles).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

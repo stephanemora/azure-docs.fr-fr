@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8e55202163a447ca2d7d08999c953e619bc027b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98569842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525080"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrer le code de la version v2.0 vers la version 3.0 de l’API REST
 
@@ -143,7 +143,7 @@ Cette modification nécessite l’appel de la commande `GET` pour la collection 
 Vous trouverez une description détaillée de la façon de créer des lots de transcriptions dans [Guide d’utilisation de la transcription par lots](./batch-transcription.md).
 
 L’API de transcription v3 vous permet de définir explicitement des options de transcription spécifiques. Toutes les propriétés de configuration (facultatives) peuvent maintenant être définies dans la propriété `properties`.
-La version v3 prend également en charge plusieurs fichiers d’entrée. Par conséquent, elle nécessite une liste d’URL plutôt qu’une URL unique comme c’était le cas avec la version v2. Le nom de la propriété v2 `recordingsUrl` est à présent `contentUrls` dans la version v3. La fonctionnalité d’analyse des sentiments dans les transcriptions a été supprimée dans la version v3. Consultez l’API [Analyse de texte](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) Microsoft Cognitive Services pour obtenir les options d’analyse de sentiments.
+La version v3 prend également en charge plusieurs fichiers d’entrée. Par conséquent, elle nécessite une liste d’URL plutôt qu’une URL unique comme c’était le cas avec la version v2. Le nom de la propriété v2 `recordingsUrl` est à présent `contentUrls` dans la version v3. La fonctionnalité d’analyse des sentiments dans les transcriptions a été supprimée dans la version v3. Consultez l’API [Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) Microsoft Cognitive Services pour obtenir les options d’analyse de sentiments.
 
 La nouvelle propriété `timeToLive` sous `properties` peut aider à nettoyer les entités terminées existantes. La propriété `timeToLive` spécifie une durée après laquelle une entité terminée est automatiquement supprimée. Affectez-lui une valeur élevée (par exemple `PT12H`) lorsque les entités sont continuellement suivies, consommées et supprimées et, par conséquent, généralement traitées longtemps avant que 12 heures se soient écoulées.
 

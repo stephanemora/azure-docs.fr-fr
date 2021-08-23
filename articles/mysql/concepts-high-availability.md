@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921e4cd8885dcbad5cd477e7f2283c9b11c445fc
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092960"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641120"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Haute disponibilité dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Le service Azure Database pour MySQL offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Azure Database pour MySQL offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Azure Database pour MySQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
 
 Azure Database pour MySQL convient pour l’exécution de bases de données stratégiques nécessitant une durée de bon fonctionnement longue. Reposant sur l’architecture Azure, le service intègre des fonctionnalités de haute disponibilité, de redondance et de résilience pour réduire les temps d’arrêt de base de données dus à des interruptions planifiées et non planifiées, sans que vous ayez à configurer des composants supplémentaires. 

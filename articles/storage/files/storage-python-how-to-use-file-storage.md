@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 8739bfaf1a41758ef3267c71cba883ef2445c39d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 39e3cfb58e5965ac44d1cfe07b605d46037ab5d8
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817789"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117716"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 
@@ -29,6 +29,13 @@ Découvrez les notions de base pour développer en Python des applications ou de
 
 > [!NOTE]
 > Comme Azure Files est accessible sur SMB, vous pouvez écrire des applications simples qui accèdent au partage de fichiers Azure à l’aide des fonctions et classes d’E/S Python standard. Cet article explique comment écrire des applications qui utilisent le kit SDK Python du Stockage Fichier Azure, lequel s’appuie sur [l’API REST Azure Files](/rest/api/storageservices/file-service-rest-api) pour communiquer avec Azure Files.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
 

@@ -4,12 +4,12 @@ description: Dépanner une instance locale d’Apache HDFS lorsqu’elle est bl
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: d34bf8d82aee14f5ba835f68a061555d24ee2621
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6764b2c1b8b2a06f2bd9264a7461f43986f557ad
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944446"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299966"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scénario : les HDFS locaux bloquent en mode sans échec sur le cluster Azure HDInsight
 
@@ -55,4 +55,4 @@ Le cluster HDInsight a été redimensionné avec très peu de nœuds, ou le nomb
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

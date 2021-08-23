@@ -7,12 +7,12 @@ ms.date: 04/13/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 6a5dd53bee4e6ae99559d63441f1240d5905644e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d77dfb8883aac4e960274ce86de243f25df2f196
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745418"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707029"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>Configurer l’attachement d’application MSIX avec PowerShell
 
@@ -242,4 +242,4 @@ Vous pouvez également formuler vos commentaires concernant Azure Virtual Deskto
 Voici d’autres articles qui peuvent vous être utiles :
 
 - [Glossaire Attachement d’application MSIX](app-attach-glossary.md)
-- [FAS sur l’attachement d’application MSIX](app-attach-faq.md)
+- [FAS sur l’attachement d’application MSIX](app-attach-faq.yml)

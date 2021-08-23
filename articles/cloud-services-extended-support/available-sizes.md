@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1c1faf14eb101da41679f9f0596e1e750a3c6a51
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e49cb32c198cf3279dbad5491075138115efd951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166284"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524942"
 ---
 # <a name="available-sizes-for-azure-cloud-services-extended-support"></a>Tailles disponibles pour Azure Cloud Services (support étendu)
 
@@ -55,12 +55,20 @@ Pour modifier la taille d’un rôle existant, modifiez la taille de machine vir
 
 Pour récupérer la liste des tailles disponibles, consultez [Références SKU de ressources – Liste](/rest/api/compute/resourceskus/list) et appliquez les filtres suivants :
 
-
-`ResourceType = virtualMachines ` <br>
-`VMDeploymentTypes = PaaS `
-
+```powershell
+    # Update the location
+    $location = 'WestUS2'
+    # Get all Compute Resource Skus
+    $allSkus = Get-AzComputeResourceSku
+    # Filter virtualMachine skus for given location
+    $vmSkus = $allSkus.Where{$_.resourceType -eq 'virtualMachines' -and $_.LocationInfo.Location -like $location}
+    # From filtered virtualMachine skus, select PaaS Skus
+    $passVMSkus = $vmSkus.Where{$_.Capabilities.Where{$_.name -eq 'VMDeploymentTypes'}.Value.Contains("PaaS")}
+    # Optional step to format and sort the output by Family
+    $passVMSkus | Sort-Object Family, Name | Format-Table -Property Family, Name, Size
+```
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
-- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez la [foire aux questions (FAQ)](faq.yml) relative à Azure Cloud Services (support étendu).
+- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

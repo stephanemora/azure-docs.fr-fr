@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e23d8871b50827e76bb383c4a49475627a9ca4a9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9ef88340c7bac7f09a532c12ba5a2ab69248046e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764438"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727865"
 ---
 # <a name="integrate-azure-active-directory-application-proxy-with-sharepoint-saml"></a>Intégrer le Proxy d'application Azure Active Directory à SharePoint (SAML)
 
@@ -37,7 +37,7 @@ Ce processus nécessite deux applications d’entreprise. L’une est une instan
 
 Pour effectuer cette configuration, vous avez besoin des ressources suivantes :
  - Une batterie de serveurs SharePoint 2013 ou version ultérieure. La batterie de serveurs SharePoint doit être [intégrée à Azure AD](../saas-apps/sharepoint-on-premises-tutorial.md).
- - Un locataire Azure AD avec un plan qui inclut le proxy d’application. En savoir plus sur les [formules et la tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+ - Un locataire Azure AD avec un plan qui inclut le proxy d’application. En savoir plus sur les [formules et la tarification Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
  - Un [domaine vérifié personnalisé](../fundamentals/add-custom-domain.md) dans le locataire Azure AD. Le domaine vérifié doit correspondre au suffixe de l’URL SharePoint.
  - Un certificat SSL est nécessaire. Pour obtenir des informations détaillées, consultez cet [article sur la publication avec un domaine personnalisé](./application-proxy-configure-custom-domain.md).
  - Les utilisateurs Active Directory locaux doivent être synchronisés avec Azure AD Connect et doivent être configurés pour [se connecter à Azure](../hybrid/plan-connect-user-signin.md). 

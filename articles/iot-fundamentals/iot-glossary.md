@@ -3,16 +3,16 @@ title: Glossaire Azure IoT | Microsoft Docs
 description: 'Guide du développeur : Glossaire expliquant certains des termes courants utilisés dans les articles sur Azure IoT.'
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 3034f117f8efa383a9f7a5e768e8d5627ea32099
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 91604758ad2e53b3715a5b5c746959b3fe124ba6
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668402"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114403394"
 ---
 # <a name="glossary-of-iot-terms"></a>Glossaire IoT
 
@@ -182,7 +182,7 @@ La gestion des appareils couvre le cycle de vie complet associé à la gestion d
 
 ### <a name="device-model"></a>Modèle de l'appareil
 
-Un modèle d’appareil est un type de [modèle](#model) qui utilise le [langage DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour décrire les capacités d’un appareil IoT Plug-and-Play. Un modèle d'appareil simple utilise une interface unique pour décrire les capacités de l'appareil. Un modèle d'appareil plus complexe comprend plusieurs composants, chacun décrivant un ensemble de capacités. Pour plus d'informations, consultez [Composants IoT Plug-and-Play dans les modèles](../iot-pnp/concepts-modeling-guide.md).
+Un modèle d’appareil est un type de [modèle](#model) qui utilise le [langage DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour décrire les capacités d’un appareil IoT Plug-and-Play. Un modèle d'appareil simple utilise une interface unique pour décrire les capacités de l'appareil. Un modèle d'appareil plus complexe comprend plusieurs composants, chacun décrivant un ensemble de capacités. Pour plus d'informations, consultez [Composants IoT Plug-and-Play dans les modèles](../iot-develop/concepts-modeling-guide.md).
 
 ### <a name="device-modeling"></a>Modélisation d’appareil
 
@@ -214,7 +214,7 @@ Qualifie des messages envoyés à partir d’un appareil connecté vers [IoT Hub
 
 ### <a name="digital-twin"></a>Jumeau numérique
 
-Un jumeau numérique est une collection de données numériques qui représente un objet physique. Les modifications apportées à l'objet physique se reflètent dans le jumeau numérique. Dans certains scénarios, vous pouvez utiliser le jumeau numérique pour manipuler l'objet physique. Le [service Azure Digital Twins](../digital-twins/index.yml) utilise des [modèles](#model) exprimés en [DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour représenter des jumeaux numériques d’appareils physiques ou des concepts métier abstraits de niveau supérieur, ce qui permet de disposer d’un vaste éventail de solutions de jumeau numérique basées sur le cloud. Un appareil [IoT Plug-and-Play](../iot-pnp/index.yml) possède un jumeau numérique, décrit par un [modèle d'appareil](#device-model) DTDL.
+Un jumeau numérique est une collection de données numériques qui représente un objet physique. Les modifications apportées à l'objet physique se reflètent dans le jumeau numérique. Dans certains scénarios, vous pouvez utiliser le jumeau numérique pour manipuler l'objet physique. Le [service Azure Digital Twins](../digital-twins/index.yml) utilise des [modèles](#model) exprimés en [DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour représenter des jumeaux numériques d’appareils physiques ou des concepts métier abstraits de niveau supérieur, ce qui permet de disposer d’un vaste éventail de solutions de jumeau numérique basées sur le cloud. Un appareil [IoT Plug-and-Play](../iot-develop/index.yml) possède un jumeau numérique, décrit par un [modèle d'appareil](#device-model) DTDL.
 
 ### <a name="digital-twin-change-events"></a>Événements de changement de jumeau numérique
 
@@ -378,7 +378,7 @@ Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure da
 
 Dans [IOT Hub](#iot-hub), les [tâches](../iot-hub/iot-hub-devguide-jobs.md) vous permettent de planifier et de suivre les activités sur un ensemble d’appareils inscrits auprès de votre IOT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). IoT Hub utilise également des travaux pour [importer dans et exporter](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) à partir du [registre des identités](#identity-registry).
 
-Dans IoT Central, les [tâches](../iot-central/core/howto-run-a-job.md) vous permettent de gérer vos appareils connectés en bloc en définissant les propriétés et en appelant les commandes. Les tâches de IoT Central vous permettent également de mettre à jour les [Propriétés de Cloud](#cloud-property) en bloc.
+Dans IoT Central, les [tâches](../iot-central/core/howto-manage-devices-in-bulk.md) vous permettent de gérer vos appareils connectés en bloc en définissant les propriétés et en appelant les commandes. Les tâches de IoT Central vous permettent également de mettre à jour les [Propriétés de Cloud](#cloud-property) en bloc.
 
 ## <a name="l"></a>L
 
@@ -400,7 +400,7 @@ Le [service d’approvisionnement des appareils (DPS)](#device-provisioning-serv
 
 Un modèle définit un type d’entité dans votre environnement physique, dont ses propriétés, sa télémétrie, ses composants et parfois d’autres informations. Des modèles sont utilisés pour créer des [jumeaux numériques](#digital-twin) qui représentent des objets physiques spécifiques de ce type. Les modèles sont écrits en [Digital Twins Definition Language](#digital-twins-definition-language-dtdl).
 
-Dans le [service Azure Digital Twins](../digital-twins/index.yml), les modèles peuvent définir des appareils ou des concepts métier abstraits de niveau supérieur. Dans [IoT Plug-and-Play](../iot-pnp/index.yml), des [modèles d’appareil](#device-model) sont utilisés pour décrire des appareils de manière spécifique.
+Dans le [service Azure Digital Twins](../digital-twins/index.yml), les modèles peuvent définir des appareils ou des concepts métier abstraits de niveau supérieur. Dans [IoT Plug-and-Play](../iot-develop/index.yml), des [modèles d’appareil](#device-model) sont utilisés pour décrire des appareils de manière spécifique.
 
 ### <a name="model-id"></a>ID de modèle
 

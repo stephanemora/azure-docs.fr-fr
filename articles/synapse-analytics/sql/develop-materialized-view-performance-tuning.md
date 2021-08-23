@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a42f39e7c3124c2360419d6129f22c35f71b2cec
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676601"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525437"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Réglage des performances avec des vues matérialisées à l’aide d’un pool SQL dédié dans Azure Synapse Analytics
 
@@ -81,7 +81,7 @@ En comparaison avec d’autres options de réglage, comme la mise à l’échell
 
 Azure Data Warehouse est un système de traitement massivement parallèle distribué.  
 
-SQL Synapse est un système de requêtes distribuées qui permet aux entreprises d’implémenter des scénarios d’entreposage et de virtualisation de données à l’aide d’expériences T-SQL standard bien connues des ingénieurs de données. Il étend également les capacités de SQL pour prendre en charge les scénarios de streaming et de Machine Learning. Les données d’une table d’entrepôt de données sont réparties sur 60 nœuds à l’aide de l’une des trois [stratégies de distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hachage, tourniquet ou réplication).  
+SQL Synapse est un système de requêtes distribuées qui permet aux entreprises d’implémenter des scénarios d’entreposage et de virtualisation de données à l’aide d’expériences T-SQL standard bien connues des ingénieurs de données. Il étend également les capacités de SQL pour prendre en charge les scénarios de streaming et de Machine Learning. Les données d’une table d’entrepôt de données sont réparties sur 60 nœuds à l’aide de l’une des trois [stratégies de distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context) (hachage, tourniquet ou réplication).  
 
 La distribution des données est spécifiée au moment de la création de la table et reste inchangée jusqu’à ce que la table soit supprimée. Une vue matérialisée étant une table virtuelle sur un disque prend en charge les distributions de données en hachage et tourniquet.  Les utilisateurs peuvent choisir une distribution de données différente des tables de base, mais optimale pour les performances des requêtes qui utilisent fréquemment les vues.  
 

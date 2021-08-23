@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0bf9d40fd501a72aaaf104dcd0a0fe03790f008
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89400351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532424"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -56,7 +56,7 @@ Pour afficher et configurer vos paramètres de configuration Git, vous pouvez cl
 >
 >
 
-Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/tenantaccess?EnableGit).
+Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](/rest/api/apimanagement/2020-12-01/tenant-access?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Pour enregistrer la configuration du service dans le dépôt Git
 
@@ -68,7 +68,7 @@ Après quelques instants, la configuration est enregistrée, et l’état de con
 
 Une fois la configuration enregistrée dans le dépôt, elle peut être clonée.
 
-Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/tenantaccess?CommitSnapshot).
+Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](/rest/api/apimanagement/2020-12-01/tenant-access?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Pour cloner le dépôt sur votre ordinateur local
 
@@ -142,7 +142,7 @@ git push
 
 Une fois vos modifications locales validées et transférées vers le dépôt du serveur, vous pouvez les déployer sur votre instance du service Gestion des API.
 
-Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/tenantconfiguration).
+Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](/rest/api/apimanagement/2020-12-01/tenant-configuration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Référence de la structure des fichiers et des dossiers du dépôt Git local
 
@@ -172,8 +172,8 @@ Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre 
 > [!NOTE]
 > Les entités suivantes ne se trouvent pas dans le dépôt Git et ne peuvent pas être configurées à l’aide de Git.
 >
-> * [Utilisateurs](/rest/api/apimanagement/2019-12-01/user)
-> * [Abonnements](/rest/api/apimanagement/2019-12-01/subscription)
+> * [Utilisateurs](/rest/api/apimanagement/2020-12-01/user)
+> * [Abonnements](/rest/api/apimanagement/2020-12-01/subscription)
 > * Valeurs nommées
 > * Entités du portail des développeur autres que les styles
 >
@@ -222,14 +222,14 @@ Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de 
 ### <a name="apis-folder"></a>Dossier apis
 Le dossier `apis` contient un dossier pour chaque API dans l’instance de service, qui renferme les éléments suivants.
 
-* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](/rest/api/apimanagement/2019-12-01/apis/get) avec `export=true` au format `application/json`.
+* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](/rest/api/apimanagement/2020-12-01/apis/get) avec `export=true` au format `application/json`.
 * `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
 
 ### <a name="groups-folder"></a>Dossier groups
 Le dossier `groups` contient un dossier pour chaque groupe défini dans l’instance de service.
 
-* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](/rest/api/apimanagement/2020-12-01/group/get) .
 * `groups\<group name>\description.html` : cet élément décrit le groupe et correspond à la propriété `description` de [l’entité groupe](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Dossier policies
@@ -249,7 +249,7 @@ Le dossier `portalStyles` contient la configuration et les feuilles de style pou
 ### <a name="products-folder"></a>Dossier products
 Le dossier `products` contient un dossier pour chaque produit défini dans l’instance de service.
 
-* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](/rest/api/apimanagement/2020-12-01/product/get) .
 * `products\<product name>\product.description.html` : cet élément décrit le produit et correspond à la propriété `description` de [l’entité produit](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) dans l’API REST.
 
 ### <a name="templates"></a>modèles

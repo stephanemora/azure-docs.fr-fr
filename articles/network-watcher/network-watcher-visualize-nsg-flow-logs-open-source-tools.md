@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bf819a415f20b6f2b1c5ec4d29b50860e0e4fbf
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026469"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288515"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -41,7 +41,7 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
-1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation relative aux [JDK pris en charge dans Azure](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation relative aux [JDK pris en charge dans Azure](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Téléchargez le package binaire approprié pour votre système :
 
    ```bash

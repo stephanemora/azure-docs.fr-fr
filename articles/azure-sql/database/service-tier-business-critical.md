@@ -8,16 +8,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: mathoma
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, urmilano
 ms.date: 12/04/2018
-ms.openlocfilehash: 3e5a4283416dcd20c8d419a00cb3debfb208d118
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5c4ea72c94e71e0c57c0d88e5f8324111ae151c2
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691568"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119699"
 ---
 # <a name="business-critical-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Niveau Critique pour l’entreprise - Azure SQL Database et Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ En outre, le cluster Critique pour l’entreprise dispose d’une fonctionnalit�
 Le niveau de service Critique pour l'entreprise a été conçu pour les applications qui exigent des réponses à faible latence du stockage SSD sous-jacent (de 1 à 2 ms en moyenne), une récupération rapide en cas de défaillance de l'infrastructure sous-jacente, ou qui ont besoin de décharger des rapports, des analyses et des requêtes en lecture seule sur le réplica secondaire gratuit de la base de données primaire.
 
 Les principales raisons pour lesquelles vous devez choisir le niveau de service Critique pour l’entreprise plutôt que le niveau Usage général sont les suivantes :
--   **Exigences de faible latence pour les E/S** : les charges de travail nécessitant une réponse rapide de la couche de stockage (une à deux millisecondes en moyenne) doivent utiliser le niveau Critique pour l’entreprise. 
--   **Communication fréquente entre l'application et la base de données**. Les applications qui ne peuvent pas tirer parti de la mise en cache de la couche application ou du [traitement par lot des demandes](../performance-improve-use-batching.md) et doivent envoyer de nombreuses requêtes SQL exigeant un traitement rapide peuvent bénéficier du niveau Critique pour l'entreprise.
--   **Grand nombre de mises à jour** : des opérations d'insertion, de mise à jour et de suppression modifient les pages de données en mémoire (page de modifications) qui doivent être enregistrées dans des fichiers de données avec l'opération `CHECKPOINT`. Un incident potentiel du processus du moteur de base de données ou un basculement de la base de données avec un grand nombre de pages de modifications peut augmenter le temps de récupération au niveau Usage général. Utilisez le niveau Critique pour l’entreprise si vous avez une charge de travail qui entraîne de nombreuses modifications en mémoire. 
--   **Transactions de longue durée qui modifient les données**. Les transactions qui sont ouvertes pour une durée plus longue empêchent la troncation du fichier journal, ce qui peut augmenter la taille du journal et le nombre de [fichiers journaux virtuels](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un nombre élevé de fichiers journaux virtuels peut ralentir la récupération de la base de données après le basculement.
--   **Charge de travail avec requêtes de rapport et requêtes analytiques** qui peuvent être redirigées vers le réplica secondaire disponible en lecture seule gratuit.
+-    **Exigences de faible latence pour les E/S** : les charges de travail nécessitant une réponse rapide de la couche de stockage (une à deux millisecondes en moyenne) doivent utiliser le niveau Critique pour l’entreprise. 
+-    **Communication fréquente entre l'application et la base de données**. Les applications qui ne peuvent pas tirer parti de la mise en cache de la couche application ou du [traitement par lot des demandes](../performance-improve-use-batching.md) et doivent envoyer de nombreuses requêtes SQL exigeant un traitement rapide peuvent bénéficier du niveau Critique pour l'entreprise.
+-    **Grand nombre de mises à jour** : des opérations d'insertion, de mise à jour et de suppression modifient les pages de données en mémoire (page de modifications) qui doivent être enregistrées dans des fichiers de données avec l'opération `CHECKPOINT`. Un incident potentiel du processus du moteur de base de données ou un basculement de la base de données avec un grand nombre de pages de modifications peut augmenter le temps de récupération au niveau Usage général. Utilisez le niveau Critique pour l’entreprise si vous avez une charge de travail qui entraîne de nombreuses modifications en mémoire. 
+-    **Transactions de longue durée qui modifient les données**. Les transactions qui sont ouvertes pour une durée plus longue empêchent la troncation du fichier journal, ce qui peut augmenter la taille du journal et le nombre de [fichiers journaux virtuels](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un nombre élevé de fichiers journaux virtuels peut ralentir la récupération de la base de données après le basculement.
+-    **Charge de travail avec requêtes de rapport et requêtes analytiques** qui peuvent être redirigées vers le réplica secondaire disponible en lecture seule gratuit.
 - **Plus grande résilience et récupération plus rapide après les défaillances**. En cas de défaillance du système, la base de données de l'instance principale est désactivée et l'un des réplicas secondaires devient immédiatement la nouvelle base de données principale en lecture-écriture, prête à traiter les requêtes. Le moteur de base de données n'a pas besoin d'analyser et de réexécuter des transactions à partir du fichier journal, ni de charger toutes les données dans la mémoire tampon.
 - **Protection avancée contre l’altération des données**. Le niveau Critique pour l’entreprise tire parti des réplicas de base de données exécutés en arrière-plan à des fins de continuité de l’activité, ce qui permet aussi au service de tirer parti de la réparation automatique des pages, technologie également utilisée pour la [mise en miroir et les groupes de disponibilité](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) des bases de données SQL Server. Dans le cas où un réplica ne peut pas lire une page en raison d’un problème d’intégrité des données, une nouvelle copie de la page sera extraite d’un autre réplica, remplaçant la page illisible sans perte de données ou temps d’arrêt du client. Cette fonctionnalité s’applique au niveau Usage général si la base de données a un réplica géo-secondaire.
 - **Plus grande disponibilité** : le niveau Critique pour l'entreprise de la configuration à plusieurs zones de disponibilité garantit une disponibilité de 99,995 %, contre 99,99 % pour le niveau Usage général.

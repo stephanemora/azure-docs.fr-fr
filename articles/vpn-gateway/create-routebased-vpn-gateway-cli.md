@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 239cc90b49cc4b13762a02fe136a5b77a15544ee
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 63c8187e8ca5e7d7c17016159e4751299359dddf
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325676"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720350"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 
 Cet article vous aidera à créer rapidement une passerelle VPN Azure basée sur des itinéraires à l’aide d’Azure CLI. Une passerelle VPN permet de créer une connexion VPN à un réseau local. Vous pouvez également vous en servir pour connecter des réseaux virtuels.
 
-Les étapes décrites dans cet article permettent de créer un réseau virtuel, un sous-réseau, un sous-réseau de passerelle et une passerelle VPN basée sur des itinéraires (passerelle de réseau virtuel). La création de la passerelle de réseau virtuel peut prendre 45 minutes, voire plus. Vous pourrez ensuite créer des connexions. Ces étapes nécessitent un abonnement Azure.
+Les étapes décrites dans cet article permettent de créer un réseau virtuel, un sous-réseau, un sous-réseau de passerelle et une passerelle VPN basée sur des itinéraires (passerelle de réseau virtuel). La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Vous pourrez ensuite créer des connexions. Ces étapes nécessitent un abonnement Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -3,19 +3,20 @@ title: Partager des vues personnalisées avec des URL paramétrables – Azure T
 description: Découvrez comment créer des URL paramétrées pour partager facilement des vues Explorer personnalisées dans Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 395420c61e2cc3f4167590f81e625bf7e67cbfac
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91665325"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112371226"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -78,12 +79,12 @@ Le paramètre `timeSeriesDefinitions=<collection of term objects>` spécifie les
 | **useSum** | `true` | Paramètre facultatif qui spécifie l’utilisation de la somme pour la mesure. |
 
 > [!NOTE]
-> Si `Events` est la mesure **useSum** sélectionnée, le nombre est sélectionné par défaut.  
+> Si `Events` est la mesure **useSum** sélectionnée, le nombre est sélectionné par défaut.
 > Si `Events` n’est pas sélectionné, la moyenne est sélectionnée par défaut. |
 
 * La paire clé-valeur `multiChartStack=<true/false>` permet l’empilement dans le graphique.
-* La paire clé-valeur `multiChartSameScale=<true/false>` permet la même échelle de l’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permet d’ajuster le curseur intervalle pour générer une vue plus granulaire, plus simple, ou plus globale du graphique.  
+* La paire clé-valeur `multiChartSameScale=<true/false>` permet la même échelle de l’axe des ordonnées entre les termes au sein d’un paramètre facultatif.
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permet d’ajuster le curseur intervalle pour générer une vue plus granulaire, plus simple, ou plus globale du graphique.
 * Le paramètre `timezoneOffset=<integer>` vous permet de définir le fuseau horaire pour le graphique afin qu’il s’affiche en tant qu’offset de fuseau horaire UTC.
 
 | Paire(s) | Description |

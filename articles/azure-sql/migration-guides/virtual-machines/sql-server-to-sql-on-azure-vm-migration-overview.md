@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: chadam
 ms.date: 11/06/2020
-ms.openlocfilehash: f330fb4886a04a1bc861b63e5dd70e3ba1286351
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: bf7cf597d97f1316d43546382cbac140c3ba6fff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532602"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -136,12 +136,10 @@ Pour obtenir une aide supplémentaire, consultez les ressources suivantes qui on
 
 |Asset  |Description  |
 |---------|---------|
-|[Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| Cet outil fournit les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données « les mieux adaptés » pour une charge de travail donnée. Il propose une génération de rapports et des calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme.|
-|[Automatisation de la collecte des données perfmon à l’aide de Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Outil qui collecte les données perfmon pour comprendre le niveau de performance de la ligne de base et qui contribue à la recommandation de la cible de migration. Cet outil se sert de logman.exe pour créer la commande qui va créer, démarrer, arrêter et supprimer les compteurs de performances définis sur un serveur SQL distant.|
-|[Déploiement SQL Server dans Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|Ce livre blanc répertorie les différentes options permettant de déplacer vos charges de travail SQL Server vers Azure, notamment des considérations relatives à la comparaison des fonctionnalités, à la haute disponibilité et à la sauvegarde/au stockage. |
-|[SQL Server en local sur une machine virtuelle Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|Ce livre blanc décrit les étapes de sauvegarde et de restauration de bases de données d’un serveur SQL Server local vers SQL Server sur une machine virtuelle Azure à l’aide d’exemples de scripts.|
-|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Ce livre blanc décrit les étapes à suivre pour configurer plusieurs machines virtuelles Azure dans une configuration de groupe de disponibilité Always On SQL Server.|
-|[Machines virtuelles Azure prenant en charge les disques SSD Ultra par région](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Ces scripts PowerShell fournissent une option de programmation permettant de récupérer la liste des régions qui prennent en charge les machines virtuelles Azure prenant en charge les disques SSD Ultra.|
+|[Outil et modèle d’évaluation d’une charge de travail de données](https://www.microsoft.com/download/details.aspx?id=103130)| Cet outil fournit les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données « les mieux adaptés » pour une charge de travail donnée. Il propose une génération de rapports et des calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme.|
+|[Automatisation de la collecte des données perfmon à l’aide de Logman](https://www.microsoft.com/download/details.aspx?id=103114)|Outil qui collecte les données perfmon pour comprendre le niveau de performance de la ligne de base et qui contribue à la recommandation de la cible de migration. Cet outil se sert de logman.exe pour créer la commande qui va créer, démarrer, arrêter et supprimer les compteurs de performances définis sur un serveur SQL distant.|
+|[Multiple-SQL-VM-VNet-ILB](https://www.microsoft.com/download/details.aspx?id=103104)|Ce livre blanc décrit les étapes à suivre pour configurer plusieurs machines virtuelles Azure dans une configuration de groupe de disponibilité Always On SQL Server.|
+|[Machines virtuelles Azure prenant en charge les disques SSD Ultra par région](https://www.microsoft.com/download/details.aspx?id=103105)|Ces scripts PowerShell fournissent une option de programmation permettant de récupérer la liste des régions qui prennent en charge les machines virtuelles Azure prenant en charge les disques SSD Ultra.|
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 

@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b1afcdfa74245eb566663d5dec6ce2e2276fbdc8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: c6abbecfa7bc2946dc68b5acb530c5d2bbd2e700
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568231"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540471"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Charger des données de vente Contoso sur des pools SQL dédiés dans Azure Synapse Analytics
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Charger les données dans de nouvelles tables
 
-Pour charger des données à partir de Stockage Blob Azure dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le chargement avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) s'appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction CTAS par table.
+Pour charger des données à partir de Stockage Blob Azure dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le chargement avec [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) s'appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction CTAS par table.
 
 CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 

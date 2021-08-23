@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: edc420cb1e79ed6d99a55524764cb164bd2edaf5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e3dcc8f6bba6830eec9f20732da9e42f03d5b28e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641351"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524095"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Résoudre les erreurs DMS lors de la connexion aux bases de données sources
 
@@ -86,7 +86,6 @@ Le tableau suivant indique les éventuels problèmes liés à la connexion à un
 ## <a name="known-issues"></a>Problèmes connus
 
 * [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database](./index.yml)
-* [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour MySQL](./known-issues-azure-mysql-online.md)
 * [Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -94,4 +93,4 @@ Le tableau suivant indique les éventuels problèmes liés à la connexion à un
 * Consultez l’article [PowerShell pour Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration).
 * Consultez l’article [Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure](../mysql/howto-server-parameters.md).
 * Consultez l’article [Vue d’ensemble des prérequis pour l’utilisation d’Azure Database Migration Service](./pre-reqs.md).
-* Consultez les [questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](./faq.md).
+* Consultez les [questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](./faq.yml).

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: a6950907e6ff52088030844a509f91193bc329dc
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: a132b97822b9c4ca8f6f14b0b45cebc2775fdc86
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113215574"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291095"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quelles sont les nouveautés d’Azure Load Balancer ?
 
@@ -31,7 +31,7 @@ Vous pouvez également rechercher les dernières mises à jour d’Azure Load Ba
 | ------ |---------|---------|---------|
 | Fonctionnalité | [Prise en charge des pools principaux basés sur IP (Disponilité générale)](https://azure.microsoft.com/updates/iplbga/) | Azure Load Balancer prend en charge l’ajout et la suppression de ressources d’un pool de back-ends par le biais des adresses IPv4 ou IPv6. Cela facilite la gestion des conteneurs, des machines virtuelles et des groupes de machines virtuelles identiques associés à Load Balancer. Cela permet également de réserver des adresses IP dans le cadre d’un pool de back-ends avant la création des ressources associées. Apprenez-en davantage [ici](backend-pool-management.md).|Mars 2021 |
 | Fonctionnalité | [Prise en charge des métadonnées d’instance pour les équilibreurs de charge et adresses IP de référence SKU Standard](https://azure.microsoft.com/updates/standard-load-balancer-and-ip-addresses-metadata-now-available-through-azure-instance-metadata-service-imds/)|Les métadonnées des adresses IP publiques et Standard Load Balancer peuvent désormais être récupérées via Azure Instance Metadata Service (IMDS). Les métadonnées sont disponibles dans les instances en cours d’exécution des machines virtuelles et des instances de groupes de machines virtuelles identiques. Vous pouvez utiliser les métadonnées pour gérer vos machines virtuelles. De plus amples informations sont disponibles [ici](instance-metadata-service-load-balancer.md).| Février 2021 |
-| Fonctionnalité | [Mise à niveau de la référence SKU IP publique De base vers Standard sans perte d’adresse IP](https://azure.microsoft.com/updates/public-ip-sku-upgrade-generally-available/) | Lorsque vous passez de l’équilibreur de charge De base à Standard, conservez votre adresse IP publique. Apprenez-en davantage [ici](../virtual-network/virtual-network-public-ip-address-upgrade.md).| Janvier 2021|
+| Fonctionnalité | [Mise à niveau de la référence SKU IP publique De base vers Standard sans perte d’adresse IP](https://azure.microsoft.com/updates/public-ip-sku-upgrade-generally-available/) | Lorsque vous passez de l’équilibreur de charge De base à Standard, conservez votre adresse IP publique. Apprenez-en davantage [ici](../virtual-network/public-ip-upgrade-portal.md).| Janvier 2021|
 | Fonctionnalité | Support pour les déplacements de groupes de ressources | Prise en charge de Standard Load Balancer et des adresses IP publiques standard pour les [déplacements de groupes de ressources](https://azure.microsoft.com/updates/standard-resource-group-move/). | Octobre 2020 |
 | Fonctionnalité| Insights Azure Load Balancer à l’aide d’Azure Monitor | Créées dans le cadre d’Azure Monitor pour réseaux, les clients disposent désormais de cartes topologiques pour toutes leurs configurations Load Balancer et de tableaux de bord d’intégrité pour leurs équilibreurs Standard Load Balancers préconfigurés avec des métriques dans le portail Azure. [Bien démarrer et en savoir plus](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Juin 2020 |
 | Validation | Ajout de la validation pour les ports haute disponibilité | Une validation a été ajoutée pour s’assurer que les règles de ports haute disponibilité et les règles de ports sans haute disponibilité ne sont configurables que lorsque l’adresse IP flottante est activée. Auparavant, la configuration pouvait s’effectuer, mais ne fonctionnait pas comme prévu. Aucune modification de fonctionnalité n’a été apportée. Vous pouvez en savoir plus [ici](load-balancer-ha-ports-overview.md#limitations).| Juin 2020 |

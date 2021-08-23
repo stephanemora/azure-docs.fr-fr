@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: a68e1a3f60930e290e97084ff2ec9350b18e2873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96e055205c5c016504cd6246b9c1b6d1533ad6ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594975"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524599"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Vue d’ensemble des stratégies réseau Azure Kubernetes
 
@@ -154,7 +154,7 @@ Ouvrez le portail Azure. Une fois que vous êtes dans la section Insights de vot
 Outre l’affichage du classeur (images ci-dessous), vous pouvez également interroger directement les métriques Prometheus dans « Journaux » sous la section Insights. Par exemple, cette requête retourne toutes les métriques collectées :
 | where TimeGenerated > ago(5h) | where Name contains "npm_".
 
-Vous pouvez également interroger directement Log Analytics pour les métriques. En savoir plus à ce sujet avec [Prise en main des requêtes Log Analytics](../azure-monitor/containers/container-insights-log-search.md). 
+Vous pouvez également interroger directement Log Analytics pour les métriques. En savoir plus à ce sujet avec [Prise en main des requêtes Log Analytics](../azure-monitor/containers/container-insights-log-query.md). 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Affichage dans le tableau de bord Grafana
 Configurez votre serveur Grafana et configurez une source de données Log Analytics comme décrit [ici](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Ensuite, importez le [tableau de bord Grafana avec un serveur principal Log Analytics](https://grafana.com/grafana/dashboards/10956) dans vos laboratoires Grafana.

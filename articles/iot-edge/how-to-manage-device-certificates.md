@@ -2,18 +2,17 @@
 title: Gérer des certificats d’appareils – Azure IoT Edge | Microsoft Docs
 description: Créez des certificats de test, installez-les et gérez-les sur un appareil Azure IoT Edge pour préparer le déploiement de production.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3b6bd19d47658e5ad079f0b731cbafc866bb333
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa643753aa7f916fbd79850af352c37746357693
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045771"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562114"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gérer des certificats sur un appareil IoT Edge
 

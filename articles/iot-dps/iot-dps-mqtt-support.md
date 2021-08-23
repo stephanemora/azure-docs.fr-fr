@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d13bdc5bb98159d5a267a821f0431bed622e5e11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967123"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531652"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Communiquer avec votre DPS à l’aide du protocole MQTT
 
@@ -70,8 +70,8 @@ Pour utiliser le protocole MQTT directement, votre client *doit* se connecter vi
 
 Pour inscrire un appareil via DPS, l’appareil doit s’abonner en utilisant un `$dps/registrations/res/#` en tant que **Filtre de rubrique**. Le caractère générique à plusieurs niveaux `#` dans le Filtre de rubrique est utilisé uniquement pour autoriser l’appareil à recevoir des propriétés supplémentaires dans le nom de la rubrique. DPS n’autorise pas l’utilisation des caractères génériques `#` ou `?` pour filtrer les sous-rubriques. DPS n’étant pas un broker de messagerie pub-sub à usage général, il prend uniquement en charge les noms de rubriques et les filtres de rubriques documentés.
 
-L'appareil doit publier un message de registre sur DPS en utilisant `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` comme **Topic Name**. La charge utile doit contenir l'objet [Device Registration](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) au format JSON.
-Dans un scénario réussi, l’appareil recevra une réponse sur le nom de rubrique `$dps/registrations/res/202/?$rid={request_id}&retry-after=x`, où x est la valeur retry-after en secondes. La charge utile de la réponse contiendra l'objet [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) au format JSON.
+L'appareil doit publier un message de registre sur DPS en utilisant `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` comme **Topic Name**. La charge utile doit contenir l'objet [Device Registration](/rest/api/iot-dps/device/runtime-registration/register-device) au format JSON.
+Dans un scénario réussi, l’appareil recevra une réponse sur le nom de rubrique `$dps/registrations/res/202/?$rid={request_id}&retry-after=x`, où x est la valeur retry-after en secondes. La charge utile de la réponse contiendra l'objet [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) au format JSON.
 
 ## <a name="polling-for-registration-operation-status"></a>Interrogation de l'état de l'opération d'inscription
 

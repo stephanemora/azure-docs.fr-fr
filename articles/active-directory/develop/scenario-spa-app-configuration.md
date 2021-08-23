@@ -3,27 +3,27 @@ title: Configurer une application monopage | Azure
 titleSuffix: Microsoft identity platform
 description: Apprendre à créer une application monopage (configuration du code de l’application)
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: f8bce3057bec88791890d476ac85d4e6610dc89e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f049f49893b2ce1a895b9d175cbc308ee2868043
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075202"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113357568"
 ---
 # <a name="single-page-application-code-configuration"></a>Application monopage : Configuration de code
 
 En savoir plus sur la configuration du code de votre application monopage (SPA).
 
-## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliothèques Microsoft prenant en charge les applications monopages 
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliothèques Microsoft prenant en charge les applications monopages
 
 Les bibliothèques Microsoft suivantes prennent en charge les applications monopages :
 

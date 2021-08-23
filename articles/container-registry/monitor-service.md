@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
 ms.date: 03/19/2021
-ms.openlocfilehash: 21cc4aeb5b8a643fcee85cfd60e2958ed0c72c72
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060963"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294944"
 ---
 # <a name="monitor-azure-container-registry"></a>Surveiller Azure Container Registry
 
@@ -91,7 +91,7 @@ Vous pouvez utiliser l’API REST d’Azure Monitor pour obtenir des informatio
 
 Les données des journaux Azure Monitor sont stockées dans des tables, chacune ayant son propre ensemble de propriétés uniques.  
 
-Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](/azure/azure-monitor/essentials/resource-logs-schema#top-level-resource-logs-schema). Le schéma des journaux de ressources d’Azure Container Registry est disponible dans les [informations de référence sur les données d’Azure Container Registry](monitor-service-reference.md#schemas). 
+Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Le schéma des journaux de ressources d’Azure Container Registry est disponible dans les [informations de référence sur les données d’Azure Container Registry](monitor-service-reference.md#schemas). 
 
 Le [journal d’activité](../azure-monitor/essentials/activity-log.md) est un journal de plateforme dans Azure qui fournit des insights de tous les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.  
 

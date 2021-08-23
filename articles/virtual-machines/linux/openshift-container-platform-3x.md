@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: ce3f56530a7bad6eecd4c2edd3b21debe8c75a24
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 177cbeb76433fb43094822989cfc5c6a3abfadfd
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214148"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390664"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Déployer OpenShift Container Platform 3.11 dans Azure
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser plusieurs méthodes pour déployer OpenShift Container Plat
 
 - Vous pouvez déployer manuellement les composants d’infrastructure Azure nécessaires, puis suivre la [documentation OpenShift Container Platform](https://docs.openshift.com/container-platform).
 - Vous pouvez également utiliser un [modèle Resource Manager](https://github.com/Microsoft/openshift-container-platform/) existant qui simplifie le déploiement du cluster OpenShift Container Platform.
-- Une autre option consiste à utiliser l’[offre de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+- Une autre option consiste à utiliser l’offre de la Place de marché Azure.
 
 Pour toutes les options, vous devez avoir un abonnement Red Hat. Pendant le déploiement, l’instance Red Hat Enterprise Linux est inscrite dans l’abonnement Red Hat et associée à l’ID du pool contenant les droits pour OpenShift Container Platform.
 Vérifiez que vous avez un nom d’utilisateur, un mot de passe et un ID de pool RHSM (Red Hat Subscription Manager) valides. Vous pouvez utiliser une clé d’activation, un ID d’organisation et un ID de pool. Vous pouvez vérifier ces informations en vous connectant au site https://access.redhat.com.
