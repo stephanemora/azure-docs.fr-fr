@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/17/2021
+ms.date: 07/25/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 05b535a0aabe0108c0a9abcedef166293541d407
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 8f8ce2e92729ab2130bf23fa890f0eac19d0bd47
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113005471"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689190"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -43,7 +43,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
 |Évaluation des vulnérabilités tierces|✔|-|✔|Non|
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Non|
-
+||||||
 
 ### <a name="linux-machines"></a>[**Machines Linux**](#tab/features-linux)
 
@@ -67,6 +67,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
 |Évaluation des vulnérabilités tierces|✔|-|✔|Non|
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Non|
+||||||
 
 --- 
 
@@ -84,38 +85,36 @@ Le tableau suivant fournit une matrice de ce qui suit :
 
 Pour plus d’informations sur le moment où les recommandations sont générées pour chacune de ces protections, consultez [Évaluation de la protection de point de terminaison et recommandations](security-center-endpoint-protection.md).
 
-| Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
-|------|------|-----|-----|
-| Antivirus Microsoft Defender| Windows Server 2016 ou version ultérieure| Non, intégré au système d’exploitation| Oui |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro - Deep Security | Gamme Windows Server  | Non | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non | Oui |
-| McAfee v10+ | Famille de serveurs Linux  | Non | Oui |
-| Sophos V9+| Famille de serveurs Linux  | Non | Oui |
-
-> [!NOTE]
-> La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 nécessite l’installation de SCEP après celle de PowerShell (v3.0 ou ultérieure).
+| Solution                                                  | Plateformes prises en charge                                    | Installation du centre de sécurité | Détection du centre de sécurité |
+|-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
+| Antivirus Microsoft Defender                              | Windows Server 2016 ou version ultérieure                           | Non (intégré au système d’exploitation)           | Oui                       |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2                                 | Via l’extension                | Oui                       |
+| Trend Micro - Deep Security                               | Windows Server (tous)                                   | Non                           | Oui                       |
+| Symantec v12.1.1100+                                      | Windows Server (tous)                                   | Non                           | Oui                       |
+| McAfee v10+                                               | Windows Server (tous)                                   | Non                           | Oui                       |
+| McAfee v10+                                               | Linux (préversion)                                        | Non                           | Oui                       |
+| Sophos V9+                                                | Linux (préversion)                                        | Non                           | Oui                       |
+|                                                           |                                                        |                              |                           |
 
 
 
 ## <a name="feature-support-in-government-and-sovereign-clouds"></a>Prise en charge des fonctionnalités dans les clouds du secteur public et souverains
 
-| Fonctionnalité/Service                                                                                                                                                             | Azure          | Gouvernement américain                  | Azure Chine   |
+| Fonctionnalité/Service                                                                                                                                                             | Azure          | Azure Government               | Azure Chine   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Fonctionnalités Security Center gratuites**                                                                                                                                           |                |                                |               |
-| - [Exportation continue](/azure/security-center/continuous-export)                                                                                                             | GA             | GA                             | GA            |
-| - [Automatisation des workflows](/azure/security-center/continuous-export)                                                                                                           | GA             | GA                             | GA            |
-| - [Règles d’exemption de recommandation](/azure/security-center/exempt-resource)                                                                                                  | Version préliminaire publique | Non disponible                  | Non disponible |
-| - [Règles de suppression d’alerte](/azure/security-center/alerts-suppression-rules)                                                                                                | GA             | GA                             | GA            |
-| - [Notifications par e-mail pour les alertes de sécurité](/azure/security-center/security-center-provide-security-contact-details)                                                        | GA             | GA                             | GA            |
-| - [Approvisionnement automatique pour les agents et les extensions](/azure/security-center/security-center-enable-data-collection)                                                              | GA             | GA                             | GA            |
-| - [Inventaire des ressources](/azure/security-center/asset-inventory)                                                                                                                 | GA             | GA                             | GA            |
-| - [Rapports Azure Monitor des classeurs rapports dans la Galerie de classeurs Azure Security Center](/azure/security-center/custom-dashboards-azure-workbooks)                                  | GA             | GA                             | GA            |
+| - [Exportation continue](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
+| - [Automatisation des workflows](./continuous-export.md)                                                                                                                             | GA             | GA                             | GA            |
+| - [Règles d’exemption de recommandation](./exempt-resource.md)                                                                                                                    | Version préliminaire publique | Non disponible                  | Non disponible |
+| - [Règles de suppression d’alerte](./alerts-suppression-rules.md)                                                                                                                  | GA             | GA                             | GA            |
+| - [Notifications par e-mail pour les alertes de sécurité](./security-center-provide-security-contact-details.md)                                                                          | GA             | GA                             | GA            |
+| - [Approvisionnement automatique pour les agents et les extensions](./security-center-enable-data-collection.md)                                                                                | GA             | GA                             | GA            |
+| - [Inventaire des ressources](./asset-inventory.md)                                                                                                                                   | GA             | GA                             | GA            |
+| - [Rapports Azure Monitor des classeurs rapports dans la Galerie de classeurs Azure Security Center](./custom-dashboards-azure-workbooks.md)                                                    | GA             | GA                             | GA            |
 | **Plans et extensions Azure Defender**                                                                                                                                     |                |                                |               |
 | - [Azure Defender pour les serveurs](/azure/security-center/defender-for-servers-introduction)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender pour App Service](/azure/security-center/defender-for-app-service-introduction)                                                                            | GA             | Non disponible                  | Non disponible |
-| - [Azure Defender pour DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Non disponible                  | Non disponible |
+| - [Azure Defender pour DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Non disponible                  | GA            |
 | - [Azure Defender pour les registres de conteneurs](/azure/security-center/defender-for-container-registries-introduction) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
 | - [Azure Defender pour les registres de conteneurs analyse des images dans les flux de travail CI/CD](/azure/security-center/defender-for-container-registries-cicd) <sup> [3](#footnote3)</sup> | Version préliminaire publique | Non disponible                  | Non disponible |
 | - [Azure Defender pour Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |
@@ -124,26 +123,26 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 | - [Azure Defender pour les serveurs SQL sur les machines](/azure/security-center/defender-for-sql-introduction)                                                                        | GA             | GA                             | Non disponible |
 | - [Azure Defender pour les bases de données relationnelles open source](/azure/security-center/defender-for-databases-introduction)                                                         | GA             | Non disponible                  | Non disponible |
 | - [Azure Defender pour Key Vault](/azure/security-center/defender-for-key-vault-introduction)                                                                                | GA             | Non disponible                  | Non disponible |
-| - [Azure Defender pour Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | Version préliminaire publique                 | Non disponible |
+| - [Azure Defender pour Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | GA                             | GA            |
 | - [Azure Defender pour Stockage](/azure/security-center/defender-for-storage-introduction) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Non disponible |
-| - [Protection contre les menaces pour Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                       | Version préliminaire publique | Non disponible                  | Non disponible |
+| - [Protection contre les menaces pour Cosmos DB](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)                                          | Version préliminaire publique | Non disponible                  | Non disponible |
 | - [Protection de charge de travail Kubernetes](/azure/security-center/kubernetes-workload-protections)                                                                                  | GA             | GA                             | GA            |
 | **Fonctionnalités Azure Defender pour les serveurs** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |               |
-| - [Accès juste-à-temps aux machines virtuelles](/azure/security-center/security-center-just-in-time)                                                                                             | GA             | GA                             | GA            |
-| - [Supervision de l’intégrité des fichiers](/azure/security-center/security-center-file-integrity-monitoring)                                                                             | GA             | GA                             | GA            |
-| - [Contrôles d’application adaptatifs](/azure/security-center/security-center-adaptive-application)                                                                              | GA             | GA                             | GA            |
-| - [Sécurisation renforcée du réseau adaptative](/azure/security-center/security-center-adaptive-network-hardening)                                                                           | GA             | Non disponible                  | Non disponible |
-| - [Sécurisation renforcée de l’hôte Docker](/azure/security-center/harden-docker-hosts)                                                                                                       | GA             | GA                             | GA            |
-| - [Évaluation des vulnérabilités intégrée pour les machines](/azure/security-center/deploy-vulnerability-assessment-vm)                                                             | GA             | Non disponible                  | Non disponible |
-| - [Tableau de bord et rapports de conformité réglementaire](/azure/security-center/security-center-compliance-dashboard) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
-| - [Déploiement de Microsoft Defender pour point de terminaison et licence intégrée](/azure/security-center/security-center-wdatp)                                                         | GA             | GA                             | Non disponible |
-| - [Connecter un compte AWS](/azure/security-center/quickstart-onboard-aws)                                                                                                      | GA             | Non disponible                  | Non disponible |
-| - [Connecter un compte GCP](/azure/security-center/quickstart-onboard-gcp)                                                                                                      | GA             | Non disponible                  | Non disponible |
+| - [Accès juste-à-temps aux machines virtuelles](./security-center-just-in-time.md)                                                                                             | GA             | GA                             | GA            |
+| - [Supervision de l’intégrité des fichiers](./security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             | GA            |
+| - [Contrôles d’application adaptatifs](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
+| - [Sécurisation renforcée du réseau adaptative](./security-center-adaptive-network-hardening.md)                                                                           | GA             | Non disponible                  | Non disponible |
+| - [Sécurisation renforcée de l’hôte Docker](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
+| - [Évaluation des vulnérabilités intégrée pour les machines](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Non disponible                  | Non disponible |
+| - [Tableau de bord et rapports de conformité réglementaire](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
+| - [Déploiement de Microsoft Defender pour point de terminaison et licence intégrée](./security-center-wdatp.md)                                                         | GA             | GA                             | Non disponible |
+| - [Connecter un compte AWS](./quickstart-onboard-aws.md)                                                                                                      | GA             | Non disponible                  | Non disponible |
+| - [Connecter un compte GCP](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Non disponible                  | Non disponible |
 |                                                                                                                                                                             |                |                                |
 
 <sup><a name="footnote1" /></a>1</sup> Partiellement GA : la possibilité de désactiver des résultats spécifiques à partir d’analyses de vulnérabilités est disponible en préversion publique.
 
-<sup><a name="footnote2" /></a>2</sup> Les analyses de vulnérabilité des registres de conteneurs sur Azure Gov ne peuvent uniquement être effectuées avec la fonctionnalité d’analyse à l’envoi (push).
+<sup><a name="footnote2" /></a>2</sup> Les analyses de vulnérabilité des registres de conteneurs sur le cloud Azure Government ne peuvent uniquement être effectuées avec la fonctionnalité d’analyse à l’envoi (push).
 
 <sup><a name="footnote3" /></a>3</sup> Requiert Azure Defender pour les registres de conteneurs.
 
@@ -153,7 +152,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 
 <sup><a name="footnote6" /></a>6</sup> Partiellement GA : certaines des alertes de protection contre les menaces d’Azure Defender pour Stockage sont disponibles en préversion publique.
 
-<sup><a name="footnote7" /></a>7</sup> Ces fonctionnalités requièrent toutes [Azure Defender pour les serveurs](/azure/security-center/defender-for-servers-introduction).
+<sup><a name="footnote7" /></a>7</sup> Ces fonctionnalités requièrent toutes [Azure Defender pour les serveurs](./defender-for-servers-introduction.md).
 
 <sup><a name="footnote8" /></a>8</sup> Des différences sont possible en termes de normes offertes par type de cloud.
  

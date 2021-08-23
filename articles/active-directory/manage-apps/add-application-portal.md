@@ -1,23 +1,25 @@
 ---
-title: 'Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory (Azure AD)'
+title: 'Démarrage rapide : ajouter une application à votre locataire'
+titleSuffix: Azure AD
 description: Ce démarrage rapide utilise le portail Azure pour ajouter une application de la galerie à votre locataire Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/29/2019
-ms.author: mtillman
-ms.openlocfilehash: e3748734d714812a40b78ff35fd9e0a31d3fa86e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: 8c1b7ea859bb3f8819fbffc9568da4c9289979f5
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077462"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669454"
 ---
-# <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory (Azure AD)
+# <a name="quickstart-add-an-application-to-your-tenant"></a>Démarrage rapide : ajouter une application à votre locataire
 
 Azure Active Directory (Azure AD) dispose d’une galerie contenant des milliers d’applications pré-intégrées. De nombreuses applications utilisées par votre organisation sont probablement déjà dans la galerie.
 
@@ -42,24 +44,19 @@ Pour ajouter une application à votre locataire Azure AD, vous avez besoin des �
 
 Pour ajouter une application à votre locataire Azure AD :
 
-1. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
-2. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**. Le volet **Toutes les applications** s’ouvre et affiche un échantillon aléatoire des applications de votre locataire Azure AD.
-3. Dans le volet **Applications d’entreprise**, sélectionnez **Nouvelle application**. 
-    ![Sélectionner Nouvelle application pour ajouter une application de galerie à votre locataire](media/add-application-portal/new-application.png)
-4. Basculez vers la nouvelle expérience de la galerie (préversion) : dans la bannière en haut de la page **Ajouter une application**, sélectionnez le lien **Cliquez ici pour essayer la Galerie d’applications nouvelle et améliorée**.
-5. Le volet **Parcourir la galerie Azure AD (préversion)** s’ouvre et affiche des vignettes pour les plateformes cloud, les applications locales et les applications principales. Les applications listées dans la section **Applications principales** ont des icônes indiquant si elles prennent en charge l’authentification unique fédérée et le provisionnement. 
+1. Dans le [Portail Azure](https://portal.azure.com), dans le volet **Services Azure**, sélectionnez **Applications d'entreprise**. Le volet **Toutes les applications** s’ouvre et affiche un échantillon aléatoire des applications de votre locataire Azure AD.
+2. Dans le volet **Applications d’entreprise**, sélectionnez **Nouvelle application**.
+3. Le volet **Parcourir la galerie Azure AD** s’ouvre et affiche des vignettes pour les plateformes cloud, les applications locales et les applications principales. Les applications listées dans la section **Applications principales** ont des icônes indiquant si elles prennent en charge l’authentification unique fédérée et le provisionnement.
+4. Revenez à l’expérience de l’application héritée : dans la bannière en haut de la **page Ajouter une application**, sélectionnez le lien qui indique que **Vous êtes dans la nouvelle expérience de la Galerie d’applications améliorée. Cliquez ici pour revenir à l’expérience héritée de la Galerie d’applications**.
     ![Rechercher une application par nom ou par catégorie](media/add-application-portal/browse-gallery.png)
-6. Vous pouvez parcourir la galerie de l’application que vous souhaitez ajouter ou rechercher l’application en entrant son nom dans la zone de recherche. Ensuite, sélectionnez l’application dans les résultats. 
-7. L’étape suivante dépend de la façon dont le développeur de l’application a implémenté l’authentification unique (SSO). L’authentification unique peut être implémentée par les développeurs d’applications de quatre manières. Ces quatre manières sont SAML, OpenID Connect, Password et Linked. Lorsque vous ajoutez une application, vous pouvez choisir de filtrer et d’afficher uniquement les applications utilisant une implémentation SSO particulière, comme illustré dans la capture d’écran. Par exemple, Security Assertion Markup Language (SAML) est une norme couramment utilisée pour implémenter l’authentification unique. La norme OpenId Connect (OIDC) est également couramment utilisée. La façon dont vous configurez l’authentification unique avec ces normes diffère et dès lors, notez le type d’authentification unique implémenté par l’application que vous ajoutez.
-
-    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Capture d’écran montrant le sélecteur de types d’authentification unique." lightbox="media/add-application-portal/sso-types.png":::
+5. Vous pouvez parcourir la galerie de l’application que vous souhaitez ajouter ou rechercher l’application en entrant son nom dans la zone de recherche. Ensuite, sélectionnez l’application dans les résultats.
+6. L’étape suivante dépend de la façon dont le développeur de l’application a implémenté l’authentification unique (SSO). L’authentification unique peut être implémentée par les développeurs d’applications de quatre manières. Ces quatre manières sont SAML, OpenID Connect, Password et Linked. Lorsque vous ajoutez une application, vous pouvez choisir de filtrer et d’afficher uniquement les applications utilisant une implémentation SSO particulière, comme illustré dans la capture d’écran. Par exemple, Security Assertion Markup Language (SAML) est une norme couramment utilisée pour implémenter l’authentification unique. La norme OpenId Connect (OIDC) est également couramment utilisée. La façon dont vous configurez l’authentification unique avec ces normes diffère et dès lors, notez le type d’authentification unique implémenté par l’application que vous ajoutez.
 
     - Si le développeur de l’application a utilisé la **norme OIDC** pour l’authentification unique, sélectionnez **S’inscrire**. Une page de configuration s'affiche. Accédez ensuite au guide de démarrage rapide relatif à la configuration de l’authentification unique basée sur OIDC.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Capture d’écran montrant comment ajouter une application d’authentification unique basée sur OIDC.":::
 
     - Si le développeur de l’application a utilisé la **norme SAML** pour l’authentification unique, sélectionnez **Créer**. Une page de démarrage s’affiche avec les options de configuration de l’application pour votre organisation. Dans le formulaire, vous pouvez modifier le nom de l’application afin qu’il corresponde aux besoins de votre organisation. Accédez ensuite au guide de démarrage rapide relatif à la configuration de l’authentification unique basée sur SAML.
     :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Capture d’écran montrant comment ajouter une application d’authentification unique basée sur SAML.":::
-
 
 > [!IMPORTANT]
 > Il existe d’importantes différences entre les implémentations d’authentification unique basées sur SAML et OIDC. Avec les applications basées sur SAML, vous pouvez ajouter plusieurs instances de la même application. Par exemple, GitHub1, GitHub2, etc. Avec les applications basées sur OIDC, vous ne pouvez ajouter qu’une seule instance d’une application. Si vous avez déjà ajouté une application basée sur OIDC et que vous essayez d’ajouter à nouveau la même application et de fournir le consentement à deux reprises, elle ne sera pas ajoutée de nouveau au locataire.

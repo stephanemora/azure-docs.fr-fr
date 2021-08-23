@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - C++'
 description: Dans ce guide de démarrage rapide, vous découvrez comment utiliser la bibliothèque de client Stockage Blob Azure version 12 pour C++ afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: twooley
-ms.author: twooley
-ms.date: 10/21/2020
+author: kyle-patterson
+ms.author: kylepa
+ms.date: 06/21/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e6832cc835a464a2a3d17d5ed286e71b17bc980e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5b961145b065f2ce63497b32d4ba533dda04c68f
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312278"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894266"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour C++
 
@@ -41,8 +41,6 @@ Ressources :
 - [Compilateur C++](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
 - [Vcpkg - Gestionnaire de package C et C++](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
-- [LibCurl](https://curl.haxx.se/libcurl/)
-- [LibXML2](http://www.xmlsoft.org/)
 
 ## <a name="setting-up"></a>Configuration
 
@@ -50,30 +48,19 @@ Cette section vous guide tout au long de la préparation d’un projet pour util
 
 ### <a name="install-the-packages"></a>Installer les packages
 
-Si vous ne l’avez pas encore fait, installez les packages LibCurl et LibXML2 en utilisant la commande `vcpkg install`.
+La commande `vcpkg install` installe le kit de développement logiciel (SDK) d’Azure Storage Blob pour C++ et les dépendances nécessaires :
 
 ```console
-vcpkg.exe install libxml2:x64-windows curl:x64-windows
+vcpkg.exe install azure-storage-blobs-cpp:x64-windows
 ```
 
-Suivez les instructions sur GitHub pour acquérir et créer le [SDK Azure pour C++](https://github.com/Azure/azure-sdk-for-cpp/).
+Pour plus d’informations, visitez GitHub pour acquérir et créer le [SDK Azure pour C++](https://github.com/Azure/azure-sdk-for-cpp/).
 
 ### <a name="create-the-project"></a>Créer le projet
 
 Dans Visual Studio, créez une nouvelle application console C++ pour Windows appelée *BlobQuickstartV12*.
 
 :::image type="content" source="./media/quickstart-blobs-c-plus-plus/vs-create-project.jpg" alt-text="Boîte de dialogue Visual Studio pour la configuration d’une nouvelle application console Windows C++":::
-
-Ajoutez les bibliothèques suivantes au projet :
-
-- libcurl.lib
-- libxml2.lib
-- bcrypt.lib
-- Crypt32.Lib
-- WS2_32.Lib
-- azure-core.lib
-- azure-storage-common.lib
-- azure-storage-blobs.lib
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -89,12 +76,12 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 ![Diagramme de l’architecture de Stockage Blob](./media/storage-blobs-introduction/blob1.png)
 
-Utilisez les classes C++ suivantes pour interagir avec ces ressources :
+Utilisez ces classes C++ pour interagir avec ces ressources :
 
-- [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_service_client.html): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
-- [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
-- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure. Il s’agit de la classe de base pour toutes les classes d’objets blob spécialisées.
-- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): La classe `BlockBlobClient` vous permet de manipuler des objets blob de blocs de Stockage Azure.
+- [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_service_client.html): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
+- [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
+- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure. Il s’agit de la classe de base pour toutes les classes d’objets blob spécialisées.
+- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): La classe `BlockBlobClient` vous permet de manipuler des objets blob de blocs de Stockage Azure.
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -117,7 +104,7 @@ Ces exemples d’extraits de code vous montrent comment effectuer les tâches su
 1. Supprimez le code dans `main` qui a été généré automatiquement
 1. Ajoutez les instructions `#include`
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_Includes":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_Includes":::
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -125,18 +112,18 @@ Le code ci-dessous récupère la chaîne de connexion pour votre compte de stock
 
 Ajoutez ce code dans `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_ConnectionString":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ConnectionString":::
 
 ### <a name="create-a-container"></a>Créez un conteneur.
 
-Créez une instance de la classe [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) en appelant la fonction [CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ad103d1e3a7ce7c53a82da887d12ce6fe). Ensuite, appelez [Create](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a22a1e001068a4ec52bb1b6bd8b52c047) pour créer le conteneur réel dans votre compte de stockage.
+Créez une instance de la classe [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) en appelant la fonction [CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a5d253aacb6e20578b7f5f233547be3e2). Ensuite, appelez [CreateIfNotExists](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ab3ef187d2e30e1a19ebadf45d0fdf9c4) pour créer le conteneur réel dans votre compte de stockage.
 
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Ajoutez ce code à la fin de `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_CreateContainer":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_CreateContainer":::
 
 ### <a name="upload-blobs-to-a-container"></a>Charger des objets blob sur un conteneur
 
@@ -148,37 +135,37 @@ L’extrait de code suivant :
 
 Ajoutez ce code à la fin de `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_UploadBlob":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_UploadBlob":::
 
 ### <a name="list-the-blobs-in-a-container"></a>Lister les objets blob dans un conteneur
 
-Listez les objets blob dans le conteneur en appelant la fonction [ListBlobsFlatSegment](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ac7712bc46909dc061d6bf554b496550c). Un seul objet blob a été ajouté au conteneur : l’opération retourne donc seulement cet objet blob.
+Répertoriez les objets Blob dans le conteneur en appelant la fonction [ListBlobs](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a8f7e6653ef69788cb4fb23ec85d4fd96). Un seul objet blob a été ajouté au conteneur : l’opération retourne donc seulement cet objet blob.
 
 Ajoutez ce code à la fin de `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_ListBlobs":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ListBlobs":::
 
 ### <a name="download-blobs"></a>Télécharger des objets blob
 
-Obtenez les propriétés de l’objet blob chargé. Ensuite, déclarez et redimensionnez un nouvel objet `std::string` en utilisant les propriétés de l’objet blob chargé. Téléchargez l’objet blob créé précédemment dans le nouvel objet `std::string` en appelant la fonction [DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#aa844f37a8c216f3cb0f27912b114c4d2) dans la classe de base [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html). Enfin, affichez les données de l’objet blob téléchargé.
+Obtenez les propriétés de l’objet blob chargé. Ensuite, déclarez et redimensionnez un nouvel objet `std::vector<uint8_t>` en utilisant les propriétés de l’objet blob chargé. Téléchargez l’objet blob créé précédemment dans le nouvel objet `std::vector<uint8_t>` en appelant la fonction [DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#aa0bcbdbf6ebd17e4888cced4736420f7) dans la classe de base [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html). Enfin, affichez les données de l’objet blob téléchargé.
 
 Ajoutez ce code à la fin de `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DownloadBlob":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_DownloadBlob":::
 
 ### <a name="delete-a-blob"></a>Suppression d'un objet blob
 
-Le code suivant supprime l’objet blob du conteneur Stockage Blob Azure en appelant la fonction [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#a621eabcc8d23893ca1eb106494198615).
+Le code suivant supprime l’objet blob du conteneur Stockage Blob Azure en appelant la fonction [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#ac121df9f5dfcdeb80f47b50543df0984).
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DeleteBlob":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_DeleteBlob":::
 
 ### <a name="delete-a-container"></a>Supprimer un conteneur
 
-Le code suivant nettoie les ressources créées par l’application en supprimant l’ensemble du conteneur avec [BlobContainerClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#aa6b1db52697ae92e9a1227e2e02a5178).
+Le code suivant nettoie les ressources créées par l’application en supprimant l’ensemble du conteneur avec [BlobContainerClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ae7661b6d8f37213b409504c0e9a68d69).
 
 Ajoutez ce code à la fin de `main()` :
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DeleteContainer":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_DeleteContainer":::
 
 ## <a name="run-the-code"></a>Exécuter le code
 

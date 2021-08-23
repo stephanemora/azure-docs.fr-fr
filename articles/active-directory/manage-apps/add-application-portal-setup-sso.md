@@ -1,23 +1,25 @@
 ---
-title: 'Démarrage rapide : Configurer l’authentification unique (SSO) basée sur SAML d’une application dans votre locataire Azure Active Directory (Azure AD)'
+title: 'Démarrage rapide : Configurer l’authentification unique SAML pour une application'
+titleSuffix: Azure AD
 description: Ce guide de démarrage rapide vous présente en détail le processus de configuration de l’authentification unique (SSO) basée sur SAML d’une application dans votre locataire Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
-ms.author: mtillman
-ms.openlocfilehash: 81a1d2eeeb1b82c488598bc081453193e360d6d5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2020
+ms.author: davidmu
+ms.reviewer: ergleenl
+ms.openlocfilehash: cded1a874c48cab43e24a19acc6707aa8de7d1e7
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077516"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669400"
 ---
-# <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) basée sur SAML d’une application dans votre locataire Azure Active Directory (Azure AD)
+# <a name="quickstart-set-up-saml-based-single-sign-on-for-an-application"></a>Démarrage rapide : Configurer l’authentification unique SAML pour une application
 
 Familiarisez-vous avec les connexions utilisateur simplifiées en configurant l’authentification unique d’une application que vous avez ajoutée à votre locataire Azure Active Directory (Azure AD). Dès l’authentification unique configurée, vos utilisateurs peuvent se connecter à une application avec leurs informations d’identification Azure AD. L’authentification unique est incluse dans l’édition gratuite d’Azure AD.
 
@@ -32,7 +34,6 @@ Pour configurer l’authentification unique d’une application que vous avez aj
 - Facultatif : effectuer [Ajouter une application](add-application-portal.md).
 - Facultatif : effectuer [Configurer une application](add-application-portal-configure.md).
 - Facultatif : suivre [Affecter des utilisateurs à une application](add-application-portal-assign-users.md).
-
 
 >[!IMPORTANT]
 >Pour tester les étapes de ce guide de démarrage rapide, utilisez un environnement de non-production.
@@ -49,8 +50,6 @@ Pour configurer l’authentification unique pour une application :
     > [!IMPORTANT]
     > Si l’application utilise la norme OpenID Connect (OIDC) pour l’authentification unique, vous ne verrez pas d’option d’authentification unique dans la navigation. Reportez-vous au Guide de démarrage rapide sur l’authentification unique basée sur OIDC pour savoir comment la configurer.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Capture d’écran montrant la page de configuration de l’authentification unique dans le portail Azure AD.":::
-
 1. Sélectionnez **SAML** pour ouvrir la page de configuration de SSO. Dans cet exemple, l’application que nous configurons pour SSO est GitHub. Une fois que l’application GitHub est configurée, vos utilisateurs peuvent s’y connecter en utilisant leurs informations d’identification à partir de votre locataire Azure AD.
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Capture d’écran montrant la page de configuration de l’authentification unique sur GitHub.":::
@@ -60,11 +59,8 @@ Pour configurer l’authentification unique pour une application :
     > [!TIP]
     > Pour en savoir plus sur les options de configuration SAML, consultez [Configurer l’authentification unique SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Capture d’écran montrant l’option d’authentification unique dans l’abonnement Enterprise de la page des prix GitHub.":::
-
 > [!TIP]
 > Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).
-
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

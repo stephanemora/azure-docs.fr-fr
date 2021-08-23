@@ -3,14 +3,14 @@ title: Enregistrements DNS du centre de données Azure utilisés par Azure Autom
 description: Cet article fournit les enregistrements DNS qu’exigent les fonctionnalités d’Azure Automation lors de la restriction de la communication à une région Azure spécifique hébergeant ce compte Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/25/2020
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: d41d825c7bc33e05815c7528b436c85873859928
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 04c7b6cc8cbcaaadf2002c5b7b00cdaab52913a6
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168924"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491818"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Enregistrements DNS pour les régions Azure utilisées par Azure Automation
 
@@ -42,6 +42,7 @@ Le tableau suivant indique l’enregistrement DNS pour chaque région.
 | Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | Asie Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| Suisse Nord |stzn-jobruntimedata-prod-su1.azure-automation.net</br>stzn-agentservice-prod-su1.azure-automation.net|
 | Sud du Royaume-Uni | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | Gouvernement américain - Virginie | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 | Centre-USA Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
@@ -54,32 +55,46 @@ Pour prendre en charge [Liaison privée](../../private-link/private-link-overvie
 
 | **Région** | **Enregistrement DNS** |
 | --- | --- |
+| Afrique du Sud Nord |`https://<accountId>.webhook.san.azure-automation.net`<br>`https://<accountId>.agentsvc.san.azure-automation.net`<br>`https://<accountId>.jrds.san.azure-automation.net` |
+| Asie Est |`https://<accountId>.webhook.ea.azure-automation.net`<br>`https://<accountId>.agentsvc.ea.azure-automation.net`<br>`https://<accountId>.jrds.ea.azure-automation.net` |
+| Asie Sud-Est |`https://<accountId>.webhook.sea.azure-automation.net`<br>`https://<accountId>.agentsvc.sea.azure-automation.net`<br>`https://<accountId>.jrds.sea.azure-automation.net` |
+| Centre de l’Australie |`https://<accountId>.webhook.ac.azure-automation.net`<br>`https://<accountId>.agentsvc.ac.azure-automation.net`<br>`https://<accountId>.jrds.ac.azure-automation.net` |
+| Centre de l’Australie 2  |`https://<accountId>.webhook.cbr2.azure-automation.net`<br>`https://<accountId>.agentsvc.cbr2.azure-automation.net`<br>`https://<accountId>.jrds.cbr2.azure-automation.net` |
+| Sud-Est de l’Australie |`https://<accountId>.webhook.ase.azure-automation.net`<br>`https://<accountId>.agentsvc.ase.azure-automation.net`<br>`https://<accountId>.jrds.ase.azure-automation.net` |
+| Australie Est |`https://<accountId>.webhook.ae.azure-automation.net`<br>`https://<accountId>.agentsvc.ae.azure-automation.net`<br>`https://<accountId>.jrds.ae.azure-automation.net` |
+| Brésil Sud |`https://<accountId>.webhook.brs.azure-automation.net`<br>`https://<accountId>.agentsvc.brs.azure-automation.net`<br>`https://<accountId>.jrds.brs.azure-automation.net` |
+| Brésil Sud-Est |`https://<accountId>.webhook.brse.azure-automation.net`<br>`https://<accountId>.agentsvc.brse.azure-automation.net`<br>`https://<accountId>.jrds.brse.azure-automation.net` |
+| Centre du Canada |`https://<accountId>.webhook.cc.azure-automation.net`<br>`https://<accountId>.agentsvc.cc.azure-automation.net`<br>`https://<accountId>.jrds.cc.azure-automation.net` |
+| Chine orientale 2 |`https://<accountId>.webhook.sha2.azure-automation.cn`<br>`https://<accountId>.agentsvc.sha2.azure-automation.cn`<br>`https://<accountId>.jrds.sha2.azure-automation.cn` |
+| Chine du Nord |`https://<accountId>.webhook.bjb.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjb.azure-automation.cn`<br>`https://<accountId>.jrds.bjb.azure-automation.cn` |
+| Chine Nord 2 |`https://<accountId>.webhook.bjs2.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjs2.azure-automation.cn`<br>`https://<accountId>.jrds.bjs2.azure-automation.cn` |
+| Europe Ouest |`https://<accountId>.webhook.we.azure-automation.net`<br>`https://<accountId>.agentsvc.we.azure-automation.net`<br>`https://<accountId>.jrds.we.azure-automation.net` |
+| Europe Nord |`https://<accountId>.webhook.ne.azure-automation.net`<br>`https://<accountId>.agentsvc.ne.azure-automation.net`<br>`https://<accountId>.jrds.ne.azure-automation.net` |
+| France Centre |`https://<accountId>.webhook.fc.azure-automation.net`<br>`https://<accountId>.agentsvc.fc.azure-automation.net`<br>`https://<accountId>.jrds.fc.azure-automation.net` |
+| France Sud |`https://<accountId>.webhook.mrs.azure-automation.net`<br>`https://<accountId>.agentsvc.mrs.azure-automation.net`<br>`https://<accountId>.jrds.mrs.azure-automation.net` |
+| Allemagne Centre-Ouest |`https://<accountId>.webhook.dewc.azure-automation.de`<br>`https://<accountId>.agentsvc.dewc.azure-automation.de`<br>`https://<accountId>.jrds.dewc.azure-automation.de` |
+| Inde centrale |`https://<accountId>.webhook.cid.azure-automation.net`<br>`https://<accountId>.agentsvc.cid.azure-automation.net`<br>`https://<accountId>.jrds.cid.azure-automation.net` |
+| Inde Sud  |`https://<accountId>.webhook.ma.azure-automation.net`<br>`https://<accountId>.agentsvc.ma.azure-automation.net`<br>`https://<accountId>.jrds.ma.azure-automation.net` |
+| Japon Est |`https://<accountId>.webhook.jpe.azure-automation.net`<br>`https://<accountId>.agentsvc.jpe.azure-automation.net`<br>`https://<accountId>.jrds.jpe.azure-automation.net` |
+| OuJapon Est |`https://<accountId>.webhook.jpw.azure-automation.net`<br>`https://<accountId>.agentsvc.jpw.azure-automation.net`<br>`https://<accountId>.jrds.jpw.azure-automation.net` |
+| Centre de la Corée |`https://<accountId>.webhook.kc.azure-automation.net`<br>`https://<accountId>.agentsvc.kc.azure-automation.net`<br>`https://<accountId>.jrds.kc.azure-automation.net` |
+| Corée du Sud |`https://<accountId>.webhook.ps.azure-automation.net`<br>`https://<accountId>.agentsvc.ps.azure-automation.net`<br>`https://<accountId>.jrds.ps.azure-automation.net` |
+| Norvège Est |`https://<accountId>.webhook.noe.azure-automation.net`<br>`https://<accountId>.agentsvc.noe.azure-automation.net`<br>`https://<accountId>.jrds.noe.azure-automation.net` |
+| Norvège Ouest  |`https://<accountId>.webhook.now.azure-automation.net`<br>`https://<accountId>.agentsvc.now.azure-automation.net`<br>`https://<accountId>.jrds.now.azure-automation.net` |
+| Suisse Ouest |`https://<accountId>.webhook.stzw.azure-automation.net`<br>`https://<accountId>.agentsvc.stzw.azure-automation.net`<br>`https://<accountId>.jrds.stzw.azure-automation.net` |
+| Émirats arabes unis Centre |`https://<accountId>.webhook.auh.azure-automation.net`<br>`https://<accountId>.agentsvc.auh.azure-automation.net`<br>`https://<accountId>.jrds.auh.azure-automation.net` |
+| Émirats arabes unis Nord |`https://<accountId>.webhook.uaen.azure-automation.net`<br>`https://<accountId>.agentsvc.uaen.azure-automation.net`<br>`https://<accountId>.jrds.uaen.azure-automation.net` |
+| Ouest du Royaume-Uni |`https://<accountId>.webhook.cw.azure-automation.net`<br>`https://<accountId>.agentsvc.cw.azure-automation.net`<br>`https://<accountId>.jrds.cw.azure-automation.net` |
+| Sud du Royaume-Uni |`https://<accountId>.webhook.uks.azure-automation.net`<br>`https://<accountId>.agentsvc.uks.azure-automation.net`<br>`https://<accountId>.jrds.uks.azure-automation.net` |
+| USA Centre |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
+| USA Est |`https://<accountId>.webhook.eus.azure-automation.net`<br>`https://<accountId>.agentsvc.eus.azure-automation.net`<br>`https://<accountId>.jrds.eus.azure-automation.net` |
+| USA Est 2 |`https://<accountId>.webhook.eus2.azure-automation.net`<br>`https://<accountId>.agentsvc.eus2.azure-automation.net`<br>`https://<accountId>.jrds.eus2.azure-automation.net` |
+| Centre-Nord des États-Unis |`https://<accountId>.webhook.ncus.azure-automation.net`<br>`https://<accountId>.agentsvc.ncus.azure-automation.net`<br>`https://<accountId>.jrds.ncus.azure-automation.net` |
+| États-Unis - partie centrale méridionale |`https://<accountId>.webhook.scus.azure-automation.net`<br>`https://<accountId>.agentsvc.scus.azure-automation.net`<br>`https://<accountId>.jrds.scus.azure-automation.net` |
 | Centre-USA Ouest |`https://<accountId>.webhook.wcus.azure-automation.net`<br>`https://<accountId>.agentsvc.wcus.azure-automation.net`<br>`https://<accountId>.jrds.wcus.azure-automation.net` |
 | USA Ouest |`https://<accountId>.webhook.wus.azure-automation.net`<br>`https://<accountId>.agentsvc.wus.azure-automation.net`<br>`https://<accountId>.jrds.wus.azure-automation.net` |
 | USA Ouest 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
-| USA Centre |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
-| États-Unis - partie centrale méridionale |`https://<accountId>.webhook.scus.azure-automation.net`<br>`https://<accountId>.agentsvc.scus.azure-automation.net`<br>`https://<accountId>.jrds.scus.azure-automation.net` |
-| Centre-Nord des États-Unis |`https://<accountId>.webhook.ncus.azure-automation.net`<br>`https://<accountId>.agentsvc.ncus.azure-automation.net`<br>`https://<accountId>.jrds.ncus.azure-automation.net` |
-| USA Est |`https://<accountId>.webhook.eus.azure-automation.net`<br>`https://<accountId>.agentsvc.eus.azure-automation.net`<br>`https://<accountId>.jrds.eus.azure-automation.net` |
-| USA Est 2 |`https://<accountId>.webhook.eus2.azure-automation.net`<br>`https://<accountId>.agentsvc.eus2.azure-automation.net`<br>`https://<accountId>.jrds.eus2.azure-automation.net` |
-| Centre du Canada |`https://<accountId>.webhook.cc.azure-automation.net`<br>`https://<accountId>.agentsvc.cc.azure-automation.net`<br>`https://<accountId>.jrds.cc.azure-automation.net` |
-| Europe Ouest |`https://<accountId>.webhook.we.azure-automation.net`<br>`https://<accountId>.agentsvc.we.azure-automation.net`<br>`https://<accountId>.jrds.we.azure-automation.net` |
-| Europe Nord |`https://<accountId>.webhook.ne.azure-automation.net`<br>`https://<accountId>.agentsvc.ne.azure-automation.net`<br>`https://<accountId>.jrds.ne.azure-automation.net` |
-| Asie Sud-Est |`https://<accountId>.webhook.sea.azure-automation.net`<br>`https://<accountId>.agentsvc.sea.azure-automation.net`<br>`https://<accountId>.jrds.sea.azure-automation.net` |
-| Asie Est |`https://<accountId>.webhook.ea.azure-automation.net`<br>`https://<accountId>.agentsvc.ea.azure-automation.net`<br>`https://<accountId>.jrds.ea.azure-automation.net` |
-| Inde centrale |`https://<accountId>.webhook.cid.azure-automation.net`<br>`https://<accountId>.agentsvc.cid.azure-automation.net`<br>`https://<accountId>.jrds.cid.azure-automation.net` |
-| Japon Est |`https://<accountId>.webhook.jpe.azure-automation.net`<br>`https://<accountId>.agentsvc.jpe.azure-automation.net`<br>`https://<accountId>.jrds.jpe.azure-automation.net` |
-| Centre de la Corée |`https://<accountId>.webhook.kc.azure-automation.net`<br>`https://<accountId>.agentsvc.kc.azure-automation.net`<br>`https://<accountId>.jrds.kc.azure-automation.net` |
-| Sud-Est de l’Australie |`https://<accountId>.webhook.ase.azure-automation.net`<br>`https://<accountId>.agentsvc.ase.azure-automation.net`<br>`https://<accountId>.jrds.ase.azure-automation.net` |
-| Australie Est |`https://<accountId>.webhook.ae.azure-automation.net`<br>`https://<accountId>.agentsvc.ae.azure-automation.net`<br>`https://<accountId>.jrds.ae.azure-automation.net` |
-| Centre de l’Australie |`https://<accountId>.webhook.ac.azure-automation.net`<br>`https://<accountId>.agentsvc.ac.azure-automation.net`<br>`https://<accountId>.jrds.ac.azure-automation.net` |
-| Sud du Royaume-Uni |`https://<accountId>.webhook.uks.azure-automation.net`<br>`https://<accountId>.agentsvc.uks.azure-automation.net`<br>`https://<accountId>.jrds.uks.azure-automation.net` |
-| France Centre |`https://<accountId>.webhook.fc.azure-automation.net`<br>`https://<accountId>.agentsvc.fc.azure-automation.net`<br>`https://<accountId>.jrds.fc.azure-automation.net` |
-| Afrique du Sud Nord |`https://<accountId>.webhook.san.azure-automation.net`<br>`https://<accountId>.agentsvc.san.azure-automation.net`<br>`https://<accountId>.jrds.san.azure-automation.net` |
-| Brésil Sud |`https://<accountId>.webhook.brs.azure-automation.net`<br>`https://<accountId>.agentsvc.brs.azure-automation.net`<br>`https://<accountId>.jrds.brs.azure-automation.net` |
-| Chine du Nord |`https://<accountId>.webhook.bjb.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjb.azure-automation.cn`<br>`https://<accountId>.jrds.bjb.azure-automation.cn` |
-| Chine Nord 2 |`https://<accountId>.webhook.bjs2.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjs2.azure-automation.cn`<br>`https://<accountId>.jrds.bjs2.azure-automation.cn` |
-| Chine orientale 2 |`https://<accountId>.webhook.sha2.azure-automation.cn`<br>`https://<accountId>.agentsvc.sha2.azure-automation.cn`<br>`https://<accountId>.jrds.sha2.azure-automation.cn` |
+| USA Ouest 3 |`https://<accountId>.webhook.usw3.azure-automation.net`<br>`https://<accountId>.agentsvc.usw3.azure-automation.net`<br>`https://<accountId>.jrds.usw3.azure-automation.net` |
 | Gouvernement américain - Virginie |`https://<accountId>.webhook.usge.azure-automation.us`<br>`https://<accountId>.agentsvc.usge.azure-automation.us`<br>`https://<accountId>.jrds.usge.azure-automation.us` |
 | Gouvernement des États-Unis – Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | Gouvernement des États-Unis – Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |

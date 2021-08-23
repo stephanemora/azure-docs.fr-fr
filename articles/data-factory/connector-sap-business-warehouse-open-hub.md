@@ -1,18 +1,20 @@
 ---
 title: Copie de données depuis SAP Business Warehouse par le biais d’Open Hub
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Apprenez à utiliser l'activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP Business Warehouse (BW) vers des banques de données réceptrices prises en charge via Open Hub.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/02/2021
-ms.openlocfilehash: a45de693f6818966eaf79fc8f636b27e8cb0c1da
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: synapse
+ms.date: 07/30/2021
+ms.openlocfilehash: 2155e39da58650fb5ce14c56d7a3564f211a2cdd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788262"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641499"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -188,6 +190,7 @@ Pour copier des données à partir de SAP BW Open Hub, les propriétés prises e
 | excludeLastRequest | Indique s'il faut exclure les enregistrements de la dernière requête. | Non (la valeur par défaut est **true**) |
 | baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non |
 | customRfcReadTableFunctionModule | Module de fonction RFC personnalisé qui peut être utilisé pour lire des données à partir de la table SAP. <br/> Vous pouvez utiliser un module de fonction RFC personnalisé pour définir la façon dont les données sont récupérées à partir de votre système SAP et retournées à Data Factory. Le module de fonction personnalisé doit avoir une interface implémentée (importation, exportation, tables) similaire à `/SAPDS/RFC_READ_TABLE2`, l'interface par défaut utilisée par Data Factory. | Non |
+| sapDataColumnDelimiter | Caractère unique utilisé comme délimiteur passé à SAP RFC pour fractionner les données de sortie. | Non |
 
 >[!TIP]
 >Si votre table Open Hub ne contient que les données générées par un seul ID de requête, par exemple, vous exécutez toujours un plein chargement et écrasez les données existantes dans la table, ou si vous n'exécutez le DTP qu'une fois à des fins de test, n'oubliez pas de décocher l'option « excludeLastRequest » afin de copier les données.

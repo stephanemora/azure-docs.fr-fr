@@ -1,23 +1,25 @@
 ---
-title: 'Démarrage rapide : Configurer l’authentification unique (SSO) basée sur OIDC d’une application dans votre locataire Azure Active Directory (Azure AD)'
+title: 'Tutoriel : Configurer l’authentification unique OIDC pour une application'
+titleSuffix: Azure AD
 description: Ce guide de démarrage rapide vous présente en détail le processus de configuration de l’authentification unique (SSO) basée sur OIDC d’une application dans votre locataire Azure Active Directory (Azure AD).
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
-ms.author: mtillman
-ms.openlocfilehash: 853ae1bf9bb230a28ad4e1e8509ddbeeb9dc34d8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/23/2020
+ms.author: davidmu
+ms.reviewer: ergreenl
+ms.openlocfilehash: 0e1c253211cfef2d9bf55b4d0a615ccb9563036b
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077498"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669436"
 ---
-# <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) basée sur OIDC d’une application dans votre locataire Azure Active Directory (Azure AD)
+# <a name="quickstart-set-up-oidc-based-single-sign-on-for-an-application"></a>Tutoriel : Configurer l’authentification unique OIDC pour une application
 
 Familiarisez-vous avec les connexions utilisateur simplifiées en configurant l’authentification unique d’une application que vous avez ajoutée à votre locataire Azure Active Directory (Azure AD). Dès l’authentification unique configurée, vos utilisateurs peuvent se connecter à une application avec leurs informations d’identification Azure AD. L’authentification unique est incluse dans l’édition gratuite d’Azure AD.
 
@@ -40,16 +42,15 @@ Pour configurer l’authentification unique d’une application que vous avez aj
 
 ## <a name="enable-single-sign-on-for-an-app"></a>Activer l’authentification unique pour une application
 
-Quand vous ajoutez une application qui utilise la norme OIDC pour l’authentification unique, vous disposez d’un bouton de configuration. Quand vous sélectionnez le bouton, vous accédez au site des applications et vous terminez le processus d’inscription de l’application. Le processus d’ajout d’une application est décrit dans le guide de démarrage rapide Ajouter une application, précédemment dans cette série. Si vous configurez une application qui a déjà été ajoutée, consultez le premier guide de démarrage rapide. Il écrit les différentes étapes à effectuer pour afficher les applications se trouvant déjà dans votre locataire. 
+Quand vous ajoutez une application qui utilise la norme OIDC pour l’authentification unique, vous disposez d’un bouton de configuration. Quand vous sélectionnez le bouton, vous accédez au site des applications et vous terminez le processus d’inscription de l’application. Le processus d’ajout d’une application est décrit dans le guide de démarrage rapide Ajouter une application, précédemment dans cette série. Si vous configurez une application qui a déjà été ajoutée, consultez le premier guide de démarrage rapide. Il écrit les différentes étapes à effectuer pour afficher les applications se trouvant déjà dans votre locataire.
 
 Pour configurer l’authentification unique pour une application :
 
-1. Dans le guide de démarrage rapide présenté précédemment dans cette série, vous avez appris à ajouter une application qui utilisera votre locataire Azure AD pour la gestion des identités. Si le développeur de l’application a utilisé la norme OIDC pour implémenter l’authentification unique, un bouton d’inscription s’affiche lors de l’ajout de l’application. 
+1. Dans le guide de démarrage rapide présenté précédemment dans cette série, vous avez appris à ajouter une application qui utilisera votre locataire Azure AD pour la gestion des identités. Si le développeur de l’application a utilisé la norme OIDC pour implémenter l’authentification unique, un bouton d’inscription s’affiche lors de l’ajout de l’application.
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="La capture d’écran montre l’option d’authentification unique et le bouton d’inscription." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
 
-
-2. Sélectionnez **S’inscrire**. Vous êtes alors dirigé vers la page de connexion des développeurs d’applications. Connectez-vous à l’aide des informations d’identification de connexion Azure Active Directory. 
+2. Sélectionnez **S’inscrire**. Vous êtes alors dirigé vers la page de connexion des développeurs d’applications. Connectez-vous à l’aide des informations d’identification de connexion Azure Active Directory.
 
    > [!IMPORTANT]
     > Si vous disposez déjà d’un abonnement à l’application, la validation des détails de l’utilisateur et des informations sur le locataire/l’annuaire se produit. Si l’application n’est pas en mesure de vérifier l’utilisateur, elle vous redirige pour que vous vous inscriviez au service d’application ou à la page d’erreur.
@@ -59,7 +60,6 @@ Pour configurer l’authentification unique pour une application :
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="La capture d’écran montre l’écran de consentement pour une application." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. L’application est ajoutée à votre locataire et la page d’accueil de l’application s’affiche.
-
 
 > [!TIP]
 > Vous pouvez automatiser la gestion des applications à l’aide de l’API Graph. Consultez [Automatiser la gestion des applications avec l’API Microsoft Graph](/graph/application-saml-sso-configure-api).

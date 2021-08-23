@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33c4b7f00bcba89c973838c7382397c447d3464c
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557987"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204556"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutoriel : Évaluer des instances SQL en vue de leur migration vers Azure SQL
 
@@ -26,6 +26,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!NOTE]
 > Les tutoriels indiquent le moyen le plus rapide de tester un scénario, et ils utilisent les options par défaut lorsque cela est possible. 
 
+> [!NOTE]
+> Si SQL Server s’exécute sur des plateformes non-VMware. [Évaluez la préparation des données de SQL Server qui migrent vers Azure SQL Database à l’aide de l’Assistant Migration de données](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 
 ## <a name="prerequisites"></a>Prérequis
 

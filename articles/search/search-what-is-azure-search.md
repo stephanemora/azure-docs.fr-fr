@@ -7,36 +7,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/26/2021
+ms.date: 07/21/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: b08fe34e7ac5eede8d1435e3de3817224fafdbc6
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 803916184fb79c1db249b195dde0ed0b95c5c547
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560166"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459640"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Qu’est-ce que la Recherche cognitive Azure ?
 
-La Recherche cognitive Azure ([anciennement la « Recherche Azure »](whats-new.md#new-service-name)) est un service de recherche cloud qui offre aux développeurs une architecture, des API et des outils permettant d’élaborer une expérience de recherche riche, sur du contenu privé et hétérogène, dans les applications web, mobiles et d’entreprise. 
+La Recherche cognitive Azure ([anciennement la « Recherche Azure »](whats-new.md#new-service-name)) est un service de recherche cloud qui offre aux développeurs une infrastructure, des API et des outils permettant d’élaborer une expérience de recherche riche, sur du contenu privé et hétérogène, dans les applications web, mobiles et d’entreprise.
 
-La recherche est fondamentale pour toute application exposant du contenu aux utilisateurs, avec des scénarios courants comme la recherche dans un catalogue ou dans des documents, la recherche sur un site de e-commerce ou l’exploration de connaissances pour la science des données.
+La recherche est fondamentale pour toute application exposant du contenu aux utilisateurs, avec des scénarios courants comme la recherche dans un catalogue ou dans des documents, la recherche sur un site de vente au détail ou l’exploration de connaissances pour la science des données.
 
 Lorsque vous créez un service de recherche, vous utilisez les fonctionnalités suivantes :
 
-+ Moteur de recherche pour recherche en texte intégral
-+ Stockage persistant du contenu appartenant à l’utilisateur dans un index de recherche
-+ Indexation complète, avec analyse de texte et [enrichissement de l’IA](cognitive-search-concept-intro.md) facultatif pour l’extraction et la transformation du contenu
++ Un moteur de recherche pour la recherche en texte intégral avec stockage du contenu appartenant à l'utilisateur dans un index de recherche
++ Indexation complète, avec analyse de texte et [enrichissement de l’IA](cognitive-search-concept-intro.md) facultatif pour l’extraction et la transformation du contenu avancé
 + Fonctionnalités de requête complètes, y compris la syntaxe simple, la syntaxe Lucene complète et la recherche prédictive
 + Programmabilité via les API REST et les bibliothèques clientes dans les Kits de développement logiciel (SDK) Azure pour .NET, Python, Java et JavaScript
 + Intégration d’Azure au niveau de la couche de données, de la couche Machine Learning et de l’IA (Cognitive Services)
-+ Algorithmes de classement de pointe à l’aide de la [recherche sémantique (préversion)](semantic-search-overview.md)
 
 D’un point de vue architectural, un service de recherche se trouve entre les magasins de données externes qui contiennent vos données non indexées et votre application cliente qui envoie des demandes de requête à un index de recherche et gère la réponse.
 
 ![Architecture de la Recherche cognitive Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architecture de Recherche cognitive Azure")
 
-En externe, la recherche peut s’intégrer à d’autres services Azure. Elle le fait sous la forme d’*indexeurs* qui automatisent l’ingestion et la récupération des données à partir des sources de données Azure, et sous la forme d’*ensembles de compétences* qui incorporent l’intelligence artificielle consommable à partir de Cognitive Services (par exemple l’analyse des images et du texte), ou l’intelligence artificielle personnalisée que vous créez dans Azure Machine Learning ou wrappez dans Azure Functions.
+La recherche cognitive peut s’intégrer à d’autres services Azure. Elle le fait sous la forme d’*indexeurs* qui automatisent l’ingestion et la récupération des données à partir des sources de données Azure, et sous la forme d’*ensembles de compétences* qui incorporent l’intelligence artificielle consommable à partir de Cognitive Services (par exemple l’analyse des images et du texte), ou l’intelligence artificielle personnalisée que vous créez dans Azure Machine Learning ou wrappez dans Azure Functions.
 
 ## <a name="inside-a-search-service"></a>À l’intérieur d’un service de recherche
 
@@ -52,11 +50,11 @@ Sur le service de recherche proprement dit, les deux charges de travail principa
 
 Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK.NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la récupération d’informations. Vous pouvez également utiliser le portail Azure pour l’administration de service et la gestion de contenu, avec des outils de prototypage et d’interrogation de vos index et ensembles de compétences. Étant donné que le service s’exécute dans le cloud, infrastructure et la disponibilité sont gérées par Microsoft.
 
-## <a name="why-use-cognitive-search"></a>Pourquoi utiliser la Recherche cognitive ?
+## <a name="why-use-cognitive-search"></a>Pourquoi utiliser la Recherche cognitive Azure ?
 
 La Recherche cognitive Azure est adaptée aux scénarios d’application suivants :
 
-+ Regrouper du contenu hétérogène dans un index de recherche privé, défini par l’utilisateur.
++ Regrouper du contenu hétérogène dans un index de recherche privé, défini par l’utilisateur. Déchargez les charges de travail d’indexation et de requête sur un service de recherche dédié.
 
 + Implémentez facilement les fonctionnalités de recherche : le réglage de la pertinence, la navigation par facettes, les filtres (y compris la recherche géospatiale), le mappage de synonymes et la saisie semi-automatique.
 
@@ -108,6 +106,6 @@ Parmi nos clients, ceux capables d’exploiter le plus large éventail de foncti
 
 ## <a name="watch-this-video"></a>Regardez cette vidéo
 
-Dans cette vidéo de 15 minutes, le Chef de programme Luis Cabrera présente Recherche cognitive Azure.
+Dans cette vidéo de 15 minutes, passez en revue les principales fonctionnalités de Recherche cognitive Azure.
 
 >[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

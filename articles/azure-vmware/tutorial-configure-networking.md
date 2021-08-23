@@ -2,18 +2,20 @@
 title: Tutoriel - Configurer le réseau pour votre cloud privé VMware dans Azure
 description: Découvrir comment créer et configurer le réseau nécessaire au déploiement de votre cloud privé dans Azure
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy22q1
 ms.date: 04/23/2021
-ms.openlocfilehash: 13f74c6120bd78127a2989218b3d535989bb7861
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 10326a07e5838dd5fe2264029c857f5ad49f5811
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945673"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114442017"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutoriel : Configurer le réseau pour votre cloud privé VMware dans Azure
 
 Un cloud privé Azure VMware Solution nécessite un réseau virtuel Azure. Comme Azure VMware Solution ne prend pas en charge votre vCenter local, des étapes supplémentaires sont nécessaires pour l’intégration à votre environnement local. La configuration d’un circuit ExpressRoute et d’une passerelle de réseau virtuel est également nécessaire.
+
+[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -46,7 +48,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Sélectionnez **Revoir + créer**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Sélectionnez Vérifier + créer." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Capture d’écran montrant les paramètres du nouveau réseau virtuel." border="true":::
 
 1. Vérifiez les informations et sélectionnez **Créer**. Une fois le déploiement terminé, vous voyez votre réseau virtuel dans le groupe de ressources.
 
@@ -74,7 +76,7 @@ Dans ce tutoriel, vous allez apprendre à :
    | **Plage d’adresses du sous-réseau de passerelle** | Cette valeur est renseignée quand vous sélectionnez le réseau virtuel. Ne modifiez pas la valeur par défaut. |
    | **Adresse IP publique** | Sélectionnez **Créer nouveau**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Fournissez des valeurs pour les champs, puis sélectionnez Vérifier + créer." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Capture d’écran montrant les détails de la passerelle de réseau virtuel." border="true":::
 
 1. Vérifiez que les détails sont corrects, puis sélectionnez **Créer** pour démarrer le déploiement de votre passerelle de réseau virtuel. 
 1. Une fois le déploiement terminé, passez à la section suivante pour connecter votre connexion ExpressRoute à la passerelle de réseau virtuel contenant votre cloud privé Azure VMware Solution.
@@ -99,4 +101,4 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour apprendre à créer les segments de réseau NSX-T utilisés pour les machines virtuelles dans vCenter.
 
 > [!div class="nextstepaction"]
-> [Créer un segment réseau NSX-T](tutorial-nsx-t-network-segment.md)
+> [Créer un segment réseau NSX-T](./tutorial-nsx-t-network-segment.md)

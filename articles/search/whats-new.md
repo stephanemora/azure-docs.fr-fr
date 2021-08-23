@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/24/2021
+ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 3c44db5c17d1179df03985515acc9133feca198e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003779"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711061"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
 Découvrir les nouveautés du service. Marquez cette page pour rester au fait des nouveautés du service. Consultez la [liste des fonctionnalités d’évaluation](search-api-preview.md) pour voir la liste complète des fonctionnalités qui ne sont pas encore en disponibilité générale.
+
+## <a name="july-2021"></a>Juillet 2021
+
+|Fonctionnalité&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilité  |
+|------------------------------------|--------------|---------------|
+| [API REST Recherche 2021-04-30-Préversion](/rest/api/searchservice/index-preview) | Ajoute la prise en charge de l’API REST pour les connexions d’indexeur effectuées à l’aide d'[identités gérées](search-howto-managed-identities-data-sources.md) et d’Azure Active Directory (Azure AD). | Préversion publique |
+| [Autorisation basée sur les rôles (préversion)](search-security-rbac.md) | S’authentifier à l’aide d’Azure Active Directory et de nouveaux rôles intégrés pour l’accès du plan de données aux index et à l’indexation, en éliminant ou en réduisant la dépendance sur les clés API. | Préversion publique ([sur demande](https://aka.ms/azure-cognitive-search/rbac-preview)). Une fois votre abonnement intégré, utilisez Portail Azure ou l’API REST de gestion version 2021-04-01-préversion pour configurer un service de recherche pour l’authentification du plan de données.|
+| [API REST Gestion (2021-04-01-Préversion)](/rest/api/searchmanagement/) | Modifie la [création ou la mise à jour du service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) pour prendre en charge [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Préversion publique |
 
 ## <a name="may-2021"></a>Mai 2021
 

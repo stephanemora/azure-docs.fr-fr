@@ -1,15 +1,15 @@
 ---
 title: Détails de la conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 06/11/2021
+ms.date: 07/16/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: d18e912a2139188d4d6c330fab4e03fcc5e68f2d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a0fd7ea4b015c04bf2bd108a13cb06dc5b4d0dde
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030178"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114401852"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 
@@ -117,7 +117,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le chiffrement de disque doit être appliqué sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Les machines virtuelles doivent chiffrer les disques temporaires, les caches et les flux de données entre les ressources de calcul et de stockage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut ASC « Superviser les groupes de sécurité réseau » n’est pas défini sur « Disabled »
 
@@ -133,7 +133,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Protégez vos machines virtuelles contre les menaces potentielles en limitant leur accès avec des groupes de sécurité réseau (NSG). Pour en savoir plus sur le contrôle du trafic avec des groupes de sécurité réseau, consultez [https://aka.ms/nsg-doc](https://aka.ms/nsg-doc). |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnInternetFacingVirtualMachines_Audit.json) |
+|[Les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6de0be7-9a8a-4b8a-b349-43cf02d22f7c) |Protégez vos machines virtuelles contre les menaces potentielles en limitant leur accès avec des groupes de sécurité réseau (NSG). Pour en savoir plus sur le contrôle du trafic avec des groupes de sécurité réseau, consultez [https://aka.ms/nsg-doc](../../../virtual-network/network-security-groups-overview.md). |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnInternetFacingVirtualMachines_Audit.json) |
 |[les sous-réseaux doivent être associés à un groupe de sécurité réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protégez votre sous-réseau contre les menaces potentielles en y limitant l’accès avec un groupe de sécurité réseau (NSG). Les NSG contiennent une liste de règles de liste de contrôle d’accès (ACL) qui autorisent ou refusent le trafic réseau vers votre sous-réseau. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Superviser l’évaluation des vulnérabilités » n’est pas défini sur « Disabled »
@@ -390,7 +390,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le compte de stockage disposant du conteneur des journaux d’activité doit être chiffré avec BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Cette stratégie vérifie si le compte de stockage disposant du conteneur des journaux d’activité est chiffré avec BYOK. La stratégie fonctionne uniquement si le compte de stockage se trouve par défaut dans le même abonnement que les journaux d’activité. Vous trouverez des informations complémentaires sur le chiffrement Stockage Azure au repos ici [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok).  |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+|[Le compte de stockage disposant du conteneur des journaux d’activité doit être chiffré avec BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Cette stratégie vérifie si le compte de stockage disposant du conteneur des journaux d’activité est chiffré avec BYOK. La stratégie fonctionne uniquement si le compte de stockage se trouve par défaut dans le même abonnement que les journaux d’activité. Vous trouverez des informations complémentaires sur le chiffrement Stockage Azure au repos ici [https://aka.ms/azurestoragebyok](../../../storage/common/customer-managed-keys-configure-key-vault.md).  |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Vérifier que la journalisation d’Azure KeyVault est définie sur « Enabled »
 
@@ -398,8 +398,8 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les journaux de ressource dans les HSM managés par Azure Key Vault doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Pour recréer des traçages d’activité à des fins d’investigation quand un incident de sécurité se produit ou quand votre réseau est compromis, vous pouvez effectuer un audit en activant les journaux de ressources des HSM managés. Suivez les instructions ici : [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging). |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
-|[Les journaux de ressources dans Key Vault doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Auditez l’activation des journaux de ressources. Permet de recréer les pistes d’activité à utiliser à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau |AuditIfNotExists, Désactivé |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[Les journaux de ressource dans les HSM managés par Azure Key Vault doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Pour recréer des traçages d’activité à des fins d’investigation quand un incident de sécurité se produit ou quand votre réseau est compromis, vous pouvez effectuer un audit en activant les journaux de ressources des HSM managés. Suivez les instructions ici : [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](../../../key-vault/managed-hsm/logging.md). |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
+|[Les journaux de ressources dans Key Vault doivent être activés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Auditez l’activation des journaux de ressources. Permet de recréer les pistes d’activité à utiliser à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau |AuditIfNotExists, Désactivé |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Vérifier l’existence de l’alerte de journal d’activité pour la création d’attribution de stratégie
 
@@ -497,7 +497,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Network Watcher doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Vous devez disposer d’un groupe de ressources Network Watcher à créer dans chaque région où un réseau virtuel est présent. Une alerte est activée si un groupe de ressources Network Watcher n’est pas disponible dans une région. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
+|[Network Watcher doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Vous devez créer un groupe de ressources Network Watcher dans chaque région où un réseau virtuel est présent. Une alerte est activée dans le cas où aucun groupe de ressources Network Watcher n’est disponible dans une région donnée. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
 ## <a name="virtual-machines"></a>Virtual Machines
 
@@ -507,7 +507,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le chiffrement de disque doit être appliqué sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Les machines virtuelles doivent chiffrer les disques temporaires, les caches et les flux de données entre les ressources de calcul et de stockage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>Vérifier que les disques de données sont chiffrés
 
@@ -515,7 +515,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le chiffrement de disque doit être appliqué sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[Les machines virtuelles doivent chiffrer les disques temporaires, les caches et les flux de données entre les ressources de calcul et de stockage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Les machines virtuelles sans chiffrement de disque activé seront supervisées par Azure Security Center en tant que recommandations. |AuditIfNotExists, Désactivé |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>Vérifier que les disques non attachés sont chiffrés
 

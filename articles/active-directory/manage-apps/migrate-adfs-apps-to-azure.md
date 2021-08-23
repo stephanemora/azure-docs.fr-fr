@@ -2,21 +2,21 @@
 title: Déplacement de l’authentification d’application d’AD FS vers Azure Active Directory
 description: Découvrez comment utiliser Azure Active Directory pour remplacer les Services de fédération Active Directory (AD FS), en donnant aux utilisateurs l’authentification unique à toutes leurs applications.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: mtillman
-ms.reviewer: baselden
-ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: davidmu
+ms.reviewer: alamaral
+ms.openlocfilehash: 6633d7a6ed7def1a2c3ee7f0262c16b106275bfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078812"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562950"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -135,7 +135,7 @@ AD FS et Azure AD fournissent le chiffrement des jetons, qui est la possibilité
 Pour plus d’informations sur le chiffrement de jeton SAML Azure AD et sur la façon de le configurer, consultez [Procédure : configurer Azure le chiffrement de jeton SAML Azure AD](howto-saml-token-encryption.md).  
 
 > [!NOTE]
-> Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+> Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### <a name="apps-and-configurations-that-can-be-moved-today"></a>Applications et configurations qui peuvent être déplacées aujourd’hui
 
@@ -154,8 +154,8 @@ Les éléments suivants requièrent des étapes de configuration supplémentaire
 * Applications avec plusieurs points de terminaison d’URL de réponse. Vous les configurez dans Azure AD à l’aide de PowerShell ou de l’interface du portail Azure.
 * Applications WS-Federation telles que les applications SharePoint qui nécessitent des jetons SAML version 1.1. Vous pouvez les configurer manuellement à l’aide de PowerShell. Vous pouvez également ajouter un modèle générique préintégré pour les applications SharePoint et SAML 1.1 à partir de la Galerie. Nous prenons en charge le protocole SAML 2.0.
 * Règles de transformation des émissions de revendications complexes. Pour plus d’informations sur les mappages de revendications pris en charge, consultez :
-   *  [Mappage des revendications dans Azure Active Directory](../develop/active-directory-claims-mapping.md).
-   * [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+  * [Mappage des revendications dans Azure Active Directory](../develop/active-directory-claims-mapping.md).
+  * [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 ### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>Applications et configurations non prises en charge dans Azure AD actuellement
 
@@ -308,7 +308,7 @@ Spécifiez les règles d’authentification multifacteur pour un utilisateur ou 
 
     ‎![Capture d’écran montrant le volet Accorder dans lequel vous pouvez accorder l’accès.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
- #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Exemple 2 : Appliquer l’authentification multifacteur pour les appareils non inscrits
+#### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Exemple 2 : Appliquer l’authentification multifacteur pour les appareils non inscrits
 
 Spécifiez les règles d’authentification multifacteur pour les appareils non inscrits dans Azure AD :
 
