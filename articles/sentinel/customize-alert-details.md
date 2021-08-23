@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 725711ed7d49b21303769ccd6959fc8b2083e9fa
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 0b6d64167451b3c7363d6bd80c5fafcd67b6fc5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524774"
 ---
 # <a name="customize-alert-details-in-azure-sentinel"></a>Personnaliser des détails d’alerte dans Azure Sentinel 
 
@@ -63,5 +63,5 @@ La procédure détaillée ci-dessous fait partie de l’Assistant Création de r
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a montré comment personnaliser des détails d’alerte dans les règles analytiques d’Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
+- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](detect-threats-custom.md).
 - Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).

@@ -10,15 +10,15 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab85dbc95a8f7432afba3eaa082f6490d1ba8dba
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "72248605"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552457"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Comment contacter Microsoft Genomics pour une demande de support
-Cette vue d’ensemble décrit comment soumettre une demande de support pour contacter Microsoft Genomics. Cela peut être utile si vous ne parvenez pas à résoudre votre problème à l’aide du [guide de résolution des problèmes](troubleshooting-guide-genomics.md) ou de la [FAQ](frequently-asked-questions-genomics.md). 
+Cette vue d’ensemble décrit comment soumettre une demande de support pour contacter Microsoft Genomics. Cela peut être utile si vous ne parvenez pas à résoudre votre problème à l’aide du [guide de résolution des problèmes](troubleshooting-guide-genomics.md) ou de la [FAQ](frequently-asked-questions-genomics.yml). 
 
 
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Soumettre un ticket de support via le Portail Azure
@@ -46,4 +46,4 @@ Enfin, ajoutez vos informations de contact et sélectionnez `Create` au bas de l
 ![Demande de support – Contact](./media/file-support-ticket/support-request-contact.png "Demande de support – Contact")
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment soumettre une demande de support. Vous pouvez également résoudre des problèmes courants à l’aide de notre [FAQ](frequently-asked-questions-genomics.md) et de notre [guide de résolution des problèmes](troubleshooting-guide-genomics.md). 
+Dans cet article, vous avez appris comment soumettre une demande de support. Vous pouvez également résoudre des problèmes courants à l’aide de notre [FAQ](frequently-asked-questions-genomics.yml) et de notre [guide de résolution des problèmes](troubleshooting-guide-genomics.md). 

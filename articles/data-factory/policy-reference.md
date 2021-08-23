@@ -4,17 +4,16 @@ description: Liste les définitions de stratégie intégrées d'Azure Policy pou
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom:
-- seo-lt-2019
-- references_regions
-ms.date: 06/11/2021
-ms.openlocfilehash: e3ff681ed09289d4f709ce4518047b3accb78c03
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.custom: seo-lt-2019, references_regions
+ms.date: 08/20/2021
+ms.openlocfilehash: 2f78ac362288f8246b31d33bdf167197cd2f3f3b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017358"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609375"
 ---
 # <a name="azure-policy-built-in-definitions-for-data-factory-preview"></a>Définitions intégrées d'Azure Policy pour Data Factory (préversion)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

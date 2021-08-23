@@ -1,17 +1,20 @@
 ---
 title: Copier des données de Vertica avec Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Vertica vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jianleishen
-ms.openlocfilehash: f8b9cba39005c7c6a69789ee29a03be4ab56bae8
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: dd501dc5ae791aacf7a4e636eae742aa03f449dc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484736"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641266"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copier des données de Vertica avec Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

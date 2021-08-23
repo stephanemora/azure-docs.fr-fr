@@ -2,17 +2,18 @@
 title: Superviser un runtime d'intégration dans Azure Data Factory
 description: Découvrez comment surveiller plusieurs types de runtime d’intégration dans Azure Data Factory.
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e8a624d715405a32b6ceb24912161709bf89806
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 10770e3df3f666163958344868a86ee8e7374d55
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670736"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532759"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 

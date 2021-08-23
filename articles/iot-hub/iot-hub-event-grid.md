@@ -2,7 +2,6 @@
 title: Azure IoT Hub et Event Grid | Microsoft Docs
 description: Azure Event Grid permet de déclencher des processus en fonction d’actions qui se produisent dans IoT Hub.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c4c23859a44f45fc294631dd33da0ab9cad1dd61
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: d8ddd49202faac6a9fc5ba34ac5b5e8e92d5b704
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562837"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -194,11 +193,11 @@ Pour filtrer les messages avant l’envoi de données de télémétrie, vous pou
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils
 
-Pour recevoir des événements d’état de connexion, un appareil doit appeler une opération *d’envoi de données de télémétrie appareil-à-cloud* ou de *réception de message cloud-à-appareil* avec IoT Hub. Toutefois, s’il utilise le protocole AMQP pour se connecter à IoT Hub, il est recommandé d’appeler une opération de *réception de message cloud-à-appareil*. Sinon, ses notifications d’état de connexion risquent d’être retardées de quelques minutes. Si l’appareil se connecte avec le protocole MQTT, IoT Hub maintient la liaison cloud-à-appareil ouverte. Pour ouvrir la liaison cloud-à-appareil pour AMQP, appelez [l’API de réception asynchrone](/rest/api/iothub/device/receivedeviceboundnotification).
+Pour recevoir des événements d’état de connexion, un appareil doit appeler une opération *d’envoi de données de télémétrie appareil-à-cloud* ou de *réception de message cloud-à-appareil* avec IoT Hub. Toutefois, si un appareil utilise le protocole AMQP pour se connecter à IoT Hub, il est recommandé d’effectuer une opération *réception de message cloud-à-appareil*. Sinon, les notifications d’état de la connexion peuvent être retardées de quelques minutes. Si votre appareil se connecte via le protocole MQTT, IoT Hub maintient la liaison cloud-à-appareil ouverte. Pour ouvrir la liaison cloud-à-appareil pour AMQP, appelez [l’API Receive Async](/rest/api/iothub/device/receivedeviceboundnotification).
 
 La liaison appareil-à-cloud reste ouverte tant que l’appareil envoie des données de télémétrie.
 
-Si la connexion de l’appareil est intermittente (c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment), IoT Hub n’envoie pas les états de connexion un par un. Il publie l’état de connexion actuel pris dans un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
+Si la connexion de l’appareil est intermittente, c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment, IoT Hub n’envoie pas chaque état de connexion unique, mais publie l’état de connexion actuel pris à un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
 
 ## <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
 

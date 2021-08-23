@@ -1,18 +1,20 @@
 ---
 title: Copier des données à partir de MongoDB
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory hérité pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: synapse
 ms.date: 08/12/2019
-ms.openlocfilehash: 4882949abd21e782d98dff8de2ba7be1b66ecdfb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 82a6f4dc55d94b3d2574e841051d69034d34f620
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641991"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copier des données à partir de MongoDB à l’aide d’Azure Data Factory (hérité)
 
@@ -182,7 +184,7 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| String |String |
+| Chaîne |String |
 | UUID |Guid |
 | Object |Renormalisé en colonnes aplaties avec « _ » comme séparateur imbriqué |
 

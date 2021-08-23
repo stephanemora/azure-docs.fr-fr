@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: aa08b9f5db5e6371bcd20b473a0c755db3199e7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9fd23f5b5c78cac7b045c93a57c79279ed7f703
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704291"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563488"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 
@@ -41,11 +41,11 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | Source connectée | Support | Description |
 |---|---|---|
 | [Agents Windows](../agents/agent-windows.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
-| [Agents Linux](../vm/quick-collect-linux-computer.md) | Non    | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
-| [Groupe d’administration SCOM](../agents/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
+| [Agents Linux](../vm/monitor-virtual-machine.md) | Non | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
+| [Groupe d’administration SCOM](../agents/om-agents.md) | Yes |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 - Des agents Windows ou Operations Manager doivent être installés sur Windows Server 2012 ou des hôtes Hyper-V supérieurs, mais pas sur des machines virtuelles.
 
@@ -129,4 +129,3 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [Recherches dans les journaux de Log Analytics](../logs/log-query-overview.md) pour afficher les données détaillées de capacité et de performances.
-

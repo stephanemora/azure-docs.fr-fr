@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 6f3761b1c933d113bf65c70370c29bcfa7950eea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b9bd43591c64d1b83ba8bf8f5400c0273141d735
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728652"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533246"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
 ![Icône de gestion des alertes](media/alert-management-solution/icon.png)
 
-La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](../alerts/alerts-overview.md) ou [importées à partir de Nagios ou Zabbix](../vm/quick-collect-linux-computer.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](../agents/om-agents.md).
+La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](../alerts/alerts-overview.md) ou [importées à partir de Nagios ou Zabbix](../vm/monitor-virtual-machine.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](../agents/om-agents.md).
 
 ## <a name="prerequisites"></a>Prérequis
 La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 
 - Pour les alertes Log Analytics, [créez des règles d’alerte](../alerts/alerts-overview.md) pour créer des enregistrements d’alerte directement dans le référentiel.
-- Pour les alertes Nagios et Zabbix, [configurez ces serveurs](../vm/quick-collect-linux-computer.md) pour envoyer des alertes à Log Analytics.
+- Pour les alertes Nagios et Zabbix, [configurez ces serveurs](../vm/monitor-virtual-machine.md) pour envoyer des alertes à Log Analytics.
 - Pour les alertes System Center Operations Manager, [connectez votre groupe d’administration Operations Manager à votre espace de travail Log Analytics](../agents/om-agents.md).  Toutes les alertes créées dans System Center Operations Manager sont importées dans Log Analytics.  
 
 ## <a name="configuration"></a>Configuration
@@ -42,7 +42,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | Source connectée | Support | Description |
 |:--- |:--- |:--- |
 | [Agents Windows](../agents/agent-windows.md) | Non |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
-| [Agents Linux](../vm/quick-collect-linux-computer.md) | Non |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
+| [Agents Linux](../vm/monitor-virtual-machine.md) | Non |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../agents/om-agents.md) |Oui |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
 
 

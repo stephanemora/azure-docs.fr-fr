@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 4b6ad04afce5fb4ead5575d47333525c0f5f8a13
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f4e6ddf4e3db0213587a9154a424813c3cc5ca83
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075195"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533320"
 ---
 # <a name="connect-your-domain-name-server"></a>Connecter votre serveur de noms de domaine
 
@@ -47,7 +47,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | **Source connectée** | **Support** | **Description** |
 | --- | --- | --- |
 | [Agents Windows](../azure-monitor/agents/agent-windows.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
-| [Agents Linux](../azure-monitor/vm/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
+| [Agents Linux](../azure-monitor/vm/monitor-virtual-machine.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
 | [Groupe d’administration de Microsoft System Center Operations Manager](../azure-monitor/agents/om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 | [Compte Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’est pas utilisé par la solution. |
 
@@ -88,5 +88,5 @@ Si les requêtes de recherche ne s’affichent pas dans Azure Sentinel, effectue
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez appris à connecter les appliances locales DNS à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).

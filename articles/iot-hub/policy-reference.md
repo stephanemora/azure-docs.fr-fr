@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure IoT Hub
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure IoT Hub. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 90787f7f2af2f41ef44222d89a8b9feeaeb9cbe2
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: be9a02a26e552ccc3cf6a3d9364caeeb07db77dc
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020514"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604060"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Définitions intégrées d’Azure Policy pour Azure IoT Hub
 

@@ -2,19 +2,19 @@
 title: Sécuriser un service lié
 description: Découvrez comment provisionner et sécuriser un service lié avec un réseau virtuel managé
 services: synapse-analytics
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: efe404511b725680697c5f6601b8cb13be13910b
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: ea5be6fc0594d679e7b8dcbd2037e7b47bce993f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109808965"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562596"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links)
 

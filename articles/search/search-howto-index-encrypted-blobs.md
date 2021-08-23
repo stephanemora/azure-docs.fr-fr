@@ -9,16 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: e70361b747cac10b602efcf590963b707c7d5da7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: c78d8f3bc4a7bfc7b73d71a97e29c369926448c5
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558995"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113139410"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexer des objets blob chiffrés à l'aide d'indexeurs d'objets blob et d'ensembles de compétences dans le service Recherche cognitive Azure
 
-Cet article vous explique comment utiliser le service [Recherche cognitive Azure](search-what-is-azure-search.md) pour indexer des documents préalablement chiffrés dans [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) à l'aide d’[Azure Key Vault](../key-vault/general/overview.md). Normalement, un indexeur ne peut pas extraire le contenu des fichiers chiffrés car il n'a pas accès à la clé de chiffrement. Mais en tirant parti de la compétence personnalisée [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) suivie de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), vous pouvez fournir un accès contrôlé à la clé pour déchiffrer les fichiers, puis en extraire le contenu. Cela permet l’indexation de ces documents sans compromettre le statut de chiffrement de vos documents stockés.
+Cet article vous explique comment utiliser le service [Recherche cognitive Azure](search-what-is-azure-search.md) pour indexer des documents préalablement chiffrés dans [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md) à l'aide d’[Azure Key Vault](../key-vault/general/overview.md). Normalement, un indexeur ne peut pas extraire le contenu des fichiers chiffrés car il n'a pas accès à la clé de chiffrement. Mais en tirant parti de la compétence personnalisée [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) suivie de [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), vous pouvez fournir un accès contrôlé à la clé pour déchiffrer les fichiers, puis en extraire le contenu. Cela permet l’indexation de ces documents sans compromettre le statut de chiffrement de vos documents stockés.
 
 En commençant par les documents entiers précédemment chiffrés (texte non structuré) tels que PDF, HTML, DOCX et PPTX dans le Stockage Blob Azure, ce guide utilise Postman et les API REST de recherche pour effectuer les tâches suivantes :
 
@@ -44,11 +44,11 @@ Cet exemple part du principe que vous avez déjà chargé vos fichiers sur le St
 
 ### <a name="set-up-the-custom-skill"></a>Configurer la compétence personnalisée
 
-Cet exemple utilise l'exemple de projet [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) du référentiel GitHub [Super compétences de la Recherche Azure](https://github.com/Azure-Samples/azure-search-power-skills). Dans cette section, vous allez déployer la compétence sur une instance d'Azure Function afin qu'elle puisse être utilisée dans un ensemble de compétences. Un script de déploiement intégré crée une ressource Azure Function nommée avec le préfixe **psdbf-function-app-** et charge la compétence. Vous êtes ensuite invité à fournir un abonnement et un groupe de ressources. Veillez à choisir le même abonnement que celui auquel votre instance d'Azure Key Vault est associée.
+Cet exemple utilise l'exemple de projet [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) du référentiel GitHub [Super compétences de la Recherche Azure](https://github.com/Azure-Samples/azure-search-power-skills). Dans cette section, vous allez déployer la compétence sur une instance d'Azure Function afin qu'elle puisse être utilisée dans un ensemble de compétences. Un script de déploiement intégré crée une ressource Azure Function nommée avec le préfixe **psdbf-function-app-** et charge la compétence. Vous êtes ensuite invité à fournir un abonnement et un groupe de ressources. Veillez à choisir le même abonnement que celui auquel votre instance d'Azure Key Vault est associée.
 
 Sur le plan opérationnel, la compétence DecryptBlobFile prend l'URL et le jeton SAS de chaque objet blob en tant qu'entrées, puis extrait le fichier téléchargé et déchiffré à l'aide du contrat de référence de fichier attendu par le service Recherche cognitive Azure. Pour rappel, DecryptBlobFile a besoin de la clé de chiffrement afin de procéder au déchiffrement. Dans le cadre de la configuration, vous allez également créer une stratégie d'accès qui accorde à la fonction DecryptBlobFile l'accès à la clé de chiffrement dans Azure Key Vault.
 
-1. Cliquez sur le bouton **Déployer sur Azure** situé sur la [page de destination de DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile#deployment) pour ouvrir le modèle Resource Manager fourni sur le portail Azure.
+1. Cliquez sur le bouton **Déployer sur Azure** situé sur la [page de destination de DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile#deployment) pour ouvrir le modèle Resource Manager fourni sur le portail Azure.
 
 1. Sélectionnez **l'abonnement auquel votre instance Azure Key Vault est associée** (ce guide ne fonctionnera pas si vous sélectionnez un autre abonnement), puis sélectionnez un groupe de ressources existant ou créez-en un (si vous en créez un, vous devrez également sélectionner la région dans laquelle le déploiement sera effectué).
 

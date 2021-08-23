@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
+ms.openlocfilehash: 34af764b9a58d4fe981b4c6946cd2299fdff75ae
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219958"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535134"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft
 
@@ -74,7 +74,7 @@ Utilisez la check-list suivante pour vous assurer que votre application est int�
 
 ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) Pour les applications mobiles, configurez chaque plateforme à l’aide de l’expérience d’inscription d’application. Pour que votre application puisse tirer parti de Microsoft Authenticator ou du portail d’entreprise Microsoft pour l’authentification unique, votre application a besoin d’une « URI de redirection de répartiteur » configurée. Cela permet à Microsoft de rendre le contrôle à votre application après l’authentification. Lors de la configuration de chaque plateforme, l’expérience d’inscription de l’application vous guide tout au long du processus. Utilisez le démarrage rapide pour télécharger un exemple fonctionnel. Sur iOS, utilisez les répartiteurs et la webview système dans la mesure du possible.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Dans les applications web et les API web, conservez un cache de jeton par compte.  Pour les applications web, le cache de jeton doit être indexé par ID de compte.  Pour les API web, le compte doit être indexé avec le hachage du jeton utilisé pour appeler l’API. MSAL.NET fournit la sérialisation personnalisée du cache de jeton dans les sous-plateformes .NET Framework et .NET Core. Pour des raisons de sécurité et de performances, nous vous recommandons de sérialiser un cache par utilisateur. Pour plus d’informations, consultez [Sérialisation du cache de jeton](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Dans les applications web et les API web, conservez un cache de jeton par compte.  Pour les applications web, le cache de jeton doit être indexé par ID de compte.  Pour les API web, le compte doit être indexé avec le hachage du jeton utilisé pour appeler l’API. MSAL.NET fournit la sérialisation personnalisée du cache de jeton dans les sous-plateformes .NET Framework et .NET Core. Pour des raisons de sécurité et de performances, nous vous recommandons de sérialiser un cache par utilisateur. Pour plus d’informations, consultez [Sérialisation du cache de jeton](msal-net-token-cache-serialization.md).
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Si les données exigées par votre application sont disponibles par le biais de [Microsoft Graph](https://developer.microsoft.com/graph), demandez les autorisations pour ces données avec le point de terminaison Microsoft Graph, plutôt qu’avec l’API individuelle.
 

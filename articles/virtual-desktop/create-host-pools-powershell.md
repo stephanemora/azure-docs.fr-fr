@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 58044b38b78776eca650b52d448ff1477b71e362
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0b0822bf7653a076e579a0bec1cbfcc926d4c7b9
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756109"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651132"
 ---
 # <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Azure Virtual Desktop à l’aide de PowerShell
 
@@ -76,7 +76,6 @@ Vous pouvez créer une machine virtuelle de plusieurs façons :
 
 - [Créer une machine virtuelle à partir d’une image Azure Gallery](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Créer une machine virtuelle à partir d’une image managée](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
 >Si vous déployez une machine virtuelle à l’aide de Windows 7 en tant que système d’exploitation hôte, le processus de création et de déploiement sera un peu différent. Pour plus d’informations, consultez [Déployer une machine virtuelle Windows 7 sur Azure Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).

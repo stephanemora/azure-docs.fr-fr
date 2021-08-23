@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 840d87fe1bf14e60cdfdd2438189763bcc548c3a
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097447"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534775"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Connectez votre Zimperium Mobile Threat Defense à Azure Sentinel
 
@@ -26,6 +26,7 @@ ms.locfileid: "100097447"
 > Le connecteur de données Zimperium Mobile Threat Defense dans Azure Sentinel est actuellement en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 Le connecteur Zimperium Mobile Threat Defense vous permet de connecter le journal des menaces Zimperium avec Azure Sentinel pour afficher des tableaux de bord, créer des alertes personnalisées et améliorer l’investigation. Cela vous donne plus d’informations sur le paysage des menaces mobiles de votre organisation et améliore vos capacités d’opération de sécurité.
@@ -64,11 +65,11 @@ Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne comm
 
 Dans ce document, vous avez appris à connecter Zimperium Mobile Threat Defense à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
 
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
 
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.
 
 Pour en savoir plus sur Zimperium, voir les rubriques suivantes :
 
@@ -77,4 +78,3 @@ Pour en savoir plus sur Zimperium, voir les rubriques suivantes :
 - [Blog Zimperium Mobile Security](https://blog.zimperium.com)
 
 - [Portail du service clientèle de Zimperium](https://support.zimperium.com)
-

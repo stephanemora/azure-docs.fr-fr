@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 0c3db80edf771b0ad34aa9260da80b43ba8c355e
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: eb95c7e6cd2c76cc35556f13025505785707ed04
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652580"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597872"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
 
@@ -155,11 +155,6 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
 
     :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Vérifier la version de Python dans Jupyter Notebook" border="true":::
 
-## <a name="known-issue"></a>Problème connu
-
-Il existe un bogue connu pour Anaconda versions `4.7.11`, `4.7.12` et `4.8.0`. Il est possible que vos actions de script se figent à l’étape `"Collecting package metadata (repodata.json): ...working..."` et se terminent par l’échec suivant : `"Python script has been killed due to timeout after waiting 3600 secs"`. Vous pouvez télécharger [ce script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) et l’exécuter en tant qu’actions de script sur tous les nœuds pour résoudre le problème.
-
-Pour vérifier votre version d’Anaconda, vous pouvez utiliser le protocole SSH pour le nœud d’en-tête de cluster et exécuter `/usr/bin/anaconda/bin/conda --v`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

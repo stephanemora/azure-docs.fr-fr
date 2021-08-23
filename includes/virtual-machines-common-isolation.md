@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-machines
 author: rishabv90
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 6d2e50a5154a74fc2521da6032d8bfcd8d34f4d6
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073745"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113364803"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client. Les tailles isolées vivent et fonctionnent sur une génération de matériel spécifique et seront déconseillées lors de sa mise hors service.
 
@@ -26,11 +26,7 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 * Standard_E80ids_v4
 * Standard_E80is_v4
 * Standard_F72s_v2
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_M128ms
-* Standard_GS5
-* Standard_G5
 * Standard_DC8_v2
 
 

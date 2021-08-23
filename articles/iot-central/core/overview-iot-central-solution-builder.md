@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc8ca48d11f31f69ca9db5dce53cce4d9d6e8f25
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5ceb6950cb5ed581d2efea9a375fee0bf4008952
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772330"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597852"
 ---
 # <a name="iot-central-solution-builder-guide"></a>Guide du générateur de solutions IoT Central
 
@@ -30,17 +30,16 @@ Un générateur de solutions :
 Une application IoT Central peut avoir un ou plusieurs tableaux de bord que les opérateurs utilisent pour afficher et interagir avec l’application. En tant que générateur de solutions, vous pouvez personnaliser le tableau de bord par défaut et créer des tableaux de bord spécialisés :
 
 - Pour consulter des exemples de tableaux de bord personnalisés, consultez [Modèles sectoriels](concepts-app-templates.md#industry-focused-templates).
-- Pour en savoir plus sur les tableaux de bord, consultez [Créer et gérer plusieurs tableaux de bord](howto-create-personal-dashboards.md) et [Configurer le tableau de bord de l’application](howto-add-tiles-to-your-dashboard.md).
+- Pour en savoir plus sur les tableaux de bord, consultez [Créer et gérer plusieurs tableaux de bord](howto-manage-dashboards.md) et [Configurer le tableau de bord de l’application](howto-manage-dashboards.md).
 
-Quand un appareil se connecte à IoT Central, il est associé à un modèle d’appareil pour le type d’appareil. Un modèle d’appareil comporte des vues personnalisables qu’un opérateur utilise pour gérer des appareils individuels. En tant que développeur de solutions, vous pouvez créer et personnaliser les vues disponibles pour un type d’appareil. Pour plus d’informations, consultez [Ajouter des vues](howto-set-up-template.md#add-views).
+Quand un appareil se connecte à IoT Central, il est associé à un modèle d’appareil pour le type d’appareil. Un modèle d’appareil comporte des vues personnalisables qu’un opérateur utilise pour gérer des appareils individuels. En tant que développeur de solutions, vous pouvez créer et personnaliser les vues disponibles pour un type d’appareil. Pour plus d’informations, consultez [Ajouter des vues](howto-set-up-template.md#views).
 
 ## <a name="use-built-in-rules-and-analytics"></a>Utiliser des règles et une analytique intégrées
 
 Un développeur de solutions peut ajouter des règles à une application IoT Central qui exécute des actions personnalisables. Les règles évaluent les conditions, en fonction des données provenant d’un appareil, pour déterminer quand exécuter une action. Pour en savoir plus sur les règles, consultez :
 
 - [Tutoriel : Créer une règle et configurer des notifications dans votre application Azure IoT Central](tutorial-create-telemetry-rules.md)
-- [Créer des actions de webhook sur des règles dans Azure IoT Central](howto-create-webhooks.md)
-- [Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles](howto-use-action-groups.md)
+- [Configurer des règles](howto-configure-rules.md)
 
 IoT Central dispose de fonctionnalités d’analyse intégrées qu’un opérateur peut utiliser pour analyser les données provenant des appareils connectés. Pour en savoir plus, consultez [Comment utiliser l’analytique pour analyser des données d’appareils](howto-create-analytics.md).
 
@@ -53,7 +52,6 @@ En tant que générateur de solutions, vous pouvez utiliser les fonctionnalités
 - [Utiliser des workflows pour intégrer votre application Azure IoT Central à d’autres services cloud](howto-configure-rules-advanced.md)
 - [Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid](howto-create-custom-rules.md)
 - [Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks](howto-create-custom-analytics.md)
-- [Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI](howto-connect-powerbi.md)
 
 ## <a name="apis"></a>API
 

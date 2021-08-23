@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3527e098e282d9c8f31069f7b747aa33f9d0349
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85566053"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563759"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Connecter Check Point à Azure Sentinel
 
 
 
 Cet article explique comment connecter votre appliance Check Point à Azure Sentinel. Le connecteur de données Check Point vous permet de connecter facilement vos journaux Check Point à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. L’utilisation de Check Point sur Azure Sentinel vous permettra d’obtenir davantage d’informations sur l’utilisation d’Internet au sein de votre organisation et améliorera ses fonctionnalités de sécurité. 
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Transférer les journaux Check Point à l’agent Syslog
 
@@ -43,7 +46,5 @@ Configurez Check Point pour transférer les messages Syslog au format CEF à vot
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter des appliances Check Point à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - [Valider la connectivité](connect-cef-verify.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-
-
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

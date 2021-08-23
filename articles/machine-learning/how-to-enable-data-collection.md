@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: how-to
 ms.custom: data4ml
-ms.openlocfilehash: 4b6ae5668715431875090be999806dc5a9d994c9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2319e513cf223118e043ba11702301f8a2796ff3
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885089"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504978"
 ---
 # <a name="collect-data-from-models-in-production"></a>Collecter des données pour des modèles en production
 
@@ -57,7 +57,7 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 - Vous devez installer un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Pour savoir comment les installer, consultez [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 
@@ -99,7 +99,7 @@ Pour activer la collecte de données, vous devez :
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. La collecte de données *n’est pas* automatiquement définie sur **true** quand vous déployez un service dans AKS. Mettez à jour votre fichier de configuration, comme dans l’exemple suivant :

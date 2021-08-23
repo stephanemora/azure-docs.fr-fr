@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a639e632c695f417f540eca87c170b636701aa4d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77588295"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563727"
 ---
 # <a name="connect-extrahop-revealx"></a>Connecter ExtraHop Reveal(x)
 
 Le connecteur de données ExtraHop Reveal(x) vous permet de connecter facilement votre système Reveal(x) à Azure Sentinel afin de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’Investigation. Cette intégration vous permet d’obtenir des informations sur le réseau de votre organisation et d’améliorer vos capacités en matière d’opérations de sécurité.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,8 +43,6 @@ Le connecteur de données ExtraHop Reveal(x) vous permet de connecter facilement
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter ExtraHop Reveal(x) à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
-
-
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

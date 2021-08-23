@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 115cb4203966bdf4cb60373d9c08994b6eb11576
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: d5037a6d236c0071c25e0e4f148c32f67b5e8438
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182603"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113006281"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sauvegarder des machines virtuelles de charge de travail sur le cloud privé CloudSimple à l’aide de Veeam B&R
 
@@ -222,7 +222,7 @@ Accédez à vCenter à partir de votre cloud privé pour créer un compte de ser
 5. Créez les machines virtuelles pour Veeam Backup et les serveurs proxy dans vCenter, conformément aux [configurations requises Veeam](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95). Vous pouvez utiliser Windows 2012 R2 ou Linux. Pour plus d’informations, consultez la page [Exigences relatives à l’utilisation des référentiels de sauvegarde Linux](https://www.veeam.com/kb2216).
 6. Montez le Veeam ISO installable en tant que périphérique CD-ROM dans la machine virtuelle du serveur Veeam Backup.
 7. À l’aide d’une session RDP sur l’ordinateur Windows 2012 R2 (la cible de l’installation de Veeam), [installez Veeam B&R 9.5u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) dans une machine virtuelle Windows 2012 R2.
-8. Recherchez l’adresse IP interne de la machine virtuelle du serveur Veeam Backup et configurez l’adresse IP pour qu’elle soit statique sur le serveur DHCP. Les étapes exactes requises dépendent du serveur DHCP. Par exemple, les <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">mappages statiques DHCP</a> de l’article Netgate explique comment configurer un serveur DHCP à l’aide d’un routeur pfSense.
+8. Recherchez l’adresse IP interne de la machine virtuelle du serveur Veeam Backup et configurez l’adresse IP pour qu’elle soit statique sur le serveur DHCP. Les étapes exactes requises dépendent du serveur DHCP. Par exemple, les <a href="https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html" target="_blank">mappages statiques DHCP</a> de l’article Netgate explique comment configurer un serveur DHCP à l’aide d’un routeur pfSense.
 
 ### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Console Veeam : Installez le logiciel de sauvegarde et de récupération Veeam
 
@@ -302,4 +302,4 @@ Pour annuler l'élévation des privilèges, consultez [Annuler l'élévation des
 
 * [Créez un volume XFS sur le disque managé – RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
 * [Configuration d’un montage NFS sur CentOS 7– HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
-* [Configuration du serveur DHCP – Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
+* [Configuration du serveur DHCP – Netgate](https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html)

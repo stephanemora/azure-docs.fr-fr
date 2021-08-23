@@ -2,7 +2,6 @@
 title: Messages cloud-à-appareil avec Azure IoT Hub (Node) | Microsoft Docs
 description: Envoi de messages cloud-à-appareil vers un appareil depuis un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour Node.js. Vous modifiez une application d’appareil simulé pour recevoir des messages cloud-à-appareil et modifiez une application principale pour envoyer des messages cloud-à-appareil.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -13,22 +12,22 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1e7bd2f82755f94469dc9feece7351f1ba0a32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91446887"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562402"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envoi de messages cloud à appareil avec IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md) explique comment créer un hub IoT, y provisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages appareil-à-cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) explique comment créer un hub IoT, y provisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages appareil-à-cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Ce tutoriel est basé sur [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md). Cette rubrique vous explique les procédures suivantes :
+Ce tutoriel est basé sur [Envoyer des données de télémétrie d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). Cette rubrique vous explique les procédures suivantes :
 
 * À partir du serveur principal de votre application, envoyez des messages cloud-à-appareil vers un appareil unique via IoT Hub.
 * Recevez des messages cloud-à-appareil sur un appareil.
@@ -38,7 +37,7 @@ Vous trouverez des informations supplémentaires sur les messages cloud-à-appar
 
 À la fin de ce didacticiel, vous exécuterez deux applications de console Node.js :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md), qui se connecte à votre hub IoT et reçoit des messages cloud-à-appareil.
+* **SimulatedDevice**, une version modifiée de l’application créée dans [Envoyer des données de télémétrie d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), qui se connecte à votre hub IoT et reçoit des messages cloud-à-appareil.
 
 * **SendCloudToDeviceMessage**, qui envoie un message cloud-à-appareil à l’application pour appareil simulée par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
@@ -56,9 +55,9 @@ Vous trouverez des informations supplémentaires sur les messages cloud-à-appar
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recevoir des messages dans l’application d’appareil simulé
 
-Dans cette section, vous modifiez l’application d’appareil simulé créée dans [Envoyer des données de télémétrie d’un appareil à un IoT Hub](quickstart-send-telemetry-node.md) pour recevoir des messages cloud-à-appareil en provenance du hub IoT.
+Dans cette section, vous modifiez l’application d’appareil simulé créée dans [Envoyer des données de télémétrie d’un appareil à un IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) pour recevoir des messages cloud-à-appareil en provenance du hub IoT.
 
-1. À l'aide d'un éditeur de texte, ouvrez le fichier **SimulatedDevice.js**. Ce fichier se trouve dans le dossier **iot-hub\Quickstarts\simulated-device** du dossier racine de l'exemple de code Node.js que vous avez téléchargé dans le guide de démarrage rapide [Envoyer des données de télémétrie d'un appareil vers un hub IoT](quickstart-send-telemetry-node.md).
+1. À l'aide d'un éditeur de texte, ouvrez le fichier **SimulatedDevice.js**. Ce fichier se trouve dans le dossier **iot-hub\Quickstarts\simulated-device** du dossier racine de l'exemple de code Node.js que vous avez téléchargé dans le guide de démarrage rapide [Envoyer des données de télémétrie d'un appareil vers un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 2. Enregistrez un gestionnaire sur le client d'appareil pour recevoir les messages envoyés depuis IoT Hub. Ajoutez l'appel à `client.on` juste après la ligne qui crée le client d'appareil, comme dans l'extrait de code suivant :
 
@@ -94,13 +93,13 @@ Pour plus d'informations sur la façon dont IoT Hub traite les messages cloud-à
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtenir la chaîne de connexion du hub IoT
 
-Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via le hub IoT que vous avez créé dans [Envoyer des données de télémétrie d'un appareil vers un hub IoT](quickstart-send-telemetry-node.md). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via le hub IoT que vous avez créé dans [Envoyer des données de télémétrie d'un appareil vers un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
 
-Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md). Vous avez également besoin de la chaîne de connexion du hub IoT que vous avez précédemment copiée dans [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string).
+Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). Vous avez également besoin de la chaîne de connexion du hub IoT que vous avez précédemment copiée dans [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string).
 
 1. Créez un dossier vide appelé **sendcloudtodevicemessage**. Dans le dossier **sendcloudtodevicemessage** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 

@@ -4,12 +4,12 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 56c86387ab06bf0fe94900e654853e74d3ee2603
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3e37024e4fef3e989977ef76b0508aeb66d93b7a
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059407"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616124"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -39,7 +39,7 @@ Les Kits SDK d’Application Insights sont disponibles pour une variété d’ap
 ## <a name="what-data-does-it-collect"></a>Quelles données collecte-t-il ?
 Il existe trois sources de données :
 
-* Le SDK, que vous intégrez à votre application soit [pendant le développement](./asp-net.md), soit [au moment de l’exécution](./monitor-performance-live-website-now.md). Il existe différents Kits SDK pour différents types d’applications. Il existe également un [Kit SDK pour les pages web](./javascript.md), qui se charge dans le navigateur de l’utilisateur final en même temps que la page.
+* Le SDK, que vous intégrez à votre application soit [pendant le développement](./asp-net.md), soit [au moment de l’exécution](./status-monitor-v2-overview.md). Il existe différents Kits SDK pour différents types d’applications. Il existe également un [Kit SDK pour les pages web](./javascript.md), qui se charge dans le navigateur de l’utilisateur final en même temps que la page.
   
   * Chaque Kit SDK comporte un certain nombre de [modules](./configuration-with-applicationinsights-config.md), utilisant diverses techniques pour collecter différents types de données de télémétrie.
   * Si vous installez le Kit SDK pendant le développement, vous pouvez utiliser ses API pour envoyer votre propre télémétrie, ainsi que les modules standards. Ces données de télémétrie personnalisées peuvent inclure toutes les données que vous souhaitez envoyer.
@@ -314,6 +314,6 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
 

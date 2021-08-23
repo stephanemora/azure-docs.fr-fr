@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 485374e50f86ad1c4e9fa451d046b99d3987e257
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "76152967"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650953"
 ---
 # <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Livres blancs Azure vFXT pour Azure et autres ressources
 
@@ -38,4 +38,4 @@ Ce graphique montre les composants et les dispositions permettant d’utiliser A
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour continuer à planifier un déploiement Avere vFXT pour Azure, consultez [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md).
-* Pour obtenir des réponses à des questions particulières, consultez le [FAQ Avere vFXT pour Azure](avere-vfxt-faq.md).
+* Pour obtenir des réponses à des questions particulières, consultez le [FAQ Avere vFXT pour Azure](avere-vfxt-faq.yml).

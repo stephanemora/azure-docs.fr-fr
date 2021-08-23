@@ -1,20 +1,19 @@
 ---
 title: Utiliser le Générateur d’images Azure avec une galerie d’images pour machines virtuelles Linux
 description: Créez des images de machines virtuelles Linux avec le Générateur d’images Azure et Shared Image Gallery.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
-ms.openlocfilehash: 7fbee42440b9f0ad7663850cd72a46c238a8d2e1
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 87f77b72104caf74007d63477f6f845c7ae8ad96
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027242"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593685"
 ---
 # <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Créer une image Linux et la distribuer à une galerie d’images partagées à l’aide d’Azure CLI
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d9b5e861b35ade3cf391e2a0ace52722821a158
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713046"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650632"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Prise en main des assistants vocaux sur Windows
 
@@ -32,7 +32,7 @@ Pour commencer à développer un assistant vocal pour Windows, vous devez vous a
 
 ## <a name="obtain-resources-from-microsoft"></a>Obtenir des ressources Microsoft
 
-Certaines ressources requises pour un agent vocal entièrement personnalisé sur Windows nécessitent des ressources Microsoft. L’[exemple d'assistant vocal UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) fournit des exemples de versions de ces ressources à des fins de développement et de test initiaux et dès lors, cette section n'est pas nécessaire à des fins de développement initial.
+Certaines ressources requises pour un agent vocal entièrement personnalisé sur Windows nécessitent des ressources Microsoft. L’[exemple d'assistant vocal UWP](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) fournit des exemples de versions de ces ressources à des fins de développement et de test initiaux et dès lors, cette section n'est pas nécessaire à des fins de développement initial.
 
 - **Modèle de mot clé :** L’activation vocale requiert un modèle de mot clé Microsoft sous forme de fichier .bin. Le fichier .bin fourni dans l’exemple d’assistant vocal UWP est entraîné sur le mot clé *contoso*.
 - **Jeton de fonctionnalité à accès limité :** Les API ConversationalAgent fournissant un accès à l’audio du micro, elles sont protégées dans le cadre des restrictions relatives aux fonctionnalités à accès limité.  Pour utiliser une fonctionnalité à accès limité, vous devez obtenir auprès de Microsoft un jeton de fonctionnalité à accès limité connecté à l’identité de package de votre application.
@@ -53,7 +53,7 @@ Voici la configuration requise pour créer un service de dialogue de base à l�
 
 ## <a name="try-out-the-sample-app"></a>Essayer un exemple d'application
 
-Avec votre clé d’abonnement Speech Services et l’ID du bot d'écho, vous êtes prêt à essayer l’exemple d'[assistant vocal UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Suivez les instructions du fichier Lisez-moi pour exécuter l’application et entrez vos informations d’identification.
+Avec votre clé d’abonnement Speech Services et l’ID du bot d'écho, vous êtes prêt à essayer l’exemple d'[assistant vocal UWP](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample). Suivez les instructions du fichier Lisez-moi pour exécuter l’application et entrez vos informations d’identification.
 
 ## <a name="create-your-own-voice-assistant-for-windows"></a>Créer votre propre assistant vocal pour Windows
 

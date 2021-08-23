@@ -2,18 +2,17 @@
 title: Infrastructure de sécurité - Azure IoT Edge | Microsoft Docs
 description: Découvrez les normes de sécurité, d’authentification et d’autorisation qui ont été utilisées pour développer Azure IoT Edge et que vous devriez prendre en compte pour concevoir votre solution
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ff154eee6c6174a8f1a3aa7bea37ef62273bb1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2778f969351910ef60c43f01fb0540ee17445fc5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562616"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normes de sécurité pour Azure IoT Edge
 

@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure SignalR
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure SignalR. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c38fffdd504da521c2096990dfa7486ca4617337
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 44d85037637d4c4eb44d6b2a72c669431040a479
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020107"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604169"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Définitions intégrées d’Azure Policy pour Azure SignalR
 

@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Migrate
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Migrate. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e20a13c8cefcdcb557362c798d67d4e2cd3b019b
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: c35a1ded1e5c82855e3e90666a43cc8e2336336c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018029"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605283"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Définitions intégrées d’Azure Policy pour Azure Migrate
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 0efbadf69dec6d0ea06fd743a62d69c0d25a7e33
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b618396edb60e1a2092ecd4aa6ce134227220df5
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138658"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535195"
 ---
 # <a name="create-a-media-services-and-storage-account-with-a-private-link"></a>Créer un compte Media Services et un compte de stockage avec une liaison privée
 
@@ -42,6 +42,8 @@ Le modèle crée :
   - Des liaisons entre les liaisons (pour connecter les zones DNS privées au réseau virtuel)
   - Des groupes de zones DNS privées (pour déclencher la création automatique d’enregistrements DNS dans les zones DNS privées)
 - Une machine virtuelle (avec une adresse IP publique et une interface réseau associées)
+
+[!INCLUDE [Azure Policy Media Services](includes/security-azure-policy-private-links.md)]
 
 ## <a name="azure-resource-manager-arm-template-for-private-link"></a>Modèle Azure Resource Manager (ARM) pour la liaison privée
 

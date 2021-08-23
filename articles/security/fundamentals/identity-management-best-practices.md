@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 227b8d9c797a8fec81d8792a48f456bcda6a838c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 70f318c10799c1cf30265373d8971faddfafc072
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958514"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533249"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -68,7 +68,7 @@ Les sections suivantes répertorient les meilleures pratiques pour la sécurité
 
 ## <a name="centralize-identity-management"></a>La centralisation de la gestion des identités
 
-Dans un scénario [d’identité hybride](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?), nous vous recommandons d’intégrer vos répertoires cloud et locaux. L’intégration permet à votre équipe informatique de gérer des comptes depuis un emplacement, quel que soit l’endroit où un compte est créé. L’intégration améliore également la productivité de vos utilisateurs en leur fournissant une identité commune pour accéder aux ressources cloud et locales.
+Dans un scénario d’identité hybride, nous vous recommandons d’intégrer vos répertoires cloud et locaux. L’intégration permet à votre équipe informatique de gérer des comptes depuis un emplacement, quel que soit l’endroit où un compte est créé. L’intégration améliore également la productivité de vos utilisateurs en leur fournissant une identité commune pour accéder aux ressources cloud et locales.
 
 **Bonne pratique** : Établir une instance Azure AD unique. La cohérence et une source d’autorité unique offrent plus de clarté et réduisent les risques de sécurité résultant d’erreurs humaines et de la complexité de la configuration.
 **Détail** : Désignez un annuaire Azure AD unique comme source d’autorité pour les comptes professionnels.
@@ -339,7 +339,7 @@ Un système de surveillance d’identité actif peut détecter rapidement un com
 Les organisations qui ne surveillent pas activement leurs systèmes d’identité risquent de compromettre les informations d’identification des utilisateurs. Si elles n’ont pas connaissance des activités suspectes se déroulant avec ces informations d’identification, elles ne sont pas en mesure de limiter ce type de menace.
 
 ## <a name="use-azure-ad-for-storage-authentication"></a>Utiliser Azure AD pour l’authentification du stockage
-Le [Stockage Azure](../../storage/common/storage-auth-aad.md) prend en charge l’authentification et l’autorisation avec Azure AD pour le stockage d’objets blob et le stockage File d’attente. Avec l’authentification Azure AD, vous pouvez utiliser le contrôle d’accès basé sur les rôles Azure pour accorder des autorisations spécifiques aux utilisateurs, aux groupes et aux applications jusqu’au niveau d’un conteneur d’objets blob individuel ou de la file d’attente.
+Le [Stockage Azure](../../storage/blobs/authorize-access-azure-active-directory.md) prend en charge l’authentification et l’autorisation avec Azure AD pour le stockage d’objets blob et le stockage File d’attente. Avec l’authentification Azure AD, vous pouvez utiliser le contrôle d’accès basé sur les rôles Azure pour accorder des autorisations spécifiques aux utilisateurs, aux groupes et aux applications jusqu’au niveau d’un conteneur d’objets blob individuel ou de la file d’attente.
 
 Nous vous recommandons d’utiliser [Azure AD pour authentifier l’accès au stockage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

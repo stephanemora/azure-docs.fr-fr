@@ -2,14 +2,14 @@
 title: Stratégies de lettres mortes et de nouvelles tentatives - Azure Event Grid
 description: Explique comment personnaliser les options de remise des événements pour Event Grid. Définissez une destination de lettres mortes, et spécifiez la durée des nouvelles tentatives de remise.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: db5f9dbd6738b2d9e7861f463d02a87d948c6afb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 48fa27a1fe69481dda294f32bfc88af0e1718f25
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698436"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731956"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Définir un emplacement de lettres mortes et une stratégie de nouvelles tentatives
 
@@ -73,7 +73,7 @@ Pour désactiver les lettres mortes, réexécutez la commande pour créer l’ab
 
 Au moment de créer un abonnement Event Grid, vous pouvez définir des valeurs fixant la durée pendant laquelle Event Grid doit tenter de remettre l’événement. Par défaut, Event Grid essaie pendant 24 heures (1 440 minutes) ou 30 fois. Vous pouvez définir chacune des ces valeurs pour votre abonnement Event Grid. La valeur de durée de vie d’un événement doit être un entier de 1 à 1440. La valeur du nombre maximum de nouvelles tentatives doit être un entier compris entre 1 et 30.
 
-Vous ne pouvez pas configurer de [nouvelle tentative de planification](delivery-and-retry.md#retry-schedule-and-duration).
+Vous ne pouvez pas configurer de [nouvelle tentative de planification](delivery-and-retry.md#retry-schedule).
 
 ### <a name="azure-cli"></a>Azure CLI
 

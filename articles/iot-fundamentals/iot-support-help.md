@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f4c4bd62fa1e3dbad7e5dbc6bea8e2b396b968a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206048"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535236"
 ---
 # <a name="what-are-the-azure-iot-support-and-help-options"></a>Quelles sont les options d’aide et de support d’Azure IoT ?
 
@@ -46,6 +46,7 @@ Si vous ne trouvez pas la réponse à votre problème à l’aide de la fonction
 - [Azure Sphere](/answers/topics/azure-sphere.html)
 - [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
 - [Azure Maps](/answers/topics/azure-maps.html)
+- [Azure Percept](/answers/topics/azure-percept.html)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Poser une question sur Stack Overflow
 
@@ -66,6 +67,7 @@ Si vous envoyez une nouvelle question à Stack Overflow, utilisez un ou plusieur
  - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
+ - [Azure Percept](https://stackoverflow.com/questions/tagged/azure-percept)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Envoyer des commentaires sur Azure Feedback
 

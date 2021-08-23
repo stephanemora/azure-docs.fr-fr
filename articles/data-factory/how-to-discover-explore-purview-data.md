@@ -2,17 +2,18 @@
 title: Découvrir et explorer des données dans ADF avec Purview
 description: Découvrez comment découvrir et explorer des données dans Azure Data Factory à l’aide de Purview
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 author: linda33wj
 ms.author: jingwang
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
-ms.openlocfilehash: f37d2461a0e9c2db0cb3c7aa911dfb0ff5e049af
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/10/2021
+ms.openlocfilehash: 145f7c50d6fdd2fef5e1f31e029c06434fa2e8e5
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486482"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563682"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Découvrir et explorer des données dans ADF avec Purview
 
@@ -26,6 +27,7 @@ Vous pouvez effectuer les tâches suivantes dans ADF :
 - Connecter ces données à votre fabrique de données avec des services ou des jeux de données liés 
 
 ## <a name="prerequisites"></a>Prérequis 
+
 - [Compte Azure Purview](../purview/create-catalog-portal.md) 
 - [Data Factory](./quickstart-create-data-factory-portal.md) 
 - [Connecter un compte Azure Purview à Data Factory](./connect-data-factory-to-azure-purview.md) 
@@ -47,5 +49,8 @@ Vous pouvez créer directement un service lié, un jeu de données ou un flux de
 
 ##  <a name="nextsteps"></a>Étapes suivantes 
 
-- [Inscrire et analyser des ressources Azure Data Factory dans Azure Purview](../purview/register-scan-azure-synapse-analytics.md)
-- [Comment rechercher des données dans Azure Purview Data Catalog](../purview/how-to-search-catalog.md)
+[Tutoriel : Envoyer les données de traçabilité Data Factory à Azure Purview](turorial-push-lineage-to-purview.md)
+
+[Connecter un compte Azure Purview à Data Factory](connect-data-factory-to-azure-purview.md) 
+
+[Comment rechercher des données dans Azure Purview Data Catalog](../purview/how-to-search-catalog.md)

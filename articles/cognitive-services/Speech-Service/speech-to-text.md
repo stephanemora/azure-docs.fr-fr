@@ -3,21 +3,21 @@ title: Vue d’ensemble de la reconnaissance vocale – service Speech
 titleSuffix: Azure Cognitive Services
 description: Un logiciel de reconnaissance vocale permet la transcription en temps réel de flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur cette entrée de texte. Cet article est une vue d’ensemble des avantages et des capacités du service de reconnaissance vocale.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 16b3c290967ccec53397b5b321e7438c03dc050f
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449390"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533089"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 

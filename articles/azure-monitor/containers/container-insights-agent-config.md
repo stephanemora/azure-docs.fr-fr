@@ -3,12 +3,12 @@ title: Configurer la collecte de données d’agent Container Insights | Microso
 description: Cet article décrit comment configurer l’agent Container Insights pour contrôler stdout/stderr et la collecte des journaux de variables d’environnement.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1305ddc4417dc294dad865971dcd8970acfb8a2c
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: bd818d03d74042e7f58cbc8889ce862279706bec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847343"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532289"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Configurer la collecte de données d’agent pour Container Insights
 
@@ -146,4 +146,4 @@ La sortie qui s’affiche est similaire à ce qui suit avec les versions de sch�
 
 - Avec la surveillance activée pour collecter l’intégrité et l’utilisation des ressources de votre cluster AKS ou hybride, et des charges de travail s’exécutant sur celles-ci, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.
 
-- Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Consultez les [exemples de requêtes de journal](container-insights-log-query.md) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.

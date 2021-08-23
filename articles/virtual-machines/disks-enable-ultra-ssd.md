@@ -2,18 +2,18 @@
 title: Disques Ultra pour machines virtuelles - Disques managés Azure
 description: En savoir plus sur les disques Ultra pour machines virtuelles Azure
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 07899b6b429d933234f73a67608250dd5625676a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: fb6180754be5e94091e5ff1ca21823b85c8a6e6d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673598"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534930"
 ---
 # <a name="using-azure-ultra-disks"></a>Utilisation de disques Ultra Azure
 

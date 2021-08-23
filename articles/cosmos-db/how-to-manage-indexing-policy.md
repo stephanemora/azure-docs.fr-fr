@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8a854e17c8a28b335f8c4e8c67bd5f27cb360789
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8dc109b5a14b680f7deb6ff39adb8af5e9c77562
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464610"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562507"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "110464610"
 Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’indexation](index-policy.md) définies pour chaque conteneur. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés applique des index de plage pour les chaînes ou les nombres. Vous pouvez remplacer cette stratégie par votre propre stratégie d’indexation personnalisée.
 
 > [!NOTE]
-> La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Apprenez-en davantage sur l’indexation dans [API d’Azure Cosmos DB pour MongoDB](mongodb-indexing.md) et [Indexation secondaire dans l’API Cassandra Azure Cosmos DB](cassandra-secondary-index.md).
+> La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Apprenez-en davantage sur l’indexation dans [API d’Azure Cosmos DB pour MongoDB](mongodb/mongodb-indexing.md) et [Indexation secondaire dans l’API Cassandra Azure Cosmos DB](cassandra/secondary-indexing.md).
 
 ## <a name="indexing-policy-examples"></a>Exemples de stratégie d’indexation
 

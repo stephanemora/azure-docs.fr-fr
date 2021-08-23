@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9dd04181f8118bef21dd64fc92c65cce248c1c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580897"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532129"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Windows
 
@@ -57,7 +57,7 @@ La vérification du système d’exploitation permet de vérifier si le Runbook 
 
 ### <a name="net-462"></a>.NET 4.6.2
 
-La fonctionnalité de vérification de .NET Framework vérifie que [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) ou une version ultérieure est installé sur le système.
+La fonctionnalité de vérification de .NET Framework vérifie que [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) ou une version ultérieure est installé sur le système.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
@@ -87,7 +87,7 @@ Les configurations du pare-feu et du proxy doivent permettre à l’agent Runboo
 
 Cette vérification détermine si l’agent Log Analytics pour Windows (`healthservice`) est en cours d’exécution sur l’ordinateur. Pour en savoir plus sur la résolution des problèmes de ce service, consultez [l’agent Log Analytics pour Windows ne s’exécute pas](hybrid-runbook-worker.md#mma-not-running).
 
-Si vous souhaitez réinstaller l’agent Log Analytics pour Windows, consultez [Installer l’agent Log Analytics pour Windows](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Si vous souhaitez réinstaller l’agent Log Analytics pour Windows, consultez [Installer l’agent Log Analytics pour Windows](../../azure-monitor/agents/agent-windows.md).
 
 ### <a name="monitoring-agent-service-events"></a>Événements de service de Monitoring Agent
 

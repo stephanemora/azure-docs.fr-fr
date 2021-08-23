@@ -1,21 +1,21 @@
 ---
 title: Gérer un environnement Gen2 - Azure Time Series | Microsoft Docs
 description: Apprenez à gérer un environnement Azure Time Series Insights Gen2.
-author: shipra1mishra
-ms.author: shmishr
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: cbd28bdf5318bdaf932447f5d1f936d2c614a7f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a77e437438fa514d20edf82eb861926db7f7b04e
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461893"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135785"
 ---
 # <a name="manage-azure-time-series-insights-gen2"></a>Gérer Azure Time Series Insights Gen2
 

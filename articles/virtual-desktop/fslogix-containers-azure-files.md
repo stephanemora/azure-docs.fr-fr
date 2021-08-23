@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c7b8b400d2f927fa4b5d6f713b29dbda34eec959
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 013dea780c1f5819d9b9caefeec3b66066d1f44c
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757676"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033548"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
@@ -101,4 +101,4 @@ Utilisez les guides suivants pour configurer un environnement Azure Virtual Desk
 - Pour configurer des partages de fichiers complètement managés dans le cloud, consultez [Configurer un partage Azure Files](/azure/storage/files/storage-files-active-directory-enable/).
 - Pour configurer des conteneurs de profils FSLogix, consultez [Créer un conteneur de profils pour un pool d'hôtes à l'aide d'un partage de fichiers](create-host-pools-user-profile.md).
 - Pour affecter des utilisateurs à un pool d’hôtes, consultez [Gestion des groupes d’applications pour Azure Virtual Desktop](manage-app-groups.md).
-- Pour accéder à vos ressources Azure Virtual Desktop dans un navigateur web, consultez [Connexion à Azure Virtual Desktop](connect-web.md).
+- Pour accéder à vos ressources Azure Virtual Desktop dans un navigateur web, consultez [Connexion à Azure Virtual Desktop](./user-documentation/connect-web.md).

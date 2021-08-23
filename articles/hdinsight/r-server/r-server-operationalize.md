@@ -2,17 +2,19 @@
 title: Rendre opérationnel ML Services sur HDInsight - Azure
 description: Découvrez comment faire fonctionner votre modèle de données pour faire des prédictions avec ML Services dans Azure HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: eb8114da913347309e6e8ad263c0bb7fcf56790f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869464"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299282"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votre modélisation de données, vous pouvez rendre opérationnel le modèle pour élaborer des prédictions. Cet article explique comment accomplir cette tâche.
 
@@ -164,7 +166,7 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 * Désélectionnez les nœuds Worker et sélectionnez les nœuds principaux.
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Redémarrer tous les composants**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
+###    <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
 
 1. Utilisez SSH dans chaque nœud Worker désactivé.
 

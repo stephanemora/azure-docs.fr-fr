@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 04b2e1a2c84320c61d1c1aba7404af47bc03150e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 27e0162c5c169ea506e48d4ced14c9eb5794f73c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747482"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563851"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -133,10 +133,10 @@ Pour créer une définition de stratégie, procédez comme suit.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
    ```
 
    Remplacez {subscriptionId} précédent par l’ID de votre abonnement ou {managementGroupId} par l’ID de votre [groupe d’administration](../../management-groups/overview.md).
@@ -162,7 +162,7 @@ Utilisez la procédure suivante pour créer une attribution de stratégie et ass
 1. Créez l’attribution de stratégie à l’aide de l’appel suivant :
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2021-09-01" @<path to Assignment JSON file>
    ```
 
    Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.

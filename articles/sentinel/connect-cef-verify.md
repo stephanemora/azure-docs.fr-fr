@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 3ce83de7f876bbd67120bf511d29860b71cd2227
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 98d97bd7c8ffab685475f50130d68668fe1c9f8b
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771275"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525960"
 ---
 # <a name="step-3-validate-connectivity"></a>ÉTAPE 3 : Valider la connectivité
 
-Une fois que vous avez déployé votre redirecteur de journal (à l’étape 1) et configuré votre solution de sécurité pour lui envoyer des messages CEF (à l’étape 2), suivez ces instructions pour vérifier la connectivité entre votre solution de sécurité et Azure Sentinel. 
+Une fois que vous avez déployé votre redirecteur de journal (à l’étape 1) et configuré votre solution de sécurité pour lui envoyer des messages CEF (à l’étape 2), suivez ces instructions pour vérifier la connectivité entre votre solution de sécurité et Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,9 +37,9 @@ Utilisez la commande `python –version` pour vérifier.
 ## <a name="how-to-validate-connectivity"></a>Comment valider la connectivité
 
 1. Dans le menu de navigation d’Azure Sentinel, ouvrez **Journaux**. Exécutez une requête à l’aide du schéma **CommonSecurityLog** pour voir si vous recevez les journaux de votre solution de sécurité.<br>
-Notez qu’environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans **Log Analytics**. 
+Notez qu’environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans **Log Analytics**.
 
-1. Si vous ne voyez aucun résultat lors de la requête, vérifiez que des événements sont générés à partir de votre solution de sécurité, ou essayez d’en générer certains, et vérifiez qu’ils sont transférés vers la machine de redirection de syslog que vous avez désignée. 
+1. Si vous ne voyez aucun résultat lors de la requête, vérifiez que des événements sont générés à partir de votre solution de sécurité, ou essayez d’en générer certains, et vérifiez qu’ils sont transférés vers la machine de redirection de syslog que vous avez désignée.
 
 1. Exécutez le script suivant sur le redirecteur de journal (en appliquant l’ID d’espace de travail à la place de l’espace réservé) pour vérifier la connectivité entre votre solution de sécurité, le redirecteur de journal et Azure Sentinel. Ce script vérifie que le démon écoute les ports appropriés, que le transfert est correctement configuré, et s’assure que rien ne bloque la communication entre le démon et l’agent Log Analytics. Il envoie également des messages fictifs « TestCommonEventFormat » pour vérifier la connectivité de bout en bout. <br>
 
@@ -81,20 +81,20 @@ Le script de validation effectue les vérifications suivantes :
     </filter>
     ```
 
-1. Vérifie que l’analyse des événements de pare-feu Cisco ASA est configurée comme prévu à l’aide de la commande suivante : 
+1. Vérifie que l’analyse des événements de pare-feu Cisco ASA est configurée comme prévu à l’aide de la commande suivante :
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante : 
+1. Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante :
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -114,7 +114,7 @@ Le script de validation effectue les vérifications suivantes :
     - Fichier de configuration : `/etc/rsyslog.d/security-config-omsagent.conf`
 
         ```bash
-        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
         ```
 
 1. Redémarre le démon syslog et l’agent Log Analytics :
@@ -174,20 +174,20 @@ Le script de validation effectue les vérifications suivantes :
     </filter>
     ```
 
-1. Vérifie que l’analyse des événements de pare-feu Cisco ASA est configurée comme prévu à l’aide de la commande suivante : 
+1. Vérifie que l’analyse des événements de pare-feu Cisco ASA est configurée comme prévu à l’aide de la commande suivante :
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>En cas de problème avec l’analyse, le script génère un message d’erreur qui vous indique d’**exécuter manuellement la commande suivante** (en appliquant l’ID de l’espace de travail au lieu de l’espace réservé). La commande va garantir l’analyse correcte et redémarrer l’agent.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante : 
+1. Vérifie que le champ *Ordinateur* de la source syslog est correctement mappé dans l’agent Log Analytics en utilisant la commande suivante :
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -243,11 +243,12 @@ Le script de validation effectue les vérifications suivantes :
     ```
 ---
 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez appris à connecter les appliances CEF à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 - Découvrez le [mappage de champs CEF et CommonSecurityLog](cef-name-mapping.md).
-- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](./detect-threats-built-in.md).
+- [Utilisez des classeurs](monitor-your-data.md) pour superviser vos données.

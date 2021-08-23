@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Cosmos DB
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Cosmos DB. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d2cc7442a1601d7f03f2d47cfab5b25368dd6133
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 3028108929350c4181ff6a5bbd64f9a41958f28b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017759"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604220"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Définitions intégrées d’Azure Policy pour Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

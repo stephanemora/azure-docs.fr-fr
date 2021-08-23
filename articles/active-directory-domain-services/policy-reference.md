@@ -1,19 +1,19 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Active Directory Domain Services
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Active Directory Domain Services. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 06/11/2021
+ms.date: 08/20/2021
 ms.service: active-directory
 ms.subservice: domain-services
 author: justinha
 ms.author: justinha
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6cdb628a247dcd51737e0941faae1619a44f557f
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 5950540c46ca795791cbd1427575cf18aaf0fa65
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017952"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608747"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-active-directory-domain-services"></a>Définitions de stratégie intégrées d’Azure Policy pour Azure Active Directory Domain Services
 

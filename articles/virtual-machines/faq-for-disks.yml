@@ -3,17 +3,17 @@ metadata:
   title: Forum aux questions sur les disques
   description: Forum aux questions sur les disques de machines virtuelles et les disques Premium Linux (gérés et non gérés) Azure IaaS
   author: roygara
-  ms.service: virtual-machines
+  ms.service: storage
   ms.topic: conceptual
   ms.date: 06/15/2017
   ms.author: rogarana
   ms.subservice: disks
-  ms.openlocfilehash: 750a6e24434d205d5a6d014e1636c43e53be8692
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: 2e3e13f0db5b96d8d1cd8ca3eaa7b900dacb0d72
+  ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112034821"
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113358312"
 title: Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 summary: Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 sections:
@@ -352,7 +352,7 @@ sections:
   - question: >
       Puis-je convertir des machines virtuelles avec des disques non managés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?
     answer: >
-      Oui
+      Yes
   - question: >
       Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?
     answer: >

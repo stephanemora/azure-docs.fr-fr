@@ -1,14 +1,14 @@
 ---
 title: Concevoir des workflows Azure Policy en tant que code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f28a7798bbfd4fb79395e83b9a175f7b4ca7bfb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: db48579d94263f3b8806c1c78b950b5a9ae19c27
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752738"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563916"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Concevoir des workflows Azure Policy en tant que code
 

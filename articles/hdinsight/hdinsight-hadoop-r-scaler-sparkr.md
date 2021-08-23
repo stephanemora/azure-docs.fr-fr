@@ -5,14 +5,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 95fcca289b0776cc19464b13eb7d243ca4f8d5ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: dc58b73a317bdab85b63c947f07d2755b96f2fcd
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945518"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280425"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
+
+[!INCLUDE [retirement banner](includes/ml-services-retirement.md)]
 
 Ce document montre comment prévoir des retards d’arrivée de vol à l’aide d’un modèle de régression logistique **ScaleR**. L’exemple utilise des données météorologiques et de retards de vol associées via **SparkR**.
 
@@ -533,8 +536,6 @@ Dans cet article, nous avons indiqué comment il est possible de combiner l’ut
 ## <a name="next-steps-and-more-information"></a>Étapes suivantes et informations supplémentaires
 
 - Pour plus d’informations sur l’utilisation de ML Server sur Apache Spark, consultez le [Guide de prise en main](/machine-learning-server/r/how-to-revoscaler-spark).
-
-- Pour obtenir des informations sur ML Services sur HDInsight, consultez [Vue d’ensemble de ML Services sur HDInsight](r-server/r-server-overview.md).
 
 Pour plus d’informations sur l’utilisation de SparkR, consultez les pages suivantes :
 

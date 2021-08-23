@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 23fc6f6f6a62230e2cfc710c1c738eb42d6cc115
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 46b29bb6a7294d0f6741be4cac7028fe7e42ec95
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527534"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430266"
 ---
 # <a name="create-a-virtual-machine-using-an-approved-base"></a>Créer une machine virtuelle à l’aide d’une base approuvée
 
@@ -78,5 +78,5 @@ Reportez-vous à la documentation suivante pour vous connecter à votre machine 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Étape suivante recommandée : [Testez votre image de machine virtuelle](azure-vm-image-test.md) pour vous assurer qu’elle répond aux exigences de publication de la Place de marché Azure. Cette étape est facultative.
-- Si vous ne souhaitez pas tester votre image de machine virtuelle, connectez-vous à l'[Espace partenaires](https://partner.microsoft.com/) pour la publier.
-- Si vous rencontrez des difficultés lors de la création de votre nouveau disque dur virtuel basé sur Azure, consultez [Forum aux questions sur la Place de marché Microsoft Azure](azure-vm-create-faq.md).
+- Si vous ne souhaitez pas tester votre image de machine virtuelle, connectez-vous à l'[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165935) pour la publier.
+- Si vous rencontrez des difficultés lors de la création de votre nouveau disque dur virtuel basé sur Azure, consultez [Forum aux questions sur la Place de marché Microsoft Azure](azure-vm-create-faq.yml).
