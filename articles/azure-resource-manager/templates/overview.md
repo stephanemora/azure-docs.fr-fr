@@ -3,12 +3,12 @@ title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager (modèles ARM) pour le déploiement de ressources.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531585"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960370"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -153,4 +153,4 @@ Cette approche signifie que vous pouvez partager en toute sécurité des modèle
 * Pour en savoir plus sur les modèles ARM par le biais d’un ensemble prédéfini de modules Microsoft Learn, consultez [Déployer et gérer des ressources dans Azure en utilisant des modèles ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).
-* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](./frequently-asked-questions.yml).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).
