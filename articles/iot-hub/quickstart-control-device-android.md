@@ -2,7 +2,6 @@
 title: Contrôler un appareil à partir d’Azure IoT Hub (Android) | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Java. Une application est une application de service qui peut contrôler à distance des appareils connectés à votre hub. L’autre application s’exécute sur un appareil physique ou simulé, connecté à votre hub qui peut être contrôlé à distance.
 author: wesmc7777
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -14,12 +13,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 9225c53d4271622b0276dadb1d0a526199602d62
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 929f402a2beb9de7e9537647542199ff68f0d32f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727936"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747280"
 ---
 # <a name="control-a-device-connected-to-an-iot-hub-android"></a>contrôler un appareil connecté à un hub IoT (Android)
 

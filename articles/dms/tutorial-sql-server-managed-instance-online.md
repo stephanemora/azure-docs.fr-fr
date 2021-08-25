@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 521a6a159bd86b7480ce705a83ac3b56ee8c150f
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 2eec691689f709a945df81222d906ab0d15063ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689110"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638460"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutoriel : Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l'aide de DMS
 
@@ -95,19 +95,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
   > [!NOTE]
   > Lorsque vous migrez une base de données protégée par [Transparent Data Encryption](../azure-sql/database/transparent-data-encryption-tde-overview.md) vers une instance gérée à l’aide d’une migration en ligne, le certificat correspondant du serveur local ou de l’instance SQL Server de la machine virtuelle Azure doit être migré avant la restauration de la base de données. Pour des instructions détaillées, voir [Migrer un certificat TDE vers une instance gérée](../azure-sql/database/transparent-data-encryption-tde-overview.md).
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
-
-1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
-
-    ![Afficher les abonnements au portail](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
-
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
-
-    ![Afficher les fournisseurs de ressources](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
-
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
-
-    ![S’inscrire auprès du fournisseur de ressources](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Créer une instance Azure Database Migration Service
 

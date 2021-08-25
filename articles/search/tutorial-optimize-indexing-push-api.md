@@ -2,19 +2,18 @@
 title: 'Tutoriel C# : optimisation de l’indexation avec l’API Push'
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment indexer efficacement des données à l’aide de l’API Push de Recherche cognitive Azure. Ce didacticiel et cet exemple de code utilisent le langage C#.
-manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 1/29/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba4249eb6b635fdc90c798c565a8a41d88ff54
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99094190"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178340"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutoriel : Optimiser l’indexation avec l’API Push
 

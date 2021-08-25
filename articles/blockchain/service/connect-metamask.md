@@ -4,16 +4,18 @@ description: Connectez-vous à un réseau Azure Blockchain Service à l’aide d
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01eeb187d1d1dd314d008c92559453e1edb67b27
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90530435"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643147"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Utiliser MetaMask pour vous connecter et déployer un contrat intelligent
 
 Dans ce guide de démarrage rapide, vous allez utiliser MetaMask pour vous connecter à un réseau Azure Blockchain Service, puis vous allez utiliser Remix pour déployer un contrat intelligent. Metamask est une extension de navigateur qui permet de gérer un portefeuille Ether et d’effectuer des actions relatives aux contrats intelligents.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,18 +70,18 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
 
     ```solidity
     pragma solidity ^0.5.0;
-             
+
     contract simple {
         uint balance;
-                 
+
         constructor() public{
             balance = 0;
         }
-                 
+
         function add(uint _num) public {
             balance += _num;
         }
-                 
+
         function get() public view returns (uint){
             return balance;
         }

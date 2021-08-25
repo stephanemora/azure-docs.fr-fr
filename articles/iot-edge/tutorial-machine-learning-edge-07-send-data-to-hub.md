@@ -2,19 +2,18 @@
 title: 'Tutoriel : Envoyer des données d’appareil via une passerelle transparente - Machine Learning sur Azure IoT Edge'
 description: Ce tutoriel montre comment utiliser votre machine de développement en tant qu’appareil IoT Edge simulé pour envoyer des données au hub IoT en passant par un appareil configuré en tant que passerelle transparente.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a830c2cbbc16d5d5e93e6f2283af012e4412c0be
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fbf957dee80a50b8256925b751d3df5440acca96
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310646"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740527"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutoriel : Envoyer des données via une passerelle transparente
 

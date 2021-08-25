@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: da5819c6a40e1d5a513e9d742702d5435f4efbeb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cbbe782260852194352ae2db508ce3dbaa1867ae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465969"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739878"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
@@ -60,7 +60,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
     | Sélectionner un modèle pour la première fonction de votre projet | Ignorer pour le moment | |
     | Sélectionner la façon dont vous souhaitez ouvrir votre projet | Ouvrir dans la fenêtre active | Ouvre à nouveau VS Code dans le dossier que vous avez sélectionné. |
 
-Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-run-local.md#local-settings-file).
+Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-develop-local.md#local-settings-file).
 
 ## <a name="add-functions-to-the-app"></a>Ajouter des fonctions à l’application
 

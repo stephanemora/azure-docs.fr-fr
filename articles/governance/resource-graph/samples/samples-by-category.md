@@ -1,15 +1,15 @@
 ---
 title: Liste d’exemples de requêtes Azure Resource Graph par catégorie
 description: Liste d’exemples de requêtes pour Azure Resource Graph. Les catégories incluent Étiquettes, Azure Advisor, Key Vault, Kubernetes, Configuration d’invité, etc.
-ms.date: 07/21/2021
+ms.date: 08/13/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 6caff29ddf640d2da8d8f2d82045944527c9fd95
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 88843e10de8edc1235c007ab1709eb9c7285e3a2
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068345"
 ---
 # <a name="azure-resource-graph-sample-queries-by-category"></a>Exemples de requêtes Azure Resource Graph par catégorie
 
@@ -27,6 +27,10 @@ Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalit�
 ## <a name="azure-arc-enabled-kubernetes"></a>Kubernetes avec Azure Arc
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-kubernetes](../../../../includes/resource-graph/samples/bycat/azure-arc-enabled-kubernetes.md)]
+
+## <a name="azure-arc-enabled-servers"></a>Serveurs avec Azure Arc
+
+[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-servers](../../../../includes/resource-graph/samples/bycat/azure-arc-enabled-servers.md)]
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -76,9 +80,17 @@ Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalit�
 
 [!INCLUDE [azure-resource-graph-samples-cat-general](../../../../includes/resource-graph/samples/bycat/general.md)]
 
-## <a name="networking"></a>Mise en réseau
+## <a name="management-groups"></a>Groupes d’administration
+
+[!INCLUDE [azure-resource-graph-samples-cat-management-groups](../../../../includes/resource-graph/samples/bycat/management-groups.md)]
+
+## <a name="networking"></a>Réseau
 
 [!INCLUDE [azure-resource-graph-samples-cat-networking](../../../../includes/resource-graph/samples/bycat/networking.md)]
+
+## <a name="resource-health"></a>Intégrité des ressources
+
+[!INCLUDE [azure-resource-graph-samples-cat-resource-health](../../../../includes/resource-graph/samples/bycat/resource-health.md)]
 
 ## <a name="tags"></a>Balises
 

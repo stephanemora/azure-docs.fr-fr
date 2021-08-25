@@ -8,19 +8,19 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15e6c2383539a1b7c119346ea0624a01964f2364
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 27b1b08196ef76bba92bf1f2ff518585c896178a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762750"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743528"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Contrôleurs SBC et routage vocal
 Le routage direct Azure Communication Services vous permet de connecter votre infrastructure de téléphonie existante à Azure. Cet article liste les étapes principales nécessaires pour connecter un contrôleur SBC (Session Border Controller) pris en charge au routage direct et comment fonctionne le routage vocal pour la ressource de communication activée. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
  
-Pour savoir si le routage direct Azure Communication Services est la solution adaptée à votre organisation, consultez [Concepts de la téléphonie Azure](./telephony-concept.md). Pour plus d’informations sur les prérequis et la planification de votre déploiement, consultez [Exigences pour l’infrastructure du routage direct Communication Services](./sip-interface-infrastructure.md).
+Pour savoir si le routage direct Azure Communication Services est la solution adaptée à votre organisation, consultez [Concepts de la téléphonie Azure](./telephony-concept.md). Pour plus d’informations sur les prérequis et la planification de votre déploiement, consultez [Exigences pour l’infrastructure du routage direct Communication Services](./direct-routing-infrastructure.md).
 
 ## <a name="connect-the-sbc-with-azure-communication-services"></a>Connecter le contrôleur SBC avec Azure Communication Services
 
@@ -32,7 +32,7 @@ Si vous utilisez Office 365, assurez-vous que la partie domaine du nom de domai
 - Par exemple, si `contoso.com` est un domaine inscrit dans O365, vous ne pouvez pas utiliser `sbc.contoso.com` pour Communication Services. Toutefois, vous pouvez utiliser un domaine de niveau supérieur s’il n’en existe pas dans O365 : vous pouvez créer un domaine `acs.contoso.com` et utiliser le nom de domaine complet `sbc.acs.contoso.com` comme nom de contrôleur SBC.
 - Le certificat SBC doit correspondre au nom ; les certificats génériques sont pris en charge.
 - Le domaine *.onmicrosoft.com ne peut pas être utilisé pour le nom de domaine complet du contrôleur SBC.
-Pour découvrir la liste complète des exigences, consultez [Exigences pour l’infrastructure du routage direct Azure](./sip-interface-infrastructure.md).
+Pour découvrir la liste complète des exigences, consultez [Exigences pour l’infrastructure du routage direct Azure](./direct-routing-infrastructure.md).
 
    :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Ajout d’un contrôleur SBC":::
 - Lorsque vous avez terminé, cliquez sur Suivant.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 534790f7a63f8fbf11e80c71c00cf1b98ec4b5da
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6c42c7df67baeba56213000175e0f5c2a50054d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110063939"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638478"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutoriel : Migrer Services Bureau à distance PostgreSQL vers Azure DB pour PostgreSQL en ligne à l’aide de DMS
 
@@ -109,19 +109,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
   > [!NOTE]
    > Le service de migration gère en interne l’activation et la désactivation des clés et des déclencheurs étrangers pour garantir une migration fiable des données. Par conséquent, vous n’avez pas à vous soucier d’apporter des modifications au schéma de la base de données cible.
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
-
-1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
-
-   ![Afficher les abonnements au portail](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-subscription1.png)
-
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
-
-    ![Afficher les fournisseurs de ressources](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-resource-provider.png)
-
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
-
-    ![S’inscrire auprès du fournisseur de ressources](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>Créer une instance Azure Database Migration Service
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 39b21a849f13af39731c31590cf92f8ffc12cd7d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 2c37f49478e5c762e72fd8569828853e29ba07f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783600"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737575"
 ---
 # <a name="what-is-azure-sentinel"></a>Qu’est-ce qu’Azure Sentinel ?
 
@@ -57,7 +57,7 @@ Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure
 
 ## <a name="analytics"></a>Analytics
 
-Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise l’[analytique pour mettre en corrélation les alertes et les incidents](tutorial-detect-threats-built-in.md). Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent une menace exploitable que vous pouvez examiner et résoudre. Utilisez les règles de corrélation intégrées telles quelles ou utilisez-les comme point de départ pour créer vos propres règles. Azure Sentinel fournit également des règles d’apprentissage machine pour mapper le comportement de votre réseau et rechercher les possibles anomalies sur vos ressources. Ces analyses connectent ensuite les informations en transformant les alertes basse fidélité sur différentes entités en incidents de sécurité potentiels de haute fidélité.
+Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise l’[analytique pour mettre en corrélation les alertes et les incidents](detect-threats-built-in.md). Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent une menace exploitable que vous pouvez examiner et résoudre. Utilisez les règles de corrélation intégrées telles quelles ou utilisez-les comme point de départ pour créer vos propres règles. Azure Sentinel fournit également des règles d’apprentissage machine pour mapper le comportement de votre réseau et rechercher les possibles anomalies sur vos ressources. Ces analyses connectent ensuite les informations en transformant les alertes basse fidélité sur différentes entités en incidents de sécurité potentiels de haute fidélité.
 
 ![Incidents](./media/tutorial-investigate-cases/incident-severity.png)
 
@@ -73,7 +73,7 @@ Par exemple, si vous utilisez le système de tickets ServiceNow, vous pouvez uti
 
 ## <a name="investigation"></a>Investigation
 
-Actuellement en préversion, les outils d’[investigation approfondie](tutorial-investigate-cases.md) Azure Sentinel vous permettent de mieux comprendre l’étendue d’une menace de sécurité potentielle et d’en identifier la cause racine. Vous pouvez choisir une entité sur le graphique interactif pour poser des questions sur une entité spécifique et approfondir cette entité et ses connexions pour arriver à la cause racine de la menace. 
+Actuellement en préversion, les outils d’[investigation approfondie](investigate-cases.md) Azure Sentinel vous permettent de mieux comprendre l’étendue d’une menace de sécurité potentielle et d’en identifier la cause racine. Vous pouvez choisir une entité sur le graphique interactif pour poser des questions sur une entité spécifique et approfondir cette entité et ses connexions pour arriver à la cause racine de la menace. 
 
 ![Investigation](./media/tutorial-investigate-cases/map-timeline.png)
 
@@ -93,4 +93,4 @@ La communauté Azure Sentinel est une ressource importante pour l’automatisati
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
-- Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).
+- Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](get-visibility.md).
