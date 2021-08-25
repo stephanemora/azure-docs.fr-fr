@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: f0b1940755a7f0176abc508d0bdcc5b79722af22
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 1dc7a4c1afc6c63415027fee3f1c1844104abbe8
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635165"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662345"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Services Microsoft en cyber-sécurité
 
@@ -33,8 +33,10 @@ Notre équipe de professionnels se compose d’experts chevronnés qui offrent u
 Apprenez-en plus sur les services Microsoft :
 
 * [Évaluation des risques de sécurité](https://download.microsoft.com/download/5/D/0/5D06F4EA-EAA1-4224-99E2-0C0F45E941D0/Microsoft%20Security%20Risk%20Asessment%20Datasheet.pdf)
+* Évaluation du framework d’identité dynamique
 * [Évaluation hors ligne des services Active Directory](https://download.microsoft.com/download/1/C/1/1C15BA51-840E-498D-86C6-4BD35D33C79E/Prerequisites_Offline_AD.pdf)
 * [Environnement d’administration de sécurité renforcée](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
+* Services d’implémentation d’Azure AD
 * [Protection contre le déplacement de comptes latéraux](/azure-advanced-threat-protection/use-case-lateral-movement-path)
 * [Récupération et réponse aux incidents](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 

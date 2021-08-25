@@ -50,7 +50,7 @@
     - name: Types et contrôles Resource Health
       href: resource-health-checks-resource-types.md
     - name: Questions fréquentes (FAQ) sur Resource Health
-      href: resource-health-faq.md
+      href: resource-health-faq.yml
 - name: Ressources
   items:
     - name: Feuille de route Azure
