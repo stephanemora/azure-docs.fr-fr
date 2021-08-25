@@ -98,7 +98,7 @@
 - name: Ressources
   items:
     - name: Forum aux questions
-      href: faq.md
+      href: faq.yml
     - name: Commentaires
       href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
     - name: Tarifs

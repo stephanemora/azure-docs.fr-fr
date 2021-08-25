@@ -1,0 +1,230 @@
+### YamlMime:Landing
+title: Documentation Azure Form Recognizer
+summary: Azure Form Recognizer, qui fait partie d’Azure Applied AI Services, utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il restitue ensuite des données structurées qui incluent les relations du fichier d’origine. L’apprentissage non supervisé permet au modèle de comprendre les données de disposition et de champ sans étiquetage manuel des données ni code intensif. Vous pouvez aussi utiliser l’apprentissage supervisé avec des données étiquetées manuellement. Les modèles entraînés avec des données étiquetées sont plus performants et peuvent aussi fonctionner avec des documents plus complexes.
+metadata:
+  title: Documentation Form Recognizer - Guides de démarrage rapide, tutoriels, informations de référence sur les API - Azure Applied AI Services | Microsoft Docs
+  description: Azure Form Recognizer, qui fait partie d’Azure Applied AI Services, utilise la technologie de machine learning pour identifier et extraire des données de paires clé-valeur et de tables à partir de documents de formulaire. Il restitue ensuite des données structurées qui incluent les relations du fichier d’origine. L’apprentissage non supervisé permet au modèle de comprendre les données de disposition et de champ sans étiquetage manuel des données ni code intensif. Vous pouvez aussi utiliser l’apprentissage supervisé avec des données étiquetées manuellement. Les modèles entraînés avec des données étiquetées peuvent être plus performants et fonctionner avec des documents plus complexes.
+  services: cognitive-services
+  ms.service: applied-ai-services
+  ms.subservice: forms-recognizer
+  ms.topic: landing-page
+  author: laujan
+  ms.author: lajanuar
+  ms.date: 09/05/2019
+  ms.openlocfilehash: 66c0369aa188c32c3e0ad9f4da7ca0899921dbb7
+  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122326165"
+landingContent:
+- title: À propos d’Azure Form Recognizer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Form Recognizer?
+      url: overview.md
+    - text: Que sont les services Azure Applied AI Services ?
+      url: ../../applied-ai-services/index.yml
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés d’Azure Form Recognizer
+      url: whats-new.md
+  - linkListType: video
+    links:
+    - text: Extraction de données à partir de documents et de formulaires avec OCR et Form Recognizer
+      url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+    - text: Automatisation des processus par intelligence artificielle
+      url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+    - text: Fonctionnalités récentes et mises à jour
+      url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
+- title: Extraire la disposition et la structure des documents
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Layout
+      url: concept-layout.md?
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (disposition)
+      url: https://fott-2-1.azurewebsites.net/layout-analyze
+- title: Extraire les données de reçus
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Reçus
+      url: concept-receipts.md?
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (analyser un reçu)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+- title: Extraire des données à partir de cartes de visite
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Cartes de visite
+      url: concept-business-cards.md
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (analyser une carte de visite)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+- title: Extraire des données dans des factures
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Factures
+      url: concept-invoices.md?
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (analyser une facture)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+- title: Extraire des données dans des documents d’identité
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Documents d’identité
+      url: concept-identification-cards.md
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (analyser une pièce d’identité)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+- title: Microsoft Tech Community
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Extraire des données dans des fichiers PDF avec ou sans code
+      url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
+    - text: Lire plus de langues, traiter des cartes d’identité et des factures, entraîner sur des tables, etc.
+      url: https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
+    - text: Créer une application de finance personnelle avec Form Recognizer
+      url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
+    - text: Extraction de tables de documents améliorée
+      url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
+    - text: Utiliser une approche pilotée par les métadonnées pour extraire des paires clé-valeur
+      url: https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
+    - text: Accélérer l’extraction de texte, de données et de structure dans des documents
+      url: https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
+    - text: Automatisation du traitement des formulaires pour améliorer la productivité
+      url: https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
+- title: Entraîner un modèle personnalisé et extraire des données
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#train-a-custom-model
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#train-a-custom-model
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#train-a-custom-model
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (entraîner un modèle)
+      url: https://fott-2-1.azurewebsites.net/
+- title: Analyser des formulaires avec votre modèle personnalisé
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+  - linkListType: get-started
+    links:
+    - text: Essayer Form Recognizer (analyser un formulaire personnalisé)
+      url: https://fott-2-1.azurewebsites.net/
+- title: Bien démarrer avec l’outil d’étiquetage
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser l’outil d’étiquetage
+      url: label-tool.md
+- title: API REST et bibliothèques de client
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Azure Form Recognizer v2.1
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+    - text: Kit de développement logiciel (SDK) .NET
+      url: /dotnet/api/overview/azure/ai.formrecognizer-readme
+    - text: Kit de développement logiciel (SDK) Python
+      url: /python/api/azure-ai-formrecognizer/
+    - text: Kit de développement logiciel (SDK) Java
+      url: /java/api/overview/azure/ai-formrecognizer-readme
+    - text: Kit de développement logiciel (SDK) JavaScript
+      url: /javascript/api/overview/azure/ai-form-recognizer-readme
+- title: Aide et commentaires
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Options d’aide et de support
+      url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

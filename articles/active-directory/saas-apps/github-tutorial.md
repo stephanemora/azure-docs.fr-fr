@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: c87f66e48aa7b39a7f3fc5f9b8572dd6925abbc0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12d80ee98ceef33221b7713703e8106bada6470c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732149"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750431"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à une organisation GitHub Enterprise Cloud
 
@@ -77,11 +77,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-   a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://github.com/orgs/<Organization ID>/sso`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://github.com/orgs/<Organization ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://github.com/orgs/<Organization ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://github.com/orgs/<Organization ID>/saml/consume`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://github.com/orgs/<Organization ID>/saml/consume`
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://github.com/orgs/<Organization ID>/sso`
 
 
     > [!NOTE]

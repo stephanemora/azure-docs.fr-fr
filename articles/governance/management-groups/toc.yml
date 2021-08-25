@@ -38,7 +38,11 @@
   items:
     - name: 'Découvrez : Créer une stratégie de gouvernance d’abonnement'
       displayName: 'governance, module'
-      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Guides pratiques
   expanded: true
   items:

@@ -8,12 +8,32 @@ metadata:
   ms.topic: conceptual
   ms.service: applied-ai-services
   ms.date: 05/28/2021
+  ms.openlocfilehash: b1e6b81b29fd21713e1357540026d777dad1cfac
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121747773"
 title: Forum Aux Questions sur Azure Applied AI Services
-summary: |
+summary: >
   Voici les réponses aux questions fréquemment posées sur Azure Applied AI Services.
 sections:
-  - name: Section unique – Ignorée
-    questions:
-      - question: "La solution Azure Applied AI Services prend-elle en charge le chiffrement de données au repos et les clés gérées par le client (CMK)\_?"
-        answer: "Oui. Le processus d’activation des clés gérées par le client avec Azure Key Vault pour Applied AI Services varie d’un produit à l’autre. Utilisez les liens ci-après pour obtenir des instructions propres au service\_:\n- [Chiffrement des données au repos dans le service Recherche cognitive](../search/search-security-manage-encryption-keys.md)\n- [Chiffrement Form Recognizer des données au repos](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)\n- [Chiffrement des données au repos Metrics Advisor](../cognitive-services/metrics-advisor/encryption.md)\n- [Chiffrement des données au repos dans le service Video Analyzer](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)\n"
-additionalContent: "## <a name=\"next-steps\"></a>Étapes suivantes\n- [Qu’est-ce qu’Azure Key Vault\_?](../key-vault/general/overview.md)\n- [Formulaire de demande de clé gérée par le client dans Azure Applied AI Services](https://aka.ms/cogsvc-cmk)\n"
+- name: Section unique – Ignorée
+  questions:
+  - question: Does Azure Applied AI Services support encryption of data at rest and Customer Managed Keys (CMK)?
+    answer: >
+      Yes, the process to enable Customer-Managed Keys with Azure Key Vault for Applied AI Services varies by product. Use these links for service-specific instructions:
+
+      - [Cognitive Search encryption of data at rest](../search/search-security-manage-encryption-keys.md)
+
+      - [Form Recognizer encryption of data at rest](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
+
+      - [Metrics Advisor encryption of data at rest](./metrics-advisor/encryption.md)
+
+      - [Video Analyzer encryption of data at rest](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
+additionalContent: >-
+  ## Next Steps
+
+  - [What is Azure Key Vault](../key-vault/general/overview.md)?
+
+  - [Applied AI Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)

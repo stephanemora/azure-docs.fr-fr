@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: b76d9cf86a1bb00ea73c396ce1e563374a834f89
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 9b5d5d85d8df58a8e8c3e2626abaed75377e6025
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459456"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "122643151"
 ---
 # <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>Démarrage rapide : Créer votre première fonction C# dans Azure à l’aide de Visual Studio
 
@@ -52,7 +52,7 @@ L’attribut de méthode `FunctionName` définit le nom de la fonction qui, par 
 
 1. Dans le code, renommez la classe Function1 en `HttpExample`.
 
-1. Dans la méthode `HttpTrigger` nommée `Run`, renommez l’attribut de méthode `FunctionName` en `HttpExample`.
+1. Dans la méthode `HttpTrigger` nommée `Run`, renommez l’attribut de méthode `FunctionName` en `HttpExample`. 
 
 Votre définition de fonction doit maintenant ressembler au code suivant :
 
@@ -74,7 +74,7 @@ Avant de pouvoir publier votre projet, vous devez disposer d’une application d
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="test-your-function-in-azure"></a>Tester votre fonction dans Azure
+## <a name="verify-your-function-in-azure"></a>Vérifier votre fonction dans Azure
 
 1. Dans Cloud Explorer, votre nouvelle application de fonction doit être sélectionnée. Si ce n’est pas le cas, développez votre abonnement > **App Services**, puis sélectionnez votre nouvelle application de fonction.
 
@@ -88,7 +88,7 @@ Avant de pouvoir publier votre projet, vous devez disposer d’une application d
 
     `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Accédez à cette URL pour voir dans le navigateur une réponse à la demande GET distante retournée par la fonction, qui ressemble à l’exemple suivant :
+1. Accédez à cette URL pour voir dans le navigateur une réponse à la demande GET distante retournée par la fonction, qui ressemble à l’exemple suivant :
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Réponse de la fonction dans le navigateur":::
 
@@ -98,19 +98,9 @@ Les autres démarrages rapides de cette collection reposent sur ce démarrage ra
 
 *Ressources* dans Azure fait référence aux applications de fonction, fonctions, comptes de stockage, et ainsi de suite. Elles sont rassemblées en *groupes de ressources*, et vous pouvez supprimer tous les éléments d’un groupe en supprimant le groupe. 
 
-Vous avez créé des ressources pour effectuer ces démarrages rapides. Vous pouvez être facturé pour ces ressources, en fonction de [l’état de votre compte](https://azure.microsoft.com/account/) et de la [tarification du service](https://azure.microsoft.com/pricing/). Si vous n’avez plus besoin des ressources, voici comment les supprimer :
+Vous avez créé des ressources pour effectuer ces démarrages rapides. Vous pouvez être facturé pour ces ressources, en fonction de [l’état de votre compte](https://azure.microsoft.com/account/) et de la [tarification du service](https://azure.microsoft.com/pricing/). 
 
-1. Dans Cloud Explorer, développez votre abonnement > **App Services**, cliquez avec le bouton droit sur votre application de fonction et choisissez **Ouvrir dans le portail**. 
-
-1. Dans la page de l’application de fonction, sélectionnez l’onglet **Vue d’ensemble**, puis le lien sous **Groupe de ressources**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Sélectionner le groupe de ressources à supprimer dans la page de l’application de fonction":::
-
-2. Dans la page **Groupe de ressources**, passez en revue la liste des ressources incluses et vérifiez qu’elles correspondent à celles que vous souhaitez supprimer.
- 
-3. Sélectionnez **Supprimer le groupe de ressources** et suivez les instructions.
-
-   Cette opération peut prendre quelques minutes. Une fois terminée, une notification s’affiche pendant quelques secondes. Vous pouvez également sélectionner l’icône représentant une cloche en haut de la page pour afficher la notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

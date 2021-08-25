@@ -3,16 +3,17 @@ metadata:
   title: Questions fréquentes (FAQ) sur Windows 10 Entreprise multisession - Azure
   description: FAQ et meilleures pratiques concernant l’utilisation de Windows 10 Entreprise Multi-session pour Azure Virtual Desktop.
   author: Heidilohr
-  ms.topic: conceptual
+  ms.topic: article
+  ms.prod: windows
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: f0d85ccf34c8c05a88b5cba891ba6fd35869d080
-  ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+  ms.openlocfilehash: e6633e117fc06e9d7e337d6bece2cc2f7c36193c
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112538893"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253325"
 title: FAQ sur Windows 10 Entreprise multisession
 summary: Cet article répond à des questions fréquemment posées et décrit les meilleures pratiques concernant l’utilisation de Windows 10 Entreprise en mode multisession.
 sections:

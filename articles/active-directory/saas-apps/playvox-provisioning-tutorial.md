@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Playvox pour l’approvisionnement automatique d�
 description: Apprenez à approvisionner et déprovisionner automatiquement des comptes d'utilisateur entre Azure AD et Playvox.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: c31c20ab-f6cd-40e1-90ad-fa253ecbc0f8
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/18/2020
-ms.author: Zhchia
-ms.openlocfilehash: 3c7efca5e052c2d0680aa7ca3e1b6d27bfdd7d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 27ce560c7589e17d2de30247ee32da9e9d2e7f96
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96862477"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327108"
 ---
 # <a name="tutorial-configure-playvox-for-automatic-user-provisioning"></a>Tutoriel : Configurer Playvox pour l'approvisionnement automatique d'utilisateurs
 

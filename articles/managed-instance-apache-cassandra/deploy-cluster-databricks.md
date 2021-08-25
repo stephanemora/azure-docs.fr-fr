@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 257055110bffac10c92d87820bcfadff2b208b3b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 1e66e8a3358bdcbca3d5dea247e1e6af2000393f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121735056"
 ---
 # <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>Démarrage rapide : Déployer un cluster Apache Spark managé (préversion) avec Azure Databricks
 
@@ -82,7 +82,7 @@ Effectuez les étapes suivantes pour créer un cluster Azure Databricks dans un 
    * **Nom du cluster** : entrez un nom pour le cluster.
    * **Version du runtime Databricks** : nous recommandons de sélectionner la version du runtime Databricks 7.5 ou supérieure pour la prise en charge de Spark 3.x. 
 
-    :::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Sélectionner la version de Databricks Runtime et le cluster Spark." border="true":::
+    :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Sélectionner la version de Databricks Runtime et le cluster Spark." border="true":::
 
 1. Développez **Options avancées** et ajoutez la configuration suivante. N’oubliez pas d’indiquer les adresses IP des nœuds et les informations d’identification :
 
@@ -96,7 +96,7 @@ Effectuez les étapes suivantes pour créer un cluster Azure Databricks dans un 
 
 1. Ajoutez la bibliothèque du connecteur Apache Spark Cassandra à votre cluster pour vous connecter aux points de terminaison Cassandra natifs et Azure Cosmos DB. Dans votre cluster, sélectionnez **Bibliothèques** > **Installer nouveau** > **Maven**, puis ajoutez `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` dans les coordonnées Maven.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Capture d’écran montrant la recherche de packages Maven dans Databricks.":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Capture d’écran montrant la recherche de packages Maven dans Databricks.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer getAbstract pour le provisionnement automatique d
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure Active Directory vers getAbstract.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: bd8898f9-7a01-4e85-9dd4-61ae4b01ab5b
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/25/2021
-ms.author: Zhchia
-ms.openlocfilehash: 1d1b2417750b917f5b09bb53ee980887218a785c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 1c7278b0d8a0e9ed3d94e69d1ad5da34ab0bc854
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102616126"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326909"
 ---
 # <a name="tutorial-configure-getabstract-for-automatic-user-provisioning"></a>Tutoriel : Configurer getAbstract pour le provisionnement automatique des utilisateurs
 
