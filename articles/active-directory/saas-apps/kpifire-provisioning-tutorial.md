@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer kpifire pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner des comptes d’utilisateur à partir d’Azure AD dans kpifire.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8c5dd093-20da-4ff6-a9b2-8071f44accd6
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/23/2021
-ms.author: Zhchia
-ms.openlocfilehash: c531ff6dc85988eb028edbf0c7ae3b687192b19f
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.author: thwimmer
+ms.openlocfilehash: cb9d82afe4485cd76872b105bbae56616bad4eb0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326922"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207262"
 ---
 # <a name="tutorial-configure-kpifire-for-automatic-user-provisioning"></a>Tutoriel : Configurer kpifire pour le provisionnement automatique d’utilisateurs
 

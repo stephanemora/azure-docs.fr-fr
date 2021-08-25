@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 07/29/2021
 ms.author: jeedes
-ms.openlocfilehash: 06df04167cd39b8909528b600319be810e549730
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a6f647e7aed23766e62546497a6065efd7bd3985
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449190"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730768"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutoriel : Intégrer Atlassian Cloud à Azure Active Directory
 
@@ -96,10 +96,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans le portail **ATLASSIAN Admin**, accédez à l’onglet **Security** (Sécurité), sélectionnez **SAML single sign-on** (Authentification unique SAML), puis cliquez sur **Add SAML configuration** (Ajouter une configuration SAML).
 
    ![Sécurité](./media/atlassian-cloud-tutorial/admin.png)
-
-1. Dans la section **Add SAML configuration** (Ajouter une configuration SAML), remplissez les champs obligatoires que vous avez copiés à partir du portail Azure puis cliquez sur **Save configuration** (Enregistrer la configuration).
-
-   ![Ajouter la configuration SAML](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Atlassian Cloud**, recherchez la section **Gérer** et sélectionnez **Configurer l’authentification unique**.
 

@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer AWS Single Sign-On pour le provisionnement automa
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et AWS Single Sign-On.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 54a9f704-7877-4ade-81af-b8d3f7fb9255
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2021
-ms.author: Zhchia
-ms.openlocfilehash: 25a2a370e4a88348c2acac931e5f3e1a6f247d1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 0fa690836fb53db84263155c0a8661f7295f1c50
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599678"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327060"
 ---
 # <a name="tutorial-configure-aws-single-sign-on-for-automatic-user-provisioning"></a>Tutoriel : Configurer AWS Single Sign-On pour le provisionnement automatique d’utilisateurs
 

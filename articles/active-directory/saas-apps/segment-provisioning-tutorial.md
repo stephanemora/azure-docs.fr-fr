@@ -3,8 +3,8 @@ title: 'Didacticiel : Configurer Segment pour l’approvisionnement automatique
 description: Apprenez à approvisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et Segment.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 20939a92-5f48-4ef7-ab95-042e70ec1e0e
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/24/2021
-ms.author: Zhchia
-ms.openlocfilehash: 17b0359ca7d988860429f2ae77bbd0aa40347513
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.author: thwimmer
+ms.openlocfilehash: 4de9e12826e63a8acd1b6097a4a7e6939ce54991
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207660"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327027"
 ---
 # <a name="tutorial-configure-segment-for-automatic-user-provisioning"></a>Didacticiel : Configurer Segment pour l’approvisionnement automatique d’utilisateurs
 

@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
-ms.author: erhopf
-ms.openlocfilehash: d5780c6ad924e8a6517837dff23e3a4e7ae4d0e1
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.author: lajanuar
+ms.openlocfilehash: 3ae4b6cd241e798305f2e8d1ce3acd61a32d337a
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111546373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070053"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour le Java Runtime Environment (JRE) Java 8 64 bits. Si vous voulez simplement le nom du package pour commencer seul, le SDK Java n’est pas disponible dans le référentiel central Maven. Que vous utilisiez Gradle ou un fichier de dépendances `pom.xml`, vous devez ajouter un référentiel personnalisé pointant vers `https://csspeechstorage.blob.core.windows.net/maven/` (voir ci-dessous pour connaître le nom du package).
 
@@ -44,7 +44,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 
 ## <a name="gradle-config"></a>Configuration de Gradle
 
-Les configurations Gradle nécessitent à la fois un référentiel personnalisé et une référence explicite à l’extension de dépendance `.jar`. 
+Les configurations Gradle nécessitent à la fois un référentiel personnalisé et une référence explicite à l’extension de dépendance `.jar`.
 
 ```groovy
 // build.gradle
@@ -56,7 +56,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.18.0", ext: "jar"
 }
 ```
 
