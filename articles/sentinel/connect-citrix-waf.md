@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: eaee16d865a0d208dbf0c41665d590e7ecb14e89
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 309d2cfb47c61d516be19d110cb7ade1f3c63e18
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525972"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695171"
 ---
 # <a name="connect-your-citrix-waf-to-azure-sentinel"></a>Connecter votre Citrix WAF à Azure Sentinel
 
@@ -42,7 +42,7 @@ Citrix WAF envoie des messages Syslog au format CEF à un serveur de transfert d
 
 1. Suivez les instructions de Citrix pour [configurer le WAF](https://support.citrix.com/article/CTX234174), [configurer la journalisation CEF](https://support.citrix.com/article/CTX136146) et [configurer l’envoi des journaux à votre redirecteur de journal](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html). Veillez à envoyer les journaux vers le port TCP 514 sur l’adresse IP de l’ordinateur du redirecteur des journaux.
 
-1. Validez votre connexion et vérifiez l’ingestion des données à l’aide de [ces instructions](connect-cef-verify.md). Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans Log Analytics.
+1. Validez votre connexion et vérifiez l’ingestion des données à l’aide de [ces instructions](troubleshooting-cef-syslog.md#validate-cef-connectivity). Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans Log Analytics.
 
 ## <a name="find-your-data"></a>Recherche de données
 

@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Eletive pour l’attribution automatique d’util
 description: Découvrez comment attribuer des comptes d’utilisateur d’Azure AD vers Eletive et comment supprimer leurs privilèges d’accès automatiquement.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8a775422-e6d7-4cd5-b8d1-cc8a2db24c4f
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: c16e95cde0848debac28e0296277076c1747d654
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: c91c45269ae9d112d1e8df7030d6454d68ba135b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108148003"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327028"
 ---
 # <a name="tutorial-configure-eletive-for-automatic-user-provisioning"></a>Tutoriel : Configurer Eletive pour l’attribution automatique d’utilisateurs
 

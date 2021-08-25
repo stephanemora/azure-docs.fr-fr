@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 0383b76a08c5c56c27bfbc7f83bf786b4b452849
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 990dfd3a2cf86f77310e51cb29fa65e181b37a9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638476"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database à l’aide de DMS
 
@@ -217,19 +217,7 @@ Pour effectuez la migration du schéma **Adventureworks2016** vers une base de d
 
     ![Déployer le schéma](media/tutorial-sql-server-to-azure-sql/dma-schema-deploy.png)
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
-
-1. Connectez-vous au portail Azure. Recherchez et sélectionnez **Abonnements**.
-
-   ![Afficher les abonnements au portail](media/tutorial-sql-server-to-azure-sql/portal-select-subscription-1.png)
-
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
-
-    ![Afficher les fournisseurs de ressources](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
-
-3. Recherchez « migration », puis sélectionnez **Inscrire** pour **Microsoft.DataMigration**.
-
-    ![S’inscrire auprès du fournisseur de ressources](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
 ## <a name="create-an-instance"></a>Créer une instance
 

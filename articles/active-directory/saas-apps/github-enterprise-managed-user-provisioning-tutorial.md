@@ -3,8 +3,8 @@ title: 'Didacticiel : configurer GitHub Enterprise Managed User pour l’approv
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers GitHub Enterprise Managed User.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 6aee39c7-08a1-4110-b936-4c85d129743b
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
-ms.author: Zhchia
-ms.openlocfilehash: cbae87a005240c15a2c3c28dcb8ab126d9957ba6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.author: thwimmer
+ms.openlocfilehash: a2e42e274fb65c06744f838ba4a40b2dc6119d5d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801228"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326996"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>Tutoriel : Configurer GitHub Enterprise Managed User pour l’approvisionnement automatique d’utilisateurs
 

@@ -2,19 +2,18 @@
 title: 'Tutoriel : Déployer des fonctions Azure en tant que modules - Azure IoT Edge'
 description: Dans ce tutoriel, vous allez développer une fonction Azure en tant que module IoT Edge avant de la déployer sur un appareil de périphérie.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ee3825a7c93396eca4ba6fd6a65b90eddb5b4c8c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: a98d50b1c06397db5de928f39ebff34c1fe9ddb0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726495"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure comme modules IoT Edge
 
@@ -88,7 +87,7 @@ L’extension IoT Edge tente d’extraire d’Azure vos informations d’identif
 3. Enregistrez ce fichier.
 
 >[!NOTE]
->Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Lorsque vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification de moindre privilège, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 

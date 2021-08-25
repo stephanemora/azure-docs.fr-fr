@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: bc479521d99111dd8cdfd36de981b83717068ed0
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 86b663bb245b31ea89c9d523ea4df6e27bbc32b7
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527840"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772041"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -188,7 +188,7 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 | Paramètre de requête facultatif | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) et [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
+| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](/rest/api/time-series-insights/dataaccessgen2/query/get-availability) et [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
 | `storeType=<storeType>` | Pour les environnements Gen2 avec le magasin chaud activé, la requête peut être exécutée sur `WarmStore` ou `ColdStore`. Ce paramètre dans la requête définit le magasin sur lequel la requête doit être exécutée. S’il n’est pas défini, la requête est exécutée sur le magasin Cold. Pour interroger le magasin Warm, **storeType** doit être défini sur `WarmStore`. S’il n’est pas défini, la requête est exécutée par rapport au magasin Cold. | Deuxième génération |
 
 ## <a name="next-steps"></a>Étapes suivantes

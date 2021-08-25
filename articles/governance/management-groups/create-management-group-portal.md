@@ -1,16 +1,16 @@
 ---
 title: Créer un groupe d’administration avec le portail Azure
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: fe4de668723a645b566eca7b72f3c1fb9b19bc92
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 8cbdc65fde148e60ce886e39050a8c4dadb8d779
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326360"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324914"
 ---
 # <a name="quickstart-create-a-management-group"></a>Démarrage rapide : Créer un groupe d’administration
 

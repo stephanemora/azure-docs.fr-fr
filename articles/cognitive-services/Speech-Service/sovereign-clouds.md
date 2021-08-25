@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/07/2021
+ms.date: 08/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c140b1ff2d3d2151ad8ce01e3ad8f64660543d
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98061750"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777890"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Services Speech dans des clouds souverains
 
@@ -99,6 +99,7 @@ Disponible pour les organisations ayant une présence commerciale en Chine. Pour
   - [https://portal.azure.cn/](https://portal.azure.cn/)
 - **Régions :**
   - Chine orientale 2
+  - Chine Nord 2
 - **Niveaux tarifaires disponibles** :
   - Gratuit (F0) et Standard (S0). Vous trouverez plus de détails [ici](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Fonctionnalités prises en charge :**
@@ -134,6 +135,7 @@ Remplacez `<REGION_IDENTIFIER>` par l'identificateur correspondant à la région
 |                     | Identificateur de la région |
 |--|--|
 | **Chine orientale 2**  | `chinaeast2` |
+| **Chine Nord 2**  | `chinanorth2` |
 
 #### <a name="speech-sdk"></a>Kit de développement logiciel (SDK) de reconnaissance vocale
 
@@ -154,3 +156,6 @@ Remplacez `subscriptionKey` par votre clé de ressource Speech. Remplacez `azCnH
 | **Chine orientale 2** | |
 | Reconnaissance vocale | `wss://chinaeast2.stt.speech.azure.cn` |
 | Synthèse vocale | `https://chinaeast2.tts.speech.azure.cn` |
+| **Chine Nord 2** | |
+| Reconnaissance vocale | `wss://chinanorth2.stt.speech.azure.cn` |
+| Synthèse vocale | `https://chinanorth2.tts.speech.azure.cn` |

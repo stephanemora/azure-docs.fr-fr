@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: trbye
-ms.openlocfilehash: 39cead8306ece6638f85813efc318dd41a6faf8c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.author: lajanuar
+ms.openlocfilehash: 2fe98566c459a8e4c30df5d8e0d6a5040be13284
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99213903"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122067997"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Linux pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription.md). Actuellement, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge.
 

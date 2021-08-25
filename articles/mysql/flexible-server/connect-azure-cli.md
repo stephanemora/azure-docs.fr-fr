@@ -7,19 +7,21 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: 3d24c6443dfa4c2e4eab1f247e075b34e891c1b6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f75b933769e94986b1c140fb8bcbadca44b96cf1
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470249"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643187"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>Démarrage rapide : Se connecter et interroger avec Azure CLI, avec Azure Database pour MySQL - Serveur flexible
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
-Ce guide de démarrage rapide montre comment se connecter à un serveur flexible Azure Database pour MySQL en utilisant Azure CLI avec la commande ```az mysql flexible-server connect``` et exécuter une seule requête ou un fichier sql avec la commande ```az mysql flexible-server execute```. Cette commande vous permet de tester la connectivité à votre serveur de base de données et d’exécuter des requêtes. Vous pouvez également exécuter plusieurs requêtes en utilisant le mode interactif. 
+Ce guide de démarrage rapide montre comment se connecter à un serveur flexible Azure Database pour MySQL en utilisant Azure CLI avec la commande ```az mysql flexible-server connect``` et exécuter une seule requête ou un fichier sql avec la commande ```az mysql flexible-server execute```. Cette commande vous permet de tester la connectivité à votre serveur de base de données et d’exécuter des requêtes. Vous pouvez également exécuter plusieurs requêtes en utilisant le mode interactif.
 
 ## <a name="prerequisites"></a>Prérequis
 

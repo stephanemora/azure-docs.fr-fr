@@ -7,14 +7,16 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
-ms.openlocfilehash: 8795d51c082733101dba69f0018a09982ce2634c
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2e9589063d5a094161a8eef09d0968c0679d58bd
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560019"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643183"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide d’un modèle ARM
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource Manager (modèle ARM) pour créer un serveur Azure Database pour MySQL avec intégration de réseau virtuel. Vous pouvez créer le serveur sur le Portail Azure, dans Azure CLI ou dans Azure PowerShell.
 
