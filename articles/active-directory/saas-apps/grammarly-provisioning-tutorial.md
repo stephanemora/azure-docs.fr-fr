@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Grammarly pour l’approvisionnement automatique d
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Grammarly.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: cd2dd9d7-4901-40c8-8888-98850557b072
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/16/2021
-ms.author: Zhchia
-ms.openlocfilehash: 39d1e9e439ad1b14b6f6517868c21c682c45a7a3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: b0b880f2625f5893fe2b82111ab6f57d6af1b111
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130587"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326991"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Tutoriel : Configurer Grammarly pour l’approvisionnement automatique d’utilisateur
 

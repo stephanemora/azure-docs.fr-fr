@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Pare-feu d’application web Azure sur Azure Front Door Service\_- Questions fréquentes (FAQ)"
+  title: Pare-feu d’application web Azure sur Azure Front Door Service - Questions fréquentes (FAQ)
   description: Cet article fournit des réponses aux questions les plus souvent posées sur le pare-feu d’applications web sur Azure Front Door.
   services: web-application-firewall
   author: vhorne
@@ -9,63 +9,79 @@ metadata:
   ms.topic: article
   ms.date: 05/05/2020
   ms.author: victorh
+  ms.openlocfilehash: b575794a586e55dce81b6ad088d378500589b85d
+  ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/14/2021
+  ms.locfileid: "122181754"
 title: Forum aux questions sur le pare-feu d’applications web Azure sur Azure Front Door Service
 summary: Cet article répond aux questions courantes sur les fonctions et fonctionnalités du pare-feu d’application web (WAF) Azure sur Azure Front Door Service.
 sections:
-  - name: Ignoré
-    questions:
-      - question: |
-          Qu’est-ce qu’Azure WAF ?
-        answer: |
-          Azure WAF est un pare-feu d’applications web qui aide à protéger vos applications web des menaces courantes telles que les injections de code SQL, le script de site à site et autres codes malveillants exploitant des failles de sécurité. Vous pouvez définir une stratégie de pare-feu d’applications web consistant en une combinaison de règles personnalisées et gérées pour contrôler l’accès à vos applications web.
+- name: Ignoré
+  questions:
+  - question: >
+      What is Azure WAF?
+    answer: >
+      Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
 
-          Une stratégie de pare-feu d’applications web Azure peut être appliquée aux applications web hébergées sur Application Gateway ou Azure Front Door.
-      - question: "Qu’est-ce qu’un pare-feu d’applications web sur Azure Front Door\_? \n"
-        answer: |
-          Azure Front Door est un réseau de distribution de contenu et d’application hautement évolutif et distribué mondialement. Un pare-feu d’applications web Azure, lorsqu’intégré à Front Door, bloque les attaques DDoS et ciblant une application à la périphérie du réseau Azure, près de la source avant qu’elles ne pénètrent dans votre réseau virtuel, et offre une protection sans sacrifice des performances.
-      - question: |
-          Le pare-feu d’applications web prend-il en charge HTTPS ?
-        answer: |
-          Front Door offre le déplacement du traitement TLS. Le pare-feu d’applications web est intégré de façon native à Front Door et peut inspecter une demande après qu’elle ait été déchiffrée.
-      - question: |
-          Le pare-feu d’applications web prend-il en charge IPv6 ?
-        answer: |
-          Oui. Vous pouvez configurer la restriction IP pour IPv4 et IPv6.
-      - question: |
-          Les ensembles de règles gérées sont-ils à jour ?
-        answer: |
-          Nous faisons de notre mieux pour suivre le rythme d’un monde de menaces en constante évolution. Lorsqu’une nouvelle règle est mise à jour, elle est ajoutée à l’ensemble de règles par défaut avec un nouveau numéro de version.
-      - question: |
-          Quelle est la durée de propagation si j’effectue une modification de ma stratégie de pare-feu d’applications web ?
-        answer: |
-          Le déploiement global d’une stratégie de pare-feu d’applications web prend généralement 5 minutes, voire moins.
-      - question: |
-          Les stratégies de pare-feu d’applications web peuvent-elles être différentes d’une région à une autre ?
-        answer: |
-          Une fois intégré à Front Door, le pare-feu d’applications web constitue une ressource globale. La même configuration s’applique à tous les emplacements Front Door.
-      - question: |
-          Comment limiter l’accès à mon serveur back-end au service Front Door uniquement ?
-        answer: |
-          Vous pouvez configurer une liste de contrôle d’accès dans votre back-end pour n’autoriser que les plages d’adresses IP sortantes de Front Door et refuser tout accès direct depuis Internet. Les balises de service sont prises en charge pour une utilisation sur votre réseau virtuel. De plus, vous pouvez vérifier que le champ de l’en-tête HTTP X-Forwarded-Host est valide pour votre application web.
-      - question: |
-          Quelles options de pare-feu d’applications web Azure dois-je choisir ?
-        answer: |
-          Il y a deux options lors de l’application de stratégies de pare-feu d’applications web dans Azure. Le pare-feu d’applications web avec Azure Front Door est une solution distribuée mondialement de sécurité en périphérie. Le pare-feu d’applications web avec Application Gateway est une solution dédiée et régionale. Nous vous recommandons de choisir une solution basée sur vos exigences générales en matière de performances et de sécurité. Pour en savoir plus, consultez [Équilibrage de charge avec la suite de livraison d’application Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
-      - question: "Quelle est l’approche recommandée pour activer le WAF sur Front Door\_?\n"
-        answer: "Lorsque vous activez le WAF sur une application existante, il est courant d’obtenir des détections de faux positifs, dans lesquels les règles WAF identifient le trafic légitime comme une menace. Pour réduire le risque d’impact sur vos utilisateurs, nous vous recommandons le processus suivant\_:\n\n* Activez le WAF en mode [**Détection**](./waf-front-door-create-portal.md#change-mode) pour être sûr qu’il ne bloque pas les requêtes tandis que vous mettez en œuvre ce processus.\n  > [!IMPORTANT]\n  > Ce processus explique comment activer le WAF sur une solution nouvelle ou existante lorsque votre priorité est de réduire les perturbations pour les utilisateurs de votre application. En cas d’attaque ou de menace imminente, vous pouvez préférer déployer immédiatement le WAF en mode **Prévention**, et utiliser le processus de paramétrage pour superviser et ajuster le WAF au fil du temps. Le blocage d’une partie de votre trafic légitime en découlera probablement, c’est pourquoi nous vous recommandons d’agir ainsi uniquement lorsque vous êtes confronté à une menace.\n* Suivez nos [conseils en matière de paramétrage du WAF](./waf-front-door-tuning.md). Ce processus nécessite l’activation de la journalisation des diagnostics, la consultation régulière des journaux et l’ajout d’exclusions de règles ainsi que d’autres solutions de contournement.\n* Répétez ce processus dans son intégralité, en vérifiant les journaux régulièrement, jusqu’à être certain qu’aucun trafic légitime n’est bloqué. Le déroulement du processus entier peut prendre plusieurs semaines. Dans l’idéal, vous devriez constater moins de détections de faux positifs après chaque modification de paramétrage que vous effectuez.\n* Au final, activez le WAF en **mode Prévention**.\n* Même lorsque vous exécutez le WAF en production, il est impératif de continuer à superviser les journaux, afin d’identifier d’autres détections de faux positifs. En examinant régulièrement les journaux, vous pourrez également identifier les tentatives d’attaque réelle qui ont été bloquées.\n"
-      - question: |
-          Prenez-vous en charge les mêmes fonctionnalités de pare-feu d’applications web dans toutes les plateformes intégrées ?
-        answer: |
-          Actuellement, les règles ModSec CRS 2.2.9, CRS 3.0, et CRS 3.1 sont uniquement prises en charge avec le pare-feu d’applications web sur Application Gateway. Les règles de l’ensemble de règles par défaut Azure, la limitation du débit et le filtrage géographique sont pris en charge uniquement avec le pare-feu d’applications web sur Azure Front Door.
-      - question: |
-          La protection DDoS est-elle intégrée à Front Door ? 
-        answer: |
-          Distribué mondialement aux périphéries réseau d’Azure, Azure Front Door peut absorber et isoler géographiquement d’importants volumes d’attaques. Vous pouvez créer une stratégie de pare-feu d’applications web personnalisée pour bloquer automatiquement et limiter le débit des attaques http(s) aux signatures connues. De plus, vous pouvez activer la protection DDos standard sur le réseau virtuel où vos back-ends sont déployés. Les clients de la protection DDos standard d’Azure profitent d’avantages supplémentaires dont la protection du coût, la garantie SLA et l’accès à des experts de l’équipe spécialisée en attaques DDoS, pour une aide immédiate en cas d’attaque. Pour plus d’informations, consultez [Protection DDoS sur Front Door](../../frontdoor/front-door-ddos.md).
-      - question: "Pourquoi les demandes au-delà du seuil configuré pour la règle de limite de débit sont-elles transmises à mon serveur principal\_?\n"
-        answer: "Une règle de limite de débit peut limiter le trafic anormalement élevé à partir de n’importe quelle adresse IP du client. Vous pouvez configurer un seuil sur le nombre de requêtes web autorisées à partir d’une adresse\_IP cliente pendant une durée d’une ou de cinq minutes. Pour contrôler le débit encore plus précisément, vous pouvez combiner des règles de limitation du débit avec des conditions de correspondance supplémentaires, telles que la mise en correspondance des paramètres HTTP/HTTPS. \n\nLes demandes provenant du même client arrivent souvent sur le même serveur Front Door. Dans ce cas, vous verrez que les demandes supplémentaires au-delà du seuil sont bloquées immédiatement. \n\nToutefois, il est possible que les demandes émanant du même client arrivent sur un autre serveur Front Door qui n’a pas encore actualisé le compteur de limite de débit. Par exemple, un client peut ouvrir une nouvelle connexion pour chaque demande alors que le seuil est faible. Dans ce cas, la première demande au nouveau serveur Front Door réussit la vérification de limite de débit. Un seuil de limite de débit est généralement défini sur un niveau élevé pour se défendre contre les attaques par déni de service à partir de n’importe quelle adresse IP cliente. Pour un seuil très faible, vous pourriez voir des demandes au-delà du seuil.\n"
-additionalContent: |
 
-  ## <a name="next-steps"></a>Étapes suivantes
+      An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
+  - question: "What is WAF on Azure Front Door? \n"
+    answer: >
+      Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
+  - question: >
+      Does Azure WAF support HTTPS?
+    answer: >
+      Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+  - question: >
+      Does Azure WAF support IPv6?
+    answer: >
+      Yes. You can configure IP restriction for IPv4 and IPv6.
+  - question: >
+      How up-to-date are the managed rule sets?
+    answer: >
+      We do our best to keep up with changing threat landscape. Once a new rule is updated, it's added to the Default Rule Set with a new version number.
+  - question: >
+      What is the propagation time if I make a change to my WAF policy?
+    answer: >
+      Most WAF policy deployments complete under 20 minutes. You can expect the policy to take effect as soon as the update is completed across all edge locations globally.
+  - question: >
+      Can WAF policies be different for different regions?
+    answer: >
+      When integrated with Front Door, WAF is a global resource. Same configuration applies across all Front Door locations.
+  - question: >
+      How do I limit access to my back-end to be from Front Door only?
+    answer: >
+      You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. Additionally, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
+  - question: >
+      Which Azure WAF options should I choose?
+    answer: >
+      There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
+  - question: >
+      What's the recommended approach to enabling WAF on Front Door?
+    answer: >
+      When you enable the WAF on an existing application, it's common to have false positive detections where the WAF rules detect legitimate traffic as a threat. To minimize the risk of an impact to your users, we recommend the following process:
 
-  - En savoir plus sur le [pare-feu d’application web Azure](../overview.md).
-  - En savoir plus sur [Azure Front Door](../../frontdoor/front-door-overview.md).
+
+      * Enable the WAF in [**Detection** mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you are working through this process.
+        > [!IMPORTANT]
+        > This process describes how to enable the WAF on a new or existing solution when your priority is to minimize the disturbance to your application's users. If you are under attack or imminent threat, you may want to instead deploy the WAF in **Prevention** mode immediately, and use the tuning process to monitor and tune the WAF over time. This will probably cause some of your legitimate traffic to be blocked, which is why we only recommend doing this when you are under threat.
+      * Follow our [guidance for tuning the WAF](./waf-front-door-tuning.md). This process requires that you enable diagnostic logging, review the logs regularly, and add rule exclusions and other mitigations.
+
+      * Repeat this whole process, checking the logs regularly, until you're satisfied that no legitimate traffic is being blocked. The whole process may take several weeks. Ideally you should see fewer false positive detections after each tuning change you make.
+
+      * Finally, enable the WAF in **Prevention mode**.
+
+      * Even once you're running the WAF in production, you should keep monitoring the logs to identify any other false-positive detections. Regularly reviewing the logs will also help you to identify any real attack attempts that have been blocked.
+  - question: >
+      Do you support same WAF features in all integrated platforms?
+    answer: >
+      Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate-limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
+  - question: "Is DDoS protection integrated with Front Door? \n"
+    answer: >
+      Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
+  - question: >
+      Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
+    answer: "A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameter matching. \n\nRequests from the same client often arrive at the same Front Door server. In that case, you'll see additional requests above the threshold get blocked immediately. \n\nHowever, it's possible that requests from the same client may arrive at a different Front Door server that has not refreshed the rate limit counter yet. For example, the client may open a new connection for each request and the threshold is low. In this case, the first request to the new Front Door server would pass the rate limit check. A rate limit threshold is usually set high to defend against denial of service attacks from any client IP address. For a very low threshold, you may see additional requests above the threshold get through.\n"
+additionalContent: "\n## Next steps\n\n- Learn about [Azure Web Application Firewall](../overview.md).\n- Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md)."

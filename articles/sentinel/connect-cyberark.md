@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f18481821361feff525e3357543036784b21495
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 0b8db5dfa399aaef087adb0ec5c2d67b91fceab9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534853"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694042"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Connecter CyberArk Enterprise Password Vault (EPV) à Azure Sentinel
 
@@ -42,7 +42,7 @@ Les journaux CyberArk EPV sont envoyés de Vault à un serveur de transfert de j
 
 1. Suivez les [instructions CyberArk EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) pour configurer l’envoi de données syslog au serveur de transfert de journaux.
 
-1. Validez votre connexion et vérifiez l’ingestion des données à l’aide de [ces instructions](connect-cef-verify.md). Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans Log Analytics.
+1. Validez votre connexion et vérifiez l’ingestion des données à l’aide de [ces instructions](troubleshooting-cef-syslog.md#validate-cef-connectivity). Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans Log Analytics.
 
 ## <a name="find-your-data"></a>Recherche de données
 
