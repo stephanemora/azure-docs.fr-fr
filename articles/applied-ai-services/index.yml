@@ -32,7 +32,7 @@ productDirectory:
     - title: Azure Form Recognizer
       imageSrc: ./media/form-recognizer.svg
       summary: Transformer des documents en données exploitables en un rien de temps et à moindre coût
-      url: ../cognitive-services/form-recognizer/index.yml
+      url: ./form-recognizer/index.yml
     - title: Recherche cognitive Azure
       imageSrc: ./media/cognitive-search.svg
       summary: Intégrer la recherche dans le cloud basée sur l’IA à vos applications mobiles et web
@@ -48,7 +48,7 @@ productDirectory:
     - title: Azure Immersive Reader
       imageSrc: ./media/immersive-reader.svg
       summary: Aider les utilisateurs à lire et à comprendre le texte
-      url: ../cognitive-services/immersive-reader/index.yml
+      url: ./immersive-reader/index.yml
 additionalContent:
   sections:
     - title: Ressources supplémentaires
@@ -64,11 +64,11 @@ additionalContent:
         - title: Apprendre le codage avec les guides de démarrage rapide
           links:
             - text: Azure Form Recognizer
-              url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+              url: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
             - text: Azure Metrics Advisor
               url: ./metrics-advisor/quickstarts/web-portal.md
             - text: Azure Immersive Reader
-              url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+              url: ./immersive-reader/quickstarts/client-libraries.md
             - text: Recherche cognitive Azure
               url: ../search/search-get-started-portal.md
             - text: Azure Video Analyzer

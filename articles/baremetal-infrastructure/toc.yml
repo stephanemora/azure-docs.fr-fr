@@ -91,8 +91,6 @@
               href: ../virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: Configuration de serveur SMT pour SUSE Linux
               href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-            - name: Migration de HLI vers les machines virtuelles Azure
-              href: ../virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: Acheter une réservation SAP HANA - Grandes instances
               href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
     - name: Oracle

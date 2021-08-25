@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 577032452a3dfe18874a85d74f7e798a1f9175aa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 11ff9db1d9ef4a31989a2fc4bbe7734fa14721e4
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861169"
 ---
 ### <a name="active-service-health-event-subscription-impact"></a>Impact de l’abonnement aux événements Service Health actifs
 
-Renvoie tous les événements Service Health actifs, notamment les problèmes de service, la maintenance planifiée, les avis d’intégrité et les avis de sécurité, regroupés par type d’événement et incluant le nombre d’abonnements concernés.
+Renvoie tous les événements Service Health actifs, y compris les problèmes de service, la maintenance planifiée, les avis d’intégrité et les avis de sécurité, regroupés par type d’événement et incluant le nombre d’abonnements concernés.
 
 ```kusto
 ServiceHealthResources
@@ -147,7 +147,7 @@ Search-AzGraph -Query "ServiceHealthResources | where type =~ 'Microsoft.Resourc
 
 ### <a name="all-active-service-issue-events"></a>Tous les événements actifs de problèmes de service
 
-Renvoie tous les événements actifs de problème de service (panne) de Service Health pour tous les abonnements auxquels l’utilisateur a accès.
+Renvoie tous les événements Service Health actifs de problème de service (panne) pour tous les abonnements auxquels l’utilisateur a accès.
 
 ```kusto
 ServiceHealthResources

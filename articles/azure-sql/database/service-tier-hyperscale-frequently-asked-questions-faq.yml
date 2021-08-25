@@ -11,13 +11,13 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 03/31/2021
-  ms.openlocfilehash: b173b2ce8de29a4a605e7223bc46130155b81b3d
-  ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+  ms.date: 07/27/2021
+  ms.openlocfilehash: bb858077d649c5fb7d41a1e39e1626331819da50
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/24/2021
-  ms.locfileid: "114668761"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121722927"
 title: Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,373 +33,374 @@ sections:
 - name: Questions générales
   questions:
   - question: >
-      Qu’est-ce qu’une base de données Hyperscale ?
+      What is a Hyperscale database?
     answer: >
-      Une base de données Hyperscale est une base de données dans SQL Database dans le niveau de service Hyperscale qui repose sur la technologie de stockage Scale-out d’Hyperscale. Une base de données Hyperscale prend en charge jusqu’à 100 To de données, offre des performances et un débit élevés, ainsi qu’une mise à l’échelle rapide pour répondre aux exigences des charges de travail. La mise à l’échelle est transparente pour l’application : la connectivité, le traitement des requêtes, etc., fonctionnent comme pour toute autre base de données dans Azure SQL Database.
+      A Hyperscale database is a database in SQL Database in the Hyperscale service tier that is backed by the Hyperscale scale-out storage technology. A Hyperscale database supports up to 100 TB of data and provides high throughput and performance, as well as rapid scaling to adapt to the workload requirements. Scaling is transparent to the application – connectivity, query processing, etc. work like any other database in Azure SQL Database.
   - question: >
-      Quels sont les types de ressources et les modèles d’achat qui prennent en charge Hyperscale ?
-    answer: "Le niveau de service Hyperscale est disponible seulement pour les bases de données uniques avec le modèle d’achat vCore dans Azure SQL Database.  \n"
+      What resource types and purchasing models support Hyperscale?
+    answer: "The Hyperscale service tier is only available for single databases using the vCore-based purchasing model in Azure SQL Database.  \n"
   - question: >
-      En quoi le niveau de service Hyperscale diffère des niveaux de service Usage général et Critique pour l’entreprise ?
+      How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers?
     answer: >
-      Les niveaux de service basés sur vCore sont différenciés en fonction de la disponibilité de la base de données et du type de stockage, des performances et de la taille maximale, comme décrit dans le tableau suivant.
+      The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum size, as described in the following table.
 
 
-      | | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
+      | | Resource type | General Purpose |  Hyperscale | Business Critical |
 
       |:---:|:---:|:---:|:---:|:---:|
 
-      | **Idéal pour** |Tous|Offre des options de calcul et de stockage équilibrées et économiques.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale rapide du calcul, restauration rapide de la base de données.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
+      | **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB, fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 
-      |  **Type de ressource** ||SQL Database / SQL Managed Instance | Base de données unique | SQL Database / SQL Managed Instance |
+      |  **Resource type** ||SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
 
-      | **Taille de calcul**|SQL Database* | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
+      | **Compute size**|SQL Database* | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
 
-      | **Taille de calcul**|Instance managée SQL | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
+      | **Compute size**|SQL Managed Instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
 
-      | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
+      | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 
-      | **Taille de stockage** | SQL Database *| 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
+      | **Storage size** | SQL Database *| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 
-      | **Taille de stockage** | Instance managée SQL  | 32 Go - 8 To | N/A | 32 Go - 4 To |
+      | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 
-      | **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
+      | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 
-      | **D’OPÉRATIONS D’E/S PAR SECONDE** | Instance managée SQL | Dépend de la taille du fichier | N/A | 1375 IOPS/vCore |
+      | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
 
-      |**Disponibilité**|Tous|1 réplica, pas d’échelle horizontale en lecture, pas de cache local | Plusieurs réplicas, jusqu’à 4 échelles horizontales en lecture, cache local partiel | 3 réplicas, 1 échelle horizontale en lecture, haute disponibilité redondante interzone, stockage local complet |
+      |**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
 
-      |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours de rétention (7 jours par défaut)| RA-GRS, 7 jours de rétention, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours de rétention (7 jours par défaut) |
+      |**Backups**|All|RA-GRS, 7-35 day retention (7 days by default)| RA-GRS, 7 day retention, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 day retention (7 days by default) |
 
 
-      \* Pools élastiques ne sont pas pris en charge dans le niveau de service Hyperscale
+      \* Elastic pools are not supported in the Hyperscale service tier
   - question: >
-      À qui est destiné le niveau de service Hyperscale ?
+      Who should use the Hyperscale service tier?
     answer: >
-      Le niveau de service Hyperscale est destiné aux clients qui ont de grandes bases de données SQL Server locales et qui veulent moderniser leurs applications en les déplaçant dans le cloud, ou aux clients qui utilisent déjà Azure SQL Database et qui veulent étendre considérablement le potentiel de croissance de leurs bases de données. Hyperscale est également destiné aux clients qui recherchent à la fois des hautes performances et une scalabilité élevée. Avec Hyperscale, vous bénéficiez des avantages suivants :
+      The Hyperscale service tier is intended for customers who have large on-premises SQL Server databases and want to modernize their applications by moving to the cloud, or for customers who are already using Azure SQL Database and want to significantly expand the potential for database growth. Hyperscale is also intended for customers who seek both high performance and high scalability. With Hyperscale, you get:
 
 
-      - Taille de la base de données jusqu’à 100 To
+      - Database size up to 100 TB
 
-      - Sauvegardes de base de données rapides, quelle que soit la taille des bases de données (les sauvegardes sont basées sur des captures instantanées de stockage)
+      - Fast database backups regardless of database size (backups are based on storage snapshots)
 
-      - Restaurations de base de données rapides, quelle que soit la taille des bases de données (les restaurations sont effectuées à partir des captures instantanées de stockage)
+      - Fast database restores regardless of database size (restores are from storage snapshots)
 
-      - Débit de journalisation plus élevé, quelle que soit la taille de la base de données et le nombre de vCores
+      - Higher log throughput regardless of database size and the number of vCores
 
-      - Échelle horizontale en lecture à l’aide d’un ou de plusieurs réplicas en lecture seule, utilisés pour le déchargement de lecture et en tant que serveurs de secours.
+      - Read Scale-out using one or more read-only replicas, used for read offloading  and as hot standbys.
 
-      - Scale-up rapide des calculs, en durée constante, de façon à gagner en puissance pour faire face à des charges de travail importantes, puis à réduire cette puissance, toujours en durée constante. C’est similaire au scale-up et au scale-down entre par exemple une machine P6 et une machine P11, mais beaucoup plus rapide, car il ne s’agit pas d’une opération relative à la taille des données.
+      - Rapid scale up of compute, in constant time, to be more powerful to accommodate the heavy workload and then scale down, in constant time. This is similar to scaling up and down between a P6 and a P11, for example, but much faster as this is not a size of data operation.
   - question: >
-      Quelles régions prennent actuellement en charge Hyperscale ?
+      What regions currently support Hyperscale?
     answer: >
-      Le niveau de service Hyperscale est actuellement disponible dans les régions répertoriées dans [Vue d’ensemble de l’option Hyperscale d’Azure SQL Database](service-tier-hyperscale.md#regions).
+      The Hyperscale service tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](service-tier-hyperscale.md#regions).
   - question: >
-      Est-ce que je peux créer plusieurs bases de données Hyperscale par serveur ?
+      Can I create multiple Hyperscale databases per server?
     answer: >
-      Oui. Pour plus d’informations et pour connaître les limites quant au nombre de bases de données Hyperscale par serveur, consultez [Limites de ressources de SQL Database pour les bases de données uniques et mises en pool en pool sur un serveur](resource-limits-logical-server.md).
+      Yes. For more information and limits on the number of Hyperscale databases per server, see [SQL Database resource limits for single and pooled databases on a server](resource-limits-logical-server.md).
   - question: >
-      Quelles sont les caractéristiques en matière de performances d’une base de données Hyperscale ?
+      What are the performance characteristics of a Hyperscale database?
     answer: >
-      L’architecture Hyperscale fournit des performances et des débits élevés avec la prise en charge de bases de données de grande taille.
+      The Hyperscale architecture provides high performance and throughput while supporting large database sizes.
   - question: >
-      Quelle est la scalabilité d’une base de données Hyperscale ?
-    answer: "Hyperscale offre une scalabilité rapide en fonction de la demande de votre charge de travail.\n\n- **Scale-up/down**\n\n  Avec Hyperscale, vous pouvez augmenter la taille de calcul principale en termes de ressources, comme le processeur et la mémoire, puis mettre à l’échelle vers le bas, en durée constante. Comme le stockage est partagé, le scale-up et le scale-down ne sont pas une opération relative à la taille des données.  \n- **Scale-up/down**\n\n  Avec Hyperscale, vous avec également la possibilité de provisionner un ou plusieurs réplicas de calcul supplémentaires, que vous pouvez utiliser pour répondre à vos demandes de lecture. Cela signifie que vous pouvez utiliser ces réplicas de calcul supplémentaires comme réplicas en lecture seule pour décharger votre charge de travail de lecture en dehors de la capacité de calcul principale. En plus des opérations en lecture seule, ces réplicas font également office de serveurs de secours en cas de basculement à partir du serveur principal.\n\n  Le provisionnement de chacun de ces réplicas de calcul supplémentaires peut être effectué en durée constante et est une opération en ligne. Vous pouvez vous connecter à ces réplicas de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `ReadOnly`. Les connexions avec l’intention d’application `ReadOnly` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.\n"
+      What is the scalability of a Hyperscale database?
+    answer: "Hyperscale provides rapid scalability based on your workload demand.\n\n- **Scaling Up/Down**\n\n  With  Hyperscale, you can scale up the primary compute size in terms of resources like CPU and memory, and then scale down, in constant time. Because the storage is shared, scaling up and scaling down is not a size of data operation.  \n- **Scaling In/Out**\n\n  With Hyperscale, you also get the ability to provision one or more additional compute replicas that you can use to serve your read requests. This means that you can use these additional compute replicas as read-only replicas to offload your read workload from the primary compute. In addition to read-only, these replicas also serve as hot-standbys in case of a failover from the primary.\n\n  Provisioning of each of these additional compute replicas can be done in constant time and is an online operation. You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections  with the `ReadOnly` application intent are automatically routed to one of the additional read-only compute replicas.\n"
 - name: Questions approfondies
   questions:
   - question: >
-      Puis-je associer une base de données Hyperscale et des bases de données uniques dans un même serveur ?
+      Can I mix Hyperscale and single databases in a single server?
     answer: >
-      Oui, vous le pouvez.
+      Yes, you can.
   - question: >
-      Avec Hyperscale, suis-je obligé de changer mon modèle de programmation d’application ?
+      Does Hyperscale require my application programming model to change?
     answer: >
-      Non, votre modèle de programmation d’application reste tel quel. Vous utilisez votre chaîne de connexion comme d’habitude et les autres méthodes normales pour interagir avec votre base de données Hyperscale.
+      No, your application programming model stays as is. You use your connection string as usual and the other regular ways to interact with your Hyperscale database.
   - question: >
-      Quel est le niveau d’isolation par défaut des transactions dans une base de données Hyperscale ?
+      What transaction isolation level is the default in a Hyperscale database?
     answer: >
-      Sur le réplica principal, le niveau d’isolement par défaut des transactions est RCSI (Read Committed Snapshot Isolation). Sur les réplicas secondaires avec échelle horizontale en lecture, le niveau d’isolation par défaut est Instantané.
+      On the primary replica, the default transaction isolation level is RCSI (Read Committed Snapshot Isolation). On the Read Scale-out secondary replicas, the default isolation level is Snapshot.
   - question: >
-      Puis-je utiliser ma licence SQL Server locale ou IaaS pour Hyperscale ?
+      Can I bring my on-premises or IaaS SQL Server license to Hyperscale?
     answer: >
-      Oui, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) est disponible pour Hyperscale. Chaque cœur SQL Server Standard peut être mappé à 1 cœur virtuel Hyperscale. Chaque cœur SQL Server Entreprise peut être mappé à 4 cœurs virtuels Hyperscale. Vous n’avez pas besoin d’une licence SQL pour les réplicas secondaires. Le prix Azure Hybrid Benefit est appliqué automatiquement aux réplicas (secondaires) en échelle horizontale en lecture.
+      Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) is available for Hyperscale. Every SQL Server Standard core can map to 1 Hyperscale vCores. Every SQL Server Enterprise core can map to 4 Hyperscale vCores. You don’t need a SQL license for secondary replicas. The Azure Hybrid Benefit price will be automatically applied to Read Scale-out (secondary) replicas.
   - question: >
-      Pour quelle type de charges de travail Hyperscale est-il conçu ?
+      What kind of workloads is Hyperscale designed for?
     answer: >
-      Hyperscale prend en charge tous les types de charges de travail, y compris les charges de travail OLTP, hybrides (HTAP) et analytiques (Data Mart).
+      Hyperscale supports all workload types, including OLTP, Hybrid (HTAP), and Analytical (data mart) workloads.
   - question: >
-      Comment choisir entre Azure Synapse Analytics et Azure SQL Database Hyperscale ?
-    answer: "Si vous exécutez actuellement des requêtes analytiques interactives avec SQL Server comme entrepôt de données, Hyperscale est une option intéressante, car vous pouvez héberger des entrepôts de données de taille petite et moyenne (par exemple de quelques To jusqu’à 100 To) à un coût inférieur, et vous pouvez migrer les charges de travail de votre entrepôt de données SQL Server vers Hyperscale avec des modifications minimales du code T-SQL.\n\nSi vous exécutez de l’analytique des données à grande échelle avec des requêtes complexes et des taux d’ingestion supérieurs à 100 Mo/s, ou en utilisant Parallel Data Warehouse, Teradata ou d’autres entrepôts de données MPP (Massively Parallel Processing), Azure Synapse Analytics peut être le meilleur choix.\n  \n"
+      How can I choose between Azure Synapse Analytics and Azure SQL Database Hyperscale?
+    answer: "If you are currently running interactive analytics queries using SQL Server as a data warehouse, Hyperscale is a great option because you can host small and mid-size data warehouses (such as a few TB up to 100 TB) at a lower cost, and you can migrate your SQL Server data warehouse workloads to Hyperscale with minimal T-SQL code changes.\n\nIf you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics may be the best choice.\n  \n"
 - name: Questions sur la capacité de calcul d’Hyperscale
   questions:
   - question: >
-      Puis-je interrompre ma capacité de calcul quand je veux ?
+      Can I pause my compute at any time?
     answer: >
-      Pas pour l’instant, mais vous pouvez faire descendre en puissance votre calcul et le nombre de réplicas pour réduire les coûts pendant les heures creuses.
+      Not at this time, however you can scale your compute and number of replicas down to reduce cost during non-peak times.
   - question: >
-      Puis-je provisionner un réplica de calcul avec de la RAM supplémentaire pour ma charge de travail utilisant beaucoup de mémoire ?
+      Can I provision a compute replica with extra RAM for my memory-intensive workload?
     answer: >
-      Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+      No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
   - question: >
-      Puis-je provisionner plusieurs réplicas de calcul de tailles différentes ?
+      Can I provision multiple compute replicas of different sizes?
     answer: >
-      Oui. Pour cela, vous pouvez utiliser [des réplicas nommés](service-tier-hyperscale-replicas.md#named-replica-in-preview).
+      Yes. This can be achieved using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
   - question: >
-      Combien de réplicas avec échelle horizontale en lecture sont pris en charge ?
+      How many Read Scale-out replicas are supported?
     answer: >
-      Les bases de données Hyperscale sont créées par défaut avec un réplica avec échelle horizontale en lecture (deux réplicas y compris le principal). Vous pouvez mettre à l’échelle le nombre de réplicas en lecture seule entre 0 et 4 à l’aide du [Portail Azure](https://portal.azure.com) ou de l’[API REST](/rest/api/sql/databases/createorupdate). En outre, de nombreux scénarios de mise à l’échelle en lecture peuvent être activés à l’aide de [réplicas nommés](service-tier-hyperscale-replicas.md#named-replica-in-preview).
+      The Hyperscale databases are created with one Read Scale-out replica (two replicas including primary) by default. You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). Additionally, many read scale-out scenarios can be enabled using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
   - question: >
-      Pour la haute disponibilité, dois-je provisionner des nœuds de calcul supplémentaires ?
+      For high availability, do I need to provision additional compute replicas?
     answer: >
-      Dans les bases de données Hyperscale, la résilience des données est fournie au niveau du stockage. Un seul réplica est suffisant pour fournir la résilience. Quand le réplica de capacité de calcul est défaillant, un nouveau réplica est créé automatiquement sans perte de données.
+      In Hyperscale databases, data resiliency is provided at the storage level. You only need one replica to provide resiliency. When the compute replica is down, a new replica is created automatically with no data loss.
 
 
-      Cependant, s’il n’existe qu’un seul réplica, un certain temps peut être nécessaire pour générer le cache local dans le nouveau réplica après le basculement. Pendant la phase de reconstruction du cache, la base de données extrait les données directement à partir des serveurs de pages, ce qui entraîne une latence de stockage supérieure et une dégradation des performances des requêtes.
+      However, if there’s only one replica, it may take some time to build the local cache in the new replica after failover. During the cache rebuild phase, the database fetches data directly from the page servers, resulting in higher storage latency and degraded query performance.
 
 
-      Pour les applications critiques qui nécessitent une haute disponibilité avec un impact de basculement minimal, vous devez approvisionner au moins 2 réplicas de calcul, y compris le réplica de calcul principal. Il s’agit de la configuration par défaut. De cette façon, il y a un réplica de secours à chaud qui fait office de cible de basculement.
+      For mission-critical apps that require high availability with minimal failover impact, you should provision at least 2 compute replicas including the primary compute replica. This is the default configuration. That way there is a hot-standby replica available that serves as a failover target.
 - name: Questions sur la taille et le stockage des données
   questions:
   - question: >
-      Quelle est la taille maximale de base de données prise en charge avec Hyperscale ?
-    answer: 100 To.
+      What is the maximum database size supported with Hyperscale?
+    answer: 100 TB.
   - question: >
-      Quelle est la taille du journal des transactions avec Hyperscale ?
+      What is the size of the transaction log with Hyperscale?
     answer: >
-      Le journal des transactions avec Hyperscale est pratiquement infini. Vous n’avez pas à vous soucier d’un espace insuffisant pour le journal sur un système qui a un débit de journalisation élevé. Cependant, le débit de génération du journal peut être limité pour les charges de travail en écriture agressives continues. La vitesse de génération de journal maximale soutenue est de 100 Mo/s.
+      The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
   - question: >
-      Est-ce que ma `tempdb` s’adapte à mesure que ma base de données grossit ?
+      Does my `tempdb` scale as my database grows?
     answer: >
-      Votre base de données `tempdb` se trouve sur un stockage SSD local et elle est dimensionnée proportionnellement à la taille de calcul que vous provisionnez. Votre base de données `tempdb` est optimisée de façon à fournir des performances optimales. La taille de `tempdb` n’est pas configurable et elle est gérée pour vous. Pour déterminer `tempdb` la taille maximale de votre base de données, consultez [Stockage hyperscale et tailles de calcul](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+      Your `tempdb` database is located on local SSD storage and is sized proportionally to the compute size that you provision. Your `tempdb` is optimized to provide maximum performance benefits. `tempdb` size is not configurable and is managed for you. To determine maximum `tempdb` size for your database, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
   - question: >
-      La taille de ma base de données augmente-t-elle automatiquement ou dois-je gérer la taille des fichiers de données ?
+      Does my database size automatically grow, or do I have to manage the size of data files?
     answer: >
-      La taille de votre base de données croît automatiquement au fil de l’insertion/ingestion de données.
+      Your database size automatically grows as you insert/ingest more data.
   - question: >
-      Quelle est la plus petite taille de base de données prise en charge par Hyperscale ?
-    answer: 40 Go. Une base de données Hyperscale est créée avec une taille de départ de 10 Go. Ensuite, elle commence à croître de 10 Go toutes les 10 minutes, jusqu’à atteindre la taille de 40 Go. Chacun de ces blocs de 10 Go est alloué sur un serveur de pages différent afin de fournir un nombre d’IOPS plus élevé et un parallélisme d’E/S supérieur. En raison de cette optimisation, même si vous choisissez une taille de base de données initiale inférieure à 40 Go, la base de données passera automatiquement à au moins 40 Go.
+      What is the smallest database size that Hyperscale supports?
+    answer: 40 GB. A Hyperscale database is created with a starting size of 10 GB. Then, it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB. Each of these 10 GB chunks is allocated in a different page server in order to provide more IOPS and higher I/O parallelism. Because of this optimization, even if you choose initial database size smaller than 40 GB, the database will grow to at least 40 GB automatically.
   - question: >
-      De quel incrément la taille de ma base de données augmente-t-elle ?
+      In what increments does my database size grow?
     answer: >
-      Chaque fichier de données croît de 10 Go. Plusieurs fichiers de données peuvent croître en même temps.
+      Each data file grows by 10 GB. Multiple data files may grow at the same time.
   - question: >
-      Le stockage dans Hyperscale est-il local ou distant ?
+      Is the storage in Hyperscale local or remote?
     answer: >
-      Dans Hyperscale, les fichiers de données sont stockés dans le stockage Azure standard. Les données sont entièrement mises en cache sur le stockage SSD local, sur les serveurs de pages qui sont proches des réplicas de calcul. En outre, les réplicas de calcul ont des caches de données sur un SSD local et en mémoire, afin de réduire la fréquence des extractions de données sur les serveurs de pages distants.
+      In Hyperscale, data files are stored in Azure standard storage. Data is fully cached on local SSD storage, on page servers that are close to the compute replicas. In addition, compute replicas have data caches on local SSD and in memory, to reduce the frequency of fetching data from remote page servers.
   - question: >
-      Puis-je gérer ou définir des fichiers ou des groupes de fichiers avec Hyperscale ?
+      Can I manage or define files or filegroups with Hyperscale?
     answer: >
-      Non. Les fichiers de données sont ajoutés automatiquement. Les raisons courantes de la création de groupes de fichiers supplémentaires ne s’appliquent pas à l’architecture de stockage Hyperscale.
+      No. Data files are added automatically. The common reasons for creating additional filegroups do not apply in the Hyperscale storage architecture.
   - question: >
-      Puis-je provisionner une limite stricte pour la croissance des données de ma base de données ?
+      Can I provision a hard cap on the data growth for my database?
     answer: >
-      Non.
+      No.
   - question: >
-      Comment les fichiers de données se présentent-ils avec Hyperscale ?
+      How are data files laid out with Hyperscale?
     answer: >
-      Les fichiers de données sont contrôlés par les serveurs de pages, avec un serveur de pages par fichier de données. Au fil de l’augmentation de la taille des données, des fichiers de données et des serveurs de pages associés sont ajoutés.
+      The data files are controlled by page servers, with one page server per data file. As the data size grows, data files and associated page servers are added.
   - question: >
-      La réduction de base de données est-elle prise en charge ?
+      Is database shrink supported?
     answer: >
-      Non.
+      No.
   - question: >
-      La compression des données est-elle prise en charge ?
+      Is data compression supported?
     answer: >
-      Oui, y compris la compression de ligne, de page et columnstore.
+      Yes, including row, page, and columnstore compression.
   - question: >
-      Si j’ai une table très grande, les données de ma table sont-elles réparties dans plusieurs fichiers de données ?
+      If I have a huge table, does my table data get spread out across multiple data files?
     answer: >
-      Oui. Les pages de données associées à une table donnée peuvent être stockées dans plusieurs fichiers de données, qui font tous partie du même groupe de fichiers. SQL Server utilise une [stratégie de remplissage proportionnel](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) pour distribuer les données entre des fichiers de données.
+      Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses [proportional fill strategy](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
 - name: Questions relatives à la migration des données
   questions:
   - question: >
-      Puis-je déplacer mes bases de données d’Azure SQL Database vers le niveau de service Hyperscale ?
-    answer: "Oui. Vous pouvez déplacer vos bases de données existantes d’Azure SQL Database vers Hyperscale. Il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Pour les preuves de concept, nous vous recommandons d’effectuer une copie de votre base de données et de migrer la copie vers Hyperscale. \n\nLe temps nécessaire pour déplacer une base de données existante vers Hyperscale comprend le temps de copie des données et celui de relecture des modifications apportées dans la base de données source lors de la copie des données. Le temps de copie des données est proportionnel à la taille des données. Le temps de relecture des modifications sera plus court si le déplacement est effectué pendant une période de faible activité d’écriture.\n  \n"
+      Can I move my existing databases in Azure SQL Database to the Hyperscale service tier?
+    answer: "Yes. You can move your existing databases in Azure SQL Database to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale. \n\nThe time required to move an existing database to Hyperscale consists of the time to copy data, and the time to replay the changes made in the source database while copying data. The data copy time is proportional to data size. The time to replay changes will be shorter if the move is done during a period of low write activity.\n  \n"
   - question: >
-      Puis-je déplacer mes bases de données Hyperscale vers d’autres niveaux de service ?
+      Can I move my Hyperscale databases to other service tiers?
     answer: >
-      Non. Actuellement, vous ne pouvez pas déplacer une base de données Hyperscale vers un autre niveau de service.
+      No. At this time, you can’t move a Hyperscale database to another service tier.
   - question: >
-      Est-ce que je perds des fonctionnalités ou des capacités après la migration vers le niveau de service Hyperscale ?
+      Do I lose any functionality or capabilities after migration to the Hyperscale service tier?
     answer: >
-      Oui. Certaines fonctionnalités Azure SQL Database ne sont pas encore prises en charge dans Hyperscale, notamment la conservation à long terme des sauvegardes. Après la migration de vos bases de données vers Hyperscale, ces fonctionnalités cessent de fonctionner.  Nous espérons que ces limites ne seront pas définitives. Pour plus d’informations, consultez [Limites connues](service-tier-hyperscale.md#known-limitations).
+      Yes. Some Azure SQL Database features are not supported in Hyperscale yet, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary. For details, see [Known limitations](service-tier-hyperscale.md#known-limitations).
   - question: >
-      Puis-je déplacer ma base de données SQL Server locale ou ma base de données SQL Server dans une machine virtuelle cloud vers Hyperscale ?
+      Can I move my on-premises SQL Server database, or my SQL Server database in a cloud virtual machine to Hyperscale?
     answer: >
-      Oui. Vous pouvez utiliser toutes les technologies de migration existantes pour migrer vers Hyperscale, notamment la réplication transactionnelle, et toute autre technologie de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS). Voir aussi l’[Azure Database Migration Service](../../dms/dms-overview.md), qui prend en charge de nombreux scénarios de migration.
+      Yes. You can use all existing migration technologies to migrate to Hyperscale, including transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../../dms/dms-overview.md), which supports many migration scenarios.
   - question: >
-      Quelle est la durée du temps d’arrêt pendant la migration depuis un environnement local ou de machines virtuelles vers Hyperscale, et comment puis-je la réduire ?
+      What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale, and how can I minimize it?
     answer: >
-      Le temps d’arrêt pour la migration vers Hyperscale est le même que quand vous migrez vos bases de données vers d’autres niveaux de service dans Azure SQL Database. Vous pouvez utiliser la [réplication transactionnelle](replication-to-sql-database.md#data-migration-scenario
+      Downtime for migration to Hyperscale is the same as the downtime when you migrate your databases to other Azure SQL Database service tiers. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 
-      ) afin de réduire le temps d’arrêt dû à la migration pour les bases de données d’une taille allant jusqu’à plusieurs To. Pour de très grandes bases de données (plus de 10 To), vous pouvez envisager de migrer les données avec ADF, Spark ou d’autres technologies de déplacement des données.
+      ) to minimize downtime migration for databases up to few TB in size. For very large databases (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
   - question: >
-      Combien de temps cela prend-t-il de charger une quantité X de données dans Hyperscale ?
+      How much time would it take to bring in X amount of data to Hyperscale?
     answer: >
-      Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées, mais le temps nécessaire pour déplacer des données dans des bases de données dans Azure SQL Database est également affecté par le débit du réseau disponible, la vitesse de lecture de la source et l’objectif de niveau de service de la base de données cible.
+      Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time needed to move data into databases in Azure SQL Database is also affected by available network throughput, source read speed and the target database service level objective.
   - question: >
-      Est-ce que je peux lire les données d’un stockage d’objets blob (comme PolyBase dans Azure Synapse Analytics) et faire un chargement rapide ?
+      Can I read data from blob storage and do fast load (like Polybase in Azure Synapse Analytics)?
     answer: >
-      Vous pouvez faire en sorte qu’une application cliente lise des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (tout comme vous pouvez le faire avec n’importe quelle autre base de données dans Azure SQL Database). Actuellement, PolyBase n’est pas pris en charge dans Azure SQL Database. Comme alternative pour fournir une charge rapide, vous pouvez utiliser [Azure Data Factory](../../data-factory/index.yml) ou utiliser un travail Spark dans [Azure Databricks](/azure/azure-databricks/) avec le [connecteur Spark pour SQL](spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
-
-
-      Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+      You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other database in Azure SQL Database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](../../data-factory/index.yml), or use a Spark job in [Azure Databricks](/azure/azure-databricks/) with the [Spark connector for SQL](spark-connector.md). The Spark connector to SQL supports bulk insert.
 
 
-      Le modèle de récupération simple ou de journalisation en bloc n’est pas pris en charge dans Hyperscale. Le modèle de récupération complète est nécessaire pour fournir une haute disponibilité et la récupération jusqu`à une date et heure. Cependant, l’architecture de journalisation Hyperscale fournit un meilleur débit d’ingestion en comparaison avec d’autres niveaux de services Azure SQL Database.
+      It is also possible to bulk read data from Azure Blob store using BULK INSERT or OPENROWSET: [Examples of Bulk Access to Data in Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+
+
+      Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability and point-in-time recovery. However, Hyperscale log architecture provides better data ingest rate compared to other Azure SQL Database service tiers.
   - question: >
-      Est-ce que Hyperscale permet de provisionner plusieurs nœuds pour l’ingestion en parallèle de grandes quantités de données ?
+      Does Hyperscale allow provisioning multiple nodes for parallel ingesting of large amounts of data?
     answer: >
-      Non. Hyperscale est une architecture à multitraitement symétrique (SMP) et n’est pas une architecture MMP (Massively Parallel Processing) ou une architecture multimaître. Vous pouvez créer plusieurs réplicas seulement pour effectuer un scale-out des charges de travail en lecture seule.
+      No. Hyperscale is a symmetric multi-processing (SMP) architecture and is not a massively parallel processing (MPP) or a multi-master architecture. You can only create multiple replicas to scale out read-only workloads.
   - question: >
-      Quelle est la version de SQL Server la plus ancienne prise en charge pour la migration vers Hyperscale ?
+      What is the oldest SQL Server version supported for migration to Hyperscale?
     answer: >
-      SQL Server 2005. Pour plus d’informations, consultez [Migrer vers une base de données unique ou une base de données mise en pool](migrate-to-database-from-sql-server.md#migrate-to-a-single-database-or-a-pooled-database). Pour les problèmes de compatibilité, consultez [Résolution des problèmes de compatibilité de la migration de base de données](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues).
+      SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](migrate-to-database-from-sql-server.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](migrate-to-database-from-sql-server.md#resolving-database-migration-compatibility-issues).
   - question: >
-      Est-ce que Hyperscale prend en charge la migration depuis d’autres sources de données, comme Amazon Aurora, MySQL, PostgreSQL, Oracle, DB2 et d’autres plateformes de base de données ?
+      Does Hyperscale support migration from other data sources such as Amazon Aurora, MySQL, PostgreSQL, Oracle, DB2, and other database platforms?
     answer: >
-      Oui. [Azure Database Migration Service](../../dms/dms-overview.md) prend en charge de nombreux scénarios de migration.
+      Yes. [Azure Database Migration Service](../../dms/dms-overview.md) supports many migration scenarios.
 - name: Questions sur la continuité des activités et la reprise d’activité
   questions:
   - question: >
-      Quels sont les contrats SLA fournis pour une base de données Hyperscale ?
+      What SLAs are provided for a Hyperscale database?
     answer: >
-      Voir [SLA pour Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database). Les réplicas de calcul secondaires supplémentaires augmentent la disponibilité, jusqu’à 99,99 % pour une base de données avec deux réplicas de calcul secondaires ou plus.
+      See [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database). Additional secondary compute replicas increase availability, up to 99.99% for a database with two or more secondary compute replicas.
   - question: >
-      Les sauvegardes de base de données sont-elles gérées pour moi par Azure SQL Database ?
+      Are the database backups managed for me by Azure SQL Database?
     answer: >
-      Oui.
+      Yes.
   - question: >
-      Quelle est la fréquence des sauvegardes de base de données ?
+      How often are the database backups taken?
     answer: >
-      Il n’existe pas de sauvegardes traditionnelles complètes, différentielles et de fichier journal pour les bases de données Hyperscale. Au lieu de cela, il existe des captures instantanées de stockage de fichiers de données. Le journal généré est conservé en l’état pour la période de rétention configurée, ce qui permet une restauration à n’importe quel point dans le temps au cours de la période de rétention.
+      There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
   - question: >
-      Est-ce que Hyperscale prend en charge la limite de restauration dans le temps ?
+      Does Hyperscale support point-in-time restore?
     answer: >
-      Oui.
+      Yes.
   - question: >
-      Quel est l’objectif de point de récupération (RPO)/objectif de délai de récupération (RTO) pour la restauration de base de données dans Hyperscale ?
+      What is the Recovery Point Objective (RPO)/Recovery Time Objective (RTO) for database restore in Hyperscale?
     answer: >
-      Le RPO pour la restauration ponctuelle est de 0 minute. La plupart des opérations de restauration ponctuelle se terminent dans les 60 minutes, quelle que soit la taille de la base de données. La durée de restauration peut être plus longue pour des bases de données plus volumineuses et si la base de données a fait l’objet d’une activité d’écriture importante avant et jusqu’au point de restauration dans le temps.
+      The RPO for point-in-time restore is 0 min. Most point-in-time restore operations complete within 60 minutes regardless of database size. Restore time may be longer for larger databases, and if the database had experienced significant write activity before and up to the restore point in time.
   - question: >
-      La sauvegarde de base de données affecte-t-elle les performances de calcul sur mes réplicas principaux ou secondaires ?
+      Does database backup affect compute performance on my primary or secondary replicas?
     answer: >
-      Non. Les sauvegardes sont gérées par le sous-système de stockage et tirent parti des captures instantanées de stockage. Elles n’affectent pas les charges de travail utilisateur.
+      No. Backups are managed by the storage subsystem, and leverage storage snapshots. They do not impact user workloads.
   - question: >
-      Puis-je effectuer une géorestauration avec une base de données Hyperscale ?
+      Can I perform geo-restore with a Hyperscale database?
     answer: >
-      Oui. La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration nécessite une opération à l’échelle des données. Les fichiers de données étant copiés en parallèle, la durée de cette opération dépend principalement de la taille du fichier le plus volumineux dans la base de données, plutôt que de la taille totale de celle-ci. La durée de la géorestauration est beaucoup plus courte si la base de données est restaurée dans la région Azure [associée](../../best-practices-availability-paired-regions.md) à la région de la base de données source.
+      Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](../../best-practices-availability-paired-regions.md) with the region of the source database.
   - question: >
-      Puis-je configurer la géoréplication avec une base de données Hyperscale ?
+      Can I set up geo-replication with a Hyperscale database?
     answer: >
-      Oui. [La géoréplication](active-geo-replication-overview.md) pour les bases de données Hyperscale est en préversion publique.
+      Yes. [Geo-replication](active-geo-replication-overview.md) for Hyperscale databases is in public preview.
   - question: >
-      Puis-je sauvegarder une base de données Hyperscale et la restaurer sur mon serveur local ou sur SQL Server dans une machine virtuelle ?
+      Can I take a Hyperscale database backup and restore it to my on-premises server, or on SQL Server in a VM?
     answer: >
-      Non. Le format de stockage pour les bases de données Hyperscale est différent des versions publiées de SQL Server, et vous ne contrôlez pas les sauvegardes et vous n’y avez pas accès. Pour extraire vos données d’une base de données Hyperscale, vous pouvez extraire les données à l’aide des technologies de déplacement de données, par exemple Azure Data Factory, Azure Databricks, SSIS, etc.
+      No. The storage format for Hyperscale databases is different from any released version of SQL Server, and you don’t control backups or have access to them. To take your data out of a Hyperscale database, you can extract data using any data movement technologies, i.e. Azure Data Factory, Azure Databricks, SSIS, etc.
 - name: Questions sur les fonctionnalités croisées
   questions:
   - question: >
-      Est-ce que je perds des fonctionnalités ou des capacités après la migration vers le niveau de service Hyperscale ?
+      Do I lose any functionality or capabilities after migration to the Hyperscale service tier?
     answer: >
-      Oui. Certaines fonctionnalités Azure SQL Database ne sont pas prises en charge dans Hyperscale, notamment la conservation à long terme des sauvegardes. Après la migration de vos bases de données vers Hyperscale, ces fonctionnalités cessent de fonctionner. Pour plus d’informations, consultez [Limites connues](service-tier-hyperscale.md#known-limitations).
+      Yes. Some Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working. For details, see [Known limitations](service-tier-hyperscale.md#known-limitations).
   - question: >
-      Est-ce que PolyBase fonctionne avec Hyperscale ?
+      Will PolyBase work with Hyperscale?
     answer: >
-      Non. PolyBase n’est pas pris en charge dans Azure SQL Database.
+      No. PolyBase is not supported in Azure SQL Database.
   - question: >
-      Est-ce que Hyperscale prend en charge R et Python ?
+      Does Hyperscale have support for R and Python?
     answer: >
-      Pas pour l'instant.
+      Not at this time.
   - question: >
-      Les nœuds de calcul sont-ils conteneurisés ?
+      Are compute nodes containerized?
     answer: >
-      Non. Les processus Hyperscale s’exécutent sur des nœuds [Service Fabric](https://azure.microsoft.com/services/service-fabric/) (machines virtuelles), et non dans des conteneurs.
+      No. Hyperscale processes run on [Service Fabric](https://azure.microsoft.com/services/service-fabric/) nodes (VMs), not in containers.
 - name: Questions sur les performances
   questions:
   - question: >
-      Quel débit d’écriture puis-je pousser (push) dans une base de données Hyperscale ?
+      How much write throughput can I push in a Hyperscale database?
     answer: >
-      Le débit limite du journal des transactions est défini sur 100 Mo/s pour toute taille de calcul Hyperscale. La capacité à atteindre ce taux dépend de plusieurs facteurs, notamment le type de charge de travail, la configuration du client et la capacité de calcul suffisante sur le réplica de calcul principal pour produire le journal à ce rythme.
+      Transaction log throughput cap is set to 100 MB/s for any Hyperscale compute size. The ability to achieve this rate depends on multiple factors, including but not limited to workload type, client configuration, and having sufficient compute capacity on the primary compute replica to produce log at this rate.
   - question: >
-      Combien d’IOPS puis-je obtenir sur le plus grand calcul ?
+      How many IOPS do I get on the largest compute?
     answer: >
-      Les IOPS et la latence d’E/S varient en fonction des modèles de charge de travail. Si les données en cours d’accès sont mises en cache dans RBPEX sur le réplica de calcul, vous verrez des performances d’e/s similaires comme dans les niveaux de service critique pour l’entreprise ou Premium.
+      IOPS and IO latency will vary depending on the workload patterns. If the data being accessed is cached in RBPEX on the compute replica, you will see similar IO performance as in Business Critical or Premium service tiers.
   - question: >
-      Mon débit est-il affecté par les sauvegardes ?
+      Does my throughput get affected by backups?
     answer: >
-      Non. La capacité de calcul est découplée de la couche de stockage. Cela élimine l’impact sur les performances de la sauvegarde.
+      No. Compute is decoupled from the storage layer. This eliminates performance impact of backup.
   - question: >
-      Mon débit est-il affecté quand je provisionne des réplicas de calcul supplémentaires ?
+      Does my throughput get affected as I provision additional compute replicas?
     answer: >
-      Comme le stockage est partagé et qu’aucune réplication physique directe n’est effectuée entre les réplicas de calcul principaux et secondaires, le débit sur le réplica principal n’est pas affecté directement par l’ajout de réplicas secondaires. Cependant, nous pouvons limiter la charge de travail en écriture agressive continue sur le réplica principal pour que le journal s’applique sur les réplicas secondaires et les serveurs de pages à rattraper, et éviter ainsi des performances de lecture médiocres sur les réplicas secondaires.
+      Because the storage is shared and there is no direct physical replication happening between primary and secondary compute replicas, the throughput on primary replica will not be directly affected by adding secondary replicas. However, we may throttle continuous aggressively writing workload on the primary to allow log apply on secondary replicas and page servers to catch up, to avoid poor read performance on secondary replicas.
   - question: >
-      Comment diagnostiquer et résoudre les problèmes de performances dans une base de données Hyperscale ?
+      How do I diagnose and troubleshoot performance problems in a Hyperscale database?
     answer: >
-      Pour la plupart des problèmes de performances, en particulier ceux qui ne proviennent pas des performances de stockage, les étapes courantes de diagnostic et de résolution des problèmes SQL s’appliquent. Pour obtenir des diagnostics de stockage spécifiques à Hyperscale, consultez [Diagnostics de résolution des problèmes de performances Hyperscale SQL](hyperscale-performance-diagnostics.md).
+      For most performance problems, particularly the ones not rooted in storage performance, common SQL diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](hyperscale-performance-diagnostics.md).
 - name: Questions sur la scalabilité
   questions:
   - question: >
-      Quel est le temps nécessaire pour un scale-up et un scale-down d’un réplica de calcul ?
+      How long would it take to scale up and down a compute replica?
     answer: >
-      Monter ou descendre le calcul en puissance doit prendre 2 minutes, quelle que soit la taille des données.
+      Scaling compute up or down typically takes up to 2 minutes regardless of data size.
   - question: >
-      Ma base de données est-elle hors connexion pendant l’exécution de l’opération de scale-up/down ?
+      Is my database offline while the scaling up/down operation is in progress?
     answer: >
-      Non. Le scale-up/down se fait en ligne.
+      No. The scaling up and down will be online.
   - question: >
-      Dois-je m’attendre à la suppression des connexions quand les opérations de mise à l’échelle sont en cours ?
+      Should I expect connection drop when the scaling operations are in progress?
     answer: >
-      Le scale-up ou le scale-down entraînent la suppression des connexions existantes quand un basculement se produit à la fin de l’opération de mise à l'échelle. L’ajout ou la suppression de réplicas secondaires n’entraîne pas de suppressions de connexions sur le serveur principal.
+      Scaling up or down results in existing connections being dropped when a failover happens at the end of the scaling operation. Adding or removing secondary replicas does not result in connection drops on the primary.
   - question: >
-      Le scale-up et le scale-down de réplicas de calcul sont-ils des opérations automatiques ou déclenchées par l’utilisateur final ?
-    answer: "Utilisateur final. Pas automatique.  \n"
+      Is the scaling up and down of compute replicas automatic or end-user triggered operation?
+    answer: "End-user. Not automatic.  \n"
   - question: >
-      La taille de ma base de données `tempdb` et du cache RBPEX augmente-t-elle également au fur et à mesure que le calcul est mis à l’échelle ?
+      Does the size of my `tempdb` database and RBPEX cache also grow as the compute is scaled up?
     answer: >
-      Oui. La taille de la base de données `tempdb` et du [cache RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) sur les nœuds de calcul augmente automatiquement à mesure que le nombre de cœurs augmente. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+      Yes. The `tempdb` database and [RBPEX cache](service-tier-hyperscale.md#distributed-functions-architecture) size on compute nodes will scale up automatically as the number of cores is increased. For details, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
   - question: >
-      Puis-je provisionner plusieurs réplicas de calcul principaux, comme un système multimaître où plusieurs têtes de calcul principales peuvent gérer un niveau de concurrence plus élevé ?
+      Can I provision multiple primary compute replicas, such as a multi-master system, where multiple primary compute heads can drive a higher level of concurrency?
     answer: >
-      Non. Seul le réplica de calcul principal accepte les demandes de lecture/écriture. Les réplicas de calcul secondaires acceptent seulement les demandes en lecture seule.
+      No. Only the primary compute replica accepts read/write requests. Secondary compute replicas only accept read-only requests.
 - name: Questions sur l’échelle horizontale en lecture
   questions:
   - question: >
-      Combien de réplicas de calcul secondaires puis-je provisionner ?
+      What kinds of secondary (read scale-out) replicas are available in Hyperscale?
     answer: >
-      Nous créons par défaut un réplica secondaire pour les bases de données Hyperscale. Si vous souhaitez ajuster le nombre de réplicas, vous pouvez le faire au moyen du [Portail Microsoft Azure](https://portal.azure.com) ou de l’[API REST](/rest/api/sql/databases/createorupdate). Pour plus d’informations sur les types de réplicas, consultez [Réplicas Hyperscale](service-tier-hyperscale-replicas.md).
+      Hyperscale supports High Availability (HA) replicas, named replicas, and geo-replicas. See [Hyperscale secondary replicas](service-tier-hyperscale-replicas.md) for details.
   - question: >
-      Comment me connecter à ces réplicas de calcul secondaires ?
+      How many secondary HA replicas can I provision?
     answer: >
-      Vous pouvez vous connecter à ces réplicas de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `ReadOnly`. Les connexions marquées avec `ReadOnly` sont automatiquement routées vers un des réplicas de calcul supplémentaires en lecture seule. Pour plus d’informations, consultez [Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule](read-scale-out.md).
+      We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
   - question: >
-      Comment faire pour vérifier si la connexion au réplica de calcul secondaire a bien été établie à l’aide de SSMS ou d’autres outils clients ?
+      How do I connect to secondary HA replicas?
     answer: >
-      Vous pouvez exécuter la requête T-SQL suivante : `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
-
-      Le résultat est `READ_ONLY` si vous êtes connecté à un réplica secondaire en lecture seule, et `READ_WRITE` si vous êtes connecté au réplica principal. Notez que le contexte de base de données doit être défini sur le nom de la base de données Hyperscale, et non sur la base de données `master`.
+      You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument in your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the secondary HA replicas, if they were added for your database. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
   - question: >
-      Puis-je créer un point de terminaison dédié pour le réplica avec une échelle horizontale en lecture ?
+      How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
     answer: >
-      Non. Vous pouvez vous connecter au réplica avec une échelle horizontale en lecture uniquement en spécifiant `ApplicationIntent=ReadOnly`.
+      You can execute the following T-SQL query: `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`. The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
   - question: >
-      Est-ce que le système effectue un équilibrage de charge intelligent de la charge de travail de lecture ?
-    answer: >
-      Non. Une nouvelle connexion avec intention de lecture seule est redirigée vers un réplica de scale-out de lecture arbitraire.
+      Can I create a dedicated endpoint for a secondary HA replica?
+    answer: "No. You can only connect to HA replicas by specifying `ApplicationIntent=ReadOnly`. However, you can use dedicated endpoints for [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview). \n"
   - question: >
-      Puis-je effectuer un scale-up/down des réplicas de calcul secondaires indépendamment du réplica principal ?
+      Does the system do intelligent load balancing of the read workload on HA replicas?
     answer: >
-      Non. Les réplicas de calcul secondaires sont également utilisés comme cibles de basculement à haute disponibilité. Ils doivent donc avoir la même configuration que le principal pour fournir les performances attendues après le basculement.
+      No. A new connection with read-only intent is redirected to an arbitrary HA replica.
   - question: >
-      Le dimensionnement de `tempdb` est-il différent pour ma capacité de calcul principale et pour mes réplicas de calcul secondaires supplémentaires ?
+      Can I scale up/down HA replicas independently of the primary replica?
     answer: >
-      Non. Votre base de données `tempdb` est configurée en fonction de l’approvisionnement de la taille de calcul : vos réplicas de calcul secondaires ont la même taille que la capacité de calcul principale.
+      No. HA replicas are used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover. [Named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide the ability to scale each replica independently.
   - question: >
-      Puis-je ajouter des index et des vues sur mes réplicas de calcul secondaires ?
+      Do I get different `tempdb` sizing for my primary compute and my HA replicas?
     answer: >
-      Non. Les bases de données Hyperscale ont un stockage partagé, ce qui signifie que tous les réplicas de calcul voient les mêmes tables, les mêmes index et les mêmes vues. Si vous voulez des index supplémentaires optimisés pour les lectures sur les réplicas secondaires, vous devez d’abord les ajouter sur le réplica principal.
+      No. Your `tempdb` database is configured based on the provisioned compute size, your HA replicas are the same size, including `tempdb`, as the primary compute. On [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview), `tempdb` is sized according to the compute size of the replica, thus it can be smaller or larger than `tempdb` on the primary.
   - question: >
-      Quel est le décalage entre le réplica de calcul principal et le réplica de calcul secondaire ?
+      Can I add indexes and views on my secondary compute replicas?
     answer: >
-      La latence des données entre le moment où une transaction est validée sur le réplica principal et le moment où elle est lisible sur un réplica secondaire dépend de la vitesse de génération de journal actuelle, de la taille de la transaction, de la charge sur le réplica et d’autres facteurs. La latence des données standard pour les petites transactions est de l’ordre de dizaines de millisecondes, mais il n’y a pas de limite supérieure à la latence des données. Les données situées sur un réplica secondaire donné sont toujours cohérentes au niveau transactionnel. Toutefois, à un moment donné, la latence des données peut être différente pour différents réplicas secondaires. Les charges de travail qui doivent lire les données validées immédiatement doivent s’exécuter sur le réplica principal.
-additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nPour plus d’informations sur le niveau de service Hyperscale, consultez [Niveau de service Hyperscale](service-tier-hyperscale.md)."
+      No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, and views. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
+  - question: >
+      How much delay is there going to be between the primary and secondary compute replicas?
+    answer: >
+      Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
+additionalContent: "\n## Next steps\n\nFor more information about the Hyperscale service tier, see [Hyperscale service tier](service-tier-hyperscale.md)."

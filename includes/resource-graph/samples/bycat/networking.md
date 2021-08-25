@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 47184f90bade6fd7178ba2a66a151429e260a623
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 642743a6ac3f6c450f3a851c1ebb09e72d70d51b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457164"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861698"
 ---
 ### <a name="count-resources-that-have-ip-addresses-configured-by-subscription"></a>Compter les ressources avec des adresses IP configurées pour chaque abonnement
 
@@ -46,7 +46,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ### <a name="get-virtual-networks-and-subnets-of-network-interfaces"></a>Récupérer les réseaux virtuels et les sous-réseaux des interfaces réseau
 
-Utilisez une expression régulière `parse` pour obtenir les noms des réseaux virtuels et des sous-réseaux à partir de la propriété ID de ressource. Bien que `parse` permette d’obtenir des données à partir d’un champ complexe, il est préférable d’accéder directement aux propriétés si elles existent plutôt que d’utiliser `parse`.
+Utilisez une expression régulière `parse` pour obtenir les noms des réseaux virtuels et des sous-réseaux à partir de la propriété ID de ressource. Bien que `parse` permette d’obtenir des données à partir d’un champ complexe, il est préférable d’accéder directement aux propriétés si elles existent, au lieu d’utiliser `parse`.
 
 ```kusto
 Resources

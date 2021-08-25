@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
-ms.date: 05/04/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: a4e94e3f5a274fc30cb4d64d5c31846a4ddac03b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 22c6e1382fdfbd7cafb423e99239fe2480d3b088
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108757166"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322129"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 

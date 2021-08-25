@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b742e43d45517f36e6f43207afd0c77364a50d6c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0f0a010ab9b3d3a3e0fce7a1fa08cf390cf5be16
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438962"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861234"
 ---
-### <a name="list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension"></a>Répertorier tous les clusters Kubernetes avec Azure Arc avec l’extension Azure Monitor
+### <a name="list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension"></a>Répertorier tous les clusters Kubernetes compatibles avec Azure Arc avec l’extension Azure Monitor
 
-Renvoie l’ID de cluster connecté de chaque cluster Kubernetes avec Azure Arc et pour lequel l’extension Azure Monitor installée.
+Renvoie l’ID de cluster connecté de chaque cluster Kubernetes compatible avec Azure Arc et pour lequel l’extension Azure Monitor est installée.
 
 ```kusto
 KubernetesConfigurationResources
@@ -46,9 +46,9 @@ Search-AzGraph -Query "KubernetesConfigurationResources | where type == 'microso
 
 ---
 
-### <a name="list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension"></a>Répertorier tous les clusters Kubernetes avec Azure Arc sans extension Azure Monitor
+### <a name="list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension"></a>Répertorier tous les clusters Kubernetes compatibles avec Azure Arc sans extension Azure Monitor
 
-Renvoie l’ID de cluster connecté de chaque cluster Kubernetes avec Azure Arc auquel il manque l’extension Azure Monitor.
+Renvoie l’ID de cluster connecté de chaque cluster Kubernetes compatible avec Azure Arc auquel il manque l’extension Azure Monitor.
 
 ```kusto
 Resources

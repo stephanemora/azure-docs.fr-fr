@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: dcaa0e9fe10d26bb6b1e7d014e0b6e50f09a81f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 880e194fefdf49b05f2b531699a83d1f0e3e70cc
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385755"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429475"
 ---
 # <a name="what-is-azure-arc-enabled-logic-apps-preview"></a>Présentation de Logic Apps avec Azure Arc (Préversion)
 
 > [!NOTE]
 > Cette fonctionnalité est en préversion et elle est soumise aux [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) des préversions de Microsoft Azure.
 
-Avec Logic Apps avec Azure Arc, vous pouvez développer et exécuter des applications logiques basées sur un seul locataire partout où Kubernetes peut s’exécuter. Par exemple, vous pouvez exécuter vos workflows d’application logique sur Azure, Azure Kubernetes Service, localement et même d’autres fournisseurs de cloud. Cette offre fournit une plateforme de gestion unique centralisée via Azure Arc et le portail Azure et vous propose les fonctionnalités suivantes : 
+Avec Logic Apps avec Azure Arc, vous pouvez développer et exécuter des applications logiques basées sur un seul locataire partout où Kubernetes peut s’exécuter. Par exemple, vous pouvez exécuter vos workflows d’application logique sur Azure, Azure Kubernetes Service, localement et même d’autres fournisseurs de cloud. Cette offre fournit une plateforme de gestion unique centralisée via Azure Arc et le portail Azure et vous propose les fonctionnalités suivantes :
 
 - Utilisez Azure Logic Apps comme plateforme d’intégration.
 - Connectez vos workflows à tous vos services, quel que soit l’endroit où ils sont hébergés.

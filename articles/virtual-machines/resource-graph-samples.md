@@ -1,18 +1,18 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour Machines Virtuelles Azure
 description: Exemples de requêtes Azure Resource Graph pour Machines Virtuelles Azure montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées à Machines Virtuelles Azure.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 2c7dad9ad62479dba3b3329b00a07ed0ec55c795
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 0c8e0a8b9663380dc68f82ba5dda8b28f0ebb4cb
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860391"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-virtual-machines"></a>Exemples de requêtes Azure Resource Graph pour Machines Virtuelles Azure
 
@@ -26,5 +26,5 @@ Cette page est une collection d’exemples de requêtes [Azure Resource Graph]
 
 - Découvrez plus en détails le [langage de requête](../governance/resource-graph/concepts/query-language.md).
 - Découvrez plus en détails comment [explorer des ressources](../governance/resource-graph/concepts/explore-resources.md).
-- Consulter des exemples de [requêtes en langage de démarrage](../governance/resource-graph/samples/starter.md).
-- Consulter des exemples de [requêtes en langage avancé](../governance/resource-graph/samples/advanced.md).
+- Consultez des exemples de [requêtes en langage de base](../governance/resource-graph/samples/starter.md).
+- Consultez des exemples de [requêtes en langage avancé](../governance/resource-graph/samples/advanced.md).

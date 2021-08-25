@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/06/2020
-ms.openlocfilehash: 869f2c8ca5f0cbfb422c1aaa65907a2ad941e86a
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 9523a28ca191402ca4f1ec4bfb174edce359bf67
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112678139"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722866"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,12 +43,12 @@ Cette rubrique présente un exemple de code en deux phases :
 
 - Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - Une base de données dans laquelle vous pouvez créer une table.
-  
+
   - Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](single-database-create-quickstart.md) en quelques minutes.
 
 - SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle.
   Vous pouvez télécharger la dernière version de ssms.exe :
-  
+
   - À partir de la rubrique [Télécharger SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [En utilisant un lien direct vers le téléchargement.](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -442,9 +442,11 @@ GO
 Si la liaison avec la cible n’a pas pu se faire au moment de l’exécution, vous devez arrêter et redémarrer la session d’événement :
 
 ```sql
-ALTER EVENT SESSION ... STATE = STOP;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = STOP;
 GO
-ALTER EVENT SESSION ... STATE = START;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = START;
 GO
 ```
 
@@ -508,7 +510,7 @@ Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent su
 - Par souci de simplicité, vous allez remplacer entièrement le conteneur Stockage Azure par un simple fichier tel que *C:\myeventdata.xel*. Le fichier doit être stocké sur le disque dur local de l’ordinateur qui héberge SQL Server.
 - Vous n’avez pas besoin d’instructions Transact-SQL de type **CREATE MASTER KEY** et **CREATE CREDENTIAL**.
 - Dans l’instruction **CREATE EVENT SESSION**, dans sa clause **ADD TARGET**, vous devez remplacer la valeur Http affectée à **filename=** par une chaîne de chemin d’accès complet comme *C:\myfile.xel*.
-  
+
   - Vous n’avez pas besoin de compte Azure Storage.
 
 ## <a name="more-information"></a>Informations complémentaires

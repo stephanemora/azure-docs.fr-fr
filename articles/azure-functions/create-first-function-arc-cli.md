@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une application de fonction sur Azure Arc'
 description: Démarrez avec Azure Functions sur Azure Arc en déployant votre première application de fonction.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: da00cc070e14490bcd3f4661d30b65bd97553c2e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 3a9c92e500e79b68688ec526baa2a77b8df2ccef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528465"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723014"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Créer votre première fonction sur Azure Arc (préversion)
 
@@ -26,19 +26,19 @@ Sur votre ordinateur local :
 # <a name="c"></a>[C\#](#tab/csharp)
 
 + [Kit SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
++ [Azure Functions Core Tools](functions-run-local.md#v2) (version 3.0.3245 ou ultérieure).
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. La version 10 de Node.js est également prise en charge.
-+ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
++ [Azure Functions Core Tools](functions-run-local.md#v2) (version 3.0.3245 ou ultérieure).
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 # <a name="python"></a>[Python](#tab/python)
 
 + [Versions de Python prises en charge par Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3245 ou supérieure.
++ [Azure Functions Core Tools](functions-run-local.md#v2) (version 3.0.3245 ou ultérieure).
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
 ---
@@ -96,7 +96,7 @@ Dans Azure Functions, un projet de fonction est l’unité de déploiement et d�
     cd LocalFunctionProj
     ```
 
-    Ce dossier contient divers fichiers pour le projet, notamment des fichiers config nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Par défaut, le fichier *local.settings.json* est exclu du contrôle de code source dans le fichier *.gitignore*. Cette exclusion est due au fait que le fichier peut contenir des secrets téléchargés à partir d’Azure.
+    Ce dossier contient divers fichiers pour le projet, notamment des fichiers config nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Par défaut, le fichier *local.settings.json* est exclu du contrôle de code source dans le fichier *.gitignore*. Cette exclusion est due au fait que le fichier peut contenir des secrets téléchargés à partir d’Azure.
 
 1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction (HttpExample) et où l’argument `--template` spécifie le déclencheur de la fonction (HTTP).
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 11cb3ada0449559eda080cad3e9c528d60a02660
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 0d7a139588ac2ab507e4b4d4ef2061e42de41e35
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707921"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180584"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutoriel : Développer et planifier le provisionnement d’un point de terminaison SCIM dans Azure Active Directory
 
@@ -901,7 +901,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 ### <a name="ip-ranges"></a>Plages d’adresses IP
 Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. Notez que vous devez examiner attentivement la liste des plages d’adresses IP pour les adresses calculées. Une adresse telle que « 40.126.25.32 » peut être représentée dans la liste de plages d’adresses IP sous la forme « 40.126.0.0/18 ». Vous pouvez aussi récupérer programmatiquement la liste de plages d’adresses IP avec l’[API](/rest/api/virtualnetwork/servicetags/list) suivante.
 
-Azure AD prend également en charge une solution basée sur agent pour assurer la connectivité aux applications dans les réseaux privés (localement, hébergés dans Azure, hébergés dans AWS, etc.). Les clients peuvent déployer un agent léger, qui permet de se connecter à Azure AD sans ouvrir de ports entrants sur un serveur de leur réseau privé. En savoir plus [ici](/app-provisioning/on-premises-scim-provisioning).
+Azure AD prend également en charge une solution basée sur agent pour assurer la connectivité aux applications dans les réseaux privés (localement, hébergés dans Azure, hébergés dans AWS, etc.). Les clients peuvent déployer un agent léger, qui permet de se connecter à Azure AD sans ouvrir de ports entrants sur un serveur de leur réseau privé. En savoir plus [ici](./on-premises-scim-provisioning.md).
 
 ## <a name="build-a-scim-endpoint"></a>Créer un point de terminaison SCIM
 

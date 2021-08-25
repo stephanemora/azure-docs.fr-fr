@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec l’API REST'
 description: Dans ce guide de démarrage rapide, vous utilisez l’API REST pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: 8a3570c8c6e5abd117e823c0ea1dae5f58a7846f
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: a9d79e9db4c79a0bf7795f31a2183f78c2e12a4a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323210"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122321999"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Démarrage rapide : Créer un groupe d’administration avec l’API REST
 
@@ -33,7 +33,7 @@ Pour créer un groupe d’administration dans l’API REST, utilisez le point de
 - URI de l’API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Aucun corps de demande
@@ -45,7 +45,7 @@ Si vous voulez afficher un autre nom pour le groupe d’administration dans le p
 - URI de l’API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Corps de la requête
@@ -63,7 +63,7 @@ Dans les exemples précédents, le groupe d’administration est créé sous le 
 - URI de l’API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Corps de la requête
@@ -86,7 +86,7 @@ Pour supprimer le groupe d’administration créé ci-dessus, utilisez le point 
 - URI de l’API REST
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-02-01
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/Contoso?api-version=2020-05-01
   ```
 
 - Aucun corps de demande
