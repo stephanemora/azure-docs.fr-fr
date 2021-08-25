@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e31fd58887dfa179bc01f89ec7e56dc93fa3b6b8
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: c135b0e1e1e5c1b8c57b4b8ba7af06d165f00ac8
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540255"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862336"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
@@ -54,7 +54,7 @@ L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui
 L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour le pool SQL dédié Gen2 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000c.
 
 > [!NOTE]
-> Azure Synapse Analytics Gen2 a récemment ajouté des fonctionnalités de mise à l’échelle supplémentaires pour prendre en charge les niveaux de calcul inférieurs de 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Azure Synapse Analytics Gen2 a récemment ajouté des fonctionnalités de mise à l’échelle supplémentaires pour prendre en charge les niveaux de calcul inférieurs de 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?context=/azure/synapse-analytics/context/context).
 
 Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine le niveau de service et le niveau de performance de votre pool SQL dédié.
 
@@ -79,7 +79,7 @@ Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de 
 
 #### <a name="capacity-limits"></a>Limites de capacité
 
-Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../../azure-sql/database/service-tiers-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../../azure-sql/database/service-tiers-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context#workload-management).
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Évaluer le nombre d’unités DWU (Data Warehouse Unit) dont vous avez besoin
 
@@ -216,4 +216,4 @@ Lorsque vous démarrez une opération de mise à l’échelle, le système arrê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la gestion des performances, consultez [Classes de ressources pour la gestion de la charge de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) et [Limites de mémoire et de concurrence](../sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour en savoir plus sur la gestion des performances, consultez [Classes de ressources pour la gestion de la charge de travail](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context) et [Limites de mémoire et de concurrence](../sql-data-warehouse/memory-concurrency-limits.md?context=/azure/synapse-analytics/context/context).

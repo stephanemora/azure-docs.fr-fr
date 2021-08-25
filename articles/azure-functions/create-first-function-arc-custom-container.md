@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une application de fonction sur Azure Arc d
 description: Démarrez avec Azure Functions sur Azure Arc en déployant votre première application de fonction dans un conteneur personnalisé Linux.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.openlocfilehash: 28079b9a7821350736647d49815c541f6a79d119
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 48940e70e1678e4426efb34e40b3b16b742e4f5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746741"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>Créer votre première fonction sur Azure Arc dans un conteneur personnalisé (préversion)
 
@@ -101,7 +101,7 @@ Dans Azure Functions, un projet de fonction est le contexte pour une ou plusieur
     cd LocalFunctionProj
     ```
 
-    Ce dossier contient les autres fichiers Dockerfile du projet, notamment des fichiers de configuration nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Par défaut, le fichier *local.settings.json* est exclu du contrôle de code source dans le fichier *.gitignore*. Cette exclusion est due au fait que le fichier peut contenir des secrets téléchargés à partir d’Azure.
+    Ce dossier contient les autres fichiers Dockerfile du projet, notamment des fichiers de configuration nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Par défaut, le fichier *local.settings.json* est exclu du contrôle de code source dans le fichier *.gitignore*. Cette exclusion est due au fait que le fichier peut contenir des secrets téléchargés à partir d’Azure.
 
 1. Ouvrez le `Dockerfile` généré et recherchez la balise `3.0` de l’image de base. S’il existe une balise `3.0`, remplacez-la par une balise `3.0.15885`. Dans une application JavaScript par exemple, le fichier Docker doit être modifié ainsi : `FROM mcr.microsoft.com/azure-functions/node:3.0.15885`. Cette version de l’image de base prend en charge le déploiement vers un cluster Kubernetes avec Azure Arc. 
 

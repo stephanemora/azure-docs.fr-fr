@@ -7,12 +7,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: 'Reconnaissez la voix, synthétisez la voix, obtenez des traductions en temps réel, transcrivez des conversations ou intégrez la voix dans vos expériences de bot.'
-  author: trevorbye
+  author: laujan
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: trbye
+  ms.author: lajanuar
 highlightedContent:
   items:
     - title: "Qu’est-ce que le service de reconnaissance vocale\_?"

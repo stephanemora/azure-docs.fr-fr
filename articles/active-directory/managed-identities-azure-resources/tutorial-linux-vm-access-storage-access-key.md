@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d554e5cc535975ad7c9f2ccb4c228e33e489645e
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.openlocfilehash: 94c7cdbdfabbe525c9176ea7fe6f88f55c9b1baa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038028"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738715"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
@@ -68,7 +68,7 @@ Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode n
 Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 >[!NOTE]
-> Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory.](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
+> Pour plus d’informations sur les différents rôles que vous pouvez utiliser pour accorder des autorisations sur le stockage, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
 
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure Resource Manager

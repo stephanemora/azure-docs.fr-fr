@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: ec934a8a9907f0c0c3aff047e003c6725c5ab25f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0b0eca91cbf070e41057254d060d6dbc8ff249
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100636218"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726195"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Les nœuds Azure Red Hat OpenShift s’exécutent sur des machines virtuelles Az
 
 ## <a name="service-level-agreement"></a>Contrat de niveau de service
 
-Azure Red Hat OpenShift offre un contrat de niveau de service pour garantir que le service sera disponible au moins 99,95 % du temps. Pour plus d’informations sur le contrat de niveau de service, consultez [SLA pour Azure Red Hat OpenShift](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
+Azure Red Hat OpenShift offre un contrat de niveau de service pour garantir que le service sera disponible au moins 99,95 % du temps. Pour plus d’informations sur le contrat de niveau de service, consultez [SLA pour Azure Red Hat OpenShift](https://azure.microsoft.com/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

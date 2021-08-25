@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e6d06cb63b3fa52e83605abf565afdb7eb9e167b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: dc5240d3b0d4e2fa7b209d5f1a3b8b3f9acd01c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691734"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738468"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database, Azure Synapse Analytics, Data Factory et Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -164,7 +164,7 @@ Il existe également trois services liés paramétrables qui lient la fabrique d
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
 Correspondant aux trois services liés, il existe trois jeux de données faisant référence aux données que vous utilisez dans les activités de pipeline en tant qu’entrée ou sortie. Explorez chacun des jeux de données pour observer les connexions et les paramètres utilisés. _AzureBlob_ pointe vers le fichier de configuration contenant des tables et des colonnes source et cible, ainsi que la colonne de suivi de chaque source.
-  
+
 ### <a name="data-warehouse-pattern-overview"></a>Vue d’ensemble du modèle de l’entrepôt de données
 
 Azure Synapse est utilisé comme magasin d’analytique pour effectuer l’agrégation sur les données de locataire. Dans cet exemple, PolyBase est utilisé pour charger des données dans l'entrepôt de données. Les données brutes sont chargées dans des tables de mise en lots qui ont une colonne d’identité pour suivre des lignes transformées dans les tables du schéma en étoile. L’image suivante montre le modèle de chargement : ![Le diagramme illustre le modèle de chargement des tables de base de données.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
@@ -208,7 +208,7 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Sélectionnez **Base de données** dans le volet de gauche, puis saisissez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
+5. Sélectionnez **Base de données** dans le volet de gauche, puis saisissez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
@@ -244,7 +244,7 @@ Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tic
 
 Dans le même temps, certains clients Wingtip Tickets se plaignent d’éprouver des difficultés à vendre suffisamment de tickets pour justifier le coût du service. Dans ces aperçus, il y a peut-être une opportunité de dynamiser les ventes de tickets pour les emplacements sous-performants. Des ventes plus élevées augmenteraient la valeur perçue du service. Cliquez avec le bouton droit sur fact_Tickets et sélectionnez **Nouvelle mesure**. Entrez l’expression suivante pour la nouvelle mesure appelée **AverageTicketsSold** :
 
-```sql
+```DAX
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 

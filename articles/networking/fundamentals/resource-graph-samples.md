@@ -1,18 +1,18 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour les réseaux Azure
 description: Exemples de requêtes Azure Resource Graph pour les réseaux Azure montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées aux réseaux Azure.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: a25f27580d33a0fe702a95cf2e7e81f2738e7129
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: cb7448e2eff13ccaa8fe81ff7257c51a68cd3611
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669938"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861699"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-networking"></a>Exemples de requêtes Azure Resource Graph pour les réseaux Azure
 
@@ -26,5 +26,5 @@ Cette page est une collection d’exemples de requêtes [Azure Resource Graph]
 
 - Découvrez plus en détails le [langage de requête](../../governance/resource-graph/concepts/query-language.md).
 - Découvrez plus en détails comment [explorer des ressources](../../governance/resource-graph/concepts/explore-resources.md).
-- Consultez des exemples de [requêtes en langage de démarrage](../../governance/resource-graph/samples/starter.md).
+- Consultez des exemples de [requêtes en langage de base](../../governance/resource-graph/samples/starter.md).
 - Consultez des exemples de [requêtes en langage avancé](../../governance/resource-graph/samples/advanced.md).

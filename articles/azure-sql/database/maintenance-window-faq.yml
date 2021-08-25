@@ -8,85 +8,85 @@ metadata:
   ms.topic: reference
   author: WilliamDAssafMSFT
   ms.author: wiassaf
-  ms.reviewer: sstein
+  ms.reviewer: mathoma
   ms.custom: 
   ms.date: 03/23/2021
-  ms.openlocfilehash: 064bca75c65a96a41d2d693dea93a196fc405186
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 48d46ca71d76d46cb43fbed8fee8dcbe67e4ce3d
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114458319"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121739684"
 title: FAQ sur la fenêtre de maintenance
 summary: Cet article répond aux questions les plus fréquentes sur la fenêtre de maintenance d’[Azure SQL Database](sql-database-paas-overview.md) et de [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 sections:
 - name: Général
   questions:
-  - question: Qu’est-ce que la fonctionnalité de fenêtre de maintenance ?
+  - question: What is the maintenance window feature?
     answer: >
-      La fonctionnalité de fenêtre de maintenance vous permet d’intégrer une ressource Azure SQL à des blocs de temps préprogrammés en dehors des heures de bureau. Pour plus d’informations, consultez [Planifications des fenêtres de maintenance](maintenance-window.md#gain-more-predictability-with-maintenance-window).
-  - question: Quelle est la stratégie de maintenance par défaut si je ne choisis aucune fenêtre spécifique ?
-    answer: "Les événements de maintenance se produiront pendant la fenêtre par défaut, qui va de 17h00 à 8h00 (heure locale, du lundi au dimanche). \n"
-  - question: Les utilisateurs travaillent dans un fuseau horaire différent de celui du centre de données Azure. Quel fuseau horaire est local ?
+      The maintenance window feature provides you with the ability to onboard Azure SQL resource to prescheduled time blocks outside of business hours. See [Maintenance window schedules](maintenance-window.md#gain-more-predictability-with-maintenance-window) for more information.
+  - question: What is the default maintenance policy if I do not choose any specific window?
+    answer: "Maintenance events will occur during the default window 5PM to 8AM local time, Monday - Sunday. \n"
+  - question: Users work in a different time zone than the Azure data center. Which time zone is local?
     answer: >
-      L’heure locale est déterminée par la localisation de la région Azure qui héberge la ressource et peut respecter l’heure d’été en fonction du fuseau horaire local. Elle n’est pas déterminée par le fuseau horaire configuré sur la base de données SQL (qui est toujours l’heure UTC) ou sur une instance managée.
-  - question: Est-ce que je peux choisir une heure/un jour spécifique pour la fenêtre de maintenance ?
-    answer: "Non, vous pouvez choisir entre les fenêtres préplanifiées « jour de la semaine » ou « week-end ». La maintenance peut se produire à n’importe quelle heure ou n’importe quel jour dans la fenêtre.  \n"
-  - question: Que se passe-t-il une fois que j’ai choisi une fenêtre de maintenance ?
+      Local time is determined by the location of Azure region that hosts the resource and may observe daylight saving time in accordance with local time zone definition. It is not determined by the time zone configured on SQL database (always UTC) or managed instance.
+  - question: Can I choose a specific time/day for the maintenance window?
+    answer: "No, you can choose between pre-scheduled weekday or weekend windows. The maintenance can happen any time or day within the window.  \n"
+  - question: What happens once I choose a maintenance window?
     answer: >
-      La configuration de la fenêtre de maintenance est une opération asynchrone de longue durée, similaire au changement du niveau de service de votre ressource Azure SQL. La ressource est disponible pendant l’opération, à l’exception d’une reconfiguration rapide qui se produit à la fin de l’opération et qui dure généralement jusqu’à 8 secondes, même en cas de transactions de longue durée interrompues. Pour réduire l'impact de la reconfiguration, vous devez effectuer l'opération en dehors des heures de pointe. Dans le cas d’une instance managée, l’adresse IP de l’instance va changer.
-  - question: Quels types de mises à jour sont généralement effectuées pendant une fenêtre de maintenance ?
+      Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of your Azure SQL resource. The resource is available during the process, except a short reconfiguration that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should perform the operation outside of the peak hours. In case of managed instance, IP address of the instance will change.
+  - question: What types of updates are typically performed during a maintenance window?
     answer: >
-      L’événement de maintenance peut contenir des mises à jour pour le matériel, le microprogramme, le système d’exploitation, les composants logiciels périphériques et le moteur SQL. Elles sont généralement combinées en un seul lot pour réduire au minimum l’incidence des événements de maintenance.
-  - question: À quoi m’attendre pendant un événement de maintenance ?
+      The maintenance event may contain updates for hardware, firmware, operating system, satelite software components, and SQL engine. They are typically combined into a single batch to minimize the incidence of maintenance events.
+  - question: What can I expect during a maintenance event?
     answer: >
-      Pendant une mise à jour de maintenance, les bases de données sont entièrement disponibles et accessibles, mais certaines des mises à jour de maintenance nécessitent une reconfiguration, car Azure place les bases de données SQL hors connexion pendant un bref instant pour appliquer les mises à jour de maintenance (généralement quelques secondes).Les mises à jour de maintenance planifiée se produisent une fois tous les 35 jours en moyenne, ce qui signifie que le client peut s’attendre à un événement de maintenance planifiée par mois par base de données Azure SQL ou par instance managée, et seulement pendant les créneaux de fenêtre de maintenance sélectionnés par le client.
-  - question: Existe-t-il des prérequis pour la configuration de la fenêtre de maintenance ?
+      During a maintenance update, databases are fully available and accessible but some of the maintenance updates require a reconfiguration as Azure takes SQL Databases offline for a short time to apply the maintenance updates (generally a few seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and managed instance, and only during the maintenance window slots selected by the customer.
+  - question: Are there any prerequisites for configuring maintenance window?
     answer: >
-      Dans le cas d’une instance managée, des [adresses IP supplémentaires](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) sont temporairement nécessaires, comme dans le scénario de mise à l’échelle des vCores pour le niveau de service correspondant.
-  - question: Dans quelles régions le choix d’une fenêtre de maintenance est-il disponible ?
+      In case of managed instance [additional IP addresses](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) are needed temporarily, as in scaling vCores scenario for corresponding service tier.
+  - question: In which regions is choosing a maintenance window available?
     answer: >
-      Pour obtenir la liste des régions disponibles, consultez [Disponibilité des fenêtres de maintenance](maintenance-window.md#availability).
-  - question: 'Je ne vois pas ma région dans la liste des régions disponibles : que faire ?'
-    answer: "Contactez [azsqlcmfeedback@microsoft.com](mailto:azsqlcmfeedback@microsoft.com) pour partager le feedback et vérifier les plans pour votre région. \n"
-  - question: Quel est le prix pour la fenêtre de maintenance ?
+      For a list of available regions, see [Maintenance window availability](maintenance-window.md#availability).
+  - question: I don’t see my region in the available regions list, what can I do?
+    answer: "Contact [azsqlcmfeedback@microsoft.com](mailto:azsqlcmfeedback@microsoft.com) to share the feedback and check the plans for your region. \n"
+  - question: What is the pricing for maintenance window?
     answer: >
-      La configuration et l’utilisation de la fenêtre de maintenance sont gratuites pour tous les types d’abonnement Azure éligibles. Consultez [Coût de la fenêtre de maintenance](maintenance-window.md#cost-and-eligibility).
-  - question: Est-ce que je vais recevoir une notification de la fenêtre de maintenance ?
+      Configuring and using maintenance window is free of charge to all eligible Azure subscription types, see [Maintenance window cost](maintenance-window.md#cost-and-eligibility).
+  - question: Would I receive a notification of the maintenance window?
     answer: >
-      Vous pouvez choisir de recevoir une notification 24 heures avant l’événement de maintenance, immédiatement avant le démarrage de la maintenance et quand la fenêtre de maintenance est terminée. Pour plus d’informations, vous pouvez consulter le centre Resource Health. Pour recevoir des e-mails, la notification préalable doit être configurée. Pour plus d’informations, consultez [Notifications préalables](advance-notifications.md).
-  - question: Dans quels objectifs de niveau de service (SLO) puis-je choisir une fenêtre de maintenance ?
+      You can opt in to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. To receive emails, advance notification must be configured, for more information see [Advance notifications](advance-notifications.md).
+  - question: In which service level objectives (SLOs) can I choose a maintenance window?
     answer: >
-      Le choix d’une fenêtre de maintenance est disponible dans la plupart des objectifs de niveau de service, à quelques exceptions près. Consultez [Objectifs de niveau de service pris en charge par la fenêtre de maintenance](maintenance-window.md#supported-service-level-objectives).
-  - question: Si j’ai sélectionné une fenêtre de maintenance pour une ressource et que je passe à un objectif de niveau de service inférieur où le choix d’une fenêtre de maintenance n’est pas pris en charge, que se passe-t-il pour ma base de données ?
+      Choosing a maintenance window is available in most SLOs with some exceptions, see [maintenance window supported service level objectives](maintenance-window.md#supported-service-level-objectives).
+  - question: If I have selected a maintenance window for a resource, and I downscale to a service level objective (SLO) where choosing a maintenance window is not supported, what happens to my database?
     answer: >
-      Dans ce cas, la fenêtre de maintenance revient à l’option par défaut, qui est de 17h00 à 8h00, heure locale.
-  - question: Est-ce que je peux annuler ou reporter un événement de maintenance planifiée en fonction de la notification reçue ?
+      In this case, the maintenance window would revert to the default option which is 5PM to 8AM local time.
+  - question: Can I cancel or postpone a planned maintenance event based on the received notification?
     answer: >
-      Non. L’annulation ou le report d’un événement de maintenance à venir n’est pas pris en charge. Les notifications vous aident à préparer l’événement.
-  - question: Combien de temps faut-il pour traiter un changement de planification de la fenêtre de maintenance ?
-    answer: "Vous pouvez choisir une autre fenêtre de maintenance à tout moment, mais la prise en compte des modifications peut prendre jusqu’à 24 heures. \n"
-  - question: Que se passe-t-il quand un événement de maintenance échoue ?
-    answer: "Bien qu’ils soient rares, des échecs ou des interruptions au cours d’un événement de maintenance peuvent se produire.  Dans le cas d’un échec, les modifications sont annulées et la maintenance est replanifiée à un autre moment.    \n"
-  - question: Comment vérifier que mes bases de données sont configurées pour la fenêtre de maintenance ?
+      No. Cancelling or postponing an upcoming maintenance event is not supported. Notifications help you to prepare for the event.
+  - question: How long does it take to process a maintenance window schedule change?
+    answer: "You can choose a different maintenance window at any time, but changes may take up to 24 hours to take effect. \n"
+  - question: What happens when a maintenance event fails?
+    answer: "Although rare, failures or interruptions during a maintenance event can occur.  In the event of a failure, changes are rolled back and the maintenance will be rescheduled to another time.    \n"
+  - question: How do I validate that my databases are set up for maintenance window?
     answer: >
-      Sous les paramètres de la ressource Azure, l’onglet Maintenance vous permet de passer en revue et de modifier la planification du plan de maintenance en cours. Vous pouvez aussi passer en revue et définir les planifications de la fenêtre de maintenance pour plusieurs ressources via PowerShell, l’interface CLI ou l’API Azure.
-  - question: Puis-je configurer une fenêtre de maintenance différente pour chaque base de données Azure SQL dans un pool élastique ?
+      Under settings of the Azure resource, the maintenance tab allows you to review and change the current maintenance plan schedule. You can also review and set the maintenance window schedules for multiple resources via PowerShell, CLI, or Azure API.
+  - question: Can I configure a different maintenance window for each Azure SQL database in an elastic pool?
     answer: >
-      Si la base de données fait partie d’un pool élastique, la configuration de la fenêtre de maintenance du pool élastique est appliquée. Les bases de données uniques en dehors d’un pool élastique peuvent avoir leur propre configuration de fenêtre de maintenance.
-  - question: Quelles sont les options prises en charge pour configurer une fenêtre de maintenance pour une instance Azure SQL Database ou une instance managée SQL existante ?
+      If the database is part of an elastic pool, the maintenance window configuration of the elastic pool will be applied. Single databases outside of an elastic pool can have their own maintenance window configuration.
+  - question: What are supported options to configure a maintenance window for an existing Azure SQL Database or SQL managed instance?
     answer: >
-      Portail Azure, PowerShell, Azure CLI et API REST.
-  - question: Est-ce que je peux configurer une fenêtre de maintenance pendant la restauration, la récupération, la copie, l’importation de base de données ou dans des scénarios GeoDR ?
+      Azure Portal, PowerShell, Azure CLI, and REST API.
+  - question: Can I configure a maintenance window during database restore, recovery, copy, import, or GeoDR scenarios?
     answer: >
-      Pas pour le moment. La fenêtre de maintenance peut être configurée une fois la base de données créée.
+      Not at this moment. The maintenance window can be configured once database is created.
 additionalContent: >-
-  ## <a name="see-also"></a>Voir aussi
+  ## See Also
 
-  - [Fenêtre de maintenance](maintenance-window.md)
+  - [Maintenance window](maintenance-window.md)
 
-  - [Configurer la fenêtre de maintenance](maintenance-window-configure.md)
+  - [Configure maintenance window](maintenance-window-configure.md)
 
-  - [Configurer les notifications de la fenêtre de maintenance](advance-notifications.md)
+  - [Configure maintenance window notifications](advance-notifications.md)
 
-  - [Planifier les événements de maintenance Azure dans Azure SQL Database et Azure SQL Managed Instance](planned-maintenance.md)
+  - [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

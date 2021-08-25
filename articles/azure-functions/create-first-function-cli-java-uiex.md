@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4923ba6ead6b13f6b919c72304d4f389bac41386
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 1605bcc3a596276e8de99c45f290368691703c4f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287813"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752335"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -112,7 +112,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
 <details>
 <summary><strong>Qu’est-ce qui est créé dans le dossier LocalFunctionProj ?</strong></summary>
 
-Ce dossier contient différents fichiers pour le projet, tels que *Function.java*, *FunctionTest.java* et *pom.xml*. Il existe également des fichiers de configuration nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
+Ce dossier contient différents fichiers pour le projet, tels que *Function.java*, *FunctionTest.java* et *pom.xml*. Il existe également des fichiers de configuration nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
 </details>
 
 <br/>
