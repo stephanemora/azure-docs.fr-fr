@@ -4,16 +4,18 @@ description: Effectuer une jonction à une instance Geth sur un nœud de transac
 ms.date: 05/26/2020
 ms.topic: quickstart
 ms.reviewer: maheshna
-ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01cd813a9efd814837783343cef6a7fefd906e7f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83994763"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643136"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Démarrage rapide : Utiliser Geth pour effectuer une jonction à un nœud de transaction Azure Blockchain Service
 
 Dans ce guide de démarrage rapide, vous allez utiliser le client Geth pour effectuer une jonction à l’instance Geth sur un nœud de transaction Azure Blockchain Service. Une fois la jonction effectuée, vous utiliserez la console Geth pour appeler une API JavaScript Ethereum.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

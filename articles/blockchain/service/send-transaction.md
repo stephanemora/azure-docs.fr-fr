@@ -4,16 +4,18 @@ description: Tutoriel expliquant comment utiliser le kit de développement Azure
 ms.date: 11/30/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
-ms.openlocfilehash: 4c2df952480d2c30de10838c3d0f7714fc7e6126
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9a38314b9dbc54750da7dfa81ece487c87b73884
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628643"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122643140"
 ---
 # <a name="tutorial-create-build-and-deploy-smart-contracts-on-azure-blockchain-service"></a>Tutoriel : Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service
 
 Dans ce tutoriel, vous allez utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service. Vous allez aussi utiliser le kit de développement pour exécuter une fonction de contrat intelligent via une transaction.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Vous utilisez Azure Blockchain Development Kit pour Ethereum afin de :
 
@@ -88,7 +90,7 @@ La fonction **SendRequest** du contrat **HelloBlockchain** modifie la variable d
 
     ```javascript
     var HelloBlockchain = artifacts.require(&quot;HelloBlockchain");
-        
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {
@@ -144,7 +146,7 @@ Les fonctions de contrat intelligent peuvent retourner la valeur actuelle des va
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd013bc6e0c41865f0c2f47559f024a42c3f7462
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f1b3e1b0b2734e54bdf8f63981a80848662cda64
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461253"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747386"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro-fpga"></a>Tutoriel : Transférer des données avec Azure Stack Edge Pro FPGA
 
@@ -61,7 +61,7 @@ Pour créer un partage, procédez comme suit :
     c. Fournissez un compte de stockage dans lequel résidera le partage. 
 
     > [!IMPORTANT]
-    > Vérifiez que le compte de stockage Azure que vous utilisez ne comporte pas de stratégies d'immuabilité si vous l'utilisez avec un appareil Azure Stack Edge Pro FPGA ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/storage-blob-immutability-policies-manage.md).
+    > Vérifiez que le compte de stockage Azure que vous utilisez ne comporte pas de stratégies d'immuabilité si vous l'utilisez avec un appareil Azure Stack Edge Pro FPGA ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/immutable-policy-configure-version-scope.md).
     
     d. Dans la liste déroulante **Service de stockage**, sélectionnez **Objet blob de blocs**, **Objet blob de pages** ou **Fichiers**.  
     Le type de service que vous sélectionnez varie selon le format dans lequel vous souhaitez que les données soient utilisées dans Azure. Dans cet exemple, comme nous voulons que les données soient des objets blob de blocs dans Azure, nous sélectionnons **Objet blob de blocs**. Si vous sélectionnez **Objet blob de pages**, assurez-vous que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.

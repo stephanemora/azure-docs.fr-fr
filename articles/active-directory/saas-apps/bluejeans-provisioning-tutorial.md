@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1518b169f3da8b34e97c999cd23e201aea59ce
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646121"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015672"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Configurer BlueJeans pour l’attribution automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à suivre dans BlueJeans et Azure Active Directory (Azure AD) pour configurer le provisionnement automatique d’utilisateurs. Une fois configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs pour [BlueJeans](https://www.bluejeans.com/pricing) à l’aide du service de provisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Ce tutoriel décrit les étapes à suivre dans BlueJeans et Azure Active Directory (Azure AD) pour configurer le provisionnement automatique d’utilisateurs. Une fois configuré, Azure AD provisionne et déprovisionne automatiquement les utilisateurs pour [BlueJeans](https://www.bluejeans.com) à l’aide du service de provisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
@@ -35,7 +35,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
 * Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
-* Un locataire BlueJeans pour lequel le plan [My Company](https://www.bluejeans.com/pricing) (Ma société) ou un plan supérieur est activé.
+* Un locataire BlueJeans pour lequel le plan [My Company](https://www.bluejeans.com) (Ma société) ou un plan supérieur est activé.
 * Un compte d’utilisateur dans BlueJeans avec des autorisations d’administrateur.
 * Provisionnement SCIM activé dans BlueJeans Enterprise.
 

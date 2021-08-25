@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 92f89bafe1b96b575d12e8a09289a05c2379d837
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 126a7222b88c7925ec0e6ef1386e5b087d598f46
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280018"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122643222"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -25,7 +25,10 @@ ms.locfileid: "106280018"
 
 Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encode-concept.md) (Concept d’encodage).
 
-Ce tutoriel montre comment encoder un fichier distant basé sur une URL et comment streamer la vidéo avec Azure Media Services au moyen de REST. 
+Ce tutoriel montre comment encoder un fichier distant basé sur une URL et comment streamer la vidéo avec Azure Media Services au moyen de REST.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ![Lire la vidéo](./media/stream-files-tutorial-with-api/final-video.png)
 

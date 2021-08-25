@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d84bc4977593a379fda817db67aaccd71793a787
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775151"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752309"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Créer votre première fonction durable en Python
 
@@ -56,7 +56,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
     | Sélectionner un modèle pour la première fonction de votre projet | Ignorer pour le moment | |
     | Sélectionner la façon dont vous souhaitez ouvrir votre projet | Ouvrir dans la fenêtre active | Ouvre à nouveau VS Code dans le dossier que vous avez sélectionné. |
 
-Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-run-local.md#local-settings-file).
+Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-develop-local.md#local-settings-file).
 
 Un fichier *requirements.txt* est également créé dans le dossier racine. Il spécifie les packages Python nécessaires pour exécuter votre application de fonction.
 

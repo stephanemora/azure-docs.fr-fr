@@ -179,7 +179,7 @@
               items:
                 - name: Windows
                   href: openvpn-azure-ad-client.md
-                - name: macOS - Préversion
+                - name: macOS
                   href: openvpn-azure-ad-client-mac.md
             - name: Utiliser des fichiers de profil client VPN
               href: about-vpn-profile-download.md

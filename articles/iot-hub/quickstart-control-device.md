@@ -1,8 +1,8 @@
 ---
 title: Démarrage rapide - Contrôler un appareil depuis Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’application. Une application est une application de service qui peut contrôler à distance des appareils connectés à votre hub. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
-author: philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 07/26/2021
 zone_pivot_groups: iot-hub-set1
-ms.openlocfilehash: 01bd08a246274a2692db340e0d4aeb75bb68fc98
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: b89e13a6cf1a9dd6b30a9acc489969bb388ab3d1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732078"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860944"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT
 
