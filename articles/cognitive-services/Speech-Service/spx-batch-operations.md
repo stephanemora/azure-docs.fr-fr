@@ -3,19 +3,19 @@ title: Opérations de traitement par lots de l’interface CLI Speech - Servic
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer des opérations de traitement par lots de reconnaissance vocale et de synthèse vocale avec l’interface CLI Speech.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: erhopf
-ms.openlocfilehash: 60cacafc89f2335b87885e4ea11dcf8992d68c3f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.author: lajanuar
+ms.openlocfilehash: c3481edc4b66afc4556ae6d7e957f2dfee9b2e69
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540228"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122072331"
 ---
 # <a name="speech-cli-batch-operations"></a>Opérations de traitement par lots de l’interface CLI Speech
 

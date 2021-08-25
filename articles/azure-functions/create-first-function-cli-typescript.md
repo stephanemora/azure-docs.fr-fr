@@ -4,12 +4,12 @@ description: Apprenez à créer une fonction TypeScript à partir de la ligne de
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c7b37700d93ea129ba46de81989f06dd2afe52ba
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: d9c9f95de61581614ffe48c60f8928775f208b77
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831813"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121738577"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction TypeScript dans Azure à partir de la ligne de commande
 
@@ -75,7 +75,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     cd LocalFunctionProj
     ```
     
-    Ce dossier contient divers fichiers pour le projet, notamment des fichiers config nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
+    Ce dossier contient divers fichiers pour le projet, notamment des fichiers config nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
 
 1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction (HttpExample) et où l’argument `--template` spécifie le déclencheur de la fonction (HTTP).
 

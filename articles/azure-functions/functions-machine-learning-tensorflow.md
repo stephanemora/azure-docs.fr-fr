@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc56e48f45fef8d592e01402aa6463382420b9ba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994602"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741404"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutoriel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
 
@@ -122,7 +122,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     func init --worker-runtime python
     ```
 
-    Après l’initialisation, le dossier *start* contient différents fichiers pour le projet, dont des fichiers de configuration nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Comme *local.settings.json* peut contenir des secrets téléchargés depuis Azure, le fichier est exclu par défaut du contrôle de code source dans le fichier *.gitignore*.
+    Après l’initialisation, le dossier *start* contient différents fichiers pour le projet, dont des fichiers de configuration nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Comme *local.settings.json* peut contenir des secrets téléchargés depuis Azure, le fichier est exclu par défaut du contrôle de code source dans le fichier *.gitignore*.
 
     > [!TIP]
     > Comme un projet de fonction est lié à un runtime spécifique, toutes les fonctions du projet doivent être écrites dans le même langage.

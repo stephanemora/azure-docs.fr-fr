@@ -2,7 +2,6 @@
 title: 'Tutoriel : Utiliser OpenSSL afin de créer des certificats auto-signés pour Azure IoT Hub | Microsoft Docs'
 description: 'Tutoriel : Utiliser OpenSSL afin de créer des certificats X.509 auto-signés pour Azure IoT Hub'
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 69bef0938a65777d025e2ffa64de6f133416fc7f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7d6bd2233c4167a992d3493fb7bee9d5b5466586
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067129"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740379"
 ---
 # <a name="tutorial-using-openssl-to-create-self-signed-certificates"></a>Tutoriel : Utilisation d’OpenSSL pour créer des certificats auto-signés
 

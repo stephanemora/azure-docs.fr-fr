@@ -3,12 +3,12 @@ title: Nouveautés Azure Event Grid
 description: Découvrez les nouveautés d’Azure Event Grid, notamment les dernières notes de publication, les problèmes connus, les corrections de bogues, les fonctionnalités dépréciées et les modifications à venir.
 ms.topic: overview
 ms.date: 04/27/2021
-ms.openlocfilehash: a8c39338b43dfb1ddde173c3560faeb977b0148f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: f516a9896f98c96e6f9cd2c651d9edac86474d14
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112466663"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122068200"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Nouveautés d’Azure Event Grid
 
@@ -85,14 +85,14 @@ Azure Event Grid bénéficie d’améliorations en continu. Pour rester à jour 
 - Cette version correspond à la version d’API `2019-06-01`.
 - Elle ajoute la prise en charge des nouvelles fonctionnalités suivantes :
     * [Domaines](event-domains.md)
-    * Pagination et filtre de recherche pour les opérations sur les listes des ressources. Pour obtenir un exemple, consultez [Rubriques - Lister par abonnement](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+    * Pagination et filtre de recherche pour les opérations sur les listes des ressources. Pour obtenir un exemple, consultez [Rubriques - Lister par abonnement](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
     * [File d’attente Service Bus en tant que destination](handler-service-bus.md)
     * [Filtrage avancé](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-preview (2019-03)
 - Cette version correspond à la version d’API 2019-02-01-preview.
 - Elle ajoute la prise en charge des nouvelles fonctionnalités suivantes :
-    * Pagination et filtre de recherche pour les opérations sur les listes des ressources. Pour obtenir un exemple, consultez [Rubriques - Lister par abonnement](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
+    * Pagination et filtre de recherche pour les opérations sur les listes des ressources. Pour obtenir un exemple, consultez [Rubriques - Lister par abonnement](/rest/api/eventgrid/version2021-06-01-preview/partner-namespaces/list-by-subscription).
     * [Création/suppression manuelle de rubriques de domaines](how-to-event-domains.md)
     * [File d’attente Service Bus en tant que destination](handler-service-bus.md)
 

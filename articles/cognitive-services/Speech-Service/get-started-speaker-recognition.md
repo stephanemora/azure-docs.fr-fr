@@ -3,22 +3,22 @@ title: Guide de démarrage rapide sur la reconnaissance de l’orateur - Service
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la reconnaissance de l’orateur du SDK de reconnaissance vocale pour répondre à la question « qui parle ». Dans ce guide de démarrage rapide, vous allez découvrir les modèles de conception courants à utiliser avec la vérification et l’identification de l’orateur, qui ont toutes les deux recours à la biométrie vocale pour identifier les voix uniques.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
-ms.author: nitinme
+ms.author: lajanuar
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: reconnaissance de l’orateur, biométrie vocale
-ms.openlocfilehash: 85c7800bae08ebac11779ad049f2897e0a480b7d
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 10994721b0beab520d687d51a7e4b12b9fa75064
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711555"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122066624"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Bien démarrer avec la reconnaissance de l’orateur
 

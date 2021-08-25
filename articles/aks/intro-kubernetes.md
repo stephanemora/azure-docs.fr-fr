@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
 ms.custom: mvc
-ms.openlocfilehash: 162d110e51846c162636c8fb0bcf1ef2bcffd415
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 43313026bec06082b101629556b3b5b0f45ae2ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230548"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741643"
 ---
 # <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
@@ -155,7 +155,7 @@ Apprenez-en davantage sur le déploiement et la gestion d’AKS avec le démarra
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[compliance-doc]: https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/
+[compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -172,7 +172,7 @@ Apprenez-en davantage sur le déploiement et la gestion d’AKS avec le démarra
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-rbac
