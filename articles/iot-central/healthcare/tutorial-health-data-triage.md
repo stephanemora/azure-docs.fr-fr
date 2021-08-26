@@ -1,23 +1,23 @@
 ---
 title: 'Tutoriel : Créer un tableau de bord de triage des données médicales avec Azure IoT Central | Microsoft Docs'
 description: 'Tutoriel : Apprenez à créer un tableau de bord de triage des données médicales à l’aide de modèles d’application Azure IoT Central.'
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: d227d934eedd31342ce419576fffe7cea17efb1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8fee85dfab72594f7a00f985d7d095b96d693e6
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101742833"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597237"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
 
-Lors de l’élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Dans ce tutoriel, vous allez apprendre à créer un tableau de bord de streaming en temps réel Power BI à partir de votre modèle d’application de surveillance continue des patients IoT Central. Si votre cas d’utilisation ne nécessite pas l’accès aux données en temps réel, vous pouvez utiliser le [tableau de bord Power BI IoT Central](../core/howto-connect-powerbi.md), qui présente un processus de déploiement simplifié. 
+Lors de l’élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Dans ce tutoriel, vous allez apprendre à créer un tableau de bord de streaming en temps réel Power BI à partir de votre modèle d’application de surveillance continue des patients IoT Central.
 
 :::image type="content" source="media/dashboard-gif-3.gif" alt-text="GIF du tableau de bord":::
 
@@ -27,12 +27,11 @@ L'architecture de base suivra cette structure :
 
 Dans ce tutoriel, vous allez apprendre à :
 
-> [!div class="checklist"]
-> * Exporter des données d'Azure IoT Central vers Azure Event Hubs
-> * Configurer un jeu de données de streaming Power BI
-> * Connecter votre application logique à Azure Event Hubs
-> * Diffuser des données vers Power BI à partir de votre application logique
-> * Créer un tableau de bord en temps réel pour les données vitales des patients
+- Exporter des données d'Azure IoT Central vers Azure Event Hubs
+- Configurer un jeu de données de streaming Power BI
+- Connecter votre application logique à Azure Event Hubs
+- Diffuser des données vers Power BI à partir de votre application logique
+- Créer un tableau de bord en temps réel pour les données vitales des patients
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -49,6 +48,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurer une exportation continue des données vers Azure Event Hubs
+
 Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](../core/howto-export-data.md) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
 
 
@@ -206,8 +206,3 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez vos res
 
 1. Pour votre application IoT Central, accédez à l'onglet Administration et sélectionnez **Supprimer**.
 
-
-## <a name="next-steps"></a>Étapes suivantes
-
-> [!div class="nextstepaction"]
-> [Aide relative à l’architecture du suivi continu des patients](concept-continuous-patient-monitoring-architecture.md)
