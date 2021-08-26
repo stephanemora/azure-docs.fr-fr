@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 54a609cb73dcbf70afa5e20c41fa734080b89cc1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111893009"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770688"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Se connecter et démarrer des applications à partir du portail Mes applications
 
@@ -85,7 +85,7 @@ Téléchargez et installez l’extension en fonction du navigateur que vous util
 
 - **Google Chrome** : dans le Store Web Chrome, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl), puis sélectionnez **Ajouter à Chrome**.
 
-- **Mozilla Firefox** : dans la page **Extensions Firefox**, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://addons.mozilla.org/firefox/addon/access-panel-extension/), puis sélectionnez **Ajouter Firefox**.
+- **Mozilla Firefox** : dans la page **Extensions Firefox**, accédez à la fonctionnalité Extension de connexion sécurisée à Mes applications, puis sélectionnez **Ajouter Firefox**.
 
 Une icône est ajoutée à droite de votre barre d’**adresse**, vous permettant de vous connecter et de personnaliser l’extension.
 

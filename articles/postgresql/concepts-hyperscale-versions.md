@@ -6,42 +6,35 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: d8a584b6ba752e8f9220defa575f519828ba07e6
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 299005d8d7c961335decbce46bab8c558d2589a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107023811"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531966"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Versions de base de données prises en charge dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
 ## <a name="postgresql-versions"></a>Versions de PostgreSQL
 
-> [!IMPORTANT]
-> Les versions personnalisables de PostgreSQL dans Hyperscale (Citus) sont actuellement en préversion.  Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans les [fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
+La version de PostgreSQL s’exécutant dans un groupe de serveurs hyperscale (Citus) est personnalisable lors de la création. Hyperscale (Citus) prend actuellement en charge les versions principales suivantes :
 
-La version de PostgreSQL s’exécutant dans un groupe de serveurs hyperscale (Citus) est personnalisable lors de la création. Le choix d’un élément autre que la version 11 est actuellement une fonctionnalité en préversion.
+### <a name="postgresql-version-13"></a>PostgreSQL version 13
 
-Hyperscale (Citus) prend actuellement en charge les versions principales suivantes :
+La version mineure actuelle est 13.3. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/13/static/release-13-2.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
-### <a name="postgresql-version-13-preview"></a>PostgreSQL version 13 (préversion)
+### <a name="postgresql-version-12"></a>PostgreSQL version 12
 
-La version mineure actuelle est 13.2. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/13/static/release-13-2.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
-
-### <a name="postgresql-version-12-preview"></a>PostgreSQL version 12 (préversion)
-
-La version mineure actuelle est 12.6. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-6.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 12.7. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-6.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ### <a name="postgresql-version-11"></a>PostgreSQL Version 11
 
-La version mineure actuelle est 11.11. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-11.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est 11.12. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-11.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
 
 ### <a name="postgresql-version-10-and-older"></a>PostgreSQL version 10 et antérieures
 
-Nous ne prenons pas en charge PostgreSQL version 10 et antérieures pour Azure Database pour PostgreSQL - Hyperscale (Citus).
+Nous ne prenons pas en charge PostgreSQL version 10 (et versions antérieures) pour Azure Database pour PostgreSQL - Hyperscale (Citus).
 
 ## <a name="citus-and-other-extension-versions"></a>Citus et autres versions d’extension
 

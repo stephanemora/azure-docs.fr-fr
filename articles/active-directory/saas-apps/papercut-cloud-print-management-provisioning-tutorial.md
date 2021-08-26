@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer PaperCut Cloud Print Management pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment procéder automatiquement à l’approvisionnement et au déprovisionnement des comptes d’utilisateur d’Azure AD vers PaperCut Cloud Print Management.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 7e65d727-2951-4aec-a7a3-7bde49ed09e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/18/2020
-ms.author: Zhchia
-ms.openlocfilehash: c0738e7033f0aa39ca5f12a44c06d086175eb8fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: d357c6f13c4b935f104e1d6d0f3c3c5e3c5bd921
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731443"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207387"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Tutoriel : Configurer PaperCut Cloud Print Management pour l’approvisionnement automatique d’utilisateurs
 
