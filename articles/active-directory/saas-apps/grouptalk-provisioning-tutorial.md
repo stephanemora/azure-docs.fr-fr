@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer GroupTalk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers GroupTalk.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: e537d393-2724-450f-9f5b-4611cdc9237c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/18/2020
-ms.author: Zhchia
-ms.openlocfilehash: 0af41127577c172cdab74ae908f0645733d49a42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: ea6f1218c368c7056134ae5ee25ab5b077977bd6
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735756"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207399"
 ---
 # <a name="tutorial-configure-grouptalk-for-automatic-user-provisioning"></a>Tutoriel : Configurer GroupTalk pour le provisionnement automatique d’utilisateurs
 

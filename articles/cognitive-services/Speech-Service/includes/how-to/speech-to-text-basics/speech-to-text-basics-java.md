@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
-ms.author: trbye
-ms.openlocfilehash: ab791fbbedbcb18df6a43b00a40fe6fb0fbd8181
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.author: lajanuar
+ms.openlocfilehash: c3ecf5af54e9f7a184accb097e713ead96d7b9f8
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279930"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071212"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -248,7 +248,7 @@ Il est possible d’ajouter des mots uniques ou des expressions entières à une
 > [!IMPORTANT]
 > La fonctionnalité de liste d’expressions est disponible pour les langues suivantes : en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
 >
-> La fonctionnalité Liste d’expressions ne doit pas être utilisée avec plus de quelques centaines d’expressions. Si vous disposez d’une liste plus grande ou pour des langues qui ne sont pas prises en charge, l’[entraînement d’un modèle personnalisé](../../../custom-speech-overview.md) est probablement le meilleur choix pour améliorer la justesse.
+> La fonctionnalité Liste d’expressions ne doit pas être utilisée avec plus de quelques centaines d’expressions. Si vous disposez d’une liste plus grande ou pour des langues qui ne sont pas prises en charge actuellement, la [formation d’un modèle personnalisé](../../../custom-speech-overview.md) sera probablement le meilleur choix pour améliorer la précision.
 >
 > N’utilisez pas la fonctionnalité de liste d’expressions avec les points de terminaison personnalisés. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
 

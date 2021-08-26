@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: overview
 ms.date: 02/20/2020
-ms.openlocfilehash: 328c29afee3752ecb11b83f22d67f20aa3a2c93e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d0f4bf0f0617fa2fc00a62d65b94dbf29f36688
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94963009"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725388"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Qu’est-ce qu’Azure Database Migration Service ?
 
@@ -42,5 +42,5 @@ Pour obtenir des informations à jour sur les tarifs d’Azure Database Migratio
 * [Créer une instance d’Azure Database Migration Service à l’aide du portail Azure](quickstart-create-data-migration-service-portal.md).
 * [Migrer SQL Server vers Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
 * [Vue d’ensemble de la configuration requise pour l’utilisation d’Azure Database Migration Service](pre-reqs.md).
-* [Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](faq.md).
+* [Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service](faq.yml).
 * [Services et outils disponibles pour les scénarios de migration de données](dms-tools-matrix.md).
