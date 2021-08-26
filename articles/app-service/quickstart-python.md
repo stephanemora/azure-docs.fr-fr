@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-portal
-ms.openlocfilehash: d8af7a9744fe136f482fc007dbd0e51a680df932
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: aad4765dbfeeec7c0be6f7565573937a092864b1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379483"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "122643130"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python en utilisant Azure App Service sur Linux
 
@@ -160,7 +160,7 @@ az webapp up --sku B1 --name <app-name>
 - Si la commande `webapp` n’est pas reconnue, vérifiez que vous utilisez Azure CLI version 2.0.80 ou ultérieure. Si ce n’est pas le cas, [installez la dernière version](/cli/azure/install-azure-cli).
 - Remplacez `<app_name>` par un nom unique sur l’ensemble d’Azure (*les caractères valides sont `a-z`, `0-9` et `-`* ). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.
 - L’argument `--sku B1` crée l’application web dans le niveau tarifaire De base, ce qui engendre un coût horaire modique. Omettez cet argument pour utiliser un niveau Premium plus rapide.
-- Vous pouvez éventuellement inclure l’argument `--location <location-name>` où `<location_name>` est une région Azure disponible. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
+- Vous pouvez éventuellement inclure l’argument `--location <location-name>` où `<location_name>` est une région Azure disponible. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations).
 - Si vous voyez l’erreur « Impossible de détecter automatiquement la pile d’exécution de votre application », vérifiez que vous exécutez la commande dans le dossier *python-docs-hello-world* (Flask) ou dans le dossier *python-docs-hello-django* (Django) qui contient le fichier *requirements.txt*. (Consultez [Résolution des problèmes de détection automatique avec az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 La commande peut prendre quelques minutes. Lors de son exécution, elle fournit des messages sur la création du groupe de ressources, le plan App Service et l’application d’hébergement, la configuration de la journalisation, puis le déploiement ZIP. Elle affiche ensuite le message « Vous pouvez lancer l’application sur http://&lt;app-name&gt;.azurewebsites.net », qui est l’URL de l’application sur Azure.

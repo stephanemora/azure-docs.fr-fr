@@ -2,24 +2,19 @@
 title: Didacticiel sur les contrôles d'accès et d'applications - Azure Security Center
 description: Ce tutoriel montre comment configurer une stratégie d’accès juste-à-temps aux machines virtuelles et une stratégie de contrôle d’applications.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: cc88561f8882b1712648a261d1f0208a18bab26d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 399fa371de57bbd8899a7c22686196a0a54be0ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095474"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726107"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutoriel : Protéger vos ressources avec Azure Security Center
 Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps (JIT) aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste d’autorisation.
@@ -56,9 +51,3 @@ Passez au didacticiel suivant pour en savoir plus sur la façon de répondre aux
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Répondre à des incidents de sécurité](tutorial-security-incident.md)
-
-<!--Image references-->
-[1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png
-[2]: ./media/tutorial-protect-resources/add-port.png
-[3]: ./media/tutorial-protect-resources/adaptive-application-control-options.png
-[4]: ./media/tutorial-protect-resources/recommended-resource-groups.png

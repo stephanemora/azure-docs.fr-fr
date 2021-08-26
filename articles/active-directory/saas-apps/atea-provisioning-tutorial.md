@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer Atea pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment approvisionner automatiquement des comptes d’utilisateur d’Azure AD vers Atea et annuler cet approvisionnement.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: b788328b-10fd-4eaa-a4bc-909d738d8b8b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/25/2021
-ms.author: Zhchia
-ms.openlocfilehash: 1991c27ee992a08c3f31cd90df016bf19405f56a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 6c97d363899373e1fc41d7629c2b53fb705cf03c
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653199"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207297"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>Tutoriel : Configurer Atea pour l’approvisionnement automatique d’utilisateurs
 

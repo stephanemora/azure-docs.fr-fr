@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 62b17a4c8f44863074b530dfd3387d1a23323b26
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 623d8d63c309ba918054e2efb2344cb1d778a74d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456758"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861088"
 ---
 ### <a name="get-enabled-resource-types-for-azure-arc-enabled-custom-locations"></a>Obtenir les types de ressources activés pour les emplacements personnalisés avec Azure Arc
 
@@ -43,9 +43,9 @@ Search-AzGraph -Query "ExtendedLocationResources | where type == 'microsoft.exte
 
 ---
 
-### <a name="list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled"></a>Répertorier les emplacements personnalisés avec Azure Arc avec activation de VMware ou SCVMM
+### <a name="list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled"></a>Répertorier les emplacements personnalisés compatibles avec Azure Arc avec activation de VMware ou SCVMM
 
-Fournit la liste de tous les emplacements personnalisés avec Azure Arc dont les types de ressources VMware ou SCVMM sont activés.
+Fournit la liste de tous les emplacements personnalisés compatibles avec Azure Arc dont les types de ressources VMware ou SCVMM sont activés.
 
 ```kusto
 Resources

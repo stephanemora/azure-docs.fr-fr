@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: a889f0b740d506bd546f1fb67f050317146c31e8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 3667a201e293a844fbcd60b4f00c43aee03ca550
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015647"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>Tutoriel : Configurer OPC Publisher
 
@@ -44,7 +44,7 @@ Pour conserver la configuration de sécurité d’OPC Publisher entre les redé
 
 ## <a name="configuration-via-configuration-file"></a>Configuration par le biais d’un fichier de configuration
 
-Le moyen le plus simple de configurer OPC Publisher consiste à utiliser un fichier de configuration. Un exemple de fichier de configuration, ainsi que la documentation relative à son format, sont fournis par le biais du fichier [`publishednodes.json`](https://raw.githubusercontent.com/Azure/iot-edge-opc-publisher/master/opcpublisher/publishednodes.json) dans ce dépôt.
+Le moyen le plus simple de configurer OPC Publisher consiste à utiliser un fichier de configuration. Un exemple de fichier de configuration, ainsi que la documentation relative à son format, sont fournis par le biais du fichier [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/components/opc-ua/src/Microsoft.Azure.IIoT.OpcUa.Edge.Publisher/tests/Engine/publishednodes.json) dans ce dépôt.
 La syntaxe du fichier de configuration a changé au fil du temps et OPC Publisher peut toujours lire les anciens formats, mais il les convertit au format le plus récent lors de la persistance de la configuration, régulièrement effectuée de manière automatique.
 
 Voici à quoi ressemble un fichier de configuration de base :
