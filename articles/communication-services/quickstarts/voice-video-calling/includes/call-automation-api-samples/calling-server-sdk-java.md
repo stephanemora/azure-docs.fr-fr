@@ -10,20 +10,20 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: dc674a7e013ed39bd04161cb7e96dc969eaf47eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7253be0e9d7723bdb018b53e3ee655188bb3d679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801242"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
 - Créer un compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 11 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Vous devez noter la **chaîne de connexion** de votre ressource pour cet exemple.
-- Obtenir un numéro de téléphone pour votre nouvelle ressource Azure Communication Services. Pour plus d’informations, consultez [Obtenir un numéro de téléphone](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/get-phone-number?pivots=platform-azp).
+- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../../../create-communication-resource.md). Vous devez noter la **chaîne de connexion** de votre ressource pour cet exemple.
+- Obtenir un numéro de téléphone pour votre nouvelle ressource Azure Communication Services. Pour plus d’informations, consultez [Obtenir un numéro de téléphone](../../../telephony-sms/get-phone-number.md?pivots=platform-azp).
 - Télécharger et installer [ngrok](https://www.ngrok.com/download). L’exemple étant exécuté localement, ngrok autorisera la réception de tous les événements.
 - (Facultatif) Créer une ressource Azure Speech pour générer un message personnalisé qui doit être lu par l’application. Suivez [ce guide](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) pour créer la ressource.
 

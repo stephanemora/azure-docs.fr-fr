@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 56649e47333ef95955b1afb88546be356c08991e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4fdc2c9c683376369de284035ad08ffd8bea39bf
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461466"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769905"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-draup-inc"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Draup, Inc
 
@@ -74,11 +74,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure.
+1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://platform.draup.com/saml2/login/`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://platform.draup.com/saml2/login/`
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

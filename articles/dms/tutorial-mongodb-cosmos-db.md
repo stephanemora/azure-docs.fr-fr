@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 05/19/2021
-ms.openlocfilehash: 31f3dc8adcd17c7795351877c856fa854582007b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 937fcc60e8be144fce10748345b71cc05703c04f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456550"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638513"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>Tutoriel : Migrer MongoDB vers l'API Azure Cosmos DB pour MongoDB hors connexion
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "110456550"
 
 Ce guide de migration de MongoDB fait partie d’une série sur la migration de MongoDB. Les étapes critiques de la migration de MongoDB sont la [pré-migration](../cosmos-db/mongodb-pre-migration.md), la migration proprement dite et la [post-migration](../cosmos-db/mongodb-post-migration.md), comme indiqué ci-dessous.
 
-![Diagramme des étapes de migration.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+![Diagramme des étapes de migration.](../cosmos-db/mongodb/media/pre-migration-steps/overall-migration-steps.png)
 
 ## <a name="overview-of-offline-data-migration-from-mongodb-to-azure-cosmos-db-using-dms"></a>Vue d’ensemble de la migration des données hors connexion de MongoDB vers Azure Cosmos DB avec DMS
 
@@ -81,19 +81,7 @@ Si la fonctionnalité est désactivée, sélectionnez **Activer**.
 
 ![Capture d'écran montrant comment activer la fonctionnalité Nouvelle tentative côté serveur.](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
-## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
-
-1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
-
-   ![Capture d'écran illustrant l'option Abonnements sur le portail.](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
-
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
-
-    ![Capture d'écran illustrant l'option Fournisseurs de ressources.](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
-
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
-
-    ![Capture d'écran montrant comment inscrire le fournisseur de ressources.](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]  
 
 ## <a name="create-an-instance"></a>Créer une instance
 
