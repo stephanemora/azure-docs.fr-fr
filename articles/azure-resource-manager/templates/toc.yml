@@ -181,7 +181,7 @@
     - name: Intégration
       items:
         - name: API pour FHIR
-          href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Event Grid
           href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Logic Apps
@@ -331,7 +331,7 @@
               href: resource-location.md
             - name: Utiliser des extensions de modèle
               href: resource-extensions.md
-        - name: Outputs
+        - name: Sorties
           href: outputs.md
         - name: Script de déploiement
           displayName: custom script

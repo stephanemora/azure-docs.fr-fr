@@ -2,16 +2,17 @@
 metadata:
   title: FAQ - Solution Network Performance Monitor dans Azure | Microsoft Docs
   description: Cet article présente les questions fréquemment posées sur Network Performance Monitor dans Azure Network Performance Monitor (NPM) vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser les goulots d’étranglement affectant les performances réseau.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure-monitor
   author: vinynigam
   ms.author: vinigam
   ms.date: 10/12/2018
-  ms.openlocfilehash: e899e68d631dfd41ffac3fd111c3ceca86f4cb93
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: dcf032b47396f8e952d38ab9e2c82c8552952da6
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112034841"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122253835"
 title: FAQ relative à la solution Network Performance Monitor
 summary: "\n![Symbole de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)\n\n> [!IMPORTANT]\n> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau moniteur de connexion](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) dans Azure Network Watcher avant le 29 février 2024.\n\nCet article présente les questions fréquemment posées sur Network Performance Monitor (NPM) dans Azure\n\n[Network Performance Monitor](../../networking/network-monitoring-overview.md) est une solution [d’analyse réseau hybride](./network-performance-monitor-performance-monitor.md) basé sur le cloud qui vous permet d’analyser les performances du réseau entre différents points de votre infrastructure réseau. Vous pouvez également analyser la connectivité réseau avec le [service et les points de terminaison d’application](./network-performance-monitor-service-connectivity.md) ainsi que les [performances d’Azure ExpressRoute](./network-performance-monitor-expressroute.md). \n\nNetwork Performance Monitor détecte les problèmes réseau comme le blocage du trafic, les erreurs de routage et autres problèmes que les méthodes d’analyse réseau classiques ne sont pas capables de détecter. La solution génère des alertes et vous informe en cas de dépassement d’un seuil pour une liaison réseau. Il assure également la détection en temps opportun des problèmes de performances réseau et en localise la source en identifiant un segment ou un appareil réseau particuliers. \n\nPlus d’informations sur les différentes fonctionnalités de prise en charge par [Network Performance Monitor](../../networking/network-monitoring-overview.md) sont disponibles en ligne.\n"
 sections:

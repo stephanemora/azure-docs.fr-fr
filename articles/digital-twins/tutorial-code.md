@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Tutoriel expliquant comment écrire le code minimal d’une application cliente à l’aide du kit SDK (C#) .NET.
 author: baanders
 ms.author: baanders
-ms.date: 11/02/2020
+ms.date: 04/28/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: be0502f61105b88e5a751dde88e4828722c866af
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 48d1fd6797dee7f73c2af6b7455b9d58de04f237
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446817"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429588"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -147,7 +147,7 @@ Vient ensuite le premier bloc de code qui interagit avec le service Azure Digita
 
 Collez le code suivant sous le code d’autorisation que vous avez ajouté plus tôt.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs" id="ClientExcerptModel":::
 
 Dans votre fenêtre de commande, exécutez le programme avec cette commande : 
 

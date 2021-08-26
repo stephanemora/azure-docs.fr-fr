@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec .NET Core'
 description: Dans ce démarrage rapide, vous allez utiliser .NET Core pour créer un groupe d’administration afin de hiérarchiser vos ressources.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 422382ca438e203b2ee77deddc9ca82d73cd1ed4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0530d1d3aeee1b96bfc8b3911dd49850f0171829
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733766"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323240"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Démarrage rapide : Créer un groupe d’administration avec .NET Core
 
@@ -47,7 +47,7 @@ Pour permettre à .NET Core de gérer des groupes d’administration, créez une
    dotnet add package Microsoft.Azure.Management.ManagementGroups --version 1.1.1-preview
 
    # Add the Azure app auth package for .NET Core
-   dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.5.0
+   dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.6.1
    ```
 
 1. Remplacez le `program.cs` par défaut par le code suivant et enregistrez le fichier mis à jour :

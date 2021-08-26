@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: dc9b5b3fae714319e48bcdfe1b2ce8a684a03854
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: b60fccd8fc03145b4646c31ec209626a22440502
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111594203"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442240"
 ---
 [Documentation de référence](/java/api/com.microsoft.azure.management.cognitiveservices) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -22,6 +22,7 @@ ms.locfileid: "111594203"
 * Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
 * La version actuelle du [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * L’[outil de génération Gradle](https://gradle.org/install/) ou un autre gestionnaire de dépendances.
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 

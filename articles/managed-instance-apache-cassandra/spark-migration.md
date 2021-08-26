@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 06/02/2021
-ms.openlocfilehash: b49e1c42b3b81a548a1860a4e4e4ee1ea97a7f4c
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e85d95dcd455ea2c9f4d9a14d9b68bebf06d3df6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955990"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731221"
 ---
 # <a name="migrate-to-azure-managed-instance-for-apache-cassandra-using-apache-spark"></a>Migration vers Azure Managed Instance pour Apache Cassandra avec Apache Spark
 
@@ -26,9 +26,9 @@ Cet article explique comment migrer des données vers Azure Managed Instance pou
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Provisionnez un cluster Azure Managed Instance pour Apache Cassandra avec le [Portail Azure](create-cluster-portal.md) ou [Azure CLI](create-cluster-cli.md) et assurez-vous que vous pouvez vous [connecter à votre cluster avec CQLSH](./create-cluster-portal.md#connecting-to-your-cluster).
+* Approvisionnez un cluster Azure Managed Instance pour Apache Cassandra à l’aide du [portail Azure](create-cluster-portal.md) ou d’[Azure CLI](create-cluster-cli.md), et assurez-vous que vous pouvez [vous connecter à votre cluster avec CQLSH](./create-cluster-portal.md#connecting-to-your-cluster).
 
-* [Provisionnez un compte Azure Databricks à l’intérieur de votre réseau virtuel Cassandra géré](deploy-cluster-databricks.md). Veillez à ce qu’il dispose également d’un accès réseau à votre cluster Cassandra source.
+* [Approvisionnez un compte Azure Databricks à l’intérieur de votre réseau virtuel Cassandra géré](deploy-cluster-databricks.md). Veillez à ce qu’il dispose également d’un accès réseau à votre cluster Cassandra source.
 
 * Assurez-vous que vous avez déjà migré l’espace de clés/le schéma de table de votre base de données Cassandra source vers votre base de données Cassandra Managed Instance cible.
 
@@ -37,13 +37,13 @@ Cet article explique comment migrer des données vers Azure Managed Instance pou
 
 Nous vous recommandons de sélectionner le runtime Databricks version 7.5, qui prend en charge Spark 3.0.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Capture d’écran montrant la détection de la version du runtime Databricks.":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Capture d’écran montrant la détection de la version du runtime Databricks.":::
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
 Ajoutez la bibliothèque du connecteur Apache Spark Cassandra à votre cluster pour vous connecter aux points de terminaison Cassandra natifs et Azure Cosmos DB. Dans votre cluster, sélectionnez **Bibliothèques** > **Installer nouveau** > **Maven**, puis ajoutez `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` dans les coordonnées Maven.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Capture d’écran montrant la recherche de packages Maven dans Databricks.":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Capture d’écran montrant la recherche de packages Maven dans Databricks.":::
 
 Sélectionnez **Installer**, puis redémarrez le cluster une fois l’installation terminée.
 

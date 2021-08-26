@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Proware pour l’attribution automatique d’util
 description: Apprenez à approvisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et Proware.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8887932e-e27e-419b-aa85-a0cda428d525
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/30/2021
-ms.author: Zhchia
-ms.openlocfilehash: 559b385636dc76eecdba10901179c394a0cae906
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.author: thwimmer
+ms.openlocfilehash: 1b7f487835288f603aac83eb90f470590a6eff90
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207678"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326943"
 ---
 # <a name="tutorial-configure-proware-for-automatic-user-provisioning"></a>Tutoriel : Configurer Proware pour l’approvisionnement automatique d’utilisateurs
 

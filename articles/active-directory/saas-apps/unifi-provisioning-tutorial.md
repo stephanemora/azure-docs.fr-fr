@@ -2,25 +2,22 @@
 title: "Tutoriel : Configurer UNIFI pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Apprenez à procéder automatiquement à l'approvisionnement et au déprovisionnement de comptes d'utilisateur d'Azure AD vers UNIFI.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 924c603f-574e-4e0a-9345-0cb0c7593dbb
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/20/2021
-ms.author: Zhchia
-ms.openlocfilehash: 7e9e9667c18375f9ec459f7e8c038d68f9b54299
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.author: thwimmer
+ms.openlocfilehash: 6fee01cbaf2c299ebc54536e75e278b3616f0166
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186648"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207333"
 ---
 # <a name="tutorial-configure-unifi-for-automatic-user-provisioning"></a>Tutoriel : Configurer UNIFI pour l'approvisionnement automatique d'utilisateurs
 
