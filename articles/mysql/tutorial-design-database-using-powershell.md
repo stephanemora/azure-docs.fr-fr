@@ -8,14 +8,16 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: fd8294d60ed0af4e8d1eeb8a3cd07c737b69aadd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6910f8ad0ee5661cd71d57282c3abf99c7dde67a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96011453"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643163"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Tutoriel : Concevoir une base de données Azure Database pour MySQL à l’aide de PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database pour MySQL est un service de base de données relationnelle dans le cloud de Microsoft basé sur le moteur de base de données MySQL Community Edition. Dans ce tutoriel, vous allez utiliser PowerShell et d’autres utilitaires pour apprendre à :
 

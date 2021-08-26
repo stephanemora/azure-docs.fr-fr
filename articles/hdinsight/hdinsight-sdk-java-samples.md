@@ -5,12 +5,12 @@ ms.custom: devx-track-java
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
-ms.openlocfilehash: 178767847757660163515ec286eba48e1050f506
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 80b30f295254e9d83ad97542381ec7b47e0f094a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931897"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122643159"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight : Exemples Java
 
@@ -40,6 +40,6 @@ Cet article fournit :
 
 Vous pouvez obtenir ces exemples pour Java en clonant le dépôt GitHub [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples).
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 Des extraits de code pour les fonctionnalités supplémentaires de ce SDK sont disponibles dans la [documentation de référence du SDK HDInsight pour Java](/java/api/overview/azure/hdinsight).

@@ -1,19 +1,19 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Azure SQL Database
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Azure SQL Database et SQL Managed Instance. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-database
 ms.subservice: security
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: efb052532875ea752444f56bb1e4a0db45f809b1
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: eef153e6722072c9e66b6168b8e75ea94591d59e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114404008"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607253"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-sql-database--sql-managed-instance"></a>Contrôles de conformité réglementaire Azure Policy pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
