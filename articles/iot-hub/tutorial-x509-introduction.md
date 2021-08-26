@@ -2,7 +2,6 @@
 title: Tutoriel - Comprendre le chiffrement et les certificats X.509 pour Azure IoT Hub | Microsoft Docs
 description: Tutoriel - Comprendre le chiffrement et l’infrastructure à clé publique X.509 pour Azure IoT Hub
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 2c375a02f534572826e1ebd6b8549e59f6e83640
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 096d7bb1ca05f3d49c0b5c93751238f41e724ec6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724391"
 ---
 # <a name="tutorial-understanding-public-key-cryptography-and-x509-public-key-infrastructure"></a>Tutoriel : Comprendre le chiffrement à clé publique et l’infrastructure à clé publique X.509
 

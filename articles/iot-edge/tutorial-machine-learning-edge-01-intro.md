@@ -2,18 +2,17 @@
 title: 'Tutoriel : Procédure pas à pas détaillée relative au Machine Learning sur Azure IoT Edge'
 description: Ce didacticiel général présente les différentes tâches nécessaires à la création d’un scénario Machine Learning de bout en bout en périphérie.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e2c6b7f2fbeae4ebeacca3772c22c5eeddeceb2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463236"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726415"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutoriel : Une solution de bout en bout à l’aide d’Azure Machine Learning et IoT Edge
 

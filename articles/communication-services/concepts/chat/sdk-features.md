@@ -2,19 +2,19 @@
 title: Vue d’ensemble du kit SDK Conversation pour Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Découvrez le kit SDK Conversation Azure Communication Services.
-author: mikben
+author: knvsl
 manager: jken
 services: azure-communication-services
 ms.author: mikben
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 36b528d7899b2b5cda7c05752a7cbb42dec6adbc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 540457d554ad2124b3fdd9557833bce8319df8d7
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459293"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252402"
 ---
 # <a name="chat-sdk-overview"></a>Vue d’ensemble du kit SDK Conversation 
 
@@ -41,8 +41,8 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | Obtenir tous les messages d’un fil de conversation                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Envoyer des emojis Unicode dans le contenu d’un message                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Ajouter des métadonnées aux messages de conversation                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
-|                   | Ajouter un nom complet à la notification de l’indicateur de saisie                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | Ajouter des métadonnées aux messages de conversation                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ❌    | ✔️   |  
+|                   | Ajouter un nom complet à la notification de l’indicateur de saisie                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ❌    | ✔️   |  
 |Notifications en temps réel (activées par le package de signalisation propriétaire**)|  Les clients de conversation peuvent s’abonner pour obtenir des mises à jour en temps réel sur les messages entrants et les autres opérations qui se produisent dans un fil de conversation. Si vous souhaitez voir la liste des mises à jour prises en charge pour les notifications en temps réel, consultez [Concepts de Conversation](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 | Intégration à Azure Event Grid             | Utilisez les événements de conversation disponibles dans Azure Event Grid pour connecter des services de notifications personnalisées, ou publier un événement particulier dans un Webhook de façon à exécuter une logique métier telle que la mise à jour des enregistrements CRM à la fin d’une conversation.   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 | Rapports </br>(Ces informations sont disponibles sous l’onglet Supervision de votre ressource Communication Services sur le portail Azure)      | Comprendre le trafic d’API à partir de votre application de conversation avec la supervision des métriques publiées dans Azure Metrics Explorer et définir des alertes pour détecter les anomalies     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  

@@ -3,13 +3,14 @@ metadata:
   title: FAQ sur la sauvegarde des fichiers Azure
   description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
   ms.date: 04/22/2020
-  ms.topic: conceptual
-  ms.openlocfilehash: b08af97ba2dbab60fa23e35a9865ad982b913f56
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907023"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252313"
 title: Questions sur la sauvegarde des fichiers Azure
 summary: >
   Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](/answers/topics/azure-backup.html).

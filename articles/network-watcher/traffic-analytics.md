@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
-ms.custom: references_regions
-ms.openlocfilehash: fab2adb932d9c74b30b1775d8fa7ab257a4f00b0
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 146c1f78ffe0b8a4061417086cf66d96d2317890
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887915"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285365"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -197,7 +197,7 @@ Si votre compte n’a pas l’un des rôles intégrés, il doit avoir un [rôle 
 - « Microsoft.Network/virtualNetworks/read »
 - Microsoft.Network/expressRouteCircuits/read
 
-Pour plus d’informations sur la vérification des autorisations d’accès utilisateur, consultez la [FAQ dédiée aux analyses de trafic](traffic-analytics-faq.md).
+Pour plus d’informations sur la vérification des autorisations d’accès utilisateur, consultez la [FAQ dédiée aux analyses de trafic](traffic-analytics-faq.yml).
 
 ### <a name="enable-network-watcher"></a>Activer Network Watcher
 
@@ -271,8 +271,8 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 **Rechercher**
 
-- Quels ordinateurs hôtes, sous-réseaux et réseaux virtuels envoient ou recevoir le plus de trafic, hébergent le maximum de trafic malveillant et bloquent des flux importants ?
-    - Vérifiez le graphique comparatif de l’ordinateur hôte, du sous-réseau et du réseau virtuel. Le fait de savoir quels hôtes, sous-réseaux et réseaux virtuels envoient ou reçoivent le plus de trafic vous permet d’identifier les hôtes qui traitent le plus de trafic et si le trafic est correctement distribué.
+- Quels hôtes, sous-réseaux, réseaux virtuels et groupes de machines virtuelles identiques envoient ou recevoir le plus de trafic, sont traversés par le plus de trafic malveillant et bloquent des flux significatifs ?
+    - Consultez le graphique comparatif pour les hôtes, le sous-réseau, le réseau virtuel et le groupe de machines virtuelles identiques. Le fait de savoir quels hôtes, sous-réseaux, réseaux virtuels et groupes de machines virtuelles identiques envoient ou reçoivent le plus de trafic vous permet d’identifier les hôtes qui traitent le plus de trafic et si le trafic est correctement distribué.
     - Vous pouvez évaluer si le volume du trafic est approprié pour un hôte. Le volume du trafic traduit-il un comportement normal ou implique-t-il le besoin de mener des recherches plus approfondies ?
 - Quelle est la quantité de trafic entrant/sortant ?
     -   Est-il prévu que l’hôte reçoive davantage de trafic entrant que sortant, ou vice versa ?
@@ -281,13 +281,16 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 - Statistiques du trafic malveillant autorisé/bloqué
   - Pourquoi un hôte reçoit-il du trafic malveillant et pourquoi les flux d’une source malveillante sont-ils autorisés ? Ce comportement requiert une enquête plus poussée et probablement l’optimisation de la configuration.
 
-    Sélectionnez **Afficher tout** sous **Hôte**, comme illustré dans l’image suivante :
+    Sélectionnez **Afficher tout** sous **IP**, comme illustré dans l’image suivante :
 
     ![Tableau de bord présentant les détails de l’hôte avec le plus de trafic](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-- L’illustration suivante montre les tendances dans le temps pour les cinq principaux hôtes qui communiquent le plus et les détails associés aux flux (autorisé - entrant/sortant et refusé - entrant/sortant) pour un hôte :
+    L’illustration suivante montre les tendances dans le temps pour les cinq principaux hôtes qui communiquent le plus et les détails associés aux flux (autorisé - entrant/sortant et refusé - entrant/sortant) pour un hôte :
+
+    Sélectionnez **Voir plus**, sous **Détails des 5 premières adresses IP communicant**, comme indiqué dans l’image suivante, pour obtenir des informations sur tous les hôtes :
 
     ![Tendance des cinq principaux hôtes qui communiquent le plus](media/traffic-analytics/top-five-most-talking-host-trend.png)
+    
 
 **Rechercher**
 
@@ -354,6 +357,10 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     ![Vue de la carte géographique présentant la distribution du trafic vers les pays/régions et continents](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Détails du flux pour la distribution du trafic dans la recherche dans les journaux](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
+    
+- Le panneau **Plus d’insights** d’une région Azure montre également le trafic total restant à l’intérieur de cette région (c’est-à-dire avec la source et la destination dans la même région). Il fournit également des insights sur le trafic échangé entre les zones de disponibilité d’un centre de données 
+
+    ![Trafic interzone et intrarégion](./media/traffic-analytics/inter-zone-and-intra-region-traffic.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualiser la distribution du trafic par réseaux virtuels
 
@@ -369,7 +376,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
 - La topologie du réseau virtuel affiche le ruban supérieur pour sélectionner les paramètres comme les flux malveillants, les flux actifs, les connexions externes (connexions du réseau virtuel internes/actives/inactives) d’un réseau virtuel.
 - Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : type de flux (entre réseaux virtuels, dans un même réseau virtuel, etc.), direction du flux (entrant, sortant), état du flux (autorisé, bloqué) des réseaux virtuels (ciblé et connecté), type de connexion (peering ou passerelle – P2S et S2S) et groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
-- La topologie du réseau virtuel montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
+- La topologie du réseau virtuel montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole des applications et les groupes de sécurité réseau, par exemple :
 
     ![Topologie du réseau virtuel présentant la distribution du trafic et détails du flux](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
@@ -383,7 +390,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     - Savoir quel sous-réseau communique avec quel sous-réseau. Si vous remarquez des conversations inattendues, vous pouvez corriger votre configuration.
     - Si des réseaux non autorisés communiquent avec un sous-réseau, il est possible de résoudre le problème en configurant des règles de Groupe de sécurité réseau pour bloquer les réseaux non autorisés.
 - La topologie des sous-réseaux affiche le ruban supérieur pour sélectionner les paramètres, tels que le sous-réseau actif/inactif, les connexions externes, les flux actifs et les flux malveillants du sous-réseau.
-- La topologie du sous-réseau montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
+- La topologie du sous-réseau montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole des applications et les groupes de sécurité réseau, par exemple :
 
     ![Topologie de sous-réseau présentant la distribution du trafic sur un sous-réseau de réseau virtuel en ce qui concerne les flux](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
@@ -413,6 +420,22 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 
 ![Détails des flux de trafic malveillant dans la recherche dans les journaux](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### <a name="view-information-about-public-ips-interacting-with-your-deployment"></a>Afficher des informations sur l’interaction des adresses IP publiques avec votre déploiement
+
+**Rechercher**
+
+- Quelles adresses IP publiques communiquent avec mon réseau ? Quelles sont les données WHOIS et l’emplacement géographique de toutes les adresses IP publiques ?
+- Quelles adresses IP malveillantes envoient du trafic à mes déploiements ? Quel est le type et la description des menaces pour les adresses IP malveillantes ?
+    - La section Informations sur les adresses IP publiques donne un récapitulatif de tous les types d’adresses IP publiques présentes dans le trafic de votre réseau. 
+      Sélectionnez le type d’adresse IP publique qui vous intéresse pour voir les détails. Ce [document de schéma](./traffic-analytics-schema.md#public-ip-details-schema) définit les champs de données présentés.
+      
+      :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Informations sur les adresses IP publiques" lightbox="./media/traffic-analytics/public-ip-information.png":::
+      
+    - Dans le tableau de bord d’analyse du trafic, cliquez sur n’importe quelle adresse IP pour voir ses informations.   
+    
+      :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="Informations sur une adresse IP externe dans une info-bulle" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+      
+      :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="Informations sur une adresse IP malveillante dans une info-bulle" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualiser les tendances dans les correspondances de règles de groupe de sécurité réseau/groupes de sécurité réseau
 
@@ -435,7 +458,7 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
-Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics FAQ](traffic-analytics-faq.md) (Forum aux questions sur Traffic Analytics).
+Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics FAQ](traffic-analytics-faq.yml) (Forum aux questions sur Traffic Analytics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

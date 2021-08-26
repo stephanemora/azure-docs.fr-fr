@@ -3,7 +3,7 @@ title: Configurer l’Assistant Log Analytics dans Azure AD | Microsoft Docs
 description: Découvrez comment configurer Log Analytics.
 services: active-directory
 ms.service: active-directory
-ms.subservice: devices
+ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: markvi
@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47df90a3f4948e69206a34dbeac187c2a67074f1
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574386"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122514622"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutoriel : Configurer l’Assistant Log Analytics
 
@@ -226,7 +226,7 @@ Cette procédure montre comment envoyer des alertes lorsque le compte breakglass
 
 8. Dans la page **Créer une règle d’alerte**, vérifiez que l’étendue est correcte.
 
-9. Sous **Condition**, cliquez sur : **Chaque fois que la recherche dans les journaux personnalisée moyenne est supérieure à <logic undefined> nombre**
+9. Sous **Condition**, cliquez sur : **Chaque fois que la recherche dans les journaux personnalisée moyenne est supérieure à `logic undefined` nombre**
 
     ![Condition par défaut](./media/tutorial-log-analytics-wizard/default-condition.png)
 

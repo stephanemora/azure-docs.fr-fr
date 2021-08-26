@@ -30,7 +30,7 @@
     - name: Azure Kubernetes Service
       items:
         - name: Intégrer Azure Key Vault à Kubernetes
-          href: key-vault-integrate-kubernetes.md
+          href: ../../aks/csi-secrets-store-driver.md
     - name: Azure Databricks
       items:
         - name: Accéder au Stockage Blob Azure en utilisant Azure Databricks et Azure Key Vault

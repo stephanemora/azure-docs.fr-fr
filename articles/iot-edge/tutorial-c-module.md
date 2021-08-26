@@ -3,18 +3,17 @@ title: 'Didacticiel : Développer un module C pour Linux – Azure IoT Edge | M
 description: Ce didacticiel explique comment créer un module IoT Edge avec du code C, et le déployer sur un appareil Linux exécutant IoT Edge
 services: iot-edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5149d33052f3ad8783ed35d03b4f3760790f5ee5
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 26067037eabd2878971aa71f8996c24feaf3ed1f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438419"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728813"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutoriel : Développer un module IoT Edge en C avec des conteneurs Linux
 
@@ -95,7 +94,7 @@ L’extension IoT Edge tente d’extraire d’Azure vos informations d’identif
 3. Enregistrez ce fichier.
 
 >[!NOTE]
->Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès à votre registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Lorsque vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification de moindre privilège, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 

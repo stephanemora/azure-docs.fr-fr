@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0b920df34358c83fa69274f0d7b52f889cd15010
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724832"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations de consentement d’application pour les rôles personnalisés dans Azure Active Directory
 
@@ -34,7 +34,7 @@ Utilisez les autorisations listées dans cet article pour gérer les stratégies
 > [!NOTE]
 > Le portail d’administration Azure AD ne prend pas encore en charge l’ajout des autorisations listées dans cet article à une définition de rôle d’annuaire personnalisé. Vous devez [utiliser Azure AD PowerShell pour créer un rôle d’annuaire personnalisé](custom-create.md#create-a-role-using-powershell) avec les autorisations listées dans cet article.
 
-### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>Octroi d’autorisations déléguées aux applications en son propre nom (consentement de l’utilisateur)
+#### <a name="granting-delegated-permissions-to-apps-on-behalf-of-self-user-consent"></a>Octroi d’autorisations déléguées aux applications en son propre nom (consentement de l’utilisateur)
 
 Pour permettre aux utilisateurs d’accorder leur consentement aux applications en leur propre nom (consentement de l’utilisateur), sous réserve d’une stratégie de consentement d’application :
 
@@ -44,7 +44,7 @@ Où `{id}` est remplacé par l’ID d’une [stratégie de consentement d’appl
 
 Par exemple, pour permettre aux utilisateurs d’accorder leur consentement pour leur propre compte, en fonction de la stratégie de consentement d’application intégrée ayant l’ID `microsoft-user-default-low`, vous utilisez l’autorisation `...managePermissionGrantsForSelf.microsoft-user-default-low`.
 
-### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>Octroi d’autorisations à des applications pour le compte de tous (consentement administrateur)
+#### <a name="granting-permissions-to-apps-on-behalf-of-all-admin-consent"></a>Octroi d’autorisations à des applications pour le compte de tous (consentement administrateur)
 
 Pour déléguer le consentement administrateur au niveau du locataire pour des applications, à la fois pour les autorisations déléguées et les autorisations d’application (rôles d’application) :
 
@@ -54,7 +54,7 @@ Où `{id}` est remplacé par l’ID d’une [stratégie de consentement d’appl
 
 Par exemple, pour autoriser les destinataires de rôles à accorder un consentement administrateur au niveau du locataire aux applications soumises à une [stratégie de consentement d’application](../manage-apps/manage-app-consent-policies.md) personnalisée ayant l’ID `low-risk-any-app`, vous devez utiliser l’autorisation `microsoft.directory/servicePrincipals/managePermissionGrantsForAll.low-risk-any-app`.
 
-### <a name="managing-app-consent-policies"></a>Gestion des stratégies de consentement d’application
+#### <a name="managing-app-consent-policies"></a>Gestion des stratégies de consentement d’application
 
 Pour déléguer la création, la mise à jour et la suppression de [stratégies de consentement d’application](../manage-apps/manage-app-consent-policies.md) :
 
