@@ -8,18 +8,21 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7addfc3a0d91b85c4d63afa4ee6a55b5202c3855
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e5b5a2fb64c803c76f663d506dec8d750a4af29
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770234"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643195"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Démarrage rapide : Créer un serveur flexible Azure Database pour MySQL à l'aide d'Azure CLI
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+
 Ce guide de démarrage rapide montre comment utiliser les commandes [Azure CLI](/cli/azure/get-started-with-azure-cli) dans [Azure Cloud Shell](https://shell.azure.com) afin de créer un serveur flexible Azure Database pour MySQL en cinq minutes. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
@@ -218,7 +221,7 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!IMPORTANT]
-> Lorsque vous vous connectez à votre serveur flexible à l'aide d'Azure Cloud Shell, vous devez utiliser le paramètre --ssl=true et non --ssl-mode=REQUIRED.
+>Lorsque vous vous connectez à votre serveur flexible à l'aide d'Azure Cloud Shell, vous devez utiliser le paramètre --ssl=true et non --ssl-mode=REQUIRED.
 > Ceci est principalement dû au fait que le client mysql.exe de la distribution MariaDB est préinstallé sur Azure Cloud Shell et que celui-ci requiert le paramètre --ssl, alors que le client mysql de la distribution Oracle requiert le paramètre --ssl-mode.
 
 Si le message d’erreur suivant s’affiche lors de la connexion à votre serveur flexible à la suite de la commande précédente, c’est que vous n’avez pas défini la règle de pare-feu en utilisant l’option « Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur » mentionnée précédemment ou que cette option n’est pas enregistrée. Reconfigurez le pare-feu, puis réessayez.

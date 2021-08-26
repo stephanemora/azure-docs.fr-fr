@@ -20,15 +20,24 @@
           href: get-started-cli.md
 - name: Concepts
   items:
-    - name: Prise en charge des API avec Azure Functions
-      href: apis.md
+    - name: API
+      items:
+        - name: Prise en charge des API avec Azure Functions
+          href: apis.md
+        - name: Ajouter une API
+          href: add-api.md
+        - name: Amener vos propres fonctions
+          href: functions-bring-your-own.md
     - name: Configuration
       items:
         - name: Configuration de l’application
           href: configuration.md
           displayName: 'routing, routes'
-        - name: Configuration de build et de workflow
+        - name: Configuration de build
           href: github-actions-workflow.md
+        - name: Paramètres de l’application
+          href: application-settings.md
+          displayName: environment variables
     - name: Sécurité
       items:
         - name: Authentification et autorisation
@@ -43,14 +52,22 @@
       href: custom-domain.md
 - name: Guides pratiques
   items:
+    - name: API
+      items:
+        - name: Ajouter une API
+          href: add-api.md
+        - name: Amener vos propres fonctions
+          href: functions-bring-your-own.md
+    - name: Sécurité
+      items:
+        - name: Créer un point de terminaison privé
+          href: private-endpoint.md
+        - name: Sécuriser les secrets d’authentification
+          href: key-vault-secrets.md
     - name: Configurer le développement local
       href: local-development.md
-    - name: Ajouter une API
-      href: add-api.md
     - name: Configuration des paramètres d’application
       href: application-settings.md
-    - name: "Publier avec Azure\_DevOps"
-      href: publish-devops.md
     - name: Configurer des bibliothèques et des frameworks front-end
       href: front-end-frameworks.md
     - name: Activer la supervision
@@ -61,10 +78,6 @@
     - name: Résoudre les erreurs
       href: troubleshooting.md
       displayName: 'deployment, runtime, errors'
-    - name: Amener vos propres fonctions
-      href: functions-bring-your-own.md
-    - name: Sécuriser les secrets d’authentification
-      href: key-vault-secrets.md
 - name: Tutoriels
   items:
     - name: Publier à partir d’un générateur de site statique

@@ -3,7 +3,7 @@ title: 'Tutoriel : Configuration de Contentful pour l’approvisionnement autom
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure Active Directory (Azure AD) pour Contentful.
 services: active-directory
 documentationcenter: ''
-author: zchia
+author: twimmers
 manager: beatrizd
 ms.assetid: 3b761984-a9a0-4519-b23e-563438978de5
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/11/2020
-ms.author: zhchia
-ms.openlocfilehash: c9d19624d90b1228b2a44caeff7d103af3172ed9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: bb87222737e4c85eebb2869a812f44d9e703c8d4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516347"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326937"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Contentful pour l’attribution automatique d’utilisateurs
 

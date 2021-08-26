@@ -6,12 +6,12 @@ ms.author: v-hhunter
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: 71abc9acdcf8796591e7241a7fcfeded1cd3139a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: aad3015ed129b438e9f359d7cb3fc89b6658e5c9
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283120"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768318"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Déployer une passerelle de gestion des API Azure sur Azure Arc (préversion)
 
@@ -26,7 +26,7 @@ Le déploiement de la passerelle Gestion des API sur un cluster Kubernetes avec 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Connectez votre cluster Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md) dans [une région Azure Arc prise en charge](../azure-arc/kubernetes/overview.md#supported-regions).
+* [Connectez votre cluster Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md) dans [une région Azure Arc prise en charge](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 * Installez l’extension Azure CLI `k8s-extension` :
 
     ```azurecli

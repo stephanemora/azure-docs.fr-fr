@@ -4,15 +4,15 @@ description: Dans ce démarrage rapide, vous allez apprendre à générer une ap
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 2c96f1392228c4fcce65e05711b70a6ce689592a
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: cb9b1d5aa489950e86bc2f1575d44fd78919359e
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006889"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254331"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>Démarrage rapide : Créer une application HoloLens avec Azure Object Anchors dans Unity
 
@@ -27,7 +27,11 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## <a name="open-the-sample-project"></a>Ouvrir l’exemple de projet
 
@@ -39,19 +43,15 @@ Dans Unity, ouvrez le projet `quickstarts/apps/unity/basic`.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
+
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 [!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
-
-Allumez l’appareil, sélectionnez **Toutes les applications**, puis localisez et démarrez l’application. Après l’écran de démarrage de Unity, un message s’affiche indiquant que l’observateur d’objets a été initialisé. Toutefois, vous devez ajouter votre modèle à l’application.
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+Après l’écran de démarrage de Unity, un message s’affiche indiquant que l’observateur d’objets a été initialisé.
 
 L’application recherche des objets dans le champ perspective actuel, puis les suit une fois détectés. Une instance est supprimée quand elle est éloignée de 6 mètres ou plus de l’emplacement de l’utilisateur. Le texte de débogage affiche des détails d’une instance, par exemple, l’ID, l’horodatage mis à jour et le ratio de couverture des surfaces.
 
@@ -69,4 +69,4 @@ L’application recherche des objets dans le champ perspective actuel, puis les 
 > [FORUM AUX QUESTIONS](../faq.md)
 
 > [!div class="nextstepaction"]
-> [SDK de conversion](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Kit SDK de conversion](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

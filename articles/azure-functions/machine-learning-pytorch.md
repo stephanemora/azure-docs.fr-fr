@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4677ec09994b9dcafbf3600c3c3cae48d71f1477
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93422839"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750182"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutoriel : Déployer un modèle de classification d’image pré-entraîné sur Azure Functions avec PyTorch
 
@@ -104,7 +104,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     func init --worker-runtime python
     ```
 
-    Après l’initialisation, le dossier *start* contient différents fichiers pour le projet, dont des fichiers de configuration nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Comme *local.settings.json* peut contenir des secrets téléchargés depuis Azure, le fichier est exclu par défaut du contrôle de code source dans le fichier *.gitignore*.
+    Après l’initialisation, le dossier *start* contient différents fichiers pour le projet, dont des fichiers de configuration nommés [local.settings.json](functions-develop-local.md#local-settings-file) et [host.json](functions-host-json.md). Comme *local.settings.json* peut contenir des secrets téléchargés depuis Azure, le fichier est exclu par défaut du contrôle de code source dans le fichier *.gitignore*.
 
     > [!TIP]
     > Comme un projet de fonction est lié à un runtime spécifique, toutes les fonctions du projet doivent être écrites dans le même langage.
