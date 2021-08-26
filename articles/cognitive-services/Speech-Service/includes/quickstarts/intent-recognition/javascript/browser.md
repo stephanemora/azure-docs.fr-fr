@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 44ff9049f31a220d8a459f682597b437203a5c4d
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109277"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122071715"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
@@ -31,7 +31,7 @@ Nous allons ajouter du code qui servira de squelette à notre projet
 
 Nous allons maintenant ajouter une interface utilisateur de base pour les zones d’entrée, faire référence au JavaScript du Kit de développement logiciel (SDK) Speech et récupérer un jeton d’autorisation, le cas échéant.
 
-```html  
+```html
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
   <div id="content" style="display:none">
     <table width="100%">
@@ -132,7 +132,7 @@ Nous allons maintenant ajouter une interface utilisateur de base pour les zones 
     });
   </script>
 ```
- 
+
 ## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
 
 Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une configuration qui utilise votre clé d’abonnement et la région de votre abonnement. Insérez ce code dans la méthode `startRecognizeOnceAsyncButton.addEventListener()`.
@@ -178,7 +178,7 @@ Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une 
 
 Vous devez associer un `LanguageUnderstandingModel` au module de reconnaissance de l’intention et ajouter les intentions que vous souhaitez reconnaître. Nous allons utiliser les intentions du domaine prédéfini pour la domotique.
 
-Insérez ce code en dessous de votre `IntentRecognizer`. Veillez à remplacer `"YourLanguageUnderstandingAppId"` par votre ID d’application LUIS. 
+Insérez ce code en dessous de votre `IntentRecognizer`. Veillez à remplacer `"YourLanguageUnderstandingAppId"` par votre ID d’application LUIS.
 
 ```JavaScript
         if (appId.value !== "" && appId.value !== "YOUR_LANGUAGE_UNDERSTANDING_APP_ID") {
@@ -205,9 +205,9 @@ Insérez ce code sous l’ajout du modèle :
         recognizer.recognizeOnceAsync(
           function (result) {
             window.console.log(result);
-  
+
             phraseDiv.innerHTML = result.text + "\r\n";
-  
+
             statusDiv.innerHTML += "(continuation) Reason: " + SpeechSDK.ResultReason[result.reason];
             switch (result.reason) {
               case SpeechSDK.ResultReason.RecognizedSpeech:
@@ -215,7 +215,7 @@ Insérez ce code sous l’ajout du modèle :
                 break;
               case SpeechSDK.ResultReason.RecognizedIntent:
                 statusDiv.innerHTML += " Text: " + result.text + " IntentId: " + result.intentId;
-                
+
                 // The actual JSON returned from Language Understanding is a bit more complex to get to, but it is available for things like
                 // the entity name and type if part of the intent.
                 statusDiv.innerHTML += " Intent JSON: " + result.properties.getProperty(SpeechSDK.PropertyId.LanguageUnderstandingServiceResponse_JsonResult);
@@ -228,7 +228,7 @@ Insérez ce code sous l’ajout du modèle :
               case SpeechSDK.ResultReason.Canceled:
                 var cancelDetails = SpeechSDK.CancellationDetails.fromResult(result);
                 statusDiv.innerHTML += " CancellationReason: " + SpeechSDK.CancellationReason[cancelDetails.reason];
-              
+
               if (cancelDetails.reason === SpeechSDK.CancellationReason.Error) {
                 statusDiv.innerHTML += ": " + cancelDetails.errorDetails;
               }
@@ -239,7 +239,7 @@ Insérez ce code sous l’ajout du modèle :
           },
           function (err) {
             window.console.log(err);
-    
+
             phraseDiv.innerHTML += "ERROR: " + err;
             startIntentRecognizeAsyncButton.disabled = false;
           });
@@ -247,7 +247,7 @@ Insérez ce code sous l’ajout du modèle :
 
 ## <a name="check-your-code"></a>Vérifier votre code
 
- [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-intent-recognition.html)]
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/intent-recognition/index.html)]
 
 ## <a name="create-the-token-source-optional"></a>Créer la source du jeton (facultatif)
 

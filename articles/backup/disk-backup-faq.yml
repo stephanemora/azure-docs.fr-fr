@@ -2,14 +2,15 @@
 metadata:
   title: Foire aux questions sur Sauvegarde des disques Azure
   description: Réponses aux questions les plus fréquentes concernant Sauvegarde des disques Azure
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 05/27/2021
-  ms.openlocfilehash: 4c676d412799838193122399f50e984fbad833b2
-  ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+  ms.openlocfilehash: d53eda8e8b0f168da69dba1334feca0d4cb39524
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/28/2021
-  ms.locfileid: "111907308"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252506"
 title: Foire aux questions sur Sauvegarde des disques Azure
 summary: >
   Cet article répond aux questions fréquemment posées sur Sauvegarde des disques Azure. Pour plus d’informations sur la disponibilité des régions, les scénarios pris en charge et les limitations de [Sauvegarde des disques Azure](disk-backup-overview.md), consultez la [matrice de prise en charge](disk-backup-support-matrix.md).

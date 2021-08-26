@@ -3,7 +3,6 @@ title: 'Tutoriel : Vérifier la connectivité des appareils dans Azure IoT Hub'
 description: 'Tutoriel : Utilisez des outils de IoT Hub pour résoudre les problèmes de connectivité des appareils à votre hub IoT pendant le développement.'
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.custom:
 - mvc
@@ -16,12 +15,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 70ad8f9a910fc66a5e22231d5130cfa8a22db0c6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43ec1680d0855ba70b084771e7e98f4285c0af58
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724430"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 

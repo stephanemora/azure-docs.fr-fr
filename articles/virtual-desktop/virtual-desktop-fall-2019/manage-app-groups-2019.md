@@ -3,15 +3,15 @@ title: Gérer les groupes d’applications pour Azure Virtual Desktop (classique
 description: Découvrez comment configurer des locataires Azure Virtual Desktop (classique) dans Azure Active Directory (AD).
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 08/16/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b4c0f4733ec1d80db4b2181ed292f702926e0e75
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6fe87fb7fc0cbe9e727fe1539d8424d9ee1fe1b1
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754004"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253260"
 ---
 # <a name="tutorial-manage-app-groups-for-azure-virtual-desktop-classic"></a>Tutoriel : Gérer les groupes d’applications pour Azure Virtual Desktop (classique)
 
@@ -37,44 +37,44 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 1. Exécutez l’applet de commande PowerShell suivante pour créer un groupe d’applications RemoteApp vide.
 
    ```powershell
-   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
+   New-RdsAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <appgroupname> -ResourceType "RemoteApp"
    ```
 
 2. (Facultatif) Pour vérifier que le groupe d’applications a bien été créé, vous pouvez exécuter l’applet de commande suivante pour afficher la liste de tous les groupes d’applications associés au pool d’hôtes.
 
    ```powershell
-   Get-RdsAppGroup <tenantname> <hostpoolname>
+   Get-RdsAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname>
    ```
 
 3. Exécutez l’applet de commande suivante pour obtenir la liste des applications du menu **Démarrer** de l’image de la machine virtuelle du pool d’hôtes. Notez les valeurs de **FilePath**, d’**IconPath** et d’**IconIndex**, ainsi que d’autres informations importantes concernant l’application que vous voulez publier.
 
    ```powershell
-   Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
+   Get-RdsStartMenuApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
    ```
 
 4. Exécutez l’applet de commande suivante pour installer l’application en fonction de son `AppAlias`. `AppAlias` devient visible quand vous exécutez la sortie de l’étape 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
 5. (Facultatif) Exécutez l’applet de commande suivante pour publier un nouveau programme RemoteApp dans le groupe d’applications créé à l’étape 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+    New-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. Pour vérifier que l’application a été publiée, exécutez l’applet de commande suivante.
 
    ```powershell
-   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
+    Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
    ```
 
 7. Répétez les étapes 1 à 5 pour chaque application que vous voulez publier pour ce groupe d’applications.
 8. Exécutez l’applet de commande suivante pour accorder aux utilisateurs l’accès aux programmes RemoteApp dans le groupe d’applications.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
+   Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes

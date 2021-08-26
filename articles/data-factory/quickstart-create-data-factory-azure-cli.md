@@ -3,18 +3,17 @@ title: 'Démarrage rapide : Créer une fabrique de données Azure avec Azure CL
 description: Ce guide de démarrage rapide crée une fabrique de données Azure, dont un service lié, des jeux de données et un pipeline. Vous pouvez exécuter le pipeline pour effectuer une action de copie de fichiers.
 author: linda33wj
 ms.author: jingwang
-ms.service: azure-cli
+ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.custom:
-- template-quickstart
-- devx-track-azurecli
-ms.openlocfilehash: c9f4b46553a119bfb7b8b639e6a28e95a2be5999
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: template-quickstart, devx-track-azurecli
+ms.openlocfilehash: f12b9f785063b8fa6fec4bc8cd4011d65110b7fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749879"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Démarrage rapide : Créer une fabrique de données Azure avec Azure CLI
 

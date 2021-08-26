@@ -3,20 +3,20 @@ title: Créer un modèle de locataire (préversion) – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Générez automatiquement un modèle de locataire sécurisé et compatible (Custom Speech avec données Microsoft 365) qui utilise vos données Microsoft 365 pour fournir une reconnaissance vocale optimale pour les termes propres à votre organisation.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0076364d0075573571e76cf230b4920763bb6e2c
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013710"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122072547"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutoriel : Créer un modèle de locataire (préversion)
 

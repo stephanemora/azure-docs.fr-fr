@@ -2,7 +2,6 @@
 title: Tutoriel - Développer un module pour les appareils Windows à l’aide d’Azure IoT Edge
 description: Ce tutoriel vous aide à configurer votre machine de développement et vos ressources cloud afin de développer des modules IoT Edge à l’aide de conteneurs Windows pour des appareils Windows
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
@@ -10,12 +9,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 4f5cd479d69a14974f032b7ec047881826bfd79b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 07cb9d302613c94b72663f7a4b4a46c94dd0209a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438221"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726488"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Windows
 
@@ -182,7 +181,7 @@ Le runtime IoT Edge a besoin des informations d’identification de registre pou
 1. Enregistrez les modifications apportées au fichier .env.
 
 >[!NOTE]
->Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Lorsque vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification de moindre privilège, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="review-the-sample-code"></a>Réviser l’exemple de code
 

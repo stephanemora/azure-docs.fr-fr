@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 01/20/2021
 ms.author: mjbrown
-ms.openlocfilehash: ab9904127d085113ba09bf6fcd3616842dade14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89f1b8bb3b50dad8322b5a30c37de5b2ed6cc507
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503299"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725419"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Exemples Azure PowerShell pour l’API Core (SQL) Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le tableau suivant comprend des liens vers des scripts Azure PowerShell couramment utilisés pour Azure Cosmos DB. Utilisez les liens sur la droite pour accéder aux exemples spécifiques aux API. Les exemples communs sont les mêmes pour toutes les API. Des pages d’informations de référence pour toutes les applets de commande PowerShell Azure Cosmos DB sont disponibles dans les [Informations de référence sur Azure PowerShell](/powershell/module/az.cosmosdb). Le module `Az.CosmosDB` fait maintenant partie du module `Az`. [Téléchargez et installez](/powershell/azure/install-az-ps) la dernière version du module Az pour accéder aux applets de commande Azure Cosmos DB. Vous pouvez également récupérer la version la plus récente à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az/5.4.0). Vous pouvez également dupliquer (fork) ces exemples PowerShell pour Cosmos DB à partir de notre dépôt GitHub : [Exemples PowerShell pour Cosmos DB sur GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
-Pour obtenir des applets de commande PowerShell destinés à d’autres API, consultez [Exemples PowerShell pour Cassandra](powershell-samples-cassandra.md), [Exemples PowerShell pour l’API MongoDB](powershell-samples-mongodb.md), [Exemples PowerShell pour Gremlin](powershell-samples-gremlin.md), [Exemples PowerShell pour Table](powershell-samples-table.md)
+Pour obtenir des applets de commande PowerShell destinés à d’autres API, consultez [Exemples PowerShell pour Cassandra](cassandra/powershell-samples.md), [Exemples PowerShell pour l’API MongoDB](powershell-samples-mongodb.md), [Exemples PowerShell pour Gremlin](powershell-samples-gremlin.md), [Exemples PowerShell pour Table](powershell-samples-table.md)
 
 ## <a name="common-samples"></a>Exemples communs
 

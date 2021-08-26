@@ -1,19 +1,19 @@
 ---
 title: Identité managée dans l’espace de travail Synapse
 description: Article qui explique ce qu’est une identité managée dans l’espace de travail Azure Synapse.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 10/16/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f407826b19ac88f13603499764ca7ceb35de1fbe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670672"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723371"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Identité managée de l’espace de travail Azure Synapse
 

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: fc8c1db006ddd8b1ca455d7e47be0d8fa8381f1c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754512"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181394"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -23,7 +23,7 @@ Les tableaux de bord Log Analytics vous permettent de visualiser l’ensemble de
 > * Ajouter une requête de journal à un tableau de bord partagé 
 > * Personnaliser une vignette dans un tableau de bord partagé
 
-Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../vm/quick-collect-azurevm.md).  
+Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../vm/monitor-virtual-machine.md).  
  
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com). 

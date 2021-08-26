@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/10/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: ace2c9819802150f1131da9e542c6c8feb589c3a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f4f911feef354e4f2bd1f947bef6418615b74ca2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954934"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750233"
 ---
 # <a name="tutorial-create-a-function-to-integrate-with-azure-logic-apps"></a>Tutoriel : Créer une fonction à intégrer à Azure Logic Apps
 
@@ -226,7 +226,7 @@ Créez une connexion à Twitter pour que votre application puisse déterminer s�
     | Paramètre | Valeur |
     | ------- | ----- |
     | Search text (Texte de recherche) | **#my-twitter-tutorial** |
-    | À quelle fréquence voulez-vous vérifier les éléments ? | **1** dans la zone de texte, et <br> **Heure** dans la liste déroulante. Vous pouvez entrer des valeurs différentes, mais veillez à passer en revue les [limitations](/connectors/twitterconnector/#limits) actuelles du connecteur Twitter.  |
+    | How often do you want to check for items? (À quelle fréquence souhaitez-vous rechercher des éléments ?) | **1** dans la zone de texte, et <br> **Heure** dans la liste déroulante. Vous pouvez entrer des valeurs différentes, mais veillez à passer en revue les [limitations](/connectors/twitterconnector/#limits) actuelles du connecteur Twitter.  |
 
 1. Sélectionnez le bouton **Enregistrer** dans la barre d’outils pour enregistrer votre progression.
 
