@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 16bb319086792808a912cbb6511897d2a3a12368
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 83d1f6f9fc34b398031d6d9069c9c166ddf52a57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751105"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Déployer Azure Cloud Services (support étendu) à l’aide du SDK Azure
 
@@ -153,7 +153,7 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Ser
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Créez une adresse IP publique et définissez sa propriété d'étiquette DNS. Cloud Services (support étendu) prend uniquement en charge les adresses IP publiques de la référence SKU [De base](/azure/virtual-network/public-ip-addresses#basic). Les adresses IP publiques de référence SKU standard ne fonctionnent pas avec Azure Cloud Services.
+7. Créez une adresse IP publique et définissez sa propriété d'étiquette DNS. Cloud Services (support étendu) prend uniquement en charge les adresses IP publiques de la référence SKU [De base](../virtual-network/public-ip-addresses.md#basic). Les adresses IP publiques de référence SKU standard ne fonctionnent pas avec Azure Cloud Services.
 Si vous utilisez une adresse IP statique, vous devez la référencer comme adresse IP réservée dans le fichier de configuration de service (.cscfg).
 
     ```csharp

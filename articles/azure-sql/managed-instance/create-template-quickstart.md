@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma
 ms.date: 06/22/2020
-ms.openlocfilehash: b4b19be4215f8a5bfa0b1f4eb42607c51bfe1d16
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 882613ef5b27b7021c61cabfabe3f37c3c842bd6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889028"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722823"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Démarrage rapide : Créer une instance managée Azure SQL Managed Instance à l’aide d’un modèle Resource Manager
 
@@ -52,7 +52,7 @@ Vous trouverez d’autres exemples de modèles dans [Modèles de démarrage rapi
 Sélectionnez **Essayer** à partir du bloc de code PowerShell suivant pour ouvrir Azure Cloud Shell.
 
 > [!IMPORTANT]
-> Le déploiement d’une instance managée est une opération longue. Le déploiement de la première instance dans le sous-réseau prend généralement plus de temps que le déploiement dans un sous-réseau avec des instances managées existantes. Pour plus d’informations sur les temps de provisionnement moyens, consultez [Opérations de gestion des instances managées SQL](sql-managed-instance-paas-overview.md#management-operations).
+> Le déploiement d’une instance managée est une opération longue. Le déploiement de la première instance dans le sous-réseau prend généralement plus de temps que le déploiement dans un sous-réseau avec des instances managées existantes. Pour plus d’informations sur les temps de provisionnement moyens, consultez [Opérations de gestion des instances managées SQL](management-operations-overview.md#duration).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

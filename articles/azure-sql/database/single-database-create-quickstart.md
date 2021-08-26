@@ -11,17 +11,16 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 98d692c304c4d25412dcaf26fd0779b1b446e252
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: baf181c90b4bc899f682cbfea28d1998f7b2117a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113218058"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722888"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Démarrage rapide : Créer une base de données Azure SQL
 
 Dans ce guide de démarrage rapide, vous créez une [base de données unique](single-database-overview.md) dans Azure SQL Database en utilisant le portail Azure, un script PowerShell ou un script d’interface de ligne de commande Azure. Vous allez ensuite interroger la base de données à l’aide de l’**éditeur de requête** dans le portail Azure.
-
 
 
 ## <a name="prerequisite"></a>Configuration requise

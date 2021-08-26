@@ -2,14 +2,14 @@
 title: Tutoriel expliquant comment configurer la reprise d’activité après sinistre d’une machine virtuelle Azure à l’aide d’Azure Site Recovery
 description: Dans ce tutoriel, vous allez voir comment configurer la reprise d’activité après sinistre pour des machines virtuelles Azure vers une autre région Azure, à l’aide du service Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 07/25/2021
 ms.custom: mvc
-ms.openlocfilehash: 473a264ef497cab4bd4f88372600161b33178099
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67dcbaf555de14c445f041b200ead48c4deac5ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656867"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742976"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutoriel : Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Avant de commencer ce tutoriel :
 
-- [Passez en revue les régions prises en charge](azure-to-azure-support-matrix.md#region-support). Vous pouvez configurer la reprise d’activité après sinistre pour les machines virtuelles Azure entre deux régions appartenant à la même zone géographique.
+- [Passez en revue les régions prises en charge](azure-to-azure-support-matrix.md#region-support). 
 - Pour cela, vous avez besoin d’une ou de plusieurs machines virtuelles Azure. Vérifiez que les machines virtuelles [Windows](azure-to-azure-support-matrix.md#windows) ou [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) sont prises en charge.
 - Passez en revue les conditions de [calcul](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), de [stockage](azure-to-azure-support-matrix.md#replicated-machines---storage) et de [réseau](azure-to-azure-support-matrix.md#replicated-machines---networking).
 - Ce tutoriel suppose que les machines virtuelles ne sont pas chiffrées. Si vous souhaitez configurer la reprise d’activité après sinistre pour des machines virtuelles chiffrées, [suivez les instructions de cet article](azure-to-azure-how-to-enable-replication-ade-vms.md).
@@ -47,7 +47,7 @@ Votre compte Azure a besoin d’autorisations pour créer un coffre Recovery Ser
 
 - Si vous venez de créer un abonnement Azure gratuit, vous êtes l’administrateur du compte et aucune autre action n’est nécessaire.
 - Si vous n’êtes pas l’administrateur, demandez à celui-ci de vous accorder les autorisations dont vous avez besoin.
-    - **Créer un coffre** : Autorisations d’administrateur ou de propriétaire d’abonnement. 
+    - **Créer un coffre** : Autorisations d’administrateur ou de propriétaire d’abonnement.
     - **Gérer les opérations Site Recovery dans le coffre** : Rôle Azure intégré *Contributeur Site Recovery*.
     - **Créer des machines virtuelles Azure dans la région cible** : Soit le rôle intégré *Contributeur de machines virtuelles*, soit des autorisations permettant d’effectuer les opérations suivantes :
         - Créer une machine virtuelle dans le réseau virtuel sélectionné
@@ -56,14 +56,14 @@ Votre compte Azure a besoin d’autorisations pour créer un coffre Recovery Ser
 
 ### <a name="verify-target-settings"></a>Vérifier les paramètres cibles
 
-Pendant une reprise d’activité, lorsque vous effectuez un basculement à partir de la région source, les machines virtuelles sont créées dans la région cible. 
+Pendant une reprise d’activité, lorsque vous effectuez un basculement à partir de la région source, les machines virtuelles sont créées dans la région cible.
 
 Vérifiez que votre abonnement dispose de suffisamment de ressources dans la région cible. Vous devez pouvoir créer des machines virtuelles dont la taille correspond à celles des machines virtuelles de la région source. Quand vous configurez la reprise d’activité après sinistre, Site Recovery choisit la même taille (ou la taille la plus proche possible) pour la machine virtuelle cible.
 
 
 ## <a name="prepare-vms"></a>Préparer les machines virtuelles
 
-Vérifiez que les machines virtuelles disposent d’une connectivité sortante et des certificats racines les plus récents. 
+Vérifiez que les machines virtuelles disposent d’une connectivité sortante et des certificats racines les plus récents.
 
 
 ### <a name="set-up-vm-connectivity"></a>Configurer la connectivité des machines virtuelles
@@ -88,12 +88,12 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 Si vous utilisez des groupes de sécurité réseau pour contrôler la connectivité, créez des règles de groupe de sécurité réseau basées sur les étiquettes de service qui autorisent le trafic HTTPS sortant sur le port 443 pour ces [étiquettes de service](../virtual-network/service-tags-overview.md#available-service-tags) (groupes d’adresses IP) :
 
-**Tag** | **Autoriser** 
+**Tag** | **Autoriser**
 --- | ---
-Étiquette du stockage  |Permet d’écrire des données entre la machine virtuelle et le compte de stockage de cache.   
-Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.   
-Étiquette EventsHub | Permet d’accéder à la supervision de Site Recovery.  
-Étiquette AzureSiteRecovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.   
+Étiquette du stockage  |Permet d’écrire des données entre la machine virtuelle et le compte de stockage de cache.
+Étiquette Azure AD | Autorise l’accès à toutes les adresses IP qui correspondent à Azure AD.
+Étiquette EventsHub | Permet d’accéder à la supervision de Site Recovery.
+Étiquette AzureSiteRecovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.
 Étiquette GuestAndHybridManagement | Utilisez-la si vous souhaitez mettre automatiquement à niveau l’agent Mobilité Site Recovery qui est exécuté sur les machines virtuelles où est activée la réplication.
 
 [Cliquez ici](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) pour en savoir plus sur les étiquettes nécessaires et obtenir des exemples d’étiquettes.
@@ -126,8 +126,8 @@ Vous pouvez créer un coffre Recovery Services dans n’importe quelle région, 
 9. Dans **Vérifier + créer**, sélectionnez **Créer**.
 
 10. Le déploiement du coffre commence. Suivez la progression dans les notifications.
-11. Une fois le coffre déployé, sélectionnez **Épingler au tableau de bord** pour y accéder rapidement la prochaine fois. Sélectionnez **Accéder à la ressource** pour ouvrir le nouveau coffre. 
-    
+11. Une fois le coffre déployé, sélectionnez **Épingler au tableau de bord** pour y accéder rapidement la prochaine fois. Sélectionnez **Accéder à la ressource** pour ouvrir le nouveau coffre.
+
     ![Boutons permettant d’ouvrir le coffre après son déploiement et de l’épingler au tableau de bord](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
 ### <a name="enable-site-recovery"></a>Activer Site Recovery
@@ -138,7 +138,7 @@ Dans les paramètres du coffre, sélectionnez **Activer Site Recovery**.
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-Sélectionnez les paramètres de la source, puis activez la réplication de la machine virtuelle. 
+Sélectionnez les paramètres de la source, puis activez la réplication de la machine virtuelle.
 
 ### <a name="select-source-settings"></a>Sélectionner les paramètres de la source
 

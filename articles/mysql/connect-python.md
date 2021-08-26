@@ -11,14 +11,16 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: a4391ecb7175b0e473b47cc3de43fd113795bc6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1e54096e2008997bd86cc9cc1bda5363fa41744
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889023"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643208"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Python pour se connecter et interroger des données dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Dans ce guide de démarrage rapide, vous vous connectez à Azure Database pour MySQL en utilisant Python. Vous utilisez ensuite des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données depuis des plateformes Mac, Ubuntu Linux et Windows. 
 
@@ -91,6 +93,8 @@ import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
@@ -101,6 +105,8 @@ config = {
 }
 
 # Construct connection string
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")

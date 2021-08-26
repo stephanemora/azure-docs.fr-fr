@@ -3,15 +3,16 @@ title: Créer une fabrique de données Azure avec l’interface utilisateur d’
 description: Créez une fabrique de données avec un pipeline copiant les données d’un emplacement dans un stockage Blob Azure vers un autre emplacement.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 9d8bf0d62518c94458a5b989c040f8eaefea11cd
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: ad2e2edf916b5b2c4309ed18c5a3349e67adfc33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749890"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory 
 

@@ -8,14 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 63c7fe703a1fbf4cb46532085a33efd74e6a76ef
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: acfe14ce24f2730437c684a84089fbaabcd1abdf
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875374"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643180"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide de la CLI Azure
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 > [!TIP]
 > Envisagez d’utiliser la commande Azure CLI plus simple [az mysql up](/cli/azure/mysql#az_mysql_up) (actuellement en préversion). Essayez le guide de [démarrage rapide](./quickstart-create-server-up-azure-cli.md).

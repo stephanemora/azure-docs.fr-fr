@@ -6,16 +6,18 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 7165cdc072ffaa5b0d862e1fe17f94e35c35aeec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b8699598a9bac4781346ff939736b2bd6ee72f2
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034535"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113429941"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
-> [!IMPORTANT] 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
 Vous pouvez créer un serveur flaxible Azure Database pour MySQL dans un des trois niveaux de calcul : Expansible, Usage général et À mémoire optimisée. Les niveaux de calcul sont différenciés par les références de machine virtuelle sous-jacentes utilisées : série B, série D et série E. Le choix du niveau de calcul et de la taille détermine la mémoire et les vCores disponibles sur le serveur. La même technologie de stockage est utilisée sur tous les niveaux de calcul. Toutes les ressources sont approvisionnées au niveau du serveur MySQL. Un serveur peut avoir une ou plusieurs bases de données.
@@ -25,7 +27,7 @@ Vous pouvez créer un serveur flaxible Azure Database pour MySQL dans un des tro
 | Série de la machine virtuelle| Série B | Série Ddsv4 | Série Edsv4|
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Mémoire par vCore | Variable | 4 Gio | 8 Gio * |
-| Taille de stockage | De 5 Gio à 16 Tio | De 5 Gio à 16 Tio | 5 Gio à 16Tio |
+| Taille de stockage | De 20 Gio à 16 Tio | De 20 Gio à 16 Tio | De 20 Gio à 16 Tio |
 | Période de rétention de sauvegarde de bases de données | 1 à 35 jours | 1 à 35 jours | 1 à 35 jours |
 
 \* À l’exception de la référence E64ds_v4 (mémoire optimisée) qui dispose de 504 Go de mémoire
@@ -46,28 +48,28 @@ Les ressources de calcul peuvent être sélectionnées en fonction du niveau et 
 
 Les spécifications détaillées des types de serveurs disponibles sont les suivantes :
 
-| Taille de calcul         | vCores | Taille de la mémoire (Gio) | Nombre maximal d’E/S par seconde pris en charge | Bande passante d’E/S maximale prise en charge (Mbits/s)|
-|----------------------|--------|-------------------| ------------------ |-----------------------------------|
+| Taille de calcul         | vCores | Taille de la mémoire (Gio) | Nombre maximal d’E/S par seconde pris en charge | Bande passante d’E/S maximale prise en charge (Mbits/s)| Nombre maximal de connexions
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|------------------
 | **Expansible**        |        |                   | 
-| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
-| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
-| Standard_B2s         | 2      | 4                 | 1 280               | 15                                |
-| **Usage général**  |        |                   |                    |                                   |
-| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
-| Standard_D4ds_v4     | 4      | 16                | 6 400               | 96                                |
-| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
-| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
-| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
-| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              |
-| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 171
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                | 341
+| Standard_B2s         | 2      | 4                 | 1 280               | 15                                | 683
+| **Usage général**  |        |                   |                    |                                   | 
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                | 1365
+| Standard_D4ds_v4     | 4      | 16                | 6 400               | 96                                | 2731
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               | 5461
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               | 10923
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              | 32 768
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
 | **Mémoire optimisée** |        |                   |                    |                                   |
-| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
-| Standard_E4ds_v4     | 4      | 32                | 6 400               | 96                                |
-| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
-| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
-| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
-| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              |
-| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
+| Standard_E4ds_v4     | 4      | 32                | 6 400               | 96                                | 5461
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               | 21845
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               | 43691
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              | 65536
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
 
 Pour plus d’informations sur la série de calcul disponible, reportez-vous à la documentation des machines virtuelles Azure pour [Expansible (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Usage général (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md) et [À mémoire optimisée (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -76,7 +78,7 @@ Pour plus d’informations sur la série de calcul disponible, reportez-vous à 
 
 ## <a name="storage"></a>Stockage
 
-Le stockage que vous approvisionnez est la quantité de stockage disponible pour votre serveur flexible. Le stockage est utilisé pour les fichiers de base de données, les fichiers temporaires, les journaux d’activité de transaction, et les journaux d’activité du serveur MySQL. Dans tous les niveaux de calcul, le stockage minimal pris en charge est de 5 Gio et la valeur maximale est de 16 Tio. Le stockage est mis à l’échelle par incréments de 1 Gio et peut être mis à l’échelle après la création du serveur.
+Le stockage que vous approvisionnez est la quantité de stockage disponible pour votre serveur flexible. Le stockage est utilisé pour les fichiers de base de données, les fichiers temporaires, les journaux d’activité de transaction, et les journaux d’activité du serveur MySQL. Dans tous les niveaux de calcul, le stockage minimal pris en charge est de 20 Gio et la valeur maximale de 16 Tio. Le stockage est mis à l’échelle par incréments de 1 Gio et peut être mis à l’échelle après la création du serveur.
 
 >[!NOTE]
 > Le stockage peut seulement monter en puissance.
@@ -99,13 +101,17 @@ Nous vous recommandons <!--turn on storage auto-grow or to--> de configurer une 
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-La croissance automatique du stockage n’est pas encore disponible pour Azure Database pour MySQL - Serveur flexible.
+La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. La croissance automatique du stockage est activée par défaut pour tous les nouveaux serveurs créés. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 Go lorsque l’espace de stockage libre est inférieur à 10 % de la taille de stockage approvisionnée. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 % lorsque l’espace de stockage libre est inférieur à 10 Go de taille de stockage approvisionnée. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
+
+Par exemple, si vous avez approvisionné 1000 Go de stockage et que l’utilisation réelle dépasse 990 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
+
+N’oubliez pas que le stockage peut seulement monter en puissance.
 
 ## <a name="iops"></a>E/S par seconde
 
 Azure Database pour MySQL – Serveur flexible prend en charge l’approvisionnement d’IOPS supplémentaires. Cette fonctionnalité vous permet d’approvisionner des IOPS supplémentaires au-delà de la limite IOPS gratuite. À l’aide de cette fonctionnalité, vous pouvez augmenter ou diminuer à tout moment le nombre d’IOPS approvisionnées en fonction des exigences de votre charge de travail. 
 
-Le nombre minimal d’IOPS est de 100 pour toutes les tailles de calcul, et le nombre maximal d’IOPS est déterminé par la taille de calcul sélectionnée. Dans la préversion, le nombre maximal d’IOPS pris en charge est de 20 000.
+Le nombre minimal d’IOPS est de 360 pour toutes les tailles de calcul, et le nombre maximal d’IOPS est déterminé par la taille de calcul sélectionnée. Dans la préversion, le nombre maximal d’IOPS pris en charge est de 20 000.
 
 Pour en savoir plus sur le nombre maximal d’IOPS par taille de calcul, voir ci-dessous : 
 
@@ -135,8 +141,8 @@ Pour en savoir plus sur le nombre maximal d’IOPS par taille de calcul, voir ci
 Le nombre maximal d’IOPS dépend du nombre maximal d’IOPS disponibles par taille de calcul. Reportez-vous à la colonne *Débit du disque non mis en cache max. : IOPS/Mbits/s* dans la documentation [série B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) et [série Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
 > [!Important]
-> **Les IOPS complémentaires** sont égales à MINIMUM(« Débit du disque non mis en cache max. : IOPS/Mbits/s » de la taille de calcul, stockage approvisionné en Gio * 3).<br>
-> **Le nombre minimal d’IOPS** est de 100 pour toutes les tailles de calcul.<br>
+> **Le nombre d’IOPS supplémentaire** est égal à MINIMUM (« Débit du disque non mis en cache max. : IOPS/Mbit/s » de la taille de calcul, 300 + stockage approvisionné en Gio * 3)<br>
+> **Le nombre minimal d’IOPS** est de 360 pour toutes les tailles de calcul.<br>
 > **Le nombre maximal d’IOPS** est déterminé par la taille de calcul sélectionnée. Dans la préversion, le nombre maximal d’IOPS pris en charge est de 20 000.
 
 Vous pouvez surveiller votre consommation d’E/S dans le portail Azure (avec Azure Monitor) à l’aide de la métrique [IO percent](./concepts-monitoring.md). Si vous avez besoin de plus d’IOPS, le nombre maximal d’IOPS basé sur le calcul est nécessaire pour mettre à l’échelle le calcul de votre serveur.

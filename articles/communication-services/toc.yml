@@ -100,7 +100,7 @@ items:
           - name: Types de numéro de téléphone
             href: concepts/telephony-sms/plan-solution.md
           - name: Conditions requises de l’infrastructure de routage direct Azure
-            href: concepts/telephony-sms/sip-interface-infrastructure.md
+            href: concepts/telephony-sms/direct-routing-infrastructure.md
           - name: Contrôleurs de frontière de session certifiés pour le routage direct Azure
             href: concepts/telephony-sms/certified-session-border-controllers.md
           - name: Associer le contrôleur de frontière de session et configurer le routage vocal
