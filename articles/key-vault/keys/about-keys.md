@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 602c146b014d2c129deb7a6cb4539e2cf9260d0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 74d08095b8ea1df0ffb34264c2f0ca3af64b5dd8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471732"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772692"
 ---
 # <a name="about-keys"></a>À propos des clés
 
@@ -36,8 +36,8 @@ Azure Key Vault fournit deux types de ressources pour stocker et gérer les clé
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JSON (JavaScript Object Notation) et JOSE (JavaScript Object Signing and Encryption) sont :
 
 -   [Clé web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [Chiffrement web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [Algorithmes web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [Chiffrement web JSON (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+-   [Algorithmes web JSON (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
 -   [Signature web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques dans les implémentations de coffres Azure Key Vault et de HSM managés. 
@@ -61,7 +61,7 @@ Key Vault prend en charge les clés RSA et EC. Un HSM managé prend en charge le
 |--|--|--|
 |**EC-HSM** : clé Elliptic Curve | Prise en charge | Prise en charge|
 |**RSA-HSM** : clé RSA|Prise en charge|Prise en charge|
-|**oct-HSM** : clé symétrique|Non pris en charge|Prise en charge|
+|**oct-HSM** : clé symétrique|Non pris en charge|Pris en charge|
 |||
 
 ### <a name="software-protected-keys"></a>Clés protégées par logiciel

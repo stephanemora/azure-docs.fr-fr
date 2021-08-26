@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer Hoxhunt pour l’attribution automatique des utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment attribuer automatiquement des comptes d’utilisateur et supprimer les privilèges d’accès entre Azure AD et Hoxhunt.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 24fbe0a4-ab2d-4e10-93a6-c87d634ffbcf
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/28/2021
-ms.author: Zhchia
-ms.openlocfilehash: db33cc43419b4228ca270d3a69c0e88de2c05638
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.author: thwimmer
+ms.openlocfilehash: f2f03976ad6be9260b9b32291eef35c5ecbc86cf
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752045"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207303"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Tutoriel : Configurer Hoxhunt pour l’attribution automatique d’utilisateurs
 

@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: inclure fichier
 services: azure-communication-services
 author: ravithanneeru
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 17363ba1c41c7c5046b769c7a03b3e05b97a08e6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f025f33a041dd40970b3ea34ff723e1270d16ea6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339695"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121801495"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording).
@@ -26,9 +26,9 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 - [Node.js (12.18.4 et versions ultérieures)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 et versions ultérieures)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Veillez à installer la version qui correspond à votre instance de Visual Studio, 32 ou 64 bits.)
-- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Vous devez noter la **chaîne de connexion** de votre ressource pour ce guide de démarrage rapide
-- Un compte Stockage Azure et un conteneur ; pour plus d’informations, consultez [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). Vous devez prendre note de votre **chaîne de connexion** de stockage et du **nom du conteneur** pour ce guide de démarrage rapide
-- Un Webhook [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../../../create-communication-resource.md). Vous devez noter la **chaîne de connexion** de votre ressource pour ce guide de démarrage rapide
+- Un compte Stockage Azure et un conteneur ; pour plus d’informations, consultez [Créer un compte de stockage](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). Vous devez prendre note de votre **chaîne de connexion** de stockage et du **nom du conteneur** pour ce guide de démarrage rapide
+- Un Webhook [Azure Event Grid](../../../../../event-grid/overview.md)
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -41,9 +41,9 @@ Les classes suivantes gèrent certaines des fonctionnalités principales des app
 ## <a name="getting-servercallid-as-a-requirement-for-call-recording-server-apis"></a>Obtention de serverCallId comme condition requise pour les API du serveur d’enregistrement d’appel
 
 > [!NOTE]
-> Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta du SDK web Appel ACS. Un exemple de client avec flux d’enregistrement est disponible sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+> Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta du Kit de développement logiciel (SDK) web Appel d’ACS. Un exemple de client avec des flux d’enregistrement est disponible sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
-L’enregistrement d’appel est une fonctionnalité étendue de l’API Appel principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
+L’enregistrement des appels est une fonctionnalité étendue de l’API Appel principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
 
 ```JavaScript
 const callRecordingApi = call.api(Features.Recording);

@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure RBAC
 description: Répertorie les contrôles de conformité réglementaire d’Azure Policy pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3150db337ff53123fbf93ee5e9f5b625d90f56f2
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 98f5ae97df5ef7fd7390265193e8754b864ae60e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403882"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609107"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure RBAC
 

@@ -9,17 +9,15 @@ metadata:
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-  ms.openlocfilehash: f9c453ffafddf2864eaf866b8739586b0bbe50df
-  ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+  ms.openlocfilehash: cdb0c407db3405b9ced14ca22b221b5ef120d81e
+  ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113129216"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122823221"
 title: 'Problèmes de connectivité et de mise en réseau pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)'
 summary: >
-  > [!IMPORTANT]
-
-  > [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Compte tenu de ce changement, les instances d'Azure Cloud Services exécutées sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 
   Cet article comprend des questions fréquemment posées sur les problèmes de connectivité et de mise en réseau pour [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Pour plus d’informations sur la taille, voir la [page sur la taille de machine virtuelle des Services Cloud](cloud-services-sizes-specs.md).
