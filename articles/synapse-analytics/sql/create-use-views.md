@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1b7f941fbd7d9c6a6b654992e86ab0379e11e28
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 01a48da50391c6d3e826b81c4174936c95f64462
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303811"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597214"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Créer et utiliser des vues avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -121,8 +121,6 @@ Le nom de dossier dans la fonction `OPENROWSET` (`yellow` dans cet exemple), qui
 
 > [!div class="mx-imgBorder"]
 >![Dossier Yellow Taxi Delta Lake](./media/shared/yellow-taxi-delta-lake.png)
-
-N’utilisez pas la clause `WITH` dans la fonction `OPENROWSET` lorsque vous interrogez des données Delta Lake partitionnées. En raison du problème connu dans la préversion, la clause `WITH` [ne retourne pas correctement les valeurs des colonnes de partitionnement sous-jacentes](resources-self-help-sql-on-demand.md#partitioning-column-returns-null-values). L’élimination de partition fonctionne bien si vous utilisez directement la fonction `OPENROWSET` avec la clause `WITH` (sans les vues).  
 
 Delta Lake est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus dans la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 

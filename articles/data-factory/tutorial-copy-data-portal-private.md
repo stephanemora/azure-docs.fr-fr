@@ -3,16 +3,17 @@ title: Utiliser des points de terminaison privés pour créer un pipeline Azure 
 description: Ce didacticiel fournit des instructions détaillées sur l’utilisation d’un portail Azure pour créer une fabrique de données avec un pipeline. Le pipeline utilise l’activité de copie pour copier des données du Stockage Blob Azure vers une base de données Azure SQL.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: 0159226abb904d73262011e16fbc52fe760be123
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 227bbaf2faa845d269d8326883c3e63c4572fdab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436817"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122637737"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copier des données du stockage Blob Azure vers une base de données SQL de manière sécurisée en utilisant des points de terminaison privés
 

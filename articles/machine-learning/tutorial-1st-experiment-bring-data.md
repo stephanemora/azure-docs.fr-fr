@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 4d4c7fcb824d57b46df1353f30d3136e129af293
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 80841c800172c4f0f551b6437d18d437aed0536d
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765796"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634126"
 ---
 # <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>Tutoriel : Charger des données et entraîner un modèle (partie 3 sur 3)
 
@@ -270,6 +270,8 @@ Le script de contrôle est similaire à celui de la [partie 3 de notre série](
 Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script *run-pytorch-data.py*.  Cette exécution permet d’entraîner le modèle sur le cluster de calcul à l’aide des données que vous avez chargées.
 
 Ce code va produire une URL vers l’expérience dans Azure Machine Learning Studio. Si vous accédez à ce lien, vous pourrez voir votre code en cours d’exécution.
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Examiner le fichier journal

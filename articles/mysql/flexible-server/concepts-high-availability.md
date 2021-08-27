@@ -5,37 +5,57 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: e25412e502f10c80a55aeab215fddfd0cfc3f41b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/10/2021
+ms.openlocfilehash: d78bb5aeb111411641508b38bd49a6f5bcbf5374
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471918"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525580"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT] 
 > Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
-Le serveur flexible Azure Database pour MySQL (préversion) permet de configurer la haute disponibilité avec basculement automatique à l’aide de l’option de haute disponibilité **redondante interzone**. Déployé dans une configuration redondante interzone, le serveur flexible provisionne et gère automatiquement un réplica de secours dans une autre zone de disponibilité. En utilisant la réplication au niveau du stockage, les données sont **répliquées de manière synchrone** sur le serveur de secours dans la zone secondaire, afin d’éviter toute perte de données après un basculement. Le basculement est entièrement transparent depuis l’application cliente et ne nécessite aucune action de l’utilisateur. Le serveur de secours n’est pas disponible pour les opérations de lecture ou d’écriture, il s’agit en fait d’un serveur passif qui permet de basculer rapidement. Les temps de basculement sont généralement compris entre 60 et 120 secondes.
+Le serveur flexible Azure Database pour MySQL permet de configurer la haute disponibilité avec le basculement automatique. Quand la haute disponibilité est configurée, le serveur flexible provisionne et gère automatiquement un réplica de secours en utilisant deux options différentes.
 
-La configuration de la haute disponibilité redondante interzone permet le basculement automatique lors d’événements planifiés, tels que les opérations de mise à l’échelle du calcul initiées par l’utilisateur, et d’événements non planifiés, comme les pannes matérielles et logicielles sous-jacentes, les problèmes réseau et même les pannes de zone de disponibilité.
+* **Haute disponibilité redondante interzone** : cette option est recommandée pour une isolation et une redondance complètes de l’infrastructure sur plusieurs zones de disponibilité. Elle fournit le niveau de disponibilité le plus élevé, mais vous oblige à configurer la redondance des applications interzone. La haute disponibilité redondante interzone est préférable quand vous voulez obtenir le niveau de disponibilité le plus élevé en cas de défaillance de l’infrastructure dans la zone de disponibilité et où la latence dans la zone de disponibilité est acceptable. La haute disponibilité redondante interzone est disponible dans un [sous-ensemble des régions Azure](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions), où la région prend en charge plusieurs zones de disponibilité et où la haute disponibilité redondante interzone est disponible.
 
-:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Affichage de la haute disponibilité redondante interzone":::
+* **Haute disponibilité dans la même zone** : Cette option est préférable pour la redondance de l’infrastructure avec une latence réseau inférieure, car le serveur principal et le serveur de secours se trouveront dans la même zone de disponibilité. Elle offre une haute disponibilité sans qu’il soit nécessaire de configurer la redondance des applications entre les zones. La haute disponibilité dans la même zone est préférable quand vous voulez obtenir le niveau de disponibilité le plus élevé au sein d’une même zone de disponibilité avec la latence réseau la plus faible. La haute disponibilité dans la même zone est disponible dans toutes les [régions Azure où Serveur flexible est disponible](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions).  
 
-## <a name="zone-redundancy-architecture"></a>Architecture de la redondance interzone
+## <a name="zone-redundant-high-availability"></a>Haute disponibilité redondante interzone
 
-Le serveur principal est déployé dans la région et dans une zone de disponibilité spécifique. Quand la haute disponibilité est choisie, un serveur réplica de secours doté de la même configuration que celle du serveur principal est déployé automatiquement, avec le niveau de calcul, la taille de calcul, la taille de stockage et la configuration réseau. Les données des journaux sont répliquées de façon synchrone sur le réplica de secours afin de garantir aucune perte de données en cas de panne. Les sauvegardes automatiques, qu’il s’agisse d’instantanés ou de sauvegardes des fichiers journaux, sont effectuées depuis le serveur de base de données primaire. 
+Quand le serveur flexible est créé avec la haute disponibilité redondante interzone activée, les fichiers de données et les fichiers journaux sont hébergés dans un [stockage redondant interzone (ZRS)](../../storage/common/storage-redundancy.md#redundancy-in-the-primary-region). Avec la réplication au niveau du stockage disponible avec le stockage redondant interzone, les fichiers de données et les fichiers journaux sont répliqués de façon synchrone sur le serveur de secours pour garantir l’absence de perte de données. Le basculement est entièrement transparent depuis l’application cliente et ne nécessite aucune action de l’utilisateur. La récupération du serveur de secours pour permettre la mise en ligne pendant le basculement dépend de l’application de journaux binaires sur le serveur de secours. Il est donc recommandé d’utiliser des clés primaires sur toutes les tables pour réduire le temps de basculement. Le serveur de secours n’est pas disponible pour les opérations de lecture ou d’écriture, il s’agit en fait d’un serveur passif qui permet de basculer rapidement. Les temps de basculement sont généralement compris entre 60 et 120 secondes.
 
-L’intégrité de la haute disponibilité est supervisée et signalée en permanence dans la page Vue d’ensemble.
+> [!Note]
+> La haute disponibilité redondante interzone peut entraîner une chute de la latence de 5 à 10 % si l’application se connecte au serveur de base de données entre des zones de disponibilité où la latence du réseau est relativement supérieure, de l’ordre de 2 à 4 ms. 
 
-Les différents états de réplication sont listés ci-dessous :
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Haute disponibilité redondante interzone":::
+
+### <a name="zone-redundancy-architecture"></a>Architecture de la redondance de zone
+
+Le serveur principal est déployé dans la région et dans une zone de disponibilité spécifique. Quand la haute disponibilité est choisie, un serveur réplica de secours avec la même configuration que celle du serveur principal est déployé automatiquement dans la « zone de disponibilité spécifiée », avec le niveau de calcul, la taille de calcul, la taille de stockage et la configuration réseau. Les données des journaux sont répliquées de façon synchrone sur le réplica de secours afin de garantir aucune perte de données en cas de panne. Les sauvegardes automatiques, qu’il s’agisse d’instantanés ou de sauvegardes de fichiers journaux, sont effectuées sur un stockage redondant interzone depuis le serveur de base de données principal.
+
+### <a name="standby-zone-selection"></a>Sélection de la zone de secours
+Dans un scénario de haute disponibilité redondante interzone, vous pouvez choisir l’emplacement de la zone du serveur de secours de votre choix. La colocalisation des serveurs de base de données de secours et des applications de secours dans la même zone réduit les latences et permet aux utilisateurs de mieux se préparer à des situations de reprise d’activité d’urgence et à des scénarios de « zone à l’arrêt ».
+
+## <a name="same-zone-high-availability"></a>Haute disponibilité dans la même zone
+
+Quand le serveur flexible est créé avec la haute disponibilité dans la même zone activée, les fichiers de données et les fichiers journaux sont hébergés dans un [stockage localement redondant (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage). Avec la réplication au niveau du stockage disponible avec le stockage localement redondant, les fichiers de données et les fichiers journaux sont répliqués de façon synchrone sur le serveur de secours pour garantir l’absence de perte de données. Le serveur de secours offre une redondance de l’infrastructure avec une machine virtuelle distincte (calcul) qui réduit le temps de basculement et la latence du réseau entre l’application utilisateur et le serveur de base de données en raison de la colocalisation. Le basculement est entièrement transparent depuis l’application cliente et ne nécessite aucune action de l’utilisateur. La récupération du serveur de secours pour permettre la mise en ligne pendant le basculement dépend de l’application de journaux binaires sur le serveur de secours. Il est donc recommandé d’utiliser des clés primaires sur toutes les tables pour réduire le temps de basculement. Le serveur de secours n’est pas disponible pour les opérations de lecture ou d’écriture, il s’agit en fait d’un serveur passif qui permet de basculer rapidement. Les temps de basculement sont généralement compris entre 60 et 120 secondes.
+
+La haute disponibilité dans la même zone permet aux utilisateurs de placer un serveur de secours dans la même zone que le serveur principal, ce qui réduit le décalage de la réplication entre le serveur principal et les serveurs secondaires. Ceci permet également de réduire les latences entre le serveur d’applications et le serveur de base de données s’il est placé dans la même zone de disponibilité Azure.
+
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Haute disponibilité redondante dans la même zone":::
+
+## <a name="high-availability-monitoring"></a>Supervision de la haute disponibilité
+L’intégrité de la haute disponibilité est supervisée et signalée en permanence dans la page Vue d’ensemble. Les différents états de réplication sont listés ci-dessous :
 
 | **État** | **Description** |
 | :----- | :------ |
 | <b>NotEnabled | La haute disponibilité redondante interzone n’est pas activée |
-| <b>CreatingStandby | Création d’un serveur de secours en cours |
 | <b>ReplicatingData | Une fois créé, le réplica de secours rattrape le serveur principal. |
 | <b>FailingOver | Le serveur de base de données est en cours de basculement, du serveur principal vers le réplica de secours. |
 | <b>Healthy | La haute disponibilité redondante interzone présente un état stable et sain. |
@@ -47,15 +67,15 @@ Voici quelques avantages à utiliser la fonctionnalité de haute disponibilité 
 
 - Le réplica de secours est déployé dans une configuration de machine virtuelle à l’identique de celle du serveur principal, par exemple les vCores, le stockage, les paramètres réseau (réseau virtuel, pare-feu), etc.
 - Possibilité de supprimer le réplica de secours en désactivant la haute disponibilité.
-- Les sauvegardes automatiques se font par instantanés ; elles s’effectuent depuis le serveur de base de données primaire et sont stockées dans un stockage redondant interzone.
+- Les sauvegardes automatiques sont basées sur un instantané, sont effectuées à partir du serveur de base de données principal et sont stockées dans un stockage redondant interzone ou dans un stockage localement redondant, selon l’option de haute disponibilité.
 - En cas de basculement, le serveur flexible Azure Database pour MySQL bascule automatiquement vers le réplica de secours si la haute disponibilité est activée. La configuration de la haute disponibilité surveille le serveur principal et le remet en ligne.
 - Les clients se connectent toujours au serveur de base de données primaire.
-- En cas de plantage d’une base de données ou de défaillance d’un nœud, le redémarrage est tenté en premier sur le même nœud. En cas d’échec, le basculement automatique est déclenché.
+- En cas de plantage d’une base de données ou de défaillance d’un nœud, la machine virtuelle du serveur flexible est redémarrée sur le même nœud. En même temps, un basculement automatique est déclenché. Si le redémarrage de la machine virtuelle du serveur flexible réussit avant la fin du basculement, l’opération de basculement est annulée.
 - Possibilité de redémarrer le serveur pour intégrer toute modification de paramètre du serveur statique.
 
 ## <a name="steady-state-operations"></a>Opérations à l’état stable
 
-Les applications sont connectées au serveur principal à l’aide du nom du serveur de base de données. Les informations du réplica de secours ne sont pas exposées à un accès direct. Les validations et les écritures ne sont reconnues dans l’application qu’une fois les fichiers journaux conservés sur le disque du serveur principal et sur le réplica de secours de manière synchrone. En raison de cet aller-retour obligatoire supplémentaire, les applications peuvent s’attendre à une latence élevée pour les écritures et les validations. Vous pouvez superviser l’intégrité de la haute disponibilité sur le portail.
+Les applications sont connectées au serveur principal à l’aide du nom du serveur de base de données. Les informations du réplica de secours ne sont pas exposées à un accès direct. Les validations et les écritures sont reconnues après vidage des fichiers journaux sur le stockage redondant interzone (ZRS) du serveur principal. En raison de la technologie de réplication synchrone utilisée dans le stockage ZRS, les applications peuvent s’attendre à une latence mineure pour les écritures et les validations.
 
 ## <a name="failover-process"></a>Processus de basculement 
 Afin de préserver la continuité des activités, vous devez disposer d’un processus de basculement pour les événements planifiés et non planifiés. 
@@ -63,18 +83,12 @@ Afin de préserver la continuité des activités, vous devez disposer d’un pro
 >[!NOTE]
 > Utilisez toujours le nom de domaine complet (FQDN) pour vous connecter à votre serveur principal et évitez d’utiliser l’adresse IP pour vous connecter. En cas de basculement, une fois que le rôle de serveur principal et de secours est basculé, l’enregistrement A DNS peut être modifié, ce qui empêche l’application de se connecter au nouveau serveur principal si l’adresse IP est utilisée dans la chaîne de connexion. 
 
-### <a name="planned-events"></a>Événements planifiés
+### <a name="planned-events---forced-failover"></a>Événements planifiés - Basculement forcé
 
-Les événements de temps d’arrêt planifiés comprennent les activités planifiées par Azure (mises à jour logicielles périodiques, mises à niveau de versions mineures) ou lancées par les clients, comme les opérations de mise à l’échelle du calcul et du stockage. Toutes ces modifications sont d’abord appliquées au réplica de secours. Pendant ce temps, les applications continuent d’accéder au serveur principal. Une fois le réplica de secours mis à jour, les connexions au serveur principal sont purgées et un basculement est déclenché : le réplica de secours est activé en tant que serveur principal prenant le même nom de serveur de base de données par l’effet de la mise à jour de l’enregistrement DNS. Les connexions clientes sont déconnectées. Elles doivent se reconnecter et pour reprendre leurs opérations. Un nouveau serveur de secours est établi dans la même zone que l’ancien serveur principal. Le basculement global doit se situer entre 60 et 120 s. 
-
->[!NOTE]
-> En cas d’opération de mise à l’échelle du calcul, nous mettons à l’échelle le serveur réplica secondaire, puis le serveur principal. Aucun basculement n’est impliqué.
+Le basculement forcé d’Azure Database pour MySQL vous permet de forcer manuellement un basculement, ce qui vous permet de tester la fonctionnalité dans vos scénarios d’application et vous aide à être prêt en cas de panne. Le basculement forcé permet au serveur de secours de devenir le serveur principal en déclenchant un basculement qui active le réplica de secours pour qu’il devienne le serveur principal avec le même nom de serveur de base de données en mettant à jour l’enregistrement DNS. Le serveur principal d’origine est redémarré et devient le réplica de secours. Les connexions des clients sont déconnectées et doivent être reconnectées pour reprendre leurs opérations. Le temps de basculement global dépendra de la charge de travail actuelle et du dernier point de contrôle. En général, il doit être compris entre 60 et 120 secondes. 
 
 ### <a name="failover-process---unplanned-events"></a>Processus de basculement – événements non planifiés
 Les interruptions de service non planifiées comprennent les bogues logiciels, ou les erreurs d’infrastructure telles que les défaillances de calcul, de réseau, de stockage, ou encore les pannes de courant ; elles ont un impact sur la disponibilité de la base de données. En cas d’indisponibilité de la base de données, la réplication sur le réplica de secours est interrompue, et le réplica de secours est activé pour devenir la base de données primaire. Le système DNS est mis à jour et les clients se reconnectent ensuite au serveur de base de données pour reprendre leurs opérations. Le temps de basculement global doit prendre entre 60 et 120 s. Toutefois, en fonction de l’activité sur le serveur de base de données primaire au moment du basculement, par exemple si des transactions sont volumineuses et que le temps de récupération est long, le basculement peut prendre plus de temps.
-
-### <a name="forced-failover"></a>Basculement forcé
-Le basculement forcé d’Azure Database pour MySQL vous permet de forcer manuellement un basculement, ce qui vous permet de tester la fonctionnalité dans vos scénarios d’application et vous aide à être prêt en cas de panne. Le basculement forcé permet au serveur de secours de devenir le serveur principal en déclenchant un basculement qui active le réplica de secours pour qu’il devienne le serveur principal avec le même nom de serveur de base de données en mettant à jour l’enregistrement DNS. Le serveur principal d’origine est redémarré et devient le réplica de secours. Les connexions des clients sont déconnectées et doivent être reconnectées pour reprendre leurs opérations. Le temps de basculement global dépendra de la charge de travail actuelle et du dernier point de contrôle. En général, il doit être compris entre 60 et 120 secondes.
 
 ## <a name="schedule-maintenance-window"></a>Fenêtre Planifier la maintenance 
 

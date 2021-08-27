@@ -2,25 +2,22 @@
 title: 'Tutoriel : Configurer Iris Intranet pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment attribuer automatiquement des comptes d’utilisateur et supprimer les privilèges d’accès entre Azure AD et Iris Intranet.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 38db8479-6d33-43de-9f71-1f1bd184fe69
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/15/2021
-ms.author: Zhchia
-ms.openlocfilehash: 8acf65f1614c286e0996d1430c65d6c2d1e67618
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: b03e173dca962b1758670f37bb9a463d16fcc875
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645600"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207375"
 ---
 # <a name="tutorial-configure-iris-intranet-for-automatic-user-provisioning"></a>Tutoriel : Configurer Iris Intranet pour l’attribution automatique d’utilisateurs
 
