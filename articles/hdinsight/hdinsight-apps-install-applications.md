@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: c8fde4c233907a8ed1493d7fa8d8c7faee03941d
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: bb057f6328c0a678f1fbc7bfed57f1fa8dc13bfc
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402351"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681634"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -29,7 +29,7 @@ La liste suivante affiche les applications publiées :
 |[H2O SparklingWater for HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water prend en charge les algorithmes distribués suivants : GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, Autoencoders. |
 |[Striim for Real-Time Data Integration to HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim (prononcé « stream ») est une plateforme de bout en bout d’intégration et d’intelligence qui permet l’ingestion, le traitement et l’analyse en continu de flux de données disparates. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |Globalement, Jumbune aide les entreprises en : 1. accélérant les performances de charge de travail Hive, Java, Scala basées sur le moteur Tez, MapReduce et Spark ; 2. offrant une surveillance proactive des clusters Hadoop ; 3. mettant en place une gestion de la qualité des données sur le système de fichiers DFS. |
-|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Optimisé par Apache Kylin, Kyligence Enterprise applique le décisionnel au Big Data. En tant que moteur OLAP d’entreprise sur Hadoop, Kyligence Enterprise permet aux analystes métier de concevoir l’architecture du décisionnel sur Hadoop avec des méthodologies de décisionnel et d’entrepôt de données standard. |
+|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence-cloud-saas) |Hadoop, HBase, Spark |Optimisé par Apache Kylin, Kyligence Enterprise applique le décisionnel au Big Data. En tant que moteur OLAP d’entreprise sur Hadoop, Kyligence Enterprise permet aux analystes métier de concevoir l’architecture du décisionnel sur Hadoop avec des méthodologies de décisionnel et d’entrepôt de données standard. |
 |[Starburst Presto for Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1582306810515.starburst-enterprise-presto?tab=Overview) |Hadoop |Presto est un moteur de requête SQL distribué rapide et évolutif. Conçu pour séparer le calcul du stockage, Presto est parfait pour interroger des données dans les bases de données Azure Data Lake Storage, Stockage Blob Azure, SQL et NoSQL et autres sources de données. |
 |[StreamSets Data Collector for HDInsight Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector est un puissant moteur léger qui diffuse les données en temps réel. Utilisez Data Collector pour acheminer et traiter les données dans vos flux de données. Cette application est fournie avec une licence d’essai de 30 jours. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise pour HDInsight prend en charge le data wrangling dans l’ensemble de l’entreprise pour n’importe quelle échelle de données. Le coût d’exécution de Trifacta sur Azure combine les coûts d’abonnement Trifacta et les coûts d’infrastructure Azure pour les machines virtuelles. |

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/09/2021
+ms.date: 08/19/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: has-adal-ref
-ms.openlocfilehash: a885a6ecbe9c2c371f48dbaf3869e5e853d431ff
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 931d7385b9c7afe48d7c163aad3570c8485ae8d1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535123"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767886"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -72,24 +72,10 @@ Si vous avez besoin d’aide pour l’une des bibliothèques d’authentificatio
 | MSAL pour iOS et macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 | MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
 | MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
 | MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 | MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
 | MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-
-## <a name="submit-feedback-on-azure-feedback"></a>Envoyer des commentaires sur Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Partagez vos idées pour améliorer le fonctionnement de la Plateforme d’identités Microsoft pour les applications que vous développez.
-
-| Service                       | URL Azure Feedback |
-|-------------------------------|---------------|
-| Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
-| Azure Active Directory – Expériences des développeurs             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
-| Azure Active Directory – Authentification             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
 

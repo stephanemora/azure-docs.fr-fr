@@ -11,16 +11,19 @@ ms.topic: how-to
 ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 3eea91d1cbbb8fe34dcdc8668840503e6dc9d014
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: f2b4f2e54c046ca7abc2172b8df33f14def902fd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517349"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767895"
 ---
 # <a name="tutorial-configure-cloudflare-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Cloudflare avec Azure Active Directory B2C
 
 Dans cet exemple de tutoriel, découvrez comment activer la solution de [pare-feu d’applications web (WAF) Cloudflare](https://www.cloudflare.com/waf/) pour le locataire B2C Azure Active Directory (AD) B2C avec un domaine personnalisé. Le pare-feu d’applications web Cloudflare aide les organisations à se protéger contre les attaques malveillantes visant à exploiter des vulnérabilités telles que SQLi et XSS.
+
+>[!NOTE]
+>Cette fonctionnalité est en version préliminaire publique.
 
 ## <a name="prerequisites"></a>Prérequis
 
