@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: 672912ae04ce98e121a9d1509f50a613fbea86b0
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: 32935f55897e54836ce60ddae69c4f708053c9e0
+  ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113765695"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122662440"
 landingContent:
 - title: À propos d’Azure Sentinel
   linkLists:
@@ -31,20 +31,30 @@ landingContent:
     links:
     - text: Nouveautés d’Azure Sentinel
       url: whats-new.md
+  - linkListType: concept
+    links:
+    - text: Meilleures pratiques
+      url: best-practices.md
 - title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
     - text: Intégrer Azure Sentinel
       url: quickstart-onboard.md
+  - linkListType: concept
+    links:
+    - text: Prérequis
+      url: prerequisites.md
   - linkListType: how-to-guide
     links:
     - text: Connecter des données à Azure Sentinel
       url: connect-data-sources.md
-  - linkListType: tutorial
-    links:
+    - text: Visualiser les données collectées
+      url: get-visibility.md
     - text: Investiguer les incidents
-      url: tutorial-investigate-cases.md
+      url: investigate-cases.md
+    - text: Intégration de Microsoft 365 Defender avec Azure Sentinel
+      url: microsoft-365-defender-sentinel-integration.md
   - linkListType: learn
     links:
     - text: Créer des requêtes KQL pour Azure Sentinel
@@ -53,6 +63,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Meilleures pratiques de collecte de données
+      url: best-practices-data.md
     - text: Normalisation et analyse des données
       url: normalization.md
   - linkListType: how-to-guide
@@ -97,12 +109,12 @@ landingContent:
       url: identify-threats-with-entity-behavior-analytics.md
     - text: Anomalies SOC-ML
       url: soc-ml-anomalies.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
     - text: Utiliser l’analytique intégrée pour détecter les menaces
-      url: tutorial-detect-threats-built-in.md
+      url: detect-threats-built-in.md
     - text: Créer des règles de détection personnalisées
-      url: tutorial-detect-threats-custom.md
+      url: detect-threats-custom.md
   - linkListType: reference
     links:
     - text: Informations de référence sur les entités
@@ -127,12 +139,14 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Superviser vos données
-      url: tutorial-monitor-your-data.md
-  - linkListType: how-to-guide
-    links:
     - text: Investiguer avec UEBA
       url: investigate-with-ueba.md
+  - linkListType: how-to-guide
+    links:
+    - text: Investiguer les incidents
+      url: investigate-cases.md
+    - text: Superviser vos données
+      url: monitor-your-data.md
   - linkListType: reference
     links:
     - text: Classeurs Azure Sentinel courants
@@ -151,10 +165,16 @@ landingContent:
       url: automate-incident-handling-with-automation-rules.md
     - text: Playbooks
       url: automate-responses-with-playbooks.md
-- title: Utiliser plusieurs locataires
+- title: Gérer Azure Sentinel
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Bonnes pratiques pour l’architecture de l’espace de travail
+      url: best-practices-workspace-architecture.md
   - linkListType: how-to-guide
     links:
+    - text: Concevoir l’architecture de votre espace de travail
+      url: design-your-workspace-architecture.md
     - text: Gérer plusieurs locataires
       url: multiple-tenants-service-providers.md
     - text: Utiliser les incidents dans plusieurs espaces de travail

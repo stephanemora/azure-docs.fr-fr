@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 6ffbc8d8d5813ef428ce8dbff2ebb53e9f4617e1
-  ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+  ms.openlocfilehash: 0d209c2b875b8ff1b22a4fe65098fc3fd076bde3
+  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/19/2021
-  ms.locfileid: "112380407"
+  ms.lasthandoff: 08/24/2021
+  ms.locfileid: "122777533"
 landingContent:
 - title: À propos de Serveur flexible (préversion)
   linkLists:
@@ -21,6 +21,8 @@ landingContent:
     links:
     - text: Qu’est-ce que Serveur flexible ?
       url: overview.md
+    - text: Essayer le serveur flexible gratuitement
+      url: how-to-deploy-on-azure-free-account.md
   - linkListType: quickstart
     links:
     - text: Créer un serveur flexible
@@ -41,7 +43,9 @@ landingContent:
       url: concepts-compute-storage.md
     - text: Versions de MySQL
       url: ./../concepts-supported-versions.md
-    - text: Mise en réseau
+    - text: Restaurer un serveur
+      url: how-to-restore-server-portal.md
+    - text: Réseau et connectivité
       url: concepts-networking.md
     - text: Superviser
       url: concepts-monitoring.md
@@ -71,6 +75,22 @@ landingContent:
     links:
     - text: Restaurer un serveur
       url: how-to-restore-server-portal.md
+- title: Réseau et connectivité
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Réseau
+      url: concepts-networking.md
+    - text: Accès privé
+      url: concepts-networking-vnet.md
+    - text: Accès public
+      url: concepts-networking-public.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer l’accès privé
+      url: how-to-manage-virtual-network-portal.md
+    - text: Configurer l’accès public
+      url: how-to-manage-firewall-portal.md
 - title: Se connecter
   linkLists:
   - linkListType: quickstart

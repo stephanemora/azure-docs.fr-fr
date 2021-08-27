@@ -5,20 +5,20 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: d2b71b227500644a63eb116493abeba7576eb7eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 324e30df7f63f5ca0abf7abd50ab890495e4e7cc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464935"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121721982"
 ---
-# <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation
+# <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec Azure Migrate
 
 Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire.
 
-Ce tutoriel vous montre comment découvrir les serveurs qui fonctionnent dans votre environnement VMware en utilisant l’outil Azure Migrate : découverte et évaluation, qui est une appliance Azure Migrate légère. Vous déployez l’appliance en tant que serveur s’exécutant dans votre instance vCenter Server afin de découvrir en permanence les serveurs et leurs métadonnées de performances, les applications qui s’exécutent sur les serveurs, les dépendances de serveur et les bases de données et instances SQL.
+Ce tutoriel vous montre comment découvrir les serveurs qui fonctionnent dans votre environnement VMware en utilisant l’outil Azure Migrate : découverte et évaluation, qui est une appliance Azure Migrate légère. Vous déployez l’appliance en tant que serveur s’exécutant dans votre instance vCenter Server afin de découvrir en permanence les serveurs et leurs métadonnées de performances, les applications qui s’exécutent sur les serveurs, les dépendances de serveur, les applications web ASP.NET et les bases de données et instances SQL Server.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -42,7 +42,7 @@ Condition requise | Détails
 --- | ---
 **vCenter Server/Hôte ESXi** | Vous avez besoin d’un serveur exécutant vCenter Server version 6.7, 6.5, 6.0 ou 5.5.<br /><br /> Les serveurs doivent être hébergés sur un hôte ESXi exécutant la version 5.5 ou une version ultérieure.<br /><br /> Dans vCenter Server, autorisez les connexions entrantes sur le port TCP 443 pour que l’appliance puisse collecter des métadonnées de configuration et de performances.<br /><br /> L’appliance se connecte à vCenter Server sur le port 443 par défaut. Si le serveur exécutant vCenter Server écoute un autre port, vous pouvez modifier le port quand vous fournissez à vCenter Server des détails dans le gestionnaire de configuration de l’appliance.<br /><br /> Sur les hôtes ESXi, assurez-vous que l’accès entrant est autorisé sur le port TCP 443 pour la découverte des applications installées et pour l’analyse des dépendances sans agent sur les serveurs.
 **Appliance Azure Migrate** | vCenter Server doit pouvoir allouer les ressources suivantes à un serveur qui héberge l’appliance Azure Migrate :<br /><br /> - 32 Go de RAM, 8 processeurs virtuels et approximativement 80 Go de stockage sur disque.<br /><br /> - Un commutateur virtuel externe et un accès à Internet sur le serveur de l’appliance, directement ou via un proxy.
-**Serveurs** | Toutes les versions de système d’exploitation Windows et Linux sont prises en charge pour la détection des métadonnées de configuration et de performances. <br /><br /> Pour la découverte des applications sur les serveurs, toutes les versions de système d’exploitation Windows et Linux sont prises en charge. Vérifiez les [versions de système d’exploitation prises en charge pour l’analyse de dépendance sans agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> Pour la découverte des applications installées et pour l’analyse des dépendances sans agent, VMware Tools (version 10.2.1 ou ultérieure) doit être installé et opérationnel sur les serveurs. PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.<br /><br /> Pour découvrir les bases de données et instances SQL, consultez [les versions et les éditions des systèmes d’exploitation SQL Server et Windows prises en charge](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) et les mécanismes d’authentification Windows.
+**Serveurs** | Toutes les versions de système d’exploitation Windows et Linux sont prises en charge pour la détection des métadonnées de configuration et de performances. <br /><br /> Pour la découverte des applications sur les serveurs, toutes les versions de système d’exploitation Windows et Linux sont prises en charge. Vérifiez les [versions de système d’exploitation prises en charge pour l’analyse de dépendance sans agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> Pour la découverte des applications installées et pour l’analyse des dépendances sans agent, VMware Tools (version 10.2.1 ou ultérieure) doit être installé et opérationnel sur les serveurs. PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.<br /><br /> Pour découvrir les bases de données et instances SQL, consultez [les versions et les éditions des systèmes d’exploitation SQL Server et Windows prises en charge](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) et les mécanismes d’authentification Windows.<br /><br /> Pour découvrir les applications web ASP.NET exécutant le serveur web IIS, consultez les [versions du système d’exploitation Windows et d’IIS prises en charge](migrate-support-matrix-vmware.md#aspnet-web-apps-discovery-requirements).
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
@@ -105,13 +105,13 @@ Dans le client web VMware vSphere, configurez un compte en lecture seule à util
 
 ### <a name="create-an-account-to-access-servers"></a>Créer un compte pour accéder aux serveurs
 
-Votre compte d’utilisateur sur vos serveurs doit disposer des autorisations nécessaires pour lancer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des bases de données et instances SQL. Vous pouvez fournir les informations du compte d’utilisateur dans le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
+Votre compte d’utilisateur sur vos serveurs doit disposer des autorisations nécessaires pour lancer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des applications web, et les bases de données et instances SQL Server. Vous pouvez fournir les informations du compte d’utilisateur dans le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
 
-* Pour les serveurs Windows, créez un compte (local ou de domaine) doté d’autorisations d’administrateur sur les serveurs. Pour découvrir les bases de données et instances SQL, le compte Windows ou SQL Server doit être membre du rôle serveur sysadmin. Découvrez comment [attribuer le rôle requis au compte d’utilisateur](/sql/relational-databases/security/authentication-access/server-level-roles).
+* Pour la découverte des serveurs Windows et des applications web, créez un compte (local ou de domaine) doté d’autorisations d’administrateur sur les serveurs. Pour découvrir les bases de données et instances SQL, le compte Windows ou SQL Server doit être membre du rôle serveur sysadmin. Découvrez comment [attribuer le rôle requis au compte d’utilisateur](/sql/relational-databases/security/authentication-access/server-level-roles).
 * Pour les serveurs Linux, créez un compte doté de privilèges racine. Vous pouvez aussi créer un compte qui dispose des autorisations CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE sur les fichiers /bin/netstat et /bin/ls.
 
 > [!NOTE]
-> Vous pouvez ajouter diverses informations d’identification de serveur dans le gestionnaire de configuration de l’appliance Azure Migrate pour lancer une découverte des applications installées, une analyse des dépendances sans agent et une découverte des bases de données et instances SQL. Vous pouvez ajouter diverses informations d’authentification de domaine, Windows (hors domaine), Linux (hors domaine) ou SQL Server. Découvrez comment [ajouter des informations d’identification de serveur](add-server-credentials.md).
+> Vous pouvez ajouter diverses informations d’identification de serveur dans le gestionnaire de configuration de l’appliance Azure Migrate pour lancer une découverte des applications installées, une analyse des dépendances sans agent et une découverte des applications web et des bases de données et instances SQL Server. Vous pouvez ajouter diverses informations d’authentification de domaine, Windows (hors domaine), Linux (hors domaine) ou SQL Server. Découvrez comment [ajouter des informations d’identification de serveur](add-server-credentials.md).
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
@@ -119,7 +119,7 @@ Pour configurer un nouveau projet :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Azure Migrate**.
 1. Sous **Services**, sélectionnez **Azure Migrate**.
-1. Dans **Vue d’ensemble**, sélectionnez l’une des options suivantes, en fonction de vos objectifs de migration : **Windows, Linux et SQL Server**, **SQL Server (uniquement)** ou **Explorez d’autres scénarios**. 
+1. Dans **Vue d’ensemble**, sélectionnez l’une des options suivantes en fonction de vos objectifs de migration : **Serveurs, bases de données et applications web**, **SQL Server (uniquement)** ou **Explorez d’autres scénarios**.
 1. Sélectionnez **Créer un projet**.
 1. Dans **Créer un projet**, sélectionnez votre abonnement Azure et votre groupe de ressources. Créez un groupe de ressources si vous n’en avez pas.
 1. Dans **Détails du projet**, spécifiez le nom du projet et la zone géographique où vous souhaitez créer le projet. Passez en revue les [zones géographiques prises en charge pour les clouds publics](migrate-support-matrix.md#supported-geographies-public-cloud) et les [zones géographiques prises en charge pour le secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
@@ -151,7 +151,7 @@ Pour configurer l’appliance en utilisant un modèle OVA, vous devez effectuer 
 
 #### <a name="generate-the-project-key"></a>Générer la clé de projet
 
-1. Dans **Objectifs de la migration**, sélectionnez **Windows, Linux et SQL Server** > **Azure Migrate : découverte et évaluation** > **Découvrir**.
+1. Dans **Objectifs de migration**, sélectionnez **Serveurs, bases de données et applications web** > **Azure Migrate : découverte et évaluation** > **Découvrir**.
 1. Dans **Découvrir des serveurs**, sélectionnez **Vos serveurs sont-ils virtualisés ?** > **Oui, avec l’hyperviseur vSphere VMware**.
 1. Dans **1 : Générer une clé de projet**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte des serveurs dans votre environnement VMware. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 1. Pour commencer à créer les ressources Azure requises, sélectionnez **Générer la clé**. Ne fermez pas le volet **Découvrir** pendant la création des ressources.
@@ -269,7 +269,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 ### <a name="provide-server-credentials"></a>Fournir les informations d’identification du serveur
 
-Dans **Étape 3 : Fournissez des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server**, vous pouvez fournir plusieurs informations de connexion de serveur. Si vous ne souhaitez pas utiliser ces fonctionnalités d’appliance, vous pouvez ignorer cette étape et procéder à la découverte de vCenter Server. Vous pouvez changer cette option à tout moment.
+Dans **Étape 3 : Fournir des informations d’identification de serveur pour effectuer l’inventaire logiciel, l’analyse des dépendances sans agent, la découverte des instances et bases de données SQL Server, et la découverte d’applications web ASP.NET dans votre environnement VMware**, vous pouvez fournir plusieurs informations d’identification de serveur. Si vous ne souhaitez pas utiliser ces fonctionnalités d’appliance, vous pouvez ignorer cette étape et procéder à la découverte de vCenter Server. Vous pouvez changer cette option à tout moment.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Capture d’écran montrant comment fournir des informations d’identification pour l’inventaire logiciel, l’analyse des dépendances et la découverte de serveurs SQL.":::
 
@@ -288,7 +288,7 @@ Pour ajouter des informations d’identification de serveur :
     Sélectionnez **Enregistrer**.
 
     Si vous choisissez d’utiliser les informations d’identification du domaine, vous devez également entrer le nom de domaine complet du domaine. Celui-ci est requis pour valider l’authenticité des informations d’identification auprès de l’instance Active Directory de ce domaine.
-1. Examinez les [autorisations requises](add-server-credentials.md#required-permissions) sur le compte pour la découverte des applications installées, l’analyse des dépendances sans agent ou la découverte des bases de données et instances SQL.
+1. Examinez les [autorisations requises](add-server-credentials.md#required-permissions) sur le compte pour la découverte des applications installées, l’analyse des dépendances sans agent ou la découverte des applications web et des bases de données et instances SQL Server.
 1. Pour ajouter plusieurs informations d’identification à la fois, sélectionnez **Ajouter** afin d’enregistrer les informations d’identification et d’en ajouter d’autres.
     Quand vous sélectionnez **Enregistrer** ou **Ajouter**, l’appliance valide les informations d’identification de domaine auprès de l’instance Active Directory du domaine pour l’authentification. La validation est effectuée après chaque ajout afin d’éviter les verrouillages de compte, car l’appliance procède à une itération pour mapper les informations d’identification aux serveurs respectifs.
 
@@ -311,14 +311,24 @@ Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la d
 * L’[inventaire logiciel](how-to-discover-applications.md) identifie les instances SQL qui s’exécutent sur les serveurs. Avec ces informations collectées, l’appliance tente de se connecter aux diverses instances SQL grâce aux informations d’authentification Windows ou SQL Server fournies sur l’appliance. Ensuite, elle recueille des données sur les bases de données SQL Server et leurs propriétés. La découverte SQL Server est effectuée une fois toutes les 24 heures.
 * L’appliance ne peut se connecter qu’aux instances SQL auxquelles elle est reliée par une ligne de mire réseau, alors que l’inventaire logiciel en lui-même n’a pas nécessairement besoin d’une ligne de mire réseau.
 * La découverte des applications installées peut prendre plus de 15 minutes. Sa durée dépend du nombre de serveurs découverts. Pour 500 serveurs, environ une heure s’écoule avant que l’inventaire découvert apparaisse dans le projet Azure Migrate dans le portail.
+* L’[inventaire logiciel](how-to-discover-applications.md) identifie le rôle de serveur web existant sur les serveurs découverts. Si le rôle de serveur web est activé pour un serveur, Azure Migrate procède à la découverte d’applications web sur le serveur. Les données de configuration des applications web sont mises à jour une fois par jour.
 * Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’[analyse des dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md).
-* Les données de bases de données et d’instances SQL commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
+* Les données des applications web ASP.NET et des bases de données et instances SQL Server commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
 * Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2158046) sur ce que vous devez choisir.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Capture d’écran montrant comment modifier les propriétés de connexion de SQL Server.":::
+
+Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la découverte**. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
+
+### <a name="view-discovered-data"></a>Afficher les données découvertes
+
+1. Revenez au portail Azure Migrate.
+1. Cliquez sur Actualiser comme indiqué dans la capture d’écran ci-dessous pour afficher les données découvertes.
+    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Capture d’écran montrant comment actualiser les données dans la vignette de découverte et d’évaluation.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [évaluer les serveurs à migrer vers des machines virtuelles Azure](./tutorial-assess-vmware-azure-vm.md).
 - Découvrez comment [évaluer les serveurs exécutant SQL Server à migrer vers Azure SQL](./tutorial-assess-sql.md).
+- Découvrez comment [évaluer les applications web à migrer vers Azure App Service](./tutorial-assess-webapps.md).
 - Passez en revue les [données que l’appliance Azure Migrate collecte](migrate-appliance.md#collected-data---vmware) pendant la découverte.
