@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1560e4a0a5c413ca225ffde0ab6d24e2958c8e75
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 601982058a333f23cf5895351db7bc6475617256
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985398"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532297"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -96,7 +96,7 @@ La structure de dossiers recommandée d’un projet Python Functions se présent
 ```
 Le dossier principal du projet (<project_root>) peut contenir les fichiers suivants :
 
-* *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-run-local.md#local-settings-file).
+* *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt* : Contient la liste des packages Python que le système installe lors de la publication sur Azure.
 * *host.json* : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
 * *.vscode/*  : (Facultatif) Contient la configuration VSCode du magasin. Pour plus d’informations, consultez [Paramètre VSCode](https://code.visualstudio.com/docs/getstarted/settings).
@@ -265,6 +265,51 @@ D’autres méthodes d’enregistrement permettent d’écrire dans la console �
 
 Pour en savoir plus sur la journalisation, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
+### <a name="log-custom-telemetry"></a>Enregistrer une télémétrie personnalisée
+
+Par défaut, Functions écrit la sortie en tant que traces dans Application Insights. Pour plus de contrôle, vous pouvez utiliser à la place les[Extensions OpenCensus Python](https://github.com/census-ecosystem/opencensus-python-extensions-azure) pour envoyer des données de télémétrie personnalisées à votre instance Application Insights. 
+
+>[!NOTE]
+> Pour utiliser les Extensions OpenCensus Python, vous devez activer les [Extensions Python](#python-worker-extensions) en définissant `PYTHON_ENABLE_WORKER_EXTENSIONS` vers `1` dans `local.settings.json` et paramètres d’application
+>
+
+```
+// requirements.txt
+...
+opencensus-extension-azure-functions
+opencensus-ext-requests
+```
+
+```python
+import json
+import logging
+
+import requests
+from opencensus.extension.azure.functions import OpenCensusExtension
+from opencensus.trace import config_integration
+
+config_integration.trace_integrations(['requests'])
+
+OpenCensusExtension.configure()
+
+def main(req, context):
+    logging.info('Executing HttpTrigger with OpenCensus extension')
+
+    # You must use context.tracer to create spans
+    with context.tracer.span("parent"):
+        response = requests.get(url='http://example.com')
+
+    return json.dumps({
+        'method': req.method,
+        'response': response.status_code,
+        'ctx_func_name': context.function_name,
+        'ctx_func_dir': context.function_directory,
+        'ctx_invocation_id': context.invocation_id,
+        'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
+        'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+    })
+```
+
 ## <a name="http-trigger-and-bindings"></a>Déclencheur et liaisons HTTP
 
 Le déclencheur HTTP est défini dans le fichier function.json. Le `name` de la liaison doit correspondre au paramètre nommé dans la fonction.
@@ -361,7 +406,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-Pour le développement local, les paramètres d’application sont [conservés dans le fichier local.settings.json](functions-run-local.md#local-settings-file).
+Pour le développement local, les paramètres d’application sont [conservés dans le fichier local.settings.json](functions-develop-local.md#local-settings-file).
 
 ## <a name="python-version"></a>Version Python
 
@@ -377,6 +422,62 @@ Azure Functions prend en charge les versions de Python suivantes :
 Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create). La version du runtime Functions est définie par l’option `--functions-version`. La version Python est définie lors de la création de l’application de fonction et ne peut pas être modifiée.
 
 Lors d’une exécution locale, le runtime utilise la version de Python disponible.
+
+### <a name="changing-python-version"></a>Modification de la version de Python
+
+Pour définir une application de fonction Python sur une version de langage spécifique, vous devez spécifier le langage ainsi que la version du langage dans le champ `LinuxFxVersion` de la configuration du site. Par exemple, pour modifier l’application Python et utiliser Python 3.8, affectez `linuxFxVersion` à `python|3.8`.
+
+Pour en savoir plus sur la stratégie de support du runtime Azure Functions, veuillez consulter cet [article](./language-support-policy.md)
+
+Pour afficher la liste complète des applications de fonctions des versions de Python prises en charge, veuillez vous reporter à cet [article](./supported-languages.md)
+
+
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-linux)
+
+Il est possible d’afficher et de définir `linuxFxVersion` dans Azure CLI.  
+
+Avec Azure CLI, affichez la `linuxFxVersion` actuelle avec la commande [az functionapp config show](/cli/azure/functionapp/config).
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+Dans ce code, remplacez `<function_app>` par le nom de votre application de fonction. Remplacez également `<my_resource_group>` par le nom du groupe de ressources de votre application de fonction. 
+
+Observez `linuxFxVersion` dans la sortie suivante, tronquée pour une meilleure lisibilité :
+
+```output
+{
+  ...
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+Vous pouvez mettre à jour le paramètre `linuxFxVersion` dans l’application de fonction avec la commande [az functionapp config set](/cli/azure/functionapp/config).
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+Remplacez `<FUNCTION_APP>` par le nom de votre application de fonction. Remplacez également `<RESOURCE_GROUP>` par le nom du groupe de ressources de votre application de fonction. Remplacez également `<LINUX_FX_VERSION>` par la version de Python que vous souhaitez utiliser, précédée du préfixe `python|`  ex. `python|3.9`
+
+Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az-login) pour vous connecter.
+
+L’application de fonction redémarre une fois la modification apportée à la configuration du site.
+
+--- 
+
 
 ## <a name="package-management"></a>Gestion des packages
 
@@ -646,7 +747,7 @@ Vous pouvez utiliser une bibliothèque d’extensions de Worker Python dans vos 
 1. Ajoutez le package d’extension dans le fichier requirements.txt de votre projet.
 1. Installez la bibliothèque dans votre application.
 1. Ajoutez le paramètre d’application `PYTHON_ENABLE_WORKER_EXTENSIONS` :
-    + Localement : Ajoutez `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` dans la section `Values` de votre [fichier local.settings.json](functions-run-local.md?tabs=python#local-settings-file)
+    + Localement : Ajoutez `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` dans la section `Values` de votre [fichier local.settings.json](functions-develop-local.md#local-settings-file)
     + Azure : Ajoutez `PYTHON_ENABLE_WORKER_EXTENSIONS=1` à vos [paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings).
 1. Importez le module d’extension dans votre déclencheur de fonction. 
 1. Configurez l’instance d’extension, le cas échéant. Les exigences de configuration doivent être mentionnées dans la documentation de l’extension. 

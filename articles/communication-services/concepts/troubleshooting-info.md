@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 66f2091087ed3602e929b584f7a311f4ebb05f88
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: d8e3dbc012e49b69e766d0551c0a91dcbb92660b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292514"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739581"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -171,7 +171,7 @@ Vous pouvez y accéder en recherchant l’emplacement où votre application cons
 2. Saisissez `cmd.exe`
 3. Saisissez `where /r %USERPROFILE%\AppData acs*.blog`
 4. Veuillez vérifier si l’ID d’application de votre application correspond à celui renvoyé par la commande précédente.
-5. Ouvrez le dossier contenant les fichiers journaux en saisissant `start ` suivi du chemin retourné par l’étape 3. Par exemple : `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+5. Ouvrez le dossier contenant les fichiers journaux en saisissant `start ` suivi du chemin retourné par l’étape 3. Par exemple : `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Veuillez joindre tous les fichiers `*.blog` et `*.etl` à votre demande de support Azure.
 
 
@@ -181,7 +181,7 @@ Le kit SDK Appel Azure Communication Services utilise les codes d’erreur suiva
 
 | Code d'erreur | Description | Action à effectuer |
 | -------- | ---------------| ---------------|
-| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. Si vous utilisez l’interopérabilité Teams, assurez-vous que votre locataire Teams a été ajouté à la liste d’autorisation d’accès à la préversion. Pour activer/désactiver l’[interopérabilité des locataires Teams](./teams-interop.md), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
+| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. |
 | 404 | Appel introuvable. | Assurez-vous que le numéro que vous appelez (ou l’appel que vous êtes en train de joindre) existe. |
 | 408 | Le délai d’attente du contrôleur d’appel a expiré. | Le contrôleur d’appel a atteint le délai d’attente des messages de protocole provenant des points de terminaison utilisateur. Vérifiez que les clients sont connectés et disponibles. |
 | 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser le kit SDK le plus récent dans un environnement pris en charge. |
