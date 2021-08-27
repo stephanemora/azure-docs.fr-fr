@@ -11,12 +11,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 06/01/2021
-  ms.openlocfilehash: cfcba05c80624f70ea35698d79a7e202efe01078
-  ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+  ms.openlocfilehash: 2f3aee33c4fb240b786073140d32ed352f9b2229
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/23/2021
-  ms.locfileid: "114603185"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121745667"
 landingContent:
 - title: Vue d’ensemble de Video Analyzer
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     links:
     - text: Détecter les mouvements et enregistrer des vidéos sur des appareils périphériques
       url: detect-motion-record-video-edge-devices.md
-    - text: Détecter les mouvements, enregistrez des vidéos dans le cloud
+    - text: Détecter les mouvements, enregistrer des vidéos dans le cloud
       url: detect-motion-record-video-clips-cloud.md
   - linkListType: tutorial
     links:

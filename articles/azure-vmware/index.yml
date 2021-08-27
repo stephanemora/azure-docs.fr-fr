@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 07/16/2021
-  ms.openlocfilehash: e1fa94312fa1c798a581f1792027f2a624c54a30
-  ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+  ms.date: 08/02/2021
+  ms.openlocfilehash: 0c9e3b78cac6bce3fb4a928faa76d7613d22a2dc
+  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/27/2021
-  ms.locfileid: "114709396"
+  ms.lasthandoff: 08/16/2021
+  ms.locfileid: "122228605"
 landingContent:
 - title: À propos d’Azure VMware Solution
   linkLists:
@@ -26,26 +26,24 @@ landingContent:
       url: azure-vmware-solution-platform-updates.md
   - linkListType: concept
     links:
-    - text: Clusters et cloud privé
-      url: concepts-private-clouds-clusters.md
-    - text: Réseau et interconnectivité
-      url: concepts-networking.md
-    - text: Stockage
-      url: concepts-storage.md
     - text: Accès et identité
       url: concepts-identity.md
-    - text: Surveillance et protection
-      url: concepts-monitor-protection.md
     - text: Gestion des API
       url: concepts-api-management.md
     - text: Hub-and-spoke
       url: concepts-hub-and-spoke.md
+    - text: Réseau et interconnectivité
+      url: concepts-networking.md
+    - text: Clusters et clouds privés
+      url: concepts-private-clouds-clusters.md
+    - text: Stockage
+      url: concepts-storage.md
 - title: Questions fréquentes (FAQ)
   linkLists:
   - linkListType: reference
     links:
     - text: Général
-      url: /azure/azure-vmware/faq
+      url: ./faq.yml
     - text: Communication du client
       url: /azure/azure-vmware/faq#customer-communication
     - text: Configuration et installation
@@ -69,30 +67,32 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 1 - Planifier le déploiement
-      url: production-ready-deployment-steps.md
+      url: plan-private-cloud-deployment.md
     - text: 2 - Déployer Azure VMware Solution
       url: deploy-azure-vmware-solution.md
-    - text: 3 - Se connecter localement
+    - text: 3 – Se connecter à un environnement local
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: 4 - Déployer et configurer HCX
-      url: tutorial-deploy-vmware-hcx.md
+    - text: 4 – Installer le connecteur VMware HCX
+      url: install-vmware-hcx.md
+    - text: 5 – Configurer le connecteur VMware HCX local
+      url: configure-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Check-list pour la planification réseau
+    - text: 1 - Check-list pour la planification réseau
       url: tutorial-network-checklist.md
-    - text: Créer un cloud privé
+    - text: 2 - Créer un cloud privé
       url: tutorial-create-private-cloud.md
-    - text: Accéder à un cloud privé
+    - text: 3 - Accéder à un cloud privé
       url: tutorial-access-private-cloud.md
-    - text: Configurer la mise en réseau
+    - text: 4 - Configurer les réseaux
       url: tutorial-configure-networking.md
-    - text: Créer un segment réseau
+    - text: 5 - Créer un segment réseau NSX-T
       url: tutorial-nsx-t-network-segment.md
-    - text: Appairer un environnement local à un cloud privé
+    - text: 6 - Appairer un environnement local à un cloud privé
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Développer ou réduire les clusters dans un cloud privé
+    - text: 7 – Effectuer un scale-in de cloud privé
       url: tutorial-scale-private-cloud.md
-    - text: Supprimer un cloud privé
+    - text: 8 – Supprimer un cloud privé
       url: tutorial-delete-private-cloud.md
 - title: Gestion des identités
   linkLists:
@@ -123,7 +123,7 @@ landingContent:
     - text: Configurer la mise en miroir des ports
       url: configure-port-mirroring-azure-vmware-solution.md
     - text: Configurer GitHub Enterprise Server
-      url: ./configure-github-enterprise-server.md
+      url: configure-github-enterprise-server.md
     - text: Activer l’accès Internet public
       url: enable-public-internet-access.md
     - text: Configurer un réseau VPN de site à site dans un WAN virtuel

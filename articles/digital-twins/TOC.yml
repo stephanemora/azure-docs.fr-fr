@@ -103,8 +103,8 @@
           href: how-to-manage-twin.md
         - name: Gérer le graphe de jumeaux et les relations
           href: how-to-manage-graph.md
-        - name: Configurer une fonction Azure pour le traitement des données
-          href: how-to-create-azure-function.md
+        - name: Configurer la gestion des événements entre jumeaux
+          href: how-to-send-twin-to-twin-events.md
         - name: Interroger le graphe de jumeaux
           href: how-to-query-graph.md
     - name: Développer des applications clientes

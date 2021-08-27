@@ -8,6 +8,10 @@
   items:
     - name: "Conditions de licence\_:"
       href: subscription-requirements.md
+    - name: Groupes d’accès privilégiés
+      href: groups-features.md
+    - name: Groupes d’accès privilégiés ou pouvant recevoir des rôles
+      href: concept-privileged-access-versus-role-assignable.md
     - name: Rôles que vous ne pouvez pas gérer avec PIM
       href: pim-roles.md
     - name: "Sécuriser l’accès privilégié dans Azure\_AD"
@@ -41,6 +45,8 @@
           href: pim-how-to-activate-role.md
         - name: Rôles Azure
           href: pim-resource-roles-activate-your-roles.md
+        - name: Groupes d’accès privilégiés
+          href: groups-activate-roles.md
     - name: Approuver
       items:
         - name: Rôles Azure AD
@@ -57,11 +63,13 @@
           href: groups-discover-groups.md
     - name: Étendre ou renouveler
       items:
+        - name: Rôles Azure AD
+          href: pim-how-to-renew-extend.md
         - name: Rôles Azure
           href: pim-resource-roles-renew-extend.md
         - name: Groupes d’accès privilégiés
           href: groups-renew-extend.md
-    - name: Paramètres
+    - name: Définir les valeurs par défaut des rôles
       items:
         - name: Rôles Azure AD
           href: pim-how-to-change-default-settings.md
@@ -69,13 +77,13 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: Groupes d’accès privilégiés
           href: groups-role-settings.md
-    - name: Alertes
+    - name: Configurer des alertes
       items:
         - name: Rôles Azure AD
           href: pim-how-to-configure-security-alerts.md
         - name: Rôles Azure
           href: pim-resource-roles-configure-alerts.md
-    - name: Journaux d’audit
+    - name: Audits
       items:
         - name: Rôles Azure AD
           href: pim-how-to-use-audit-log.md
@@ -83,7 +91,7 @@
           href: azure-pim-resource-rbac.md
         - name: Groupes d’accès privilégiés
           href: groups-audit.md
-    - name: Révisions d’accès
+    - name: Revoir l’accès
       items:
         - name: Rôles Azure AD
           items:
