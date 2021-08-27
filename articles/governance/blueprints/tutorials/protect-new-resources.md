@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Protéger des nouvelles ressources avec des verrous'
 description: Dans ce tutoriel, vous utilisez les options de verrous de ressources Azure Blueprints « Lecture seule » et « Ne pas supprimer » pour protéger les ressources nouvellement déployées.
-ms.date: 03/08/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: abb880923da71c437507245917c8e8fddb92b2fa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e1c82c3a3a10076c41aa0c65e0565d9727f3444c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733856"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324954"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 

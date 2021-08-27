@@ -25,10 +25,10 @@ highlightedContent:
     - title: Kubernetes avec Azure Arc
       itemType: overview
       url: ./kubernetes/overview.md
-    - title: Services de données avec Azure Arc (préversion)
+    - title: Services de données avec Azure Arc
       itemType: overview
       url: ./data/overview.md
-    - title: SQL Server sur des serveurs avec Azure Arc (préversion)
+    - title: "SQL\_Server sur des serveurs avec Azure\_Arc"
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 conceptualContent:
@@ -43,10 +43,10 @@ conceptualContent:
           text: Présentation de la sécurité
         - url: ./servers/policy-reference.md
           itemType: learn
-          text: Stratégies de contrôle d’admission avec Azure Policy
+          text: Définitions de stratégie de contrôle d’admission avec Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: Activer SQL Server avec Arc (préversion)
+          text: Connecter SQL Server
       footerLink:
         url: ./servers/index.yml
         text: En savoir plus
@@ -67,7 +67,7 @@ conceptualContent:
       footerLink:
         url: ./kubernetes/index.yml
         text: En savoir plus
-    - title: Services de données avec Azure Arc (préversion)
+    - title: Services de données avec Azure Arc
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
@@ -100,11 +100,11 @@ conceptualContent:
         - url: ../automation/automation-intro.md
           itemType: overview
           text: Vue d’ensemble d’Azure Automation
-    - title: SQL Server sur des serveurs avec Azure Arc (préversion)
+    - title: "SQL\_Server sur des serveurs avec Azure\_Arc"
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
-          text: Instance avec Assess Arc
+          text: Évaluer une instance
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configurer la sécurité avancée des données

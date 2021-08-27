@@ -40,12 +40,16 @@
       items:
         - name: Répertorier les attributions de rôles
           href: view-assignments.md
-        - name: Lister les attributions de rôles pour des groupes
+        - name: Répertorier les attributions de rôles pour un utilisateur
+          href: list-role-assignments-users.md
+        - name: Lister les attributions de rôle d’un groupe
           href: groups-view-assignments.md
     - name: Attribuer des rôles
       items:
         - name: Attribuer des rôles aux utilisateurs
           href: manage-roles-portal.md
+        - name: Attribuer des rôles à un utilisateur dans différentes étendues
+          href: assign-roles-different-scopes.md
         - name: Créer un groupe pouvant se voir attribuer des rôles
           href: groups-create-eligible.md
         - name: Attribuer des rôles à des groupes
@@ -80,7 +84,7 @@
           href: admin-units-assign-roles.md
     - name: Délégué
       items:
-        - name: Déléguer le rôle d’administration d’applications
+        - name: Déléguer un rôle d’administrateur
           href: delegate-app-roles.md
         - name: Délégation de Mon personnel
           href: my-staff-configure.md

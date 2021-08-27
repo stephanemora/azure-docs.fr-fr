@@ -56,7 +56,7 @@
       href: ./tutorials/policy-as-code-github.md
     - name: 'Découvrez : Contrôler et auditer vos ressources en utilisant Azure Policy'
       displayName: 'governance, module'
-      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
+      href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 - name: Exemples
   items:
     - name: Index
@@ -66,6 +66,8 @@
       href: ./samples/built-in-policies.md
     - name: Initiatives intégrées
       href: ./samples/built-in-initiatives.md
+    - name: Packages intégrés pour la configuration d’invité
+      href: ./samples/built-in-packages.md
     - name: Requêtes Azure Resource Graph
       href: ./samples/resource-graph-samples.md
     - name: Modèles d’utilisation
@@ -90,39 +92,75 @@
           href: ./samples/pattern-deploy-resources.md
     - name: Éléments intégrés de la conformité réglementaire
       items:
-        - name: Benchmark de sécurité Azure
-          href: ./samples/azure-security-benchmark.md
-        - name: "Azure Security Benchmark\_v1"
-          href: ./samples/azure-security-benchmarkv1.md
-        - name: PBMM fédéral du Canada
-          href: ./samples/canada-federal-pbmm.md
-        - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"
-          href: ./samples/cis-azure-1-3-0.md
-        - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
-          href: ./samples/cis-azure-1-1-0.md
-        - name: "CMMC niveau\_3"
-          href: ./samples/cmmc-l3.md
-        - name: HIPAA HITRUST 9.2
-          href: ./samples/hipaa-hitrust-9-2.md
-        - name: "IRS 1075 septembre\_2016"
-          href: ./samples/irs-1075-sept2016.md
-        - name: 'ISO 27001:2013'
-          href: ./samples/iso-27001.md
-        - name: New Zealand ISM Restricted
-          href: ./samples/new-zealand-ism.md
-        - name: NIST SP 800-53 R5
-          href: ./samples/nist-sp-800-53-r5.md
-        - name: "NIST SP\_800-53 R4"
-          href: ./samples/nist-sp-800-53-r4.md
-        - name: NIST SP 800-171 R2
-          href: ./samples/nist-sp-800-171-r2.md
-        - name: UK OFFICIAL et UK NHS
-          href: ./samples/ukofficial-uknhs.md
-    - name: Base de référence de configuration des invités
+        - name: Éléments intégrés Azure
+          items:
+            - name: Australian Government ISM PROTECTED
+              href: ./samples/australia-ism.md
+            - name: Benchmark de sécurité Azure
+              href: ./samples/azure-security-benchmark.md
+            - name: "Azure Security Benchmark\_v1"
+              href: ./samples/azure-security-benchmarkv1.md
+            - name: PBMM fédéral du Canada
+              href: ./samples/canada-federal-pbmm.md
+            - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"
+              href: ./samples/cis-azure-1-3-0.md
+            - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
+              href: ./samples/cis-azure-1-1-0.md
+            - name: "CMMC niveau\_3"
+              href: ./samples/cmmc-l3.md
+            - name: FedRAMP Niveau modéré
+              href: ./samples/fedramp-moderate.md
+            - name: FedRAMP Niveau élevé
+              href: ./samples/fedramp-high.md
+            - name: HIPAA HITRUST 9.2
+              href: ./samples/hipaa-hitrust-9-2.md
+            - name: "IRS 1075 septembre\_2016"
+              href: ./samples/irs-1075-sept2016.md
+            - name: 'ISO 27001:2013'
+              href: ./samples/iso-27001.md
+            - name: New Zealand ISM Restricted
+              href: ./samples/new-zealand-ism.md
+            - name: "NIST SP 800-53 Rev.\_5"
+              href: ./samples/nist-sp-800-53-r5.md
+            - name: NIST SP 800-53 Rev. 4
+              href: ./samples/nist-sp-800-53-r4.md
+            - name: NIST SP 800-171 R2
+              href: ./samples/nist-sp-800-171-r2.md
+            - name: UK OFFICIAL et UK NHS
+              href: ./samples/ukofficial-uknhs.md
+        - name: Éléments intégrés Azure Government
+          items:
+            - name: Benchmark de sécurité Azure
+              href: ./samples/gov-azure-security-benchmark.md
+            - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"
+              href: ./samples/gov-cis-azure-1-3-0.md
+            - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
+              href: ./samples/gov-cis-azure-1-1-0.md
+            - name: "CMMC niveau\_3"
+              href: ./samples/gov-cmmc-l3.md
+            - name: "DoD Impact Level\_4"
+              href: ./samples/gov-dod-impact-level-4.md
+            - name: "DoD Impact Level\_5"
+              href: ./samples/gov-dod-impact-level-5.md
+            - name: FedRAMP Niveau modéré
+              href: ./samples/gov-fedramp-moderate.md
+            - name: FedRAMP Niveau élevé
+              href: ./samples/gov-fedramp-high.md
+            - name: "IRS 1075 septembre\_2016"
+              href: ./samples/gov-irs-1075-sept2016.md
+            - name: 'ISO 27001:2013'
+              href: ./samples/gov-iso-27001.md
+            - name: "NIST SP 800-53 Rev.\_5"
+              href: ./samples/gov-nist-sp-800-53-r5.md
+            - name: NIST SP 800-53 Rev. 4
+              href: ./samples/gov-nist-sp-800-53-r4.md
+            - name: NIST SP 800-171 R2
+              href: ./samples/gov-nist-sp-800-171-r2.md
+    - name: Bases de référence de la sécurité du calcul
       items:
-        - name: Base de référence Linux pour Azure Security Benchmark
+        - name: Base de référence de sécurité Linux
           href: ./samples/guest-configuration-baseline-linux.md
-        - name: Base de référence Windows pour Azure Security Benchmark
+        - name: Base de référence de sécurité Windows
           href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
@@ -167,9 +205,20 @@
         - name: Sécuriser AKS avec Azure Policy
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-    - name: Auditer les machines virtuelles avec la configuration invité
-      displayName: 'provider, tools, definition'
-      href: ./concepts/guest-configuration.md
+    - name: "Configuration\_d’invité"
+      items:
+        - name: Comprendre la configuration d’invité d’Azure Policy
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration.md
+        - name: Changements du comportement dans PowerShell Desired State Configuration pour la configuration d’invité
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-custom.md
+        - name: Comprendre les ressources d’affectation de configuration d’invité d’Azure Policy
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-assignments.md
+        - name: Options de correction pour la configuration d’invité
+          displayName: 'provider, tools, definition'
+          href: ./concepts/guest-configuration-policy-effects.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité pour Azure Security Benchmark
@@ -188,17 +237,35 @@
     - name: Exporter les ressources Azure Policy
       displayName: 'github, json, definition'
       href: ./how-to/export-resources.md
-    - name: Guest Configuration
+    - name: "Configuration\_d’invité"
       items:
-        - name: Créer une stratégie Guest Configuration sur Windows
-          displayName: 'powershell, dsc, chef, windows'
+        - name: Configurer un environnement de création de configuration d’invité
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-setup.md
+        - name: Créer des artefacts de package de configuration d’invité personnalisés
+          displayName: 'powershell, dsc'
           href: ./how-to/guest-configuration-create.md
-        - name: Créer une stratégie Guest Configuration sur Linux
-          displayName: 'powershell, dsc, chef, linux'
-          href: ./how-to/guest-configuration-create-linux.md
-        - name: Créer une stratégie Guest Configuration à partir d’une stratégie de groupe
+        - name: Tester des artefacts de package de configuration d’invité
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-test.md
+        - name: Signer des packages de configuration d’invité
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-signing.md
+        - name: Publier des packages de configuration d’invité
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-publish.md
+        - name: Créer une affectation de configuration d’invité
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-assignment.md
+        - name: Créer des définitions de configuration d’invité personnalisées
+          displayName: 'powershell, dsc'
+          href: ./how-to/guest-configuration-create-definition.md
+        - name: Créer une définition de configuration d’invité à partir d’une stratégie de groupe
           displayName: 'powershell, dsc, grouppolicy, windows'
           href: ./how-to/guest-configuration-create-group-policy.md
+        - name: Planification de la migration de la configuration de l’état Azure Automation vers la configuration d’invité
+          displayName: 'powershell, dsc, automation'
+          href: ./how-to/guest-configuration-azure-automation-migration.md
     - name: Obtenir des données de conformité
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md
@@ -249,7 +316,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Policy
+        - name: Stratégie
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -275,7 +342,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Policy
+        - name: Stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient

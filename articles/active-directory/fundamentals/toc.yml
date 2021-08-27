@@ -273,3 +273,5 @@
   items:
     - name: "Obtenir une assistance pour Azure\_Active\_Directory"
       href: active-directory-troubleshooting-support-howto.md
+    - name: Options d’aide et de support pour Azure AD
+      href: support-help-options.md

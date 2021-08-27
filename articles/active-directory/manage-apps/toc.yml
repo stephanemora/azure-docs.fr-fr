@@ -92,7 +92,9 @@
 - name: Guides pratiques
   expanded: false
   items:
-    - name: Affecter des utilisateurs et gérer l’accès aux applications
+    - name: Attribuer des propriétaires
+      href: assign-app-owners.md
+    - name: Gérer l’accès
       items:
         - name: Consentement et autorisations
           items:
@@ -112,25 +114,25 @@
               href: grant-admin-consent.md
             - name: Vérifier les autorisations accordées aux applications
               href: manage-application-permissions.md
-        - name: Gérer les affectations d’utilisateurs aux applications
+        - name: Gérer l’affectation des utilisateurs
           href: assign-user-or-group-access-portal.md
         - name: Créer des collections sur Mes applications
           href: access-panel-collections.md
         - name: Utiliser l’accès aux applications en libre-service
           href: access-panel-manage-self-service-access.md
-        - name: Méthodes de suppression d’un accès utilisateur à une application
+        - name: Supprimer l’accès utilisateur
           href: methods-for-removing-user-access.md
-        - name: Masquer l’application pour un utilisateur
+        - name: Masquer une application
           href: hide-application-from-user-portal.md
         - name: "Comment désactiver les inscriptions des utilisateurs\_?"
           href: disable-user-sign-in-portal.md
-        - name: Configurer le provisionnement d’applications en libre-service
+        - name: Configurer l’affectation en libre-service
           href: manage-self-service-access.md
-        - name: Forcer l’accélération automatique via la stratégie de découverte du domaine d’accueil
+        - name: Forcer l’accélération automatique
           href: configure-authentication-for-federated-users-portal.md
-        - name: Empêcher l’accélération automatique de la connexion à l’aide de la stratégie de découverte du domaine d’accueil
+        - name: Empêcher l’accélération automatique de la connexion
           href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: "Migrer la gestion des identités vers Azure\_AD"
+    - name: Migrer des applications
       items:
         - name: Ressources de migration
           href: migration-resources.md

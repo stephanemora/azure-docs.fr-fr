@@ -8,6 +8,8 @@
       href: core/overview-iot-central-tour.md
     - name: Mises à jour récentes
       items:
+        - name: "Fonctionnalités nouvelles et mises à jour - Juillet\_2021"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/'
         - name: "Fonctionnalités nouvelles et mises à jour - Juin\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/'
         - name: "Fonctionnalités nouvelles et mises à jour - Mai\_2021"
@@ -145,48 +147,6 @@
       href: core/overview-iot-central-operator.md
     - name: Présentation des modèles d’application
       href: core/concepts-app-templates.md
-    - name: Modèles d’applications par secteur
-      items:
-        - name: Commerce
-          items:
-            - name: Vue d’ensemble
-              href: retail/overview-iot-central-retail.md
-            - name: Analytique dans le magasin - Paiement
-              href: retail/store-analytics-architecture.md
-            - name: Architecture du modèle d’application de gestion intelligente des stocks
-              href: retail/architecture-smart-inventory-management.md
-            - name: Architecture logistique connectée
-              href: retail/architecture-connected-logistics.md
-            - name: Centre de distribution numérique
-              href: retail/architecture-digital-distribution-center.md
-            - name: Architecture du centre de microtraitement
-              href: retail/architecture-micro-fulfillment-center.md
-            - name: Analytique vidéo - Détection d’objets et de mouvements
-              href: retail/architecture-video-analytics.md
-        - name: Énergie
-          items:
-            - name: Vue d’ensemble
-              href: energy/overview-iot-central-energy.md
-            - name: Architecture d’application pour compteurs intelligents
-              href: energy/concept-iot-central-smart-meter-app.md
-            - name: Architecture d’application pour panneaux solaires
-              href: energy/concept-iot-central-solar-panel-app.md
-        - name: Administration
-          items:
-            - name: Vue d’ensemble
-              href: government/overview-iot-central-government.md
-            - name: Architecture de surveillance des déchets connectés
-              href: government/concepts-connectedwastemanagement-architecture.md
-            - name: Architecture du suivi de la consommation d’eau
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
-            - name: Architecture du suivi de la qualité de l’eau
-              href: government/concepts-waterqualitymonitoring-architecture.md
-        - name: Santé
-          items:
-            - name: Vue d’ensemble
-              href: healthcare/overview-iot-central-healthcare.md
-            - name: Architecture du suivi continu des patients
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: "Que sont les modèles d’appareils\_?"
       href: core/concepts-device-templates.md
     - name: Connectivité des appareils
@@ -245,8 +205,6 @@
           href: core/howto-create-custom-rules.md
         - name: Créer une analytique personnalisée avec Databricks
           href: core/howto-create-custom-analytics.md
-        - name: Visualiser vos données dans Power BI
-          href: core/howto-connect-powerbi.md
         - name: Connecter d’autres clouds IoT
           href: core/howto-build-iotc-device-bridge.md
     - name: Utiliser l’API REST

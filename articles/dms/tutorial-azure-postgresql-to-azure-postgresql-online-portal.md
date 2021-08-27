@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: d37276d842c6cce0e033a22e5c97ba777f504041
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: b147e0b2a096107b848ac3e33ce544d5559ab56c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638505"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutoriel : Migrer/Mettre à niveau Azure Database pour PostgreSQL – Serveur unique vers Azure Database pour PostgreSQL – Serveur unique en ligne utilisant DMS via le portail Azure
 
@@ -160,19 +160,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
     FROM information_schema.triggers
     ```
 
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
-
-1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
-
-   ![Afficher les abonnements au portail](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
-
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
-
-    ![Afficher les fournisseurs de ressources](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
-
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
-
-    ![S’inscrire auprès du fournisseur de ressources](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-a-dms-instance"></a>Créer une instance de service DMS
 

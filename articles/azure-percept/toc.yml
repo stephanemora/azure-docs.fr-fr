@@ -10,6 +10,8 @@
       href: overview-azure-percept-dk.md
     - name: Azure Percept Audio
       href: overview-azure-percept-audio.md
+    - name: Module et charge de travail Azure Percept Vision
+      href: azureeyemodule-overview.md
 - name: Démarrages rapides
   items:
     - name: Configurer vos appareils Azure Percept
@@ -34,8 +36,6 @@
       items:
         - name: Intégration 80/20
           href: overview-8020-integration.md
-        - name: Se connecter via une connexion cellulaire
-          href: connect-over-cellular.md
         - name: Mises à jour d’appareil
           href: overview-update-experience.md
     - name: Azure Percept Audio
@@ -74,6 +74,10 @@
           href: how-to-configure-voice-assistant.md
         - name: Configurer l’Assistant vocal dans Azure Percept Studio
           href: how-to-manage-voice-assistant.md
+        - name: Revenir à votre application Assistant vocal
+          href: return-to-voice-assistant-application-window.md
+        - name: Supprimer votre application Assistant vocal
+          href: delete-voice-assistant-application.md
     - name: Mettre à jour vos appareils Azure Percept
       items:
         - name: Configurer des mises à jour OTA
@@ -90,6 +94,8 @@
           href: how-to-connect-over-ethernet.md
         - name: Configurer les paramètres réseau avancés
           href: how-to-set-up-advanced-network-settings.md
+        - name: Se connecter via un réseau 5G ou LTE
+          href: connect-over-cellular.md
         - name: Se connecter via SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Se connecter via un port série

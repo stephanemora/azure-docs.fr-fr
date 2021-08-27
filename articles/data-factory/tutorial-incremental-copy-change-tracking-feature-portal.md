@@ -4,15 +4,15 @@ description: Dans ce tutoriel, vous créez une fabrique de données Azure Data F
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/05/2021
-ms.openlocfilehash: 9dbeeaa10fc755b978a1819a0af181da47149921
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 7d2f32b4bb730d0c698950ecdf82283d1bf88274
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436835"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638919"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Charger de façon incrémentielle des données d’Azure SQL Database sur le Stockage Blob Azure en utilisant les informations de suivi des modifications sur le portail Azure
 
@@ -179,9 +179,9 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
     ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Open Azure Data Factory Studio.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Ouvrir Azure Data Factory Studio.":::
 
-10. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
+10. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet distinct.
 11. Dans la page d’accueil, basculez vers l’onglet **Gérer** dans le volet gauche comme illustré dans l’image suivante :
 
     ![Capture d’écran montrant le bouton Gérer.](media/doc-common-process/get-started-page-manage-button.png)
