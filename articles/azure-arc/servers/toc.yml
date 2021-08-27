@@ -8,7 +8,7 @@
       href: agent-release-notes.md
 - name: Démarrages rapides
   items:
-    - name: Activer l’agent des serveurs compatibles avec Arc
+    - name: Activer l’agent des serveurs avec Arc
       href: ./learn/quick-enable-hybrid-vm.md
 - name: Tutoriels
   items:
@@ -16,6 +16,10 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Superviser l’ordinateur
       href: ./learn/tutorial-enable-vm-insights.md
+- name: Exemples
+  items:
+    - name: Requêtes Azure Resource Graph
+      href: ./resource-graph-samples.md
 - name: Concepts
   items:
     - name: Sécurité

@@ -88,8 +88,12 @@
               href: container-registry-import-images.md
             - name: Transférer les artefacts (préversion)
               href: container-registry-transfer-images.md
-            - name: Verrouiller les images conteneur
-              href: container-registry-image-lock.md
+            - name: Protéger les données du Registre
+              items:
+                - name: Verrouiller les images conteneur
+                  href: container-registry-image-lock.md
+                - name: Désactiver l’exportation
+                  href: data-loss-prevention.md
             - name: Supprimer des images de conteneur
               items:
                 - name: Supprimer les données d’image - CLI

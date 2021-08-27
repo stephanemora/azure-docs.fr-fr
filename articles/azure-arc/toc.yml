@@ -12,7 +12,15 @@
   href: ./servers/overview.md
 - name: "Kubernetes avec Arc\_>"
   href: ./kubernetes/overview.md
-- name: "Services de données avec Arc (préversion)\_>"
+- name: Services de données avec Azure Arc >
   href: ./data/overview.md
-- name: SQL Server sur des serveurs avec Azure Arc (préversion) >
-  href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'
+- name: "SQL\_Server sur des serveurs avec Azure\_Arc >"
+  href: /sql/sql-server/azure-arc/overview
+- name: Programme de validation Arc
+  items:
+    - name: Vue d’ensemble du programme
+      href: validation-program/overview.md
+    - name: Partenaires Kubernetes validés
+      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+    - name: Partenaires des services de données validés
+      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json

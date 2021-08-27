@@ -24,6 +24,8 @@
   items:
     - name: Fondamentaux de la diffusion en continu d’application
       items:
+        - name: Configurer des identités managées
+          href: identities.md
         - name: Déployer des applications avec l’attachement d’application MSIX
           href: msix-app-attach.md
         - name: Héberger des applications personnalisées
@@ -46,6 +48,12 @@
           href: ../set-up-scaling-script.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Activer l’impression universelle
           href: /universal-print/fundamentals/universal-print-getting-started?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+        - name: Démarrer la machine virtuelle à la connexion
+          items:
+            - name: Configurer Démarrer la machine virtuelle à la connexion
+              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+            - name: FAQ sur Démarrer la machine virtuelle à la connexion
+              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Autres rubriques
       items:
         - name: Se connecter à des ressources Azure Virtual Desktop
@@ -124,12 +132,6 @@
           href: ../azure-monitor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Définir un plan de reprise d’activité
           href: ../disaster-recovery.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-        - name: Démarrer la machine virtuelle à la connexion
-          items:
-            - name: Configurer Démarrer la machine virtuelle à la connexion
-              href: ../start-virtual-machine-connect.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-            - name: FAQ sur Démarrer la machine virtuelle à la connexion
-              href: ../start-virtual-machine-connect-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Définir le mode maintenance
           href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Concepts
@@ -202,6 +204,8 @@
       href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Identifier et diagnostiquer les problèmes
       href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    - name: Fonctionnalité de démarrage
+      href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Création d’un pool d’hôtes
       href: ../troubleshoot-set-up-issues.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configuration d’une machine virtuelle hôte de session

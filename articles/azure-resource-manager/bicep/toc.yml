@@ -74,10 +74,10 @@
               displayName: 'deployment commands,multiple resource groups'
             - name: Abonnement
               href: deploy-to-subscription.md
-              displayName: 'Azure policy,policy,access control'
+              displayName: 'Azure Policy,policy,access control'
             - name: Groupe d’administration
               href: deploy-to-management-group.md
-              displayName: 'policy,Azure policy'
+              displayName: 'policy,Azure Policy'
             - name: Locataire
               href: deploy-to-tenant.md
               displayName: assign role
@@ -85,6 +85,12 @@
           href: linter.md
         - name: Meilleures pratiques
           href: best-practices.md
+        - name: Modèles
+          items:
+            - name: Jeu de configuration
+              href: patterns-configuration-set.md
+            - name: Fichier de variables partagées
+              href: patterns-shared-variable-file.md
     - name: Déployer
       items:
         - name: Vérifications de prédéploiement
@@ -123,6 +129,8 @@
     - name: Structure des fichiers Bicep
       displayName: 'parameters,variables,resources,outputs,condition'
       href: file.md
+    - name: Informations de référence sur les ressources Bicep
+      href: /azure/templates/
     - name: Types de données
       href: data-types.md
       displayName: 'supported types,arrays,booleans,integers,objects,strings,secure,'
@@ -154,19 +162,17 @@
       items:
         - name: Tous les opérateurs
           href: operators.md
+        - name: Opérateurs d’accesseur
+          href: operators-access.md
         - name: Opérateurs de comparaison
           href: operators-comparison.md
         - name: Opérateurs logiques
           href: operators-logical.md
         - name: Opérateurs numériques
           href: operators-numeric.md
-        - name: Opérateurs d’accès
-          href: operators-access.md
     - name: Interface CLI Bicep
       href: bicep-cli.md
       displayName: 'build,decompile,install,list-versions,list versions,upgrade,version'
-    - name: Informations de référence sur les modèles
-      href: /azure/templates/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Azure CLI

@@ -26,7 +26,7 @@
       href: storage-import-export-encryption-key-portal.md
     - name: Superviser
       items:
-        - name: Afficher l’état des disques
+        - name: Afficher l’état des travaux et des lecteurs
           href: storage-import-export-view-drive-status.md
         - name: Revoir le statut du travail
           href: storage-import-export-tool-reviewing-job-status-v1.md

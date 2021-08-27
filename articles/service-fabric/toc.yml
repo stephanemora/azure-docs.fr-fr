@@ -404,7 +404,7 @@
           href: how-to-managed-cluster-configuration.md
         - name: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé
           href: how-to-managed-cluster-vmss-extension.md
-        - name: Ajouter des règles NSG et autres options réseau de cluster managé
+        - name: Configurer les paramètres réseau d’un cluster managé
           href: how-to-managed-cluster-networking.md
         - name: Configurer la répartition des zones de disponibilité d’un cluster managé
           href: how-to-managed-cluster-availability-zones.md
@@ -414,14 +414,16 @@
           href: how-to-managed-cluster-managed-disk.md
         - name: Configurer les options de mise à niveau de cluster managé
           href: how-to-managed-cluster-upgrades.md
-        - name: Déployer des secrets d’application de cluster managé
+        - name: Déployer des secrets d’application sur un cluster managé
           href: how-to-managed-cluster-application-secrets.md
-        - name: "Déployer des applications de cluster managé avec un modèle\_ARM"
+        - name: Déployer une application sur un cluster managé avec Azure Resource Manager
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Déployer des applications de cluster managé avec une identité managée
+        - name: Déployer une application avec une identité managée sur un cluster managé
           href: how-to-managed-cluster-application-managed-identity.md
         - name: Déployer des types de nœuds sans état uniquement sur un cluster managé
           href: how-to-managed-cluster-stateless-node-type.md
+        - name: Configurer un type de nœud secondaire pour une grande mise à l’échelle sur un cluster managé
+          href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
         - name: Utiliser une identité managée pour les nœuds de clusters managés
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurer l''environnement de développement
@@ -828,6 +830,10 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Accorder l’accès à d’autres ressources Azure
           href: how-to-grant-access-other-resources.md
+    - name: Migrer votre cluster vers une nouvelle région
+      items:
+        - name: Guide pratique pour déplacer votre cluster Azure Service Fabric vers une nouvelle région
+          href: service-fabric-cluster-region-move.md
     - name: Migrer à partir de Services cloud
       items:
         - name: Comparer Services cloud et Service Fabric

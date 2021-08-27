@@ -6,36 +6,36 @@
       href: introduction.md
     - name: Mises à jour des plateformes
       href: azure-vmware-solution-platform-updates.md
-- name: Démarrage rapide
+- name: Bien démarrer
   items:
     - name: 1 - Planifier le déploiement
-      href: production-ready-deployment-steps.md
+      href: plan-private-cloud-deployment.md
     - name: 2 - Déployer Azure VMware Solution
       href: deploy-azure-vmware-solution.md
-    - name: 3 - Se connecter localement
+    - name: "3\_– Se connecter à un environnement local"
       href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 4 - Déployer et configurer VMware HCX
-      href: tutorial-deploy-vmware-hcx.md
+    - name: "4\_– Installer le connecteur VMware HCX"
+      href: install-vmware-hcx.md
+    - name: "5\_– Configurer le connecteur VMware HCX local"
+      href: configure-vmware-hcx.md
 - name: Didacticiels
   items:
-    - name: Accéder à un cloud privé
-      href: tutorial-access-private-cloud.md
-    - name: Configurer la mise en réseau
-      href: tutorial-configure-networking.md
-    - name: Créer un cloud privé
-      href: tutorial-create-private-cloud.md
-    - name: Créer un segment réseau
-      href: tutorial-nsx-t-network-segment.md
-    - name: Supprimer un cloud privé
-      href: tutorial-delete-private-cloud.md
-    - name: Déployer et configurer VMware HCX
-      href: tutorial-deploy-vmware-hcx.md
-    - name: Développer ou réduire les clusters dans un cloud privé
-      href: tutorial-scale-private-cloud.md
-    - name: Check-list pour la planification réseau
+    - name: 1 - Check-list pour la planification réseau
       href: tutorial-network-checklist.md
-    - name: Appairer un environnement local à un cloud privé
+    - name: 2 - Créer un cloud privé
+      href: tutorial-create-private-cloud.md
+    - name: 3 - Accéder à un cloud privé
+      href: tutorial-access-private-cloud.md
+    - name: 4 - Configurer les réseaux
+      href: tutorial-configure-networking.md
+    - name: 5 - Créer un segment réseau NSX-T
+      href: tutorial-nsx-t-network-segment.md
+    - name: 6 - Appairer un environnement local à un cloud privé
       href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: "7\_– Effectuer un scale-in de cloud privé"
+      href: tutorial-scale-private-cloud.md
+    - name: "8\_– Supprimer un cloud privé"
+      href: tutorial-delete-private-cloud.md
 - name: Concepts
   items:
     - name: Accès et identité
@@ -44,8 +44,6 @@
       href: concepts-api-management.md
     - name: Hub-and-spoke
       href: concepts-hub-and-spoke.md
-    - name: Surveillance et protection
-      href: concepts-monitor-protection.md
     - name: Réseau et interconnectivité
       href: concepts-networking.md
     - name: Clusters et clouds privés
@@ -60,6 +58,8 @@
       href: request-host-quota-azure-vmware-solution.md
     - name: Faire des économies avec une instance réservée
       href: reserved-instance.md
+    - name: Créer une stratégie de placement
+      href: create-placement-policy.md
     - name: Configurer la mise en réseau
       items:
         - name: Configurer le serveur ou le relais DHCP
@@ -70,18 +70,18 @@
           href: configure-dns-azure-vmware-solution.md
         - name: Configurer la mise en miroir des ports
           href: configure-port-mirroring-azure-vmware-solution.md
-        - name: Configurer GitHub Enterprise Server
-          href: ./configure-github-enterprise-server.md
         - name: Activer l’accès Internet public
           href: enable-public-internet-access.md
         - name: Configurer un réseau VPN de site à site dans un WAN virtuel
           href: configure-site-to-site-vpn-gateway.md
+    - name: Connecter plusieurs clouds privés dans la même région
+      href: connect-multiple-private-clouds-same-region.md
+    - name: Configurer GitHub Enterprise Server
+      href: configure-github-enterprise-server.md
     - name: Configurer le cluster de basculement Windows Server
       href: configure-windows-server-failover-cluster.md
     - name: Rotation des informations d’identification cloudadmin
       href: rotate-cloudadmin-credentials.md
-    - name: Connecter plusieurs clouds privés dans la même région
-      href: connect-multiple-private-clouds-same-region.md
     - name: Déplacer des ressources
       items:
         - name: Déplacer des abonnements Azure VMware Solution
@@ -163,7 +163,7 @@
     - name: Questions fréquentes (FAQ)
       items:
         - name: Général
-          href: /azure/azure-vmware/faq
+          href: ./faq.yml
         - name: Communication du client
           href: /azure/azure-vmware/faq#customer-communication
         - name: Configuration et installation

@@ -102,21 +102,21 @@
         - name: Envoyer et recevoir des messages
           href: iot-hub-devguide-messaging.md
           items:
+            - name: Créer et lire des messages IoT Hub
+              href: iot-hub-devguide-messages-construct.md
+            - name: Choisir un protocole de communication d’appareil
+              href: iot-hub-devguide-protocols.md
+            - name: Lire des messages appareil-à-cloud à partir du point de terminaison intégré
+              href: iot-hub-devguide-messages-read-builtin.md
             - name: Utiliser le routage de messages pour envoyer des messages appareil-à-cloud
               href: iot-hub-devguide-messages-d2c.md
               items:
-                - name: Créer et lire des messages IoT Hub
-                  href: iot-hub-devguide-messages-construct.md
-                - name: Lire des messages appareil-à-cloud à partir du point de terminaison intégré
-                  href: iot-hub-devguide-messages-read-builtin.md
                 - name: Utiliser des points de terminaison et des règles de routage personnalisés pour les messages appareil-à-cloud
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Ajouter des requêtes à des routes de messages
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: Envoyer des messages cloud-à-appareil à partir d’IoT Hub
               href: iot-hub-devguide-messages-c2d.md
-            - name: Choisir un protocole de communication
-              href: iot-hub-devguide-protocols.md
         - name: Réagir aux événements IoT Hub avec Event Grid
           href: iot-hub-event-grid.md
         - name: Charger des fichiers à partir d’un appareil
@@ -310,6 +310,8 @@
           href: iot-hub-ip-filtering.md
         - name: Gérer l’accès au réseau public
           href: iot-hub-public-network-access.md
+        - name: Limiter l’accès du trafic réseau sortant
+          href: iot-hub-restrict-outbound-network-access.md
         - name: Gestion automatique des appareils à grande échelle
           items:
             - name: Utiliser le portail Azure

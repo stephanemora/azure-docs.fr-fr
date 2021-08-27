@@ -817,6 +817,8 @@
               href: ./interactive-query/apache-hive-warehouse-connector-operations.md
             - name: Intégration de HWC avec Apache Zeppelin
               href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
+            - name: API prises en charge par HWC
+              href: ./interactive-query/hive-warehouse-connector-apis.md
             - name: Apache Hive avec Hadoop
               href: ./hadoop/hdinsight-use-hive.md
             - name: Utiliser la vue Apache Hive

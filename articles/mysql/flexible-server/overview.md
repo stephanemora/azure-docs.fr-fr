@@ -2,17 +2,17 @@
 title: Vue d’ensemble - Azure Database pour MySQL - Serveur flexible
 description: Découvrez Azure Database pour MySQL - Serveur flexible, un service de base de données relationnelle du cloud Microsoft qui repose sur MySQL Community Edition.
 author: savjani
-ms.service: mysql
 ms.author: pariks
+ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
-ms.date: 6/19/2021
-ms.openlocfilehash: b13dd8cb1965399d0d8ab19891a986fe2b585d4b
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.date: 08/10/2021
+ms.openlocfilehash: a215100ebc858d2f6f7e154ea81ed5e006d3d9a4
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403038"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252232"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -95,7 +95,7 @@ Pour plus d’informations, consultez [Concepts de calcul et de stockage](concep
 
 MySQL est l’un des moteurs de base de données couramment utilisés pour exécuter des applications web et mobiles à l’échelle d’Internet. La plupart de nos clients s’en servent pour leurs services de formation en ligne, services de diffusion vidéo, solutions de paiement numérique, plateformes de commerce électronique, services de jeux, portails d’actualité, administrations publiques et sites web de santé. Ces services sont requis à des fins de mise à l’échelle à mesure que le trafic sur l’application web ou mobile augmente.
 
-Du côté des applications, l’application est généralement développée en Java ou PHP et migrée pour s’exécuter sur des  [groupes de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/overview.md) , [Azure App Services](../../app-service/overview.md) ou en conteneur sur  [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). Avec un groupe de machines virtuelles identiques, App Service ou AKS en tant qu’infrastructure sous-jacente, la mise à l’échelle des applications est simplifiée grâce à l’approvisionnement instantané de nouvelles machines virtuelles et à la réplication des composants sans état des applications pour répondre aux demandes, mais souvent, la base de données finit par constituer un goulot d’étranglement comme composant avec état centralisé.
+Du côté des applications, l’application est généralement développée en Java ou PHP et migrée pour s’exécuter sur des  [groupes de machines virtuelles identiques Azure](../../virtual-machine-scale-sets/overview.md)  ou  [Azure App Services](../../app-service/overview.md) , ou est conteneurisée pour s’exécuter sur  [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). Avec un groupe de machines virtuelles identiques, App Service ou AKS en tant qu’infrastructure sous-jacente, la mise à l’échelle des applications est simplifiée grâce à l’approvisionnement instantané de nouvelles machines virtuelles et à la réplication des composants sans état des applications pour répondre aux demandes, mais souvent, la base de données finit par constituer un goulot d’étranglement comme composant avec état centralisé.
 
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur flexible Azure Database pour MySQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur source vers **dix réplicas au maximum**. Les réplicas sont mis à jour de manière asynchrone à l’aide de la [technologie de réplication selon la position du fichier journal binaire (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) native au moteur MySQL. Vous pouvez utiliser une solution de proxy d’équilibrage de charge comme [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) pour faire un scale-out transparent de la charge de travail de votre application vers des réplicas en lecture sans coût de refactorisation de l’application. 
 
@@ -160,7 +160,7 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | USA Centre | :heavy_check_mark: | :x: |
 | USA Est | :heavy_check_mark: | :heavy_check_mark: |
 | USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Centre | :heavy_check_mark: | :x:|
+| France Centre | :heavy_check_mark: | :heavy_check_mark:|
 | Allemagne Centre-Ouest | :heavy_check_mark: | :x: |
 | Japon Est | :heavy_check_mark: | :heavy_check_mark: |
 | Centre de la Corée | :heavy_check_mark: | :x: |
@@ -171,6 +171,11 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | USA Ouest | :heavy_check_mark: | :x: |
 | USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |
 | Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
+| Sud-Australie Est | :heavy_check_mark: | :x: |
+| Afrique du Sud Nord | :heavy_check_mark: | :x: |
+| Asie Est (Hong Kong, R.A.S.) | :heavy_check_mark: | :x: |
+| Inde centrale | :heavy_check_mark: | :x: |
+
 ## <a name="contacts"></a>Contacts
 
 Pour toute question ou suggestion au sujet du serveur flexible d’Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL ([@Ask Azure DB pour MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Cette adresse e-mail n’est pas un alias du support technique.
@@ -192,4 +197,4 @@ Maintenant que vous avez lu l'introduction au mode de déploiement Azure Databas
 
 - Générez votre première application à l’aide de votre langage préféré :
   - [Python](connect-python.md)
-  - [Php](connect-php.md)
+  - [PHP](connect-php.md)

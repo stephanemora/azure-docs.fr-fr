@@ -96,6 +96,8 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Dépannage
       items:
+        - name: Résoudre les problèmes liés aux modifications d’une stratégie
+          href: troubleshoot-policy-changes-audit-log.md
         - name: Résoudre les problèmes de connexion
           href: troubleshoot-conditional-access.md
         - name: Résoudre les problèmes avec l’outil What If

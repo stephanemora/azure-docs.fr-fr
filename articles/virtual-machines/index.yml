@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 11/05/2020
-  ms.openlocfilehash: 654684ac09a2ea3a11648559bff9ab9dfb556847
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: b432bbee09865ae89aabc281f514ec6330fbd42d
+  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104599967"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122697040"
 landingContent:
 - title: Dernières fonctionnalités
   linkLists:
@@ -28,7 +28,9 @@ landingContent:
     - text: Groupes de placements de proximité
       url: co-location.md
     - text: Modes d’orchestration des groupes de machines virtuelles identiques
-      url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
+      url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - text: Orchestration flexible pour des groupes de machines virtuelles identiques
+      url: flexible-virtual-machine-scale-sets.md
 - title: Démarrages rapides Linux
   linkLists:
   - linkListType: quickstart
@@ -85,3 +87,5 @@ landingContent:
       url: https://azure.microsoft.com/pricing/details/#Linux
     - text: Disponibilité régionale
       url: https://azure.microsoft.com/regions/services/
+    - text: Outil de sélection de machines virtuelles
+      url: https://aka.ms/vm-selector

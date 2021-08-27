@@ -205,11 +205,11 @@
           href: use-ultra-disks.md
         - name: Pilotes de stockage CSI
           items:
-            - name: Activer les pilotes de stockage CSI (préversion)
+            - name: Activer des pilotes de stockage CSI
               href: csi-storage-drivers.md
-            - name: Pilotes Azure Disk CSI (préversion)
+            - name: Pilote CSI Azure Disk
               href: azure-disk-csi.md
-            - name: Pilotes Azure Files CSI (préversion)
+            - name: Pilote CSI Azure Files
               href: azure-files-csi.md
     - name: Configurer la mise en réseau
       items:
@@ -223,7 +223,7 @@
           href: internal-lb.md
         - name: Utiliser un équilibreur de charge standard
           href: load-balancer-standard.md
-        - name: Utiliser une adresse IP statique
+        - name: Utiliser une adresse IP statique et une étiquette DNS
           href: static-ip.md
         - name: Entrée
           items:
@@ -299,13 +299,10 @@
           href: csi-secrets-store-driver.md
     - name: Surveillance et journalisation
       items:
-        - name: Consulter les métriques du cluster
-          href: view-metrics.md
-        - name: "Container\_Insights"
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: Afficher les journaux des composants de plan de contrôle
-          href: view-control-plane-logs.md
+        - name: Superviser AKS
+          href: monitor-aks.md
+        - name: Informations de référence sur Monitor
+          href: monitor-aks-reference.md
         - name: Afficher les journaux d’activité Kubelet
           href: kubelet-logs.md
         - name: Consulter les données d’un conteneur en temps réel
@@ -351,32 +348,12 @@
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true
-    - name: Sélectionner et déployer un maillage de service
+    - name: Déployer un maillage de services
       items:
         - name: À propos des maillages de service
           href: servicemesh-about.md
         - name: Module complémentaire Open Service Mesh AKS (préversion)
           href: servicemesh-osm-about.md
-        - name: Utiliser Istio
-          items:
-            - name: À propos d’Istio
-              href: servicemesh-istio-about.md
-            - name: Installation et configuration
-              href: servicemesh-istio-install.md
-            - name: Scénario - Routage intelligent et versions de contrôle de validité
-              href: servicemesh-istio-scenario-routing.md
-        - name: Utiliser Linkerd
-          items:
-            - name: À propos de Linkerd
-              href: servicemesh-linkerd-about.md
-            - name: Installation et configuration
-              href: servicemesh-linkerd-install.md
-        - name: Utiliser Consul
-          items:
-            - name: À propos de Consul
-              href: servicemesh-consul-about.md
-            - name: Installation et configuration
-              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Utiliser Ansible pour créer des clusters AKS

@@ -1,937 +1,943 @@
-- name: Documentation Data Factory
-  href: index.yml
-- name: Basculer vers la documentation de la version 1
-  href: v1/data-factory-introduction.md
-- name: Vue d’ensemble
-  items:
-    - name: Présentation de Data Factory
-      href: introduction.md
-    - name: Nouveautés dans Azure Data Factory
-      href: whats-new.md
-    - name: Comparer la version actuelle à la version 1
-      href: compare-versions.md
-      displayName: timeout
-- name: Démarrages rapides
-  expanded: true
-  items:
-    - name: Créer une fabrique de données - Interface utilisateur (IU)
-      href: quickstart-create-data-factory-portal.md
-    - name: Créer une fabrique de données - Outil Copier des données
-      href: quickstart-create-data-factory-copy-data-tool.md
-      displayName: timeout
-    - name: Créer une fabrique de données - Azure CLI
-      href: quickstart-create-data-factory-azure-cli.md
-    - name: Créer une fabrique de données - Azure PowerShell
-      href: quickstart-create-data-factory-powershell.md
-    - name: Créer une fabrique de données - .NET
-      href: quickstart-create-data-factory-dot-net.md
-    - name: Créer une fabrique de données - Python
-      href: quickstart-create-data-factory-python.md
-    - name: Créer une fabrique de données - REST
-      href: quickstart-create-data-factory-rest-api.md
-    - name: Créer une fabrique de données - Modèle ARM
-      displayName: Resource Manager
-      href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Créer un flux de données
-      href: data-flow-create.md
-- name: Tutoriels
-  items:
-    - name: Liste des tutoriels
-      href: data-factory-tutorials.md
-    - name: Copier et ingérer des données
-      items:
-        - name: De Stockage Blob Azure à Azure SQL Database
-          items:
-            - name: Outil de copie des données
-              href: tutorial-copy-data-tool.md
-            - name: Interface utilisateur (IU)
-              href: tutorial-copy-data-portal.md
-            - name: .NET
-              href: tutorial-copy-data-dot-net.md
-        - name: D’une base de données SQL Server au Stockage Blob Azure
-          items:
-            - name: Outil de copie des données
-              href: tutorial-hybrid-copy-data-tool.md
-            - name: Interface utilisateur (IU)
-              href: tutorial-hybrid-copy-portal.md
-            - name: Azure PowerShell
-              href: tutorial-hybrid-copy-powershell.md
-        - name: "D’Amazon Web Services\_S3 à Azure Data Lake Storage"
-          items:
-            - name: Azure Data Lake Storage Gen2
-              href: load-azure-data-lake-storage-gen2.md
-            - name: Azure Data Lake Storage Gen1
-              href: load-azure-data-lake-store.md
-        - name: D’Azure Data Lake Storage Gen1 à Azure Data Lake Storage Gen2
-          href: load-azure-data-lake-storage-gen2-from-gen1.md
-        - name: D’Azure SQL Database à Azure Synapse Analytics
-          href: load-azure-sql-data-warehouse.md
-          displayName: polybase
-        - name: De SAP BW à Azure Data Lake Storage Gen2
-          href: load-sap-bw-data.md
-        - name: "D’Office\_365 à Stockage Blob Azure"
-          href: load-office-365-data.md
-        - name: Plusieurs tables en bloc
-          items:
-            - name: Interface utilisateur (IU)
-              href: tutorial-bulk-copy-portal.md
-            - name: Azure PowerShell
-              href: tutorial-bulk-copy.md
-              displayName: polybase
-        - name: Chargement incrémentiel de données
-          href: tutorial-incremental-copy-overview.md
-          items:
-            - name: Depuis une table Azure SQL Database
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-incremental-copy-portal.md
-                - name: Azure PowerShell
-                  href: tutorial-incremental-copy-powershell.md
-            - name: À partir de plusieurs tables de base de données SQL Server
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-incremental-copy-multiple-tables-portal.md
-                - name: Azure PowerShell
-                  href: tutorial-incremental-copy-multiple-tables-powershell.md
-            - name: Utilisation des informations de suivi des modifications dans SQL Server
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-incremental-copy-change-tracking-feature-portal.md
-                - name: Azure PowerShell
-                  href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-            - name: Utilisation de CDC dans Azure SQL MI
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-incremental-copy-change-data-capture-feature-portal.md
-            - name: Nouveaux fichiers selon la date de dernière modification
-              href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
-            - name: Nouveaux fichiers selon le nom de fichier partitionné chronologiquement
-              href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-        - name: Générer un pipeline de copie à l’aide d’un réseau virtuel managé et de points de terminaison privés
-          href: tutorial-copy-data-portal-private.md
-    - name: Transformer les données
-      items:
-        - name: Transformer des données avec des flux de données de mappage
-          items:
-            - name: "Bonnes pratiques pour écrire des données dans le lac de données avec ADLS\_Gen2"
-              href: tutorial-data-flow-write-to-lake.md
-            - name: Définir des noms de colonnes de manière dynamique
-              href: tutorial-data-flow-dynamic-columns.md
-            - name: Transformer les données du lac avec Delta Lake
-              href: tutorial-data-flow-delta-lake.md
-            - name: Transformer des données avec des flux de données de mappage
-              href: tutorial-data-flow.md
-            - name: Tutoriels vidéo sur le flux de données de mappage
-              href: data-flow-tutorials.md
-        - name: Préparer les données avec wrangling
-          href: wrangling-tutorial.md
-        - name: Utilisation de services externes
-          items:
-            - name: HDInsight Spark
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-transform-data-spark-portal.md
-                - name: Azure PowerShell
-                  href: tutorial-transform-data-spark-powershell.md
-            - name: Databricks Notebook
-              items:
-                - name: Interface utilisateur (IU)
-                  href: transform-data-using-databricks-notebook.md
-            - name: Transformation Hive dans un réseau virtuel
-              items:
-                - name: Interface utilisateur (IU)
-                  href: tutorial-transform-data-hive-virtual-network-portal.md
-                - name: Azure PowerShell
-                  href: tutorial-transform-data-hive-virtual-network.md
-        - name: Générer un pipeline de dataflow de mappage à l’aide d’un réseau virtuel managé et de points de terminaison privés
-          href: tutorial-data-flow-private.md
-    - name: Flux de contrôle
-      items:
-        - name: Interface utilisateur (IU)
-          href: tutorial-control-flow-portal.md
-        - name: .NET
-          href: tutorial-control-flow.md
-    - name: "Exécuter des packages\_SSIS dans Azure"
-      items:
-        - name: Interface utilisateur (IU)
-          href: tutorial-deploy-ssis-packages-azure.md
-        - name: Azure PowerShell
-          href: tutorial-deploy-ssis-packages-azure-powershell.md
-        - name: Joindre un réseau virtuel
-          href: tutorial-deploy-ssis-virtual-network.md
-    - name: Traçabilité
-      items:
-        - name: Envoyer les données de traçabilité Data Factory à Azure Purview
-          href: turorial-push-lineage-to-purview.md
-    - name: Laboratoires de bout en bout
-      items:
-        - name: Intégration de données avec la fabrique de données et le partage de données
-          href: lab-data-flow-data-share.md
-    - name: Réseau virtuel managé
-      items:
-        - name: Accéder au serveur SQL Server local
-          href: tutorial-managed-virtual-network-on-premise-sql-server.md
-        - name: Accéder à SQL Managed Instance
-          href: tutorial-managed-virtual-network-sql-managed-instance.md
-- name: Exemples
-  items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
-    - name: Azure PowerShell
-      href: samples-powershell.md
-- name: Concepts
-  items:
-    - name: Pipelines et activités
-      href: concepts-pipelines-activities.md
-      displayName: 'retry, timeout'
-    - name: Services liés
-      href: concepts-linked-services.md
-    - name: Groupes de données
-      href: concepts-datasets-linked-services.md
-    - name: Exécution du pipeline et déclencheurs
-      href: concepts-pipeline-execution-triggers.md
-      displayName: retry
-    - name: Runtime d’intégration
-      href: concepts-integration-runtime.md
-    - name: Flux de données
-      items:
-        - name: Transformer des données avec des flux de données de mappage
-          items:
-            - name: Vue d’ensemble des flux de données de mappage
-              href: concepts-data-flow-overview.md
-            - name: Mode débogage
-              href: concepts-data-flow-debug-mode.md
-            - name: Dérive de schéma
-              href: concepts-data-flow-schema-drift.md
-            - name: Modèles de colonne
-              href: concepts-data-flow-column-pattern.md
-              displayName: 'regex, regular expressions'
-            - name: Supervision du flux de données
-              href: concepts-data-flow-monitoring.md
-            - name: Performances de flux de données
-              href: concepts-data-flow-performance.md
-              displayName: 'merge, timeout'
-            - name: Gérer un canevas de flux de données
-              href: concepts-data-flow-manage-graph.md
-            - name: Générateur d’expressions
-              href: concepts-data-flow-expression-builder.md
-              displayName: 'regex, regular expressions'
-            - name: Langage d’expression
-              href: data-flow-expression-functions.md
-              displayName: 'regex, regular expressions'
-        - name: Préparer les données avec le data wrangling Power Query
-          items:
-            - name: Vue d’ensemble du data wrangling
-              href: wrangling-overview.md
-            - name: Fonctions prises en charge
-              href: wrangling-functions.md
-    - name: Rôles et autorisations
-      href: concepts-roles-permissions.md
-    - name: Règles d’affectation des noms
-      href: naming-rules.md
-    - name: Redondance des données
-      href: concepts-data-redundancy.md
-- name: Guides pratiques
-  items:
-    - name: Auteur
-      items:
-        - name: Création visuelle de fabriques de données
-          href: author-visually.md
-        - name: Développement et débogage itératifs
-          href: iterative-development-debugging.md
-        - name: Hub de gestion
-          href: author-management-hub.md
-        - name: Contrôle de code source
-          href: source-control.md
-        - name: Intégration et livraison continues
-          href: continuous-integration-deployment.md
-        - name: Publication automatisée pour CI/CD
-          href: continuous-integration-deployment-improvements.md
-    - name: Connecteurs
-      items:
-        - name: Vue d’ensemble des connecteurs
-          href: connector-overview.md
-        - name: "Amazon\_Marketplace\_Web\_Service"
-          href: connector-amazon-marketplace-web-service.md
-        - name: Amazon Redshift
-          href: connector-amazon-redshift.md
-        - name: Amazon S3
-          href: connector-amazon-simple-storage-service.md
-        - name: "Stockage compatible Amazon\_S3"
-          href: connector-amazon-s3-compatible-storage.md
-        - name: "Format\_Avro"
-          href: format-avro.md
-        - name: Stockage Blob Azure
-          href: connector-azure-blob-storage.md
-          displayName: timeout
-        - name: Recherche cognitive Azure
-          href: connector-azure-search.md
-        - name: API SQL Azure Cosmos DB
-          href: connector-azure-cosmos-db.md
-        - name: API d’Azure Cosmos DB pour MongoDB
-          href: connector-azure-cosmos-db-mongodb-api.md
-        - name: Explorateur de données Azure
-          href: connector-azure-data-explorer.md
-        - name: Azure Data Lake Storage Gen1
-          href: connector-azure-data-lake-store.md
-        - name: Azure Data Lake Storage Gen2
-          href: connector-azure-data-lake-storage.md
-          displayName: timeout
-        - name: Azure Database for MariaDB
-          href: connector-azure-database-for-mariadb.md
-        - name: Azure Database pour MySQL
-          href: connector-azure-database-for-mysql.md
-        - name: Azure Database pour PostgreSQL
-          href: connector-azure-database-for-postgresql.md
-        - name: Azure Databricks Delta Lake
-          href: connector-azure-databricks-delta-lake.md
-        - name: Stockage Fichier Azure
-          href: connector-azure-file-storage.md
-        - name: Azure SQL Database
-          href: connector-azure-sql-database.md
-          displayName: upsert
-        - name: Azure SQL Managed Instance
-          href: connector-azure-sql-managed-instance.md
-          displayName: upsert
-        - name: Azure Synapse Analytics
-          href: connector-azure-sql-data-warehouse.md
-          displayName: polybase
-        - name: Stockage de table Azure
-          href: connector-azure-table-storage.md
-          displayName: timeout
-        - name: Format binaire
-          href: format-binary.md
-        - name: Cassandra
-          href: connector-cassandra.md
-        - name: Format Common Data Model
-          href: format-common-data-model.md
-        - name: Concur
-          href: connector-concur.md
-        - name: Couchbase
-          href: connector-couchbase.md
-        - name: DB2
-          href: connector-db2.md
-        - name: Dataverse
-          href: connector-dynamics-crm-office-365.md
-        - name: Format de texte délimité
-          href: format-delimited-text.md
-        - name: Format Delta
-          href: format-delta.md
-        - name: Drill
-          href: connector-drill.md
-        - name: "Dynamics\_365"
-          href: connector-dynamics-crm-office-365.md
-        - name: "Dynamics\_AX"
-          href: connector-dynamics-ax.md
-          displayName: timeout
-        - name: "Dynamics\_CRM"
-          href: connector-dynamics-crm-office-365.md
-        - name: Format Excel
-          href: format-excel.md
-        - name: Système de fichiers
-          href: connector-file-system.md
-        - name: FTP
-          href: connector-ftp.md
-        - name: GitHub
-          href: connector-github.md
-        - name: Google AdWords
-          href: connector-google-adwords.md
-        - name: "Google\_BigQuery"
-          href: connector-google-bigquery.md
-        - name: Google Cloud Storage
-          href: connector-google-cloud-storage.md
-        - name: Greenplum
-          href: connector-greenplum.md
-        - name: hbase
-          href: connector-hbase.md
-        - name: HDFS
-          href: connector-hdfs.md
-        - name: Hive
-          href: connector-hive.md
-        - name: HTTP
-          href: connector-http.md
-          displayName: timeout
-        - name: HubSpot
-          href: connector-hubspot.md
-        - name: Impala
-          href: connector-impala.md
-        - name: Informix
-          href: connector-informix.md
-        - name: Jira
-          href: connector-jira.md
-        - name: Format JSON
-          href: format-json.md
-        - name: Magento
-          href: connector-magento.md
-        - name: MariaDB
-          href: connector-mariadb.md
-        - name: Marketo
-          href: connector-marketo.md
-        - name: Microsoft Access
-          href: connector-microsoft-access.md
-        - name: MongoDB
-          href: connector-mongodb.md
-          items:
-            - name: MongoDB (hérité)
-              href: connector-mongodb-legacy.md
-        - name: MongoDB Atlas
-          href: connector-mongodb-atlas.md
-        - name: MySQL
-          href: connector-mysql.md
-        - name: Netezza
-          href: connector-netezza.md
-        - name: OData
-          href: connector-odata.md
-          displayName: timeout
-        - name: ODBC
-          href: connector-odbc.md
-        - name: "Office\_365"
-          href: connector-office-365.md
-        - name: Oracle
-          href: connector-oracle.md
-        - name: Oracle Cloud Storage
-          href: connector-oracle-cloud-storage.md
-        - name: "Oracle\_Eloqua"
-          href: connector-oracle-eloqua.md
-        - name: Oracle Responsys
-          href: connector-oracle-responsys.md
-        - name: Oracle Service Cloud
-          href: connector-oracle-service-cloud.md
-        - name: "Format\_ORC"
-          href: format-orc.md
-        - name: "Format\_Parquet"
-          href: format-parquet.md
-        - name: PayPal
-          href: connector-paypal.md
-        - name: Phoenix
-          href: connector-phoenix.md
-        - name: PostgreSQL
-          href: connector-postgresql.md
-        - name: Presto
-          href: connector-presto.md
-        - name: QuickBooks Online
-          href: connector-quickbooks.md
-        - name: REST
-          href: connector-rest.md
-          displayName: timeout
-        - name: Salesforce
-          href: connector-salesforce.md
-        - name: Salesforce Service Cloud
-          href: connector-salesforce-service-cloud.md
-        - name: Salesforce Marketing Cloud
-          href: connector-salesforce-marketing-cloud.md
-        - name: SAP Business Warehouse Open Hub
-          href: connector-sap-business-warehouse-open-hub.md
-          items:
-            - name: Charger des données SAP BW
-              href: load-sap-bw-data.md
-        - name: SAP Business Warehouse MDX
-          href: connector-sap-business-warehouse.md
-        - name: SAP Cloud pour le client
-          href: connector-sap-cloud-for-customer.md
-          displayName: timeout
-        - name: SAP ECC
-          href: connector-sap-ecc.md
-          displayName: timeout
-        - name: SAP HANA
-          href: connector-sap-hana.md
-        - name: SAP Table
-          href: connector-sap-table.md
-        - name: ServiceNow
-          href: connector-servicenow.md
-        - name: SFTP
-          href: connector-sftp.md
-        - name: Liste SharePoint Online
-          href: connector-sharepoint-online-list.md
-          displayName: timeout
-        - name: Shopify
-          href: connector-shopify.md
-        - name: Snowflake
-          href: connector-snowflake.md
-        - name: Spark
-          href: connector-spark.md
-        - name: SQL Server
-          href: connector-sql-server.md
-          displayName: 'upsert, timeout'
-        - name: Carré
-          href: connector-square.md
-        - name: Sybase
-          href: connector-sybase.md
-        - name: Teradata
-          href: connector-teradata.md
-        - name: Vertica
-          href: connector-vertica.md
-        - name: Table web
-          href: connector-web-table.md
-        - name: Xero
-          href: connector-xero.md
-        - name: Format XML
-          href: format-xml.md
-        - name: Zoho
-          href: connector-zoho.md
-    - name: Transfert de données
-      items:
-        - name: Copier des données à l’aide de l’activité de copie
-          href: copy-activity-overview.md
-          displayName: 'retry, zip'
-        - name: Superviser une activité de copie
-          href: copy-activity-monitoring.md
-        - name: Supprimer des fichiers à l’aide de l’activité de suppression
-          href: delete-activity.md
-        - name: Outil de copie des données
-          href: copy-data-tool.md
-        - name: Copie de données pilotée par les métadonnées
-          href: copy-data-tool-metadata-driven.md
-        - name: Prise en charge du format et de la compression
-          href: supported-file-formats-and-compression-codecs.md
-          displayName: zip
-        - name: Performances de l’activité de copie
-          items:
-            - name: Guide des performances et de la scalabilité
-              href: copy-activity-performance.md
-            - name: Résoudre les problèmes de performances
-              href: copy-activity-performance-troubleshooting.md
-              displayName: 'diu, timeout'
-            - name: Fonctionnalités de performances
-              href: copy-activity-performance-features.md
-              displayName: 'polybase, diu'
-        - name: Conserver les métadonnées et les listes ACL
-          href: copy-activity-preserve-metadata.md
-        - name: Mappage du schéma et du type
-          href: copy-activity-schema-and-type-mapping.md
-        - name: Tolérance de panne
-          href: copy-activity-fault-tolerance.md
-          displayName: polybase
-        - name: Vérification de la cohérence des données
-          href: copy-activity-data-consistency.md
-        - name: Journal d’activité de copie
-          href: copy-activity-log.md
-        - name: Prise en charge du format et de la compression (héritée)
-          href: supported-file-formats-and-compression-codecs-legacy.md
-          displayName: zip
-    - name: Transformer les données
-      href: transform-data.md
-      items:
-        - name: Exécuter une activité de flux de données
-          href: control-flow-execute-data-flow-activity.md
-          displayName: polybase
-        - name: Exécuter une activité Power Query
-          href: control-flow-power-query-activity.md
-        - name: Activité de fonction Azure
-          href: control-flow-azure-function-activity.md
-          displayName: timeout
-        - name: Activité personnalisée
-          href: transform-data-using-dotnet-custom-activity.md
-        - name: Activité Databricks Jar
-          href: transform-data-databricks-jar.md
-        - name: Activité Databricks Notebook
-          href: transform-data-databricks-notebook.md
-        - name: Activité Databricks Python
-          href: transform-data-databricks-python.md
-        - name: Activité de commande Data Explorer
-          href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
-        - name: Activité Data Lake U-SQL
-          href: transform-data-using-data-lake-analytics.md
-        - name: Activité Hive HDInsight
-          href: transform-data-using-hadoop-hive.md
-          displayName: timeout
-        - name: Activité MapReduce HDInsight
-          href: transform-data-using-hadoop-map-reduce.md
-        - name: Activité Pig HDInsight
-          href: transform-data-using-hadoop-pig.md
-        - name: Activité HDInsight Spark
-          href: transform-data-using-spark.md
-        - name: Activité de diffusion en continu HDInsight
-          href: transform-data-using-hadoop-streaming.md
-        - name: Activité d’exécution des pipelines Machine Learning
-          href: transform-data-machine-learning-service.md
-        - name: Activité d’exécution par lot Machine Learning Studio (classique)
-          href: transform-data-using-machine-learning.md
-        - name: Activité de ressource de mise à jour Machine Learning Studio (classique)
-          href: update-machine-learning-models.md
-        - name: Activité de procédure stockée
-          href: transform-data-using-stored-procedure.md
-        - name: Services liés de calcul
-          href: compute-linked-services.md
-    - name: Flux de contrôle
-      items:
-        - name: Activité d’ajout de variable
-          href: control-flow-append-variable-activity.md
-        - name: Activité d’exécution du pipeline
-          href: control-flow-execute-pipeline-activity.md
-        - name: Activité de filtre
-          href: control-flow-filter-activity.md
-        - name: Activité For Each
-          href: control-flow-for-each-activity.md
-        - name: Activité d’obtention des métadonnées
-          href: control-flow-get-metadata-activity.md
-        - name: Activité IfCondition
-          href: control-flow-if-condition-activity.md
-        - name: Activité de recherche
-          href: control-flow-lookup-activity.md
-          displayName: timeout
-        - name: Activité de définition de variable
-          href: control-flow-set-variable-activity.md
-        - name: Activité Switch
-          href: control-flow-switch-activity.md
-        - name: Activité Until
-          href: control-flow-until-activity.md
-          displayName: timeout
-        - name: Activité de validation
-          href: control-flow-validation-activity.md
-          displayName: timeout
-        - name: Activité d’attente
-          href: control-flow-wait-activity.md
-        - name: Activité web
-          href: control-flow-web-activity.md
-          displayName: timeout
-        - name: Activité de webhook
-          href: control-flow-webhook-activity.md
-          displayName: timeout
-    - name: Transformations de flux de données
-      items:
-        - name: Vue d’ensemble des transformations
-          href: data-flow-transformation-overview.md
-        - name: Agrégat
-          href: data-flow-aggregate.md
-        - name: Ligne Alter
-          href: data-flow-alter-row.md
-          displayName: upsert
-        - name: Fractionnement conditionnel
-          href: data-flow-conditional-split.md
-        - name: Colonne dérivée
-          href: data-flow-derived-column.md
-        - name: Exists
-          href: data-flow-exists.md
-          displayName: timeout
-        - name: Filtrer
-          href: data-flow-filter.md
-        - name: Aplatir
-          href: data-flow-flatten.md
-        - name: Join
-          href: data-flow-join.md
-          displayName: 'merge, timeout'
-        - name: Recherche
-          href: data-flow-lookup.md
-          displayName: timeout
-        - name: Nouvelle branche
-          href: data-flow-new-branch.md
-        - name: Analyser
-          href: data-flow-parse.md
-        - name: Tableau croisé dynamique
-          href: data-flow-pivot.md
-        - name: Rank
-          href: data-flow-rank.md
-        - name: Sélectionnez
-          href: data-flow-select.md
-          displayName: 'regex, regular expressions'
-        - name: Récepteur
-          href: data-flow-sink.md
-        - name: Trier
-          href: data-flow-sort.md
-        - name: Source
-          href: data-flow-source.md
-        - name: Clé de substitution
-          href: data-flow-surrogate-key.md
-        - name: Union
-          href: data-flow-union.md
-        - name: Supprimer le tableau croisé dynamique
-          href: data-flow-unpivot.md
-        - name: Fenêtre
-          href: data-flow-window.md
-    - name: Paramétrable
-      items:
-        - name: Paramétrage des services liés
-          href: parameterize-linked-services.md
-        - name: Paramètres globaux
-          href: author-global-parameters.md
-        - name: Langage d’expression
-          href: control-flow-expression-language-functions.md
-          displayName: 'formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content'
-        - name: Variables système
-          href: control-flow-system-variables.md
-        - name: Paramétrage de flux de données de mappage
-          href: parameters-data-flow.md
-        - name: Comment paramétriser
-          href: how-to-expression-language-functions.md
-          displayName: 'formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content, user properties'
-    - name: Sécurité
-      items:
-        - name: Considérations relatives à la sécurité des déplacements de données
-          href: data-movement-security-considerations.md
-        - name: Stratégies d’accès aux données
-          href: data-access-strategies.md
-        - name: "Adresses\_IP du runtime d’intégration Azure"
-          href: azure-integration-runtime-ip-addresses.md
-        - name: Informations d’identification dans Azure Key Vault
-          href: store-credentials-in-key-vault.md
-        - name: Utiliser des secrets Azure Key Vault dans les activités de pipeline
-          href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
-        - name: Chiffrer des informations d’identification pour le runtime d’intégration auto-hébergé
-          href: encrypt-credentials-self-hosted-integration-runtime.md
-          displayName: self hosted
-        - name: Identité managée pour Data Factory
-          href: data-factory-service-identity.md
-        - name: Chiffrer une fabrique de données avec une clé gérée par le client
-          href: enable-customer-managed-key.md
-        - name: Réseau virtuel managé
-          href: managed-virtual-network-private-endpoint.md
-        - name: Azure Private Link pour Data Factory
-          href: data-factory-private-link.md
-        - name: Base de référence de sécurité Azure
-          href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
-    - name: Surveillance et gestion
-      items:
-        - name: Surveiller visuellement
-          href: monitor-visually.md
-        - name: Surveiller avec Azure Monitor
-          href: monitor-using-azure-monitor.md
-        - name: Surveiller SSIS avec Azure Monitor
-          href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
-        - name: Surveiller avec les Kits de développement logiciel (SDK)
-          href: monitor-programmatically.md
-        - name: Surveiller le runtime d’intégration
-          href: monitor-integration-runtime.md
-        - name: Surveiller le runtime d’intégration Azure-SSIS
-          href: monitor-integration-runtime.md#azure-ssis-integration-runtime
-        - name: Reconfigurer le runtime d’intégration Azure-SSIS
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Copier ou cloner une fabrique de données
-          href: copy-clone-data-factory.md
-    - name: Créer un runtime d’intégration
-      items:
-        - name: Runtime d’intégration Azure
-          href: create-azure-integration-runtime.md
-        - name: Runtime d’intégration auto-hébergé
-          items:
-            - name: Créer et configurer un runtime d’intégration auto-hébergé
-              href: create-self-hosted-integration-runtime.md
-              displayName: self hosted
-            - name: Notification de mise à jour automatique et d’expiration du runtime d’intégration auto-hébergé
-              href: self-hosted-integration-runtime-auto-update.md
-              displayName: self hosted
-            - name: Runtime d’intégration auto-hébergé partagé
-              href: create-shared-self-hosted-integration-runtime-powershell.md
-              displayName: self hosted
-            - name: Scripts Automation du runtime d’intégration auto-hébergé
-              href: self-hosted-integration-runtime-automation-scripts.md
-              displayName: self hosted
-            - name: Exécuter le runtime d’intégration auto-hébergé dans un conteneur Windows
-              href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
-              displayName: self hosted
-          displayName: 'self hosted, runtime'
-        - name: "Runtime d’intégration Azure\_SSIS"
-          href: create-azure-ssis-integration-runtime.md
-    - name: "Exécuter des packages\_SSIS dans Azure"
-      items:
-        - name: "Exécuter des packages\_SSIS dans Azure à partir de SSDT"
-          href: how-to-invoke-ssis-package-ssdt.md
-        - name: Exécuter des packages SSIS avec l’agent Azure SQL Managed Instance
-          href: how-to-invoke-ssis-package-managed-instance-agent.md
-        - name: Exécuter des packages SSIS avec dtexec compatible Azure
-          href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
-        - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS
-          href: how-to-invoke-ssis-package-ssis-activity.md
-          displayName: 'retry, timeout'
-        - name: Exécuter des packages SSIS avec l’activité de procédure stockée
-          href: how-to-invoke-ssis-package-stored-procedure-activity.md
-        - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
-          href: how-to-schedule-azure-ssis-integration-runtime.md
-        - name: Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Configurer l’IR auto-hébergé comme proxy pour Azure-SSIS IR
-          href: self-hosted-integration-runtime-proxy-ssis.md
-          displayName: self hosted
-        - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Se connecter aux données avec l’authentification Windows
-          href: ssis-azure-connect-with-windows-auth.md
-        - name: Enregistrer les fichiers et se connecter aux partages de fichiers
-          href: ssis-azure-files-file-shares.md
-        - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Composants intégrés et préinstallés sur Azure-SSIS IR
-          href: built-in-preinstalled-components-ssis-integration-runtime.md
-        - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-          displayName: timeout
-        - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: Configurer une haute performance pour le runtime d’intégration (IR) Azure-SSIS
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Configurer la récupération d’urgence pour les runtimes d’intégration Azure-SSIS
-          href: configure-bcdr-azure-ssis-integration-runtime.md
-        - name: Nettoyer les journaux SSISDB automatiquement
-          href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: Utiliser Azure SQL Managed Instance avec Azure-SSIS IR
-          href: how-to-use-sql-managed-instance-with-ir.md
-        - name: Migrer les travaux SSIS avec SSMS
-          href: how-to-migrate-ssis-job-ssms.md
-        - name: Gérer les packages avec le magasin de packages Azure-SSIS IR
-          href: azure-ssis-integration-runtime-package-store.md
-    - name: Créer des déclencheurs
-      items:
-        - name: Créer un déclencheur de planification
-          href: how-to-create-schedule-trigger.md
-        - name: Créer un déclencheur de fenêtre bascule
-          href: how-to-create-tumbling-window-trigger.md
-          displayName: retry
-        - name: Créer une dépendance de déclencheur de fenêtre bascule
-          href: tumbling-window-trigger-dependency.md
-        - name: Créer un déclencheur d’événements de stockage
-          href: how-to-create-event-trigger.md
-        - name: Créer un déclencheur d’événements personnalisé
-          href: how-to-create-custom-event-trigger.md
-        - name: Référencer des métadonnées de déclencheur dans un pipeline
-          href: how-to-use-trigger-parameterization.md
-    - name: Catalogue de données et gouvernance
-      items:
-        - name: Connecter une fabrique de données à Azure Purview
-          href: connect-data-factory-to-azure-purview.md
-        - name: Découvrir et explorer des données dans ADF avec Purview
-          href: how-to-discover-explore-purview-data.md
-    - name: Scénarios
-      items:
-        - name: Migration des données pour Data Lake et EDW
-          items:
-            - name: Pourquoi Azure Data Factory
-              href: data-migration-guidance-overview.md
-            - name: Migrer des données d’AWS S3 vers Azure
-              href: data-migration-guidance-s3-azure-storage.md
-            - name: Migrer des données du cluster Hadoop local vers Azure
-              href: data-migration-guidance-hdfs-azure-storage.md
-              displayName: retry
-            - name: Migrer des données du serveur Netezza local vers Azure
-              href: data-migration-guidance-netezza-azure-sqldw.md
-        - name: Azure Machine Learning
-          items:
-            - name: Ingestion de données
-              href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
-        - name: Transformation en utilisant un flux de données de mappage
-          items:
-            - name: Traiter des fichiers texte à largeur fixe
-              href: how-to-fixed-width.md
-            - name: Gestion des lignes d’erreur
-              href: how-to-data-flow-error-rows.md
-            - name: Azure SQL DB vers Azure Cosmos DB
-              href: how-to-sqldb-to-cosmosdb.md
-            - name: Recherche de déduplication et de valeurs null avec des extraits de code
-              href: how-to-data-flow-dedupe-nulls-snippets.md
-            - name: Traiter les données de modèles AML avec un flux de données
-              href: scenario-dataflow-process-data-aml-models.md
-        - name: Migration SSIS à partir d’un environnement local
-          items:
-            - name: Vue d’ensemble de la migration SSIS
-              href: scenario-ssis-migration-overview.md
-            - name: Migration de SSISDB vers Azure SQL Managed Instance
-              href: scenario-ssis-migration-ssisdb-mi.md
-    - name: Modèles
-      items:
-        - name: Présentation des modèles
-          href: solution-templates-introduction.md
-        - name: Copie de fichiers à partir de plusieurs conteneurs
-          href: solution-template-copy-files-multiple-containers.md
-        - name: Copier les nouveaux fichiers par date de dernière modification
-          href: solution-template-copy-new-files-lastmodifieddate.md
-        - name: Copie en bloc depuis une base de données
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: Copie en bloc de fichiers dans une base de données
-          href: solution-template-bulk-copy-from-files-to-database.md
-        - name: Copie delta depuis une base de données
-          href: solution-template-delta-copy-with-control-table.md
-        - name: Migrer des données d’Amazon S3 vers Stockage Azure
-          href: solution-template-migration-s3-azure.md
-        - name: Déplacer des fichiers
-          href: solution-template-move-files.md
-        - name: Transformation avec Azure Databricks
-          href: solution-template-databricks-notebook.md
-    - name: Compréhension de la tarification
-      items:
-        - name: Vue d’ensemble de la capacité réservée de flux de données
-          href: data-flow-reserved-capacity-overview.md
-        - name: Comprendre les frais de réservation de flux de données
-          href: data-flow-understand-reservation-charges.md
-        - name: Prévoir et gérer les coûts
-          href: plan-manage-costs.md
-          displayName: diu
-        - name: Exemples de tarification
-          href: pricing-concepts.md
-          displayName: diu
-    - name: Guides de résolution des problèmes
-      items:
-        - name: Expérience utilisateur Data Factory
-          href: data-factory-ux-troubleshoot-guide.md
-        - name: Activités
-          href: data-factory-troubleshoot-guide.md
-          displayName: timeout
-        - name: Connecteurs
-          href: connector-troubleshoot-guide.md
-          displayName: 'polybase, timeout'
-        - name: Déclencheurs de pipeline
-          href: pipeline-trigger-troubleshoot-guide.md
-        - name: Flux de données
-          items:
-            - name: Vue d’ensemble des flux de données
-              href: data-flow-troubleshoot-guide.md
-              displayName: timeout
-            - name: Connecteur et format
-              href: data-flow-troubleshoot-connector-format.md
-        - name: Intégration et déploiement continus
-          href: ci-cd-github-troubleshoot-guide.md
-        - name: Sécurité et contrôle d'accès
-          href: security-and-access-control-troubleshoot-guide.md
-        - name: Runtimes d’intégration auto-hébergés
-          href: self-hosted-integration-runtime-troubleshoot-guide.md
-          displayName: self hosted
-        - name: Runtime d’intégration Azure SSIS
-          href: ssis-integration-runtime-management-troubleshoot.md
-          displayName: timeout
-        - name: Exécution de packages dans Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.yml
-          displayName: 'retry, timeout'
-        - name: Diagnostiquer la connectivité dans Azure-SSIS IR
-          href: ssis-integration-runtime-diagnose-connectivity-faq.md
-          displayName: timeout
-- name: Informations de référence
-  items:
-    - name: Script de flux de données
-      href: data-flow-script.md
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.datafactory
-    - name: PowerShell
-      href: /powershell/module/az.datafactory/
-    - name: API REST
-      href: /rest/api/datafactory
-    - name: Modèle Resource Manager
-      href: /azure/templates/microsoft.datafactory/allversions
-    - name: Python
-      href: /python/api/overview/azure/datafactory
-    - name: Éléments intégrés Azure Policy
-      href: policy-reference.md
-    - name: Azure CLI
-      href: /cli/azure/datafactory
-- name: Ressources
-  items:
-    - name: Livres blancs
-      href: whitepapers.md
-    - name: Questions fréquentes (FAQ)
-      href: frequently-asked-questions.yml
-      displayName: timeout
-    - name: Mises à jour de service
-      href: 'https://azure.microsoft.com/updates/?product=data-factory'
-    - name: Blog
-      href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
-    - name: Poser une question - Page de questions Microsoft Q&A
-      href: /answers/topics/azure-data-factory.html
-    - name: Poser une question - Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
-    - name: Demander une fonctionnalité
-      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Disponibilité par région
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Options de support
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Limites
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+items:
+  - name: Documentation Data Factory
+    href: index.yml
+  - name: Basculer vers la documentation de la version 1
+    href: v1/data-factory-introduction.md
+  - name: Vue d’ensemble
+    items:
+      - name: Présentation de Data Factory
+        href: introduction.md
+      - name: Nouveautés d’Azure Data Factory
+        href: whats-new.md
+      - name: Comparer la version actuelle à la version 1
+        href: compare-versions.md
+        displayName: timeout
+  - name: Démarrages rapides
+    expanded: true
+    items:
+      - name: Créer une fabrique de données - Interface utilisateur (IU)
+        href: quickstart-create-data-factory-portal.md
+      - name: Créer une fabrique de données - Outil Copier des données
+        href: quickstart-create-data-factory-copy-data-tool.md
+        displayName: timeout
+      - name: Créer une fabrique de données - Azure CLI
+        href: quickstart-create-data-factory-azure-cli.md
+      - name: Créer une fabrique de données - Azure PowerShell
+        href: quickstart-create-data-factory-powershell.md
+      - name: Créer une fabrique de données - .NET
+        href: quickstart-create-data-factory-dot-net.md
+      - name: Créer une fabrique de données - Python
+        href: quickstart-create-data-factory-python.md
+      - name: Créer une fabrique de données - REST
+        href: quickstart-create-data-factory-rest-api.md
+      - name: Créer une fabrique de données - Modèle ARM
+        displayName: Resource Manager
+        href: quickstart-create-data-factory-resource-manager-template.md
+      - name: Créer un flux de données
+        href: data-flow-create.md
+  - name: Tutoriels
+    items:
+      - name: Liste des tutoriels
+        href: data-factory-tutorials.md
+      - name: Copier et ingérer des données
+        items:
+          - name: De Stockage Blob Azure à Azure SQL Database
+            items:
+              - name: Outil de copie des données
+                href: tutorial-copy-data-tool.md
+              - name: Interface utilisateur (IU)
+                href: tutorial-copy-data-portal.md
+              - name: .NET
+                href: tutorial-copy-data-dot-net.md
+          - name: D’une base de données SQL Server au Stockage Blob Azure
+            items:
+              - name: Outil de copie des données
+                href: tutorial-hybrid-copy-data-tool.md
+              - name: Interface utilisateur (IU)
+                href: tutorial-hybrid-copy-portal.md
+              - name: Azure PowerShell
+                href: tutorial-hybrid-copy-powershell.md
+          - name: "D’Amazon Web Services\_S3 à Azure Data Lake Storage"
+            items:
+              - name: Azure Data Lake Storage Gen2
+                href: load-azure-data-lake-storage-gen2.md
+              - name: Azure Data Lake Storage Gen1
+                href: load-azure-data-lake-store.md
+          - name: D’Azure Data Lake Storage Gen1 à Azure Data Lake Storage Gen2
+            href: load-azure-data-lake-storage-gen2-from-gen1.md
+          - name: D’Azure SQL Database à Azure Synapse Analytics
+            href: load-azure-sql-data-warehouse.md
+            displayName: polybase
+          - name: De SAP BW à Azure Data Lake Storage Gen2
+            href: load-sap-bw-data.md
+          - name: "D’Office\_365 à Stockage Blob Azure"
+            href: load-office-365-data.md
+          - name: Plusieurs tables en bloc
+            items:
+              - name: Interface utilisateur (IU)
+                href: tutorial-bulk-copy-portal.md
+              - name: Azure PowerShell
+                href: tutorial-bulk-copy.md
+                displayName: polybase
+          - name: Chargement incrémentiel de données
+            href: tutorial-incremental-copy-overview.md
+            items:
+              - name: Depuis une table Azure SQL Database
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-incremental-copy-portal.md
+                  - name: Azure PowerShell
+                    href: tutorial-incremental-copy-powershell.md
+              - name: À partir de plusieurs tables de base de données SQL Server
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-incremental-copy-multiple-tables-portal.md
+                  - name: Azure PowerShell
+                    href: tutorial-incremental-copy-multiple-tables-powershell.md
+              - name: Utilisation des informations de suivi des modifications dans SQL Server
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-incremental-copy-change-tracking-feature-portal.md
+                  - name: Azure PowerShell
+                    href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+              - name: Utilisation de CDC dans Azure SQL MI
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-incremental-copy-change-data-capture-feature-portal.md
+              - name: Nouveaux fichiers selon la date de dernière modification
+                href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+              - name: Nouveaux fichiers selon le nom de fichier partitionné chronologiquement
+                href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+          - name: Générer un pipeline de copie à l’aide d’un réseau virtuel managé et de points de terminaison privés
+            href: tutorial-copy-data-portal-private.md
+      - name: Transformer les données
+        items:
+          - name: Transformer des données avec des flux de données de mappage
+            items:
+              - name: "Bonnes pratiques pour écrire des données dans le lac de données avec ADLS\_Gen2"
+                href: tutorial-data-flow-write-to-lake.md
+              - name: Définir des noms de colonnes de manière dynamique
+                href: tutorial-data-flow-dynamic-columns.md
+              - name: Transformer les données du lac avec Delta Lake
+                href: tutorial-data-flow-delta-lake.md
+              - name: Transformer des données avec des flux de données de mappage
+                href: tutorial-data-flow.md
+              - name: Tutoriels vidéo sur le flux de données de mappage
+                href: data-flow-tutorials.md
+          - name: Préparer les données avec wrangling
+            href: wrangling-tutorial.md
+          - name: Utilisation de services externes
+            items:
+              - name: HDInsight Spark
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-transform-data-spark-portal.md
+                  - name: Azure PowerShell
+                    href: tutorial-transform-data-spark-powershell.md
+              - name: Databricks Notebook
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: transform-data-using-databricks-notebook.md
+              - name: Transformation Hive dans un réseau virtuel
+                items:
+                  - name: Interface utilisateur (IU)
+                    href: tutorial-transform-data-hive-virtual-network-portal.md
+                  - name: Azure PowerShell
+                    href: tutorial-transform-data-hive-virtual-network.md
+          - name: Générer un pipeline de dataflow de mappage à l’aide d’un réseau virtuel managé et de points de terminaison privés
+            href: tutorial-data-flow-private.md
+      - name: Flux de contrôle
+        items:
+          - name: Interface utilisateur (IU)
+            href: tutorial-control-flow-portal.md
+          - name: .NET
+            href: tutorial-control-flow.md
+      - name: "Exécuter des packages\_SSIS dans Azure"
+        items:
+          - name: Interface utilisateur (IU)
+            href: tutorial-deploy-ssis-packages-azure.md
+          - name: Azure PowerShell
+            href: tutorial-deploy-ssis-packages-azure-powershell.md
+          - name: Joindre un réseau virtuel
+            href: tutorial-deploy-ssis-virtual-network.md
+      - name: Traçabilité
+        items:
+          - name: Envoyer les données de traçabilité Data Factory à Azure Purview
+            href: tutorial-push-lineage-to-purview.md
+      - name: Laboratoires de bout en bout
+        items:
+          - name: Intégration de données avec la fabrique de données et le partage de données
+            href: lab-data-flow-data-share.md
+      - name: Réseau virtuel managé
+        items:
+          - name: Accéder au serveur SQL Server local
+            href: tutorial-managed-virtual-network-on-premise-sql-server.md
+          - name: Accéder à SQL Managed Instance
+            href: tutorial-managed-virtual-network-sql-managed-instance.md
+  - name: Exemples
+    items:
+      - name: Exemples de code
+        href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
+      - name: Azure PowerShell
+        href: samples-powershell.md
+  - name: Concepts
+    items:
+      - name: Pipelines et activités
+        href: concepts-pipelines-activities.md
+        displayName: 'retry, timeout'
+      - name: Services liés
+        href: concepts-linked-services.md
+      - name: Groupes de données
+        href: concepts-datasets-linked-services.md
+      - name: Exécution du pipeline et déclencheurs
+        href: concepts-pipeline-execution-triggers.md
+        displayName: retry
+      - name: Runtime d’intégration
+        href: concepts-integration-runtime.md
+      - name: Flux de données
+        items:
+          - name: Transformer des données avec des flux de données de mappage
+            items:
+              - name: Vue d’ensemble des flux de données de mappage
+                href: concepts-data-flow-overview.md
+              - name: Mode débogage
+                href: concepts-data-flow-debug-mode.md
+              - name: Dérive de schéma
+                href: concepts-data-flow-schema-drift.md
+              - name: Modèles de colonne
+                href: concepts-data-flow-column-pattern.md
+                displayName: 'regex, regular expressions'
+              - name: Supervision du flux de données
+                href: concepts-data-flow-monitoring.md
+              - name: Performances de flux de données
+                href: concepts-data-flow-performance.md
+                displayName: 'merge, timeout'
+              - name: Gérer un canevas de flux de données
+                href: concepts-data-flow-manage-graph.md
+              - name: Générateur d’expressions
+                href: concepts-data-flow-expression-builder.md
+                displayName: 'regex, regular expressions'
+              - name: Langage d’expression
+                href: data-flow-expression-functions.md
+                displayName: 'regex, regular expressions'
+          - name: Préparer les données avec le data wrangling Power Query
+            items:
+              - name: Vue d’ensemble du data wrangling
+                href: wrangling-overview.md
+              - name: Fonctions prises en charge
+                href: wrangling-functions.md
+      - name: Rôles et autorisations
+        href: concepts-roles-permissions.md
+      - name: Règles d’affectation des noms
+        href: naming-rules.md
+      - name: Redondance des données
+        href: concepts-data-redundancy.md
+  - name: Guides pratiques
+    items:
+      - name: Auteur
+        items:
+          - name: Création visuelle de fabriques de données
+            href: author-visually.md
+          - name: Développement et débogage itératifs
+            href: iterative-development-debugging.md
+          - name: Hub de gestion
+            href: author-management-hub.md
+          - name: Contrôle de code source
+            href: source-control.md
+          - name: Intégration et livraison continues
+            href: continuous-integration-deployment.md
+          - name: Publication automatisée pour CI/CD
+            href: continuous-integration-deployment-improvements.md
+      - name: Connecteurs
+        items:
+          - name: Vue d’ensemble des connecteurs
+            href: connector-overview.md
+          - name: "Amazon\_Marketplace\_Web\_Service"
+            href: connector-amazon-marketplace-web-service.md
+          - name: Amazon Redshift
+            href: connector-amazon-redshift.md
+          - name: Amazon S3
+            href: connector-amazon-simple-storage-service.md
+          - name: "Stockage compatible Amazon\_S3"
+            href: connector-amazon-s3-compatible-storage.md
+          - name: "Format\_Avro"
+            href: format-avro.md
+          - name: Stockage Blob Azure
+            href: connector-azure-blob-storage.md
+            displayName: timeout
+          - name: Recherche cognitive Azure
+            href: connector-azure-search.md
+          - name: API SQL Azure Cosmos DB
+            href: connector-azure-cosmos-db.md
+          - name: API d’Azure Cosmos DB pour MongoDB
+            href: connector-azure-cosmos-db-mongodb-api.md
+          - name: Explorateur de données Azure
+            href: connector-azure-data-explorer.md
+          - name: Azure Data Lake Storage Gen1
+            href: connector-azure-data-lake-store.md
+          - name: Azure Data Lake Storage Gen2
+            href: connector-azure-data-lake-storage.md
+            displayName: timeout
+          - name: Azure Database for MariaDB
+            href: connector-azure-database-for-mariadb.md
+          - name: Azure Database pour MySQL
+            href: connector-azure-database-for-mysql.md
+          - name: Azure Database pour PostgreSQL
+            href: connector-azure-database-for-postgresql.md
+          - name: Azure Databricks Delta Lake
+            href: connector-azure-databricks-delta-lake.md
+          - name: Stockage Fichier Azure
+            href: connector-azure-file-storage.md
+          - name: Azure SQL Database
+            href: connector-azure-sql-database.md
+            displayName: upsert
+          - name: Azure SQL Managed Instance
+            href: connector-azure-sql-managed-instance.md
+            displayName: upsert
+          - name: Azure Synapse Analytics
+            href: connector-azure-sql-data-warehouse.md
+            displayName: polybase
+          - name: Stockage de table Azure
+            href: connector-azure-table-storage.md
+            displayName: timeout
+          - name: Format binaire
+            href: format-binary.md
+          - name: Cassandra
+            href: connector-cassandra.md
+          - name: Format Common Data Model
+            href: format-common-data-model.md
+          - name: Concur
+            href: connector-concur.md
+          - name: Couchbase
+            href: connector-couchbase.md
+          - name: DB2
+            href: connector-db2.md
+          - name: Dataverse
+            href: connector-dynamics-crm-office-365.md
+          - name: Format de texte délimité
+            href: format-delimited-text.md
+          - name: Format Delta
+            href: format-delta.md
+          - name: Drill
+            href: connector-drill.md
+          - name: "Dynamics\_365"
+            href: connector-dynamics-crm-office-365.md
+          - name: "Dynamics\_AX"
+            href: connector-dynamics-ax.md
+            displayName: timeout
+          - name: "Dynamics\_CRM"
+            href: connector-dynamics-crm-office-365.md
+          - name: Format Excel
+            href: format-excel.md
+          - name: Système de fichiers
+            href: connector-file-system.md
+          - name: FTP
+            href: connector-ftp.md
+          - name: GitHub
+            href: connector-github.md
+          - name: Google AdWords
+            href: connector-google-adwords.md
+          - name: "Google\_BigQuery"
+            href: connector-google-bigquery.md
+          - name: Google Cloud Storage
+            href: connector-google-cloud-storage.md
+          - name: Greenplum
+            href: connector-greenplum.md
+          - name: hbase
+            href: connector-hbase.md
+          - name: HDFS
+            href: connector-hdfs.md
+          - name: Hive
+            href: connector-hive.md
+          - name: HTTP
+            href: connector-http.md
+            displayName: timeout
+          - name: HubSpot
+            href: connector-hubspot.md
+          - name: Impala
+            href: connector-impala.md
+          - name: Informix
+            href: connector-informix.md
+          - name: Jira
+            href: connector-jira.md
+          - name: Format JSON
+            href: format-json.md
+          - name: Magento
+            href: connector-magento.md
+          - name: MariaDB
+            href: connector-mariadb.md
+          - name: Marketo
+            href: connector-marketo.md
+          - name: Microsoft Access
+            href: connector-microsoft-access.md
+          - name: MongoDB
+            href: connector-mongodb.md
+            items:
+              - name: MongoDB (hérité)
+                href: connector-mongodb-legacy.md
+          - name: MongoDB Atlas
+            href: connector-mongodb-atlas.md
+          - name: MySQL
+            href: connector-mysql.md
+          - name: Netezza
+            href: connector-netezza.md
+          - name: OData
+            href: connector-odata.md
+            displayName: timeout
+          - name: ODBC
+            href: connector-odbc.md
+          - name: "Office\_365"
+            href: connector-office-365.md
+          - name: Oracle
+            href: connector-oracle.md
+          - name: Oracle Cloud Storage
+            href: connector-oracle-cloud-storage.md
+          - name: "Oracle\_Eloqua"
+            href: connector-oracle-eloqua.md
+          - name: Oracle Responsys
+            href: connector-oracle-responsys.md
+          - name: Oracle Service Cloud
+            href: connector-oracle-service-cloud.md
+          - name: "Format\_ORC"
+            href: format-orc.md
+          - name: "Format\_Parquet"
+            href: format-parquet.md
+          - name: PayPal
+            href: connector-paypal.md
+          - name: Phoenix
+            href: connector-phoenix.md
+          - name: PostgreSQL
+            href: connector-postgresql.md
+          - name: Presto
+            href: connector-presto.md
+          - name: QuickBooks Online
+            href: connector-quickbooks.md
+          - name: REST
+            href: connector-rest.md
+            displayName: timeout
+          - name: Salesforce
+            href: connector-salesforce.md
+          - name: Salesforce Service Cloud
+            href: connector-salesforce-service-cloud.md
+          - name: Salesforce Marketing Cloud
+            href: connector-salesforce-marketing-cloud.md
+          - name: SAP Business Warehouse Open Hub
+            href: connector-sap-business-warehouse-open-hub.md
+            items:
+              - name: Charger des données SAP BW
+                href: load-sap-bw-data.md
+          - name: SAP Business Warehouse MDX
+            href: connector-sap-business-warehouse.md
+          - name: SAP Cloud pour le client
+            href: connector-sap-cloud-for-customer.md
+            displayName: timeout
+          - name: SAP ECC
+            href: connector-sap-ecc.md
+            displayName: timeout
+          - name: SAP HANA
+            href: connector-sap-hana.md
+          - name: SAP Table
+            href: connector-sap-table.md
+          - name: ServiceNow
+            href: connector-servicenow.md
+          - name: SFTP
+            href: connector-sftp.md
+          - name: Liste SharePoint Online
+            href: connector-sharepoint-online-list.md
+            displayName: timeout
+          - name: Shopify
+            href: connector-shopify.md
+          - name: Snowflake
+            href: connector-snowflake.md
+          - name: Spark
+            href: connector-spark.md
+          - name: SQL Server
+            href: connector-sql-server.md
+            displayName: 'upsert, timeout'
+          - name: Carré
+            href: connector-square.md
+          - name: Sybase
+            href: connector-sybase.md
+          - name: Teradata
+            href: connector-teradata.md
+          - name: Vertica
+            href: connector-vertica.md
+          - name: Table web
+            href: connector-web-table.md
+          - name: Xero
+            href: connector-xero.md
+          - name: Format XML
+            href: format-xml.md
+          - name: Zoho
+            href: connector-zoho.md
+      - name: Transfert de données
+        items:
+          - name: Copier des données à l’aide de l’activité de copie
+            href: copy-activity-overview.md
+            displayName: 'retry, zip'
+          - name: Superviser une activité de copie
+            href: copy-activity-monitoring.md
+          - name: Supprimer des fichiers à l’aide de l’activité de suppression
+            href: delete-activity.md
+          - name: Outil de copie des données
+            href: copy-data-tool.md
+          - name: Copie de données pilotée par les métadonnées
+            href: copy-data-tool-metadata-driven.md
+          - name: Prise en charge du format et de la compression
+            href: supported-file-formats-and-compression-codecs.md
+            displayName: zip
+          - name: Performances de l’activité de copie
+            items:
+              - name: Guide des performances et de la scalabilité
+                href: copy-activity-performance.md
+              - name: Résoudre les problèmes de performances
+                href: copy-activity-performance-troubleshooting.md
+                displayName: 'diu, timeout'
+              - name: Fonctionnalités de performances
+                href: copy-activity-performance-features.md
+                displayName: 'polybase, diu'
+          - name: Conserver les métadonnées et les listes ACL
+            href: copy-activity-preserve-metadata.md
+          - name: Mappage du schéma et du type
+            href: copy-activity-schema-and-type-mapping.md
+          - name: Tolérance de panne
+            href: copy-activity-fault-tolerance.md
+            displayName: polybase
+          - name: Vérification de la cohérence des données
+            href: copy-activity-data-consistency.md
+          - name: Journal d’activité de copie
+            href: copy-activity-log.md
+          - name: Prise en charge du format et de la compression (héritée)
+            href: supported-file-formats-and-compression-codecs-legacy.md
+            displayName: zip
+      - name: Transformer les données
+        href: transform-data.md
+        items:
+          - name: Exécuter une activité de flux de données
+            href: control-flow-execute-data-flow-activity.md
+            displayName: polybase
+          - name: Exécuter une activité Power Query
+            href: control-flow-power-query-activity.md
+          - name: Activité de fonction Azure
+            href: control-flow-azure-function-activity.md
+            displayName: timeout
+          - name: Activité personnalisée
+            href: transform-data-using-dotnet-custom-activity.md
+          - name: Activité Databricks Jar
+            href: transform-data-databricks-jar.md
+          - name: Activité Databricks Notebook
+            href: transform-data-databricks-notebook.md
+          - name: Activité Databricks Python
+            href: transform-data-databricks-python.md
+          - name: Activité de commande Data Explorer
+            href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
+          - name: Activité Data Lake U-SQL
+            href: transform-data-using-data-lake-analytics.md
+          - name: Activité Hive HDInsight
+            href: transform-data-using-hadoop-hive.md
+            displayName: timeout
+          - name: Activité MapReduce HDInsight
+            href: transform-data-using-hadoop-map-reduce.md
+          - name: Activité Pig HDInsight
+            href: transform-data-using-hadoop-pig.md
+          - name: Activité HDInsight Spark
+            href: transform-data-using-spark.md
+          - name: Activité de diffusion en continu HDInsight
+            href: transform-data-using-hadoop-streaming.md
+          - name: Activité d’exécution des pipelines Machine Learning
+            href: transform-data-machine-learning-service.md
+          - name: Activité d’exécution par lot Machine Learning Studio (classique)
+            href: transform-data-using-machine-learning.md
+          - name: Activité de ressource de mise à jour Machine Learning Studio (classique)
+            href: update-machine-learning-models.md
+          - name: Activité de procédure stockée
+            href: transform-data-using-stored-procedure.md
+          - name: Services liés de calcul
+            href: compute-linked-services.md
+      - name: Flux de contrôle
+        items:
+          - name: Activité d’ajout de variable
+            href: control-flow-append-variable-activity.md
+          - name: Activité d’exécution du pipeline
+            href: control-flow-execute-pipeline-activity.md
+          - name: Activité de filtre
+            href: control-flow-filter-activity.md
+          - name: Activité For Each
+            href: control-flow-for-each-activity.md
+          - name: Activité d’obtention des métadonnées
+            href: control-flow-get-metadata-activity.md
+          - name: Activité IfCondition
+            href: control-flow-if-condition-activity.md
+          - name: Activité de recherche
+            href: control-flow-lookup-activity.md
+            displayName: timeout
+          - name: Activité de définition de variable
+            href: control-flow-set-variable-activity.md
+          - name: Activité Switch
+            href: control-flow-switch-activity.md
+          - name: Activité Until
+            href: control-flow-until-activity.md
+            displayName: timeout
+          - name: Activité de validation
+            href: control-flow-validation-activity.md
+            displayName: timeout
+          - name: Activité d’attente
+            href: control-flow-wait-activity.md
+          - name: Activité web
+            href: control-flow-web-activity.md
+            displayName: timeout
+          - name: Activité de webhook
+            href: control-flow-webhook-activity.md
+            displayName: timeout
+      - name: Transformations de flux de données
+        items:
+          - name: Vue d’ensemble des transformations
+            href: data-flow-transformation-overview.md
+          - name: Agrégat
+            href: data-flow-aggregate.md
+          - name: Ligne Alter
+            href: data-flow-alter-row.md
+            displayName: upsert
+          - name: Fractionnement conditionnel
+            href: data-flow-conditional-split.md
+          - name: Colonne dérivée
+            href: data-flow-derived-column.md
+          - name: Exists
+            href: data-flow-exists.md
+            displayName: timeout
+          - name: Filtrer
+            href: data-flow-filter.md
+          - name: Aplatir
+            href: data-flow-flatten.md
+          - name: Join
+            href: data-flow-join.md
+            displayName: 'merge, timeout'
+          - name: Recherche
+            href: data-flow-lookup.md
+            displayName: timeout
+          - name: Nouvelle branche
+            href: data-flow-new-branch.md
+          - name: Analyser
+            href: data-flow-parse.md
+          - name: Tableau croisé dynamique
+            href: data-flow-pivot.md
+          - name: Rank
+            href: data-flow-rank.md
+          - name: Sélectionnez
+            href: data-flow-select.md
+            displayName: 'regex, regular expressions'
+          - name: Récepteur
+            href: data-flow-sink.md
+          - name: Trier
+            href: data-flow-sort.md
+          - name: Source
+            href: data-flow-source.md
+          - name: Clé de substitution
+            href: data-flow-surrogate-key.md
+          - name: Union
+            href: data-flow-union.md
+          - name: Supprimer le tableau croisé dynamique
+            href: data-flow-unpivot.md
+          - name: Fenêtre
+            href: data-flow-window.md
+      - name: Paramétrable
+        items:
+          - name: Paramétrage des services liés
+            href: parameterize-linked-services.md
+          - name: Paramètres globaux
+            href: author-global-parameters.md
+          - name: Langage d’expression
+            href: control-flow-expression-language-functions.md
+            displayName: 'formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content'
+          - name: Variables système
+            href: control-flow-system-variables.md
+          - name: Paramétrage de flux de données de mappage
+            href: parameters-data-flow.md
+          - name: Comment paramétriser
+            href: how-to-expression-language-functions.md
+            displayName: 'formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content, user properties'
+      - name: Sécurité
+        items:
+          - name: Considérations relatives à la sécurité des déplacements de données
+            href: data-movement-security-considerations.md
+          - name: Stratégies d’accès aux données
+            href: data-access-strategies.md
+          - name: "Adresses\_IP du runtime d’intégration Azure"
+            href: azure-integration-runtime-ip-addresses.md
+          - name: Informations d’identification dans Azure Key Vault
+            href: store-credentials-in-key-vault.md
+          - name: Utiliser des secrets Azure Key Vault dans les activités de pipeline
+            href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
+          - name: Chiffrer des informations d’identification pour le runtime d’intégration auto-hébergé
+            href: encrypt-credentials-self-hosted-integration-runtime.md
+            displayName: self hosted
+          - name: Identité managée pour Data Factory
+            href: data-factory-service-identity.md
+          - name: Chiffrer une fabrique de données avec une clé gérée par le client
+            href: enable-customer-managed-key.md
+          - name: Réseau virtuel managé
+            href: managed-virtual-network-private-endpoint.md
+          - name: Azure Private Link pour Data Factory
+            href: data-factory-private-link.md
+          - name: Base de référence de sécurité Azure
+            href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+      - name: Surveillance et gestion
+        items:
+          - name: Surveiller visuellement
+            href: monitor-visually.md
+          - name: Surveiller avec Azure Monitor
+            href: monitor-using-azure-monitor.md
+          - name: Surveiller SSIS avec Azure Monitor
+            href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+          - name: Surveiller avec les Kits de développement logiciel (SDK)
+            href: monitor-programmatically.md
+          - name: Surveiller le runtime d’intégration
+            href: monitor-integration-runtime.md
+          - name: Surveiller le runtime d’intégration Azure-SSIS
+            href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+          - name: Reconfigurer le runtime d’intégration Azure-SSIS
+            href: manage-azure-ssis-integration-runtime.md
+          - name: Copier ou cloner une fabrique de données
+            href: copy-clone-data-factory.md
+      - name: Créer un runtime d’intégration
+        items:
+          - name: Runtime d’intégration Azure
+            href: create-azure-integration-runtime.md
+          - name: Runtime d’intégration auto-hébergé
+            items:
+              - name: Créer et configurer un runtime d’intégration auto-hébergé
+                href: create-self-hosted-integration-runtime.md
+                displayName: self hosted
+              - name: Notification de mise à jour automatique et d’expiration du runtime d’intégration auto-hébergé
+                href: self-hosted-integration-runtime-auto-update.md
+                displayName: self hosted
+              - name: Runtime d’intégration auto-hébergé partagé
+                href: create-shared-self-hosted-integration-runtime-powershell.md
+                displayName: self hosted
+              - name: Scripts Automation du runtime d’intégration auto-hébergé
+                href: self-hosted-integration-runtime-automation-scripts.md
+                displayName: self hosted
+              - name: Exécuter le runtime d’intégration auto-hébergé dans un conteneur Windows
+                href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+                displayName: self hosted
+              - name: Outils de diagnostic pour le runtime d’intégration auto-hébergé
+                href: self-hosted-integration-runtime-diagnostic-tool.md
+                displayName: self hosted
+            displayName: 'self hosted, runtime'
+          - name: "Runtime d’intégration Azure\_SSIS"
+            href: create-azure-ssis-integration-runtime.md
+      - name: "Exécuter des packages\_SSIS dans Azure"
+        items:
+          - name: "Exécuter des packages\_SSIS dans Azure à partir de SSDT"
+            href: how-to-invoke-ssis-package-ssdt.md
+          - name: Exécuter des packages SSIS avec l’agent Azure SQL Managed Instance
+            href: how-to-invoke-ssis-package-managed-instance-agent.md
+          - name: Exécuter des packages SSIS avec dtexec compatible Azure
+            href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
+          - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS
+            href: how-to-invoke-ssis-package-ssis-activity.md
+            displayName: 'retry, timeout'
+          - name: Exécuter des packages SSIS avec l’activité de procédure stockée
+            href: how-to-invoke-ssis-package-stored-procedure-activity.md
+          - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
+            href: how-to-schedule-azure-ssis-integration-runtime.md
+          - name: Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
+            href: join-azure-ssis-integration-runtime-virtual-network.md
+          - name: Configurer l’IR auto-hébergé comme proxy pour Azure-SSIS IR
+            href: self-hosted-integration-runtime-proxy-ssis.md
+            displayName: self hosted
+          - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
+            href: enable-aad-authentication-azure-ssis-ir.md
+          - name: Se connecter aux données avec l’authentification Windows
+            href: ssis-azure-connect-with-windows-auth.md
+          - name: Enregistrer les fichiers et se connecter aux partages de fichiers
+            href: ssis-azure-files-file-shares.md
+          - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
+            href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+          - name: Composants intégrés et préinstallés sur Azure-SSIS IR
+            href: built-in-preinstalled-components-ssis-integration-runtime.md
+          - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
+            href: how-to-configure-azure-ssis-ir-custom-setup.md
+            displayName: timeout
+          - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
+            href: how-to-develop-azure-ssis-ir-licensed-components.md
+          - name: Configurer une haute performance pour le runtime d’intégration (IR) Azure-SSIS
+            href: configure-azure-ssis-integration-runtime-performance.md
+          - name: Configurer la récupération d’urgence pour les runtimes d’intégration Azure-SSIS
+            href: configure-bcdr-azure-ssis-integration-runtime.md
+          - name: Nettoyer les journaux SSISDB automatiquement
+            href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+          - name: Utiliser Azure SQL Managed Instance avec Azure-SSIS IR
+            href: how-to-use-sql-managed-instance-with-ir.md
+          - name: Migrer les travaux SSIS avec SSMS
+            href: how-to-migrate-ssis-job-ssms.md
+          - name: Gérer les packages avec le magasin de packages Azure-SSIS IR
+            href: azure-ssis-integration-runtime-package-store.md
+      - name: Créer des déclencheurs
+        items:
+          - name: Créer un déclencheur de planification
+            href: how-to-create-schedule-trigger.md
+          - name: Créer un déclencheur de fenêtre bascule
+            href: how-to-create-tumbling-window-trigger.md
+            displayName: retry
+          - name: Créer une dépendance de déclencheur de fenêtre bascule
+            href: tumbling-window-trigger-dependency.md
+          - name: Créer un déclencheur d’événements de stockage
+            href: how-to-create-event-trigger.md
+          - name: Créer un déclencheur d’événements personnalisé
+            href: how-to-create-custom-event-trigger.md
+          - name: Référencer des métadonnées de déclencheur dans un pipeline
+            href: how-to-use-trigger-parameterization.md
+      - name: Catalogue de données et gouvernance
+        items:
+          - name: Connecter une fabrique de données à Azure Purview
+            href: connect-data-factory-to-azure-purview.md
+          - name: Découvrir et explorer des données dans ADF avec Purview
+            href: how-to-discover-explore-purview-data.md
+      - name: Scénarios
+        items:
+          - name: Migration des données pour Data Lake et EDW
+            items:
+              - name: Pourquoi Azure Data Factory
+                href: data-migration-guidance-overview.md
+              - name: Migrer des données d’AWS S3 vers Azure
+                href: data-migration-guidance-s3-azure-storage.md
+              - name: Migrer des données du cluster Hadoop local vers Azure
+                href: data-migration-guidance-hdfs-azure-storage.md
+                displayName: retry
+              - name: Migrer des données du serveur Netezza local vers Azure
+                href: data-migration-guidance-netezza-azure-sqldw.md
+          - name: Azure Machine Learning
+            items:
+              - name: Ingestion de données
+                href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
+          - name: Transformation en utilisant un flux de données de mappage
+            items:
+              - name: Traiter des fichiers texte à largeur fixe
+                href: how-to-fixed-width.md
+              - name: Gestion des lignes d’erreur
+                href: how-to-data-flow-error-rows.md
+              - name: Azure SQL DB vers Azure Cosmos DB
+                href: how-to-sqldb-to-cosmosdb.md
+              - name: Recherche de déduplication et de valeurs null avec des extraits de code
+                href: how-to-data-flow-dedupe-nulls-snippets.md
+              - name: Traiter les données de modèles AML avec un flux de données
+                href: scenario-dataflow-process-data-aml-models.md
+          - name: Migration SSIS à partir d’un environnement local
+            items:
+              - name: Vue d’ensemble de la migration SSIS
+                href: scenario-ssis-migration-overview.md
+              - name: Migration de SSISDB vers Azure SQL Managed Instance
+                href: scenario-ssis-migration-ssisdb-mi.md
+      - name: Modèles
+        items:
+          - name: Présentation des modèles
+            href: solution-templates-introduction.md
+          - name: Copie de fichiers à partir de plusieurs conteneurs
+            href: solution-template-copy-files-multiple-containers.md
+          - name: Copier les nouveaux fichiers par date de dernière modification
+            href: solution-template-copy-new-files-lastmodifieddate.md
+          - name: Copie en bloc depuis une base de données
+            href: solution-template-bulk-copy-with-control-table.md
+          - name: Copie en bloc de fichiers dans une base de données
+            href: solution-template-bulk-copy-from-files-to-database.md
+          - name: Copie delta depuis une base de données
+            href: solution-template-delta-copy-with-control-table.md
+          - name: Migrer des données d’Amazon S3 vers Stockage Azure
+            href: solution-template-migration-s3-azure.md
+          - name: Déplacer des fichiers
+            href: solution-template-move-files.md
+          - name: Transformation avec Azure Databricks
+            href: solution-template-databricks-notebook.md
+      - name: Compréhension de la tarification
+        items:
+          - name: Vue d’ensemble de la capacité réservée de flux de données
+            href: data-flow-reserved-capacity-overview.md
+          - name: Comprendre les frais de réservation de flux de données
+            href: data-flow-understand-reservation-charges.md
+          - name: Prévoir et gérer les coûts
+            href: plan-manage-costs.md
+            displayName: diu
+          - name: Exemples de tarification
+            href: pricing-concepts.md
+            displayName: diu
+      - name: Guides de résolution des problèmes
+        items:
+          - name: Expérience utilisateur Data Factory
+            href: data-factory-ux-troubleshoot-guide.md
+          - name: Activités
+            href: data-factory-troubleshoot-guide.md
+            displayName: timeout
+          - name: Connecteurs
+            href: connector-troubleshoot-guide.md
+            displayName: 'polybase, timeout'
+          - name: Déclencheurs de pipeline
+            href: pipeline-trigger-troubleshoot-guide.md
+          - name: Flux de données
+            items:
+              - name: Vue d’ensemble des flux de données
+                href: data-flow-troubleshoot-guide.md
+                displayName: timeout
+              - name: Connecteur et format
+                href: data-flow-troubleshoot-connector-format.md
+          - name: Intégration et déploiement continus
+            href: ci-cd-github-troubleshoot-guide.md
+          - name: Sécurité et contrôle d'accès
+            href: security-and-access-control-troubleshoot-guide.md
+          - name: Runtimes d’intégration auto-hébergés
+            href: self-hosted-integration-runtime-troubleshoot-guide.md
+            displayName: self hosted
+          - name: Runtime d’intégration Azure SSIS
+            href: ssis-integration-runtime-management-troubleshoot.md
+            displayName: timeout
+          - name: Exécution de packages dans Azure-SSIS IR
+            href: ssis-integration-runtime-ssis-activity-faq.yml
+            displayName: 'retry, timeout'
+          - name: Diagnostiquer la connectivité dans Azure-SSIS IR
+            href: ssis-integration-runtime-diagnose-connectivity-faq.md
+            displayName: timeout
+  - name: Informations de référence
+    items:
+      - name: Script de flux de données
+        href: data-flow-script.md
+      - name: .NET
+        href: /dotnet/api/microsoft.azure.management.datafactory
+      - name: PowerShell
+        href: /powershell/module/az.datafactory/
+      - name: API REST
+        href: /rest/api/datafactory
+      - name: Modèle Resource Manager
+        href: /azure/templates/microsoft.datafactory/allversions
+      - name: Python
+        href: /python/api/overview/azure/datafactory
+      - name: Éléments intégrés Azure Policy
+        href: policy-reference.md
+      - name: Azure CLI
+        href: /cli/azure/datafactory
+      - name: Flux de données optimisés pour le calcul mis hors service
+        href: compute-optimized-data-flow-retire.md
+  - name: Ressources
+    items:
+      - name: Livres blancs
+        href: whitepapers.md
+      - name: Questions fréquentes (FAQ)
+        href: frequently-asked-questions.yml
+        displayName: timeout
+      - name: Mises à jour de service
+        href: 'https://azure.microsoft.com/updates/?product=data-factory'
+      - name: Blog
+        href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
+      - name: Poser une question - Page de questions Microsoft Q&A
+        href: /answers/topics/azure-data-factory.html
+      - name: Poser une question - Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
+      - name: Demander une fonctionnalité
+        href: /answers/topics/azure-data-factory.html
+      - name: Tarifs
+        href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+      - name: Disponibilité par région
+        href: 'https://azure.microsoft.com/global-infrastructure/services/'
+      - name: Options de support
+        href: 'https://azure.microsoft.com/support/options/'
+      - name: Limites
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

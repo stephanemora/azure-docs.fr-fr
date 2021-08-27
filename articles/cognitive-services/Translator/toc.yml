@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Présentation de Translator
-      href: translator-info-overview.md
+      href: translator-overview.md
     - name: Prise en charge de la langue
       href: language-support.md
     - name: Tarifs
@@ -16,6 +16,8 @@
 - name: Traduction de texte
   expanded: true
   items:
+    - name: "Qu’est-ce que la traduction de texte\_?"
+      href: text-translation-overview.md
     - name: Démarrage rapide
       href: quickstart-translator.md
     - name: Exemples
@@ -68,12 +70,12 @@
           href: tutorial-build-flask-app-translation-synthesis.md
     - name: Informations de référence
       items:
+        - name: API REST de traduction de texte
+          href: reference/rest-api-guide.md
         - name: Informations de référence Translator v3
           href: reference/v3-0-reference.md
         - name: Languages
           href: reference/v3-0-languages.md
-        - name: Limites de requête
-          href: request-limits.md
         - name: Translate
           href: reference/v3-0-translate.md
         - name: Transliterate
@@ -86,11 +88,13 @@
           href: reference/v3-0-dictionary-lookup.md
         - name: Exemples de dictionnaire
           href: reference/v3-0-dictionary-examples.md
+        - name: Limites de requête
+          href: request-limits.md
 - name: Traduction de documents
   items:
     - name: "Qu’est-ce que la traduction de documents\_?"
       href: document-translation/overview.md
-    - name: Bibliothèques de client et kits SDK
+    - name: SDK de bibliothèque de client
       href: document-translation/client-sdks.md
     - name: Démarrage rapide
       href: document-translation/get-started-with-document-translation.md
@@ -102,7 +106,7 @@
           href: document-translation/managed-identity.md
     - name: Référence
       items:
-        - name: Guide de référence sur les API REST
+        - name: Documenter les API REST de traduction
           href: document-translation/reference/rest-api-guide.md
         - name: Obtenir les formats de document pris en charge
           href: document-translation/reference/get-supported-document-formats.md
@@ -122,7 +126,7 @@
           href: document-translation/reference/get-translation-status.md
         - name: Annuler la traduction
           href: document-translation/reference/cancel-translation.md
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: document-translation/faq.md
 - name: Custom Translator
   items:

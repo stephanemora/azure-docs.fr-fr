@@ -42,12 +42,20 @@
           href: tutorial-prepare-azure.md
         - name: Préparer des machines virtuelles VMware sur site
           href: vmware-azure-tutorial-prepare-on-premises.md
-        - name: Configurer la réplication
+    - name: Configurer la réplication
+      items:
+        - name: Classique
           href: vmware-azure-tutorial.md
+        - name: Préversion
+          href: vmware-azure-set-up-replication-tutorial-preview.md
         - name: Exécuter une simulation de récupération d'urgence
           href: tutorial-dr-drill-azure.md
-        - name: Basculer vers Azure
+    - name: Exécuter un basculement de machines virtuelles VMware vers Azure
+      items:
+        - name: Classique
           href: vmware-azure-tutorial-failover-failback.md
+        - name: Préversion
+          href: vmware-azure-tutorial-failover-failback-preview.md
     - name: Reprise d’activité Azure VMware Solution sur Azure
       items:
         - name: Préparer Azure
@@ -122,14 +130,22 @@
           href: vmware-physical-azure-config-process-server-overview.md
         - name: Conditions de prise en charge des serveurs de configuration et de processus
           href: vmware-azure-configuration-server-requirements.md
-        - name: Architecture VMware vers Azure
+        - name: Déployer une applicance de réplication Azure Site Recovery (préversion)
+          href: deploy-vmware-azure-replication-appliance-preview.md
+        - name: Changer d’appliance de réplication (préversion)
+          href: switch-replication-appliance-preview.md
+    - name: Architecture VMware vers Azure
+      items:
+        - name: Classique
           href: vmware-azure-architecture.md
-        - name: À propos de l’exclusion de disques de la réplication
-          href: exclude-disks-replication.md
-        - name: Options d’emplacement de la restauration automatique depuis Azure vers VMware
-          href: concepts-types-of-failback.md
-        - name: Prise en charge mutualisée pour la récupération d’urgence VMware
-          href: vmware-azure-multi-tenant-overview.md
+        - name: Préversion
+          href: vmware-azure-architecture-preview.md
+    - name: À propos de l’exclusion de disques de la réplication
+      href: exclude-disks-replication.md
+    - name: Options d’emplacement de la restauration automatique depuis Azure vers VMware
+      href: concepts-types-of-failback.md
+    - name: Prise en charge mutualisée pour la récupération d’urgence VMware
+      href: vmware-azure-multi-tenant-overview.md
     - name: À propos de la reprise d’activité de machine virtuelle Hyper-V
       items:
         - name: Questions courantes
@@ -159,7 +175,11 @@
         - name: Utilisation d’adresses IP publiques avec Site Recovery
           href: concepts-public-ip-address-with-site-recovery.md
     - name: À propos du basculement et de la restauration automatique
-      href: failover-failback-overview.md
+      items:
+        - name: Classique
+          href: failover-failback-overview.md
+        - name: Préversion
+          href: failover-failback-overview-preview.md
     - name: À propos des plans de récupération
       href: recovery-plan-overview.md
     - name: À propos de la migration vers Azure
@@ -200,6 +220,8 @@
           items:
             - name: Activer la réplication Azure vers Azure
               href: azure-to-azure-how-to-enable-replication.md
+            - name: Activer la reprise d’activité globale
+              href: azure-to-azure-enable-global-disaster-recovery.md
             - name: Activer la réplication Azure vers Azure à l’aide d’une stratégie
               href: azure-to-azure-how-to-enable-policy.md
             - name: Activer la réplication Azure vers Azure pour des machines virtuelles chiffrées
@@ -286,7 +308,7 @@
               href: vmware-azure-enable-replication.md
             - name: Exclure les disques de la réplication
               href: vmware-azure-exclude-disk.md
-            - name: Guide pour configurer la réplication avec une architecture mutualisée et CSP pour les machines virtuelles VMWare
+            - name: Guide pour configurer la réplication avec multilocation et CSP pour les machines virtuelles VMware
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Exécuter un basculement et une restauration automatique
           items:
@@ -310,6 +332,8 @@
           items:
             - name: Gérer l’agent du service Mobilité
               href: vmware-physical-manage-mobility-service.md
+            - name: Mettre à niveau l’agent de mobilité (préversion)
+              href: upgrade-mobility-service-preview.md
             - name: Gérer le serveur de configuration pour VMware
               href: vmware-azure-manage-configuration-server.md
             - name: Gérer des serveurs de processus

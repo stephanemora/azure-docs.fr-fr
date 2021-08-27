@@ -13,6 +13,9 @@
     - name: "Déployer un pare-feu avec une stratégie - Modèle\_ARM"
       displayName: Resource Manager
       href: quick-firewall-policy.md
+    - name: Créer et mettre à jour une stratégie
+      displayname: PowerShell
+      href: create-policy-powershell.md
 - name: Tutoriels
   items:
     - name: Sécuriser votre hub virtuel - Portail

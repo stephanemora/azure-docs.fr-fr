@@ -79,3 +79,21 @@
               href: ./elastic/manage.md
             - name: Dépanner
               href: ./elastic/troubleshoot.md
+    - name: Logz.io
+      items:
+        - name: Vue d’ensemble
+          items:
+            - name: "Qu’est-ce que Logz.io\_?"
+              href: ./logzio/overview.md
+        - name: Démarrages rapides
+          items:
+            - name: Créer une ressource Logz.io
+              href: ./logzio/create.md
+        - name: Procédures
+          items:
+            - name: Gérer
+              href: ./logzio/manage.md
+            - name: Configurer l’authentification unique
+              href: ./logzio/setup-sso.md
+            - name: Dépanner
+              href: ./logzio/troubleshoot.md

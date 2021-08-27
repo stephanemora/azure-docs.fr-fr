@@ -11,20 +11,28 @@ metadata:
   ms.collection: collection
   ms.author: peterlu
   author: peterclu
-  ms.date: 03/05/2020
-  ms.openlocfilehash: 34cebaa3b352d64ba5ebeadbc1fc84c5e53bfefe
-  ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+  ms.date: 08/23/2021
+  ms.openlocfilehash: f0933fe7ba67abd07192e9619a4d38450dc75f7f
+  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/24/2021
-  ms.locfileid: "112581247"
+  ms.lasthandoff: 08/23/2021
+  ms.locfileid: "122687694"
 landingContent:
-- title: Bien démarrer avec Studio (classique)
+- title: Migrer à partir de ML Studio (classique)
   linkLists:
   - linkListType: get-started
     links:
-    - text: Qu’est-ce que Studio (classique) ?
-      url: studio-classic-overview.md
+    - text: Qu'est-ce que Azure Machine Learning ?
+      url: ../overview-what-is-azure-machine-learning.md
+    - text: Azure Machine Learning ou ML Studio (classique)
+      url: ../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio
+    - text: Migrer vers Azure Machine Learning
+      url: ../migrate-overview.md
+- title: Tutoriels
+  linkLists:
+  - linkListType: tutorial
+    links:
     - text: Créer votre première expérience ML
       url: create-experiment.md
     - text: Créer une solution prédictive

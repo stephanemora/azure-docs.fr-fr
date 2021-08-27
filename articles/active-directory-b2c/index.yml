@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 268d211e2b37b510ceb2d89f4aba62628643ecbb
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 3193313808683c20f8c3c77fb8cb9018b9724d40
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114445330"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121724907"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
     - text: Demander un jeton d’accès
       url: access-tokens.md
     - text: Inscrire et sécuriser votre API
-      url: tutorial-web-api-dotnet.md
+      url: enable-authentication-web-api.md
     - text: 'Exemples : API et applications web'
       url: integrate-with-app-code-samples.md#web-apps-and-apis
     - text: Intégrer à la passerelle API
@@ -105,6 +105,8 @@ landingContent:
       url: deploy-custom-policies-devops.md
     - text: Surveillance
       url: azure-monitor.md
+    - text: Azure Sentinel avec Azure AD B2C
+      url: azure-sentinel.md
     - text: Contrôle d’accès en fonction du rôle pour les administrateurs
       url: ../active-directory/roles/permissions-reference.md
     - text: User Management

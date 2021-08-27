@@ -116,6 +116,8 @@
                   href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: Dépanner
               items:
+                - name: Accès au partage Data Box
+                  href: data-box-troubleshoot-share-access.md
                 - name: Problèmes de copie vers un appareil Data Box
                   href: data-box-troubleshoot.md
                 - name: Problèmes de chargement à partir d’un appareil Data Box
