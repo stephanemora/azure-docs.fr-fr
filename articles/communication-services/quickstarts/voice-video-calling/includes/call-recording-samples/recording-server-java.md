@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: inclure fichier
 services: azure-communication-services
 author: ravithanneeru
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 7208519302ea9c12a9a0db7c3cee7032eab85d64
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e29973b55d3f74942f6d85fa28209b73773ad717
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339736"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121803066"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording).
@@ -27,9 +27,9 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 - [Kit de développement Java(JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 11 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - [Infrastructure Spring Boot v 2.5.0](https://spring.io/projects/spring-boot).
-- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). Vous devez noter la **chaîne de connexion** de votre ressource pour ce guide de démarrage rapide
-- Un compte de stockage Azure et un conteneur ; pour plus d’informations, consultez [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). Vous devez enregistrer votre **chaîne de connexion** et le **nom du conteneur** pour ce démarrage rapide.
-- Un webhook [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../../../create-communication-resource.md). Vous devez noter la **chaîne de connexion** de votre ressource pour ce guide de démarrage rapide
+- Un compte de stockage Azure et un conteneur ; pour plus d’informations, consultez [Créer un compte de stockage](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). Vous devez enregistrer votre **chaîne de connexion** et le **nom du conteneur** pour ce démarrage rapide.
+- Un webhook [Azure Event Grid](../../../../../event-grid/overview.md).
 
 ## <a name="object-model"></a>Modèle objet
 

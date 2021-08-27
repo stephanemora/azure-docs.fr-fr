@@ -7,19 +7,22 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5f5b3da3c42ff4a6e7e5f66c0c93cf04d9446bb9
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770144"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643192"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutoriel : Déployer l’application WordPress sur AKS avec Azure Database pour MySQL - Serveur flexible
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Dans ce guide de démarrage rapide, vous déployez une application WordPress sur un cluster AKS (Azure Kubernetes Service) avec Azure Database pour MySQL - Serveur flexible (préversion) à l’aide d’Azure CLI. 
 **[AKS](../../aks/intro-kubernetes.md)** est un service Kubernetes managé qui vous permet de déployer et gérer rapidement des clusters. **[Azure Database pour MySQL - Serveur flexible (préversion)](overview.md)** est un service de base de données entièrement managé, conçu pour offrir un contrôle plus précis et une plus grande flexibilité des fonctions de gestion de base de données et des paramètres de configuration. Le service Serveur flexible est actuellement disponible en préversion.
 
 > [!NOTE]
+>
 > - La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 > - Ce guide de démarrage rapide suppose une compréhension élémentaire des concepts liés à Kubernetes, WordPress et MySQL.
 
@@ -102,6 +105,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Créer un serveur flexible Azure Database pour MySQL
+
 Créez un serveur flexible avec la commande [az mysql flexible-server create](/cli/azure/mysql/flexible-server). La commande suivante crée un serveur en utilisant les valeurs par défaut du service et les valeurs issues du contexte local de votre interface Azure CLI :
 
 ```azurecli-interactive
@@ -109,18 +113,18 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 Le serveur créé possède les attributs suivants :
+
 - Une nouvelle base de données vide, ```flexibleserverdb```, est créée au moment du provisionnement initial du serveur. Dans ce guide de démarrage rapide, nous allons utiliser cette base de données.
 - Nom du serveur généré automatiquement, nom d’utilisateur administrateur, mot de passe administrateur, nom du groupe de ressources (s’il n’est pas déjà spécifié dans le contexte local) et même emplacement que votre groupe de ressources
 - Valeurs par défaut du service pour les configurations restantes : Niveau de calcul (Modulable), Taille de calcul/SKU (B1MS), Période de rétention des sauvegardes (7 jours) et Version de MySQL (5.7)
 - L’utilisation de l’argument public-access vous permet de créer un serveur avec un accès public protégé par des règles de pare-feu. En fournissant votre adresse IP pour ajouter la règle de pare-feu afin d’autoriser l’accès à partir de votre machine cliente.
 - Étant donné que la commande utilise le contexte local, elle crée le serveur dans le groupe de ressources ```wordpress-project``` et dans la région ```eastus```.
 
-
 ### <a name="build-your-wordpress-docker-image"></a>Créer votre image Docker WordPress
 
 Téléchargez la [dernière version de WordPress](https://wordpress.org/download/). Créer un répertoire ```my-wordpress-app``` pour votre projet et utiliser cette structure de dossiers simple
 
-```
+```wordpress
 └───my-wordpress-app
     └───public
         ├───wp-admin
@@ -137,7 +141,6 @@ Téléchargez la [dernière version de WordPress](https://wordpress.org/download
     └─── Dockerfile
 
 ```
-
 
 Renommez ```wp-config-sample.php``` en ```wp-config.php``` et remplacez les lignes 21 à 32 par cet extrait de code. L’extrait de code ci-dessous lit l’hôte de base de données, le nom d’utilisateur et le mot de passe dans le fichier manifeste Kubernetes.
 
@@ -175,6 +178,7 @@ define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
 ### <a name="create-a-dockerfile"></a>Créer un Dockerfile
+
 Créez un autre Dockerfile et copiez-y cet extrait de code. Ce Dockerfile configure le serveur web Apache avec PHP et active l’extension mysqli.
 
 ```docker
@@ -185,6 +189,7 @@ RUN docker-php-ext-enable mysqli
 ```
 
 ### <a name="build-your-docker-image"></a>Générer votre image Docker
+
 Vérifiez que vous êtes dans le répertoire ```my-wordpress-app``` sur un terminal à l’aide de la commande ```cd```. Exécutez la commande suivante pour générer l’image :
 
 ``` bash
@@ -196,18 +201,18 @@ docker build --tag myblog:latest .
 Déployez votre image sur [Docker Hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) ou [Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
->Si vous utilisez Azure Container Registry (ACR), exécutez la commande ```az aks update``` pour attacher le compte ACR au cluster AKS.
+> Si vous utilisez Azure Container Registry (ACR), exécutez la commande ```az aks update``` pour attacher le compte ACR au cluster AKS.
 >
->```azurecli-interactive
->az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
+> ```azurecli-interactive
+> az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
 > ```
->
 
 ## <a name="create-kubernetes-manifest-file"></a>Créer un fichier manifeste Kubernetes
 
 Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Nous allons créer un fichier manifeste nommé `mywordpress.yaml`, et y copier la définition YAML suivante.
 
->[!IMPORTANT]
+> [!IMPORTANT]
+>
 > - Remplacez ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` par le nom et l’étiquette de votre image Docker WordPress réelle, par exemple ```docker-hub-user/myblog:latest```.
 > - Mettez à jour la section ```env``` ci-dessous avec les valeurs ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` de votre serveur flexible MySQL.
 
@@ -264,6 +269,7 @@ spec:
 ```
 
 ## <a name="deploy-wordpress-to-aks-cluster"></a>Déployer WordPress sur un cluster AKS
+
 Déployez l’application à l’aide de la commande [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) et spécifiez le nom de votre manifeste YAML :
 
 ```console
@@ -306,7 +312,8 @@ Ouvrez un navigateur web à l’adresse IP externe de votre service pour voir la
 
    :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Installation de WordPress réussie sur AKS avec un serveur flexible MySQL":::
 
->[!NOTE]
+> [!NOTE]
+>
 > - Le site WordPress n’utilise pas le protocole HTTPS. Il est recommandé d’[ACTIVER TLS avec vos propres certificats](../../aks/ingress-own-tls.md).
 > - Vous pouvez activer le [routage HTTP](../../aks/http-application-routing.md) pour votre cluster.
 

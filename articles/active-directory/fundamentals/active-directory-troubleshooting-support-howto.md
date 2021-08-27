@@ -2,10 +2,8 @@
 title: Obtenir de l’aide et ouvrir un ticket de support – Azure Active Directory | Microsoft Docs
 description: Ces instructions permettent d’obtenir de l’aide et d’ouvrir un ticket de support pour Azure Active Directory.
 services: active-directory
-documentationcenter: na
 author: ajburnle
 manager: daveba
-editor: ''
 ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
@@ -15,15 +13,16 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 057265ca91bdfe0e3b73eea012736e65920e62c2
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257404"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768930"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
-Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 
+
+Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues.
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Trouver de l’aide sans ouvrir de ticket de support
 
@@ -32,7 +31,6 @@ Avant de créer un ticket de support, consultez les réponses et les information
 * Pour obtenir du contenu tel que des procédures ou des exemples de code à destination des professionnels de l’informatique et des développeurs, consultez la [documentation technique sur docs.microsoft.com](../index.yml).
 
 * La [Communauté technique Microsoft](https://techcommunity.microsoft.com/) est l’endroit idéal pour les informaticiens des entreprises partenaires et clientes qui souhaitent collaborer, partager et apprendre. Dans le [Centre d’informations de la Communauté technique Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center), vous trouverez des annonces, des billets de blog, des espaces d’échanges avec des experts et bien plus encore. Vous pouvez aussi [rejoindre la communauté pour nous soumettre vos idées](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
-
 
 ## <a name="open-a-support-ticket"></a>Ouverture d’un ticket de support
 
