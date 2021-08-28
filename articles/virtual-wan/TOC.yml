@@ -71,6 +71,8 @@
           href: scenario-route-through-nva.md
         - name: Router via une NVA - personnalisé
           href: scenario-route-through-nvas-custom.md
+        - name: Peering BGP avec hub virtuel
+          href: scenario-bgp-peering-hub.md
         - name: Pare-feu Azure - personnalisé
           href: scenario-route-between-vnets-firewall.md
         - name: "Application\_Gateway et pools de back-ends"
@@ -85,6 +87,8 @@
       items:
         - name: "À propos des stratégies IPsec\_P2S"
           href: point-to-site-ipsec.md
+        - name: À propos des pools d’adresses de clients P2S
+          href: about-client-address-pools.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
@@ -101,6 +105,8 @@
       href: upgrade-virtual-wan.md
     - name: Créer une NVA dans un hub virtuel
       href: How-to-nva-hub.md
+    - name: Connecter un réseau virtuel à un hub virtuel
+      href: howto-connect-vnet-hub.md
     - name: Créer une connexion de réseau virtuel interlocataire
       href: cross-tenant-vnet.md
     - name: ExpressRoute
@@ -123,8 +129,10 @@
           href: nat-rules-vpn-gateway.md
     - name: VPN utilisateur (point à site)
       items:
-        - name: Créer une connexion VPN utilisateur
+        - name: Créer un VPN utilisateur
           href: virtual-wan-point-to-site-portal.md
+        - name: "Créer un VPN utilisateur\_– Authentification Azure AD"
+          href: virtual-wan-point-to-site-azure-ad.md
         - name: Générer des certificats
           href: certificates-point-to-site.md
         - name: Configurer un locataire Azure AD
@@ -145,7 +153,7 @@
               items:
                 - name: Windows 10
                   href: openvpn-azure-ad-client.md
-                - name: macOS - Préversion
+                - name: macOS
                   href: openvpn-azure-ad-client-mac.md
         - name: Configurer des tunnels Always-On
           items:
@@ -163,20 +171,26 @@
               href: openvpn-azure-ad-tenant-multi-app.md
     - name: Routage
       items:
-        - name: Guide pratique pour configurer le routage de hub virtuel
+        - name: Configurer le routage de hub virtuel
           href: how-to-virtual-hub-routing.md
-        - name: Guide pratique pour voir les routes effectives de hub virtuel
+        - name: Afficher les routes effectives d’un hub virtuel
           href: effective-routes-virtual-hub.md
+        - name: Guide pratique pour configurer l’intention et les stratégies de routage
+          href: how-to-routing-policies.md
         - name: Acheminer le trafic depuis un hub virtuel vers une NVA (héritée)
           items:
             - name: Portail Azure
               href: virtual-wan-route-table-nva-portal.md
             - name: Azure PowerShell
               href: virtual-wan-route-table-nva.md
+        - name: Configurer un peering BGP avec hub virtuel
+          href: create-bgp-peering-hub-portal.md
     - name: Sécurité
       items:
         - name: Installer un pare-feu Azure dans un hub
           href: howto-firewall.md
+        - name: Inter-hub et branche à branche par le biais du Pare-feu Azure
+          href: how-to-routing-policies.md
         - name: Configurer une connectivité de liaison privée
           href: howto-private-link.md
         - name: Gérer l’accès aux ressources - Spoke VNet P2S
