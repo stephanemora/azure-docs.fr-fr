@@ -143,7 +143,7 @@
           href: knowledge-store-concept-intro.md
         - name: Projections
           href: knowledge-store-projection-overview.md
-        - name: Enrichissement incrémentiel
+        - name: Cache d’enrichissement
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: Sécurité
       items:
@@ -182,7 +182,7 @@
           href: search-manage-azure-cli.md
         - name: Déplacer un service d’une région à l’autre
           href: search-howto-move-across-regions.md
-        - name: Résoudre les problèmes de création de ressources Private Link partagées
+        - name: Résoudre les problèmes liés à la création de ressources Private Link partagées
           href: troubleshoot-shared-private-link-resources.md
     - name: Sécurité
       items:
@@ -338,7 +338,7 @@
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB
           items:
-            - name: 'API SQL, MongoDB, Cassandra'
+            - name: API SQL et MongoDB
               href: search-howto-index-cosmosdb.md
             - name: API Gremlin
               href: search-howto-index-cosmosdb-gremlin.md
@@ -362,7 +362,7 @@
       items:
         - name: Attacher une ressource Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
-        - name: Définir des compétences
+        - name: Créer un ensemble de compétences
           href: cognitive-search-defining-skillset.md
         - name: Référencer une annotation
           href: cognitive-search-concept-annotations-syntax.md
@@ -372,7 +372,9 @@
           href: cognitive-search-concept-image-scenarios.md
         - name: Enrichissement (incrémentiel) du cache
           href: search-howto-incremental-index.md
-        - name: Utiliser des compétences personnalisées
+        - name: Conseils de conception
+          href: cognitive-search-concept-troubleshooting.md
+        - name: Compétences personnalisées
           items:
             - name: Intégrer des compétences personnalisées
               href: cognitive-search-custom-skill-interface.md
@@ -388,18 +390,18 @@
               href: cognitive-search-tutorial-aml-custom-skill.md
             - name: Exemple - Concepteur Azure Machine Learning
               href: cognitive-search-tutorial-aml-designer-custom-skill.md
-        - name: Conseils de conception
-          href: cognitive-search-concept-troubleshooting.md
         - name: Magasin de connaissances
           items:
-            - name: Créer avec REST et Postman
+            - name: Créer à l’aide de REST
               href: knowledge-store-create-rest.md
+            - name: Mise en forme des données
+              href: knowledge-store-projection-shape.md
+            - name: Définir des projections
+              href: knowledge-store-projections-examples.md
             - name: Voir avec l’Explorateur Stockage
               href: knowledge-store-view-storage-explorer.md
             - name: Se connecter avec Power BI
               href: knowledge-store-connect-power-bi.md
-            - name: Exemples de projection
-              href: knowledge-store-projections-examples.md
     - name: Requêtes
       items:
         - name: Créer une requête de base
