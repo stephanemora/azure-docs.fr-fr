@@ -188,26 +188,32 @@ items:
                 href: snapshots-overview.md
               - name: Modifier le flux
                 href: storage-blob-change-feed.md
-              - name: Objets blob immuables
-                href: storage-blob-immutable-storage.md
+              - name: Stockage immuable pour des objets blob
+                items:
+                  - name: Vue d’ensemble
+                    href: immutable-storage-overview.md
+                  - name: Stratégies de rétention limitée dans le temps
+                    href: immutable-time-based-retention-policy-overview.md
+                  - name: Conservations légales
+                    href: immutable-legal-hold-overview.md
           - name: Redondance et reprise d’activité
             items:
               - name: Redondance des données
                 href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Basculement géré par le client pour la reprise d’activité
                 href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Réplication d’objets
-            href: object-replication-overview.md
           - name: Niveaux d’accès et de performances
             items:
               - name: Niveaux d’accès
                 href: storage-blob-storage-tiers.md
               - name: Réalimenter les données à partir du niveau archive
-                href: storage-blob-rehydration.md
+                href: archive-rehydrate-overview.md
               - name: Niveaux de performances
                 href: storage-blob-performance-tiers.md
-              - name: Automatiser le cycle de vie des niveaux d’accès
-                href: storage-lifecycle-management-concepts.md
+              - name: Stratégies de gestion du cycle de vie
+                href: lifecycle-management-overview.md
+          - name: Réplication d’objets
+            href: object-replication-overview.md
           - name: 'Optimisation des performances, de la mise à l’échelle et des coûts'
             items:
               - name: Liste de contrôle des performances et de l’évolutivité
@@ -442,8 +448,12 @@ items:
                 href: snapshots-manage-dotnet.md
               - name: Traiter les journaux de flux de modification
                 href: storage-blob-change-feed-how-to.md
-              - name: Définir et gérer des stratégies d’immuabilité
-                href: storage-blob-immutability-policies-manage.md
+              - name: Configurer une stratégie d’immuabilité
+                items:
+                  - name: Configurer des stratégies d’immuabilité au niveau de la version
+                    href: immutable-policy-configure-version-scope.md
+                  - name: Configurer des stratégies d’immuabilité au niveau du conteneur
+                    href: immutable-policy-configure-container-scope.md
           - name: Gérer la redondance et le basculement
             items:
               - name: Changer la configuration de redondance
@@ -454,6 +464,16 @@ items:
                 href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Initier un basculement de compte
                 href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Gérer la hiérarchisation et le cycle de vie des objets blob
+            items:
+              - name: Configurer des stratégies de gestion de cycle de vie
+                href: lifecycle-management-policy-configure.md
+              - name: Gérer des données dans le niveau archive
+                items:
+                  - name: Réhydrater un objet blob archivé
+                    href: archive-rehydrate-to-online-tier.md
+                  - name: Gérer un événement lors de la réhydratation d’objets blob
+                    href: archive-rehydrate-handle-event.md
           - name: Configurer la réplication d’objets
             href: object-replication-configure.md
           - name: Gérer la concurrence
@@ -512,8 +532,6 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Développer avec des objets blob
             items:
-              - name: C++
-                href: storage-c-plus-plus-how-to-use-blobs.md
               - name: iOS
                 href: storage-ios-how-to-use-blob-storage.md
               - name: Java
@@ -524,6 +542,8 @@ items:
             href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Superviser
             items:
+              - name: Scénarios et bonnes pratiques
+                href: blob-storage-monitoring-scenarios.md
               - name: Utiliser des insights de stockage
                 href: ../common/storage-insights-overview.md
               - name: Superviser (classique)
@@ -538,7 +558,7 @@ items:
                 href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Informations de référence
         items:
-          - name: Informations de référence sur le Stockage Blob Azure
+          - name: Informations de référence sur les API Stockage Blob
             href: ../blobs/reference.md
           - name: AzCopy v10
             items:

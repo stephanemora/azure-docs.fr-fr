@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 520f3ba65a7e4bddfd52e303179ed925417537e3
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 16942b91ea999c3da84ecbc784a96575045049d1
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090130"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824055"
 ---
 # <a name="how-to-update-an-azure-cloud-service-classic"></a>Comment mettre à jour un service cloud Azure (classique)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 La mise à jour d’un service cloud, et notamment de ses rôles et du système d’exploitation invité, est un processus qui se déroule en trois étapes. Tout d’abord, les fichiers binaires et de configuration du nouveau Service Cloud et de la version de système d’exploitation doivent être téléchargés. Dans un deuxième temps, Azure réserve des ressources de calcul et réseau au Service Cloud selon les spécifications de la nouvelle version de Service Cloud. Enfin, Azure effectue une mise à niveau propagée pour effectuer une mise à jour incrémentielle du client vers la nouvelle version ou le nouveau système d’exploitation invité tout en préservant votre disponibilité. Cet article discute des détails de cette dernière étape, la mise à jour propagée.
 
