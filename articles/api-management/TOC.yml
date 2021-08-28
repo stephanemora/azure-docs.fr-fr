@@ -215,6 +215,12 @@
               href: developer-portal-use-community-widgets.md
             - name: Tester le portail auto-hébergé
               href: developer-portal-testing.md
+        - name: Monétiser des API
+          items:
+            - name: Monétisation avec Gestion des API Azure
+              href: monetization-overview.md
+            - name: Prise en charge de la monétisation par Gestion des API
+              href: monetization-support.md
         - name: Portail déprécié
           items:
             - name: Portail déprécié - personnaliser le portail
@@ -308,7 +314,7 @@
           href: api-management-configuration-repository-git.md
         - name: Utiliser le contrôle d’accès en fonction du rôle
           href: api-management-role-based-access-control.md
-        - name: Migrer des instances Gestion des API
+        - name: Déplacer des instances entre des régions
           href: api-management-howto-migrate.md
         - name: Utiliser des identités managées pour des ressources Azure
           href: api-management-howto-use-managed-service-identity.md
