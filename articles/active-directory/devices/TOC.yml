@@ -26,6 +26,8 @@
       href: concept-azure-ad-join.md
     - name: Appareils joints Azure AD hybrides
       href: concept-azure-ad-join-hybrid.md
+    - name: Flux d’inscription des appareils
+      href: device-registration-how-it-works.md
     - name: Authentification unique auprès de ressources locales
       href: azuread-join-sso.md
     - name: Jetons d’actualisation principaux
