@@ -12,10 +12,6 @@
           href: concepts-certificate-rotation.md
 - name: Documentation partagée
   items:
-    - name: Déploiement de base de données
-      items:
-        - name: Actions de GitHub
-          href: how-to-deploy-github-action.md
     - name: Migration
       items:
         - name: Migrer des données avec pg_dump et pg_restore
@@ -405,6 +401,14 @@
           items:
             - name: Portail Azure
               href: howto-move-regions-portal.md
+        - name: Mises à niveau et migration
+          items:
+            - name: Méthodes de mise à niveau des versions principales
+              href: how-to-upgrade-using-dump-and-restore.md
+            - name: Mettre à niveau/migrer des données avec pg_dump et pg_restore
+              href: howto-migrate-using-dump-and-restore.md
+            - name: Mettre à niveau/migrer des données avec pg_dump et psql
+              href: howto-migrate-using-export-and-import.md
 - name: Serveur flexible (préversion)
   expanded: true
   items:
@@ -414,6 +418,10 @@
       href: flexible-server/overview.md
     - name: Notes de publication
       href: flexible-server/release-notes.md
+    - name: Comparer un serveur unique et un serveur flexible
+      href: flexible-server/concepts-compare-single-server-flexible-server.md
+    - name: Essayer le serveur flexible gratuitement
+      href: flexible-server/how-to-deploy-on-azure-free-account.md
     - name: Démarrages rapides
       expanded: true
       items:
@@ -428,6 +436,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Se connecter et interroger
           items:
+            - name: Se connecter à un serveur dans un réseau virtuel
+              href: flexible-server/quickstart-create-connect-server-vnet.md
             - name: Azure CLI
               href: flexible-server/connect-azure-cli.md
             - name: Python
@@ -501,6 +511,8 @@
                   displayName: 'query store, performance, optimize'
                 - name: Meilleures pratiques relatives au magasin de requêtes
                   href: flexible-server/concepts-query-store-best-practices.md
+                - name: Réglage intelligent
+                  href: flexible-server/concepts-intelligent-tuning.md
         - name: Replication
           href: flexible-server/concepts-logical.md
           displayName: logical decoding
@@ -514,6 +526,12 @@
               href: flexible-server/how-to-manage-server-cli.md
             - name: Guide de connexion et d’interrogation
               href: flexible-server/how-to-connect-query-guide.md
+        - name: Déploiement de base de données
+          items:
+            - name: Actions de GitHub
+              href: how-to-deploy-github-action.md
+            - name: Pipelines Azure
+              href: flexible-server/azure-pipelines-deploy-database-task.md
         - name: Maintenance planifiée
           items:
             - name: Portail Azure
@@ -594,7 +612,7 @@
       items:
         - name: Créer un groupe de serveurs
           items:
-            - name: Niveau de base (préversion)
+            - name: Niveau de base
               href: quickstart-create-hyperscale-basic-tier.md
             - name: Niveau standard
               href: quickstart-create-hyperscale-portal.md

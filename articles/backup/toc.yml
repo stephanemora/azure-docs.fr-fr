@@ -360,6 +360,8 @@
               href: backup-mabs-system-state-and-bmr.md
             - name: Utilisation de scripts de présauvegarde et de postsauvegarde
               href: pre-backup-post-backup-scripts.md
+            - name: Sauvegarder des données de fichier avec MABS
+              href: back-up-file-data.md
         - name: Récupérer des données depuis Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
         - name: Restaurer des machines virtuelles VMware avec le serveur de sauvegarde Azure
@@ -491,7 +493,11 @@
         - name: Sécurité pour les sauvegardes hybrides
           href: backup-azure-security-feature.md
         - name: Points de terminaison privés
-          href: private-endpoints.md
+          items:
+            - name: Vue d’ensemble
+              href: private-endpoints-overview.md
+            - name: Créer et utiliser
+              href: private-endpoints.md
         - name: Chiffrement dans la Sauvegarde Azure
           href: backup-encryption.md
         - name: Chiffrement à l’aide de clés gérées par le client
@@ -539,10 +545,16 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
       href: /cli/azure/backup
+    - name: "Protection des données Azure\_– CLI"
+      href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
+    - name: "Protection des données Azure\_– PowerShell"
+      href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
     - name: PowerShell – Agent Sauvegarde Azure
       href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+    - name: "REST\_– Protection des données Azure"
+      href: /rest/api/dataprotection/
     - name: REST - Sauvegarde
       href: /rest/api/backup/
     - name: REST - Coffre Recovery Services
