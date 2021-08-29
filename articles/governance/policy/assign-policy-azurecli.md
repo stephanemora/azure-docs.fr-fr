@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Nouvelle affectation de stratégie avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure CLI pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7dd0ca2e1462b03c5a8e3807dd90d424e4b12be4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aa81d273bb018aa55f9024aa41097401b8d4cd06
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733604"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324503"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
 

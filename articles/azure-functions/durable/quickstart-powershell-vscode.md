@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: fac3ad13f34620bb2ec817601041001ccf393d4e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: acd1c61a145067d66f7c1921da108a794bd1faee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369059"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752297"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Créer votre première fonction durable dans PowerShell
 
@@ -53,7 +53,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
     | Sélectionner un modèle pour la première fonction de votre projet | Ignorer pour le moment | |
     | Sélectionner la façon dont vous souhaitez ouvrir votre projet | Ouvrir dans la fenêtre active | Ouvre à nouveau VS Code dans le dossier que vous avez sélectionné. |
 
-Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-run-local.md#local-settings-file).
+Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un dossier. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-develop-local.md#local-settings-file).
 
 Un fichier package.json est également créé dans le dossier racine.
 

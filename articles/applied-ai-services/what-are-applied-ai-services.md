@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: b4ec1ea076994622e4e687c3f6f4a4f3826ad385
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: fadfffadd0d7c2e642825fa8134906e6c3697014
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220448"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745930"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Qu’est-ce qu’Azure Applied AI Services ?
 
@@ -45,7 +45,7 @@ Récupérer des informations précieuses inexploitées dans votre contenu pour e
 
 Améliorer la lecture et sa compréhension avec l’IA. Azure Immersive Reader est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Avec la bibliothèque de client Lecteur immersif, vous pouvez tirer parti de la même technologie que celle utilisée dans Microsoft Word et Microsoft One Note pour améliorer vos applications web. Le lecteur immersif Azure est créé à l’aide de la traduction et de la synthèse vocale d’Azure Cognitive Services.
 
-[En savoir plus sur Azure Immersive Reader](../cognitive-services/immersive-reader/index.yml)
+[En savoir plus sur Azure Immersive Reader](./immersive-reader/index.yml)
 
 ## <a name="azure-bot-service"></a>Azure Bot Service
 

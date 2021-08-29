@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 08/24/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 25b2788591c44cb4b75c89ca020825d16884224b
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ae7ef0d0ff3cb946bc8c900517a8975bb618ad3c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116157"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768141"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -100,19 +100,26 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | Sud-Australie Est | :heavy_check_mark: | :x: | 
 | Brésil Sud | :heavy_check_mark: | :x: |
 | Centre du Canada | :heavy_check_mark: | :heavy_check_mark: | 
+| Inde centrale | :heavy_check_mark: | :x: |
 | USA Centre | :heavy_check_mark: | :heavy_check_mark: | 
+| Asie Est | :heavy_check_mark: | :x: |
 | USA Est | :heavy_check_mark: | :heavy_check_mark: | 
 | USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
 | France Centre | :heavy_check_mark: | :heavy_check_mark: | 
+| Allemagne Centre-Ouest | :heavy_check_mark: | :heavy_check_mark: |
 | Japon Est | :heavy_check_mark: | :heavy_check_mark: | 
+| OuJapon Est | :heavy_check_mark: | :x: |
 | Centre de la Corée | :heavy_check_mark: | :x: | 
+| Corée du Sud | :heavy_check_mark: | :x: | 
 | Europe Nord | :heavy_check_mark: | :heavy_check_mark: |
 | Norvège Est | :heavy_check_mark: | :x: |
 | Afrique du Sud Nord | :heavy_check_mark: | :x: |
+| États-Unis - partie centrale méridionale | :heavy_check_mark: | :heavy_check_mark: | 
 | Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: |
 | Suisse Nord | :heavy_check_mark: | :x: |
 | Émirats arabes unis Nord | :heavy_check_mark: | :x: |
 | Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | 
+| Ouest du Royaume-Uni | :heavy_check_mark: | :x: | 
 | Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
 | USA Ouest | :heavy_check_mark: | :x: |
 | USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |

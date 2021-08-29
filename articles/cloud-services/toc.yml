@@ -47,7 +47,7 @@
             - name: Socket.io (Node.js)
               href: cloud-services-nodejs-chat-app-socketio.md
             - name: Utiliser Twilio pour passer un appel téléphonique (.NET)
-              href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+              href: 'https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp'
         - name: Configurer des tâches de démarrage
           items:
             - name: Créer des tâches de démarrage

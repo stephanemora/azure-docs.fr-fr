@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/14/2021
 ms.author: cshoe
-ms.openlocfilehash: 2fcb9805b752273cb5320114342108ed1f844a5b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 489f714c9900c0b759a5ecf7bc9a5ffc12cae884
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104113"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746215"
 ---
 # <a name="azure-static-web-apps-hosting-plans"></a>Plans d’hébergement Azure Static Web Apps
 
@@ -32,6 +32,7 @@ Azure Static Web Apps est disponible par le biais de deux plans différents : G
 | Domaines personnalisés | 2 par application | 5 par application |
 | API via Azure Functions | Géré | Managé ou<br>[Amener votre propre application Functions](functions-bring-your-own.md) |
 | Intégration du fournisseur d’authentification | [Préconfigurée](authentication-authorization.md)<br>(Définie par le service) | [Inscriptions personnalisées](authentication-custom.md) |
+| Instances Private Endpoint | - | ✔ |
 | [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | Aucun  | ✔ |
 
 ## <a name="selecting-a-plan"></a>Sélection d’un plan
