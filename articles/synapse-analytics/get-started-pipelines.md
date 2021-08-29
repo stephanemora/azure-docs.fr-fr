@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 19bff62883341947eb5290118494b8244c5476ac
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 71ca2dd856b18424d79a20db8a4c5552b2e98c53
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518250"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822933"
 ---
 # <a name="integrate-with-pipelines"></a>Intégrer avec des pipelines
 
@@ -41,6 +41,7 @@ Une fois le pipeline publié, vous pouvez l’exécuter immédiatement sans atte
 
 1. Ouvrez le pipeline.
 1. Cliquez sur **Ajouter un déclencheur** > **Déclencher maintenant**.
+1. Sélectionnez **OK**. 
 
 ## <a name="monitor-pipeline-execution"></a>Superviser l’exécution du pipeline
 

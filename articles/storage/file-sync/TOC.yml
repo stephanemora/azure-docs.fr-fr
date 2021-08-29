@@ -29,6 +29,8 @@
       href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Prévenir les suppressions de données accidentelles
       href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    - name: Bonnes pratiques pour la reprise d’activité après sinistre
+      href: file-sync-disaster-recovery-best-practices.md
     - name: Sauvegarder des partages de fichiers
       href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
     - name: Présentation de la facturation

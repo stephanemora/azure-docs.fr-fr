@@ -77,6 +77,8 @@
       href: pipeline-extension.md
     - name: Enregistrement de vidéo
       href: video-recording.md
+    - name: Vue d’ensemble de la composition d’intelligence artificielle
+      href: ai-composition-overview.md
     - name: Scénarios
       items:
         - name: Enregistrement de vidéo basé sur les événements
@@ -121,6 +123,8 @@
       items:
         - name: Développer et déployer un serveur d’inférence gRPC
           href: develop-deploy-grpc-inference-srv.md
+        - name: Analyser à l’aide de la composition d’intelligence artificielle
+          href: analyze-ai-composition.md
     - name: Portail
       items:
         - name: Appeler des méthodes directes avec le portail
@@ -129,12 +133,14 @@
       items:
         - name: Supervision et journalisation
           href: monitor-log-edge.md
+    - name: Visualiser
+      items:
+        - name: Incorporer un widget de lecteur dans Power BI
+          href: embed-player-in-power-bi.md
     - name: Dépanner
       href: troubleshoot.md
 - name: Informations de référence
   items:
-    - name: Stratégies d'accès
-      href: access-policies.md
     - name: Kits de développement logiciel pour développeur
       href: sdk.md
     - name: Méthodes directes

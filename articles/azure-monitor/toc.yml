@@ -21,14 +21,6 @@
         - name: Modèle ARM
           displayName: Resource Manager
           href: essentials/quick-collect-activity-log-arm.md
-    - name: Surveillance des machines virtuelles
-      items:
-        - name: Machines virtuelles Azure
-          href: vm/quick-monitor-azure-vm.md
-        - name: Ordinateur Linux
-          href: vm/quick-collect-linux-computer.md
-        - name: Ordinateur Windows
-          href: vm/quick-collect-windows-computer.md
     - name: Surveillance des applications
       items:
         - name: Application ASP.NET Core
@@ -123,10 +115,18 @@
       items:
         - name: Données de journal
           href: logs/data-security.md
+        - name: Azure AD Authentication pour les journaux
+          href: logs/azure-ad-authentication-logs.md
         - name: Clés gérées par le client
           href: logs/customer-managed-keys.md
         - name: Réseau de liaison privée
-          href: logs/private-link-security.md
+          items:
+            - name: Présentation de Private Link
+              href: logs/private-link-security.md
+            - name: Conception de Private Link
+              href: logs/private-link-design.md
+            - name: Configuration de liaison privée
+              href: logs/private-link-configure.md
         - name: Stockage privé
           href: logs/private-storage.md
         - name: Gestion des données de journal personnelles
@@ -175,6 +175,8 @@
             - name: Superviser les charges de travail
               href: vm/monitor-virtual-machine-workloads.md
           displayname: VM
+        - name: Surveiller Kubernetes
+          href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
     - name: Déployer
       items:
         - name: Déployer Azure Monitor
@@ -193,7 +195,7 @@
           items:
             - name: Utilisation et estimation des coûts
               href: usage-estimated-costs.md
-            - name: Utilisation et coûts de l’application
+            - name: Utilisation et coûts d’Application Insights
               href: app/pricing.md
             - name: Utilisation et coûts des données de journal
               href: logs/manage-cost-storage.md
@@ -242,10 +244,14 @@
               href: logs/manage-access.md
             - name: Déplacer un espace de travail
               href: logs/move-workspace.md
+            - name: Déplacer un espace de travail entre des régions
+              href: logs/move-workspace-region.md
             - name: Conception pour les fournisseurs de services
               href: logs/service-providers.md
             - name: Clusters dédiés
               href: logs/logs-dedicated-clusters.md
+            - name: Zones de disponibilité
+              href: logs/availability-zones.md
         - name: Log Analytics
           items:
             - name: Vue d'ensemble
@@ -1106,18 +1112,30 @@
               href: containers/container-insights-enable-aks-policy.md
             - name: Correspondances de régions
               href: containers/container-insights-region-mapping.md
-        - name: Superviser les performances
-          href: containers/container-insights-analyze.md
-        - name: Superviser les performances du GPU
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Superviser la configuration du réseau
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Superviser les déploiements et les HPA
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Superviser les volumes persistants
-          href: containers/container-insights-persistent-volumes.md
-        - name: Onglet Rapports
-          href: insights/container-insights-reports.md
+            - name: Gestion des agents
+              href: containers/container-insights-manage-agent.md
+            - name: Configurer l’abandon des métriques de Prometheus
+              href: containers/container-insights-prometheus-integration.md
+            - name: Configurer les paramètres de collection de l’agent
+              href: containers/container-insights-agent-config.md
+            - name: Mettre à jour pour activer les métriques
+              href: containers/container-insights-update-metrics.md
+        - name: Surveillance
+          items:
+            - name: Superviser les performances
+              href: containers/container-insights-analyze.md
+            - name: Superviser les performances du GPU
+              href: containers/container-insights-gpu-monitoring.md
+            - name: Superviser la configuration du réseau
+              href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+            - name: Superviser les déploiements et les HPA
+              href: containers/container-insights-deployment-hpa-metrics.md
+            - name: Superviser les volumes persistants
+              href: containers/container-insights-persistent-volumes.md
+            - name: Onglet Rapports
+              href: containers/container-insights-reports.md
+        - name: Requêtes dans les journaux
+          href: containers/container-insights-log-query.md
         - name: Consulter les données en direct
           items:
             - name: Vue d’ensemble des données actives
@@ -1128,22 +1146,12 @@
               href: containers/container-insights-livedata-metrics.md
             - name: Consulter les déploiements
               href: containers/container-insights-livedata-deployments.md
-        - name: Analyser des données avec des requêtes de journal
-          href: containers/container-insights-log-search.md
         - name: Génération d’alertes
           items:
             - name: Créer des règles d’alerte de journal
               href: containers/container-insights-log-alerts.md
             - name: Créer des règles d’alerte de métrique
               href: containers/container-insights-metric-alerts.md
-        - name: Gestion des agents
-          href: containers/container-insights-manage-agent.md
-        - name: Configurer l’abandon des métriques de Prometheus
-          href: containers/container-insights-prometheus-integration.md
-        - name: Configurer les paramètres de collection de l’agent
-          href: containers/container-insights-agent-config.md
-        - name: Mettre à jour pour activer les métriques
-          href: containers/container-insights-update-metrics.md
         - name: Gérer le coût et l’utilisation
           href: containers/container-insights-cost.md
         - name: Désactiver l’analyse

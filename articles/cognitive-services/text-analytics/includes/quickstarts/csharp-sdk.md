@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 8ccfcf4dbf2b93d4cf4bddc27575269cc1f36fc4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 817f282f167277c90ecfc19e11dd9312640c8bbf
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593328"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122442363"
 ---
 <a name="HOLTop"></a>
 
@@ -32,6 +32,7 @@ ms.locfileid: "114593328"
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * [IDE Visual Studio](https://visualstudio.microsoft.com/vs/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="créez une ressource Analyse de texte"  target="_blank">Créer une ressource Analyse de texte </a> dans le portail Azure pour obtenir votre clé et votre point de terminaison.  Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Analyse de texte. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
@@ -142,6 +143,8 @@ static void Main(string[] args)
 Le client Analyse de texte est un objet `TextAnalyticsClient` qui s’authentifie auprès d’Azure avec votre clé et fournit des fonctions permettant d’accepter du texte sous forme de chaînes individuelles ou de lots. Vous pouvez envoyer du texte à l’API de façon synchrone ou de façon asynchrone. L’objet Response contient les informations d’analyse de chaque document que vous envoyez. 
 
 Si vous utilisez la version `3.x` du service, vous pouvez vous servir d’une instance `TextAnalyticsClientOptions` facultative pour initialiser le client avec différents paramètres par défaut (par exemple, la langue par défaut ou l’indicateur de pays/région). Vous pouvez également vous authentifier à l’aide d’un jeton Azure Active Directory. 
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## <a name="code-examples"></a>Exemples de code
 
