@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer BrowserStack Single Sign-On pour le provisionneme
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et BrowserStack Single Sign-On.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 39999abc-e4a2-4058-81e0-bf88182f8864
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/22/2021
-ms.author: Zhchia
-ms.openlocfilehash: 200338ac50bceae6c3bf9730ee92a16c04a84b69
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: 5e3d33775fbf342f328cb4260607a540930ff22d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141448"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326930"
 ---
 # <a name="tutorial-configure-browserstack-single-sign-on-for-automatic-user-provisioning"></a>Tutoriel : Configurer BrowserStack Single Sign-On pour le provisionnement automatique d’utilisateurs
 

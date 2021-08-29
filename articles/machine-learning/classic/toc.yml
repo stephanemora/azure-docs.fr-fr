@@ -6,19 +6,21 @@
     - name: Machine Learning Studio (classique)
       displayName: overview
       href: studio-classic-overview.md
-- name: Démarrages rapides
+    - name: Migrer vers Azure Machine Learning
+      href: ../migrate-overview.md
+- name: Tutoriels
   items:
     - name: Créer votre première expérience
       displayName: quickstart
       href: create-experiment.md
-- name: Tutoriels
-  items:
-    - name: "1\_: Créer une expérience prédictive"
-      href: tutorial-part1-credit-risk.md
-    - name: "2\_: Entraîner et évaluer la solution"
-      href: tutorial-part2-credit-risk-train.md
-    - name: "3\_: Déployer un service web"
-      href: tutorial-part3-credit-risk-deploy.md
+    - name: Entraîner et déployer un modèle prédictif
+      items:
+        - name: "1\_: Créer une expérience prédictive"
+          href: tutorial-part1-credit-risk.md
+        - name: "2\_: Entraîner et évaluer la solution"
+          href: tutorial-part2-credit-risk-train.md
+        - name: "3\_: Déployer un service web"
+          href: tutorial-part3-credit-risk-deploy.md
 - name: Exemples
   items:
     - name: Jeux de données disponibles
@@ -138,20 +140,6 @@
         - name: Données de la galerie
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-    - name: Migrer vers Azure Machine Learning
-      items:
-        - name: Vue d’ensemble de la migration
-          href: migrate-overview.md
-        - name: Migrer des jeux de données
-          href: migrate-register-dataset.md
-        - name: Regénérer les expériences
-          href: migrate-rebuild-experiment.md
-        - name: Regénérer les services web
-          href: migrate-rebuild-web-service.md
-        - name: Migrer des applications clientes
-          href: migrate-rebuild-integrate-with-client-app.md
-        - name: "Regénérer les modules Exécuter un script\_R"
-          href: migrate-execute-r-script.md
 - name: Informations de référence
   items:
     - name: Informations de référence sur les algorithmes et les modules
@@ -164,12 +152,8 @@
       href: /rest/api/machinelearning
 - name: Ressources
   items:
-    - name: Mises à jour de service
-      href: 'https://azure.microsoft.com/updates/?product=machine-learning-studio'
     - name: Obtenir de l’aide
       href: support-aml-studio.md
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Tarifs

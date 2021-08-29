@@ -8,17 +8,19 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: e99beb024690bf888d0acbb747e98252eced7e06
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57bfd9564f1f5ee3ea66e80a969760ea578a0e74
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110132"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643200"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Démarrage rapide : Utiliser Python pour se connecter et interroger des données dans Azure Database pour MySQL - Serveur flexible
 
-> [!IMPORTANT] 
-> Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
+> Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
 Dans ce guide de démarrage rapide, vous allez utiliser Python afin de vous connecter à Azure Database pour MySQL - Serveur flexible. Vous utilisez ensuite des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données depuis des plateformes Mac, Ubuntu Linux et Windows. 
 
@@ -42,13 +44,13 @@ Effectuez les étapes suivantes pour installer Python et le connecteur MySQL pou
 
 1. Téléchargez et installez [Python 3.7 ou ultérieur](https://www.python.org/downloads/) pour votre système d’exploitation. Veillez à ajouter Python à votre `PATH`, car le connecteur MySQL en a besoin.
    
-1. Ouvrez une invite de commandes ou un interpréteur de commandes `bash`, puis vérifiez votre version de Python en exécutant `python -V` avec le commutateur V majuscule.
+2. Ouvrez une invite de commandes ou un interpréteur de commandes `bash`, puis vérifiez votre version de Python en exécutant `python -V` avec le commutateur V majuscule.
    
-1. Le programme d’installation de package `pip` est inclus dans les dernières versions de Python. Exécutez `pip install -U pip` pour mettre à jour `pip` avec la dernière version. 
+3. Le programme d’installation de package `pip` est inclus dans les dernières versions de Python. Exécutez `pip install -U pip` pour mettre à jour `pip` avec la dernière version. 
    
    Si `pip` n’est pas installé, vous pouvez le télécharger et l’installer avec `get-pip.py`. Pour plus d’informations, consultez [Installation](https://pip.pypa.io/en/stable/installing/). 
    
-1. Utilisez `pip` pour installer le connecteur MySQL pour Python et ses dépendances :
+4. Utilisez `pip` pour installer le connecteur MySQL pour Python et ses dépendances :
    
    ```bash
    pip install mysql-connector-python
@@ -62,23 +64,24 @@ Obtenez les informations dont vous avez besoin pour vous connecter au serveur fl
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
    
-1. Dans la barre de recherche du portail, recherchez et sélectionnez le serveur flexible Azure Database pour MySQL que vous avez créé, par exemple **mydemoserver**.
+2. Dans la barre de recherche du portail, recherchez et sélectionnez le serveur flexible Azure Database pour MySQL que vous avez créé, par exemple **mydemoserver**.
    
    <!---:::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::-->
    
-1. Dans la page **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans cette page.
+3. Dans la page **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans cette page.
    
    <!---:::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::-->
 
 ## <a name="code-samples"></a>Exemples de code
 
 ### <a name="run-below-mentioned-python-code-samples"></a>Exécuter les exemples de code Python mentionnés ci-dessous
+
 Pour chaque exemple de code dans cet article :
 
 1. Créez un fichier dans un éditeur de texte.
-1. Ajoutez l’exemple de code au fichier. Dans le code, remplacez les espaces réservés `<mydemoserver>`, `<myadmin>`, `<mypassword>` et `<mydatabase>` par les valeurs de votre serveur et de votre base de données MySQL.
-1. Enregistrez le fichier dans un dossier de projet avec une extension *.py*, par exemple *C:\pythonmysql\createtable.py* ou */home/username/pythonmysql/createtable.py*.
-1. Pour exécuter le code, ouvrez une invite de commandes ou un interpréteur de commandes `bash`, puis changez de répertoire dans votre dossier de projet (par exemple, `cd pythonmysql`). Tapez la commande `python` suivie du nom de fichier, par exemple `python createtable.py`, puis appuyez sur Entrée. 
+2. Ajoutez l’exemple de code au fichier. Dans le code, remplacez les espaces réservés `<mydemoserver>`, `<myadmin>`, `<mypassword>` et `<mydatabase>` par les valeurs de votre serveur et de votre base de données MySQL.
+3. Enregistrez le fichier dans un dossier de projet avec une extension *.py*, par exemple *C:\pythonmysql\createtable.py* ou */home/username/pythonmysql/createtable.py*.
+4. Pour exécuter le code, ouvrez une invite de commandes ou un interpréteur de commandes `bash`, puis changez de répertoire dans votre dossier de projet (par exemple, `cd pythonmysql`). Tapez la commande `python` suivie du nom de fichier, par exemple `python createtable.py`, puis appuyez sur Entrée. 
    
    > [!NOTE]
    > Sur Windows, si *python.exe* est introuvable, vous devrez peut-être fournir le chemin de Python à votre variable d’environnement PATH ou fournir le chemin complet à *python.exe* (par exemple, `C:\python27\python.exe createtable.py`).
@@ -87,13 +90,14 @@ Pour chaque exemple de code dans cet article :
 
 Utilisez le code suivant pour vous connecter au serveur et à la base de données, créer une table et charger les données à l’aide d’une instruction SQL **INSERT**. 
 
-Le code importe la bibliothèque mysql.connector et utilise la fonction [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) pour se connecter au serveur flexible à l’aide des [arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) dans la collection de configurations. Le code utilise un curseur sur la connexion, et la méthode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) exécute la requête SQL sur la base de données MySQL. 
+Le code importe la bibliothèque mysql.connector et utilise la fonction [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) pour se connecter au serveur flexible à l’aide des [arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) dans la collection de configurations. Le code utilise un curseur sur la connexion, et la méthode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) exécute la requête SQL sur la base de données MySQL.
 
 ```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -102,6 +106,7 @@ config = {
 }
 
 # Construct connection string
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -115,27 +120,27 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-  # Drop previous table of same name if one exists
-  cursor.execute("DROP TABLE IF EXISTS inventory;")
-  print("Finished dropping table (if existed).")
+# Drop previous table of same name if one exists
+cursor.execute("DROP TABLE IF EXISTS inventory;")
+print("Finished dropping table (if existed).")
 
-  # Create table
-  cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
-  print("Finished creating table.")
+# Create table
+cursor.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
+print("Finished creating table.")
 
-  # Insert some data into table
-  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
-  print("Inserted",cursor.rowcount,"row(s) of data.")
-  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
-  print("Inserted",cursor.rowcount,"row(s) of data.")
-  cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
-  print("Inserted",cursor.rowcount,"row(s) of data.")
+# Insert some data into table
+cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("banana", 150))
+print("Inserted",cursor.rowcount,"row(s) of data.")
+cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("orange", 154))
+print("Inserted",cursor.rowcount,"row(s) of data.")
+cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
+print("Inserted",cursor.rowcount,"row(s) of data.")
 
-  # Cleanup
-  conn.commit()
-  cursor.close()
-  conn.close()
-  print("Done.")
+# Cleanup
+conn.commit()
+cursor.close()
+conn.close()
+print("Done.")
 ```
 
 ### <a name="read-data"></a>Lire les données
@@ -151,6 +156,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -159,6 +165,7 @@ config = {
 }
 
 # Construct connection string
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -199,6 +206,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -207,6 +215,7 @@ config = {
 }
 
 # Construct connection string
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -242,6 +251,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
+
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>',
@@ -250,6 +260,7 @@ config = {
 }
 
 # Construct connection string
+
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established.")
