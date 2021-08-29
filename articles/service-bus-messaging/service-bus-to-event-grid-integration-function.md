@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb18eb5df675690a6bb5b796349c140a61949df1
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95818449"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "122207044"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>Tutoriel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. 
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Connecter la fonction et l’espace de noms via Event Grid
 > * Recevoir des messages à l’aide d’Azure Functions
 
-[!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
+[!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## <a name="additional-prerequisites"></a>Autres composants requis
 Installez [Visual Studio 2019](https://www.visualstudio.com/vs) et incluez la charge de travail **Développement Azure**. Cette charge de travail comprend les **outils Azure Functions** dont vous avez besoin pour créer, générer et déployer des projets Azure Functions dans Visual Studio. 

@@ -1,114 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Documentation Azure Machine Learning
-summary: Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.
+summary: 'Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.'
 metadata:
   title: Documentation Azure Machine Learning
-  description: Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.
+  description: 'Découvrez comment entraîner et déployer des modèles et comment gérer le cycle de vie du ML (MLOps) avec Azure Machine Learning. Tutoriels, exemples de code, informations de référence sur les API, etc.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
-  ms.topic: landing-page
+  ms.topic: hub-page
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 07/09/21
+  ms.date: 08/23/2021
   ms.custom: jordan-changes
-  ms.openlocfilehash: a6c9062be083260dd7a492363cb0dd79b2f37cdf
-  ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/10/2021
-  ms.locfileid: "113595900"
-landingContent:
-- title: Bien démarrer
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Qu'est-ce que Azure Machine Learning ?
-      url: overview-what-is-azure-ml.md
-  - linkListType: quickstart
-    links:
-    - text: Configurer des ressources
+highlightedContent:
+  items:
+    - title: "Qu'est-ce que Azure Machine Learning\_?"
+      itemType: overview
+      url: overview-what-is-azure-machine-learning.md
+    - title: Configurer des ressources
+      itemType: get-started
       url: quickstart-create-resources.md
-  - linkListType: tutorial
-    links:
-    - text: Entraîner avec le SDK Python
+    - title: "Préversion\_: Entraîner des modèles avec l’interface CLI\_v2"
+      itemType: tutorial
+      url: how-to-train-cli.md
+    - title: Architecture et terminologie
+      itemType: overview
+      url: concept-azure-machine-learning-architecture.md
+    - title: "Jour 1\_: Bien démarrer avec Python"
+      itemType: get-started
       url: tutorial-1st-experiment-hello-world.md
-    - text: Entraîner avec l’interface CLI v2 (préversion)
-      url: how-to-train-cli.md
-- title: Entraîner des modèles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Optimiser les hyperparamètres pour l’entraînement de modèle
-      url: how-to-tune-hyperparameters.md
-    - text: Créer des pipelines à partir de composants réutilisables
-      url: how-to-create-machine-learning-pipelines.md
-  - linkListType: tutorial
-    links:
-    - text: Entraîner avec AutoML
-      url: tutorial-first-experiment-automated-ml.md
-    - text: Exécuter le code d’entraînement dans le cloud (préversion de CLI v2)
-      url: how-to-train-cli.md
-- title: Déployer des modèles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Déploiement d’un modèle
-      url: how-to-deploy-and-where.md
-    - text: Scoring en temps réel avec des points de terminaison managés (préversion)
-      url: how-to-deploy-managed-online-endpoints.md
-    - text: Scoring par lots avec des points de terminaison managés (préversion)
-      url: how-to-use-batch-endpoint.md
-- title: Gérer le cycle de vie du ML (MLOps)
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Gestion, traçabilité et supervision des modèles
-      url: concept-model-management-and-deployment.md
-  - linkListType: how-to-guide
-    links:
-    - text: Suivre, superviser et analyser les exécutions d’entraînement
-      url: how-to-track-monitor-analyze-runs.md
-    - text: DevOps pour un pipeline d’ingestion des données
-      url: how-to-cicd-data-ingestion.md
-- title: Sécurité pour les projets ML
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Sécurité et gouvernance d’entreprise
-      url: concept-enterprise-security.md
-  - linkListType: tutorial
-    links:
-    - text: Créer un espace de travail sécurisé
-      url: tutorial-create-secure-workspace.md
-  - linkListType: how-to-guide
-    links:
-    - text: Se connecter à la source de données
-      url: how-to-access-data.md
-- title: Documents de référence
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Kit de développement logiciel (SDK) Python
-      url: /python/api/overview/azure/ml/
-    - text: API REST
-      url: /rest/api/azureml/
-    - text: Machine Learning avec CLI v2
-      url: /cli/azure/ml
-- title: Ressources
-  linkLists:
-  - linkListType: sample
-    links:
-    - text: Exemples de code du SDK Python
-      url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-    - text: Exemples de code CLI v2 (préversion)
-      url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-- title: Vous cherchez ML Studio (classique) ?
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Documentation sur ML Studio (classique)
-      url: classic/index.yml
-    - text: Azure Machine Learning ou Studio (classique)
-      url: overview-what-is-machine-learning-studio.md
+    - title: Migrer à partir de ML Studio (classique)
+      itemType: how-to-guide
+      url: migrate-overview.md
+conceptualContent:
+  items:
+    - title: Entraîner des modèles
+      links:
+        - url: how-to-train-cli.md
+          itemType: how-to-guide
+          text: "Exécuter le code d’entraînement dans le cloud (préversion de CLI\_v2)"
+        - url: how-to-tune-hyperparameters.md
+          itemType: how-to-guide
+          text: Optimiser les hyperparamètres pour l’entraînement de modèle
+        - url: how-to-create-machine-learning-pipelines.md
+          itemType: how-to-guide
+          text: Créer des pipelines à partir de composants réutilisables
+        - url: tutorial-first-experiment-automated-ml.md
+          itemType: tutorial
+          text: "AutoML\_: Entraîner un modèle de classification"
+    - title: Déployer des modèles
+      links:
+        - url: how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: Déploiement d’un modèle
+        - url: how-to-deploy-managed-online-endpoints.md
+          itemType: how-to-guide
+          text: Scoring en temps réel avec un point de terminaison managé (préversion)
+        - url: how-to-use-batch-endpoint.md
+          itemType: how-to-guide
+          text: Scoring par lots avec des points de terminaison managés (préversion)
+    - title: Gérer le cycle de vie du ML (MLOps)
+      links:
+        - url: how-to-track-monitor-analyze-runs.md
+          itemType: how-to-guide
+          text: 'Suivre, superviser et analyser les exécutions d’entraînement'
+        - url: concept-model-management-and-deployment.md
+          itemType: concept
+          text: 'Gestion, déploiement, traçabilité et supervision des modèles'
+        - url: how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
+          text: DevOps pour un pipeline d’ingestion des données
+    - title: "Sécurité pour les projets\_ML"
+      links:
+        - url: tutorial-create-secure-workspace.md
+          itemType: tutorial
+          text: Créer un espace de travail sécurisé
+        - url: how-to-access-data.md
+          itemType: how-to-guide
+          text: Se connecter à la source de données
+        - url: concept-enterprise-security.md
+          itemType: concept
+          text: Sécurité et gouvernance d’entreprise
+    - title: Informations de référence
+      links:
+        - url: /python/api/overview/azure/ml/
+          itemType: reference
+          text: Kit de développement logiciel (SDK) Python
+        - url: /rest/api/azureml/
+          itemType: reference
+          text: API REST
+        - url: /cli/azure/ml/
+          itemType: reference
+          text: "Interface CLI\_V2 (préversion)"
+        - url: ./algorithm-module-reference/module-reference.md
+          itemType: reference
+          text: Informations de référence sur les algorithmes et les modules
+    - title: Ressources
+      links:
+        - url: 'https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md'
+          itemType: sample
+          text: Exemples de code du SDK Python
+        - url: 'https://github.com/Azure/azureml-examples/blob/main/cli/README.md'
+          itemType: sample
+          text: "Exemples de code CLI\_v2 (préversion)"
+        - url: ./classic/index.yml
+          itemType: overview
+          text: "Documentation sur ML\_Studio (classique)"
