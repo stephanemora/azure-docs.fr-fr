@@ -3,8 +3,8 @@ title: 'Tutoriel : Configurer Bentley - Automatic User Provisioning pour le p
 description: Découvrez comment provisionner et déprovisionner automatiquement des comptes d’utilisateur entre Azure AD et Bentley - Automatic User Provisioning.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 08778fff-f252-45c2-95d4-cc640c288af3
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/13/2021
-ms.author: Zhchia
-ms.openlocfilehash: 99857aab921d1c09de09db04dededef187094ae5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: thwimmer
+ms.openlocfilehash: 401baafba0ae430d2cd33e7006302bf90afc9778
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740012"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326983"
 ---
 # <a name="tutorial-configure-bentley---automatic-user-provisioning-for-automatic-user-provisioning"></a>Tutoriel : Configurer Bentley - Automatic User Provisioning pour le provisionnement automatique des utilisateurs
 

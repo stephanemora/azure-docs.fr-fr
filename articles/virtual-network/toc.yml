@@ -85,6 +85,8 @@
           href: manage-public-ip-address-prefix.md
         - name: IPv6 pour les réseaux virtuels Azure
           href: ipv6-overview.md
+        - name: Accès sortant par défaut
+          href: default-outbound-access.md
         - name: Préférence de routage
           href: routing-preference-overview.md
         - name: Préférence de routage délimitée
@@ -126,6 +128,8 @@
           href: subnet-extension.md
         - name: Délégation de sous-réseau
           href: subnet-delegation-overview.md
+    - name: Mise en réseau de machine virtuelle
+      href: network-overview.md
     - name: Déploiement classique
       href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: Guides pratiques

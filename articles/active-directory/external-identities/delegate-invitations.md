@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd3ef3ed0ad072bb0e9284892fa5455660d1c40
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6c6dbac365b10b7abaeea6c4ae600cef24fcd1d2
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963617"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821793"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -62,20 +62,7 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
      > [!NOTE]
      > Si **Les membres peuvent inviter** est défini sur **Non** et **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** est défini sur **Oui**, les utilisateurs du rôle **Inviteur d’invité** pourront toujours inviter des utilisateurs.
 
-6. Sous **Envoi d’un code secret à usage unique par e-mail pour les invités**, choisissez les paramètres appropriés (pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail](one-time-passcode.md)) :
-
-   - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en octobre 2021** (Par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
-
-   - **Activer dès maintenant l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
-
-   - **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en octobre 2021.
-
-   > [!NOTE]
-   > Au lieu des options ci-dessus, vous verrez le bouton bascule suivant si vous avez activé ou désactivé cette fonctionnalité, ou si vous avez déjà choisi la préversion :
-   >
-   >![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
-
-7. Sous **Activer l’inscription en libre-service d’invité via des flux utilisateur**, sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs pour permettre aux utilisateurs de s’inscrire auprès des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](self-service-sign-up-user-flow.md).
+6. Sous **Activer l’inscription en libre-service d’invité via des flux utilisateur**, sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs pour permettre aux utilisateurs de s’inscrire auprès des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](self-service-sign-up-user-flow.md).
 
     ![Paramètre d’inscription en libre-service via des flux d’utilisateurs](./media/delegate-invitations/self-service-sign-up-setting.png)
 

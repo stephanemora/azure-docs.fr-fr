@@ -1,17 +1,17 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour Azure Monitor
 description: Exemples de requêtes Azure Resource Graph pour Azure Monitor montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées à Azure Monitor.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 5b2c0eac0766f816510b25c6c98dc74195dc1625
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f7b7de70a84028c0f26b547cd1dd18889a21aa6b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438961"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861235"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-monitor"></a>Exemples de requêtes Azure Resource Graph pour Azure Monitor
 
@@ -25,5 +25,5 @@ Cette page est une collection d’exemples de requêtes [Azure Resource Graph]
 
 - Découvrez plus en détails le [langage de requête](../governance/resource-graph/concepts/query-language.md).
 - Découvrez plus en détails comment [explorer des ressources](../governance/resource-graph/concepts/explore-resources.md).
-- Consulter des exemples de [requêtes en langage de démarrage](../governance/resource-graph/samples/starter.md).
-- Consulter des exemples de [requêtes en langage avancé](../governance/resource-graph/samples/advanced.md).
+- Consultez des exemples de [requêtes en langage de base](../governance/resource-graph/samples/starter.md).
+- Consultez des exemples de [requêtes en langage avancé](../governance/resource-graph/samples/advanced.md).

@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 380af1d7d258aea286886a2e49e53496a179bb63
-  ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+  ms.openlocfilehash: fab1c38f1912b191a50476db350b5b1f5243ff68
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/13/2021
-  ms.locfileid: "113667056"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121725533"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -101,10 +101,12 @@ landingContent:
       url: how-to-configure-voice-assistant.md
 - title: Développement avancé avec Azure Percept
   linkLists:
-  - linkListType: concept
+  - linkListType: overview
     links:
     - text: Développement avancé sur Azure Percept
       url: overview-advanced-code.md
+    - text: Module et charge de travail Vision AI
+      url: azureeyemodule-overview.md
   - linkListType: how-to-guide
     links:
     - text: Dev Tools Pack Installer

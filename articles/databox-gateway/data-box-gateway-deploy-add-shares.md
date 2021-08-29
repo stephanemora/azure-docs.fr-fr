@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 9064af6138a3dc02947b9d1de2c935afc0ad99a3
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: ad3fdca0cf15476fd13714d612d770289ced880a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113304153"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749737"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutoriel : Transférer des données avec Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Pour créer un partage, procédez comme suit :
 
     3. Fournissez un compte de stockage dans lequel résidera le partage. S’il n’existe pas de conteneur, un conteneur est créé dans le compte de stockage avec le nom du nouveau partage. Si le conteneur existe déjà, ce conteneur est utilisé.
        > [!IMPORTANT]
-       > Vérifiez que le compte Stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies dans le cadre d’une utilisation avec un appareil Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/storage-blob-immutability-policies-manage.md).
+       > Vérifiez que le compte Stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies dans le cadre d’une utilisation avec un appareil Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](../storage/blobs/immutable-policy-configure-version-scope.md).
     
     4. Choisissez le **service de stockage** d’objet blob de blocs, d’objet blob de pages ou de fichier. Le type de service choisi varie selon le format dans lequel vous souhaitez que les données résident dans Azure. Par exemple, dans cette instance, nous voulons que les données résident en tant qu’objets blob de blocs dans Azure. C’est pourquoi nous sélectionnons Objet blob de blocs. Si vous choisissez un objet blob de pages, vous devez vous assurer que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
    
