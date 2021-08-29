@@ -10,15 +10,12 @@
       href: whats-new.md
 - name: Démarrages rapides
   items:
-    - name: Créer un compte Automation
+    - name: "Créer un compte Automation\_–\_Portail"
       href: automation-quickstart-create-account.md
     - name: Créer un runbook PowerShell
       href: automation-quickstart-create-runbook.md
     - name: Activer Desired State Configuration pour une machine
       href: automation-quickstart-dsc-configuration.md
-    - name: Créer un compte Automation - Modèle ARM
-      displayName: Resource Manager
-      href: quickstart-create-automation-account-template.md
 - name: Tutoriels
   items:
     - name: Créer un runbook graphique
@@ -31,6 +28,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
     - name: "Créer un runbook Python\_3"
       href: learn/automation-tutorial-runbook-textual-python-3.md
+    - name: Utiliser une identité managée avec un runbook PowerShell
+      href: learn/powershell-runbook-managed-identity.md
 - name: Concepts
   items:
     - name: Vue d’ensemble de l’authentification des comptes Automation

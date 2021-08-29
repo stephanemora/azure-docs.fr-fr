@@ -8,18 +8,18 @@ ms.reviewer: jukullam
 ms.service: azure
 ms.date: 05/20/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 984bf8f225c34f34910bc57cb019a75301778360
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: c7782349fb467ef34169f46843b3c91d182c0995
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288943"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741083"
 ---
 # <a name="scan-container-images-using-github-actions"></a>Analyser des images conteneur à l’aide de GitHub Actions
 
 Démarrage de [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) avec la création d’un workflow pour générer et analyser une image de conteneur.
 
-Avec GitHub Actions, vous pouvez accélérer votre processus d’intégration continue et de livraison continue en générant, en analysant et en envoyant des images vers un [registre de conteneurs](https://azure.microsoft.com/en-in/services/container-registry/) public ou privé à partir de vos flux de travail.
+Avec GitHub Actions, vous pouvez accélérer votre processus d’intégration continue et de livraison continue en générant, en analysant et en envoyant des images vers un [registre de conteneurs](https://azure.microsoft.com/services/container-registry/) public ou privé à partir de vos flux de travail.
 
 Dans cet article, nous allons utiliser l’[analyse d'images de conteneur](https://github.com/marketplace/actions/container-image-scan) à partir de la [Place de marché GitHub](https://github.com/marketplace).
 

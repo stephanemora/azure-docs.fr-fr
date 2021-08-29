@@ -13,12 +13,12 @@ metadata:
   ms.author: vanto
   ms.reviewer: 
   ms.date: 07/14/2021
-  ms.openlocfilehash: ec0dab1b434358be02dfa7ac7f2cf133128a3d48
-  ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+  ms.openlocfilehash: 602bee5145e4ddfb8bc8a1a25aa4c4d58aeddc11
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113727115"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121727122"
 landingContent:
 - title: Vue d’ensemble
   linkLists:
@@ -50,8 +50,12 @@ landingContent:
       url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-register
     - text: Configurer l’enclave sécurisée dans SQL Server
       url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type
-- title: Tutoriels
+- title: Exemples et tutoriels
   linkLists:
+  - linkListType: sample
+    links:
+    - text: Exemple d’application web RH Contoso
+      url: https://github.com/microsoft/sql-server-samples/tree/master/samples/features/security/always-encrypted-with-secure-enclaves
   - linkListType: tutorial
     links:
     - text: Bien démarrer avec Always Encrypted avec enclaves sécurisées dans SQL Server

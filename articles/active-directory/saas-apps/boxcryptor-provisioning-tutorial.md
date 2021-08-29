@@ -3,8 +3,8 @@ title: 'Didacticiel : configurer Boxcryptor pour l’approvisionnement automatiq
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Boxcryptor.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 656de6d6-399e-4346-a07e-0e5fefb0b4ee
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/02/2021
-ms.author: Zhchia
-ms.openlocfilehash: 013308ab5d31bf42498b85c5a58c4973ccd4cbe4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: 916d4f10e554d671b77112de134f5aa7a0043d05
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141988"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122326938"
 ---
 # <a name="tutorial-configure-boxcryptor-for-automatic-user-provisioning"></a>Didacticiel : configurer Boxcryptor pour l’approvisionnement automatique d’utilisateurs
 

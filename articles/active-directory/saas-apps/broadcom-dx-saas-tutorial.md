@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 07/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 35ab4d335560689a7e55bf1a8dff9fcb0bcc7d7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efa197f7cd538bc82741863717044e7cd4321a37
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601514"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-broadcom-dx-saas"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Broadcom DX SaaS
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Broadcom DX SaaS pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -75,13 +78,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Broadcom DX SaaS**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `DXI_<TENANT_NAME>`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `DXI_<TENANT_NAME>`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://axa.dxi-na1.saas.broadcom.com/ess/authn/<TENANT_NAME>`
 

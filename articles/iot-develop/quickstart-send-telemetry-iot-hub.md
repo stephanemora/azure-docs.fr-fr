@@ -5,15 +5,15 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 04d7883088a4f8f9c12e384b3dcc3b4c0dfa6edf
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0ac38398f31c2256761c0f1b75d03f2fafeb65f8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730799"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744399"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>Démarrage rapide : Envoyer des données de télémétrie depuis un appareil à Azure IoT Hub
 
@@ -48,18 +48,6 @@ ms.locfileid: "114730799"
 [!INCLUDE [iot-develop-send-telemetry-iot-hub-python](../../includes/iot-develop-send-telemetry-iot-hub-python.md)]
 
 :::zone-end
-
-## <a name="view-telemetry"></a>Afficher les données de télémétrie
-Une fois que l’appareil simulé est connecté à IoT Hub, il commence à envoyer des données de télémétrie. Vous pouvez voir les métriques de télémétrie et d’autres détails sur votre hub IoT et vos appareils dans le portail Azure.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-
-1. Cliquez sur votre hub IoT pour l’ouvrir.  Votre hub IoT se trouve sous **Ressources récentes** ou, dans le volet de navigation gauche, sous **Toutes les ressources**.
-
-1. Dans la page **Vue d’ensemble**, accédez aux métriques de votre hub.
-    :::image type="content" source="media/quickstart-send-telemetry-iot-hub/iot-hub-metrics.png" alt-text="Vue d’ensemble des métriques d’appareil IoT Hub":::
-
-1. Pour éventuellement examiner d’autres métriques et créer des vues personnalisées, dans le volet de navigation gauche de **Supervision**, sélectionnez **Métriques**.
     
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous n’avez plus besoin des ressources Azure créées dans ce démarrage rapide, vous pouvez utiliser Azure CLI pour les supprimer.

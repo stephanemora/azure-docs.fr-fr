@@ -67,21 +67,31 @@ items:
         href: /powershell/module/Az.HPCCache
   - name: Ressources
     items:
-      - name: Ouverture d’un ticket de support
+      - name: Contacter le support technique
         href: hpc-cache-support-ticket.md
+      - name: Dépanner
+        items:
+          - name: Résoudre les problèmes de création de cibles de stockage NFS
+            href: troubleshoot-nas.md
+          - name: Contourner les paramètres de pare-feu de compte de stockage Blob
+            href: hpc-cache-blob-firewall-fix.md
+          - name: Récupérer après une panne régionale
+            href: hpc-region-recovery.md
+      - name: Options de stockage
+        items:
+          - name: Utiliser le stockage Blob monté sur NFS avec Azure HPC Cache
+            href: nfs-blob-considerations.md
+          - name: Utiliser Azure NetApp Files avec Azure HPC Cache
+            href: hpc-cache-netapp.md
       - name: Configurer Azure CLI pour Azure HPC Cache
         href: az-cli-prerequisites.md
-      - name: Contourner les paramètres de pare-feu de compte de stockage Blob
-        href: hpc-cache-blob-firewall-fix.md
-      - name: Résoudre les problèmes de création de cibles de stockage NFS
-        href: troubleshoot-nas.md
-      - name: Utiliser le stockage Blob monté sur NFS avec Azure HPC Cache
-        href: nfs-blob-considerations.md
-      - name: Récupérer après une panne régionale
-        href: hpc-region-recovery.md
       - name: Utiliser les clés de chiffrement gérées par le client
         href: customer-keys.md
-      - name: Utiliser Azure NetApp Files avec Azure HPC Cache
-        href: hpc-cache-netapp.md
+      - name: Vue d’ensemble du produit
+        href: 'https://azure.microsoft.com/services/hpc-cache/'
+      - name: Options de prix et d’achat
+        href: 'https://azure.microsoft.com/pricing/details/hpc-cache/'
+      - name: FAQ relative au produit
+        href: 'https://azure.microsoft.com/services/hpc-cache/#faq'
       - name: Vidéos
         href: 'https://azure.microsoft.com/resources/videos/index/?service=hpc-cache'

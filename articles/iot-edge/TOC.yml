@@ -15,6 +15,8 @@
       href: quickstart.md
 - name: Tutoriels
   items:
+    - name: Superviser les appareils et modules
+      href: tutorial-monitor-with-workbooks.md
     - name: Configurer l’environnement de développement
       items:
         - name: Développer avec des conteneurs Linux
@@ -131,6 +133,8 @@
           href: how-to-manage-device-certificates.md
         - name: Configurer la virtualisation imbriquée pour les machines virtuelles Windows
           href: nested-virtualization.md
+        - name: Créer un commutateur virtuel pour Linux sur Windows
+          href: how-to-create-virtual-switch.md
         - name: Configurer l’accélération GPU pour Linux sur Windows
           href: gpu-acceleration.md
     - name: Autres scénarios avec les appareils

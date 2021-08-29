@@ -3,12 +3,12 @@ title: Suivre des objets dans une vidéo en direct avec Azure Video Analyzer
 description: Ce guide de démarrage rapide vous montre comment utiliser le module périphérique Azure Video Analyzer pour suivre des objets dans un flux vidéo en direct provenant d’une caméra IP (simulée). Vous allez voir comment appliquer un modèle de vision par ordinateur pour détecter des objets dans un sous-ensemble d’images dans le flux vidéo en direct. Vous pouvez ensuite utiliser un nœud de suivi d’objets pour suivre ces objets dans les autres images.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 211b51660be74d2b2b3b024ead72c93b3a0d8449
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7ea51dbb59cba95825afb059e6a1845b4bbdcb95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603922"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745699"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>Démarrage rapide : Suivre des objets dans une vidéo en direct
 
@@ -105,7 +105,7 @@ Ouvrez l’URL de la topologie de pipeline dans un navigateur et examinez les pa
    }
 ```
 
-Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Si la vidéo en direct a une fréquence d’images de 30 images/s, cela signifie qu’au moins deux images par seconde doivent être envoyées au serveur HTTP pour l’inférence. Votre modèle IA a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
+Ici, `skipSamplesWithoutAnnotation` est défini sur `false`, car le nœud d’extension doit parcourir toutes les images, qu’elles aient ou non des résultats d’inférence, jusqu’au nœud de suivi d’objets en aval. Le traceur d’objets peut assurer le suivi d’objets sur environ 15 images. Votre modèle IA a une valeur maximale d’FPS pour le traitement, qui est la valeur la plus élevée à laquelle `maximumSamplesPerSecond` doit être définie.
     
 ## <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 

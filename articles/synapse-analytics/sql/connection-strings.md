@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb68a15bb64640fd8aa18d2ee01fd4a03d809125
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dfc82cfec8e2c356b0d2fcc3806e21a3bd01a299
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565268"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862508"
 ---
 # <a name="connection-strings-for-synapse-sql"></a>Chaînes de connexion pour Synapse SQL
 
@@ -55,4 +55,4 @@ Pour exécuter des requêtes de **pool SQL serverless**, les outils recommandés
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer à interroger vos données d’analytique avec Visual Studio et d’autres applications, consultez [Soumettre des requêtes avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Pour commencer à interroger vos données d’analytique avec Visual Studio et d’autres applications, consultez [Soumettre des requêtes avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?context=/azure/synapse-analytics/context/context).

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 489ddfb7a4c7344215950370d2e87f37fd24c14a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518757"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745324"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Qu’est-ce qu’Azure Data Science Virtual Machine pour Linux et Windows ?
 
@@ -27,7 +27,7 @@ La Data Science Virtual Machine est disponible sur :
 
 ## <a name="comparison-with-azure-machine-learning"></a>Comparaison avec Azure Machine Learning
 
-DSVM est une image de machine virtuelle personnalisée pour la science des données, mais [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) est une plateforme de bout en bout qui comprend :
+DSVM est une image de machine virtuelle personnalisée pour la science des données, mais [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) (AzureML) est une plateforme de bout en bout qui comprend :
 
 + Capacité de calcul managée
   + Compute Instances (Instances de calcul)
