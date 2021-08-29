@@ -6,15 +6,15 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 08/19/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fc7a7f137701590e4bddd791a3fdd2d1eaeca4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df9df0db6c93241d47baae9b33927f9a96a66eda
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461603"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597363"
 ---
 # <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Démarrage rapide : Créer un pool Apache Spark serverless avec le portail Azure
 
@@ -38,9 +38,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Accéder à l’espace de travail Synapse 
 1. Accédez à l’espace de travail Synapse dans lequel vous allez créer le pool Apache Spark en saisissant le nom du service (ou directement le nom de la ressource) dans la barre de recherche.
-![Barre de recherche du portail Azure contenant le texte « espaces de travail Synapse ».](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. Dans la liste des espaces de travail, saisissez le nom (ou une partie du nom) de l’espace de travail à ouvrir. Pour cet exemple, nous allons utiliser un espace de travail nommé **contosoanalytics**.
-![Liste des espaces de travail Synapse filtrés pour afficher ceux contenant le nom contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
+
+    ![Barre de recherche du portail Azure contenant le texte « espaces de travail Synapse ».](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+
+2. Dans la liste des espaces de travail, saisissez le nom (ou une partie du nom) de l’espace de travail à ouvrir. Pour cet exemple, nous allons utiliser un espace de travail nommé **contosoanalytics**.
+    ![Liste des espaces de travail Synapse filtrés pour afficher ceux contenant le nom contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Créer un pool Apache Spark
@@ -58,6 +60,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 
 
     ![Flux de création d’un pool Apache Spark - Onglet Général](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-02.png)
+
     > [!IMPORTANT]
     > Notez que les noms que vous pouvez attribuer aux pools Apache Spark sont soumis à des limitations spécifiques. Les noms doivent contenir uniquement des lettres ou des chiffres, ne doivent pas comporter plus de 15 caractères, doivent commencer par une lettre, ne pas contenir de mots réservés et être uniques dans l’espace de travail.
 

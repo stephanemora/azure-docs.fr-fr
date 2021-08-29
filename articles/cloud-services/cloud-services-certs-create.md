@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 926d711f86a07ee22a4370e838efae9f4e0be957
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: e2c5ecdd43d90fbfe6e6b792b1d0a6e990bb3736
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126209"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824901"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Vue d’ensemble des certificats pour Azure Cloud Services (classique)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Suite à ce changement, les instances Azure Cloud Services exécutées sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique) et tous les nouveaux déploiements doivent utiliser [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les déployer dans Azure.
 

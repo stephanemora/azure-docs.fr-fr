@@ -9,17 +9,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 59e6e3547bb87174c5b92f2f0b7bc49d5aba4d36
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 2c891cd11174645cdbc574c7526fd0011b397e11
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093658"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823803"
 ---
 # <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services (classique)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Le rôle de travail Azure est un rôle utile pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web.
 

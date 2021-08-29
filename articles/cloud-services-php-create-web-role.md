@@ -13,16 +13,17 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 0b02662658b2199a13f117ad95c6402f9b2974f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23e87c1b91de60f300adf7aa027ba1bd9704251f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95519844"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823704"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Créer des rôles web et de travail PHP
-
 ## <a name="overview"></a>Vue d’ensemble
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](cloud-services/includes/deprecation-announcement.md)]
 
 Ce guide vous montre comment créer des rôles web et de travail PHP dans un environnement de développement Windows, choisir une version spécifique de PHP à partir des versions « intégrées » disponibles, modifier la configuration de PHP, activer les extensions et effectuer un déploiement dans Azure. Il décrit également la façon de configurer un rôle web et de travail afin d'utiliser un runtime PHP (avec une configuration et des extensions personnalisées) que vous fournissez.
 

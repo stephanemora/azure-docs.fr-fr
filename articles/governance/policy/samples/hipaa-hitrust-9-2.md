@@ -1,15 +1,15 @@
 ---
 title: Détails de conformité réglementaire pour HIPAA HITRUST 9.2
 description: Détails de l’initiative intégrée de conformité réglementaire HIPAA HITRUST 9.2. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 07/16/2021
+ms.date: 08/20/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3b1df7c93617d4d5cdc65ede96a61f305516bd4b
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 4a13f63247ecb7a3724299c24218cc2022e42f40
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114405478"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604658"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire HIPAA HITRUST 9.2
 
@@ -1143,7 +1143,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Transparent Data Encryption sur les bases de données SQL doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |Le chiffrement transparent des données doit être activé pour protéger les données au repos et respecter les conditions de conformité requises |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
+|[Transparent Data Encryption sur les bases de données SQL doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |Le chiffrement transparent des données doit être activé pour protéger les données au repos et respecter les conditions de conformité requises |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>L’organisation protège et contrôle les supports contenant des informations sensibles pendant le transport en dehors des zones contrôlées.
 
@@ -1550,9 +1550,6 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Auditez les machines virtuelles configurées sans reprise d’activité. Pour en savoir plus sur la reprise d’activité, consultez [https://aka.ms/asr-doc](../../../site-recovery/index.yml). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
-
-> [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
