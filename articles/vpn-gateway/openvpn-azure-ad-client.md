@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/28/2021
-ms.author: alzam
-ms.openlocfilehash: ba3733f16353ad1e921430ca7699212a60d5ff2f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/20/2021
+ms.author: cherylmc
+ms.openlocfilehash: a004e8d7fd87cc7abdf881b355b40b59ac874ba1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754952"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779735"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Authentification Azure Active Directory : Configurer un client VPN pour les connexions P2S de protocole OpenVPN
 
@@ -27,13 +27,7 @@ Pour chaque ordinateur appelé à se connecter au réseau virtuel via le client�
 
 ### <a name="to-download-the-azure-vpn-client"></a>Pour télécharger le client VPN Azure
 
-1. Téléchargez [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) sur l’ordinateur.
-1. Vérifiez qu’Azure VPN Client est autorisé à s’exécuter en arrière-plan. Pour vérifier et activer les autorisations, accédez à **Démarrer -> Paramètres -> Confidentialité -> Applications en arrière-plan**.
-
-   * Sous **Applications en arrière-plan**, vérifiez que l’option **Autoriser les applications à s’exécuter en arrière-plan** est définie sur **Activé**.
-   * Sous **Choisir les applications qui peuvent s’exécuter en arrière-plan**, définissez l’option **Azure VPN Client** sur **Activé**.
-
-     ![Capture d’écran des autorisations.](./media/openvpn-azure-ad-client/backgroundpermission.png)
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Pour créer un profil client basé sur un certificat
 

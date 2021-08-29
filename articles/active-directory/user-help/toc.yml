@@ -20,6 +20,8 @@
       href: multi-factor-authentication-end-user-signin.md
     - name: Obtenir de l’aide
       href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Code reçu dans l’erreur
+      href: multi-factor-authentication-change-sms-phone.md
 - name: Aide relative à la réinitialisation du mot de passe
   items:
     - name: Se connecter pour réinitialiser un mot de passe

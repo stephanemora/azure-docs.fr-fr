@@ -75,7 +75,7 @@
               href: solutions-benefits-azure-netapp-files-oracle-database.md
             - name: Avantages de l’utilisation d’Azure NetApp Files pour l’automatisation de la conception électronique
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-            - name: Avantages d’utiliser Azure NetApp Files avec Windows Virtual Desktop
+            - name: Avantages d’utiliser Azure NetApp Files avec Azure Virtual Desktop
               href: solutions-windows-virtual-desktop.md
             - name: Avantages de l’utilisation de Azure NetApp Files pour le déploiement de SQL Server
               href: solutions-benefits-azure-netapp-files-sql-server.md
@@ -119,8 +119,8 @@
       items:
         - name: Créer un volume SMB
           href: azure-netapp-files-create-volumes-smb.md
-        - name: Convertir des volumes SMB existants pour utiliser la disponibilité continue
-          href: convert-smb-continuous-availability.md
+        - name: Activer la disponibilité continue sur des volumes SMB existants
+          href: enable-continuous-availability-existing-SMB.md
     - name: Créer un volume à deux protocoles
       href: create-volumes-dual-protocol.md
     - name: Configurer ADDS LDAP sur TLS
@@ -129,6 +129,8 @@
       href: azure-netapp-files-configure-export-policy.md
     - name: Monter ou démonter un volume
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Configurer des autorisations Unix et modifier le mode de propriété
+      href: configure-unix-permissions-change-ownership-mode.md
     - name: Gérer les instantanés
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume

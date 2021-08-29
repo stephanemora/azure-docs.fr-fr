@@ -13,25 +13,25 @@
       href: quickstart-onboard.md
 - name: Tutoriels
   items:
-    - name: Investiguer les incidents
-      href: tutorial-investigate-cases.md
+    - name: Investiguer avec UEBA
+      href: investigate-with-ueba.md
     - name: Utiliser l’automatisation pour répondre aux menaces
       href: tutorial-respond-threats-playbook.md
-    - name: "Intégrer à Microsoft\_365 Defender"
-      href: microsoft-365-defender-sentinel-integration.md
     - name: Créer des requêtes KQL pour Azure Sentinel (module Learn)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
     - name: "Créer un rapport Power\_BI depuis Azure Sentinel"
       href: powerbi.md
 - name: Concepts
   items:
+    - name: Prérequis Azure Sentinel
+      href: prerequisites.md
     - name: Meilleures pratiques
       items:
-        - name: Meilleures pratiques de prédéploiement
-          href: prerequisites.md
-        - name: Bonnes pratiques générales
+        - name: Vue d’ensemble
           href: best-practices.md
-        - name: Meilleures pratiques de collecte de données
+        - name: Architecture de l’espace de travail
+          href: best-practices-workspace-architecture.md
+        - name: Collecte de données
           href: best-practices-data.md
     - name: Architecture
       items:
@@ -39,12 +39,22 @@
           href: roles.md
         - name: Coûts et facturation
           href: azure-sentinel-billing.md
+        - name: Étendre Azure Sentinel dans les espaces de travail et les locataires
+          href: extend-sentinel-across-workspaces-tenants.md
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
     - name: Collecte et analyse de données
       items:
         - name: Normalisation et modèle ASIM (Azure Sentinel Information Model)
-          href: normalization.md
+          items:
+            - name: Vue d’ensemble d’ASIM
+              href: normalization.md
+            - name: Schémas ASIM
+              href: normalization-about-schemas.md
+            - name: Analyseurs ASIM
+              href: normalization-about-parsers.md
+            - name: Contenu ASIM
+              href: normalization-content.md
         - name: Classification de données avec des entités
           href: entities-in-azure-sentinel.md
     - name: Solutions Azure Sentinel
@@ -79,8 +89,20 @@
           href: automate-responses-with-playbooks.md
         - name: Apporter votre propre Machine Learning
           href: bring-your-own-ml.md
+    - name: "Intégration de Microsoft\_365 Defender"
+      href: microsoft-365-defender-sentinel-integration.md
 - name: Procédures
   items:
+    - name: Concevoir l’architecture de votre espace de travail
+      items:
+        - name: Vue d’ensemble
+          href: design-your-workspace-architecture.md
+        - name: Exemples de conceptions d’espaces de travail
+          href: sample-workspace-designs.md
+        - name: Prévoir et gérer les coûts
+          href: azure-sentinel-billing.md
+        - name: Gérer les accès à l’espace de travail
+          href: resource-context-rbac.md
     - name: Migrer vers Azure Sentinel
       href: migration.md
     - name: Collecter les données
@@ -273,8 +295,8 @@
                       href: connect-wirex-systems.md
                     - name: Zscaler
                       href: connect-zscaler.md
-                - name: "ÉTAPE\_3 Valider la connectivité"
-                  href: connect-cef-verify.md
+            - name: Résolution des problèmes liés à CEF et Syslog
+              href: troubleshooting-cef-syslog.md
         - name: Créer un connecteur personnalisé
           href: create-custom-connector.md
         - name: Connecter des machines virtuelles Azure Stack
@@ -285,28 +307,28 @@
           href: store-logs-in-azure-data-explorer.md
     - name: Découvrir et déployer des solutions
       href: sentinel-solutions-deploy.md
-    - name: Connecter la Threat Intelligence
+    - name: Utiliser le renseignement sur les menaces
       items:
         - name: Se connecter aux plateformes de renseignement sur les menaces
           href: connect-threat-intelligence-tip.md
         - name: Se connecter aux flux STIX/TAXII
           href: connect-threat-intelligence-taxii.md
-    - name: Utiliser des indicateurs de menace
-      href: work-with-threat-indicators.md
+        - name: Utiliser des indicateurs de menace
+          href: work-with-threat-indicators.md
     - name: Superviser et visualiser les données
       items:
         - name: Visualiser les données collectées
-          href: quickstart-get-visibility.md
+          href: get-visibility.md
         - name: Utiliser des classeurs Azure Monitor
-          href: tutorial-monitor-your-data.md
+          href: /azure/sentinel/monitor-your-data
     - name: Détecter les menaces et analyser les données
       items:
         - name: Utiliser des règles intégrées
-          href: tutorial-detect-threats-built-in.md
+          href: detect-threats-built-in.md
         - name: Créer des règles personnalisées
           items:
             - name: Créer une règle
-              href: tutorial-detect-threats-custom.md
+              href: detect-threats-custom.md
             - name: Mapper des champs de données à des entités
               href: map-data-fields-to-entities.md
             - name: Exposer des détails personnalisés dans les alertes
@@ -337,10 +359,10 @@
           href: livestream.md
     - name: Examiner et répondre
       items:
+        - name: Investiguer les incidents
+          href: investigate-cases.md
         - name: Créer des activités d’entité personnalisées
           href: customize-entity-activities.md
-        - name: Méthodes d’investigation UEBA courantes
-          href: investigate-with-ueba.md
         - name: "Collaborer dans Microsoft\_Teams"
           href: collaborate-in-microsoft-teams.md
         - name: Authentifier les playbooks auprès d’Azure Sentinel
@@ -349,10 +371,6 @@
           href: playbook-triggers-actions.md
     - name: Gérer Azure Sentinel
       items:
-        - name: Gérer les accès à l’espace de travail
-          href: resource-context-rbac.md
-        - name: Étendre Azure Sentinel dans les espaces de travail et les locataires
-          href: extend-sentinel-across-workspaces-tenants.md
         - name: Azure Sentinel pour les MSSP
           items:
             - name: Gérer plusieurs locataires (MSSP)
@@ -379,8 +397,12 @@
       href: sap-solution-log-reference.md
     - name: 'Workbook, règles et watchlists SAP'
       href: sap-solution-security-content.md
-    - name: Déployer le connecteur de données SAP localement
+    - name: Utiliser une connexion SNC pour déployer votre connecteur de données SAP
+      href: sap-solution-deploy-snc.md
+    - name: Options de configuration d’experts
       href: sap-solution-deploy-alternate.md
+    - name: Résolution des problèmes de déploiement de solution SAP
+      href: sap-deploy-troubleshoot.md
 - name: Informations de référence
   items:
     - name: API REST Azure Sentinel
@@ -411,6 +433,8 @@
               href: authentication-normalization-schema.md
             - name: Schéma de normalisation DNS
               href: dns-normalization-schema.md
+            - name: Schéma de normalisation des événements de fichier
+              href: file-event-normalization-schema.md
             - name: Schéma de normalisation du réseau
               href: normalization-schema.md
             - name: Traiter le schéma de normalisation des événements
@@ -425,6 +449,8 @@
           href: entities-reference.md
         - name: Enrichissements UEBA
           href: ueba-enrichments.md
+        - name: Schémas de modèles Watchlist
+          href: watchlist-schemas.md
         - name: Langage de requête Kusto
           items:
             - name: Vue d’ensemble des requêtes Kusto
@@ -447,6 +473,8 @@
   items:
     - name: Ressources utiles
       href: resources.md
+    - name: Exemple d’architecture d’espace de travail
+      href: sample-workspace-designs.md
     - name: Blog Azure Sentinel
       href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilité régionale
