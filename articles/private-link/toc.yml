@@ -61,7 +61,7 @@
   items:
     - name: Exporter les enregistrements DNS du point de terminaison privé
       href: private-endpoint-export-dns.md
-    - name: Désactiver les stratégies réseau pour les points de terminaison privés
+    - name: Gérer les stratégies réseau pour les points de terminaison privés
       href: disable-private-endpoint-network-policy.md
     - name: Désactiver les stratégies réseau pour un service Liaison privée
       href: disable-private-link-service-network-policy.md

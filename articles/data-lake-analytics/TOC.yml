@@ -165,6 +165,8 @@
           href: runtime-troubleshoot.md
         - name: Résoudre les problèmes d’une mise à niveau .NET
           href: dotnet-upgrade-troubleshoot.md
+    - name: Migrer vers Spark sur Azure Data Analytics
+      href: migrate-azure-data-lake-analytics-to-synapse.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

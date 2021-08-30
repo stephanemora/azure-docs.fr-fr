@@ -8,16 +8,20 @@ items:
   - name: Démarrages rapides
     expanded: true
     items:
-      - name: Créer un compte Purview - Portail Azure
-        href: create-catalog-portal.md
-      - name: Créer un compte Purview - Azure PowerShell
-        href: create-catalog-powershell.md
-      - name: Créer un compte Purview - SDK .NET
-        href: create-purview-dotnet.md
-      - name: Créer un compte Purview - Python
-        href: create-purview-python.md
-      - name: Gérer les notifications Kafka - .NET
-        href: manage-kafka-dotnet.md
+      - name: Créer un compte Purview
+        items:
+          - name: Créer un compte Purview - Portail Azure
+            href: create-catalog-portal.md
+          - name: Créer un compte Purview - Azure PowerShell
+            href: create-catalog-powershell.md
+          - name: Créer un compte Purview - SDK .NET
+            href: create-purview-dotnet.md
+          - name: Créer un compte Purview - Python
+            href: create-purview-python.md
+          - name: "Créer un compte Purview\_– FAQ sur le portail Azure"
+            href: create-purview-portal-faq.md
+      - name: Créer une collection - Azure Purview Studio
+        href: quickstart-create-collection.md
   - name: Tutoriels
     items:
       - name: Intégration de sources de données Azure à grande échelle
@@ -50,8 +54,10 @@ items:
         href: deployment-best-practices.md
       - name: Limites d’Azure Purview
         href: how-to-manage-quotas.md
-      - name: Comment les analyses détectent les éléments supprimés
-        href: concept-detect-deleted-assets.md
+      - name: Analyses et ingestion
+        href: concept-scans-and-ingestion.md
+      - name: Carte de données élastique
+        href: concept-elastic-data-map.md
       - name: Présentation des jeux de ressources
         href: concept-resource-sets.md
       - name: Traçabilité des données
@@ -71,9 +77,11 @@ items:
       - name: Normalisation des ressources
         href: concept-asset-normalization.md
       - name: Forum aux questions
-        href: frequently-asked-questions.md
+        href: ./frequently-asked-questions.yml
   - name: Guides pratiques
     items:
+      - name: Créer et gérer des collections
+        href: how-to-create-and-manage-collections.md
       - name: Inscrire et analyser
         items:
           - name: Gérer les informations d'identification
@@ -129,6 +137,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Pool SQL dédié Azure (anciennement SQL DW)
                 href: register-scan-azure-synapse-analytics.md
+              - name: Cassandra
+                href: register-scan-cassandra-source.md
               - name: Erwin
                 href: register-scan-erwin-source.md
               - name: Google BigQuery
@@ -175,6 +185,8 @@ items:
             href: how-to-browse-catalog.md
           - name: Rechercher dans un catalogue de données
             href: how-to-search-catalog.md
+          - name: 'Afficher, modifier et supprimer des ressources de catalogue'
+            href: catalog-asset-details.md
       - name: Lignage
         items:
           - name: Guide de l’utilisateur sur la traçabilité
@@ -183,12 +195,30 @@ items:
             href: how-to-link-azure-data-factory.md
           - name: Traçabilité Azure Data Share
             href: how-to-link-azure-data-share.md
+          - name: Traçabilité Azure Synapse Analytics
+            href: how-to-lineage-azure-synapse-analytics.md
+          - name: Traçabilité Cassandra
+            href: how-to-lineage-cassandra.md
+          - name: Traçabilité Erwin
+            href: how-to-lineage-erwin.md
+          - name: Traçabilité Looker
+            href: how-to-lineage-looker.md
+          - name: Traçabilité Google BigQuery
+            href: how-to-lineage-google-bigquery.md
+          - name: Traçabilité Oracle
+            href: how-to-lineage-oracle.md
           - name: "Traçabilité des données Power\_BI"
             href: how-to-lineage-powerbi.md
+          - name: Traçabilité SAP S/4HANA
+            href: how-to-lineage-saps4hana.md
+          - name: Traçabilité SAP ECC
+            href: how-to-lineage-sapecc.md
           - name: Traçabilité des données Spark
             href: how-to-lineage-spark-atlas-connector.md
           - name: Traçabilité de SQL Server Integration Services
             href: how-to-lineage-sql-server-integration-services.md
+          - name: Traçabilité Teradata
+            href: how-to-lineage-teradata.md
       - name: Superviser
         items:
           - name: Surveiller avec Azure Monitor
@@ -209,16 +239,36 @@ items:
             href: file-extension-insights.md
       - name: Sécurité et réseau
         items:
-          - name: Gérer les points de terminaison privés
+          - name: Vue d’ensemble des points de terminaison privés Azure Purview
             href: catalog-private-link.md
+          - name: Se connecter de manière privée et sécurisée à votre compte Purview
+            href: catalog-private-link-account-portal.md
+          - name: Analyser vos sources de données de manière privée et sécurisée
+            href: catalog-private-link-ingestion.md
+          - name: Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée
+            href: catalog-private-link-end-to-end.md
+          - name: Configuration DNS des points de terminaison privés Azure Purview
+            href: catalog-private-link-name-resolution.md
+          - name: Guide de résolution des problèmes des points de terminaison privés Azure Purview
+            href: catalog-private-link-troubleshoot.md
           - name: Questions fréquentes sur les points de terminaison privés Azure Purview
             href: catalog-private-link-faqs.md
       - name: Récupération d'urgence
         items:
           - name: Récupération d'urgence
             href: disaster-recovery.md
+      - name: Gérer les notifications Kafka - .NET
+        href: manage-kafka-dotnet.md
   - name: Informations de référence
     items:
+      - name: Java
+        href: /samples/browse/?products=azure&languages=java&terms=purview
+      - name: .NET
+        href: /dotnet/api/overview/azure/purviewresourceprovider
+      - name: Python
+        href: /python/api/azure-mgmt-purview/
+      - name: REST
+        href: /rest/api/purview/
       - name: Classifications prises en charge
         href: supported-classifications.md
       - name: Glossaire du produit Azure Purview
@@ -227,8 +277,6 @@ items:
         href: abap-functions-deployment-guide.md
   - name: Ressources
     items:
-      - name: Commentaires sur les fonctionnalités (User Voice)
-        href: 'https://feedback.azure.com/forums/932437-azure-purview'
       - name: Calculatrice de prix
         href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
       - name: Forum Microsoft Q&A

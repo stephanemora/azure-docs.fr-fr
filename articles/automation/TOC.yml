@@ -8,6 +8,8 @@
       href: automation-faq.md
     - name: Nouveautés
       href: whats-new.md
+    - name: Archive des nouveautés
+      href: whats-new-archive.md
 - name: Démarrages rapides
   items:
     - name: "Créer un compte Automation\_–\_Portail"
@@ -61,9 +63,9 @@
   items:
     - name: Compte Automation
       items:
-        - name: Créer un compte Automation avec le portail Azure
+        - name: Créer un compte Automation - Portail Azure
           href: automation-create-standalone-account.md
-        - name: Créer un compte Automation avec un modèle Resource Manager
+        - name: Créer un compte Automation - Modèle Resource Manager
           href: quickstart-create-automation-account-template.md
         - name: Identité managée
           items:

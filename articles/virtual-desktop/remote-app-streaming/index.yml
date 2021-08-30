@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Présentation de la diffusion d’applications distantes Azure Virtual Desktop
-summary: Avec la diffusion d’applications à distance d’Azure Virtual Desktop, vous pouvez distribuer des applications aux utilisateurs à l’intérieur et à l’extérieur de votre organisation. Apprenez-en plus à l'aide des tutoriels et des guides.
+summary: Avec la diffusion d’applications à distance d’Azure Virtual Desktop, vous pouvez distribuer des applications SaaS (software as a service) aux utilisateurs à l’intérieur et à l’extérieur de votre organisation.
 metadata:
   title: Présentation de la diffusion d’applications distantes Azure Virtual Desktop
   description: Comment utiliser la diffusion en continu d'applications à distance d'Azure Virtual Desktop pour fournir des applications aux clients à l'intérieur et à l'extérieur de votre organisation.
@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 07/14/2021
-  ms.openlocfilehash: 2968fc3db34ed1db1e551daad3b3dfb3e2d036d9
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: a3284112e7afd83754e571c5dce7a9b6f9e43ad1
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113798624"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123036605"
 landingContent:
 - title: Diffuser en continu d’applications distantes avec Azure Virtual Desktop
   linkLists:

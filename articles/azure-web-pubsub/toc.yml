@@ -32,7 +32,9 @@
     - name: Développement serverless
       expanded: true
       items:
-        - name: Créer une conversation serverless avec Azure Function
+        - name: Créer une application de notification avec Azure Function
+          href: tutorial-serverless-notification.md
+        - name: Créer une application de conversation avec Azure Function
           href: quickstart-serverless.md
     - name: Publier des messages et s’y abonner
       href: tutorial-pub-sub-messages.md

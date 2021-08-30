@@ -259,8 +259,9 @@
             - name: Configurer des services web sécurisés
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
-            - name: Configurer le pare-feu
+            - name: Configurer le trafic réseau requis
               href: how-to-access-azureml-behind-firewall.md
+              displayName: 'firewall, user-defined route, udr'
         - name: Protection des données
           items:
             - name: Basculement et reprise d’activité après sinistre

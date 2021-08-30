@@ -1,7 +1,5 @@
 - name: Documentation relative aux notions de base
   href: index.yml
-- name: Récupération après une compromission de l’identité système
-  href: recover-from-identity-compromise.md
 - name: Vue d’ensemble
   items:
     - name: Présentation de la sécurité Azure
@@ -10,6 +8,14 @@
       href: end-to-end.md
     - name: Responsabilité partagée dans le cloud
       href: shared-responsibility.md
+- name: Détecter et atténuer les menaces
+  items:
+    - name: Plan de sauvegarde et de restauration pour les ransomwares
+      href: backup-plan-to-protect-against-ransomware.md
+    - name: Récupération après une compromission de l’identité système
+      href: recover-from-identity-compromise.md
+    - name: Protection contre les menaces
+      href: threat-detection.md
 - name: Sécurisation de charges de travail dans Azure
   items:
     - name: Fonctions techniques de sécurité
@@ -144,8 +150,6 @@
       href: service-fabric-best-practices.md
 - name: 'Surveillance, audit et opérations'
   items:
-    - name: Protection contre les menaces
-      href: threat-detection.md
     - name: Journalisation et audit Azure
       href: log-audit.md
     - name: Gestion et surveillance de la sécurité

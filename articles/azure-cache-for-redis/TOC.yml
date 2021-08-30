@@ -70,7 +70,21 @@
     - name: Basculement et correctif
       href: cache-failover.md
     - name: Meilleures pratiques
-      href: cache-best-practices.md
+      items:
+        - name: Résilience des connexions
+          href: cache-best-practices-connection.md
+        - name: Gestion des charges des serveurs
+          href: cache-best-practices-server-load.md
+        - name: Gestion de la mémoire
+          href: cache-best-practices-memory-management.md
+        - name: Développement
+          href: cache-best-practices-development.md
+        - name: Mise à l'échelle
+          href: cache-best-practices-scale.md
+        - name: Applications clientes hébergées sur Kubernetes
+          href: cache-best-practices-kubernetes.md
+        - name: Tests de performances
+          href: cache-best-practices-performance.md
     - name: Sécurité
       items:
         - name: Options d’isolement réseau

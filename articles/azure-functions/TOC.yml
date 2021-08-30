@@ -489,8 +489,12 @@
           href: functions-hybrid-powershell.md
     - name: Dépanner
       items:
-        - name: Résoudre les problèmes de stockage
+        - name: Connexions de stockage
           href: functions-recover-storage-account.md
+          displayName: troubleshoot
+        - name: Liaisons Azure Cosmos DB
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          displayName: troubleshoot
         - name: Fonctions Python
           items:
             - name: Résolution générale des problèmes

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation Azure Purview
-summary: Découvrez comment utiliser Azure Purview pour permettre à votre organisation de rechercher, comprendre et consommer des sources de données.
+summary: Découvrez comment utiliser Azure Purview pour permettre à votre organisation de rechercher, comprendre, régir et consommer des sources de données. Utilisez les tutoriels, les informations de référence sur les API REST et les autres documents fournis pour planifier et configurer un référentiel de données dans lequel vous pouvez découvrir les sources de données disponibles et gérer leur utilisation.
 metadata:
   title: Documentation Azure Purview
   description: Découvrez comment utiliser Azure Purview pour permettre à votre organisation de rechercher, comprendre et consommer des sources de données. Des tutoriels, des informations de référence sur les API REST et autre documentation vous montrent comment planifier et configurer un référentiel de données dans lequel les consommateurs de données peuvent découvrir les sources de données disponibles et accéder aux connaissances fournies par des experts en la matière.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 06/09/2021
-  ms.openlocfilehash: 8db36ffb5f1d081e0e4dbb2cd6dbca02c7ddf726
-  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+  ms.date: 08/26/2021
+  ms.openlocfilehash: fbe52bbe6bc7835dc80251f7dffcd31c7a999d52
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111904010"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122969729"
 landingContent:
 - title: À propos d’Azure Purview
   linkLists:
@@ -24,24 +24,30 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Utiliser Purview Studio
-      url: use-purview-studio.md
     - text: Bonnes pratiques de déploiement
       url: deployment-best-practices.md
-    - text: Autorisations de catalogue de données
+    - text: Utiliser Purview Studio
+      url: use-purview-studio.md
+    - text: Comprendre le contrôle d’accès Purview
       url: catalog-permissions.md
-    - text: Sources de données et types de fichiers pris en charge
-      url: sources-and-scans.md
-    - text: Traçabilité des données
-      url: concept-data-lineage.md
+    - text: Comprendre la carte de données élastique
+      url: catalog-permissions.md
+    - text: Analyser et ingérer des sources
+      url: concept-scans-and-ingestion.md
 - title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
     - text: Créer un compte Purview - Portail
       url: create-catalog-portal.md
-    - text: Créer un compte Purview - PowerShell/CLI
-      url: create-catalog-powershell.md
+    - text: Créer une collection - Portail
+      url: quickstart-create-collection.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer l’accès et les collections
+      url: how-to-create-and-manage-collections.md
+    - text: Se connecter à des sources
+      url: manage-credentials.md
   - linkListType: tutorial
     links:
     - text: Exécuter le starter kit et analyser les données
@@ -54,6 +60,8 @@ landingContent:
       url: tutorial-schemas-and-classifications.md
     - text: Créer des termes de glossaire
       url: tutorial-import-create-glossary-terms.md
+    - text: Utiliser les API REST
+      url: tutorial-using-rest-apis.md
 - title: Inscrire et analyser des sources de données Azure
   linkLists:
   - linkListType: how-to-guide
@@ -68,29 +76,15 @@ landingContent:
       url: register-scan-synapse-workspace.md
     - text: Analyser un locataire Power BI
       url: register-scan-power-bi-tenant.md
-    - text: Analyser un pool SQL dédié Azure (anciennement SQL DW)
-      url: register-scan-azure-synapse-analytics.md
     - text: Analyser le Stockage Blob Azure
       url: register-scan-azure-blob-storage-source.md
+    - text: Résoudre les problèmes de connexion
+      url: troubleshoot-connections.md
   - linkListType: tutorial
     links:
     - text: Intégrer des sources Azure à grande échelle
       url: tutorial-data-sources-readiness.md
-- title: Découvrir des données
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Parcourir et tracer
-      url: tutorial-browse-and-view-lineage.md
-  - linkListType: how-to-guide
-    links:
-    - text: Utiliser les fonctionnalités de traçabilité des données
-      url: catalog-lineage-user-guide.md
-    - text: Parcourir par type d’élément
-      url: how-to-browse-catalog.md
-    - text: Rechercher des éléments, des termes, des annotations et des contacts
-      url: how-to-search-catalog.md
-- title: Organiser les données
+- title: Classifier les données
   linkLists:
   - linkListType: tutorial
     links:
@@ -100,25 +94,45 @@ landingContent:
       url: tutorial-import-create-glossary-terms.md
   - linkListType: how-to-guide
     links:
+    - text: Appliquer des étiquette de sensibilité
+      url: create-sensitivity-label.md
     - text: Créer, modifier et supprimer des classifications et des règles personnalisées
       url: create-a-custom-classification-and-classification-rule.md
     - text: Créer, importer et exporter un glossaire
       url: how-to-create-import-export-glossary.md
     - text: Modifier en bloc des éléments
       url: how-to-bulk-edit-assets.md
+- title: Découvrir des données
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Parcourir et tracer
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter à Azure Data Factory
+      url: how-to-link-azure-data-factory.md
+    - text: Utiliser les fonctionnalités de traçabilité des données
+      url: catalog-lineage-user-guide.md
+    - text: Parcourir par type d’élément
+      url: how-to-browse-catalog.md
+    - text: Rechercher des éléments, des termes, des annotations et des contacts
+      url: how-to-search-catalog.md
 - title: Analyser les sources de données non-Azure
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Analyser un serveur SQL local
       url: register-scan-on-premises-sql-server.md
+    - text: Analyser Google BigQuery
+      url: register-scan-google-bigquery-source.md
     - text: Analyser Amazon S3
       url: register-scan-amazon-s3.md
     - text: Analyser Oracle
       url: register-scan-oracle-source.md
     - text: Analyser une base de données de metastore Hive
       url: register-scan-hive-metastore-source.md
-- title: Comprendre votre patrimoine de données
+- title: Comprendre vos données
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -130,3 +144,13 @@ landingContent:
       url: classification-insights.md
     - text: Afficher des insights sur les glossaires
       url: glossary-insights.md
+- title: Sécuriser votre réseau
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser des points de terminaison privés avec Purview
+      url: catalog-private-link.md
+    - text: Configuration réseau
+      url: catalog-private-link-name-resolution.md
+    - text: Se connecter à des réseaux privés
+      url: manage-integration-runtimes.md

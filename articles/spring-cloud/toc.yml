@@ -34,6 +34,8 @@
           href: quickstart-deploy-infrastructure-vnet-azure-cli.md
         - name: Provisionner avec Terraform
           href: quickstart-deploy-infrastructure-vnet-terraform.md
+        - name: Provisionner avec Bicep
+          href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutoriels
   items:
     - name: Alertes et groupes d’actions
@@ -132,6 +134,8 @@
           href: structured-app-log.md
         - name: Nouvel agent in-process Relic Java
           href: how-to-new-relic-monitor.md
+        - name: Superviser les événements du cycle de vie d’une application
+          href: monitor-app-lifecycle-events.md
     - name: Réseau
       items:
         - name: Déployer Azure Spring Cloud dans un réseau virtuel

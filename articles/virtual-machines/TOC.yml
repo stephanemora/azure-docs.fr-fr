@@ -1242,7 +1242,7 @@
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
             - name: Restaurer les disques avec Sauvegarde des disques Azure
               href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
-        - name: Sauvegarde et récupération d’urgence pour les disques
+        - name: Sauvegarde et reprise d’activité pour les disques managés
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Effectuer la capture instantanée d’un disque - CLI
           href: ./linux/snapshot-copy-managed-disk.md
@@ -1250,6 +1250,8 @@
           href: ./windows/snapshot-copy-managed-disk.md
         - name: Sauvegarder des disques non managés
           href: ./linux/incremental-snapshots.md
+        - name: Sauvegarde et reprise d’activité pour les disques non managés
+          href: page-blobs-backup-and-disaster-recovery.md
     - name: Disques de système d’exploitation éphémères
       href: ephemeral-os-disks.md
     - name: Migration et conversion

@@ -1,4 +1,5 @@
 - name: Azure Defender pour IoT pour les fabricants d’appareils
+  href: index.yml
   items: null
 - name: Vue d’ensemble
   displayName: 'IoT, OT, getting started'
@@ -10,7 +11,7 @@
     - name: Présentation de l’architecture de solution basée sur un agent
       href: architecture-agent-based.md
 - name: Démarrages rapides
-  expanded: false
+  expanded: true
   items:
     - name: Intégrer à une solution basée sur un agent Defender pour IoT
       displayName: 'IoT Hub, existing, enable'
@@ -20,9 +21,6 @@
       href: quickstart-standalone-agent-binary-installation.md
     - name: Créer un jumeau de module pour le micro-agent Defender IoT (préversion)
       href: quickstart-create-micro-agent-module-twin.md
-    - name: Créer le micro-agent Defender pour IoT à partir du code source (préversion)
-      displayName: 'baseline, configuration, customize, distribution'
-      href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Configurer le micro-agent Defender-IoT pour Azure RTOS
       href: quickstart-azure-rtos-security-module.md
     - name: Ajouter des ressources Azure à votre solution IoT
@@ -53,12 +51,17 @@
       href: concept-security-agent-authentication.md
     - name: Posture de sécurité - Benchmark CIS
       href: concept-security-posture.md
+    - name: Configurations du micro-agent (préversion)
+      displayNAme: 'collectors, configuration, configurations, event-based, trigger, general'
+      href: concept-micro-agent-configuration.md
     - name: Collecte d’événements du micro-agent (préversion)
       displayName: 'process events, network connection'
       href: concept-event-aggregation.md
     - name: Dépendances de micro-agent Linux
       displayName: 'linux, micro agent, agent'
       href: concept-micro-agent-linux-dependencies.md
+    - name: Alertes de sécurité basées sur des agents
+      href: concept-agent-based-security-alerts.md
     - name: Alertes intégrées pour IoT Hub
       displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
       href: concept-security-alerts.md
@@ -87,7 +90,7 @@
         - name: Agrégation classique d’événements Defender-IoT-micro-agent
           displayName: 'twin, default, configuration, alerts'
           href: event-aggregation.md
-        - name: Alertes de sécurité basées sur des agents
+        - name: Alertes de sécurité basées sur des agents classiques
           href: agent-based-security-alerts.md
         - name: Alertes de sécurité personnalisées basées sur des agents
           href: agent-based-security-custom-alerts.md

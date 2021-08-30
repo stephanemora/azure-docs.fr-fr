@@ -16,7 +16,7 @@
       href: getting-started-feature.md
 - name: Tutoriels
   items:
-    - name: 1. Créer un pool d’hôtes avec le portail Azure
+    - name: 1. Créer un pool d’hôtes
       href: create-host-pools-azure-marketplace.md
     - name: 2. Gérer les groupes d’applications
       href: manage-app-groups.md
@@ -50,7 +50,7 @@
       href: powershell-module.md
     - name: Créer un pool d’hôtes et des hôtes de session
       items:
-        - name: PowerShell
+        - name: Créer un pool d’hôtes avec PowerShell ou Azure CLI
           href: create-host-pools-powershell.md
         - name: Déployer un hôte de session jointe Azure AD
           href: deploy-azure-ad-joined-vm.md
@@ -60,7 +60,7 @@
           href: configure-vm-gpu.md
         - name: Développer un pool d’hôtes existant
           href: expand-existing-host-pool.md
-        - name: Gérer les groupes d’applications avec PowerShell
+        - name: Gérer les groupes d’applications avec PowerShell ou Azure CLI
           href: manage-app-groups-powershell.md
     - name: Supprimer un pool d’hôtes
       href: delete-host-pool.md

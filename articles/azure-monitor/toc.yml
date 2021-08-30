@@ -101,6 +101,8 @@
       href: powershell-samples.md
     - name: Requêtes Azure Resource Graph
       href: ./resource-graph-samples.md
+    - name: Alertes pour les métriques Azure CLI
+      href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
     - name: "Que pouvez-vous superviser\_?"

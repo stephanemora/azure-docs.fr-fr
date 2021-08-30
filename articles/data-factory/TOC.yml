@@ -212,6 +212,8 @@ items:
               - name: Performances de flux de données
                 href: concepts-data-flow-performance.md
                 displayName: 'merge, timeout'
+              - name: Performances Integration Runtime
+                href: concepts-integration-runtime-performance.md
               - name: Gérer un canevas de flux de données
                 href: concepts-data-flow-manage-graph.md
               - name: Générateur d’expressions
