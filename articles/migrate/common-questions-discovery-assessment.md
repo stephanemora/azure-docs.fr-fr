@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: ff7bd9145b64f82ca514897ebb67526bc28de867
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c9fed65260e83b0ce70b45a28942ca81668b545f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143572"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531773"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -20,13 +20,11 @@ Cet article donne des réponses aux questions courantes sur la découverte, l’
 - [Questions générales](resources-faq.md) sur Azure Migrate.
 - Questions sur l’[appliance Azure Migrate](common-questions-appliance.md)
 - Questions sur la [migration de serveur](common-questions-server-migration.md)
-- Obtenez des réponses à vos questions sur le [forum Azure Migrate](https://aka.ms/AzureMigrateForum)
-
+- Obtenez des réponses à vos questions sur le [forum Azure Migrate](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
 
 ## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Quelles sont les zones géographiques prises en charge pour la détection et l’évaluation avec Azure Migrate ?
 
 Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et [gouvernementaux](migrate-support-matrix.md#supported-geographies-azure-government).
-
 
 ## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>Combien de serveurs puis-je découvrir avec une appliance ?
 
@@ -35,17 +33,14 @@ Vous pouvez découvrir jusqu’à 10 000 serveurs dans un environnement VMwar
 ## <a name="how-do-i-choose-the-assessment-type"></a>Comment choisir le type d’évaluation ?
 
 - Utilisez les **évaluations de machine virtuelle Azure** quand vous voulez évaluer les serveurs de votre environnement [VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md) local, ainsi que les [serveurs physiques](how-to-set-up-appliance-physical.md) en vue de leur migration vers des machines virtuelles Azure. [En savoir plus](concepts-assessment-calculation.md)
-
 - Utilisez le type d’évaluation **Azure SQL** lorsque vous souhaitez évaluer votre SQL Server local à partir de votre environnement VMware pour la migration vers Azure SQL Database ou Azure SQL Managed instance. [En savoir plus](concepts-assessment-calculation.md)
-
+- Utilisez le type d’évaluation **Azure App Service** lorsque vous souhaitez évaluer vos applications web ASP.NET locales s’exécutant sur le serveur web IIS à partir de votre environnement VMware pour la migration vers Azure App Service. [En savoir plus](concepts-assessment-calculation.md)
 - Utilisez les évaluations **Azure VMware Solution (AVS)** quand vous voulez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
-
-- Vous pouvez utiliser un groupe commun avec seulement des machines VMware pour effectuer les deux types d’évaluations. Notez que si vous effectuez des évaluations AVS dans Azure Migrate pour la première fois, il est recommandé de créer un groupe de machines VMware.
- 
+- Vous pouvez utiliser un groupe commun avec seulement des machines VMware pour effectuer les deux types d’évaluations. Si vous effectuez des évaluations AVS dans Azure Migrate pour la première fois, il est recommandé de créer un groupe de machines VMware.
 
 ## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Pourquoi des données de performances sont-elles manquantes pour certains ou la totalité des serveurs dans ma machine virtuelle Azure et/ou mon rapport d’évaluation AVS ?
 
-Pour l’évaluation « En fonction des performances », le rapport d’évaluation signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » quand l’appliance Azure Migrate ne peut pas collecter les données de performances pour les serveurs locaux. Vérifiez :
+Pour l’évaluation « En fonction des performances », le rapport d’évaluation signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » quand l’appliance Azure Migrate ne peut pas collecter les données de performances pour les serveurs locaux. Vérifiez les points suivants :
 
 - Si les serveurs sont sous tension pendant que vous créez l’évaluation.
 - Si seuls les compteurs de mémoire manquent et si vous essayez d’évaluer des serveurs dans un environnement Hyper-V. Dans ce scénario, activez la mémoire dynamique sur les serveurs et recalculez l’évaluation pour tenir compte des dernières modifications. L’appliance peut collecter des valeurs d’utilisation de la mémoire pour des serveurs dans un environnement Hyper-V uniquement lorsque la mémoire dynamique est activée sur le serveur.
@@ -54,7 +49,6 @@ Pour l’évaluation « En fonction des performances », le rapport d’évalu
 
     > [!Note]
     > Si l’un des compteurs de performances est manquant, l’outil d’évaluation de serveur Azure Migrate se base à la place sur les cœurs ou la mémoire alloués localement pour recommander une taille de machine virtuelle appropriée.
-
 
 ## <a name="why-is-performance-data-missing-for-someall-sql-instancesdatabases-in-my-azure-sql-assessment"></a>Pourquoi des données de performances sont-elles manquantes pour certaines ou la totalité des instances/bases de données SQL dans mon évaluation Azure SQL ?
 
@@ -67,47 +61,72 @@ Pour vous assurer que les données de performances soient collectées, vérifiez
 
 Si des compteurs de performances sont manquant, l’évaluation SQL Azure recommande la plus petite configuration d’Azure SQL pour cette instance/cette base de données.
 
+## <a name="why-confidence-rating-is-not-available-for-azure-app-service-assessments"></a>Pourquoi le niveau de confiance n’est pas disponible pour les évaluations Azure App Service ?
+
+Les données de performances ne sont pas capturées à des fins d’évaluation d’Azure App Service. Par conséquent, vous ne voyez pas le niveau de confiance de ce type d’évaluation. L’évaluation d’Azure App Service prend en compte les données de configuration des applications web lors du calcul de l’évaluation.
+
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Pourquoi la note de confiance de mon évaluation est faible ?
 
 La note de confiance pour les évaluations « En fonction des performances » dépend du pourcentage de [points de données disponibles](./concepts-assessment-calculation.md#ratings) nécessaires pour calculer l’évaluation. Voici les raisons pour lesquelles une évaluation pourrait obtenir une note de confiance faible :
 
 - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte, puis **Recalculez** l’évaluation.
- 
 - L’évaluation ne parvient pas à collecter les données de performances d’une partie ou de la totalité des serveurs pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
     - Les serveurs sont sous tension pendant toute la durée de l’évaluation.
     - Les connexions sortantes sont autorisées sur le port 443.
-    - Pour les serveurs Hyper-V, la mémoire dynamique est activée. 
+    - Pour les serveurs Hyper-V, la mémoire dynamique est activée.
     - L’état de connexion des agents dans Azure Migrate est « Connecté » (et contrôlez la dernière pulsation).
     - Pour les évaluations d’Azure SQL, l’état de connexion d’Azure Migrate pour toutes les instances SQL est « Connecté » dans le panneau des instances SQL découvertes.
 
     **Recalculez** l’évaluation pour qu’elle reflète les dernières modifications du niveau de confiance.
 
 - Pour les évaluations de machines virtuelles Azure et d’AVS, peu de serveurs ont été créés après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques serveurs dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
-
 - Pour les évaluations Azure SQL, peu d’instances et de bases de données SQL ont été créées après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques instances ou bases de données SQL dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
-## <a name="-the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>> Le nombre d’évaluations de machines virtuelles Azure ou AVS sur l’outil de découverte et d’évaluation est incorrect
+## <a name="the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>Le nombre d’évaluations de machines virtuelles Azure ou AVS sur l’outil de découverte et d’évaluation est incorrect
+
  Pour résoudre ce problème, cliquez sur le nombre total d’évaluations pour accéder à toutes les évaluations et recalculer l’évaluation de la machine virtuelle Azure ou AVS. L’outil de découverte et d’évaluation affiche alors le nombre correct pour ce type d’évaluation.
 
-
 ## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>Je souhaite essayer la nouvelle fonctionnalité d’évaluation Azure SQL
+
 La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour bien démarrer, suivez [ce tutoriel](tutorial-discover-vmware.md). Si vous voulez tester cette fonctionnalité dans un projet existant, vérifiez que vous avez rempli les [prérequis](how-to-discover-sql-existing-project.md) indiqués dans cet article.
+
+## <a name="i-want-to-try-out-the-new-azure-app-service-assessment"></a>Je souhaite essayer la nouvelle évaluation Azure App Service
+
+La détection et l’évaluation des applications web .NET s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour bien démarrer, suivez [ce tutoriel](tutorial-discover-vmware.md). Si vous voulez tester cette fonctionnalité dans un projet existant, vérifiez que vous avez rempli les [prérequis](how-to-discover-sql-existing-project.md) indiqués dans cet article.
 
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Je ne peux pas voir certains serveurs quand je crée une évaluation Azure SQL
 
-- L’évaluation Azure SQL ne peut être effectuée que sur des serveurs qui s’exécutent là où des instances SQL ont été découvertes. Si vous ne voyez pas les serveurs et les instances SQL que vous souhaitez évaluer, patientez pendant un certain temps pour que la découverte se termine, puis créez l’évaluation. 
+- L’évaluation Azure SQL ne peut être effectuée que sur des serveurs qui s’exécutent là où des instances SQL ont été découvertes. Si vous ne voyez pas les serveurs et les instances SQL que vous souhaitez évaluer, patientez pendant un certain temps pour que la découverte se termine, puis créez l’évaluation.
 - Si vous n’êtes pas en mesure de voir un groupe créé précédemment lors de la création de l’évaluation, supprimez du groupe n’importe quel serveur non-VMware ou sans instance SQL.
 - Si vous effectuez pour la première fois des évaluations Azure SQL dans Azure Migrate, il est recommandé de créer un nouveau groupe de serveurs.
 
+## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-app-service-assessment"></a>Je ne peux pas voir certains serveurs quand je crée une évaluation Azure App Service
+
+- L’évaluation Azure App Service ne peut être effectuée que sur les serveurs s’exécutant à l’endroit où le rôle de serveur web a été découvert. Si vous ne voyez pas les serveurs que vous souhaitez évaluer, patientez pendant un certain temps pour que la découverte se termine, puis créez l’évaluation.
+- Si vous n’êtes pas en mesure de voir un groupe créé précédemment lors de la création de l’évaluation, supprimez du groupe n’importe quel serveur non-VMware ou sans application web.
+- Si vous effectuez pour la première fois des évaluations Azure App Service dans Azure Migrate, il est recommandé de créer un nouveau groupe de serveurs.
+
 ## <a name="i-want-to-understand-how-was-the-readiness-for-my-instance-computed"></a>Je souhaite comprendre comment l’état de préparation de mon instance a été calculé.
+
 La préparation de vos instances SQL a été calculée après vérification de la compatibilité des fonctionnalités avec le type de déploiement Azure SQL ciblé (Azure SQL Database ou Azure SQL Managed Instance). [En savoir plus](./concepts-azure-sql-assessment-calculation.md#calculate-readiness)
 
+## <a name="i-want-to-understand-how-was-the-readiness-for-my-web-apps-is-computed"></a>Je souhaite comprendre comment l’état de préparation de mes applications web a été calculé.
+
+La préparation de vos applications web est calculée en exécutant une série de vérifications techniques visant à déterminer si votre application web s’exécutera correctement dans Azure App Service ou non. Ces vérifications sont décrites [ici](https://github.com/Azure/App-Service-Migration-Assistant/wiki/Readiness-Checks).
+
+## <a name="why-is-my-web-app-marked-as-ready-with-conditions-or-not-ready-in-my-azure-app-service-assessment"></a>Pourquoi mon application Web est-elle marquée comme Prête avec des conditions ou Pas prête dans mon évaluation Azure App Service ?
+
+Cela peut se produire lorsqu’une ou plusieurs vérifications techniques échouent pour une application web donnée. Vous pouvez cliquer sur l’état de préparation de l’application web pour obtenir des détails et des mesures correctives en cas d’échec des vérifications.
+
 ## <a name="why-is-the-readiness-for-all-my-sql-instances-marked-as-unknown"></a>Pourquoi l’état de préparation de mes instances SQL est-il marquée comme Inconnu ?
+
 Si votre découverte a été lancée récemment et est toujours en cours, vous pouvez voir que l’état de préparation de certaines ou de la totalité des instances SQL est inconnue. Nous vous recommandons d’attendre un certain temps pour que l’appliance profile l’environnement, puis recalcule l’évaluation.
-La découverte SQL est effectuée une fois toutes les 24 heures et vous devrez peut-être attendre un jour pour que les dernières modifications de configuration s’y reflètent. 
+La découverte SQL est effectuée une fois toutes les 24 heures et vous devrez peut-être attendre un jour pour que les dernières modifications de configuration s’y reflètent.
 
 ## <a name="why-is-the-readiness-for-some-of-my-sql-instances-marked-as-unknown"></a>Pourquoi l’état de préparation d’une partie de mes instances SQL est-il marqué comme Inconnue ?
-Cela peut se produire dans les cas suivants : 
+
+Cela peut se produire dans les cas suivants :
+
 - La découverte est encore en cours. Nous vous recommandons d’attendre un certain temps pour que l’appliance profile l’environnement, puis recalcule l’évaluation.
 - Vous devez résoudre certains problèmes de découverte dans le panneau Erreurs et notifications.
 
@@ -116,7 +135,9 @@ La découverte SQL est effectuée une fois toutes les 24 heures et vous devrez 
 ## <a name="my-assessment-is-in-outdated-state"></a>Mon évaluation est à l’état Obsolète
 
 ### <a name="azure-vmavs-assessment"></a>Évaluation de la machine virtuelle Azure ou de l’AVS
+
 En cas de modification locale des serveurs appartenant à un groupe qui a été évalué, l’évaluation est marquée comme obsolète. Une évaluation peut être marquée comme « Obsolète » en raison d’une ou de plusieurs modifications dans les propriétés ci-dessous :
+
 - Nombre de cœurs du processeur
 - Mémoire allouée
 - Type de démarrage ou microprogramme
@@ -129,7 +150,9 @@ En cas de modification locale des serveurs appartenant à un groupe qui a été 
 **Recalculez** l’évaluation pour qu’elle reflète les dernières modifications apportées.
 
 ### <a name="azure-sql-assessment"></a>Évaluation d’Azure SQL
+
 En cas de modifications des instances et bases de données SQL locales figurant dans un groupe qui a été évalué, l’évaluation est marquée comme **obsolète** :
+
 - L’instance SQL a été ajoutée ou supprimée sur un serveur
 - La base de données SQL a été ajoutée ou supprimée sur une instance SQL
 - La taille totale de la base de données dans une instance SQL a changé de plus de 20 %
@@ -138,15 +161,19 @@ En cas de modifications des instances et bases de données SQL locales figurant 
 **Recalculez** l’évaluation pour qu’elle reflète les dernières modifications apportées.
 
 ## <a name="why-was-i-recommended-a-particular-target-deployment-type"></a>Pourquoi un type de déploiement cible particulier m’a-t-il été recommandé ?
+
 Azure Migrate recommande un type de déploiement Azure SQL spécifique qui est compatible avec votre instance SQL. La migration vers une cible recommandée par Microsoft réduit votre effort de migration global. Cette configuration Azure SQL (SKU) a été recommandée après la prise en compte des caractéristiques de performances de votre instance SQL et des bases de données qu’elle gère. Si plusieurs configurations Azure SQL sont éligibles, nous vous recommandons la solution la plus économique. [En savoir plus](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
 
-## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Quelle cible de déploiement choisir si mon instance SQL est prête pour Azure SQL DB et Azure SQL MI ? 
+## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Quelle cible de déploiement choisir si mon instance SQL est prête pour Azure SQL DB et Azure SQL MI ?
+
 Si votre instance est prête pour Azure SQL DB et Azure SQL MI, nous vous recommandons d’utiliser le type de déploiement cible pour lequel le coût estimé de la configuration Azure SQL est inférieur.
 
 ## <a name="why-is-my-instance-marked-as-potentially-ready-for-azure-vm-in-my-azure-sql-assessment"></a>Pourquoi mon instance est marquée comme « Potentiellement prête pour les machines virtuelles Azure » dans mon évaluation Azure SQL ?
+
 Cela peut se produire lorsque le type de déploiement cible choisi dans les propriétés d’évaluation est **recommandé** et que l’instance SQL n’est pas prête pour Azure SQL Database et Azure SQL Managed Instance. L’utilisateur est incité à créer une évaluation dans Azure Migrate avec le type d’évaluation **Machine virtuelle Azure** pour déterminer si le serveur sur lequel l’instance s’exécute est prêt à migrer vers une machine virtuelle Azure.
 L’utilisateur est incité à créer une évaluation dans Azure Migrate avec un type d’évaluation tel que **Machine virtuelle Azure** pour déterminer si le serveur sur lequel l’instance s’exécute est prêt à migrer plutôt vers une machine virtuelle Azure :
-- Les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure. 
+
+- Les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure.
 - Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) de SQL Server sur les machines virtuelles Azure.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Je ne peux pas voir certaines bases de données dans mon évaluation même si l’instance fait partie de l’évaluation
@@ -158,12 +185,35 @@ L’évaluation Azure SQL inclut uniquement des bases de données dont l’état
 Vous pouvez créer une évaluation avec le type **Machine virtuelle Azure** sur le groupe utilisé dans votre évaluation **Azure SQL**. Vous pouvez ensuite comparer les deux rapports côte à côte. Toutefois, les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure. Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) de SQL Server sur les machines virtuelles Azure.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Le coût du stockage dans mon évaluation de SQL Azure est égal à zéro
+
 Pour Azure SQL Managed Instance, aucun coût de stockage n’est ajouté pour le stockage des premiers 32 Go/instance/mois, et des coûts de stockage supplémentaires sont ajoutés pour le stockage par incréments de 32 Go. [En savoir plus](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Je ne peux pas voir certains groupes quand je crée une évaluation Azure VMware Solution (AVS)
 
 - L’évaluation AVS peut être effectuée sur des groupes qui ne contiennent que des machines VMware. Supprimez du groupe les machines non-VMware si vous prévoyez d’effectuer une évaluation AVS.
 - Si vous effectuez des évaluations AVS dans Azure Migrate pour la première fois, il est recommandé de créer un groupe de machines VMware.
+
+## <a name="queries-regarding-ultra-disks"></a>Requêtes sur les disques Ultra
+
+### <a name="can-i-migrate-my-disks-to-ultra-disk-using-azure-migrate"></a>Puis-je migrer mes disques vers un disque Ultra en utilisant Azure Migrate ?
+
+Non. Actuellement, Azure Migrate et Azure Sire Recovery ne prennent pas en charge la migration vers des disques Ultra. Découvrez les étapes de déploiement d’un disque Ultra [ici](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+
+### <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>Pourquoi les IOPS et le débit provisionnés dans mon disque Ultra sont-ils supérieurs à mon débit et mes IOPS locaux ?
+
+Conformément à la [page de tarification officielle](https://azure.microsoft.com/pricing/details/managed-disks/), le disque Ultra est facturé en fonction de la taille provisionnée, des IOPS provisionnées et du débit provisionné. Voici un exemple :
+
+Si vous avez provisionné un disque Ultra de 200 Gio avec 20 000 IOPS et 1 000 Mo/s, et que vous l’avez supprimé au bout de 20 heures, il sera mappé à l’offre de taille de disque de 256 Gio, et vous serez facturé pour les 256 Gio, les 20 000 IOPS et les 1 000 Mo/s sur 20 heures.
+
+IOPS à provisionner = (débit détecté) * 1024/256
+
+### <a name="does-the-ultra-disk-recommendation-consider-latency"></a>La recommandation de disque Ultra relative prend-elle en compte la latence ?
+
+Non, actuellement, seule la taille de disque, le débit total et le nombre total d’IOPS sont utilisés pour le dimensionnement et le calcul des coûts.
+
+### <a name="i-can-see-m-series-supports-ultra-disk-but-in-my-assessment-where-ultra-disk-was-recommended-it-says-no-vm-found-for-this-location"></a>Je peux voir que la série M prend en charge les disques Ultra, mais dans mon évaluation où un disque Ultra était recommandé, elle indique « Aucune machine virtuelle n’a été trouvée pour cet emplacement ».
+
+C’est possible, car toutes les tailles de machine virtuelle prenant en charge les disques Ultra ne sont pas présentes dans les régions où les disques Ultra sont pris en charge. Changez la région d’évaluation cible pour obtenir la taille de machine virtuelle pour ce serveur.
 
 ## <a name="i-cant-see-some-vm-types-and-sizes-in-azure-government"></a>Je ne vois pas certains types et certaines tailles de machines virtuelles dans Azure Government.
 
@@ -187,12 +237,14 @@ Oui, Azure Migrate nécessite vCenter Server dans un environnement VMware pour e
 Grâce à un dimensionnement local, Azure Migrate ne tient pas compte des données de performances des serveurs pour l’évaluation. Azure Migrate évalue les tailles des machines virtuelles en fonction de la configuration locale. Avec un dimensionnement basé sur les performances, le dimensionnement est basé sur les données d’utilisation.
 
 Par exemple, si un serveur local a 4 cœurs et 8 Go de mémoire et qu’il présente 50 % d’utilisation de l’UC et 50 % d’utilisation de la mémoire :
+
 - Le dimensionnement local recommandera une référence (SKU) de machine virtuelle Azure dotée de quatre cœurs et de 8 Go de mémoire.
 - Le dimensionnement basé sur les performances recommandera une référence SKU de machine virtuelle de deux cœurs et de 4 Go de mémoire, car le pourcentage d’utilisation est pris en compte.
 
 De même, le dimensionnement de disque dépend du critère de dimensionnement et du type de stockage :
-- Si le critère de dimensionnement est basé sur les performances et que le type de stockage est automatique, Azure Migrate prend en compte les valeurs de débit et d’IOPS du disque quand il identifie le type de disque cible (Standard ou Premium).
-- Si le critère de dimensionnement est basé sur les performances et que le type de stockage est Premium, Azure Migrate recommande une référence SKU de disque Premium en fonction de la taille du disque local. La même logique est appliquée au dimensionnement du disque quand le dimensionnement est local et que le type de stockage est Standard ou Premium.
+
+- Si le critère de dimensionnement est « basé sur les performances » et que le type de stockage est automatique, Azure Migrate prend en compte les valeurs de débit et d’IOPS du disque quand il identifie le type de disque cible (Standard, Premium ou Ultra).
+- Si le critère de dimensionnement est « localement » et que le type de stockage est Premium, Azure Migrate recommande une référence SKU de disque Premium en fonction de la taille du disque local. La même logique est appliquée au dimensionnement du disque quand le dimensionnement est local et que le type de stockage est Standard, Premium ou Ultra.
 
 ## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>Est-ce que l’historique des performances et le niveau d’utilisation affectent l’évaluation d’une machine virtuelle Azure ?
 
@@ -215,17 +267,16 @@ Par exemple, si vous définissez la durée des performances à un jour et la val
 
 L’utilisation de la valeur du 95e centile garantit que les valeurs hors norme sont ignorées. Des valeurs hors norme peuvent être incluses si votre appliance Azure Migrate utilise le 99e centile. Pour choisir l’utilisation maximale de la période sans manquer les valeurs hors norme, définissez Azure Migrate pour qu’il utilise le 99e centile.
 
-
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>En quoi les évaluations basées sur l’importation diffèrent-elles des évaluations avec une source de découverte sous forme d’appliance ?
 
-Les évaluations basées sur l’importation sont des évaluations de machine virtuelle Azure créées avec des machines importées dans Azure Migrate à l’aide d’un fichier CSV. Seuls quatre champs sont obligatoires pour l’importation : nom du serveur, cœurs, mémoire et système d’exploitation. Voici quelques points à prendre en considération : 
- - Les critères de préparation sont moins stricts pour les évaluations basées sur l’importation vis-à-vis du paramètre de type de démarrage. Si le type de démarrage n’est pas fourni, la machine est supposée avoir le type de démarrage BIOS et ne pas être marquée comme **Préparée sous condition**. Pour les évaluations avec une source de découverte sous forme d’appliance, la préparation est marquée comme **Préparée sous condition** si le type de démarrage est manquant. Cette différence dans le calcul de la préparation est due au fait que les utilisateurs ne disposent peut-être pas de toutes les informations sur les machines au début de la planification de la migration, quand les évaluations basées sur l’importation sont effectuées. 
+Les évaluations basées sur l’importation sont des évaluations de machine virtuelle Azure créées avec des machines importées dans Azure Migrate à l’aide d’un fichier CSV. Seuls quatre champs sont obligatoires pour l’importation : nom du serveur, cœurs, mémoire et système d’exploitation. Voici quelques points à prendre en considération :
+
+ - Les critères de préparation sont moins stricts pour les évaluations basées sur l’importation vis-à-vis du paramètre de type de démarrage. Si le type de démarrage n’est pas fourni, la machine est supposée avoir le type de démarrage BIOS et ne pas être marquée comme **Préparée sous condition**. Pour les évaluations avec une source de découverte sous forme d’appliance, la préparation est marquée comme **Préparée sous condition** si le type de démarrage est manquant. Cette différence dans le calcul de la préparation est due au fait que les utilisateurs ne disposent peut-être pas de toutes les informations sur les machines au début de la planification de la migration, quand les évaluations basées sur l’importation sont effectuées.
  - Les évaluations d’importation basées sur les performances utilisent la valeur d’utilisation fournie par l’utilisateur pour les calculs du dimensionnement correct. Étant donné que la valeur d’utilisation est fournie par l’utilisateur, les options **Historique des performances** et **Utilisation en centile** sont désactivées dans les propriétés d’évaluation. Pour les évaluations avec une source de découverte sous forme d’appliance, la valeur de centile est choisie parmi les données de performances collectées par l’appliance.
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Pourquoi l’outil de migration suggéré dans l’évaluation AVS basé sur l’importation est-il marqué comme inconnu ?
 
-Pour les machines importées via un fichier CSV, l’outil de migration par défaut dans l’évaluation AVS est inconnu. Pour les machines VMware, il est toutefois recommandé d’utiliser la solution VMware Hybrid Cloud Extension (HCX). [En savoir plus](../azure-vmware/tutorial-deploy-vmware-hcx.md)
-
+Pour les machines importées via un fichier CSV, l’outil de migration par défaut dans l’évaluation AVS est inconnu. Pour les machines VMware, il est toutefois recommandé d’utiliser la solution VMware Hybrid Cloud Extension (HCX). [En savoir plus](../azure-vmware/install-vmware-hcx.md)
 
 ## <a name="what-is-dependency-visualization"></a>Qu’est-ce que la visualisation des dépendances ?
 
@@ -249,7 +300,6 @@ Données | Nom du serveur de l’ordinateur source, processus, nom de l’applic
 Visualisation | La carte des dépendances d’un serveur unique peut être affichée sur une durée allant d’une heure à 30 jours. | Carte des dépendances d’un serveur unique.<br/><br/> La carte peut être affichée pendant une heure uniquement.<br/><br/> Carte des dépendances d’un groupe de serveurs.<br/><br/> Ajoutez et supprimez des serveurs dans un groupe à partir de la vue cartographique.
 Exportation de données | Les données des 30 derniers jours peuvent être téléchargées dans un format CSV. | Les données peuvent être interrogées avec Log Analytics.
 
-
 ## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>Est-ce que je dois déployer l’appliance pour l’analyse des dépendances sans agent ?
 
 Oui, l’[appliance Azure Migrate](migrate-appliance.md) doit être déployée.
@@ -270,7 +320,7 @@ Vous avez besoin de ces agents uniquement si vous utilisez la visualisation des 
 
 ## <a name="can-i-use-an-existing-workspace"></a>Puis-je utiliser un espace de travail existant ?
 
-Oui, pour la visualisation des dépendances basée sur les agents, vous pouvez attacher un espace de travail existant au projet de migration et l’utiliser pour la visualisation des dépendances. 
+Oui, pour la visualisation des dépendances basée sur les agents, vous pouvez attacher un espace de travail existant au projet de migration et l’utiliser pour la visualisation des dépendances.
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Puis-je exporter le rapport de visualisation des dépendances ?
 
@@ -282,7 +332,7 @@ Pour la visualisation des dépendances basée sur les agents :
 
 - Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 - Pour MMA, [utilisez la ligne de commande ou l’automatisation](../azure-monitor/agents/log-analytics-agent.md#installation-options), ou utilisez un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/intigua-for-azure-migration) pour déployer les agents.
+- En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et Intigua pour déployer les agents.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?
 

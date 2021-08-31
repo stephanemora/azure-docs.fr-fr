@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/25/2021
-ms.openlocfilehash: 8cabf22e909b5e3e891c0265f952ec6476732ca6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/11/2021
+ms.openlocfilehash: 4488670a5dfbedf22fa2880d6e4093c4fbfa52b9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110462694"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527822"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
@@ -29,7 +29,7 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 * Extension VS Code Azure Machine Learning (préversion). Pour plus d’informations, consultez [Configurer l’extension VS Code Azure Machine Learning](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > L’extension Azure Machine Learning pour VS Code utilise l’interface CLI 2.0 par défaut. Les instructions de ce guide utilisent l’interface CLI 1.0. Pour passer à l’interface CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` dans Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
+    > L’extension Azure Machine Learning pour VS Code utilise l’interface CLI (v2) par défaut. Les instructions de ce guide utilisent l’interface CLI 1.0. Pour passer à l’interface CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` dans Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop pour Mac et Windows
@@ -462,7 +462,7 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.

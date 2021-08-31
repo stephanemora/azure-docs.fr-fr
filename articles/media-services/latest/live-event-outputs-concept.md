@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f1df5c945c5216e82837672ad8aeaa669fc4fb20
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5269be27a0e31e9626cd26960092356bce0d8ff4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786443"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635028"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -224,7 +224,6 @@ Pour plus de détails, consultez [Opérations de longue durée](media-services-a
 Une fois que le flux transite dans l’événement en direct, vous pouvez commencer l’événement de streaming en créant un [élément multimédia](/rest/api/media/assets), une [sortie en direct](/rest/api/media/liveoutputs) et un [localisateur de streaming](/rest/api/media/streaminglocators). La sortie en direct archive le flux et le met à la disposition des observateurs via le [point de terminaison de streaming](/rest/api/media/streamingendpoints).  
 
 Pour plus d’informations sur les sorties en direct, consultez [Utiliser un magnétoscope numérique cloud](live-event-cloud-dvr-time-how-to.md).
-
 ## <a name="live-event-output-questions"></a>Questions sur la sortie des événements en direct
 
-Consultez l’article relatif aux [questions sur la sortie des événements en direct](questions-collection.md#live-streaming).
+Consultez les [questions de la FAQ en lien avec les événements en direct](frequently-asked-questions.yml).

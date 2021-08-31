@@ -1,20 +1,20 @@
 ---
 title: Mises à niveau automatiques d'images de système d'exploitation avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment mettre à niveau automatiquement l’image de système d’exploitation sur des instances de machines virtuelles dans un groupe identique
-author: avirishuv
-ms.author: avverma
+author: mayanknayar
+ms.author: manayar
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 06/26/2020
+ms.date: 07/29/2021
 ms.reviewer: jushiman
-ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: 2e0a93f07a0bfb11d783518884417a7cf40cda25
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b080c741276233e671d5724b3ee72cc7b4738446
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110674027"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532877"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -25,20 +25,42 @@ La fonctionnalité de mise à niveau automatique du système d’exploitation pr
 - Une fois configurée, la dernière image du système d’exploitation publiée par les éditeurs de l’image est automatiquement appliquée au groupe identique, sans aucune intervention de l’utilisateur.
 - Elle effectue une mise à niveau propagée de lots d’instances chaque fois qu’une nouvelle image est publiée par l’éditeur.
 - Elle s’intègre avec les sondes d’intégrité d’application et l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md).
-- Elle fonctionne pour toutes les tailles de machine virtuelle et pour les images tant Windows que Linux.
+- Fonctionne pour toutes les tailles de machine virtuelle, et pour les images Windows et Linux, y compris les images personnalisées via la [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
 - Vous pouvez désactiver les mises à niveau automatiques à tout moment (les mises à niveau du système d’exploitation peuvent également être démarrées manuellement).
 - Le disque du système d’exploitation d’une machine virtuelle est remplacé par le nouveau disque de système d’exploitation créé avec la dernière version de l’image. Les extensions configurées et les scripts de données personnalisés sont exécutés. Les disques de données persistantes sont conservés.
 - Le [séquencement d’extensions](virtual-machine-scale-sets-extension-sequencing.md) est pris en charge.
-- La mise à niveau automatique de l’image du système d’exploitation peut être activée sur un groupe identique de n’importe quelle taille.
+- Il peut être activé sur un groupe identique de n’importe quelle taille.
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Comment la mise à niveau automatique de l’image de système d’exploitation fonctionne-t-elle ?
 
-Une mise à niveau fonctionne en remplaçant le disque du système d’exploitation d’une machine virtuelle par un nouveau disque créé à l’aide de la dernière version de l’image. Les extensions et scripts de données personnalisés configurés sont exécutés sur le disque du système d’exploitation, tandis que les disques de données persistantes sont conservés. Pour réduire au minimum le temps d’arrêt de l’application, les mises à niveau sont effectuées par lots, avec au maximum 20 % du groupe identique mis à niveau à la fois. Vous pouvez également intégrer une sonde d’intégrité d’application Azure Load Balancer ou une [extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md). Nous recommandons d’incorporer une pulsation de l’application et de valider la réussite de la mise à niveau pour chaque lot dans le processus de mise à niveau.
+Une mise à niveau fonctionne en remplaçant le disque du système d’exploitation d’une machine virtuelle par un nouveau disque créé à l’aide de la dernière version de l’image. Les extensions et scripts de données personnalisés configurés sont exécutés sur le disque du système d’exploitation, tandis que les disques de données sont conservés. Pour réduire au minimum le temps d’arrêt de l’application, les mises à niveau sont effectuées par lots, avec au maximum 20 % du groupe identique mis à niveau à la fois.
 
-Le processus de mise à niveau se déroule comme suit :
+Vous pouvez intégrer une sonde d’intégrité d’application Azure Load Balancer ou une [extension d’intégrité d’application](virtual-machine-scale-sets-health-extension.md) pour suivre l’intégrité de l’application après une mise à niveau. Nous recommandons d’incorporer une pulsation de l’application pour valider la réussite de la mise à niveau.
+
+### <a name="availability-first-updates"></a>Mises à jour selon la première disponibilité
+Le modèle de première disponibilité pour les mises à jour orchestrées de la plateforme décrit ci-dessous garantit que les configurations de disponibilité dans Azure sont respectées sur plusieurs niveaux de disponibilité.
+
+**Entre les régions :**
+- Une mise à jour sera déployée sur Azure dans le monde entier de manière progressive afin d’éviter les échecs de déploiement à l’échelle d’Azure.
+- Une « phase » peut englober une ou plusieurs régions, et une mise à jour ne change pas de phase tant que les machines virtuelles éligibles dans la phase précédente n’ont pas été correctement mises à jour.
+- Les régions associées géographiquement ne seront pas mises à jour simultanément et ne pourront pas dépendre de la même phase régionale.
+- La réussite d’une mise à jour est mesurée par le suivi de l’intégrité d’une machine virtuelle après sa mise à jour.
+
+**Dans une région :**
+- Les machines virtuelles de différentes Zones de disponibilité ne sont pas mises à jour simultanément avec la même mise à jour.
+
+**Dans un « groupe » :**
+- Toutes les machines virtuelles d’un même groupe identique ne sont pas mises à jour simultanément.  
+- Les machines virtuelles d’un groupe de machines virtuelles identiques commun sont regroupées par lots et mises à jour dans les limites du domaine de mise à jour, comme décrit ci-dessous.
+
+Le processus de mise à jour orchestrée de la plateforme est suivi pour le déploiement des mises à niveau des images de la plateforme des systèmes d’exploitation supportés chaque mois. Pour les images personnalisées via Shared Image Gallery, une mise à niveau d’image est lancée uniquement pour une région Azure particulière lorsque la nouvelle image est publiée et [répliquée](../virtual-machines/shared-image-galleries.md#replication) dans la région de ce groupe identique.
+
+### <a name="upgrading-vms-in-a-scale-set"></a>Mise à niveau des machines virtuelles dans un groupe identique
+
+La région d’un groupe identique devient éligible pour obtenir des mises à niveau d’image par le biais du processus de première disponibilité pour les images de plateforme ou de la réplication de nouvelles versions d’images personnalisées pour Shared Image Gallery. La mise à niveau d’image est ensuite appliquée à un groupe identique individuel par lot, comme suit :
 1. Avant de commencer le processus de mise à niveau, l’orchestrateur vérifie qu’il n’y a pas plus de 20 % des instances dans tout le groupe identique qui présentent un état non sain (pour une raison ou une autre).
-2. L’orchestrateur de mise à niveau identifie le lot d’instances de machines virtuelles à mettre à niveau, chaque lot devant compter au maximum 20 % du nombre total d’instances, sujet à une taille de lot maximale d’une machine virtuelle.
-3. Le disque du système d’exploitation du lot sélectionné d’instances de machine virtuelle est remplacé par un nouveau disque de système d’exploitation créé à partir de l’image la plus récente. Toutes les extensions et configurations spécifiées dans le modèle de groupe identique sont appliquées à l’instance mise à niveau.
+2. L’orchestrateur de mise à niveau identifie le lot d’instances de machines virtuelles à mettre à niveau, chaque lot devant compter au maximum 20 % du nombre total d’instances, sujet à une taille de lot maximale d’une machine virtuelle. Il n’y a pas de taille minimale requise pour les ensembles de mise à niveau et les ensembles de mise à niveau comportant 5 instances ou moins auront 1 machine virtuelle par lot de mise à niveau (taille minimale du lot).
+3. Le disque de système d’exploitation de chaque machine virtuelle dans le lot de mise à niveau sélectionné est remplacé par un nouveau disque de système d’exploitation créé à partir de la dernière image. Toutes les extensions et configurations spécifiées dans le modèle de groupe identique sont appliquées à l’instance mise à niveau.
 4. Pour les groupes identiques configurés avec des sondes d’intégrité d’application ou l’extension Intégrité de l’application, la mise à niveau attend (jusqu’à 5 minutes) que l’instance passe à l’état sain avant de commencer la mise à niveau du lot suivant. Si une instance ne récupère pas son intégrité en 5 minutes après une mise à niveau, le disque du système d’exploitation précédent pour l’instance est restauré par défaut.
 5. L’orchestrateur de mise à niveau suit également le pourcentage d’instances qui deviennent non saines après une mise à niveau. La mise à niveau s’arrête si plus de 20 % des instances mises à niveau passent à l’état non sain pendant le processus de mise à niveau.
 6. Le processus ci-dessus se poursuit jusqu’à ce que toutes les instances dans le groupe identique aient été mises à niveau.
@@ -60,21 +82,23 @@ Les références SKU de plateforme suivantes sont prises en charge (et d’autre
 | OpenLogic               | CentOS        | 7.5                |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-centre-de-données    |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-centre-de-données-avec-conteneurs |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
-| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gensecond |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Conditions requises pour la configuration de la mise à niveau automatique d’image de système d’exploitation
 
 - La propriété *version* de l’image doit être définie sur *latest*.
-- Utilisez des sondes d’intégrité d’application ou l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md) pour des groupes identiques autres que Service Fabric.
+- Utilisez des sondes d’intégrité d’application ou une [extension d’intégrité d’application](virtual-machine-scale-sets-health-extension.md) pour des groupes identiques sans Service Fabric, ou des groupes identiques Service Fabric sur la durabilité Bronze avec des types de nœuds sans état.
 - Utilisez l’API de calcul de la version 2018-10-01 ou ultérieure.
 - Assurez-vous que les ressources externes spécifiées dans le modèle de groupe identique sont disponibles et à jour. Les ressources concernées sont l’URI SAS pour l’amorçage de la charge utile dans les propriétés d’extension de machine virtuelle et dans le compte de stockage, les références à des secrets dans le modèle, etc.
-- Pour les groupes identiques utilisant des machines virtuelles Windows, à partir de la version 2019-03-01 de l’API de calcul, la propriété *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* doit avoir la valeur *false* dans la définition du modèle de groupe identique. La propriété ci-dessus active les mises à niveau dans les machines virtuelles où « Windows Update » applique les correctifs du système d’exploitation sans remplacer le disque du système d’exploitation. Lorsque les mises à niveau automatiques de l’image du système d’exploitation sont activées sur votre groupe identique, une mise à jour supplémentaire effectuée par le biais de « Windows Update » n’est pas nécessaire.
+- Pour les groupes identiques utilisant des machines virtuelles Windows, à partir de la version 2019-03-01 de l’API de calcul, la propriété *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* doit avoir la valeur *false* dans la définition du modèle de groupe identique. La propriété *enableAutomaticUpdates* active les mises à jour correctives dans les machines virtuelles où « Windows Update » applique les correctifs du système d’exploitation sans remplacer le disque du système d’exploitation. Lorsque les mises à niveau automatiques de l’image du système d’exploitation sont activées sur votre groupe identique, un processus de mise à jour corrective supplémentaire effectuée par le biais de Windows Update n’est pas nécessaire.
 
 ### <a name="service-fabric-requirements"></a>Exigence pour Service Fabric
 
@@ -82,7 +106,8 @@ Si vous utilisez Service Fabric, assurez-vous que les conditions suivantes sont 
 -   Le [niveau de durabilité](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Service Fabric est Silver ou Gold, et non Bronze (à l’exception des nodetypes sans état, qui prennent en charge les mises à niveau automatiques d’images de système d’exploitation).
 -   L’extension Service Fabric sur la définition du modèle de groupe identique doit avoir TypeHandlerVersion 1.1 ou version ultérieure.
 -   Le niveau de durabilité doit être identique au cluster Service Fabric et à l’extension de Service Fabric de la définition du modèle de groupe identique.
-- Une sonde d’intégrité supplémentaire ou l’utilisation de l’extension d’intégrité d’application n’est pas nécessaire.
+- Une sonde d’intégrité supplémentaire ou l’utilisation de l’extension d’intégrité d’application n’est pas nécessaire pour la durabilité de niveau Silver ou Gold. La durabilité de niveau Bronze avec des types de nœuds uniquement sans état requiert une sonde d’intégrité supplémentaire.
+- La propriété *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* doit avoir la valeur *false* dans la définition du modèle de groupe identique. La propriété *enableAutomaticUpdates* active la mise à jour corrective dans la machine virtuelle à l’aide de « Windows Update » et n’est pas prise en charge sur les groupes identiques Service Fabric.
 
 Assurez-vous que les paramètres de durabilité ne sont pas incompatibles avec le cluster Service Fabric et l’extension Service Fabric, car une incompatibilité entraînera des erreurs de mise à niveau. Les niveaux de durabilité peuvent être modifiés selon les instructions indiquées sur[cette page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
@@ -107,7 +132,7 @@ Pour configurer la mise à niveau automatique d’image de système d’exploita
 L’exemple suivant montre comment activer les mises à niveau automatiques du système d’exploitation pour un modèle de groupe identique :
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2021-03-01`
 ```
 
 ```json
@@ -189,7 +214,7 @@ Vous pouvez vérifier l’historique de la dernière mise à niveau du système 
 L’exemple suivant utilise l’[API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) pour vérifier l’état du groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2021-03-01`
 ```
 
 L’appel de Get retourne des propriétés similaires à l’exemple de sortie suivant :
@@ -249,7 +274,7 @@ Vous pouvez obtenir les versions disponibles d’image des références SKU pris
 
 ### <a name="rest-api"></a>API REST
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2021-03-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -274,7 +299,7 @@ Pour des cas spécifiques où vous ne souhaitez pas attendre que l’orchestrate
 Utilisez l’appel démarrer l’API de [mise à niveau du système d’exploitation](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) pour démarrer une mise à niveau propagée afin de déplacer toutes les instances du groupe de machines virtuelles identiques vers la dernière version disponible du système d’exploitation. Les instances qui exécutent déjà la dernière version du système d’exploitation disponible ne sont pas affectées. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2021-03-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -291,11 +316,6 @@ Utilisez [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az_vmss
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
 
-## <a name="deploy-with-a-template"></a>Déployer les mises à niveau avec un modèle
-
-Vous pouvez utiliser des modèles pour déployer un groupe identique avec les mises à niveau automatiques du système d’exploitation pour les images prises en charge comme [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
-
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir d’autres exemples d’utilisation des mises à niveau automatiques du système d’exploitation avec des groupes identiques, consultez le [dépôt GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).
+> [!div class="nextstepaction"]
+> [En savoir plus sur l’extension Intégrité de l’application](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

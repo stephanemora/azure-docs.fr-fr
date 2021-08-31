@@ -2,19 +2,18 @@
 title: Être informé des problèmes à l’aide d’alertes – Azure IoT Edge
 description: Utiliser des règles d’alerte Azure Monitor pour surveiller à grande échelle
 author: veyalla
-manager: philmea
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14deb9a8a8ecaf67306ab8e29b2dfea7fa130c00
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1de507f113f5bf457a4394be9e5fb86c37291e95
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904387"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533019"
 ---
 # <a name="get-notified-about-issues-using-alerts-preview"></a>Être informé des problèmes à l’aide d’alertes (préversion)
 
@@ -22,11 +21,14 @@ ms.locfileid: "111904387"
 
 Utilisez les [alertes de journal Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md) pour surveiller les appareils IoT Edge à grande échelle. En surbrillance dans l’[architecture de la solution](how-to-collect-and-transport-metrics.md#architecture), Azure Monitor Log Analytics est utilisé comme base de données de métriques. Cette intégration déverrouille des capacités d’alerte puissantes et flexibles grâce à des alertes de journal centrées sur les ressources.
 
+> [!IMPORTANT]
+> Cette fonctionnalité est actuellement disponible uniquement pour IoT Hub, et non pour IoT Central.
+
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
 Vous pouvez [créer une règle d’alerte de journal](../azure-monitor/alerts/alerts-log.md) pour surveiller un large éventail de conditions dans votre parc d’appareils.
 
-Les exemples de requêtes d’alerte [KQL](https://aka.ms/kql) sont fournis dans la ressource IoT Hub. Les requêtes qui opèrent sur les données de métriques à partir des périphériques sont précédées de la mention *IoT Edge :* dans leur titre. Utilisez ces exemples tels quels ou modifiez-les si nécessaire pour créer une requête répondant exactement à vos besoins.
+Les exemples de requêtes d’alerte [KQL](/azure/data-explorer/kusto/query/) sont fournis dans la ressource IoT Hub. Les requêtes qui opèrent sur les données de métriques à partir des périphériques sont précédées de la mention *IoT Edge :* dans leur titre. Utilisez ces exemples tels quels ou modifiez-les si nécessaire pour créer une requête répondant exactement à vos besoins.
 
 Pour accéder aux exemples de requêtes d’alerte, procédez comme suit :
 
@@ -66,4 +68,4 @@ Cliquez sur le nom de la règle d’alerte pour voir plus de contexte sur l’al
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Améliorez votre solution de supervision à l’aide de [métriques provenant de modules personnalisés](how-to-add-custom-metrics.md). 
+Améliorez votre solution de supervision à l’aide de [métriques provenant de modules personnalisés](how-to-add-custom-metrics.md).

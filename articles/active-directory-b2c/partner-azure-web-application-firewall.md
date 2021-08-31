@@ -11,16 +11,19 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d56ffff1538e068e80195972315f261d09a53d88
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 03c66f9610ab8dc309098e1eee695ded477938bc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527827"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768444"
 ---
 # <a name="tutorial-configure-azure-web-application-firewall-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Azure Web Application Firewall avec Azure Active Directory B2C
 
 Dans cet exemple de tutoriel, découvrez comment activer la solution [Azure Web Application Firewall (WAF)](https://azure.microsoft.com/services/web-application-firewall/#overview) pour le locataire B2C Azure Active Directory (AD) B2C avec un domaine personnalisé. Azure WAF protège de manière centralisée vos applications web contre les vulnérabilités et attaques courantes.
+
+>[!NOTE]
+>Cette fonctionnalité est en version préliminaire publique.
 
 ## <a name="prerequisites"></a>Prérequis
 

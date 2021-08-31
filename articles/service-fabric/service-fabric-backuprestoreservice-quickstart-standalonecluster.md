@@ -3,12 +3,12 @@ title: Sauvegarde/restauration périodiques dans Azure Service Fabric autonome
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques d’une instance Service Fabric autonome pour activer la sauvegarde périodique des données de votre application.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d78a627c0c50a3e2ec57138e40cb5bc97486d6f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78a906e1e2261b0d117c7042b1ac387e2e98f045
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198709"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535238"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Sauvegarde et restauration périodiques dans un Service Fabric autonome
 > [!div class="op_single_selector"]
@@ -112,7 +112,9 @@ Vous devez d’abord activer le _service de sauvegarde et de restauration_ dans 
         ...
     }
     ```
-
+    > [!NOTE]
+    > \[L’empreinte numérique\] doit être remplacée par l’empreinte numérique de certificat valide à utiliser pour le chiffrement.
+    >
 4. Après avoir mis à jour votre fichier de configuration de cluster avec les modifications précédentes, appliquez-les et laissez le déploiement/la mise à niveau s'accomplir. Une fois l’opération terminée, le _service de sauvegarde et de restauration_ commence à s’exécuter dans votre cluster. L’URI de ce service est `fabric:/System/BackupRestoreService` et le service peut être situé sous la section du service système dans Service Fabric Explorer. 
 
 

@@ -7,21 +7,18 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64049ab544b2ec790d3625dad9137ae539f3020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904718"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562526"
 ---
 # <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Structure de données dans le service Mobility Azure Maps 
 
 > [!IMPORTANT]
-> Le service Mobility d’Azure Maps est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
+> La préversion des Services Mobility Azure Maps a été retirée et ne sera plus disponible ni prise en charge après le 5 octobre 2021. Tous les autres Services et API Azure Maps ne sont pas affectés par cette annonce de déclassement.
+> Pour plus d’informations, consultez [Déclassement des Services Mobility Azure Maps](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 Cet article présente le concept de zone urbaine dans le [service Mobility Azure Maps](/rest/api/maps/mobility). Nous aborderons certains des champs communs qui sont renvoyés lorsque ce service est interrogé pour les arrêts et les lignes de transport en commun. Nous vous recommandons de lire cet article avant de commencer à développer à l’aide des API du service Mobility.
 
