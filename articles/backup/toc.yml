@@ -165,7 +165,7 @@
             - name: Récupérer des fichiers à partir de sauvegardes de machines virtuelles Azure
               href: backup-azure-restore-files-from-vm.md
             - name: Restaurer des machines virtuelles chiffrées
-              href: backup-azure-vms-encryption.md
+              href: restore-azure-encrypted-virtual-machines.md
             - name: Restaurer les clés et le secret pour des machines virtuelles chiffrées
               href: backup-azure-restore-key-secret.md
         - name: Gérer

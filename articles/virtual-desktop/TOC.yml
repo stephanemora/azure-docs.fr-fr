@@ -206,6 +206,8 @@
       items:
         - name: Base de référence de la sécurité
           href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
+        - name: Protection contre la capture d’écran
+          href: screen-capture-protection.md
 - name: Dépanner
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'
