@@ -81,6 +81,8 @@
           href: certificate-signing-options.md
         - name: Gérer des certificats
           href: manage-certificates-for-federated-single-sign-on.md
+        - name: Protéger contre le phishing de consentement
+          href: protect-against-consent-phishing.md
         - name: Restrictions de locataire
           href: tenant-restrictions.md
         - name: Configurer le chiffrement des jetons SAML

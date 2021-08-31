@@ -2,22 +2,24 @@
 title: Compétence cognitive Reconnaissance d’entités
 titleSuffix: Azure Cognitive Search
 description: Extrayez différents types d’entités d’un texte dans un pipeline d’enrichissement dans la Recherche cognitive Azure.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547898"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563210"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
 La compétence **Reconnaissance d’entités** extrait les entités de différents types du texte. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
+
+> [!IMPORTANT]
+> La compétence Reconnaissance d’entités est désormais remplacée par [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Suivez les recommandations de la page [Compétences de recherche cognitive déconseillées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -196,3 +198,4 @@ Si le code de langue du document n’est pas pris en charge, un avertissement es
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
++ [Compétence Reconnaissance d’entités (V3)](cognitive-search-skill-entity-recognition-v3.md)

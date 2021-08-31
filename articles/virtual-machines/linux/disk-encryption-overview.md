@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 86aa53be03e8e79cdf4e909dda632749028f03f0
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077677"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597182"
 ---
-# <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
+# <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux
 
 Azure Disk Encryption vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il utilise la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux afin de fournir un chiffrement de volume pour le système d’exploitation et les disques de données des machines virtuelles Azure. Il s’intègre à [Azure Key Vault](../../key-vault/index.yml) pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets.
 
@@ -38,7 +38,7 @@ Vous pouvez découvrir les notions de base d’Azure Disk Encryption pour Linux 
 
 Les machines virtuelles Linux sont disponibles dans une [gamme de tailles](../sizes.md). Azure Disk Encryption est pris en charge sur les machines virtuelles de 1re génération et de 2e génération. Azure Disk Encryption est également disponible pour les machines virtuelles avec stockage premium.
 
-Voir [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.md).
+Voir [Tailles de machine virtuelle Azure sans disque temporaire local](../azure-vms-no-temp-disk.yml).
 
 Azure Disk Encryption n’est pas disponible non plus sur les [machines virtuelles de base, de série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/), ni sur les machines virtuelles qui ne disposent pas de la configuration mémoire requise ci-dessous :
 
@@ -63,6 +63,10 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 
 | Serveur de publication | Offre | SKU | URN | Type de volume pris en charge pour le chiffrement |
 | --- | --- |--- | --- |
+| Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | Disque de système d’exploitation et de données |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | Disque de système d’exploitation et de données |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | Disque de système d’exploitation et de données |
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Disque de système d’exploitation et de données |

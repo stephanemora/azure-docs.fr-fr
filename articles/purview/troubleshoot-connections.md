@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/04/2021
-ms.openlocfilehash: 812c7871a6fd9501164530f0e9feee92f275426b
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: ab622cd2d8d88c79a4dd0098beded490f9e76a36
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111526485"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535378"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Résoudre les problèmes liés à vos connexions dans Azure Purview
 
@@ -63,7 +63,7 @@ Si le point de terminaison public est limité sur vos sources de données, vous 
 > [!IMPORTANT]
 > L’analyse de plusieurs sources de données contenant des bases de données Azure SQL avec _Refuser l’accès au réseau public_ échoue. Pour analyser ces sources de données avec un point de terminaison privé, utilisez plutôt l’option d’inscription de source de données unique.
 
-Pour plus d’informations sur la configuration d’un runtime d’intégration auto-hébergé, consultez [Points de terminaison privés d’ingestion et sources d’analyse dans des réseaux privés et virtuels, et derrière des points de terminaison privés](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints).
+Pour plus d’informations sur la configuration d’un runtime d’intégration auto-hébergé, consultez [Points de terminaison privés d’ingestion et sources d’analyse](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources)
 
 Pour plus d’informations sur la création d’informations d’identification dans Azure Purview, consultez [Informations d’identification pour l’authentification des sources dans Azure Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 

@@ -18,8 +18,6 @@ items:
             href: create-purview-dotnet.md
           - name: Créer un compte Purview - Python
             href: create-purview-python.md
-          - name: "Créer un compte Purview\_– FAQ sur le portail Azure"
-            href: create-purview-portal-faq.md
       - name: Créer une collection - Azure Purview Studio
         href: quickstart-create-collection.md
   - name: Tutoriels
@@ -237,28 +235,30 @@ items:
             href: sensitivity-insights.md
           - name: Afficher des insights sur les extensions de fichier
             href: file-extension-insights.md
-      - name: Sécurité et réseau
+      - name: Réseau et sécurité
         items:
-          - name: Vue d’ensemble des points de terminaison privés Azure Purview
-            href: catalog-private-link.md
-          - name: Se connecter de manière privée et sécurisée à votre compte Purview
-            href: catalog-private-link-account-portal.md
-          - name: Analyser vos sources de données de manière privée et sécurisée
-            href: catalog-private-link-ingestion.md
-          - name: Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée
-            href: catalog-private-link-end-to-end.md
-          - name: Configuration DNS des points de terminaison privés Azure Purview
-            href: catalog-private-link-name-resolution.md
-          - name: Guide de résolution des problèmes des points de terminaison privés Azure Purview
-            href: catalog-private-link-troubleshoot.md
-          - name: Questions fréquentes sur les points de terminaison privés Azure Purview
-            href: catalog-private-link-faqs.md
-      - name: Récupération d'urgence
-        items:
-          - name: Récupération d'urgence
-            href: disaster-recovery.md
+          - name: Instances Private Endpoint
+            items:
+              - name: Vue d’ensemble des points de terminaison privés Azure Purview
+                href: catalog-private-link.md
+              - name: Se connecter de manière privée et sécurisée à votre compte Purview
+                href: catalog-private-link-account-portal.md
+              - name: Analyser vos sources de données de manière privée et sécurisée
+                href: catalog-private-link-ingestion.md
+              - name: Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée
+                href: catalog-private-link-end-to-end.md
+              - name: Configuration DNS des points de terminaison privés Azure Purview
+                href: catalog-private-link-name-resolution.md
+              - name: Guide de résolution des problèmes des points de terminaison privés Azure Purview
+                href: catalog-private-link-troubleshoot.md
+              - name: Questions fréquentes sur les points de terminaison privés Azure Purview
+                href: catalog-private-link-faqs.md
+          - name: Exceptions de stratégie Azure
+            href: create-purview-portal-faq.md
       - name: Gérer les notifications Kafka - .NET
         href: manage-kafka-dotnet.md
+      - name: Récupération d'urgence
+        href: disaster-recovery.md
   - name: Informations de référence
     items:
       - name: Java
