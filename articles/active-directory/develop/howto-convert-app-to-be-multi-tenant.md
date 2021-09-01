@@ -13,14 +13,14 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45e3489416a68b23d89a3966fe8515713d834a5b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581718"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030422"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
+# <a name="sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
 Si vous proposez une application SaaS (Software as a Service) à de nombreuses organisations, vous pouvez configurer votre application pour accepter des connexions à partir de tout client Azure Active Directory (Azure AD). Cette configuration est appelée *quand vous rendez votre application mutualisée*. Les utilisateurs de n’importe quel client Azure AD pourront se connecter à votre application après votre consentement afin d’utiliser leur compte avec votre application.
 

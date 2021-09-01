@@ -12,12 +12,12 @@ ms.date: 04/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2e4dbc5178bec3a5b1f0931267465879f604f36f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b663904df2d116bdfa92a0dcef4b05c0806fec14
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226001"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199139"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>Vue d’ensemble des flux d’utilisateurs et des stratégies personnalisées
 
@@ -76,7 +76,7 @@ Apprenez-en davantage sur les stratégies personnalisées avec [Stratégies pers
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparaison des flux d’utilisateur et des stratégies personnalisées
 
-Le table suivante fournit une comparaison détaillée des scénarios que vous pouvez rencontrer avec les flux d’utilisateurs et les stratégies personnalisées Azure AD B2C.
+Le table suivante fournit une comparaison détaillée des scénarios que vous pouvez rendre possibles avec les flux d’utilisateurs et les stratégies personnalisées Azure AD B2C.
 
 | Context | Flux d’utilisateurs | Stratégies personnalisées |
 |-|-------------------|-----------------|

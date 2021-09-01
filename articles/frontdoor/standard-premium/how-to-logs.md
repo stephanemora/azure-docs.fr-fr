@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5446c240d1d07b5b99fe6f91a031617756a6018c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573895"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967589"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Journalisation dans Azure Front Door Standard/Premium (préversion)
 
@@ -83,7 +83,7 @@ Actuellement, Azure Front Door journalise chaque requête d’API individuellem
 | UserAgent | Type de navigateur utilisé par le client. |
 | ClientIp | Adresse IP du client à l’origine de la requête. S’il existait un en-tête X-Forwarded-For dans la demande, l’adresse IP du client est sélectionnée de la même façon. |
 | SocketIp | Adresse IP de la connexion directe à la périphérie AFD. Si le client a utilisé un proxy HTTP ou un équilibreur de charge pour envoyer la requête, la valeur de SocketIp est l’adresse IP du proxy ou de l’équilibreur de charge. |
-| Latence | Temps, en millisecondes, entre le moment où le serveur de périphérie AFD reçoit une requête d’un client et le moment où AFD envoie au client le dernier octet de la réponse. Ce champ ne tient pas compte de la latence du réseau et de la mise en mémoire tampon TCP. |
+| timeTaken | Temps, en millisecondes, entre le moment où le serveur de périphérie AFD reçoit une requête d’un client et le moment où AFD envoie au client le dernier octet de la réponse. Ce champ ne tient pas compte de la latence du réseau et de la mise en mémoire tampon TCP. |
 | RequestProtocol | Protocole spécifié par le client dans la requête : HTTP, HTTPS. |
 | SecurityProtocol | Version du protocole TLS/SSL utilisée par la requête, ou Null si aucun chiffrement. Les valeurs possibles sont : SSLv3, TLSv1, TLSv1.1 et TLSv1.2 |
 | SecurityCipher | Quand le protocole de la requête a la valeur HTTPS, ce champ indique le chiffrement TLS/SSL négocié par le client et AFD. |

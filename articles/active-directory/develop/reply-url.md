@@ -1,22 +1,22 @@
 ---
-title: Restrictions des URI de redirection (URL de réponse) | Azure
+title: Restrictions des URI de redirection (URL de réponse) | Azure AD
 titleSuffix: Microsoft identity platform
 description: Description des restrictions et limitations relatives au format des URI de redirection (URL de réponse) appliquées par la plateforme d’identité Microsoft.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 11/23/2020
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582806"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966461"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -27,6 +27,10 @@ Un URI de redirection, ou URL de réponse, correspond à l’emplacement vers le
 * L’URI de redirection doit commencer par le schéma `https`. Il existe des [exceptions pour les URI de redirection localhost](#localhost-exceptions).
 
 * L’URI de redirection respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin d’accès, ne spécifiez pas `.../ABC/response-oidc` dans l’URI de redirection. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
+
+* Un URI de redirection sans segment de chemin ajoute une barre oblique finale à l’URI dans la réponse. Par exemple, des URI comme https://contoso.com et http://localhost:7071 retourneront https://contoso.com/ et http://localhost:7071/ respectivement. Cela s’applique uniquement lorsque le mode de réponse est une requête ou un fragment.
+
+* Les URI de redirection contenant le segment de chemin n’ajoutent pas de barre oblique de fin. (Par ex. https://contoso.com/abc, https://contoso.com/abc/response-oidc sera utilisé comme tel quel dans la réponse)
 
 ## <a name="maximum-number-of-redirect-uris"></a>Nombre maximal d'URI de redirection
 
@@ -76,7 +80,7 @@ Toutefois, vous ne pouvez pas utiliser la zone de texte **URI de redirection** d
 
 :::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Boîte de dialogue d’erreur dans le portail Azure présentant l’URI de redirection de bouclage http non autorisé":::
 
-Pour ajouter un URI de redirection qui utilise le schéma `http` avec l’adresse de bouclage `127.0.0.1`, vous devez actuellement modifier l’attribut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) dans le [manifeste de l’application](reference-app-manifest.md).
+Pour ajouter un URI de redirection qui utilise le schéma `http` avec l’adresse de bouclage `127.0.0.1`, vous devez actuellement modifier l’attribut [replyUrlsWithType dans le manifeste de l’application](reference-app-manifest.md#replyurlswithtype-attribute).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrictions concernant les caractères génériques des URI de redirection
 
@@ -84,9 +88,9 @@ Les URI avec caractères génériques comme `https://*.contoso.com` peuvent para
 
 Les URI avec caractères génériques ne sont actuellement pas pris en charge dans les inscriptions d’applications configurées pour se connecter à des comptes Microsoft personnels et à des comptes professionnels ou scolaires. Les URI avec caractères génériques sont autorisés, mais uniquement pour les applications configurées pour se connecter à des comptes professionnels ou scolaires dans un locataire Azure AD d’une organisation.
 
-Pour ajouter des URI de redirection avec des caractères génériques aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, utilisez l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure. Bien qu’il soit possible de définir un URI de redirection avec un caractère générique à l’aide de l’éditeur de manifeste, nous vous recommandons *fortement* de respecter la [section 3.1.2 de la RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) et d’utiliser uniquement des URI absolus.
+Pour ajouter des URI de redirection avec des caractères génériques aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, utilisez l’éditeur de manifeste de l’application dans **Inscriptions d’applications** dans le portail Azure. Bien qu’il soit possible de définir un URI de redirection avec un caractère générique à l’aide de l’éditeur de manifeste, nous vous recommandons *fortement* de respecter la section 3.1.2 de la RFC 6749. et utilisent uniquement des URI absolus.
 
-Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, envisagez l’[approche de paramètre d’état](#use-a-state-parameter) suivante au lieu d’ajouter un URI de redirection avec caractères génériques.
+Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, envisagez l’approche de paramètre d’état suivante au lieu d’ajouter un URI de redirection avec caractères génériques.
 
 #### <a name="use-a-state-parameter"></a>Utiliser un paramètre d’état
 

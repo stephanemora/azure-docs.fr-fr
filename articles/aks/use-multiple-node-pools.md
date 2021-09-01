@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: ef6b23cf7564cff57f398c76162f9c25efac7075
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 19e10b43fbf0dac05da531570376b77d22840312
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081277"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122535030"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -959,7 +959,7 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2

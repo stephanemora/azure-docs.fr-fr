@@ -1,15 +1,15 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour Azure Resource Manager
 description: Exemples de requêtes Azure Resource Graph pour Azure Resource Manager montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés d’Azure Resource Manager.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 6fe86b1c3d0aef2ce9666ce88af455e82185f5eb
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 60341850e76c589f17b9b3d3c2561a94f1f3958f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860672"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123315602"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-resource-manager"></a>Exemples de requêtes Azure Resource Graph pour Azure Resource Manager
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: c0abbf8dc928dc20778d748e16eea5ae8b775282
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ba6df6b29c9d7b9b388b34dab163a132272c6200
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557087"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223902"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -75,7 +75,7 @@ api-key: [admin key]
 
 ### <a name="json-example-single-hotel-json-files"></a>Exemple json (fichiers JSON d’hôtel unique)
 
-Le [jeu de données de documents JSON sur les hôtels](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotel-json-documents) disponible sur GitHub est utile pour tester l’analyse JSON, où chaque objet blob représente un fichier JSON structuré. Vous pouvez charger les fichiers de données sur le stockage Blob et utiliser l’Assistant **Importation de données** pour évaluer rapidement comment ce contenu est analysé dans des documents de recherche individuels. 
+Le [jeu de données de documents JSON sur les hôtels](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) disponible sur GitHub est utile pour tester l’analyse JSON, où chaque objet blob représente un fichier JSON structuré. Vous pouvez charger les fichiers de données sur le stockage Blob et utiliser l’Assistant **Importation de données** pour évaluer rapidement comment ce contenu est analysé dans des documents de recherche individuels. 
 
 Le jeu de données est constitué de cinq objets blob, chacun contenant un document d’hôtels avec une collection d’adresses et une collection de chambres. L’indexeur d’objets blob détecte les deux collections et reflète la structure des documents d’entrée dans le schéma d’index.
 
@@ -110,7 +110,7 @@ api-key: [admin key]
 
 ### <a name="jsonarrays-example-clinical-trials-sample-data"></a>Exemple jsonArrays (échantillon de données d’essais cliniques)
 
-Le [jeu de données JSON sur les essais cliniques](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-json) disponible sur GitHub est utile pour tester l’analyse d’un tableau JSON. Vous pouvez charger les fichiers de données sur le stockage Blob et utiliser l’Assistant **Importation de données** pour évaluer rapidement comment ce contenu est analysé dans des documents de recherche individuels. 
+Le [jeu de données JSON sur les essais cliniques](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) disponible sur GitHub est utile pour tester l’analyse d’un tableau JSON. Vous pouvez charger les fichiers de données sur le stockage Blob et utiliser l’Assistant **Importation de données** pour évaluer rapidement comment ce contenu est analysé dans des documents de recherche individuels. 
 
 Le jeu de données est constitué de huit objets blob, chacun contenant un tableau JSON d’entités, pour un total de 100 entités. Les entités varient en fonction des champs remplis, mais le résultat final est un document de recherche par entité, à partir de tous les tableaux, dans tous les objets blob.
 
@@ -166,12 +166,6 @@ api-key: [admin key]
     "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
 }
 ```
-
-### <a name="jsonlines-example-caselaw-sample-data"></a>Exemple jsonLines (échantillon de données de jurisprudence)
-
-Le [jeu de données JSON de jurisprudence](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) disponible sur GitHub est utile pour tester l’analyse de données comportant des sauts de ligne JSON. Comme avec les autres exemples, vous pouvez charger ces données sur le stockage Blob et utiliser l’Assistant **importation de données** pour évaluer rapidement l’impact du mode d’analyse sur les objets blob individuels.
-
-Le jeu de données se compose d’un objet blob contenant 10 entités JSON séparées par un saut de ligne, où chaque entité décrit un dossier juridique unique. Le résultat final est un document de recherche par entité.
 
 ## <a name="map-json-fields-to-search-fields"></a>Mapper des champs JSON sur des champs de recherche
 

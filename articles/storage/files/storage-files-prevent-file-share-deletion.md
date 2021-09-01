@@ -8,19 +8,24 @@ ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a879aff7c3fcaa7ac2c15be295c6c5bdca25ccdf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 023320d29eac767e62e07c58de4f8fa6ac61b61f
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937292"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117855"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Empêcher la suppression accidentelle de partages de fichiers Azure
+Azure Files offre une suppression réversible pour les partages de fichiers. La suppression réversible vous permet de récupérer votre partage de fichiers lorsqu’il est supprimé par erreur par une application ou un autre utilisateur du compte de stockage.
 
-Le stockage Azure offre désormais une suppression réversible pour les partages de fichiers. La suppression réversible vous permet de récupérer votre partage de fichiers lorsqu’il est supprimé par erreur par une application ou un autre utilisateur du compte de stockage.
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="how-soft-delete-works"></a>Fonctionnement de la suppression réversible
-
 Lorsque la suppression réversible pour les partages de fichiers Azure est activée, si un partage de fichiers est supprimé, il passe à un état de supprimé réversible au lieu d’être effacé définitivement. Vous pouvez configurer la durée pendant laquelle les données supprimées de manière réversible sont récupérables avant leur suppression définitive, et annuler la suppression du partage à tout moment lors de la période de rétention. Une fois la suppression annulée, le partage et tout son contenu, instantanés, seront restaurés à l’état où ils se trouvaient avant la suppression. La suppression réversible fonctionne uniquement sur un niveau de partage de fichiers ; les fichiers individuels qui sont supprimés sont toujours effacés définitivement.
 
 La suppression réversible peut être activée sur les partages de fichiers nouveaux ou existants. En outre, la suppression réversible étant rétrocompatible, il est inutile d’apporter des modifications à vos applications pour tirer parti des protections qu’offre cette fonctionnalité. 

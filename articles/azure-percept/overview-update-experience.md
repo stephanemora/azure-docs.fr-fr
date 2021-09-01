@@ -1,20 +1,20 @@
 ---
 title: Expérience de mise à jour du DK Azure Percept
 description: Découvrez comment conserver le DK Azure Percept à jour
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: e8448bf47f9d65477c78ee4451a9b9b83a5711c2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b37237d3afffa6c567a03ced366ac24acfc2ce68
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143878"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221851"
 ---
-# <a name="azure-percept-dk-update-experience-overview"></a>Vue d’ensemble de l’expérience de mise à jour du DK Azure Percept
+# <a name="azure-percept-dk-update-experience"></a>Expérience de mise à jour du DK Azure Percept
 
 Avec le DK Azure Percept, vous pouvez mettre à jour le système d’exploitation et le microprogramme de votre devkit OTA (over-the-air) ou via USB. La mise à jour OTA est un moyen facile de mettre à jour les appareils via le service [Mise à jour de l’appareil pour IOT Hub](../iot-hub-device-update/index.yml). Les mises à jour USB sont disponibles pour les utilisateurs qui ne peuvent pas utiliser les mises à jour OTA ou lorsqu’une réinitialisation des paramètres d’usine de l’appareil est nécessaire. Consultez les guides pratiques suivants pour bien démarrer avec les mises à jour d’appareils Azure percept DK :
 

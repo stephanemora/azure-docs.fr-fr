@@ -4,17 +4,17 @@ titleSuffix: Microsoft Genomics
 description: Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est constitué de plusieurs fichiers FASTQ ou BAM provenant du même échantillon.
 services: genomics
 ms.service: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlund
-ms.author: grhuynh
+ms.author: vigunase
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 1c7a65a2ff58d3191e7b21ecd40a8aa1bc1f4086
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: c87cd34231c3d9b54b4f4973f64761171605b560
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551845"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259831"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple
 

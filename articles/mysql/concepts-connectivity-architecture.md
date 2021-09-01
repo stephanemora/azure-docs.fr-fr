@@ -6,14 +6,17 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1f41696b80c85df8a9131ee2066f5ee76330ec8
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046468"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641188"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
@@ -36,56 +39,53 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database p
 
 * **Adresses IP de la passerelle :** cette colonne répertorie les adresses IP actuelles des passerelles hébergées sur la dernière génération de matériel. Si vous provisionnez un nouveau serveur, nous vous recommandons d’ouvrir le pare-feu côté client afin d’autoriser le trafic sortant pour les adresses IP répertoriées dans cette colonne.
 * **Adresses IP de passerelle (en cours de mise hors service) :** cette colonne répertorie les adresses IP des passerelles hébergées sur une ancienne génération de matériel en cours de mise hors service. Si vous provisionnez un nouveau serveur, vous pouvez ignorer ces adresses IP. Si vous disposez déjà d’un serveur, continuez à conserver la règle de trafic sortant pour le pare-feu pour ces adresses IP, car nous ne l’avons pas encore mis hors service. Si vous supprimez les règles de pare-feu pour ces adresses IP, vous risquez d’obtenir des erreurs de connectivité. Au lieu de cela, vous devez ajouter de manière proactive les nouvelles adresses IP répertoriées dans la colonne Adresses IP de la passerelle à la règle de pare-feu de trafic sortant dès que vous recevez la notification de mise hors service. Ainsi, lorsque votre serveur sera migré vers le dernier matériel de passerelle, il n’y aura aucune interruption de la connectivité à votre serveur.
-* **Adresses IP de passerelle (mises hors service) :** cette colonne répertorie les adresses IP des anneaux de passerelle, qui sont désactivées et qui ne sont plus fonctionnelles. Vous pouvez supprimer ces adresses IP de votre règle de pare-feu sortante en toute sécurité. 
+* **Adresses IP de passerelle (mises hors service) :** cette colonne répertorie les adresses IP des anneaux de passerelle, qui sont désactivées et qui ne sont plus fonctionnelles. Vous pouvez supprimer ces adresses IP de votre règle de pare-feu sortante en toute sécurité.
 
-
-| **Nom de la région** | **Adresses IP de la passerelle** |**Adresses IP de la passerelle (en cours de mise hors service)** | **Adresses IP de la passerelle (mises hors service)** |
-|:----------------|:-------------------------|:-------------------------------------------|:------------------------------------------|
-| Centre de l’Australie| 20.36.105.0  | | |
-| Australie Centre 2     | 20.36.113.0  | | |
-| Australie Est | 13.75.149.87, 40.79.161.1     |  | |
-| Sud-Est de l’Australie |191.239.192.109, 13.73.109.251   |  | |
-| Brésil Sud |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
-| Centre du Canada |40.85.224.249  | | |
-| Est du Canada | 40.86.226.166    | | |
-| USA Centre | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
-| Chine orientale | 139.219.130.35    | | |
-| Chine orientale 2 | 40.73.82.1  | | |
-| Chine du Nord | 139.219.15.17    | | |
-| Chine Nord 2 | 40.73.50.0     | | |
-| Asie Est | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     | | |
-| USA Est |40.71.8.203, 40.71.83.113 |40.121.158.30|191.238.6.43 |
-| USA Est 2 | 40.70.144.38, 52.167.105.38  | 52.177.185.181 | |
-| France Centre | 40.79.137.0, 40.79.129.1  | | |
-| France Sud | 40.79.177.0     | | |
-| Centre de l’Allemagne | 51.4.144.100     | | |
-| Allemagne Nord | 51.116.56.0 | |
-| Nord-Est de l’Allemagne | 51.5.144.179  | | |
-| Allemagne Centre-Ouest | 51.116.152.0 | |
-| Inde Centre | 104.211.96.159     | | |
-| Sud de l’Inde | 104.211.224.146  | | |
-| Inde Ouest | 104.211.160.80    | | |
-| Japon Est | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
-| OuJapon Est | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
-| Centre de la Corée | 52.231.17.13   | 52.231.32.42 | |
-| Corée du Sud | 52.231.145.3     | 52.231.200.86 | |
-| Centre-Nord des États-Unis | 52.162.104.35, 52.162.104.36    | 23.96.178.199 | |
-| Europe Nord | 52.138.224.6, 52.138.224.7  | 40.113.93.91 |191.235.193.75 |
-| Afrique du Sud Nord  | 102.133.152.0    | | |
-| Afrique du Sud Ouest | 102.133.24.0   | | |
-| États-Unis - partie centrale méridionale |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
-| Asie Sud-Est | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
-| Suisse Nord | 51.107.56.0 ||
-| Suisse Ouest | 51.107.152.0||
-| Émirats arabes unis Centre | 20.37.72.64  | | |
-| Émirats arabes unis Nord | 65.52.248.0    | | |
-| Sud du Royaume-Uni | 51.140.184.11   | | |
-| Ouest du Royaume-Uni | 51.141.8.11  | | |
-| Centre-USA Ouest | 13.78.145.25     | | |
-| Europe Ouest |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
-| USA Ouest |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| USA Ouest 2 | 13.66.136.192 | 13.66.226.202  | | 
-||||
+|  **Nom de la région**       |  **Adresses IP de la passerelle**                                  | **Adresses IP de passerelle (en cours de mise hors service)**  |  **Adresses IP de passerelle (mises hors service)**  |
+|------------------------|------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
+|  Centre de l’Australie     |  20.36.105.0                                               |                                               |                                               |
+|  Australie Centre 2    |  20.36.113.0                                               |                                               |                                               |
+|  Australie Est        |  13.75.149.87, 40.79.161.1                                 |                                               |                                               |
+|  Sud-Est de l’Australie  | 191.239.192.109, 13.73.109.251                             |                                               |                                               |
+|  Brésil Sud          |  191.233.201.8, 191.233.200.16                             |                                               |  104.41.11.5                                  |
+|  Centre du Canada        |  40.85.224.249                                             |                                               |                                               |
+|  Est du Canada           |  40.86.226.166                                             |                                               |                                               |
+|  USA Centre            |  23.99.160.139, 52.182.136.37, 52.182.136.38             |  13.67.215.62                                 |                                               |
+|  Chine orientale            |  139.219.130.35                                            |                                               |                                               |
+|  Chine orientale 2          |  40.73.82.1                                                |                                               |                                               |
+|  Chine du Nord           |  139.219.15.17                                             |                                               |                                               |
+|  Chine Nord 2         |  40.73.50.0                                                |                                               |                                               |
+|  Asie Est             |  191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21  |                                               |                                               |
+|  USA Est               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                                |  191.238.6.43                                 |
+|  USA Est 2             |  40.70.144.38, 52.167.105.38                               |  52.177.185.181                               |                                               |
+|  France Centre        |  40.79.137.0, 40.79.129.1                                  |                                               |                                               |
+|  France Sud          |  40.79.177.0                                               |                                               |                                               |
+|  Centre de l’Allemagne       |  51.4.144.100                                              |                                               |                                               |
+|  Allemagne Nord         |  51.116.56.0                                               |                                               |                                               |
+|  Nord-Est de l’Allemagne    |  51.5.144.179                                              |                                               |                                               |
+|  Allemagne Centre-Ouest  |  51.116.152.0                                              |                                               |                                               |
+|  Inde Centre         |  104.211.96.159                                            |                                               |                                               |
+|  Sud de l’Inde           |  104.211.224.146                                           |                                               |                                               |
+|  Inde Ouest            |  104.211.160.80                                            |                                               |                                               |
+|  Japon Est            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196                                 |                                               |
+|  OuJapon Est            |  191.238.68.11, 40.74.96.6, 40.74.96.7                   |  104.214.148.156                              |                                               |
+|  Centre de la Corée         |  52.231.17.13                                              |  52.231.32.42                                 |                                               |
+|  Corée du Sud           |  52.231.145.3                                              |  52.231.200.86                                |                                               |
+|  Centre-Nord des États-Unis      |  52.162.104.35, 52.162.104.36                              |  23.96.178.199                                |                                               |
+|  Europe Nord          |  52.138.224.6, 52.138.224.7                                |  40.113.93.91                                 |  191.235.193.75                               |
+|  Afrique du Sud Nord    |  102.133.152.0                                             |                                               |                                               |
+|  Afrique du Sud Ouest     |  102.133.24.0                                              |                                               |                                               |
+|  États-Unis - partie centrale méridionale      |  104.214.16.39, 20.45.120.0                                |  13.66.62.124                                 | 23.98.162.75                                  |
+|  Asie Sud-Est       |  40.78.233.2, 23.98.80.12                                  |  104.43.15.0                                  |                                               |
+|  Suisse Nord     |  51.107.56.0                                               |                                               |                                               |
+|  Suisse Ouest      |  51.107.152.0                                              |                                               |                                               |
+|  Émirats arabes unis Centre           |  20.37.72.64                                               |                                               |                                               |
+|  Émirats arabes unis Nord             |  65.52.248.0                                               |                                               |                                               |
+|  Royaume-Uni Sud            |  51.140.144.32                                             |  51.140.184.11                                |                                               |
+|  Royaume-Uni Ouest             |  51.141.8.11                                               |                                               |                                               |
+|  Centre-USA Ouest       |  13.78.145.25                                              |                                               |                                               |
+|  Europe Ouest           |  13.69.105.208, 104.40.169.187                             |  40.68.37.158                                 |  191.237.232.75                               |
+|  USA Ouest               |  13.86.216.212, 13.86.217.212                              |  104.42.238.205                               |  23.99.34.75                                  |
 
 ## <a name="connection-redirection"></a>Redirection de connexion
 
