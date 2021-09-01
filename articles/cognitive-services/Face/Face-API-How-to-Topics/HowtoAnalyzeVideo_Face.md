@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92bf7b7c1d2f24b7a858f6e9b786b84943651239
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 6f9fd7f2827e298f3273ad11ab104b75a7e81582
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810729"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744836"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemple : Comment analyser des vidéos en temps réel
 
@@ -176,4 +176,4 @@ Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi
 N’hésitez pas à envoyer vos commentaires et suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, pour des commentaires plus généraux sur les API, sur notre site [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743).
 
 ## <a name="related-topics"></a>Rubriques connexes
-- [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Comment détecter des visages dans l’image)
+- [Appeler l’API de détection](HowtoDetectFacesinImage.md)

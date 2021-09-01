@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4ab8f3eb36e254a9b98444ecf85904fc574bcc65
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 788cce5f8f380c2bcf2fa7c66b06f22bcda167f2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732581"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>Protéger vos applications web et vos API
 
@@ -33,10 +33,10 @@ Pour protéger votre plan Azure App Service avec Azure Defender pour App Service
 
 | Aspect                       | Détails                                                                                                                                                                                        |
 |------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| État de sortie :               | Disponibilité générale (GA)                                                                                                                                                                      |
+| État de sortie :               | Disponibilité générale                                                                                                                                                                      |
 | Prix :                     | [Azure Defender pour App Service](azure-defender.md) est facturé conformément à la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)<br>La facturation se fait en fonction du nombre total d’instances de calcul dans tous les plans       |
 | Plans App Service pris en charge : | [Tous les plans App service](https://azure.microsoft.com/pricing/details/app-service/plans/) sont pris en charge, à l’exception d’[Azure Functions sur le plan de consommation](../azure-functions/functions-scale.md). |
-| Clouds :                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/souverain (US Gov, Azure China 21Vianet)                                                     |
+| Clouds :                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quels sont les avantages d’Azure Defender pour App Service ?
@@ -93,10 +93,11 @@ Pour obtenir la liste complète des alertes Azure App Service, consultez la [tab
 
 Dans cet article, vous avez découvert Azure Defender pour App Service. 
 
+> [!div class="nextstepaction"]
+> [Activer Azure Defender](enable-azure-defender.md)
+
 Pour des informations connexes, consultez les articles suivants : 
 
 - Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions fournies dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
 - Pour obtenir la liste des alertes Azure Defender pour App Service, consultez la [table de référence des alertes](alerts-reference.md#alerts-azureappserv).
 - Pour plus d’informations sur les plans App Service, consultez [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
-> [!div class="nextstepaction"]
-> [Activer Azure Defender](enable-azure-defender.md)

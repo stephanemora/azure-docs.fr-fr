@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 5b136a95d841775861c0e4d7c0bba1feec101f0d
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110493777"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120111"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Utiliser le stockage de fichiers externes dans Lab Services
 
@@ -46,7 +46,7 @@ Si vous utilisez un point de terminaison privé pour le partage Azure Files, il 
 - Cette approche nécessite que le réseau virtuel de partage de fichiers soit homologué au compte de labo. Le réseau virtuel pour le compte de stockage Azure doit être homologué au réseau virtuel pour le compte de labo avant la création du labo.
 
 > [!NOTE]
-> Les partages de fichiers supérieurs à 5 To sont disponibles uniquement pour les [comptes de stockage localement redondants](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions).
+> Par défaut, les partages de fichiers standard peuvent atteindre 5 Tio. Consultez [Créer un partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md) pour savoir comment créer des partages de fichiers pouvant atteindre 100 Tio.
 
 Procédez comme suit pour créer une machine virtuelle connectée à un partage Azure Files.
 

@@ -2,13 +2,14 @@
 title: Authentifier une application pour accéder aux entités Azure Service Bus
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux entités Azure Service Bus (files d’attente, rubriques, etc.)
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: fc009c5a84c577c5904b3e0fc834295aa355e802
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 8a28b13a8cde8c908d01d2f0eb2160ba7decb6f6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123102"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122608"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus
 Azure Service Bus prend en charge l’utilisation d’Azure Active Directory (Azure AD) pour autoriser les requêtes d’accès aux entités Service Bus (files d’attente, rubriques, abonnements ou filtres). Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -55,31 +56,9 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
-Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide d’Azure RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
+Attribuez un des [rôles Service Bus](#azure-built-in-roles-for-azure-service-bus) au principal de service de l’application à l’étendue souhaitée (espace de noms Service Bus, groupe de ressources, abonnement). Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
-
-> [!NOTE]
-> Les étapes décrites ci-dessous vous permettent d’attribuer un rôle à votre espace de noms Service Bus. Vous pouvez effectuer les mêmes étapes pour attribuer un rôle à d’autres étendues prises en charge (groupe de ressources, abonnement, etc.).
-
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre espace de noms Service Bus. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche pour afficher les paramètres du contrôle d’accès pour l’espace de noms. Si vous devez créer un espace de noms Service Bus, suivez les instructions données dans cet article : [Créer un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md).
-
-    ![Sélectionner Contrôle d’accès dans le menu de gauche](./media/authenticate-application/select-access-control-menu.png)
-1. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles. Sélectionnez le bouton **Ajouter** dans la barre d’outils, puis sélectionnez **Ajouter une attribution de rôle**. 
-
-    ![Ajouter un bouton à la barre d’outils](./media/authenticate-application/role-assignments-add-button.png)
-1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
-    1. Sélectionnez le **rôle Service Bus** que vous souhaitez attribuer. 
-    1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle.
-    1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
-
-        ![Attribuer un rôle à un utilisateur](./media/authenticate-application/assign-role-to-user.png)
-    4. L’identité à laquelle vous avez attribué le rôle apparaît sous ce dernier. Par exemple, dans l’image suivante, Azure-users a le rôle Propriétaire de données Azure Service Bus. 
-        
-        ![Utilisateur dans la liste](./media/authenticate-application/user-in-list.png)
-
-Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’étendue d’un groupe de ressources ou d’un abonnement. Une fois que vous avez défini le rôle et son étendue, vous pouvez tester ce comportement à l’aide des [exemples disponibles sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
-
+Une fois que vous avez défini le rôle et son étendue, vous pouvez tester ce comportement à l’aide des [exemples disponibles sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
 ## <a name="authenticate-from-an-application"></a>Authentifier à partir d’une application
 L’un des principaux avantages d’utiliser Azure AD avec Service Bus est que vous n’avez plus besoin de stocker vos informations d’identification dans votre code. À la place, vous pouvez demander un jeton d’accès OAuth 2.0 sur la plateforme d’identités Microsoft. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application, laquelle peut ensuite l’utiliser pour autoriser les requêtes adressées à Azure Service Bus.
@@ -130,17 +109,20 @@ Une fois que vous avez inscrit votre application et que vous lui avez accordé l
 
 Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est pris en charge, veuillez consulter la section [Scénarios](https://aka.ms/msal-net-scenarios) du référentiel GitHub [Microsoft Authentication Library (MSAL) pour .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-# <a name="net"></a>[.NET](#tab/dotnet)
-À l’aide de la bibliothèque [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) la plus récente, vous pouvez authentifier le [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) avec un [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), qui est défini dans la bibliothèque [Azure.Identity](https://www.nuget.org/packages/Azure.Identity).
+<!-- TAB -- # [.NET](#tab/dotnet) -  -->
+
+Si vous utilisez la bibliothèque [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) la plus récente, vous pouvez authentifier le [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) avec un [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), qui est défini dans la bibliothèque [Azure.Identity](https://www.nuget.org/packages/Azure.Identity).
+
 ```cs
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-Si vous utilisez les anciens packages .NET, reportez-vous aux exemples ci-dessous.
+Si vous utilisez les anciens packages .NET, consultez les exemples suivants :
 - [RoleBasedAccessControl dans Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
 - [RoleBasedAccessControl dans WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
----
+
+<!-- CLOSE TAB --- -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur Azure RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) ?

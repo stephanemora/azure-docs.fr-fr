@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/02/2021
-ms.openlocfilehash: d528d75bd26bf17ca0da20447848d315e2dc9057
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/23/2021
+ms.openlocfilehash: 5e568e0e41b4273b94f12006d998a711229335c5
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111406874"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112893507"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Mettre à niveau votre base de données PostgreSQL par vidage et restauration
 
@@ -86,6 +86,9 @@ Vous pouvez choisir d’utiliser l’une des méthodes décrites dans cette sect
 - Si votre serveur PostgreSQL nécessite des connexions TLS/SSL (qui sont activées par défaut sur les serveurs Azure Database pour PostgreSQL), définissez une variable d’environnement `PGSSLMODE=require` pour que l’outil pg_restore se connecte avec TLS. Sans connexion TLS, l’erreur suivante peut s’afficher : `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 
 - Sur la ligne de commande Windows, exécutez la commande `SET PGSSLMODE=require` avant d’exécuter la commande pg_restore. Dans Linux ou Bash, exécutez la commande `export PGSSLMODE=require` avant d’exécuter la commande pg_restore.
+
+>[!Important]
+> Il est conseillé de tester et valider les commandes dans un environnement de test avant de les utiliser en production.
 
 ### <a name="method-1-migrate-using-dump-file"></a>Méthode 1 : Migrer en utilisant un fichier de sauvegarde
 
@@ -171,4 +174,6 @@ Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dan
 
 - Une fois que vous êtes satisfait de la fonction de la base de données cible, vous pouvez supprimer votre ancien serveur de base de données. 
 - Uniquement pour Azure Database pour PostgreSQL – Serveur unique. Si vous souhaitez utiliser le même point de terminaison de base de données que le serveur source, alors après avoir supprimé votre ancien serveur de base de données source, vous pouvez créer un réplica en lecture avec l’ancien nom du serveur de base de données. Une fois l’état de réplication stable établi, vous pouvez arrêter le réplica, ce qui permet de promouvoir le serveur réplica en tant que serveur indépendant. Pour plus d’informations, consultez [Réplication](./concepts-read-replicas.md).
-- Pensez à tester et valider ces commandes dans un environnement de test avant de les utiliser en production.
+
+>[!Important] 
+> Il est vivement recommandé de tester la version de PostgreSQL mise à niveau avant de l’utiliser directement pour la production. Cela comprend la comparaison des paramètres de serveur entre la source de l’ancienne version et la cible de la nouvelle version. Assurez-vous que les paramètres sont identiques et vérifiez les éventuels nouveaux paramètres ajoutés à la nouvelle version. Les différences entre les versions sont indiquées [ici](https://www.postgresql.org/docs/release/).

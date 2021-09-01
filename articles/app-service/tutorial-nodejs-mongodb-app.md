@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/13/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ee40828bcb83d81aee7f1ece06971decf8143370
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7338e5c8ef1e3f1fce6242b62153dd492de9e3a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746019"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutoriel : Créer une application Node.js et MongoDB dans Azure
 
@@ -101,7 +101,7 @@ Pour arrêter Node.js à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 Dans cette étape, vous allez créer une base de données MongoDB dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
 
-Pour MongoDB, ce didacticiel utilise [Azure Cosmos DB](/azure/cosmos-db/). Cosmos DB prend en charge les connexions client MongoDB.
+Pour MongoDB, ce didacticiel utilise [Azure Cosmos DB](../cosmos-db/index.yml). Cosmos DB prend en charge les connexions client MongoDB.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -579,5 +579,5 @@ Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personna
 
 Ou consultez les autres ressources :
 
-> [!div class="nextstepaction"]
-> [Configurer une application Node.js](configure-language-nodejs.md)
+- [Configurer une application Node.js](configure-language-nodejs.md)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

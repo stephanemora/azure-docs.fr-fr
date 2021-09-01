@@ -12,98 +12,53 @@ ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 48d6f6fc983de3f9a98b81011db1a8843f678939
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 1de783a3e6696e9ca8a8f618ce3744a91e774692
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107896258"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198851"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurer le fournisseur d’identité d’un compte local
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure AD B2C propose différents moyens d’authentifier des utilisateurs. Les utilisateurs peuvent se connecter à un compte local en utilisant un nom d’utilisateur et un mot de passe, la vérification par téléphone (également appelée authentification sans mot de passe) ou des fournisseurs d’identité de réseau social. L’inscription par e-mail est activée par défaut dans les paramètres du fournisseur d’identité de votre compte local. 
+Cet article explique comment déterminer les méthodes de connexion pour vos comptes locaux Azure AD B2C. Un compte local fait référence à un compte créé dans votre annuaire Azure AD B2C lorsqu’un utilisateur s’inscrit à votre application ou qu’un administrateur crée le compte. Les noms d’utilisateur et les mots de passe sont stockés localement et Azure AD B2C sert de fournisseur d’identité pour les comptes locaux.
 
-Cet article décrit la manière dont les utilisateurs créent leurs comptes locaux sur ce locataire Azure AD B2C. Pour les identités de réseau social ou d’entreprise, où l’identité de l’utilisateur est gérée par un fournisseur d’identité fédéré comme Facebook et Google, consultez [Ajouter un fournisseur d’identité](add-identity-provider.md).
+Plusieurs méthodes de connexion sont disponibles pour les comptes locaux :
 
-## <a name="email-sign-in"></a>Connexion par adresse e-mail
+- **E-mail** : Les utilisateurs peuvent s’inscrire et se connecter à votre application avec leur adresse e-mail et leur mot de passe. L’inscription par e-mail est activée par défaut dans les paramètres du fournisseur d’identité de votre compte local.
+- **Nom d’utilisateur** : Les utilisateurs peuvent s’inscrire et se connecter avec un nom d’utilisateur et un mot de passe.
+- **Téléphone (ou authentification sans mot de passe)** : Les utilisateurs peuvent s’inscrire et se connecter à votre application en utilisant un numéro de téléphone comme identifiant principal de connexion. Ils n’ont pas besoin de créer de mots de passe. Les mots de passe uniques sont envoyés à vos utilisateurs par SMS.
+- **Téléphone ou e-mail** : Les utilisateurs peuvent s’inscrire ou se connecter en saisissant un numéro de téléphone ou une adresse e-mail. En fonction de l’entrée utilisateur, Azure AD B2C dirige l’utilisateur vers le flux correspondant sur la page d’inscription ou de connexion.
+- **Récupération par téléphone** : Si vous avez activé l’inscription ou la connexion par téléphone, la récupération par téléphone permet aux utilisateurs de fournir une adresse e-mail qui peut être utilisée pour récupérer leur compte lorsqu’ils n’ont pas leur téléphone.
 
-Avec l’option de l’adresse e-mail, les utilisateurs peuvent s’inscrire ou se connecter avec leur adresse e-mail et leur mot de passe :
+Pour en savoir plus sur ces méthodes, consultez [Options de connexion](sign-in-options.md). 
 
-- **Connexion** : Les utilisateurs sont invités à fournir leur adresse e-mail et leur mot de passe.
-- **Inscription** : Les utilisateurs sont invités à entrer une adresse e-mail, qui est vérifiée lors de l’inscription (facultatif) et devient leur ID de connexion. L’utilisateur entre ensuite toute autre information demandée sur la page d’inscription, par exemple, le nom d’affichage, le prénom et le nom de famille. Sélectionnez ensuite Continuer pour créer le compte.
-- **Réinitialisation du mot de passe** : Les utilisateurs doivent entrer et vérifier leur adresse e-mail, après quoi, l’utilisateur peut réinitialiser son mot de passe.
-
-![Expérience d’inscription ou de connexion par adresse e-mail](./media/identity-provider-local/local-account-email-experience.png)
-
-## <a name="username-sign-in"></a>Connexion avec un nom d’utilisateur
-
-Avec l’option utilisateur, les utilisateurs peuvent s’inscrire ou se connecter à l’aide d’un nom d’utilisateur et d’un mot de passe :
-
-- **Connexion** : Les utilisateurs sont invités à fournir leur nom d’utilisateur et leur mot de passe.
-- **Inscription** : Les utilisateurs seront invités à entrer un nom d’utilisateur, qui deviendra leur ID de connexion. Ils sont également invités à entrer une adresse e-mail, qui est vérifiée lors de l’inscription. L’adresse e-mail sera utilisée lors d’un processus de réinitialisation du mot de passe. L’utilisateur entre toute autre information demandée sur la page d’inscription, par exemple, le nom d’affichage, le prénom et le nom de famille. L’utilisateur sélectionne ensuite Continuer pour créer le compte.
-- **Réinitialisation du mot de passe** : Les utilisateurs doivent entrer leur nom d’utilisateur et l’adresse e-mail associée. L’adresse e-mail doit être vérifiée, après quoi l’utilisateur peut réinitialiser le mot de passe.
-
-![Expérience d’inscription ou de connexion avec un nom d’utilisateur](./media/identity-provider-local/local-account-username-experience.png)
-
-## <a name="phone-sign-in"></a>Connexion par téléphone
-
-L’authentification sans mot de passe est un type d’authentification où un utilisateur n’a pas besoin de se connecter avec son mot de passe. Avec l’inscription et la connexion par téléphone, l’utilisateur peut s’inscrire à l’application en utilisant un numéro de téléphone comme principal identifiant de connexion. L’utilisateur fera l’expérience suivante lors de l’inscription et de la connexion :
-
-- **Connexion** : Si l’utilisateur possède déjà un compte avec un numéro de téléphone comme identifiant, il entre son numéro de téléphone et sélectionne *Se connecter*. Il confirme le pays et le numéro de téléphone en sélectionnant *Continuer*, et un code de vérification unique est envoyé sur son téléphone. L’utilisateur entre le code de vérification et sélectionne *Continuer* pour se connecter.
-- **Inscription** : Si l’utilisateur n’a pas encore de compte pour votre application, il peut en créer un en cliquant sur le lien *S’inscrire*. 
-    1. Une page d’inscription s’affiche, dans laquelle l’utilisateur sélectionne son *pays*, entre son numéro de téléphone et sélectionne *Envoyer un code*. 
-    1. Un code de vérification unique est envoyé au numéro de téléphone de l’utilisateur. L’utilisateur entre le *code de vérification* sur la page d’inscription, puis il sélectionne *Vérifier le code*. (Si l’utilisateur n’a pas pu récupérer le code, il peut sélectionner *Envoyer un nouveau code*.) 
-    1. L’utilisateur entre toute autre information demandée sur la page d’inscription, par exemple, le nom d’affichage, le prénom et le nom de famille. Sélectionnez Continuer.
-    1. Ensuite, l’utilisateur est invité à fournir une **adresse e-mail de récupération**. L’utilisateur entre son adresse e-mail, puis sélectionne *Envoyer le code de vérification*. Un code est envoyé à l’adresse e-mail de l’utilisateur, qu’il peut récupérer et entrer dans la zone Code de vérification. L’utilisateur sélectionne ensuite Vérifier le code.
-    1. Une fois le code vérifié, l’utilisateur sélectionne *Créer* pour créer son compte. 
-
-![Expérience d’inscription ou de connexion par téléphone](./media/identity-provider-local/local-account-phone-experience.png)
-
-### <a name="pricing"></a>Tarifs
-
-Les mots de passe uniques sont envoyés à vos utilisateurs par SMS. Selon votre opérateur de réseau mobile, vous pouvez être facturé pour chaque message envoyé. Pour obtenir des informations sur la tarification, voir la section **Frais distincts** dans [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-
-> [!NOTE]
-> L’authentification multifacteur (MFA) est désactivée par défaut lorsque vous configurez un flux d’utilisateur avec l’inscription par téléphone. Vous pouvez activer la MFA dans les flux d’utilisateurs avec l’inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
-
-### <a name="phone-recovery"></a>Récupération par téléphone
-
-Lorsque vous activez l’inscription et la connexion par téléphone pour vos flux d’utilisateurs, il est également judicieux d’activer la fonctionnalité de récupération par e-mail. Grâce à cette fonctionnalité, un utilisateur peut fournir une adresse e-mail qui peut être utilisée pour récupérer son compte lorsqu’il n’a pas son téléphone. Cette adresse e-mail est utilisée uniquement pour la récupération du compte. Elle ne peut pas être utilisée pour se connecter.
-
-- Lorsque l’invite de récupération par e-mail est **activée**, un utilisateur qui s’inscrit pour la première fois est invité à confirmer une adresse e-mail de secours. Un utilisateur qui n’a pas fourni d’e-mail de récupération auparavant est invité à confirmer une adresse e-mail de secours lors de sa prochaine connexion.
-
-- Lorsque la récupération par e-mail est **désactivée**, un utilisateur qui s’inscrit ou se connecte ne reçoit pas d’invite de récupération par e-mail.
- 
-Les captures d’écran suivantes illustrent le processus de récupération par téléphone :
-
-![Flux d’utilisateur de la récupération par téléphone](./media/identity-provider-local/local-account-change-phone-flow.png)
-
-
-## <a name="phone-or-email-sign-in"></a>Connexion par adresse e-mail ou par téléphone
-
-Vous pouvez choisir de combiner la [connexion par téléphone](#phone-sign-in) et la [connexion par adresse e-mail](#email-sign-in). Dans la page d’inscription ou de connexion, l’utilisateur peut saisir un numéro de téléphone ou une adresse e-mail. En fonction de l’entrée utilisateur, Azure AD B2C dirige l’utilisateur vers le flux correspondant. 
-
-![Expérience d’inscription ou de connexion par téléphone ou adresse e-mail](./media/identity-provider-local/local-account-phone-and-email-experience.png)
+Pour configurer les paramètres pour les identités de réseau social ou d’entreprise, où l’identité d’un utilisateur est gérée par un fournisseur d’identité fédéré comme Facebook ou Google, consultez [Ajouter un fournisseur d’identité](add-identity-provider.md).
 
 ::: zone pivot="b2c-user-flow"
 
 ## <a name="configure-local-account-identity-provider-settings"></a>Configurer les paramètres du fournisseur d’identité du compte local
 
-Vous pouvez configurer les fournisseurs d’identité locaux pouvant être utilisés dans un flux d’utilisateur en activant ou en désactivant les fournisseurs (adresse e-mail, nom d’utilisateur ou numéro de téléphone).  Plusieurs fournisseurs d’identité locaux peuvent être activés au niveau du locataire.
 
-Un flux d’utilisateur ne peut être configuré que pour utiliser l’un des fournisseurs d’identité de compte local à un moment donné. Chaque flux d’utilisateur peut avoir un fournisseur d’identité de compte local différent, si plusieurs ont été activés au niveau du locataire.
+Vous pouvez choisir les méthodes de connexion au compte local (e-mail, nom d’utilisateur ou numéro de téléphone) que vous souhaitez rendre disponibles dans votre locataire en configurant le fournisseur **Compte local** dans votre liste de **fournisseurs d’identité** Azure AD B2C. Quand vous configurez un workflow utilisateur, vous pouvez choisir l’une des méthodes de connexion de compte local que vous avez activées à l’ensemble du locataire. Vous ne pouvez sélectionner qu’une seule méthode de connexion de compte local pour un workflow utilisateur, mais vous pouvez sélectionner une autre option pour chaque workflow utilisateur.
+
+Pour définir les options de connexion de votre compte local au niveau du locataire : 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Répertoire + abonnement** dans le menu supérieur et en choisissant le répertoire qui contient votre locataire Azure AD.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Fournisseurs d’identité**.
 1. Dans la liste des fournisseurs d’identité, sélectionnez **Compte local**.
-1. Dans la page **Configurer un IdP local**, sélectionnez au moins l’un des types d’identité autorisés que les consommateurs peuvent utiliser pour créer leurs comptes locaux dans votre locataire Azure AD B2C.
+1. Dans la page **Configurer le fournisseur d’identité local**, sélectionnez un ou plusieurs types d’identité que vous souhaitez activer pour les flux d’utilisateurs dans votre locataire Azure AD B2C. La sélection d’une option ici le rend simplement disponible pour une utilisation à l’ensemble du locataire. Lorsque vous créez ou modifiez un workflow d’utilisateur, vous pouvez choisir parmi les options que vous activez ici.
+
+   - **Téléphone** : les utilisateurs sont invités à entrer un numéro de téléphone, qui est vérifié au moment de l’inscription et devient son identifiant utilisateur.
+   - **Nom d’utilisateur** : Les utilisateurs peuvent créer leur propre identifiant unique. Une adresse e-mail est collectée auprès de l’utilisateur et vérifiée.
+   - **E-mail** : Les utilisateurs seront invités à fournir une adresse e-mail qui sera vérifiée lors de l’inscription, avant de devenir leur ID utilisateur.
 1. Sélectionnez **Enregistrer**.
 
-## <a name="configure-your-user-flow"></a>Configurer votre flux d’utilisateur
+## <a name="configure-your-user-flow"></a>Configuration du flux d’utilisateur
 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** .

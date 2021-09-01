@@ -10,12 +10,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 498c7bd16cc314316c67c202f55c7ce3dcac67c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 67e84ce780f3013917edbce3e66c5a708509c194
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668143"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518133"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec Run Command
 
@@ -23,7 +23,7 @@ La fonctionnalité Run Command utilise l’agent de machine virtuelle (VM) pour 
 
 ## <a name="benefits"></a>Avantages
 
-Vous pouvez accéder à vos machines virtuelles de plusieurs façons. Run Command peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Vous utilisez Run Command via le portail Azure, une [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) pour des machines virtuelles Linux.
+Vous pouvez accéder à vos machines virtuelles de plusieurs façons. Run Command peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Vous utilisez Run Command via le portail Azure, une [API REST](/rest/api/compute/virtual-machines-run-commands/run-command) ou [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) pour des machines virtuelles Linux.
 
 Cette fonctionnalité est utile dans tous les scénarios où vous souhaitez exécuter un script sur une machine virtuelle. C’est l’une des seules manières de détecter et de corriger un problème sur une machine virtuelle qui n’a pas de port RDP ou SSH ouvert en raison d’une configuration incorrecte du réseau ou de l’utilisateur administratif.
 
@@ -69,7 +69,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Accédez à une machine virtuelle dans le [Portail Azure](https://portal.azure.com) et sélectionnez **Run Command** sous **OPÉRATIONS**. Une liste des commandes pouvant s’exécuter sur la machine virtuelle s’affiche.
+Accédez à une machine virtuelle dans le [Portail Azure](https://portal.azure.com) et sélectionnez **Run command** dans le menu de gauche sous **Opérations**. Une liste des commandes pouvant s’exécuter sur la machine virtuelle s’affiche.
 
 ![Liste des commandes](./media/run-command/run-command-list.png)
 

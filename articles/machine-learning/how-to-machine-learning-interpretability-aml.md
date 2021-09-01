@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 6afe193cb29b313f45335e46aa9fcaec2e8bf240
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b033b37532bffa92bcc8f427abe4508c5b93aefc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889049"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524737"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -29,7 +29,9 @@ Dans ce guide pratique, vous allez apprendre à effectuer les tâches suivantes 
 
 * Expliquer le comportement de la totalité du modèle et de prédictions individuelles dans Azure
 
-* Utiliser un tableau de bord de visualisation pour interagir avec les explications de votre modèle
+* Téléchargez des explications sur l’historique des exécutions Azure Machine Learning.
+
+* Utilisez un tableau de bord de visualisation pour interagir avec les explications de votre modèle, à la fois dans un notebook Jupyter et dans Azure Machine Learning Studio.
 
 * Déployer un explicatif de scoring à côté de votre modèle pour observer les explications au cours de l’inférence
 
@@ -298,14 +300,14 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
 Une fois que vous avez téléchargé les explications dans votre instance locale de Jupyter Notebook, vous pouvez utiliser les visualisations du tableau de bord des explications pour comprendre et interpréter votre modèle. Pour charger le widget de tableau de bord des explications dans Jupyter Notebook, utilisez le code suivant :
 
 ```python
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 Les visualisations prennent en charge les explications sur les caractéristiques développées et les caractéristiques brutes. Les explications brutes sont basées sur les caractéristiques issues du jeu de données d’origine et les explications de conception sont basées sur les caractéristiques issues du jeu de données auquel s’applique l’ingénierie des caractéristiques.
 
-Lorsque vous tentez d’interpréter un modèle par rapport au jeu de données d’origine, il est recommandé d’utiliser des explications brutes, car l’importance de chaque caractéristique correspond à une colonne du jeu de données d’origine. L’examen de l’impact des catégories individuelles à partir d’une caractéristique catégorielle est un scénario dans lequel les explications de conception peuvent être utiles. Si un encodage à chaud est appliqué à une caractéristique catégorielle, les explications de conception qui en résultent comportent une valeur d’importance différente par catégorie, une par caractéristique de conception à chaud. Cela peut être utile lorsque vous vous concentrez sur la partie du jeu de données qui fournit le plus d’informations au modèle.
+Lorsque vous tentez d’interpréter un modèle par rapport au jeu de données d’origine, il est recommandé d’utiliser des explications brutes, car l’importance de chaque caractéristique correspond à une colonne du jeu de données d’origine. L’examen de l’impact des catégories individuelles à partir d’une caractéristique catégorielle est un scénario dans lequel les explications de conception peuvent être utiles. Si un encodage à chaud est appliqué à une caractéristique catégorielle, les explications de conception qui en résultent comportent une valeur d’importance différente par catégorie, une par caractéristique de conception à chaud. Cet encodage peut être utile lorsque vous vous concentrez sur la partie du jeu de données qui fournit le plus d’informations au modèle.
 
 > [!NOTE]
 > Les explications de conception et brutes sont calculées séquentiellement. En premier lieu, une explication de conception est créée sur la base du modèle et du pipeline de caractérisation. Ensuite, l’explication brute est créée sur la base de cette explication de conception, en agrégeant l’importance des caractéristiques de conception issues de la même caractéristique brute.
@@ -564,7 +566,7 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser
 
 * **Données éparses non prises en charge** : Le tableau de bord d’explication de modèle s’interrompt/ralentit considérablement avec un grand nombre de caractéristiques. Par conséquent, nous ne prenons actuellement pas en charge le format de données éparses. En outre, des problèmes de mémoire générale surviendront avec les jeux de données volumineux et un grand nombre de caractéristiques. 
 
-* **Modèles de prévision non pris en charge avec les explications de modèle** : L’interprétabilité, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision AutoML, qui recommandent les algorithmes suivants comme modèle optimal : TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Moyenne, Naïf, Moyenne saisonnière et Naïf saisonnier. La prévision AutoML a des modèles de régression qui prennent en charge les explications. Toutefois, dans le tableau de bord d’explication, l’onglet « Importance des caractéristiques individuelles » n’est simplement pas pris en charge pour la prévision en raison de la complexité des pipelines de données.
+* **Modèles de prévision non pris en charge avec les explications de modèle** : L’interprétabilité, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision AutoML, qui recommandent les algorithmes suivants comme modèle optimal : TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Moyenne, Naïf, Moyenne saisonnière et Naïf saisonnier. La prévision AutoML a des modèles de régression qui prennent en charge les explications. Toutefois, dans le tableau de bord d’explication, l’onglet « Importance des caractéristiques individuelles » n’est pas pris en charge pour la prévision en raison de la complexité des pipelines de données.
 
 * **Explication locale d’index de données** : Le tableau de bord d’explication ne prend pas en charge l’association des valeurs d’importance locale à un identificateur de ligne issu du jeu de données de validation d’origine si ce jeu de données dépasse les 5 000 points de données, car le tableau de bord sous-échantillonne les données de manière aléatoire. Toutefois, le tableau de bord affiche les valeurs de caractéristiques de jeu de données brutes pour chaque point de données transmis dans le tableau de bord sous l’onglet Importance des caractéristiques individuelles. Les utilisateurs peuvent mapper les importantes locales en retour sur le jeu de données d’origine en faisant correspondre les valeurs de caractéristiques de jeu de données brutes. Si la taille du jeu de données de validation est inférieure à 5 000 échantillons, la caractéristique `index` dans AzureML Studio correspond à l’index dans le jeu de données de validation.
 
