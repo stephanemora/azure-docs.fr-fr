@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 53940c21a96da9b763a0b2f25400fb13cbba7098
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331283"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119683"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Résolution des problèmes liés à SQL Insights (préversion)
 Pour résoudre des problèmes liés à la collecte de données dans SQL insights, vérifiez l’état de la machine d’analyse dans l’onglet **Gérer le profil**. Elle aura l’un des états suivants :
@@ -85,7 +85,7 @@ Pour afficher les messages d’erreur du service telegraf, exécutez-le manuelle
 
 ### <a name="mdsd-service-logs"></a>Journaux d’activité du service mdsd 
 
-Vérifiez les [limitations actuelles](../agents/azure-monitor-agent-overview.md#current-limitations) de l’agent Azure Monitor. 
+Vérifiez les [prérequis](../agents/azure-monitor-agent-install.md#prerequisites) pour l’agent Azure Monitor. 
 
 
 Journaux d’activité de service :  

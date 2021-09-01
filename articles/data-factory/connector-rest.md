@@ -1,22 +1,26 @@
 ---
-title: Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source REST locale ou dans le cloud vers des banques de données réceptrices prises en charge, ou d’une banque de données source prise en charge vers un récepteur REST.
+title: Copier des données de et vers un point de terminaison REST
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory ou des pipelines Azure Synapse Analytics pour copier des données d’une source REST locale ou dans le cloud vers des banques de données réceptrices prises en charge, ou d’une banque de données source prise en charge vers un récepteur REST.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jianleishen
-ms.openlocfilehash: 24269fcfe7c60140c3d0fe9497eefeba71338bd7
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 08/24/2021
+ms.author: makromer
+ms.openlocfilehash: 198e605f5b73e0619f7eddee755e20dcd6b88680
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487076"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824307"
 ---
-# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
+# <a name="copy-data-from-and-to-a-rest-endpoint-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers un point de terminaison REST à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité Copy dans Azure Data Factory pour copier des données depuis et vers un point de terminaison REST. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
+Cet article décrit comment utiliser l’activité Copier dans Azure Data Factory et Azure Synapse Analytics pour copier des données depuis et vers un point de terminaison REST. Il s’appuie sur l’article [Activité de copie dans des pipelines Azure Data Factory et Azure Synapse](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
 
 Les différences entre ce connecteur REST, un [connecteur HTTP](connector-http.md) et le [connecteur Table web](connector-web-table.md) sont les suivantes :
 
@@ -36,7 +40,7 @@ Plus précisément, ce connecteur REST générique prend en charge ce qui suit 
 - Pour REST en tant que source, la copie de la réponse JSON REST [en l’état](#export-json-response-as-is) ou son analyse à l’aide d’une [mise en correspondance du schéma](copy-activity-schema-and-type-mapping.md#schema-mapping). Seule la charge utile de réponse dans **JSON** est prise en charge.
 
 > [!TIP]
-> Pour tester une requête pour l’extraction de données avant de configurer le connecteur REST dans Data Factory, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
+> Pour tester une requête pour l’extraction de données avant de configurer le connecteur REST, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +50,7 @@ Plus précisément, ce connecteur REST générique prend en charge ce qui suit 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory propres au connecteur REST.
+Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités propres au connecteur REST.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -68,7 +72,7 @@ Définissez la propriété **authenticationType** sur **De base**. Outre les pro
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | Oui |
-| mot de passe | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
 **Exemple**
 
@@ -101,10 +105,10 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
 | aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple `https://management.core.windows.net`.| Oui |
-| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auquel votre application AAD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auquel votre application AAD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | Non |
 
 **Exemple**
 
@@ -132,7 +136,7 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Utiliser des identités managées afin d’authentifier les ressources Azure
+### <a name="use-system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Utiliser l’authentification d’identité managée affectée par le système
 
 Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**. Outre les propriétés génériques décrites dans la section précédente, spécifiez les propriétés suivantes :
 
@@ -151,6 +155,39 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-user-assigned-managed-identity-authentication"></a>Utiliser l’authentification d’identité managée affectée par l’utilisateur
+Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**. Outre les propriétés génériques décrites dans la section précédente, spécifiez les propriétés suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple `https://management.core.windows.net`.| Oui |
+| credentials | Spécifiez l’identité managée affectée par l’utilisateur en tant qu’objet d’informations d’identification. | Oui |
+
+
+**Exemple**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -378,6 +415,57 @@ Le connecteur REST en tant que récepteur fonctionne avec les API REST qui accep
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+REST est pris en charge dans les flux de données pour les jeux de données d’intégration et les jeux de données inline.
+
+### <a name="source-transformation"></a>Transformation de la source
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Oui |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. Le connecteur HTTP copie les données à partir de l’URL combinée : `[URL specified in linked service]/[relative URL specified in dataset]`. | Non |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour l’écriture des données. La valeur par défaut est **00:01:40**.  | Non |
+| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  Non |
+| QueryParameters.*request_query_parameter* OU QueryParameters[’request_query_parameter’] | « request_query_parameter » est défini par l’utilisateur et fait référence à un nom de paramètre de requête dans l’URL de la requête HTTP suivante. | Non |
+
+### <a name="sink-transformation"></a>Transformation du récepteur
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour l’écriture des données. La valeur par défaut est **00:01:40**.  | Non |
+| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  Non |
+| httpCompressionType | Type de compression HTTP à utiliser lors de l’envoi de données avec un niveau de compression optimal. Les valeurs autorisées sont **none** et **gzip**. | Non |
+| writeBatchSize | Nombre d’enregistrements à écrire dans le récepteur REST par lot. La valeur par défaut est 10 000. | Non |
+
+Vous pouvez définir les méthodes delete, insert, update et upsert, ainsi que les données de ligne relatives à envoyer au récepteur REST pour les opérations CRUD.
+
+![Récepteur REST de flux de données](media/data-flow/data-flow-sink.png)
+
+## <a name="sample-data-flow-script"></a>Exemple de script de flux de données
+
+Notez l’utilisation d’une transformation alter row avant le récepteur pour indiquer à ADF le type d’action à effectuer avec votre récepteur REST. Par ex. insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    rowRelativeUrl: 'periods',
+    insertHttpMethod: 'PUT',
+    deleteHttpMethod: 'DELETE',
+    upsertHttpMethod: 'PUT',
+    updateHttpMethod: 'PATCH',
+    timeout: 30,
+    requestFormat: ['type' -> 'json'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> sink1
+```
+
 ## <a name="pagination-support"></a>Prise en charge la pagination
 
 Normalement, quand vous copiez des données à partir de l’API REST, celles-ci limite la taille de charge utile de réponse d’une même demande à un nombre raisonnable. Pour retourner une grande quantité de données, elle fractionne le résultat en plusieurs pages et exige des appelants qu’ils envoient des demandes consécutives pour obtenir la page suivante du résultat. En règle générale, la requête d’une page est dynamique et composée par les informations retournées à partir de la réponse de la page précédente.
@@ -538,4 +626,4 @@ Pour copier des données d’un point de terminaison REST vers un récepteur tab
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans des pipelines Azure Data Factory et Synapse, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

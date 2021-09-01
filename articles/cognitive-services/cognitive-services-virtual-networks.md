@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e86c9afcdb68aa6ad030405a2b5cbe59dc92e6f0
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99989073"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201623"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -40,7 +40,7 @@ Les règles de réseau sont appliquées sur tous les protocoles réseau vers Azu
 
 ## <a name="supported-regions-and-service-offerings"></a>Régions et offres de services prises en charge
 
-Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les services Cognitive Services sont disponibles](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services prend en charge les balises de service pour la configuration des règles de réseau. Les services répertoriés ci-dessous sont inclus dans la balise de service **CognitiveServicesManagement**.
+Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les services Cognitive Services sont disponibles](https://azure.microsoft.com/global-infrastructure/services/). Actuellement, la ressource multi-service ne prend pas en charge les réseaux virtuels. Cognitive Services prend en charge les balises de service pour la configuration des règles de réseau. Les services répertoriés ci-dessous sont inclus dans la balise de service **CognitiveServicesManagement**.
 
 > [!div class="checklist"]
 > * Détecteur d’anomalies

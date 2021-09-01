@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: a8356b863323511951ddd5eae463e0f07d65e61c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: f205f66adc2c875e271a85efc2e48763c260dfa0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061971"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237686"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertes et incidents de sécurité dans Azure Security Center
 
@@ -56,7 +56,7 @@ Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nou
 
 Pour détecter les menaces réelles et réduire le nombre de faux positifs, Security Center collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure et du réseau. Cela fonctionne également avec les solutions de partenaires connectées, comme les solutions de pare-feu et de protection de point de terminaison. Security Center analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces.
 
-![Collecte et présentation des données dans Azure Security Center](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
+![Collecte et présentation des données dans Azure Security Center.](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
 Azure Security Center emploie des analyses de sécurité avancées allant bien au-delà des approches simplement basées sur la signature. Les innovations en matière de Big Data et de technologies [Machine Learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) sont mises à profit pour évaluer des événements dans toute la structure du cloud, et permettent ainsi de détecter des menaces qui seraient impossibles à identifier à l’aide de méthodes manuelles et de prédire l’évolution des attaques. Ces analyses de sécurité comprennent les éléments suivants :
 
@@ -110,7 +110,7 @@ Dans le cadre d’une investigation d’un incident, les analystes ont souvent b
 > [!TIP]
 > Pour obtenir la liste des alertes d’incident de sécurité qui peuvent être générées par l’analytique de fusion, consultez la [table de référence des alertes](alerts-reference.md#alerts-fusion).
 
-:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Capture d’écran du rapport d’incident de sécurité détecté":::
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Capture d’écran du rapport d’incident de sécurité détecté.":::
 
 Pour gérer vos incidents de sécurité, consultez le [Comment gérer les incidents de sécurité dans Azure Security Center](security-center-incident.md).
 

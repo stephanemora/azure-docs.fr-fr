@@ -1,14 +1,14 @@
 ---
 title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: how-to
-ms.openlocfilehash: fcc82e2f86746f68000e9cfcafedf2d7b8b3105d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 547128d56eb2577a416ad2dae419d58ffe8b645b
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733564"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113038369"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -196,7 +196,7 @@ Outre les états **Conforme** et **Non conforme**, les stratégies et les ressou
 - **Non démarré** : Le cycle d’évaluation n’a pas démarré pour la stratégie ou la ressource.
 - **Non inscrit** : Le fournisseur de ressources Azure Policy n’a pas été inscrit ou le compte connecté n’est pas autorisé à lire les données de conformité.
 
-Azure Policy utilise les champs **type**, **nom** et **genre** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme**, **Non conforme** ou **Exempté**. Si le champ **type**, **nom** ou **genre** est la seule propriété dans la définition, toutes les ressources incluses et non exemptées sont considérées comme applicables et sont évaluées.
+Azure Policy utilise les champs **type**, **nom** et **genre** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme**, **Non conforme** ou **Exempté**. Si le champ **nom** ou **type** est la seule propriété dans la définition, toutes les ressources incluses et non exemptées sont considérées comme applicables et sont évaluées.
 
 Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** et **exemptées** par le _nombre total de ressources_. Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes**, **exemptées** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** ou **exemptées** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**.
 La conformité globale des ressources est égale à 95 % (soit 19 sur 20).

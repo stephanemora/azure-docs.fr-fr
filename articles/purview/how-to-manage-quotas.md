@@ -8,12 +8,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 422c096533e8b470446a29b6d45f9127d963f913
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938832"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563933"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gestion et augmentation des quotas de ressources avec Azure Purview
  
@@ -27,8 +27,10 @@ Azure Purview est un service cloud destiné aux utilisateurs de données. Il off
 |vCore disponibles pour l’analyse, par compte*|160|160|
 |Analyses simultanées, par compte à un moment donné (limite établie en fonction du type des sources de données analysées*)|5 | 10 |
 |Durée maximale d’exécution d’une analyse|7 jours|7 jours|
-|Appels d’API, par compte|10 millions d’API/mois pour la taille de plateforme de 4 unités de capacité <br>40 millions d’API/mois pour la taille de plateforme de 16 unités de capacité |10 millions d’API/mois pour la taille de plateforme de 4 unités de capacité <br>40 millions d’API/mois pour la taille de plateforme de 16 unités de capacité|
-|Stockage, par compte|10 Go pour la taille de plateforme de 4 unités de capacité <br>40 Go pour la taille de plateforme de 16 unités de capacité |10 Go pour la taille de plateforme de 4 unités de capacité <br> 40 Go pour la taille de plateforme de 16 unités de capacité |
+|[Unité de capacité de la carte de données (CU)](concept-elastic-data-map.md) |1 CU (débit de 25 opérations/seconde et 2 Go de stockage des métadonnées) | 100 CU (contactez le support technique pour un nombre de CU plus élevé)|
+|Débit des opérations de mappage de données |25 opérations/seconde pour chaque unité de capacité | 2 500 opérations/s pour 100 CU (contactez le support technique pour obtenir plus de débit)| 
+|Stockage du mappage de données |2 Go pour chaque unité de capacité | 200 Go pour 100 CU (contactez le support technique pour obtenir plus de stockage) |
+|Fenêtre d’élasticité du mappage de données | 1-8 CU (le mappage de données peut être mis à l’échelle automatiquement en fonction du débit dans la fenêtre d’élasticité) | Contactez le support pour accéder à la fenêtre d’élasticité supérieure |
 |Taille des ressources par compte|100 millions de ressources physiques |Contacter le support technique|
 |Taille maximale d’une ressource dans un catalogue|2 Mo|2 Mo|
 |Longueur maximale d’un nom de ressource et d’un nom de classification|4 Ko|4 Ko|
@@ -40,6 +42,9 @@ Azure Purview est un service cloud destiné aux utilisateurs de données. Il off
  
 ## <a name="next-steps"></a>Étapes suivantes
  
+> [!div class="nextstepaction"]
+>[Concept : carte de données élastique dans Azure Purview](concept-elastic-data-map.md)
+
 > [!div class="nextstepaction"]
 >[Tutoriel : Analyse des données avec Azure Purview](tutorial-scan-data.md)
 

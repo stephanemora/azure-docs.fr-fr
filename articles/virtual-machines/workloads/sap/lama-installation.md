@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 9eca2fe92109bcd91fe5943e53d1e18734401984
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bebae71179153479d66891924ba2f7679838d8bc
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814356"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112297042"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -132,7 +132,7 @@ Ce message doit apparaître au bas du site web.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Approvisionner un nouveau système SAP adaptatif
 
-Vous pouvez déployer une machine virtuelle manuellement ou utiliser l’un des modèles Azure accessibles à partir du [référentiel de démarrage rapide](https://github.com/Azure/azure-quickstart-templates). Ce référentiel contient des modèles pour [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), les [serveurs d’applications SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) et la [base de données](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). Vous pouvez également utiliser ces modèles pour approvisionner de nouveaux hôtes dans le cadre d’une opération de copie/clonage d’un système, etc.
+Vous pouvez déployer une machine virtuelle manuellement ou utiliser l’un des modèles Azure accessibles à partir du [référentiel de démarrage rapide](https://github.com/Azure/azure-quickstart-templates). Ce référentiel contient des modèles pour [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), les [serveurs d’applications SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps) et la [base de données](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database). Vous pouvez également utiliser ces modèles pour approvisionner de nouveaux hôtes dans le cadre d’une opération de copie/clonage d’un système, etc.
 
 Nous vous recommandons de recourir à un sous-réseau distinct pour toutes les machines virtuelles que vous souhaitez gérer avec SAP LaMa, et de ne pas utiliser d’adresses IP dynamiques afin d’empêcher le « vol » d’adresses IP lorsque vous déployez de nouvelles machines virtuelles et que la préparation d’instances SAP est annulée.
 

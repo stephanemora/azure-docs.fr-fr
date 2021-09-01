@@ -3,21 +3,25 @@ title: Exécuter des runbooks Azure Automation sur un Runbook Worker hybride
 description: Cet article explique comment exécuter des runbooks sur des machines de votre centre de données local ou d’un autre fournisseur de cloud avec le Runbook Worker hybride.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/24/2021
+ms.date: 07/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b3f7afde2d681c2516d6915e4edd5c291795224d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef4c688fbe41db046b77d45090d77200d1c782cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481532"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531529"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Exécuter des runbooks sur un Runbook Worker hybride
 
 Les runbooks qui s’exécutent sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md) gèrent généralement les ressources sur l’ordinateur local ou par rapport aux ressources de l’environnement local dans lequel le Worker est déployé. Les runbooks dans Azure Automation gèrent généralement les ressources dans le cloud Azure. Même s’ils sont utilisés différemment, les runbooks qui s’exécutent dans Azure Automation et les runbooks qui s’exécutent sur un runbook Worker hybride ont une structure identique.
 
 Quand vous créez un runbook pour l’exécuter sur un runbook Worker hybride, vous devez le modifier et le tester sur la machine qui héberge le Worker. La machine hôte dispose de tous les modules PowerShell, ainsi que de l’accès réseau nécessaire à la gestion des ressources locales. Une fois que vous avez testé le runbook sur la machine du runbook Worker hybride, vous pouvez le charger dans l’environnement Azure Automation, où il peut être exécuté sur le Worker.
+
+## <a name="plan-for-azure-services-protected-by-firewall"></a>Planifier les services Azure protégés par un pare-feu
+
+L’activation du Pare-feu Azure sur [Stockage Microsoft Azure](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) ou [Azure SQL](../azure-sql/database/firewall-configure.md) bloque l’accès à partir des runbooks Azure Automation pour ces services. L’accès sera bloqué même lorsque l’exception de pare-feu pour autoriser les services Microsoft approuvés est activée, car Automation ne fait pas partie de la liste des services approuvés. Avec un pare-feu activé, l’accès ne peut être effectué qu’à l’aide d’un Runbook Worker hybride et d’un [point de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="plan-runbook-job-behavior"></a>Planifier le comportement d’un travail de runbook
 

@@ -1,24 +1,27 @@
 ---
-title: Mettre sur liste fiable les URL du portail Microsoft Azure sur votre pare-feu ou serveur proxy
-description: Ajouter ces URL au contournement du serveur proxy pour communiquer avec le portail Microsoft Azure et ses services
-ms.date: 04/10/2020
+title: Autoriser les URL du portail Azure sur votre pare-feu ou serveur proxy
+description: Pour optimiser la connectivité entre votre réseau et le portail Microsoft Azure et ses services, nous vous recommandons de mettre sur liste fiable ces URL.
+ms.date: 06/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7d9c8222ee85c0c16ec1e1926335ac06e0389797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70e2f55a381c38b0a4244f742b7b2c51e6ca81f6
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745874"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516358"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Mettre sur liste fiable les URL du portail Microsoft Azure sur votre pare-feu ou serveur proxy
+# <a name="allow-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Autoriser les URL du portail Azure sur votre pare-feu ou serveur proxy
 
-Vous pouvez configurer des appareils de sécurité en local afin de contourner les restrictions de sécurité pour les URL du portail Microsoft Azure. Cette configuration permet d'améliorer les performances et la connectivité entre votre réseau local ou étendu et le cloud Azure.
+Pour optimiser la connectivité entre votre réseau et le portail Microsoft Azure et ses services, nous vous recommandons de mettre sur liste fiable les URL spécifiques du portail Azure. Faire cela permet d’améliorer les performances et la connectivité entre votre réseau local ou étendu et le cloud Azure.
 
-Les administrateurs réseau déploient souvent des serveurs proxy, des pare-feu ou autres périphériques. Ces périphériques contribuent à sécuriser et à contrôler la manière dont les utilisateurs accèdent à Internet. Les règles conçues pour protéger les utilisateurs peuvent parfois bloquer ou ralentir le trafic Internet lié aux activités professionnelles. Ce trafic comprend les communications entre vous et Azure. Pour optimiser la connectivité entre votre réseau et le portail Microsoft Azure et ses services, nous vous recommandons de mettre sur liste fiable les URL du portail Microsoft Azure.
+Les administrateurs réseau déploient souvent des serveurs proxy, des pare-feu ou d’autres périphériques pour vous aider à sécuriser et contrôler l’accès à Internet des utilisateurs. Les règles conçues pour protéger les utilisateurs peuvent parfois bloquer ou ralentir le trafic Internet lié aux activités professionnelles. Ce trafic comprend les communications entre vous et Azure sur les URL répertoriées ici.
+
+> [!TIP]
+> Pour faciliter le diagnostic des problèmes liés aux connexions réseau à ces domaines, consultez https://portal.azure.com/selfhelp.
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>URL du portail Microsoft Azure pour le contournement du proxy
 
-Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azure sont spécifiques au cloud Azure sur lequel votre organisation est déployée. Pour autoriser le trafic réseau vers ces points de terminaison à contourner les restrictions, sélectionnez votre cloud. Ajoutez ensuite la liste des URL à votre serveur proxy ou pare-feu.
+Les points de terminaison d’URL à autoriser pour le portail Azure sont spécifiques au cloud Azure sur lequel votre organisation est déployée. Sélectionnez votre cloud, puis ajoutez la liste d’URL à votre serveur proxy ou pare-feu pour autoriser le trafic réseau vers ces points de terminaison afin de contourner les restrictions. Nous vous déconseillons d’ajouter des URL supplémentaires liées au portail, à l’exception de celles répertoriées ici, même si vous souhaitez peut-être ajouter des URL relatives à d’autres produits et services Microsoft.
 
 #### <a name="public-cloud"></a>[Cloud public](#tab/public-cloud)
 
@@ -28,7 +31,6 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 *.applicationinsights.io
 *.azure.com
 *.azure.net
-*.azurefd.net
 *.azure-api.net
 *.azuredatalakestore.net
 *.azureedge.net
@@ -73,5 +75,3 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 
 > [!NOTE]
 > Le trafic vers ces points de terminaison utilise les ports TCP standard pour HTTP (80) et HTTPS (443).
->
->

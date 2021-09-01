@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea502deee0caf5418bf5554473180eb405792567
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ff1c0d1e552ad26832b2c142f5ca1506654a9a0c
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287047"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219535"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dépannage des appareils à l’aide de la commande dsregcmd
 
@@ -56,7 +56,7 @@ Cette section répertorie les paramètres de l’état de jointure de l’appare
 
 ## <a name="device-details"></a>Informations sur l’appareil
 
-S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD hybride (pas inscrit dans Azure AD). Cette section répertorie les détails d’identification des appareils stockés dans le cloud.
+S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD hybride (pas inscrit dans Azure AD). Cette section répertorie les détails d’identification des appareils stockés dans Azure AD.
 
 - **DeviceID :** ID unique de l’appareil dans le locataire Azure AD.
 - **Empreinte :** empreinte du certificat de l’appareil.
@@ -64,6 +64,14 @@ S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD
 - **KeyContainerId :** -ContainerId de la clé privée de l’appareil associée au certificat de l’appareil
 - **KeyProvider :** fournisseur de clé (matériel/logiciel) utilisé pour stocker la clé privée de l’appareil.
 - **TpmProtected :** « YES » si la clé privée de l’appareil est stockée dans un module TPM matériel.
+
+> [!NOTE]
+> Le champ **DeviceAuthStatus** a été ajouté dans la **mise à jour de mai 2021 de Windows 10 (version 21H1)** .
+
+- **DeviceAuthStatus :** Effectue une vérification pour déterminer l’intégrité de l’appareil dans Azure AD.  
+« SUCCESS » si l’appareil est présent et activé dans Azure AD.  
+"FAILED. L’appareil est désactivé ou supprimé » si l’appareil est désactivé ou supprimé, [En savoir plus](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. ERREUR » si le test n’a pas pu s’exécuter. Ce test nécessite une connexion réseau pour Azure AD.  
 
 ### <a name="sample-device-details-output"></a>Exemple de sortie des détails de l’appareil
 
@@ -78,6 +86,7 @@ S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD
             KeyContainerId : 13e68a58-xxxx-xxxx-xxxx-a20a2411xxxx
                KeyProvider : Microsoft Software Key Storage Provider
               TpmProtected : NO
+          DeviceAuthStatus : SUCCESS
 +----------------------------------------------------------------------+
 ```
 
@@ -134,7 +143,7 @@ Cette section répertorie l’état de différents attributs pour l’utilisateu
 - **CanReset :** indique si la clé Windows Hello peut être réinitialisée par l’utilisateur.
 - **Valeurs possibles :** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive ou Unknown en cas d’erreur.
 - **WorkplaceJoined :** défini sur « YES » si des comptes inscrits à Azure AD ont été ajoutés à l’appareil dans le contexte NTUSER actuel.
-- **WamDefaultSet :** défini sur « YES » si un compte WAM par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsreg /status est exécuté dans une invite de commandes avec élévation de privilèges.
+- **WamDefaultSet :** défini sur « YES » si un compte WAM par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsregcmd /status est exécuté dans une invite de commandes avec élévation de privilèges.
 - **WamDefaultAuthority :** défini sur « organisations » pour Azure AD.
 - **WamDefaultId :** toujours « https://login.microsoft.com  » pour Azure AD.
 - **WamDefaultGUID :** GUID du fournisseur WAM (compte Azure AD/Microsoft) pour le compte WAM par défaut.
@@ -174,6 +183,34 @@ Cette section peut être ignorée pour les appareils inscrits à Azure AD.
 - **EnterprisePrtExpiryTime :** défini sur l’heure UTC de l’expiration du PRT s’il n’est pas renouvelé.
 - **EnterprisePrtAuthority :** URL de l’autorité ADFS.
 
+>[!NOTE]
+> Les champs de diagnostic PRT suivants ont été ajoutés dans **la mise à jour de mai 2021 de Windows 10 (version 21H1)** .
+
+>[!NOTE]
+> Les informations de diagnostic affichées sous **AzureAdPrt** sont pour les informations d’acquisition/actualisation et de diagnostic AzureAD PRT affichées sous **EnterprisePrt**  et pour l’acquisition/actualisation d’Enterprise PRT respectivement.
+
+>[!NOTE]
+>Les informations de diagnostic s’affichent uniquement si l’échec de l’acquisition/actualisation s’est produit après l’heure de la dernière mise à jour PRT réussie (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
+>Sur un appareil partagé, ces informations de diagnostic peuvent être une tentative d’ouverture de session d’un autre utilisateur.
+
+- **AcquirePrtDiagnostics :** Défini sur « PRESENT » si les informations de diagnostic PRT sont présentes dans les journaux.  
+Ce champ est ignoré si aucune information de diagnostic n’est disponible.
+- **Tentative de PRT précédente :** Heure locale UTC à laquelle la tentative de PRT a échoué.  
+- **État de la tentative :** code d’erreur client retourné (HRESULT).
+- **Identité utilisateur :** Le nom d’utilisateur principal de l’utilisateur pour lequel la tentative de PRT a eu lieu.
+- **Type d’informations d’identification :** Informations d’identification utilisées pour acquérir/actualiser PRT. Les types d’informations d’identification courants sont Mot de passe et NGC (Windows Hello).
+- **Identification de corrélation :** L’ID de corrélation envoyé par le serveur pour l’échec de la tentative de PRT.
+- **URI du point de terminaison :** Dernier accès de point de terminaison avant l’échec.
+- **Méthode HTTP :** La méthode HTTP utilisée pour accéder au point de terminaison.
+- **Erreur HTTP :** Code d’erreur de transport WinHttp. Les erreurs WinHttp peuvent être consultées [ici](/windows/win32/winhttp/error-messages).
+- **État HTTP :** l’état HTTP retourné par le point de terminaison.
+- **Code d’erreur du serveur :** Le code d’erreur du serveur.  
+- **Description de l’erreur du serveur :** Le message d’erreur du serveur.
+- **RefreshPrtDiagnostics :** Défini sur « PRESENT » si les informations de diagnostic PRT sont présentes dans les journaux.  
+Ce champ est ignoré si aucune information de diagnostic n’est disponible.
+Les champs d’informations de diagnostic sont identiques à ceux de **AcquirePrtDiagnostics**
+
+
 ### <a name="sample-sso-state-output"></a>Exemple de sortie d’état SSO
 
 ```
@@ -181,10 +218,20 @@ Cette section peut être ignorée pour les appareils inscrits à Azure AD.
 | SSO State                                                            |
 +----------------------------------------------------------------------+
 
-                AzureAdPrt : YES
-      AzureAdPrtUpdateTime : 2019-01-24 19:15:26.000 UTC
-      AzureAdPrtExpiryTime : 2019-02-07 19:15:26.000 UTC
+                AzureAdPrt : NO
        AzureAdPrtAuthority : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-07-18 20:10:33.789 UTC
+            Attempt Status : 0xc000006d
+             User Identity : john@contoso.com
+           Credential Type : Password
+            Correlation ID : 63648321-fc5c-46eb-996e-ed1f3ba7740f
+              Endpoint URI : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx/oauth2/token/
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
              EnterprisePrt : YES
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC

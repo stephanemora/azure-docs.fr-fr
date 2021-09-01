@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 680563e0688d11e02f79f3c184b38d5a80bafeb0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 01d8f23331525443a9f83245b8eec2b402e92d6e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480354"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443019"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS
 
@@ -29,11 +29,11 @@ Cet article explique les considérations et les étapes à suivre pour activer l
 
 ## <a name="considerations"></a>Considérations
 
+* Vous pouvez activer la fonctionnalité LDAP avec les groupes étendus uniquement lors de la création du volume. Cette fonctionnalité ne peut pas être activée rétroactivement sur des volumes existants.  
+
 * LDAP avec groupes étendus est pris en charge uniquement avec Active Directory Domain Services (ADDS) ou Azure Active Directory Domain Services (AADDS). OpenLDAP et les autres services d’annuaire LDAP tiers ne sont pas pris en charge. 
 
 * LDAP sur TLS *ne doit pas* être activé si vous utilisez Azure Active Directory Domain Services (AADDS).  
-
-* Si vous activez la fonctionnalité LDAP avec groupes étendus, les [volumes Kerberos](configure-kerberos-encryption.md) avec LDAP n’affichent pas correctement la propriété du fichier pour les utilisateurs du protocole LDAP. Un fichier ou un répertoire créé par un utilisateur de LDAP définit par défaut `root` en tant que propriétaire au lieu de l’utilisateur de LDAP réel. Toutefois, le `root` compte peut modifier manuellement la propriété du fichier à l’aide de la commande `chown <username> <filename>`. 
 
 * Vous ne pouvez pas modifier le paramètre de l’option LDAP (activé ou désactivé) après avoir créé le volume.  
 

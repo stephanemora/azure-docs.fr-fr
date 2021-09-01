@@ -4,12 +4,12 @@ description: Importantes ressources de référence nécessaires à la supervisio
 ms.topic: reference
 ms.custom: subject-monitoring
 ms.date: 06/11/2021
-ms.openlocfilehash: 3d68f84c3c58cd29951c2d51cc8d89e3573b7f7a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 4dc40cef074a223a2cc34e3a87c9acae840f8dbf
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063655"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992042"
 ---
 # <a name="monitoring-azure-event-hubs-data-reference"></a>Informations de référence sur la supervision des données Azure Event Hubs
 Pour plus d’informations sur la collecte et l’analyse des données de supervision d’Azure Event Hubs, consultez [Supervision d’Azure Event Hubs](monitor-event-hubs.md).
@@ -68,6 +68,8 @@ Les deux types d’erreurs suivants sont classés dans la catégorie des **erreu
 |Erreurs d’utilisateur | Non | Count | Total | Nombre de requêtes non traitées en raison d'erreurs utilisateur sur une période spécifiée. | Nom de l’entité<br/><br/>Résultat de l’opération|
 |Erreurs de dépassement de quota | Non |Count | Total | Nombre d’erreurs provoquées par le dépassement des quotas sur une période spécifiée. | Nom de l’entité<br/><br/>Résultat de l’opération|
 
+> [!NOTE]
+> Logic Apps crée des récepteurs epoch, et les récepteurs peuvent être déplacés d’un nœud à un autre en fonction de la charge du service. Pendant ces déplacements, des exceptions `ReceiverDisconnection` peuvent se produire. Ils sont comptabilisés comme des erreurs d’utilisateur du côté du service Event Hubs. Logic Apps peut collecter les défaillances des clients Event Hubs afin que vous puissiez les afficher dans les journaux utilisateur.
 
 ## <a name="metric-dimensions"></a>Dimensions de métrique
 
@@ -78,12 +80,12 @@ Azure Event Hubs prend en charge les dimensions suivantes pour les mesures dans 
 |Nom de l’entité| Nom du Event Hub.|
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
-[!INCLUDE [event-hubs-diagnostic-log-schema](../../includes/event-hubs-diagnostic-log-schema.md)]
+[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
 
 ## <a name="azure-monitor-logs-tables"></a>Tables Azure Monitor Logs
-Azure Event Hubs utilise les tables Kusto à partir des journaux Azure Monitor. Vous pouvez interroger ces tables avec Log Analytics. Pour obtenir la liste des tables Kusto utilisées par le service, consultez [Référence de table des Journaux Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+Azure Event Hubs utilise les tables Kusto à partir des journaux Azure Monitor. Vous pouvez interroger ces tables avec Log Analytics. Pour obtenir la liste des tables Kusto utilisées par le service, consultez [Référence de table des Journaux Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

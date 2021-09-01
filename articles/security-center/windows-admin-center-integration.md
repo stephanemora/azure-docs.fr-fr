@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0a6c62145f5e8c94462a33fe446c595a7e2109e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101305"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236802"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Protéger des ressources Windows Admin Center grâce à Security Center
 
@@ -35,13 +35,13 @@ En combinant ces deux outils, Security Center devient votre fenêtre unique pour
 
 1. Dans Windows Admin Center, sélectionnez l’un de vos serveurs, puis dans le volet **Outils**, sélectionnez l’extension Azure Security Center :
 
-    ![Extension Azure Security Center dans Windows Admin Center](./media/windows-admin-center-integration/onboarding-from-wac.png)
+    ![Extension Azure Security Center dans Windows Admin Center.](./media/windows-admin-center-integration/onboarding-from-wac.png)
 
     > [!NOTE]
     > Si le serveur est déjà intégré à Security Center, la fenêtre de configuration n’apparaît pas.
 
 1. Cliquez sur **Se connecter à Azure et configurer**.
-    ![Intégration de l’extension Windows Admin Center à Azure Security Center](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+    ![Intégration de l’extension Windows Admin Center à Azure Security Center.](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
 
 1. Suivez les instructions pour connecter votre serveur à Security Center. Une fois que vous avez entré et confirmé les informations nécessaires, Security Center effectue les modifications de configuration nécessaires pour s’assurer que toutes les conditions suivantes sont remplies :
     * Une passerelle Azure est inscrite.
@@ -58,7 +58,7 @@ En combinant ces deux outils, Security Center devient votre fenêtre unique pour
 
 Une fois intégré, vous pouvez afficher vos alertes et vos recommandations directement dans la zone Azure Security Center de Windows Admin Center. Cliquez sur une recommandation ou une alerte pour l’afficher dans le portail Azure. Là, vous obtiendrez des informations supplémentaires et découvrirez comment corriger les problèmes.
 
-[![Alertes et recommandations de Security Center comme elles sont affichées dans Windows Admin Center](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Alertes et recommandations de Security Center comme elles sont affichées dans Windows Admin Center.](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Afficher des recommandations et des alertes de sécurité pour les serveurs gérés par Windows Admin Center dans Security Center
 À partir d’Azure Security Center :
@@ -67,4 +67,4 @@ Une fois intégré, vous pouvez afficher vos alertes et vos recommandations dire
 
 * Pour afficher les alertes de sécurité pour tous les serveurs Windows Admin Center, ouvrez **Alertes de sécurité**. Cliquez sur **Filtre** et assurez-vous que **seul** « Non Azure » est sélectionné :
 
-    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrer les alertes de sécurité pour les serveurs gérés par Windows Admin Center" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrer les alertes de sécurité pour les serveurs gérés par Windows Admin Center." lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

@@ -1,20 +1,20 @@
 ---
 title: Gérer des clusters Azure HDInsight avec Azure CLI
-description: Découvrez comment utiliser Azure CLI pour gérer des clusters Azure HDInsight. Les types de clusters incluent Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query et ML Services.
+description: Découvrez comment utiliser Azure CLI pour gérer des clusters Azure HDInsight. Les types de clusters incluent Apache Hadoop, Spark, HBase, Storm, Kafka et Interactive Query.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: 14b88700f3968e3bfdc788abb2fc9ce90634068e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 74f228c8c1d9ca29e3f9e60062891a90a3a4abf6
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770342"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122641088"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gérer des clusters Azure HDInsight avec Azure CLI
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
 Découvrez comment utiliser [Azure CLI](/cli/azure/) pour gérer des clusters Azure HDInsight. L’interface de ligne de commande Azure (CLI) est l’interface de ligne de commande multiplateforme de Microsoft pour la gestion de ressources Azure.
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="connect-to-azure"></a>Connexion à Azure
+## <a name="connect-to-azure"></a>Se connecter à Azure
 
 Connectez-vous à votre abonnement Azure. Si vous prévoyez d’utiliser Azure Cloud Shell, sélectionnez **Essayer** dans le coin supérieur droit du bloc de code. Sinon, entrez la commande suivante :
 
@@ -87,7 +87,7 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment effectuer différentes tâches d’administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+Dans cet article, vous avez appris comment effectuer différentes tâches d’administration sur un cluster HDInsight. Pour plus d’informations, consultez les articles suivants :
 
 * [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administration de HDInsight à l'aide d'Azure PowerShell](hdinsight-administer-use-powershell.md)

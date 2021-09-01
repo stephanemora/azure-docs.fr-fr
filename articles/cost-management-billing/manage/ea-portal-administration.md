@@ -3,18 +3,18 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2021
+ms.date: 06/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 09e719408926c071777a7022264c10f14531067f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a973fc9dc9cf4b4fe514ddf987fd2052c46a6e6b
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075517"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112519744"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -143,7 +143,9 @@ Pour confirmer la propriété du compte :
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Changer l’abonnement Azure ou la propriété du compte
 
-Les administrateurs d’entreprise peuvent utiliser le portail Azure Enterprise pour transférer la propriété du compte des abonnements sélectionnés ou de tous les abonnements dans une inscription.
+Cette section s’applique uniquement lorsqu’un propriétaire d’abonnement change. La modification d’une propriété d’abonnement ne nécessite pas de ticket de support Azure. Les administrateurs d’entreprise peuvent utiliser le portail Azure Enterprise pour transférer la propriété du compte des abonnements sélectionnés ou de tous les abonnements dans une inscription. Ils ont également la possibilité de modifier l’annuaire d’abonnement (locataire). 
+
+Toutefois, un administrateur EA ne peut pas transférer un compte d’une inscription à une autre. Pour transférer un compte d’une inscription à une autre, une demande de support est requise. Pour plus d’informations sur le transfert d’un compte d’une inscription à une autre inscription, consultez [Transférer un compte d’entreprise vers une nouvelle inscription](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
 
 Quand vous effectuez un transfert d’abonnement ou de propriété de compte, Microsoft met à jour le propriétaire du compte.
 

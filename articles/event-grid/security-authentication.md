@@ -2,31 +2,41 @@
 title: Authentifier la remise des événements aux gestionnaires d’événements (Azure Event Grid)
 description: Cet article décrit les différentes façons d’authentifier la remise auprès de gestionnaires d’événements dans Azure Event Grid.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 7db258ee152e4b1c46362e74e0246b80513ca9f2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/28/2021
+ms.openlocfilehash: 01383809e6aab895ff4ed42763c57004a6ee02a8
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777254"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003230"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Authentifier la remise des événements aux gestionnaires d’événements (Azure Event Grid)
-Cet article fournit des informations sur l’authentification de la remise d’événements auprès de gestionnaires d’événements. Il vous montre également comment sécuriser les points de terminaison webhook utilisés pour recevoir des événements d’Event Grid à l’aide d’Azure Active Directory (Azure AD) ou d’un secret partagé.
+Cet article fournit des informations sur l’authentification de la remise d’événements auprès de gestionnaires d’événements. 
+
+## <a name="overview"></a>Vue d'ensemble
+Azure Event Grid utilise différentes méthodes d’authentification pour remettre des événements aux gestionnaires d’événements. `
+
+| Méthode d'authentification | Gestionnaires pris en charge | Description  |
+|--|--|--|
+Clé d’accès | <p>Event Hubs</p><p>Service Bus</p><p>Files d’attente de stockage</p><p>Connexions hybrides Relay</p><p>Azure Functions</p><p>Objets blob de stockage (DeadLetter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> | Les clés d’accès sont extraites à l’aide des informations d’identification du principal de service Event Grid. Les autorisations sont accordées à Event Grid lorsque vous inscrivez le fournisseur de ressources Event Grid dans son abonnement Azure. |  
+Identité système managée <br/>&<br/> Contrôle d’accès en fonction du rôle | <p>Event Hubs</p><p>Service Bus</p><p>Files d’attente de stockage</p><p>Objets blob de stockage (DeadLetter)</p></li></ul> | Activez l’identité système managée pour la rubrique et ajoutez-la au rôle approprié sur la destination. Pour plus de détails, consultez [Utiliser des identités attribuées par le système pour la remise d’événements](#use-system-assigned-identities-for-event-delivery).  |
+|Authentification du jeton du porteur avec un webhook Azure AD protégé | webhook | Voir la section [Authentifier la livraison d’événements aux points de terminaison des webhooks](#authenticate-event-delivery-to-webhook-endpoints) pour plus de détails. |
+Secret client comme paramètre de requête | webhook | Voir la section [Utilisation d’un secret client comme paramètre de requête](#using-client-secret-as-a-query-parameter) pour plus de détails. |
 
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Utiliser des identités attribuées par le système pour la remise d’événements
 Vous pouvez activer une identité gérée attribuée par le système pour une rubrique ou un domaine et utiliser cette identité pour transférer des événements vers des destinations prises en charge, comme les files d’attente et les rubriques Service Bus, les concentrateurs d’événements et les comptes de stockage.
 
 Voici la procédure à suivre : 
 
-1. Créer une rubrique ou un domaine avec une identité affectée par le système, ou mettre à jour une rubrique ou un domaine existants pour activer une identité. 
-1. Ajouter l’identité à un rôle approprié (par exemple, expéditeur de données Service Bus) sur la destination (par exemple, une file d’attente Service Bus).
-1. Lors de la création d’abonnements à des événements, activer l’utilisation de l’identité pour remettre des événements à la destination. 
+1. Créer une rubrique ou un domaine avec une identité affectée par le système, ou mettre à jour une rubrique ou un domaine existants pour activer une identité. Pour plus d’informations, voir [Activer l’identité managée pour une rubrique système](enable-identity-system-topics.md) ou [Activer l’identité managée pour une rubrique personnalisée ou un domaine](enable-identity-custom-topics-domains.md).
+1. Ajouter l’identité à un rôle approprié (par exemple, expéditeur de données Service Bus) sur la destination (par exemple, une file d’attente Service Bus). Pour plus d’informations, consultez [Accorder à l’identité l’accès à la destination Event Grid](add-identity-roles.md).
+1. Lors de la création d’abonnements à des événements, activer l’utilisation de l’identité pour remettre des événements à la destination. Pour plus d’informations, consultez [Créer un abonnement à l’événement utilisant l’identité](managed-service-identity.md). 
 
 Pour obtenir des instructions pas à pas détaillées, consultez [Remise d’événements avec une identité gérée](managed-service-identity.md).
 
 
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Authentifier la remise des événements aux points de terminaison webhook
-Les sections suivantes décrivent comment authentifier la remise d’événements aux points de terminaison webhook. L’emploi d’un mécanisme de négociation de validation est obligatoire, quelle que soit la méthode que vous utilisez. Pour plus d’informations, consultez [Remise d’événements webhook](webhook-event-delivery.md). 
+Les sections suivantes décrivent comment authentifier la remise d’événements aux points de terminaison webhook. Utilisez un mécanisme de négociation de validation, quelle que soit la méthode que vous utilisez. Pour plus d’informations, consultez [Remise d’événements webhook](webhook-event-delivery.md). 
 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Utilisation d’Azure Active Directory (Azure AD)

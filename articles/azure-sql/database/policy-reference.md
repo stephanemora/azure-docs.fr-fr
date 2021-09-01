@@ -1,19 +1,19 @@
 ---
 title: Définitions de stratégie intégrées pour Azure SQL Database
 description: Liste les définitions de stratégie intégrées Azure Policy pour Azure SQL Database et SQL Managed Instance. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4d76391e7c60ab6ddff39dea5e6c567411b4e8a0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 4aae6a173184176faea32395a36f9bc63d935123
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609553"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106694"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Définitions intégrées d’Azure Policy pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 5/17/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d48a3787f3dd54b5713ad0c9358e329e74aecc
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b4a2e346983e3d258fde4a5deaa6dc51601cff13
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786336"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376357"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD
 
@@ -61,13 +61,13 @@ Le diagramme suivant illustre l’expérience des demandeurs et les notification
 
 ![Déroulement du processus du demandeur](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="2-stage-approval"></a>Approbation en deux phases
+### <a name="multi-stage-approval"></a>Approbation en plusieurs étapes
 Le diagramme suivant illustre l’expérience des approbateurs de la phase 1 et de la phase 2 et les notifications par e-mail qu’ils reçoivent pendant le processus de demande :
 
 ![Diagramme du processus d’approbation en deux phases](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
 
 ### <a name="email-notifications-table"></a>Tableau de notifications par e-mail
-Le tableau suivant fournit plus de détails sur chacune de ces notifications par e-mail. Pour gérer ces e-mails, vous pouvez utiliser des règles. Par exemple, dans Outlook, vous pouvez créer des règles pour déplacer les e-mails vers un dossier si l’objet contient des mots de ce tableau :
+Le tableau suivant fournit plus de détails sur chacune de ces notifications par e-mail. Pour gérer ces e-mails, vous pouvez utiliser des règles. Par exemple, dans Outlook, vous pouvez créer des règles pour déplacer les e-mails vers un dossier si l’objet contient des mots de ce tableau.  Notez que les mots seront basés sur les paramètres de langue par défaut du locataire dans lequel l’utilisateur demande l’accès.
 
 | # | Objet de l’e-mail | Moment de l’envoi | Envoyé à |
 | --- | --- | --- | --- |
@@ -78,9 +78,9 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 | 5 | Rappel d’action requise : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est activée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
 | 6 | La demande a expiré pour *[package d’accès]* | Cet e-mail sera envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 après l’expiration de la demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 7 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de phase 1 à la fin d’une demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
-| 8 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 d’une demande en deux phases lorsque la phase 1 est approuvée. | Premier approbateur, approbateurs de substitution de la phase 1 |
+| 8 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 d’une demande multiphase lorsque la phase 1 est approuvée. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 9 | Demande refusée pour *[package d’accès]* | Cet e-mail est envoyé au demandeur lorsque sa demande est refusée. | Demandeur |
-| 10 | Votre demande a expiré pour *[package d’accès]* | Cet e-mail est envoyé au demandeur à la fin d’une demande en une ou deux phases. L’e-mail informe le demandeur que la demande a expiré. | Demandeur |
+| 10 | Votre demande a expiré pour *[package d’accès]* | Cet e-mail est envoyé au demandeur à la fin d’une demande en une phase ou multiphase. L’e-mail informe le demandeur que la demande a expiré. | Demandeur |
 | 11 | Action requise : approuver ou refuser une demande d’ici le *[date]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Deuxième approbateur |
 | 12 | Rappel d’action requise : approuver ou refuser la demande d’ici le *[date]* | Cet e-mail de rappel sera envoyé au deuxième approbateur, si l’escalade est désactivée. La notification lui demande d’agir s’il ne l’a pas encore fait. | Deuxième approbateur |
 | 13 | Action requise : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est activée, pour lui demander d’agir. | Deuxième approbateur |
@@ -96,7 +96,7 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 
 Lorsqu’un demandeur envoie une demande d’accès à un package d’accès qui est configuré pour demander l’approbation, tous les approbateurs ajoutés à la stratégie reçoivent une notification par e-mail avec les détails de la demande. Les détails de l’e-mail incluent : le nom de l’organisation du demandeur, la justification commerciale et les dates de début et de fin d’accès demandées (le cas échéant). Les détails incluront également le moment où la demande a été envoyée et où la demande expirera.
 
-L’e-mail comporte un lien, sur lequel les approbateurs peuvent cliquer pour accéder à Mon Accès et approuver ou refuser la demande d’accès. Voici un exemple de notification par e-mail qui est envoyé au premier ou au deuxième approbateur (si l’approbation en deux phases est activée) pour effectuer une demande d’accès :
+L’e-mail comporte un lien, sur lequel les approbateurs peuvent cliquer pour accéder à Mon Accès et approuver ou refuser la demande d’accès. Voici un exemple de notification par e-mail qui est envoyé à un approbateur pour terminer une demande d’accès :
 
 ![E-mail concernant l’approbation de la demande pour un package d’accès](./media/entitlement-management-shared/approver-request-email.png)
 
@@ -126,13 +126,11 @@ Lorsqu’une demande d’accès est refusée, une notification par e-mail est en
 
 ![E-mail de refus de la demande du demandeur](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="2-stage-approval-access-request-emails"></a>E-mails de demande d’accès pour une approbation en deux phases
+### <a name="multi-stage-approval-access-request-emails"></a>E-mails de demande d’accès pour une approbation multiphase
 
-Si l’approbation en deux phases est activée, au moins deux approbateurs doivent approuver la demande, un à chaque étape, avant que le demandeur ne puisse recevoir l’accès.
+Si l’approbation multiphase est activée, au moins un approbateur doivent approuver la demande à chaque phase avant que le demandeur puisse recevoir l’accès.
 
-Au cours de la phase 1, le premier approbateur reçoit l’e-mail de demande d’accès et prend une décision. S’il approuve la demande, tous les premier approbateurs et les approbateurs de substitution de la phase 1 (si l’escalade est activée) recevront une notification indiquant que la phase 1 est terminée. Voici un exemple d’e-mail de notification envoyé lorsque la phase 1 est terminée :
-
-![E-mail de demande d’accès en deux phases](./media/entitlement-management-process/approver-request-email-2stage.png)
+Au cours de la phase 1, le premier approbateur reçoit l’e-mail de demande d’accès et prend une décision.
 
 Une fois que le premier approbateur ou les approbateurs de substitution ont approuvé la demande à la phase 1, la phase 2 commence. Au cours de la phase 2, le deuxième approbateur recevra l’e-mail de notification de demande d’accès. Lorsque le deuxième approbateur ou les approbateurs de substitution de la phase 2 (si l’escalade est activée) ont décidé d’approuver ou de refuser la demande, des e-mails de notification sont envoyés au premier et au deuxième approbateurs, ainsi qu’à tous les approbateurs de substitution des phases 1 et 2, ainsi qu’au demandeur.
 
@@ -140,11 +138,9 @@ Une fois que le premier approbateur ou les approbateurs de substitution ont appr
 
 Les demandes d’accès peuvent expirer si aucun approbateur n’a approuvé ou refusé la demande. 
 
-Lorsque la demande atteint sa date d’expiration, elle expire et ne peut plus être approuvée ou refusée par les approbateurs. Voici un exemple d’e-mail de notification envoyé à tous les premiers et deuxièmes approbateurs (si l’approbateur en deux phases est activée) et à tous les approbateurs  de substitution :
+Lorsque la demande atteint sa date d’expiration, elle expire et ne peut plus être approuvée ou refusée par les approbateurs.
 
-![E-mail notifiant la demande d’accès expirée pour les approbateurs](./media/entitlement-management-process/approver-request-email-expired.png)
-
-Une notification par e-mail est également envoyée au demandeur pour l’informer que sa demande d’accès a expiré et qu’il doit soumettre sa demande à nouveau. Le diagramme suivant illustre l’expérience du demandeur et les notifications par e-mail qu’il reçoit lorsqu’il demande d’étendre l’accès :
+Une notification par e-mail est envoyée au demandeur pour l’informer que sa demande d’accès a expiré et qu’il doit soumettre sa demande à nouveau. Le diagramme suivant illustre l’expérience du demandeur et les notifications par e-mail qu’il reçoit lorsqu’il demande d’étendre l’accès :
 
 ![Flux de processus d’accès étendu par le demandeur](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
 

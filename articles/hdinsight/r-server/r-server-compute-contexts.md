@@ -3,16 +3,18 @@ title: Options de contexte de calcul pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de contexte de calcul auxquelles les utilisateurs ont accès avec ML Services sur HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: efdf410ac566297668a06b0e7da457fcd49bfb59
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943951"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299336"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Options de contexte de calcul pour ML Services sur HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 ML Services sur Azure HDInsight contrôle le mode d’exécution des appels en définissant le contexte de calcul. Cet article présente les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight.
 

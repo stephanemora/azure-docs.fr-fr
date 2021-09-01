@@ -7,16 +7,16 @@ ms.topic: article
 author: vamahtan
 ms.author: vamahtan
 ms.date: 05/19/2021
-ms.openlocfilehash: 45bdf3e0006aeaf24b8c3ede0f7090aabfe85808
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 05b7c223823522b7c511df7cfa66c7dffa2a8b4b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482664"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281284"
 ---
 # <a name="dynamics-365-for-operations-functional-validation"></a>Validation fonctionnelle de Dynamics 365 for Operations
 
-La publication d’une offre Dynamics 365 for Operations dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/home) nécessite deux validations fonctionnelles :
+La publication d’une offre Dynamics 365 for Operations dans [l’Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2166002) nécessite deux validations fonctionnelles :
 
 - Charger une vidéo de démonstration de l’environnement Dynamics 365 qui présente les fonctionnalités de base
 - Présenter des captures d’écran montrant l’environnement LCS ([Lifecycle Services](https://lcs.dynamics.com/)) de la solution
@@ -29,7 +29,7 @@ La publication d’une offre Dynamics 365 for Operations dans [l’Espace parten
 Deux options sont disponibles pour la validation fonctionnelle :
 
 - Participer à une conférence téléphonique de 30 minutes pendant les heures de bureau (Heure standard du Pacifique, PST), afin de nous montrer et d’enregistrer l’environnement et la solution [LCS](https://lcs.dynamics.com/), ou
-- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Vue d’ensemble**, puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
+- Dans l’Espace partenaires, accéder à [Place de marché commerciale](https://go.microsoft.com/fwlink/?linkid=2165290), puis charger l’URL d’une vidéo de démonstration et des captures d’écran LCS sous l’onglet Contenu supplémentaire de l’offre.
 
 L’équipe de certification Microsoft examinera la vidéo et les fichiers, puis elle approuvera la solution ou vous enverra des e-mails concernant les étapes à suivre.
 
@@ -70,7 +70,7 @@ Pour planifier un appel de révision finale, envoyez un e-mail à l’adresse [a
 3. Chargez le package dans l’Espace partenaires.
 
     1. Créez un document texte contenant l’adresse de la vidéo de démonstration et des captures d’écran, ou enregistrez chaque capture d’écran au format JPG.
-    2. Ajoutez le texte et les images à un fichier .zip dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) sur l’onglet **Contenu supplémentaire** de l’offre.
+    2. Ajoutez le texte et les images à un fichier .zip dans [l’Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165290) sur l’onglet **Contenu supplémentaire** de l’offre.
 
     [![Affiche la fenêtre de la bibliothèque de projets](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
 

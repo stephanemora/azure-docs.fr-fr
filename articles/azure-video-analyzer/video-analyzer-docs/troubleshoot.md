@@ -1,14 +1,14 @@
 ---
 title: Résoudre les problèmes liés à Azure Video Analyzer - Azure
 description: Cet article explique comment résoudre les problèmes liés à Azure Video Analyzer.
-ms.topic: how-to
-ms.date: 05/04/2021
-ms.openlocfilehash: cd54386702c24065cccad4f7ede43c313a44886c
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.topic: troubleshooting
+ms.date: 07/15/2021
+ms.openlocfilehash: c3b95936eabfcaefa12b9271b152d196790841c4
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613661"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114362643"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Résoudre les problèmes liés à Azure Video Analyzer
 
@@ -107,14 +107,14 @@ Si vous rencontrez des problèmes supplémentaires pour lesquels vous avez besoi
 
 ### <a name="video-analyzer-working-with-external-modules"></a>Video Analyzer utilisant des modules externes
 
-Video Analyzer, via les processeurs d’extension de pipeline, peut étendre le pipeline pour envoyer et recevoir des données à partir d’autres modules IoT Edge à l’aide de protocoles HTTP ou gRPC. À titre [d’exemple spécifique](), ce pipeline en direct peut envoyer des trames vidéo sous forme d’images à un module d’inférence externe comme Yolo v3 et recevoir des résultats analytiques JSON suivant le protocole HTTP. Dans ce type de topologie, la destination des événements est principalement le hub IoT. Dans les cas où vous ne voyez pas les événements d’inférence sur le hub, vérifiez les éléments suivants :
+Video Analyzer, via les processeurs d’extension de pipeline, peut étendre le pipeline pour envoyer et recevoir des données à partir d’autres modules IoT Edge à l’aide de protocoles HTTP ou gRPC. À titre [d’exemple spécifique](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), ce pipeline en direct peut envoyer des trames vidéo sous forme d’images à un module d’inférence externe comme Yolo v3 et recevoir des résultats analytiques JSON suivant le protocole HTTP. Dans ce type de topologie, la destination des événements est principalement le hub IoT. Dans les cas où vous ne voyez pas les événements d’inférence sur le hub, vérifiez les éléments suivants :
 
 - Regardez si le hub sur lequel est publié le pipeline en direct est le même que celui que vous examinez. Lorsque vous créez plusieurs déploiements, vous pouvez vous retrouver avec plusieurs hubs et vous risquez d’inspecter le mauvais hub d’événement par erreur.
 - Sur le Portail Azure, vérifiez si le module externe est déployé et s’il fonctionne. Dans cette image d’exemple, rtspsim, yolov3, tinyyolov3 et logAnalyticsAgent sont des modules IoT Edge qui s’exécutent à l’extérieur du module avaedge.
 
   [ ![Capture d’écran de l’état d’exécution des modules dans Azure IoT Hub.](./media/troubleshoot/iot-hub-azure.png) ](./media/troubleshoot/iot-hub-azure.png#lightbox)
 
-- Vérifiez que vous envoyez des événements au point de terminaison d’URL approprié. Le conteneur d’IA externe expose une URL et un port par lesquels il reçoit et renvoie les données des requêtes POST. Cette URL est spécifiée en tant que propriété `endpoint: url` pour le processeur d’extension HTTP. Comme indiqué dans l’[URL de topologie](), le point de terminaison est défini sur le paramètre d’URL d’inférence. Assurez-vous que la valeur par défaut du paramètre ou la valeur transmise est exacte. Vous pouvez effectuer un test pour déterminer s’il fonctionne à l’aide de l’URL du client (cURL).
+- Vérifiez que vous envoyez des événements au point de terminaison d’URL approprié. Le conteneur d’IA externe expose une URL et un port par lesquels il reçoit et renvoie les données des requêtes POST. Cette URL est spécifiée en tant que propriété `endpoint: url` pour le processeur d’extension HTTP. Comme indiqué dans l’[URL de topologie](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json), le point de terminaison est défini sur le paramètre d’URL d’inférence. Assurez-vous que la valeur par défaut du paramètre ou la valeur transmise est exacte. Vous pouvez effectuer un test pour déterminer s’il fonctionne à l’aide de l’URL du client (cURL).
 
   À titre d’exemple, voici un conteneur Yolo v3 qui s’exécute sur l’ordinateur local avec l’adresse IP 172.17.0.3.
 
@@ -152,8 +152,8 @@ Lorsque les étapes de résolution des problèmes auto-guidée ne résolvent pas
 
 Pour collecter les journaux qui doivent être ajoutés au ticket, suivez les instructions ci-dessous dans l’ordre et chargez les fichiers journaux dans le volet **Détails** de la demande de support.
 
-1. [Configurer le module Video Analyzer pour collecter des journaux détaillés]()
-1. [Activer les journaux de débogage]().
+1. [Configurer le module Video Analyzer pour collecter des journaux détaillés](#configure-video-analyzer-module-to-collect-verbose-logs)
+1. [Activer les journaux de débogage](#video-analyzer-debug-logs).
 1. Reproduisez le problème
 1. Connectez-vous à la machine virtuelle sur la page **IoT Hub** du portail.
 
@@ -218,22 +218,8 @@ Pour configurer le module Video Analyzer afin de générer des journaux de débo
    ![Capture d’écran du bouton « Définir les modules » dans le portail Azure.](media/troubleshoot/set-modules.png)
 
 1. Dans la section **Modules IoT Edge**, sélectionnez **avaedge**.
-1. Sélectionnez **Options de création de conteneur**.
-1. Dans la section **Liens**, ajoutez la commande suivante  :
-
-   `/var/local/videoanalyzer/logs:/var/lib/videoanalyzer/logs`
-
-   > [!NOTE]
-   > Cette commande lie les dossiers de journaux entre l’appareil Edge et le conteneur. Si vous souhaitez collecter les journaux dans un emplacement différent, utilisez la commande suivante en remplaçant **$LOG_LOCATION_ON_EDGE_DEVICE** par l’emplacement que vous souhaitez utiliser : `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/videoanalyzer/logs`
-
-1. Sélectionnez **Update**.
-1. Sélectionnez **Vérifier + créer**. Un message de validation réussie s’affiche sous une bannière verte.
-1. Sélectionnez **Create** (Créer).
-1. Mettez à jour **Jumeau d’identité de module** pour pointer vers le paramètre DebugLogsDirectory, qui pointe vers le répertoire dans lequel les journaux sont collectés :
-
-   a. Sous la table **Modules**, sélectionnez **avaedge**.
-   b. En haut du volet, sélectionnez **Jumeau d’identité de module**. Un volet modifiable s’ouvre.
-   c. Sous **Clé souhaitée**, ajoutez la paire clé-valeur suivante :
+1. Sélectionnez **Jumeau d’identité de module**. Un volet modifiable s’ouvre.
+1. Sous **Clé souhaitée**, ajoutez la paire clé-valeur suivante :
 
    `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
@@ -243,7 +229,7 @@ Pour configurer le module Video Analyzer afin de générer des journaux de débo
    > 1. Créez une liaison pour l’emplacement du journal de débogage dans la section **Liaisons**, en remplaçant **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** et **$DEBUG_LOG_LOCATION** par l’emplacement de votre choix : `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
    > 2. Utilisez la commande suivante, en remplaçant **$DEBUG_LOG_LOCATION** par l’emplacement utilisé à l’étape précédente : `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-   d. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 1. Vous pouvez arrêter la collecte des journaux en définissant la valeur dans **Jumeau d’identité de module** sur _Null_. Retournez sur la page **Module Identity Twin** et mettez à jour le paramètre suivant comme suit :
 

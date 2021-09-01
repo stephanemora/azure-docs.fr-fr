@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: d1bb111bbaa909c52261a0dbafe6d6e0a24390ac
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e9e233aa5a4d32a1f298889b0a98c3a85d9cf4e5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007259"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456314"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -127,7 +127,7 @@ Deux types de quotas sont utilisés lorsque vous déployez un hôte dédié.
 
 Pour demander une augmentation du quota, créez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-L’approvisionnement d’un hôte dédié consomme le quota de processeurs virtuels hôtes dédiés et le quota de famille de tailles de machine virtuelle, mais il ne consomme pas les processeurs virtuels régionaux.
+L’approvisionnement d’un hôte dédié consomme le quota de processeurs virtuels hôtes dédiés et le quota de famille de tailles de machine virtuelle, mais il ne consomme pas les processeurs virtuels régionaux. Les machines virtuelles placées sur un ordinateur hôte dédié ne sont pas comptabilisées dans le quota de processeurs virtuels de la famille Si une machine virtuelle est déplacée d’un hôte dédié dans un environnement mutualisée, la machine virtuelle consomme le quota de processeurs virtuels de la famille de machines virtuelles.
 
 
 ![Capture d’écran de la page d’utilisation et des quotas dans le portail](./media/virtual-machines-common-dedicated-hosts/quotas.png)

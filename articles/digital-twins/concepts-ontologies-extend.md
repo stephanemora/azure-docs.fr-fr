@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: edadf3ad7e86572c758a90fd35a941024b0aa60e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4051f8fe4b338f223b36c3a87ebcc3e3d3e51979
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475754"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472970"
 ---
 # <a name="extending-ontologies"></a>Extension d’ontologies 
 
@@ -30,7 +30,7 @@ Une partie de la hiérarchie ressemble au diagramme ci-dessous.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagramme illustrant une partie de la hiérarchie des espaces RealEstateCore. Il montre des éléments pour Space, Room, ConferenceRoom et Office."::: 
 
-Pour plus d’informations sur l’ontologie RealEstateCore, consultez [Concepts : Adoption d’ontologies conformes aux standards du secteur](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+Pour plus d’informations sur l’ontologie RealEstateCore, consultez [Adoption d’ontologies conformes aux normes du secteur](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## <a name="extending-the-realestatecore-space-hierarchy"></a>Extension de la hiérarchie Space de RealEstateCore 
 

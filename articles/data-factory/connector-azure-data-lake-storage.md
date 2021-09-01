@@ -1,29 +1,31 @@
 ---
 title: Copier et transformer des données dans Azure Data Lake Storage Gen2
-description: Découvrez comment copier des données vers et depuis Azure Data Lake Storage Gen2 et y transformer des données avec Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment copier des données vers et depuis Azure Data Lake Storage Gen2 et y transformer des données avec Azure Data Factory ou des pipelines Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
-ms.openlocfilehash: a4dc1f71dd58280bacda1f90ba73b48cb8c8367c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 07/19/2021
+ms.openlocfilehash: 1f01b88b435ff10313c04eb2851f3a5505428113
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480416"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641295"
 ---
-# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory
+# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory ou Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
-Cet article indique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Azure Data Lake Storage Gen2 et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
+Cet article indique comment utiliser l’activité de copie pour copier des données depuis et vers Azure Data Lake Storage Gen2 et utiliser Data Flow pour transformer les données dans Azure Data Lake Storage Gen2. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
->Pour plus d’informations sur le scénario de migration de lac de données ou d’entrepôt de données, consultez [Migration des données dans Azure à partir d’un lac de données ou d’un entrepôt de données avec Azure Data Factory](data-migration-guidance-overview.md).
+>Pour plus d’informations sur le scénario de migration de lac de données ou d’entrepôt de données, consultez [Migration des données dans Azure à partir d’un lac de données ou d’un entrepôt de données](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -49,7 +51,7 @@ Pour l’activité de copie, avec ce connecteur, vous pouvez effectuer les opér
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Data Lake Storage Gen2.
+Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory ou de pipeline Synapse spécifiques de Data Lake Storage Gen2.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -57,11 +59,12 @@ Le connecteur Azure Data Lake Storage Gen2 prend en charge les types d’authent
 
 - [Authentification par clé de compte](#account-key-authentication)
 - [Authentification d’un principal du service](#service-principal-authentication)
-- [Identités managées pour authentifier les ressources Azure](#managed-identity)
-
+- [Authentification d’identité managée affectée par le système](#managed-identity)
+- [Authentification d’identité managée affectée par l’utilisateur](#user-assigned-managed-identity-authentication)
+- 
 >[!NOTE]
 >- Si vous utilisez le runtime d’intégration Azure public pour vous connecter à Data Lake Storage Gen2 avec l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** activée sur le pare-feu Stockage Azure, vous devez recourir à [l’authentification par identité managée](#managed-identity).
->- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Data Lake Storage Gen2 source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Synapse. Pour en savoir plus sur la configuration requise, voir la section sur l’[authentification par identité managée](#managed-identity).
+>- Si vous utilisez PolyBase ou l’instruction COPY pour charger des données dans Azure Synapse Analytics et que votre Data Lake Storage Gen2 source ou de préproduction est configuré avec un point de terminaison de réseau virtuel Azure, vous devez utiliser l’authentification par identité managée comme l’exige Azure Synapse. Pour en savoir plus sur la configuration requise, voir la section sur l’[authentification par identité managée](#managed-identity).
 
 ### <a name="account-key-authentication"></a>Authentification par clé de compte
 
@@ -71,7 +74,7 @@ Pour l’authentification par clé de compte de stockage, les propriétés suiva
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur **AzureBlobFS**. |Oui |
 | url | Point de terminaison pour Data Lake Storage Gen2 avec le modèle de `https://<accountname>.dfs.core.windows.net`. | Oui |
-| accountKey | Clé de compte pour Data Lake Storage Gen2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| accountKey | Clé de compte pour Data Lake Storage Gen2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. Si cette propriété n’est pas spécifiée, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
@@ -115,7 +118,7 @@ Pour l’authentification de principal de service, effectuez les étapes suivant
     - **En tant que récepteur** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Écriture** pour le dossier récepteur. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Contributeur aux données Blob du stockage**.
 
 >[!NOTE]
->Si vous utilisez l’interface utilisateur de Data Factory pour la création et que le principal de service n’est pas défini avec le rôle « Lecteur des données Blob du stockage/Contributeur aux données Blob du stockage » dans IAM, quand vous effectuez une connexion de test ou accédez à des dossiers, choisissez « Tester la connexion au chemin du fichier » ou « Parcourir à partir du chemin spécifié », puis spécifiez un chemin avec l’autorisation **Lecture + Exécution** pour continuer.
+>Si vous utilisez l’interface utilisateur pour la création et que le principal de service n’est pas défini avec le rôle « Lecteur des données blob du stockage/Contributeur aux données blob du stockage » dans IAM, quand vous effectuez une connexion de test ou accédez à des dossiers, choisissez « Tester la connexion au chemin du fichier » ou « Parcourir à partir du chemin spécifié », puis spécifiez un chemin avec l’autorisation **Lecture + Exécution** pour continuer.
 
 Ces propriétés sont prises en charge pour le service lié :
 
@@ -125,10 +128,10 @@ Ces propriétés sont prises en charge pour le service lié :
 | url | Point de terminaison pour Data Lake Storage Gen2 avec le modèle de `https://<accountname>.dfs.core.windows.net`. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
 | servicePrincipalCredentialType | Type d’informations d’identification à utiliser pour l’authentification de principal du service. Les valeurs autorisées sont **ServicePrincipalKey** et **ServicePrincipalCert**. | Oui |
-| servicePrincipalCredential | Informations d’identification du principal du service. <br/> Quand vous utilisez **ServicePrincipalKey** comme type d’informations d’identification, spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br/> Quand vous utilisez **ServicePrincipalCert** comme informations d’identification, référencez un certificat dans Azure Key Vault. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br/> Cette propriété est toujours prise en charge telle quelle pour `servicePrincipalId` + `servicePrincipalKey`. Comme ADF ajoute une nouvelle authentification par certificat du principal du service, le nouveau modèle pour l’authentification de principal du service est `servicePrincipalId` + `servicePrincipalCredentialType` + `servicePrincipalCredential`. | Non |
+| servicePrincipalCredential | Informations d’identification du principal du service. <br/> Quand vous utilisez **ServicePrincipalKey** comme type d’informations d’identification, spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br/> Quand vous utilisez **ServicePrincipalCert** comme informations d’identification, référencez un certificat dans Azure Key Vault. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br/> Cette propriété est toujours prise en charge telle quelle pour `servicePrincipalId` + `servicePrincipalKey`. Comme ADF ajoute une nouvelle authentification par certificat du principal du service, le nouveau modèle pour l’authentification de principal du service est `servicePrincipalId` + `servicePrincipalCredentialType` + `servicePrincipalCredential`. | Non |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
-| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud du pipeline de fabrique de données ou Synapse est utilisé. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 **Exemple : utilisation de l’authentification de la clé du principal de service**
@@ -186,24 +189,18 @@ Vous pouvez également stocker la clé du principal du service dans Azure Key Va
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> Authentification d’identité managée affectée par le système
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité managée pour l’authentification Azure Data Lake Storage Gen2, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis ou vers votre Data Lake Storage Gen2.
+Une fabrique de données ou un espace de travail Synapse peut être associé à une [identité managée affectée par le système](data-factory-service-identity.md).  Vous pouvez utiliser directement cette identité managée affectée par le système pour l’authentification Azure Data Lake Storage Gen2, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique ou l’espace de travail désignés d’accéder aux données et de les copier depuis ou vers votre Data Lake Storage Gen2.
 
-Pour utiliser les identités managées afin d’authentifier les ressources Azure, procédez comme suit.
+Pour utiliser l’authentification par identité managée affectée par le système, effectuez les étapes suivantes.
 
-1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’**ID d’objet d’identité managée** générée en même temps que votre fabrique.
+1. [Récupérez les informations d’identité managée affectée par le système](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’**ID d’objet d’identité managée** générée en même temps que votre fabrique de données ou espace de travail Synapse.
 
-2. Accordez l’autorisation nécessaire à l’identité managée. Pour obtenir des exemples sur le fonctionnement des autorisations dans Data Lake Storage Gen2, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+2. Accordez à l’identité managée affectée par le système une autorisation appropriée. Pour obtenir des exemples sur le fonctionnement des autorisations dans Data Lake Storage Gen2, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
     - **En tant que source** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Lecture** pour les fichiers à copier. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Lecteur des données Blob du stockage** .
     - **En tant que récepteur** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Écriture** pour le dossier récepteur. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Contributeur aux données Blob du stockage**.
-
->[!NOTE]
->Si vous utilisez l’interface utilisateur de Data Factory pour la création et que l’identité managée n’est pas définie avec le rôle « Lecteur des données Blob du stockage/Contributeur aux données Blob du stockage » dans IAM, quand vous effectuez une connexion de test ou accédez à des dossiers, choisissez « Tester la connexion au chemin du fichier » ou « Parcourir à partir du chemin spécifié », puis spécifiez un chemin avec l’autorisation **Lecture + Exécution** pour continuer.
-
->[!IMPORTANT]
->Si vous utilisez PolyBase ou l’instruction COPY pour charger des données de Data Lake Storage Gen2 dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour Data Lake Storage Gen2, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage Blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Synapse.
 
 Ces propriétés sont prises en charge pour le service lié :
 
@@ -230,6 +227,56 @@ Ces propriétés sont prises en charge pour le service lié :
     }
 }
 ```
+
+### <a name="user-assigned-managed-identity-authentication"></a>Authentification d’identité managée affectée par l’utilisateur
+
+Une fabrique de données peut être affectée à une ou plusieurs [identités managées par l’utilisateur](data-factory-service-identity.md#user-assigned-managed-identity). Vous pouvez utiliser cette identité managée affectée par l’utilisateur pour l’authentification du stockage d’objets blob, ce qui permet à d’accéder aux données et de les copier à partir de ou vers Data Lake Storage Gen2. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
+
+Pour utiliser l’authentification par identité managée affectée par l’utilisateur, effectuez les étapes suivantes :
+
+1. [Créez une ou plusieurs identités managées attribuées par l’utilisateur ](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) et accordez-leur l’accès à Azure Data Lake Storage Gen2. Pour obtenir des exemples sur le fonctionnement des autorisations dans Data Lake Storage Gen2, consultez [Listes de contrôle d’accès sur les fichiers et répertoires](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+    - **En tant que source** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Lecture** pour les fichiers à copier. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Lecteur des données Blob du stockage** .
+    - **En tant que récepteur** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Écriture** pour le dossier récepteur. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Contributeur aux données Blob du stockage**.
+    
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur. 
+
+Ces propriétés sont prises en charge pour le service lié :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type doit être définie sur **AzureBlobFS**. |Oui |
+| url | Point de terminaison pour Data Lake Storage Gen2 avec le modèle de `https://<accountname>.dfs.core.windows.net`. | Oui |
+| credentials | Spécifiez l’identité managée affectée par l’utilisateur en tant qu’objet d’informations d’identification. | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+
+**Exemple :**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+                },
+            },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+>[!NOTE]
+>Si vous utilisez l’interface utilisateur de Data Factory pour la création et que l’identité managée n’est pas définie avec le rôle « Lecteur des données Blob du stockage/Contributeur aux données Blob du stockage » dans IAM, quand vous effectuez une connexion de test ou accédez à des dossiers, choisissez « Tester la connexion au chemin du fichier » ou « Parcourir à partir du chemin spécifié », puis spécifiez un chemin avec l’autorisation **Lecture + Exécution** pour continuer.
+
+>[!IMPORTANT]
+>Si vous utilisez PolyBase ou l’instruction COPY pour charger des données de Data Lake Storage Gen2 dans Azure Synapse Analytics et que vous avez recours à l’authentification par identité managée pour Data Lake Storage Gen2, veillez également à suivre les étapes 1 à 3 de [cette aide](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si vous configurez le Stockage blob avec un point de terminaison de réseau virtuel Azure, vous devez également activer **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** dans le menu des paramètres **Pare-feu et réseaux virtuels** du compte Stockage Azure, comme l’exige Azure Synapse.
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -359,6 +406,7 @@ Les propriétés suivantes sont prises en charge pour Data Lake Storage Gen2 dan
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | blockSizeInMB | Spécifiez la taille du bloc (en Mo) qui est utilisée pour écrire des données dans ADLS Gen2. En savoir plus sur les [objets blobs de blocs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs autorisées sont comprises **entre 4 et 100 Mo**. <br/>Par défaut, ADF détermine automatiquement la taille du bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans ADLS Gen2, la taille de bloc par défaut est de 100 Mo, ce qui permet le stockage de 4,95 To de données au maximum. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez des runtimes d’intégration auto-hébergés avec un réseau insuffisant qui entraîne l’expiration des opérations ou un problème de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que blockSizeInMB*50000 soit suffisant pour stocker les données. Si ce n’est pas le cas, l’exécution de l’activité de copie échouera. | Non |
 | maxConcurrentConnections | La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non       |
+| metadata |Définissez des métadonnées personnalisées lors de la copie dans le récepteur. Chaque objet sous le tableau `metadata` représente une colonne supplémentaire. `name` définit le nom de clé de métadonnées et `value` indique la valeur des données de cette clé. Si la [fonctionnalité de conservation des attributs](./copy-activity-preserve-metadata.md#preserve-metadata) est utilisée, les métadonnées spécifiées vont s’unir/remplacer les métadonnées du fichier source.<br/><br/>Les valeurs de données autorisées sont :<br/>- `$$LASTMODIFIED` : une variable réservée indique de stocker l’heure de la dernière modification des fichiers sources. Appliquez à la source basée sur un fichier uniquement avec le format binaire.<br/><b>- Expression<b><br/>- <b>Valeur statique<b>| Non       |
 
 **Exemple :**
 
@@ -387,7 +435,21 @@ Les propriétés suivantes sont prises en charge pour Data Lake Storage Gen2 dan
                 "type": "ParquetSink",
                 "storeSettings":{
                     "type": "AzureBlobFSWriteSettings",
-                    "copyBehavior": "PreserveHierarchy"
+                    "copyBehavior": "PreserveHierarchy",
+                    "metadata": [
+                        {
+                            "name": "testKey1",
+                            "value": "value1"
+                        },
+                        {
+                            "name": "testKey2",
+                            "value": "value2"
+                        },
+                        {
+                            "name": "lastModifiedKey",
+                            "value": "$$LASTMODIFIED"
+                        }
+                    ]
                 }
             }
         }
@@ -439,7 +501,7 @@ Lorsque vous copiez des fichiers depuis Amazon S3/Azure Blob/Azure Data Lake Sto
 Lorsque vous copiez des fichiers à partir d’Azure Data Lake Storage Gen1/Gen2 vers Gen2, vous pouvez choisir de conserver les listes de contrôle d’accès (ACL) POSIX, ainsi que des données. Pour plus d’informations, consultez [Conserver les listes de contrôle d’accès entre Data Lake Storage Gen1/Gen2 et Gen2](copy-activity-preserve-metadata.md#preserve-acls).
 
 >[!TIP]
->Pour copier des données à partir d’Azure Data Lake Storage Gen1 dans Gen2 en général, consultez l’article [Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) pour obtenir une procédure pas à pas et découvrir les meilleures pratiques.
+>Pour copier des données à partir d’Azure Data Lake Storage Gen1 dans Gen2 en général, consultez l’article [Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2](load-azure-data-lake-storage-gen2-from-gen1.md) pour obtenir une procédure pas à pas et découvrir les meilleures pratiques.
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -674,4 +736,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir la liste des sources et magasins de données pris en charge en tant que récepteurs par l’activité de copie.

@@ -11,13 +11,13 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 02/24/2020
-ms.openlocfilehash: f98dcdd9c1a479703c82c01b4fd240507ea355de
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/23/2021
+ms.openlocfilehash: 6d3027afae6b1d4121582014bb2b525ba2fd2c44
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784458"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090256"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Supprimer un protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -32,10 +32,10 @@ Si vous suspectez qu’une clé est compromise, en cas d’accès non autorisé 
 
 Gardez à l’esprit qu’une fois le protecteur TDE supprimé au sein de Key Vault, après un délai maximal de 10 minutes, toutes les bases de données chiffrées se mettent à refuser l’ensemble des connexions avec le message d’erreur correspondant, puis passent à l’état [Inaccessible](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
-Ce guide pratique expose deux approches possibles en fonction du résultat souhaité après la réponse à un incident :
+Ce guide pratique présente l’approche à adopter pour rendre les bases de données **inaccessibles** après une réponse à un incident de compromission.
 
-- Pour rendre **inaccessibles** les bases de données dans Azure SQL Database/Azure Synapse Analytics.
-- Pour rendre **inaccessibles** les bases de données dans Azure SQL Database/Azure Synapse Analytics.
+> [!NOTE]
+> Cet article s’applique à Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics (pools SQL dédiés (anciennement SQL DW)). Pour la documentation sur le chiffrement transparent des données pour les pools SQL dédiés à l’intérieur d’espaces de travail Synapse, consultez [Chiffrement Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

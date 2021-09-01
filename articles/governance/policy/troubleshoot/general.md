@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752162"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113087087"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Résolution des erreurs liées à Azure Policy
 
@@ -142,6 +142,20 @@ La règle de définition de stratégie a une ou plusieurs conditions qui ne sont
 #### <a name="resolution"></a>Résolution
 
 Si un alias est utilisé, vérifiez qu’il est évalué uniquement par rapport au type de ressource auquel il appartient le faisant précéder d’une condition de type. Une autre solution consiste à diviser la définition de stratégie en plusieurs définitions afin d’éviter de cibler plusieurs types de ressources.
+
+### <a name="scenario-subscription-limit-exceeded"></a>Scénario : Limite d’abonnement dépassée
+
+#### <a name="issue"></a>Problème
+
+Un message d’erreur sur la page de conformité dans le portail Azure s’affiche lors de la récupération de la conformité pour les attributions de stratégie.
+
+#### <a name="cause"></a>Cause
+
+Le nombre d’abonnements sous les étendues sélectionnées dans la requête a dépassé la limite de 5000 abonnements. Les résultats de conformité peuvent être partiellement affichés.
+
+#### <a name="resolution"></a>Résolution
+
+Sélectionnez une étendue plus granulaire avec moins d’abonnements enfants pour voir les résultats complets.
 
 ## <a name="template-errors"></a>Erreurs de modèle
 

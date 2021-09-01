@@ -4,20 +4,22 @@ description: Montre comment passer un secret à partir d’un coffre de clés en
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: f96b9228b6ebe6ab3ca6d48dc3403bbafa6e8d55
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 06/18/2021
+ms.openlocfilehash: e940a812b4e010e9499a9a85cfd400b679d43781
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029672"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112376303"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-bicep-deployment"></a>Utiliser Azure Key Vault pour passer une valeur de paramètre sécurisée pendant le déploiement de Bicep
 
-Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre fichier Bicep ou votre fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. Lorsqu’un [module](./modules.md) attend un paramètre `string` avec un modificateur `secure:true`, vous pouvez utiliser la fonction `getSecret` pour obtenir un secret de coffre de clés. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement.
+Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre fichier Bicep ou votre fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Lorsqu’un [module](./modules.md) attend un paramètre `string` avec un modificateur `secure:true`, vous pouvez utiliser la [fonction getSecret](bicep-functions-resource.md#getsecret) pour obtenir un secret de coffre de clés. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés.
 
-Cet article est consacré au passage d’une valeur sensible en tant que paramètre Bicep. L’article ne traite pas de la définition d’une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre de clés.
-Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+> [!IMPORTANT]
+> Cet article est consacré à la transmission d’une valeur sensible en tant que paramètre de modèle. Lorsque la clé secrète est transmise en tant que paramètre, le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement. 
+>
+> Cet article ne traite pas de la définition d’une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre de clés. Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Déployer des coffres de clés et des secrets
 
@@ -157,7 +159,7 @@ Quand vous utilisez un coffre de clés avec le fichier Bicep pour une [Applicat
 
 ## <a name="use-getsecret-function"></a>Utiliser la fonction getSecret
 
-Vous pouvez utiliser la [fonction `getSecret`](./bicep-functions-resource.md#getsecret) pour obtenir un secret de coffre de clés et passer la valeur au paramètre `string` d’un module. La fonction `getSecret` ne peut être appelée que dans une ressource `Microsoft.KeyVault/vaults`, et ne peut être utilisée qu’avec un paramètre associé à un décorateur `@secure()`.
+Vous pouvez utiliser la [fonction getSecret](./bicep-functions-resource.md#getsecret) pour obtenir un secret de coffre de clés et passer la valeur au paramètre `string` d’un module. La fonction `getSecret` ne peut être appelée que dans une ressource `Microsoft.KeyVault/vaults`, et ne peut être utilisée qu’avec un paramètre associé à un décorateur `@secure()`.
 
 Le fichier Bicep suivant crée un serveur Azure SQL. Le paramètre `adminPassword` a un décorateur `@secure()`.
 
@@ -208,7 +210,7 @@ module sql './sql.bicep' = {
 
 ## <a name="reference-secrets-in-parameter-file"></a>Référencer des secrets dans un fichier de paramètres
 
-Avec cette approche, vous référencez le coffre de clés dans le fichier de paramètres, et non dans Bicep. L’illustration suivante montre comment le fichier de paramètres référence le secret et passe cette valeur au fichier Bicep.
+Si vous ne souhaitez pas utiliser un module, vous pouvez référencer le coffre de clés directement dans le fichier de paramètres. L’illustration suivante montre comment le fichier de paramètres référence le secret et passe cette valeur au fichier Bicep.
 
 ![Diagramme d’intégration du coffre de clés Resource Manager](./media/key-vault-parameter/statickeyvault.png)
 

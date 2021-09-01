@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 167a92e9e9950245d58fd7497eb9df4c29f0fa7e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953810"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281626"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
-Cet article décrit les aspects d’un modèle Azure Resource Manager qui s’appliquent à des machines virtuelles. Cet article ne décrit pas un modèle complet pour la création d’une machine virtuelle ; pour cela, vous avez besoin de définitions de ressource pour des comptes de stockage, d'interfaces réseau, d'adresses IP publiques et de réseaux virtuels. Pour plus d’informations sur la façon dont ces ressources peuvent être définies, consultez le [Guide de création d’un modèle Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Cet article décrit les aspects d’un modèle Azure Resource Manager qui s’appliquent à des machines virtuelles. Cet article ne décrit pas un modèle complet pour la création d’une machine virtuelle ; pour cela, vous avez besoin de définitions de ressource pour des comptes de stockage, d’interfaces réseau, d’adresses IP publiques et de réseaux virtuels. Pour plus d’informations sur la façon dont ces ressources peuvent être définies, consultez le [Guide de création d’un modèle Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-Il existe de nombreux [modèles dans la galerie](https://azure.microsoft.com/documentation/templates/?term=VM), qui incluent la ressource de la machine virtuelle. Les éléments qui peuvent être inclus dans un modèle ne sont tous décrits ici.
+Il existe de nombreux [modèles dans la galerie](https://azure.microsoft.com/resources/templates/?term=VM), qui incluent la ressource de la machine virtuelle. Les éléments qui peuvent être inclus dans un modèle ne sont tous décrits ici.
 
  
 
@@ -33,7 +33,7 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -217,7 +217,7 @@ Lorsque vous avez besoin de plusieurs machines virtuelles pour votre application
 
 ```json
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```

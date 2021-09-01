@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/26/2021
+ms.openlocfilehash: 67ada228d3b4ed95b1247b221f0ad90bbbc74ba0
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592379"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416962"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Surveiller les demandes de requête dans Recherche cognitive Azure
 
 Cet article explique comment mesurer les performances et le volume des requêtes à l’aide des métriques et de la journalisation des ressources. Il explique également comment collecter les termes d'entrée utilisés dans les requêtes - informations nécessaires à l'évaluation de l'utilité et de l'efficacité de votre corpus de recherche.
 
-Les données historiques qui alimentent les métriques sont conservées pendant 30 jours. Pour une conservation plus longue, ou pour générer des rapports sur les données opérationnelles et les chaînes de requêtes, activez un [paramètre de diagnostic](search-monitor-logs.md) spécifiant l'option de stockage relative aux métriques et événements consignés persistants.
+Le portail Azure affiche les métriques de base relatives à la latence des requêtes, à la charge des requêtes (QPS) et à la limitation. Les données historiques qui alimentent ces métriques sont conservées pendant 30 jours. Pour une conservation plus longue, ou pour générer des rapports sur les données opérationnelles et les chaînes de requêtes, vous devez activer un [paramètre de diagnostic](search-monitor-logs.md) spécifiant l’option de stockage relative aux métriques et événements consignés persistants.
 
 Pour optimiser l'intégrité de la mesure des données, appliquez notamment les conditions suivantes :
 
@@ -116,7 +116,7 @@ Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu
 
 1. Zoomez sur une zone d'intérêt du graphique en courbes. Placez le pointeur de la souris au début de la zone, cliquez et maintenez le bouton gauche de la souris enfoncé, faites glisser de l’autre côté de la zone, puis relâchez le bouton. Cet intervalle de temps sera agrandi dans le graphique.
 
-## <a name="identify-strings-used-in-queries"></a>Identifier les chaînes utilisées dans les requêtes
+## <a name="return-query-strings-entered-by-users"></a>Retourner les chaînes de requête entrées par les utilisateurs
 
 Quand vous activez la journalisation des ressources, le système capture les demandes de requête dans la table **AzureDiagnostics**. Comme prérequis, vous devez avoir déjà activé la [journalisation des ressources](search-monitor-logs.md), en spécifiant un espace de travail d’analytique des journaux ou une autre option de stockage.
 
@@ -124,8 +124,8 @@ Quand vous activez la journalisation des ressources, le système capture les dem
 
 1. Exécutez l'expression suivante pour rechercher des opérations Query.Search. Vous obtiendrez un jeu de résultats, sous forme de tableau, avec le nom de l'opération, la chaîne de requête, l'index interrogé et le nombre de documents trouvés. Les deux dernières instructions excluent les chaînes de requêtes correspondant à une recherche vide ou non spécifiée, sur un exemple d'index, ce qui réduit le bruit dans vos résultats.
 
-   ```
-   AzureDiagnostics
+   ```kusto
+      AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
    | where Query_s != "?api-version=2020-06-30&search=*"
@@ -144,9 +144,9 @@ Ajoutez une colonne de durée pour obtenir les valeurs de toutes les requêtes, 
 
 1. Dans la section Surveillance, sélectionnez **Journaux** pour rechercher des informations de journal.
 
-1. Exécutez la requête suivante pour renvoyer des requêtes, triées par durée en millisecondes. Les requêtes longues figurent en haut.
+1. Exécutez la requête suivante pour renvoyer des requêtes de base, triées par durée en millisecondes. Les requêtes longues figurent en haut.
 
-   ```
+   ```Kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search"
@@ -182,10 +182,6 @@ Lorsque vous repoussez les limites d'une configuration réplica-partition partic
    ![Détails de l'alerte](./media/search-monitor-usage/alert-details.png "Détails de l’alerte")
 
 Si vous avez spécifié une notification par e-mail, vous recevrez un e-mail de « Microsoft Azure » dont l’objet sera : « Azure : Gravité activée 3 `<your rule name>` ».
-
-<!-- ## Report query data
-
-Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

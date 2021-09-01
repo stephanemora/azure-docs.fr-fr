@@ -1,15 +1,15 @@
 ---
 title: Exemples de requêtes Azure Resource Graph pour Azure Advisor
 description: Exemples de requêtes Azure Resource Graph pour Azure Advisor montrant l’utilisation des types de ressources et des tables pour accéder aux ressources et aux propriétés liées à Azure Advisor.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 67f7e558ff134f53a30ab9e4fdae9a73a4265b0f
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 71010cd64afc93ac1a5949275b05b69e12dc74b5
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860923"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309335"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-advisor"></a>Exemples de requêtes Azure Resource Graph pour Azure Advisor
 

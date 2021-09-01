@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f279ea2011b37c01b1ef9ec67a2b5642f7e640b8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9d8a72f4457c6759dc93fcdeae03abd1d4c8b168
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078091"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729828"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
-Cet article fournit des exemples de requête et des instructions sur l’utilisation du **langage de requête Azure Digital Twins** pour interroger votre [graphe de jumeaux](concepts-twins-graph.md) afin d’obtenir des informations. (Pour une présentation du langage de requête, consultez [Concepts : langage de requête](concepts-query-language.md).)
+Cet article fournit des exemples de requête et des instructions sur l’utilisation du **langage de requête Azure Digital Twins** pour interroger votre [graphe de jumeaux](concepts-twins-graph.md) afin d’obtenir des informations. (Pour une présentation du langage de requête, consultez [Langage de requête](concepts-query-language.md).)
 
-Il contient des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit également comment exécuter vos requêtes une fois que vous les avez écrites, avec l’[API de requête](/rest/api/digital-twins/dataplane/query) ou un [SDK](concepts-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
+L’article contient des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit également comment exécuter vos requêtes une fois que vous les avez écrites, avec l’[API de requête](/rest/api/digital-twins/dataplane/query) ou un [SDK](concepts-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
 
 > [!NOTE]
 > Si vous exécutez les exemples de requête ci-dessous avec un appel d’API ou de SDK, vous devez condenser le texte de la requête sur une seule ligne.
@@ -47,7 +47,7 @@ Vous pouvez également obtenir des jumeaux en fonction de **la définition ou no
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty2":::
 
-Cela vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag*, comme décrit dans [Ajouter des étiquettes à des jumeaux numériques](how-to-use-tags.md). Voici une requête qui récupère tous les jumeaux étiquetés avec *red* :
+Cette requête vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag*, comme décrit dans [Ajouter des étiquettes à des jumeaux numériques](how-to-use-tags.md). Voici une requête qui récupère tous les jumeaux étiquetés avec *red* :
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
@@ -98,8 +98,8 @@ Lorsque vous effectuez une interrogation basée sur les **relations** des jumeau
 
 Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Contrairement aux langages de type SQL « classiques », chaque expression de cette clause `FROM` n’est pas une table. La clause `FROM` exprime plutôt un parcours des relations entre les entités. Pour parcourir les relations, Azure Digital Twins utilise une version personnalisée de `JOIN`.
 
-Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que les relations ne peuvent pas être interrogées indépendamment et doivent être liées à un jumeau.
-Pour gérer cela, le mot clé `RELATED` est utilisé dans la clause `JOIN` pour extraire l’ensemble d’un certain type de relation provenant de la collection de jumeaux. La requête doit ensuite filtrer dans la clause `WHERE` le(s) jumeau(x) spécifique(s) à utiliser dans la requête de relation (à l’aide des valeurs `$dtId` des jumeaux).
+Rappelez-vous qu’avec les capacités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux, ce qui signifie que les relations ici ne peuvent être interrogées indépendamment et doivent être liées à un jumeau.
+Pour refléter ce fait, le mot clé `RELATED` est utilisé dans la clause `JOIN` pour extraire l’ensemble d’un certain type de relation provenant de la collection de jumeaux. La requête doit ensuite filtrer dans la clause `WHERE` pour indiquer le(s) jumeau(x) spécifique(s) à utiliser dans la requête de relation (à l’aide des valeurs `$dtId` des jumeaux).
 
 Les sections suivantes fournissent des exemples.
 
@@ -108,6 +108,8 @@ Les sections suivantes fournissent des exemples.
 Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance*.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
+
+Le type de relation (`contains` dans l’exemple ci-dessus) est indiqué par le champ **name** de la relation dans sa [définition DTDL](concepts-models.md#basic-relationship-example).
 
 > [!NOTE]
 > Le développeur n’a pas besoin de mettre en corrélation ce `JOIN` avec une valeur de clé dans la clause `WHERE` (ni de spécifier une valeur de clé inline avec la définition `JOIN`). Cette corrélation est calculée automatiquement par le système, puisque les propriétés de relation identifient l’entité cible.
@@ -137,7 +139,7 @@ Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de
 
 ### <a name="query-with-multiple-joins"></a>Interroger avec plusieurs clauses JOIN
 
-Jusqu’à cinq `JOIN`s sont pris en charge dans une requête unique. Cela vous permet de parcourir plusieurs niveaux de relations à la fois. 
+Jusqu’à cinq clauses `JOIN` sont prises en charge dans une même requête, ce qui vous permet de traverser plusieurs niveaux de relations à la fois. 
 
 Pour effectuer une requête à plusieurs niveaux de la relation, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
 
@@ -187,7 +189,7 @@ La requête suivante effectue les mêmes opérations que l’exemple précédent
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections4":::
 
-Voici une requête similaire qui interroge le même jeu que ci-dessus, mais projette uniquement la propriété *Consumer.name* en tant que `consumerName` et projette le Factory complet en tant que jumeau.
+Voici une requête similaire qui interroge le même jeu que ci-dessus, mais projette uniquement la propriété *Consumer.name* en tant que `consumerName` et projette la fabrique complète en tant que jumeau.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="Projections5":::
 
@@ -215,7 +217,7 @@ Par exemple, imaginons un scénario dans lequel des immeubles comprennent des é
 
 ## <a name="other-compound-query-examples"></a>Autres exemples de requêtes composées
 
-Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs de combinaison pour inclure plus de détails dans une seule requête. Voici quelques exemples supplémentaires de requêtes composées qui interrogent plusieurs types de descripteur de jumeau à la fois.
+Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs de combinaison pour inclure plus de détails dans une seule requête. Voici quelques autres exemples de requêtes composées qui interrogent plusieurs types de descripteur de jumeau à la fois.
 
 * Parmi les appareils qui équipent Room 123 (la salle 123), retournez les appareils MxChip qui remplissent le rôle d’Operator (opérateur)
     :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="OtherExamples1":::
@@ -237,7 +239,7 @@ L’extrait de code suivant illustre l’appel au [SDK .NET (C#)](/dotnet/api/ov
 La requête utilisée dans cet appel retourne une liste de jumeaux numériques, que l’exemple ci-dessus représente avec des objets [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true). Le type de retour de vos données pour chaque requête dépend des termes que vous spécifiez avec l’ instruction `SELECT` :
 * Les requêtes qui commencent par `SELECT * FROM ...` retournent une liste de jumeaux numériques (qui peuvent être sérialisés sous la forme d’objets `BasicDigitalTwin` ou d’autres types de jumeaux numériques personnalisés que vous avez peut-être créés).
 * Les requêtes qui commencent au format `SELECT <A>, <B>, <C> FROM ...` retournent un dictionnaire avec des clés `<A>`, `<B>` et `<C>`.
-* D’autres formats d’instructions `SELECT` peuvent être élaborés pour retourner des données personnalisées. Vous pouvez envisager de créer vos propres classes pour gérer des jeux de résultats très personnalisés. 
+* D’autres formats d’instructions `SELECT` peuvent être élaborés pour retourner des données personnalisées. Vous pouvez envisager de créer vos propres classes pour gérer des jeux de résultats personnalisés. 
 
 ### <a name="query-with-paging"></a>Requête avec pagination
 

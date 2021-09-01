@@ -1,5 +1,5 @@
 ---
-title: Intégration du DK Azure Percept au système 80/20
+title: Intégration Azure Percept DK et 80/20
 description: Apprenez-en davantage sur l’intégration du DK Azure Percept au système de rails 80/20.
 author: mimcco
 ms.author: mimcco
@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: 32254b1ca094ee3e34ca95088210bb7c2e7bc0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bdf6cf80b7773cd3fff1072742640b2112e89eec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562747"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524486"
 ---
 # <a name="azure-percept-dk-8020-integration-overview"></a>Vue d’ensemble de l’intégration du DK Azure Percept au système 80/20
 

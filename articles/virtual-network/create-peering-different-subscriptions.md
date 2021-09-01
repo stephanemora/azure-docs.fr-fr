@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 5f03ad4019a448d36ac43dee215a1d1b1bd06d23
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ee044e84992b606eab8194d782d755c0d4a9cc74
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791362"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033746"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Créer un appairage de réseau virtuel – Gestionnaire des ressources, abonnements et locataires Azure Active Directory différents
 
@@ -57,10 +57,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Emplacement** : *USA Est*
 4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)** .
-6. Sous **myVnetA - Contrôle d’accès (IAM)** , sélectionnez **+ Ajouter une attribution de rôle**.
-7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
-8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur.
-9. Sélectionnez **Enregistrer**.
+6. Affectez le rôle **Contributeur de réseau** à *UserB* en suivant la procédure décrite dans [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 10. Sous **myVnetA - Contrôle d’accès (IAM)** , sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 12. Effectuez les étapes 2 et 3, en entrant ou en sélectionnant les valeurs suivantes à l’étape 3 :
@@ -75,7 +72,7 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
 
 13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand **myVnetB** apparaît dans les résultats de recherche, sélectionnez cette entrée.
 14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
-15. Sous **myVnetB**, sélectionnez **Contrôle d’accès (IAM)** , puis suivez les étapes 5 à 10 pour myVnetB, en entrant **UserA** à l’étape 8.
+15. Sélectionnez **Contrôle d’accès (IAM)** sous **myVnetB**, puis attribuez le rôle **Contributeur de réseau** à *UserA* à l’aide de la procédure décrite dans [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 16. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 17. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 18. Sélectionnez **myVnetA**.

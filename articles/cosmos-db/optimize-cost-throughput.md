@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0c95fc9e416399b5c8fe032e0d3af0c3b7f9cf6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b1ee7be04083c887bbd37b799a274f988aaf158
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433571"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112517072"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,7 +35,7 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
-2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous devrez accepter certains compromis concernant les avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
+2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous devrez accepter certains compromis concernant les avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé de réévaluer régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
 
 3. Vous souhaitez absorber les pics imprévus dans les charges de travail en regroupant le débit au niveau de la base de données qui subit un pic inattendu dans la charge de travail. 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 8a4a9834b35055fbd5be4fd50f1d5413d5e54a35
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 13d020ed0ea6310f49cbe37555fc2a9048b9f042
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758120"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465382"
 ---
 # <a name="use-azure-marketplace-image-to-create-vm-image-for-your-azure-stack-edge-pro-gpu"></a>Utiliser une image de la Place de marché Azure pour créer une image de machine virtuelle pour votre Azure Stack Edge Pro GPU
 
@@ -45,7 +45,7 @@ Avant de pouvoir utiliser des images de la Place de marché Azure pour Azure Sta
 
 Vous allez maintenant choisir une image de la Place de marché Azure spécifique que vous souhaitez utiliser. La Place de marché Azure héberge des milliers d’images de machine virtuelle. 
 
-Pour trouver certaines des images de la Place de marché les plus courantes qui correspondent à vos critères de recherche, exécutez la commande suivante.  
+Pour trouver certaines des images de la Place de marché les plus couramment utilisées qui correspondent à vos critères de recherche, exécutez la commande suivante.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
@@ -137,7 +137,9 @@ Dans cet exemple, nous allons sélectionner Windows Server 2019 Datacenter Cor
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="Liste des images de la Place de marché":::
 
-Vous trouverez ci-dessous une liste d’URN pour certaines des images les plus courantes. Si vous souhaitez la dernière version d’un système d’exploitation particulier, le numéro de version peut être remplacé par « latest » dans l’URN. Par exemple, « MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest ». 
+### <a name="commonly-used-marketplace-images"></a>Images de la Place de marché couramment utilisées
+
+Vous trouverez ci-dessous une liste d’URN pour certaines des images les plus couramment utilisées. Si vous souhaitez la dernière version d’un système d’exploitation particulier, le numéro de version peut être remplacé par « latest » dans l’URN. Par exemple, « MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest ». 
 
 
 | Système d''exploitation              | SKU                                     | Version               | URN                                                                                       |

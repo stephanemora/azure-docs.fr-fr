@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 08/16/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 4273e69e3143c25fb78961c5b6b128b69b69dbd1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 625df6ed5147b77a9829b6e7b3396f4855068d62
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068120"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534869"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -44,6 +44,8 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 * Japon Est et Japon Ouest
 * Europe Nord et Europe Ouest
 * Royaume-Uni Sud et Royaume-Uni Ouest
+* Émirats arabes unis Nord, Émirats arabes unis Centre
+* Norvège Est et Norvège Ouest
 
 ### <a name="azure-regional-non-standard-pairs"></a>Paires non standard de régions Azure
 
@@ -56,14 +58,15 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 *   Australie Est et Asie Sud-Est 
 *   Allemagne Centre-Ouest et Royaume-Uni Sud
 *   Allemagne Centre-Ouest et Europe Ouest
+*   Allemagne Centre-Ouest et France Centre
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 
-Les objectifs de point de récupération (RPO) ou la perte maximale de données tolérable sont définis comme le double de la planification de la réplication.  Le RPO réel observé peut varier en fonction de facteurs tels que la taille totale du jeu de données, ainsi que le taux de modification, le pourcentage de remplacements de données et la bande passante de réplication disponible pour le transfert.   
+L’objectif de point de récupération (RPO) indique le moment où les données peuvent être récupérées. L’objectif de RPO est généralement inférieur à deux fois la planification de la réplication, mais peut varier. Dans certains cas, il peut dépasser le RPO cible en fonction de facteurs tels que la taille totale du jeu de données, le taux de modification, le pourcentage de remplacements de données et la bande passante de réplication disponible pour le transfert.   
 
 * Pour une planification de réplication de 10 minutes, le RPO maximal est de 20 minutes.  
-* Pour une planification de la réplication horaire, le RPO maximal est de 2 heures.  
-* Pour une planification de réplication quotidienne, le RPO maximal est de 2 jours.  
+* Pour le calendrier de réplication horaire, le RPO typique est inférieur à deux heures.  
+* Pour le calendrier de réplication quotidien, le RPO typique est inférieur à deux jours.  
 
 L’objectif de délai de récupération (RTO), ou le temps d’arrêt maximal des applications professionnelles, est déterminé par des facteurs d’affichage de l’application et d’accès aux données sur le deuxième site. La partie de stockage du RTO pour rompre la relation d’homologation afin d’activer le volume de destination et de fournir l’accès aux données, en lecture et en écriture, dans le deuxième site, est censée durer une minute maximum.
 

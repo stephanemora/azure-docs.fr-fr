@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/25/2021
-ms.custom: how-to
-ms.openlocfilehash: 53fa68fdffd27c1d48322104c541894c6f9c4dd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 8/11/2021
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751250"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122564016"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Utiliser des points de terminaison de traitement de lots (préversion) pour le scoring par lots
 
@@ -27,7 +27,7 @@ Cet article vous montre comment effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Créer un point de terminaison de traitement de lots avec une expérience sans code pour le modèle MLflow
 > * Vérifier le détail d’un point de terminaison de traitement de lots
-> * Démarrer un travail de scoring par lots à l’aide de l’interface CLI
+> * Démarrer un travail de scoring par lots à l’aide de l’interface Azure CLI
 > * Surveiller la progression de l’exécution du travail de scoring par lots et vérifier les résultats du scoring
 > * Ajouter un nouveau déploiement à un point de terminaison de traitement de lots
 > * Démarrer un travail de scoring par lots à l’aide de REST
@@ -36,7 +36,7 @@ Cet article vous montre comment effectuer les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure – Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
+* Un abonnement Azure – Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/) dès aujourd’hui.
 
 * Interface de ligne de commande Azure CLI et extension ML.
 
@@ -64,7 +64,7 @@ Ajoutez et configurez l’extension Azure ML :
 az extension add -n ml
 ```
 
-Pour plus d’informations sur la configuration de l’extension ML, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
+Pour plus d’informations sur la configuration de l’extension ML, consultez [Installer, configurer et utiliser l’interface CLI (v2) (préversion)](how-to-configure-cli.md).
 
 * Référentiel d’exemples
 
@@ -77,16 +77,14 @@ Le scoring par lots s’exécute uniquement sur des ressources de cloud computin
 Exécutez le code suivant pour créer une cible [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) à usage général. Pour plus d’informations sur les cibles de calcul, consultez [Que sont les cibles de calcul dans Azure Machine Learning ?](./concept-compute-target.md).
 
 ```azurecli
-az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type amlcompute --min-instances 0 --max-instances 5
 ```
 
 ## <a name="create-a-batch-endpoint"></a>Créer un point de terminaison de traitement de lots
 
 Si vous utilisez un modèle MLflow, vous pouvez utiliser la création d’un point de terminaison de traitement de lots sans code. Autrement dit, vous n’avez pas besoin de préparer un script et un environnement de scoring, les deux pouvant être générés automatiquement. Pour plus d’informations, consultez [Entraîner et suivre des modèles ML avec MLflow et Azure Machine Learning (préversion)](how-to-use-mlflow.md).
 
-```azurecli
-az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 Fichier YAML définissant le point de terminaison de traitement de lots MLFlow :
 
@@ -120,15 +118,13 @@ Attributs du déploiement :
 
 Une fois qu’un point de terminaison batch a été créé, vous pouvez utiliser `show` pour vérifier les détails. Utilisez le [`--query parameter`](/cli/azure/query-azure-cli) pour obtenir uniquement des attributs spécifiques à partir des données retournées.
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
-## <a name="start-a-batch-scoring-job-using-cli"></a>Démarrer un travail de scoring par lots à l’aide de l’interface CLI
+## <a name="start-a-batch-scoring-job-using-the-azure-cli"></a>Démarrer un travail de scoring par lots à l’aide de l’interface CLI
 
-Une charge de travail de scoring par lots s’exécute en tant que travail hors connexion. Le scoring par lots est conçu pour traiter des données volumineuses. Les entrées sont traitées en parallèle sur le cluster de calcul. Une partition de données est affectée à un processus sur un nœud. Un nœud unique avec plusieurs processus aura plusieurs partitions exécutées en parallèle. Par défaut, le scoring par lots stocke les sorties de scoring dans le stockage Blob. Vous pouvez démarrer un travail de scoring par lots à l’aide de l’interface CLI en transmettant les entrées de données. Vous pouvez également configurer l’emplacement des sorties et remplacer certains paramètres pour obtenir les performances optimales.
+Une charge de travail de scoring par lots s’exécute en tant que travail hors connexion. Le scoring par lots est conçu pour traiter des données volumineuses. Les entrées sont traitées en parallèle sur le cluster de calcul. Une partition de données est affectée à un processus sur un nœud. Un nœud unique avec plusieurs processus aura plusieurs partitions exécutées en parallèle. Par défaut, le scoring par lots stocke les sorties de scoring dans le stockage Blob. Vous pouvez démarrer un travail de scoring par lots à l’aide de l’interface Azure CLI en transmettant les entrées de données. Vous pouvez également configurer l’emplacement des sorties et remplacer certains paramètres pour obtenir les performances optimales.
 
-### <a name="start-a-bath-scoring-job-with-different-inputs-options"></a>Démarrer un travail de scoring de lot avec différentes options d’entrée
+### <a name="start-a-batch-scoring-job-with-different-input-options"></a>Démarrer un travail de scoring de lot avec différentes options d’entrée
 
 Vous avez le choix entre trois options pour spécifier les entrées de données.
 
@@ -187,30 +183,26 @@ Certains paramètres peuvent être remplacés quand vous démarrez un travail de
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
 ```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="check-batch-scoring-job-execution-progress"></a>Vérifier la progression de l’exécution du travail de scoring par lots
 
 Les travaux de scoring par lots prennent généralement un certain temps pour traiter l’ensemble des entrées. Vous pouvez surveiller la progression du travail à partir du studio Azure Machine Learning. Le lien Studio est fourni dans la réponse de `invoke`, en tant que valeur de `interactionEndpoints.Studio.endpoint`.
 
-Vous pouvez également consulter les détails du travail ainsi que son état à l’aide de l’interface CLI.
+Vous pouvez également consulter les détails du travail ainsi que son état à l’aide de l’interface Azure CLI.
 
 Obtenez le nom du travail à partir de la réponse à l’appel.
 
-```azurecli
-job_name=$(az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 Utilisez `job show` pour vérifier les détails et l’état d’un travail de scoring par lots.
 
-```azurecli
-az ml job show --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 Effectuez le streaming des journaux des travaux à l’aide de `job stream`.
 
-```azurecli
-az ml job stream --name $job_name
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="stream_job_logs_to_console" :::
+
 
 ## <a name="check-batch-scoring-results"></a>Vérifier les résultats du scoring par lots
 
@@ -234,9 +226,7 @@ Un point de terminaison de traitement de lots peut avoir plusieurs déploiements
 
 Utilisez la commande suivante pour ajouter un nouveau déploiement à un point de terminaison de traitement de lots existant.
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" range="65" :::
 
 Cet exemple utilise un modèle non-MLflow. Lors de l’utilisation d’un modèle non-MLflow, vous devez spécifier l’environnement et un script de scoring dans le fichier YAML :
 
@@ -252,29 +242,21 @@ Autres attributs de déploiement pour le modèle non-MLflow :
 
 Pour passer en revue les détails de votre déploiement, exécutez :
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### <a name="activate-the-new-deployment"></a>Activer le nouveau déploiement
 
 Pour l’inférence par lots, vous devez envoyer 100 % des demandes au déploiement souhaité. Pour définir votre déploiement nouvellement créé comme cible, utilisez :
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="switch_traffic" :::
 
 Si vous réexaminez les détails de votre déploiement, vous verrez vos modifications :
 
-```azurecli
-az ml endpoint show --name mybatchedp --type batch
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 Vous pouvez maintenant appeler un travail de scoring par lots avec ce nouveau déploiement :
 
-```azurecli
-az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## <a name="start-a-batch-scoring-job-using-rest"></a>Démarrer un travail de scoring par lots à l’aide de REST
 
@@ -282,28 +264,17 @@ Les points de terminaison batch ont des URI de scoring pour l’accès REST. RES
 
 1. Obtenez `scoring_uri` :  
 
-```azurecli
-scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_scoring_uri" :::
 
 2. Obtenez le jeton d’accès :
 
-```azurecli
-auth_token=$(az account get-access-token --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="get_token" :::
+
 
 3. Utilisez `scoring_uri`, le jeton d’accès et les données JSON pour publier (POST) une demande et démarrer un travail de scoring par lots :
 
-```bash
-curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
-"properties": {
-  "dataset": {
-    "dataInputType": "DataUrl",
-    "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
-    }
-  }
-}'
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_rest":::
+
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -321,3 +292,4 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 Dans cet article, vous avez appris à créer et à appeler des points de terminaison batch, ce qui vous permet d’effectuer le scoring de grandes quantités de données. Pour en savoir plus sur Azure Machine Learning, consultez les articles suivants :
 
 * [Résolution des problèmes de points de terminaison de traitement de lots](how-to-troubleshoot-batch-endpoints.md)
+* [Déployer et scorer un modèle de machine learning avec un point de terminaison en ligne managé (préversion)](how-to-deploy-managed-online-endpoints.md)

@@ -1,23 +1,26 @@
 ---
-title: Vue d’ensemble du connecteur Azure Data Factory
-description: Découvrez les connecteurs pris en charge dans Data Factory.
+title: Vue d’ensemble des connecteurs
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez les connecteurs pris en charge dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: jianleishen
-ms.openlocfilehash: 1e25ba74eddbb39467fabbd6bfb60d4a2c7d049b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 85c3043da1153f58731b0131b1e0128aaa4088ad
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793664"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641518"
 ---
-# <a name="azure-data-factory-connector-overview"></a>Vue d’ensemble du connecteur Azure Data Factory
+# <a name="azure-data-factory-and-azure-synapse-analytics-connector-overview"></a>Vue d’ensemble du connecteur Azure Synapse Analytics et Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory prend en charge les magasins de données et les formats suivants par le biais de l’activité de copie, le flux de données, l’activité de recherche, l’activité d’extraction des métadonnées et l’activité de suppression. Cliquez sur chaque banque de données pour découvrir les fonctionnalités prises en charge et les configurations correspondantes en détail.
+Les pipelines Azure Data Factory et Azure Synapse Analytics prennent en charge les magasins de données et les formats suivants par le biais de l’activité de copie, le flux de données, l’activité de recherche, l’activité d’extraction des métadonnées et l’activité de suppression. Cliquez sur chaque banque de données pour découvrir les fonctionnalités prises en charge et les configurations correspondantes en détail.
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
@@ -25,18 +28,18 @@ Azure Data Factory prend en charge les magasins de données et les formats suiva
 
 ## <a name="integrate-with-more-data-stores"></a>Intégrer avec d’autres magasins de données
 
-Azure Data Factory peut atteindre un ensemble plus large de magasins de données que la liste mentionnée ci-dessus. Si vous devez déplacer des données vers/depuis un magasin de données qui ne figure pas dans la liste des connecteurs intégrés d’Azure Data Factory, voici quelques options extensibles :
+Les pipelines Azure Data Factory et Synapse peuvent atteindre un ensemble plus large de magasins de données que la liste mentionnée ci-dessus. Si vous devez déplacer des données vers/depuis un magasin de données qui ne figure pas dans la liste des connecteurs intégrés au service, voici quelques options extensibles :
 - Pour les bases de données et les entrepôts de données, vous pouvez généralement trouver un pilote ODBC correspondant, avec lequel vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md).
 - Pour les applications SaaS :
     - Si elle fournit des API RESTful, vous pouvez utiliser un [connecteur REST générique](connector-rest.md).
     - Si elle contient un flux OData, vous pouvez utiliser un [connecteur OData générique](connector-odata.md).
     - Si elle fournit des API SOAP, vous pouvez utiliser un [connecteur HTTP générique](connector-http.md).
     - Si elle utilise le pilote ODBC, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md).
-- Pour les autres, vérifiez si vous pouvez charger des données ou exposer des données comme n’importe quel magasin de données pris en charge par ADF, par exemple Azure Blob/File/FTP/SFTP/etc., puis laissez ADF se charger du reste. Vous pouvez appeler un mécanisme personnalisé de chargement des données via [une fonction Azure](control-flow-azure-function-activity.md), [une activité personnalisée](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [une activité web](control-flow-web-activity.md), etc.
+- Pour les autres, vérifiez si vous pouvez charger des données ou exposer des données comme n’importe quel magasin de données pris en charge, par exemple Azure blob/File/FTP/SFTP/etc., puis laissez le service se charger du reste. Vous pouvez appeler un mécanisme personnalisé de chargement des données via [une fonction Azure](control-flow-azure-function-activity.md), [une activité personnalisée](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [une activité web](control-flow-web-activity.md), etc.
 
 ## <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 
-Azure Data Factory prend en charge les formats de fichier suivants. Reportez-vous à chaque article pour les paramètres basés sur le format.
+Les formats de fichier suivants sont pris en charge. Reportez-vous à chaque article pour les paramètres basés sur le format.
 
 - [Format Avro](format-avro.md)
 - [Format binaire](format-binary.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765896"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370848"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
 
@@ -191,7 +191,7 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Appliquer des mises à jour
 
-Utilisez `az maintenance apply update` pour appliquer les mises à jour en attente. En cas de réussite, cette commande renverra un fichier JSON contenant les détails de la mise à jour.
+Utilisez `az maintenance apply update` pour appliquer les mises à jour en attente. En cas de réussite, cette commande renverra un fichier JSON contenant les détails de la mise à jour. L’application des appels de mise à jour peut prendre jusqu’à 2 heures.
 
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 

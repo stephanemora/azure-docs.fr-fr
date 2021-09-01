@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42326cd4080fe6737fd14f8dc2c5a2028c20077f
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 890bf61eb98218df53a6aa66c9e8562881b8d2df
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854537"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112895595"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Connexions AD FS dans Azure AD avec Connect Health - préversion
 
@@ -102,6 +102,9 @@ L’agent Azure AD Connect Health pour AD FS met en corrélation les ID d’év�
 
 ***Pourquoi est-ce que je vois NotSet ou NotApplicable dans l’ID/le nom de l’application pour certaines connexions AD FS ?***
 Le rapport de connexion AD FS affichera les identifiants OAuth dans le champ ID d’application pour les connexions OAuth. Dans les scénarios de connexion WS-Fed, WS-Trust, l’ID d’application sera NotSet ou NotApplicable et les ID de ressource et les identificateurs de partie de confiance seront présents dans le champ ID de ressource.
+
+***Pourquoi les champs ID de ressource et Nom de ressource sont-ils indiqués comme étant non définis ?***
+Les champs ResourceId/Name seront « NotSet » dans certains cas d’erreur, comme « Nom d’utilisateur et mot de passe incorrects » et dans les connexions ayant échoué basées sur WSTrust.
 
 ***Y a-t-il d’autres problèmes connus avec le rapport dans la préversion ?***
 Le rapport présente un problème connu où le champ « Condition d’authentification » de l’onglet « Informations de base » est renseigné comme une valeur d’authentification à facteur unique pour les connexions AD FS, quelle que soit la connexion. En outre, l’onglet Détails de l’authentification affiche « Principal ou secondaire » dans le champ Exigence, avec un correctif en cours pour différencier les types d’authentification principal et secondaire.

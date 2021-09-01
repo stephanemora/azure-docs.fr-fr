@@ -2,18 +2,19 @@
 title: Intégration et livraison continues dans Azure Data Factory
 description: Découvrez comment utiliser l’intégration et la livraison continues pour déplacer les pipelines Data Factory d’un environnement (développement, test, production) à un autre.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d85659730ae78277056ec88c8a35c545646b38ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971974"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532114"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -97,9 +98,9 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
     d.  Dans la liste **Actions**, sélectionnez **Créer ou mettre à jour un groupe de ressources**.
 
-    e.  Sélectionnez le bouton de sélection ( **…** ) en regard de la zone **Modèle**. Recherchez le modèle Azure Resource Manager généré dans votre branche de publication du dépôt Git configuré. Recherchez le fichier `ARMTemplateForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
+    e.  Sélectionnez le bouton de sélection ( **…** ) en regard de la zone **Modèle**. Recherchez le modèle Azure Resource Manager généré dans votre branche de publication du dépôt Git configuré. Recherchez le fichier `ARMTemplateForFactory.json` dans le dossier &lt;FactoryName&gt; de la branche adf_publish.
 
-    f.  Sélectionnez **…** en regard de la zone **Paramètres du modèle** pour choisir le fichier de paramètres. Recherchez le fichier `ARMTemplateParametersForFactory.json` dans le dossier <FactoryName> de la branche adf_publish.
+    f.  Sélectionnez **…** en regard de la zone **Paramètres du modèle** pour choisir le fichier de paramètres. Recherchez le fichier `ARMTemplateParametersForFactory.json` dans le dossier &gt;FactoryName&lt; de la branche adf_publish.
 
     g.  Sélectionnez **…** en regard de la zone **Remplacer les paramètres du modèle** et entrez les valeurs de paramètre souhaitées pour la fabrique de données cible. Pour les informations d’identification provenant d’Azure Key Vault, entrez le nom du secret entre guillemets doubles. Par exemple, si le nom du secret est cred1, entrez **"$(cred1)"** pour cette valeur.
 

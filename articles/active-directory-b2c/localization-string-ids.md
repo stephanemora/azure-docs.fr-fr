@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50bf5f3188728db41f74b6fefe5946ef2127efe3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7e0f3e2ab306c46851e4c2ffcb6acf5824326282
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062305"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113564353"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -513,11 +513,12 @@ Voici les ID d’un message d’erreur de [profil technique à mot de passe à u
 
 | id | Valeur par défaut |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |Le mot de passe unique fourni pour la vérification a dépassé le nombre maximum de tentatives |
-|UserMessageIfSessionDoesNotExist |Une session de vérification du mot de passe à usage unique a expiré |
-|UserMessageIfSessionConflict |Une session de vérification du mot de passe à usage unique a un conflit |
-|UserMessageIfInvalidCode |Le mot de passe à usage unique fourni pour la vérification est incorrect |
-|UserMessageIfVerificationFailedRetryAllowed |Ce code est incorrect. Réessayez. | 
+| UserMessageIfSessionDoesNotExist | Non | Message à afficher à l'utilisateur si la session de vérification du code a expiré. Indique soit que le code a expiré, soit que le code n'a jamais été généré pour un identificateur donné. |
+| UserMessageIfMaxRetryAttempted | Non | Message à afficher à l'utilisateur s'il a dépassé les tentatives de vérification maximales autorisées. |
+| UserMessageIfMaxNumberOfCodeGenerated | Non | Message à afficher à l’utilisateur si la génération de code a dépassé le nombre maximal de tentatives autorisé. |
+| UserMessageIfInvalidCode | Non | Message à afficher à l'utilisateur s'il a fourni un code non valide. |
+| UserMessageIfVerificationFailedRetryAllowed | Non | Message à afficher à l’utilisateur s’il a fourni un code non valide et que l’utilisateur est autorisé à fournir le code correct.  |
+|UserMessageIfSessionConflict|Non| Message à afficher à l’utilisateur si le code ne peut pas être vérifié.|
 
 ### <a name="one-time-password-example"></a>Exemple de mot de passe à usage unique
 
@@ -526,9 +527,10 @@ Voici les ID d’un message d’erreur de [profil technique à mot de passe à u
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

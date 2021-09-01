@@ -1,5 +1,5 @@
 ---
-title: Montage du partage de fichiers Azure via SMB avec MacOS | Microsoft Docs
+title: Monter un partage de fichiers SMB Azure sur macOS | Microsoft Docs
 description: Découvrez comment monter un partage de fichiers Azure via SMB avec macOS à l’aide de Finder ou de Terminal. Azure Files est le système de fichiers cloud facile à utiliser de Microsoft.
 author: roygara
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4bbaed3cf35d25a2441a27755c73dc144a07510
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91326063"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117768"
 ---
-# <a name="mount-azure-file-share-over-smb-with-macos"></a>Montage du partage de fichiers Azure via SMB avec MacOS
+# <a name="mount-smb-azure-file-share-on-macos"></a>Monter un partage de fichiers SMB Azure sur macOS
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés avec le protocole SMB 3, conforme à la norme du secteur, par macOS High Sierra 10.13 et versions ultérieures. Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur macOS : l’une avec l’interface utilisateur Finder et l’autre avec Terminal.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Conditions préalables pour le montage d’un partage de fichiers Azure sous MacOS
@@ -23,6 +23,13 @@ ms.locfileid: "91326063"
 * **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
 * **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Sur votre machine client (Mac), vérifiez que votre pare-feu ne bloque pas le port TCP 445.
+
+## <a name="applies-to"></a>S’applique à
+| Type de partage de fichiers | SMB | NFS |
+|-|:-:|:-:|
+| Partages de fichiers Standard (GPv2), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Standard (GPv2), GRS/GZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Partages de fichiers Premium (FileStorage), LRS/ZRS | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montage d’un partage de fichiers Azure via Finder
 1. **Ouvrez Finder** : Finder est ouvert par défaut sur macOS, mais vous pouvez vérifier qu’il s’agit bien de l’application actuellement sélectionnée en cliquant sur l’icône de visage macOS dans la barre :  

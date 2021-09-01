@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 351c959a4d3b6cc53064b9d1b65c1282647f308e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 08/17/2021
+ms.openlocfilehash: e4e6af7e0fd475d60c38a021d2cefec4cbc39de3
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605397"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122527771"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -30,16 +30,16 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 | B1ms                 | 1      | 2 Gio       | 50              | 47                   |
 | B2s                  | 2      | 4 Gio       | 100             | 97                   |
 | **Usage général**  |        |             |                 |                      |
-| D2s_v3               | 2      | 8 Gio       | 214             | 211                  |
-| D4s_v3               | 4      | 16 Gio      | 429             | 426                  |
-| D8s_v3               | 8      | 32 Gio      | 859             | 856                  |
-| D16s_v3              | 16     | 64 Gio      | 1718            | 1715                 |
-| D32s_v3              | 32     | 128 Go     | 3437            | 3434                 |
+| D2s_v3               | 2      | 8 Gio       | 859             | 856                  |
+| D4s_v3               | 4      | 16 Gio      | 1719            | 1716                 |
+| D8s_v3               | 8      | 32 Gio      | 3438            | 3435                 |
+| D16s_v3              | 16     | 64 Gio      | 5 000            | 4997                 |
+| D32s_v3              | 32     | 128 Go     | 5 000            | 4997                 |
 | D48s_v3              | 48     | 192 Gio     | 5 000            | 4997                 |
 | D64s_v3              | 64     | 256 Gio     | 5 000            | 4997                 |
 | **Mémoire optimisée** |        |             |                 |                      |
-| E2s_v3               | 2      | 16 Gio      | 1718            | 1715                 |
-| E4s_v3               | 4      | 32 Gio      | 3437            | 3434                 |
+| E2s_v3               | 2      | 16 Gio      | 1719            | 1716                 |
+| E4s_v3               | 4      | 32 Gio      | 3438            | 3433                 |
 | E8s_v3               | 8      | 64 Gio      | 5 000            | 4997                 |
 | E16s_v3              | 16     | 128 Go     | 5 000            | 4997                 |
 | E32s_v3              | 32     | 256 Gio     | 5 000            | 4997                 |
@@ -47,7 +47,7 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 | E64s_v3              | 64     | 432 Gio     | 5 000            | 4997                 |
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
-> FATAL:  sorry, too many clients already
+> FATAL: sorry, too many clients already.
 
 > [!IMPORTANT]
 > Pour une expérience optimale, nous vous recommandons d’utiliser un regroupement de connexions comme PgBouncer pour gérer efficacement les connexions.
@@ -96,7 +96,7 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 
 - Postgres 10 et les versions antérieures ne sont pas prises en charge. Nous vous recommandons d’utiliser l’option [Serveur unique](../overview-single-server.md) si vous avez besoin d’anciennes versions de Postgres.
 - La prise en charge des extensions est actuellement limitée aux extensions `contrib` Postgres.
-- Le regroupement de connexions PgBouncer intégré n’est pas disponible actuellement pour les serveurs de base de données au sein d’un réseau virtuel, ni pour les serveurs expansibles.
+- Le regroupement de connexions PgBouncer intégré n’est pas disponible actuellement pour les serveurs burstables.
 
 ### <a name="stopstart-operation"></a>Opération d’arrêt/démarrage
 

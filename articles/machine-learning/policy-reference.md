@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Machine Learning
 description: Répertorie les définitions de stratégie intégrées d'Azure Policy pour Azure Machine Learning. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 91691f8706c17679ac7dd9ff0c35055ef63a3a86
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: de5aea098b7fbc7c4e9691d9ad2cd9f4c6b5f8e7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606147"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100726"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Définitions de stratégie intégrées d'Azure Policy pour Azure Machine Learning
 

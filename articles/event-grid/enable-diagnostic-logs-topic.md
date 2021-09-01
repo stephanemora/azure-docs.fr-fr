@@ -2,13 +2,13 @@
 title: Azure Event Grid – Activer les journaux de diagnostic pour des rubriques ou domaines
 description: Cet article fournit des instructions pas à pas sur l’activation des journaux de diagnostic pour une rubrique Azure Event Grid.
 ms.topic: how-to
-ms.date: 04/22/2021
-ms.openlocfilehash: 78dfeed0cedfe96d9a0d70411aecc7c7f2c51a72
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/25/2021
+ms.openlocfilehash: 7ae1900c08b78ac5d84f4d36ef48319cd42ebce2
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897772"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969848"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Activer les journaux de diagnostic pour des rubriques ou domaines Azure Event Grid
 Cet article fournit des instructions pas à pas pour activer les paramètres de diagnostic pour des rubriques ou domaines Event Grid.  Ces paramètres vous permettent de capturer et d’afficher des journaux d’**échec de publication et de remise**. 
@@ -109,5 +109,99 @@ Cet article fournit des instructions pas à pas pour activer les paramètres de 
         "message": "Message:outcome=NotFound, latencyInMs=2635, id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx, systemId=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, state=FilteredFailingDelivery, deliveryTime=11/1/2019 12:17:10 AM, deliveryCount=0, probationCount=0, deliverySchema=EventGridEvent, eventSubscriptionDeliverySchema=EventGridEvent, fields=InputEvent, EventSubscriptionId, DeliveryTime, State, Id, DeliverySchema, LastDeliveryAttemptTime, SystemId, fieldCount=, requestExpiration=1/1/0001 12:00:00 AM, delivered=False publishTime=11/1/2019 12:17:10 AM, eventTime=11/1/2019 12:17:09 AM, eventType=Type, deliveryTime=11/1/2019 12:17:10 AM, filteringState=FilteredWithRpc, inputSchema=EventGridEvent, publisher=DIAGNOSTICLOGSTEST-EASTUS.EASTUS-1.EVENTGRID.AZURE.NET, size=363, fields=Id, PublishTime, SerializedBody, EventType, Topic, Subject, FilteringHashCode, SystemId, Publisher, FilteringTopic, TopicCategory, DataVersion, MetadataVersion, InputSchema, EventTime, fieldCount=15, url=sb://diagnosticlogstesting-eastus.servicebus.windows.net/, deliveryResponse=NotFound: The messaging entity 'sb://diagnosticlogstesting-eastus.servicebus.windows.net/eh-diagnosticlogstest' could not be found. TrackingId:c98c5af6-11f0-400b-8f56-c605662fb849_G14, SystemTracker:diagnosticlogstesting-eastus.servicebus.windows.net:eh-diagnosticlogstest, Timestamp:2019-11-01T00:17:13, referenceId: ac141738a9a54451b12b4cc31a10dedc_G14:"
     }
     ```
+
+## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
+Voici un exemple de modèle Azure Resource Manager pour activer les paramètres de diagnostic pour une rubrique Event Grid. Lorsque vous déployez l’exemple de modèle, les ressources suivantes sont créées.
+
+- Une rubrique Event Grid
+- Un espace de travail Log Analytics
+
+Ensuite, un paramètre de diagnostic est créé sur la rubrique pour envoyer des informations de diagnostic à l’espace de travail Log Analytics. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "topic_name": {
+            "defaultValue": "spegrid0917topic",
+            "type": "String"
+        },
+        "log_analytics_workspace_name": {
+            "defaultValue": "splogaw0625",
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "sku": {
+            "defaultValue": "Free",
+            "type": "String"
+        }               
+    },  
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.EventGrid/topics",
+            "apiVersion": "2020-10-15-preview",
+            "name": "[parameters('topic_name')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Basic"
+            },
+            "kind": "Azure",
+            "identity": {
+                "type": "None"
+            },
+            "properties": {
+                "inputSchema": "EventGridSchema",
+                "publicNetworkAccess": "Enabled"
+            }
+        },
+        {
+            "apiVersion": "2017-03-15-preview",
+            "name": "[parameters('log_analytics_workspace_name')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.EventGrid/topics/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('topic_name'), '/', 'Microsoft.Insights/', parameters('log_analytics_workspace_name'))]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.EventGrid/topics', parameters('topic_name'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]"          
+            ],
+            "properties": {
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('log_analytics_workspace_name'))]",
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "DeliveryFailures",
+                        "enabled": true
+                    },
+                    {
+                        "category": "PublishFailures",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir le schéma de journal et d’autres informations conceptuelles sur les journaux de diagnostic pour les rubriques ou les domaines, consultez [Journaux de diagnostic](diagnostic-logs.md).

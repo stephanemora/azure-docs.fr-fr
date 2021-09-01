@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: bda93712dd9a7501fbfddf0e75b8ae3c0088ed55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f97033d7a22c66a5e02dfd31545143ad6923488b
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341238"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201677"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comment la remise de réservation Azure est-elle appliquée aux machines virtuelles ?
 
@@ -36,7 +36,7 @@ Le tableau suivant montre les coûts de votre machine virtuelle après l’achat
 
 Une remise de réservation repose sur le principe de « *capacité utilisée ou perdue* ». Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
-Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n'est trouvée dans l'étendue spécifiée, les heures réservées sont *perdues*.
+Lorsque vous arrêtez une ressource ou mettez à l’échelle le nombre de machines virtuelles, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans l’étendue spécifiée. Si aucune ressource correspondante n'est trouvée dans l'étendue spécifiée, les heures réservées sont *perdues*.
 
 ## <a name="reservation-discount-for-non-windows-vms"></a>Remise de réservation pour les machines virtuelles non Windows
 

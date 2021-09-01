@@ -3,12 +3,12 @@ title: Interroger vos sauvegardes à l’aide d’Azure Resource Graph (ARG)
 description: En savoir plus sur l’interrogation des informations sur la sauvegarde de vos ressources Azure à l’aide du Groupe de ressources Azure (ARG).
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.openlocfilehash: c464e95b9b6b45a49655b8f5f4659a262f9097ee
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 252c921ce911777315ab043501359b5eb74cf176
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482731"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562517"
 ---
 # <a name="query-your-backups-using-azure-resource-graph-arg"></a>Interroger vos sauvegardes à l’aide d’Azure Resource Graph (ARG)
 
@@ -47,7 +47,7 @@ Voici quelques exemples de requêtes ARG sur vos données de sauvegarde que vous
 
 ### <a name="list-all-azure-vms-that-have-been-configured-for-backup"></a>Répertorier toutes les machines virtuelles Azure configurées pour la sauvegarde
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupInstances',split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -66,7 +66,7 @@ RecoveryServicesResources
 
 ### <a name="list-all-backup-jobs-on-azure-databases-for-postgresql-servers-in-the-last-one-week"></a>Répertorier toutes les tâches de sauvegarde sur les serveurs Azure Database pour PostgreSQL au cours de la dernière semaine
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/backupVaults/backupJobs')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupJobs',properties.vaultName,type =~ 'Microsoft.RecoveryServices/vaults/backupJobs',split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')
@@ -86,7 +86,7 @@ RecoveryServicesResources
 
 ### <a name="list-all-azure-vms-that-have-not-been-configured-for-backup"></a>Répertorier toutes les machines virtuelles Azure qui ne sont pas configurées pour la sauvegarde
 
-```dotnetcli
+```kusto
 Resources
 | where type in~ ('microsoft.compute/virtualmachines','microsoft.classiccompute/virtualmachines') 
 | extend resourceId=tolower(id) 
@@ -100,9 +100,20 @@ Resources
 
 ```
 
+### <a name="list-all-backup-policies-used-for-azure-vms"></a>Liste de toutes les stratégies de sauvegarde utilisées pour les machines virtuelles Azure
+
+```kusto
+RecoveryServicesResources
+| where type == 'microsoft.recoveryservices/vaults/backuppolicies'
+| extend vaultName = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],'--')
+| extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
+| project id,name,vaultName,resourceGroup,properties,datasourceType
+| where datasourceType == 'AzureIaasVM'
+```
+
 ### <a name="list-all-backup-policies-used-for-azure-databases-for-postgresql-servers"></a>Répertorier toutes les stratégies de sauvegarde utilisées pour les serveurs Azure Database pour PostgreSQL
 
-```dotnetcli
+```kusto
 RecoveryServicesResources 
 | where type in~ ('Microsoft.DataProtection/BackupVaults/backupPolicies')
 | extend vaultName = case(type =~ 'microsoft.dataprotection/backupVaults/backupPolicies', split(split(id, '/Microsoft.DataProtection/backupVaults/')[1],'/')[0],type =~ 'microsoft.recoveryservices/vaults/backupPolicies', split(split(id, '/Microsoft.RecoveryServices/vaults/')[1],'/')[0],'--')

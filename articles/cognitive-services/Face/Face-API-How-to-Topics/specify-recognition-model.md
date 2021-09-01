@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e51cb6faf51484944fc3f8fa739b76d50411feac
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 92e9c22712fdbfae5ab13a23cf72e282a225288a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745340"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531893"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
@@ -39,7 +39,7 @@ Vous devez maîtriser les concepts de la détection et de l'identification de vi
 
 * [Concepts de détection de visage](../concepts/face-detection.md)
 * [Concepts de reconnaissance faciale](../concepts/face-recognition.md)
-* [Comment détecter des visages dans une image](HowtoDetectFacesinImage.md)
+* [Appeler l’API de détection](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Détecter des visages avec le modèle spécifié
 
@@ -116,7 +116,7 @@ Si vous spécifiez normalement un seuil de confiance (une valeur comprise entre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment spécifier le modèle de reconnaissance à utiliser avec différentes API du service Visage. Voici maintenant un guide de démarrage rapide pour commencer à utiliser la détection des visages.
+Dans cet article, vous avez appris comment spécifier le modèle de reconnaissance à utiliser avec différentes API du service Visage. Voici maintenant un guide de démarrage rapide pour commencer la détection des visages.
 
 * [SDK .NET Visage](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Kit de développement logiciel (SDK) Face Python](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
