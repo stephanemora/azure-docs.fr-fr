@@ -3,14 +3,14 @@ title: Intégrer Azure Automation Update Management à Microsoft Endpoint Confi
 description: Cet article explique comment configurer Microsoft Endpoint Configuration Manager avec Update Management pour déployer des mises à jour logicielles sur des clients gérés.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: a848c7c15bf786ba26b8a1fdb1dab41b9aa20b8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6889d5058a7ca93e410afa0454e108d79bb70569
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575770"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203900"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Intégrer Update Management avec Microsoft Endpoint Configuration Manager
 
@@ -34,9 +34,11 @@ La façon dont vous gérez les clients hébergés dans Azure IaaS avec votre env
 
 Si vous avez l’intention de continuer à gérer les déploiements de mises à jour à partir de Microsoft Endpoint Configuration Manager, effectuez les étapes suivantes. Azure Automation se connecte à Microsoft Endpoint Configuration Manager pour appliquer les mises à jour aux ordinateurs clients connectés à votre espace de travail Log Analytics. Le contenu des mises à jour est disponible dans le cache de l’ordinateur client comme si le déploiement était géré par Microsoft Endpoint Configuration Manager.
 
-1. Créez un déploiement de mises à jour logicielles à partir du site de niveau supérieur dans votre hiérarchie Microsoft Endpoint Configuration Manager à l’aide du processus décrit dans [Déployer des mises à jour logicielles](/configmgr/sum/deploy-use/deploy-software-updates). Le seul paramètre qui doit être configuré différemment par rapport à un déploiement standard est l’option **Ne pas installer les mises à jour logicielles** pour contrôler le comportement de téléchargement du package de déploiement. Ce comportement est géré dans Update Management en créant un déploiement de mises à jour planifié à l’étape suivante.
+1. Créez un déploiement de mises à jour logicielles à partir du site de niveau supérieur dans votre hiérarchie Microsoft Endpoint Configuration Manager à l’aide du processus décrit dans [Déployer des mises à jour logicielles](/configmgr/sum/deploy-use/deploy-software-updates). Le seul paramètre qui doit être configuré différemment d’un déploiement standard est l’option **Échéance d’installation** dans Endpoint Configuration Manager. Il doit être défini sur une date ultérieure pour s’assurer que seul Automation Update Management lance le déploiement des mises à jour. Ce paramètre est décrit à[l’étape 4, déployer le groupe de mises à jour logicielles](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
 
-2. Dans Azure Automation, sélectionnez **Update Management**. Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](deploy-updates.md#schedule-an-update-deployment), puis sélectionnez **Groupes importés** dans la liste déroulante **Type** pour sélectionner le regroupement Microsoft Endpoint Configuration Manager approprié. Gardez à l’esprit les points importants suivants :
+2. Dans Endpoint Configuration Manager, configurez l’option **Notifications utilisateur** pour empêcher l’affichage des notifications sur les ordinateurs cibles. Nous vous recommandons de définir l’option **Masquer dans le centre logiciel et toutes les notifications** pour éviter qu’un utilisateur connecté soit informé d’un déploiement de mises à jour planifiées et déploie manuellement ces mises à jour. Ce paramètre est décrit à[l’étape 4, déployer le groupe de mises à jour logicielles](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
+
+3. Dans Azure Automation, sélectionnez **Update Management**. Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](deploy-updates.md#schedule-an-update-deployment), puis sélectionnez **Groupes importés** dans la liste déroulante **Type** pour sélectionner le regroupement Microsoft Endpoint Configuration Manager approprié. Gardez à l’esprit les points importants suivants :
 
     a. Si une fenêtre de maintenance est définie dans le regroupement d’appareils Microsoft Endpoint Configuration Manager sélectionné, les membres du regroupement la respectent au détriment du paramètre **Durée** défini dans le déploiement planifié.
 

@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.custom: devx-track-java
-ms.author: trbye
-ms.openlocfilehash: f5f5ab8d353e0f20405a6cc4dccda38dbb0625a8
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.author: lajanuar
+ms.openlocfilehash: f773bf4b9266f5110e2c4ce855a274e8b88e091b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280160"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423361"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -62,7 +62,7 @@ Vous pouvez initialiser une [`SpeechConfig`](/java/api/com.microsoft.cognitivese
 * Avec un abonnement : transmettez une clé Speech et l’emplacement/la région qui lui correspond.
 * Avec un point de terminaison : transmettez un point de terminaison de service Speech. Une clé Speech ou un jeton d’autorisation est facultatif.
 * Avec un hôte : transmettez une adresse d’hôte. Une clé Speech ou un jeton d’autorisation est facultatif.
-* Avec un jeton d’autorisation : transmettez un jeton d’autorisation et l’emplacement/la région qui lui correspond.
+* Avec un jeton d’autorisation : transmettez un jeton d’autorisation et la localisation/la région qui lui correspond.
 
 Dans cet exemple, vous créez un [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) à l’aide d’une clé Speech et d’un emplacement/d’une région. Pour obtenir ces informations d’identification, suivez les étapes indiquées dans [Essayer le service Speech gratuitement](../../../overview.md#try-the-speech-service-for-free). Vous pouvez aussi créer un code réutilisable de base à utiliser pour le reste de cet article, que vous modifiez pour différentes personnalisations.
 
@@ -183,7 +183,7 @@ Tout d’abord, créez un fichier XML pour la configuration SSML dans le répert
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -222,7 +222,7 @@ public static void main(String[] args) {
 ```
 
 > [!NOTE]
-> Pour modifier la voix sans utiliser SSML, vous pouvez définir la propriété sur `SpeechConfig` à l’aide de `SpeechConfig.setSpeechSynthesisVoiceName("en-US-AriaNeural");`
+> Pour modifier la voix sans utiliser SSML, vous pouvez définir la propriété sur `SpeechConfig` à l’aide de `SpeechConfig.setSpeechSynthesisVoiceName("en-US-ChristopherNeural");`
 
 ## <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
 

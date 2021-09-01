@@ -1,18 +1,18 @@
 ---
 title: Analyser les journaux et les métriques dans Azure Spring Cloud | Microsoft Docs
 description: Découvrez comment analyser les données de diagnostic dans Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 7e2042294ebaefa2640873bb1ce941d9a60c7834
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e2d903f781e86670139347930289599bec6ee7e7
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128988"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533025"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -56,9 +56,10 @@ Pour commencer, activez l’un de ces services pour recevoir les données. Pour 
 
 > [!NOTE]
 > 1. Il peut s’écouler jusqu’à 15 minutes entre le moment où les journaux ou les métriques sont émis et le moment où ils apparaissent dans votre compte de stockage, votre hub d’événements ou Log Analytics.
-> 1. Si l’instance Azure Spring Cloud est supprimée ou déplacée, l’opération ne s’exécute pas en cascade vers les ressources **Paramètres de diagnostic**. Les ressources **Paramètres de diagnostic** doivent être supprimées manuellement avant l’opération sur son parent, c.-à-d. l’instance Azure Spring Cloud. Dans le cas contraire, si une nouvelle instance Azure Spring Cloud est configurée avec le même ID de ressource que celle qui a été supprimée, ou si l’instance Azure Spring Cloud est redéplacée dans son emplacement d’origine, les ressources **Paramètres de diagnostic** précédentes continuent de l’étendre.
+> 1. Si l’instance Azure Spring Cloud est supprimée ou déplacée, l’opération ne s’exécute pas en cascade vers les ressources **Paramètres de diagnostic**. Les ressources **Paramètres de diagnostic** doivent être supprimées manuellement avant l’opération sur son parent, l’instance Azure Spring Cloud. Dans le cas contraire, si une nouvelle instance Azure Spring Cloud est configurée avec le même ID de ressource que celle qui a été supprimée, ou si l’instance Azure Spring Cloud est redéplacée dans son emplacement d’origine, les ressources **Paramètres de diagnostic** précédentes continuent de l’étendre.
 
 ## <a name="view-the-logs-and-metrics"></a>Afficher les journaux et les métriques
+
 Il existe plusieurs méthodes pour afficher les journaux et les métriques, comme décrit dans les titres suivants.
 
 ### <a name="use-the-logs-blade"></a>Utiliser le panneau Journaux
@@ -72,12 +73,14 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
     AppPlatformLogsforSpring
     | limit 50
     ```
+
    * Pour afficher les métriques, saisissez une requête simple telle que :
 
     ```sql
     AzureMetrics
     | limit 50
     ```
+
 1. Pour afficher le résultat de la recherche, sélectionnez **Exécuter**.
 
 ### <a name="use-log-analytics"></a>Utiliser Log Analytics
@@ -92,6 +95,7 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
     AppPlatformLogsforSpring
     | limit 50
     ```
+
     * pour afficher les métriques, saisissez une requête simple telle que :
 
     ```sql
@@ -107,8 +111,9 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]
-> `==` respecte la casse, mais pas `=~`.
+
+    > [!NOTE]
+    > `==` respecte la casse, mais pas `=~`.
 
 Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](/azure/data-explorer/query-monitor-data).
 
@@ -198,12 +203,14 @@ Il existe une solution de contournement pour convertir les traces de pile à plu
     </root>
 </configuration>
 ```
+
 Vous pouvez ensuite remplacer le jeton par des caractères de saut de ligne dans Log Analytics comme indiqué ci-dessous :
 
 ```sql
 AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
+
 Vous pourrez peut-être appliquer la même stratégie pour d’autres bibliothèques de journaux Java.
 
 ## <a name="next-steps"></a>Étapes suivantes

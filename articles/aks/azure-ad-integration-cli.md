@@ -4,25 +4,27 @@ description: Découvrez comment utiliser Azure CLI pour créer un cluster Azure 
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/20/2020
-ms.author: thomasge
-ms.openlocfilehash: cb92f84560a88d406f0d519459c27b5d916ec5ad
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/29/2021
+ms.author: miwithro
+ms.openlocfilehash: 2075c4ce9bf01d4843de2037259fec2670d5dc06
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769568"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562893"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Intégrer Azure Active Directory à Azure Kubernetes Service à l’aide d’Azure CLI (hérité)
+
+> [!WARNING]
+> **La fonctionnalité décrite dans ce document, Azure AD Integration (héritée), sera déconseillée à partir du 29 février 2024.
+>
+> AKS propose une nouvelle expérience [Azure AD gérée par AKS][managed-aad] améliorée qui ne nécessite pas que vous gériez le serveur ou l’application cliente. Si vous souhaitez effectuer une migration, suivez les instructions [ici][managed-aad-migrate].
 
 Azure Kubernetes Service (AKS) peut être configuré pour utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Dans cette configuration, vous vous connectez à un cluster AKS en utilisant un jeton d’authentification Azure AD. Les opérateurs de cluster peuvent également configurer le contrôle d’accès en fonction du rôle Kubernetes (Kubernetes RBAC) basé sur une identité utilisateur ou l’appartenance à un groupe de répertoires.
 
 Cet article explique comment créer les composants Azure AD requis, puis déployer un cluster compatible Azure AD et créer un rôle Kubernetes de base dans le cluster AKS.
 
 Pour l’exemple de script complet utilisé dans cet article, voir [Exemples Azure CLI – Intégration d’AKS avec Azure AD][complete-script].
-
-> [!Important]
-> AKS propose une nouvelle expérience [Azure AD gérée par AKS][managed-aad] améliorée qui ne nécessite pas que vous gériez le serveur ou l’application cliente. Si vous souhaitez effectuer une migration, suivez les instructions [ici][managed-aad-migrate].
 
 ## <a name="the-following-limitations-apply"></a>Les limites suivantes s'appliquent :
 
@@ -246,6 +248,7 @@ error: You must be logged in to the server (Unauthorized)
 * Vous avez défini l’ID d’objet ou l’UPN approprié, selon que le compte d’utilisateur se trouve dans le même locataire Azure AD ou non.
 * L'utilisateur n’est pas membre de plus de 200 groupes.
 * Le secret défini dans l’inscription d’application pour le serveur correspond à la valeur configurée à l’aide de `--aad-server-app-secret`
+* Assurez-vous qu’une seule version de kubectl est installée sur votre ordinateur à la fois. Les versions conflictuelles peuvent entraîner des problèmes lors de l’autorisation. Pour installer la dernière version, utilisez [az aks install-cli][az-aks-install-cli].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -266,6 +269,7 @@ Pour découvrir les meilleures pratiques de contrôle des identités et des ress
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az_ad_user_show

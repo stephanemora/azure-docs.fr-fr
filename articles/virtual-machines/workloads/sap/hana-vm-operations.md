@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e83b7b8fd3e1667dbf6f402be2f7dd52a6381340
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142996"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965717"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -64,7 +64,7 @@ Déployez les machines virtuelles sur Azure en utilisant :
 - les applets de commande Azure PowerShell ;
 - l’interface de ligne de commande Azure.
 
-Vous pouvez également déployer une plateforme SAP HANA installée et complète sur les services de machine virtuelle Azure par le biais de la [plateforme cloud SAP](https://cal.sap.com/). Le processus d’installation est décrit dans [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](./cal-s4h.md) ou avec le processus d’automatisation publié [ici](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+Vous pouvez également déployer une plateforme SAP HANA installée et complète sur les services de machine virtuelle Azure par le biais de la [plateforme cloud SAP](https://cal.sap.com/). Le processus d’installation est décrit dans [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](./cal-s4h.md) ou avec le processus d’automatisation publié sur [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
 > Pour pouvoir utiliser des machines virtuelles M208xx_v2, vous devez sélectionner avec soin votre image Linux dans la galerie d’images de machine virtuelle Azure. Pour plus d’informations, lisez l’article [Tailles de machine virtuelle à mémoire optimisée](../../mv2-series.md).
@@ -143,7 +143,7 @@ La configuration de base d’un nœud de machine virtuelle pour le scale-out de 
 - Les autres volumes de disque ne sont pas partagés entre les différents nœuds et ne sont pas basés sur NFS. Les configurations d'installation et les étapes relatives aux installations de scale-out HANA avec **/hana/data** et **/hana/log** non partagés sont fournies plus loin dans ce document. Pour savoir si un stockage certifié HANA peut être utilisé, consultez l'article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md).
 
 
-Pour le dimensionnement des volumes ou des disques, vous devez vérifier la taille requise en fonction du nombre de nœuds Worker en consultant le document [Exigences de stockage TDI SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Le document contient une formule que vous devez appliquer pour obtenir la capacité requise du volume
+Pour le dimensionnement des volumes ou des disques, vous devez vérifier la taille requise en fonction du nombre de nœuds Worker en consultant le document [Exigences de stockage TDI SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). Le document contient une formule que vous devez appliquer pour obtenir la capacité requise du volume
 
 L'autre critère de conception illustré dans le graphique de la configuration de nœud unique pour un scale-out de machine virtuelle SAP HANA est le réseau virtuel, plus précisément la configuration du sous-réseau. SAP recommande fortement de séparer le trafic client/application des communications entre les nœuds HANA. Comme indiqué dans les graphiques, cet objectif est réalisé en attachant deux cartes réseau virtuelles différentes à la machine virtuelle. Chacune des cartes réseau virtuelles est dans un sous-réseau différent et dispose d’un adresse IP distincte. Vous contrôlez le trafic avec les règles de routage à l’aide de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur.
 
@@ -211,7 +211,7 @@ Sur Azure IaaS, DT 2.0 est pris en charge seulement sur une machine virtuelle d�
 - M64-32ms 
 - E32sv3 
 
-Consultez la description des types de machine virtuelle [ici](../../sizes-memory.md)
+Pour plus d’informations sur la description du type de machine virtuelle, consultez [Tailles de machine virtuelle Azure - Mémoire ](../../sizes-memory.md)
 
 Étant donné le principe fondamental de DT 2.0, qui est de décharger les données « chaudes » afin de réduire les coûts, il est judicieux d’utiliser des tailles de machine virtuelle correspondantes. Il n’existe cependant pas de règle stricte concernant les combinaisons possibles. Cela dépend de la charge de travail spécifique du client.
 
@@ -232,7 +232,7 @@ Toutes les combinaisons de machines virtuelles de la série M certifiées pour S
 
 L’installation de DT 2.0 sur une machine virtuelle dédiée nécessite un débit minimal de 10 Gbits entre la machine virtuelle DT 2.0 et la machine virtuelle SAP HANA. Par conséquent, il est obligatoire de placer toutes les machines virtuelles dans le même réseau virtuel Azure et d’activer la mise en réseau accélérée Azure.
 
-Vous pouvez consulter des informations supplémentaires sur la mise en réseau accélérée Azure [ici](../../../virtual-network/create-vm-accelerated-networking-cli.md)
+Pour plus d’informations sur la mise en réseau accélérée Azure, consultez [Créer une machine virtuelle Azure avec mise en réseau accélérée à l’aide d’Azure CLI](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>Stockage des machines virtuelles pour SAP HANA DT 2.0
 
@@ -243,9 +243,9 @@ Conformément au guide des bonnes pratiques pour DT 2.0, le débit d’E/S des d
 
 Il est obligatoire d’attacher plusieurs disques Azure à la machine virtuelle DT 2.0 et de créer un RAID logiciel (agrégation) sur le niveau du système d’exploitation pour atteindre la limite maximale de débit des disques par machine virtuelle. Un seul disque Azure ne peut pas fournir le débit nécessaire pour atteindre la limite maximale de la machine virtuelle à cet égard. Un stockage Premium Azure est obligatoire pour exécuter DT 2.0. 
 
-- Vous pouvez trouver plus d’informations sur les types de disque Azure disponibles [ici](../../disks-types.md)
-- Vous pouvez trouver des informations sur la création d’un RAID logiciel via mdadm [ici](/previous-versions/azure/virtual-machines/linux/configure-raid)
-- Vous pouvez trouver des informations sur la configuration de LVM pour créer un volume agrégé par bandes de façon à obtenir un débit maximal [ici](/previous-versions/azure/virtual-machines/linux/configure-lvm)
+- Vous trouverez des détails sur les types de disques Azure disponibles sur la page [Sélectionner un type de disque pour les machines virtuelles Azure IaaS - disques managés](../../disks-types.md).
+- Les détails sur la création d’un raid logiciel via mdadm se trouvent sur la page [Configuration logicielle de RAID sur une machine virtuelle Linuxux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+- Vous trouverez des détails sur la configuration de LVM pour créer un volume agrégé par bandes pour un débit maximal sur [Configurer LVM sur une machine virtuelle utilisant Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 
 Selon les exigences de taille, il existe différentes options pour atteindre le débit maximal d’une machine virtuelle. Voici les configurations des disques de volume de données possibles permettant à chaque type de machine virtuelle DT 2.0 d’atteindre la limite supérieure de débit. La machine virtuelle E32sv3 doit être considérée comme un niveau d’entrée pour les charges de travail plus petites. Dans le cas où elle ne s’avère pas suffisamment rapide, il peut être nécessaire de redimensionner la machine virtuelle en M64-32ms.
 Comme la machine virtuelle M64-32ms a beaucoup de mémoire, la charge d’E/S peut ne pas atteindre la limite, en particulier pour les charges de travail qui font des lectures de façon intensive. Ainsi, il est possible que moins de disques dans l’ensemble agrégé par bandes soient suffisants, en fonction de la charge de travail spécifique du client. Cependant, par prudence, les configurations de disques ci-dessous ont été choisies pour garantir le débit maximal :
@@ -259,7 +259,7 @@ Comme la machine virtuelle M64-32ms a beaucoup de mémoire, la charge d’E/S pe
 
 En particulier au cas où la charge de travail implique des lectures intensives, vous pouvez accélérer les performances des E/S en activant le cache d’hôte Azure « en lecture seule », comme c’est recommandé pour les volumes de données des logiciels de base de données. Pour le journal des transactions, le cache disque d’hôte Azure doit par contre être défini sur « aucun ». 
 
-Concernant la taille du volume des journaux, un point de départ recommandé est une heuristique de 15 % de la taille des données. Vous pouvez créer le volume des journaux en utilisant des types de disque Azure différents, en fonction des exigences quant au débit et aux coûts. Pour le volume du fichier journal, un débit d'E-S élevé est nécessaire.  En cas d'utilisation de la machine virtuelle de type M64-32ms, l'[Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) doit obligatoirement être activé. L’accélérateur d’écriture Azure permet une latence optimale des écritures sur disque pour le journal des transactions (disponible seulement pour la série M). Vous devez néanmoins prendre en compte certains éléments, comme le nombre maximal de disques par type de machine virtuelle. Vous pouvez trouver plus d’informations sur l’accélérateur d’écriture [ici](../../how-to-enable-write-accelerator.md).
+Concernant la taille du volume des journaux, un point de départ recommandé est une heuristique de 15 % de la taille des données. Vous pouvez créer le volume des journaux en utilisant des types de disque Azure différents, en fonction des exigences quant au débit et aux coûts. Pour le volume du fichier journal, un débit d'E-S élevé est nécessaire.  En cas d'utilisation de la machine virtuelle de type M64-32ms, l'[Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) doit obligatoirement être activé. L’accélérateur d’écriture Azure permet une latence optimale des écritures sur disque pour le journal des transactions (disponible seulement pour la série M). Vous devez néanmoins prendre en compte certains éléments, comme le nombre maximal de disques par type de machine virtuelle. Vous trouverez des détails sur l’Accélérateur d’écriture sur la page [Accélérateur d’écriture Azure](../../how-to-enable-write-accelerator.md).
 
 
 Voici quelques exemples de dimensionnement du volume des journaux :

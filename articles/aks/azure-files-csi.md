@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 1355f6e6120f77ead063bb9246bf1c2864341373
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: c60b2301e6f0ea2767128224c4e76a677df69e0d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007568"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563042"
 ---
-# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser des pilotes CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
+# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Utiliser des pilotes CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS)
 
 Le pilote CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des partages Azure Files.
 
@@ -28,8 +28,6 @@ Pour créer un cluster AKS avec prise en charge du pilote CSI, consultez [Active
 Un [volume persistant](concepts-storage.md#persistent-volumes) représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et être provisionné de façon statique ou dynamique. Si plusieurs pods doivent accéder simultanément au même volume de stockage, vous pouvez utiliser Azure Files pour vous connecter à l’aide du [protocole SMB (Server Message Block)][smb-overview]. Cet article vous montre comment créer un partage Azure Files de manière dynamique utilisé par plusieurs pods dans un cluster AKS. Pour l’approvisionnement statique, consultez [Créer et utiliser manuellement un volume avec un partage Azure Files](azure-files-volume.md).
 
 Pour plus d’informations sur les volumes Kubernetes, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Créer dynamiquement des PV Azure Files à l’aide des classes de stockage intégrées
 
@@ -192,13 +190,75 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
+## <a name="use-a-persistent-volume-with-private-azure-files-storage-private-endpoint"></a>Utiliser un volume persistant avec un stockage Azure Files privé (point de terminaison privé)
+
+Si vos ressources Azure Files sont protégées par un point de terminaison privé, vous devez créer votre propre classe de stockage personnalisée avec les paramètres suivants :
+
+* `resourceGroup` : groupe de ressources dans lequel le compte de stockage est déployé.
+* `storageAccount` : nom du compte de stockage.
+* `server` : nom de domaine complet du point de terminaison privé du compte de stockage (par exemple, `<storage account name>.privatelink.file.core.windows.net`).
+
+Créez un fichier nommé *private-azure-file-sc.yaml*, puis collez le manifeste de l’exemple suivant dans le fichier. Remplacez les valeurs de `<resourceGroup>` et `<storageAccountName>`.
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: private-azurefile-csi
+provisioner: file.csi.azure.com
+allowVolumeExpansion: true
+parameters:
+  resourceGroup: <resourceGroup>
+  storageAccount: <storageAccountName>
+  server: <storageAccountName>.privatelink.file.core.windows.net 
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=0
+  - gid=0
+  - mfsymlinks
+  - cache=strict  # https://linux.die.net/man/8/mount.cifs
+  - nosharesock  # reduce probability of reconnect race
+  - actimeo=30  # reduce latency for metadata-heavy workload
+```
+
+Créez la classe de stockage en utilisant la commande [kubectl apply][kubectl-apply] :
+
+```console
+kubectl apply -f private-azure-file-sc.yaml
+
+storageclass.storage.k8s.io/private-azurefile-csi created
+```
+  
+Créez un fichier nommé *private-pvc.yaml*, puis collez le manifeste de l’exemple suivant dans le fichier :
+  
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: private-azurefile-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: private-azurefile-csi
+  resources:
+    requests:
+      storage: 100Gi
+```
+  
+Créez le PVC en utilisant la commande [kubectl apply][kubectl-apply] :
+  
+```console
+kubectl apply -f private-pvc.yaml
+```
+
 ## <a name="nfs-file-shares"></a>Partages de fichiers NFS
 
-[Azure Files prend désormais en charge le protocole NFS v4.1](../storage/files/storage-files-how-to-create-nfs-shares.md). La prise en charge du protocole NFS v4.1 pour Azure Files vous offre un système de fichiers NFS complètement managé en tant que service reposant sur une plateforme de stockage résiliente et distribuée hautement disponible et durable.
+[Azure Files prend en charge le protocole NFS v 4.1](../storage/files/storage-files-how-to-create-nfs-shares.md). La prise en charge du protocole NFS v4.1 pour Azure Files vous offre un système de fichiers NFS complètement managé en tant que service reposant sur une plateforme de stockage résiliente et distribuée hautement disponible et durable.
 
  Cette option est optimisée pour les charges de travail à accès aléatoire avec des mises à jour de données sur place et fournit une prise en charge complète du système de fichiers POSIX. Cette section vous montre comment utiliser des partages NFS avec le pilote CSI d’Azure Files sur un cluster AKS.
-
-Veillez à vérifier les [limitations](../storage/files/storage-files-compare-protocols.md#limitations) et la [disponibilité des régions](../storage/files/storage-files-compare-protocols.md#regional-availability).
 
 ### <a name="create-nfs-file-share-storage-class"></a>Créer une classe de stockage pour les partages de fichiers NFS
 

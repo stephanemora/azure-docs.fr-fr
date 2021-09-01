@@ -3,12 +3,12 @@ title: Se connecter à une machine virtuelle dans Azure Lab Services | Microsoft
 description: Découvrez comment utiliser le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d13868477ff2e3378d87d7785789a7498ed17e59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04a86ba98df3e1600ac95d19e690815515eb4c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85443415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531721"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Se connecter aux machines virtuelles Linux dans un labo de classe d’Azure Lab Services
 Cet article explique comment les étudiants peuvent se connecter à une machine virtuelle Linux d’un labo en utilisant :
@@ -41,8 +41,11 @@ Cet article explique comment les étudiants peuvent se connecter à une machine 
 ## <a name="connect-to-the-student-vm-using-gui-remote-desktop"></a>Se connecter à la machine virtuelle de l’étudiant à l’aide du bureau à distance GUI
 L’instructeur peut choisir de configurer des machines virtuelles afin que les étudiants puissent également se connecter à l’aide d’un bureau à distance GUI.  Dans ce cas, les étudiants doivent comprendre auprès de leur instructeur s’il faut se connecter à leurs machines virtuelles à l’aide du **Bureau à distance Microsoft (RDP)** ou de l’application cliente **X2Go**.  Ces deux applications permettent à un étudiant de se connecter à distance à sa machine virtuelle et d’afficher le bureau graphique Linux sur son ordinateur local.
 
+> [!WARNING]
+>  Nous vous recommandons d’utiliser un environnement de bureau graphique différent de [GNOME](https://www.gnome.org/).  Évitez d’installer GNOME sur des machines virtuelles de labo, car GNOME présente un conflit avec l’agent Linux Azure qui est nécessaire pour que les machines virtuelles fonctionnent correctement dans Azure Lab Services.  Par exemple, nous vous recommandons d’utiliser un environnement de bureau graphique, tel que XFCE.
+
 ### <a name="connect-to-the-student-vm-using-microsoft-remote-desktop-rdp"></a>Se connecter à la machine virtuelle de l’étudiant à l’aide du bureau à distance Microsoft (RDP)
-Les étudiants peuvent utiliser le Bureau à distance Microsoft (RDP) pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec RDP et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, MATE, XFCE, etc.). Voici la procédure à suivre pour se connecter : 
+Les étudiants peuvent utiliser le Bureau à distance Microsoft (RDP) pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec RDP et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.). Voici la procédure à suivre pour se connecter : 
 
 1. Sur la mosaïque de votre machine virtuelle, assurez-vous que la machine virtuelle est en cours d’exécution, puis cliquez sur **Se connecter**. Deux options de connexion à la machine virtuelle vous sont proposées : **SSH** et **RDP**.
 
@@ -53,10 +56,10 @@ Les étudiants peuvent utiliser le Bureau à distance Microsoft (RDP) pour se co
 
     Par contre, si vous vous connectez à partit d’un Mac ou Chromebook, procédez comme suit :
    - [Se connecter à une machine virtuelle à l’aide de RDP sur un Mac](connect-virtual-machine-mac-remote-desktop.md).
-   - [Se connecter à une machine virtuelle à l’aide de RDP sur un Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).  
+   - [Se connecter à une machine virtuelle à l’aide de RDP sur un Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
 
 ### <a name="connect-to-the-student-vm-using-x2go"></a>Se connecter à la machine virtuelle de l’étudiant à l’aide de X2Go
-Les étudiants peuvent utiliser X2Go pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec X2Go et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, MATE, XFCE, etc.).
+Les étudiants peuvent utiliser X2Go pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec X2Go et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
 
 L’instructeur doit indiquer aux étudiants l’environnement de bureau graphique Linux qu’il a installé.  Ces informations sont nécessaires dans les étapes suivantes pour la connexion à l’aide du client X2Go.
 

@@ -7,24 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f3f29ae1ab868a96e6f70ed964f79c47bc591c4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 812b6add11ac032eb6dffea7de54111574393cf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92373420"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524490"
 ---
 # <a name="upload-logs-to-azure-monitor"></a>Charger les journaux sur Azure Monitor
 
 Régulièrement, vous pouvez exporter les journaux, puis les charger dans Azure. L’exportation et le chargement des journaux créent et mettent à jour le contrôleur de données, l’instance managée SQL et les ressources de groupe de serveurs PostgreSQL Hyperscale dans Azure.
-
-> [!NOTE] 
-> Il n’y a aucun coût pour les services de données compatibles avec Azure Arc pendant la période de la version préliminaire.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -124,7 +119,6 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
 ::: zone-end
 
 
@@ -216,24 +210,27 @@ Une fois les variables d’environnement définies, vous pouvez charger les jour
 
  Pour charger des journaux pour vos instances managées SQL compatibles Azure Arc et groupes de serveurs Azure Arc PostgreSQL Hyperscale, exécutez les commandes CLI suivantes :
 
-1. Connectez-vous au contrôleur de données Azure Arc avec [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
+1. Connectez-vous au contrôleur de données Azure Arc avec Azure (`az`) CLI à l’aide de l’extension `arcdata`.
 
-   ```console
-   azdata login
+   ```azurecli
+   az arcdata login
    ```
 
    Suivez les invites pour définir l’espace de noms, le nom d’utilisateur de l’administrateur et le mot de passe. 
 
 1. Exporter tous les journaux dans le fichier spécifié :
 
-   ```console
-   azdata arc dc export --type logs --path logs.json
+> [!NOTE]
+> L’exportation des informations d’utilisation/facturation, des métriques et des journaux à l’aide de la commande `az arcdata dc export` nécessite de contourner la vérification SSL pour l’instant.  Vous êtes invité à contourner la vérification SSL ou vous pouvez définir la variable d’environnement `AZDATA_VERIFY_SSL=no` pour éviter les invites.  Il n’existe actuellement aucun moyen de configurer un certificat SSL pour l’API d’exportation du contrôleur de données.
+
+   ```azurecli
+   az arcdata dc export --type logs --path logs.json
    ```
 
 2. Chargez les journaux sur un espace de travail Azure Monitor Log Analytics :
 
-   ```console
-   azdata arc dc upload --path logs.json
+   ```azurecli
+   az arcdata dc upload --path logs.json
    ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Afficher vos journaux dans le portail Azure
@@ -256,9 +253,9 @@ Si vous souhaitez charger les métriques et les journaux sur une base planifiée
 
 Dans votre éditeur de texte ou de code, ajoutez ce qui suit au script dans le fichier, puis enregistrez-le en tant que fichier exécutable de script, tel que. sh (Linux/Mac) ou. cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type logs --path logs.json --force
+az arcdata dc upload --path logs.json
 ```
 
 Rendre le fichier de script exécutable

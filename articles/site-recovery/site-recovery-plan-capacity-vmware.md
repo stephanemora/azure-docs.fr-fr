@@ -6,21 +6,23 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
-ms.date: 05/27/2021
-ms.openlocfilehash: 9a8706ee361ea7cb34b1e843b3bdd29ce381d48e
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 08/19/2021
+ms.openlocfilehash: b8161a10e958fe15ef8797e54585acb3612c6c41
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577358"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535330"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
-Cet article explique comment planifier la capacité et la mise à l’échelle lors de la réplication de serveurs physiques et machines virtuelles VMware locaux dans Azure avec [Azure Site Recovery](site-recovery-overview.md).
+Cet article explique comment planifier la capacité et la mise à l’échelle lors de la réplication de serveurs physiques et machines virtuelles VMware locaux dans Azure avec [Azure Site Recovery](site-recovery-overview.md) - Classic.
+
+Dans la version préliminaire, vous devez [créer et utiliser l’appliance de réplication/plusieurs appliances Azure Site Recovery](deploy-vmware-azure-replication-appliance-preview.md) pour planifier la capacité.
 
 ## <a name="how-do-i-start-capacity-planning"></a>Comment dois-je commencer la planification de la capacité ?
 
-Pour découvrir les exigences de l’infrastructure Azure Site Recovery, collectez des informations sur votre environnement de réplication en exécutant le [Planificateur de déploiement Azure Site Recovery](./site-recovery-deployment-planner.md) pour la réplication VMware. Pour plus d’informations, voir [À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure](site-recovery-deployment-planner.md). 
+Pour découvrir les exigences de l’infrastructure Azure Site Recovery, collectez des informations sur votre environnement de réplication en exécutant le [Planificateur de déploiement Azure Site Recovery](./site-recovery-deployment-planner.md) pour la réplication VMware. Pour plus d’informations, voir [À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure](site-recovery-deployment-planner.md).
 
 Le Planificateur de déploiement Azure Site Recovery fournit un rapport contenant des informations complètes sur les machines virtuelles compatibles et incompatibles, le nombre de disques par machine virtuelle et l’activité des données par disque. L’outil récapitule également les besoins en bande passante réseau pour satisfaire à l’objectif de point de récupération cible, et l’infrastructure Azure requise pour la réussite de la réplication et du test de basculement.
 
@@ -160,7 +162,7 @@ Pour ajouter un serveur cible maître pour une machine virtuelle Windows :
 6. Pour inscrire le serveur cible maître auprès du serveur de configuration, sélectionnez **Poursuivre la configuration**.
 
     ![Capture d’écran montrant le bouton Poursuivre la configuration](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
-7. Entrez l’adresse IP du serveur de configuration, puis la phrase secrète. Pour savoir comment générer une phrase secrète, voir [Générer la phrase secrète du serveur de configuration](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
+7. Entrez l’adresse IP du serveur de configuration, puis la phrase secrète. Pour savoir comment générer une phrase secrète, voir [Générer la phrase secrète du serveur de configuration](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
     ![Capture d’écran montrant où entrer l’adresse IP et la phrase secrète pour le serveur de configuration](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Sélectionnez **Inscription**. Une fois l’inscription terminée, sélectionnez **Terminer**.

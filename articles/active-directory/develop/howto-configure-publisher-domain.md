@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
-ms.openlocfilehash: d17bd46d8036ff2535b0dede9ab95121ad3bf7a8
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713429"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579969"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procédure : Configurer un domaine d’éditeur d’application
 
@@ -81,9 +81,7 @@ Si votre application n’est pas inscrite dans un locataire, vous ne verrez que 
    ```
 
 1. Remplacez l’espace réservé *{YOUR-APP-ID-HERE}* par l’ID d’application (client) qui correspond à votre application.
-
 1. Hébergez le fichier dans : `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Remplacez l’espace réservé *{YOUR-DOMAIN-HERE}* pour qu’il corresponde au domaine vérifié.
-
 1. Cliquez sur le bouton **Vérifier et enregistrer le domaine**.
 
 Vous n'êtes pas obligé de conserver les ressources utilisées pour la vérification une fois le domaine vérifié. Au terme de la vérification, vous pouvez supprimer le fichier hébergé.
@@ -93,8 +91,8 @@ Vous n'êtes pas obligé de conserver les ressources utilisées pour la vérific
 Si votre client contient des domaines vérifiés, sélectionnez un des domaines dans la liste déroulante **Sélectionner un domaine vérifié**.
 
 > [!NOTE]
-> L'en-tête `Content-Type` qui doit être renvoyé est `application/json`. Vous pouvez rencontrer une erreur, comme mentionné ci-dessous, si vous utilisez autre chose, par exemple : `application/json; charset=utf-8`.
-> 
+> L'en-tête `Content-Type` qui doit être renvoyé est `application/json`. Vous pouvez obtenir une erreur si vous utilisez autre chose, comme `application/json; charset=utf-8` :
+>
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
@@ -112,7 +110,7 @@ Le comportement pour les nouvelles applications créées après le 21 mai 2019 v
 
 ## <a name="implications-on-redirect-uris"></a>Conséquences sur les URI de redirection
 
-Les applications qui connectent les utilisateurs à un compte professionnel ou scolaire ou des comptes Microsoft personnels ([multilocataire](single-and-multi-tenant-apps.md)) sont soumises à quelques restrictions lors de la spécification des URI de redirection.
+Les applications qui connectent les utilisateurs à un compte professionnel ou scolaire ou des comptes Microsoft personnels (multilocataire) sont soumises à quelques restrictions lors de la spécification des URI de redirection.
 
 ### <a name="single-root-domain-restriction"></a>Restriction de domaine racine unique
 

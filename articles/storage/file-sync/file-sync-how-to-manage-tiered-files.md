@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd740c773998450ef6e8bb95c4df3a1abadaceed
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ba54fa398d42aea43a93d3b3369f21f4d2168ec
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795841"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533288"
 ---
 # <a name="how-to-manage-tiered-files"></a>Guide pratique pour gérer les fichiers hiérarchisés
 
@@ -63,11 +63,15 @@ Vous pouvez déterminer de plusieurs façons si un fichier a été hiérarchisé
 
 ## <a name="how-to-exclude-applications-from-cloud-tiering-last-access-time-tracking"></a>Comment exclure des applications du suivi du dernier accès de la hiérarchisation Cloud
 
-Avec la version 11.1 de l’agent Azure File Sync, vous pouvez désormais exclure des applications du dernier suivi des accès. Quand une application accède à un fichier, l’heure du dernier accès au fichier est mise à jour dans la base de données de hiérarchisation cloud. Les applications qui analysent le système de fichiers, telles que les antivirus, ont pour effet que tous les fichiers ont la même heure de dernier accès, ce qui a un impact sur leur hiérarchisation.
+Quand une application accède à un fichier, l’heure du dernier accès au fichier est mise à jour dans la base de données de hiérarchisation cloud. Les applications qui analysent le système de fichiers, telles que les antivirus, ont pour effet que tous les fichiers ont la même heure de dernier accès, ce qui a un impact sur leur hiérarchisation.
 
-Pour exclure des applications du suivi de l’heure du dernier accès, ajoutez le nom du processus au paramètre de registre HeatTrackingProcessNameExclusionList qui se trouve sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+Pour exclure des applications du suivi de l’heure du dernier accès, ajoutez le nom du processus au paramètre de registre approprié qui se trouve sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
 
+Pour les versions v11 et V12, ajoutez les exclusions de processus au paramètre de registre HeatTrackingProcessNameExclusionList.
 Exemple : reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+
+Pour la version v13 et les versions ultérieures, ajoutez les exclusions de processus au paramètre de Registre HeatTrackingProcessNamesExclusionList.
+Exemple : reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe,AnotherApp.exe" /f
 
 > [!NOTE]
 > Par défaut, les processus de déduplication des données et de gestion de ressources pour serveur de fichiers (FSRM) sont exclus. Les modifications apportées à la liste d’exclusions de processus sont prises en compte par le système toutes les 5 minutes.

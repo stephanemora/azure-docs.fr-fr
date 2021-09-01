@@ -2,13 +2,13 @@
 title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/28/2021
+ms.openlocfilehash: 0cca1b38e5acb5bac3c5ab91460aa43825d4f4a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933753"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562334"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -23,7 +23,8 @@ La fonctionnalité de géo-reprise d’activité après sinistre de Service Bus 
 La fonctionnalité de géo-reprise d’activité après sinistre garantit que la totalité de la configuration d’un espace de noms (files d’attente, rubriques, abonnements et filtres) est répliquée en continu d’un espace de noms principal vers un espace de noms secondaire quand ils sont couplés. Elle permet également de lancer à tout moment un basculement ponctuel vers l’espace de noms secondaire. L’action de basculement fait pointer le nom d’alias choisi pour l’espace de noms vers l’espace de noms secondaire, puis arrête le jumelage. Le basculement est presque instantané une fois lancé. 
 
 > [!IMPORTANT]
-> La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les messages conservés dans les files d’attente, les abonnements aux rubriques ni les files d’attente de lettres mortes**. Pour préserver la sémantique des files d’attente, une telle réplication impose non seulement la réplication des données de message, mais aussi de chacun des changements d’état dans le répartiteur. Pour la plupart des espaces de noms Service Bus, le trafic de réplication requis dépasserait de beaucoup le trafic d’application. Par ailleurs, avec des files d’attente à débit élevé, la plupart des messages seraient toujours répliqués sur l’espace de noms secondaire alors qu’ils seraient déjà en cours de suppression de l’espace de noms principal. En résulterait un trafic inutile excessif. Dans le cas des itinéraires de réplication à latence élevée, qui s’appliquent à de nombreux couplages possibles pour la géo-reprise d’activité après sinistre, il peut également se révéler impossible que le trafic de réplication suive le trafic d’application en raison des effets de limitation induits par la latence.
+> - La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les messages conservés dans les files d’attente, les abonnements aux rubriques ni les files d’attente de lettres mortes**. Pour préserver la sémantique des files d’attente, une telle réplication impose non seulement la réplication des données de message, mais aussi de chacun des changements d’état dans le répartiteur. Pour la plupart des espaces de noms Service Bus, le trafic de réplication requis dépasserait de beaucoup le trafic d’application. Par ailleurs, avec des files d’attente à débit élevé, la plupart des messages seraient toujours répliqués sur l’espace de noms secondaire alors qu’ils seraient déjà en cours de suppression de l’espace de noms principal. En résulterait un trafic inutile excessif. Dans le cas des itinéraires de réplication à latence élevée, qui s’appliquent à de nombreux couplages possibles pour la géo-reprise d’activité après sinistre, il peut également se révéler impossible que le trafic de réplication suive le trafic d’application en raison des effets de limitation induits par la latence.
+> - Les attributions de contrôle d’accès en fonction du rôle (RBAC) Azure AD (Azure Active Directory) à des entités Service Bus dans l’espace de noms principal ne sont pas répliquées dans l’espace de noms secondaire. Créez manuellement des attributions de rôles dans l’espace de noms secondaire pour sécuriser leur accès. 
  
 > [!TIP]
 > Pour répliquer le contenu des files d’attente et des abonnements aux rubriques et gérer les espaces de noms correspondants dans des configurations actives/actives de façon à faire face aux pannes et aux sinistres, ne vous contentez pas d’utiliser cette fonctionnalité de géo-reprise d’activité après sinistre. Suivez les [conseils de réplication](service-bus-federation-overview.md).  
@@ -205,6 +206,10 @@ L’avantage de cette approche est que le basculement peut se produire au niveau
 
 > [!NOTE]
 > Pour obtenir des conseils sur la géo-reprise d’activité après sinistre d’un réseau virtuel, consultez [Réseau virtuel : Continuité d’activité](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+Les attributions de contrôle d’accès en fonction du rôle (RBAC) Azure AD (Azure Active Directory) à des entités Service Bus dans l’espace de noms principal ne sont pas répliquées dans l’espace de noms secondaire. Créez manuellement des attributions de rôles dans l’espace de noms secondaire pour sécuriser leur accès. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

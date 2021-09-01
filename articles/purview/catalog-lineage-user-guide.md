@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 4708cdc0a7937749e0df9a65267067f5dc31198d
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.date: 08/25/2021
+ms.openlocfilehash: 38f150a99b2145968569e986ea158b1aa552593a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525880"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968600"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guide de l’utilisateur sur la traçabilité du Data Catalog dans Azure Purview
 
@@ -31,7 +31,7 @@ Les outils d’intégration de données et ETL peuvent envoyer les données de t
 | Système de traitement des données | Portée prise en charge |
 | ---------------------- | ------------|
 | Azure Data Factory | [Activité de copie](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Activité de flux de données](how-to-link-azure-data-factory.md#data-flow-support) <br> [Activité Exécuter le package SSIS](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
-| Azure Synapse Analytics | [Activité de copie](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
+| Azure Synapse Analytics | [Activité de copie](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) <br> [Activité de flux de données](how-to-lineage-azure-synapse-analytics.md#data-flow-support) |
 | Azure Data Share | [Partager l’instantané](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>Systèmes de stockage de données

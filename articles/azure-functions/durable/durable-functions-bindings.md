@@ -2,14 +2,14 @@
 title: Liaisons pour Fonctions durables - Azure
 description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Durable Functions pour Azure Functions.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 08/03/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a07748f996788825b21b5c23a117954085dadcbf
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 097527dbbf4363365e609a1f5aac1d851eb5dc60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656935"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562937"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -397,6 +397,21 @@ Les déclencheurs d’entité vous permettent de créer des [fonctions d'entité
 > Les déclencheurs d’entité sont disponibles à partir de la version Durable Functions 2.x.
 
 En interne, cette liaison de déclencheur interroge le magasin durable configuré à la recherche de nouvelles opérations d'entité à exécuter.
+
+Si vous créez des fonctions dans .NET, le déclencheur d’entité est configuré à l'aide de l'attribut .NET [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute).
+
+Si vous utilisez JavaScript, Python ou PowerShell, le déclencheur d’entité est défini par l'objet JSON suivant dans le tableau `bindings` du fichier *function.json* :
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+Par défaut, le nom d’une entité est le nom de la fonction.
 
 ### <a name="trigger-behavior"></a>Comportement du déclencheur
 

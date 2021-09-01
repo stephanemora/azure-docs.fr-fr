@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 07/14/2021
 ms.author: egeaney
-ms.openlocfilehash: 3e2f4cbdf7f84f7b6cbd749225a2e0f7ed60cdd5
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: cdf8276904fda5098b3192779e0372b4a1bcc9d2
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202872"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113766611"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Chiffrement du service Speech pour les données au repos
 
@@ -39,7 +39,12 @@ En attendant, quand vous utilisez une commande personnalisée, vous pouvez gére
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Mode Bring your own storage (BYOS) pour la personnalisation et la journalisation
 
-Pour demander l’accès à la fonctionnalité Mode Bring your own storage (BYOS), remplissez puis envoyez le  [formulaire de demande Service Speech - bring your own storage (BYOS)](https://aka.ms/cogsvc-cmk). Une fois votre demande approuvée, vous devrez créer votre propre compte de stockage pour y stocker les données requises pour la personnalisation et la journalisation. Lorsque vous ajoutez un compte de stockage, la ressource du service Speech active une identité managée attribuée par le système. Une fois que l’identité managée affectée par le système est activée, cette ressource est inscrite auprès d’Azure Active Directory (AAD). Une fois inscrite, l’identité managée aura accès au compte de stockage. Vous trouverez ici plus d’informations sur les identités managées. Pour plus d’informations sur Identité managée, consultez [Que sont les identités managées ?](../../active-directory/managed-identities-azure-resources/overview.md).
+Pour demander l’accès à la fonctionnalité Mode Bring your own storage (BYOS), remplissez puis envoyez le  [formulaire de demande Service Speech - bring your own storage (BYOS)](https://aka.ms/cogsvc-cmk). Une fois votre demande approuvée, vous devrez créer votre propre compte de stockage pour y stocker les données requises pour la personnalisation et la journalisation. Lorsque vous ajoutez un compte de stockage, la ressource du service Speech active une identité managée attribuée par le système.
+
+> [!IMPORTANT]
+> Le compte d’utilisateur que vous utilisez pour créer une ressource Speech avec la fonctionnalité BYOS doit se voir attribuer le [rôle de propriétaire dans l’étendue de l’abonnement Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator). Dans le cas contraire, vous obtiendrez une erreur d’autorisation lors de l’approvisionnement des ressources.
+
+Une fois que l’identité managée affectée par le système est activée, cette ressource est inscrite auprès d’Azure Active Directory (AAD). Une fois inscrite, l’identité managée aura accès au compte de stockage. Pour plus d’informations sur les identités managées, consultez [Que sont les identités managées ?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Si vous désactivez les identités managées attribuées par le système, l’accès au compte de stockage sera supprimé. Les composants du service Speech qui requièrent l’accès au compte de stockage cesseront de fonctionner.  

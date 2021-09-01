@@ -7,14 +7,13 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a548d516213b65406a2f47c27c9a1a82cfb6f4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896393"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563305"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Ajouter une barre d’outils de dessin à une carte
 
@@ -69,7 +68,7 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a po
 
 ## <a name="change-drawing-rendering-style"></a>Modifier le style de rendu de dessin
 
-Le style des formes qui sont dessinées peut être personnalisé en extrayant les couches sous-jacentes du gestionnaire de dessins à l’aide de la fonction `drawingManager.getLayers()`, puis en définissant les options sur les couches individuelles. Les poignées de glissement qui s’affichent pour les coordonnées lors de la modification d’une forme sont des marqueurs HTML. Le style des poignées de glissement peut être personnalisé en passant les options de marqueur HTML aux options `dragHandleStyle` et `secondaryDragHandleStyle` du gestionnaire de dessins.  
+Le style des formes qui sont dessinées peut être personnalisé en extrayant les couches sous-jacentes du gestionnaire de dessins à l’aide des fonctions `drawingManager.getLayers()` et `drawingManager.getPreviewLayers()`, puis en définissant les options sur les couches individuelles. Les poignées de glissement qui s’affichent pour les coordonnées lors de la modification d’une forme sont des marqueurs HTML. Le style des poignées de glissement peut être personnalisé en passant les options de marqueur HTML aux options `dragHandleStyle` et `secondaryDragHandleStyle` du gestionnaire de dessins.  
 
 Le code suivant obtient les couches de rendu à partir du gestionnaire de dessins et modifie leurs options pour modifier le style de rendu du dessin. Dans ce cas, les points sont affichés avec une icône marker bleue. Les lignes sont rouges et d’une largeur de 4 pixels. Les polygones ont une couleur de remplissage verte et un contour orange. Il modifie ensuite les styles des poignées de glissement en icônes carrées. 
 
@@ -100,6 +99,12 @@ layers.polygonOutlineLayer.setOptions({
     strokeColor: 'orange'
 });
 
+
+//Get preview rendering layers from the drawing manager and modify line styles to be dashed.
+var previewLayers = drawingManager.getPreviewLayers();
+previewLayers.lineLayer.setOptions({ strokeColor: 'red', strokeWidth: 4, strokeDashArray: [3,3] });
+previewLayers.polygonOutlineLayer.setOptions({ strokeColor: 'orange', strokeDashArray: [3, 3] });
+
 //Update the style of the drag handles that appear when editting.
 drawingManager.setOptions({
     //Primary drag handle that represents coordinates in the shape.
@@ -126,6 +131,8 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 Consultez la page <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Modifier le style de rendu de dessin</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+> [!NOTE]
+> En mode d’édition, les formes peuvent être pivotées. La rotation est prise en charge à partir de géométries MultiPoint, LineString, MultiLineString, Polygon, Multipolygon et Rectangle. Les géométries Point et Circle ne peuvent pas être pivotées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

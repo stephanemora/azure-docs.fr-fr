@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1419dcba2dbf1732760848738c6f50c4168ac545
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664980"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524070"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Créer et gérer des étendues de chiffrement
 
@@ -27,7 +27,7 @@ Cet article montre comment créer une étendue de chiffrement. Il montre égalem
 
 ## <a name="create-an-encryption-scope"></a>Créer une étendue de chiffrement
 
-Vous pouvez créer une étendue de chiffrement protégée par une clé gérée par Microsoft ou une clé gérée par le client qui est stockée dans un coffre de clés Azure Key Vault ou un module de sécurité matériel (HSM) Azure Key Vault Managed Hardware Security Model (préversion). Pour créer une étendue de chiffrement avec une clé gérée par le client, vous devez d’abord créer un coffre de clés ou un HSM managé et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés ou le HSM managé doit avoir la protection contre le vidage activée et se trouver dans la même région que le compte de stockage.
+Vous pouvez créer une étendue de chiffrement protégée par une clé gérée par Microsoft ou une clé gérée par le client qui est stockée dans un coffre de clés Azure Key Vault ou un module de sécurité matériel (HSM) Azure Key Vault Managed Hardware Security Model. Pour créer une étendue de chiffrement avec une clé gérée par le client, vous devez d’abord créer un coffre de clés ou un HSM managé et ajouter la clé que vous prévoyez d’utiliser pour l’étendue. Le coffre de clés ou le HSM managé doit avoir la protection contre le vidage activée et se trouver dans la même région que le compte de stockage.
 
 Une étendue de chiffrement est automatiquement activée lorsque vous la créez. Après avoir créé l’étendue de chiffrement, vous pouvez la spécifier lorsque vous créez un objet blob. Vous pouvez également spécifier une étendue de chiffrement par défaut lorsque vous créez un conteneur, qui s’applique automatiquement à tous les objets blob du conteneur.
 
@@ -65,7 +65,7 @@ $accountName = "<storage-account>"
 $scopeName1 = "customer1scope"
 
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
     -StorageEncryption
 ```
@@ -105,7 +105,7 @@ N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName2 `
     -KeyUri $keyUri `
     -KeyvaultEncryption
@@ -181,7 +181,7 @@ az storage account encryption-scope create \
 Pour apprendre à configurer le chiffrement Azure Storage avec des clés gérées par le client dans un coffre de clés ou un HSM managé, consultez les articles suivants :
 
 - [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
-- [Configurer le chiffrement avec des clés gérées par le client stockées dans le HSM managé par Azure Key Vault (préversion)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+- [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
 Pour en savoir plus sur le chiffrement d'infrastructure, consultez [Activer le chiffrement d'infrastructure pour le chiffrement double des données](../common/infrastructure-encryption-enable.md).
 

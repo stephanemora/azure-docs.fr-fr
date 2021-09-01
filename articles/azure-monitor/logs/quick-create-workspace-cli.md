@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 175473f5abd74fa208962fd94852e9ddedfaf7e3
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: f15658d7d800f9c7d4ab5cbfe193386a66ba7602
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105802"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563913"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
@@ -21,11 +21,6 @@ Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir
 * Regroupements d'appareils à partir de Configuration Manager  
 * Données de diagnostics et de journaux du Stockage Azure  
 
-Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :
-
-* [Collect data from Azure virtual machines](../vm/quick-collect-azurevm.md) (Collecter des données à partir de machines virtuelles Azure)
-* [Collect data from hybrid Linux computer](../vm/quick-collect-linux-computer.md) (Collecter des données à partir d’un ordinateur Linux hybride)
-* [Collect data from hybrid Windows computer](../vm/quick-collect-windows-computer.md) (Collecter des données à partir d’un ordinateur Windows hybride)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

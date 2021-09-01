@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: c53a59279a8101f29cb9bfb64f4ccd1b4921283e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 383636d07aa453266be43b33d6f62b93255ac24a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205446"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562385"
 ---
 # <a name="configure-forced-tunneling"></a>Configurer un tunneling forcé
 
 Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise. Si vous ne configurez pas le tunneling forcé, le trafic Internet en provenance de vos machines virtuelles dans Azure se fait toujours à travers l’infrastructure du réseau Azure directement vers Internet, sans vous permettre d’inspecter ou de vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité.
 
-Le tunneling forcé peut être configuré à l’aide d’Azure PowerShell. Il ne peut pas être configuré à l’aide du portail Azure. Cet article vous aide à configurer le tunneling forcé pour les réseaux virtuels créés à l’aide du modèle de déploiement Resource Manager. Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement de classique, consultez [Tunneling forcé - Classique](vpn-gateway-about-forced-tunneling.md).
+Le tunneling forcé peut être configuré à l’aide d’Azure PowerShell. Il ne peut pas être configuré à l’aide du portail Azure. Cet article vous aide à configurer le tunneling forcé pour les réseaux virtuels créés à l’aide du [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md). Si vous souhaitez configurer le tunneling forcé pour le modèle de déploiement de classique, consultez [Tunneling forcé - Classique](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="about-forced-tunneling"></a>À propos du tunneling forcé
 
@@ -110,7 +110,7 @@ Installez la dernière version des applets de commande PowerShell Azure Resource
    Set-AzVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-6. Créez la passerelle de réseau virtuel. Cette opération prend un certain temps, parfois 45 minutes voire plus, car vous créez et configurez la passerelle. Si vous voyez des erreurs ValidateSet relatives à la valeur GatewaySKU, vérifiez que vous avez installé la [dernière version des applets de commande PowerShell](#before). La dernière version des applets de commande PowerShell contient les nouvelles valeurs validées pour les dernières références SKU de passerelle.
+6. Créez la passerelle de réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Si vous voyez des erreurs ValidateSet relatives à la valeur GatewaySKU, vérifiez que vous avez installé la [dernière version des applets de commande PowerShell](#before). La dernière version des applets de commande PowerShell contient les nouvelles valeurs validées pour les dernières références SKU de passerelle.
 
    ```powershell
    $pip = New-AzPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic

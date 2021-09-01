@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 08/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b396da87089351859cb5f0c38d72e39da5d7f7d3
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 25ec41f3c3d191c0ff13eb4301396b78100b3ef7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077622"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028471"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-and-policy-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer le Pare-feu Azure et une stratégie de pare-feu dans un réseau hybride en utilisant le portail Azure
 
@@ -48,11 +48,11 @@ Si vous souhaitez plutôt utiliser Azure PowerShell pour suivre cette procédure
 
 Un réseau hybride utilise le modèle d’architecture Hub and Spoke pour router le trafic entre des réseaux virtuels Azure et des réseaux locaux. L’architecture Hub and Spoke présente les conditions suivantes :
 
-- Définissez **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** pendant le peering du hub de réseau virtuel au rayon de réseau virtuel. Dans une architecture réseau Hub and Spoke, le transit par passerelle permet aux réseaux virtuels spoke d’exploiter la passerelle VPN du hub, évitant ainsi de devoir déployer des passerelles VPN dans chaque réseau virtuel spoke. 
+- Définissez **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** pendant le peering de VNet-Hub et VNet-Spoke. Dans une architecture réseau Hub and Spoke, le transit par passerelle permet aux réseaux virtuels spoke d’exploiter la passerelle VPN du hub, évitant ainsi de devoir déployer des passerelles VPN dans chaque réseau virtuel spoke. 
 
    De plus, les routes vers les réseaux locaux ou les réseaux virtuels connectés à la passerelle sont propagés automatiquement aux tables de routage pour les réseaux virtuels homologués à l’aide du transit par passerelle. Pour plus d’informations, consultez [Configurer le transit par passerelle VPN pour le peering de réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Définissez **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** pendant le peering du rayon de réseau virtuel au hub de réseau virtuel. Si **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** est défini en même temps que **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** sur le peering distant, le réseau virtuel rayon utilise les passerelles du réseau virtuel distant pour le transit.
+- Définissez **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** pendant le peering de VNet-Spoke et VNet-Hub. Si **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** est défini en même temps que **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** sur le peering distant, le réseau virtuel spoke utilise les passerelles du réseau virtuel distant pour le transit.
 - Pour router le trafic de sous-réseau spoke par le biais du pare-feu de hub, vous pouvez utiliser une route définie par l’utilisateur (UDR, User-Defined Route) qui pointe vers le pare-feu avec l’option **Propagation de la route de la passerelle de réseau virtuel** désactivée. L’option désactivée **Propagation de la route de la passerelle de réseau virtuel** empêche la distribution des routes vers les sous-réseaux spoke. Cela empêche que les routes apprises entrent en conflit avec votre UDR. Si vous souhaitez conserver la **Propagation de la route de la passerelle de réseau virtuel** activée, veillez à définir des routes spécifiques vers le pare-feu pour remplacer celles qui sont publiées à partir du site local sur le protocole BGP.
 - Vous devez configurer une UDR sur le sous-réseau de passerelle hub qui pointe vers l’adresse IP du pare-feu comme prochain tronçon vers les réseaux spoke. Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 
@@ -194,7 +194,7 @@ Sur la deuxième ligne de la règle, tapez les informations suivantes :
 2. Pour **Protocole**, sélectionnez **TCP**.
 1. Pour **Ports de destination**, tapez **3389**.
 1. Pour **Type de destination**, sélectionnez **Adresse IP**.
-1. Pour **Destination**, tapez **10.6.0.0/16**
+1. Pour **Destination**, tapez **10.6.0.0/16**.
 1. Sélectionnez **Ajouter**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Créer et connecter les passerelles VPN
@@ -465,7 +465,5 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
-
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)
+> [Déployer et configurer le Pare-feu Azure Premium](premium-deploy.md)

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.collection: windows
 ms.date: 06/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1de4facc6cc945b5cada2201d3da667efae793aa
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: fdfdb0ec6f9c265245ca4699aa6e2ab49dd4fdbd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797354"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532473"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor Dependency pour Windows
 
@@ -132,31 +132,22 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
     -TypeHandlerVersion 9.5 `
-    -Location WestUS 
+    -Location WestUS
 ```
 
-## <a name="automatic-upgrade-preview"></a>Mise à niveau automatique (préversion)
-Une nouvelle fonctionnalité de mise à niveau automatique des versions mineures de l’extension Dependency est désormais disponible en préversion publique. Vous devez effectuer les modifications de configuration suivantes pour activer cette fonctionnalité.
+## <a name="automatic-extension-upgrade"></a>Mise à niveau automatique des extensions
+Une nouvelle fonctionnalité de [mise à niveau automatique des versions mineures](../automatic-extension-upgrade.md) de l’extension Dependency est désormais disponible.
 
--   Utilisez l’une des méthodes indiquées dans [Activation de l’accès en préversion](../automatic-extension-upgrade.md#enabling-preview-access) pour activer la fonctionnalité pour votre abonnement.
-- Ajoutez l'attribut `enableAutomaticUpgrade` au modèle.
+Pour activer la mise à niveau automatique pour une extension, vous devez vous assurer que la propriété `enableAutomaticUpgrade` est définie sur `true` et ajoutée au modèle d’extension. Cette propriété doit être activée sur chaque machine virtuelle ou groupe identique de machines virtuelles individuellement. Utilisez l’une des méthodes décrites dans la section [activation](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) pour activer la fonctionnalité pour votre machine virtuelle ou votre groupe identique de machines virtuelles.
 
-Le schéma de contrôle de version de l’extension Dependency Agent respecte le format suivant :
+Lorsque la mise à niveau automatique des extensions est activée sur une machine virtuelle ou un groupe identique de machines virtuelles, l’extension est automatiquement mise à niveau chaque fois que l’éditeur de l’extension publie une nouvelle version pour cette extension. La mise à niveau est appliquée en toute sécurité selon les principes de première disponibilité, comme décrit [ici](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
 
-```
-<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
-```
+La fonctionnalité de l’attribut `enableAutomaticUpgrade` est différente de celle de `autoUpgradeMinorVersion`. Les attributs `autoUpgradeMinorVersion` ne déclenchent pas automatiquement une mise à jour de version mineure lorsque l’éditeur d’extension publie une nouvelle version. L’attribut `autoUpgradeMinorVersion` indique si l’extension doit utiliser une version mineure plus récente si celle-ci est disponible au moment du déploiement. Cependant, une fois déployée, l’extension ne mettra pas à jour les versions mineures à moins d’être redéployée, même si cette propriété est définie sur true.
 
-Les attributs `enableAutomaticUpgrade` et `autoUpgradeMinorVersion` fonctionnent ensemble pour déterminer comment les mises à niveau seront gérées pour les machines virtuelles de l’abonnement.
-
-| enableAutomaticUpgrade | autoUpgradeMinorVersion | Résultat |
-|:---|:---|:---|
-| true | false | Mettez à niveau l’agent Dependency si une version plus récente de bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
-| true | true |  Cela mettra à niveau l’agent Dependency si une version plus récente de mm.bb.rr ou bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.7.1.1416, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.7.1.1416. De même, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
-| false | True ou False | La mise à niveau automatique est désactivée.
+Pour maintenir la version de votre extension à jour, nous vous recommandons d’utiliser `enableAutomaticUpgrade` pour le déploiement de votre extension.
 
 > [!IMPORTANT]
-> Si vous ajoutez `enableAutomaticUpgrade` à votre modèle, assurez-vous d’utiliser au moins l’API version 2019-12-01.
+> Si vous ajoutez `enableAutomaticUpgrade` à votre modèle, assurez-vous d’utiliser l’API version 2019-12-01 ou version ultérieure.
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

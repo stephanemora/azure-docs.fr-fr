@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/19/2021
-ms.openlocfilehash: 05512c247f26dc8e6d41876bc3a09acdd278caac
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/30/2021
+ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559265"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531774"
 ---
 # <a name="create-a-saas-offer"></a>Créer une offre SaaS
 
@@ -54,6 +54,9 @@ Sous l’onglet **Configuration de l’offre**, sous **Détails de la configurat
    + Pour fournir un abonnement gratuit à votre offre, sélectionnez **Obtenir maintenant (gratuit)** . Ensuite, dans la zone **URL de l’offre** qui s’affiche, entrez l’URL (commençant par *http* ou *https*), à laquelle les clients peuvent obtenir un essai via l’[authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](azure-ad-saas.md). Par exemple : `https://contoso.com/saas-app`.
    + Pour proposer un essai gratuit de 30 jours, sélectionnez **Essai gratuit**, puis, dans la zone **URL de la version d’essai** qui s’affiche, entrez l’URL (commençant par *http* ou *https*) à laquelle les clients peuvent accéder à votre essai gratuit via l’[authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](azure-ad-saas.md). Par exemple : `https://contoso.com/trial/saas-app`.
    + Pour que les clients potentiels vous contactent pour acheter votre offre, sélectionnez **Me contacter**.
+
+    > [!NOTE]
+    > Vous pouvez convertir une offre publiée de référencement uniquement en une offre de vente sur le marketplace commercial si votre situation change, mais vous ne pouvez pas convertir une offre négociable publiée en une offre de référencement uniquement. Au lieu de cela, vous devez créer une nouvelle offre de référencement uniquement et arrêter la distribution de l’offre négociable publiée.
 
 ## <a name="enable-a-test-drive-optional"></a>Activer une version d’évaluation (facultatif)
 

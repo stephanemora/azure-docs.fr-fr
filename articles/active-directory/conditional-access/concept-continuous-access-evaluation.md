@@ -10,13 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
+ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c615c3b57d0c4ebfdbffdc1461f2289d4b8c4256
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 7889bca19bc24b8f0c0f83b9c7e3b8bf310cf3d1
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438267"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563988"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -50,14 +51,14 @@ L’évaluation continue de l’accès est implémentée en permettant à des se
 - Un administrateur révoque explicitement tous les jetons d’actualisation d’un utilisateur
 - Risque utilisateur élevé détecté par Azure AD Identity Protection
 
-Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
+Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
 
 > [!NOTE] 
 > Teams et SharePoint Online ne prennent pas encore en charge les événements à risque.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Évaluation de la stratégie d’accès conditionnel (préversion)
 
-Exchange et SharePoint sont en mesure de synchroniser des stratégies d’accès conditionnel clés afin qu’elles puissent être évaluées dans le service lui-même.
+Exchange Online, SharePoint Online, Teams et MS Graph peuvent synchroniser des stratégies d’accès conditionnel clés afin qu’elles puissent être évaluées dans le service proprement dit.
 
 Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches de l’organisation à partir d’applications clientes Microsoft 365 ou de SharePoint Online immédiatement après des changements d’emplacement réseau.
 
@@ -66,17 +67,23 @@ Ce processus permet l’émergence du scénario dans lequel des utilisateurs per
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Exchange Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Exchange Online** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
 
 | | Applications web Office | Applications Win32 Office | Office pour iOS | Office pour Android | Office pour Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Exchange Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Exchange Online** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
 
 | | Web OneDrive | OneDrive Win32 | IOS OneDrive | Android OneDrive | Mac OneDrive |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Pris en charge |
+
+| | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Teams Service** | Pris en charge | Pris en charge | Pris en charge | Pris en charge | Pris en charge |
+| **SharePoint Online** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Exchange Online** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
 
 ### <a name="client-side-claim-challenge"></a>Contestation de revendication côté client
 
@@ -84,10 +91,10 @@ Avant l’évaluation de l’accès continu, les clients essayaient toujours de 
 
 | | Web | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Outlook** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Équipes** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **Office** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
-| **OneDrive** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Outlook** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Équipes** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
+| **Office** | Non pris en charge | Prise en charge | Pris en charge | Pris en charge | Prise en charge |
+| **OneDrive** | Prise en charge | Pris en charge | Pris en charge | Pris en charge | Prise en charge |
 
 ### <a name="token-lifetime"></a>Durée de vie des jetons
 

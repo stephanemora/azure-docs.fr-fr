@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 4c37aab00f838de24e96e6f509ae8484df2c6715
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: abcb233665d6c6074ff50d1bb53e553ed9eb99ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904961"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524860"
 ---
 # <a name="replicate-virtual-machines-running-in-a-proximity-placement-group-to-another-region"></a>Répliquer des machines virtuelles exécutées dans un groupe de placement de proximité dans une autre région
 
@@ -28,7 +28,7 @@ Site Recovery réplique les données d’une région Azure vers une autre régio
 
 ## <a name="considerations"></a>Considérations
 
-- La meilleure solution consiste à basculer et à restaurer les machines virtuelles dans un groupe de placement de proximité. Si vous ne pouvez pas afficher les machines virtuelles dans un groupe de placement de proximité, le basculement et la restauration auront quand même lieu, mais les machines virtuelles seront créées en dehors du groupe de placement de proximité.
+- La meilleure solution consiste à basculer et à restaurer les machines virtuelles dans un groupe de placement de proximité. S’il existe une contrainte d’allocation de capacité à cause de laquelle nous ne pouvons pas afficher les machines virtuelles à l’intérieur d’un groupe de placement de proximité, le basculement et la restauration automatique s’exécutent toujours, mais les machines virtuelles sont créées en dehors du groupe de placement de proximité.
 - Si un groupe à haute disponibilité est épinglé à un groupe de placement de proximité et que les machines virtuelles du groupe à haute disponibilité ont une contrainte d’allocation pendant le basculement ou la restauration, les machines virtuelles seront créées en dehors du groupe à haute disponibilité et du groupe de placement de proximité.
 - Site Recovery pour les groupes de placement de proximité n’est pas pris en charge pour les disques non managés.
 

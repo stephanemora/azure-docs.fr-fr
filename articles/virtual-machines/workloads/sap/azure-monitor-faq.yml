@@ -7,12 +7,12 @@ metadata:
   ms.topic: article
   ms.date: 07/08/2020
   ms.author: radeltch
-  ms.openlocfilehash: ac0646f0fca867402477acac9bca62753f275fdd
-  ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+  ms.openlocfilehash: 903d2e2b2413f4ad92a6f0fb88871f4410e464b4
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/16/2021
-  ms.locfileid: "114393533"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122967146"
 title: Questions fréquentes (FAQ) sur Azure Monitor pour SAP Solutions (préversion)
 summary: "## <a name=\"frequently-asked-questions\"></a>Forum aux questions\n\nCet article offre des réponses aux questions fréquentes sur Azure Monitor pour SAP Solutions.  \n"
 sections:
@@ -82,4 +82,4 @@ sections:
   - question: >
       Est-ce que je dois redémarrer mes instances SAP après avoir effectué des configurations système pour configurer le fournisseur SAP NetWeaver ?
     answer: "Oui, une fois que vous avez ôté la protection des méthodes par le biais de modifications de configuration SAP, vous devez redémarrer les systèmes SAP concernés afin de vous assurer que les modifications de configuration sont mises à jour.  \n"
-additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nDécouvrez plus en détail Azure Monitor pour SAP Solutions.\n\n> [!div class=\"nextstepaction\"]\n> [Azure Monitor pour SAP Solutions](azure-monitor-overview.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nDécouvrez plus en détail Azure Monitor pour SAP Solutions.\n\n> [!div class=\"nextstepaction\"]\n> [Superviser SAP sur Azure](monitor-sap-on-azure.md)"

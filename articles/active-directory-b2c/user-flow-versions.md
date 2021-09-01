@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b47a311513a1216555583b64095d4bc46e4b48e
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: ff22ed8c1ef96d1839767ac56a7215737ae18c14
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895898"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527713"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versions de flux utilisateur dans Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Les flux utilisateur dans Azure Active Directory B2C (Azure AD B2C) vous aident
 >- Les flux d’utilisateurs **recommandés** sont les flux d’utilisateurs de nouvelle génération mis à la disposition générale et dotés des dernières fonctionnalités. Ils combinent toutes les fonctionnalités des versions **v1**, **v1.1** et **v2** héritées. À l’avenir, les flux d’utilisateurs **recommandés** seront maintenus et mis à jour. Quand vous passez à ces nouveaux flux d’utilisateur recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
 >- Les flux d’utilisateurs **standard (hérités)** , précédemment appelés **v1**, sont des flux d’utilisateurs hérités. À moins que vous n’ayez un besoin professionnel spécifique, nous vous déconseillons d’utiliser ces versions des flux d’utilisateurs, car elles ne seront pas maintenues ou mises à jour.
 >
->Tous les flux d’utilisateur en préversion hérités (V1.1 et V2) seront dépréciés d’ici le **1er août 2021**. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les versions **recommandées**](#how-to-switch-to-a-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
+>Dans le cloud public, tous les flux d’utilisateurs en préversion hérités (v1.1 et v2) sont déconseillés. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
 
 ## <a name="recommended-user-flows"></a>Flux utilisateur recommandés
 
@@ -85,4 +85,4 @@ Si vous utilisez un flux utilisateur V2 ou V1.1 hérité, votre application n’
 
 ### <a name="will-microsoft-still-support-my-legacy-v2-or-v11-user-flow-policy"></a>Microsoft continuera-t-il de prendre en charge ma stratégie de flux utilisateur V2 ou V1.1 héritée ?
 
-Dans le cloud public, tous les flux d’utilisateurs en préversion hérités (v1.1 et v2) seront déconseillés d’ici le 1er août 2021. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les versions **recommandées**](#how-to-switch-to-a-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
+Dans le cloud public, tous les flux d’utilisateurs en préversion hérités (v1.1 et v2) sont déconseillés. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*

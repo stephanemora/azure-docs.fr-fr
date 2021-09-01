@@ -1,18 +1,18 @@
 ---
 title: Collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer
 description: Comment collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer dans Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dae08798aa7b3bc1937295e0cd7701446bd7259e
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135272"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563436"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer (préversion)
 
@@ -22,10 +22,8 @@ Pour en illustrer le fonctionnement, nous allons utiliser [spring-cloud-circuit-
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
-
+* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights).
 * Activez la collecte de dimensions pour les métriques Resilience4J à partir du [guide Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 * S’ils ne sont pas déjà utilisés par l’ordinateur de développement, installez git, Maven et Java.
 
 ## <a name="build-and-deploy-apps"></a>Créer et déployer des applications
@@ -73,6 +71,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
+>
 > * Le code client doit utiliser l’API de `CircuitBreakerFactory`, qui est implémentée en tant que `bean` automatiquement créé lorsque vous incluez un démarrage de disjoncteur Spring Cloud. Pour plus d’informations, consultez [Disjoncteur Spring Cloud](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
 > * Les 2 dépendances suivantes sont en conflit avec les packages Resilient4J ci-dessus.  Assurez-vous que le client ne les inclue pas.
@@ -99,7 +98,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="locate-resilence4j-metrics-from-portal"></a>Localiser les métriques Resilence4J à partir du portail
 
-1. Sélectionnez le panneau **Application Insights** à partir du portail Azure Spring Cloud, puis cliquez sur **Application Insights**.
+1. Sélectionnez le panneau **Application Insights** à partir du portail Azure Spring Cloud, puis sélectionnez **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
@@ -111,11 +110,11 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. Sélectionnez les métriques **resilience4j_circuitbreaker_calls** et **Moyenne**.  Cliquez sur **Ajouter un filtre**, puis sélectionnez le nom **createNewAccount**.
+4. Sélectionnez les métriques **resilience4j_circuitbreaker_calls** et **Moyenne**. Sélectionnez **Ajouter un filtre**, puis sélectionnez le nom **createNewAccount**.
 
    [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. Sélectionnez les métriques **resilience4j_circuitbreaker_calls** et **Moyenne**.  Cliquez sur **Appliquer la division** et sélectionnez **genre**.
+5. Sélectionnez les métriques **resilience4j_circuitbreaker_calls** et **Moyenne**.  Ensuite, sélectionnez **Appliquer la division** et sélectionnez **genre**.
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
