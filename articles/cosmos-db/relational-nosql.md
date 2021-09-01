@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7926994766646f89a2ea853df3cc60715005b814
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93088469"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097786"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Comprendre les différences entre les bases de données relationnelles et NoSQL d’Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Si vous gérez des données dont les structures changent constamment à un taux 
 Le modèle des [microservices](https://en.wikipedia.org/wiki/Microservices) a connu une croissance importante au cours des dernières années. Ce modèle a ses racines dans l’[architecture orientée services](https://en.wikipedia.org/wiki/Service-oriented_architecture). La norme de facto pour la transmission de données dans ces architectures modernes de microservices est [JSON](https://en.wikipedia.org/wiki/JSON), qui est également le support de stockage pour la grande majorité des bases de données NoSQL orientées documents. Cela permet aux banques de documents NoSQL d’être bien plus adaptées à la persistance et à la synchronisation (à l’aide de [modèles d’approvisionnement d’événements](https://en.wikipedia.org/wiki/Event-driven_architecture)) sur des implémentations complexes de microservices. Les bases de données relationnelles plus traditionnelles peuvent être bien plus complexes à gérer dans ces architectures. Cela est dû à la plus grande quantité de transformation requise pour l’état et la synchronisation entre les API. Azure Cosmos DB en particulier dispose d’un certain nombre de fonctionnalités qui le rendent encore plus adapté aux architectures de microservices basées sur JSON que de nombreuses bases de données NoSQL :
 
 * un choix de types de données JSON pures ;
-* un moteur JavaScript et une [API de requête](./javascript-query-api.md) intégrés à la base de données ;
+* un moteur JavaScript et une [API de requête](sql/javascript-query-api.md) intégrés à la base de données ;
 * un [flux de modification](./change-feed.md) de pointe auquel les clients peuvent s’abonner pour être averti des modifications apportées à un conteneur.
 
 ## <a name="some-challenges-with-nosql-databases"></a>Quelques défis avec les bases de données NoSQL

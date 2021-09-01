@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa21a1a6d6dfdd89f6532159a8da98fc5df08465
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93334376"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281356"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Types de conflits et stratégies de résolution lors de l’utilisation de plusieurs régions d’écriture
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour r�
   Si vous configurez votre conteneur avec l’option de résolution personnalisée mais ne pouvez pas inscrire une procédure de fusion sur le conteneur, ou si la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le *flux de conflits*. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md).
 
   > [!NOTE]
-  > La stratégie personnalisée de résolution de conflits est disponible uniquement pour les comptes d’API SQL.
+  > La stratégie de résolution de conflits personnalisée n’est disponible que pour les comptes d’API SQL et ne peut être définie qu’au moment de la création. Il n’est pas possible de définir une stratégie de résolution personnalisée sur un conteneur existant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

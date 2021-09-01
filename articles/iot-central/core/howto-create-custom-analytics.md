@@ -1,20 +1,19 @@
 ---
 title: Étendre Azure IoT Central avec une analyse personnalisée | Microsoft Docs
 description: En tant que développeur de solutions, configurez une application IoT Central pour réaliser des visualisations et des analyses personnalisées. Cette solution utilise Azure Databricks.
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: 3e3ce75adde26d1392bff143ad38ff857e14f6d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5f046920ce711ac6b1e6b9a461d71d9d49b2ddc7
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750110"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597662"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks
 
@@ -251,4 +250,4 @@ Dans ce guide pratique, vous avez appris à effectuer les opérations suivantes�
 * Transmettre des données de télémétrie en continu à partir d’une application IoT Central à l’aide de l’*exportation de données continue*.
 * Créez un environnement Azure Databricks pour analyser et tracer les données de télémétrie.
 
-Maintenant que vous savez comment créer une analyse personnalisée, l’étape suivante suggérée consiste à apprendre comment [Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI](howto-connect-powerbi.md).
+Maintenant que vous savez comment créer des analyses personnalisées, l’étape suivante suggérée consiste à apprendre à [Utiliser le pont de périphérique IoT Central pour connecter d’autres clouds IoT à IoT Central](howto-build-iotc-device-bridge.md).

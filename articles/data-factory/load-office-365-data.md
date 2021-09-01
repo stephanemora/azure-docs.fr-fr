@@ -3,15 +3,16 @@ title: Charger des données d’Office 365 à l’aide d’Azure Data Factory
 description: Utiliser Azure Data Factory pour copier des données à partir d’Office 365
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: eae3a83a5354c61db27f38b7b73a396923427073
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a7c809803df1e84528cc7cd8eb41574591aab8c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109485618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641469"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Charger des données d’Office 365 à l’aide d’Azure Data Factory
 
@@ -38,15 +39,15 @@ Cet article vous montre comment _charger des données d’Office 365 dans le st
 3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
    
-   ![Page d’accueil Data Factory](./media/load-office-365-data/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la mosaïque Ouvrir Azure Data Factory Studio.":::
 
-5. Sélectionnez la vignette **Créer et surveiller** pour lancer l’application d’intégration de données dans un onglet séparé.
+5. Sélectionnez **Ouvrir** dans la vignette **Ouvrir Azure Data Factory Studio** pour lancer l’application d’intégration de Data Factory dans un onglet distinct.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
-1. Sur la page « Prise en main », cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil, sélectionnez **Orchestrer**.
  
-    ![Création d’un pipeline](./media/load-office-365-data/create-pipeline-entry.png)
+    ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 
 2. Dans l’onglet **Général** du pipeline, entrez « CopyPipeline » pour le **nom** du pipeline.
 

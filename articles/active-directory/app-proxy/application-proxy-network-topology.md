@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e26522130d98d5e2f706a6c48002ad75b537d32a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a9b12750ec16ee5fe79c91e4ed931426f8dbaa36
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964774"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535249"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Optimiser le flux de trafic avec le proxy d’application Azure Active Directory
 
@@ -27,7 +27,7 @@ Cet article explique comment optimiser le flux de trafic et les considérations 
 Lorsqu’une application est publiée via le proxy d’application Azure AD, le trafic des utilisateurs vers les applications circule via trois connexions :
 
 1. L’utilisateur se connecte au point de terminaison public du service de proxy d’application Azure AD sur Azure
-1. Le service de proxy d’application se connecte au connecteur de proxy d’application
+1. Le connecteur de Proxy d’application se connecte au service de Proxy d’application (sortant)
 1. Le connecteur de proxy d’application se connecte à l’application cible
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="Diagramme illustrant le flux de trafic de l’utilisateur vers l’application cible." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::

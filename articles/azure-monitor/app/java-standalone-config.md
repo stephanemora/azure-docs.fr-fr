@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 314e2cf6991a33fb50ee14b9e54f9d47069dc20c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d8ba75ce068d7d2b604e9cafa4cde76393175c30
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027890"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298154"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -181,8 +181,6 @@ Vous pouvez utiliser `${...}` pour lire la valeur de la variable d’environneme
 > À partir de la version 3.0.2, si vous ajoutez une dimension personnalisée nommée `service.version`, la valeur sera stockée dans la colonne `application_Version` de la table des journaux Application Insights plutôt que sous forme de dimension personnalisée.
 
 ## <a name="telemetry-processors-preview"></a>Processeurs de télémétrie (préversion)
-
-Cette fonctionnalité est en préversion.
 
 Elle vous permet de configurer des règles qui seront appliquées aux données de télémétrie de requêtes, de dépendances et de traces. Par exemple :
  * Masquer des données sensibles
@@ -399,6 +397,13 @@ Le paramètre s’applique à toutes ces métriques :
 [//]: # "  }"
 [//]: # "}"
 [//]: # "```"
+
+## <a name="authentication-preview"></a>Authentification (préversion)
+> [!NOTE]
+> La fonctionnalité d’authentification est disponible à partir de la version 3.2.0-BETA
+
+Elle vous permet de configurer l’agent pour générer les [informations d’identification de jeton](/java/api/overview/azure/identity-readme#credentials) requises pour l’authentification Azure Active Directory.
+Pour plus d’informations, consultez la documentation sur l’[Authentification](./azure-ad-authentication.md).
 
 ## <a name="self-diagnostics"></a>Autodiagnostics
 

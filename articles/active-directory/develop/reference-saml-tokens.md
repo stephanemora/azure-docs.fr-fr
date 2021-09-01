@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: c23028e4cbbeb7e92fd8b0a7fb6b6b81a54a0806
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2d49a112413c482751f51d67f2fb3990dcfe52c2
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132230"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219983"
 ---
 # <a name="saml-token-claims-reference"></a>Informations de référence sur les revendications de jeton SAML
 
@@ -154,7 +154,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [Vue d’ensemble de la ressource de stratégie Azure AD](/graph/api/resources/policy).
+* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [Vue d’ensemble de la ressource de stratégie Azure AD](/graph/api/resources/policy-overview).
 * Ajoutez [revendications personnalisées et facultatives](active-directory-optional-claims.md) aux jetons pour votre application.
 * Utilisez l’[authentification unique (SSO) avec SAML](single-sign-on-saml-protocol.md).
 * Utilisez le [protocole SAML de déconnexion unique Azure](single-sign-out-saml-protocol.md)

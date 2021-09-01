@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 200fa1b225e4f0f8c4dc2a11c3da2a02227c778e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 96e402a46d931223832295ccbd892eb38b909c59
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960696"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220788"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -187,7 +187,7 @@ Le modèle suivant peut être utilisé pour créer une stratégie d’accès con
 
 Identity Protection peut calculer ce qui est normal pour le comportement d’un utilisateur et l’utiliser pour prendre des décisions en matière de risque. Le risque de l’utilisateur est un calcul de probabilité qu’une identité ait été compromise. Les locataires B2C disposant de licences P2 peuvent créer des stratégies d’accès conditionnel incorporant le risque utilisateur. Lorsqu’un utilisateur à risque est détecté, vous pouvez demander à ce qu’il modifie de manière sécurisée son mot de passe pour corriger le risque et accéder à son compte. Nous vous recommandons vivement de configurer une stratégie de risque utilisateur pour exiger une modification de mot de passe de manière sécurisée et permettre aux utilisateurs d’y remédier eux-mêmes.
 
-Apprenez-en davantage sur le [risque utilisateur dans Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-risk), tout en prenant en compte les [limitations relatives aux détections de protection des identités pour B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
+Apprenez-en davantage sur le [risque utilisateur dans Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-linked-detections), tout en prenant en compte les [limitations relatives aux détections de protection des identités pour B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
 
 Configurez l’accès conditionnel via le portail Azure ou les API Microsoft Graph pour activer une stratégie d’accès conditionnel basé sur le risque utilisateur nécessitant une authentification multifacteur (MFA) et la modification du mot de passe lorsque le risque utilisateur est moyen ou élevé.
 

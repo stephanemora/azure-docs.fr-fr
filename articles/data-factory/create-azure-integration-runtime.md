@@ -1,23 +1,25 @@
 ---
-title: Créer un runtime d’intégration Azure dans Azure Data Factory
-description: Apprenez à créer un runtime d’intégration Azure dans Azure Data Factory, qui est utilisé pour copier des données et répartir des activités de transformation.
+title: Créer un runtime d’intégration Azure
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Apprenez à créer un runtime d’intégration Azure dans Azure Data Factory et Azure Synapse Analytics, qui est utilisé pour copier des données et répartir des activités de transformation.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/04/2021
 author: lrtoyou1223
 ms.author: lle
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b98f95c0cd3013af055b85e4dfe1405b2eaf3032
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell, synapse
+ms.openlocfilehash: f004b3bff64fb4dca7c9d475acb84f6fc52e8837
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641428"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration, voir [Runtime d’intégration](concepts-integration-runtime.md).
+Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par les pipelines Azure Data Factory et Synapse pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration, voir [Runtime d’intégration](concepts-integration-runtime.md).
 
 Un runtime d’intégration Azure fournit un calcul entièrement géré pour effectuer en mode natif un déplacement de données et distribuer des activités de transformation de données à des services de calcul tels que HDInsight. Il est hébergé dans l’environnement Azure et prend en charge la connexion à des ressources dans un environnement de réseau public avec des points de terminaison accessibles au public.
 
@@ -26,7 +28,7 @@ Ce document décrit comment créer et configurer un runtime d’intégration Azu
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-azure-ir"></a>Runtime d’intégration Azure par défaut
-Par défaut, chaque fabrique de données a un runtime d’intégration Azure dans le service principal, qui prend en charge les opérations sur les banques de données et les services de calcul en ligne dans un réseau public. L’emplacement de ce runtime d’intégration Azure est résolu automatiquement. Si la propriété **connectVia** n’est pas spécifiée dans la définition du service lié, le runtime d’intégration Azure par défaut est utilisé. Vous devez uniquement créer explicitement un runtime d’intégration Azure lorsque vous souhaitez définir explicitement l’emplacement du runtime d’intégration, ou si vous souhaitez grouper virtuellement les exécutions d’activité sur différents runtimes d’intégration à des fins de gestion. 
+Par défaut, chaque fabrique de données ou espace de travail Synapse a un runtime d’intégration Azure dans le service principal, qui prend en charge les opérations sur les banques de données et les services de calcul en ligne dans un réseau public. L’emplacement de ce runtime d’intégration Azure est résolu automatiquement. Si la propriété **connectVia** n’est pas spécifiée dans la définition du service lié, le runtime d’intégration Azure par défaut est utilisé. Vous devez uniquement créer explicitement un runtime d’intégration Azure lorsque vous souhaitez définir explicitement l’emplacement du runtime d’intégration, ou si vous souhaitez grouper virtuellement les exécutions d’activité sur différents runtimes d’intégration à des fins de gestion. 
 
 ## <a name="create-azure-ir"></a>Créer un runtime d’intégration Azure
 
@@ -42,18 +44,34 @@ Pour un runtime d’intégration Azure, le type doit être défini sur **Géré*
 
 Vous pouvez configurer un runtime d’intégration Azure existant pour modifier son emplacement à l’aide de la cmdlet PowerShell Set-AzDataFactoryV2IntegrationRuntime. Pour plus d’informations sur l’emplacement d’un runtime d’intégration Azure, voir [Présentation du runtime d’intégration](concepts-integration-runtime.md).
 
-### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Créer une Azure IR via l’interface utilisateur Azure Data Factory
-Pour créer un Azure IR à l’aide de l’interface utilisateur Azure Data Factory, procédez comme suit.
+### <a name="create-an-azure-ir-via-ui"></a>Créer un Azure IR via l’interface utilisateur
+Procédez comme suit pour créer un Azure IR via l’interface utilisateur.
 
-1. Dans la page **Prise en main** de l’interface utilisateur Azure Data Factory, sélectionnez l’[onglet Gérer](./author-management-hub.md) dans le volet le plus à gauche.
+1. Sur la page d’accueil du service, sélectionnez l’onglet [Gérer](./author-management-hub.md) dans le volet le plus à gauche.
 
-   ![Bouton Gérer de la page d’accueil](media/doc-common-process/get-started-page-manage-button.png)
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+    
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Bouton Gérer de la page d’accueil":::
 
-1. Sélectionnez **Runtimes d’intégration** dans le volet gauche, puis **+ Nouveau**.
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-   ![Capture d’écran qui met en surbrillance les runtimes d’intégration dans le volet de gauche et le bouton + Nouveau.](media/doc-common-process/manage-new-integration-runtime.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Bouton Gérer de la page d’accueil":::
 
-1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
+---
+
+2. Sélectionnez **Runtimes d’intégration** dans le volet gauche, puis **+ Nouveau**.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+
+    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Capture d’écran qui met en surbrillance les runtimes d’intégration dans le volet de gauche et le bouton + Nouveau.":::
+   
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Capture d’écran qui met en surbrillance les runtimes d’intégration dans le volet de gauche et le bouton + Nouveau.":::
+
+---
+
+3. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 
 1. Sur la page suivante, sélectionnez **Azure** pour créer un Azure IR, puis choisissez **Continuer**.
    ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-azure-integration-runtime.png)

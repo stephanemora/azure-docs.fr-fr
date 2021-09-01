@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 3158d4fae313afcb1fef69ba7a2728df4d235175
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 522c9e590f1f63a12bd4f52f56eac0798ba78aa7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531672"
 ---
 # <a name="linux-concurrency-best-practices-for-azure-netapp-files---session-slots-and-slot-table-entries"></a>Meilleures pratiques Linux en matière de concurrence pour Azure NetApp Files – Emplacements de session et entrées de table d’emplacements
 
@@ -48,7 +48,7 @@ Un niveau de concurrence aussi bas que 155 suffit pour réaliser 155 000 opé
 
 Pour plus d’informations, consultez [Performances des bases de données Oracle sur des volumes uniques Azure NetApp Files](performance-oracle-single-volumes.md).
 
-Le paramètre `sunrpc.max_tcp_slot_table_entries` est un paramètre de réglage au niveau de la connexion.  *Il est recommandé de définir cette valeur sur 128 ou moins par connexion, sans dépasser 3 000 emplacements dans tout l’environnement.*
+Le paramètre `sunrpc.max_tcp_slot_table_entries` est un paramètre de réglage au niveau de la connexion.  *Il est recommandé de définir cette valeur sur 128 ou moins par connexion, sans dépasser 10 000 emplacements dans tout l’environnement.*
 
 ### <a name="examples-of-slot-count-based-on-concurrency-recommendation"></a>Exemples de nombre d’emplacements basés sur la recommandation de concurrence 
 
@@ -109,7 +109,7 @@ L’exemple 4 utilise la valeur `sunrpc.max_tcp_slot_table_entry` réduite par 
         * Le client n’émettra pas plus de 8 requêtes en mode Flighting vers le serveur par connexion.
         * Le serveur n’acceptera pas plus de 128 requêtes en mode Flighting à partir de cette seule connexion.
 
-Lorsque vous utilisez NFSv3, *vous devez faire en sorte que le nombre d’emplacements de point de terminaison de stockage soit inférieur ou égal à 2 000*. Il est préférable de définir la valeur par connexion pour `sunrpc.max_tcp_slot_table_entries` sur moins de 128 lorsqu’une application effectue un scale-out sur plusieurs connexions réseau (`nconnect` et HPC en général, et EDA en particulier).  
+Lorsque vous utilisez NFSv3, *vous devez faire en sorte que le nombre d’emplacements de point de terminaison de stockage soit inférieur ou égal à 10 000*. Il est préférable de définir la valeur par connexion pour `sunrpc.max_tcp_slot_table_entries` sur moins de 128 lorsqu’une application effectue un scale-out sur plusieurs connexions réseau (`nconnect` et HPC en général, et EDA en particulier).  
 
 ### <a name="how-to-calculate-the-best-sunrpcmax_tcp_slot_table_entries"></a>Comment calculer le meilleur `sunrpc.max_tcp_slot_table_entries` 
 
@@ -129,7 +129,7 @@ Le tableau suivant présente un exemple d’étude de la concurrence avec des la
 
 ### <a name="how-to-calculate-concurrency-settings-by-connection-count"></a>Comment calculer les paramètres de concurrence par nombre de connexions
 
-Par exemple, la charge de travail est une batterie de serveurs EDA, et 200 clients dirigent tous la charge de travail vers le même point de terminaison de stockage (un point de terminaison de stockage est une adresse IP de stockage) : vous calculez le taux d’E/S requis et divisez la concurrence sur l’ensemble de la batterie.
+Par exemple, si la charge de travail est une batterie de serveurs EDA, et que 1 250 clients dirigent tous la charge de travail vers le même point de terminaison de stockage (un point de terminaison de stockage est une adresse IP de stockage) : vous calculez le taux d’E/S requis et divisez la concurrence sur l’ensemble de la batterie.
 
 Supposons que la charge de travail est de 4 000 Mio/s avec une taille d’opération moyenne de 256 kio et une latence moyenne de 10 ms. Pour calculer la concurrence, utilisez la formule suivante :
 
@@ -139,7 +139,7 @@ Le calcul se traduit par une concurrence de 160 :
  
 `(160 = 16,000 × 0.010)`
 
-Étant donné le besoin de 200 clients, vous pouvez sans risque définir `sunrpc.max_tcp_slot_table_entries` sur 2 par client pour atteindre les 4 000 Mio/s.  Toutefois, vous pouvez décider de prévoir une marge supplémentaire en définissant le nombre par client sur 4 ou même 8, tout en respectant le plafond recommandé de 2 000 emplacements. 
+Étant donné le besoin de 1 250 clients, vous pouvez sans risque définir `sunrpc.max_tcp_slot_table_entries` sur 2 par client pour atteindre les 4 000 Mio/s.  Toutefois, vous pouvez décider de prévoir une marge supplémentaire en définissant le nombre par client sur 4 ou même 8, tout en respectant largement le plafond recommandé de 10 000 emplacements. 
 
 ### <a name="how-to-set-sunrpcmax_tcp_slot_table_entries-on-the-client"></a>Comment définir `sunrpc.max_tcp_slot_table_entries` sur le client
 
@@ -266,5 +266,9 @@ L’exemple suivant montre le paquet 14 (nombre maximal de requêtes du serveur
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
+* [Bonnes pratiques d’E/S directes Linux pour Azure NetApp Files](performance-linux-direct-io.md)
+* [Meilleures pratiques en matière de cache de système de fichiers Linux pour Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Meilleures pratiques Linux concernant les options de montage NFS pour Azure NetApp Files](performance-linux-mount-options.md)
+* [Bonnes pratiques pour la lecture anticipée NFS Linux](performance-linux-nfs-read-ahead.md)
+* [Bonnes pratiques pour les références SKU de machine virtuelle Azure](performance-virtual-machine-sku.md) 
 * [Test d’évaluation des performances pour Linux](performance-benchmarks-linux.md) 

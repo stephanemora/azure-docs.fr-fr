@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 31db8c4d8a371aaad939e3a85972958befb2206e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137560"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234426"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Meilleures pratiques pour le kit de développement logiciel (SDK) Web Azure Maps
 
@@ -405,7 +405,7 @@ https://azure.com/support
 
 **Où puis-je obtenir de l’aide technique pour Azure Maps ?**
 
-En cas de lien avec le visuel Azure Maps dans Power BI : https://powerbi.microsoft.com/support/ pour tous les autres services Azure Maps : https://azure.com/support ou les forums des développeurs : https://docs.microsoft.com/answers/topics/azure-maps.html
+En cas de lien avec le visuel Azure Maps dans Power BI : https://powerbi.microsoft.com/support/ pour tous les autres services Azure Maps : https://azure.com/support ou les forums des développeurs : [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
 
 **Comment effectuer une demande de fonctionnalité ?**
 

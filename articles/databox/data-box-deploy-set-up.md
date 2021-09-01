@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 08/23/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a82dc471e8b92fb936750a05c515b4701a135344
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335466"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221314"
 ---
 ::: zone target="docs"
 
@@ -116,20 +116,17 @@ Une fois que vous avez reçu l’appareil, vous devez le brancher et vous y conn
 Procédez comme suit pour configurer votre appareil à l’aide de l’interface utilisateur web locale et de l’interface utilisateur du portail.
 
 1. Configurez la carte Ethernet sur l'ordinateur portable que vous utilisez pour vous connecter à l’appareil avec l'adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0. 
-2. Connectez-vous au port MGMT de votre appareil et accédez à l’interface utilisateur web locale à l’adresse https\://192.168.100.10. Une fois l’appareil sous tension, cela peut prendre jusqu'à 5 minutes.
-3. Cliquez sur **Détails** puis **accédez à la page web**.
+1. Connectez-vous au port MGMT de votre appareil et accédez à l’interface utilisateur web locale à l’adresse https\://192.168.100.10. Une fois l’appareil sous tension, cela peut prendre jusqu'à 5 minutes.
+1. Cliquez sur **Détails** puis **accédez à la page web**.
 
    ![Connexion à l'interface utilisateur web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
-4. Vous voyez une page de **connexion** pour l’interface utilisateur web locale. Assurez-vous que le numéro de série de l’appareil correspond dans l’interface utilisateur du portail et l’interface utilisateur web locale. L’appareil est verrouillé à ce stade.
-5. Connectez-vous au [portail Azure](https://portal.azure.com).
-6. Téléchargez les informations d’identification de l’appareil à partir du portail. Accédez à **Général > Détails de l’appareil**. Copiez le **mot de passe de l'appareil**. Le mot de passe est lié à une commande spécifique dans le portail. 
+1. Vous voyez une page de **connexion** pour l’interface utilisateur web locale. Assurez-vous que le numéro de série de l’appareil correspond dans l’interface utilisateur du portail et l’interface utilisateur web locale. L’appareil est verrouillé à ce stade.
 
-    ![Obtention des informations d’identification d’un appareil](media/data-box-deploy-set-up/data-box-device-credentials.png)
+1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
     
-    
-7. Indiquez le mot de passe que vous avez obtenu à partir du portail Azure à l’étape précédente pour vous connecter à l’interface utilisateur web locale de l’appareil. Cliquez sur **Se connecter**.
-8. Sur le **tableau de bord** , assurez-vous que les interfaces réseau sont configurées. 
+1. Indiquez le mot de passe que vous avez obtenu à partir du portail Azure à l’étape précédente pour vous connecter à l’interface utilisateur web locale de l’appareil. Cliquez sur **Se connecter**.
+1. Sur le **tableau de bord**, assurez-vous que les interfaces réseau sont configurées. 
    - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. 
    - Si DHCP n’est pas activé, accédez à **Définir des interfaces réseau** et affectez des adresses IP statiques si nécessaire.
 
@@ -146,9 +143,9 @@ Une fois que l’appareil est configuré, vous pouvez vous connecter aux partage
 ## <a name="connect-your-device"></a>Connexion de votre appareil
 
 1. Pour obtenir le mot de passe du support, accédez à **Général > Détails du support** dans le [portail Azure](https://portal.azure.com).
-2. Assignez une adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0 à la carte Ethernet de l’ordinateur que vous utilisez pour vous connecter à Data Box. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`. Une fois l’appareil sous tension, la connexion peut prendre jusqu'à 5 minutes. 
-3. Connectez-vous avec le mot de passe à partir du portail Azure. Une erreur vous signale un problème avec le certificat de sécurité du site web. Suivez les instructions spécifiques au navigateur pour afficher la page web.
-4. Par défaut, les paramètres réseau de l’interface de données 10 Gbit/s (ou 1 Gbit/s) sont configurés en mode DHCP. Si nécessaire, vous pouvez configurer cette interface en mode statique et fournir une adresse IP. 
+1. Assignez une adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0 à la carte Ethernet de l’ordinateur que vous utilisez pour vous connecter à Data Box. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`. Une fois l’appareil sous tension, la connexion peut prendre jusqu'à 5 minutes. 
+1. Connectez-vous avec le mot de passe à partir du portail Azure. Une erreur vous signale un problème avec le certificat de sécurité du site web. Suivez les instructions spécifiques au navigateur pour afficher la page web.
+1. Par défaut, les paramètres réseau de l’interface de données 10 Gbit/s (ou 1 Gbit/s) sont configurés en mode DHCP. Si nécessaire, vous pouvez configurer cette interface en mode statique et fournir une adresse IP. 
 
 ::: zone-end
 

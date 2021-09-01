@@ -12,14 +12,14 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8ca10c54cff14bd9301e06a891bcb1f7013959f9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ff363550b44286cb7140f533981229565fdf795f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176465"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032233"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
+# <a name="configure-terms-of-service-and-privacy-statement-for-an-app"></a>Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
 Les développeurs qui créent et gèrent des applications multi-locataires compatibles avec Azure Active Directory (Azure AD) et les comptes Microsoft doivent ajouter des liens vers les conditions d’utilisation du service et la déclaration de confidentialité de ces applications. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Elles permettent à vos utilisateurs de savoir qu’ils peuvent faire confiance à votre application. Les conditions d’utilisation et la déclaration de confidentialité sont particulièrement importantes pour les applications multilocataires accessibles aux utilisateurs (applications utilisées par plusieurs annuaires ou disponibles pour n’importe quel compte Microsoft).
 

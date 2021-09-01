@@ -10,15 +10,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 08/31/2021
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: bb7de037f63c8892aa73e357f744b1f25fb0750f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c784232d5c51f4c3a3c81df48ce0c01f7e794fc8
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441026"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309920"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrage géographique sur un domaine pour Azure Front Door
 
@@ -26,8 +26,10 @@ Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que 
 
 Une stratégie WAF contient un ensemble de règles personnalisées. La règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans une condition de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance. Pour une règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, et la valeur correspond à un indicatif à deux lettres du pays/région d’intérêt. Code pays « ZZ » ou pays « Inconnu » capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Vous pouvez ajouter ZZ à votre condition de correspondance pour éviter les faux positifs. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
 
-
 Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
+
+> [!IMPORTANT]
+> Insérez le code de pays **ZZ** chaque fois que vous utilisez le géofiltrage. Le code de pays **ZZ** (ou pays *Inconnu*) capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Cela évite les faux positifs.
 
 ## <a name="countryregion-code-reference"></a>Référence du code pays ou région
 
