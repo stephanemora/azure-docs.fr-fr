@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf4598166250eb6ad7b65621e67184bfdeb839e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92173000"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465022"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les *mesures* sont les ressources qui intéressent vos services et qui sont fournies par les nœuds dans le cluster. Une mesure représente ce que vous souhaitez gérer afin d’améliorer ou de surveiller les performances de vos services. Par exemple, vous pourrez surveiller la consommation de mémoire pour savoir si votre service est surchargé. Vous pouvez également déterminer si le service peut être déplacé vers un autre emplacement où la mémoire est moins contrainte afin d’obtenir de meilleures performances.
@@ -178,7 +178,7 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 Un service peut générer un rapport sur n’importe quelle mesure définie au moment de la création. Si un service génère un rapport pour une charge d’une mesure qui n’est pas configurée pour être utilisée, Service Fabric ignore ce rapport. Si d’autres mesures valides ont été signalées en même temps, ces rapports sont acceptés. Le code du service peut mesurer et signaler toutes les mesures qu’il connaît, et les opérateurs peuvent spécifier la configuration de mesures à utiliser sans avoir à modifier le code du service. 
 
 ## <a name="reporting-load-for-a-partition"></a>Création de rapports de charge pour une partition
-La section précédente décrit comment les réplicas de service ou les instances signalent leur chargement. Il existe une option supplémentaire pour signaler dynamiquement la charge avec FabricClient. Lors du signalement de charge pour une partition, vous pouvez générer des rapports sur plusieurs partitions à la fois.
+La section précédente décrit comment les réplicas de service ou les instances signalent leur chargement. Il existe une option supplémentaire pour reporter dynamiquement la charge pour les réplicas ou les instances d’une partition par le biais de l’API Service Fabric. Lors du signalement de charge pour une partition, vous pouvez générer des rapports sur plusieurs partitions à la fois.
 
 Ces rapports sont utilisés de la même façon que les rapports de charge provenant des réplicas ou des instances eux-mêmes. Les valeurs signalées sont valides jusqu’à ce que de nouvelles valeurs de chargement soient signalées par le réplica ou par l’instance ou en signalant une nouvelle valeur de chargement pour une partition.
 
@@ -188,7 +188,11 @@ Avec cette API, il existe plusieurs façons de mettre à jour la charge dans le 
   - Les services sans état et avec état peuvent mettre à jour la charge de tous ses réplicas secondaires ou instances.
   - Les services sans état et avec état peuvent mettre à jour la charge d’un réplica ou d’une instance sur un nœud.
 
-Il est également possible de combiner les mises à jour par partition en même temps.
+Il est également possible de combiner les mises à jour par partition en même temps. La combinaison des mises à jour de charge pour une partition particulière doit être spécifiée par le biais de l’objet PartitionMetricLoadDescription, qui peut contenir la liste correspondante des mises à jour de charge comme indiqué dans l’exemple ci-dessous. Les mises à jour de charge sont représentées par l’objet MetricLoadDescription, qui peut contenir la valeur de charge _actuelle_ ou _prédite_ pour une métrique, spécifiée par un nom de métrique.
+
+> [!NOTE]
+> _Les valeurs de charge de métrique prédites_ sont actuellement une _fonctionnalité en préversion_. Cela permet de signaler les valeurs de charge prédites et de les utiliser du côté Service Fabric, mais cette fonctionnalité n’est pas activée actuellement.
+>
 
 La mise à jour de charges pour plusieurs partitions est possible avec un seul appel d’API, auquel cas la sortie contiendra une réponse par partition. Si la mise à jour de la partition n’est pas correctement appliquée pour une raison quelconque, les mises à jour de cette partition seront ignorées et le code d’erreur correspondant pour une partition ciblée est fourni :
 
@@ -198,7 +202,7 @@ La mise à jour de charges pour plusieurs partitions est possible avec un seul a
   - ReplicaDoesNotExist - Le réplica ou l’instance secondaire n’existe pas sur un nœud spécifié.
   - InvalidOperation - Cela peut se produire dans deux cas : la mise à jour de la charge pour une partition qui appartient à l’application système ou la mise à jour de la charge prédite n’est pas activée.
 
-Si certaines de ces erreurs sont retournées, vous pouvez mettre à jour l’entrée pour une partition spécifique et retenter la mise à jour pour une partition spécifique.
+Si certaines de ces erreurs sont retournées, vous pouvez mettre à jour l’entrée pour une partition spécifique et retenter la mise à jour dessus.
 
 Code :
 
