@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 96d6897efd010393f0480d17ba5e4a1d252e0ff2
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901604"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597265"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -86,6 +86,9 @@ Ces méthodes de création d’un cluster AKS utilisent la version __par défaut
 
 Lors de l’**attachement** d’un cluster AKS existant, nous prenons en charge toutes les versions d’AKS actuellement prises en charge.
 
+> [!IMPORTANT]
+> Azure Kubernetes Service utilise le [pilote Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) pour les versions 1.16 et antérieures et le [pilote CSI des objets blob](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) pour les versions 1.17 et ultérieures. Ainsi, il est important de redéployer ou de [mettre à jour le service web](how-to-deploy-update-web-service.md) après la mise à niveau du cluster afin d’effectuer le déploiement avec la méthode blobfuse adéquate pour la version du cluster.
+
 > [!NOTE]
 > Dans de rares cas, il est possible que vous ayez un cluster plus ancien qui n’est plus pris en charge. L’opération d’attachement renvoie alors une erreur et affiche une liste des versions actuellement prises en charge.
 >
@@ -128,7 +131,7 @@ Result
 1.16.13
 ```
 
-Si vous souhaitez **vérifier par programme les versions disponibles**, utilisez l’API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container%20service%20client/listorchestrators). Pour trouver les versions disponibles, repérez les entrées où `orchestratorType` est `Kubernetes`. Les entrées `orchestrationVersion` associées contiennent les versions disponibles qui peuvent être **attachées** à votre espace de travail.
+Si vous souhaitez **vérifier par programme les versions disponibles**, utilisez l’API REST [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators). Pour trouver les versions disponibles, repérez les entrées où `orchestratorType` est `Kubernetes`. Les entrées `orchestrationVersion` associées contiennent les versions disponibles qui peuvent être **attachées** à votre espace de travail.
 
 Pour trouver la version par défaut utilisée lors de la **création** d’un cluster via Azure Machine Learning, trouvez l’entrée dans laquelle `orchestratorType` est `Kubernetes` et `default` est `true`. La valeur `orchestratorVersion` associée est la version par défaut. L’extrait de code JSON suivant est un exemple d’entrée :
 
@@ -198,7 +201,7 @@ Pour plus d’informations sur les classes, les méthodes et les paramètres uti
 az ml computetarget create aks -n myaks
 ```
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -225,7 +228,7 @@ Pour plus d’informations sur la création d’un cluster AKS à l’aide de l�
 
 * [Créer un cluster AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
 * [Créer un cluster AKS (portail)](../aks/kubernetes-walkthrough-portal.md)
-* [Créer un cluster AKS (modèle ARM sur les modèles de démarrage rapide Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
+* [Créer un cluster AKS (modèle ARM sur les modèles de démarrage rapide Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 L’exemple suivant montre comment attacher un cluster AKS existant à votre espace de travail :
 
@@ -275,7 +278,7 @@ Pour attacher le cluster existant à votre espace de travail, utilisez la comman
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Pour plus d’informations, consultez la référence [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks).
+Pour plus d’informations, consultez la référence [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach_aks).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

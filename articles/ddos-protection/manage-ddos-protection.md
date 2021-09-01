@@ -3,8 +3,7 @@ title: Gérer le service Protection DDos Standard Azure à l’aide du portail A
 description: Découvrez comment utiliser Azure DDoS Protection Standard pour atténuer une attaque.
 services: ddos-protection
 documentationcenter: na
-author: KumudD
-manager: mtillman
+author: aletheatoh
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
-ms.author: kumud
-ms.openlocfilehash: ae33d1695188e103c7c56374a5f39e8fc0d27430
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.author: yitoh
+ms.openlocfilehash: 803d89dedc59c53001f078492d956e5e50d5411b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061405"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305119"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard
 
@@ -42,7 +41,7 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 3. Sélectionnez **Create** (Créer).
 4. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
 
-    |Paramètre        |Value                                              |
+    |Paramètre        |Valeur                                              |
     |---------      |---------                                          |
     |Nom           | Entrez _MyDdosProtectionPlan_.                     |
     |Abonnement   | Sélectionnez votre abonnement.                         |
@@ -57,7 +56,7 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Entrez ou sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer** :
 
-    | Paramètre         | Value                                           |
+    | Paramètre         | Valeur                                           |
     | ---------       | ---------                                       |
     | Nom            | Entrez _MyVnet_.                                 |
     | Abonnement    | Sélectionnez votre abonnement.                                    |

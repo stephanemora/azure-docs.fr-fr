@@ -1,21 +1,21 @@
 ---
-title: Comment créer des plans pour votre offre Service managé sur la Place de marché Azure
-description: Découvrez comment créer des plans pour votre offre Service managé sur la Place de marché Azure à l’aide de l’Espace partenaires Microsoft.
+title: Créer des plans pour l’offre de services gérés sur la Place de marché Azure
+description: Créez des plans pour l’offre de services gérés sur la Place de marché Azure.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: a20571e411b2849c3487582a9c316f0f0b35c91d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 07/12/2021
+ms.openlocfilehash: 4443492d19c09100433bf326f197c9405fa11d8e
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790934"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204462"
 ---
-# <a name="how-to-create-plans-for-your-managed-service-offer"></a>Comment créer des plans pour votre offre Service managé
+# <a name="create-plans-for-a-managed-service-offer"></a>Créer des plans pour une offre de services gérés
 
 Les offres Service managé vendues par le biais de la place de marché commerciale Microsoft doivent avoir au moins un plan. Vous pouvez créer divers plans avec différentes options dans la même offre. Ces plans (parfois appelés références SKU) peuvent différer en termes de version, de monétisation ou de niveaux de service. Pour obtenir des conseils détaillés sur les plans, consultez [Plans et tarification des offres de la Place de marché commerciale](./plans-pricing.md).
 
@@ -100,24 +100,31 @@ Les autorisations définissent les entités dans votre locataire gérant qui peu
 Vous pouvez créer jusqu’à 20 autorisations pour chaque plan.
 
 > [!TIP]
-> Dans la plupart des cas, vous affectez des rôles à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Quand vous attribuez des rôles à des groupes Azure AD, le [type de groupe doit être Sécurité et non Office 365](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md).
+> Dans la plupart des cas, vous affectez des rôles à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Quand vous attribuez des rôles à des groupes Azure AD, le [type de groupe](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) doit être Sécurité et non Office 365. Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md).
 
-Pour chaque autorisation, vous devrez fournir les informations suivantes. Vous pouvez ensuite sélectionner **+ Ajouter une autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et des définitions de rôles.
+Pour chaque **autorisation**, vous devrez fournir les informations suivantes. Sélectionnez **+ Ajouter une autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et des définitions de rôles.
 
-* **ID d’objet AAD** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels certaines autorisations seront accordées (comme défini dans la Définition de rôle) sur les ressources de votre client.
-* **Nom d’affichage d’objet AAD** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
-* **Définition de rôle** : sélectionnez l’un des rôles intégrés Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID du principal**. Pour obtenir une description de ces rôles, consultez [Rôles intégrés](../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
-
-> [!NOTE]
-> À mesure que de nouveaux rôles intégrés applicables sont ajoutés à Azure, ils seront disponibles ici. Il peut y avoir un certain délai avant qu’ils n’apparaissent.
-
-* **Rôles attribuables** : cette option apparaît uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces rôles à des identités managées, ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](../lighthouse/how-to/deploy-policy-remediation.md). Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
+- **Nom d’affichage** : nom convivial destiné à aider le client à comprendre l’objectif de cette autorisation. Le client verra ce nom lors de la délégation de ressources.
+- **ID principal** : identificateur Azure AD d’un utilisateur, d’un groupe d’utilisateurs ou d’un principal de service auxquels certaines autorisations seront accordées (comme défini dans le **Rôle** que vous avez spécifié) sur les ressources de votre client.
+- **Type d'accès** :
+  - Les privilèges affectés au rôle se trouvent sur les autorisations **actives** à tout moment. Chaque plan doit avoir au moins une autorisation active.
+  - Les autorisations **éligibles** sont limitées dans le temps et nécessitent une activation par l’utilisateur.  Si vous sélectionnez **Éligible**, vous devez sélectionner une durée maximale qui définit la durée totale pendant laquelle l’utilisateur aura le rôle éligible après son activation. La valeur minimale est 30 minutes et la valeur maximale est 8 heures. Vous pouvez également choisir d’exiger l’authentification multifacteur pour activer le rôle. Notez que les autorisations éligibles sont actuellement disponibles en préversion publique et ont des exigences spécifiques en matière de licences. Pour plus d’informations, consultez [Créer des autorisations éligibles](../lighthouse/how-to/create-eligible-authorizations.md).
+- **Rôle** : sélectionnez l’un des rôles intégrés à Azure AD disponibles dans la liste. Ce rôle détermine les autorisations sur les ressources de vos clients dont disposera l’utilisateur spécifié dans le champ **ID du principal**. Pour obtenir une description de ces rôles, consultez [Rôles intégrés](../role-based-access-control/built-in-roles.md) et [Prise en charge des rôles pour Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+  > [!NOTE]
+  > Comme les nouveaux rôles intégrés applicables sont ajoutés à Azure, ils sont disponibles ici, même si un certain temps puis s’écouler avant qu’ils n’apparaissent.
+- **Rôles attribuables** : cette option apparaît uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces rôles à des [identités managées](../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](../lighthouse/how-to/deploy-policy-remediation.md). Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
+- **Approbateurs** : cette option apparaîtra uniquement si le **Type d’accès** est **Éligible**. Si c’est le cas, vous pouvez éventuellement spécifier une liste de 10 utilisateurs ou groupes d’utilisateurs maximum qui peuvent [approuver ou refuser les demandes d’un utilisateur pour activer le rôle éligible](../lighthouse/how-to/create-eligible-authorizations.md#approvers). Les approbateurs sont avertis lorsque l’approbation est demandée et a été accordée. Si aucun approbateur n’est défini, l’autorisation s’active automatiquement.
 
 > [!TIP]
 > Pour être sûr de pouvoir [supprimer l’accès à une délégation](../lighthouse/how-to/remove-delegation.md) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
-Une fois que vous avez renseigné toutes les sections de votre plan, vous pouvez sélectionner **+ Créer un plan** pour créer des plans supplémentaires. Lorsque vous avez terminé, sélectionnez **Enregistrer le brouillon**.
+Une fois que vous avez renseigné toutes les sections de votre plan, vous pouvez sélectionner **+ Créer un plan** pour créer des plans supplémentaires. Quand vous avez terminé, sélectionnez **Enregistrer le brouillon**. Lorsque vous avez terminé de créer des plans, sélectionnez **Plans** dans la barre de navigation en haut de la fenêtre pour revenir au menu de navigation de gauche de l’offre.
+
+## <a name="updating-an-offer"></a>Mise à jour d’une offre
+
+Après avoir publié votre offre, vous pouvez [publier une version mise à jour de votre offre](update-existing-offer.md) à tout moment. Par exemple, vous pouvez souhaiter ajouter une nouvelle définition de rôle à une offre publiée précédemment. Dans ce cas, les clients qui ont déjà ajouté l’offre voient s’afficher une icône sur la page [**Fournisseurs de services**](../lighthouse/how-to/view-manage-service-providers.md) du Portail Azure, ce qui leur permet de savoir qu’une mise à jour est disponible. Chaque client pourra passer en revue les modifications et décider s’il souhaite effectuer la mise à jour vers la nouvelle version.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vérifier et publier](review-publish-offer.md)
+- Quitter la configuration du plan et poursuivre avec [Co-vendre avec Microsoft](./co-sell-overview.md), ou
+- [Passer en revue et publier votre offre](review-publish-offer.md)

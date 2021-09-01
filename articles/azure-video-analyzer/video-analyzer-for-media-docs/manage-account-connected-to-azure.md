@@ -9,12 +9,12 @@ ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 25d4b5a918fbb307698910f0184231689cb84a75
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 836cff6a8b55378089a6215b9d0c25e3fcac76c4
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119389"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305172"
 ---
 # <a name="manage-a-video-analyzer-for-media-account-connected-to-azure"></a>Gérer un compte Video Analyzer for Media connecté à Azure
 
@@ -59,14 +59,6 @@ Dans la boîte de dialogue **Update connection to Azure Media Services** (Mettre
 |Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel vous avez créé le compte Media Services.|
 |ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé pour ce compte Video Analyzer for Media. <br/><br/>Pour obtenir l’ID de l’application, accédez au portail Azure. Sous le compte Media Services, choisissez votre compte et accédez à **Accès aux API**. Sélectionnez **Se connecter à l’API Media Services avec le principal de service** -> **Azure AD App**. Copiez les paramètres appropriés.|
 |Clé de l'application|Clé d’application Azure AD associée au compte Media Services que vous avez spécifié précédemment. <br/><br/>Pour obtenir la clé d’application, accédez au portail Azure. Sous le compte Media Services, choisissez votre compte et accédez à **Accès aux API**. Sélectionnez **Se connecter à l’API Media Services avec le principal de service** -> **Gérer l’application** -> **Certificats et secrets**. Copiez les paramètres appropriés.|
-
-## <a name="autoscale-reserved-units"></a>Mettre automatiquement à l’échelle les unités réservées
-
-La page **Paramètres** vous permet de définir la mise à l’échelle automatique des unités réservées Multimédia (UR). Si l’option est **activée**, vous pouvez allouer le nombre maximal d’UR et vérifier que Video Analyzer for Media arrête/démarre automatiquement les UR. Avec cette option, vous ne payez pas en plus pour la durée d’inactivité et vous n’attendez pas pendant longtemps que les travaux d’indexation aboutissent quand la charge d’indexation est élevée.
-
-La mise à l’échelle automatique ne se met pas en œuvre en dessous de 1 UR ni au-dessus de la limite par défaut du compte Media Services. Pour accroître la limite, créez une demande de service. Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
-
-![Mettre à l’échelle automatiquement des unités réservées dans Video Analyzer for Media](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erreurs et avertissements
 

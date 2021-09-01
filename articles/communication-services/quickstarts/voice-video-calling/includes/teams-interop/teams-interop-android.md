@@ -2,16 +2,16 @@
 title: 'Démarrage rapide : Rejoindre une réunion Teams à partir d’une application Android'
 description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Android.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd8b4872f60b274741808033d73492130710a066
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7d9c0adfe946dee7f3a634cd2eaf44a92bab83b6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112535965"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078216"
 ---
 Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Android.
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6537728feb2145520ee49457b00d9944d5967c9f
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 656d72663045b4604b9a94cbc686150925caca83
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112073032"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202037"
 ---
 # <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-azure-portal"></a>Contrôle de maintenance pour les mises à niveau d’image de système d’exploitation sur des groupes de machines virtuelles identiques Azure à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Le contrôle de maintenance vous permet de choisir quand appliquer automatiqueme
     
     :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Capture d’écran montrant les bases de la configuration de maintenance":::
 
-1. Sous l’onglet Planification, déclarez une fenêtre planifiée au cours de laquelle Azure appliquera les mises à jour à vos ressources. Définissez une date de début, une fenêtre de maintenance et une périodicité. Une fois que vous aurez créé une fenêtre planifiée, vous n’avez plus besoin d’appliquer les mises à jour manuellement. Sélectionnez **Suivant**. 
+1. Sous l’onglet Planification, déclarez une fenêtre planifiée au cours de laquelle Azure appliquera les mises à jour sur vos ressources. Définissez une date de début, une fenêtre de maintenance et une périodicité. Une fois que vous aurez créé une fenêtre planifiée, vous n’avez plus besoin d’appliquer les mises à jour manuellement. Sélectionnez **Suivant**. 
 
     > [!IMPORTANT]
     > La **durée** de la fenêtre de maintenance doit être d’au moins *5 heures*. La **périodicité** de la maintenance doit être configurée de façon à ce que la maintenance soit répétée au moins une fois par jour. 
@@ -60,7 +60,7 @@ Dans la page des détails de configuration de la maintenance, sélectionnez **Af
 
 ![Capture d’écran montrant comment affecter une ressource](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Sélectionnez les ressources auxquelles vous souhaitez appliquer la configuration de la maintenance, puis choisissez **OK**. La colonne **Type** indique si la ressource est une machine virtuelle isolée ou un hôte dédié Azure. La machine virtuelle doit être en cours d’exécution pour que l’on puisse affecter la configuration. Une erreur se produit si vous tentez d’affecter une configuration à une machine virtuelle arrêtée. 
+Sélectionnez les ressources de groupe de machines virtuelles identiques auxquelles vous souhaitez appliquer la configuration de la maintenance, puis choisissez **OK**.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

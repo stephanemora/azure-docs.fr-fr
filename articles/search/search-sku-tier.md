@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/26/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e62f2a07b4266671bb055e6a672e13f69e2a0bab
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99987889"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982813"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
-[Créer un service de recherche](search-create-service-portal.md) signifie entre autres que vous choisissez un niveau tarifaire (ou une référence SKU) qui est fixé pour toute la durée de vie du service. La tarification, ou le coût mensuel estimé pour l’exécution du service, s’affichent dans la page du portail **Sélectionnez le niveau tarifaire** quand vous créez le service. Si vous effectuez l’approvisionnement par le biais de PowerShell ou de Azure CLI à la place, le niveau est spécifié via le paramètre **`-Sku`** et nous vous conseillons de consulter la [tarification du service](https://azure.microsoft.com/pricing/details/search/) pour en savoir plus sur les coûts estimés.
+[Créer un service de recherche](search-create-service-portal.md) signifie entre autres que vous choisissez un niveau tarifaire (ou une référence SKU) qui est fixé pour toute la durée de vie du service. Dans le portail, le niveau est spécifié sur la page **Sélectionnez le niveau tarifaire** lorsque vous créez le service. Si vous approvisionnez par le biais de PowerShell ou d’Azure CLI, le niveau est spécifié à l’aide du paramètre **`-Sku`**
 
 Le niveau que vous sélectionnez détermine ce qui suit :
 
@@ -27,6 +27,8 @@ Le niveau que vous sélectionnez détermine ce qui suit :
 + Taux facturable, comme un coût mensuel fixe, mais également un coût incrémentiel si vous ajoutez plus de capacité
 
 Dans quelques instances, le niveau que vous choisissez détermine la disponibilité des [fonctionnalités Premium](#premium-features).
+
+La tarification, ou le coût mensuel estimé pour l’exécution du service, s’affichent dans la page du portail **Sélectionnez le niveau tarifaire**. Vous devriez vérifier la [tarification de service](https://azure.microsoft.com/pricing/details/search/) pour en savoir plus sur les coûts estimés.
 
 > [!NOTE]
 > Vous recherchez des informations sur « Références SKU » ? Commencez par consulter la [Tarification Azure](https://azure.microsoft.com/pricing/), puis faites défiler vers le bas pour afficher les liens vers les pages de tarification par service.
@@ -56,12 +58,13 @@ La plupart des fonctionnalités sont disponibles dans tous les niveaux, y compri
 | Fonctionnalité | Limites |
 |---------|-------------|
 | [indexeurs](search-indexer-overview.md) | Les indexeurs ne sont pas disponibles sur S3 HD.  |
-| [Enrichissement par IA](search-security-manage-encryption-keys.md) | Fonctionne au niveau Gratuit, mais n’est pas recommandé. |
+| [Enrichissement par IA](cognitive-search-concept-intro.md) | Fonctionne au niveau Gratuit, mais n’est pas recommandé. |
 | [Identités managées ou approuvées pour l’accès sortant (indexeur)](search-howto-managed-identities-data-sources.md) | Non disponibles au niveau Gratuit.|
 | [Clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) | Non disponibles au niveau Gratuit. |
 | [Accès au pare-feu IP](service-configure-firewall.md) | Non disponibles au niveau Gratuit. |
 | [Point de terminaison privé (intégration à Azure Private Link)](service-create-private-endpoint.md) | Pour les connexions entrantes à un service de recherche ; non disponible au niveau Gratuit. Pour les connexions sortantes, par des indexeurs, à d'autres ressources Azure ; non disponible aux niveaux Gratuit et S3 HD. Pour les indexeurs qui utilisent des ensembles de compétences ; non disponible aux niveaux Gratuit, De base, S1 et S3 HD.| 
 | [Zones de disponibilité](search-performance-optimization.md) | Non disponibles aux niveaux Gratuit et De base. |
+| [Recherche sémantique (préversion)] | Non disponibles aux niveaux Gratuit et De base. |
 
 Les fonctionnalités gourmandes en ressources risquent de ne pas fonctionner correctement si vous ne leur attribuez pas une capacité suffisante. Par exemple, [l’enrichissement par IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service Gratuit, sauf si le jeu de données est restreint.
 

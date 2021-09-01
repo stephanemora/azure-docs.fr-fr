@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 70a883fc1c2cd78124c9efe44a54cc528ee5426c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85477190"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039916"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procédure : demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS
+# <a name="request-custom-claims-using-msal-for-ios-and-macos"></a>demander des revendications personnalisées à l’aide de MSAL pour iOS et macOS
 
 OpenID Connect vous permet de demander éventuellement le retour de revendications individuelles à partir du point de terminaison UserInfo et/ou dans le jeton d’ID. Une demande de revendications est représentée sous la forme d’un objet JSON qui contient une liste des revendications demandées. Pour plus d’informations, consultez [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter).
 

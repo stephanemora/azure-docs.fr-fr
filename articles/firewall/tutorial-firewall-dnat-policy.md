@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b509bde062a8df059b2ff3f9e48fbbf9be9f97c5
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 2f863c9fc5bad369813ee37c51ded73e96980a54
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108280844"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034203"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-policy-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic Internet entrant avec une stratégie DNAT de Pare-feu Azure à l’aide du portail Azure
 
@@ -227,7 +227,5 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
-
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)
+> [Déployer et configurer le Pare-feu Azure Premium](premium-deploy.md)

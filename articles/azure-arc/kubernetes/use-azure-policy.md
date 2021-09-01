@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
-ms.openlocfilehash: 4619c84f88ee87b0b63e8c0cbe36b85a25f2dfb9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a6892c4b89128abe698573960b61d08c2ac2f35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463057"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609627"
 ---
 # <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Utiliser Azure Policy pour appliquer des configurations GitOps à grande échelle
 
@@ -28,8 +28,8 @@ Une fois l’affectation créée, le moteur Azure Policy identifie tous les clus
 
 Pour permettre la séparation des préoccupations, vous pouvez créer plusieurs attributions de stratégies, chacune avec une configuration GitOps différente qui pointe vers un autre référentiel git. Par exemple, un référentiel peut être utilisé par les administrateurs de cluster et d’autres dépôts peuvent être utilisés par les équipes d’application.
 
->[!TIP]
-> Il existe des stratégies intégrées pour ces scénarios :
+> [!TIP]
+> Il existe des définitions de stratégie intégrées pour ces scénarios :
 > * Référentiel public ou référentiel privé avec les clés SSH créées par Flux : `Configure Kubernetes clusters with specified GitOps configuration using no secrets`
 > * Référentiel privé avec les clés SSH fournies par l’utilisateur : `Configure Kubernetes clusters with specified GitOps configuration using SSH secrets`
 > * Référentiel privé avec les clés HTTPS fournies par l’utilisateur : `Configure Kubernetes clusters with specified GitOps configuration using HTTPS secrets`
@@ -42,10 +42,10 @@ Vérifiez que vous disposez d’autorisations `Microsoft.Authorization/policyAss
 
 1. Dans le portail Azure, accédez à **Stratégie**.
 1. Dans la section **Création** de la barre latérale, sélectionnez **Définitions**.
-1. Dans la catégorie « Kubernetes », choisissez la stratégie intégrée « Configurer des clusters Kubernetes avec la configuration GitOps spécifiée sans secret ». 
+1. Dans la catégorie « Kubernetes », choisissez la définition de stratégie intégrée « Configurer des clusters Kubernetes avec la configuration GitOps spécifiée sans secret ». 
 1. Cliquez sur **Attribuer**.
 1. Définissez **Portée** sur le groupe d’administration, l’abonnement ou le groupe de ressources auquel s’appliquera l’attribution de stratégie.
-    * Si vous souhaitez exclure des ressources de la portée de la stratégie, définissez **Exclusions**.
+    * Si vous souhaitez exclure des ressources de la portée d’attribution de la stratégie, définissez **Exclusions**.
 1. Donnez à l’attribution de stratégie un **Nom** et une **Description** facilement identifiables.
 1. Assurez-vous que l’option **Application de la stratégie** est définie sur **Activée**.
 1. Sélectionnez **Suivant**.
@@ -65,7 +65,7 @@ Pour les clusters existants, vous devez exécuter manuellement une tâche de cor
 
 1. Dans le portail Azure, accédez à l’un de vos clusters Kubernetes avec Azure Arc.
 1. Dans la section **Paramètres** de la barre latérale, sélectionnez **Stratégies**. 
-    * Dans la liste des stratégies, vous devriez voir l’attribution de stratégie que vous avez créée ci-dessus, et l’**État de conformité** devrait être *Conforme*.
+    * Dans la liste, vous devriez voir l’attribution de stratégie que vous avez créée ci-dessus, et l’**État de conformité** devrait être *Conforme*.
 1. Dans la section **Paramètres** de la barre latérale, sélectionnez **GitOps**.
     * Dans la liste des configurations, vous devez voir la configuration créée par l’affectation de stratégie.
 1. Utilisez `kubectl` pour interroger le cluster. 

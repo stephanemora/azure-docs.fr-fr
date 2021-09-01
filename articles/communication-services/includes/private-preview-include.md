@@ -1,16 +1,16 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
+ms.author: rifox
 ms.custom: private_preview
-ms.openlocfilehash: d1ea647ce1fdceb9afacc0d608162a9aafa9010e
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d32d701b706d50db54f704f5ca88cb62df769ea6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106522"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078145"
 ---
 > [!IMPORTANT]
 > Les fonctionnalités décrites dans ce document sont actuellement en préversion privée. La préversion privée comprend un accès aux kits de développement logiciel (SDK) et à la documentation à des fins de test qui ne sont pas encore disponibles publiquement.

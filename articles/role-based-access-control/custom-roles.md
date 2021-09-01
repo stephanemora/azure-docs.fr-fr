@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2021
+ms.date: 06/15/2021
 ms.author: rolyon
-ms.openlocfilehash: c9ab7faebc28354e96cf1c54332fc1d7b19ef196
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6177de5dfc89dcbc33b9ff4291bf65ea909a3b9b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469903"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235713"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -166,6 +166,8 @@ Le tableau suivant décrit ce que signifient les propriétés de rôle personnal
 | `DataActions`</br>`dataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Si vous créez un rôle personnalisé avec `DataActions`, ce rôle ne peut pas être affecté au niveau de l’étendue du groupe d’administration. Pour plus d’informations, consultez [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | Non | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, consultez [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Vous ne pouvez définir qu’un seul groupe d’administration dans `AssignableScopes` d’un rôle personnalisé. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion. Pour plus d’informations, voir [AssignableScopes](role-definitions.md#assignablescopes). |
+
+Les chaînes d’autorisation ne respectent pas la casse. Lorsque vous créez vos rôles personnalisés, la convention est de faire correspondre la casse que vous voyez pour les permissions dans [Opérations de fournisseur de ressources Azure](resource-provider-operations.md).
 
 ## <a name="wildcard-permissions"></a>Autorisations de caractères génériques
 

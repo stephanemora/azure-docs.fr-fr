@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d992d34b552c94d75bf714048c5e9bebd96364c0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b3b0de7b9229f8bfd43e41f26ccb7d7d7c790b92
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673190"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205112"
 ---
 # <a name="create-an-image-from-a-vm"></a>Créer une image depuis une machine virtuelle
 
@@ -96,7 +96,9 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
+> [!NOTE]
+> Pour les définitions d’images qui contiennent des images provenant d’images tierces, les informations de plan doivent correspondre exactement aux informations de plan de l’image tierce. Incluez les informations de plan dans la définition de l’image en ajoutant `-PurchasePlanName`, `-PurchasePlanProduct` et `-PurchasePlanPublisher` lors de la création de la définition de l’image.
+>
 
 ## <a name="create-an-image-version"></a>Créer une version d’image
 

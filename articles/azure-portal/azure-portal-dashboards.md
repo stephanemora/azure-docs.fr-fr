@@ -1,15 +1,14 @@
 ---
 title: Créer un tableau de bord dans le portail Azure
 description: Cet article décrit comment créer et personnaliser un tableau de bord dans le portail Azure.
-ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.openlocfilehash: 0de3e30d2a27d131c13b2df94b1462b6e89b48e3
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.date: 08/19/2021
+ms.openlocfilehash: af26cc36f73088c9a4231e59f3414efaa828d452
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846179"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597713"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Créer un tableau de bord dans le portail Azure
 
@@ -30,11 +29,11 @@ Cet exemple montre comment créer un nouveau tableau de bord privé avec un nom 
 
 1. Dans le menu du portail Azure, sélectionnez **Tableau de bord**. Votre vue par défaut peut déjà être définie sur le tableau de bord.
 
-    ![Capture d’écran du portail Azure avec un tableau de bord sélectionné.](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/portal-menu-dashboard.png" alt-text="Capture d’écran du portail Azure avec un tableau de bord sélectionné.":::
 
 1. Sélectionnez **Nouveau tableau de bord**, puis **Tableau de bord vide**.
 
-    ![Capture d’écran des options de nouveau tableau de bord.](./media/azure-portal-dashboards/create-new-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/create-new-dashboard.png" alt-text="Capture d’écran des options de nouveau tableau de bord.":::
 
     Cette action affiche la **Galerie de vignettes**, dans laquelle vous pouvez sélectionner les vignettes, ainsi qu’une grille vide sur laquelle vous disposerez les vignettes.
 
@@ -56,7 +55,7 @@ Pour ajouter des vignettes à un tableau de bord, effectuez les étapes suivante
 
 1. Sélectionnez ![icône d’édition](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Modifier** dans l’en-tête de page du tableau de bord.
 
-    ![Capture d’écran du tableau de bord montrant l’icône Modifier.](./media/azure-portal-dashboards/dashboard-edit.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-edit.png" alt-text="Capture d’écran du tableau de bord montrant l’icône Modifier.":::
 
 1. Parcourez la **Galerie de vignettes** ou utilisez le champ de recherche pour trouver une vignette spécifique. Sélectionnez la vignette que vous souhaitez ajouter à votre tableau de bord.
 
@@ -131,7 +130,7 @@ Si vous définissez des filtres pour une vignette particulière, celle-ci contie
 
 Certaines vignettes peuvent nécessiter une configuration supplémentaire pour afficher les informations dont vous avez besoin. Par exemple, la vignette **Graphique des métriques** doit être configurée pour afficher une métrique d’Azure Monitor. Vous pouvez également personnaliser les données des vignettes pour remplacer les filtres et les paramètres d’heure par défaut du tableau de bord.
 
-## <a name="complete-tile-configuration"></a>Terminer la configuration des vignettes
+### <a name="complete-tile-configuration"></a>Terminer la configuration des vignettes
 
 Une bannière reste affichée sur chaque vignette qui n’a pas encore été personnalisée. Par exemple, dans le **graphique des métriques**, la bannière indique **Modifier dans Métriques**. D’autres bannières peuvent contenir du texte différent, par exemple **Configurer la vignette**.
 
@@ -141,7 +140,7 @@ Pour personnaliser la vignette :
 
 1. Sélectionnez la bannière, puis effectuez la configuration requise.
 
-    ![Capture d’écran d’une vignette à configurer.](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-configure-tile.png" alt-text="Capture d’écran d’une vignette à configurer.":::
 
 ### <a name="customize-time-span-for-a-tile"></a>Personnaliser l’intervalle de temps pour une vignette
 
@@ -149,11 +148,11 @@ Le tableau de bord affiche des données d’activité qui sont actualisées selo
 
 1. Sélectionnez **Personnaliser les données de vignette** en utilisant le menu contextuel ou l’![icône de filtre](./media/azure-portal-dashboards/dashboard-filter.png) située dans le coin supérieur gauche de la vignette.
 
-    ![Capture d’écran du menu contextuel de la vignette.](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-customize-tile-data.png" alt-text="Capture d’écran du menu contextuel de la vignette.":::
 
 1. Cochez la case **Remplacer les paramètres d’heure du tableau de bord au niveau de la vignette**.
 
-    ![Capture d’écran de la boîte de dialogue où configurer les paramètres d’heure de la vignette.](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-override-time-settings.png" alt-text="Capture d’écran de la boîte de dialogue où configurer les paramètres d’heure de la vignette.":::
 
 1. Choisissez l’intervalle de temps des données à afficher sur cette vignette. Vous pouvez choisir un intervalle allant des 30 dernières minutes aux 30 derniers jours, ou définir une plage personnalisée.
 
@@ -161,6 +160,16 @@ Le tableau de bord affiche des données d’activité qui sont actualisées selo
 
 1. Sélectionnez **Appliquer**.
 
+### <a name="change-the-title-and-subtitle-of-a-tile"></a>Modifier le titre et le sous-titre d’une vignette
+
+Certaines vignettes vous permettent de modifier le titre et le sous-titre associés. Pour ce faire, sélectionnez **Configurer les paramètres de la vignette** dans le menu contextuel.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-tile-rename.png" alt-text="Capture d’écran montrant l’option Configurer les paramètres de la vignette":::
+
+Apportez des modifications au titre et/ou au sous-titre de la vignette, puis sélectionnez **Appliquer**.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-title-subtitle.png" alt-text="Capture d’écran montrant comment modifier le titre et le sous-titre d’une vignette":::
+ 
 ## <a name="delete-a-tile"></a>Supprimer une vignette
 
 Pour supprimer une vignette d’un tableau de bord, effectuez l’une des opérations suivantes :
@@ -169,7 +178,7 @@ Pour supprimer une vignette d’un tableau de bord, effectuez l’une des opéra
 
 - Sélectionnez ![icône d’édition](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Modifier** pour passer en mode de personnalisation. Pointez sur le coin supérieur droit de la vignette, puis sélectionnez l’icône de suppression ![icône de suppression](./media/azure-portal-dashboards/dashboard-delete-icon.png) pour supprimer la vignette du tableau de bord.
 
-   ![Capture d’écran montrant comment supprimer une vignette d’un tableau de bord.](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-tile.png" alt-text="Capture d’écran montrant comment supprimer une vignette d’un tableau de bord.":::
 
 ## <a name="clone-a-dashboard"></a>Cloner un tableau de bord
 
@@ -195,11 +204,11 @@ Pour rechercher et ouvrir un tableau de bord partagé, effectuez les étapes sui
 
     1. Sélectionnez **Parcourir tous les tableaux de bord**.
 
-        ![Capture d’écran du menu de sélection du tableau de bord](./media/azure-portal-dashboards/dashboard-browse.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse.png" alt-text="Capture d’écran du menu de sélection du tableau de bord":::
 
     1. Dans le champ **Type**, sélectionnez **Tableaux de bord partagés**.
 
-        ![Capture d’écran du menu de sélection de tous les tableaux de bord](./media/azure-portal-dashboards/dashboard-browse-all.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse-all.png" alt-text="Capture d’écran du menu de sélection de tous les tableaux de bord":::
 
     1. Sélectionnez un ou plusieurs abonnements. Vous pouvez également entrer du texte pour filtrer les tableaux de bord par nom.
 
@@ -215,7 +224,7 @@ Pour supprimer définitivement un tableau de bord privé ou partagé, procédez 
 
 1. S’il s’agit d’un tableau de bord privé, sélectionnez **OK** dans la boîte de dialogue de confirmation pour le supprimer. Si c’est un tableau de bord partagé, dans la boîte de dialogue de confirmation, cochez la case pour confirmer que le tableau de bord publié ne sera plus visible par d’autres utilisateurs. Ensuite, sélectionnez **OK**.
 
-    ![Capture d’écran de la confirmation de la suppression.](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-dash.png" alt-text="Capture d’écran de la confirmation de la suppression.":::
 
 ## <a name="recover-a-deleted-dashboard"></a>Récupérer un tableau de bord supprimé
 

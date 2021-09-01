@@ -2,16 +2,16 @@
 title: 'Démarrage rapide : rejoindre une réunion Teams à partir d’une application web'
 description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour JavaScript.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5cc27cd600d8e8717a70deefc801b3f500792e11
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2f828583f8c1a51f97ffffe98c9345bd79eb7c68
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536283"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078302"
 ---
 Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) appelant Azure Communication Services Calling pour JavaScript.
 

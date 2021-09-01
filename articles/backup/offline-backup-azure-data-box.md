@@ -3,16 +3,16 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 7793259797a47eb0353de7ecb27686ea2eafa24c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576089"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185900"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
-Vous pouvez utiliser [Azure Data Box](../databox/data-box-overview.md) pour amorcer vos sauvegardes Microsoft Azure Recovery Services (MARS) initiales volumineuses hors connexion (sans utiliser de réseau) dans un coffre Recovery Services. Ce processus permet de gagner du temps et d’économiser de la bande passante réseau, qui serait sinon consommée pour déplacer de grandes quantités de données de sauvegarde en ligne sur un réseau à latence élevée. Cette amélioration est actuellement en préversion. La sauvegarde hors connexion basée sur Azure Data Box offre deux avantages distincts par rapport à la [sauvegarde hors connexion basée sur le service Azure Import/Export](./backup-azure-backup-import-export.md) :
+Vous pouvez utiliser [Azure Data Box](../databox/data-box-overview.md) pour amorcer vos sauvegardes Microsoft Azure Recovery Services (MARS) initiales volumineuses hors connexion (sans utiliser de réseau) dans un coffre Recovery Services. Ce processus permet de gagner du temps et d’économiser de la bande passante réseau, qui serait sinon consommée pour déplacer de grandes quantités de données de sauvegarde en ligne sur un réseau à latence élevée.  La sauvegarde hors connexion basée sur Azure Data Box offre deux avantages distincts par rapport à la [sauvegarde hors connexion basée sur le service Azure Import/Export](./backup-azure-backup-import-export.md) :
 
 - Vous n’avez pas besoin de fournir vos propres disques et connecteurs compatibles avec Azure. Azure Data Box fournit les disques associés à la [référence SKU Data Box](https://azure.microsoft.com/services/databox/data/) sélectionnée.
 - Le service Sauvegarde Azure (agent MARS) peut écrire directement des données de sauvegarde sur les références SKU prises en charge d’Azure Data Box. Grâce à cette capacité, vous n’avez plus besoin d’approvisionner un emplacement intermédiaire pour vos données de sauvegarde initiales. Vous n’avez pas non plus besoin d’utilitaires pour formater et copier ces données sur les disques.

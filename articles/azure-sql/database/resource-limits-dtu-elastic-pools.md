@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: fbbd345e6b2832d8b992ea42a8a2c1fb33615af7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 473aa81bf28dd867bf30acef7a5b407b0e4b67a2
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689956"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964749"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -166,14 +166,26 @@ Si toutes les DTU d’un pool élastique sont utilisées, chaque base de donnée
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool
 
-Le tableau suivant décrit les propriétés des bases de données mises en pool.
+Pour chaque pool élastique, vous pouvez éventuellement spécifier le nombre minimal et maximal de DTU par base de données pour modifier les modèles de consommation de ressources dans le pool. Les valeurs min et max spécifiées s’appliquent à toutes les bases de données du pool. La personnalisation des DTU min et max pour des bases de données individuelles dans le pool n’est pas prise en charge. 
+
+Vous pouvez également définir un stockage maximal par base de données, par exemple pour empêcher une base de données de consommer tout le stockage du pool. Ce paramètre peut être configuré indépendamment pour chaque base de données.
+
+Le tableau suivant décrit les propriétés pour chaque base de données mise en pool. 
 
 | Propriété | Description |
 |:--- |:--- |
-| Nombre maximal d’eDTU par base de données |Nombre maximal d’eDTU pouvant être utilisées par une des bases de données du pool en fonction du nombre d’eDTU utilisées par les autres bases de données du pool. Le nombre maximal d’eDTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal d’eDTU par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. Par exemple, supposons que le pic d’utilisation par base de données est de 20 eDTU et que seules 20 % des 100 bases de données du pool connaissent simultanément un pic d’utilisation. Si le nombre maximal d’eDTU par base de données est défini sur 20 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d’eDTU par pool sur 400. |
-| Nombre minimal d’eDTU par base de données |Nombre minimal d’eDTU garanti pour chaque base de données du pool. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Le nombre minimal d’eDTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen d’eDTU utilisées par base de données. Le produit du nombre de bases de données du pool et du nombre minimal d’eDTU par base de données ne peut pas dépasser le nombre d’eDTU par pool. Par exemple, si un pool comporte 20 bases de données et que le nombre minimal d’eDTU par base de données est défini sur 10 eDTU, le nombre d’eDTU par pool doit être d’au moins 200 eDTU. |
-| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Toutefois, les bases de données mises en pool partagent le stockage du pool alloué. Même si le stockage max total *par base de données* est supérieur au stockage total disponible *espace du pool*, l’espace total réellement utilisé par toutes les bases de données ne pourra pas dépasser la limite du pool disponible. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
+| Nombre maximal de DTU par base de données |Nombre maximal de DTU pouvant être utilisées par une des bases de données du pool en fonction du nombre de DTU utilisées par les autres bases de données du pool. Le nombre maximal de DTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Si la charge de travail de chaque base de données n’a pas besoin de toutes les ressources de pool disponibles pour s’exécuter correctement, envisagez de définir le nombre maximal de DTU par base de données pour empêcher qu’une base de données unique monopolise les ressources Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données, dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. |
+| Nombre minimal de DTU par base de données |Nombre minimal de DTU réservées pour toute base de données dans le pool. Envisagez de définir un nombre minimal de DTU par base de données lorsque vous souhaitez garantir la disponibilité des ressources pour chaque base de données, quelle que soit la consommation des ressources par les autres bases de données du pool. Le nombre minimal de DTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen de DTU utilisées par base de données.|
+| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données mises en pool se partagent l’espace de stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille maximale de base de données. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
 |||
+
+> [!IMPORTANT]
+> Étant donné que les ressources d’un pool élastique sont limitées, l’affectation de la valeur DTU min par base de données à une valeur supérieure à 0 limite implicitement l’utilisation des ressources par chaque base de données. Si, à un moment donné, la plupart des bases de données d’un pool sont inactives, les ressources réservées pour satisfaire la garantie de DTU min ne sont pas disponibles pour les bases de données actives à ce moment précis.
+>
+> En outre, le paramétrage de l’option DTU min par base de données sur une valeur supérieure à 0 limite implicitement le nombre de bases de données qui peuvent être ajoutées au pool. Par exemple, si vous définissez le DTU minimal sur 100 dans un pool de 400 DTU, cela signifie que vous ne pourrez pas ajouter plus de 4 bases de données au pool, car 100 DTU sont réservées pour chaque base de données.
+> 
+
+Si les propriétés par base de données sont exprimées en DTU, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal et les threads Worker. Lorsque vous ajustez les valeurs min et max de DTU par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

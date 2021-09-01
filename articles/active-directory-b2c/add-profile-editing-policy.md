@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d84756a2ae4f8897c42e1846e3a91dbb9f7ad7e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f019fdc64ca30954017afc34267dcef998cf5fb8
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257039"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198833"
 ---
 # <a name="set-up-a-profile-editing-flow-in-azure-active-directory-b2c"></a>Configurer un flux de modification du profil dans Azure Active Directory B2C
 
@@ -48,9 +48,14 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Modifications de profil**. 
 1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *profileediting1*.
-1. Pour **Fournisseurs d’identité**, sélectionnez **Connexion par e-mail**.
-1. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
-1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+1. Sous **Fournisseurs d’identité**, sélectionnez au moins un fournisseur d’identité :
+
+   * Sous **Comptes locaux**, sélectionnez l’une des options suivantes : **Connexion par e-mail**, **Connexion par ID utilisateur**, **Connexion par téléphone**, **Connexion par téléphone/e-mail**, **Connexion par ID utilisateur/e-mail**, ou **Aucun**. [Plus d’informations](sign-in-options.md)
+   * Sous **Fournisseurs d’identité sociale**, sélectionnez un des fournisseurs d’identité sociale ou d’entreprise externes que vous avez configurés. [Plus d’informations](add-identity-provider.md)
+1. Sous **Authentification multifacteur**, si vous voulez demander aux utilisateurs de vérifier leur identité avec une deuxième méthode d’authentification, choisissez le type de méthode et le moment auquel appliquer l’authentification multifacteur (MFA). [Plus d’informations](multi-factor-authentication.md)
+1. Sous **Accès conditionnel**, si vous avez configuré des stratégies d’accès conditionnel pour votre locataire Azure AD B2C et que vous souhaitez les activer pour ce flux d’utilisateurs, cochez la case **Appliquer des stratégies d’accès conditionnel**. Vous n’avez pas besoin de spécifier un nom de stratégie. [Plus d’informations](conditional-access-user-flow.md?pivots=b2c-user-flow)
+1. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Pour la liste complète des valeurs, sélectionnez **Afficher plus**, choisissez les valeurs, puis sélectionnez **OK**.
+1. Sélectionnez **Créer** pour ajouter le flux d’utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 

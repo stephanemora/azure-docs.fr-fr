@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
-ms.date: 08/12/2020
-ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/14/2021
+ms.openlocfilehash: 8a68ff312df13517bfe2b59d97dff25783da11ab
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780998"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202271"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -61,12 +61,21 @@ ACR Tasks prend en charge les déclencheurs suivants lorsque vous définissez un
 | Commit | Oui |
 | Demande de tirage (pull request) | Non |
 
-Pour configurer un déclencheur de mise à jour du code source, vous devez fournir à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps, qu’il soit public ou privé.
-
 > [!NOTE]
 > Actuellement, ACR Tasks ne prend pas en charge les déclencheurs de validation et de demande de tirage (pull request) dans les référentiels GitHub Enterprise.
 
 Découvrez comment déclencher la génération de builds lors de la validation du code source dans le deuxième didacticiel d’ACR Tasks, [Automatiser les générations d’image de conteneur avec Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+
+### <a name="personal-access-token"></a>Jeton d’accès personnel
+
+Pour configurer un déclencheur de mise à jour du code source, vous devez fournir à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps, qu’il soit public ou privé. Les étendues requises pour PAT sont les suivantes :
+
+| Type de référentiel |GitHub  |DevOps  |
+|---------|---------|---------|
+|Dépôt public    | repo:status<br/>public_repo        | Code (lire)        |
+|Référentiel privé   | repo (contrôle total)    | Code (lire)      |
+
+Pour créer un PAT, consultez la documentation [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) ou [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework
 
@@ -114,7 +123,7 @@ Le tableau suivant présente des exemples d’emplacements de contexte pris en c
 | Artefact dans le registre de conteneurs | Fichiers d’[artefacts OCI](container-registry-oci-artifacts.md) dans un référentiel de registre de conteneurs. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
-> Lorsque vous utilisez un référentiel Git privé comme contexte pour une tâche, vous devez fournir un jeton d’accès personnel (PAT).
+> Lorsque vous utilisez un référentiel Git privé comme contexte pour une tâche déclenchée par une mise à jour du code source, vous devez fournir un [jeton d’accès personnel (PAT)](#personal-access-token).
 
 ## <a name="image-platforms"></a>Plateformes d’images
 

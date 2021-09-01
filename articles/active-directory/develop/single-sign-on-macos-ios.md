@@ -13,14 +13,14 @@ ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94174eeb943f4016fde8baf329fa6ba27768e486
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80881246"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039931"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Procédure : Configurer l’authentification unique sur macOS et iOS
+# <a name="configure-sso-on-macos-and-ios"></a>Configurer l’authentification unique sur macOS et iOS
 
 Microsoft Authentication Library (MSAL) pour macOS et iOS prend en charge l’authentification unique entre les applications et les navigateurs macOS/iOS. Cet article aborde les scénarios d’authentification unique suivants :
 

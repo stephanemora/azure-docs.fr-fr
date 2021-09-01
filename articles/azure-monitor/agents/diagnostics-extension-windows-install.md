@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f843f5ec593124305d978cd32559a089194ab6d
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 71b54db0df20ea1bfe630639fb5e60bea62712b2
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073338"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200273"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)
 L’[extension Diagnostics Azure](diagnostics-extension-overview.md) est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité, des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article fournit des détails sur l’installation et la configuration de l’extension de diagnostic Windows et une description de la façon dont les données sont stockées dans un compte Stockage Azure.
@@ -71,7 +71,7 @@ Vous pouvez installer et configurer l’extension de diagnostics sur une machine
 10. Pour enregistrer la configuration, cliquez sur **Enregistrer**. 
 
 > [!NOTE]
-> Bien que la configuration de l’extension de diagnostic puisse être au format JSON ou XML, toute configuration effectuée dans le Portail Azure est toujours stockée au format JSON. Si vous utilisez XML avec une autre méthode de configuration, puis modifiez votre configuration avec le Portail Azure, les paramètres seront modifiés en format JSON.
+> Bien que la configuration de l’extension de diagnostic puisse être au format JSON ou XML, toute configuration effectuée dans le Portail Azure est toujours stockée au format JSON. Si vous utilisez XML avec une autre méthode de configuration, puis modifiez votre configuration avec le Portail Azure, les paramètres seront modifiés en format JSON. En outre, il n’existe aucune option permettant de configurer la période de rétention pour ces journaux.
 
 ## <a name="resource-manager-template"></a>Modèle Resource Manager
 Pour plus d’informations sur le déploiement de l’extension de diagnostic à l’aide de vos modèles Azure Resource Manager, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md). 

@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88a1b87dae62b928f2238c6c525b6345b891337
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671301"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112680037"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Options de l’instruction GROUP BY dans SQL Synapse
 
@@ -26,7 +26,7 @@ SQL Synapse permet de développer des solutions en implémentant différentes op
 
 La clause [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) T-SQL agrège des données en un ensemble de lignes récapitulatives.
 
-Un pool SQL serverless prend en charge l’ensemble des options de l’instruction GROUP BY. Le pool SQL dédié prend en charge un nombre limité d’options de l’instruction GROUP BY.
+Le pool SQL serverless ne prend pas en charge les options GROUP BY. Le pool SQL dédié prend en charge un nombre limité d’options de l’instruction GROUP BY.
 
 ## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Options de l’instruction GROUP BY prises en charge dans le pool SQL dédié
 
