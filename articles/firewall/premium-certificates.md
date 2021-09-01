@@ -1,28 +1,24 @@
 ---
-title: Certificats du Pare-feu Azure Premium - Préversion
-description: Pour configurer correctement l’inspection TLS sur le Pare-feu Azure Premium - Préversion, vous devez configurer et installer les certificats d’autorité de certification intermédiaires.
+title: Certificats du Pare-feu Azure Premium
+description: Pour configurer correctement l’inspection TLS sur le Pare-feu Azure Premium, vous devez configurer et installer les certificats d’autorité de certification intermédiaires.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 08/02/2021
 ms.author: victorh
-ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0826e58f4b61e0a99064226a8488f1c3fb499cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615497"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532094"
 ---
-# <a name="azure-firewall-premium-preview-certificates"></a>Certificats du Pare-feu Azure Premium - Préversion 
+# <a name="azure-firewall-premium-certificates"></a>Certificats du Pare-feu Azure Premium 
 
-> [!IMPORTANT]
-> Pare-feu Azure Premium est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Pour configurer correctement l’inspection TLS du Pare-feu Azure Premium, vous devez fournir un certificat d’autorité de certification intermédiaire valide et le déposer dans Azure Key Vault.
 
- Pour configurer correctement l’inspection TLS du Pare-feu Azure Premium - Préversion, vous devez fournir un certificat d’autorité de certification intermédiaire valide et le déposer dans Azure Key Vault.
-
-## <a name="certificates-used-by-azure-firewall-premium-preview"></a>Certificats utilisés par le Pare-feu Azure Premium - Préversion
+## <a name="certificates-used-by-azure-firewall-premium"></a>Certificats utilisés par le Pare-feu Azure Premium
 
 Dans un déploiement classique, trois types de certificats sont utilisés :
 
@@ -42,7 +38,7 @@ Dans un déploiement classique, trois types de certificats sont utilisés :
 
    Une autorité de certification peut émettre plusieurs certificats sous forme d’arborescence. Un certificat racine correspond au certificat le plus haut de l’arborescence.
 
-Le Pare-feu Azure Premium - Préversion peut intercepter le trafic HTTP/S sortant et générer automatiquement un certificat de serveur pour `www.website.com`. Ce certificat est généré à l’aide du certificat d’autorité de certification intermédiaire que vous fournissez. Le navigateur de l’utilisateur final et les applications clientes doivent approuver le certificat de l’autorité de certification racine de votre organisation ou le certificat d’autorité de certification intermédiaire pour que cette procédure fonctionne. 
+Le Pare-feu Azure Premium peut intercepter le trafic HTTP/S sortant et générer automatiquement un certificat de serveur pour `www.website.com`. Ce certificat est généré à l’aide du certificat d’autorité de certification intermédiaire que vous fournissez. Le navigateur de l’utilisateur final et les applications clientes doivent approuver le certificat de l’autorité de certification racine de votre organisation ou le certificat d’autorité de certification intermédiaire pour que cette procédure fonctionne. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Processus du certificat":::
 
@@ -82,7 +78,7 @@ Vous pouvez créer ou réutiliser une identité managée existante affectée à 
 
 ## <a name="configure-a-certificate-in-your-policy"></a>Configurer un certificat dans votre stratégie
 
-Pour configurer un certificat d’autorité de certification dans votre stratégie de Pare-feu Premium, sélectionnez votre stratégie, puis **Inspection TLS (préversion)** . Sélectionnez **Activé** sur la page **Inspection TLS**. Sélectionnez ensuite votre certificat d’autorité de certification dans Azure Key Vault, comme illustré dans la figure suivante :
+Pour configurer un certificat d’autorité de certification dans votre stratégie de Pare-feu Premium, sélectionnez votre stratégie, puis **Inspection TLS**. Sélectionnez **Activé** sur la page **Inspection TLS**. Sélectionnez ensuite votre certificat d’autorité de certification dans Azure Key Vault, comme illustré dans la figure suivante :
 
 :::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Diagramme de vue d’ensemble du Pare-feu Azure Premium":::
  
@@ -90,10 +86,9 @@ Pour configurer un certificat d’autorité de certification dans votre stratég
 > Pour afficher et configurer un certificat à partir du portail Azure, vous devez ajouter votre compte d’utilisateur Azure à la stratégie d’accès Key Vault. Dotez votre compte d’utilisateur de **Get** et **List** sous **Autorisations de secret**.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Stratégies d’accès Azure Key Vault":::
 
-
 ## <a name="create-your-own-self-signed-ca-certificate"></a>Créer votre propre certificat d’autorité de certification auto-signé
 
-Pour vous aider à tester et à vérifier l’inspection TLS, vous pouvez utiliser les scripts suivants afin de créer votre propre autorité de certification racine auto-signée et votre propre autorité de certification intermédiaire.
+Si vous souhaitez créer vos propres certificats pour vous aider à tester et à vérifier l’inspection TLS, vous pouvez utiliser les scripts suivants afin de créer votre propre autorité de certification racine auto-signée et votre propre autorité de certification intermédiaire.
 
 > [!IMPORTANT]
 > Pour la production, vous devez utiliser votre infrastructure à clé publique d’entreprise pour créer un certificat d’autorité de certification intermédiaire. Une infrastructure à clé publique d’entreprise s’appuie sur l’infrastructure existante et gère la distribution de l’autorité de certification racine sur tous les ordinateurs de point de terminaison. Pour plus d’informations, consultez [Déployer et configurer des certificats d’autorité de certification d’entreprise pour Pare-feu Azure Premium](premium-deploy-certificates-enterprise-ca.md).
@@ -202,6 +197,18 @@ Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be upl
 Write-Host "================"
 
 ```
+
+## <a name="certificate-auto-generation-preview"></a>Génération automatique de certificats (préversion)
+
+Pour les déploiements hors production, vous pouvez utiliser le mécanisme de génération automatique de certificats Premium du Pare-feu Azure, qui crée automatiquement les trois ressources suivantes pour vous :
+
+- Identité managée
+- Key Vault
+- Certificat d’autorité de certification racine autosigné
+
+Choisissez simplement la nouvelle identité managée en préversion et elle associera les trois ressources dans votre stratégie de Premium et configurera l’inspection TLS. 
+
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Certificats autogénérés":::
 
 ## <a name="troubleshooting"></a>Dépannage
 

@@ -3,19 +3,19 @@ title: Préparer des données pour Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Lors du test de la précision de la reconnaissance vocale Microsoft ou de l’apprentissage de vos modèles personnalisés, vous aurez besoin de données audio et texte. Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
-ms.openlocfilehash: 991268aff1b74f8e1990c106fa40b3f3fadd4145
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: lajanuar
+ms.openlocfilehash: e4c5efc165c864576191b6d74030d1dc2f5dc2a5
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769270"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527739"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -49,9 +49,9 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | Type de données | Utilisé pour le test | Quantité recommandée | Utilisé pour l’entraînement | Quantité recommandée |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Oui<br>Utilisé pour l’inspection visuelle | 5 fichiers audio et plus | Non | N/A |
-| [Transcriptions audio + étiquetées à la main](#audio-and-human-labeled-transcript-data) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 | [Texte brut](#plain-text-data-for-training) | Non | n/a | Oui | 1 – 200 Mo de texte associé |
 | [Prononcer](#pronunciation-data-for-training) | Non | n/a | Oui | 1 ko à 1 Mo de texte de prononciation |
+| [Transcriptions audio + étiquetées à la main](#audio-and-human-labeled-transcript-data) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier .zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
@@ -78,53 +78,6 @@ Une fois que votre jeu de données est chargé, vous disposez de plusieurs optio
 * Vous pouvez accéder à l’onglet **Effectuer l’apprentissage de modèles personnalisés** pour effectuer l’apprentissage d’un modèle personnalisé.
 * Vous pouvez accéder à l’onglet **Tester des modèles** pour inspecter visuellement la qualité avec des données audio uniquement ou évaluer la précision avec des données audio + transcription étiquetée à la main.
 
-
-## <a name="audio-and-human-labeled-transcript-data"></a>Données audio et transcription étiquetée à la main
-
-Les données audio + transcription étiquetée à la main peuvent être utilisées à des fins de formation et de test. Pour améliorer les aspects acoustiques, tels que les légers accents, les styles d’élocution, les bruits de fond, ou pour mesurer la précision de la reconnaissance vocale de Microsoft lors du traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot à mot) à des fins de comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.
-
-Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregistrement. Si possible, incluez au moins une demi-seconde de silence avant et après Speech dans chaque exemple de fichier. Bien que les données audio avec un faible volume d’enregistrement ou un bruit d’arrière-plan perturbateur ne soient pas utiles, elles ne doivent pas nuire à votre modèle personnalisé. Envisagez toujours de mettre à niveau vos micro et votre matériel de traitement du signal avant de rassembler les échantillons audio.
-
-| Propriété                 | Valeur                               |
-|--------------------------|-------------------------------------|
-| Format de fichier              | RIFF (WAV)                          |
-| Échantillonnage              | 8 000 Hz ou 16 000 Hz               |
-| Canaux                 | 1 (mono)                            |
-| Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
-| Format d’échantillonnage            | PCM, 16 bits                         |
-| Format d’archive           | .zip                                |
-| Taille maximale de zip         | 2 Go                                |
-
-[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
-
-> [!NOTE]
-> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
-
-Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 1 à 20 heures d’audio. Toutefois, même 30 minutes peuvent contribuer à améliorer les résultats de la reconnaissance. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
-
-Par exemple :
-
-<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
-
-```input
-speech01.wav    speech recognition is awesome
-speech02.wav    the quick brown fox jumped all over the place
-speech03.wav    the lazy dog was not amused
-```
-
-> [!IMPORTANT]
-> La transcription doit être encodée au format UTF-8 marque d'ordre d'octet (BOM).
-
-Les transcriptions doivent être en texte normalisé pour pouvoir être traitées par le système. Une normalisation importante doit cependant être effectuée par l’utilisateur avant de charger les données dans le Studio Speech. Pour savoir quelle langue utiliser pour la préparation de vos transcriptions, consultez [Guide pratique pour créer une transcription étiquetée à la main](how-to-custom-speech-human-labeled-transcriptions.md).
-
-Une fois que vous avez regroupé vos fichiers audio et les transcriptions correspondantes, vous devez les packager dans un seul fichier .zip avant de charger ce dernier vers <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
-
-> [!div class="mx-imgBorder"]
-> ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
-
-Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle. Dans ces régions, l’apprentissage peut traiter environ 10 heures d’audio par jour, contre 1 heure par jour dans d’autres régions. Si l’apprentissage du modèle ne peut pas être effectué en une semaine, le modèle est marqué comme ayant échoué.
-
-Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 
 ## <a name="plain-text-data-for-training"></a>Données de texte brut pour la formation
 
@@ -181,6 +134,60 @@ Utilisez le tableau suivant pour vérifier que votre fichier de données associ�
 | Nbre de prononciations par ligne | 1 |
 | Taille maximale du fichier | 1 Mo (1 Ko pour le niveau gratuit) |
 
+## <a name="audio-and-human-labeled-transcript-data"></a>Données audio et transcription étiquetée à la main
+
+Les données audio + transcription étiquetée à la main peuvent être utilisées à des fins de formation et de test. Pour améliorer les aspects acoustiques, tels que les légers accents, les styles d’élocution, les bruits de fond, ou pour mesurer la précision de la reconnaissance vocale de Microsoft lors du traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot à mot) à des fins de comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.
+
+Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregistrement. Si possible, incluez au moins une demi-seconde de silence avant et après Speech dans chaque exemple de fichier. Bien que les données audio avec un faible volume d’enregistrement ou un bruit d’arrière-plan perturbateur ne soient pas utiles, elles ne doivent pas nuire à votre modèle personnalisé. Envisagez toujours de mettre à niveau vos micro et votre matériel de traitement du signal avant de rassembler les échantillons audio.
+
+| Propriété                 | Valeur                               |
+|--------------------------|-------------------------------------|
+| Format de fichier              | RIFF (WAV)                          |
+| Échantillonnage              | 8 000 Hz ou 16 000 Hz               |
+| Canaux                 | 1 (mono)                            |
+| Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
+| Format d’échantillonnage            | PCM, 16 bits                         |
+| Format d’archive           | .zip                                |
+| Taille maximale de zip         | 2 Go                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
+> [!TIP]
+> Vous n’avez même pas d’audio réel ? Vous pouvez également télécharger un fichier texte (.txt) en sélectionnant le type **Transcription (synthèse audio automatique)** comme **Données de test** afin d’obtenir une idée de base des niveaux de précision actuels, et la paire audio pour chaque énoncé parlé sera automatiquement synthétisée en utilisant la [Synthèse vocale](text-to-speech.md). 
+> 
+> Notez que les ressources audio synthétisées ne sont généralement **PAS** recommandés pour être utilisés comme **données d’apprentissage**.
+> 
+> La taille de fichier maximale est de 500 ko. Nous synthétiserons une ressource audio pour chaque ligne, et la taille maximale de chaque ligne est de 65535 octets.
+
+> [!NOTE]
+> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
+
+Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 1 à 20 heures d’audio. Toutefois, même 30 minutes peuvent contribuer à améliorer les résultats de la reconnaissance. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
+
+Par exemple :
+
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
+speech01.wav    speech recognition is awesome
+speech02.wav    the quick brown fox jumped all over the place
+speech03.wav    the lazy dog was not amused
+```
+
+> [!IMPORTANT]
+> La transcription doit être encodée au format UTF-8 marque d'ordre d'octet (BOM).
+
+Les transcriptions doivent être en texte normalisé pour pouvoir être traitées par le système. Une normalisation importante doit cependant être effectuée par l’utilisateur avant de charger les données dans le Studio Speech. Pour savoir quelle langue utiliser pour la préparation de vos transcriptions, consultez [Guide pratique pour créer une transcription étiquetée à la main](how-to-custom-speech-human-labeled-transcriptions.md).
+
+Une fois que vous avez regroupé vos fichiers audio et les transcriptions correspondantes, vous devez les packager dans un seul fichier .zip avant de charger ce dernier vers <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
+
+> [!div class="mx-imgBorder"]
+> ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle. Dans ces régions, l’apprentissage peut traiter environ 10 heures d’audio par jour, contre 1 heure par jour dans d’autres régions. Si l’apprentissage du modèle ne peut pas être effectué en une semaine, le modèle est marqué comme ayant échoué.
+
+Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
+
 ## <a name="audio-data-for-testing"></a>Données audio pour tester
 
 Les données audio sont optimales pour tester la précision du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle personnalisé. Gardez à l’esprit que les données audio sont utilisées pour inspecter la précision de la reconnaissance vocale par rapport à un modèle spécifique. Si vous cherchez à quantifier la précision d’un modèle, utilisez du [contenu audio + données de transcription étiquetés à la main](#audio-and-human-labeled-transcript-data).
@@ -195,7 +202,7 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 | Longueur maximale par fichier audio | 2 heures               |
 | Format d’échantillonnage            | PCM, 16 bits           |
 | Format d’archive           | .zip                  |
-| Taille d’archive maximale     | 2 Go                  |
+| Taille d’archive maximale     | 2 Go                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

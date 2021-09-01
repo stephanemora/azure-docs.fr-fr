@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
 ms.date: 06/01/2021
-ms.openlocfilehash: 97f557ec45530de3f42dd61ee1cded57fd7c33a0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ce4b7ee2fea9d5b2b7c92b5ade1b3ad146382214
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793743"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562999"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Azure Monitor Dependency pour Linux
 
@@ -27,7 +27,7 @@ L’extension de l’agent Azure VM Dependency pour Linux peut être exécutée 
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le JSON suivant montre le schéma de l’extension de l’agent Azure VM Dependency sur une machine virtuelle Linux Azure. 
+Le JSON suivant montre le schéma de l’extension de l’agent Azure VM Dependency sur une machine virtuelle Linux Azure.
 
 ```json
 {
@@ -101,7 +101,7 @@ L’exemple suivant suppose que l’extension de l’agent Dependency est imbriq
 }
 ```
 
-Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente. Le type reflète la configuration imbriquée. 
+Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente. Le type reflète la configuration imbriquée.
 
 ```json
 {
@@ -132,31 +132,22 @@ az vm extension set \
     --vm-name myVM \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
-    --version 9.5 
+    --version 9.5
 ```
 
-## <a name="automatic-upgrade-preview"></a>Mise à niveau automatique (préversion)
-Une nouvelle fonctionnalité de mise à niveau automatique des versions mineures de l’extension Dependency est désormais disponible en préversion publique. Vous devez effectuer les modifications de configuration suivantes pour activer cette fonctionnalité.
+## <a name="automatic-extension-upgrade"></a>Mise à niveau automatique des extensions
+Une nouvelle fonctionnalité de [mise à niveau automatique des versions mineures](../automatic-extension-upgrade.md) de l’extension Dependency est désormais disponible.
 
--   Utilisez l’une des méthodes indiquées dans [Activation de l’accès en préversion](../automatic-extension-upgrade.md#enabling-preview-access) pour activer la fonctionnalité pour votre abonnement.
-- Ajoutez l’attribut `enableAutomaticUpgrade` au modèle.
+Pour activer la mise à niveau automatique pour une extension, vous devez vous assurer que la propriété `enableAutomaticUpgrade` est définie sur `true` et ajoutée au modèle d’extension. Cette propriété doit être activée sur chaque machine virtuelle ou groupe identique de machines virtuelles individuellement. Utilisez l’une des méthodes décrites dans la section [activation](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) pour activer la fonctionnalité pour votre machine virtuelle ou votre groupe identique de machines virtuelles.
 
-Le schéma de contrôle de version de l’extension Dependency Agent respecte le format suivant :
+Lorsque la mise à niveau automatique des extensions est activée sur une machine virtuelle ou un groupe identique de machines virtuelles, l’extension est automatiquement mise à niveau chaque fois que l’éditeur de l’extension publie une nouvelle version pour cette extension. La mise à niveau est appliquée en toute sécurité selon les principes de première disponibilité, comme décrit [ici](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
 
-```
-<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
-```
+Le fonctionnement de l’attribut `enableAutomaticUpgrade` est différent de celui de `autoUpgradeMinorVersion`. Les attributs `autoUpgradeMinorVersion` ne déclenchent pas automatiquement une mise à jour de version mineure lorsque l’éditeur d’extension publie une nouvelle version. L’attribut `autoUpgradeMinorVersion` indique si l’extension doit utiliser une version mineure plus récente si celle-ci est disponible au moment du déploiement. Cependant, une fois déployée, l’extension ne mettra pas à jour les versions mineures à moins d’être redéployée, même si cette propriété est définie sur true.
 
-Les attributs `enableAutomaticUpgrade` et `autoUpgradeMinorVersion` fonctionnent ensemble pour déterminer comment les mises à niveau seront gérées pour les machines virtuelles de l’abonnement.
-
-| enableAutomaticUpgrade | autoUpgradeMinorVersion | Résultat |
-|:---|:---|:---|
-| true | false | Mettez à niveau l’agent Dependency si une version plus récente de bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
-| true | true |  Cela mettra à niveau l’agent Dependency si une version plus récente de mm.bb.rr ou bb.rr existe. Par exemple, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.7.1.1416, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.7.1.1416. De même, si vous exécutez 9.6.0.1355 et que la version la plus récente est 9.6.2.1366, vos machines virtuelles dans les abonnements activés seront mises à niveau vers 9.6.2.1366. |
-| false | True ou False | La mise à niveau automatique est désactivée.
+Pour maintenir la version de votre extension à jour, nous vous recommandons d’utiliser `enableAutomaticUpgrade` pour le déploiement de votre extension.
 
 > [!IMPORTANT]
-> Si vous ajoutez `enableAutomaticUpgrade` à votre modèle, assurez-vous d’utiliser au moins l’API version 2019-12-01.
+> Si vous ajoutez `enableAutomaticUpgrade` à votre modèle, assurez-vous d’utiliser l’API version 2019-12-01 ou version ultérieure.
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
@@ -171,7 +162,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 La sortie de l’exécution de l’extension est enregistrée dans le fichier suivant :
 
 ```
-/opt/microsoft/dependency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log
 ```
 
 ### <a name="support"></a>Support

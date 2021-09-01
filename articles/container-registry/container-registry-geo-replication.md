@@ -3,14 +3,14 @@ title: Géorépliquer un registre
 description: Prenez en main la création et la gestion d’un registre de conteneurs Azure géorépliqué, ce qui permet au registre de servir plusieurs régions grâce à des réplicas régionaux multimaîtres. La géoréplication est une fonctionnalité disponible pour le niveau de service Premium.
 author: stevelas
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/28/2021
 ms.author: stevelas
-ms.openlocfilehash: b60de8dd9dc4ba5b66594fe6d75caa43ef0017b5
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c616c3e196547d72825759de94792cc6573a12d9
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029654"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037973"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -64,9 +64,6 @@ La fonctionnalité de géoréplication d’Azure Container Registry permet de b�
 
 Azure Container Registry prend également en charge les [zones de disponibilité](zone-redundancy.md) pour créer un registre de conteneurs Azure résilient et à haute disponibilité dans une région Azure. La combinaison de zones de disponibilité pour la redondance au sein d’une région et de la géoréplication dans plusieurs régions améliore la fiabilité et les performances d’un registre.
 
-> [!IMPORTANT]
-> Un registre géorépliqué peut devenir indisponible si certaines interruptions se produisent dans la région d’origine du registre, à savoir la région dans laquelle le registre a été initialement déployé.
-
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
 
 La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez également gérer la géoréplication à l’aide d’outils, notamment des commandes [az acr replication](/cli/azure/acr/replication) dans Azure CLI, ou déployer un registre activé pour la géoréplication avec un [modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/).
@@ -105,6 +102,13 @@ ACR commence la synchronisation des images entre les réplicas configurés. Une 
 * Pour gérer des flux de travail qui dépendent de mises à jour d’envoi (push) vers un registre géorépliqué, nous vous recommandons de configurer des [webhooks](container-registry-webhook.md) pour répondre aux événements d’envoi. Vous pouvez configurer des webhooks régionaux dans un registre géorépliqué pour effectuer le suivi des événements d’envoi (push) au fil de leur occurrence dans les régions géorépliquées.
 * Pour servir les blobs représentant des couches de contenu, Azure Container Registry utilise des points de terminaison de données. Vous pouvez activer des [points de terminaison de données dédiés](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) pour votre registre dans chacune des régions géorépliquées de votre registre. Ces points de terminaison permettent de configurer des règles d’accès au pare-feu très précises. À des fins de résolution des problèmes, vous pouvez éventuellement [désactiver le routage vers une réplication](#temporarily-disable-routing-to-replication) tout en conservant les données répliquées.
 * Si vous configurez une [liaison privée](container-registry-private-link.md) pour votre registre à l’aide de points de terminaison privés dans un réseau virtuel, les points de terminaison de données dédiés de chacune des régions géorépliquées sont activés par défaut. 
+
+## <a name="considerations-for-high-availability"></a>Considérations relatives à la haute disponibilité
+
+* Pour une disponibilité et une résilience élevées, nous recommandons de créer un registre dans une région qui prend en charge l’activation de la [redondance de zone](zone-redundancy.md). L’activation de la redondance de zone dans chaque région de réplica est également recommandée.
+* Si une panne se produit dans la région d’origine du registre (la région où il a été créé) ou dans l’une de ses régions de réplication, un registre géo-répliqué reste disponible pour les opérations de plan de données comme l’envoi ou l’extraction d’images de conteneur. 
+* Si la région d’hébergement du registre devient indisponible, il se peut que vous ne puissiez pas effectuer les opérations de gestion du registre, notamment la configuration des règles de réseau, l’activation des zones de disponibilité et la gestion des réplicas.
+* Pour planifier la haute disponibilité d’un registre géo-répliqué chiffré avec une [clé managée par le client](container-registry-customer-managed-keys.md) stockée dans Azure Key Vault, consultez les conseils relatifs au [basculement et à la redondance](../key-vault/general/disaster-recovery-guidance.md) de Key Vault.
 
 ## <a name="delete-a-replica"></a>Supprimer un réplica
 

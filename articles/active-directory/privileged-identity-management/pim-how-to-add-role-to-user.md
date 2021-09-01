@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/16/2021
+ms.date: 06/03/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4374067fe0070c379a76ef5f59bb6aef5b29fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: a741ce7fff528fbe1f4120f4138a88d7b6e2e915
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123103"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112233004"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Attribuer des rôles dans Azure AD dans Privileged Identity Management
 
@@ -26,24 +27,13 @@ Avec Azure Active Directory (Azure AD), un administrateur général peut effectu
 
 Le service Azure AD Privileged Identity Management (PIM) permet également aux Administrateurs de rôle privilégié d’établir des attributions permanentes du rôle Administrateur. En outre, les Administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles Administrateur d’Azure AD. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
 
-## <a name="determine-your-version-of-pim"></a>Déterminer votre version de PIM
-
-Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles de ressources Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
-1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
-
-  [![Select Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
-
-# <a name="new-version"></a>[Nouvelle version](#tab/new)
+Privileged Identity Management prend en charge les rôles Azure AD personnalisés et intégrés. Pour plus d’informations sur les rôles personnalisés Azure AD, consultez [ Contrôle d’accès en fonction du rôle dans Azure Active Directory](../roles/custom-overview.md).
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 
 Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administrateur Azure AD.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
-
-    Pour plus d’informations sur la façon d’accorder l’accès à un autre administrateur pour la gestion de Privileged Identity Management, consultez [Accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -116,122 +106,6 @@ Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle exi
     ![Mettre à jour ou supprimer une attribution de rôle](./media/pim-how-to-add-role-to-user/remove-update-assignments.png)
 
 1. Sélectionnez **Mettre à jour** ou **Supprimer** pour mettre à jour ou supprimer l’attribution de rôle.
-
-# <a name="previous-version"></a>[Version précédente](#tab/previous)
-
-## <a name="make-a-user-eligible-for-a-role"></a>Rendre un utilisateur éligible pour un rôle
-
-Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administrateur Azure AD.
-
-1. Sélectionnez **Rôles** ou **Membres**.
-
-    ![rôles Azure AD ouverts](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
-
-1. Sélectionnez **Ajouter un membre** pour ouvrir **Ajouter des membres managés**.
-
-1. Sélectionnez **Sélectionner un rôle**, sélectionnez un rôle que vous souhaitez gérer, puis sélectionnez **Sélectionner**.
-
-    ![Sélectionnez un rôle](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
-
-1. Sélectionnez **Sélectionner des membres**, sélectionnez les utilisateurs que vous souhaitez assigner au rôle, puis sélectionnez **Sélectionner**.
-
-    ![Sélectionner un utilisateur ou un groupe à affecter](./media/pim-how-to-add-role-to-user/pim-select-members.png)
-
-1. Sous **Ajouter des membres managés**, sélectionnez **OK** pour ajouter l’utilisateur au rôle.
-
-1. Dans la liste des rôles, cliquez sur le rôle que vous venez d’attribuer pour afficher la liste des membres.
-
-     Une fois le rôle attribué, l’utilisateur que vous avez sélectionné apparaît comme **éligible** pour ce rôle dans la liste des membres.
-
-    ![Utilisateur éligible pour un rôle](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
-
-1. Maintenant que l’utilisateur est éligible pour le rôle, indiquez-lui qu’il peut l’activer en suivant les instructions contenues dans [Activer mes rôles Azure AD dans Privileged Identity Management](pim-how-to-activate-role.md).
-
-    Les administrateurs éligibles sont invités à s’inscrire Azure AD Multi-Factor Authentication lors de l’activation. Si un utilisateur ne peut pas s’inscrire pour l’authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (tel que @outlook.com), vous devez le rendre permanent dans tous ses rôles.
-
-## <a name="make-a-role-assignment-permanent"></a>Rendre une attribution de rôle permanente
-
-Par défaut, les nouveaux utilisateurs sont uniquement *éligibles* pour un rôle d’administrateur Azure AD. Suivez ces étapes si vous souhaitez rendre une attribution de rôle permanente.
-
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez **Membres**.
-
-    ![Liste des membres](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
-
-1. Sélectionnez un rôle **Éligible** que vous souhaitez rendre permanent.
-
-1. Sélectionnez **Plus**, puis **Rendre permanent**.
-
-    ![Rendre une attribution de rôle permanente](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
-
-    Le rôle est désormais répertorié comme **permanent**.
-
-    ![Liste des membres avec modification permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
-
-## <a name="remove-a-user-from-a-role"></a>Supprimer un utilisateur d’un rôle
-
-Vous pouvez supprimer des utilisateurs des attributions de rôles, mais assurez-vous qu’il reste toujours au moins un administrateur général permanent. Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attributions de rôles, vous pouvez [démarrer une révision d’accès pour le rôle](pim-how-to-start-security-review.md).
-
-Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle d'administrateur Azure AD.
-
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez **Membres**.
-
-    ![Liste des membres](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
-
-1. Sélectionnez une attribution de rôle à supprimer.
-
-1. Sélectionnez **Plus**, puis **Supprimer**.
-
-    ![Supprimer un rôle](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
-
-1. Dans le message qui vous invite à confirmer la suppression, sélectionnez **Oui**.
-
-    ![Confirmer la suppression](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
-
-    L’attribution de rôle est supprimée.
-
-## <a name="authorization-error-when-assigning-roles"></a>Erreur d’autorisation lors de l’attribution de rôles
-
-Si vous avez récemment activé Privileged Identity Management pour un abonnement et obtenez une erreur d’autorisation lorsque vous essayez de rendre un utilisateur éligible pour un rôle d’administrateur Azure AD, c’est peut-être parce que le principal du service MS-PIM n’a pas encore les autorisations appropriées. Pour pouvoir attribuer des rôles à d’autres personnes, le principal du service MS-PIM doit avoir le rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Au lieu d'attendre que le rôle d’administrateur de l’accès utilisateur soit affecté à MS-PIM, vous pouvez l'affecter manuellement.
-
-Suivez ces étapes pour affecter le rôle d’administrateur de l’accès utilisateur au principal du service MS-PIM pour un abonnement.
-
-1. Connectez-vous au portail Azure en tant qu’administrateur général.
-
-1. Sélectionnez **Tous les services**, puis **Abonnements**.
-
-1. Choisissez votre abonnement.
-
-1. Cliquez sur **Contrôle d’accès (IAM)** .
-
-1. Choisissez **Attributions de rôles** pour afficher la liste actuelle des attributions de rôles au niveau de l’étendue de l’abonnement.
-
-   ![Panneau Contrôle d’accès (IAM) pour un abonnement](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
-
-1. Vérifiez si le rôle d’**administrateur de l’accès utilisateur** est affecté au principal du service **MS-PIM**.
-
-1. Sinon, choisissez **Ajouter une attribution de rôle** pour ouvrir le volet **Ajouter une attribution de rôle**.
-
-1. Dans la liste déroulante **Rôle**, sélectionnez le rôle d’**administrateur de l’accès utilisateur**.
-
-1. Dans la liste **Sélectionner**, recherchez et sélectionnez le principal du service **MS-PIM**.
-
-   ![Volet Ajouter une attribution de rôle - Ajouter des autorisations pour le principal du service MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
-
-1. Choisissez **Enregistrer** pour attribuer le rôle.
-
-   Après quelques instants, vérifiez si le rôle d’administrateur de l’accès utilisateur est affecté au principal du service MS-PIM au niveau de l’abonnement.
-
-   ![Page de contrôle d’accès indiquant l’attribution du rôle Administration de l’accès utilisateur pour le principal du service MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
- ---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

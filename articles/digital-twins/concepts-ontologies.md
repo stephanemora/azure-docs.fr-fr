@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: En savoir plus sur les ontologies d’un secteur en langage DTDL à des fins de modélisation dans un domaine particulier
 author: baanders
 ms.author: baanders
-ms.date: 2/12/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 17411f3c0a12e544d3204b2194e53d9565b164a9
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: d87f6a7a536f4dc9d15d87fe141f14760cab8aaa
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061899"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534867"
 ---
 # <a name="what-is-an-ontology"></a>Qu’est-ce qu’une ontologie ? 
 
@@ -42,9 +42,9 @@ Il existe trois stratégies possibles d’intégration des ontologies conformes 
 
 | Stratégie | Description | Ressources |
 | --- | --- | --- |
-| **Adopter** | Vous pouvez démarrer votre solution avec une ontologie DTDL open source qui a été conçue sur des normes du secteur d’activité largement adoptées. Vous pouvez utiliser ces ensembles de modèles prêts à l’emploi, ou les étendre avec vos propres ajouts dans le cadre d’une solution personnalisée. | [Concepts :&nbsp;Adoption&nbsp;d’ontologies&nbsp;conformes aux standards d’un secteur](concepts-ontologies-adopt.md)<br><br>[Concepts :&nbsp;Extension&nbsp;d’ontologies](concepts-ontologies-extend.md) |
-| **Convert** | Si vous avez déjà des modèles existants représentés dans un autre format standard, vous pouvez les convertir en DTDL pour les utiliser avec Azure Digital Twins. | [Concepts :&nbsp;Conversion&nbsp;d’ontologies](concepts-ontologies-convert.md)<br><br>[Concepts :&nbsp;Extension&nbsp;d’ontologies](concepts-ontologies-extend.md) |
-| **Auteur** | Vous pouvez toujours développer vos propres modèles DTDL personnalisés à partir de zéro, en vous inspirant des standards applicables au secteur. | [Concepts : Modèles DTDL](concepts-models.md) |
+| **Adopter** | Vous pouvez démarrer votre solution avec une ontologie DTDL open source qui a été conçue sur des normes du secteur d’activité largement adoptées. Vous pouvez utiliser ces ensembles de modèles prêts à l’emploi, ou les étendre avec vos propres ajouts dans le cadre d’une solution personnalisée. | [Adoption&nbsp;d’ontologies&nbsp;conformes aux standards d’un secteur](concepts-ontologies-adopt.md)<br><br>[Extension&nbsp;d’ontologies](concepts-ontologies-extend.md) |
+| **Convert** | Si vous avez déjà des modèles existants représentés dans un autre format standard, vous pouvez les convertir en DTDL pour les utiliser avec Azure Digital Twins. | [Conversion&nbsp;d’ontologies](concepts-ontologies-convert.md)<br><br>[Extension&nbsp;d’ontologies](concepts-ontologies-extend.md) |
+| **Auteur** | Vous pouvez toujours développer vos propres modèles DTDL personnalisés à partir de zéro, en vous inspirant des standards applicables au secteur. | [Modèles DTDL](concepts-models.md) |
 
 ### <a name="using-ontology-strategies-in-a-model-development-path"></a>Utilisation de stratégies d’ontologie pour le développement de modèles
 
@@ -64,8 +64,8 @@ Vous devez pouvoir ensuite utiliser ces modèles dans votre instance d’Azure D
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus en détail les stratégies d’adoption, de conversion et de création d’ontologies :
-* [Concepts : Adoption d’ontologies conformes aux standards du secteur](concepts-ontologies-adopt.md)
-* [Concepts : Conversion d’ontologies](concepts-ontologies-convert.md)
-* [Procédure : Gérer les modèles DTDL](how-to-manage-model.md)
+* [Adoption des ontologies standard](concepts-ontologies-adopt.md)
+* [Conversion d’ontologies](concepts-ontologies-convert.md)
+* [Gérer des modèles DTDL](how-to-manage-model.md)
 
-Ou, découvrez comment les modèles permettent de créer des jumeaux numériques : [Concepts : Jumeaux numériques et graphe de jumeaux](concepts-twins-graph.md).
+Ou découvrez comment les modèles permettent de créer des jumeaux numériques : [Jumeaux numériques et graphe de jumeaux](concepts-twins-graph.md).

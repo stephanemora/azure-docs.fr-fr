@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 05/24/2021
 ms.author: pepogors
-ms.openlocfilehash: 347fd606e1c91d583ec81f17d9203bbe46020b57
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: aaf5be101320a5b8cccb24b89908c788996fc494
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473153"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535283"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 
@@ -233,7 +233,7 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 >[!IMPORTANT]
 >La version d’API de la ressource de cluster Service Fabric doit être « 2020-12-01-preview » ou une version ultérieure.
 >
->La version de code du cluster doit être « 7.2.445 » ou une version ultérieure.
+>La version de code du cluster doit être au moins « 8.1.321 » ou une version ultérieure.
 
 ```json
 {

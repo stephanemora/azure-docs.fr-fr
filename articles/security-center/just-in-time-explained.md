@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a095d2f6e05957e4a3daac76f3ac745e5a20de4a
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757064"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563706"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)
 
@@ -56,11 +56,11 @@ Quand un utilisateur demande l’accès à une machine virtuelle, Security Cente
 
 Le diagramme ci-dessous montre la logique que Security Center applique lorsqu’il décide de la manière de classer les machines virtuelles prises en charge : 
 
-[![Just-in-time (JIT) virtual machine (VM) logic flow](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
+[![Flux logique de machine virtuelle juste-à-temps.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
 
 Lorsque Security Center trouve une machine qui peut tirer parti de l’accès JAT, il l’ajoute à l’onglet **Ressources non saines** de la recommandation. 
 
-![Recommandation d’accès aux machines virtuelles juste-à-temps (JAT)](./media/just-in-time-explained/unhealthy-resources.png)
+![Recommandation d’accès aux machines virtuelles juste-à-temps (JAT).](./media/just-in-time-explained/unhealthy-resources.png)
 
 
 ## <a name="faq---just-in-time-virtual-machine-access"></a>FAQ : Accès juste-à-temps aux machines virtuelles
@@ -74,7 +74,7 @@ Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’éta
 Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec l’accès JAT, vous aurez besoin des détails du tableau ci-dessous.
 
 > [!TIP]
-> Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.
+> Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.
 
 | Pour permettre à un utilisateur de : | Autorisations à définir|
 | --- | --- |
@@ -89,9 +89,7 @@ Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cette page explique _pourquoi_ l’accès aux machines virtuelles juste-à-temps (JAT) doit être utilisé. 
-
-Passez à l’article pratique pour en savoir plus sur l’activation de l’accès JAT et la demande d’accès à vos machines virtuelles prenant en charge l’accès JAT :
+Cette page explique _pourquoi_ l’accès aux machines virtuelles juste-à-temps (JAT) doit être utilisé. Pour savoir _comment_ activer la fonctionnalité juste-à-temps et demander l’accès à vos machines virtuelles juste-à-temps, consultez ce qui suit :
 
 > [!div class="nextstepaction"]
 > [Comment sécuriser vos ports de gestion avec l’accès JAT](security-center-just-in-time.md)

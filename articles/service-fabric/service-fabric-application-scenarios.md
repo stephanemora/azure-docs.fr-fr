@@ -3,12 +3,12 @@ title: Scénarios et conception d’applications
 description: Vue d'ensemble des catégories d'applications cloud dans Service Fabric. Traite de la conception d’applications à l’aide de services avec ou sans état
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 703adde38d195395ae07dea022da873754e1d2f1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045754"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867137"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scénarios d'applications Service Fabric
 
@@ -46,7 +46,7 @@ Envisagez d’utiliser la plateforme Service Fabric pour les types d’applicati
 
 ## <a name="application-design-case-studies"></a>Études de cas de conception d’applications
 
-Des études de cas qui illustrent comment Service Fabric permet de concevoir des applications sont publiées sur les sites [Témoignages client](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) et [Microservices dans Azure](https://azure.microsoft.com/solutions/microservice-applications/).
+Des études de cas qui illustrent comment Service Fabric permet de concevoir des applications sont publiées sur les sites [Témoignages client](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) et [Microservices dans Azure](https://azure.microsoft.com/solutions/microservice-applications/).
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Conception d’applications composées de microservices avec et sans état
 
