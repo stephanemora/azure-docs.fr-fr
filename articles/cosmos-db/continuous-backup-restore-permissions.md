@@ -4,25 +4,20 @@ description: Découvrez comment isoler et restreindre les autorisations de resta
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d566a2ee66df4adb810cb5908da3c47657fab418
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100648601"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524478"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gérer les autorisations de restauration d’un compte Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> La fonctionnalité de restauration à un instant dans le passé (mode de sauvegarde continue) pour Azure Cosmos DB est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Cosmos DB vous permet d’isoler et de restreindre les autorisations de restauration pour le compte de sauvegarde continue (préversion) à un rôle ou à un principal spécifique. Le propriétaire du compte peut déclencher une restauration et attribuer un rôle à d’autres principaux pour effectuer l’opération de restauration. Ces autorisations peuvent être appliquées au niveau de l’étendue de l’abonnement ou plus précisément au niveau de l’étendue du compte source, comme illustré dans l’image suivante :
+Azure Cosmos DB vous permet d’isoler et de restreindre les autorisations de restauration pour le compte de sauvegarde continue à un rôle ou à un principal spécifique. Le propriétaire du compte peut déclencher une restauration et attribuer un rôle à d’autres principaux pour effectuer l’opération de restauration. Ces autorisations peuvent être appliquées au niveau de l’étendue de l’abonnement ou plus précisément au niveau de l’étendue du compte source, comme illustré dans l’image suivante :
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="Liste des rôles requis pour effectuer l’opération de restauration." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 
@@ -52,19 +47,22 @@ Pour effectuer une restauration, un utilisateur ou un principal doit avoir l’a
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |Ressource de compte restaurable CosmosDB | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-La ressource de compte restaurable peut être extraite de la sortie de la commande `az cosmosdb restorable-database-account list --name <accountname>` dans l’interface CLI ou de la cmdlet `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` dans PowerShell. L’attribut « name » dans la sortie représente l’`instanceID` du compte restaurable. Pour plus d’informations, consultez l’article relatif à [PowerShell](continuous-backup-restore-powershell.md) ou à [CLI](continuous-backup-restore-command-line.md).
+La ressource de compte restaurable peut être extraite de la sortie de la commande `az cosmosdb restorable-database-account list --name <accountname>` dans l’interface CLI ou de la cmdlet `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` dans PowerShell. L’attribut « name » dans la sortie représente l’`instanceID` du compte restaurable. 
 
 ## <a name="permissions"></a>Autorisations
 
 Les autorisations suivantes sont requises pour effectuer les différentes activités relatives à la restauration des comptes en mode de sauvegarde continue :
 
+> [!NOTE]
+> L’autorisation peut être affectée à un compte de base de données pouvant être restauré au niveau de l’étendue du compte ou de l’abonnement. L’attribution d’autorisations au niveau de l’étendue du groupe de ressources n’est pas prise en charge.
+
 |Autorisation  |Impact  |Étendue minimale  |Étendue maximale  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Ces autorisations sont requises pour le déploiement du modèle ARM afin de créer le compte restauré. Consultez l’exemple d’autorisation [RestorableAction](#custom-restorable-action) ci-dessous pour savoir comment définir ce rôle. | Non applicable | Non applicable  |
 |`Microsoft.DocumentDB/databaseAccounts/write` | Cette autorisation est requise pour restaurer un compte dans un groupe de ressources. | Groupe de ressources sous lequel le compte restauré est créé. | Abonnement sous lequel le compte restauré est créé. |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour permettre l’exécution d’actions de restauration sur celle-ci.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* . | Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue.  |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour répertorier les comptes de base de données qui peuvent être restaurés.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* .| Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue.  |
-|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Cette autorisation est requise sur l’étendue du compte restaurable source pour permettre la lecture des ressources restaurables telles que la liste des bases de données et des conteneurs pour un compte restaurable.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-id_instance>* .| Abonnement contenant le compte de base de données restaurable. Le groupe de ressources ne peut pas être choisi comme étendue. |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` </br> Vous ne pouvez pas choisir le groupe de ressources comme étendue d’autorisation. |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour permettre l’exécution d’actions de restauration sur celle-ci.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>* | Abonnement contenant le compte de base de données restaurable.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` </br> Vous ne pouvez pas choisir le groupe de ressources comme étendue d’autorisation. |Cette autorisation est requise sur l’étendue du compte de base de données restaurable source pour répertorier les comptes de base de données qui peuvent être restaurés.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>*| Abonnement contenant le compte de base de données restaurable. |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` </br> Vous ne pouvez pas choisir le groupe de ressources comme étendue d’autorisation. | Cette autorisation est requise sur l’étendue du compte restaurable source pour permettre la lecture des ressources restaurables telles que la liste des bases de données et des conteneurs pour un compte restaurable.  | Ressource *RestorableDatabaseAccount* appartenant au compte source en cours de restauration. Cette valeur est également fournie par la propriété `ID` de la ressource de compte de base de données restaurable. Un exemple de compte pouvant être restauré est */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/\<guid-instanceid\>*| Abonnement contenant le compte de base de données restaurable. |
 
 ## <a name="azure-cli-role-assignment-scenarios-to-restore-at-different-scopes"></a>Scénarios d’attribution de rôle Azure CLI pour restaurer dans différentes étendues
 
@@ -131,5 +129,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Configurez et gérez la sauvegarde continue en utilisant le [portail Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) ou [Azure Resource Manager](continuous-backup-restore-template.md).
+* Approvisionnez la sauvegarde continue à l’aide du [portail Azure](provision-account-continuous-backup.md#provision-portal), de [PowerShell](provision-account-continuous-backup.md#provision-powershell), de l’interface [CLI](provision-account-continuous-backup.md#provision-cli) ou d’[Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restaurez un compte à l’aide du [portail Azure](restore-account-continuous-backup.md#restore-account-portal), de [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), de l’interface [CLI](restore-account-continuous-backup.md#restore-account-cli) ou d’[Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrer vers un compte à partir d’une sauvegarde périodique vers une sauvegarde continue](migrate-continuous-backup.md).
 * [Modèle de ressource du mode de sauvegarde continue](continuous-backup-restore-resource-model.md).

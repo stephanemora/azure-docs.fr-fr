@@ -3,19 +3,27 @@ title: Déployer Start/Stop VMs v2 (préversion)
 description: Cet article explique comment déployer la fonctionnalité Start/Stop VMs v2 (préversion) pour vos machines virtuelles Azure dans votre abonnement Azure.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 726af0d36c543936076d1fa529e5527d166d5bbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c0b3984629376f11692b727bb28b34c15708c596
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073231"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524489"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Déployer Start/Stop VMs v2 (préversion)
 
 Effectuez les étapes de cette rubrique dans l’ordre pour installer la fonctionnalité Start/Stop VMs v2 (préversion). Une fois le processus d’installation terminé, configurez les planifications pour les adapter à vos besoins.
 
+> [!NOTE]
+> Si vous rencontrez des problèmes lors du déploiement, que vous rencontrez un problème lors de l’utilisation de Start/Stop VMs V2 (préversion) ou si vous avez une question connexe, vous pouvez envoyer un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). L’envoi d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
+
+## <a name="permissions-considerations"></a>Considérations relatives aux autorisations
+Gardez à l’esprit les points suivants avant et pendant le déploiement :
++   La solution permet à ceux qui possèdent des autorisations de contrôle d’accès en fonction du rôle (RBAC) appropriées sur le déploiement de Start/Stop v2 d’ajouter, de supprimer et de gérer des planifications pour les machines virtuelles dans le cadre de l’étendue de Start/Stop v2. Ce comportement est normal. Dans la pratique, cela signifie qu’un utilisateur qui ne dispose pas de l’autorisation RBAC directe sur une machine virtuelle peut toujours créer des opérations de démarrage, d’arrêt et d’arrêt automatique sur cette machine virtuelle lorsqu’il dispose de l’autorisation RBAC pour modifier la solution Start/Stop v2 qui le gère.
++ Tous les utilisateurs ayant accès à la solution Start/Stop v2 peuvent découvrir les coûts, les économies, l’historique des opérations et les autres données stockées dans l’instance Application Insights utilisée par l’application Start/Stop v2.
++ Lorsque vous gérez une solution Start/Stop v2, vous devez considérer les autorisations des utilisateurs par la solution Start/Stop v2, en particulier lorsqu’il n’y a pas d’autorisation de modifier directement les machines virtuelles cibles.
 ## <a name="deploy-feature"></a>Déployer la fonctionnalité
 
 Le déploiement est initié à partir de l’organisation GitHub Start/Stop VMs v2 [ici](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). Bien que cette fonctionnalité soit conçue pour gérer toutes les machines virtuelles de votre abonnement dans tous les groupes de ressources à partir d’un seul déploiement dans l’abonnement, vous pouvez en installer une autre instance en fonction du modèle opérationnel ou des besoins de votre entreprise. Elle peut également être configurée pour gérer de manière centralisée les machines virtuelles de plusieurs abonnements.
@@ -49,6 +57,12 @@ Pour simplifier la gestion et la suppression, nous vous recommandons de déploye
 1. Sélectionnez **Accédez au groupe de ressources** à partir du volet de notification. Vous devriez voir un écran semblable à :
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Liste des ressources de déploiement du modèle Start/Stop VMs":::
+
+> [!NOTE]
+> Le format d’affectation de noms pour l’application de fonction et le compte de stockage a changé. Pour garantir l’unicité globale, une chaîne aléatoire et unique est maintenant ajoutée aux noms de ces ressources.
+
+> [!NOTE]
+> Nous collectons des données de télémétrie des opérations et des pulsations pour vous aider au mieux si vous contactez l’équipe de support pour tout dépannage. Nous collectons également l’historique des événements des machines virtuelles pour vérifier que le service a agi sur une machine virtuelle et déterminer combien de temps une machine virtuelle a été répétée pour connaître l’efficacité du service.
 
 ## <a name="enable-multiple-subscriptions"></a>Activer plusieurs abonnements
 

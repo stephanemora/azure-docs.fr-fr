@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 851b1659baf10826d98246aaf8ebd8ec138c5542
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810297"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122525779"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_** les régions et zones géographiques Azure Sentinel.
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_** les régions et zones géographiques Azure Sentinel. 
 >
 > - L’**entité Adresse IP** est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Qu’est-ce que l’analyse du comportement des utilisateurs et des entités ?
 
@@ -82,7 +84,7 @@ Les pages d’entité se composent de trois parties :
 - Le panneau de droite présente des insights comportementales sur l’entité. Ces insights permettent d’identifier rapidement des anomalies et autres menaces de sécurité. Les insights sont développés par des équipes de recherche en matière de sécurité Microsoft, et sont basées sur des modèles de détection d’anomalies.
 
 > [!NOTE]
-> La **page d’entité Adresse IP** (désormais en préversion) contient les **données de géolocalisation** fournies par le **service Microsoft Threat Intelligence**. Ce service combine les données de géolocalisation des solutions Microsoft et des fournisseurs et partenaires tiers. Les données sont ensuite disponibles à des fins d’analyse et d’investigation dans le contexte d’un incident de sécurité.
+> La **page d’entité Adresse IP** (désormais en préversion) contient les **données de géolocalisation** fournies par le **service Microsoft Threat Intelligence**. Ce service combine les données de géolocalisation des solutions Microsoft et des fournisseurs et partenaires tiers. Les données sont ensuite disponibles à des fins d’analyse et d’investigation dans le contexte d’un incident de sécurité. Pour plus d’informations, voir également [Enrichissez les entités dans Azure Sentinel à l’aide des données de géolocalisation via l’API REST (préversion publique)](geolocation-data-api.md).
 
 ### <a name="the-timeline"></a>La chronologie
 
@@ -94,7 +96,7 @@ Vous pouvez choisir le **délai d’exécution** parmi plusieurs options prédé
 
 Les types d’éléments suivants sont inclus dans la chronologie :
 
-- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’**entité mappée**. Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./tutorial-detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
+- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’**entité mappée**. Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
 
 - Signets – signets incluant l’entité affichée sur la page.
 
@@ -163,7 +165,7 @@ Azure Sentinel offre un ensemble prêt à l’emploi de requêtes de repérage,
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Repérer les menaces avec Azure Sentinel](hunting.md)
-- [Visualiser et superviser vos données](tutorial-monitor-your-data.md)
+- [Visualiser et superviser vos données](monitor-your-data.md)
 
 Alors que les outils de défense hérités deviennent obsolètes, les organisations peuvent avoir un patrimoine numérique si vaste et si perméable qu’il devient ingérable d’obtenir une image complète du risque et de la posture que leur environnement peuvent rencontrer. Les acteurs malveillants s’appuient fortement sur des initiatives réactives, comme les analytiques et les règles, pour apprendre à y échapper. C’est là qu’intervient UEBA, en fournissant des méthodologies et des algorithmes de scoring des risques pour déterminer ce qui se passe vraiment.
 

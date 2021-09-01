@@ -3,19 +3,19 @@ title: Guide pratique sur la préparation des données pour Custom Voice - Servi
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée pour votre marque avec le service Speech. Vous fournissez des enregistrements en studio et les scripts associés et le service génère un modèle de voix unique à partir de la voix enregistrée. Cette voix assure alors la synthèse vocale dans vos produits, outils et applications.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b745a5673aa5cebe62be4c0571d90839399668d6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: 74f23dd6a7629e98189f73ebc305755d70f3c7a1
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479267"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525544"
 ---
 # <a name="prepare-training-data"></a>Préparer des données d’entraînement
 
@@ -44,7 +44,7 @@ Ce tableau liste les types de données et la façon dont chacun est utilisé pou
 | Type de données | Description | Quand l’utiliser | Traitement supplémentaire requis |
 | --------- | ----------- | ----------- | --------------------------- |
 | **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. |
-| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. |
+| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une collection de transcriptions (.zip) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. |
 | **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.|
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.

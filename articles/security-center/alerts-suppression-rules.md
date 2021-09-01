@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d6a9ca83060c074740985b87af841bfa4be17f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634161"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524285"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
@@ -23,10 +23,10 @@ Cette page explique comment utiliser les règles de suppression d’alerte pour 
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Disponibilité générale (GA)|
+|État de sortie :|Disponibilité générale|
 |Prix :|Gratuit<br>(La plupart des alertes de sécurité sont uniquement disponibles avec Azure Defender)|
 |Rôles et autorisations obligatoires :|**L’Administrateur de la sécurité** et le **Propriétaire** peuvent créer/supprimer des règles.<br>Le **Lecteur de sécurité** et le **Lecteur** peuvent consulter les règles.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -45,7 +45,7 @@ Les règles de suppression définissent les critères en fonction desquels les a
 > [!CAUTION]
 > La suppression des alertes de sécurité réduit la protection contre les menaces d’Azure Defender. Vérifiez soigneusement l’impact potentiel d’une règle de suppression et surveillez-la au fil du temps.
 
-:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Créer une règle de suppression d’alerte":::
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Créez une règle de suppression d’alerte.":::
 
 ## <a name="create-a-suppression-rule"></a>Créer une règle de suppression
 
@@ -64,7 +64,7 @@ Pour créer une règle directement sur le Portail Azure :
 
     - Vous pouvez également sélectionner le lien **Règles de suppression** en haut de la page, puis sélectionner **Créer une règle de suppression** sur la page des règles de suppression :
 
-        ![Bouton Créer une règle de suppression**](media/alerts-suppression-rules/create-new-suppression-rule.png)
+        ![Bouton Créer une règle de suppression**.](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. Dans le volet de nouvelle règle de suppression, entrez les détails de la nouvelle règle.
     - Votre règle peut ignorer l’alerte sur **toutes les ressources** ; vous ne recevrez alors plus aucune alerte de ce type.     
@@ -73,7 +73,7 @@ Pour créer une règle directement sur le Portail Azure :
     > [!TIP]
     > Si vous avez ouvert la page de nouvelle règle à partir d’une alerte spécifique, l’alerte et l’abonnement sont automatiquement configurés dans la nouvelle règle. Si vous avez utilisé le lien **Créer une règle de suppression**, les abonnements sélectionnés correspondent au filtre actuel sur le portail.
 
-    [![Volet de création d’une règle de suppression](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
+    [![Volet de création d’une règle de suppression.](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Entrez les détails de la règle :
     - **Nom** : nom de la règle. Les noms de règles doivent commencer par une lettre ou un chiffre, comporter entre 2 et 50 caractères, et ne contenir aucun symbole autre que des tirets (-) ou des traits de soulignement (_). 
     - **État** : activé ou désactivé.
@@ -90,7 +90,7 @@ Pour modifier une règle que vous avez créée, accédez à la page des règles 
 1. Sur la page des alertes de sécurité de Security Center, sélectionnez le lien **Règles de suppression** qui se trouve en haut.
 1. La page règles de suppression s’ouvre avec toutes les règles des abonnements sélectionnés.
 
-    [![Liste des règles de suppression](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
+    [![Liste des règles de suppression.](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. Pour modifier une seule règle, ouvrez le menu points de suspension (…) de la règle, puis sélectionnez **Modifier**.
 1. Apportez les modifications nécessaires, puis sélectionnez **Appliquer**. 
@@ -103,7 +103,7 @@ Pour supprimer une ou plusieurs des règles que vous avez créées, accédez à 
 1. La page règles de suppression s’ouvre avec toutes les règles des abonnements sélectionnés.
 1. Pour supprimer une seule règle, ouvrez le menu points de suspension (…) de la règle, puis sélectionnez **Supprimer**.
 1. Pour supprimer plusieurs règles, cochez les cases correspondantes, puis sélectionnez **Supprimer**.
-    ![Suppression d’une ou plusieurs règles de suppression](media/alerts-suppression-rules/delete-multiple-alerts.png)
+    ![Suppression d’une ou plusieurs règles de suppression.](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Créer et gérer des règles de suppression avec une API
 

@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 08/05/2021
 tags: connectors
-ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 32638d71f2c700700be5eb1b2ad63f18969d82a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781556"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525247"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -91,11 +91,12 @@ La liste suivante décrit les principales fonctionnalités SFTP-SSH qui diffère
 
 * Les informations d’identification de compte et l’adresse de votre serveur SFTP, afin que votre workflow puisse accéder à votre compte SFTP. Vous devez également accéder à une clé privée SSH et au mot clé privé SSH. Pour charger des fichiers volumineux à l’aide de la segmentation, vous devez disposer d’un accès en lecture et en écriture au dossier racine de votre serveur SFTP. Sinon, vous obtiendrez une erreur « 401 non autorisé ».
 
-  Le connecteur SFTP-SSH prend en charge l’authentification par clé privée et l’authentification par mot de passe. Toutefois, le connecteur SFTP-SSH ne prend en charge *que* ces formats de clé privée, algorithmes et empreintes digitales :
+  Le connecteur SFTP-SSH prend en charge l’authentification par clé privée et l’authentification par mot de passe. Cependant, le connecteur SFTP-SSH prend en charge *uniquement* ces formats de clés privées, algorithmes de chiffrement, empreintes digitales et algorithmes d’échange de clés :
 
   * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com. Si votre clé privée est au format de fichier PuTTY (.ppk), commencez par [convertir la clé au format de fichier OpenSSH (.pem)](#convert-to-openssh).
   * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
   * **Empreinte digitale** : MD5
+  * **Algorithmes d’échange de clé** : curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1, diffie-hellman-group16-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, and diffie-hellman-group1-sha1
 
   Après avoir ajouté une action ou un déclencheur SFTP-SSH à votre workflow, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, ***vous ne devez pas entrer ou modifier manuellement la clé** _, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à _*_copier la clé_*_ à partir de votre fichier de clé privée SSH, puis à la _ *_coller_** dans les informations de connexion. Pour plus d’informations, consultez la section [Se connecter à SFTP avec SSH](#connect) plus loin dans cet article.
 
@@ -259,9 +260,9 @@ Cette section décrit les solutions possibles aux erreurs ou problèmes courants
 
 Cette erreur peut se produire lorsque votre application logique ne parvient pas à établir correctement une connexion avec le serveur SFTP. Il peut y avoir différentes raisons à ce problème, ainsi essayez les options de dépannage suivantes :
 
-* Le délai de connexion est de 20 secondes. Vérifiez que votre serveur SFTP bénéficie de bonnes performances et que les appareils intermédiaires, tels que les pare-feu, n’ajoutent pas de surcharge. 
+* Le délai de connexion est de 20 secondes. Vérifiez que votre serveur SFTP bénéficie de bonnes performances et que les appareils intermédiaires, tels que les pare-feu, n’ajoutent pas de surcharge.
 
-* Si vous avez configuré un pare-feu, assurez-vous d’ajouter les adresses **IP du connecteur géré** à la liste approuvée. Pour trouver les adresses IP de la région de votre application logique, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
+* Si vous avez configuré un pare-feu, assurez-vous d’ajouter les adresses **IP du connecteur géré** pour votre région à la liste approuvée. Pour trouver les adresses IP de la région de votre application logique, consultez [IP sortantes du connecteur managé - Azure Logic Apps](/connectors/common/outbound-ip-addresses).
 
 * Si cette erreur se produit par intermittence, remplacez le paramètre **Stratégie de nouvelles tentatives** de l’action SFTP-SSH par un nombre de tentatives supérieur à quatre tentatives par défaut.
 

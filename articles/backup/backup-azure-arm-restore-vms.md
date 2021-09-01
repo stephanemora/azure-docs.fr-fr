@@ -3,13 +3,13 @@ title: Restaurer des machines virtuelles avec le Portail Azure
 description: Restaurer une machine virtuelle Azure à partir d’un point de récupération à l’aide du portail Azure, et notamment de la fonctionnalité de restauration inter-régions.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 05/01/2021
-ms.openlocfilehash: 26efe6cafc5829cedcb7bb74f8ea796256d45d10
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/06/2021
+ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966794"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524693"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -120,6 +120,9 @@ Une fois le disque restauré, utilisez le modèle généré dans le cadre de l�
 1. Dans **Restaurer**, sélectionnez **Déployer le modèle** pour lancer le déploiement du modèle.
 
     ![Détail du travail de restauration](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+   
+   >[!Note]
+   >Pour une signature d’accès partagé (SAS) dont le paramètre **Autoriser l’accès aux clés du compte de stockage** est désactivé, le modèle ne se déploie pas lorsque vous sélectionnez **Déployer le modèle**.
 
 1. Pour personnaliser le paramètre de la machine virtuelle fourni dans le modèle, cliquez sur **Modifier le modèle**. Si vous souhaitez ajouter d’autres personnalisations, cliquez sur **Modifier les paramètres**.
     - [Découvrez-en plus](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sur le déploiement de ressources à partir d’un modèle personnalisé.
@@ -227,6 +230,51 @@ Il existe de nombreux scénarios courants dans lesquels il peut être nécessair
 **Restaurer plusieurs domaines dans une forêt** | Nous recommandons une [récupération de forêt](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
 Pour plus d’informations, consultez [Sauvegarder et restaurer des contrôleurs de domaine Active Directory](active-directory-backup-restore.md).
+
+## <a name="restore-vms-with-managed-identities"></a>Restaurer des machines virtuelles avec des identités managées
+
+Les identités managées éliminent la nécessité pour l’utilisateur de conserver les informations d’identification. Les identités managées fournissent une identité utilisée par les applications lorsqu'elles se connectent à des ressources qui prennent en charge l'authentification Azure Active Directory (Azure AD).  
+
+Sauvegarde Azure offre la possibilité de restaurer la machine virtuelle Azure managée avec [des identités managées](../active-directory/managed-identities-azure-resources/overview.md). Vous pouvez choisir de sélectionner des [Identités managées par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) ou des identités managées par l’utilisateur comme indiqué dans la figure ci-dessous. Il s’agit d’un des paramètres d’entrée dans le [panneau **Configuration de la restauration**](#create-a-vm) de la machine virtuelle Azure. Les identités managées utilisées comme paramètre d’entrée sont utilisées uniquement pour accéder aux comptes de stockage, comme emplacement intermédiaire lors de la restauration et non pour tout autre contrôle de ressources Azure. Ces identités managées doivent être associées au coffre.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Capture d’écran de sélection des identités mangées par le système ou des identités managées par l’utilisateur.":::
+
+Si vous choisissez de sélectionner des identités managées affectées par le système ou par l’utilisateur, vérifiez les actions ci-dessous relatives à l’identité managée sur le compte de stockage intermédiaire cible.
+
+```json
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+                "notDataActions": []
+            }
+```
+
+Ou ajoutez l’attribution de rôle sur l’emplacement intermédiaire (compte de stockage) pour avoir [Contributeur aux données blob du compte de stockage](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) et [Contributeur aux données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) pour l’opération de restauration réussie.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Capture d’écran de l’ajout de l’attribution de rôle à l’emplacement intermédiaire.":::
+
+Vous pouvez également sélectionner l’[identité managée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) en fournissant en entrée son ID de ressource MSI comme indiqué dans la figure ci-dessous.   
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="Capture d’écran de la sélection de l’identité managée par l’utilisateur en fournissant l’entrée en tant qu’ID de ressource MSI.":::
+
+>[!Note]
+>La prise en charge est disponible uniquement pour les machines virtuelles managées et non pour les machines virtuelles classiques et les machines virtuelles non managées. Pour les [comptes de stockage restreints avec des pare-feu](../storage/common/storage-network-security.md?tabs=azure-portal), seul le système MSI est pris en charge.
+>
+>La restauration inter-régions n’est pas prise en charge avec les identités managées.
+>
+>Actuellement, cette version est disponible dans toutes les régions du cloud Azure public et national.
 
 ## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
 

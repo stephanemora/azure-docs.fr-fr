@@ -1,27 +1,37 @@
 ---
-title: Migrer vers le Pare-feu Azure Premium - Préversion
-description: Découvrez comment migrer du Pare-feu Azure Standard vers le Pare-feu Azure Premium - Préversion.
+title: Migrer vers le Pare-feu Azure Premium
+description: Découvrez comment migrer du Pare-feu Azure Standard vers le Pare-feu Azure Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 08/16/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 27125e7f635c6d8f0690ebd39fb84eb3e0fb2989
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 53587cbc54b9e59268e6ee348bb8956a0b9ca993
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700549"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525912"
 ---
-# <a name="migrate-to-azure-firewall-premium-preview"></a>Migrer vers le Pare-feu Azure Premium - Préversion
+# <a name="migrate-to-azure-firewall-premium"></a>Migrer vers le Pare-feu Azure Premium
 
-Vous pouvez migrer du Pare-feu Azure Standard vers le Pare-feu Azure Premium - Préversion pour tirer parti des nouvelles fonctionnalités Premium. Pour plus d’informations sur le Pare-feu Azure Premium - Préversion, consultez [Fonctionnalités du Pare-feu Azure Premium - Préversion](premium-features.md).
+Vous pouvez migrer du Pare-feu Azure Standard vers le Pare-feu Azure Premium pour tirer parti des nouvelles fonctionnalités Premium. Pour plus d’informations sur les fonctionnalités du Pare-feu Azure Premium, consultez [Fonctionnalités du Pare-feu Azure Premium](premium-features.md).
 
 Les exemples suivants montrent comment :
 - Migrer une stratégie standard existante à l’aide d’Azure PowerShell
 - Migrez un pare-feu standard existant (avec les règles classiques) vers le Pare-feu Azure Premium avec une stratégie Premium.
+
+## <a name="performance-considerations"></a>Considérations relatives aux performances
+
+Les performances sont un facteur à prendre en compte lors de la migration à partir de la référence SKU standard. L’inspection IDPS et TLS sont des opérations gourmandes en ressources de calcul. La référence SKU Premium utilise une référence SKU de machine virtuelle plus puissante qui s’adapte à un débit maximal de 30 Gbits/s comparables à la référence SKU standard. Le débit de 30 Gbits/s est pris en charge lorsqu’il est configuré avec IDPS en mode alerte. L’utilisation d’IDPS en mode de refus et de l’inspection TLS augmente la consommation du processeur. Une dégradation du débit maximal peut se produire. 
+
+Le débit du pare-feu peut être inférieur à 30 Gbits/s quand une ou plusieurs signatures sont définies sur **Alerter et refuser** ou l’**inspection TLS** est activée pour des règles d’application. Microsoft recommande aux clients d’effectuer des tests à grande échelle lors de leur déploiement Azure pour s’assurer que les performances du service de pare-feu répondent aux attentes.
+
+## <a name="downtime"></a>Temps d’arrêt
+
+Effectuez la migration de votre pare-feu pendant une période de maintenance planifiée, car il y aura un certain temps d’arrêt pendant la migration.
 
 ## <a name="migrate-an-existing-policy-using-azure-powershell"></a>Migrer une stratégie existante à l’aide d’Azure PowerShell
 
@@ -52,7 +62,7 @@ param (
     [string]
     $PolicyId,
 
-    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -194,7 +204,7 @@ Cet exemple montre comment utiliser le portail Azure pour migrer un pare-feu sta
 1. Sélectionnez **Vérifier + créer**.
 1. Sélectionnez **Create** (Créer).
 
-Une fois le déploiement terminé, vous pouvez configurer toutes les nouvelles fonctionnalités du Pare-feu Azure Premium - Préversion.
+Une fois le déploiement terminé, vous pouvez configurer toutes les nouvelles fonctionnalités du Pare-feu Azure Premium.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
