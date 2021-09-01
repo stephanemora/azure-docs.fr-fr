@@ -3,15 +3,15 @@ title: Développer un pool d’hôtes existant avec de nouveaux hôtes de sessio
 description: Guide pratique pour développer un pool d’hôtes existant avec de nouveaux hôtes de session dans Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 446052190df59f6dc53ac6a39cd4bc120752fa41
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f37e7e18fd32c3ad0b06f1189c57f44d72dced7a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757730"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760860"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -60,21 +60,25 @@ Pour développer votre pool d’hôtes en ajoutant des machines virtuelles :
 
 9. Pour les **informations sur le réseau virtuel**, sélectionnez le réseau virtuel et le sous-réseau auxquels vous souhaitez joindre les machines virtuelles. Vous pouvez sélectionner le même réseau virtuel que vos machines existantes, ou en choisir un autre qui est plus adapté à la région que vous avez sélectionnée à l’étape 7.
 
-10. Pour le **Compte d’administrateur**, entrez le nom d’utilisateur et le mot de passe du domaine Active Directory associés au réseau virtuel que vous avez sélectionné. Ces informations d’identification permettront de joindre les machines virtuelles au réseau virtuel.
+10. Pour le **Domaine à joindre**, choisissez de joindre les machines virtuelles à Active Directory ou [Azure Active Directory](deploy-azure-ad-joined-vm.md). La sélection **Inscrire la machine virtuelle avec Intune** inscrit automatiquement les machines virtuelles dans Intune. Toutes les machines virtuelles d’un pool d’hôtes doivent être jointes au même domaine ou locataire Azure AD.
+
+11. Pour l’**UPN jonction de domaine AD**, entrez le nom d’utilisateur et le mot de passe du domaine Active Directory associés au domaine que vous avez sélectionné. Ces informations d’identification permettront de joindre les machines virtuelles au domaine Active Directory.
 
       >[!NOTE]
       >Vérifiez que les noms des administrateurs sont conformes aux informations fournies à cette étape, et qu’aucune authentification MFA n’est activée sur le compte.
 
-11. Sélectionnez l’onglet **Étiquette** si vous souhaitez regrouper les machines virtuelles avec des étiquettes. Sinon, ignorez cet onglet.
+12. Pour le **Compte administrateur de la machine virtuelle**, entrez les informations du compte d’administrateur local que vous souhaitez utiliser pour toutes les machines virtuelles.
 
-12. Sélectionnez l’onglet **Vérifier + créer**. Passez en revue vos choix et, si tout semble parfait, sélectionnez **Créer**.
+13. Sélectionnez l’onglet **Étiquette** si vous souhaitez regrouper les machines virtuelles avec des étiquettes. Sinon, ignorez cet onglet.
+
+14. Sélectionnez l’onglet **Vérifier + créer**. Passez en revue vos choix et, si tout semble parfait, sélectionnez **Créer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez développé votre pool d’hôtes existant, vous pouvez vous connecter à un client Azure Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Vous pouvez vous connecter à une session avec l’un des clients suivants :
 
-- [Se connecter avec le client Windows Desktop](./connect-windows-7-10.md)
-- [Se connecter avec le client web](./connect-web.md)
-- [Se connecter avec le client Android](./connect-android.md)
-- [Se connecter avec le client macOS](./connect-macos.md)
-- [Se connecter avec le client iOS](./connect-ios.md)
+- [Se connecter avec le client Windows Desktop](./user-documentation/connect-windows-7-10.md)
+- [Se connecter avec le client web](./user-documentation/connect-web.md)
+- [Se connecter avec le client Android](./user-documentation/connect-android.md)
+- [Se connecter avec le client macOS](./user-documentation/connect-macos.md)
+- [Se connecter avec le client iOS](./user-documentation/connect-ios.md)

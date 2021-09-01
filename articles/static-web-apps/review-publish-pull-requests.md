@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 3869b18f580d0a12b2581554acf63258cb08f64a
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813214"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380677"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Passer en revue les demandes de tirage (pull request) dans les environnements de préproduction dans Azure Static Web Apps
 
@@ -33,7 +33,7 @@ L’utilisation d’environnements de préproduction présente de nombreux avant
 - Effectuez des vérifications d’intégrité avant le déploiement en production.
 
 > [!NOTE]
-> [Trois environnements intermédiaires maximum](quotas.md) sont autorisés à la fois.
+> Les demandes de tirage et les environnements de pré-production ne sont actuellement pris en charge que dans les déploiements GitHub Actions.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -104,12 +104,16 @@ Pour vérifier les modifications dans votre environnement de production, ouvrez 
 
 ## <a name="limitations"></a>Limites
 
-Les versions indexées de votre application sont actuellement accessibles publiquement via leur URL, même si votre référentiel GitHub est privé.
+- Les versions indexées de votre application sont actuellement accessibles publiquement via leur URL, même si votre référentiel GitHub est privé.
 
-> [!WARNING]
-> Soyez prudent lors de la publication de contenu sensible dans des versions indexées, car l’accès à des environnements de préproduction n’est pas restreint.
+    > [!WARNING]
+    > Soyez prudent lors de la publication de contenu sensible dans des versions indexées, car l’accès à des environnements de préproduction n’est pas restreint.
 
-Le nombre d’environnements de préproduction disponibles pour chaque application déployée avec Static Web Apps dépend du niveau de référence SKU que vous utilisez. Par exemple, avec le niveau Gratuit, vous pouvez avoir 3 environnements de préproduction en plus de l’environnement de production.
+- Le nombre d’environnements de préproduction disponibles pour chaque application déployée avec Static Web Apps dépend du [plan d’hébergement](plans.md) que vous utilisez. Par exemple, avec le niveau Gratuit, vous pouvez avoir 3 environnements de préproduction en plus de l’environnement de production.
+
+- Les environnements de pré-production ne sont pas géo-distribués.
+
+- À l’heure actuelle, seuls les déploiements GitHub Actions prennent en charge les environnements de pré-production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -17,19 +17,19 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c731648c144d4b25896260e5cf276a97b9e731
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e21e22e231ea5998cf15c7b2982180da91fe49aa
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965777"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733427"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
 Vous pouvez acheminer les journaux d’activité Azure Active Directory (Azure AD) vers plusieurs points de terminaison pour une rétention à long terme et l’analyse des données. Cette fonctionnalité vous permet de :
 
 * Archiver les journaux d’activité Azure AD vers un compte de stockage Azure afin conserver les données pendant longtemps.
-* Diffuser les journaux d’activité Azure AD vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk et QRadar.
+* Diffuser les journaux d’activité Azure AD vers un Event Hub Azure pour analyser des données à l’aide des outils populaires de Security Information and Event Management (SIEM), comme Splunk, QRadar et Azure Sentinel.
 * Intégrer vos journaux d’activité Azure AD à vos propres solutions de journaux d’activité personnalisés en les diffusant en continu vers un Event Hub.
 * Envoyer vos journaux d’activité Azure AD aux journaux d’activité Azure Monitor pour permettre les visualisations enrichies, la supervision et les alertes sur les données connectées.
 
@@ -53,10 +53,10 @@ Vous pouvez acheminer les journaux d’audit Azure AD et authentifier des journa
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/).
-* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Free, Basic, Premium 1 ou Premium 2 permet d’accéder aux journaux d’audit Azure AD dans le portail Azure. 
+* Une [licence](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) Azure AD Free, Basic, Premium 1 ou Premium 2 permet d’accéder aux journaux d’audit Azure AD dans le portail Azure. 
 * Un locataire Azure AD.
 * Utilisateur considéré comme **administrateur général** ou **administrateur de la sécurité** pour un locataire Azure AD.
-* Une [licence](https://azure.microsoft.com/pricing/details/active-directory/) Azure AD Premium 1 ou Premium 2 permet d’accéder aux journaux d’activité de connexion Azure AD dans le portail Azure. 
+* Une [licence](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) Azure AD Premium 1 ou Premium 2 permet d’accéder aux journaux d’activité de connexion Azure AD dans le portail Azure. 
 
 Selon l’endroit où vous souhaitez acheminer les données du journal d’audit, vous devez disposer de l’un des éléments suivants :
 
