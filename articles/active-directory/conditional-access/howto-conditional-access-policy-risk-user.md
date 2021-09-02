@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6509c7b47a0f8c3f36df72e1d3aa16c834594f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: f2de6916a3845e0e51e810d12199d41b3cfd9319
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612815"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225590"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Accès conditionnel : Accès conditionnel basé sur les risques d’utilisateur
 
-Microsoft travaille avec des chercheurs, les forces de l’ordre, les différentes équipes de sécurité de Microsoft et d’autres sources approuvées pour rechercher les paires nom d’utilisateur/mot de passe divulguées. Les organisations disposant des licences Azure AD Premium P2 peuvent créer des stratégies d’accès conditionnel incorporant des [détections de risques des utilisateurs Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#user-risk). 
+Microsoft travaille avec des chercheurs, les forces de l’ordre, les différentes équipes de sécurité de Microsoft et d’autres sources approuvées pour rechercher les paires nom d’utilisateur/mot de passe divulguées. Les organisations disposant des licences Azure AD Premium P2 peuvent créer des stratégies d’accès conditionnel incorporant des [détections de risques des utilisateurs Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md#user-linked-detections). 
 
 Il existe deux emplacements où cette stratégie peut être configurée, l’Accès conditionnel et la Protection de l’identité. La configuration à l’aide d’une stratégie d’accès conditionnel est la méthode privilégiée qui fournit davantage de contexte, notamment des données de diagnostic améliorées, l’intégration du mode de création de rapports uniquement, la prise en charge API Graph et la possibilité d’utiliser d’autres attributs d’accès conditionnel dans la stratégie.
 

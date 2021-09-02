@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: c136f0f2a946eca0d89c04734c9f351d4e6c79d6
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: 8a66e42466f6b7ed85a330bb3bf3f1dda422e0d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113601134"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867542"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -59,7 +59,7 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Facultatif) Utiliser Power Automate pour obtenir des notifications de prospect
 
-Vous pouvez utiliser [Power Automate](/flow/) pour automatiser les notifications chaque fois qu’un prospect est ajouté à votre table Stockage Azure. Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour en obtenir un gratuitement](https://flow.microsoft.com/).
+Vous pouvez utiliser [Power Automate](/power-automate/) pour automatiser les notifications chaque fois qu’un prospect est ajouté à votre table Stockage Azure. Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour en obtenir un gratuitement](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Exemple de notification de prospect
 

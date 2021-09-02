@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b71b6867221a2cae6bf5b8751a848413b6f8d20a
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 58e4fb69f5c2567c6d4b4ddc5329d83dd37ee878
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963777"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225817"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurer une application Ruby Linux pour Azure App Service
 
@@ -63,7 +63,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## <a name="customize-deployment"></a>Personnaliser le déploiement
 
-Si vous déployez un [dépôt Git](deploy-local-git.md) ou un [package Zip](deploy-zip.md) [avec automatisation de génération activée](deploy-zip.md#enable-build-automation), le moteur de déploiement (Kudu) exécute automatiquement les étapes de post-déploiement suivantes par défaut :
+Si vous déployez un [dépôt Git](deploy-local-git.md) ou un [package Zip](deploy-zip.md) [avec automatisation de génération activée](deploy-zip.md#enable-build-automation-for-zip-deploy), le moteur de déploiement (Kudu) exécute automatiquement les étapes de post-déploiement suivantes par défaut :
 
 1. Vérifiez qu’un *Gemfile* existe.
 1. Exécutez `bundle clean`. 
@@ -149,10 +149,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="more-resources"></a>Plus de ressources
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Application Rails avec PostgreSQL](tutorial-ruby-postgres-app.md)
-
-> [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
+- [Tutoriel : Application Rails avec PostgreSQL](tutorial-ruby-postgres-app.md)
+- [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

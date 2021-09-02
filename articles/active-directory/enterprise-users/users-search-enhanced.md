@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de315722641248a2a577c97403da400a6de67e6c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127836"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867074"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Améliorations de la gestion des utilisateurs (préversion) dans Azure Active Directory
 
@@ -70,7 +70,6 @@ Voici la liste des propriétés utilisateur affichées dans la page **Tous les u
 - Nom de l’entreprise : nom de l’entreprise à laquelle l’utilisateur est associé.
 - État de l’invitation : état de l’invitation pour un utilisateur invité.
 - Messagerie : adresse e-mail de l’utilisateur.
-- Dernière connexion : date de la dernière connexion de l’utilisateur. Cette propriété n’est visible que pour les utilisateurs autorisés à lire les journaux d’audit (Reporting_ApplicationAuditLogs_Read)
 
 ![nouvelles propriétés utilisateur affichées dans les pages Tous les utilisateurs et Utilisateurs supprimés](./media/users-search-enhanced/user-properties.png)
 

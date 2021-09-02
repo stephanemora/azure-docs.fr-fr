@@ -1,18 +1,21 @@
 ---
 title: Qu’est-ce que Personalizer ?
 description: Personalizer est un service cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f293cbfbf76d22ebf18f1ad4ea7f57d24806b8f2
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169247"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830254"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 

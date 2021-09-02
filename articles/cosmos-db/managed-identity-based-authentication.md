@@ -5,25 +5,31 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0eb80de6ad566005eba518efab863af254c3df78
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c683af7a6f8889204f697a0ee36bf3b3719efa73
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750962"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731973"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utiliser des identités managées affectées par le système pour accéder aux données Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+> [!TIP]
+> Le [contrôle d’accès en fonction du rôle (RBAC) du plan de données](how-to-setup-rbac.md) est désormais disponible sur Azure Cosmos DB, ce qui vous permet d’autoriser vos requêtes avec Azure Active Directory de manière transparente.
 
 Dans cet article, vous allez configurer une solution *robuste et indépendante de la rotation des clés* pour accéder aux clés d’Azure Cosmos DB à l’aide d’[identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). L’exemple de cet article utilise Azure Functions, mais vous pouvez utiliser n’importe quel service qui prend en charge les identités managées. 
 
 Vous allez apprendre à créer une application de fonction qui peut accéder aux données Azure Cosmos DB sans avoir à copier les clés d’Azure Cosmos DB. L’application de fonction s’activera toutes les minutes et enregistrera la température actuelle d’un aquarium. Pour savoir comment configurer une application de fonction déclenchée par un minuteur, consultez l’article [Créer une fonction dans Azure déclenchée par un minuteur](../azure-functions/functions-create-scheduled-function.md).
 
-Pour simplifier le scénario, un paramètre [Durée de vie](./time-to-live.md) est déjà configuré pour nettoyer les documents de température plus anciens. 
+Pour simplifier le scénario, un paramètre [Durée de vie](./time-to-live.md) est déjà configuré pour nettoyer les documents de température plus anciens.
+
+> [!IMPORTANT]
+> Étant donné que cette approche récupère la clé primaire de votre compte par le biais du plan de contrôle Azure Cosmos DB, elle ne fonctionnera pas si [un verrou en lecture seule a été appliqué](../azure-resource-manager/management/lock-resources.md) à votre compte. Dans ce cas, utilisez le [contrôle d’accès en fonction du rôle du plan de données](how-to-setup-rbac.md) Azure Cosmos DB.
 
 ## <a name="assign-a-system-assigned-managed-identity-to-a-function-app"></a>Attribuer une identité managée affectée par le système à une application de fonction
 
@@ -47,9 +53,6 @@ Dans cette étape, vous allez attribuer un rôle à l’identité managée affec
 |---------|---------|
 |[Contributeur de compte DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Gérer des comptes Azure Cosmos DB. Autorise la récupération des clés en lecture/écriture. |
 |[Rôle de lecteur de compte Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Lire les données de comptes Azure Cosmos DB. Autorise la récupération des clés de lecture. |
-
-> [!IMPORTANT]
-> La prise en charge du contrôle d’accès en fonction du rôle dans Azure Cosmos DB s’applique uniquement aux opérations du plan de contrôle. Les opérations du plan de données sont sécurisées par le biais de clés primaires ou de jetons de ressources. Pour en savoir plus, consultez l’article [Sécuriser l’accès aux données](secure-access-to-data.md).
 
 > [!TIP] 
 > Lorsque vous attribuez des rôles, attribuez uniquement l’accès nécessaire. Si votre service nécessite uniquement la lecture des données, attribuez le rôle **Lecteur de compte Cosmos DB** à l’identité managée. Pour plus d’informations sur l’importance de l’accès avec un privilège minimum, consultez l’article [Exposition réduite des comptes privilégiés](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts).
@@ -93,23 +96,23 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 À présent, nous disposons d’une application de fonction dotée d’une identité managée affectée par le système avec le rôle **Contributeur de compte DocumentDB** dans les autorisations d’Azure Cosmos DB. Le code d’application de fonction suivant obtient les clés d’Azure Cosmos DB, crée un objet CosmosClient, obtient la température de l’aquarium, puis enregistre cette dernière dans Cosmos DB.
 
-Cet exemple utilise l’[API Répertorier les clés](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listkeys) pour accéder à vos clés de compte Azure Cosmos DB.
+Cet exemple utilise l’[API Répertorier les clés](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) pour accéder à vos clés de compte Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listreadonlykeys). Seules les clés en lecture seule seront remplies.
+> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-read-only-keys). Seules les clés en lecture seule seront remplies.
 
 L’API Répertorier les clés retourne l’objet `DatabaseAccountListKeysResult`. Ce type n’est pas défini dans les bibliothèques C#. Le code suivant montre l'implémentation de cette classe :  
 
 ```csharp 
 namespace Monitor 
 {
-  public class DatabaseAccountListKeysResult
-  {
-      public string primaryMasterKey {get;set;}
-      public string primaryReadonlyMasterKey {get; set;}
-      public string secondaryMasterKey {get; set;}
-      public string secondaryReadonlyMasterKey {get;set;}
-  }
+    public class DatabaseAccountListKeysResult
+    {
+        public string primaryMasterKey { get; set; }
+        public string primaryReadonlyMasterKey { get; set; }
+        public string secondaryMasterKey { get; set; }
+        public string secondaryReadonlyMasterKey { get; set; }
+    }
 }
 ```
 
@@ -125,7 +128,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```

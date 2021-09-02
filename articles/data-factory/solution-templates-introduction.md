@@ -2,17 +2,18 @@
 title: Présentation des modèles
 description: Découvrez comment utiliser un modèle prédéfini pour démarrer rapidement avec Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 01/04/2019
-ms.openlocfilehash: a95ef6e04f7a49f33f2bb0551110d7aa0f9bd581
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: bfd63e048d2783d84dbc37710851492134b6d0e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562714"
 ---
 # <a name="templates"></a>Modèles
 
@@ -24,9 +25,9 @@ Les modèles sont des pipelines Azure Data Factory prédéfinis qui permettent d
 
 Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèle de deux façons :
 
-1.  Sélectionnez **Créer un pipeline à partir d’un modèle** sur la page Vue d’ensemble pour ouvrir la galerie de modèles.
+1.  Sélectionnez **Modèles de pipeline** dans la section **Découvrir plus** de la page d’accueil de Data Factory pour ouvrir la galerie de modèles.
 
-    ![Ouvrir la galerie de modèles sur la page Vue d’ensemble](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Ouvrir la galerie de modèles sur la page Vue d’ensemble](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
 1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+** , puis **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
 

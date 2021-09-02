@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23f88a783ca257090fc607cc9a16ec457c7e9c8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d4fb6c1dbeca8c2073a0a493e67b05d46d36738
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90016586"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223223"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Qu’est-ce que la synchronisation de hachage de mot de passe avec Azure AD ?
 La synchronisation de hachage de mot de passe est l’une des méthodes de connexion utilisées pour accomplir l’identité hybride. Azure AD Connect synchronise le hachage du mot de passe d’un utilisateur entre une instance Active Directory locale et une instance Azure AD basée sur le cloud.
@@ -30,7 +30,7 @@ La synchronisation de hachage de mot de passe est utile car elle réduit à un s
 * Améliorer la productivité de vos utilisateurs.
 * Réduire vos coûts de support technique.  
 
-La synchronisation du hachage de mot de passe permet également la [détection des informations d’identification ayant fuité](../identity-protection/concept-identity-protection-risks.md#user-risk) pour vos comptes hybrides. Microsoft travaille en collaboration avec les chercheurs sur le «dark web » et les autorités policières pour trouver les paires nom d’utilisateur/mot de passe disponibles publiquement. Si l’une de ces paires correspond à celles de nos utilisateurs, le compte associé est passé au niveau de risque élevé. 
+La synchronisation du hachage de mot de passe permet également la [détection des informations d’identification ayant fuité](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) pour vos comptes hybrides. Microsoft travaille en collaboration avec les chercheurs sur le «dark web » et les autorités policières pour trouver les paires nom d’utilisateur/mot de passe disponibles publiquement. Si l’une de ces paires correspond à celles de nos utilisateurs, le compte associé est passé au niveau de risque élevé. 
 
 >[!NOTE]
 > Seules les nouvelles informations d’identification ayant fuité détectées après l’activation de la synchronisation du hachage de mot de passe (PHS) sont traitées pour votre locataire. La vérification par rapport aux paires d’informations d’identification précédemment détectées n’est pas effectuée.

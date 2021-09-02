@@ -233,10 +233,10 @@
               items:
                 - name: Portail Azure
                   href: logs/quick-create-workspace.md
+                - name: Azure CLI
+                  href: logs/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
-                - name: Modèle Resource Manager
-                  href: logs/resource-manager-workspace.md
             - name: Concevoir un déploiement d’espace de travail
               href: logs/design-logs-deployment.md
             - name: Superviser un espace de travail

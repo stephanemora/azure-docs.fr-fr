@@ -7,14 +7,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762883"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259075"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -77,10 +77,6 @@ Alice effectue un appel sortant à partir d’une application Azure Communicatio
 - 1 participant sur la section sortante en routage direct Communication Services (Bob) depuis les serveurs Communication Services vers un contrôleur SBC x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD.
 
 **Coût total de l’appel** : 0,04 USD + 0,04 USD = 0,08 USD
-
-> [!Note]
-> La section en routage Azure Communication Services n’est pas facturé jusqu’au 01/08/2021.
-
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>Exemple de tarif : Appel audio de groupe à l’aide du kit SDK JS et d’une section RTC
 

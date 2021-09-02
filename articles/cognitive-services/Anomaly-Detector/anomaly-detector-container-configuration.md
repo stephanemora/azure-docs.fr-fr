@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99fe16fdc19d90a312b34a32f56229ef7f161ad1
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94363712"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297457"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
+# <a name="configure-anomaly-detector-univariate-containers"></a>Configurer des conteneurs univariés Détecteur d’anomalies
 
 L’environnement d’exécution de conteneur **Détecteur d’anomalies** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation. 
 

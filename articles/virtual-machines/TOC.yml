@@ -407,6 +407,32 @@
         - name: Flexibilité de taille d'instance des machines virtuelles
           displayName: 'Reserved Instances, RI, prepay'
           href: reserved-vm-instance-size-flexibility.md
+    - name: Réservation de capacité (préversion)
+      items:
+        - name: Vue d’ensemble (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-overview.md
+        - name: Créer une réservation de capacité (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-create.md
+        - name: Surallocation d’une réservation de capacité (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-overallocate.md
+        - name: Modifier une réservation de capacité (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-modify.md
+        - name: Associer une machine virtuelle (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-associate-vm.md
+        - name: Supprimer une machine virtuelle (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-remove-vm.md
+        - name: Associer un groupe de machines virtuelles identiques (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-associate-virtual-machine-scale-set.md
+        - name: Supprimer un groupe de machines virtuelles identiques (préversion)
+          displayName: on-demand capacity reservation
+          href: capacity-reservation-remove-virtual-machine-scale-set.md
     - name: Créer des machines virtuelles
       items:
         - name: Linux

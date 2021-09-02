@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e43944b803f798c3bd741903f1ee0732bcb93d4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531941"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864532"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -126,7 +126,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Cartes  | Non | Non | Non |  |
 |Media Services | Oui | Oui | Non |  |
 |Bureau géré Microsoft | Non | Non | Non |  |
-|Microsoft PowerApps | Non | Non | Non |  |
+|Microsoft Power Apps | Non | Non | Non |  |
 |Microsoft Social Engagement | Non | Non | Non |  |
 |Microsoft Stream | Oui | Oui | Non |  |
 |Migrer | Non | Non | Non |  |

@@ -1,20 +1,20 @@
 ---
-title: Déballer et assembler vos composants Azure Percept DK
+title: Déballer et assembler l’appareil Azure Percept DK
 description: Découvrez comment déballer, connecter et mettre sous tension votre appareil Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: deaa0a3904eef33ebab8e73687d6864d389e2963
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce47b2463441fdd44c9db72c2dcbf2f8935b15d6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748040"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222991"
 ---
-# <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Démarrage rapide : Déballer et assembler vos composants Azure Percept DK
+# <a name="unbox-and-assemble-the-azure-percept-dk-device"></a>Déballer et assembler l’appareil Azure Percept DK
 
 Une fois que vous avez reçu votre appareil Azure Percept DK, consultez ce guide pour plus d’informations sur la connexion des composants et la mise sous tension de l’appareil.
 
