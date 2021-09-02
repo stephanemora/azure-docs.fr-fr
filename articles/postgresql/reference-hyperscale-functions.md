@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 04/07/2021
-ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 65288730cafaa39507eeab4ed2e3d29267080262
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011147"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310469"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Fonctions de l’API SQL d’Hyperscale (Citus)
 
@@ -657,61 +657,6 @@ SELECT * from citus_remote_connection_stats();
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
 ```
-
-### <a name="master_drain_node"></a>master\_drain\_node
-
-La fonction master\_drain\_node() déplace les partitions hors du nœud désigné et sur les autres nœuds qui ont `shouldhaveshards` défini sur true dans [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). Appelez la fonction avant de supprimer un nœud du groupe de serveurs et de désactiver le serveur physique du nœud.
-
-#### <a name="arguments"></a>Arguments
-
-**nodename :** Nom d’hôte du nœud à drainer.
-
-**nodeport :** Numéro de port du nœud à drainer.
-
-**shard\_transfer\_mode :** (Facultatif) Spécifiez la méthode de réplication, si vous souhaitez utiliser la réplication logique PostgreSQL ou une commande COPY inter-worker. Les valeurs possibles sont les suivantes :
-
-> -   `auto`: Exigez une identité de réplica si la réplication logique est possible, sinon utilisez le comportement hérité (par exemple, pour la réparation partition, PostgreSQL 9,6). Il s’agit de la valeur par défaut.
-> -   `force_logical`: Utilisez la réplication logique même si la table n’a pas d’identité de réplica. Toute commande update/delete simultanée vers la table échouera lors de la réplication.
-> -   `block_writes`: Utilisez COPY (blocking writes) pour les tables dépourvues d’une clé primaire ou d’une identité de réplica.
-
-**rebalance\_strategy :** (Facultatif) le nom d’une stratégie dans [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
-Si cet argument est omis, la fonction choisit la stratégie par défaut, comme indiqué dans la table.
-
-#### <a name="return-value"></a>Valeur de retour
-
-N/A
-
-#### <a name="example"></a>Exemple
-
-Voici les étapes habituelles pour supprimer un seul nœud (par exemple, « 10.0.0.1 » sur un port PostgreSQL standard) :
-
-1.  Drainez le nœud.
-
-    ```postgresql
-    SELECT * from master_drain_node('10.0.0.1', 5432);
-    ```
-
-2.  Patientez jusqu’à la fin de la commande
-
-3.  Supprimez le nœud
-
-Lors du drain de plusieurs nœuds, il est recommandé d’utiliser [rebalance_table_shards](#rebalance_table_shards) à la place. Cela permet à Hyperscale (Citus) de planifier à l’avance et de déplacer des partitions le nombre de fois minimum.
-
-1.  Exécutez pour chaque nœud que vous souhaitez supprimer :
-
-    ```postgresql
-    SELECT * FROM master_set_node_property(node_hostname, node_port, 'shouldhaveshards', false);
-    ```
-
-2.  Drainez-les tous en même temps avec [rebalance_table_shards](#rebalance_table_shards)
-
-    ```postgresql
-    SELECT * FROM rebalance_table_shards(drain_only := true);
-    ```
-
-3.  Attendez la fin de l’équilibrage du drainage
-
-4.  Supprimez les nœuds
 
 ### <a name="replicate_table_shards"></a>replicate\_table\_shards
 

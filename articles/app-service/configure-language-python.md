@@ -5,18 +5,18 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 333f9572e9bf5a24e7c9ac230b10f74adf5be7de
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 6023ea4178e451a0b5807c4561ea9810e7bbbc66
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963795"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225791"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
 Cet article explique comment [Azure App Service](overview.md) exécute des applications Python, comment vous pouvez migrer des applications existantes vers Azure et comment vous pouvez personnaliser le comportement d’App Service si nécessaire. Les applications Python doivent être déployées avec tous les modules [pip](https://pypi.org/project/pip/) nécessaires.
 
-Le moteur de déploiement App Service active automatiquement un environnement virtuel et exécute automatiquement `pip install -r requirements.txt` quand vous déployez un [référentiel Git](deploy-local-git.md) ou un [package compressé](deploy-zip.md) [avec l’automatisation de génération activée](deploy-zip.md#enable-build-automation).
+Le moteur de déploiement App Service active automatiquement un environnement virtuel et exécute automatiquement `pip install -r requirements.txt` quand vous déployez un [référentiel Git](deploy-local-git.md) ou un [package compressé](deploy-zip.md) [avec l’automatisation de génération activée](deploy-zip.md#enable-build-automation-for-zip-deploy).
 
 Ce guide fournit des concepts et des instructions clés aux développeurs Python qui utilisent un conteneur Linux intégré dans App Service. Si vous n’avez jamais utilisé Azure App Service, commencez par suivre le [démarrage rapide Python](quickstart-python.md) et le [tutoriel sur l’utilisation de Python avec PostgreSQL](tutorial-python-postgresql-app.md).
 
@@ -296,7 +296,7 @@ App Service ignore les erreurs qui surviennent lors du traitement d’une comman
 
     Pour plus d’informations, consultez le document [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Module principal Flask personnalisé** : par défaut, App Service considère que le module principal d’une application Flask est *application.py* ou *app.py*. Si votre module principal se nomme différemment, vous devez personnaliser la commande de démarrage. Par exemple, si le module principal de votre application Flask se nomme *hello.py* et que l’objet d’application Flask dans ce fichier se nomme `myapp`, la commande doit se présenter comme suit :
+- **Module principal Flask personnalisé** : par défaut, App Service considère que le module principal d’une application Flask est *application.py* ou *app.py*. Si votre module principal se nomme différemment, vous devez personnaliser la commande de démarrage. Par exemple, si vous disposez d’une application Flask dont le module principal est *hello.py* et que l’objet d’application Flask dans le fichier est nommé `myapp`, la commande est la suivante :
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -431,13 +431,9 @@ Si cette erreur se produit dans l’exemple du [Didacticiel : Déployer une app
 
 - **Le message « Irrécupérable : Connexion SSL obligatoire » s’affiche** : Vérifiez les noms d’utilisateur et les mots de passe utilisés pour accéder aux ressources (telles que les bases de données) à partir de l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="more-resources"></a>Autres ressources :
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-container.md?pivots=container-linux)
-
-> [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
+- [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)
+- [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-container.md?pivots=container-linux)
+- [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a70e2780cb2ceeb37379557ad9cb4bb931e9b6f1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618574"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252222"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -73,9 +73,9 @@ Dans le portail Azure vous voyez un champ ajouté au volet **Stratégie de sauve
 > À partir de la version 1.6.0 d’Azure PowerShell, vous pouvez utiliser PowerShell pour mettre à jour la période de rétention des instantanés de la restauration d’instantané dans la stratégie
 
 ```powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
 La durée de rétention par défaut des instantanés pour chaque stratégie est définie sur deux jours. Vous pouvez modifier cette valeur et définir une durée comprise entre un jour (minimum) et cinq jours (maximum). Pour les stratégies hebdomadaires, la rétention des instantanés est fixée à cinq jours.

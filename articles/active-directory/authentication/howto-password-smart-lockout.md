@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0916d4107fdcf97875d1c6a428bbfa75164a65
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0947f9924e97532b087940ecde08e8a0f8d7e005
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068503"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449103"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -90,7 +90,7 @@ Lorsque le seuil de verrouillage intelligent est déclenché, le message suivant
 
 *Votre compte est verrouillé de façon temporaire afin d'éviter toute utilisation non autorisée. Réessayez plus tard. Si le problème persiste, contactez votre administrateur.*
 
-Lorsque vous testez le verrouillage intelligent, vos demandes de connexion peuvent être traitées par différents centres de données en raison de la nature géodistribuée et équilibrée en charge du service d’authentification d’Azure AD. Dans ce scénario, étant donné que chaque centre de données Azure AD effectue le suivi du verrouillage de façon indépendante, il se peut qu’il faille davantage de tentatives que le seuil de verrouillage défini pour provoquer un verrouillage. Un utilisateur dispose d’un nombre de tentatives incorrectes de (*seuil_limite * nombre_de_centres_de_données*) s’il atteint chaque centre de données avant qu’un verrouillage ne se produise.
+Lorsque vous testez le verrouillage intelligent, vos demandes de connexion peuvent être traitées par différents centres de données en raison de la nature géodistribuée et équilibrée en charge du service d’authentification d’Azure AD. Dans ce scénario, étant donné que chaque centre de données Azure AD effectue le suivi du verrouillage de façon indépendante, il se peut qu’il faille davantage de tentatives que le seuil de verrouillage défini pour provoquer un verrouillage. Un utilisateur a un nombre maximal (*threshold_limit * datacenter_count*) de tentatives incorrectes avant d’être complètement verrouillé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

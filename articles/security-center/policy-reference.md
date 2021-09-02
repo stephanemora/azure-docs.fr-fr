@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Security Center
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Security Center. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2ecaa2a9aa2ad69d491c6ce4ec2191717458d8c6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: c8928a3a4d19aa7fecb751eb0a40a23c9f72f592
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604396"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100272"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Définitions intégrées d’Azure Policy pour Azure Security Center
 

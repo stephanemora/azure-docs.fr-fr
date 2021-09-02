@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: 06d72e0a8953e6f22faebb6da2bc607fe5ebfad0
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 124c5fba529d39a675f92642413d4305c58debda
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112239533"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101452"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,7 +27,7 @@ Cet article décrit comment gérer différentes tâches sur un compte Azure Cosm
 
 ### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Interface CLI Azure
 
-Voir [Créer un compte Azure Cosmos DB avec Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
+Voir [Créer un compte Azure Cosmos DB avec Azure CLI](sql/manage-with-cli.md#create-an-azure-cosmos-db-account)
 
 ### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
@@ -62,7 +62,7 @@ Dans un mode d’écriture dans plusieurs régions, vous pouvez ajouter ou suppr
 
 ### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Interface CLI Azure
 
-Voir [Ajouter ou supprimer des régions avec Azure CLI](manage-with-cli.md#add-or-remove-regions)
+Voir [Ajouter ou supprimer des régions avec Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 ### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
@@ -78,7 +78,7 @@ Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Act
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Interface CLI Azure
 
-Voir [Activer plusieurs régions d’écriture avec Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
+Voir [Activer plusieurs régions d’écriture avec Azure CLI](sql/manage-with-cli.md#enable-multiple-write-regions)
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
@@ -164,7 +164,7 @@ L’option de basculement automatique permet à Azure Cosmos DB de basculer vers
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Interface CLI Azure
 
-Voir [Activer le basculement automatique avec Azure CLI](manage-with-cli.md#enable-automatic-failover)
+Voir [Activer le basculement automatique avec Azure CLI](sql/manage-with-cli.md#enable-automatic-failover)
 
 ### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
@@ -195,7 +195,7 @@ Une fois qu’un compte Cosmos est configuré pour le basculement automatique, l
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Interface CLI Azure
 
-Voir [Définir la priorité de basculement avec Azure CLI](manage-with-cli.md#set-failover-priority)
+Voir [Définir la priorité de basculement avec Azure CLI](sql/manage-with-cli.md#set-failover-priority)
 
 ### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
@@ -227,7 +227,7 @@ Le processus de basculement manuel implique de changer la région d’écriture 
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Interface CLI Azure
 
-Voir [Déclencher un basculement manuel avec Azure CLI](manage-with-cli.md#trigger-manual-failover)
+Voir [Déclencher un basculement manuel avec Azure CLI](sql/manage-with-cli.md#trigger-manual-failover)
 
 ### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
@@ -238,4 +238,4 @@ Veuillez consulter [Déclencher un basculement manuel avec PowerShell](manage-wi
 Pour plus d’informations et d’exemples de gestion du compte Azure Cosmos ainsi que des bases de données et conteneurs, consultez les articles suivants :
 
 * [Gérer Azure Cosmos DB à l’aide d’Azure PowerShell](manage-with-powershell.md)
-* [Gérer Azure Cosmos DB à l’aide d’Azure CLI](manage-with-cli.md)
+* [Gérer Azure Cosmos DB à l’aide d’Azure CLI](sql/manage-with-cli.md)

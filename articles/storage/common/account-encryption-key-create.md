@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf646fe61e3fa00407cf2ff3f47f872167c00aa9
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9ab311c8e348c6e0cbb703a73562770a2f4f963f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903894"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251752"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente
 
@@ -160,8 +160,8 @@ $account.Encryption.Services.Table
 Pour vérifier qu’un service d’un compte de stockage utilise la clé de chiffrement de compte, avec l’interface Azure CLI appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
 
 ```azurecli
-az storage account show /
-    --name <storage-account> /
+az storage account show \
+    --name <storage-account> \
     --resource-group <resource-group>
 ```
 

@@ -10,12 +10,13 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
-ms.openlocfilehash: 65b7446602c8b7202ba7ccf56115edfc5de333db
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.custom: devplatv2
+ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750728"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448312"
 ---
 # <a name="train-models-with-rest-preview"></a>Entraîner des modèles avec REST (préversion)
 
@@ -34,7 +35,7 @@ Dans cet article, vous allez apprendre à utiliser les nouvelles API REST pour 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un **abonnement Azure** pour lequel vous disposez de droits d’administration. Si vous n’avez pas d’abonnement de ce type, essayez l’[abonnement personnel gratuit ou payant](https://aka.ms/AMLFree).
+- Un **abonnement Azure** pour lequel vous disposez de droits d’administration. Si vous n’avez pas d’abonnement de ce type, essayez l’[abonnement personnel gratuit ou payant](https://azure.microsoft.com/free/).
 - Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - Un principal de service dans votre espace de travail. Les requêtes REST administratives utilisent l’[authentification du principal de service](how-to-setup-authentication.md#use-service-principal-authentication).
 - Un jeton d’authentification du principal de service. Suivez les étapes décrite dans [Récupérer un jeton d’authentification de principal de service](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) pour récupérer ce jeton. 
@@ -47,7 +48,7 @@ Un travail est une ressource qui spécifie tous les aspects d’un travail de ca
 - Comment l’exécuter ?
 - Où l’exécuter ?
 
-Il existe de nombreuses façons d’envoyer un travail Azure Machine Learning, notamment le kit SDK, l’interface CLI et visuellement avec le studio. L’exemple suivant envoie un travail d’entraînement LightGBM avec l’API REST.
+Il existe de nombreuses façons d’envoyer une tâche Azure Machine Learning, notamment le kit SDK, Azure CLI et visuellement avec le studio. L’exemple suivant envoie un travail d’entraînement LightGBM avec l’API REST.
 
 ## <a name="create-machine-learning-assets"></a>Créer des ressources de machine learning
 

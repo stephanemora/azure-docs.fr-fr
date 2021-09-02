@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83f3264ca3dd8460f44695acbef281c99286f2f8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92742402"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252322"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -69,7 +69,7 @@ L’utilisation d’un style « fire and forget » de requête implique certai
 La stratégie `send-request` permet d’utiliser un service externe pour exécuter des fonctions de traitement complexes et retourner des données au service Gestion des API qui peuvent être utilisées pour d’autres traitements de stratégie.
 
 ### <a name="authorizing-reference-tokens"></a>Autorisation des jetons de référence
-Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](https://jwt.io/) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Certains serveurs d’autorisation créent des [jetons de référence](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) dont la vérification nécessite le rappel du serveur d’autorisation.
+Une fonction majeure de la gestion des API consiste à protéger les ressources principales. Si le serveur d’autorisation utilisé par votre API crée des [jetons JWT](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) dans le cadre de son flux OAuth2, comme le fait [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), vous pouvez utiliser la stratégie `validate-jwt` pour vérifier la validité du jeton. Certains serveurs d’autorisation créent des [jetons de référence](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) dont la vérification nécessite le rappel du serveur d’autorisation.
 
 ### <a name="standardized-introspection"></a>Introspection normalisée
 Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence auprès d’un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662) , qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
@@ -105,7 +105,10 @@ Vous pouvez récupérer le corps à partir de l’objet de réponse, et la norme
 
 Sinon, si le serveur d’autorisation n’inclut pas le champ « active » pour indiquer si le jeton est valide, utilisez un outil tel que Postman pour déterminer quelles propriétés sont définies dans un jeton valide. Par exemple, si une réponse de jeton valide contient une propriété appelée « expires_in », vérifiez si ce nom de propriété existe dans la réponse du serveur d’autorisation de cette façon :
 
+```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+```
+
 
 ### <a name="reporting-failure"></a>Signalement d’un échec
 Vous pouvez utiliser une stratégie `<choose>` pour détecter si le jeton n’est pas valide et, le cas échéant, renvoyer une réponse 401.

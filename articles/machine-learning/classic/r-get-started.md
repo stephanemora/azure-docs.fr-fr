@@ -9,16 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 46cefe1e7f535a066125f368e1c80497a1a28d3f
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 6d0e0fb8f3e179177995ed4cea8cbf42a3c060d7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579771"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691482"
 ---
 # <a name="get-started-with-machine-learning-studio-classic-in-r"></a>Bien démarrer avec Machine Learning Studio (classique) dans R
 
 **S’APPLIQUE À**   ![Cette coche signifie que cet article s’applique à Machine Learning Studio (classique).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Cette croix (X) signifie que cet article ne s’applique pas à Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 Dans ce tutoriel, vous allez apprendre à utiliser Machine Learning Studio (classique) pour créer, tester et exécuter du code R. À la fin, vous disposerez d'une solution de prévision complète.

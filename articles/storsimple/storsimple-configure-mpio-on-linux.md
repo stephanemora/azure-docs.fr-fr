@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 435cc7c94b3445e22b6890f326bbead504c67826
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745731"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226804"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
@@ -298,7 +298,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
     Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
     ```
 
-    Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+    Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/online_storage_reconfiguration_guide/ifacesetup-iscsioffload).
 
 1. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via le portail Azure sur votre appareil StorSimple.
 

@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Ajouter l’appel vidéo à votre application (Java
 titleSuffix: An Azure Communication Services quickstart
 description: Dans ce démarrage rapide, vous allez découvrir comment ajouter des capacités d’appel vidéo à votre application en utilisant Azure Communication Services.
 author: xumo-95
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: eba7e8e2b84bcb5a86f7406b23c9b2b78df2f5b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: f7ea9e9706cbf5e5f07f709cc4973927933499ad
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111693"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251562"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app"></a>Démarrage rapide : Ajouter l’appel vidéo 1 à 1 à votre application
 

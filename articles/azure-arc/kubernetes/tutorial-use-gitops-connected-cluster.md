@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 1c639c323fcd0dd0ed9f417070d679defeb4cf1e
-ms.sourcegitcommit: 20abee54e48f9b40b83d39c5b970bd0193812cb6
+ms.openlocfilehash: c98a912394bf660f7a2f09c25c10629fd9810434
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113632427"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098300"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
@@ -95,7 +95,8 @@ Utilisez l’extension Azure CLI pour `k8s-configuration` pour lier notre clust
         "lastModifiedByType": null
       },
       "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
-      ```
+    }
+    ```
 
 ### <a name="use-a-public-git-repository"></a>Utiliser un dépôt Git public
 
@@ -151,7 +152,7 @@ Tout comme les clés privées, vous pouvez fournir le contenu known_hosts direct
 >[!NOTE]
 >* Le chart d’opérateur Helm version 1.2.0+ prend en charge l’authentification privée pour la version Helm HTTPS.
 >* La version Helm HTTPS n’est pas prise en charge pour les clusters managés AKS.
->* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
+>* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Paramètres supplémentaires

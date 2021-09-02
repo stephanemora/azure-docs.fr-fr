@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: b9a3880c88224906e68054475233e8d8ce02476a
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 0e4bcc24aa64cfa875057d8503d0d6b629b36896
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964965"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748819"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
 
@@ -530,8 +530,8 @@ Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personna
 
 Ou consultez les autres ressources :
 
-> [!div class="nextstepaction"]
-> [Configurer un conteneur personnalisé](configure-custom-container.md)
+- [Configurer un conteneur personnalisé](configure-custom-container.md)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png
