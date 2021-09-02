@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 08/02/2021
-  ms.openlocfilehash: 0c9e3b78cac6bce3fb4a928faa76d7613d22a2dc
-  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+  ms.date: 08/31/2021
+  ms.openlocfilehash: e0bf4719596ea64c5b80f66a48861d080a9e0d58
+  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/16/2021
-  ms.locfileid: "122228605"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123258395"
 landingContent:
 - title: À propos d’Azure VMware Solution
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: introduction.md
     - text: Mises à jour des plateformes
       url: azure-vmware-solution-platform-updates.md
+    - text: Questions fréquentes (FAQ)
+      url: ./faq.yml
   - linkListType: concept
     links:
     - text: Accès et identité
@@ -36,32 +38,10 @@ landingContent:
       url: concepts-networking.md
     - text: Clusters et clouds privés
       url: concepts-private-clouds-clusters.md
+    - text: Commande d’exécution
+      url: concepts-run-command.md
     - text: Stockage
       url: concepts-storage.md
-- title: Questions fréquentes (FAQ)
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Général
-      url: ./faq.yml
-    - text: Communication du client
-      url: /azure/azure-vmware/faq#customer-communication
-    - text: Configuration et installation
-      url: /azure/azure-vmware/faq#configuration-and-setup
-    - text: Logiciels VMware
-      url: /azure/azure-vmware/faq#vmware-software
-    - text: Compute
-      url: /azure/azure-vmware/faq#compute
-    - text: Réseau et interconnectivité
-      url: /azure/azure-vmware/faq#networking-and-interconnectivity
-    - text: Stockage
-      url: /azure/azure-vmware/faq#storage
-    - text: Hôtes, clusters et clouds privés
-      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - text: Gestion des identités
-      url: /azure/azure-vmware/faq#identity-management
-    - text: Facturation et support
-      url: /azure/azure-vmware/faq#billing-and-support
 - title: Bien démarrer
   linkLists:
   - linkListType: deploy
@@ -94,12 +74,24 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: 8 – Supprimer un cloud privé
       url: tutorial-delete-private-cloud.md
+- title: Récupération d'urgence
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer la reprise d’activité JetStream
+      url: deploy-disaster-recovery-using-jetstream.md
+    - text: Déployer VMware HCX pour la reprise d’activité
+      url: deploy-disaster-recovery-using-vmware-hcx.md
+    - text: Déployer VMware SRM pour la reprise d’activité
+      url: disaster-recovery-using-vmware-site-recovery-manager.md
 - title: Gestion des identités
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Accès et identité pour les clouds privés
+    - text: Accès et identité
       url: concepts-identity.md
+    - text: Configurer la source d’identité pour vCenter
+      url: configure-identity-source-vcenter.md
     - text: Rotation des informations d’identification cloudadmin
       url: rotate-cloudadmin-credentials.md
 - title: Étendre Azure VMware Solution
@@ -122,8 +114,6 @@ landingContent:
       url: configure-dns-azure-vmware-solution.md
     - text: Configurer la mise en miroir des ports
       url: configure-port-mirroring-azure-vmware-solution.md
-    - text: Configurer GitHub Enterprise Server
-      url: configure-github-enterprise-server.md
     - text: Activer l’accès Internet public
       url: enable-public-internet-access.md
     - text: Configurer un réseau VPN de site à site dans un WAN virtuel
@@ -132,6 +122,10 @@ landingContent:
       url: configure-windows-server-failover-cluster.md
     - text: Connecter plusieurs clouds privés dans la même région
       url: connect-multiple-private-clouds-same-region.md
+    - text: Configurer des stratégies de stockage
+      url: configure-storage-policy.md
+    - text: Créer une stratégie de placement
+      url: create-placement-policy.md
 - title: Intégration native Azure
   linkLists:
   - linkListType: how-to-guide
@@ -204,8 +198,6 @@ landingContent:
       url: https://youtu.be/BoQYvqzb6Y8
     - text: Migration et planification de la capacité
       url: https://youtu.be/NoNG-hkksrA
-    - text: Faire pivoter les mots de passe vCenter et NSX-T avec Azure Logic App
-      url: https://youtu.be/cK1qY3knj88
 - title: Déplacer la ressource Azure VMware Solution
   linkLists:
   - linkListType: reference

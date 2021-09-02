@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 25feef60e6b417d835f06be9641207ce56aa53a6
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 5f70febb77d61e9d797c618faa82c8275f37bfef
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536430"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113431381"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planifier un modèle de solution pour une offre d’application Azure
 
@@ -26,7 +26,7 @@ Le type de plan de modèle de solution nécessite un [modèle Azure Resource Man
 | Spécifications | Détails |
 | ------------ | ------------- |
 | Facturation et mesure | Les plans de modèle de solution ne peuvent pas faire l’objet d’une transaction, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la Place de marché commerciale Microsoft. Les ressources que le modèle ARM de la solution déploie sont configurées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour la facturation BYOL (apportez votre propre licence), bien que Microsoft facture les frais d’infrastructure engagés dans l’abonnement client, vous effectuez la transaction de vos frais de licence logicielle directement avec le client. |
-| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations, consultez les pages suivantes :<ul><li>[Créer une ressource technique de machine virtuelle Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (pour les disques durs virtuels Windows)</li><li>[Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux).</li></ul> |
+| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations, consultez les pages suivantes :<ul><li>[Créer une ressource technique de machine virtuelle Azure](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (pour les disques durs virtuels Windows)</li><li>[Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux).</li></ul> |
 | Attribution de l’utilisation client | L’activation de l’attribution de l’utilisation de client est obligatoire pour tous les modèles de solution publiés sur la Place de marché Azure. Pour plus d’informations sur l’attribution de l’utilisation de client et sur son activation, consultez [Attribution de l’utilisation de client partenaire Azure](azure-partner-customer-usage-attribution.md). |
 | Utiliser des disques managés | Les [disques managés](../virtual-machines/managed-disks-overview.md) représentent l’option par défaut pour les disques persistants des machines virtuelles IaaS (infrastructure as a service) dans Azure. Vous devez utiliser des disques managés dans les modèles de solution.<ul><li>Pour mettre à jour vos modèles de solution, suivez les instructions dans [Utiliser les disques managés dans les modèles Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md) et utilisez les [exemples](https://github.com/Azure/azure-quickstart-templates) fournis.</li><li>Pour publier le disque dur virtuel sous forme d’image dans la Place de marché Azure, importez les disques durs virtuels sous-jacents des disques managés dans un compte de stockage à l’aide d’[Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) ou de l’[interface de ligne de commande Azure](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd).</ul> |
 | Package de déploiement | Vous aurez besoin d’un package de déploiement qui permettra aux clients de déployer votre plan. Si vous créez plusieurs plans nécessitant la même configuration technique, vous pouvez utiliser le même package de plan. Pour plus d’informations, consultez la section suivante : Package de déploiement. |
@@ -38,7 +38,7 @@ Le package de déploiement regroupe tous les fichiers de modèle requis pour ce 
 
 Toutes les applications Azure doivent inclure les deux fichiers suivants dans le dossier racine d’une archive .zip :
 
-- Un fichier de modèle Resource Manager nommé [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
+- Un fichier de modèle Resource Manager nommé [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). Ce modèle qui définit les ressources à déployer dans l’abonnement Azure du client. Pour obtenir des exemples de modèles Resource Manager, consultez la [Galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/resources/templates/) ou le dépôt [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) correspondant.
 - Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
 
 Tailles maximales de fichiers prises en charge :

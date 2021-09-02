@@ -3,15 +3,15 @@ title: Utiliser des références Key Vault
 description: Découvrez comment configurer Azure App Service et Azure Functions pour leur faire utiliser des références Azure Key Vault. Mettez les secrets Key Vault à la disposition de votre code d’application.
 author: mattchenderson
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578113"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532905"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -23,26 +23,43 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
 
 1. Créez un coffre de clés en suivant le [Guide de démarrage rapide de Key Vault](../key-vault/secrets/quick-create-cli.md).
 
-1. Créez une [identité managée affectée par le système](overview-managed-identity.md) pour votre application.
+1. Créez une [identité managée](overview-managed-identity.md) pour votre application.
 
-   > [!NOTE] 
-   > Actuellement, les références Key Vault prennent uniquement en charge les identités managées affectées par le système. Vous ne pouvez pas utiliser d’identités affectées par l’utilisateur.
+    Les références Key Vault utiliseront l’identité attribuée par le système de l’application par défaut, mais vous pouvez [spécifier une identité attribuée par l’utilisateur](#access-vaults-with-a-user-assigned-identity).
 
 1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/security-features.md#privileged-access) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
 ### <a name="access-network-restricted-vaults"></a>Accéder aux coffres restreints du réseau
 
-> [!NOTE]
-> Les applications basées sur Linux ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés restreint du réseau à moins que l’application ne soit hébergée au sein de [App Service Environment](./environment/intro.md).
-
 Si votre coffre est configuré avec des [restrictions réseau](../key-vault/general/overview-vnet-service-endpoints.md), vous devrez également vous assurer que l’application dispose d’un accès réseau.
 
 1. Vérifiez que les fonctionnalités de mise en réseau sortantes de l’application sont configurées, comme décrit dans les [fonctionnalités de mise en réseau App Service](./networking-features.md) et les [options de mise en réseau Azure Functions](../azure-functions/functions-networking-options.md).
 
+    Les applications Linux tentant d’utiliser des points de terminaison privés requièrent également que l’application soit explicitement configurée pour que tout le trafic soit acheminé via le réseau virtuel. Cette exigence sera supprimée dans une prochaine mise à jour. Pour définir cela, utilisez la commande CLI suivante :
+
+    ```azurecli
+    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    ```
+
 2. Assurez-vous que la configuration du coffre compte pour le réseau ou le sous-réseau auquel votre application accède.
 
-> [!IMPORTANT]
-> L’accès à un coffre via l’intégration de réseau virtuel est actuellement incompatible avec les [mises à jour automatiques pour les secrets sans une version spécifiée](#rotation).
+### <a name="access-vaults-with-a-user-assigned-identity"></a>Accédez aux coffres avec une identité attribuée par l’utilisateur
+
+Certaines applications doivent référencer des secrets au moment de la création, lorsqu’une identité attribuée par le système n’est pas encore disponible. Dans ce cas, une identité attribuée par l’utilisateur peut être créée et l’accès au coffre doit être accordé à l’avance.
+
+Une fois que vous avez accordé des autorisations à l’identité attribuée par l’utilisateur, procédez comme suit :
+
+1. [Attribuez l’identité](./overview-managed-identity.md#add-a-user-assigned-identity) à votre application si vous ne l’avez pas déjà fait.
+
+1. Configurez l’application pour utiliser cette identité pour les opérations de référence Key Vault en définissant la `keyVaultReferenceIdentity` propriété sur l’ID de ressource de l’identité attribuée par l’utilisateur.
+
+    ```azurecli-interactive
+    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
+    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
+    az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
+    ```
+
+Cette configuration s’applique à toutes les références de l’application.
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 
@@ -67,9 +84,6 @@ Sinon :
 ```
 
 ## <a name="rotation"></a>Rotation
-
-> [!IMPORTANT]
-> [L’accès à un coffre via l’intégration de réseau virtuel](#access-network-restricted-vaults) est actuellement incompatible avec les mises à jour automatiques pour les secrets sans une version spécifiée.
 
 Si aucune version n’est spécifiée dans la référence, l’application utilise la dernière version qui existe dans Key Vault. Lorsque des versions plus récentes sont disponibles, par exemple avec un événement de renouvellement, l’application est automatiquement mise à jour de façon à utiliser la dernière version dans un délai d’un jour. Toutes les modifications de configuration apportées à l’application entraînent une mise à jour immédiate à la dernière version de tous les secrets indiqués.
 
@@ -201,7 +215,7 @@ Voici à quoi peut ressembler un exemple de pseudo-modèle d’application de fo
 ```
 
 > [!NOTE] 
-> Dans cet exemple, le déploiement du contrôle de code source varie selon les paramètres d’application. Il s’agit normalement d’un comportement non sécurisé, car la mise à jour du paramètre d’application se comporte de façon asynchrone. Toutefois, comme nous avons inclus le paramètre d'application `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la mise à jour est synchrone. Cela signifie que le déploiement de contrôle source commence uniquement une fois que les paramètres d’application ont été entièrement mis à jour.
+> Dans cet exemple, le déploiement du contrôle de code source varie selon les paramètres d’application. Il s’agit normalement d’un comportement non sécurisé, car la mise à jour du paramètre d’application se comporte de façon asynchrone. Toutefois, comme nous avons inclus le paramètre d'application `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, la mise à jour est synchrone. Cela signifie que le déploiement de contrôle source commence uniquement une fois que les paramètres d’application ont été entièrement mis à jour. Pour plus d’informations sur les paramètres d’application, consultez [Variables d’environnement et paramètres d’application dans Azure App Service](reference-app-settings.md).
 
 ## <a name="troubleshooting-key-vault-references"></a>Résolution des problèmes liés aux références Key Vault
 

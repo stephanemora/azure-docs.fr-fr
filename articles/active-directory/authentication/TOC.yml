@@ -227,8 +227,8 @@
           items:
             - name: Utiliser AD FS 2.0
               href: howto-mfaserver-adfs-2.md
-            - name: "Utiliser Windows Server\_2012 R2 AD FS"
-              href: howto-mfaserver-adfs-2012.md
+            - name: "Utiliser les services de fédération Active Directory (AD\_FS) Windows Server"
+              href: howto-mfaserver-adfs-windows-server.md
         - name: Intégration RADIUS
           items:
             - name: Passerelle Bureau à distance

@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aceddf008979453383a1460da4342fd2a066d6b1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80881075"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039831"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Procédure : Résoudre les problèmes TLS/SSL liés à MSAL pour iOS et macOS
+# <a name="troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Résoudre les problèmes TLS/SSL liés à MSAL pour iOS et macOS
 
 Cet article fournit des informations pour vous aider à résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation de la [bibliothèque MSAL (Microsoft Authentication Library) pour iOS et macOS](reference-v2-libraries.md).
 

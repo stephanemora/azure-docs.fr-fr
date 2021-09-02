@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8a1205647f4895407bff9301415249a055990f6e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c1ab7e4f30fbd297bc5aad79a8d250ec55684ddb
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524660"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215324"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Se connecter à un espace de travail Azure Synapse en utilisant des liaisons privées
 
@@ -44,6 +44,9 @@ Les points de terminaison privés sont créés dans un sous-réseau. L’abonnem
 Sous l’onglet **Ressource**, sélectionnez **Se connecter à une ressource Azure dans mon annuaire**. Sélectionnez l’**Abonnement** contenant votre espace de travail Azure Synapse. Le **Type de ressource** pour la création de points de terminaison privés dans un espace de travail Azure Synapse est *Microsoft.Synapse/Workspaces*.
 
 Sélectionnez votre espace de travail Azure Synapse en tant que **Ressources**. Chaque espace de travail Azure Synapse comprend trois **Sous-ressource cibles** sur lesquelles vous pouvez créer un point de terminaison privé : Sql, SqlOnDemand et Dev.
+- Sql est destiné à l’exécution de la requête SQL dans le pool SQL.
+- SqlOnDemand est destiné à l’exécution de requêtes SQL intégrées.
+- Dev est destiné à l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio.
 
 Sélectionnez **Suivant : Configuration >** pour passer à la partie suivante de la configuration.
 ![Sélectionner les détails de l’abonnement et de la région 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
