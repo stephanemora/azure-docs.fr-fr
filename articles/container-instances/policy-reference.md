@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Container Instances
 description: Dresse la liste des définitions de stratégie intégrées d’Azure Policy pour Azure Container Instances. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 96468f37fe734a44ee0f06fe39bbade949d52ce9
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 09d174e7844d05b93d398eecc04ad7ec28b9eb2e
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607770"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108351"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-instances"></a>Définitions intégrées d’Azure Policy pour Azure Container Instances
 

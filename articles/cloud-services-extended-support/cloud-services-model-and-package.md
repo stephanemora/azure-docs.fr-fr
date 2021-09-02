@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 17a927798b58c0a9f917e8906d9f808c4e4e81fd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 67f17d2a01e095f4a2349606a7e13b7ef6c51c11
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460916"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100993"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service Azure et comment créer un package ?
 
@@ -39,7 +39,7 @@ Le fichier **ServiceDefinition.csdef** spécifie les paramètres qui sont utilis
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="MyServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="WebRole1" vmsize="Medium">
+  <WebRole name="WebRole1" vmsize="Standard_D1_v2">
     <Sites>
       <Site name="Web">
         <Bindings>

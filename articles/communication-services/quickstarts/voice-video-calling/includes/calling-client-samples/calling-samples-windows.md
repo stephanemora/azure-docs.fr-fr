@@ -2,16 +2,16 @@
 title: 'Démarrage rapide : Ajouter l’appel à une application Windows à l’aide d’Azure Communication Services'
 description: Dans ce démarrage rapide, vous allez découvrir comment utiliser le Kit de développement logiciel (SDK) Appel d’Azure Communication Services pour Windows.
 author: tophpalmer
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dc5905ab50932f156e17831356c0998ffd001285
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 5959cb809e9537c5de9ed2dce771a234f742dc08
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201007"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078567"
 ---
 Ce démarrage rapide explique comment démarrer un appel à l’aide du Kit de développement logiciel (SDK) Appel d’Azure Communication Services pour Windows.
 
