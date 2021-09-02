@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 8c1b7ea859bb3f8819fbffc9568da4c9289979f5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 40d82ea916a647dc927e4420058d208c3fd18973
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669454"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111008"
 ---
 # <a name="quickstart-add-an-application-to-your-tenant"></a>Démarrage rapide : ajouter une application à votre locataire
 
@@ -47,10 +47,9 @@ Pour ajouter une application à votre locataire Azure AD :
 1. Dans le [Portail Azure](https://portal.azure.com), dans le volet **Services Azure**, sélectionnez **Applications d'entreprise**. Le volet **Toutes les applications** s’ouvre et affiche un échantillon aléatoire des applications de votre locataire Azure AD.
 2. Dans le volet **Applications d’entreprise**, sélectionnez **Nouvelle application**.
 3. Le volet **Parcourir la galerie Azure AD** s’ouvre et affiche des vignettes pour les plateformes cloud, les applications locales et les applications principales. Les applications listées dans la section **Applications principales** ont des icônes indiquant si elles prennent en charge l’authentification unique fédérée et le provisionnement.
-4. Revenez à l’expérience de l’application héritée : dans la bannière en haut de la **page Ajouter une application**, sélectionnez le lien qui indique que **Vous êtes dans la nouvelle expérience de la Galerie d’applications améliorée. Cliquez ici pour revenir à l’expérience héritée de la Galerie d’applications**.
     ![Rechercher une application par nom ou par catégorie](media/add-application-portal/browse-gallery.png)
-5. Vous pouvez parcourir la galerie de l’application que vous souhaitez ajouter ou rechercher l’application en entrant son nom dans la zone de recherche. Ensuite, sélectionnez l’application dans les résultats.
-6. L’étape suivante dépend de la façon dont le développeur de l’application a implémenté l’authentification unique (SSO). L’authentification unique peut être implémentée par les développeurs d’applications de quatre manières. Ces quatre manières sont SAML, OpenID Connect, Password et Linked. Lorsque vous ajoutez une application, vous pouvez choisir de filtrer et d’afficher uniquement les applications utilisant une implémentation SSO particulière, comme illustré dans la capture d’écran. Par exemple, Security Assertion Markup Language (SAML) est une norme couramment utilisée pour implémenter l’authentification unique. La norme OpenId Connect (OIDC) est également couramment utilisée. La façon dont vous configurez l’authentification unique avec ces normes diffère et dès lors, notez le type d’authentification unique implémenté par l’application que vous ajoutez.
+4. Vous pouvez parcourir la galerie de l’application que vous souhaitez ajouter ou rechercher l’application en entrant son nom dans la zone de recherche. Ensuite, sélectionnez l’application dans les résultats.
+5. L’étape suivante dépend de la façon dont le développeur de l’application a implémenté l’authentification unique (SSO). L’authentification unique peut être implémentée par les développeurs d’applications de quatre manières. Ces quatre manières sont SAML, OpenID Connect, Password et Linked. Lorsque vous ajoutez une application, vous pouvez choisir de filtrer et d’afficher uniquement les applications utilisant une implémentation SSO particulière, comme illustré dans la capture d’écran. Par exemple, Security Assertion Markup Language (SAML) est une norme couramment utilisée pour implémenter l’authentification unique. La norme OpenId Connect (OIDC) est également couramment utilisée. La façon dont vous configurez l’authentification unique avec ces normes diffère et dès lors, notez le type d’authentification unique implémenté par l’application que vous ajoutez.
 
     - Si le développeur de l’application a utilisé la **norme OIDC** pour l’authentification unique, sélectionnez **S’inscrire**. Une page de configuration s'affiche. Accédez ensuite au guide de démarrage rapide relatif à la configuration de l’authentification unique basée sur OIDC.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Capture d’écran montrant comment ajouter une application d’authentification unique basée sur OIDC.":::

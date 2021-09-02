@@ -15,12 +15,12 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cad63eaa8e548e48e76bba63e5ba70358b34cd99
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ff04f3595cbcba7a5bfc1c5c5e9564a862cb32de
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531795"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223733"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,28 +100,6 @@ Vous pouvez utiliser PowerShell pour configurer une sauvegarde automatisée. Ava
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### <a name="install-the-sql-server-iaas-extension"></a>Installer l’extension IaaS SQL Server
-Si vous avez provisionné une machine virtuelle SQL Server à partir du portail Azure, l’extension IaaS SQL Server devrait déjà être installée. Vous pouvez déterminer si elle est installée pour votre machine virtuelle en appelant la commande **Get-AzVM**, puis en examinant la propriété **Extensions**.
-
-```powershell
-$vmname = "vmname"
-$resourcegroupname = "resourcegroupname"
-
-(Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
-```
-
-Si l’extension de l’agent IaaS SQL Server est installée, elle devrait être listée sous la forme « SqlIaaSAgent » ou « SQLIaaSExtension ». La propriété **ProvisioningState** de l’extension devrait également indiquer « Succeeded » (Réussie).
-
-Si elle n’est pas installée ou n’a pas pu être provisionnée, vous pouvez l’installer avec la commande suivante. Outre le nom de la machine virtuelle et le groupe de ressources, vous devez également spécifier la région ( **$region**) où se trouve votre machine virtuelle. Spécifiez le type de licence pour votre machine virtuelle SQL Server, en choisissant entre le paiement à l’utilisation ou BYOL par le biais d’[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Pour plus d’informations sur les licences, consultez [Modèle de licence](licensing-model-azure-hybrid-benefit-ahb-change.md). 
-
-```powershell
-New-AzSqlVM  -Name $vmname `
-    -ResourceGroupName $resourcegroupname `
-    -Location $region -LicenseType <PAYG/AHUB>
-```
-
-> [!IMPORTANT]
-> Si l’extension n’a pas encore été installée, son installation redémarre SQL Server.
 
 ### <a name="verify-current-settings"></a><a id="verifysettings"></a> Vérifier les paramètres actuels
 

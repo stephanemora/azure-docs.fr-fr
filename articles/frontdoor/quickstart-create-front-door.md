@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 30bcdce70ce15e7f960d8d04b3796a04f59b1ec2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727864"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039269"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
@@ -135,7 +135,7 @@ Enfin, ajoutez une règle de routage. Une règle de routage mappe votre hôte fr
     :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Ajouter une règle à votre porte d’entrée":::
 
    >[!WARNING]
-   > Vous **devez** vérifier que chaque hôte front-end dans votre porte d’entrée a une règle de routage avec un chemin par défaut (`\*`) associé. En d’autres termes, parmi toutes vos règles de routage, il doit exister au moins une règle de routage pour chacun des hôtes front-end définis dans le chemin par défaut (`\*`). Sinon, le trafic de l’utilisateur final risque de ne pas être routé correctement.
+   > Vous **devez** vérifier que chaque hôte front-end dans votre porte d’entrée a une règle de routage avec un chemin par défaut (`/*`) associé. En d’autres termes, parmi toutes vos règles de routage, il doit exister au moins une règle de routage pour chacun des hôtes front-end définis dans le chemin par défaut (`/*`). Sinon, le trafic de l’utilisateur final risque de ne pas être routé correctement.
 
 1. Sélectionnez **Vérifier + créer**, puis **Créer**.
 

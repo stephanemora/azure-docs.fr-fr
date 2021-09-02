@@ -13,14 +13,14 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 3ae6616263de605d5910f244423b9e7ffc036c5d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c89cb9c43ae274170e0cedb01b1908a874b7317e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079726"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039946"
 ---
-# <a name="how-to-modify-the-accounts-supported-by-an-application"></a>Guide pratique pour modifier les comptes pris en charge par une application
+# <a name="modify-the-accounts-supported-by-an-application"></a>Modifier les comptes pris en charge par une application
 
 Lorsque vous avez inscrit votre application auprès de la plateforme d’identités Microsoft, vous avez spécifié qui (quels types de comptes) peut y accéder. Par exemple, vous avez peut-être spécifié des comptes uniquement dans votre organisation, qui est une application *monolocataire*. Ou vous avez peut-être spécifié des comptes dans une organisation quelconque (y compris la vôtre), qui est une application *multilocataire*.
 

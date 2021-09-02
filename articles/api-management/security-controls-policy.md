@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Gestion des API Azure
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Gestion des API Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: dlepow
 ms.author: apimpm
 ms.service: api-management
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1c504f9a0b6f70db6abd867a1f15a3645315039e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e3308359ffb130bbf52248fbebee64ed302d1472
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608933"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111566"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-management"></a>Contrôles de conformité réglementaire Azure Policy pour Gestion des API Azure
 

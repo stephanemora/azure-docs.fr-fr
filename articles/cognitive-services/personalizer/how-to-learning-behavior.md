@@ -1,16 +1,19 @@
 ---
 title: Configurer le comportement d'apprentissage
 description: Le mode Apprenti vous permet de vous appuyer sur le service Personalizer et ses fonctionnalités d'apprentissage automatique. Il fournit également des mesures indiquant que le service reçoit des informations dont il peut tirer parti dans le cadre de son apprentissage - sans mettre en péril le trafic en ligne.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caa3a0d8d9619ee65dbd9d71ae2ff4f56a128c8d
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94579289"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831547"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configurer le comportement d'apprentissage de Personalizer
 

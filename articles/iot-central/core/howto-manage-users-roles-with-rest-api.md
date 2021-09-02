@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 34be4920b343117ed895313c45a66e54b2de9ab3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: df4476177175fd5aadc57c3d68bedc97531aee0c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950585"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448493"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>Comment utiliser l’API REST IoT Central pour gérer les utilisateurs et les rôles
 
@@ -183,6 +183,8 @@ La réponse à cette demande se présente comme dans l’exemple suivant. La val
 }
 ```
 
+Vous pouvez également ajouter un utilisateur de principal de service. C’est utile si vous devez utiliser l’authentification du principal du service pour les appels de l’API REST. Pour en savoir plus, consultez [Ajouter ou mettre à jour un utilisateur de principal de service](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user).
+
 ### <a name="change-the-role-of-a-user"></a>Modifier le rôle d’un utilisateur
 
 Utilisez la demande suivante pour modifier le rôle attribué à l’utilisateur. Cet exemple utilise l’ID du rôle Générateur que vous avez récupéré précédemment :
@@ -228,4 +230,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer les utilisateurs et les rôles avec l’API REST, l’étape suivante suggérée consiste à [Gérer les applications IoT Central avec l’API REST](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Maintenant que vous savez comment gérer les utilisateurs et les rôles dans l’API REST, nous vous suggérons d’apprendre à [utiliser l’API REST IoT Central pour contrôler les appareils](howto-control-devices-with-rest-api.md).

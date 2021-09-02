@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 4bb2488bde959281abc5284b3d28b2a7fe3301e3
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: f74340192cc79db8cf238ea4776dee42edbe51e6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005332"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967986"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Démarrage rapide : Créer un pare-feu Azure et des groupes IP - Modèle ARM
 
@@ -78,7 +78,7 @@ Dans le portail Azure, passez en revue les ressources déployées, en particulie
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Règles de réseau.":::
 
-Pour en savoir plus sur les propriétés et la syntaxe JSON d’un pare-feu dans un modèle, consultez [Informations de référence sur le modèle Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Pour en savoir plus sur les propriétés et la syntaxe JSON d’un pare-feu dans un modèle, consultez [Informations de référence sur le modèle Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

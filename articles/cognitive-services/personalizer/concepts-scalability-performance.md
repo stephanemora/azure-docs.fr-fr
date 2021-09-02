@@ -2,18 +2,19 @@
 title: Évolutivité et performance - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 'Les sites web et applications à trafic élevé et hautes performances ont deux principaux facteurs à prendre en considération avec Personalizer pour l’évolutivité et les performances : la latence et le rythme d’apprentissage.'
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.openlocfilehash: 52d22fce64a26267e73cb9a1df8614129bb96c3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 711d1f69485fb7f4c9256ac4a2edbe351ae4619c
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87132685"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831403"
 ---
 # <a name="scalability-and-performance"></a>Extensibilité et performance
 

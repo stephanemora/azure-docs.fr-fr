@@ -2,18 +2,17 @@
 title: Provisionner un appareil avec un TPM virtuel sur une machine virtuelle Linux - Azure IoT Edge
 description: Utiliser un module de plateforme sécurisée (TPM) simulé sur une machine virtuelle Linux afin de tester le service de provisionnement d’appareils Azure pour Azure IoT Edge
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 79fe8acd06084c58b0cf9b47bf93e933c648510c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d667b2429c7911353df98795f7116d47f8f15d8a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481988"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535097"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Création et provisionnement d’un appareil IoT Edge avec un module TPM sur Linux
 
@@ -228,6 +227,12 @@ Une fois que le runtime est installé sur votre appareil, configurez l’apparei
 
 1. Récupérez la valeur **Étendue de l’ID** du Service Device Provisioning et la valeur **ID d’inscription** de l’appareil qui ont été rassemblées dans les sections précédentes.
 
+1. Créez un fichier de configuration pour votre appareil à partir d’un fichier de modèle fourni dans le cadre de l’installation d’IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
 1. Ouvrez le fichier de configuration sur l’appareil IoT Edge.
 
    ```bash
@@ -265,49 +270,45 @@ Le runtime IoT Edge a besoin d’accéder au module TPM pour provisionner automa
 
 Vous pouvez accorder au TPM un accès au runtime IoT Edge en substituant les paramètres système afin que le service `iotedge`dispose des privilèges root. Si vous ne souhaitez pas élever les privilèges de service, vous pouvez également utiliser les étapes suivantes pour fournir manuellement un accès au TPM.
 
-1. Trouvez le chemin au module matériel TPM sur votre appareil et enregistrez-le en tant que variable locale.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Créez une règle qui donne au runtime IoT Edge l’accès à tpm0.
+1. Créez une règle qui donne au runtime IoT Edge l’accès à tpm0 et à tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Ouvrez le fichier de règles.
+2. Ouvrez le fichier de règles.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copiez les informations d’accès suivantes dans le fichier de règles.
+3. Copiez les informations d’accès suivantes dans le fichier de règles. Le `tpmrm0` n’est peut-être pas présent sur les appareils utilisant un noyau antérieur à 4.12. Les appareils qui n’ont pas de tpmrm0 ignorent cette règle en toute sécurité.
 
    ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="iotedge", MODE="0600"
    ```
 
-5. Enregistrez et fermez le fichier.
+4. Enregistrez et fermez le fichier.
 
-6. Déclenchez le système udev pour évaluer la nouvelle règle.
+5. Déclenchez le système udev pour évaluer la nouvelle règle.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. Vérifiez que la règle a bien été appliquée.
+6. Vérifiez que la règle a bien été appliquée.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    En cas de réussite, la sortie se présente ainsi :
 
    ```output
-   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
    Si vous constatez que les autorisations appropriées n’ont pas été appliquées, essayez de redémarrer votre ordinateur pour actualiser udev.
@@ -320,52 +321,48 @@ Le runtime IoT Edge s’appuie sur un service de module de plateforme sécurisé
 
 Vous pouvez accorder au TPM en substituant les paramètres système afin que le service `aziottpm`dispose des privilèges root. Si vous ne souhaitez pas élever les privilèges de service, vous pouvez également utiliser les étapes suivantes pour fournir manuellement un accès au TPM.
 
-1. Trouvez le chemin au module matériel TPM sur votre appareil et enregistrez-le en tant que variable locale.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. Créez une règle qui donne au runtime IoT Edge l’accès à tpm0.
+1. Créez une règle qui donne au runtime IoT Edge l’accès à tpm0 et à tpmrm0. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. Ouvrez le fichier de règles.
+2. Ouvrez le fichier de règles.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Copiez les informations d’accès suivantes dans le fichier de règles.
+3. Copiez les informations d’accès suivantes dans le fichier de règles. Le `tpmrm0` n’est peut-être pas présent sur les appareils utilisant un noyau antérieur à 4.12. Les appareils qui n’ont pas de tpmrm0 ignorent cette règle en toute sécurité.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow aziottpm access to tpm0 and tpmrm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0660"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="aziottpm", MODE="0660"
    ```
 
-5. Enregistrez et fermez le fichier.
+4. Enregistrez et fermez le fichier.
 
-6. Déclenchez le système udev pour évaluer la nouvelle règle.
+5. Déclenchez le système udev pour évaluer la nouvelle règle.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. Vérifiez que la règle a bien été appliquée.
+6. Vérifiez que la règle a bien été appliquée.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    En cas de réussite, la sortie se présente ainsi :
 
    ```output
-   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   Si vous constatez que les autorisations appropriées n’ont pas été appliquées, essayez de redémarrer votre ordinateur pour actualiser udev.
+   Si vous constatez que les autorisations appropriées n’ont pas été appliquées, essayez de redémarrer votre ordinateur pour actualiser udev. 
 :::moniker-end
 <!-- end 1.2 -->
 

@@ -4,12 +4,12 @@ description: Découvrez comment les adresses IP entrantes et sortantes sont util
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 1dda487d23c9f955aea8e35d16e5a560a890a173
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ea667fcfe70e109038d74e7c1fa0281bbc2b20bb
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834477"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535113"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -51,7 +51,7 @@ L’ensemble des adresses IP sortantes de votre application change lorsque vous
 
 - Supprimer une application, puis la recréer dans un autre groupe de ressources (l’unité de déploiement peut changer).
 - Supprimer la dernière application dans une combinaison de groupe de ressources _et_ de région, puis la recréer (l’unité de déploiement peut changer).
-- Mettez à l’échelle votre application entre les niveaux inférieurs (**De base**, **Standard** et **Premium**) et le niveau **Premium v2** (les adresses IP peuvent être ajoutées ou soustraites de l’ensemble).
+- Mettez à l’échelle votre application entre les niveaux inférieurs (**De base**, **Standard** et **Premium**) et les niveaux **PremiumV2** et **PremiumV3** (les adresses IP peuvent être ajoutées ou soustraites de l’ensemble).
 
 Vous pouvez trouver toutes les adresses IP sortantes que votre application est susceptible d’utiliser, indépendamment des niveaux de tarification, en recherchant la propriété `possibleOutboundIpAddresses`, ou à l’aide du champ **Adresses IP sortantes supplémentaires** du panneau **Propriétés** du portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
 
@@ -80,6 +80,9 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```azurepowershell
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
+
+## <a name="get-a-static-outbound-ip"></a>Obtenir une adresse IP sortante statique
+Vous pouvez contrôler l’adresse IP du trafic sortant à partir de votre application en utilisant une intégration VNet régionale avec une passerelle NAT de réseau virtuel pour diriger le trafic vers une adresse IP publique statique. L’[intégration VNet régionale](/azure/app-service/web-sites-integrate-with-vnet) est disponible dans les formules d’App Service **De base**, **Premium**, **PremiumV2** et **PremiumV3**. Pour en savoir plus sur cette configuration, consultez l’intégration de la [passerelle NAT](./networking/nat-gateway-integration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

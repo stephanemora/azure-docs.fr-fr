@@ -6,14 +6,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 27b1b08196ef76bba92bf1f2ff518585c896178a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 079ef0c70641100e0b2efe7d08d79dc218a83abc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743528"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259030"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Contrôleurs SBC et routage vocal
 Le routage direct Azure Communication Services vous permet de connecter votre infrastructure de téléphonie existante à Azure. Cet article liste les étapes principales nécessaires pour connecter un contrôleur SBC (Session Border Controller) pris en charge au routage direct et comment fonctionne le routage vocal pour la ressource de communication activée. 

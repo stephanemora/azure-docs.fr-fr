@@ -1,20 +1,20 @@
 ---
 title: Configurer Azure IoT Hub pour déployer des mises à jour OTA
 description: Découvrir comment configurer Azure IoT Hub pour déployer des mises à jour OTA sur le Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 81697efc7832adf62d26c751d1e6e93070c2579b
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 26e53511cfab9444a9d5a9c4dcd868be07b40e16
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684070"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224361"
 ---
-# <a name="how-to-set-up-azure-iot-hub-to-deploy-over-the-air-updates-to-your-azure-percept-dk"></a>Comment configurer Azure IoT Hub pour déployer des mises à jour OTA sur votre DK Azure Percept
+# <a name="set-up-azure-iot-hub-to-deploy-over-the-air-updates"></a>Configurer Azure IoT Hub pour déployer des mises à jour OTA
 
 Utilisez des mises à jour OTA (over-the-air) pour garder votre DK Azure Percept sécurisé et à jour. En quelques étapes simples, vous allez configurer votre environnement Azure avec Device Update pour IoT Hub et déployer les dernières mises à jour sur votre DK Azure Percept.
 

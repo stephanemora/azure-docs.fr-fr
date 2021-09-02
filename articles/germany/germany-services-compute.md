@@ -1,29 +1,25 @@
 ---
 title: Services de calcul Azure Germany | Microsoft Docs
-description: Fournit une comparaison des services de calcul pour Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: Cette rubrique fournit une comparaison détaillée des services de calcul pour Azure Allemagne.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
+ms.date: 10/16/2020
+author: gitralf
 ms.author: ralfwi
-ms.openlocfilehash: 579e5138d5bfe93fcdc1f53f28c442125b8a69b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.service: germany
+ms.custom: bfdocs
+ms.openlocfilehash: e6c2e89f1ddce1bd88d3b8ce0ccf7e82364afa32
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033498"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "122562089"
 ---
 # <a name="azure-germany-compute-services"></a>Services de calcul Azure Germany
-## <a name="virtual-machines"></a>Virtual Machines
-Pour plus d’informations sur le service de machines virtuelles Azure et comment l’utiliser, consultez [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+## <a name="virtual-machines"></a>Machines Virtuelles
+Pour plus d’informations sur le service de machines virtuelles Azure et comment l’utiliser, consultez [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variantes
 Les produits (machines virtuelles) qui suivent sont disponibles dans Azure Germany :
@@ -144,9 +140,4 @@ Les produits (machines virtuelles) qui suivent sont disponibles dans Azure Germa
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Germany](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
-
+Pour obtenir des informations supplémentaires et des mises à jour, abonnez-vous au [blog Azure Allemagne](/archive/blogs/azuregermany/).
