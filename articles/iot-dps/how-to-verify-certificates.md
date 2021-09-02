@@ -3,29 +3,49 @@ title: Vérifier des certificats d’autorité de certification X.509 auprès du
 description: Guide pratique visant à effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec Azure IoT Hub Device Provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 02/26/2018
+ms.date: 06/29/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0326eef86b42fa8b06c336bbf2b1c6f2f9df0bcf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1c4490b89a960d89cb1678c96391faf0ac4cc5b
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730352"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108521"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec votre service Device Provisioning
 
 Un certificat d’autorité de certification X.509 vérifié est un certificat d’autorité de certification qui a été chargé et inscrit auprès de votre service d’approvisionnement, et a été soumis à une preuve de possession par le service. 
+
+Les certificats vérifiés jouent un rôle important lors de l’utilisation de groupes d’inscription. La vérification de la propriété du certificat fournit un niveau de sécurité supplémentaire en permettant de s’assurer que l’utilisateur qui a chargé le certificat est en possession de la clé privée associée. La vérification empêche tout acteur malveillant qui intercepte votre trafic d’extraire un certificat intermédiaire et de l’utiliser pour créer un groupe d’inscription dans son propre service d’approvisionnement à des fins de détournement de vos appareils. En prouvant que vous êtes le propriétaire du certificat racine ou d’un certificat intermédiaire dans une chaîne d’approbation, vous prouvez que vous êtes autorisé à générer des certificats feuilles pour les appareils qui seront inscrits dans le cadre de ce groupe d’inscription. Par conséquent, le certificat racine ou intermédiaire configuré dans un groupe d’inscription doit être un certificat vérifié ou être associé à un certificat vérifié dans la chaîne d’approbation présentée par un appareil lors de son authentification auprès du service. Pour en savoir plus sur l’attestation de certificat X.509, consultez [Certificats X.509](concepts-x509-attestation.md) et [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+
+## <a name="automatic-verification-of-intermediate-or-root-ca-through-self-attestation"></a>Vérification automatique de l’autorité de certification intermédiaire ou racine par le biais de l’auto-attestation
+Si vous utilisez une autorité de certification racine ou intermédiaire approuvée et que vous savez que vous avez une propriété complète du certificat, vous pouvez certifier automatiquement que vous avez vérifié le certificat.
+
+Pour ajouter un certificat auto-vérifié, procédez comme suit :
+
+1. Dans le portail Azure, accédez à votre service d’approvisionnement et ouvrez **Certificats** dans le menu de gauche. 
+2. Cliquez sur **Ajouter** pour ajouter un nouveau certificat.
+3. Entrez un nom d’affichage convivial pour votre certificat. Accédez au fichier .cer ou .pem représentant la partie publique de votre certificat X.509. Cliquez sur **Télécharger**.
+4. Cochez la case en regard de **Définir l’état du certificat sur vérifié lors du chargement**.
+
+    ![Télécharger certificate_with_verified](./media/how-to-verify-certificates/add-certificate-with-verified.png)
+
+1. Cliquez sur **Enregistrer**.
+1. Votre certificat apparaît dans l’onglet des certificats avec l’état *Vérifié*.
+  
+    ![Certificate_Status](./media/how-to-verify-certificates/certificate-status.png)
+
+## <a name="manual-verification-of-intermediate-or-root-ca"></a>Vérification manuelle de l’autorité de certification racine ou intermédiaire
 
 La preuve de possession implique les étapes suivantes :
 1. Obtenir un code de vérification unique généré par le service d’approvisionnement pour votre certificat d’autorité de certification X.509. Vous pouvez effectuer cette opération à partir du portail Azure.
 2. Créer un certificat de vérification X.509 avec le code de vérification en tant que sujet et signer le certificat avec la clé privée associée à votre certificat d’autorité de certification X.509.
 3. Charger le certificat de vérification signé dans le service. Le service valide le certificat de vérification à l’aide de la partie publique du certificat d’autorité de certification à vérifier, prouvant ainsi que vous êtes en possession de la clé privée du certificat de l’autorité de certification.
 
-Les certificats vérifiés jouent un rôle important lors de l’utilisation de groupes d’inscription. La vérification de la propriété du certificat fournit un niveau de sécurité supplémentaire en permettant de s’assurer que l’utilisateur qui a chargé le certificat est en possession de la clé privée associée. La vérification empêche tout acteur malveillant qui intercepte votre trafic d’extraire un certificat intermédiaire et de l’utiliser pour créer un groupe d’inscription dans son propre service d’approvisionnement à des fins de détournement de vos appareils. En prouvant que vous êtes le propriétaire du certificat racine ou d’un certificat intermédiaire dans une chaîne d’approbation, vous prouvez que vous êtes autorisé à générer des certificats feuilles pour les appareils qui seront inscrits dans le cadre de ce groupe d’inscription. Par conséquent, le certificat racine ou intermédiaire configuré dans un groupe d’inscription doit être un certificat vérifié ou être associé à un certificat vérifié dans la chaîne d’approbation présentée par un appareil lors de son authentification auprès du service. Pour en savoir plus sur l’attestation de certificat X.509, consultez [Certificats X.509](concepts-x509-attestation.md) et [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Inscrire la partie publique d’un certificat X.509 et obtenir un code de vérification
+### <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Inscrire la partie publique d’un certificat X.509 et obtenir un code de vérification
 
 Pour inscrire un certificat d’autorité de certification auprès de votre service d’approvisionnement et obtenir un code de vérification que vous pouvez utiliser lors de la preuve de possession, procédez comme suit. 
 
@@ -46,7 +66,7 @@ Pour inscrire un certificat d’autorité de certification auprès de votre serv
 
    ![Vérifier le certificat](./media/how-to-verify-certificates/verify-cert.png)  
 
-## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Signer numériquement le code de vérification pour créer un certificat de vérification
+### <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Signer numériquement le code de vérification pour créer un certificat de vérification
 
 Vous devez à présent signer ce *code de vérification* avec la clé privée associée à votre certificat d’autorité de certification X.509, ce qui génère une signature. Appelée [preuve de possession](https://tools.ietf.org/html/rfc5280#section-3.1), cette opération permet d’obtenir un certificat de vérification signé.
 
@@ -61,7 +81,7 @@ Microsoft propose des outils et des exemples conçus pour simplifier la créatio
 Les scripts PowerShell et Bash fournis dans la documentation et les Kits de développement logiciel (SDK) s’appuient sur [OpenSSL](https://www.openssl.org/). Vous pouvez également utiliser OpenSSL ou d’autres outils tiers pour vous aider à effectuer la preuve de possession. Pour obtenir un exemple d’utilisation des outils fournis avec les Kits de développement logiciel (SDK), consultez [Créer une chaîne de certificats X.509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
-## <a name="upload-the-signed-verification-certificate"></a>Charger le certificat de vérification signé
+### <a name="upload-the-signed-verification-certificate"></a>Charger le certificat de vérification signé
 
 1. Chargez la signature obtenue en tant que certificat de vérification dans votre service d’approvisionnement dans le portail. Dans le panneau **Détails du certificat** du portail Azure, utilisez l’icône _Explorateur de fichiers_ en regard du champ **Fichier .pem ou .cer du certificat de vérification** pour charger le certificat de vérification signé à partir de votre système.
 

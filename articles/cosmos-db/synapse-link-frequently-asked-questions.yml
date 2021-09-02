@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/30/2020
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: 49c8546ebe4c06135c4a7848a46385643fbfbd2e
-  ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+  ms.openlocfilehash: ce507f756b766869960a06bd00a8b6ea98711205
+  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/22/2021
-  ms.locfileid: "111907031"
+  ms.lasthandoff: 07/22/2021
+  ms.locfileid: "114442867"
 title: Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -26,6 +26,10 @@ sections:
   - question: >
       Azure Synapse Link est-il pris en charge pour toutes les API Azure Cosmos DB ?
     answer: "Azure Synapse Link est pris en charge pour l’API Azure Cosmos DB SQL (Core) et pour l’API Azure Cosmos DB pour MongoDB. \n"
+  - question: >
+      Azure Synapse Link est-il pris en charge pour Azure Cosmos DB serverless ?
+    answer: >
+      Actuellement, il n’est pas possible d’activer la fonctionnalité Synapse Link sur un compte serverless.
   - question: >
       Azure Synapse Link est-il pris en charge pour les comptes Azure Cosmos DB à plusieurs régions ?
     answer: >
@@ -41,9 +45,6 @@ sections:
       Le magasin analytique est-il pris en charge dans toutes les régions Azure Cosmos DB ?
     answer: >
       Oui.
-  - question: >
-      La sauvegarde et la restauration sont-elles prises en charge par les comptes Azure Synapse Link ?
-    answer: "Pour les conteneurs avec le magasin analytique activé, la sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour l’instant. \n\nLorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](./online-backup-and-restore.md) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé. \n"
   - question: >
       Puis-je désactiver la fonctionnalité Azure Synapse Link de mon compte Azure Cosmos DB ?
     answer: >
@@ -154,6 +155,14 @@ sections:
 
 
       Quand vous utilisez des pools SQL serverless Synapse, vous pouvez interroger le magasin analytique Azure Cosmos DB en créant au préalable des informations d’identification SQL qui contiennent les clés de compte et les référencent dans la fonction OPENROWSET. Pour plus d’informations, consultez l’article [Requête avec un pool SQL serverless dans Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+  - question: >
+      Est-il possible d’utiliser des clés managées par le client avec Azure Synapse Link ?
+    answer: >
+      Oui, Azure Synapse Link prend en charge la configuration des clés managées par le client à l’aide de l’identité managée de votre compte Azure Cosmos DB. Vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Pour en savoir plus, consultez l’article [Configuration des clés managées par le client à l’aide des identités managées des comptes Azure Cosmos DB](how-to-setup-cmk.md#using-managed-identity).
+  - question: >
+      Azure Synapse Link offre-t-il l’isolement réseau avec des réseaux virtuels managés par Azure Synapse ?
+    answer: >
+      Oui, vous pouvez contrôler indépendamment l’accès réseau aux données dans le magasin transactionnel et le magasin analytique. L’isolement réseau s’effectue à l’aide de points de terminaison privés managés distincts pour chaque magasin, au sein de réseaux virtuels managés dans les espaces de travail Azure Synapse. Pour plus d’informations, consultez l’article [Configurer des points de terminaison privés pour le magasin analytique](analytical-store-private-endpoints.md).
 - name: Runtimes Synapse
   questions:
   - question: >

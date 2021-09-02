@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91ca96e69ae5408a3232513eea3ba1443c97064
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462621"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253602"
 ---
 # <a name="query-folders-and-multiple-files"></a>Interroger des dossiers et plusieurs fichiers  
 
@@ -26,7 +26,7 @@ Un pool SQL serverless prend en charge la lecture de plusieurs fichiers ou dossi
 
 La première étape consiste à **créer la base de données** dans laquelle seront exécutées les requêtes. Ensuite, initialisez les objets en exécutant le [script d’installation](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) sur cette base de données. Ce script crée les sources de données, les informations d'identification étendues à la base de données et les formats de fichiers externes utilisés dans ces exemples.
 
-Vous allez utiliser le dossier *csv/taxi* pour suivre les exemples de requêtes. Il contient les données d’enregistrements de courses des taxis jaunes de New York couvrant la période de juillet 2016 à juin 2018. Les fichiers du dossier *csv/taxi* sont nommés d'après l'année et le mois en utilisant le modèle suivant : yellow_tripdata_<year>-<month>.csv
+Vous allez utiliser le dossier *csv/taxi* pour suivre les exemples de requêtes. Il contient les données d’enregistrements de courses des taxis jaunes de New York couvrant la période de juillet 2016 à juin 2018. Les fichiers du dossier *csv/taxi* sont nommés d'après l'année et le mois en utilisant le modèle suivant : yellow_tripdata_\<year>-\<month>.csv
 
 ## <a name="read-all-files-in-folder"></a>Lire tous les fichiers dans le dossier
 

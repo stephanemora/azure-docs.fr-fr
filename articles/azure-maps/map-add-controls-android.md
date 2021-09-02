@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 90d037fc02bdc1c4d6fe682386790561c890c1e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b84150196467606800df737ba9c9d50c69346e30
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100217"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093586"
 ---
 # <a name="add-controls-to-a-map-android-sdk"></a>Ajouter des contrôles à une carte (Android SDK)
 
@@ -126,7 +126,7 @@ La capture d’écran ci-dessous est un contrôle de trafic chargé sur une cart
 
 ## <a name="a-map-with-all-controls"></a>Une carte avec tous les contrôles
 
-Il est possible de placer plusieurs contrôles dans un tableau et de les ajouter à la carte en même temps et de les placer dans la même zone de la carte afin de simplifier le développement. L’exemple suivant ajoute les contrôles de navigation standard à la carte à l’aide de cette approche.
+Il est possible de placer plusieurs contrôles dans un tableau et de les ajouter à la carte en même temps et de les placer dans la même zone de la carte afin de simplifier le développement. Le code suivant ajoute les contrôles de navigation standard à la carte à l’aide de cette approche.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -158,7 +158,7 @@ map.controls.add(
 
 ::: zone-end
 
-La capture d’écran ci-dessous montre tous les contrôles chargés sur une carte. Notez que l’ordre de leur ajout à la carte est l’ordre dans lequel ils s’affichent.
+La capture d’écran ci-dessous montre tous les contrôles chargés sur une carte. L’ordre de leur ajout à la carte est l’ordre dans lequel ils s’affichent.
 
 ![Tous les contrôles ajoutés à une carte](media/map-add-controls-android/android-all-controls.jpg)
 

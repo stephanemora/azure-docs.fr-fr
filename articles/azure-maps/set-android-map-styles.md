@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 4d96d116bc4350a3326722c87f65e887d5a54791
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 84e87593a67bfda512619c5637ffc13c07fa8111
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326540"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091269"
 ---
 # <a name="set-map-style-android-sdk"></a>Définition d’un style de carte (Android SDK)
 
@@ -33,14 +33,14 @@ Veillez à suivre la procédure du document [Démarrage rapide : Création d’
 Vous pouvez définir un style de carte dans le fichier de disposition de votre classe d’activité lorsque vous ajoutez le contrôle de carte. Le code suivant définit l’emplacement du centre, le niveau de zoom et le style de carte.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_centerLat="47.602806"
-    app:mapcontrol_centerLng="-122.329330"
-    app:mapcontrol_zoom="12"
-    app:mapcontrol_style="grayscale_dark"
+    app:azure_maps_centerLat="47.602806"
+    app:azure_maps_centerLng="-122.329330"
+    app:azure_maps_zoom="12"
+    app:azure_maps_style="grayscale_dark"
     />
 ```
 
@@ -204,6 +204,47 @@ map.setCamera(
 ::: zone-end
 
 Les proportions d’un cadre englobant ne sont pas forcément les mêmes que celles de la carte. De ce fait, la carte affiche souvent le cadre englobant dans sa totalité, mais serré verticalement ou horizontalement seulement.
+
+### <a name="animate-map-view"></a>Animer la vue cartographique
+
+Lorsque vous définissez les options de caméra de la carte, vous pouvez également utiliser des options d’animation pour créer une transition entre la vue de la carte actuelle et la suivante. Ces options spécifient le type d’animation et la durée nécessaire pour déplacer la caméra.
+
+| Option | Description |
+|--------|-------------|
+| `animationDuration(Integer durationMs)` | Spécifie la durée d’animation de la caméra entre les vues en millisecondes (ms). |
+| `animationType(AnimationType animationType)` | Spécifie le type de transition d’animation à effectuer.<br/><br/> - `JUMP` - modification immédiate.<br/> - `EASE` - modification progressive des paramètres de la caméra.<br/> - `FLY` - modification progressive des paramètres de la caméra à la suite d’un vol ressemblant à un arc. |
+
+Le code suivant montre comment animer la vue de la carte en utilisant une animation `FLY` sur une durée de trois secondes.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12),
+    animationType(AnimationType.FLY), 
+    animationDuration(3000)
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12.0),
+    AnimationOptions.animationType(AnimationType.FLY),
+    AnimationOptions.animationDuration(3000)
+)
+```
+
+::: zone-end
+
+L’exemple suivant montre le code ci-dessus animant la vue cartographique de New York à Seattle.
+
+![Mapper l’animation de la caméra de New York à Seattle](media/set-android-map-styles/android-animate-camera.gif)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

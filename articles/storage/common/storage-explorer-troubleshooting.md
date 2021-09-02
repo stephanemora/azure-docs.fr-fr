@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 2baf8c99161d000b92aa10f02a26018bdb7264f4
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950583"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093874"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -89,21 +89,30 @@ Il existe plusieurs rôles Azure intégrés qui peuvent fournir les autorisation
 > [!NOTE]
 > Les rôles Propriétaire, Contributeur et Contributeur de compte de stockage donnent accès à la clé de compte.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erreur : Certificat auto-signé dans la chaîne de certificats (et erreurs similaires)
+## <a name="ssl-certificate-issues"></a>Problèmes de certificat SSL
 
-Les erreurs de certificat se produisent généralement dans l’une des situations suivantes :
+### <a name="understanding-ssl-certificate-issues"></a>Comprendre les problèmes avec les certificats SSL
 
-- L’application est connectée via un _proxy transparent_, ce qui signifie qu’un serveur (par exemple, le serveur de votre société) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
-- Vous exécutez une application qui injecte un certificat TLS/SSL auto-signé dans les messages HTTPS que vous recevez. Les antivirus et les logiciels d’inspection du trafic réseau sont des exemples de ce type d’application.
+Assurez-vous d’avoir lu la section [Certificats SSL](./storage-explorer-network.md#ssl-certificates) dans la documentation réseau de l’Explorateur Stockage avant de continuer.
 
-Quand l’Explorateur Stockage voit un certificat auto-signé ou non approuvé, il ne sait plus si le message HTTPS reçu a été modifié. Si vous avez une copie du certificat auto-signé, vous pouvez donner instruction à l’Explorateur Stockage de lui faire confiance en effectuant les étapes suivantes :
+### <a name="use-system-proxy"></a>Utiliser le proxy système
+
+Si vous utilisez uniquement des fonctionnalités prenant en charge le paramètre **Utiliser le proxy système**, vous devez essayer d’utiliser ce paramètre. Vous pouvez en apprendre plus sur le paramètre **proxy système** [ici](./storage-explorer-network.md#use-system-proxy-preview).
+
+### <a name="importing-ssl-certificates"></a>Importation de certificats SSL
+
+Si vous avez une copie des certificats auto-signés, vous pouvez donner instruction à l’Explorateur Stockage de leur faire confiance en effectuant les étapes suivantes :
 
 1. Obtenez une copie X.509 encodée en base 64 du certificat (.cer).
 2. Accédez à **Modifier** > **Certificats SSL** > **Importer les certificats**, puis utilisez le sélecteur de fichiers pour rechercher, sélectionner et ouvrir le fichier .cer.
 
-Ce problème peut aussi se produire s’il existe plusieurs certificats (racine et intermédiaire). Pour corriger cette erreur, les deux certificats doivent être ajoutés.
+Ce problème peut aussi se produire s’il existe plusieurs certificats (racine et intermédiaire). Pour corriger cette erreur, tous les certificats doivent être importés.
 
-Si vous ne savez pas d’où provient le certificat, déterminez-le en suivant ces étapes :
+### <a name="finding-ssl-certificates"></a>Trouver des certificats SSL
+
+Si vous n’avez pas de copie des certificats auto-signés, essayez de communiquer avec votre administrateur informatique pour obtenir de l’aide.
+
+Vous pouvez essayer d’effectuer les étapes suivantes pour les trouver :
 
 1. Installez OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) : n’importe quelle version légère devrait suffire.
@@ -111,18 +120,20 @@ Si vous ne savez pas d’où provient le certificat, déterminez-le en suivant c
 2. Exécutez OpenSSL.
     * Windows : ouvrez le répertoire d’installation, sélectionnez **/bin/** , puis double-cliquez sur **openssl.exe**.
     * Mac et Linux : exécutez `openssl` à partir d’un terminal.
-3. Exécutez `s_client -showcerts -connect microsoft.com:443`.
-4. Recherchez les certificats auto-signés. Si vous ne parvenez pas à identifier les certificats auto-signés avec certitude, notez les endroits où le sujet `("s:")` et l’émetteur `("i:")` sont identiques.
+3. Exécutez cette commande : `s_client -showcerts -connect <hostname>:443`, pour tout nom d’hôte Microsoft ou Azure derrière lequel se trouvent vos ressources de stockage. Vous trouverez la liste des noms d’hôte fréquemment utilisés par l’Explorateur Stockage ici.
+4. Recherchez les certificats auto-signés. Si le sujet `("s:")` et l’émetteur `("i:")` sont les mêmes, alors le certificat est très probablement auto-signé.
 5. Chaque fois que vous trouvez un certificat auto-signé, copiez et collez tout ce qui compris entre `-----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----` dans un nouveau fichier .cer.
 6. Ouvrez l’Explorateur Stockage, puis accédez à **Modifier** > **Certificats SSL** > **Importer des certificats**. Servez-vous ensuite du sélecteur de fichiers pour rechercher, sélectionner et ouvrir les fichiers .cer que vous avez créés.
 
-Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contactez-nous via l’outil de commentaires. Vous pouvez aussi ouvrir l’Explorateur Stockage à partir de la ligne de commande en utilisant l’indicateur `--ignore-certificate-errors`. Quand il est ouvert avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat.
+### <a name="disabling-ssl-certificate-validation"></a>Désactiver la validation du certificat SSL
+
+Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contactez-nous via l’outil de commentaires. Vous pouvez aussi ouvrir l’Explorateur Stockage à partir de la ligne de commande avec l’indicateur `--ignore-certificate-errors`. Quand il est ouvert avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat. **Cet indicateur n’est pas recommandé.**
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
 
 ### <a name="understanding-sign-in"></a>Comprendre la connexion
 
-Vérifiez que vous avez lu la documentation [Se connecter à l’Explorateur Stockage](./storage-explorer-sign-in.md).
+Vérifiez que vous avez lu la documentation [Se connecter à l’Explorateur Stockage](./storage-explorer-sign-in.md) avant de continuer.
 
 ### <a name="frequently-having-to-reenter-credentials"></a>Il arrive souvent de devoir entrer de nouveau les informations d’identification
 

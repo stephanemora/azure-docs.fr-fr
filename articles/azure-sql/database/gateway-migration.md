@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, mathoma
 ms.date: 07/01/2019
-ms.openlocfilehash: 58194f74bb32fec7d58f707d74720c37e26dba5a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c6afb13902282e1e89acb6fe7929e97994883589
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699492"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463413"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,26 @@ Les informations les plus récentes seront conservées dans la table [Adresses I
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+## <a name="august-2021"></a>Août 2021
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
+- Norvège Est : 51.120.104.32, 51.120.208.32
+- Japon Est : 40.79.184.32
+- Inde Centre : 40.80.48.32, 20.192.96.32
+
+Ces passerelles SQL accepteront le trafic client à partir du 2 août 2021.
+
 ## <a name="june-2021"></a>Juin 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
 - Royaume-Uni Ouest : 51.140.208.96, 51.140.208.97
 - Corée Centre : 20.44.24.32, 20.194.64.33
 - Japon Est : 13.78.104.32
 
-Cette passerelle SQL doit commencer à accepter le trafic client le 1er juin 2021.
+Ces passerelles SQL accepteront le trafic client à partir du 1er juin 2021.
+
+# <a name="completed"></a>[Terminé](#tab/completed-ip)
+Les migrations de passerelle suivantes sont terminées : 
 
 ## <a name="may-2021"></a>Mai 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
@@ -74,9 +87,6 @@ Les passerelles SQL suivantes dans plusieurs régions sont en cours de désactiv
 - USA Ouest : 23.99.34.75
 
 Aucun impact sur le client n’est attendu, car ces passerelles (exécutées sur un matériel plus ancien) n’acheminent pas le trafic des clients. Les adresses IP de ces passerelles seront désactivées le 15 mars 2021.
-
-# <a name="completed"></a>[Terminé](#tab/completed-ip)
-Les migrations de passerelle suivantes sont terminées : 
 
 ## <a name="february-2021"></a>Février 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
@@ -192,7 +202,7 @@ Vous n’êtes pas impacté dans les cas suivants :
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Que faire si vous êtes concerné
 
-Nous vous recommandons d'autoriser le trafic sortant vers les adresses IP pour l'ensemble des [adresses IP de passerelles](connectivity-architecture.md#gateway-ip-addresses) de la région sur le port TCP 1433, et sur la plage de ports 11000-11999. Cette recommandation s'applique aux clients qui se connectent localement et à ceux qui se connectent via des points de terminaison de service. Pour en savoir plus sur les plages de ports, voir [Stratégie de connexion](connectivity-architecture.md#connection-policy).
+Nous vous recommandons d’autoriser le trafic sortant vers les adresses IP pour l’ensemble des [adresses IP de passerelles](connectivity-architecture.md#gateway-ip-addresses) de la région sur le port TCP 1433. Autorisez également la plage de ports 11000 à 11999 lors de la connexion à partir d’un client situé dans Azure (par exemple, une machine virtuelle Azure) ou lorsque votre stratégie de connexion est définie sur Redirection. Cette recommandation s'applique aux clients qui se connectent localement et à ceux qui se connectent via des points de terminaison de service. Pour en savoir plus sur les plages de ports, voir [Stratégie de connexion](connectivity-architecture.md#connection-policy).
 
 La validation des certificats risque d’échouer pour les connexions établies à partir d’applications à l’aide d’une version de Microsoft JDBC Driver antérieure à 4.0. Les versions inférieures de Microsoft JDBC s’appuient sur un nom courant (CN) dans le champ d’objet du certificat. L’atténuation consiste à s’assurer que la propriété hostNameInCertificate est définie sur *.database.windows.net. Pour savoir comment définir la propriété hostNameInCertificate, voir [Connexion avec chiffrement](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

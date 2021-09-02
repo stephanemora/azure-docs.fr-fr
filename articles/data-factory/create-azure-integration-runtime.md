@@ -5,16 +5,16 @@ description: Apprenez à créer un runtime d’intégration Azure dans Azure Dat
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 author: lrtoyou1223
 ms.author: lle
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: f004b3bff64fb4dca7c9d475acb84f6fc52e8837
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a9819af196af6df60644a5e25599c6066dc17eaa
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641428"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123312345"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,8 +57,6 @@ Procédez comme suit pour créer un Azure IR via l’interface utilisateur.
 
     :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Bouton Gérer de la page d’accueil":::
 
----
-
 2. Sélectionnez **Runtimes d’intégration** dans le volet gauche, puis **+ Nouveau**.
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
@@ -68,8 +66,6 @@ Procédez comme suit pour créer un Azure IR via l’interface utilisateur.
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Capture d’écran qui met en surbrillance les runtimes d’intégration dans le volet de gauche et le bouton + Nouveau.":::
-
----
 
 3. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 

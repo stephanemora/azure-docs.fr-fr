@@ -11,21 +11,24 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: df531a38d7a38141ee07a88ddce77a2e85c2cd98
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/23/2021
+ms.openlocfilehash: 56ac53d8c7b1361e01a5ca72478c68f6db15873f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413588"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090292"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et Azure CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur Azure SQL Database ou Azure Synapse Analytics. Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-overview.md).
+Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur Azure SQL Database ou Azure Synapse Analytics. Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-overview.md). 
 
 > [!NOTE] 
 > Azure SQL prend désormais en charge l’utilisation d’une clé RSA stockée dans un HSM géré en tant que protecteur TDE. Cette fonctionnalité est disponible en **préversion publique**. Azure Key Vault HSM géré est un service cloud entièrement géré, à haut niveau de disponibilité et à un seul locataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de modules de sécurité matériels certifiés FIPS 140-2 de niveau 3. En savoir plus sur les [HSM managés](../../key-vault/managed-hsm/index.yml).
+
+> [!NOTE]
+> Cet article s’applique à Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics (pools SQL dédiés (anciennement SQL DW)). Pour la documentation sur le chiffrement transparent des données pour les pools SQL dédiés à l’intérieur d’espaces de travail Synapse, consultez [Chiffrement Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## <a name="prerequisites-for-powershell"></a>Prérequis pour PowerShell
 
@@ -91,7 +94,7 @@ Pour ajouter des autorisations à votre serveur sur un HSM managé, ajoutez le r
 > La longueur combinée du nom du coffre de clés et du nom de la clé ne peut pas dépasser 94 caractères.
 
 > [!TIP]
-> Voici un exemple de KeyId de Key Vault : <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Voici un exemple de KeyId de Key Vault : `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`
 >
 > Exemple de KeyId de HSM managé :<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
@@ -159,7 +162,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> Conserver l’URI de clé ou keyID de la nouvelle clé pour l'étape suivante, par exemple : https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Conserver l’URI de clé ou keyID de la nouvelle clé pour l'étape suivante, par exemple : `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Ajouter la clé Key Vault au serveur et définir le protecteur TDE
 
