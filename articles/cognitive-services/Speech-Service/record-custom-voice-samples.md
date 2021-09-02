@@ -3,38 +3,35 @@ title: Enregistrer des échantillons vocaux personnalisés - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée de qualité production en préparant un script complet, en recrutant des voix professionnelles et en effectuant un enregistrement professionnel.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: erhopf
-ms.openlocfilehash: 0c58369392940dbb34e222693cb026f4fd84c8bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: 6384cd5a7f4fdd2441bcf14f24f8f36bd2f73d12
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458980"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533082"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
 La création d’une voix neuronale personnalisée de qualité production à partir de zéro n’est pas une mince affaire. Une voix neuronale personnalisée se compose avant tout d’une grande collection d’échantillons audio de voix humaine. Il est essentiel que ces enregistrements audio soient de haute qualité. Choisissez un talent vocal ayant une expérience dans ces types d’enregistrements, et enregistrez-le en faisant appel à un ingénieur spécialisé disposant d’un matériel professionnel.
 
-Mais avant de pouvoir effectuer ces enregistrements, vous avez besoin d’un script, c’est-à-dire les mots qui seront énoncés par votre voix professionnelle pour créer les échantillons audio. Pour de meilleurs résultats, votre script doit avoir une bonne couverture phonétique et être suffisamment varié pour entraîner le modèle vocal neuronal personnalisé.
+Mais avant de pouvoir effectuer ces enregistrements, vous avez besoin d’un script, c’est-à-dire les mots qui seront énoncés par votre voix professionnelle pour créer les échantillons audio.
 
 L’enregistrement d’une voix professionnelle implique de nombreux petits détails très importants. Ce guide est une feuille de route détaillant le processus qui vous aidera à obtenir des résultats homogènes.
 
 > [!NOTE]
 > Pour entraîner une voix neuronale, vous devez spécifier un profil de talent vocal avec le fichier de consentement audio fourni par le talent vocal qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal neuronal personnalisé. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous. 
 
-> « Je, soussigné(e) [indiquez votre nom et votre prénom], avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
+> « Je, soussigné(e) [indiquez votre nom et votre prénom], déclare avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
 Cette phrase servira à vérifier si les données d’entraînement sont enregistrées par la personne qui a donné son consentement. Découvrez ici davantage d’informations sur la [vérification des voix professionnelles](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 > La voix neuronale personnalisée est disponible avec un accès limité. Veillez à bien comprendre les [conditions de l’IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) et [demandez l’accès ici](https://aka.ms/customneural). 
-
-> [!TIP]
-> Pour optimiser ces résultats, n’hésitez pas à contacter Microsoft, qui vous aidera à développer votre voix neuronale personnalisée. Microsoft possède une grande expérience dans la production de voix de haute qualité pour ses propres produits, y compris Cortana et Office.
 
 ## <a name="voice-recording-roles"></a>Rôles lors d’un enregistrement vocal
 
@@ -51,7 +48,7 @@ Une même personne peut remplir plusieurs rôles. Ce guide part du principe que 
 
 ## <a name="choose-your-voice-talent"></a>Choisir votre voix professionnelle
 
-Les acteurs spécialisés dans la voix off ou le doublage sont de bons candidats. Vous trouverez également de bons profils parmi les annonceurs et les présentateurs. Choisissez une personne dont la voix naturelle vous plaît. Il est possible de créer une voix de « personnage », unique, mais il est beaucoup plus difficile pour la plupart des acteurs de reproduire cette voix de manière cohérente, et cet effort risque d’entraîner une déformation de la voix. Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
+Les acteurs spécialisés dans la voix off ou le doublage sont de bons candidats. Vous trouverez également de bons profils parmi les annonceurs et les présentateurs. Choisissez une personne dont la voix naturelle vous plaît. Il est possible de créer une voix de « personnage », unique, mais il est beaucoup plus difficile pour la plupart des acteurs de reproduire cette voix de manière cohérente, et cet effort risque d’entraîner une déformation de la voix. Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements pour le même style de voix doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
 
 Votre voix professionnelle représente l’autre moitié de l’équation. Le débit, le volume, la hauteur et la tonalité de la voix doivent être réguliers. Une parfaite diction est indispensable. L’acteur doit aussi pouvoir contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics de langage. Les enregistrements d’échantillons de voix peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
 
@@ -68,15 +65,71 @@ Le point de départ de toute session d’enregistrement de voix neuronale person
 
 Les énoncés de votre script peuvent provenir de n’importe quelle source : fiction, non-fiction, transcription de discours, bulletin d’informations ou tout autre document imprimé. Si vous souhaitez vous assurer que votre voix est parfaitement adaptée à l’énoncé de mots spécifiques (par exemple, la terminologie médicale ou le jargon de la programmation), vous pouvez inclure des phrases tirées d’ouvrages spécialisés ou de documents techniques. Pour obtenir une brève description des potentiels problèmes juridiques, consultez la section [« Aspects juridiques »](#legalities). Vous pouvez également écrire votre propre texte.
 
-Vos énoncés ne doivent pas nécessairement provenir de la même source ou du même type de source. Et leurs contenus peuvent être de nature totalement différente. Toutefois, si vous comptez utiliser des expressions spécifiques (par exemple, « Vous vous êtes connecté avec succès ») dans votre application de reconnaissance vocale, veillez à les inclure dans votre script. Vous aiderez ainsi votre acteur à bien prononcer ces expressions. Et si vous décidez d’utiliser un enregistrement à la place d’une synthèse vocale, vous aurez déjà ces expressions dans la même voix.
+Vos énoncés ne doivent pas nécessairement provenir de la même source ou du même type de source. Et leurs contenus peuvent être de nature totalement différente. Toutefois, si vous comptez utiliser des expressions spécifiques (par exemple, « Vous vous êtes connecté avec succès ») dans votre application de reconnaissance vocale, veillez à les inclure dans votre script. Vous aiderez ainsi votre acteur à bien prononcer ces expressions.
 
-L’homogénéité est essentielle dans le choix d’une voix professionnelle, mais la variété est le signe d’un bon script. Votre script doit inclure un grand nombre de mots et de phrases variées, avec un large éventail de longueurs, de structures et de tons. Chaque son dans la langue doit être représenté plusieurs fois dans de nombreux contextes (c’est la *couverture phonétique).*
+Nous recommandons que les scripts d’enregistrement comprennent à la fois des phrases générales et des phrases spécifiques à votre domaine. Par exemple, si vous prévoyez d’enregistrer 2 000 phrases, 1 000 d’entre elles peuvent être des phrases générales, 1 000 autres peuvent être des phrases de votre domaine cible ou du cas d’utilisation de votre application.  
 
-En outre, le texte doit inclure toutes les représentations d’un son particulier par écrit et placer chaque son à différents endroits dans les phrases. Les phrases déclaratives et les questions doivent être incluses et lues avec l’intonation appropriée.
+Nous fournissons des [exemples de scripts dans les domaines « Général », « Conversation » et « Service client » pour chaque langue](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) afin de vous aider à préparer vos scripts d’enregistrement. Vous pouvez utiliser ces scripts partagés Microsoft pour vos enregistrements directement ou les utiliser comme référence pour créer le vôtre. La création d’une voix neuronale personnalisée nécessite au moins 300 phrases enregistrées en tant que données d’apprentissage.
 
-Il est difficile d’écrire un script qui fournit *juste assez* de données pour permettre à Speech Studio de générer une bonne voix. En pratique, le moyen le plus simple de créer un script permettant d’obtenir une couverture phonétique efficace consiste à inclure un grand nombre d’échantillons. Les voix standard fournies par Microsoft ont été créées à partir de dizaines de milliers d’énoncés. Vous devez être prêt à enregistrer au moins quelques-uns voire plusieurs milliers énoncés pour générer une voix neuronale personnalisée de qualité production.
+Vous pouvez sélectionner les scripts spécifiques à votre domaine parmi les phrases que votre voix personnalisée utilisera pour la lecture.
 
-Vérifiez attentivement que le script ne contient pas d’erreurs. Si possible, demandez aussi à un tiers d’effectuer cette vérification. Lorsque vous parcourez le script avec votre acteur, vous allez probablement trouver d’autres erreurs.
+### <a name="script-selection-criteria"></a>Critères de sélection des scripts
+
+Voici quelques recommandations générales que vous pouvez suivre pour créer un corpus de qualité (exemples audio enregistrés) pour un apprentissage de voix neuronale personnalisée.
+
+-  Équilibrez votre script pour couvrir les différents types de phrases dans votre domaine, y compris les instructions, les questions, les exclamations, les phrases longues et les phrases courtes.
+
+   En général, chaque phrase doit contenir entre 4 et 30 mots. Il est nécessaire qu’aucune phrase en double ne soit incluse dans votre script.<br>
+   Pour savoir comment équilibrer les différents types de phrases, reportez-vous au tableau suivant.
+   
+   | Types de phrases | Couverture |
+   | :--------- | :--------------------------- |
+   | Phrases d’affirmation | Les phrases d’affirmation constituent la majeure partie du script, soit environ 70 à 80 % de l’ensemble. |
+   | Phrases interrogatives | Les phrases interrogatives doivent constituer environ 10 à 20 % de votre script de domaine, dont 5 à 10 % de tonalités montantes et 5 à 10 % de tonalités descendantes. |
+   | Phrases d’exclamation| Les phrases d’exclamation doivent constituer environ 10 à 20 % de vos scripts.|
+   | Court mot/expression| Les scripts de mots/phrases courts doivent également représenter environ 10 % du nombre total d’énoncés, avec 5 à 7 mots par cas. |
+
+   > [!NOTE]
+   > En ce qui concerne les mots/phrases courts, cela signifie en fait que des mots ou des phrases isolés doivent être inclus et séparés par une virgule. Cela permet à la voix professionnelle de s’arrêter brièvement à la virgule en lisant les scripts.
+
+   Voici les meilleures pratiques :
+    - Couverture équilibrée des parties de l’énoncé, comme les verbes, les noms, les adjectifs, etc.  
+    - Couverture équilibrée des prononciations. Incluez toutes les lettres de A à Z pour que le moteur TTS apprenne à prononcer chaque lettre dans le style défini.
+    - Lisible, compréhensible, sens commun pour la personne qui lit.
+    - Évitez un modèle trop similaire pour le mot/l’expression, comme « facile » et « plus facile ».
+    - Incluez un format différent pour les nombres : adresse, unité, téléphone, quantité, date, etc., dans tous les types de phrases.  
+    - Incluez des phrases orthographiques si c’est quelque chose que votre voix TTS aura l’habitude de lire. Par exemple, « Pomme s’écrit P O M M E ».
+
+- Ne placez pas plusieurs phrases sur une seule ligne ou dans un seul énoncé. Séparez chaque ligne par des énoncés.
+
+- Assurez-vous que la phrase est en grande partie propre. En général, n’incluez pas trop de mots non standard tels que des nombres ou des abréviations, car ils sont généralement difficiles à lire. Certaines applications peuvent avoir besoin de lire de nombreux nombres ou acronymes. Dans ce cas, vous pouvez inclure ces mots, mais en les normalisant dans leur forme parlée.  
+
+   Voici quelques-unes des meilleures pratiques, par exemple :
+    - Pour les lignes avec des abréviations, au lieu de « càd », utilisez « c’est-à-dire ».
+    - Pour les lignes comportant des chiffres, au lieu de « 911 », utilisez « neuf un un ».
+    - Pour les lignes avec des acronymes, au lieu de « ABC », utilisez « A B C ». Vérifiez également que votre voix professionnelle prononce ces mots de la façon attendue. Assurez la cohérence de votre script et des enregistrements au cours du processus d’apprentissage.  
+
+   > [!NOTE]
+   > Les scripts préparés pour votre voix professionnelle doivent respecter les conventions de lecture natives, telles que 50 % et $45, tandis que les scripts utilisés pour l’apprentissage doivent être normalisés pour s’assurer que les scripts correspondent au contenu audio, par exemple *cinquante pour cent* et *quarante-cinq dollars*. Vérifiez les scripts utilisés pour l’apprentissage sur base des enregistrements de votre voix professionnelle pour vous assurer qu’ils correspondent.
+
+- Votre script doit inclure un grand nombre de mots et de phrases variées, avec un large éventail de longueurs, de structures et de tons.  
+
+- Vérifiez attentivement que le script ne contient pas d’erreurs. Si possible, demandez aussi à un tiers d’effectuer cette vérification. Lorsque vous parcourez le script avec votre acteur, vous allez probablement trouver d’autres erreurs.
+
+### <a name="typical-defects-of-a-script"></a>Défauts typiques d’un script
+
+La qualité médiocre du script peut nuire aux résultats de l’apprentissage. Pour obtenir des résultats d’apprentissage de haute qualité, il est essentiel d’éviter les défauts.
+
+Les défauts de script figurent généralement dans les catégories suivantes :
+
+| Category | Exemple |
+| :--------- | :--------------------------- |
+| Utiliser un contenu sans signification d’une manière commune. | |
+| Phrases incomplètes. |-« Ceci était mon dernier Réveillon » (sans objet, aucune signification spécifique) <br>- « Il est évidemment déjà amusant (sans guillemets à la fin, ce n’est pas une phrase complète) |
+| Faute de frappe dans les phrases. | - Commencer par une minuscule<br>- Aucune ponctuation de fin si nécessaire<br> - Faute d’orthographe <br>- Ponctuation manquante : aucun point à la fin (sauf un titre d’actualité)<br>- Terminer par des symboles, sauf virgule, question, exclamation <br>- Format incorrect, par exemple :<br>    &emsp;- 45$ (doit être $45)<br>      &emsp;- Pas d’espace ou espace excessif entre les mots/punctuation |
+|La duplication dans un format similaire, une par modèle est suffisante. |-« À présent 13h00 à New York »<br>-« À présent 14h00 à New York »<br>-« À présent 15h00 à New York »<br>-« À présent 13h00 à Seattle »<br>-« À présent 13h00 à Washington D.C. » |
+|Mots étrangers rares : seul le mot étranger couramment utilisé est acceptable dans notre script. |  |
+|Emoji ou tout autre symbole peu courant. |  |
 
 ### <a name="script-format"></a>Format de script
 
@@ -84,11 +137,11 @@ Vous pouvez écrire votre script dans Microsoft Word. Ce script sera utilisé lo
 
 Un format de script de base contient trois colonnes :
 
-* Le numéro de l’énoncé, à partir de 1. Cette numérotation aide toutes les personnes dans le studio à accéder directement à un énoncé précis (« reprenons l’énoncé 356 »). Vous pouvez utiliser la fonctionnalité de numérotation de paragraphe de Word pour numéroter automatiquement les lignes du tableau.
-* Une colonne vide où vous inscrirez le numéro de la prise ou le code temporel de chaque énoncé, pour vous aider à le repérer dans l’enregistrement terminé.
-* Le texte de l’énoncé lui-même.
+- Le numéro de l’énoncé, à partir de 1. Cette numérotation aide toutes les personnes dans le studio à accéder directement à un énoncé précis (« reprenons l’énoncé 356 »). Vous pouvez utiliser la fonctionnalité de numérotation de paragraphe de Word pour numéroter automatiquement les lignes du tableau.
+- Une colonne vide où vous inscrirez le numéro de la prise ou le code temporel de chaque énoncé, pour vous aider à le repérer dans l’enregistrement terminé.
+- Le texte de l’énoncé lui-même.
 
-![Exemple de script](media/custom-voice/script.png)
+ ![Exemple de script](media/custom-voice/script.png)
 
 > [!NOTE]
 > La plupart des studios enregistrent de courts segments appelés *prises*. Chaque prise contient généralement de 10 à 24 énoncés. Le simple fait de noter le nombre de prises suffira pour trouver un énoncé plus tard. Si vous enregistrez dans un studio qui souhaite effectuer des enregistrements plus longs, utilisez plutôt des codes temporels. Le studio sera équipé d’un large écran indiquant le code.
@@ -113,9 +166,72 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 
 ## <a name="recording-your-script"></a>Enregistrement de votre script
 
-Enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Veillez à ne pas négliger l’enregistrement.
+Enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Il est recommandé de ne pas lésiner sur l’enregistrement.
 
 Discutez de votre projet avec l’ingénieur du son chargé de l’enregistrement et écoutez ses conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
+
+### <a name="recording-requirements"></a>Exigences en matière d’enregistrement
+
+Pour obtenir des résultats de haute qualité en termes d’apprentissage, respectez les conditions suivantes lors de l’enregistrement ou de la préparation des données :
+
+- Clair et bien prononcé
+
+- Vitesse naturelle : pas trop lente ou trop rapide entre les fichiers audio.
+
+- Volume, prosodie et pause appropriés : stabilité dans la même phrase ou entre les phrases, pause correcte pour la ponctuation.
+
+- Aucun bruit lors de l’enregistrement
+
+- Ajuster à votre conception de personnage
+
+- Pas d’accent incorrect : ajuster à la conception cible
+
+- Aucune prononciation incorrecte
+
+Vous pouvez vous référer à la spécification ci-dessous pour préparer les échantillons audio en tant que meilleure pratique.
+
+| Propriété | Valeur |
+| :--------- | :--------------------------- |
+| Format de fichier | *.wav, Mono |
+| Taux d’échantillonnage |  24 kHz |
+| Format d’échantillonnage | 16 bits, PCM |
+| Niveaux de volume de pointe | -3 dB à -6 dB |
+| SNR |  > 35 dB |
+| Silence |  -Il doit y avoir un silence (recommandé de 100 ms) au début et à la fin, mais pas plus de 200 ms<br>- Silence entre des mots ou des expressions < -30 dB<br>- Silence dans l’onde après le dernier mot prononcé <-60 dB |
+| Bruit ambiant, écho |   - Le niveau de bruit au début de l’onde avant de parler < -70 dB |
+
+> [!Note]
+> Vous pouvez enregistrer à une fréquence d’échantillonnage et une profondeur de bits plus élevées, par exemple au format PCM 48 kHz 24 bits. Au cours de l’apprentissage de la voix personnalisée, nous allons l’échantillonner au format PCM 24 kHz 16 bits automatiquement.
+
+### <a name="typical-audio-errors"></a>Erreurs audio typiques
+
+Pour obtenir des résultats d’apprentissage de haute qualité, il est fortement recommandé d’éviter les erreurs audio. Les erreurs de l’audio impliquent normalement les catégories suivantes :
+
+- Le fichier audio ne correspond pas à l’ID de script.
+- Le format du fichier WAR est illisible et non valide.
+- Le taux d’échantillonnage audio est inférieur à 16 KHz. Il est également recommandé que le taux d’échantillonnage du fichier WAV soit supérieur ou égal à 24 kHz pour une voix neuronale de haute qualité.
+- La valeur maximale du volume n’est pas comprise entre -3 dB (70 % du volume maximal) et -6 dB (50 %).  
+- Dépassement de la forme d’onde. Autrement dit, la forme d’onde à sa valeur maximale est coupée et n’est donc pas complète.
+
+   ![dépassement de la forme d’onde](media/custom-voice/overflow.png)
+
+- La partie de silence n’est pas propre, comme le bruit ambiant, le bruit de bouche et l’écho.
+
+  Par exemple, l’audio ci-dessous contient le bruit ambiant entre les énoncés.
+
+   ![bruit ambiant](media/custom-voice/environment-noise.png)
+
+   L’exemple ci-dessous contient des bruits de décalage DC ou d’écho.
+
+   ![Décalage DC ou écho](media/custom-voice/dc-offset-noise.png)
+
+- Le volume global est trop faible. Vos données seront marquées comme un problème si le volume est inférieur à-18 dB (10 % du volume maximal). Assurez-vous que tous les fichiers audio soient au même niveau de volume.
+
+  ![volume global](media/custom-voice/overall-volume.png)
+
+- Aucun silence avant le premier mot ou après le dernier mot. En outre, le silence de début ou de fin ne doit pas être supérieur à 200 ms ou inférieur à 100 ms.
+
+  ![Aucun silence](media/custom-voice/no-silence.png)
 
 ### <a name="do-it-yourself"></a>Faites-le vous-même
 
@@ -150,7 +266,7 @@ Ici, la majeure partie de la plage (hauteur) est utilisée, mais les pics les pl
 
 Enregistrez directement sur l’ordinateur par le biais d’une interface audio de haute qualité ou d’un port USB, en fonction du micro que vous utilisez. Pour un système analogique, gardez une chaîne audio simple : micro, préampli, interface audio, ordinateur. Vous pouvez acheter à un prix raisonnable une licence des logiciels [Avid Pro Tools](https://www.avid.com/en/pro-tools) et [Adobe Audition](https://www.adobe.com/products/audition.html). Si votre budget est extrêmement serré, essayez la version gratuite d’[Audacity](https://www.audacityteam.org/).
 
-Effectuez un enregistrement de type 44,1 kHz 16 bits monophonique (qualité CD) ou plus. Si votre équipement le permet, utilisez un échantillonnage 48 kHz 24 bits pour obtenir un son exceptionnel. Vous réduirez l’échantillonnage à 24 kHz 16 bits avant de l’envoyer à Speech Studio. Mais il est préférable de disposer d’un enregistrement original de haute qualité, si des modifications s’avèrent nécessaires.
+Effectuez un enregistrement de type 44,1 kHz 16 bits monophonique (qualité CD) ou plus. Si votre équipement le permet, utilisez un échantillonnage 48 kHz 24 bits pour obtenir un son exceptionnel. Vous réduirez l’échantillonnage à 24 kHz 16 bits avant de l’envoyer à Speech Studio. Mais il est préférable de disposer d’un enregistrement original de haute qualité, si des modifications s’avèrent nécessaires.
 
 Dans l’idéal, différentes personnes occupent les rôles de directeur, ingénieur du son et acteur. N’essayez pas de tout faire vous-même. Faute de mieux, une même personne peut endosser le costume de directeur et d’ingénieur du son.
 
@@ -178,11 +294,11 @@ L’acteur ne doit *pas* ajouter de pause entre chaque mot. La phrase doit toujo
 
 Créez un enregistrement de référence, ou *fichier de correspondance,* d’un énoncé standard en début de session. Demandez à l’acteur de répéter cette ligne à chaque page environ. À chaque fois, comparez le nouvel enregistrement et la référence. Cet exercice aide l’acteur à conserver un niveau constant de volume, de tempo et d’intonation. Pendant ce temps, l’ingénieur du son peut utiliser le fichier de correspondance comme référence pour les niveaux et l’homogénéité globale du son.
 
-Le fichier de correspondance est particulièrement important pour reprendre l’enregistrement après une pause ou à une date ultérieure. Vous pouvez jouer plusieurs fois ce fichier à l’acteur afin de le faire répéter, jusqu'à ce que les deux versions se ressemblent.
+Le fichier de correspondance est particulièrement important pour reprendre l’enregistrement après une pause ou à une date ultérieure. Jouez plusieurs fois ce fichier à l’acteur afin de le faire répéter, jusqu’à ce que les deux versions se ressemblent.
 
 Demandez à l’acteur de respirer profondément et de faire une pause avant chaque énoncé. Enregistrez quelques secondes de silence entre les énoncés. Les mots doivent être prononcés de la même façon chaque fois qu’ils apparaissent, en prenant en compte le contexte.
 
-Enregistrez environ cinq secondes de silence avant le premier enregistrement pour saisir la « tonalité de la pièce ». Cette pratique permet à Speech Studio d’atténuer les éventuels bruits parasites restants.
+Enregistrez environ cinq secondes de silence avant le premier enregistrement pour capturer la « tonalité de la pièce ». Cette pratique permet à Speech Studio d’atténuer les bruits parasites.
 
 > [!TIP]
 > Comme vous avez avant tout besoin de la voix de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version chargée dans Speech Studio.
@@ -198,7 +314,7 @@ Faites régulièrement des pauses et proposez une boisson à l’acteur pour mai
 
 ### <a name="after-the-session"></a>Après la session
 
-Les studios d’enregistrement modernes travaillent sur ordinateur. À la fin de la session, vous recevez un ou plusieurs fichiers audio, pas une bande. Ces fichiers seront probablement au format WAV ou AIFF en qualité CD (44,1 kHz 16 bits) ou plus. Un échantillonnage 48 kHz 24 bits est courant et recommandé. Les taux d’échantillonnage plus élevés, par exemple 96 kHz, ne sont généralement pas nécessaires.
+Les studios d’enregistrement modernes travaillent sur ordinateur. À la fin de la session, vous recevez un ou plusieurs fichiers audio, pas une bande. Ces fichiers seront probablement au format WAV ou AIFF en qualité CD (44,1 kHz 16 bits) ou plus. Un échantillonnage 24 kHz 16 bits est courant et recommandé. Le taux d’échantillonnage par défaut d’une voix neuronale personnalisée s’élève à 24 kHz.  Il est recommandé d’utiliser un taux d’échantillonnage de 24 kHz pour vos données d’apprentissage. Les taux d’échantillonnage plus élevés, par exemple 96 kHz, ne sont généralement pas nécessaires.
 
 Avec Speech Studio, chaque énoncé fourni doit être dans son propre fichier. Chaque fichier audio fourni par le studio contient plusieurs énoncés. Par conséquent, la principale tâche de post-production consiste à diviser les enregistrements et à les préparer pour l’envoi. L’ingénieur du son de l’enregistrement peut avoir placé des marqueurs dans le fichier (ou créé un « cue sheet » distinct) pour indiquer où chaque énoncé commence.
 

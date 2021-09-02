@@ -1,5 +1,5 @@
 ---
-title: Mettre à jour votre DK Azure Percept en OTA
+title: Mettre à jour Azure Percept DK en OTA
 description: Découvrez comment recevoir des mises à jour en OTA pour votre DK Azure Percept
 author: mimcco
 ms.author: mimcco
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: fc8e3e42e75eacd1c5bc3312b7adf6c8a8150f3c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c5045aed59be4c8903672691241b68f69e353e13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684340"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524485"
 ---
-# <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Mettre à jour votre DK Azure Percept en OTA
+# <a name="update-your-azure-percept-dk-using-over-the-air-ota-updates"></a>Mettre à jour Azure Percept DK en OTA
 
 Suivez ce guide pour découvrir comment mettre à jour le système d’exploitation et le microprogramme de la carte support de votre DK Azure Percept en OTA avec Device Update pour IoT Hub.
 

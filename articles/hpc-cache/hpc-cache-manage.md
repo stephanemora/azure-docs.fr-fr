@@ -4,14 +4,14 @@ description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du por
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 07/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cd4dcb4bac5f2876db9af194abc5835c1d0f5a3c
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862594"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586974"
 ---
 # <a name="manage-your-cache"></a>Gérer votre cache
 
@@ -33,6 +33,9 @@ Les boutons situés en haut de la page peuvent vous aider à gérer le cache :
 * [**Supprimer**](#delete-the-cache) : supprime définitivement le cache
 
 Apprenez-en davantage sur ces options ci-dessous.
+
+> [!TIP]
+> Vous pouvez également gérer des cibles de stockage individuelles - Lisez [Gérer les cibles de stockage](manage-storage-targets.md) pour plus de détails.
 
 Cliquez sur l’image ci-dessous pour regarder une [vidéo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) illustrant les tâches de gestion du cache.
 
@@ -247,14 +250,6 @@ $
 
 ---
 
-## <a name="cache-metrics-and-monitoring"></a>Mesures et supervision du cache
-
-La page d’aperçu affiche des graphiques pour des statistiques de cache de base, le débit du cache, les opérations par seconde et la latence.
-
-![capture d’écran de trois graphiques linéaires montrant les statistiques mentionnées ci-dessus pour un exemple de cache](media/hpc-cache-overview-stats.png)
-
-Ces graphiques font partie des outils de surveillance et d’analyse intégrés d’Azure. Des outils et des alertes supplémentaires sont disponibles à partir des pages sous l’en-tête **Surveillance** dans la barre latérale du portail. Pour plus d’informations, consultez la section portail de la [documentation Surveillance Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
-
 ## <a name="view-warnings"></a>Afficher les avertissements
 
 Si le cache est dans un état non sain, consultez la page **Avertissements**. Cette page présente les notifications du logiciel de cache qui peuvent vous aider à comprendre son état.
@@ -271,5 +266,5 @@ Les types d’avertissements que vous pouvez voir ici sont les suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [outils de mesures et statistiques Azure](../azure-monitor/index.yml)
+* [Surveiller le cache avec des statistiques](metrics.md)
 * Obtenir [de l’aide avec Azure HPC Cache](hpc-cache-support-ticket.md)

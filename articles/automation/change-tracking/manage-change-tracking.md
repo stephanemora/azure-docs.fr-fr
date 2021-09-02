@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d67acd025e453cee41a2461276d2f5df3066a141
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572639"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112518453"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gérer Change Tracking et Inventory
 
@@ -161,7 +161,7 @@ En matière d’enregistrements de modifications, vous pouvez effectuer différe
 
 |Requête  |Description  |
 |---------|---------|
-|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Affiche les enregistrements d’inventaire les plus récents des services Microsoft qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés. Les résultats se limitent à l’enregistrement le plus récent pour le nom de logiciel et l’ordinateur spécifiés.    |
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Affiche les enregistrements d’inventaire les plus récents des services Windows qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés. Les résultats se limitent à l’enregistrement le plus récent pour le nom de logiciel et l’ordinateur spécifiés.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Affiche les enregistrements de modifications des logiciels supprimés.|
 
 ## <a name="next-steps"></a>Étapes suivantes

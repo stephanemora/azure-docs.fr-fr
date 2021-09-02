@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 5/4/2021
-ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 8/12/2021
+ms.openlocfilehash: 56ed469843c78b299d0cec426eb490cedce1defe
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693285"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563431"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service dans le modèle d’achat DTU offrent la flexibilité nécessaire pour modifier les tailles de calcul avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
+Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service dans le modèle d’achat DTU offrent la flexibilité nécessaire pour modifier les tailles de calcul avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/azure-sql-database) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
 > [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) ne prend pas en charge le modèle d’achat DTU. 
@@ -34,7 +34,7 @@ Les niveaux de service du modèle d'achat DTU se distinguent par une plage de ta
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 
-||De base|Standard|Premium|
+||De base|standard|Premium|
 | :-- | --: |--:| --:|
 |**Charge de travail cible**|Développement et production|Développement et production|Développement et production|
 |**Contrat SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
@@ -63,7 +63,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||De base|Standard|Premium|
+||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | **Taille de stockage maximale** | 2 Go | 1 To | 4 To  |
 | **DTU maximales** | 5 | 3000 | 4000 |
@@ -176,8 +176,11 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 | Classe de service | Mesure du débit | Temps de réponse requis |
 | --- | --- | --- |
 | Premium |Transactions par seconde |95e centile à 0,5 seconde |
-| Standard |Transactions par minute |90e centile à 1 seconde |
+| standard |Transactions par minute |90e centile à 1 seconde |
 | De base |Transactions par heure |80e centile à 2 secondes |
+
+> [!NOTE]
+> Les mesures de temps de réponse sont spécifiques au [point de référence DTU](#dtu-benchmark). Les temps de réponse pour les autres charges de travail dépendent de la charge de travail et varient.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

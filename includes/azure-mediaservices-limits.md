@@ -4,20 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0c60b111483d896ad2beb008d165b9fb84160b35
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073695"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835558"
 ---
 >[!NOTE]
 >Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
 
 | Ressource | Limite | 
 | --- | --- | 
-| Comptes Azure Media Services dans un même abonnement | 25 (fixe) |
-| Unités réservées Multimédia par compte Media Services |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Comptes Azure Media Services dans un même abonnement | 25 (fixe) | 
 | Travaux par compte Media Services | 50 000<sup>2</sup> |
 | Tâches chaînées par travail | 30 (fixe) |
 | Ressources par compte Media Services | 1 000 000|

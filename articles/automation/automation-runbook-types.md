@@ -3,15 +3,15 @@ title: Types de Runbooks Azure Automation
 description: Cet article décrit les différents types de runbooks que vous pouvez utiliser dans Azure Automation, et énonce des considérations pour déterminer le type à utiliser.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2021
+ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9528443e7e89ecb91db70736d2051f813b130cce
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a6005c267423787fed61f2fb9badfea5769137d2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073177"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565361"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
 
@@ -70,6 +70,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell. Vous modifiez direct
 * Les runbooks ne peuvent pas utiliser un [traitement en parallèle](automation-powershell-workflow.md#use-parallel-processing) pour effectuer plusieurs actions en parallèle.
 * Les runbooks ne peuvent pas utiliser de [points de contrôle](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) pour reprendre le runbook en cas d'erreur.
 * Vous pouvez inclure uniquement les runbooks de workflow PowerShell et les runbooks graphiques comme runbooks enfants à l'aide de l'applet de commande [Start-AzureAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), ce qui crée un travail.
+* Les runbooks ne peuvent pas utiliser l’instruction PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires), elle n’est pas prise en charge dans le bac à sable Azure ou sur les runbooks Worker hybrides et entraînera l’échec de la tâche.
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -126,7 +127,10 @@ Les runbooks Python 3 sont pris en charge par les infrastructures globales Azur
 
 ### <a name="known-issues"></a>Problèmes connus
 
-Les travaux Python 3 échouent parfois avec un message d’exception *chemin de l’exécutable de l’interpréteur non valide*. Vous pouvez voir cette exception si un travail est retardé, démarre en plus de 10 minutes ou utilise **Start-AutomationRunbook** pour démarrer les runbooks Python 3. Si le travail est retardé, le redémarrage du runbook doit être suffisant.
+Pour les tâches cloud, les travaux Python 3 échouent parfois avec un message d’exception `invalid interpreter executable path`. Vous pouvez voir cette exception si le travail est retardé, démarre en plus de 10 minutes ou utilise **Start-AutomationRunbook** pour démarrer les runbooks Python 3. Si le travail est retardé, le redémarrage du runbook doit être suffisant. Les tâches hybrides devraient fonctionner sans problème si vous procédez comme suit :
+
+1. Créez une variable d’environnement nommée `PYTHON_3_PATH` et spécifiez le dossier d’installation. Par exemple, si le dossier d’installation est `C:\Python3`, ce chemin doit être ajouté à la variable.
+1. Redémarrez l’ordinateur après avoir défini la variable d’environnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

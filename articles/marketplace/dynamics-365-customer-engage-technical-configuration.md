@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/29/2021
-ms.openlocfilehash: 51ef78575a6987c3ac1537f1bb9d35e98e294ab6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/29/2021
+ms.openlocfilehash: 6d58fbdd2f6b4b89d2584b9f82e0f0fd0417ad35
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971419"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085107"
 ---
 # <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-technical-configuration"></a>Définir la configuration technique d’une offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -43,9 +43,9 @@ Pour plus d’informations sur la façon de générer votre package et de mettre
 
 ## <a name="crm-package-availability"></a>Disponibilité du package CRM
 
-Sélectionnez **+ Ajouter une région** pour spécifier les régions géographiques dans lesquelles votre package CRM sera disponible pour les clients. Un déploiement sur les régions souveraines suivantes exige une autorisation spéciale et une validation pendant le processus de certification : [Allemagne](../germany/index.yml), [cloud US Government](../azure-government/documentation-government-welcome.md)et TIP.
+Sélectionnez **+ Ajouter une région** pour spécifier les régions géographiques dans lesquelles votre package CRM sera disponible pour les clients. Ne sélectionnez aucune des régions souveraines suivantes : US Gov Cloud Sovereign, China Cloud Sovereign, Germany Sovereign, US Gov High Cloud Sovereign, Test in production Sovereign et US DoD Cloud Sovereign.
 
-Par défaut, **l’URL de configuration d’application** que vous avez saisie ci-dessus sera utilisée pour chaque région. Si vous le préférez, vous pouvez entrer une URL de configuration d’application distincte pour une ou plusieurs régions spécifiques.
+Par défaut, **l’URL de configuration d’application** que vous avez saisie ci-dessus sera utilisée pour chaque région. Laissez le champ d’URL de configuration de l’application vide.
 
 Sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant du menu de navigation de gauche, **Co-vendre avec Microsoft**. Pour plus d’informations sur la configuration de la co-vente avec Microsoft (facultatif), consultez la [Vue d’ensemble de la co-vente avec les équipes de ventes et les partenaires Microsoft](./co-sell-overview.md). Si vous ne configurez pas la co-vente ou si vous avez terminé, passez à **Étapes suivantes** ci-dessous.
 

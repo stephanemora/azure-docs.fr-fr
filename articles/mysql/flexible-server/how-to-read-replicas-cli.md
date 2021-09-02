@@ -5,16 +5,18 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 06/17/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc95cd3ab471826538a551687c38d1422e4b7163
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: adffb4edf7f689002cab7eae86388ff18ac04027
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108653"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122641166"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > La fonctionnalité Réplicas en lecture dans Azure Database pour MySQL – Serveur flexible est disponible en préversion.
@@ -22,9 +24,13 @@ ms.locfileid: "105108653"
 Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans le serveur flexible Azure Database pour MySQL à l’aide d’Azure CLI. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
 > [!Note]
-> Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité. 
+>
+> * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité. 
+>
+> * Si le GTID est activé sur un serveur primaire (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication basée sur GTID. Pour en savoir plus, reportez-vous à [Identificateur de transaction global (GTID ](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## <a name="azure-cli"></a>Azure CLI
+
 Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
 ### <a name="prerequisites"></a>Prérequis
@@ -35,7 +41,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+>Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 
@@ -58,7 +64,7 @@ az mysql flexible-server replica list --server-name mydemoserver --resource-grou
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
 
 > [!IMPORTANT]
-> L’arrêt de la réplication vers un serveur est irréversible. Une fois la réplication entre un serveur source et un serveur réplica arrêtée, il est impossible de revenir en arrière. Le serveur réplica devient un serveur autonome et prend désormais en charge la lecture et les écritures. Ce serveur ne peut pas être à nouveau transformé en réplica.
+>L’arrêt de la réplication vers un serveur est irréversible. Une fois la réplication entre un serveur source et un serveur réplica arrêtée, il est impossible de revenir en arrière. Le serveur réplica devient un serveur autonome et prend désormais en charge la lecture et les écritures. Ce serveur ne peut pas être à nouveau transformé en réplica.
 
 La réplication d'un serveur réplica en lecture peut être arrêtée en utilisant la commande suivante :
 
@@ -77,7 +83,7 @@ az mysql flexible-server delete --resource-group myresourcegroup --name mydemore
 ### <a name="delete-a-source-server"></a>Supprimer un serveur source
 
 > [!IMPORTANT]
-> La suppression d’un serveur source arrête la réplication vers tous les serveurs réplicas et supprime le serveur source proprement dit. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
+>La suppression d’un serveur source arrête la réplication vers tous les serveurs réplicas et supprime le serveur source proprement dit. Les serveurs réplicas deviennent des serveurs autonomes qui prennent désormais en charge la lecture et les écritures.
 
 Pour supprimer un serveur source, vous pouvez exécuter la commande **[az mysql flexible-server delete](/cli/azure/mysql/flexible-server)** .
 

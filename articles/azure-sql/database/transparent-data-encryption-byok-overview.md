@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 02/01/2021
-ms.openlocfilehash: b3403558cbc07d152bbae7e901464a8aa4a8e4d2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 06/23/2021
+ms.openlocfilehash: c3f6046617458606d13aab243c96ef24246714fd
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812765"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090310"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,11 +28,15 @@ Dans ce scénario, la clé utilisée pour le chiffrement de la Clé de chiffreme
 
 Pour Azure SQL Database et Azure Synapse Analytics, le protecteur TDE est défini au niveau du serveur et est hérité par toutes les bases de données chiffrées associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur dans SQL Database et Azure Synapse et à une instance gérée dans SQL Managed Instance tout au long de ce document, sauf indication contraire.
 
+> [!NOTE]
+> Cet article s’applique à Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics (pools SQL dédiés (anciennement SQL DW)). Pour la documentation sur le chiffrement transparent des données pour les pools SQL dédiés à l’intérieur d’espaces de travail Synapse, consultez [Chiffrement Azure Synapse Analytics](../../synapse-analytics/security/workspaces-encryption.md).
+
 > [!IMPORTANT]
 > Pour ceux qui utilisent le TDE géré par le service et qui souhaitent commencer à utiliser le TDE géré par le client, les données restent chiffrées pendant le processus de basculement et il n’y a pas de temps d’arrêt ni de rechiffrement des fichiers de base de données. Le basculement d’une clé managée par le service à une clé managée par le client nécessite uniquement de rechiffrement de la clé de chiffrement (DEK), une opération rapide et en ligne.
 
 > [!NOTE]
 > <a id="doubleencryption"></a>Pour fournir aux clients Azure SQL deux couches de chiffrement des données au repos, le chiffrement de l’infrastructure (à l’aide de l’algorithme de chiffrement AES-256) avec des clés gérées par la plateforme est déployé. Cela fournit une couche supplémentaire de chiffrement au repos, ainsi que le TDE avec des clés gérées par le client, ce qui est déjà disponible. Pour Azure SQL Database et Managed Instance, toutes les bases de données, y compris la base de données master et les autres bases de données système, sont chiffrées lorsque le chiffrement de l’infrastructure est activé. À ce stade, les clients doivent demander l’accès à cette fonctionnalité. Si cette fonctionnalité vous intéresse, contactez AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
+
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Avantages de TDE managé par le client
 

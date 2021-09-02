@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 08/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 60a846d72c1760c7f9dddac891f36e834b8364f3
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 324e494271287824c09030eaf918cd7f3881bc01
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028160"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563485"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
@@ -33,6 +33,14 @@ ms.locfileid: "107028160"
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+### <a name="verify-the-applications-publisher-domain"></a>Vérifier le domaine de l’éditeur de l’application
+Depuis novembre 2020, les inscriptions de nouvelles applications s’affichent comme étant non vérifiées dans l’invite de consentement de l’utilisateur, sauf si [le domaine de l’éditeur de l’application a été vérifié](../active-directory/develop/howto-configure-publisher-domain.md) ***et*** si l’identité de l’entreprise a été vérifiée auprès de Microsoft Partner Network puis associée à l’application. ([En savoir plus](../active-directory/develop/publisher-verification-overview.md) sur ce changement.) Notez que pour les flux d’utilisateurs Azure AD B2C, le domaine de l’éditeur s’affiche uniquement lorsque vous utilisez un compte Microsoft ou un autre [locataire Azure AD](../active-directory-b2c/identity-provider-azure-ad-single-tenant.md) comme fournisseur d’identité. Pour répondre à ces nouvelles exigences, procédez comme suit :
+
+1. [Vérifiez l’identité de votre entreprise à l’aide de votre compte Microsoft Partner Network (MPN)](/partner-center/verification-responses). Ce processus vérifie les informations relatives à votre entreprise et au contact principal de votre entreprise.
+1. Effectuez le processus de vérification de l’éditeur pour associer votre compte MPN à votre inscription d’application à l’aide de l’une des options suivantes :
+   - Si l’inscription d’application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD, [vérifiez votre application dans le portail d’inscription des applications](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - Si votre inscription d’application pour le fournisseur d’identité du compte Microsoft se trouve dans un locataire Azure AD B2C, [marquez votre application comme étant validée par l’éditeur à l’aide des API Microsoft Graph](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (par exemple, à l’aide d’Afficheur Graph). L’interface utilisateur pour la définition de l’éditeur de publication vérifié d’une application est actuellement désactivée pour les locataires Azure AD B2C.
 
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
 

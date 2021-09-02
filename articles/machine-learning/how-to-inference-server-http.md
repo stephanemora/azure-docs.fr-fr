@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: inference server, local development, local debugging
+ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
-ms.openlocfilehash: d54195829c4f4734d135e3468897711bdaa0421f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 4d8c2dbbfe313d480fce953af0b39ee01cd32230
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538446"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597785"
 ---
 # <a name="azure-machine-learning-inference-http-server-preview"></a>Serveur HTTP d’inférence Azure Machine Learning (préversion)
 
@@ -24,9 +24,9 @@ Le serveur HTTP d’inférence Azure Machine Learning [(préversion)](https://az
 
 Le serveur peut également être utilisé lors de la création de portes de validation dans un pipeline d’intégration et de déploiement continus. Par exemple, démarrez le serveur avec le script candidat et exécutez la suite de tests sur le point de terminaison local.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
-- Version de Python : 3.7
+- Requis : Python >=3.7
 
 ## <a name="installation"></a>Installation
 
@@ -55,7 +55,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Installez le package `azureml-inference-server-http` à partir du flux [pypi](https://pypi.org/) :
+1. Installez le package `azureml-inference-server-http` à partir du flux [pypi](https://pypi.org/project/azureml-inference-server-http/) :
 
     ```bash
     python -m pip install azureml-inference-server-http
@@ -84,13 +84,6 @@ python -m pip install azureml-inference-server-http
     > [!NOTE]
     > Le serveur est hébergé à 0.0.0.0, ce qui signifie qu’il doit écouter toutes les adresses IP de l’ordinateur hôte.
 
-    Le serveur est à l’écoute sur le port 5001 à ces routes.
-
-    | Nom | Route|
-    | --- | --- |
-    | Diagnostic Probe Liveness | 127.0.0.1:5001/|
-    | Score | 127.0.0.1:5001/score|
-
 1. Envoyez une requête de scoring au serveur à l’aide de `curl` :
 
     ```bash
@@ -105,6 +98,15 @@ python -m pip install azureml-inference-server-http
 
 Vous pouvez maintenant modifier le script de scoring et tester vos modifications en réexécutant le serveur.
 
+## <a name="server-routes"></a>Itinéraires du serveur
+
+Le serveur est à l’écoute sur le port 5001 à ces routes.
+
+| Nom | Route|
+| --- | --- |
+| Diagnostic Probe Liveness | 127.0.0.1:5001/|
+| Score | 127.0.0.1:5001/score|
+
 ## <a name="server-parameters"></a>Paramètres de serveur
 
 Le tableau suivant contient les paramètres acceptés par le serveur :
@@ -115,6 +117,7 @@ Le tableau suivant contient les paramètres acceptés par le serveur :
 | model_dir | Faux | N/A | Chemin relatif ou absolu du répertoire contenant le modèle utilisé pour l’inférence.
 | port | False | 5001 | Port de service du serveur.|
 | worker_count | False | 1 | Nombre de threads de travail qui traiteront les requêtes simultanées. |
+| appinsights_instrumentation_key | Faux | N/A | Clé d’instrumentation vers Application Insights où les journaux seront publiés. |
 
 ## <a name="request-flow"></a>Flux de demande
 
@@ -129,6 +132,16 @@ Les étapes suivantes expliquent comment le serveur HTTP d’inférence Azure Ma
 1. Pour finir, la requête est envoyée à votre script d’entrée. Le script d’entrée effectue ensuite un appel d’inférence au modèle chargé, et retourne une réponse.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagramme du processus de serveur HTTP":::
+
+## <a name="how-to-integrate-with-visual-studio-code"></a>Comment procéder à l’intégration à Visual Studio Code
+
+Il existe deux méthodes permettant d’utiliser Visual Studio Code (VSCode) et [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) pour un débogage avec le package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/). 
+
+1. L’utilisateur démarre le serveur d’inférence AzureML dans une ligne de commande et utilise VSCode + Python Extension pour s’attacher au processus.
+1. L’utilisateur configure le `launch.json` dans le VSCode et démarre le serveur d’inférence AzureML dans VSCode.
+
+Dans ces deux méthodes, l’utilisateur peut définir un point d’arrêt et déboguer pas à pas.
+
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="do-i-need-to-reload-the-server-when-changing-the-score-script"></a>Dois-je recharger le serveur lors de la modification du script de score ?
@@ -141,4 +154,5 @@ Le serveur d’inférence Azure Machine Learning s’exécute sur les systèmes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la création d’un script d’entrée et le déploiement de modèles, consultez [Guide pratique pour déployer un modèle à l’aide d’Azure Machine Learning](how-to-deploy-and-where.md).
+* Pour plus d’informations sur la création d’un script d’entrée et le déploiement de modèles, consultez [Guide pratique pour déployer un modèle à l’aide d’Azure Machine Learning](how-to-deploy-and-where.md).
+* En savoir plus sur les [Images Docker prédéfinies pour l’inférence](concept-prebuilt-docker-images-inference.md)

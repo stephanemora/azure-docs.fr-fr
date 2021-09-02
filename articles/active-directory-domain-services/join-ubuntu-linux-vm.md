@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79c3481f523efba4a88a0c559e7e1dcccbeba545
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619485"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516842"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Joindre une machine virtuelle Ubuntu Linux à un domaine managé par Azure Active Directory Domain Services
 
@@ -36,6 +36,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, le premier tutoriel [crée et configure un domaine managé Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Un compte d’utilisateur membre du domaine managé.
+* Des noms de machine virtuelle Linux uniques d’un maximum de 15 caractères pour éviter les noms tronqués susceptibles de générer des conflits dans Active Directory.
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Créer une machine virtuelle Ubuntu Linux et s’y connecter
 

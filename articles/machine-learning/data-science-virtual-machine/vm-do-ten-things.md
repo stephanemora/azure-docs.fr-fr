@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 9df1304cd127f15d948fba3e498f6fbfbce30557
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e4e4a7169d7550523fb2e712560d1bdf86197558
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701011"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679131"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Science des données avec une Data Science Virtual Machine Windows
 
@@ -49,7 +49,7 @@ Dans cet article vous allez découvrir comment utiliser votre DSVM afin d’effe
 
 
 ## <a name="use-jupyter-notebooks"></a>Utiliser des notebooks Jupyter
-Jupyter Notebook fournit un IDE basé sur navigateur pour l’exploration et la modélisation des données. Vous pouvez utiliser Python 2, Python 3 ou R (open source et Microsoft R Server) dans un notebook Jupyter.
+Jupyter Notebook fournit un IDE basé sur navigateur pour l’exploration et la modélisation des données. Vous pouvez utiliser Python 2, Python 3 ou R dans un notebook Jupyter.
 
 Pour démarrer Jupyter Notebook, sélectionnez l’icône **Jupyter Notebook** dans le menu **Démarrer** ou sur le Bureau. À l’invite de commande DSVM, vous pouvez également exécuter la commande ```jupyter notebook``` à partir du répertoire où se trouvent vos notebooks, ou bien à partir de l’emplacement où vous souhaitez en créer d’autres.  
 
@@ -68,6 +68,10 @@ Lorsque vous avez démarré Jupyter, accédez au répertoire `/notebooks` pour o
 Une fois dans le notebook, vous pouvez explorer vos données, générer le modèle et le tester avec les bibliothèques de votre choix.
 
 ## <a name="explore-data-and-develop-models-with-microsoft-machine-learning-server"></a>Explorer les données et développer des modèles avec Microsoft Machine Learning Server
+
+> [!NOTE]
+> La prise en charge de Machine Learning Server autonome prendra fin le 1er juillet 2021. Nous allons le supprimer des images DSVM après le 30 juin. Les déploiements existants continueront d’avoir accès au logiciel, mais en raison de la date de fin du support, il n’y aura pas de prise en charge après le 1er juillet 2021.
+
 Vous pouvez utiliser des langages tels que R et Python pour effectuer des analyses de données directement sur la DSVM.
 
 Pour R, vous pouvez utiliser un IDE comme RStudio, accessible à partir du menu Démarrer ou sur le Bureau. Vous pouvez aussi utiliser Outils R pour Visual Studio. Microsoft a fourni des bibliothèques supplémentaires en plus d’Open source/CRAN-R pour permettre de mettre à l’échelle l’analytique et d’analyser des volumes de données plus importants que la taille de mémoire autorisée lors d’une analyse parallèle par blocs. 
@@ -254,7 +258,7 @@ Les données sont lues en tant que trame de données :
 ### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics et les bases de données
 Azure Synapse Analytics est un entrepôt de données élastique en tant que service offrant une expérience SQL Server de classe Entreprise.
 
-Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Une fois que vous avez configuré Azure Synapse Analytics, vous pouvez utiliser [cette procédure pas à pas](../team-data-science-process/sqldw-walkthrough.md) pour le chargement, l’exploration et la modélisation de données en utilisant les données d’Azure Synapse Analytics.
+Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Une fois que vous avez configuré Azure Synapse Analytics, vous pouvez utiliser [cette procédure pas à pas](/azure/architecture/data-science-process/sqldw-walkthrough) pour le chargement, l’exploration et la modélisation de données en utilisant les données d’Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB est une base de données NoSQL sur le cloud. Vous pouvez l’utiliser pour travailler avec des documents comme JSON, et pour stocker et interroger les documents.

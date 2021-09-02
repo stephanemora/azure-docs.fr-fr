@@ -3,42 +3,37 @@ title: Utiliser des balises d’index de blob pour gérer et rechercher des donn
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
 author: normesta
 ms.author: normesta
-ms.date: 03/05/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 423cc6f1adffc305b5a79ecb84f4e736926ce343
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653985"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282022"
 ---
-# <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob (préversion) pour gérer et rechercher des données sur Stockage Blob Azure
+# <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Utiliser des balises d’index de blob pour gérer et rechercher des données sur Stockage Blob Azure
 
 Les balises d’index de blob catégorisent les données de votre compte de stockage à l’aide d’attributs de balise clé-valeur. Ces balises sont automatiquement indexées et exposées en tant qu’index multidimensionnel pouvant faire l’objet d’une recherche pour trouver facilement des données. Cet article explique comment définir, obtenir et trouver des données à l’aide de balises d’index d’objets blob.
 
-> [!IMPORTANT]
-> Les étiquettes d’index d’objets blob sont actuellement en **préversion** et sont disponibles dans toutes les régions publiques. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
-
-Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](storage-manage-find-blobs.md).
+Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données blob Azure avec des balises d’index de blob](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-- Un abonnement Azure inscrit et approuvé pour l’accès à la préversion de l’index de blob
+- Un abonnement Azure inscrit et approuvé pour l’accès
 - Un accès au [portail Azure](https://portal.azure.com/)
 
 # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/net)
 
-L’index de blob étant disponible en préversion, le package de stockage .NET est publié dans le flux NuGet de préversion. Cette bibliothèque est susceptible d’être modifiée au cours de la période de préversion.
-
 1. Configurez votre projet Visual Studio pour prendre en main la bibliothèque de client Stockage Blob Azure v12 pour .NET. Pour en savoir plus, consultez [Démarrage rapide .NET](storage-quickstart-blobs-dotnet.md).
 
-2. Dans le Gestionnaire de package NuGet, recherchez le package **Azure.Storage.Blobs**, puis installez la version **12.7.0-preview.1** ou une version ultérieure pour votre projet. Vous pouvez également exécuter la commande PowerShell : `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`.
+2. Dans le Gestionnaire de package NuGet, recherchez le package **Azure.Storage.blobs**, puis installez la version **12.7.0** ou une version ultérieure pour votre projet. Vous pouvez également exécuter la commande PowerShell : `Install-Package Azure.Storage.Blobs -Version 12.7.0`.
 
    Pour savoir comment procéder, consultez [Rechercher et installer un package](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -62,9 +57,9 @@ Cette tâche peut être effectuée par un [Propriétaire des données Blob du st
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
+2. Sous **Stockage de données**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Charger** et naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs.
 
@@ -122,9 +117,9 @@ La définition et la mise à jour de balises d’index blob peuvent être effect
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage.
 
-2. Sous **service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
+2. Sous **Stockage de données**, accédez à l’option **Conteneurs**, sélectionnez votre conteneur.
 
 3. Sélectionnez votre blob dans la liste des blobs du conteneur sélectionné.
 
@@ -203,7 +198,7 @@ Dans le portail Azure, le filtre des balises d’index de blobs applique automat
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Sous **Service BLOB**, accédez à l’option **Conteneurs**, puis sélectionnez votre conteneur.
+2. Sous **Stockage de données**, accédez à l’option **Conteneurs**, sélectionnez votre conteneur.
 
 3. Sélectionnez le bouton **Filtre des balises d’index d’objets blob** pour filtrer à l’intérieur du conteneur sélectionné.
 
@@ -321,5 +316,5 @@ Des stratégies de [gestion du cycle de vie](storage-lifecycle-management-concep
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Pour en savoir plus sur les balises d’index de blob, consultez [Gérer et rechercher des données Blob Azure avec des balises d’index de blob (préversion)](storage-manage-find-blobs.md ).
+ - Pour en savoir plus sur les balises d’index de blob, consultez [Gérer et rechercher des données blob Azure avec des balises d’index de blob](storage-manage-find-blobs.md ).
  - Pour en savoir plus sur la gestion de cycle de vie, consultez [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: c99ad16e119c4262aa6d9d645b2457cdd46061b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7e5690e95bdc3f55a108fdc7c09e4d6e21b9c2b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700675"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968066"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
 
@@ -23,6 +23,7 @@ La solution AD Replication Status supervise régulièrement votre environnement 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
+
 Utilisez les informations suivantes pour installer et configurer la solution.
 
 ### <a name="prerequisites"></a>Prérequis
@@ -33,9 +34,11 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Installer des agents sur les contrôleurs de domaine
+
 Vous devez installer des agents sur les contrôleurs de domaine qui sont membres du domaine à évaluer. Sinon, vous devez installer des agents sur les serveurs membres et les configurer de façon à envoyer des données de réplication AD à Azure Monitor. Pour comprendre comment connecter des ordinateurs Windows directement à Azure Monitor, consultez [Connecter des ordinateurs Windows à Azure Monitor](../agents/agent-windows.md). Si votre contrôleur de domaine fait déjà partie d’un environnement System Center Operations Manager existant que vous souhaitez connecter à Azure Monitor, consultez la page [Connecter Operations Manager à Azure Monitor](../agents/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Activer un contrôleur autre qu’un contrôleur de domaine
+
 Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine à Azure Monitor, vous pouvez utiliser n’importe quel autre ordinateur connecté à Azure Monitor de votre domaine afin de collecter des données pour le pack de solution AD Replication Status et de faire en sorte qu’il les envoie.
 
 1. Vérifiez que l’ordinateur est membre du domaine que vous souhaitez analyser à l’aide de la solution État de la réplication AD.
