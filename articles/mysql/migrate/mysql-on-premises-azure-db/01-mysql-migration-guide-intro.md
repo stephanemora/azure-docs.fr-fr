@@ -1,5 +1,5 @@
 ---
-title: Guide de migration de MySQL local vers Azure Database pour MySQL - Introduction
+title: Migration de MySQL local vers Azure Database pour MySQL – Introduction
 description: Guide de migration de MySQL local vers Azure Database pour MySQL
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: ce858a79e6e5bebd03fad92b57dfe1668d3d02d8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 5023d53132985875fc0b927148a6efbfb0239cc3
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082646"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085125"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-introduction"></a>Guide de migration de MySQL local vers Azure Database pour MySQL - Introduction
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql"></a>Migration de MySQL local vers Azure Database pour MySQL
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 Ce guide de migration est conçu pour fournir des informations superposables et actionnables pour les intégrateurs de logiciels et aux clients MySQL cherchant à migrer des charges de travail MySQL vers [Azure Database pour MySQL](../../overview.md). Ce guide fournit des informations applicables à la plupart des cas et donne des conseils pour réussir la planification et l’exécution d’une migration MySQL vers Azure.
 
@@ -39,6 +41,8 @@ En plus de l’offre PaaS, il est toujours possible d’exécuter MySQL sur des 
 **Comparaison des environnements MySQL**
 
 Ce guide porte entièrement sur la migration des charges de travail MySQL locales vers l’offre de plateforme en tant que service Azure Database pour MySQL, en raison de ses différents avantages par rapport à l’infrastructure en tant que service (IaaS), tels que les fonctionnalités de scale-up/scale-out, de paiement à l’utilisation, de haute disponibilité, de sécurité et de gestion.  
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Cas d’usage représentatif](./02-representative-use-case.md)

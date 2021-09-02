@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/01/2019
   ms.author: sngun
   ms.custom: seodec18
-  ms.openlocfilehash: 8ded857f617ab61f6914635f41642b86c1848861
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: 945947dc1ed0b0cb5d9537e3456825fe20170c9e
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122321783"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123106220"
 title: Questions fréquentes sur les différentes API dans Azure Cosmos DB
 summary: >
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -127,7 +127,7 @@ sections:
   - question: >
       Qu’est-ce qu’une clé primaire ?
     answer: >
-      Une clé primaire est un jeton de sécurité permettant d’accéder à toutes les ressources d’un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Soyez prudent lorsque vous distribuez des clés primaires. La clé principale et la clé secondaire sont disponibles dans le panneau **Clés** du [portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](manage-with-cli.md#list-account-keys).
+      Une clé primaire est un jeton de sécurité permettant d’accéder à toutes les ressources d’un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Soyez prudent lorsque vous distribuez des clés primaires. La clé principale et la clé secondaire sont disponibles dans le panneau **Clés** du [portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](sql/manage-with-cli.md#list-account-keys).
   - question: >
       Quelles sont les régions configurables pour PreferredLocations ?
     answer: >

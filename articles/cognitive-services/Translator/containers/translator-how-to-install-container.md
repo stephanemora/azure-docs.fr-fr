@@ -12,16 +12,16 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: local, Docker, conteneur, identifier
-ms.openlocfilehash: 4cbc6e65eb72050726a0da5969aab07bf06358f2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 680f1f6f1bfddc5bf525ae06b61bcf9098dc850f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961708"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563036"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Installer et exécuter des conteneurs Translator (préversion)
 
-  Les conteneurs vous permettent d’exécuter certaines fonctionnalités du service Translator dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Cet article explique comment télécharger, installer et exécuter un conteneur Translator.
+  Les conteneurs vous permettent d’exécuter plusieurs des fonctionnalités du service Translator dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Cet article explique comment télécharger, installer et exécuter un conteneur Translator.
 
 Les conteneurs Translator vous permettent de créer une architecture d’application Translator optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie.
 
@@ -36,7 +36,7 @@ Les conteneurs Translator vous permettent de créer une architecture d’applica
 
 Pour commencer, vous avez besoin d’un [**compte Azure**](https://azure.microsoft.com/free/cognitive-services/) actif.  Si vous n’en avez pas, vous pouvez [**créer un compte gratuit**](https://azure.microsoft.com/free/).
 
-Vous devez également remplir les prérequis suivants pour utiliser des conteneurs Translator :
+Vous devez également disposer des éléments suivants :
 
 | Obligatoire | Objectif |
 |--|--|
@@ -165,7 +165,7 @@ Il existe plusieurs façons de vérifier que le conteneur est exécuté :
 
 #### <a name="english-leftrightarrow-german"></a>Anglais &leftrightarrow; Allemand
 
-Accédez à la page Swagger : <http://localhost:5000/swagger/index.html>
+Accédez à la page Swagger : `<http://localhost:5000/swagger/index.html>`
 
 1. Sélectionnez **POST /translate**
 1. Sélectionnez **Faites un essai**.

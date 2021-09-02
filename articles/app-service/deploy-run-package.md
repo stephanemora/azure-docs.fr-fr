@@ -3,12 +3,12 @@ title: Exécuter votre application à partir d’un package ZIP
 description: Déployez le package ZIP de votre application avec atomicité. Améliorez la prévisibilité et la fiabilité du comportement de votre application pendant le processus de déploiement ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: d3315370342f54091598aa3f77f70f03bda4ad33
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 99de9745b75bd21a0fb3126c51b38b047e9b77f4
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772736"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135286"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Exécuter votre application dans Azure App Service directement à partir d’un package ZIP
 
@@ -53,7 +53,7 @@ La commande redémarre également l’application. Étant donné que `WEBSITE_RU
 
 ## <a name="run-from-external-url-instead"></a>Exécuter à partir d’une URL externe
 
-Vous pouvez également exécuter un package à partir d’une URL externe, comme le stockage Blob Azure. Vous pouvez utiliser [l’Explorateur Stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger des fichiers de package sur votre compte Stockage Blob. Vous devez utiliser un conteneur de stockage privé avec une [signature d’accès partagé (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) pour permettre au runtime App Service d’accéder au package en toute sécurité. 
+Vous pouvez également exécuter un package à partir d’une URL externe, comme le stockage Blob Azure. Vous pouvez utiliser [l’Explorateur Stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger des fichiers de package sur votre compte Stockage Blob. Vous devez utiliser un conteneur de stockage privé avec une [signature d’accès partagé (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) ou [utiliser une idéntité managée](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) pour permettre au runtime App Service d’accéder au package en toute sécurité. 
 
 Une fois que vous avez chargé votre fichier sur le stockage Blob et que vous avez une URL SAS pour le fichier, définissez le paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` sur l’URL. Pour ce faire, l’exemple suivant utilise l’interface de ligne de commande Azure :
 
@@ -62,6 +62,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 Si vous publiez un package mis à jour portant le même nom sur le stockage Blob, vous devez redémarrer votre application afin que le package mis à jour soit chargé dans App Service.
+
+### <a name="fetch-a-package-from-azure-blob-storage-using-a-managed-identity"></a>Extraire un package à partir de Stockage Blob Azure à l’aide d’une identité managée
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## <a name="troubleshooting"></a>Dépannage
 

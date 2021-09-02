@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8e9fbd5fd8fc90681432ee8403b6dd139d02a5a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cb1f793e9abad7c28b91da5c3028483637c53740
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796135"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722029"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -45,12 +45,14 @@ Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monito
 | Nom de métrique | Description |
 |-|-|
 | Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>**Remarque** : cette métrique sera supprimée ultérieurement. Utilisez la métrique de taille de rappel de la hiérarchisation cloud pour surveiller la taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimension applicable : Nom du serveur |
+| Taux de correspondance dans le cache de la hiérarchisation Cloud | Pourcentage d’octets, pas de fichiers entiers, qui ont été traités à partir du cache et rappelés à partir du Cloud.<br><br>Unité : pourcentage<br>Type d’agrégation : Average<br>Dimensions applicables : nom du point de terminaison de serveur, nom du serveur, nom du groupe de synchronisation |
 | Taille de rappel de la hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du serveur, nom du groupe de synchronisation |
 | Taille de rappel de hiérarchisation cloud par application | Taille des données rappelées par application.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom de l’application, nom du serveur, nom du groupe de synchronisation |
+| Taux de réussite de rappel de hiérarchisation cloud | Pourcentage de requêtes de rappel ayant réussi.<br><br>Unité : pourcentage<br>Type d’agrégation : Average<br>Dimensions applicables : nom du point de terminaison de serveur, nom du serveur, nom du groupe de synchronisation |
 | Débit de rappel de la hiérarchisation cloud | Taille de débit de rappel des données.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du serveur, nom du groupe de synchronisation |
 | Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Count<br>Types d’agrégation : Average, Sum<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 | Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Count<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Taille du cache du serveur | Taille des données mises en cache sur le serveur.<br><br>Unité : Octets<br>Type d’agrégation : Average<br>Dimensions applicables : nom du point de terminaison de serveur, nom du serveur, nom du groupe de synchronisation |
 | État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Count<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
 | Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Count<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 

@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98991d6cbbd827c612ca74d20dbf4e7ce6795ecc
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91536968"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200831"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -68,6 +68,9 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Pour joindre un appareil Windows 10 déjà configuré
 Si vous avez votre appareil depuis un certain temps et qu’il a déjà été configuré, vous pouvez suivre ces étapes pour le joindre au réseau.
+
+> [!NOTE]
+> Quand vous joignez un appareil Windows 10 déjà configuré pour Azure AD, vous devez utiliser un compte membre du groupe d’administrateurs local.
 
 1. Ouvrez **Paramètres**, puis sélectionnez **Comptes**.
 

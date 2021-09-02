@@ -1,17 +1,20 @@
 ---
 title: Utiliser une application web – Personalizer
 description: Personnalisez une application web .NET C# à l’aide d’une boucle Personalizer pour fournir le contenu approprié à un utilisateur en fonction d’actions (avec des fonctionnalités) et de caractéristiques contextuelles.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8e9ffe2851daaa60a990a03cbc29a47deb28ff8f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363916"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829219"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutoriel : Ajouter Personalizer à une application web .NET
 
@@ -30,7 +33,7 @@ Personnalisez une application web .NET C# à l’aide d’une boucle Personalize
 
 ## <a name="select-the-best-content-for-a-web-app"></a>Sélectionner le meilleur contenu pour une application web
 
-Une application web doit utiliser Personalizer lorsqu’il existe une liste d’ _actions_ (un certain type de contenu) sur la page web qui doit être personnalisée pour afficher un seul élément de tête (rewardActionId). Les listes d’actions comprennent par exemple des articles d’actualité, des emplacements de boutons et des choix de mots pour les noms de produits.
+Une application web doit utiliser Personalizer lorsqu’il existe une liste d’_actions_ (un certain type de contenu) sur la page web qui doit être personnalisée pour afficher un seul élément de tête (rewardActionId). Les listes d’actions comprennent par exemple des articles d’actualité, des emplacements de boutons et des choix de mots pour les noms de produits.
 
 Vous envoyez la liste des actions, ainsi que les caractéristiques contextuelles, à la boucle Personalizer. Personalizer sélectionne la meilleure action, puis votre application web affiche cette action.
 
@@ -158,7 +161,7 @@ L’application web utilise Personalizer pour sélectionner la meilleure action 
 * les **actions** avec leurs fonctionnalités telles que `taste` et `spiceLevel`
 * les **caractéristiques contextuelles** telles que l’heure `time` de la journée, la préférence `taste` de l’utilisateur et les informations de l’agent utilisateur du navigateur, ainsi que les caractéristiques contextuelles
 * les **actions à exclure** telles que le jus
-* **eventId** , qui est différent pour chaque appel à l’API Rank.
+* **eventId**, qui est différent pour chaque appel à l’API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Fonctionnalités du modèle Personalizer dans une application web
 
@@ -283,7 +286,7 @@ Les sections suivantes expliquent les parties du serveur et du client qu’un d�
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>API de classement : l’application cliente envoie le contexte au serveur
 
-L’application cliente collecte l’ _agent utilisateur_ du navigateur de l’utilisateur.
+L’application cliente collecte l’_agent utilisateur_ du navigateur de l’utilisateur.
 
 > [!div class="mx-imgBorder"]
 > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/user-agent.png)

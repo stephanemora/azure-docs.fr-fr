@@ -13,12 +13,12 @@ ms.date: 05/25/2021
 ms.author: shermanouko
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8b8bda71c637419dbd5b2bf7b181288abd9b965c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e4d2721905d1e344cd0825466e0b0eb08578ef47
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075238"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688107"
 ---
 # <a name="microsoft-identity-platform-refresh-tokens"></a>Jetons d’actualisation de la plateforme d'identités Microsoft
 
@@ -33,7 +33,7 @@ Avant de lire cet article, il est recommandé de consulter les articles suivants
 
 ## <a name="refresh-token-lifetime"></a>Durée de vie du jeton d’actualisation
 
-Les jetons d’actualisation ont une durée de vie beaucoup plus longue que les jetons d’accès. La durée de vie par défaut des jetons est de 90 jours et un nouveau jeton les remplace après chaque utilisation. Autrement dit, dès qu’un jeton d’actualisation est utilisé pour acquérir un nouveau jeton d’accès, un nouveau jeton d’actualisation est également émis. La plateforme d’identités Microsoft ne révoque pas les anciens jetons d’actualisation qui ont été utilisés pour récupérer de nouveaux jetons d’accès. Vous pouvez sans problème supprimer l’ancien jeton d’actualisation après l’acquisition d’un nouveau. Les jetons d’actualisation doivent être stockés de manière sécurisée comme les jetons d’accès ou les informations d’identification d’application. 
+Les jetons d’actualisation ont une durée de vie plus longue que les jetons d’accès. La durée de vie par défaut des jetons est de 90 jours et un nouveau jeton les remplace après chaque utilisation. Autrement dit, dès qu’un jeton d’actualisation est utilisé pour acquérir un nouveau jeton d’accès, un nouveau jeton d’actualisation est également émis. La plateforme d’identités Microsoft ne révoque pas les anciens jetons d’actualisation qui ont été utilisés pour récupérer de nouveaux jetons d’accès. Vous pouvez sans problème supprimer l’ancien jeton d’actualisation après l’acquisition d’un nouveau. Les jetons d’actualisation doivent être stockés de manière sécurisée comme les jetons d’accès ou les informations d’identification d’application. 
 
 ## <a name="refresh-token-expiration"></a>Expiration des jetons d’actualisation
 
@@ -41,15 +41,9 @@ Les jetons d’actualisation peuvent être révoqués à tout moment, en raison 
 
 ### <a name="token-timeouts"></a>Délais d’expiration des jetons
 
-La [configuration de la durée de vie des jetons](active-directory-configurable-token-lifetimes.md#refresh-and-session-token-lifetime-policy-properties) permet de réduire ou d’allonger la durée de vie des jetons d’actualisation. Ce paramètre change la durée pendant laquelle un jeton d’actualisation peut rester inutilisé. Par exemple, imaginez un scénario où un utilisateur n’a pas ouvert une application depuis plus de 90 jours. Si l’application tente d’utiliser ce jeton d’actualisation datant de plus de 90 jours, elle détecte que le jeton a expiré. En outre, un administrateur peut exiger l’utilisation régulière d’un second facteur dans le but de forcer l’utilisateur à se connecter manuellement à des intervalles déterminés. Ces scénarios sont les suivants :
+Vous ne pouvez pas configurer la durée de vie d’un jeton d’actualisation. Vous ne pouvez pas réduire ou allonger leur durée de vie. Configurez la fréquence de connexion dans l’accès conditionnel pour définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau. En savoir plus sur la [configuration de la gestion de session d’authentification avec l’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md).
 
-* Inactivité : les jetons d’actualisation sont valides uniquement pendant la période déterminée par `MaxInactiveTime`.  Si un jeton non utilisé au cours de cette période est remplacé par un nouveau jeton, l’ancien jeton n’est plus utilisable.
-* Expiration de la session : si `MaxAgeSessionMultiFactor` ou `MaxAgeSessionSingleFactor` ont été définis sur une autre valeur que la valeur par défaut (Until-revoked), une réauthentification est nécessaire au terme du délai défini dans MaxAgeSession*.  Cela a pour objectif de forcer les utilisateurs à se réauthentifier régulièrement avec un premier ou un second facteur. 
-* Exemples :
-  * Le locataire est défini sur une durée d’inactivité maximale (MaxInactiveTime) de cinq jours ; or l’utilisateur est parti en vacances depuis une semaine. Azure AD n’a donc pas reçu de demande de nouveau jeton de la part de l’utilisateur au cours des sept derniers jours. La prochaine fois que l’utilisateur demandera un nouveau jeton, il s’apercevra que son jeton d’actualisation a été révoqué, et il devra entrer à nouveau ses informations d’identification.
-  * Une application sensible a une durée `MaxAgeSessionMultiFactor` d’un jour seulement. Un utilisateur qui se reconnecte après un jour recevra une invite interactive pour qu’il effectue une nouvelle authentification multifacteur (MFA). C’est le cas, par exemple, si un utilisateur se connecte le lundi, puis le mardi 25 heures après. 
-
-Tous les jetons d’actualisation ne suivent pas les règles définies dans la stratégie de durée de vie des jetons. En particulier, les jetons d’actualisation utilisés dans les [applications monopage](reference-third-party-cookies-spas.md) ont toujours une durée d’activité limitée à 24 heures, comme si une stratégie `MaxAgeSessionSingleFactor` de 24 heures leur était appliquée. 
+Tous les jetons d’actualisation ne suivent pas les règles définies dans la stratégie de durée de vie des jetons. En particulier, les jetons d’actualisation utilisés dans les [applications monopages](reference-third-party-cookies-spas.md) ont toujours une durée d’activité limitée à 24 heures, comme si une stratégie `MaxAgeSessionSingleFactor` de 24 heures leur était appliquée. 
 
 ### <a name="revocation"></a>Révocation
 

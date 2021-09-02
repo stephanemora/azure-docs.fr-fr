@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Sauvegarde Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Sauvegarde Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2abe31984446f1e4fd1b2febdc65c8b6de840b45
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 2feb1040cd91d3093fc1294b6b69757721ad082a
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607494"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104259"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Définitions intégrées d’Azure Policy pour Sauvegarde Azure
 

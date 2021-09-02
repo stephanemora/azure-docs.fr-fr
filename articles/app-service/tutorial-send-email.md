@@ -4,12 +4,12 @@ description: Découvrez comment appeler des processus métier à partir de votre
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 567bf62d2f78074cef331aeedcfd29bc382e79c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290701"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752423"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutoriel : Envoyer un e-mail et appeler d’autres processus métier à partir d’App Service
 
@@ -319,3 +319,4 @@ Si vous testez ce code sur l’exemple d’application du tutoriel [Générer un
 [Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Informations de référence sur les requêtes/réponses HTTP pour Logic Apps](../connectors/connectors-native-reqres.md)  
 [Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps - Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure App Configuration
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure App Configuration. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 555548f1febedba9a11746471204fa0f8febca23
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0ec5c5a393646964b08c36add840dcaaa6a2c6ac
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606876"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106257"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Définitions intégrées d’Azure Policy pour Azure App Configuration
 
