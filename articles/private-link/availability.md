@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 17b3b74bc6879d54577492a13eb93e0e0ab58373
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 052a59ede2acc751d6847646ca1b103de0c1b78a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486374"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535340"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilité d’Azure Private Link
 
@@ -58,7 +58,7 @@ Les tableaux suivants listent les services Private Link et les régions où ils 
 
 |Services pris en charge  |Régions disponibles | Autres considérations | État  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure SQL Database         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure SQL](create-private-endpoint-portal.md)      |
+|  Azure SQL Database         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  Pris en charge pour la [stratégie de connexion](../azure-sql/database/connectivity-architecture.md#connection-policy) Proxy | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
 |Azure Cosmos DB|  Toutes les régions publiques<br/> Toutes les régions administratives</br> Toutes les régions de Chine | |GA <br/> [Découvrez comment créer un point de terminaison privé pour Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques <br/> Toutes les régions administratives<br/>Toutes les régions de Chine     | Prise en charge des niveaux tarifaires Usage général et À mémoire optimisée | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database pour MySQL         | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine      |  | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Database pour MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
@@ -94,11 +94,11 @@ Les tableaux suivants listent les services Private Link et les régions où ils 
 ### <a name="storage"></a>Stockage
 |Services pris en charge  |Régions disponibles | Autres considérations | État  |
 |:-------------------|:-----------------|:----------------|:--------|
-| Stockage Blob Azure (Data Lake Storage Gen2 inclus)       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Blob.](tutorial-private-endpoint-storage-portal.md)  |
+| Stockage Blob Azure (Data Lake Storage Gen2 inclus)       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge uniquement avec le type de compte V2 Usage général | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Blob.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Files | Toutes les régions publiques<br/> Toutes les régions administratives      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/files/storage-files-networking-endpoints.md)   |
 | Azure File Sync | Toutes les régions publiques      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/file-sync/file-sync-networking-endpoints.md)   |
-| Stockage File d’attente Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage File d’attente.](tutorial-private-endpoint-storage-portal.md) |
-| Stockage Table Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Table.](tutorial-private-endpoint-storage-portal.md)  |
+| Stockage File d’attente Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge uniquement avec le type de compte V2 Usage général | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage File d’attente.](tutorial-private-endpoint-storage-portal.md) |
+| Stockage Table Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge uniquement avec le type de compte V2 Usage général | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Table.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | Toutes les régions publiques sauf : Allemagne CENTRE, Allemagne NORD-EST <br/> Toutes les régions administratives  | | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Batch.](../batch/private-connectivity.md) |
 
 ### <a name="web"></a>Web

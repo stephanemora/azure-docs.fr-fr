@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aadf4cb638c1b9c16df934a9ee3c0a992a3e8a7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 14a2dea0445a866f7c352eedf64d631d83b1b0f0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748670"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864406"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Fermer votre compte professionnel ou scolaire dans une organisation Azure AD non gérée
 
@@ -32,7 +32,7 @@ Les utilisateurs d’une organisation non gérée sont souvent créés au cours 
 
 Avant que vous puissiez fermer votre compte, vous devez vérifier les éléments suivants :
 
-* Assurez-vous d’être un utilisateur d’une organisation Azure AD non gérée. Vous ne pouvez pas fermer votre compte si vous appartenez à une organisation gérée. Si vous appartenez à une organisation gérée et souhaitez fermer votre compte, vous devez contacter votre administrateur. Pour plus d’informations sur la façon de déterminer si vous appartenez à une organisation gérée, consultez [Supprimer l’utilisateur d’un locataire non géré](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Assurez-vous d’être un utilisateur d’une organisation Azure AD non gérée. Vous ne pouvez pas fermer votre compte si vous appartenez à une organisation gérée. Si vous appartenez à une organisation gérée et souhaitez fermer votre compte, vous devez contacter votre administrateur. Pour plus d’informations sur la façon de déterminer si vous appartenez à une organisation gérée, consultez [Supprimer l’utilisateur d’un locataire non géré](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Enregistrez toutes les données que vous souhaitez conserver. Pour plus d’informations sur la façon de soumettre une demande d’exportation, consultez [Accès et exportation des journaux générés par le système pour les locataires non managés](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 
@@ -56,5 +56,5 @@ Pour fermer un compte professionnel ou scolaire non managé, suivez ces étapes�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation de l’inscription en libre-service pour Azure Active Directory](directory-self-service-signup.md)
-- [Supprimer l’utilisateur d’un locataire non managé](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Supprimer l’utilisateur d’un locataire non managé](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [Accès et exportation des journaux générés par le système pour les locataires non managés](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

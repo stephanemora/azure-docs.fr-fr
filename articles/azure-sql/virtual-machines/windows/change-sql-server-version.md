@@ -15,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb8d0150bafe795f2b23fa18581adc60d091aaf2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8428f9ce69bc58a206eb5c60b3602ffbb17f7c19
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078830"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225677"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Modification sur place de la version de SQL Server sur une machine virtuelle Azure
 
@@ -108,7 +108,7 @@ Après avoir modifié la version de SQL Server, inscrivez de nouveau votre machi
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Vérifier la version":::
 
 > [!NOTE]
-> Si vous êtes déjà inscrit auprès de l’extension SQL IaaS Agent, [désinscrivez-vous de l’extension](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) puis [inscrivez à nouveau la ressource de machine virtuelle SQL](sql-agent-extension-manually-register-single-vm.md#register-with-extension) afin qu’elle détecte la version et l’édition appropriées de SQL Server installée sur la machine virtuelle. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
+> Si vous êtes déjà inscrit auprès de l’extension SQL IaaS Agent, [désinscrivez-vous de l’extension](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) puis [inscrivez à nouveau la ressource de machine virtuelle SQL](sql-agent-extension-manually-register-single-vm.md#full-mode) afin qu’elle détecte la version et l’édition appropriées de SQL Server installée sur la machine virtuelle. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
 
 ## <a name="remarks"></a>Notes
 

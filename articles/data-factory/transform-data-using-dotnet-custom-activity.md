@@ -1,32 +1,34 @@
 ---
 title: Utiliser des activités personnalisées dans un pipeline
-description: Découvrez comment créer des activités personnalisées à l’aide de .NET, puis utiliser ces activités dans un pipeline Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment créer des activités personnalisées à l’aide de .NET, puis utiliser ces activités dans un pipeline Azure Data Factory ou Azure Synapse Analytics.
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 11/26/2018
-ms.openlocfilehash: 3b5370baacc2bf82ae0575d44d00d1535a4549de
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e2b8ab8dd06bb290993ce80ad98d3e07ff727a49
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665423"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563797"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
+# <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Utiliser des activités personnalisées dans un pipeline Azure Data Factory ou Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Version actuelle](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
+Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory ou Synapse.
 
 - Les [activités de déplacement de données](copy-activity-overview.md) permettent de transférer des données entre les [magasins de données source et récepteur pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
-- Les [activités de transformation de données](transform-data.md) permettent de transformer des données à l’aide de services de calcul, comme Azure HDInsight, Azure Batch et Azure Machine Learning.
+- Les [activités de transformation de données](transform-data.md) permettent de transformer des données à l’aide de services de calcul, comme Azure HDInsight, Azure Batch et ML Studio (classique).
 
-Pour déplacer des données vers ou depuis un magasin de données que Data Factory ne prend pas en charge, ou pour transformer et traiter les données d’une manière qui n’est pas prise en charge par Data Factory, créez une **Activité personnalisée** avec votre propre logique de déplacement ou de transformation des données, et utilisez cette activité dans un pipeline. L’activité personnalisée exécute votre logique de code personnalisé sur un pool de machines virtuelles **Azure Batch**.
+Pour déplacer des données vers ou depuis un magasin de données que le service ne prend pas en charge, ou pour transformer et traiter les données d’une manière qui n’est pas prise en charge par le service, créez une **Activité personnalisée** avec votre propre logique de déplacement ou de transformation des données, et utilisez cette activité dans un pipeline. L’activité personnalisée exécute votre logique de code personnalisé sur un pool de machines virtuelles **Azure Batch**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +43,7 @@ Consultez les articles suivants si vous ne connaissez pas le service Azure Batch
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 
-L’extrait de code JSON suivant définit un exemple de service lié Azure Batch. Pour plus de détails, consultez [Environnements de calcul pris en charge par Azure Data Factory](compute-linked-services.md).
+L’extrait de code JSON suivant définit un exemple de service lié Azure Batch. Pour plus d’informations, consultez [Environnements Compute pris en charge](compute-linked-services.md)
 
 ```json
 {
@@ -109,7 +111,7 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 | command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non &#42;       |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | Non &#42;       |
-| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non       |
+| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé pouvant ainsi référencer des ressources du service. | Non       |
 | extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non       |
 | retentionTimeInDays | Durée de rétention pour les fichiers soumis pour une activité personnalisée. La valeur par défaut est de 30 jours. | Non |
 
@@ -148,7 +150,7 @@ Vous pouvez exécuter directement une commande à l’aide d’une activité per
 
 ## <a name="passing-objects-and-properties"></a>Passage des objets et des propriétés
 
-Cet exemple montre comment vous pouvez utiliser les referenceObjects et les extendedProperties pour passer des objets Data Factory et des propriétés définies par l’utilisateur sur votre application personnalisée.
+Cet exemple montre comment vous pouvez utiliser les referenceObjects et les extendedProperties pour passer des objets et des propriétés définies par l’utilisateur du service vers votre application personnalisée.
 
 ```json
 {
@@ -306,11 +308,11 @@ Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval
 
 ## <a name="pass-outputs-to-another-activity"></a>Passer les sorties à une autre activité
 
-Vous pouvez renvoyer les valeurs personnalisées figurant dans le code d’une activité personnalisée à Azure Data Factory. Pour cela, vous devez les écrire dans le fichier `outputs.json` de votre application. Data Factory copie le contenu de `outputs.json` et l’ajoute à la sortie d’activité comme valeur de la propriété `customOutput`. (La taille limite est de 2 Mo.) Si vous souhaitez utiliser le contenu de `outputs.json` dans des activités en aval, vous pouvez obtenir la valeur à l’aide de l’expression `@activity('<MyCustomActivity>').output.customOutput`.
+Vous pouvez renvoyer les valeurs personnalisées figurant dans le code d’une activité personnalisée au service. Pour cela, vous devez les écrire dans le fichier `outputs.json` de votre application. Le service copie le contenu de `outputs.json` et l’ajoute à la sortie d’activité comme valeur de la propriété `customOutput`. (La taille limite est de 2 Mo.) Si vous souhaitez utiliser le contenu de `outputs.json` dans des activités en aval, vous pouvez obtenir la valeur à l’aide de l’expression `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## <a name="retrieve-securestring-outputs"></a>Récupérer les sorties SecureString
 
-Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masqués dans l’onglet Surveillance de l’interface utilisateur de Data Factory.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Par exemple :
+Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masquées dans l’onglet Surveillance de l’interface utilisateur.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Par exemple :
 
 ```json
 "extendedProperties": {
@@ -321,7 +323,7 @@ Les valeurs de propriété sensibles désignées en tant que type *SecureString*
 }
 ```
 
-Cette sérialisation n’est pas véritablement sécurisée et n’est pas destinée à être sécurisée. L’objectif est d’indiquer à Data Factory de masquer la valeur dans l’onglet Surveillance.
+Cette sérialisation n’est pas véritablement sécurisée et n’est pas destinée à être sécurisée. L’objectif est d’indiquer au service de masquer la valeur dans l’onglet Analyse.
 
 Pour accéder aux propriétés de type *SecureString* à partir d’une activité personnalisée, lisez le fichier `activity.json`, placé dans le même dossier que le fichier EXE, désérialisez le code JSON, puis accédez à la propriété JSON (extendedProperties => [propertyName] => valeur).
 
@@ -329,13 +331,13 @@ Pour accéder aux propriétés de type *SecureString* à partir d’une activit�
 
 Dans la version 1 d’Azure Data Factory, pour implémenter une activité DotNet (personnalisée), on crée un projet de bibliothèque de classes .NET avec une classe qui implémente la méthode `Execute` de l’interface `IDotNetActivity`. Les services liés, les jeux de données et les propriétés étendues de la charge utile JSON d’une activité DotNet (personnalisée) sont transmis à la méthode d’exécution sous forme d’objets fortement typés. Pour plus d’informations sur le comportement de la version 1, consultez la page [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). À cause de cette implémentation, le code de votre activité DotNet de la version 1 doit cibler .NET Framework 4.5.2. L’activité DotNet de la version 1 doit également être exécutée sur des nœuds de pools Azure Batch Windows.
 
-Dans une activité personnalisée de la version 2 d’Azure Data Factory, il n’est pas obligatoire d’implémenter une interface .NET. Vous pouvez maintenant exécuter directement des commandes, des scripts et votre propre code compilé sous forme d’exécutable. Pour configurer cette implémentation, spécifiez la propriété `Command` conjointement avec la propriété `folderPath`. L’activité personnalisée charge l’exécutable et ses dépendances sur `folderpath` et exécute la commande automatiquement.
+Dans une activité personnalisée des pipelines Azure Data Factory V2 et Synapse, il n’est pas obligatoire d’implémenter une interface .NET. Vous pouvez maintenant exécuter directement des commandes, des scripts et votre propre code compilé sous forme d’exécutable. Pour configurer cette implémentation, spécifiez la propriété `Command` conjointement avec la propriété `folderPath`. L’activité personnalisée charge l’exécutable et ses dépendances sur `folderpath` et exécute la commande automatiquement.
 
-Les services liés, les jeux de données (définis dans referenceObjects) et les propriétés étendues définis dans la charge utile JSON d’une activité personnalisée de la version 2 de Data Factory sont accessibles par le biais de l’exécutable sous forme de fichiers JSON. Vous pouvez accéder aux propriétés requises à l’aide du sérialiseur JSON, comme dans l’exemple de code SampleApp.exe précédent.
+Les services liés, les jeux de données (définis dans referenceObjects) et les propriétés étendues définis dans la charge utile JSON d’une activité personnalisée de pipeline Data Factory V2 ou Synapse sont accessibles par le biais de l’exécutable sous forme de fichiers JSON. Vous pouvez accéder aux propriétés requises à l’aide du sérialiseur JSON, comme dans l’exemple de code SampleApp.exe précédent.
 
-Grâce aux modifications introduites dans l’activité personnalisée de la version 2 d’Azure Data Factory, vous pouvez écrire votre logique de code personnalisée dans le langage de votre choix et l’exécuter sur les systèmes d’exploitation Windows et Linux pris en charge par Azure Batch.
+Grâce aux modifications introduites dans l’activité personnalisée de pipeline Azure Data Factory V2 et Synapse, vous pouvez écrire votre logique de code personnalisée dans le langage de votre choix et l’exécuter sur les systèmes d’exploitation Windows et Linux pris en charge par Azure Batch.
 
-Le tableau suivant décrit les différences qui existent entre l’activité personnalisée de la version 2 de Data Factory et l’activité DotNet (personnalisée) de la version 1 de Data Factory :
+Le tableau suivant décrit les différences qui existent entre l’activité personnalisée de pipeline Data Factory V2 et Synapse et l’activité DotNet (personnalisée) de la version 1 de Data Factory :
 
 |Différences      | Activité personnalisée      | Activité DotNet (personnalisée) de la version 1      |
 | ---- | ---- | ---- |
@@ -356,7 +358,7 @@ S’il vous reste du code .NET écrit pour une activité DotNet (personnalisée)
   - Le package NuGet Microsoft.Azure.Management.DataFactories n’est plus nécessaire.
   - Compilez votre code, chargez l’exécutable et ses dépendances dans le Stockage Azure et définissez le chemin d’accès dans la propriété `folderPath`.
 
-Vous trouverez un exemple complet de réécriture de l’exemple de DLL et de pipeline de bout en bout décrit dans l’article sur la version 1 de Data Factory, [Utiliser des activités personnalisées dans un pipeline Azure Data Factory](./v1/data-factory-use-custom-activities.md), en tant qu’activité personnalisée Data Factory dans la page [Exemple d’activité personnalisée Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Vous trouverez un exemple complet de réécriture de l’exemple de DLL et de pipeline de bout en bout décrit dans l’article sur la version 1 de Data Factory, [Utiliser des activités personnalisées dans un pipeline Azure Data Factory](./v1/data-factory-use-custom-activities.md), en tant qu’activité personnalisée pour des pipelines Data Factory v2 ou Synapse sur la page [Exemple d’activité personnalisée](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Mise à l’échelle automatique d’Azure Batch
 
@@ -387,5 +389,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
-* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

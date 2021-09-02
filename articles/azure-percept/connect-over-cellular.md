@@ -1,20 +1,20 @@
 ---
 title: Établir une connexion 5G ou LTE avec Azure Percept DK
 description: Cet article explique comment connecter Azure Percept DK via des réseaux 5G ou LTE.
-author: mimcco
-ms.author: mimcco
+author: juhaluoto
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 7388a50951137b45821bc80f2290900a00550395
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 202bec8182cc2ae04e9fadffe01977150ea93dda
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533090"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222318"
 ---
-# <a name="connect-the-azure-percept-dk-over-5g-or-lte-networks"></a>Établir une connexion 5G ou LTE avec Azure Percept DK
+# <a name="connect-azure-percept-over-5g-or-lte-networks"></a>Établir une connexion 5G ou LTE avec Azure Percept DK
 
 La connexion d’appareils IA Edge via des réseaux LTE et 5G présente de nombreux avantages. L’IA Edge est la plus efficace là où la connexion Wi-Fi ou LAN est limitée, comme les villes intelligentes, les véhicules autonomes et l’agriculture. En outre, les réseaux 5G/LTE offrent une meilleure sécurité que le Wi-Fi. Enfin, l’utilisation d’appareils IoT qui exécutent l’IA à la périphérie permet d’optimiser la bande passante sur les réseaux 5G/LTE, car seules les informations nécessaires sont envoyées au cloud, alors que la plupart des données sont traitées sur l’appareil. Aujourd’hui, Azure Percept DK ne peut pas se connecter directement aux réseaux 5G/LTE. Toutefois, ceux-ci peuvent se connecter à des passerelles 5G/LTE à l’aide des fonctionnalités Ethernet et Wi-Fi intégrées. Cet article explique comment tout cela fonctionne.
 

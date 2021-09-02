@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 66efe0015e0ca85ac793100ee6d8d0944e3614c1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 49ca89112f011f8f1c6d411ab187697b29523eeb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690870"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562339"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
@@ -29,10 +29,6 @@ Pour voir la liste des rôles d’administrateur pour Azure Active Directory, co
 
 Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
-L’onglet **Rôles** a été récemment mis à jour avec des fonctionnalités supplémentaires. Si vous voulez consulter l’expérience précédente, consultez l’onglet **Rôles (classiques)** . Vous pouvez utiliser l’un ou l’autre des onglets Rôles pour utiliser vos rôles. Toutefois, si vous créez ou supprimez des rôles personnalisés, vous devrez peut-être actualiser manuellement la page pour voir les derniers changements apportés.
-
-#### <a name="roles"></a>[Rôles](#tab/roles/)
-
 1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
@@ -43,6 +39,9 @@ L’onglet **Rôles** a été récemment mis à jour avec des fonctionnalités s
 
    ![Capture d’écran montrant la liste des rôles avec une nouvelle expérience.](./media/shared/roles-list.png)
 
+    > [!TIP]
+    > Pour voir l’expérience de la liste des rôles précédente, cliquez sur **Utiliser l’expérience classique**.
+  
 1. Pour voir les autorisations d’un rôle en particulier, dans la colonne **Détails**, cliquez sur le lien **Voir**.
 
     Un volet d’autorisations s’affiche.
@@ -50,22 +49,6 @@ L’onglet **Rôles** a été récemment mis à jour avec des fonctionnalités s
 1. Cliquez sur l’onglet **Autorisations** pour voir et rechercher les autorisations relatives au rôle sélectionné.
 
    ![Capture d’écran montrant les autorisations de rôles avec une nouvelle expérience.](./media/role-definitions-list/role-permissions.png)
-
-#### <a name="roles-classic"></a>[Rôles (classiques)](#tab/roles-classic/)
-
-1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
-
-1. Cliquez sur la ressource spécifique.
-
-1. Cliquez sur **Contrôle d’accès (IAM)** .
-
-1. Cliquez sur l’onglet **Rôles (classiques)** pour voir une liste de tous les rôles intégrés et personnalisés.
-
-   Vous pouvez voir le nombre d’utilisateurs et de groupes affectés à chaque rôle dans cette étendue.
-
-   ![Liste de rôles](./media/role-definitions-list/roles-list-classic.png)
-
----
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

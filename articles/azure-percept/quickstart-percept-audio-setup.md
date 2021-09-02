@@ -1,19 +1,19 @@
 ---
-title: Configurer Azure Percept Audio
+title: Configurer l’appareil Azure Percept Audio
 description: Découvrez comment connecter votre appareil Azure Percept Audio au DK Azure Percept
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 03cab112681536708496c35e4440e463d1522406
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 8b6ec3ba8473be8e924d3c4b8ae17ccbdcf6568f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108186"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221834"
 ---
-# <a name="azure-percept-audio-setup"></a>Installation d’Azure Percept Audio
+# <a name="set-up-the-azure-percept-audio-device"></a>Configurer l’appareil Azure Percept Audio
 
 Azure Percept Audio est prêt à l’emploi avec le DK Azure Percept. Aucune configuration unique n’est nécessaire.
 

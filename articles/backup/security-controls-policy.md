@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Sauvegarde Azure
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Sauvegarde Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: v-amallick
 ms.author: v-amallick
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8f01a63c1bac311fc445dce4d6938180c09f7bb6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 432bd6284a9316823fba8c39f87fb0e99543a098
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609395"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112337"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Contrôles de conformité réglementaire Azure Policy pour Sauvegarde Azure
 

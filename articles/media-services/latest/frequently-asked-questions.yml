@@ -2,33 +2,18 @@
 metadata:
   title: FAQ relative à Azure Media Services
   description: Découvrez les réponses aux questions les plus courantes sur Azure Media Services.
+  ms.service: media-services
   ms.custom: contperf-fy21q4
-  ms.openlocfilehash: e7689af4dd7824fdc764d56269c1bb6394594ef9
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: 226512e03a3e14c0f6bbfd7c806e17f24736f2bc
+  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111949175"
+  ms.lasthandoff: 08/21/2021
+  ms.locfileid: "122634835"
 title: Questions courantes sur Azure Media Services
 summary: Cet article répond aux questions fréquemment posées sur Azure Media Services.
 sections:
-- name: Dépannage
-  questions:
-  - question: Où puis-je trouver des informations sur la résolution des problèmes liés à Media Services ?
-    answer: >
-      Quelqu’un d’autre a peut-être rencontré le même problème que vous.  Vous trouverez une liste de ces questions dans la [collection de questions relative au dépannage](./questions-collection.md). Nous mettons régulièrement ces questions à jour en fonction des problèmes fréquemment rencontrés dans les tickets de support. Si vous ne trouvez pas de réponses sur cette page, créez un ticket de support.
-  - question: Comment savoir ce que signifie ce code d’erreur ?
-    answer: >
-      Nous avons documenté les codes d’erreur dans les références suivantes : [Codes d’erreur du point de terminaison de streaming](./stream-streaming-endpoint-error-codes-reference.md), [Codes d’erreur d’événement en direct](./live-event-error-codes-reference.md), [Codes d’erreur des tâches](./job-error-codes-reference.md).  Si vous ne trouvez pas de réponses sur cette page, créez un ticket de support.
-  - question: Comment réinitialiser les informations d’identification de mon compte ?
-    answer: >
-      Vous pouvez [réinitialiser les informations d’identification de votre compte](./account-reset-account-credentials.md) à l’aide de l’interface CLI.
-- name: Généralités
-  questions:
-  - question: Présentation d’Azure Media Services
-    answer: >
-      Azure Media Services est une plateforme sur le cloud vous permettant de créer des solutions qui assurent une diffusion de vidéo en continu de qualité, améliorent l’accessibilité et la distribution, analysent le contenu et bien plus encore. Que vous soyez un développeur d’applications, un centre d’appels, un organisme public, une société de divertissement, Media Services vous aide à créer des applications proposant des expériences multimédias de qualité exceptionnelle à un large public sur les navigateurs et les appareils les plus populaires actuellement. Pour commencer à utiliser Azure Media Services, consultez [Vue d’ensemble d’Azure Media Services v3](media-services-overview.md).
-- name: Références
+- name: Développement avec des kits SDK
   questions:
   - question: Où puis-je trouver l’API Media Services et les Kits de développement logiciel (SDK) ?
     answer: >
@@ -49,16 +34,31 @@ sections:
       - [Go](https://aka.ms/ams-v3-go-sdk)
 
       - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+  - question: Dois-je utiliser les kits SDK clients ou écrire directement dans l’API REST ?
+    answer: >
+      Il n’est pas recommandé de tenter d’envelopper l’API REST pour Media Services directement dans votre propre code de bibliothèque, car réaliser correctement cette opération à des fins de production vous oblige à implémenter la logique de nouvelle tentative complète de gestion des ressources Azure et à comprendre comment gérer les opérations durables dans les API de gestion des ressources Azure. Cette fonction est gérée automatiquement pour vous par les kits SDK clients pour différents langages (.NET, Java, Typescript, Python, Ruby, etc.) et réduit les risques de problèmes concernant la logique de nouvelle tentative ou les échecs d’appels d’API. Les kits SDK client gèrent déjà cette fonction pour vous. La collection Postman est fournie avant tout comme un outil d’enseignement et vous montre ce que les kits SDK client effectuent pendant votre développement avec les différents kits SDK clients.
   - question: Où puis-je trouver des exemples de Media Services ?
     answer: >
       Pour obtenir une liste d’exemples, consultez l’article [Exemples Media Services v3](samples-overview.md).
-  - question: Combien coûte Media Services ?
+  - question: Comment la pagination sur les jeux de résultats volumineux (c’est-à-dire la liste des ressources) fonctionne-t-elle dans l’API ?
     answer: >
-      Voir le [guide de tarification de Media Services](https://azure.microsoft.com/pricing/details/media-services/)
-  - question: Quels sont les quotas et les limites de Media Services ?
+      Lors de l’utilisation de la pagination, vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière. Pour voir des détails et des exemples, consultez [Filtrage, tri, pagination](filter-order-page-entities-how-to.md).
+- name: Comptes
+  questions:
+  - question: Comment utiliser une identité managée pour chiffrer des données vers Media Services ?
+    answer: "Consultez le [tutoriel Utiliser une clé de Key Vault pour chiffrer les données dans un compte Media Services](security-encrypt-data-managed-identity-cli-tutorial.md) pour utiliser l’interface CLI dans le but d’associer Media Services à Key Vault pour chiffrer vos données.  \n"
+  - question: Comment utiliser une identité managée pour accorder à Media Services l’accès à un compte de stockage restreint ?
     answer: >
-      Voir [Quotas et limites de Media Services](limits-quotas-constraints-reference.md)
-- name: Utilisation de Media Services
+      Si vous souhaitez accéder à un compte de stockage configuré pour bloquer les demandes provenant d’adresses IP inconnues, suivez les étapes décrites dans [Accéder à un stockage avec une identité managée Media Services](security-access-storage-managed-identity-cli-tutorial.md).
+  - question: Qu'est-ce que le déplacement d’un compte Media Services entre abonnements ?
+    answer: >
+      Pour en savoir plus, consultez [Déplacement d’un compte Media Services entre abonnements](account-move-account-how-to.md).
+- name: Sécurité
+  questions:
+  - question: Quels sont les rôles Azure pouvant effectuer des actions sur les ressources Azure Media Services ?
+    answer: >
+      Voir [Contrôle d'accès en fonction du rôle Azure (Azure RBAC) pour les comptes Media Services](security-rbac-concept.md).
+- name: Ressources, chargement et stockage
   questions:
   - question: Qu’est-ce qu’une ressource Media Services ?
     answer: >
@@ -66,30 +66,29 @@ sections:
   - question: Comment créer une ressource Media Services ?
     answer: >
       Chaque fois que vous souhaitez charger un fichier multimédia et effectuer une opération comme l’encodage ou la diffusion en continu, vous créez une ressource pour y stocker le fichier multimédia et les autres fichiers associés à ce fichier. Les ressources sont automatiquement créées pour vous si vous utilisez le portail Azure. Si vous n’utilisez pas le portail pour charger des fichiers, vous devez d’abord créer une ressource.  Consultez [Créer une ressource](asset-create-asset-how-to.md) pour savoir comment en créer une.
-  - question: Qu’est-ce qu’une transformation Media Services ?
-    answer: >
-      Une transformation contient les instructions permettant d’encoder ou d’analyser des fichiers multimédias. Pensez-y comme à une recette. Elle peut appliquer plus d’une instruction d’encodage pour un fichier multimédia.  Elle est utilisée par un travail pour transformer les fichiers. Pour plus d’informations sur les transformations, consultez la section Transformations dans [Transformations et travaux dans Media Services](transform-jobs-concept.md#transforms).
-  - question: Comment créer une transformation Media Services ?
-    answer: >
-      Vous pouvez créer une transformation à l’aide de REST, de l’interface CLI ou des Kits de développement logiciel (SDK) disponibles pour Media Services.  Consultez [Comment créer une transformation](transform-create-transform-how-to.md) pour utiliser REST ou l’interface CLI.  Pour utiliser le Kit de développement logiciel (SDK), consultez [Exemples Media Services](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) disponibles dans le référentiel d’exemples Azure.
-  - question: Qu’est-ce qu’un travail Media Services ?
-    answer: >
-      Un travail est la requête que vous effectuez pour commencer à utiliser une transformation pour encoder ou analyser des fichiers.  Vous lui indiquez de transformer un fichier contenu dans une ressource d’entrée.  Vous lui indiquez également de créer un ressource de sortie ou d’utiliser une ressource de sortie qui existe déjà.  Une fois le travail terminé, les fichiers transformés (encodés, analysés) se trouvent dans la ressource de sortie avec leurs fichiers connexes. Pour plus d’informations sur les travaux, consultez [Transformations et travaux dans Media Services](transform-jobs-concept.md#jobs).
-  - question: Comment créer un travail Media Services ?
-    answer: >
-      Vous pouvez créer un travail dans le portail Azure, avec l’[interface CLI](job-create-cli-how-to.md), REST ou l’un des Kits de développement logiciel (SDK). Consultez les [exemples de Media Services](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) pour le langage de votre choix.
-  - question: Qu’est-ce que l’encodage ?
-    answer: >
-      Le terme encodage dans Media Services s’applique au processus de conversion de fichiers contenant de la vidéo et/ou audio numérique d’un format standard vers un autre, dans le but de (a) réduire la taille des fichiers et/ou (b) produire un format compatible avec un large éventail d’appareils et d’applications. Ce processus est également appelé compression vidéo ou transcodage. Voir [Encodage vidéo et audio avec Media Services](./encode-concept.md).
+- name: Encodage
+  questions:
   - question: Quels sont les formats d’encodage disponibles avec Media Services ?
     answer: >
       Les formats d’encodage courants sont disponibles avec l’encodeur standard de Media Services. Pour obtenir la liste de tous les formats, consultez [Codecs et formats de l’encodeur standard](encode-media-encoder-standard-formats-reference.md).
+  - question: Comment créer un travail Media Services ?
+    answer: >
+      Vous pouvez créer un travail dans le portail Azure, avec l’[interface CLI](job-create-cli-how-to.md), REST ou l’un des Kits de développement logiciel (SDK). Consultez les [exemples de Media Services](https://github.com/Azure-Samples?q=media-services&type=&language=&sort=) pour le langage de votre choix.
   - question: Puis-je utiliser Media Services pour créer une échelle de débit générée automatiquement ?
     answer: >
       Oui.  Vous trouverez plus d’informations sur la page [Encoder avec une échelle de débit générée automatiquement](./encode-autogen-bitrate-ladder.md).
-  - question: Puis-je analyser un fichier audio ou vidéo ?
+  - question: Media Services prend-il en charge l’encodage sensible au contenu ?
     answer: >
-      Oui, vous pouvez. Azure Media Services v3 vous permet d’extraire les insights de vos fichiers vidéo et audio avec Video Indexer. Les présélections de l’analyseur Media Services v3 peuvent être utilisées pour extraire ces informations. Si vous souhaitez des informations plus détaillées, utilisez directement Video Indexer. Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le [document de comparaison](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+      Oui, Media Services peut effectuer deux analyses de réussite sur une vidéo et générer l’ensemble de débit adaptatif, les résolutions et les paramètres d’encodage les plus recommandés en fonction du contenu de la vidéo fournie. Consultez les informations détaillées sur la [présélection d’encodage sensible au contenu](./encode-content-aware-how-to.md)
+  - question: Puis-je utiliser des fichiers MP4 encodés en externe ou existants dans Media Services ?
+    answer: >
+      Oui, dans les questions sur le streaming, consultez la section « Puis-je diffuser en continu des fichiers MP4 existants ? » pour obtenir plus d’informations et des liens vers un exemple d’application qui montre comment charger un fichier MP4 à débit unique qui est préencodé et générer le manifeste du serveur (.ism) et le manifeste du client (.ismc).
+
+      Notez les problèmes d’impact sur les performances de l’origine qui sont également signalés dans cette question/réponse.
+  - question: Media Services peut-il être utilisé pour l’encodage de contenu de fichier de très petite taille ?
+    answer: "Réponse brève, non recommandée.  Les contenus très brefs, d’une durée inférieure à une ou deux minutes, ne sont pas vraiment idéaux pour le streaming à débit adaptatif.  Si vous envisagez de diffuser en continu des fichiers de format très court, il est recommandé de préencoder le contenu dans un format qui est facilement diffusé en continu à débit unique. \n\nÉtant donné que la plupart des lecteurs à débit adaptatif ont besoin de temps pour mettre en mémoire tampon plusieurs segments de la vidéo, ainsi que pour l’analyse de la bande passante réseau avant d’adapter le réglage vers le haut ou vers le bas sur l’échelle à débit adaptatif, il est souvent inutile de fournir un débit élevé pour les contenus inférieurs à 30 secondes.  Le temps que le lecteur verrouille son algorithme heuristique sur le débit binaire approprié pour la lecture en fonction des conditions du réseau, le streaming du fichier est terminé.  \n\nEn outre, certains lecteurs disposent par défaut d’une mise en mémoire tampon allant jusqu’à 3 segments de vidéo.  Chaque segment peut avoir une durée de 2 à 6 secondes.  Pour les formats vidéo très courts, le lecteur va probablement effectuer une mise en mémoire tampon et commencer la lecture du premier débit sélectionné du streaming à débit adaptatif (ABR) défini. C’est pourquoi nous vous recommandons d’utiliser un fichier MP4 à débit binaire unique et de le charger sur une ressource si vous avez besoin de la génération de manifeste HLS ou DASH. Consultez les questions ci-dessus « Puis-je diffuser en continu des fichiers MP4 existants... » pour plus d’informations sur la manière de procéder. \n\nLes fichiers doivent être livrés au format HLS ou DASH uniquement si vous souhaitez tirer parti des fonctionnalités de ces protocoles.  Les flux à débit binaire unique offrent toujours de nombreux avantages, comme une recherche plus rapide, la prise en charge DRM, un téléchargement plus difficile via une URL (mais possible) qu’un téléchargement progressif MP4 dans le stockage d’objets blob. La prise en charge des sous-titres pour VTT et IMSC1 constitue un autre avantage.  En outre, la possibilité de lier tardivement des rendus audio supplémentaires, ou des doublages dans d’autres langues, en fait un choix judicieux dans certaines situations. \n"
+- name: Vidéo en flux continu
+  questions:
   - question: Qu’est-ce qu’un événement en direct Media Services ?
     answer: >
       Un événement en direct Media Services est le processus qui consiste à ingérer des flux vidéo en direct et à les diffuser via un protocole RTMPS ou Smooth Streaming. Pour plus d’informations sur les événements en direct Media Services, consultez [Événements en direct et sorties en direct dans Media Services](live-event-outputs-concept.md).
@@ -99,6 +98,20 @@ sections:
   - question: Comment faire une transcription en direct avec un événement en direct Media Services ?
     answer: >
       Azure Media Services diffuse de la vidéo, de l’audio et du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML avec la vidéo et le son. Pour en savoir plus sur les transcriptions en direct, consultez [Transcription en direct](live-event-live-transcription-how-to.md).
+  - question: Comment superviser l’intégrité de mon événement en direct ?
+    answer: >
+      Vous pouvez surveiller les événements en direct en vous abonnant à Azure Event Grid. Pour plus d’informations, consultez le [schéma d’événement Event Grid](monitoring/media-services-event-schemas.md#live-event-types).
+
+      Vous pouvez :
+
+      * [vous abonner](monitoring/reacting-to-media-services-events.md) aux événements [Microsoft.Media.LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) au niveau du flux et surveiller qu’aucune reconnexion ne survient pendant un certain temps pour arrêter et supprimer votre événement en direct ;
+
+      * [vous abonner](monitoring/reacting-to-media-services-events.md) aux [événements de pulsation](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) au niveau de la piste. Si toutes les pistes ont une vitesse de transmission entrante de 0 ou si le dernier timestamp n’augmente plus, vous pouvez arrêter en toute sécurité l’événement en direct. Les événements de pulsation sont générés toutes les 20 secondes pour chaque piste, ce qui peut être un peu trop détaillé.
+- name: Empaquetage et remise
+  questions:
+  - question: J’ai chargé, encodé et publié une vidéo. Pourquoi la vidéo n’est-elle pas lue lorsque j’essaie de la diffuser ?
+    answer: >
+      L’une des raisons les plus courantes est que le point de terminaison de streaming à partir duquel vous essayez de lire n’est pas à l’état En cours d’exécution.
   - question: Qu’est-ce qu’un point de terminaison de streaming Media Services ?
     answer: >
       Dans Media Services, un point de terminaison de streaming représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente à l’aide de l’un des protocoles de streaming multimédia courants (HLS ou DASH). En outre, le point de terminaison de streaming offre un chiffrement dynamique (juste-à-temps) aux systèmes DRM de pointe.  Pour plus d’informations sur les points de terminaison de streaming, consultez [Points de terminaison de streaming (origine) dans Azure Media Services](stream-streaming-endpoint-concept.md).
@@ -114,29 +127,126 @@ sections:
   - question: Comment créer une stratégie de diffusion en continu Media Services ?
     answer: >
       Consultez [Stratégies de diffusion en continu](./stream-streaming-policy-concept.md) pour obtenir une liste de stratégies prédéfinies que vous pouvez utiliser pour commencer.
+  - question: Comment diffuser en continu des fichiers au format HLS sur des appareils Apple ?
+    answer: >
+      Vérifiez que **(format=m3u8-cmaf)** est présent à la fin du chemin (après la partie **/manifest** de l’URL) pour indiquer au serveur d’origine de streaming qu’il doit retourner le contenu HTTP Live Streaming (HLS) utilisable sur des appareils Apple iOS natifs. Pour plus d’informations, consultez [Distribution de contenu](encode-dynamic-packaging-concept.md).
+  - question: Puis-je diffuser en continu des fichiers MP4 existants qui sont préencodés ou encodés dans une autre solution ?
+    answer: "Oui, le serveur d’origine Media Services (point de terminaison de streaming) prend en charge l’empaquetage dynamique des fichiers MP4 au format de streaming HLS ou DASH. Toutefois, le contenu doit être encodé au format GOP fermé, avec GOP courts dans la plage de durée de 2 à 6 secondes. Nous recommandons les paramètres suivants : GOP de 2 secondes, distance maximale et minimale de 2 secondes d’image clés, encodage à vitesse de transmission constante (mode CBR). La plupart des contenus dans ce format qui sont codés à l’aide du codec vidéo H.264 ou HEVC avec le format audio AAC peuvent être pris en charge. Des formats audio supplémentaires qui sont préencodés peuvent également être pris en charge, comme Dolby DD+. \n\nPour que cela fonctionne, vous devez créer une ressource, charger les ressources préencodées dans le conteneur de la ressource à l’aide de kits SDK de client Stockage Blob, puis générer le manifeste de serveur (.ism) et les fichiers de manifeste du client requis. Vous trouverez un exemple dans le projet d’exemples .NET suivant qui montre comment procéder.  \nConsultez l’exemple de projet pour plus d’informations – [Diffuser en continu des fichiers MP4 existants](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4)\n\nGardez à l’esprit que cette approche affecte les performances, car l’encodeur intégré dans AMS génère également des index binaires (fichiers .mpi) qui améliorent le temps d’accès aux fichiers MP4.  Sans ces fichiers, le serveur peut utiliser légèrement plus de capacité processeur à forte charge. Streaming d’un fichier MP4 à débit binaire unique existant avec HLS ou Dash] (https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4) Vous devez superviser la charge processeur du point de terminaison de streaming dans Azure Monitor lors du scale-up avec cette approche.  Si vous envisagez de passer en production avec une bibliothèque volumineuse de fichiers MP4 préencodés en dehors de l’AMS, veuillez envoyer un ticket de support pour que votre architecture soit examinée et pour connaître les moyens d’améliorer les performances du serveur d’origine du contenu MP4 préencodé. \n"
+- name: Protection du contenu
+  questions:
   - question: Comment livrer mon contenu multimédia avec un chiffrement dynamique ?
     answer: >
       Le chiffrement dynamique consiste à sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à sa livraison, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Voir [Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](./drm-content-protection-concept.md).
+  - question: Dois-je utiliser un chiffrement à clé en clair AES-128 ou un système DRM ?
+    answer: >
+      Les clients se demandent souvent s’ils devraient utiliser un chiffrement AES ou un système DRM. La principale différence entre les deux systèmes est qu’avec le chiffrement AES, la clé de contenu est transmise au client via TLS. Elle est chiffrée en transit, mais sans autre chiffrement (« en clair »). Par conséquent, la clé utilisée pour déchiffrer le contenu peut être lue par le lecteur client et affichée dans la trace réseau du client, en texte en clair. Le chiffrement avec une clé en clair AES-128 convient à des cas d’utilisation dans lesquels l’observateur est fiable (par exemple, le chiffrement de vidéos d’entreprise distribuées dans une société et destinées aux employés).
+
+
+      Par rapport à la clé en clair AES-128, les systèmes DRM comme PlayReady, Widevine et FairPlay fournissent tous un niveau supplémentaire de chiffrement sur la clé utilisée pour déchiffrer le contenu. La clé de contenu est chiffrée à l’aide d’une clé protégée par le runtime DRM, en plus de tout chiffrement au niveau du transport fourni par TLS. De plus, le déchiffrement est pris en charge dans un environnement sécurisé au niveau du système d’exploitation, où il est plus difficile pour un utilisateur malintentionné de commettre une attaque. Nous recommandons l’utilisation de la technologie DRM dans des cas d’utilisation où l’observateur n’est pas nécessairement fiable et où un niveau de sécurité supérieur est requis.
+  - question: Comment afficher une vidéo uniquement pour les utilisateurs disposant d’une autorisation spécifique sans utiliser Azure AD ?
+    answer: >
+      Vous n’êtes pas obligé d’utiliser un fournisseur de jetons spécifique tel qu’Azure Active Directory (Azure AD). Vous pouvez créer votre propre fournisseur [JWT](https://jwt.io/) (appelé service d’émission de jeton de sécurité ou STS) en utilisant un chiffrement à clé asymétrique. Dans votre STS personnalisé, vous pouvez ajouter des revendications en fonction de votre logique métier.
+
+
+      Assurez-vous que l’émetteur, l’audience et les revendications correspondent exactement entre ce qui se trouve dans JWT et la valeur `ContentKeyPolicyRestriction` utilisée dans `ContentKeyPolicy`.
+
+
+      Pour plus d’informations, consultez [Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](drm-content-protection-concept.md).
+  - question: Comment et où obtenir un jeton JWT avant de l’utiliser pour demander une licence ou une clé ?
+    answer: >
+      Pour un environnement de production, vous devez disposer d’un service d’émission de jeton de sécurité (STS, Secure Token Service), c’est-à-dire un service web, qui émet un jeton JWT en réponse à une requête HTTPS. Dans le cas d’un environnement de test, vous pouvez utiliser le code figurant dans la méthode `GetTokenAsync` définie dans [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+
+
+      Après l’authentification d’un utilisateur, le lecteur adresse une requête au STS afin d’obtenir ce jeton et l’attribuer comme valeur de jeton. Vous pouvez utiliser [l’API Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/).
+
+
+      Pour un exemple d’exécution de STS avec une clé symétrique ou asymétrique, consultez [Outil JWT](https://aka.ms/jwt). Pour un exemple de lecteur basé sur le Lecteur multimédia Azure utilisant un tel jeton JWT, consultez [Outil de test multimédia Azure](https://aka.ms/amtest) (développez le lien **player_settings** pour voir l’entrée du jeton).
+  - question: Comment autoriser les requêtes de diffusion en continu de vidéos avec chiffrement AES ?
+    answer: >
+      L’approche correcte consiste à utiliser STS. Dans STS, en fonction du profil utilisateur, ajoutez différentes revendications (par exemple, « Utilisateur Premium », « Utilisateur De base », « Utilisateur de la version d’évaluation gratuite »). La définition de différentes revendications dans un jeton JWT permet à l’utilisateur de visualiser des contenus distincts. Pour différents contenus ou ressources, `ContentKeyPolicyRestriction` aura la valeur `RequiredClaims` correspondante.
+
+
+      Utilisez l’API Azure Media Services pour la configuration de la livraison de licences/clés et pour le chiffrement de vos éléments multimédias (comme indiqué dans [cet exemple](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+
+
+      Pour plus d'informations, consultez les pages suivantes :
+
+
+      - [Présentation de la protection du contenu](drm-content-protection-concept.md)
+
+      - [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](architecture-design-multi-drm-system.md)
+  - question: Pourquoi seul l’audio est-il lu en mode FairPlay hors connexion mais pas la vidéo ?
+    answer: "Ce comportement semble être conçu tel quel dans l’application en exemple. Lorsqu’une autre piste audio est présente (ce qui est le cas pour HLS), en mode hors connexion, iOS 10 et iOS 11 passent par défaut à l’autre piste audio. Pour compenser ce comportement en mode hors connexion FPS, supprimez l’autre piste audio du flux. Pour effectuer cette opération sur Media Services, ajoutez le filtre de manifeste dynamique **audio-only=false**. En d’autres termes, une URL HLS se termine par **.ism/manifest(format=m3u8-aapl,audio-only=false)** . \n"
+  - question: Pourquoi l’audio est toujours lu sans vidéo en mode FairPlay hors connexion après l’ajout de audio-only=false ?
+    answer: >
+      Selon la conception de la clé de cache pour le réseau de distribution de contenu, le contenu peut être mis en cache. Videz le cache.
+  - question: Quelle est la structure du fichier téléchargé/hors connexion sur les appareils iOS ?
+    answer: "La structure du fichier téléchargé sur un appareil iOS ressemble à la capture d’écran suivante. Le dossier `_keys` stocke les licences FPS téléchargées, avec un fichier de magasin pour chaque hôte de service de licence. Le dossier `.movpkg` stocke le contenu audio et vidéo. \n\nLe premier dossier dont le nom se termine par un tiret suivi par un nombre comprend du contenu vidéo. La valeur numérique est la bande passante maximale des rendus de vidéo. Le deuxième dossier dont le nom se termine par un tiret suivi de 0 contient un contenu audio. Le troisième dossier nommé `Data` contient la sélection principale du contenu FPS. Enfin, boot.xml fournit une description complète du contenu du dossier `.movpkg`. \n\n![Structure de fichiers hors connexion pour l’exemple d’application iOS FairPlay](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)\n\nVoici un exemple de fichier Boot. xml :\n```xml\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<HLSMoviePackage xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://apple.com/IMG/Schemas/HLSMoviePackage\" xsi:schemaLocation=\"http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd\">\n  <Version>1.0</Version>\n  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>\n  <Streams>\n    <Stream ID=\"1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0\" Path=\"1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0\" NetworkURL=\"https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)\">\n      <Complete>YES</Complete>\n    </Stream>\n    <Stream ID=\"0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656\" Path=\"0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656\" NetworkURL=\"https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)\">\n      <Complete>YES</Complete>\n    </Stream>\n  </Streams>\n  <MasterPlaylist>\n    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>\n  </MasterPlaylist>\n  <DataItems Directory=\"Data\">\n    <DataItem>\n      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>\n      <Category>Playlist</Category>\n      <Name>master.m3u8</Name>\n      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>\n      <Role>Master</Role>\n    </DataItem>\n  </DataItems>\n</HLSMoviePackage>\n```\n"
+  - question: Comment puis-je remettre des licences persistantes (activées en mode hors connexion) à certains clients/utilisateurs et des licences non persistantes (désactivées en mode hors connexion) pour d’autres ? Dois-je dupliquer le contenu et utiliser une clé de contenu distincte ?
+    answer: >
+      Étant donné que Media Services v3 permet qu’un élément multimédia ait plusieurs instances `StreamingLocator`, vous pouvez avoir :
+
+
+      * Une instance `ContentKeyPolicy` avec `license_type = "persistent"`, `ContentKeyPolicyRestriction` avec revendication sur `"persistent"` et son `StreamingLocator`.
+
+      * Une autre instance `ContentKeyPolicy` avec `license_type="nonpersistent"`, `ContentKeyPolicyRestriction` avec revendication sur `"nonpersistent` et son `StreamingLocator`.
+
+      * Deux instances de `StreamingLocator` dont les valeurs `ContentKey` diffèrent.
+
+
+      En fonction de la logique métier du service d’émission de jeton de sécurité personnalisé, différentes revendications peuvent être émises dans le jeton JWT. Avec le jeton, seule la licence correspondante peut être obtenue et seule l’URL correspondante peut être lue.
+  - question: Quelle est la correspondance entre le niveau de sécurité de Widevine et celui offert par la gestion des droits numériques (DRM) de Media Services ?
+    answer: "La « Vue d’ensemble de l’architecture DRM Widevine de Google » définit trois niveaux de sécurité. Toutefois, la [Documentation Azure Media Services sur le modèle de licence Widevine](drm-widevine-license-template-concept.md) fait état de cinq niveaux de sécurité (exigences de robustesse du client pour la lecture). Cette section décrit la correspondance entre les niveaux de sécurité.\n\nLes deux ensembles de niveaux de sécurité sont définis par Google Widevine. La différence réside dans le niveau d’utilisation : architecture ou API. Les cinq niveaux de sécurité sont utilisés dans l’API Widevine. L’objet `content_key_specs` qui contient `security_level` est désérialisé et transmis au service de remise globale Widevine par le service de licence Widevine Azure Media Services. Le tableau ci-après montre le mappage entre les deux ensembles de niveaux de sécurité.\n\n| **Niveaux de sécurité définis dans l’architecture de Widevine** |**Niveaux de sécurité utilisés dans l’API Widevine**|\n|---|---| \n| **Niveau de sécurité 1** : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de sécurité peut être effectué dans différentes processeurs.|**security_level=5** : Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE doté de matériel.<br/><br/>**security_level=4** : Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE doté de matériel.|\n**Niveau de sécurité 2** : Le chiffrement (mais pas le traitement vidéo) est effectué dans l’environnement TEE. Les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par un matériel ou un logiciel vidéo distinct. Toutefois, au niveau 2, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3** : Les opérations clés de matériel et de chiffrement doivent être effectuées dans un environnement TEE doté de matériel. |\n| **Niveau de sécurité 3** : Il n’y a pas d’environnement TEE sur l’appareil. Des mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une implémentation de niveau 3 peut également inclure un moteur de chiffrement matériel. Cependant, celui-ci n’améliore que les performances, pas la sécurité. | **security_level=2** : le chiffrement logiciel et un décodeur masqué sont nécessaires.<br/><br/>**security_level=1** : Le chiffrement whitebox basé sur le logiciel est requis.|\n"
+- name: Surveillance
+  questions:
   - question: Comment surveiller mes ressources Media Services ?
     answer: >
       Utilisez Azure Monitor pour effectuer le suivi de ce qui se passe avec vos ressources Media Services.  Pour plus d’informations, consultez [Surveiller Media Services](./monitoring/monitor-media-services.md). Les guides pratiques incluent [Surveiller les mesures Media Services](./monitoring/media-services-metrics-howto.md) et [Surveillez les journaux de diagnostic de Media Services](./monitoring/media-services-diagnostic-logs-howto.md).
   - question: Comment surveiller mon événement en direct Media Services ?
     answer: >
       Utilisez [Azure Event Grid](./monitoring/reacting-to-media-services-events.md) pour surveiller votre événement en direct sans service d’interrogation. Les guides pratiques incluent [Créer et superviser des événements Azure Media Services avec Event Grid à partir du portail](./monitoring/monitor-events-portal-how-to.md) et [Créer et superviser des événements Azure Media Services avec Event Grid à partir d’Azure CLI](./monitoring/job-state-events-cli-how-to.md).
+- name: Lecteurs
+  questions:
   - question: Quels lecteurs vidéo puis-je utiliser avec Media Services ?
     answer: >
       Media Services fonctionne avec Lecteur multimédia Azure, Shaka et Video.js. Consultez la [documentation de Lecteur multimédia Azure](../azure-media-player/azure-media-player-overview.md), [Guide pratique pour utiliser le lecteur Shaka avec Azure Media Services](./player-shaka-player-how-to.md) ou [Guide pratique pour utiliser le lecteur Video.js avec Azure Media Services](./player-media-players-concept.md).
+- name: Haute disponibilité
+  questions:
   - question: Media Services prend-il en charge la haute disponibilité ?
     answer: >
       Vous trouverez de plus amples informations sur Media Services et la haute disponibilité dans l’article [Haute disponibilité avec Media Services et VOD (vidéo à la demande)](./architecture-high-availability-encoding-concept.md).
-  - question: Où puis-je trouver des exemples d’architectures Media Services ?
-    answer: >
-      Facile ! Lisez [Architectures Media Services](./architecture-concept.md) ou rendez-vous sur le Centre des architectures Azure.
+- name: Migration à partir de v2
+  questions:
   - question: Comment migrer de Media Services v2 à Media Services v3 ?
     answer: >
       Nous avons créé un [guide complet pour la migration de la version 2 à la version 3](./migrate-v-2-v-3-migration-introduction.md).  Nous sommes très intéressés par votre expérience et vos besoins en matière de migration. N’hésitez pas à nous faire part de vos commentaires par le biais d’un problème GitHub ou d’un ticket de support.
-  - question: Comment utiliser une identité managée pour chiffrer des données vers Media Services ?
-    answer: "Consultez le [tutoriel Utiliser une clé de Key Vault pour chiffrer les données dans un compte Media Services](security-encrypt-data-managed-identity-cli-tutorial.md) pour utiliser l’interface CLI dans le but d’associer Media Services à Key Vault pour chiffrer vos données.  \n"
-  - question: Comment utiliser une identité managée pour accorder à Media Services l’accès à un compte de stockage restreint ?
+- name: Résolution des problèmes
+  questions:
+  - question: Comment savoir ce que signifie ce code d’erreur ?
     answer: >
-      Si vous souhaitez accéder à un compte de stockage configuré pour bloquer les demandes provenant d’adresses IP inconnues, suivez les étapes décrites dans [Accéder à un stockage avec une identité managée Media Services](security-access-storage-managed-identity-cli-tutorial.md).
+      Nous avons documenté les codes d’erreur dans les références suivantes : [Codes d’erreur du point de terminaison de streaming](./stream-streaming-endpoint-error-codes-reference.md), [Codes d’erreur d’événement en direct](./live-event-error-codes-reference.md), [Codes d’erreur des tâches](./job-error-codes-reference.md).  Si vous ne trouvez pas de réponses sur cette page, créez un ticket de support.
+  - question: Comment réinitialiser les informations d’identification de mon compte ?
+    answer: >
+      Vous pouvez [réinitialiser les informations d’identification de votre compte](./account-reset-account-credentials.md) à l’aide de l’interface CLI.
+- name: Facturation et estimations de coûts
+  questions:
+  - question: Combien coûte Media Services ?
+    answer: >
+      Voir le [guide de tarification de Media Services](https://azure.microsoft.com/pricing/details/media-services/)
+- name: Quotas et limitations
+  questions:
+  - question: Quels sont les quotas et les limites de Media Services ?
+    answer: >
+      Voir [Quotas et limites de Media Services](limits-quotas-constraints-reference.md)
+- name: Conformité et données client
+  questions:
+  - question: La collection de services Azure Media Services stocke-t-elle les données des clients en dehors de la région desservie ?
+    answer: >
+      - Les clients associent leurs propres comptes de stockage à leur compte Azure Media Services.  Toutes les données des ressources sont stockées sur ces comptes de stockage associés, et le client détermine l'emplacement et le type de réplication de ce stockage.
+
+      - Les autres données associées au compte Media Services (y compris les clés de chiffrement du contenu, les clés de vérification des jetons, les URL JobInputHttp et autres métadonnées d'entité) sont stockées sur un espace de stockage appartenant à Microsoft dans la région sélectionnée pour le compte Media Services.
+        - En raison des exigences qui s'appliquent à la [résidence des données](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) dans les régions Brésil Sud et Asie Sud-Est, les autres données de compte sont stockées en mode redondant interzone et contenues au sein d'une même région. Pour la région Asie Sud-Est, toutes les autres données de compte sont stockées à Singapour ; et pour la région Brésil Sud, elles sont stockées au Brésil.
+        - Dans les régions autres que Brésil Sud et Asie Sud-Est, les autres données de compte peuvent également être stockées sur l'espace de stockage appartenant à Microsoft dans la [région jumelée](../../best-practices-availability-paired-regions.md).
+      - Azure Media Services est un service régional qui ne fournit ni [haute disponibilité](architecture-high-availability-encoding-concept.md) ni réplication de données. Les clients qui ont besoin de ces fonctionnalités sont vivement encouragés à créer une solution en utilisant des comptes Media Services dans plusieurs régions.  Un exemple montrant comment créer une solution pour la haute disponibilité avec la Vidéo à la demande Media Services est disponible à titre de guide.
+  - question: Media Services fournit-il une haute disponibilité ou une réplication des données ?
+    answer: '-   Azure Media Services est un service régional qui ne fournit ni haute disponibilité ni réplication de données. Les clients qui ont besoin de ces fonctionnalités sont vivement encouragés à créer une solution en utilisant des comptes Media Services dans plusieurs régions. Exemple montrant comment créer une solution de [Haute disponibilité avec Vidéo à la demande Media Services](./architecture-high-availability-encoding-concept.md) est disponible à titre de guide.'

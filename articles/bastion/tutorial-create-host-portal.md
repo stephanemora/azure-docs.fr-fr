@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: bdaad591effc2ef9e5d682dd9a80d994a9e1c34d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733396"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221098"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutoriel : Configurer Bastion et se connecter à une machine virtuelle Windows
 
@@ -72,16 +72,11 @@ Lors de la création de cette configuration, vous pouvez utiliser les exemples d
 | Référence SKU d’adresse IP publique |  standard  |
 | Affectation  | statique |
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-Connectez-vous au portail Azure.
-
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Créer un hôte Bastion
 
 Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. Cela est nécessaire pour créer une connexion sécurisée à une machine virtuelle dans le réseau virtuel.
 
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com).
 1. Tapez **Bastion** dans le champ de recherche.
 1. Sous services, cliquez sur **Bastions**.
 1. Dans la page Bastions, cliquez sur **+ Créer** pour ouvrir la page **Créer un bastion**.
@@ -101,7 +96,7 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 
 * **Région** : région publique Azure dans laquelle est créée la ressource.
 
-* **Niveau :** également appelé **Référence SKU**. Pour ce tutoriel, nous sélectionnons la référence SKU **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration - Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
+* **Niveau :** également appelé **Référence SKU**. Pour ce tutoriel, nous sélectionnons la référence SKU **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
 
 * **Nombre d’instances :** paramètre de la **mise à l’échelle de l’hôte**, configuré en incréments d’unités d’échelle. Utilisez le curseur pour configurer le nombre d’instances. Si vous avez spécifié la référence SKU de niveau De base, vous ne pouvez pas configurer ce paramètre. Pour plus d’informations, consultez [Paramètres de configuration - Mise à l’échelle de l’hôte](configuration-settings.md#instance). Dans ce tutoriel, vous pouvez sélectionner le nombre d’instances que vous préférez, en gardant à l’esprit les considérations relatives aux [tarifs](https://azure.microsoft.com/pricing/details/azure-bastion) des unités d’échelle.
 

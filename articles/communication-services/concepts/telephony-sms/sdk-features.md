@@ -2,19 +2,19 @@
 title: Vue d’ensemble du kit SDK SMS pour Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Fournit une vue d’ensemble du kit SDK SMS et de ses offres.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: bf93a892a810bd59110a0545c29bc2b11b40d893
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 5e30f7741352945fb634b2f8066a47f2c47c879b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112164"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258135"
 ---
 # <a name="sms-sdk-overview"></a>Vue d’ensemble du kit SDK SMS
 

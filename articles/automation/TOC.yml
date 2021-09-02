@@ -187,6 +187,8 @@
           items:
             - name: Vue d’ensemble
               href: automation-dsc-overview.md
+            - name: Configurer l’état souhaité Linux - PowerShell
+              href: dsc-linux-powershell.md
             - name: Bien démarrer avec State Configuration
               href: automation-dsc-getting-started.md
             - name: Activer State Configuration

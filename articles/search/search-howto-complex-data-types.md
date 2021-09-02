@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2021
-ms.openlocfilehash: 0a9b1a746a5228ba958b9c1c0cca38b088ca1176
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: bcd0819ce2720597c6e9f2435d37fe9276d595cd
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222230"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222275"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
@@ -24,7 +24,7 @@ Les champs complexes représentent un objet unique dans le document ou un tablea
 
 Recherche cognitive Azure prend nativement en charge les types et les collections complexes. Ces types vous permettent de modéliser presque n’importe quelle structure JSON dans un index Recherche cognitive Azure. Dans les versions précédentes d’API de Recherche cognitive Azure, seuls les jeux de lignes aplaties ont pu être importés. Dans la version la plus récente, votre index peut mieux correspondre aux données sources. En d’autres termes, si vos données sources contiennent des types complexes, votre index peut également contenir des types complexes.
 
-Pour commencer, nous vous recommandons le [jeu de données d’hôtels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que vous pouvez charger dans l’Assistant **Importer des données** du portail Azure. L’Assistant détecte les types complexes dans la source et suggère un schéma d’index basé sur les structures détectées.
+Pour commencer, nous vous recommandons le [jeu de données d’hôtels](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels), que vous pouvez charger dans l’Assistant **Importer des données** du portail Azure. L’Assistant détecte les types complexes dans la source et suggère un schéma d’index basé sur les structures détectées.
 
 > [!Note]
 > La prise en charge des types complexes a commencé à être généralement disponible dans `api-version=2019-05-06`. 
@@ -162,7 +162,7 @@ Comme avec les champs simples de niveau supérieur, les sous-champs simples de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayer le [jeu de données des hôtels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) dans l’Assistant **Importer des données**. Vous avez besoin des informations de connexion de Cosmos DB fournies dans le fichier Lisez-moi pour accéder aux données.
+Essayer le [jeu de données des hôtels](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) dans l’Assistant **Importer des données**. Vous avez besoin des informations de connexion de Cosmos DB fournies dans le fichier Lisez-moi pour accéder aux données.
 
 Lorsque vous avez ces informations, votre première étape dans l’Assistant est de créer une nouvelle source de données Azure Cosmos DB. Plus loin dans l’Assistant, lorsque vous accédez à la page d’index cible, vous voyez un index avec des types complexes. Créez et chargez cet index, puis exécutez des requêtes pour comprendre la nouvelle structure.
 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c70cf1ca07e5fff58a14aa6b5b6c2f18b9e0e775
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951332"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222519"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -127,7 +127,7 @@ Dans votre script, connectez-vous en utilisant `az login --service-principal` et
 
 ### <a name="java"></a>Java
 
-Utilisez l’API [zipdeploy/](deploy-zip.md) de Kudu pour déployer des applications JAR, et [wardeploy/](deploy-zip.md#deploy-war-file) pour des applications WAR. Si vous utilisez Jenkins, vous pouvez utiliser ces API directement lors de votre phase de déploiement. Pour plus d’informations, consultez [cet article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Utilisez l’API [zipdeploy/](deploy-zip.md) de Kudu pour déployer des applications JAR, et [wardeploy/](deploy-zip.md#deploy-warjarear-packages) pour des applications WAR. Si vous utilisez Jenkins, vous pouvez utiliser ces API directement lors de votre phase de déploiement. Pour plus d’informations, consultez [cet article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nœud
 
@@ -157,3 +157,7 @@ Pour plus d’informations sur les bonnes pratiques, consultez [Diagnostics App 
 - Cliquez sur **Bonnes pratiques pour la disponibilité et les performances** ou **Bonnes pratiques pour une configuration optimale** afin d’afficher l’état actuel de votre application en ce qui concerne ces bonnes pratiques.
 
 Vous pouvez également utiliser ce lien pour ouvrir directement Diagnostics App Service pour votre ressource : `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+
+## <a name="more-resources"></a>Plus de ressources
+
+[Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

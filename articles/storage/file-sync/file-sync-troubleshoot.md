@@ -4,16 +4,16 @@ description: Résolvez les problèmes courants d’un déploiement sur Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/20/2021
+ms.date: 8/16/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 633926710e4f6b92e2cd19aaf852135c07929966
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 15bc06f1f84b01df8d6999147d47e5f5f48ec45f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677127"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534763"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -59,7 +59,7 @@ Pour résoudre cela, transférez le rôle de contrôleur de domaine principal à
 <a id="parameter-is-incorrect"></a>**L’accès à un volume sur Windows Server 2012 R2 échoue en générant l’erreur suivante : Le paramètre est incorrect**  
 Après la création d’un point de terminaison de serveur sur Windows Server 2012 R2, l’erreur suivante se produit lors de l’accès au volume :
 
-lettre_lecteur :\ n’est pas accessible.  
+lettre de lecteur :\ n’est pas accessible.  
 Le paramètre est incorrect.
 
 Pour résoudre ce problème, installez [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) et redémarrez le serveur. Si cette mise à jour ne s’installe pas car une mise à jour ultérieure est déjà installée, accédez à Windows Update, installez les dernières mises à jour pour Windows Server 2012 R2 et redémarrez le serveur.
@@ -67,16 +67,15 @@ Pour résoudre ce problème, installez [KB2919355](https://support.microsoft.com
 <a id="server-registration-missing-subscriptions"></a>**L’inscription du serveur ne répertorie pas tous les abonnements Azure**  
 Lors de l’inscription d’un serveur à l’aide de ServerRegistration.exe, des abonnements sont manquants dans la liste déroulante Abonnement Azure.
 
-Ce problème se produit parce que ServerRegistration.exe ne récupère que les abonnements des cinq premiers locataires Azure AD. 
+Ce problème se produit parce que ServerRegistration.exe ne récupère que les abonnements des cinq premiers locataires Azure AD. 
 
 Pour augmenter la limite de locataires de ServerRegistration sur le serveur, créez une valeur DWORD appelée ServerRegistrationTenantLimit et supérieure à 5 sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
 
 Vous pouvez également contourner ce problème en utilisant les commandes PowerShell suivantes pour inscrire le serveur :
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+Connect-AzAccount -Subscription "<guid>" -Tenant "<guid>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 <a id="server-registration-prerequisites"></a>**L’inscription du serveur affiche le message suivant : « Les conditions préalables sont manquantes »**  
@@ -168,7 +167,7 @@ Cette erreur se produit si le chemin d’accès au point de terminaison du serve
 Cette erreur se produit si le chemin du point de terminaison du serveur spécifié n’est pas un volume NTFS. Vérifiez que le chemin d’accès au point de terminaison du serveur spécifié est un volume NTFS attaché localement. Notez que Azure File Sync ne prend pas en charge les lecteurs mappés comme un chemin de point de terminaison de serveur.
 
 <a id="-2134347507"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134347507 ou 0x80c8710d)**  
-Cette erreur se produit parce que Azure File Sync ne prend pas en charge les points de terminaison de serveur sur les volumes qui comportent un dossier System Volume Information compressé. Pour résoudre ce problème, décompressez le dossier System Volume Information. Si le dossier System Volume Information est le seul dossier compressé sur le volume, procédez comme suit :
+Cette erreur se produit parce qu’Azure File Sync ne prend pas en charge les points de terminaison de serveur sur les volumes, qui comportent un dossier System Volume Information compressé. Pour résoudre ce problème, décompressez le dossier System Volume Information. Si le dossier System Volume Information est le seul dossier compressé sur le volume, procédez comme suit :
 
 1. Téléchargez l’outil [PsExec](/sysinternals/downloads/psexec).
 2. Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges pour lancer une invite de commandes qui s’exécute sous le compte système : **PsExec.exe -i -s -d cmd**
@@ -255,12 +254,12 @@ Ce problème peut se produire si vous créez un point de terminaison cloud et qu
 
 ### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Comment surveiller l’intégrité de synchronisation ?
 # <a name="portal"></a>[Portail](#tab/portal1)
-Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points de terminaison serveur individuel pour afficher l’état des dernières sessions de synchronisation terminées. Une colonne de contrôle d’intégrité verte et des fichiers non synchronisés à la valeur 0 indiquent que la synchronisation fonctionne comme prévu. Si ce n’est pas le cas, voir ci-dessous pour obtenir la liste des erreurs de synchronisation courantes et savoir comment gérer les fichiers qui ne synchronisent pas. 
+Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points de terminaison serveur individuel pour afficher l’état des dernières sessions de synchronisation terminées. Une colonne de contrôle d’intégrité verte et des fichiers non synchronisés à la valeur 0 indiquent que la synchronisation fonctionne comme prévu. Dans le cas contraire, voir ci-dessous pour obtenir la liste des erreurs de synchronisation courantes et savoir comment gérer les fichiers qui ne synchronisent pas. 
 
 ![Capture d’écran du portail Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # <a name="server"></a>[Serveur](#tab/server)
-Accédez aux enregistrements de données de télémétrie du serveur, qui se trouve dans l’observateur d’événements à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Événement 9102 correspond à une session de synchronisation terminée; Pour obtenir le dernier état de synchronisation, recherchez l’événement le plus récent avec ID 9102. SyncDirection vous indique si cette session a été chargée ou téléchargée. Si la valeur HResult est 0, la session de synchronisation a réussi. Une valeur HResult différente de zéro indique une erreur pendant la synchronisation; voir ci-dessous pour obtenir la liste d’erreurs courantes. Si le PerItemErrorCount est supérieur à 0, cela signifie que certains fichiers ou dossiers non pas synchronisés correctement. Il est possible d’avoir une valeur HResult égale à 0, mais un PerItemErrorCount supérieur à 0.
+Accédez aux enregistrements de données de télémétrie du serveur, qui se trouve dans l’observateur d’événements à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Événement 9102 correspond à une session de synchronisation terminée; Pour obtenir le dernier état de synchronisation, recherchez l’événement le plus récent avec ID 9102. SyncDirection vous indique si cette session a été chargée ou téléchargée. Si la valeur `HResult` est égale à 0, la session de synchronisation a réussi. Une valeur `HResult` différente de zéro indique une erreur pendant la synchronisation ; voir ci-dessous pour obtenir la liste d’erreurs courantes. Si le PerItemErrorCount est supérieur à 0, cela signifie que certains fichiers ou dossiers non pas été synchronisés correctement. Il est possible d’avoir une valeur `HResult` égale à 0, mais un PerItemErrorCount supérieur à 0.
 
 Vous trouverez ci-dessous un exemple d’un chargement réussi. Par souci de concision, uniquement certaines des valeurs contenues dans chaque événement 9102 sont répertoriées ci-dessous. 
 
@@ -286,13 +285,13 @@ PerItemErrorCount: 0,
 TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTransferBytes: 0.
 ```
 
-Parfois, les sessions de synchronisation échouent globalement ou ont un PerItemErrorCount différent de zéro, mais progressent toujours, avec des synchronisations de fichiers réussies. Ceci peut être observé dans les champs Applied* (AppliedFileCount AppliedDirCount, AppliedTombstoneCount et AppliedSizeBytes), qui vous indiquent le niveau d’avancement de la session. Si vous voyez plusieurs sessions de synchronisation consécutives échouer tout en ayant un nombre d’Applied* croissant, alors vous devriez laisser à la synchronisation le temps de réessayer avant d’ouvrir un ticket de support.
+Parfois, les sessions de synchronisation échouent globalement ou ont un PerItemErrorCount différent de zéro, mais progressent toujours, avec des synchronisations de fichiers réussies. La progression peut être déterminée en examinant les champs *appliqués* (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount et AppliedSizeBytes). Ces champs décrivent dans quelle mesure la session a réussi. Si vous voyez plusieurs sessions de synchronisation consécutives échouer tout en ayant un nombre *Applied* croissant, alors vous devriez laisser à la synchronisation le temps de réessayer avant d’ouvrir un ticket de support.
 
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Comment surveiller la progression d’une session en cours de synchronisation ?
 # <a name="portal"></a>[Portail](#tab/portal1)
-Au sein de votre groupe de synchronisation, accédez au point de terminaison de serveur en question et examinez la section Activité de synchronisation pour voir le nombre de fichiers chargés ou téléchargés dans la session de synchronisation en cours. Notez que cet état sera retardé d’environ 5 minutes, et si votre session de synchronisation est suffisamment petite pour être effectuée pendant cette période, il peut ne pas être signalé dans le portail. 
+Au sein de votre groupe de synchronisation, accédez au point de terminaison de serveur en question et examinez la section Activité de synchronisation pour voir le nombre de fichiers chargés ou téléchargés dans la session de synchronisation en cours. Gardez à l’esprit que cet état sera retardé d’environ 5 minutes, et si votre session de synchronisation est suffisamment petite pour être effectuée pendant cette période, il peut ne pas être signalé dans le portail. 
 
 # <a name="server"></a>[Serveur](#tab/server)
 Recherchez les événements 9302 les plus récents dans les enregistrements de données de télémétrie sur le serveur (dans l’observateur d’événements, accédez aux enregistrements des Applications and Services\Microsoft\FileSync\Agent\Telemetry). Cet événement indique l’état de la session de synchronisation en cours. TotalItemCount indique combien de fichiers doivent être synchronisés, AppliedItemCount le nombre de fichiers qui ont été synchronisés jusqu’ici et PerItemErrorCount le nombre de fichiers qui ne parviennent pas à se synchroniser (voir ci-dessous pour savoir comment gérer cette opération).
@@ -319,11 +318,11 @@ Pour chaque serveur dans un groupe de synchronisation donné, vérifiez que :
 # <a name="server"></a>[Serveur](#tab/server)
 Examinez les sessions de synchronisation terminées, qui sont marquées par des événements 9102 dans les données de télémétrie de l’événement pour chaque serveur (dans l’observateur d’événements, accédez à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
-1. Sur un serveur donné, vous souhaitez vous assurer que les dernières sessions de chargement et téléchargement se sont terminées correctement. Pour ce faire, vérifiez que le HResult et PerItemErrorCount sont à 0 pour le chargement et le téléchargement (le champ SyncDirection indique si une session donnée est une session de chargement ou téléchargement). Notez que si vous ne voyez pas une session de synchronisation effectuée récemment, il est probable qu’une session de synchronisation soit en cours, ce qui est normal si vous venez d’ajouter ou de modifier une grande quantité de données.
-2. Lorsqu’un serveur est complètement à jour avec le cloud et ne comporte aucune modification pour la synchronisation dans les deux sens, vous verrez des sessions de synchronisation vide. Ceux-ci sont indiqués par des événements de chargement et de téléchargement dans lesquels tous les champs Sync* (SyncFileCount, SyncDirCount, SyncTombstoneCount, SyncTombstoneCount et SyncSizeBytes) sont à zéro, ce qui signifie qu’il n’y avait rien à synchroniser. Notez que ces sessions de synchronisation vide ne peuvent pas survenir sur les serveurs à forte activité car il y a toujours quelque chose de nouveau à synchroniser. S’il n’existe aucune activité de synchronisation, elles doivent se produire toutes les 30 minutes. 
+1. Sur un serveur donné, vous souhaitez vous assurer que les dernières sessions de chargement et téléchargement se sont terminées correctement. Pour ce faire, vérifiez que le `HResult` et PerItemErrorCount sont à 0 pour le chargement et le téléchargement (le champ SyncDirection indique si une session donnée est une session de chargement ou téléchargement). Notez que si vous ne voyez pas une session de synchronisation effectuée récemment, il est probable qu’une session de synchronisation soit en cours, ce qui est normal si vous venez d’ajouter ou de modifier une grande quantité de données.
+2. Lorsqu’un serveur est complètement à jour avec le cloud et ne comporte aucune modification pour la synchronisation dans les deux sens, vous allez voir des sessions de synchronisation vide. Ceux-ci sont indiqués par des événements de chargement et de téléchargement dans lesquels tous les champs Sync* (SyncFileCount, SyncDirCount, SyncTombstoneCount, SyncTombstoneCount et SyncSizeBytes) sont à zéro, ce qui signifie qu’il n’y avait rien à synchroniser. Notez que ces sessions de synchronisation vide ne peuvent pas survenir sur les serveurs à forte activité car il y a toujours quelque chose de nouveau à synchroniser. S’il n’existe aucune activité de synchronisation, elles doivent se produire toutes les 30 minutes. 
 3. Si tous les serveurs sont à jour avec le cloud, ce qui signifie que leur chargement récent et les sessions de téléchargement sont des sessions de synchronisation vide, vous pouvez affirmer avec une certitude raisonnable que l’ensemble du système est synchronisé. 
     
-Notez que si vous avez effectué des modifications directement dans votre partage de fichiers Azure, Azure File Sync ne détectera pas cette modification jusqu’à ce que les énumérations de modifications s’exécutent, ce qui se produit une fois toutes les 24 heures. Il est possible qu’un serveur indique qu’il est à jour avec le cloud alors qu’il lui manque en fait des modifications récentes apportées directement dans le partage de fichiers Azure. 
+Si vous avez effectué des modifications directement dans votre partage de fichiers Azure, Azure File Sync ne détectera pas ces modifications jusqu’à ce que les énumérations de modifications s’exécutent, ce qui se produit une fois toutes les 24 heures. Il est possible qu’un serveur indique qu’il est à jour avec le cloud alors qu’il lui manque en fait des modifications récentes apportées directement dans le partage de fichiers Azure.
 
 ---
 
@@ -335,8 +334,8 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 > [!Note]  
 > Si le script FileSyncErrorsReport.ps1 retourne « Aucune erreur de fichier n’a été trouvée » ou ne contient pas d’erreurs par élément pour le groupe de synchronisation, la cause est l’une des suivantes :
 >
->- Cause 1 : La dernière session de synchronisation terminée n’a pas d’erreurs par élément. Le portail doit être mis à jour bientôt pour afficher « 0 Fichiers non synchronisés ». 
->    - Vérifiez l’[ID d’événement 9102](?tabs=server%252cazure-portal#broken-sync) dans le journal des événements de télémétrie pour confirmer que PerItemErrorCount a la valeur 0. 
+>- Cause 1 : La dernière session de synchronisation terminée n’a pas d’erreurs par élément. Le portail doit être mis à jour bientôt pour afficher « 0 Fichiers non synchronisés ». Par défaut, le script FileSyncErrorsReport.ps1 affiche uniquement les erreurs par élément pour la dernière session de synchronisation terminée. Pour afficher les erreurs par élément pour toutes les sessions de synchronisation, utilisez le paramètre -ReportAllErrors.
+>    - Vérifiez l’[ID d’événement 9102](?tabs=server%252cazure-portal#broken-sync) le plus récent dans le journal des événements de télémétrie pour confirmer que PerItemErrorCount a la valeur 0. 
 >
 >- Cause 2 : Le journal des événements ItemResults sur le serveur a été enveloppé (wrapped) car les erreurs par élément sont trop nombreuses et le journal des événements ne contient plus d’erreurs pour ce groupe de synchronisation.
 >    - Pour éviter ce problème, augmentez la taille du journal des événements ItemResults. Le journal des événements ItemResults se trouve sous « Journaux des applications et des services\Microsoft\FileSync\Agent » dans l’observateur d’événements. 
@@ -359,6 +358,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Le fichier ou le répertoire a été ignoré, mais sera synchronisé au cours de la prochaine session de synchronisation. Si cette erreur est signalée lors du téléchargement de l’élément, il est plus que probable que le nom du fichier ou du répertoire n’est pas valide. | Aucune action n’est requise si cette erreur est signalée lors du chargement du fichier. Si l’erreur est signalée lors du téléchargement du fichier, renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](?tabs=portal1%252cazure-portal#handling-unsupported-characters). |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La création d’un fichier ou d’un répertoire ne peut pas être synchronisée, car l’élément existe déjà dans la destination et la synchronisation n’a pas connaissance de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications s’est exécutée sur la destination et que la synchronisation a connaissance de ce nouvel élément. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](?tabs=portal1%252cazure-portal#-2134351810) dans le guide de dépannage. |
+| 0x80c83008 | -2134364152 | ECS_E_CANNOT_CREATE_AZURE_STAGED_FILE | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte.  | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](?tabs=portal1%252cazure-portal#-2134351810) dans le guide de dépannage. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Le fichier est chiffré par une solution non prise en charge (comme NTFS EFS). | Déchiffrez le fichier et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, consultez la section [Chiffrement](file-sync-planning.md#encryption) du guide de planification. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers de réplication en lecture seule DFS-R. Consultez le [guide de planification](file-sync-planning.md#distributed-file-system-dfs) pour plus d’informations. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Le fichier est en attente de suppression. | Aucune action requise. Le fichier est supprimé une fois que tous les descripteurs de fichiers ouverts sont fermés. |
@@ -369,6 +369,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Le fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
 | 0x80070017 | -2147024873 | ERROR_CRC | Impossible de synchroniser le fichier en raison d’une erreur CRC. Cette erreur peut se produire si un fichier hiérarchisé n’a pas été rappelé avant la suppression d’un point de terminaison de serveur ou si le fichier est endommagé. | Pour résoudre ce problème, voir [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) afin de supprimer les fichiers hiérarchisés orphelins. Si l’erreur persiste après la suppression des fichiers hiérarchisés orphelins, exécutez la commande [chkdsk](/windows-server/administration/windows-commands/chkdsk) sur le volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Impossible de synchroniser le fichier, car le nombre maximal de fichiers conflictuels a été atteint. Azure File Sync prend en charge 100 fichiers conflictuels par fichier. Pour en savoir plus sur les conflits de fichiers, consultez la [FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-conflict-resolution) d’Azure File Sync. | Pour résoudre ce problème, réduisez le nombre de fichiers conflictuels. Le fichier est synchronisé une fois que le nombre de fichiers conflictuels est inférieur à 100. |
+| 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | Impossible de synchroniser le nom d’un répertoire, car des fichiers ou des dossiers au sein du répertoire ont des descripteurs ouverts. | Aucune action requise. Le changement de nom du répertoire sera synchronisé une fois que tous les descripteurs de fichiers ouverts dans le répertoire seront fermés. |
 
 #### <a name="handling-unsupported-characters"></a>Gestion des caractères non pris en charge
 Si le script PowerShell **FileSyncErrorsReport.ps1** montre des erreurs de synchronisation par élément dues à des caractères non pris en charge (code d’erreur 0x8007007b ou 0x80c80255), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. 
@@ -383,7 +384,7 @@ Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync
 | 0x0000FDD0 - 0x0000FDDD (formulaire de présentation arabe-a) | 14 |
 | <ul><li>0x00000022 (guillemets)</li><li>0x0000002A (astérisque)</li><li>0x0000002F (barre oblique)</li><li>0x0000003A (deux-points)</li><li>0x0000003C (inférieur à)</li><li>0x0000003E (supérieur à)</li><li>0x0000003F (point d’interrogation)</li><li>0x0000005C (barre oblique inverse)</li><li>0x0000007C (barre verticale)</li></ul> | 9 |
 | <ul><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x0010FFFE - 0x0010FFFF = 2 (non-caractère)</li></ul> | 8 |
-| <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6 |
+| <ul><li>0x0000009D (commande de système d’exploitation `osc`)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6 |
 | 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (spéciaux) | 4 |
 | Fichiers ou répertoires se terminant par un point | 1 |
 
@@ -410,6 +411,9 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Une fois la connectivité réseau avec le service Azure File Sync restaurée, la synchronisation peut ne pas reprendre immédiatement. Par défaut, Azure File Sync lance une session de synchronisation toutes les 30 minutes si aucune modification n’est détectée au sein de l’emplacement du point de terminaison de serveur. Pour forcer une session de synchronisation, redémarrez le service d’agent de synchronisation de stockage (FileSyncSvc) ou apportez une modification à un fichier ou à un répertoire dans l’emplacement du point de terminaison du serveur.
+
 <a id="-2134376372"></a>**La requête de l’utilisateur a été limitée par le service.**  
 
 | Error | Code |
@@ -420,6 +424,17 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 | **Correction requise** | Non |
 
 Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur persiste pendant plusieurs heures, créez une demande de support.
+
+<a id="-2134364160"></a>**La synchronisation a échoué car l’opération a été abandonnée**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83000 |
+| **HRESULT (décimal)** | -2134364160 |
+| **Chaîne d’erreur** | ECS_E_OPERATION_ABORTED |
+| **Correction requise** | Non |
+
+Aucune action n'est requise. Si cette erreur persiste pendant plusieurs heures, créez une demande de support.
 
 <a id="-2134364043"></a>**La synchronisation est bloquée jusqu’à ce que la détection des modifications soit terminée après la restauration**  
 
@@ -535,7 +550,7 @@ Cette erreur se produit lorsqu’il existe un problème avec la base de données
 | **Chaîne d’erreur** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Correction requise** | Oui |
 
-Cette erreur se produit si la version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge. Pour résoudre ce problème, [mettez à niveau]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) l’agent avec une [version prise en charge]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
+Cette erreur se produit si la version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge. Pour résoudre ce problème, [mettez à niveau](file-sync-release-notes.md#azure-file-sync-agent-update-policy) l’agent avec une [version prise en charge](file-sync-release-notes.md#supported-versions).
 
 <a id="-2134351810"></a>**La limite de stockage de partage de fichiers Azure a été atteinte.**  
 
@@ -546,7 +561,14 @@ Cette erreur se produit si la version de l’agent Azure File Sync installé sur
 | **Chaîne d’erreur** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **Correction requise** | Oui |
 
-Cette erreur se produit lorsque la limite de stockage de partage de fichiers Azure a été atteinte, ce qui peut se produire si un quota est appliqué pour un partage de fichiers Azure ou si l’utilisation dépasse les limites d’un partage de fichiers Azure. Pour plus d’informations, consultez les [limites actuelles pour un partage de fichiers Azure](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80249 |
+| **HRESULT (décimal)** | -2134375863 |
+| **Chaîne d’erreur** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
+| **Correction requise** | Oui |
+
+Les sessions de synchronisation échouent en affichant l’une de ces erreurs lorsque la limite de stockage de partage de fichiers Azure a été atteinte, ce qui peut se produire si un quota est appliqué pour un partage de fichiers Azure ou si l’utilisation dépasse les limites d’un partage de fichiers Azure. Pour plus d’informations, consultez les [limites actuelles pour un partage de fichiers Azure](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 1. Accédez au groupe de synchronisation au sein du service de synchronisation de stockage.
 2. Sélectionnez le point de terminaison de cloud au sein du groupe de synchronisation.
@@ -653,6 +675,20 @@ En définissant cette valeur de Registre, l'agent Azure File Sync accepte n'impo
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Une fois la connectivité réseau avec le service Azure File Sync restaurée, la synchronisation peut ne pas reprendre immédiatement. Par défaut, Azure File Sync lance une session de synchronisation toutes les 30 minutes si aucune modification n’est détectée au sein de l’emplacement du point de terminaison de serveur. Pour forcer une session de synchronisation, redémarrez le service d’agent de synchronisation de stockage (FileSyncSvc) ou apportez une modification à un fichier ou à un répertoire dans l’emplacement du point de terminaison du serveur.
+
+<a id="-2147012721"></a>**La synchronisation a échoué, car le serveur n’a pas pu décoder la réponse du service Azure File Sync**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80072f8f |
+| **HRESULT (décimal)** | -2147012721 |
+| **Chaîne d’erreur** | WININET_E_DECODING_FAILED |
+| **Correction requise** | Oui |
+
+Cette erreur se produit généralement si un proxy réseau modifie la réponse du service Azure File Sync. Vérifiez la configuration de votre proxy.
+
 <a id="-2134375680"></a>**La synchronisation a échoué en raison d’un problème d’authentification.**  
 
 | Error | Code |
@@ -735,7 +771,7 @@ Cette erreur se produit en raison de l’échec de la suppression du point de te
 | **Chaîne d’erreur** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **Correction requise** | Oui |
 
-Cette erreur se produit parce que le volume est saturé. Cette erreur se produit souvent parce que les fichiers situés à l’extérieur du point de terminaison de serveur occupent de l’espace sur le volume. Libérer de l’espace sur le volume en ajoutant des points de terminaison serveur supplémentaires, déplacer les fichiers vers un autre volume ou augmenter la taille du volume sur lequel se trouve le point d’extrémité du serveur.
+Les sessions de synchronisation échouent avec l’une de ces erreurs parce que l’espace disque du volume est insuffisant ou que la limite du quota de disque est atteinte. Cette erreur se produit souvent parce que les fichiers situés à l’extérieur du point de terminaison de serveur occupent de l’espace sur le volume. Libérer de l’espace sur le volume en ajoutant des points de terminaison serveur supplémentaires, déplacer les fichiers vers un autre volume ou augmenter la taille du volume sur lequel se trouve le point d’extrémité du serveur. Si un quota de disque est configuré sur le volume à l’aide d’un [Gestionnaire des ressources de serveur de fichiers](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) ou d’un [quota NTFS](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-quota), augmentez la limite de quota.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**Le service n’est pas encore prêt pour la synchronisation avec ce point de terminaison de serveur.**  
 
@@ -809,6 +845,9 @@ Cette erreur se produit parce que la version du pilote de filtre de hiérarchisa
 
 Cette erreur se produit parce que le service Azure File Sync n’est pas disponible. Cette erreur se résoudra automatiquement lorsque le service Azure File Sync sera à nouveau disponible.
 
+> [!Note]  
+> Une fois la connectivité réseau avec le service Azure File Sync restaurée, la synchronisation peut ne pas reprendre immédiatement. Par défaut, Azure File Sync lance une session de synchronisation toutes les 30 minutes si aucune modification n’est détectée au sein de l’emplacement du point de terminaison de serveur. Pour forcer une session de synchronisation, redémarrez le service d’agent de synchronisation de stockage (FileSyncSvc) ou apportez une modification à un fichier ou à un répertoire dans l’emplacement du point de terminaison du serveur.
+
 <a id="-2146233088"></a>**La synchronisation a échoué en raison d’une exception.**  
 
 | Error | Code |
@@ -880,10 +919,10 @@ Cette erreur peut se produire si le compte NT AUTHORITY\SYSTEM n’a pas d’aut
 Pour résoudre ce problème, procédez comme suit :
 
 1. Téléchargez l’outil [Psexec](/sysinternals/downloads/psexec).
-2. Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges pour lancer une invite de commandes utilisant le compte système : **PsExec.exe -i -s -d cmd** 
-3. À partir de l’invite de commandes qui s’exécute sous le compte système, exécutez la commande suivante pour confirmer que le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information : **cacls "drive letter:\system volume information" /T /C**
-4. Si le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information, exécutez la commande suivante: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-    - Si l’étape n°4 échoue avec l’accès refusé, exécutez la commande suivante pour prendre possession du dossier System Volume Information, puis répétez l'étape n°4 : **takeown /A /R /F "drive letter:\System Volume Information"**
+2. Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges pour lancer une invite de commandes au moyen du compte système : `PsExec.exe -i -s -d cmd`
+3. À partir de l’invite de commandes qui s’exécute sous le compte système, exécutez la commande suivante pour confirmer que le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information : `cacls "drive letter:\system volume information" /T /C`
+4. Si le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information, exécutez la commande suivante : `cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"`
+    - Si l’étape n°4 échoue en affichant un accès refusé, exécutez la commande suivante pour prendre possession du dossier System Volume Information, puis répétez l’étape n°4 : `takeown /A /R /F "drive letter:\System Volume Information"`
 
 <a id="-2134375810"></a>**La synchronisation a échoué car le partage de fichiers Azure a été supprimé et recréé.**  
 
@@ -903,6 +942,17 @@ Pour résoudre ce problème, supprimez et recréez le groupe de synchronisation 
 3. Supprimez le groupe de synchronisation.
 4. Si la hiérarchisation cloud a été activée sur un point de terminaison de serveur, supprimez les fichiers hiérarchisés orphelins sur le serveur en effectuant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’une section de point de terminaison de serveur](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 5. Recréez le groupe de synchronisation.
+
+<a id="-2134375852"></a>**La synchronisation a détecté que le réplica a été restauré à un état antérieur**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80254 |
+| **HRESULT (décimal)** | -2134375852 |
+| **Chaîne d’erreur** | ECS_E_SYNC_REPLICA_BACK_IN_TIME |
+| **Correction requise** | Non |
+
+Aucune action n'est requise. Cette erreur se produit parce que la synchronisation a détecté que le réplica a été restauré à un état plus ancien. La synchronisation passe à présent en mode de rapprochement, dans lequel elle recrée la relation de synchronisation en fusionnant le contenu du partage de fichiers Azure et les données sur le point d’extrémité du serveur. Lorsque le mode de rapprochement est déclenché, le processus peut prendre beaucoup de temps en fonction de la taille de l’espace de noms. La synchronisation normale ne se produit pas tant que le rapprochement n’est pas terminé, et les fichiers qui sont différents (heure ou taille de la dernière modification) entre le partage de fichiers Azure et le point de terminaison de serveur entraînent des conflits de fichiers.
 
 <a id="-2145844941"></a>**La synchronisation a échoué car la requête HTTP a été redirigée**  
 
@@ -939,8 +989,26 @@ Cette erreur se produit si le répertoire utilisé comme chemin du point de term
 
 Si le répertoire a été supprimé, procédez comme suit pour supprimer le point de terminaison de serveur actuel et en créer un nouveau avec un nouveau chemin :
 
-1. Supprimez le point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Suppression d’un point de terminaison de serveur](file-sync-server-endpoint.md#remove-a-server-endpoint).
-2. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](file-sync-server-endpoint.md#add-a-server-endpoint).
+1. Supprimez le point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Suppression d’un point de terminaison de serveur](file-sync-server-endpoint-delete.md).
+1. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](file-sync-server-endpoint-create.md).
+
+<a id="-2134375783"></a>**Échec de l’approvisionnement du point de terminaison de serveur en raison d’un chemin d’accès de serveur vide.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80C80299 |
+| **HRESULT (décimal)** | -2134375783 |
+| **Chaîne d’erreur** | ECS_E_SYNC_AUTHORITATIVE_UPLOAD_EMPTY_SET |
+| **Correction requise** | Oui |
+
+L’approvisionnement des points de terminaison de serveur échoue avec ce code d’erreur si ces conditions sont remplies : 
+* Ce point de terminaison de serveur a été approvisionné avec le mode de synchronisation initial : [serveur faisant autorité](file-sync-server-endpoint-create.md#initial-sync-section)
+* Le chemin d’accès du serveur local est vide ou ne contient aucun élément reconnu comme pouvant être synchronisé.
+
+Cette erreur d’approvisionnement vous empêche de supprimer tout le contenu qui peut être disponible dans un partage de fichiers Azure. Le chargement du serveur faisant autorité est un mode spécial permettant d’intercepter un emplacement cloud déjà amorcé, avec les mises à jour de l’emplacement du serveur. Consultez ce [guide de migration](../files/storage-files-migration-server-hybrid-databox.md) pour comprendre le scénario pour lequel ce mode a été conçu.
+
+1. Supprimez le point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Suppression d’un point de terminaison de serveur](file-sync-server-endpoint-delete.md).
+1. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](file-sync-server-endpoint-create.md).
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  
@@ -1142,7 +1210,7 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | La hiérarchisation du fichier a échoué en raison d’un problème de stockage Azure. | Si l’erreur persiste, ouvrez une demande de support. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Le fichier n’a pas pu être hiérarchisé car il a été rappelé en même temps. | Aucune action requise. Le fichier sera hiérarchisé quand le rappel sera terminé et que le fichier ne sera plus utilisé. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Le fichier n’a pas pu être hiérarchisé car le pilote de filtre de hiérarchisation cloud (storagesync.sys) n’est pas en cours d’exécution. | Pour résoudre ce problème, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : `fltmc load storagesync`<br>Si le chargement du pilote de filtre storagesync échoue lors de l’exécution de la commande fltmc, désinstallez l’agent Azure File Sync, redémarrez le serveur et réinstallez l’agent Azure File Sync. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Le fichier n’a pas pu être hiérarchisé car le pilote de filtre de hiérarchisation cloud (storagesync.sys) n’est pas en cours d’exécution. | Pour résoudre ce problème, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : `fltmc load storagesync`<br>Si le chargement du pilote de filtre Azure File Sync échoue lors de l’exécution de la commande fltmc, désinstallez l’agent Azure File Sync, redémarrez le serveur, puis réinstallez l’agent Azure File Sync. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | La hiérarchisation du fichier a échoué car l’espace disque est insuffisant sur le volume où se trouve le point de terminaison de serveur. | Pour résoudre ce problème, libérez au moins 100 Mo d’espace disque sur le volume où se trouve le point de terminaison de serveur. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | La hiérarchisation du fichier a échoué car il s’agit d’un point d’analyse non pris en charge. | Si le fichier est un point d’analyse de déduplication des données, effectuez les étapes décrites dans le [guide de planification](file-sync-planning.md#data-deduplication) pour activer la prise en charge de la déduplication des données. Les fichiers avec des points d’analyse autres que la déduplication des données ne sont pas pris en charge et ne seront pas hiérarchisés.  |
@@ -1153,6 +1221,8 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La hiérarchisation du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
 | 0x8e5e03fe | -1906441218 | JET_errDiskIO | Le fichier n’a pas pu être hiérarchisé en raison d’une erreur d’E/S lors de l’écriture dans la base de données de hiérarchisation cloud. | Si l’erreur persiste, exécutez chkdsk sur le volume et vérifiez le matériel de stockage. |
 | 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Le fichier n’a pas pu être hiérarchisé car la base de données de hiérarchisation cloud n’est pas en cours d’exécution. | Pour résoudre ce problème, redémarrez le service ou le serveur FileSyncSvc. Si l’erreur persiste, exécutez chkdsk sur le volume et vérifiez le matériel de stockage. |
+| 0x80C80285 | -2160591493 | ECS_E_GHOSTING_SKIPPED_BY_CUSTOM_EXCLUSION_LIST | Le fichier ne peut pas être hiérarchisé, car le type de fichier est exclu de la hiérarchisation. | Pour hiérarchiser les fichiers avec ce type de fichier, modifiez le paramètre de Registre GhostingExclusionList situé sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync. |
+| 0x80C86050 | -2160615504 | ECS_E_REPLICA_NOT_READY_FOR_TIERING | Le fichier n’a pas pu être hiérarchisé, car le mode de synchronisation en cours est le chargement ou rapprochement initial. | Aucune action requise. Le fichier est hiérarchisé une fois que la synchronisation a terminé le chargement ou le rapprochement initial. |
 
 
 
@@ -1182,6 +1252,9 @@ Si le rappel de fichiers échoue :
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Le rappel du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Le rappel du fichier a échoué parce que la mémoire est insuffisante. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau à l’origine de l’insuffisance de mémoire. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Le rappel du fichier a échoué car l’espace disque est insuffisant. | Pour résoudre ce problème, libérez de l’espace sur le volume en déplaçant des fichiers vers un autre volume, augmentez la taille du volume ou forcez la hiérarchisation des fichiers à l’aide de l’applet de commande Invoke-StorageSyncCloudTiering. |
+| 0x80072f8f | -2147012721 | WININET_E_DECODING_FAILED | Le fichier n’a pas pu être rappelé car le serveur n’a pas pu décoder la réponse du service Azure File Sync. | Cette erreur se produit généralement si un proxy réseau modifie la réponse du service Azure File Sync. Vérifiez la configuration de votre proxy. |
+| 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | Le fichier n’a pas pu être rappelé car votre organisation utilise un proxy de terminaison TLS ou une entité malveillante intercepte le trafic entre votre serveur et le service Azure File Sync. | Si vous êtes certain que cela est attendu (car votre organisation utilise un proxy de terminaison TLS), suivez les étapes décrites pour l’erreur [CERT_E_UNTRUSTEDROOT](https://docs.microsoft.com/azure/storage/file-sync/file-sync-troubleshoot?tabs=portal1%2Cazure-portal#-2146762487) afin de résoudre ce problème. |
+| 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | Le fichier n’a pas pu être rappelé parce qu’il fait référence à une version du fichier qui n’existe plus dans le partage de fichiers Azure. | Ce problème peut se produire si le fichier hiérarchisé a été restauré à partir d’une sauvegarde. Pour résoudre ce problème, ouvrez une demande de support. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur
 Les fichiers hiérarchisés sur un serveur sont inaccessibles si les fichiers ne sont pas rappelés avant la suppression du point de terminaison.
@@ -1202,7 +1275,7 @@ Si les conditions ci-dessus ne sont pas remplies, la restauration de l’accès 
 
 **Remarques**
 - Lorsque les fichiers hiérarchisés ne sont pas accessibles sur le serveur, le fichier complet doit toujours être accessible si vous accédez directement au partage de fichiers Azure.
-- Pour empêcher les fichiers hiérarchisés orphelins à l’avenir, suivez les étapes décrites dans [Supprimer un point de terminaison de serveur](file-sync-server-endpoint.md#remove-a-server-endpoint) lors de la suppression d’un point de terminaison de serveur.
+- Pour empêcher les fichiers hiérarchisés orphelins à l’avenir, suivez les étapes décrites dans [Supprimer un point de terminaison de serveur](file-sync-server-endpoint-delete.md) lors de la suppression d’un point de terminaison de serveur.
 
 <a id="get-orphaned"></a>**Obtention de la liste des fichiers hiérarchisés orphelins** 
 
@@ -1223,7 +1296,7 @@ Cette option supprime les fichiers hiérarchisés orphelins sur le serveur Windo
 
 1. Vérifiez que la version v5.1 (ou ultérieure) de l’agent Azure File Sync est installée.
 2. Sauvegardez le partage de fichiers Azure et l’emplacement du point de terminaison de serveur.
-3. Supprimez le point de terminaison de serveur dans le groupe de synchronisation (s’il existe) en suivant les étapes décrites dans [Supprimer un point de terminaison de serveur](file-sync-server-endpoint.md#remove-a-server-endpoint).
+3. Supprimez le point de terminaison de serveur dans le groupe de synchronisation (s’il existe) en suivant les étapes décrites dans [Supprimer un point de terminaison de serveur](file-sync-server-endpoint-delete.md).
 
 > [!Warning]  
 > Si le point de terminaison de serveur n’est pas supprimé avant d’utiliser l’applet de commande Remove-StorageSyncOrphanedTieredFiles, la suppression du fichier hiérarchisé orphelin sur le serveur supprimera le fichier complet dans le partage de fichiers Azure. 
@@ -1273,6 +1346,18 @@ Des rappels inattendus peuvent également se produire dans d’autres scénarios
 
 > [!NOTE]
 >Utilisez l’ID d’événement 9059 dans le journal d’événements de télémétrie pour déterminer quelles sont les applications à l’origine des rappels. Cet événement fournit la distribution des rappels d’application pour un point de terminaison de serveur, et est enregistré une fois par heure.
+
+### <a name="process-exclusions-for-azure-file-sync"></a>Exclusions de processus pour Azure File Sync
+
+Si vous souhaitez configurer votre antivirus ou d’autres applications pour qu’elles n’analysent pas les fichiers auxquels Azure File Sync a accès, configurez les exclusions de processus suivantes :
+
+- C:\Program Files\Azure\StorageSyncAgent\AfsAutoUpdater.exe
+- C:\Program Files\Azure\StorageSyncAgent\FileSyncSvc.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentLauncher.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentHost.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentManager.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentCore.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\Extensions\XSyncMonitoringExtension\AzureStorageSyncMonitor.exe
 
 ### <a name="tls-12-required-for-azure-file-sync"></a>Protocole TLS 1.2 requis pour Azure File Sync
 

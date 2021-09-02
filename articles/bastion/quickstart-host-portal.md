@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 7598b2908365061ae789ce2ffafb6088dc5c2a68
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: f6319369a03de754b1ce016fb20aa99e5ab466e1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733355"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223419"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Démarrage rapide : Configurer Azure Bastion à partir des paramètres de la machine virtuelle
 
@@ -73,9 +73,7 @@ Lors de la création de cette configuration, vous pouvez utiliser les exemples d
 
 Il existe différentes manières de configurer un hôte bastion. Dans les étapes suivantes, vous allez créer un hôte bastion dans le portail Azure directement à partir de votre machine virtuelle. Quand vous créez un hôte à partir d’une machine virtuelle, différents paramètres sont automatiquement renseignés conformément à votre machine virtuelle et/ou votre réseau virtuel.
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-1. Connectez-vous au portail Azure.
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com).
 1. Accédez à la machine virtuelle à laquelle vous voulez vous connecter, puis sélectionnez **Se connecter**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Capture d’écran des paramètres de la machine virtuelle." lightbox="./media/quickstart-host-portal/vm-connect.png":::

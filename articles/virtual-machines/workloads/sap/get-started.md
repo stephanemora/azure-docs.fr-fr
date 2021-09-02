@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/09/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2761262950c2a10709ccfa37b35a2d3e4c556359
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: cdf1208ae6c6661b6d9ad905ecf35ce66efc392d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903484"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535118"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -80,6 +80,21 @@ Dans cette section, vous trouvez des informations sur la configuration de l’au
 Cette section contient des documents concernant l’intégration de Microsoft Power BI dans des sources de données SAP, ainsi que l’intégration d’Azure Data Factory dans SAP BW.
 
 ## <a name="change-log"></a>Journal des modifications
+- 17 août 2021 : Modifications apportées au [déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP](./dbms_guide_ibm.md), aux [types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et à la [charge de travail SAP sur des scénarios pris en charge par la machine virtuelle Azure](./sap-planning-supported-configurations.md) pour introduire la prise en charge pour IBM Db2 au moyen de volumes NFS hébergés sur ANF
+- 02 août 2021 : Modifications apportées à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous SLES pour les applications SAP](./high-availability-guide-suse.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous SLES avec ANF](./high-availability-guide-suse-netapp-files.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL pour les applications SAP](./high-availability-guide-rhel.md) et à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) afin de clarifier le comportement (ENSA1/ENSA2) lors d’un scénario test simulant une défaillance de serveur de file d’attente     
+- 11 août 2021 : Modifications apportées à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL pour les applications SAP](./high-availability-guide-rhel.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) et [HA pour SAP NW sur les machines virtuelles Azure sur RHEL multi-SID](./high-availability-guide-rhel-multi-sid.md) pour ajuster l’adhérence des ressources de cluster, les seuils de migration et les contraintes d’ordre  
+- 11 août 2021 : Version du [Guide d’implémentation de SAP BW-Near Line Storage (NLS) avec SAP IQ sur Azure](./sap-iq-deployment-guide.md) 
+- 29 juillet 2021 : Introduire un cluster Windows à deux nœuds combiné pour ASCS/SCS et sgbd dans la [haute disponibilité pour sap NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP](./high-availability-guide-windows-netapp-files-smb.md) et [mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](./sap-high-availability-guide-wsfc-shared-disk.md) 
+- 26 juillet 2021 : Modification apportée à la [configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) et à la [configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) pour remplacer les instructions d’attribution de rôle par des liens vers la documentation RBAC dans les sections décrivant la configuration de l’agent de clôture Azure
+- 22 juillet 2021 : Modifications apportées à [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL pour les applications SAP](./high-availability-guide-rhel.md), [HA pour SAP NW sur les machines virtuelles Azure exécutées sous RHEL avec ANF](./high-availability-guide-rhel-netapp-files.md) et [HA pour SAP NW sur les machines virtuelles Azure sur RHEL multi-SID](./high-availability-guide-rhel-multi-sid.md) pour supprimer `failure-timeout` pour la ressources de cluster ASCS (ENSA2 uniquement)
+- 16 juillet 2021 : Restructuration de la table des matières (TOC) de SAP sur Azure pour une navigation plus simple
+- 2 juillet 2021 : Modification apportée à la [sauvegarde et la restauration de SAP HANA sur des grandes instances HANA](./hana-backup-restore.md) pour supprimer le contenu dupliqué de l’outil azacsnap et la sauvegarde et la restauration des grandes instances HANA
+- 2 juillet 2021 : Modification apportée à la [configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) pour ajouter des informations sur la façon d’éviter la concurrence de clôture dans un cluster Pacemaker à deux nœuds et un lien vers la base de connaissances, expliquant comment réduire les retards de basculement lors de l’utilisation de la configuration STONITH facultative avec `fence_kdump`
+- 1 juillet 2021 : Ajout de nouvelles références SKU de grandes instance HANA certifiées dans les [références SKU disponibles pour HLI](./hana-available-skus.md) 
+- 30 juin 2021 : Modification apportée au [guide de haute disponibilité pour SAP ASCS/SCS avec WSFC et Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) pour ajouter une section pour les paramètres de profil SAP recommandés 
+- 29 juin 2021 : Modification apportée à la [Configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) pour ajouter une configuration STONITH facultative avec fence_kdump
+- 28 juin 2021 : Modification apportée au [Guide de haute disponibilité pour SAP ASCS/SCS avec WSFC et Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) pour ajouter une instruction selon laquelle le préfixe du serveur SMB (compte d’ordinateur) ne doit pas comporter plus de 8 caractères pour éviter son exécution dans la limite de longueur du nom d’hôte SAP
+- 17 juin 2020 : Modification apportée à la [haute disponibilité de SAP HANA sur les machines virtuelles Azure sur RHEL](./sap-hana-high-availability-rhel.md) pour supprimer le mot clé META de la commande de création de ressource HANA (RHEL 8.x)
 - 9 juin 2021 : Correction des noms de références de machine virtuelle pour M192---_v2 dans [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md)
 - 26 mai 2021 : Changement dans [Réplication HSR de scale-out SAP HANA avec Pacemaker sur Machines virtuelles Azure sur SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Mise en production de HA pour la mise à l’échelle de SAP HANA avec ANF sur RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) et [Réplication HSR de scale-out SAP HANA avec Pacemaker sur Machines virtuelles Azure sur RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) pour ajouter une configuration afin de préparer le système d’exploitation pour l’exécution de HANA sur ANF  
 - 13 mai 2021 : Modification de [Configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) pour clarifier le fonctionnement de l’agent de ressource azure-events 

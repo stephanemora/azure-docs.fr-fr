@@ -1,17 +1,17 @@
 ---
 title: Fiche technique d’Azure Percept Vision
 description: Consulter la fiche technique d’Azure Percept Vision pour le détail des spécifications
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 3621b40bdce131e7677731daabedc80a6b0ef0c0
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: cc15e8986058e01116341e970bfcf90799a5d416
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451190"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222401"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Fiche technique d’Azure Percept Vision
 
