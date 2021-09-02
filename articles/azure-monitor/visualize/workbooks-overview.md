@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9a535e06278146f89f2c8f6a1844813c2417a1a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482770"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706910"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -19,6 +19,9 @@ Les classeurs fournissent un canevas flexible pour l’analyse des données et l
 Voici une procédure vidéo expliquant la création de classeurs.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
+
+> [!NOTE]
+> Les classeurs hérités et privés ont été supprimés. Utilisez [l’outil de récupération du classeur](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/LegacyAI/DeprecatedWorkbookRetrievalTool.md) pour récupérer les contenus de vos anciens classeurs.
 
 ## <a name="data-sources"></a>Sources de données
 
@@ -47,6 +50,8 @@ Les classeurs fournissent un ensemble complet de fonctionnalités pour la visual
 * [Arborescences](../visualize/workbooks-tree-visualizations.md)
 * [Graphes](../visualize/workbooks-graph-visualizations.md)
 * [Barre composite](../visualize/workbooks-composite-bar.md)
+* [Honeycomb](workbooks-honey-comb.md)
+* [Map](workbooks-map-visualizations.md)
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemple de visualisations de classeur." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
@@ -54,7 +59,7 @@ Les classeurs fournissent un ensemble complet de fonctionnalités pour la visual
 
 Les étapes de sélection de texte, de requête et de métriques d’un classeur peuvent être épinglées à l’aide du bouton Épingler sur ces éléments lorsque le classeur est en mode d’épinglage, ou si l’auteur du classeur a activé les paramètres de cet élément pour rendre l’icône d’épingle visible.
 
-Pour accéder au mode épinglage, cliquez sur **Modifier** pour passer en mode édition, puis sélectionnez l’icône en forme d’épingle bleue dans la barre supérieure. Une icône d’épingle est ensuite affichée au-dessus de la zone *Modifier* de chaque composant du classeur sur le côté droit de l’écran.
+Pour accéder au mode épinglage, sélectionnez **Modifier** pour passer en mode édition, puis sélectionnez l’icône en forme d’épingle bleue dans la barre supérieure. Une icône d’épingle est ensuite affichée au-dessus de la zone *Modifier* de chaque composant du classeur sur le côté droit de l’écran.
 
 :::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Capture d'écran de l'expérience d'épinglage." border="false":::
 
@@ -146,6 +151,7 @@ Si une étape épinglée a une plage de temps définie explicitement (n’utilis
 ## <a name="sharing-workbook-templates"></a>Partage de modèles de classeurs
 
 Une fois que vous avez commencé à créer vos propres modèles de classeur, vous souhaiterez peut-être les partager avec la communauté. Pour plus d’informations et pour découvrir d’autres modèles qui ne font pas partie de la galerie de vues par défaut d’Azure Monitor, visitez notre [dépôt GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). Pour parcourir les classeurs existants, accédez à la [bibliothèque de classeurs](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) sur GitHub.
+
 
 ## <a name="next-step"></a>Étape suivante
 

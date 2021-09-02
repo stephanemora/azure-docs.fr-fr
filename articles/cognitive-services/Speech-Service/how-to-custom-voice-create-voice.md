@@ -3,19 +3,19 @@ title: Créer une voix personnalisée Custom Voice - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Pour charger vos données, accédez au portail Custom Voice. Créez ou sélectionnez un projet Custom Voice. Il doit avoir des paramètres régionaux et des propriétés de langue et de sexe adaptés aux données qui seront utilisées pour l’apprentissage de votre voix.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 449975a6f0b5799ce93dcb31f42e1a43a1d183f3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: lajanuar
+ms.openlocfilehash: a380c66159304e8e5fabbc73c8a2c663f7d23c27
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412130"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533044"
 ---
 # <a name="create-and-use-your-voice-model"></a>Créer et utiliser votre modèle vocal
 
@@ -42,9 +42,9 @@ Les étapes suivantes partent du principe que vous avez préparé les fichiers d
 
 1. Accédez à **Synthèse vocale** > **Voix personnalisée** > **sélectionnez un projet** > **Configurer les talents de voix**.
 
-2. Cliquez sur **Ajouter un talent de voix**.
+2. Sélectionnez **Ajouter un talent vocal**.
 
-3. Ensuite, pour définir des caractéristiques vocales, cliquez sur le **scénario cible** à utiliser. Décrivez ensuite vos **caractéristiques vocales**.
+3. Sélectionnez ensuite le **scénario cible** à utiliser pour définir des caractéristiques vocales. Décrivez ensuite vos **caractéristiques vocales**.
 
 > [!NOTE]
 > Les scénarios que vous fournissez doivent être conformes à ce que vous avez demandé dans le formulaire de candidature.
@@ -54,99 +54,99 @@ Les étapes suivantes partent du principe que vous avez préparé les fichiers d
 > [!NOTE]
 > Veillez à ce que la déclaration verbale soit enregistrée avec les mêmes paramètres que vos données d’entraînement, notamment l’environnement d’enregistrement et le style d’élocution.
 
-5. Enfin, accédez à **Vérifier et soumettre**. Vous pouvez passer en revue les paramètres et cliquer sur **Envoyer**.
+5. Enfin, accédez à **Vérifier et créer**. Vous pouvez passer en revue les paramètres et sélectionner **Envoyer**.
 
-## <a name="upload-your-datasets"></a>Charger vos jeux de données
+## <a name="upload-your-data"></a>Charger vos données
 
-Quand vous êtes prêt à charger vos données, accédez à l’onglet **Préparer des données d’entraînement** pour ajouter votre premier jeu d’entraînement et charger des données.  Un jeu d’entraînement est un ensemble d’énoncés audio et de scripts correspondants utilisés pour entraîner un modèle vocal. Vous pouvez utiliser un jeu d’entraînement pour organiser vos données d’entraînement. La vérification de l’état de préparation des données s’effectue par jeu d’entraînement. Vous pouvez importer plusieurs jeux de données dans un jeu d’entraînement.
+Quand vous êtes prêt à charger vos données, accédez à l’onglet **Préparer des données d’entraînement** pour ajouter votre premier jeu d’entraînement et charger des données.  Un jeu d’entraînement est un ensemble d’énoncés audio et de scripts correspondants utilisés pour entraîner un modèle vocal. Vous pouvez utiliser un jeu d’entraînement pour organiser vos données d’entraînement. La vérification de l’état de préparation des données s’effectue par jeu d’entraînement. Vous pouvez importer des données multiples dans un jeu d’apprentissage.
 
 Vous pouvez effectuer les opérations suivantes pour créer et passer en revue vos données d’entraînement.
 
-1. Sous l’onglet **Préparer des données d’entraînement**, cliquez sur **Ajouter un jeu d’entraînement**, entrez les valeurs **Nom** et **Description** et cliquez sur **Créer** pour ajouter un nouveau jeu d’entraînement.
+1. Sous l’onglet **Préparer des données d’apprentissage**, sélectionnez **Ajouter un jeu d’entraînement** pour entrer les valeurs **Nom** et **Description** > **Créer** pour ajouter un nouveau jeu d’apprentissage.
 
    Une fois le jeu d’entraînement correctement créé, vous pouvez commencer à charger vos données. 
 
-2. Pour charger des données, cliquez sur **Charger des données** > **Choisir le type de données** > **Charger des données** et **Spécifier l’ensemble de formations cible** > entrez les valeurs **Nom** et **Description** de votre jeu de données > passez en reveu les paramètres, puis cliquez sur **Charger**.
+2. Pour charger des données, sélectionnez **Charger des données** > **Choisir le type de données** > **Charger des données** et **Spécifier le jeu d’apprentissage cible** > entrez les valeurs **Nom** et **Description** de vos données > passez en revue les paramètres et sélectionnez **Envoyer**.
 
 > [!NOTE]
->- Les noms audio en double seront retirés de l’apprentissage. Veillez à ce que les jeux de données sélectionnés ne comportent pas les mêmes noms audio au sein du fichier .zip ou dans plusieurs fichiers .zip. Si des ID d’énoncé (dans des fichiers audio ou de script) sont dupliqués, ils seront rejetés.
->- Si vous avez créé des jeux de données dans la version précédente de Speech Studio, vous devez spécifier un jeu d’entraînement pour vos jeux de données avant de les utiliser. Sinon, un point d’exclamation est ajouté au nom du jeu de données et celui-ci ne peut pas être utilisé.
+>- Les noms audio en double seront retirés de l’apprentissage. Veillez à ce que les données sélectionnées ne comportent pas les mêmes noms audio au sein du fichier .zip ou dans plusieurs fichiers .zip. Si des ID d’énoncé (dans des fichiers audio ou de script) sont dupliqués, ils seront rejetés.
+>- Si vous avez créé des fichiers de données dans la version précédente de Speech Studio, vous devez spécifier un jeu d’apprentissage pour vos données avant de les utiliser. Dans le cas contraire, un point d’exclamation est ajouté au nom des données et celles-ci ne peuvent pas être utilisées.
 
-Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Il est important de formater correctement vos données avant leur chargement, ce qui permet au service de voix neuronale personnalisée de les traiter correctement. Accédez à [Préparer des données d’entraînement](how-to-custom-voice-prepare-data.md) pour vérifier que vos données sont au bon format.
+Toutes les données que vous chargez doivent respecter les exigences associées au type de données choisi. Il est important de formater correctement vos données avant leur chargement, ce qui permet au service de voix neuronale personnalisée de les traiter correctement. Accédez à [Préparer des données d’entraînement](how-to-custom-voice-prepare-data.md) pour vérifier que vos données sont au bon format.
 
 > [!NOTE]
-> - Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, en charger cinq simultanément. Si vous atteignez la limite, attendez au moins la fin de l’importation de l’un de vos jeux de données, puis réessayez.
-> - Le nombre maximal de jeux de données qu’il est autorisé d’importer par abonnement est de 10 fichiers .zip pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 500 pour ceux qui disposent d’un abonnement standard (S0).
+> - Les utilisateurs qui disposent d’un abonnement standard (S0) peuvent charger cinq fichiers de données simultanément. Si vous atteignez la limite, patientez au moins jusqu’à la fin de l’importation de l’un de vos jeux de données. puis réessayez.
+> - Les utilisateurs disposant d’un abonnement gratuit (F0) sont autorisés à importer 10 fichiers .zip maximum par abonnement. Les utilisateurs disposant d’un abonnement standard (S0) peuvent importer 500 fichiers .zip maximum par abonnement.
 
-Les jeux de données sont validés automatiquement après avoir appuyé sur le bouton **Charger**. La validation des données passe par une série de vérifications des fichiers audio visant à contrôler leur format, leur taille et leur taux d’échantillonnage. Corrigez les erreurs éventuelles et soumettez-les à nouveau. 
+Les fichiers de données sont validés automatiquement une fois que vous avez appuyé sur le bouton **Envoyer**. La validation des données passe par une série de vérifications des fichiers audio visant à contrôler leur format, leur taille et leur taux d’échantillonnage. Corrigez les erreurs éventuelles et soumettez-les à nouveau. 
 
-Une fois les données chargées, vous pouvez vérifier les détails dans la vue détaillée du jeu d’entraînement. Sous l’onglet **Vue d’ensemble**, vous pouvez vérifier plus précisément les scores de prononciation et le niveau de bruit de chacun de vos jeux de données. Le score de prononciation est compris entre 0 et 100. Normalement, un score inférieur à 70 indique une erreur de prononciation ou un problème de correspondance du script. Un accent marqué peut réduire votre score de prononciation et avoir un impact sur la voix numérique générée.
+Une fois les données chargées, vous pouvez vérifier les détails dans la vue détaillée du jeu d’entraînement. Sous l’onglet **Vue d’ensemble**, vous pouvez vérifier plus précisément les scores de prononciation et le niveau de bruit de toutes vos données. Le score de prononciation est compris entre 0 et 100. Normalement, un score inférieur à 70 indique une erreur de prononciation ou un problème de correspondance du script. Un accent marqué peut réduire votre score de prononciation et affecter la voix numérique générée.
 
 Un rapport signal/bruit (SNR) supérieur indique un bruit plus faible dans votre contenu audio. Vous pouvez généralement atteindre un SNR supérieur à 50 en effectuant les enregistrements dans un studio professionnel. Un contenu audio dont le SNR est inférieur à 20 peut entraîner un niveau de bruit conséquent dans la voix générée.
 
-N’hésitez pas à réenregistrer les énoncés affichant un faible score de prononciation ou un mauvais ratio signal / bruit. Si vous ne pouvez pas réenregistrer, envisagez d’exclure ces énoncés de votre jeu de données.
+N’hésitez pas à réenregistrer les énoncés affichant un faible score de prononciation ou un mauvais ratio signal / bruit. Si vous ne pouvez pas réenregistrer, envisagez d’exclure ces énoncés de vos données.
 
-Dans les **détails des données**, vous pouvez vérifier les détails du jeu d’entraînement. En cas de problèmes classiques avec les données, suivez les instructions figurant dans le message affiché pour les corriger avant l’entraînement.
+Dans les **détails des données**, vous pouvez vérifier les détails du jeu d’entraînement. En cas de problèmes classiques avec les données, suivez les instructions du message affiché pour les corriger avant l’apprentissage.
 
 Les problèmes sont divisés en trois types. Reportez-vous aux trois tableaux suivants pour vérifier leurs types d’erreurs respectifs.
 
-Les erreurs du premier type listées dans le tableau ci-dessous doivent être corrigées manuellement, sans quoi les données concernées par ces erreurs sont exclues lors de l’entraînement. 
+Les erreurs du premier type listées dans le tableau ci-dessous doivent être corrigées manuellement, sans quoi les données concernées par ces erreurs sont exclues lors de l’entraînement.
 
-| Category | Nom | Description | Suggestion |
-| --------- | ----------- | ----------- | --------------------------- |
-| Script | Séparateur non valide| Ces lignes de script n’ont pas de séparateur valide TAB:{}.| Utilisez TAB pour séparer l’ID du contenu.|
-| Script | ID de script non valide| Le format de l’ID de script n’est pas valide.| L’ID de ligne de script doit être numérique.|
-| Script | Contenu de script dupliqué| Le contenu de ligne de script {} est dupliqué à la ligne {}.| Le contenu de ligne de script doit être unique.|
-| Script | Contenu de script trop long| Le contenu de ligne de script dépasse le maximum de 1 000 caractères.| La longueur du contenu de ligne de script doit être inférieure à 1 000 caractères.|
-| Script | Le script n’a pas d’audio correspondant| L’ID de ligne de script n’a pas d’audio correspondant.| L’ID de ligne de script doit correspondre à l’ID audio.|
-| Script | Aucun script valide| Aucun script valide n’a été trouvé dans ce jeu de données.| Corrigez les lignes de script problématiques d’après la liste de problèmes détaillée.|
-| Audio | L’audio n’a pas de script correspondant| Le fichier audio ne correspond pas à l’ID de script.| Le nom de fichier Wav doit correspondre à l’ID figurant dans le fichier de script.|
-| Audio | Format audio non valide| Le format du fichier Wav est illisible et non valide.| Vérifiez le format du fichier Wav avec un outil audio comme sox.|
-| Audio | Taux d’échantillonnage faible| Le taux d’échantillonnage audio est inférieur à 16 KHz. | Le taux d’échantillonnage du fichier Wav doit être supérieur ou égal à 16 KHz. |
-| Audio | Durée audio trop longue| La durée audio est supérieure à 30 secondes.| Fractionnez un audio de longue durée en plusieurs fichiers pour veiller à ce que chacun soit inférieur à 15 secondes.|
-| Audio | Aucun audio valide| Aucun audio valide n’a été trouvé dans ce jeu de données.| Corrigez l’audio problématique d’après la liste de problèmes détaillée.|
+| Category | Nom | Description |
+| --------- | ----------- | --------------------------- |
+| Script | Séparateur non valide| Vous devez séparer l’ID d’énoncé et le contenu du script par un caractère de tabulation.|
+| Script | ID de script non valide| L’ID de ligne de script doit être numérique.|
+| Script | Script dupliqué|Chaque ligne du contenu du script doit être unique. La ligne est dupliquée avec {}.|
+| Script | Script trop long| La taille du script doit être inférieure à 1000 caractères.|
+| Script | Aucun audio correspondant| L’ID de chaque énoncé (chaque ligne du fichier de script) doit correspondre à l’ID de l’audio.|
+| Script | Aucun script valide| Aucun script valide n’a été trouvé dans ce jeu de données. Corrigez les lignes de script affichées dans la liste détaillée des problèmes.|
+| Audio | Aucun script correspondant| Aucun fichier audio ne correspond à l’ID de script. Le nom des fichiers .wav doit correspondre aux ID du fichier de script.|
+| Audio | Format audio non valide| Le format audio des fichiers .wav n’est pas valide. Vérifiez le format de fichier .wav à l’aide d’un outil audio comme [SoX](http://sox.sourceforge.net/).|
+| Audio | Taux d’échantillonnage faible| La fréquence d’échantillonnage des fichiers .wav ne peut pas être inférieure à 16 KHz.|
+| Audio | Audio trop long| La durée audio est supérieure à 30 secondes. Fractionnez le contenu audio long en plusieurs fichiers. Nous recommandons les énoncés d’une durée inférieure à 15 secondes.|
+| Audio | Aucun audio valide| Aucun audio valide n’est trouvé dans ce jeu de données. Vérifiez vos données audio et chargez-les à nouveau.|
 
-Les erreurs du deuxième type listées dans le tableau ci-dessous se corrigent automatiquement, mais il est recommandé de revérifier que les données sont corrigées. 
+Les erreurs du deuxième type listées dans le tableau ci-dessous se corrigent automatiquement, mais il est recommandé de revérifier que les données sont corrigées.
 
-| Category | Nom | Description | Suggestion |
-| --------- | ----------- | ----------- | --------------------------- |
-| Audio | Audio stéréo | Un seul canal en audio stéréo est utilisé pour l’entraînement de modèles de synthèse vocale.|     Utilisez un mode mono pour l’enregistrement de synthèse vocale ou la préparation des données. Cet audio est converti en mono. Téléchargez le jeu de données normalisé et vérifiez.|
-| Volume | Volume maximal hors limites |Le volume maximal n’est pas compris dans la plage -3 dB (70 % du volume maximal) et -6 dB (50 %). Il s’ajuste automatiquement à -4 dB (65 %) maintenant.|  Contrôlez le volume maximal à la plage appropriée lors de l’enregistrement ou de la préparation des données. Cet audio est mis à l’échelle linéaire pour s’ajuster à la plage maximale. Téléchargez le jeu de données normalisé et vérifiez.|
-|Incompatibilité | Long silence détecté avant le premier mot | Long silence détecté avant le premier mot.| Le silence de début est réduit à 200 ms. Téléchargez le jeu de données normalisé et vérifiez. |
-| Incompatibilité | Long silence détecté après le dernier mot | Long silence détecté après le dernier mot. | Le silence de fin est réduit à 200 ms. Téléchargez le jeu de données normalisé et vérifiez. |
-| Incompatibilité |Silence de début trop court | Le silence de début est inférieur à 100 ms. | Le silence de début est allongé jusqu’à 100 ms. Téléchargez le jeu de données normalisé et vérifiez. |
-| Incompatibilité | Silence de fin trop court | Le silence de fin est inférieur à 100 ms. | Le silence de fin est allongé jusqu’à 100 ms. Téléchargez le jeu de données normalisé et vérifiez. |
+| Category | Nom | Description |
+| --------- | ----------- | --------------------------- |
+| Audio | Audio stéréo corrigé automatiquement | Utilisez mono dans vos exemples d’enregistrements audio. Les canaux audio stéréo sont automatiquement fusionnés dans un canal mono, ce qui peut entraîner une perte de contenu.  Téléchargez le jeu de données normalisé et passez-le en revue.|
+| Volume | Volume maximal corrigé automatiquement |La valeur maximale du volume doit être comprise entre -3 dB (70 % du volume maximal) et -6 dB (50 %). Contrôlez le volume maximal lors de l’enregistrement de l’exemple ou de la préparation des données. Cet audio est mis à l’échelle linéairement pour correspondre automatiquement à la plage maximale (-4 dB ou 65 %). Téléchargez le jeu de données normalisé et passez-le en revue.|
+|Incompatibilité | Silence résolu automatiquement| La durée du silence de début est détectée comme étant supérieure à 200 ms et a été réduite à 200 ms automatiquement. Téléchargez le jeu de données normalisé et passez-le en revue. |
+| Incompatibilité |Silence résolu automatiquement | La durée du silence de fin est détectée comme étant supérieure à 200 ms et a été réduite à 200 ms automatiquement. Téléchargez le jeu de données normalisé et passez-le en revue. |
+| Incompatibilité |Silence résolu automatiquement |La durée du silence de début est détectée comme étant inférieure à 100 ms et a été étendue à 100 ms automatiquement. Téléchargez le jeu de données normalisé et passez-le en revue. |
+| Incompatibilité |Silence résolu automatiquement | La durée du silence de fin est détectée comme étant inférieure à 100 ms et a été étendue à 100 ms automatiquement. Téléchargez le jeu de données normalisé et passez-le en revue.|
 
 Si vous ne corrigez pas les erreurs du troisième type figurant dans le tableau ci-dessous, quand bien même les données concernées par ces erreurs ne sont pas exclues pendant l’entraînement, la qualité de l’entraînement s’en ressent. Pour que la qualité de l’entraînement soit optimale, il est recommandé de corriger manuellement ces erreurs. 
 
-| Category | Nom | Description | Suggestion |
-| --------- | ----------- | ----------- | --------------------------- |
-| Script | Contient des chiffres de 0 à 9| Ces lignes de script contiennent des chiffres de 0 à 9.| Les lignes de script contiennent des chiffres de 0 à 9. Écrivez-les en lettres normalisées et faites-les correspondre à l’audio. Par exemple, « 123 » devient « cent vingt-trois ».|
-| Script | Mot prononcé de façon ambigüe « {} » | Le script contient un mot prononcé de façon ambigüe : {}.| Développez le mot dans sa prononciation réelle. Par exemple : {}.|
-| Script | Énoncés interrogatifs trop peu nombreux| Les lignes de script interrogatives représentent moins de 1/6 du nombre total de lignes de script.| Les lignes de script interrogatives doivent représenter au moins 1/6 du nombre total des lignes pour que la police de la voix exprime correctement le ton interrogatif.|
-| Script | Énoncés exclamatifs trop peu nombreux| Les lignes de script exclamatives représentent moins de 1/6 du nombre total de lignes de script.| Les lignes de script exclamatives doivent représenter au moins 1/6 du nombre total des lignes pour que la police de la voix exprime correctement le ton exclamatif.|
-| Audio| Taux d’échantillonnage faible pour la voix neuronale | Le taux d’échantillonnage audio est inférieur à 24 KHz.|    Le taux d’échantillonnage du fichier Wav doit être supérieur ou égal à 24 KHz pour une voix neuronale de haute qualité.|
-| Volume | Volume global trop faible | Le volume des {} échantillons est inférieur à -18 dB (10 % du volume maximal).|     Vérifiez que le niveau moyen du volume se trouve dans la plage appropriée pendant l’enregistrement ou la préparation des données.|
-| Volume | Coupure du volume| Une coupure du volume est détectée à {} s.| Réglez le matériel d’enregistrement pour éviter une coupure du volume à sa valeur maximale.|
-| Volume | Le silence de début n’est pas propre | Le silence des 100 premières ms n’est pas propre. Détectez un volume supérieur à -40 dB (1 % du volume maximal).|    Réduisez le niveau du bruit fond de l’enregistrement et laissez un silence de début de 100 ms.|
-| Volume| Le silence de fin n’est pas propre| Le silence pendant les 100 dernières ms n’est pas propre. Détectez un volume supérieur à -40 dB (1 % du volume maximal).|     Réduisez le niveau du bruit de fond de l’enregistrement et laissez un silence de fin de 100 ms.|
-| Incompatibilité | Incompatibilité audio du script détectée| Il existe une incompatibilité entre le script et le contenu audio. |     Examinez le script et le contenu audio pour vérifier qu’ils correspondent et contrôlez le niveau du bruit de fond. Réduisez la longueur des silences ou fractionnez le contenu en plusieurs énoncés.|
-| Incompatibilité | Énergie audio supplémentaire détectée avant le premier mot |    Énergie audio supplémentaire détectée avant le premier mot. Cela peut également être dû à un silence de début trop court avant le premier mot.|    Examinez le script et le contenu audio pour vérifier qu’ils correspondent et contrôlez le niveau du bruit de fond. Laissez aussi un silence de 100 ms avant le premier mot.|
-| Incompatibilité | Énergie audio supplémentaire détectée après le dernier mot| Énergie audio supplémentaire détectée après le dernier mot. Cela peut également être dû à un silence trop court après le dernier mot.|    Examinez le script et le contenu audio pour vérifier qu’ils correspondent et contrôlez le niveau du bruit de fond. Laissez aussi un silence de 100 ms après le dernier mot.|
-| Incompatibilité | Ratio signal-bruit faible | Le niveau du ratio signal-bruit de l’audio est inférieur à {} dB.| Réduisez le niveau du bruit de fond pendant l’enregistrement ou la préparation des données.|
-| Incompatibilité | Échec de la reconnaissance du contenu vocal | Impossible d’effectuer une reconnaissance vocale sur cet audio.|  Vérifiez le contenu audio et le contenu du script pour vous assurer que l’audio est valide et qu’il correspond au script.|
+| Category | Nom | Description |
+| --------- | ----------- | --------------------------- |
+| Script | Texte non normalisé|Ce script contient un chiffre (0 à 9). Convertissez le texte en mots normalisés et faites-les correspondre à l’audio. Par exemple, écrivez un texte normalisé comme « cent vingt-trois » à la place de « 123 ».|
+| Script | Texte non normalisé|Ce script contient des symboles {}. Normalisez les symboles pour qu’ils correspondent à l’audio. Par exemple « cinquante pourcent » à la place de « 50% ».|
+| Script | Trop peu d’énoncés interrogatifs| Au moins 10 % de l’ensemble des énoncés doivent être des phrases interrogatives. Cela permet au modèle vocal d’exprimer correctement une tonalité interrogative.|
+| Script |Pas assez d’énoncés exclamatifs| Au moins 10 % du total des énoncés doivent être des phrases exclamatives. Cela permet au modèle vocal d’exprimer correctement une tonalité enthousiaste.|
+| Audio| Taux d’échantillonnage faible pour la voix neuronale | Un taux d’échantillonnage de 24 KHz ou supérieur est recommandé pour vos fichiers .wav en vue de créer des voix neuronales. Les fichiers sont automatiquement échantillonnés à 24 KHz si le taux est inférieur.|
+| Volume |Volume global trop faible|Le volume ne doit pas être inférieur à -18 dB (10 % du volume max). Vérifiez que le niveau moyen du volume se situe dans la plage appropriée pendant l’enregistrement de l’exemple ou la préparation des données.|
+| Volume | Dépassement du volume| Un dépassement du volume est détecté à {} s. Réglez le matériel d’enregistrement pour éviter tout dépassement du volume au-delà de la valeur maximale.|
+| Volume | Problème de silence de début | Le silence des 100 premières ms n’est pas propre. Réduisez le niveau de bruit d’enregistrement et laissez un silence de début pour les 100 premières ms.|
+| Volume| Problème de silence de fin| Le silence des 100 dernières ms n’est pas propre.  Réduisez le niveau de bruit d’enregistrement et laissez un silence de fin pour les 100 dernières ms.|
+| Incompatibilité | Mots à score faible|Examinez le script et le contenu audio pour vérifier qu’ils correspondent et contrôlez le niveau de bruit de fond. Réduisez la durée du silence long ou fractionnez l’audio en plusieurs énoncés s’il est trop long.|
+| Incompatibilité | Problème de silence de début |Un audio supplémentaire est entendu avant le premier mot. Examinez le script et le contenu audio pour vérifier qu’ils correspondent, contrôlez le niveau du bruit de fond et laissez un silence pour les 100 premières ms.|
+| Incompatibilité | Problème de silence de fin| Un audio supplémentaire est entendu après le dernier mot. Examinez le script et le contenu audio pour vérifier qu’ils correspondent, contrôlez le niveau du bruit de fond et laissez un silence pour les 100 derniers ms.|
+| Incompatibilité | Ratio signal-bruit faible | Le niveau du ratio signal-bruit de l’audio est inférieur à 20 dB. Un niveau de 35 dB minimum est recommandé.|
+| Incompatibilité | Aucun score disponible |Échec de la reconnaissance du contenu vocal dans cet audio. Vérifiez l’audio et le contenu du script pour vous assurer que l’audio est valide et qu’il correspond au script.|
 
 ## <a name="train-your-custom-neural-voice-model"></a>Entraîner votre modèle vocal neuronal personnalisé
 
-Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer votre modèle vocal neuronal personnalisé.
+Une fois vos fichiers de données validés, vous pouvez les utiliser pour créer votre modèle de voix neuronale personnalisée.
 
-1. Sous l’onglet **Entraîner un modèle**, cliquez sur **Entraîner un modèle** pour créer un modèle vocal avec les données que vous avez chargées.
+1. Sous l’onglet **Effectuer l’apprentissage du modèle**, cliquez sur **Effectuer l’apprentissage du modèle** pour créer un modèle vocal avec les données que vous avez chargées.
 
 2. Sélectionnez la méthode d’entraînement neuronal pour votre modèle et votre langue cible.
 
 Par défaut, votre modèle vocal est entraîné dans la même langue que vos données d’entraînement. Vous pouvez aussi choisir de créer une langue secondaire (fonctionnalité en préversion) pour votre modèle vocal.  Vérifiez les langues prises en charge pour la voix neuronale personnalisée et la fonctionnalité multilingue : [langue de personnalisation](language-support.md#customization).
 
-3. Ensuite, choisissez le jeu de données à utiliser pour l’entraînement et spécifiez le fichier d’un locuteur.
+3. Ensuite, choisissez les données à utiliser pour l’apprentissage et spécifiez un fichier d’orateur.
 
 >[!NOTE]
 >- Vous devez sélectionner au moins 300 énoncés pour créer une voix neuronale personnalisée.
@@ -155,18 +155,18 @@ Par défaut, votre modèle vocal est entraîné dans la même langue que vos don
 
 4. Ensuite, entrez un **nom** et une **nescription** pour identifier plus facilement ce modèle.
 
-Choisissez un nom avec soin. Le nom que vous entrez ici est celui que vous utiliserez pour spécifier la voix dans votre requête de synthèse vocale dans le cadre de l’entrée SSML. Seuls les lettres, les chiffres et quelques caractères de ponctuation comme -, \_ et (', ') sont autorisés. Utilisez un nom différent par modèle vocal neuronal.
+Choisissez un nom avec soin. Le nom que vous entrez ici est celui que vous utiliserez pour spécifier la voix dans votre requête de synthèse vocale dans le cadre de l’entrée SSML. Seuls les lettres, les chiffres et quelques caractères de ponctuation comme -, _ et (', ') sont autorisés. Utilisez un nom différent par modèle vocal neuronal.
 
-Le champ **Description** sert souvent à enregistrer les noms des jeux de données qui ont été utilisés pour créer le modèle.
+Le champ **Description** sert souvent à enregistrer les noms des données qui ont été utilisées pour créer le modèle.
 
-5. Passez en revue les paramètres, puis cliquez sur **Envoyer** pour commencer l’entraînement du modèle.
+5. Passez en revue les paramètres, puis sélectionner **Envoyer** pour commencer l’apprentissage du modèle.
 
 > [!NOTE]
-> Les noms audio en double seront retirés de l’apprentissage. Vérifiez que les jeux de données sélectionnés ne comportent pas les mêmes noms audio dans plusieurs fichiers .zip.
+> Les noms audio en double seront retirés de l’apprentissage. Vérifiez que les données que vous sélectionnez ne comportent pas les mêmes noms audio dans plusieurs fichiers .zip.
 
 Le Tableau **Entraîner un modèle** comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état : Processing, Succeeded, Failed (En cours de traitement, Réussite, Échec).
 
-L’état indiqué reflète le processus de conversion du jeu de données en modèle vocal :
+L’état indiqué reflète le processus de conversion des données en modèle vocal, comme illustré ici.
 
 | State | Signification |
 | ----- | ------- |
@@ -191,10 +191,10 @@ Une fois que vous avez créé et testé votre modèle vocal, déployez-le sur un
 
 Vous pouvez effectuer les opérations suivantes pour créer un point de terminaison de voix neuronale personnalisée.
 
-1. Sous l’onglet **Déployer le modèle**, cliquez sur **Déployer les modèles**. 
+1. Sous l’onglet **Déployer le modèle**, sélectionnez **Déployer un modèle**. 
 2. Ensuite, entrez un **nom** et une **description** pour votre point de terminaison personnalisé.
 3. Ensuite, sélectionnez un modèle vocal à associer à ce point de terminaison. 
-4. Enfin, cliquez sur **Déployer** pour créer votre point de terminaison.
+4. Enfin, sélectionnez **Déployer** pour créer votre point de terminaison.
 
 Dès que vous avez cliqué sur le bouton **Déployer** dans la table du point de terminaison, l’entrée de votre nouveau point de terminaison apparaît. L’instanciation d’un nouveau point de terminaison peut prendre quelques minutes. Quand l’état du déploiement affiche **Succeeded** (Réussite), le point de terminaison est prêt à être utilisé.
 

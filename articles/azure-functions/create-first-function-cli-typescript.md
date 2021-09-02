@@ -4,12 +4,12 @@ description: Apprenez à créer une fonction TypeScript à partir de la ligne de
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d9c9f95de61581614ffe48c60f8928775f208b77
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dbbc5f6115b3f6d9d1776885f976e00a2f8db2ab
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738577"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830623"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction TypeScript dans Azure à partir de la ligne de commande
 
@@ -147,7 +147,7 @@ Chaque liaison nécessite une direction, un type et un nom unique. Le déclenche
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
     La commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crée l’application de fonction dans Azure. Si vous utilisez Node.js 10, remplacez aussi `--runtime-version` par `10`.
@@ -155,7 +155,7 @@ Chaque liaison nécessite une direction, un type et un nom unique. Le déclenche
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 12 -FunctionsVersion 3 -Location '<REGION>'
     ```
     
     L’applet de commande [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crée l’application de fonction dans Azure. Si vous utilisez Node.js 10, remplacez `-RuntimeVersion` par `10`.

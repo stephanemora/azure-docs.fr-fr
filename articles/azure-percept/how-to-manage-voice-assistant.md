@@ -1,20 +1,20 @@
 ---
-title: Configurer une application Assistant vocal dans Azure Percept Studio
+title: Gérer votre application d’Assistant vocal Azure Percept
 description: Configurer une application Assistant vocal dans Azure Percept Studio
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 764ca28ec6e66d63ffeb98399f654b14eb9b6715
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d66ee6e8e277585061448ecc23e4195c72c04bb6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754286"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225231"
 ---
-# <a name="managing-your-voice-assistant"></a>Gestion de votre Assistant vocal
+# <a name="manage-your-azure-percept-voice-assistant-application"></a>Gérer votre application d’Assistant vocal Azure Percept
 
 Cet article explique comment configurer le mot clé et les commandes de votre application Assistant vocal dans [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Pour obtenir des conseils sur la configuration de votre mot clé dans IoT Hub (pas dans le portail), consultez cet [article de procédure](./how-to-configure-voice-assistant.md).
 

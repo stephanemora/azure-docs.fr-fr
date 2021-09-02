@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 08/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: rogoya
+ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: c663282865e19df0e103e75a7e32d86651232a93
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762548"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634183"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -35,7 +35,7 @@ Vous trouverez plus d’informations sur les raisons pour lesquelles les paramè
 
 ## <a name="availability"></a>Disponibilité
 
-Microsoft met les paramètres de sécurité par défaut à la disposition de tous. Le but est de s’assurer que toutes les organisations bénéficient d’un niveau de sécurité de base activé, sans coût supplémentaire. Vous activez les paramètres de sécurité par défaut dans le Portail Azure. Si votre locataire a été créé le 22 octobre 2019 ou à une date ultérieure, il est possible que les paramètres de sécurité par défaut soient déjà activés dans votre locataire. Pour protéger tous nos utilisateurs, les paramètres de sécurité par défaut sont déployés sur tous les nouveaux locataires créés.
+Microsoft met les paramètres de sécurité par défaut à la disposition de tous. Le but est de s’assurer que toutes les organisations bénéficient d’un niveau de sécurité de base activé, sans coût supplémentaire. Vous activez les paramètres de sécurité par défaut dans le Portail Azure. Si votre locataire a été créé le 22 octobre 2019 ou à une date ultérieure, il est possible que les paramètres de sécurité par défaut soient activés dans votre locataire. Pour protéger tous nos utilisateurs, les paramètres de sécurité par défaut sont déployés sur les nouveaux locataires créés.
 
 ### <a name="whos-it-for"></a>À qui cela s’adresse-t-il ?
 
@@ -52,7 +52,7 @@ Microsoft met les paramètres de sécurité par défaut à la disposition de tou
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Inscription Multi-Factor Authentication unifiée
 
-Tous les utilisateurs de votre locataire doivent s’inscrire à l’authentification multifacteur (MFA) via le formulaire d’Azure AD Multi-Factor Authentication. Les utilisateurs disposent de 14 jours pour s’inscrire à Azure AD Multi-Factor Authentication à l’aide de l’application Microsoft Authenticator. Au bout de ces 14 jours, l’utilisateur ne sera plus en mesure de se connecter, jusqu’à ce que l’inscription soit effectuée. Ainsi, la période de 14 jours d’un utilisateur commence après la première connexion interactive réussie, une fois les paramètres de sécurité par défaut activés.
+Tous les utilisateurs de votre locataire doivent s’inscrire à l’authentification multifacteur (MFA) via le formulaire d’Azure AD Multi-Factor Authentication. Les utilisateurs disposent de 14 jours pour s’inscrire à Azure AD Multi-Factor Authentication à l’aide de l’application Microsoft Authenticator. Au bout de ces 14 jours, l’utilisateur n’est plus en mesure de se connecter, jusqu’à ce que l’inscription soit effectuée. Ainsi, la période de 14 jours d’un utilisateur commence après la première connexion interactive réussie, une fois les paramètres de sécurité par défaut activés.
 
 ### <a name="protecting-administrators"></a>Protection des administrateurs
 
@@ -137,7 +137,7 @@ Ces paramètres de sécurité par défaut gratuits permettent l’inscription à
 - *** Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
 
 > [!WARNING]
-> Ne désactivez pas les méthodes de votre organisation si vous utilisez les paramètres de sécurité par défaut. La désactivation de ces méthodes peut vous empêcher ensuite d’accéder à votre locataire. Laissez toutes les **méthodes disponibles pour les utilisateurs** activées dans le [portail des paramètres du service MFA](../authentication/howto-mfa-getstarted.md#choose-verification-options).
+> Ne désactivez pas les méthodes de votre organisation si vous utilisez les paramètres de sécurité par défaut. La désactivation de ces méthodes peut vous empêcher ensuite d’accéder à votre locataire. Laissez toutes les **méthodes disponibles pour les utilisateurs** activées dans le [portail des paramètres du service MFA](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
 ### <a name="disabled-mfa-status"></a>État MFA désactivé
 
@@ -145,17 +145,16 @@ Si votre organisation utilisait précédemment Azure AD Multi-Factor Authenticat
 
 ### <a name="conditional-access"></a>Accès conditionnel
 
-Vous pouvez utiliser l’accès conditionnel pour configurer des stratégies similaires aux paramètres de sécurité par défaut, mais avec une plus grande granularité, notamment des exclusions d’utilisateurs, non disponibles dans les paramètres de sécurité par défaut. Si vous utilisez l’accès conditionnel et que des stratégies d’accès conditionnel sont activées dans votre environnement, les paramètres de sécurité par défaut ne seront pas disponibles pour vous. Si vous disposez d’une licence qui fournit un accès conditionnel, mais que vous n’avez activé aucune stratégie d’accès conditionnel dans votre environnement, vous êtes invité à utiliser les paramètres de sécurité par défaut, tant que vous activez pas des stratégies d’accès conditionnel. Pour plus d’informations sur les licences Azure AD, consultez la [page des tarifs Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Vous pouvez utiliser l’accès conditionnel pour configurer des stratégies similaires aux paramètres de sécurité par défaut, mais avec une plus grande granularité, notamment des exclusions d’utilisateurs, non disponibles dans les paramètres de sécurité par défaut. Si vous utilisez l’accès conditionnel et que des stratégies d’accès conditionnel sont activées dans votre environnement, les paramètres de sécurité par défaut ne seront pas disponibles pour vous. Si vous disposez d’une licence qui fournit un accès conditionnel, mais que vous n’avez activé aucune stratégie d’accès conditionnel dans votre environnement, vous êtes invité à utiliser les paramètres de sécurité par défaut jusqu’à ce que vous activiez des stratégies d’accès conditionnel. Pour plus d’informations sur les licences Azure AD, consultez la [page des tarifs Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ![Message d’avertissement indiquant que vous pouvez avoir des paramètres de sécurité par défaut ou un accès conditionnel, mais pas les deux](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Voici des guides pas à pas sur la façon dont vous pouvez utiliser l’accès conditionnel pour configurer des stratégies équivalentes à celles rendues possibles par les paramètres de sécurité par défaut :
+Voici des guides pas à pas sur la façon dont vous pouvez utiliser l’accès conditionnel pour configurer un ensemble de stratégies, qui constituent un bon point de départ pour la protection de vos identités :
 
 - [Exiger MFA pour les administrateurs](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exiger MFA pour la gestion Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloquer l’authentification héritée](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Exiger MFA pour tous les utilisateurs](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Exiger l’inscription Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) : nécessite la fonctionnalité Azure AD Identity Protection faisant partie de l’offre Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Activation des paramètres de sécurité par défaut
 

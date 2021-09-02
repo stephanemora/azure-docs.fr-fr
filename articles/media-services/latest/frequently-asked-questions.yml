@@ -4,12 +4,12 @@ metadata:
   description: Découvrez les réponses aux questions les plus courantes sur Azure Media Services.
   ms.service: media-services
   ms.custom: contperf-fy21q4
-  ms.openlocfilehash: 226512e03a3e14c0f6bbfd7c806e17f24736f2bc
-  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+  ms.openlocfilehash: bbe5b0f1ca4536c5ce03803c6e1a5822bcacc78f
+  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/21/2021
-  ms.locfileid: "122634835"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123258353"
 title: Questions courantes sur Azure Media Services
 summary: Cet article répond aux questions fréquemment posées sur Azure Media Services.
 sections:
@@ -145,7 +145,7 @@ sections:
       Par rapport à la clé en clair AES-128, les systèmes DRM comme PlayReady, Widevine et FairPlay fournissent tous un niveau supplémentaire de chiffrement sur la clé utilisée pour déchiffrer le contenu. La clé de contenu est chiffrée à l’aide d’une clé protégée par le runtime DRM, en plus de tout chiffrement au niveau du transport fourni par TLS. De plus, le déchiffrement est pris en charge dans un environnement sécurisé au niveau du système d’exploitation, où il est plus difficile pour un utilisateur malintentionné de commettre une attaque. Nous recommandons l’utilisation de la technologie DRM dans des cas d’utilisation où l’observateur n’est pas nécessairement fiable et où un niveau de sécurité supérieur est requis.
   - question: Comment afficher une vidéo uniquement pour les utilisateurs disposant d’une autorisation spécifique sans utiliser Azure AD ?
     answer: >
-      Vous n’êtes pas obligé d’utiliser un fournisseur de jetons spécifique tel qu’Azure Active Directory (Azure AD). Vous pouvez créer votre propre fournisseur [JWT](https://jwt.io/) (appelé service d’émission de jeton de sécurité ou STS) en utilisant un chiffrement à clé asymétrique. Dans votre STS personnalisé, vous pouvez ajouter des revendications en fonction de votre logique métier.
+      Vous n’êtes pas obligé d’utiliser un fournisseur de jetons spécifique tel qu’Azure Active Directory (Azure AD). Vous pouvez créer votre propre fournisseur [JWT](https://docs.microsoft.com/azure/active-directory/develop/security-tokens#json-web-tokens-and-claims) (appelé service d’émission de jeton de sécurité ou STS) en utilisant un chiffrement à clé asymétrique. Dans votre STS personnalisé, vous pouvez ajouter des revendications en fonction de votre logique métier.
 
 
       Assurez-vous que l’émetteur, l’audience et les revendications correspondent exactement entre ce qui se trouve dans JWT et la valeur `ContentKeyPolicyRestriction` utilisée dans `ContentKeyPolicy`.
@@ -220,7 +220,7 @@ sections:
   - question: Comment migrer de Media Services v2 à Media Services v3 ?
     answer: >
       Nous avons créé un [guide complet pour la migration de la version 2 à la version 3](./migrate-v-2-v-3-migration-introduction.md).  Nous sommes très intéressés par votre expérience et vos besoins en matière de migration. N’hésitez pas à nous faire part de vos commentaires par le biais d’un problème GitHub ou d’un ticket de support.
-- name: Résolution des problèmes
+- name: Dépannage
   questions:
   - question: Comment savoir ce que signifie ce code d’erreur ?
     answer: >

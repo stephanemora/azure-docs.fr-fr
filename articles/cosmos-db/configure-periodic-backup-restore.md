@@ -4,15 +4,15 @@ description: Cet article explique comment configurer des comptes Azure Cosmos DB
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69677ed419fa9bac2cbcb06c394c92f68d0b7777
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 7cb5c8fe924a2634627533203ed8f11969f0b432
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930926"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531868"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurer un compte Azure Cosmos DB avec une sauvegarde périodique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,7 +32,7 @@ Azure Cosmos DB sauvegarde automatiquement vos données à intervalles régulier
 * Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) approvisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
 
 > [!Note]
-> Les comptes avec Synapse Link activé ne sont pas pris en charge.
+> Pour les comptes avec Azure Synapse Link, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque le Synapse Link est activé, Azure Cosmos DB continuera à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel à un intervalle de sauvegarde planifié. La sauvegarde automatique et la restauration de vos données dans le magasin analytique n’est pas prise en charge pour le moment.
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
@@ -176,5 +176,7 @@ Nous vous conseillons de supprimer le conteneur ou la base de données immédiat
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour effectuer une demande de restauration, [émettez un ticket à partir du portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* Configurez et gérez la sauvegarde continue en utilisant [Portail Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md) ou [Azure Resource Manager](continuous-backup-restore-template.md).
+* Approvisionnez la sauvegarde continue à l’aide du [portail Azure](provision-account-continuous-backup.md#provision-portal), de [PowerShell](provision-account-continuous-backup.md#provision-powershell), de l’interface [CLI](provision-account-continuous-backup.md#provision-cli) ou d’[Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restaurez le compte de sauvegarde continue à l’aide du [portail Azure](restore-account-continuous-backup.md#restore-account-portal), de [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), de l’interface [CLI](restore-account-continuous-backup.md#restore-account-cli) ou d’[Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrer vers un compte à partir d’une sauvegarde périodique vers une sauvegarde continue](migrate-continuous-backup.md).
 * [Gérez les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.

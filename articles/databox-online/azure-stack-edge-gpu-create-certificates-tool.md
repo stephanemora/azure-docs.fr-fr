@@ -1,21 +1,21 @@
 ---
-title: Créer des certificats à l’aide de l’outil Microsoft Azure Stack Hub Readiness Checker | Microsoft Docs
+title: Créer des certificats pour Azure Stack Edge Pro GPU avec l’outil Azure Stack Hub Readiness Checker
 description: Explique comment créer des demandes de certificat, puis récupérer et installer les certificats sur votre appareil Azure Stack Edge Pro avec GPU au moyen de l’outil Azure Stack Hub Readiness Checker.
 services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 8316dd0abfa437d4bf88e8268dfe034344c6614c
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7b167efdc0b1edaa1f09b0b85a1abbf86ef77037
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389330"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113353914"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Créer des certificats pour votre instance Azure Stack Edge Pro avec l’outil Azure Stack Hub Readiness Checker 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Créer des certificats pour votre instance Azure Stack Edge Pro GPU avec l’outil Azure Stack Hub Readiness Checker 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -121,7 +121,7 @@ Suivez ces étapes pour préparer les certificats de l’appareil Azure Stack Ed
     Vous verrez également un dossier INF. Celui-ci contient un fichier d’informations management.<nomdel’appareil-edge> en texte clair expliquant les détails du certificat.  
 
 
-6. Envoyez ces fichiers à votre autorité de certification (interne ou publique). Assurez-vous que votre autorité de certification crée des certificats en utilisant votre demande générée qui est conforme aux exigences de certificat Azure Stack Edge Pro pour les [certificats de nœud](azure-stack-edge-gpu-manage-certificates.md#node-certificates), les [certificats de point de terminaison](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates) et les [certificats d’interface utilisateur locale](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates).
+6. Envoyez ces fichiers à votre autorité de certification (interne ou publique). Assurez-vous que votre autorité de certification crée des certificats en utilisant votre demande générée qui est conforme aux exigences de certificat Azure Stack Edge Pro pour les [certificats de nœud](azure-stack-edge-gpu-certificates-overview.md#node-certificates), les [certificats de point de terminaison](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates) et les [certificats d’interface utilisateur locale](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Préparer les certificats pour le déploiement
 
@@ -152,4 +152,4 @@ Tout d’abord, vous allez générer une structure de dossiers appropriée, puis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)
+[Charger des certificats sur votre appareil](azure-stack-edge-gpu-manage-certificates.md).

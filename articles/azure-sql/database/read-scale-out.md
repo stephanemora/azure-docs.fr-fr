@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 01/20/2021
-ms.openlocfilehash: a6f9debd9b4daec96fdb2f00f81bcbeb5073e4c7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 07/06/2021
+ms.openlocfilehash: f5822a3d5594388627858be22ca9bbc0a43c1739
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691721"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113361078"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,10 +45,12 @@ Si vous souhaitez vous assurer que l’application se connecte au réplica princ
 
 ## <a name="data-consistency"></a>Cohérence des données
 
-Un des avantages des réplicas est qu’ils sont toujours dans un état cohérent au niveau transactionnel, mais il peut y avoir une petite latence à différents moments entre les différents réplicas. La fonctionnalité Échelle horizontale en lecture prend en charge la cohérence au niveau de la session. Ainsi, si la session en lecture seule se reconnecte après une erreur de connexion engendrée par l’indisponibilité du réplica, elle peut être redirigée vers un autre réplica qui n’est pas complètement synchronisé avec le réplica en lecture-écriture. De même, si une application écrit des données à l’aide d’une session en lecture-écriture et les lit immédiatement à l’aide d’une session en lecture seule, il est possible que les dernières mises à jour ne soient pas visibles immédiatement sur le réplica. La latence est due à une opération de rétablissement de journal des transactions asynchrone.
+Les modifications apportées aux données sur le réplica principal sont propagées aux réplicas en lecture seule de manière asynchrone. Dans une session connectée à un réplica en lecture seule, les lectures sont toujours cohérentes au niveau transactionnel. Toutefois, étant donné que la latence de propagation des données est variable, des réplicas différents peuvent retourner des données à des moments légèrement différents dans le temps par rapport au principal aux autres réplicas. Si un réplica en lecture seule devient indisponible et que la session se reconnecte, il peut se connecter à un réplica qui se trouve à un autre point dans le temps que le réplica d’origine. De même, si une application change les données à l’aide d’une session en lecture-écriture et les lit immédiatement à l’aide d’une session en lecture seule, il est possible que les dernières modifications ne soient pas visibles immédiatement sur le réplica en lecture seule.
+
+La latence de propagation de données classique entre le réplica principal et les réplicas en lecture seule varie dans la plage de dizaines de millisecondes à un nombre de secondes à un chiffre. Toutefois, il n’existe aucune limite supérieure fixe sur la latence de propagation des données. Des conditions comme l’utilisation élevée des ressources sur le réplica peuvent augmenter considérablement la latence. Les applications qui requièrent la cohérence des données entre les sessions ou requièrent que les données validées soient lisibles immédiatement doivent utiliser le réplica principal.
 
 > [!NOTE]
-> Les latences de réplication dans la région sont réduites, et cette situation est rare. Pour surveiller la latence de réplication, consultez [Surveillance et dépannage de réplica en lecture seule](#monitoring-and-troubleshooting-read-only-replicas).
+> Pour surveiller la latence de propagation des données, consultez [Surveillance et dépannage de réplica en lecture seule](#monitoring-and-troubleshooting-read-only-replicas).
 
 ## <a name="connect-to-a-read-only-replica"></a>Se connecter à un réplica en lecture seule
 
@@ -89,7 +91,7 @@ Les affichages couramment utilisés sont les suivants :
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fournit des métriques sur l'utilisation des ressources au cours de la dernière heure, y compris sur le processeur, les E/S de données et l'utilisation des écritures de journal par rapport aux limites d'objectif de service.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fournit des statistiques d'attente agrégées pour l'instance du moteur de base de données. |
-|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fournit des statistiques sur l'état d'intégrité et la synchronisation des réplicas. La taille de la file d'attente de restauration par progression et la vitesse de restauration par progression constituent des indicateurs de la latence des données sur le réplica en lecture seule. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fournit des statistiques sur l'état d'intégrité et la synchronisation des réplicas. La taille de la file d’attente de restauration par progression et la vitesse de restauration par progression constituent des indicateurs de la latence de propagation des données sur le réplica en lecture seule. |
 |[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fournit les compteurs de performances du moteur de base de données.|
 |[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fournit des statistiques d'exécution par requête, telles que le nombre d'exécutions, le temps processeur utilisé, etc.|
 |[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fournit les plans de requête mis en cache. |
@@ -123,7 +125,7 @@ Si une requête de longue durée sur un réplica en lecture seule provoque ce ty
 > Si vous recevez l'erreur 3961, 1219 ou 3947 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête.
 
 > [!TIP]
-> Aux niveaux de service Premium et Critique pour l'entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d'indicateurs de latence des données sur le réplica en lecture seule.
+> Aux niveaux de service Premium et Critique pour l’entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d’indicateurs de latence de propagation des données sur le réplica en lecture seule.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture

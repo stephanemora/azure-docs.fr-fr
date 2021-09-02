@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 3dd1ee691f71dddf155f3b6466d8e983e57bf0dc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: f307c8c1dd0ae8f5833ca9f847fd1c61ac2e6a98
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641503"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825234"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Salesforce à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 

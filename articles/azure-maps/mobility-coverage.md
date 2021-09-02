@@ -7,20 +7,18 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2552b9ee4ba37ad6062229958557d81e871fbe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904752"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562527"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Couverture du service Mobility d’Azure Maps (préversion)
 
 > [!IMPORTANT]
-> Le service Mobility d’Azure Maps est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+> La préversion du service Mobility d’Azure Maps a été mise hors service et ne sera plus disponible ni prise en charge après le 5 octobre 2021. Les autres services et API Azure Maps ne sont pas affectés par cette annonce de mise hors service.
+> Pour plus d’informations, consultez [Mise hors service du service Mobility d’Azure Maps (préversion)](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/).
 
 Le [service Mobility](/rest/api/maps/mobility) d’Azure Maps améliore le temps de développement pour les applications présentant des fonctionnalités de transport public, comme le calcul d’itinéraires de transport et la recherche d’arrêts à proximité. Les utilisateurs peuvent extraire des informations détaillées sur les arrêts, les lignes et les horaires des transports publics. Le service Mobility permet aussi aux utilisateurs de récupérer les géométries des arrêts et des lignes, les alertes pour les arrêts, les lignes et les zones de service, ainsi que les arrivées des transports publics et les alertes de service en temps réel. De plus, le service Mobility offre des fonctionnalités de calcul d’itinéraires avec des options de planification de trajet multimodal. La planification de trajet multimodal permet de combiner marche, vélo et transports publics. Les utilisateurs peuvent aussi accéder à des itinéraires pas à pas multimodaux détaillés.
 

@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 11/24/2020
 ms.author: apimpm
-ms.openlocfilehash: ca7bd70bbf99a6d0079717a7a02328b11528d2e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da8b462eba7b5f68e345ffe5e73bd4096831935f
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96839668"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114713056"
 ---
 # <a name="get-api-analytics-in-azure-api-management"></a>Obtenir l’analytique des API dans Gestion des API Azure
 
@@ -25,6 +25,9 @@ La Gestion des API Azure comprend une analytique intégrée pour vos API. Analys
 * Abonnements
 * Utilisateurs
 * Demandes
+
+> [!NOTE]
+> Les valeurs géographiques sont approximatives et basées sur le mappage d’adresses IP.
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Chronologie de l’analytique dans le portail":::
 
@@ -46,7 +49,7 @@ Utilisez le portail Azure pour avoir un aperçu rapide des données d’analytiq
 
 ## <a name="analytics---rest-api"></a>Analytique - API REST
 
-Utilisez les opérations [Rapports](/rest/api/apimanagement/2019-12-01/reports) de l’API REST Gestion des API pour récupérer et filtrer les données d’analytique de votre instance Gestion des API.
+Utilisez les opérations [Rapports](/rest/api/apimanagement/2020-12-01/reports) de l’API REST Gestion des API pour récupérer et filtrer les données d’analytique de votre instance Gestion des API.
 
 Les opérations disponibles retournent des enregistrements de rapport filtrés par API, Géographie, Opérations d’API, Produit, Demande, Abonnement, Date ou Utilisateur.
 

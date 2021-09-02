@@ -1,17 +1,20 @@
 ---
 title: Créer une ressource Personalizer
 description: Dans cet article, vous allez apprendre à créer une ressource personnalisable dans le Portail Azure pour chaque boucle de rétroaction.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b901153653b292a77ff19a25f065cf225e54f76e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91303554"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831556"
 ---
 # <a name="create-a-personalizer-resource"></a>Création d’une ressource Personalizer
 

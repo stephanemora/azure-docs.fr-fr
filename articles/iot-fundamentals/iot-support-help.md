@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: 6f4c4bd62fa1e3dbad7e5dbc6bea8e2b396b968a
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: b17d8408f7c0cb456a2eed5ab49f36d259cf5ecd
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535236"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254821"
 ---
 # <a name="what-are-the-azure-iot-support-and-help-options"></a>Quelles sont les options d’aide et de support d’Azure IoT ?
 
@@ -68,26 +68,6 @@ Si vous envoyez une nouvelle question à Stack Overflow, utilisez un ou plusieur
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [Azure Percept](https://stackoverflow.com/questions/tagged/azure-percept)
-
-## <a name="submit-feedback-on-azure-feedback"></a>Envoyer des commentaires sur Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-Pour demander de nouvelles fonctionnalités, publiez-les sur Azure Feedback. Partagez vos idées pour que les services IoT Azure fonctionnent mieux pour les applications que vous développez :
-
-| Service                       | URL Azure Feedback |
-|-------------------------------|---------------|
-| Azure IoT (Hub, DPS, kits de développement logiciel (SDK))                    | https://feedback.azure.com/forums/321918-azure-iot |
-| Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
-| Catalogue d’appareils Azure IoT      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
-| Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |
-| Accélérateurs de solution Azure IoT | https://feedback.azure.com/forums/916438-azure-iot-solution-accelerators |
-| Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
-| Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
-| Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
-| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
 
 ## <a name="stay-informed-of-updates-and-new-releases"></a>Rester informé des mises à jour et des nouvelles versions
 
