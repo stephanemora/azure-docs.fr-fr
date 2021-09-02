@@ -2,16 +2,16 @@
 title: Azure Monitor Application Insights Java
 description: APM pour les applications Java s’exécutant dans n’importe quel environnement sans modification du code. Suivi distribué et mise en correspondance d’applications.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: ec48ea7bacbc0bffdd260d7c3b06660e8e7f03c1
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 83cccb8e586973cf575cf1fcd3c70a3166aeb905
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029312"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913722"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
@@ -49,11 +49,9 @@ Téléchargez [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft
 
 **2. Pointer la machine virtuelle Java (JVM) vers l’agent**
 
-Ajoutez `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` aux arguments JVM de votre application
+Ajoutez `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` aux arguments JVM de votre application. 
 
-Les arguments JVM standard incluent `-Xmx512m` et `-XX:+UseG1GC`. Par conséquent, si vous savez où ajouter ces derniers, vous savez déjà où ajouter celui-ci.
-
-Pour obtenir une aide supplémentaire sur la configuration des arguments JVM de votre application, consultez [Conseils pour la mise à jour de vos arguments JVM](./java-standalone-arguments.md).
+Pour obtenir une aide sur la configuration des arguments JVM de votre application, consultez [Conseils pour la mise à jour de vos arguments JVM](./java-standalone-arguments.md).
 
 **3. Pointer l’agent vers votre ressource Application Insights**
 

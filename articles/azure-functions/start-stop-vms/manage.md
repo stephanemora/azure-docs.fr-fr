@@ -3,14 +3,14 @@ title: Gérer Start/Stop VMs v2 (préversion)
 description: Cet article explique comment surveiller l’état de vos machines virtuelles Azure gérées par la fonctionnalité Start/Stop VMs v2 (préversion) et effectuer d’autres tâches de gestion.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/16/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: e9d6f7a93f2bd59b120be059d7f9c254d1bde56b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 40c3d2dba3d41c7651846d09d01dd7afdce15af9
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073159"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967058"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>Gestion de Start/Stop VMs v2 (préversion)
 
@@ -21,6 +21,9 @@ Start/Stop VMs v2 (préversion) comprend un [tableau de bord](../../azure-moni
 Les données de journal de chaque vignette du tableau de bord sont actualisés toutes les heures, avec une option d’actualisation manuelle à la demande en cliquant sur l’icône **Actualiser** d’une visualisation donnée ou en actualisant le tableau de bord complet.
 
 Pour en savoir plus sur l’utilisation d’un tableau de bord basé sur les journaux, consultez le [didacticiel](../../azure-monitor/visualize/tutorial-logs-dashboards.md) suivant.
+
+> [!NOTE]
+> Si vous rencontrez des problèmes lors du déploiement, que vous rencontrez un problème lors de l’utilisation de Start/Stop VMs V2 (préversion) ou si vous avez une question connexe, vous pouvez envoyer un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). L’envoi d’un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n’est pas disponible pour cette préversion. 
 
 ## <a name="configure-email-notifications"></a>Configurer les notifications par e-mail
 

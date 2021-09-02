@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2021
-ms.openlocfilehash: 1f01b88b435ff10313c04eb2851f3a5505428113
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 1df93766eb3338a2a974a4d153fd07c27941728f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641295"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822624"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory ou Azure Synapse Analytics
 

@@ -1,15 +1,15 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
-ms.openlocfilehash: be7eee7c8de5cae201660b4d165ca51bb40b3c19
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: rifox
+ms.openlocfilehash: 927fcadc97ec689e477198e87b690a50e3c9e28f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339520"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965991"
 ---
 Commencez à utiliser Azure Communication Services avec la bibliothèque de client d’appel Communication Services pour ajouter des appels vidéo 1 à 1 à votre application. Vous allez découvrir comment démarrer un appel vidéo et y répondre à l’aide du SDK d’appel Azure Communication Services pour Android.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: de7b112540d332216e361d5694f22d21c724ca36
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27d00d137c2fb178b2bd96732664c08965ce3073
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960395"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634493"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Déployer des ressources avec Bicep et Azure PowerShell
 
@@ -25,7 +25,7 @@ Vous avez besoin d’un fichier Bicep à déployer. Le nom de fichier local uti
 Vous devez installer Azure PowerShell et vous connecter à Azure :
 
 - **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Connectez-vous à Azure à l'aide de [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Connectez-vous à Azure à l'aide de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)** . Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
 
 Si vous n’avez pas installé PowerShell, vous pouvez utiliser Azure Cloud Shell. Pour plus d’informations, consultez [Déployer des fichiers Bicep à partir d’Azure Cloud Shell](./deploy-cloud-shell.md).
 
@@ -50,7 +50,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 - Pour opérer un déploiement vers un **groupe d’administration**, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-bicep>
+  New-AzManagementGroupDeployment -ManagementGroupId <management-group-id> -Location <location> -TemplateFile <path-to-bicep>
   ```
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
@@ -75,7 +75,7 @@ Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pa
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-Pour déployer un fichier Bicep local, utilisez le paramètre `-TemplateFile` dans la commande de déploiement. L’exemple suivant montre également comment définir une valeur de paramètre provenant du fichier Bicep.
+Pour déployer un fichier Bicep local, utilisez le paramètre `-TemplateFile` dans la commande de déploiement.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -157,7 +157,7 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 
@@ -190,5 +190,5 @@ Pour éviter les conflits lors de déploiements simultanés et faire en sorte qu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](../templates/rollback-on-error.md).
-- Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../templates/syntax.md).
+- Pour comprendre comment définir des paramètres dans votre fichier, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](file.md).
 - Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déployer un modèle ARM privé avec un jeton SAP](../templates/secure-template-with-sas-token.md).

@@ -1,20 +1,20 @@
 ---
-title: Vue d’ensemble de la sécurité Azure Percept
+title: Sécurité Azure Percept
 description: Découvrez la sécurité Azure Percept
 author: mimcco
-ms.author: mimcco
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: 93884fb87f87651054ffff0a04c4910de634a5eb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cfee4f14b5e7f135c7bbe609b5f3453b5fce8589
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567642"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221947"
 ---
-# <a name="azure-percept-security-overview"></a>Vue d’ensemble de la sécurité Azure Percept
+# <a name="azure-percept-security"></a>Sécurité Azure Percept
 
 Les appareils Azure Percept sont conçus avec une racine matérielle de confiance. Cette sécurité intégrée permet de protéger les données d’inférence et les capteurs qui peuvent collecter des données sensibles à caractère privé comme les caméras et les micros. En outre, elle active l’authentification et l’autorisation des appareils pour les services Azure Percept Studio.
 

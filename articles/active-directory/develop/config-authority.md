@@ -13,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: af729767467d2dc950fb7a559fec4d0a81d07cab
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96169441"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029181"
 ---
-# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Procédure : configurer MSAL pour iOS et macOS afin d’utiliser différents fournisseurs d’identité
+# <a name="configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>configurer MSAL pour iOS et macOS afin d’utiliser différents fournisseurs d’identité
 
 Cet article montre comment configurer votre application MSAL (Microsoft Authentication Library) pour iOS et macOS pour différentes autorités, telles qu’Azure Active Directory (Azure AD), B2C (Business-to-Consumer), clouds souverains et utilisateurs invités.  Tout au long de cet article, vous pouvez généralement considérer une autorité comme étant un fournisseur d’identité.
 

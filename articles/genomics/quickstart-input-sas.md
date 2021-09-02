@@ -3,18 +3,18 @@ title: Workflow utilisant des signatures d’accès partagé (SAP)
 titleSuffix: Microsoft Genomics
 description: Cet article montre comment envoyer un workflow au service Microsoft Genomics à l’aide de signatures d’accès partagé (SAP) au lieu de clés de compte de stockage.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: b85fae82a6faf08fa45a659a216818d77fc747e9
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 660f6ffe286e13e46f367c761c596ed0ee51da24
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551917"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259848"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 

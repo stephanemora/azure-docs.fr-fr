@@ -2,18 +2,19 @@
 title: Déontologie et utilisation responsable - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Ces instructions ont pour but de vous aider à implémenter une personnalisation de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d'en savoir plus et de délibérer sur l'impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fb950fb0a589d4ac9dc6554b95a8f72fa8ca7b3
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96005977"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831565"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Instructions pour une implémentation responsable de Personalizer
 

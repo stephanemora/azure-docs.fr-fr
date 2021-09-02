@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: aebcf680fec069fdb28114ef8a1a0f6fd8547e63
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: f1e995e558b902b9b1210b87f319748d731228b6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458575"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967826"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurer des journaux de flux NSG avec un modèle Azure Resource Manager
 
@@ -40,7 +40,7 @@ Cet article explique comment activer les [journaux de flux NSG](./network-watche
 ## <a name="nsg-flow-logs-object"></a>Objet de journaux de flux NSG
 
 L'objet de journaux de flux NSG ainsi que tous les paramètres sont indiqués ci-après.
-Pour obtenir une vue d’ensemble complète des propriétés, vous pouvez consulter les [informations de référence sur le modèle de journaux de flux NSG](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Pour obtenir une vue d’ensemble complète des propriétés, vous pouvez consulter les [informations de référence sur le modèle de journaux de flux NSG](/azure/templates/microsoft.network/networkwatchers/flowlogs#retentionpolicyparameters).
 
 ```json
 {

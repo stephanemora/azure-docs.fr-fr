@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 11/13/2020
+ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: fca949ae65ea046d6e65ba03da7b9b0107c37fd9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 6e0cdbb7511132d4ecd3399e0ef5be7c2541d34b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889373"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235902"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importer des données dans le concepteur Azure Machine Learning
 
@@ -64,8 +64,9 @@ Si vous inscrivez un jeu de données de fichiers, le type de port de sortie du j
 ### <a name="limitations"></a>Limites 
 
 - Actuellement, vous pouvez visualiser uniquement le jeu de données tabulaire dans le concepteur. Si vous inscrivez un jeu de données de fichiers en dehors du concepteur, vous ne pouvez pas le visualiser dans le canevas du concepteur.
-- Votre jeu de données est stocké dans un réseau virtuel (VNet). Si vous souhaitez le visualiser, vous devez activer l’identité managée de l’espace de travail du magasin de données.
-    1. Accédez au magasin de données connexe, puis cliquez sur **Mettre à jour les informations d’identification**
+- Actuellement, le concepteur ne prend en charge que les sorties en préversion qui sont stockées dans le **Stockage Blob Azure**. Vous pouvez vérifier et modifier votre magasin de données de sortie dans les **Paramètres de sortie** sous l’onglet **Paramètres** dans le panneau droit du module.
+- Si vos données sont stockées dans un réseau virtuel (VNet) et que vous souhaitez afficher un aperçu, vous devez activer l’identité managée de l’espace de travail du magasin de données.
+    1. Accédez au magasin de données connexe, puis cliquez sur **Mettre à jour l’authentification**
     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Mettre à jour les informations d’identification":::.
     1. Sélectionnez **Oui** pour activer l’identité managée de l’espace de travail.
     :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Activer l’identité managée de l’espace de travail":::

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 82d4fae022d2d97bb2285e556c4050fcb3cca562
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c567e5bf64fdfcda9d6600fdcf5aa15c1a34f25
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531877"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112870"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrer des données vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Striim
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -34,11 +34,11 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 1. Sélectionnez **Créer une ressource**, puis recherchez **Striim** dans la place de marché Azure. Sélectionnez la première option, puis **Créer**.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Rechercher l’élément de la place de marché Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
 1. Ensuite, entrez les propriétés de configuration de l’instance Striim. L’environnement Striim est déployé sur un ordinateur virtuel. Dans le volet **De base**, entrez le **nom d’utilisateur de la machine virtuelle** et le **mot de passe de la machine virtuelle** (ce mot de passe est utilisé pour la connexion SSH à la machine virtuelle). Sélectionnez votre **Abonnement**, votre **Groupe de ressources** et les **Détails de l’emplacement** où vous souhaitez déployer Striim. Quand vous avez terminé, sélectionnez **OK**.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurer les paramètres de base pour Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurer les paramètres de base pour Striim":::
 
 
 1. Dans le volet **Paramètres du cluster Striim**, choisissez le type de déploiement Striim et la taille de la machine virtuelle.
@@ -53,7 +53,7 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 1. Dans le volet **Paramètres d’accès à Striim**, configurez l'**Adresse IP publique** (choisissez les valeurs par défaut), le **Nom de domaine pour Striim** et le **Mot de passe d’administrateur** que vous souhaitez utiliser pour vous connecter à l’interface utilisateur Striim. Configurez un réseau virtuel et un sous-réseau (choisissez les valeurs par défaut). Après avoir renseigné les détails, sélectionnez **OK** pour continuer.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Paramètres d’accès à Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Paramètres d’accès à Striim":::
 
 1. Azure validera le déploiement et s’assurera que tout fonctionne correctement. Ka validation prend quelques minutes. Une fois la validation terminée, sélectionnez **OK**.
   
@@ -81,11 +81,11 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
 1. Accédez à l’instance Striim que vous avez déployée dans le Portail Microsoft Azure. Sélectionnez le bouton **Se connecter** dans la barre de menus supérieure, puis sous l’onglet **SSH**, copiez l’URL dans le champ **Login using VM local account** (Connexion à l’aide du compte local de machine virtuelle).
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Récupérer l’URL SSH":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Récupérer l’URL SSH":::
 
 1. Ouvrez une nouvelle fenêtre de terminal et exécutez la commande SSH que vous avez copiée à partir du Portail Microsoft Azure. Cet article utilise le terminal dans un MacOS, mais vous pouvez suivre les instructions similaires pour l’utilisation de PuTTy ou d’un autre client SSH sur un ordinateur Windows. Lorsque vous y êtes invité tapez **oui** pour continuer, puis entrez le **mot de passe** que vous avez défini pour la machine virtuelle à l’étape précédente.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Se connecter à la machine virtuelle Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Se connecter à la machine virtuelle Striim":::
 
 1. À présent, ouvrez un nouvel onglet de terminal pour copier le fichier **ojdbc8.jar** que vous avez téléchargé précédemment. Utilisez la commande SCP suivante pour copier le fichier .jar de votre ordinateur local vers le dossier tmp de l’instance Striim en cours d’exécution dans Azure :
 
@@ -94,7 +94,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
    scp ojdbc8.jar striimdemo@striimdemo.westus.cloudapp.azure.com:/tmp
    ```
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Copier le fichier .jar depuis l’emplacement de l’ordinateur vers Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Copier le fichier .jar depuis l’emplacement de l’ordinateur vers Striim":::
 
 1. Ensuite, revenez à la fenêtre dans laquelle vous avez effectué le SSH vers l’instance Striim et connectez-vous en tant que sudo. Déplacez le fichier **ojdbc8.jar** depuis le répertoire **/tmp** vers le répertoire **lib** de votre instance Striim à l’aide des commandes suivantes :
 
@@ -105,7 +105,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
    chmod +x ojdbc8.jar
    ```
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Déplacer le fichier .jar vers le dossier lib":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Déplacer le fichier .jar vers le dossier lib":::
 
 
 1. À partir de la même fenêtre de terminal, redémarrez le serveur Striim en exécutant les commandes suivantes :
@@ -125,17 +125,17 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
 1. À présent, revenez à Azure et copiez l’adresse IP publique de votre machine virtuelle Striim. 
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copier l’adresse IP de l’ordinateur virtuel Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copier l’adresse IP de l’ordinateur virtuel Striim":::
 
 1. Pour accéder à l’interface utilisateur web de Striim, ouvrez un nouvel onglet dans un navigateur et copiez l’adresse IP publique, puis procédez comme suit : 9080. Connectez-vous en utilisant le nom d’utilisateur **admin**, ainsi que le mot de passe d’administrateur que vous avez spécifié dans le Portail Microsoft Azure.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Connectez-vous à Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Connectez-vous à Striim":::
 
 1. Vous arrivez à présent sur la page d’hébergement de Striim. Il existe trois volets différents : **Dashboards** (Tableaux de bord), **Apps** (Applications) et **SourcePreview** (Aperçu de la source). Le volet Dashboards vous permet de déplacer des données en temps réel et de les visualiser. Le volet Apps contient vos pipelines de données de streaming ou de flux de données. Dans la partie droite de la page se trouve SourcePreview, où vous pouvez afficher un aperçu de vos données avant de les déplacer.
 
 1. Sélectionnez le volet **Apps**, nous nous concentrerons sur ce volet pour l’instant. Vous pouvez utiliser un grand nombre d’exemples d’applications pour en savoir plus sur Striim. Toutefois, dans cet article, vous allez créer votre propre application. Sélectionnez le bouton **Add App** (Ajouter une application) dans le coin supérieur droit.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Ajouter l’application Striim":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Ajouter l’application Striim":::
 
 1. Il existe plusieurs façons de créer des applications Striim. Sélectionnez **Commencer à partir de zéro** pour ce scénario.
 

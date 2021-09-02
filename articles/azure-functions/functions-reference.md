@@ -4,12 +4,12 @@ description: Découvrez les concepts et techniques Azure Functions dont vous ave
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: a526edfccda1e4e0e60646989a59d23ad19501ab
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 93ac3458e2d9954c9ec17294fe89199d11cc765f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227107"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532296"
 ---
 # <a name="azure-functions-developer-guide"></a>Guide du développeur Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -97,7 +97,7 @@ Vous rencontrez des problèmes avec des erreurs de liaisons ? Consultez la docu
 
 Votre projet de fonction référence des informations de connexion par nom à partir de son fournisseur de configuration. Il n’accepte pas directement les détails de la connexion, ce qui leur permet d’être changés dans l’ensemble des environnements. Par exemple, une définition de déclencheur peut inclure une propriété `connection`. Celle-ci peut faire référence à une chaîne de connexion, mais vous ne pouvez pas définir la chaîne de connexion directement dans un `function.json`. Au lieu de cela, vous devez définir `connection` sur le nom d’une variable d’environnement qui contient la chaîne de connexion.
 
-Le fournisseur de configuration par défaut utilise des variables d’environnement. Celles-ci peuvent être définies par [paramètres d’application](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) lors de l’exécution dans le service Azure Functions, ou à partir du [fichier de paramètres local](functions-run-local.md#local-settings-file) lors du développement local.
+Le fournisseur de configuration par défaut utilise des variables d’environnement. Celles-ci peuvent être définies par [paramètres d’application](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) lors de l’exécution dans le service Azure Functions, ou à partir du [fichier de paramètres local](functions-develop-local.md#local-settings-file) lors du développement local.
 
 ### <a name="connection-values"></a>Valeurs de connexion
 
@@ -111,20 +111,37 @@ Par exemple, la propriété `connection` pour une définition de déclencheur de
 
 Certaines connexions dans Azure Functions sont configurées pour utiliser une identité au lieu d’un secret. La prise en charge dépend de l’extension qui utilise la connexion. Dans certains cas, une chaîne de connexion peut toujours être nécessaire dans Functions, même si le service auquel vous vous connectez prend en charge les connexions basées sur une identité.
 
-> [!IMPORTANT]
-> Même si une extension de liaison prend en charge les connexions basées sur une identité, cette configuration peut ne pas être encore prise en charge dans le plan Consommation. Consultez le tableau de prise en charge ci-dessous.
-
-Les connexions basées sur une identité sont prises en charge par le déclencheur et les extensions de liaison suivants :
-
-| Nom de l’extension | Version d’extension                                                                                     | Prise en charge dans le plan Consommation |
-|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Objets blob Azure     | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Non                                    |
-| File d’attente Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Non                                    |
-| Hubs d'événements Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Non                                    |
-| Azure Service Bus    | [Version 5.0.0-beta2 ou ultérieure](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | Non                                    |
+Les connexions basées sur une identité sont prises en charge par le déclencheur et les extensions de liaison dans tous les plans :
 
 > [!NOTE]
-> La prise en charge des connexions basées sur une identité n’est pas encore disponible pour les connexions de stockage utilisées par le runtime Functions pour les comportements de base. Cela signifie que le paramètre `AzureWebJobsStorage` doit être une chaîne de connexion.
+> Les connexions basées sur une identité ne sont pas prises en charge avec Durable Functions.
+
+| Nom de l’extension | Version d’extension                                                                                     |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| Objets blob Azure     | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
+| File d’attente Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) |
+| Hubs d'événements Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) |
+| Azure Service Bus    | [Version 5.0.0-beta2 ou ultérieure](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
+
+
+Les connexions de stockage utilisées par le runtime Functions (`AzureWebJobsStorage`) peuvent également être configurées à l’aide d’une connexion basée sur une identité. Consultez ci-dessous : [Connexion au stockage hôte avec une identité](#connecting-to-host-storage-with-an-identity).
+
+Quand elles sont hébergées dans le service Azure Functions, les connexions basées sur une identité utilisent une [identité managée](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). L’identité attribuée par le système est utilisée par défaut, bien qu’une identité attribuée par l’utilisateur puisse être spécifiée avec les propriétés `credential` et `clientID`. Lors d’une exécution dans d’autres contextes, tels que le développement local, votre identité de développeur est utilisée à la place, même si cela peut être personnalisé à l’aide de paramètres de connexion alternatifs.
+
+#### <a name="grant-permission-to-the-identity"></a>Accorder l’autorisation à l’identité
+
+Quelle que soit l’identité utilisée, elle doit avoir les autorisations nécessaires pour effectuer les actions prévues. Pour ce faire, il convient généralement d’affecter un rôle dans RBAC Azure ou de spécifier l’identité dans une stratégie d’accès, en fonction du service auquel vous vous connectez. Reportez-vous à la documentation de chaque service pour savoir quelles autorisations sont nécessaires et la façon dont elles peuvent être définies.
+
+> [!IMPORTANT]
+> Parmi les autorisations exposées par le service cible, certaines ne sont peut-être pas nécessaires pour tous les contextes. Dans la mesure du possible, adhérez au **principe du privilège minimum**, en accordant à l’identité uniquement les privilèges nécessaires. Par exemple, si l’application doit simplement lire à partir d’un blob, utilisez le rôle [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), car le rôle [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) comprend des autorisations excessives pour une opération de lecture.
+Les rôles suivants couvrent les principales autorisations nécessaires pour chaque extension dans le cadre d'une utilisation normale :
+
+| Service     | Exemples de rôles intégrés |
+|-------------|------------------------|
+| Objets blob Azure  | [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Files d'attente Azure | [Lecteur des données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Processeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Expéditeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Contributeur aux données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Récepteur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Expéditeur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Propriétaire de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 #### <a name="connection-properties"></a>Propriétés de connexion
 
@@ -132,14 +149,16 @@ Une connexion basée sur une identité pour un service Azure accepte les propri�
 
 | Propriété    | Obligatoire pour les extensions | Variable d’environnement | Description |
 |---|---|---|---|
-| URI de service | Blob Azure, File d’attente Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  URI du plan de données du service auquel vous vous connectez. |
+| URI de service | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | URI du plan de données du service auquel vous vous connectez. |
 | Espace de noms complet | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espace de noms complet Event Hubs et Service Bus. |
+| Informations d’identification du jeton | (facultatif) | `<CONNECTION_NAME_PREFIX>__credential` | Définit la façon dont un jeton doit être obtenu pour la connexion. Recommandé uniquement lors de la spécification d’une identité attribuée par l’utilisateur, quand elle doit être définie sur « managedidentity ». Valide uniquement si hébergé dans le service Azure Functions. |
+| ID client | (facultatif) | `<CONNECTION_NAME_PREFIX>__clientId` | Lorsque `credential` est a la valeur « managedidentity », cette propriété spécifie l’identité attribuée par l’utilisateur à utiliser lors de l’obtention d’un jeton. La propriété accepte un ID client correspondant à une identité attribuée par l’utilisateur affectée à l’application. Par défaut, l’identité affectée par le système de l’application est utilisée. Cette propriété est utilisée différemment dans des [scénarios de développement local](#local-development-with-identity-based-connections) lorsque `credential` ne doit pas être défini. |
+
+<sup>1</sup> Les URI de service d’objets BLOB et de file d’attente sont requis pour les objets BLOB Azure.
 
 Des options supplémentaires peuvent être prises en charge pour un type de connexion donné. Reportez-vous à la documentation du composant qui effectue la connexion.
 
-Quand elles sont hébergées dans le service Azure Functions, les connexions basées sur une identité utilisent une [identité managée](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). L’identité attribuée par le système est utilisée par défaut. Lors d’une exécution dans d’autres contextes, tels que le développement local, votre identité de développeur est utilisée à la place, même si cela peut être personnalisé à l’aide de paramètres de connexion alternatifs.
-
-##### <a name="local-development"></a>Développement local
+##### <a name="local-development-with-identity-based-connections"></a>Développement local avec connexions basées sur une identité
 
 Lors d’une exécution locale, la configuration ci-dessus indique au runtime d’utiliser votre identité de développeur locale. La connexion tente d’obtenir un jeton à partir des emplacements suivants, dans l’ordre :
 
@@ -164,6 +183,7 @@ Pour vous connecter à l’aide d’un principal de service Azure Active Directo
 | Clé secrète client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Un secret client qui a été généré pour l’inscription de l’application. |
 
 Exemple de propriétés `local.settings.json` obligatoires pour une connexion basée sur une identité avec Blob Azure : 
+
 ```json
 {
   "IsEncrypted": false,
@@ -176,22 +196,18 @@ Exemple de propriétés `local.settings.json` obligatoires pour une connexion ba
 }
 ```
 
-#### <a name="grant-permission-to-the-identity"></a>Accorder l’autorisation à l’identité
+#### <a name="connecting-to-host-storage-with-an-identity"></a>Connexion au stockage hôte avec une identité
 
-Quelle que soit l’identité utilisée, elle doit avoir les autorisations nécessaires pour effectuer les actions prévues. Pour ce faire, il convient généralement d’affecter un rôle dans RBAC Azure ou de spécifier l’identité dans une stratégie d’accès, en fonction du service auquel vous vous connectez. Reportez-vous à la documentation de chaque service pour savoir quelles autorisations sont nécessaires et la façon dont elles peuvent être définies.
+Par défaut, Azure Functions utilise la connexion `AzureWebJobsStorage` pour les comportements de base tels que la coordination de l’exécution Singleton des déclencheurs de minuteur et du stockage de clés d’application par défaut. Cela peut également être configuré pour tirer parti d’une identité.
 
-Les rôles suivants couvrent les principales autorisations nécessaires pour chaque extension dans le cadre d'une utilisation normale :
+> [!CAUTION]
+> Certaines applications réutilisent `AzureWebJobsStorage` pour les connexions de stockage dans leurs déclencheurs, liaisons et/ou code de fonction. Assurez-vous que toutes les utilisations de `AzureWebJobsStorage` peuvent utiliser le format de connexion basé sur l’identité avant de modifier cette connexion à partir d’une chaîne de connexion.
 
-| Service     | Exemples de rôles intégrés |
-|-------------|------------------------|
-| Objets blob Azure  | [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
-| Files d'attente Azure | [Lecteur des données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Processeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Expéditeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Contributeur aux données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
-| Event Hubs   |    [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
-| Service Bus | [Récepteur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Expéditeur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Propriétaire de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
+Pour configurer la connexion de cette façon, assurez-vous que l’identité de l’application a le rôle de [propriétaire de données d’objet Blob Stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) pour prendre en charge la fonctionnalité de l’hôte principal. Vous pouvez avoir besoin d’autorisations supplémentaires si vous utilisez « AzureWebJobsStorage » à d’autres fins.
 
-> [!IMPORTANT]
-> Parmi les autorisations exposées par le service, certaines ne sont peut-être pas nécessaires pour tous les contextes. Dans la mesure du possible, adhérez au **principe du privilège minimum**, en accordant à l’identité uniquement les privilèges nécessaires. Par exemple, si l’application doit simplement lire à partir d’un blob, utilisez le rôle [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), car le rôle [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) comprend des autorisations excessives pour une opération de lecture.
+Si vous utilisez un compte de stockage qui utilise le suffixe DNS et le nom de service par défaut pour Azure global, selon le format `https://<accountName>.blob/queue/file/table.core.windows.net`, vous pouvez définir `AzureWebJobsStorage__accountName` sur le nom de votre compte de stockage. 
 
+Si, à la place, vous utilisez un compte de stockage dans un cloud souverain ou un DNS personnalisé, définissez `AzureWebJobsStorage__serviceUri` sur l’URI de votre service BLOB. Si « AzureWebJobsStorage» est utilisé pour tout autre service, vous pouvez spécifier à la place `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri` et `AzureWebJobsStorage__tableServiceUri` séparément.
 
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

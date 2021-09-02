@@ -1,20 +1,20 @@
 ---
 title: Vue d’ensemble d’Azure Percept
 description: En savoir plus sur la plateforme Azure Percept
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0a5dfd39fd6047256d951fe33c10167e4f4c21b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567659"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221255"
 ---
-# <a name="introduction-to-azure-percept"></a>Introduction à Azure Percept
+# <a name="azure-percept-overview"></a>Vue d’ensemble d’Azure Percept
 
 Azure Percept est une famille de matériels, de logiciels et de services conçus pour accélérer la transformation des entreprises en utilisant l’IoT et l’IA en périphérie. Azure Percept couvre la totalité des éléments, de l’électronique aux services, pour résoudre les problématiques d’intégration à grande échelle de l’IA en périphérie.  
 

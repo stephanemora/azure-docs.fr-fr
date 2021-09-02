@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: aa02c405a3d94426e54ed7e3499f6ae79ec635e5
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 209fdfd71b4e2c0a5d1d5ede3f411b6476c19570
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487324"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732574"
 ---
 # <a name="introduction-to-azure-defender-for-open-source-relational-databases"></a>Présentation d’Azure Defender pour les bases de données relationnelles open source
 
@@ -28,12 +28,12 @@ Azure Defender détecte les activités anormales indiquant des tentatives inhabi
 
 | Aspect                             | Détails                                                                                                                                    |
 |------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| État de sortie :                     | Disponibilité générale (GA)                                                     |
+| État de sortie :                     | Disponibilité générale                                                     |
 | Prix :                           | **Azure Defender pour les bases de données relationnelles open source** est facturé conformément aux [tarifs de Security Center](https://azure.microsoft.com/pricing/details/security-center/)   |
 | Versions protégées de PostgreSQL :  | Monoserveur : Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de PostgreSQL](../postgresql/concepts-pricing-tiers.md).   |
 | Versions protégées de MySQL :       | Monoserveur : Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de MySQL](../mysql/concepts-pricing-tiers.md).                        |
 | Versions protégées de MariaDB :     | Usage général et À mémoire optimisée. Découvrez-en plus dans [Niveaux tarifaires de MariaDB](../mariadb/concepts-pricing-tiers.md).                      |
-| Clouds :                            | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/souverain (US Gov, Azure Chine) |
+| Clouds :                            | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet) |
 |                                    |                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-open-source-relational-databases"></a>Quels sont les avantages d’Azure Defender pour les bases de données relationnelles open source ?

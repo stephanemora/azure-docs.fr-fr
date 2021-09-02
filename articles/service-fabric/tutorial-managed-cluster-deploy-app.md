@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez vous connecter à un cluster Service F
 ms.topic: tutorial
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f9ee801bdddd43563794aee7420ee8ba54f4d1d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b1228deaf5627c8a367a9b0927320f93d98a50e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672406"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867437"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>Tutoriel : Déployer une application sur un cluster Service Fabric managé
 
@@ -96,9 +96,10 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 Dans cette étape, nous avons déployé une application sur un cluster Service Fabric managé. Pour en découvrir plus sur les options de déploiement d’applications, consultez :
 
-* [Déployer des secrets d’application de cluster managé](how-to-managed-cluster-application-secrets.md)
-* [Déployer des applications de cluster managé avec un modèle ARM](how-to-managed-cluster-app-deployment-template.md)
-* [Déployer des applications de cluster managé avec une identité managée](how-to-managed-cluster-application-managed-identity.md)
+* [Déployer des secrets d’application sur un cluster managé](how-to-managed-cluster-application-secrets.md)
+* [Déployer une application sur un cluster managé avec Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
+* [Déployer une application avec une identité managée sur un cluster managé](how-to-managed-cluster-application-managed-identity.md)
+
 
 Pour en découvrir plus sur les options de configuration de cluster managé, consultez :
 

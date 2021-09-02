@@ -1,20 +1,20 @@
 ---
-title: Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
+title: Créer un Assistant vocal sans code dans Azure Percept Studio
 description: Découvrez comment créer et déployer une solution vocale sans code sur votre DK Azure Percept
-author: philmea
-ms.author: philmea
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 441d0b4b76e0c543bd82c5546e0ca89250e418e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0ceb71b5caaf17c485d4f4bd649e6b68d7c72a5d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748166"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224056"
 ---
-# <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
+# <a name="create-a-no-code-voice-assistant-in-azure-percept-studio"></a>Créer un Assistant vocal sans code dans Azure Percept Studio
 
 Dans ce tutoriel, vous allez créer un Assistant vocal à partir d’un modèle en vue de l’utiliser avec votre DK Azure Percept et Azure Percept Audio. La démonstration de l’Assistant vocal s’exécute dans [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) et contient une sélection d’objets virtuels contrôlés par la voix. Pour contrôler un objet, prononcez votre mot clé (qui est le mot ou la phrase courte qui sort de veille votre appareil), suivi d’une commande. Chaque modèle répond à un ensemble de commandes spécifiques.
 

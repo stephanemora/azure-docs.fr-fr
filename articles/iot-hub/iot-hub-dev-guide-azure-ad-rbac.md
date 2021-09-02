@@ -7,15 +7,15 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 06/24/2021
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 196afc38c24254c4628173180205a858d1085eeb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b6ea56942580b3b8785dcf2b694b30ad64e8a258
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489698"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894956"
 ---
 # <a name="control-access-to-iot-hub-using-azure-active-directory"></a>Contrôler l’accès à IoT Hub à l’aide d’Azure Active Directory
 
@@ -80,7 +80,7 @@ Les tableaux suivants décrivent les autorisations disponibles pour les opérati
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action | Envoie un message cloud-à-appareil à n’importe quel appareil  |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action | Reçoit, termine ou abandonne la notification de commentaire sur les messages cloud-à-appareil |
 | Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action | Supprime toutes les commandes en attente pour un appareil  |
-| Microsoft.Devices/IotHubs/directMethods/invoke/action | Appelle une méthode directe sur un appareil |
+| Microsoft.Devices/IotHubs/directMethods/invoke/action | Appelle une méthode directe sur un appareil ou un module |
 | Microsoft.Devices/IotHubs/fileUpload/notifications/action  | Reçoit, termine ou abandonne les notifications de téléchargement de fichier |
 | Microsoft.Devices/IotHubs/statistics/read | Lit les statistiques des services et des appareils |
 | Microsoft.Devices/IotHubs/configurations/read | Lit les configurations de gestion des appareils |
@@ -94,6 +94,9 @@ Les tableaux suivants décrivent les autorisations disponibles pour les opérati
 > - L’opération de [Requête de jumeau](/rest/api/iothub/service/query/gettwins) requiert `Microsoft.Devices/IotHubs/twins/read`.
 > - [Obtenir le jumeau numérique](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requiert `Microsoft.Devices/IotHubs/twins/read` tandis que [Mettre à jour le jumeau numérique](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requiert `Microsoft.Devices/IotHubs/twins/write`
 > - Les commandes [Appeler le composant](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) et [Appeler le niveau racine](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) requièrent `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
+
+> [!NOTE]
+> Pour obtenir des données d’IoT Hub à l’aide d’Azure AD, [configurez le routage vers un Event Hub distinct](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). Pour accéder au [point de terminaison compatible Event Hub intégré](iot-hub-devguide-messages-read-builtin.md), utilisez la méthode de la chaîne de connexion (clé d’accès partagé) comme avant. 
 
 ## <a name="azure-ad-access-from-azure-portal"></a>Accès Azure AD à partir du portail Azure
 
@@ -109,9 +112,15 @@ Pour vous assurer qu’un compte n’a pas d’accès en dehors des autorisation
 
 Ensuite, assurez-vous que le compte n’a pas d’autres rôles qui disposent de l’autorisation **Microsoft.Devices/iotHubs/listkeys/action**, comme [Propriétaire](../role-based-access-control/built-in-roles.md#owner) ou [Contributeur](../role-based-access-control/built-in-roles.md#contributor). Pour permettre au compte d’accéder aux ressources et de naviguer dans le portail, attribuez le rôle [Lecteur](../role-based-access-control/built-in-roles.md#reader).
 
-## <a name="built-in-event-hub-compatible-endpoint-doesnt-support-azure-ad-authentication"></a>Le point de terminaison compatible avec Event Hub intégré ne prend pas en charge l’authentification Azure AD
+## <a name="azure-iot-extension-for-azure-cli"></a>Extension Azure IoT pour Azure CLI
 
-Le [point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md) ne prend pas en charge l’intégration Azure AD. Il n’est pas possible d’y accéder à l’aide d’un principal de sécurité ou d’une identité managée. Pour accéder au point de terminaison intégré, utilisez la méthode de la chaîne de connexion (clé d’accès partagé) comme avant.
+La plupart des commandes sur IoT Hub prennent en charge l’authentification Azure AD. Le type d’authentification utilisé pour exécuter les commandes peut être contrôlé avec le paramètre `--auth-type` qui accepte les valeurs key ou login. La valeur `key` est définie par défaut.
+
+- Lorsque `--auth-type` a la valeur `key`, comme précédemment, l’interface CLI découvre automatiquement une stratégie appropriée lors de l’interaction avec IoT Hub.
+
+- Lorsque `--auth-type` a la valeur `login`, un jeton d’accès du principal connecté à Azure CLI est utilisé pour l’opération.
+
+Pour en savoir plus, consultez la [page de publication de l’extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12).
 
 ## <a name="sdk-samples"></a>Exemples du Kit de développement logiciel (SDK)
 

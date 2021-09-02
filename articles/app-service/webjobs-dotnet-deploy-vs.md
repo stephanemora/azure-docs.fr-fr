@@ -5,15 +5,15 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.custom: devx-track-csharp, vs-azure
-ms.date: 07/30/2020
+ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65475b6f1558930ca8c91c7d1283745bc1b80b8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89226027"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532558"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Développer et déployer WebJobs à l’aide de Visual Studio
 
@@ -28,7 +28,7 @@ Vous pouvez publier plusieurs WebJobs dans une application web unique, à condit
 Avec la version 3.x du Kit de développement logiciel (SDK) Azure WebJobs, vous pouvez créer et publier des WebJobs en tant qu’applications console .NET Core. Pour obtenir des instructions étape par étape afin de créer et de publier une application console .NET Core pour Azure en tant que WebJob, consultez [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> Les WebJobs .NET Core ne peuvent pas être liés à des projets web. Si vous avez besoin de déployer votre WebJob avec une application web, [créez vos WebJobs en tant qu’application console .NET Framework](#webjobs-as-net-framework-console-apps).  
+> Les applications Web .NET Core et/ou les tâches Web .NET Core ne peuvent pas être liées à des projets Web. Si vous avez besoin de déployer votre WebJob avec une application web, [créez vos WebJobs en tant qu’application console .NET Framework](#webjobs-as-net-framework-console-apps).  
 
 ### <a name="deploy-to-azure-app-service"></a>Déployer dans Azure App Service
 

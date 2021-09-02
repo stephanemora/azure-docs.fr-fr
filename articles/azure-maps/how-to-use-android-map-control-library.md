@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 237888e1ee635a68a4603bfa63f5bfe4618c018a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604445"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093496"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
@@ -28,7 +28,7 @@ Veillez à suivre les étapes décrites dans le [Démarrage rapide : Document C
 
 Android SDK Azure Maps propose trois méthodes différentes pour définir la langue et l'affichage régional de la carte. Le code suivant montre comment définir la langue sur le français (« fr-FR ») et l'affichage régional sur « Auto ».
 
-La première option consiste à transférer la langue et à afficher les informations régionales dans la classe `AzureMaps` en utilisant les méthodes statiques `setLanguage` et `setView` globalement. Cela permet de définir la langue et l'affichage régional par défaut pour tous les contrôles Azure Maps chargés dans votre application.
+La première option consiste à transférer la langue et à afficher les informations régionales dans la classe `AzureMaps` en utilisant les méthodes statiques `setLanguage` et `setView` globalement. Ce code permet de définir la langue et l’affichage régional par défaut pour tous les contrôles Azure Maps chargés dans votre application.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -75,16 +75,16 @@ companion object {
 La deuxième option consiste à transférer la langue et à afficher les informations dans le code XML du contrôle de carte.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
-La troisième option consiste à définir la langue et l'affichage régional de la carte par programmation à l'aide de la méthode `setStyle`. Cette opération peut être effectuée à tout moment pour changer la langue et l'affichage régional de la carte.
+La troisième option consiste à définir la langue et l'affichage régional de la carte par programmation à l'aide de la méthode `setStyle`. Cette méthode de modification de la langue et de la vue régionale de la carte peut être effectuée à tout moment.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -118,7 +118,7 @@ Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR »
 
 La liste complète des langues et des affichages régionaux pris en charge est disponible [ici](supported-languages.md).
 
-## <a name="navigating-the-map&quot;></a>Navigation dans la carte
+## <a name="navigating-the-map"></a>Navigation dans la carte
 
 Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotations et des tangages de la carte. Les informations suivantes détaillent les différentes façons de naviguer dans la carte.
 
@@ -141,7 +141,7 @@ Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotat
 
 * Touchez la carte avec deux doigts et faites-les glisser ensemble vers le haut ou vers le bas.
 
-## <a name=&quot;azure-government-cloud-support&quot;></a>Prise en charge du cloud Azure Government
+## <a name="azure-government-cloud-support"></a>Prise en charge du cloud Azure Government
 
 Android SDK d’Azure Maps prend en charge le cloud Azure Government. Android SDK d’Azure Maps est accessible à partir du même référentiel Maven. Les tâches suivantes devront être effectuées pour se connecter à la version cloud d'Azure Government de la plateforme Azure Maps.
 
@@ -150,7 +150,7 @@ Au même endroit que les détails d’authentification Azure Maps sont spécifi�
 ::: zone pivot="programming-language-java-android"
 
 ```java
-AzureMaps.setDomain(&quot;atlas.azure.us");
+AzureMaps.setDomain("atlas.azure.us");
 ```
 
 ::: zone-end
@@ -164,6 +164,44 @@ AzureMaps.setDomain("atlas.azure.us")
 ::: zone-end
 
 Veillez à utiliser les détails d'authentification Azure Maps à partir de la plateforme du cloud Azure Government lors de l'authentification de la carte et des services.
+
+## <a name="migrating-from-a-preview-version"></a>Migration à partir d’une préversion
+
+Avec le passage de la préversion à la disponibilité générale, certaines modifications importantes ont été introduites dans le SDK Android Azure Maps. Voici les détails essentiels :
+
+* L’identifiant Maven est passé de `"com.microsoft.azure.maps:mapcontrol:0.7"` à `"com.azure.android:azure-maps-control:1.0.0"`. L’espace de noms et le numéro de version principale ont été modifiés.
+* L’espace de noms d’importation est passé de `com.microsoft.azure.maps.mapcontrol` à `com.azure.android.maps.control`
+* Les noms de ressources pour les options XML, les ressources de couleur et les ressources d’image ont vu le texte `mapcontrol_` remplacé par `azure_maps_`.
+
+    **Avant :**
+
+    ```xml
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_language="fr-FR"
+        app:mapcontrol_view="Auto"
+        app:mapcontrol_centerLat="47.602806"
+        app:mapcontrol_centerLng="-122.329330"
+        app:mapcontrol_zoom="12"
+    />
+    ```
+
+    **Après :**
+
+    ```xml
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:azure_maps_language="fr-FR"
+        app:azure_maps_view="Auto"
+        app:azure_maps_centerLat="47.602806"
+        app:azure_maps_centerLng="-122.329330"
+        app:azure_maps_zoom="12"
+    />
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

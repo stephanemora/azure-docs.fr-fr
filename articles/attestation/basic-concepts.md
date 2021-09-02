@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 47231ecab14ab9d1705d1015c0de4a035a10a02e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 5ac431f489f279ea09407e1a34c234911d71f12f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417304"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259737"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -21,7 +21,7 @@ Voici quelques concepts de base relatifs à Microsoft Azure Attestation.
 
 ## <a name="json-web-token-jwt"></a>JSON Web Token (JWT)
 
-[JSON Web Token](https://jwt.io/) (JWT) est une méthode [RFC7519](https://tools.ietf.org/html/rfc7519) de norme ouverte pour la transmission d’informations de manière sécurisée entre des tiers sous la forme d’un objet JSON (JavaScript Object Notation). Ces informations peuvent être vérifiées et approuvées, car elles sont signées numériquement. Les jetons JWT peuvent être signés à l’aide d’un secret ou d’une paire de clés publique/privée.
+[JSON Web Token](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) (JWT) est une méthode [RFC7519](https://tools.ietf.org/html/rfc7519) de norme ouverte pour la transmission d’informations de manière sécurisée entre des tiers sous la forme d’un objet JSON (JavaScript Object Notation). Ces informations peuvent être vérifiées et approuvées, car elles sont signées numériquement. Les jetons JWT peuvent être signés à l’aide d’un secret ou d’une paire de clés publique/privée.
 
 ## <a name="json-web-key-jwk"></a>Clé web JSON (JWK)
 

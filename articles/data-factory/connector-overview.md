@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: e2e425b0ca26f005b69e20d43fcd62946b666987
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: be49d5563a1e267b6f9be7ad5b4fa4534a56f22c
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824091"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225620"
 ---
 # <a name="azure-data-factory-and-azure-synapse-analytics-connector-overview"></a>Vue d’ensemble du connecteur Azure Synapse Analytics et Azure Data Factory
 

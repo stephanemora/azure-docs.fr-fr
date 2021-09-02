@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: dd0ceb00b80a045d60de562fbf9ac01b91e41e68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e0b0a3023147fc12c0133f7fb0c78b943c09ced
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720183"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525514"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Options d’aide et de support Azure Cognitive Services
 
@@ -106,13 +106,9 @@ Si vous envoyez une nouvelle question à Stack Overflow, utilisez un ou plusieur
 * [Metrics Advisor (préversion)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
-## <a name="submit-feedback-on-user-voice"></a>Envoyer des commentaires sur UserVoice
+## <a name="submit-feedback"></a>Envoyer le commentaire
 
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-Pour demander de nouvelles fonctionnalités, publiez-les sur UserVoice. Partagez vos idées pour améliorer le fonctionnement de Cognitive Services et de ses API pour les applications que vous développez. 
+Pour demander de nouvelles fonctionnalités, publiez-les sur https://feedback.azure.com. Partagez vos idées pour améliorer le fonctionnement de Cognitive Services et de ses API pour les applications que vous développez. 
 
 * [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
 

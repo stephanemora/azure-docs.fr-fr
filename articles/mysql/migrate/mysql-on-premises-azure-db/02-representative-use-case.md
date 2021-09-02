@@ -1,5 +1,5 @@
 ---
-title: Guide de migration de MySQL local vers Azure Database pour MySQL - Cas d’usage représentatif
+title: Migration de MySQL local vers Azure Database pour MySQL – Cas d’usage représentatif
 description: Le cas d’usage suivant est basé sur un scénario client réel d’une entreprise qui a migré sa charge de travail MySQL vers Azure Database pour MySQL.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9d1a6b4d5e4fa9f3c05219f40b2852eed44aaa37
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 508e27006c96003bd4c2825c9987761f83358f0d
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082647"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085071"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-representative-use-case"></a>Guide de migration de MySQL local vers Azure Database pour MySQL - Cas d’usage représentatif
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-representative-use-case"></a>Migration de MySQL local vers Azure Database pour MySQL – Cas d’usage représentatif
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,15 +55,17 @@ Ces étapes sont les suivantes :
 
 | Étape | Nom | Activités |
 |-------|------|------------|
-| 1 | Prémigration  | Évaluation, Planification, Évaluation des méthodes de migration, Implications des applications, Plans de test, Bases de référence des performances |
-| 2 | Migration      | Exécuter la migration, Exécuter les plans de test                                                                          |
-| 3 | Postmigration | Continuité des activités, Reprise d’activité, Gestion, Sécurité, Optimisation des performances, Modernisation de la plateforme |
+| 1 | Prémigration | Évaluation, Planification, Évaluation des méthodes de migration, Implications des applications, Plans de test, Bases de référence des performances |
+| 2 | Migration     | Exécuter la migration, Exécuter les plans de test                                                                          |
+| 3 | Postmigration| Continuité des activités, Reprise d’activité, Gestion, Sécurité, Optimisation des performances, Modernisation de la plateforme |
 
 WWI a plusieurs instances de MySQL s’exécutant avec des différentes versions allant de 5.5 à 5.7. Ils veulent faire passer leurs instances sur la dernière version dès que possible, mais veulent être sûrs que leurs applications peuvent dans ce cas continuer à fonctionner. Ils ne voient aucun problème à faire passer la même version dans le cloud et à effectuer la mise à niveau après, mais ils préfèreraient effectuer les deux tâches à la fois.
 
 Ils voudraient aussi vérifier que leurs charges de travail de données sont sûres et disponibles dans plusieurs régions géographiques en cas de panne et examiner les options de configuration disponibles.
 
 WWI veut commencer par une application simple pour la première migration, puis passer à des applications plus critiques dans une phase ultérieure. Ceci va donner à l’équipe les connaissances et l’expérience nécessaire pour préparer et planifier ces migrations futures.  
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Évaluation](./03-assessment.md)
