@@ -3,15 +3,15 @@ title: Vue d’ensemble du Runbook Worker hybride d’Azure Automation
 description: Cet article fournit une vue d’ensemble du Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des machines de votre centre de données local ou de votre fournisseur de cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/22/2021
+ms.date: 07/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8716b8ddb267aa76dec7950026027442bf438e65
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 9600a4c38fa2a6f4956e9b1bceb730580c6ce382
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853547"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653076"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -29,6 +29,15 @@ Il existe deux types de Runbook Worker : système et utilisateur. Le tableau su
 Un Runbook Worker hybride peut s’exécuter sur le système d’exploitation Windows ou Linux, et ce rôle s’appuie sur [l’agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) créant des rapports dans un [espace de travail Log Analytics](../azure-monitor/logs/design-logs-deployment.md) Azure Monitor. L’espace de travail ne vise pas seulement à superviser la machine pour le système d’exploitation pris en charge ; il sert aussi à télécharger les composants nécessaires pour installer le Runbook Worker hybride.
 
 Quand la solution [Update Management](./update-management/overview.md) d’Azure Automation est activée, toute machine connectée à votre espace de travail Log Analytics est automatiquement configurée en tant que Runbook Worker hybride système. Pour la configurer en tant que runbook Worker hybride Windows, consultez [Déployer un runbook Worker hybride Windows](automation-windows-hrw-install.md) et pour Linux, [Déployer un runbook Worker hybride Linux](automation-linux-hrw-install.md).
+
+## <a name="runbook-worker-limits"></a>Limites de Runbook Worker
+
+Le tableau suivant indique le nombre maximal de Runbook Worker hybrides système et utilisateur dans un compte Automation. Si vous avez plus de 4 000 machines à gérer, nous vous recommandons de créer un autre compte Automation.
+
+|Type de Worker| Nombre maximum pris en charge par un compte Automation.|
+|---|---|
+|Système|4000|
+|Utilisateur |4000|
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -95,10 +104,6 @@ En plus des adresses et des ports standard requis pour le Runbook Worker hybride
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation State Configuration sur un Runbook Worker hybride
 
 Vous pouvez exécuter [Azure Automation State Configuration](automation-dsc-overview.md) sur un Runbook Worker hybride. Pour gérer la configuration des serveurs qui prennent en charge le Runbook Worker hybride, vous devez les ajouter en tant que nœuds DSC. Consultez [Activer la gestion des machines par Azure Automation State Configuration](automation-dsc-onboarding.md).
-
-## <a name="runbook-worker-limits"></a>Limites de Runbook Worker
-
-Le nombre maximal de groupes Worker hybrides par compte Automation est de 4 000 et s’applique à la fois aux workers hybrides système et utilisateur. Si vous avez plus de 4 000 machines à gérer, nous vous recommandons de créer un autre compte Automation.
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Runbooks sur un Runbook Worker hybride
 

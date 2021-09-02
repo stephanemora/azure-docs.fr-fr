@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: fce2c2d007f92c43e763826f9345f773324e885e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffbda69d91a709ff5a9af66f7abe2b7734efe177
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100183"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666386"
 ---
 # <a name="add-a-heat-map-layer-android-sdk"></a>Ajouter une couche de carte thermique (SDK Android)
 
-Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données. Elles servent à représenter la densité de données à l’aide d’une palette de couleurs et affichent les « zones réactives » des données sur une carte. Les cartes thermiques sont un excellent moyen de restituer des jeux de données dotés d’un grand nombre de points. 
+Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données. Elles servent à représenter la densité de données à l’aide d’une palette de couleurs et affichent les « zones réactives » des données sur une carte. Les cartes thermiques sont un excellent moyen de restituer des jeux de données dotés d’un grand nombre de points.
 
 Le rendu de dizaines de milliers de points sous forme de symboles peut couvrir la plus grande partie de la surface de la carte. Dans ce cas, il est probable que de nombreux symboles se chevauchent. Il est alors difficile d’avoir une meilleure compréhension des données. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où la densité ainsi que la densité relative de chaque point de données.
 
@@ -50,6 +50,11 @@ L’exemple de code suivant charge un flux GeoJSON de tremblements de terre de l
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson");
+
+//Add data source to the map.
 map.sources.add(source);
 
 //Create a heat map layer.
@@ -60,27 +65,6 @@ HeatMapLayer layer = new HeatMapLayer(source,
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels");
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this,
-    (String result) -> {
-        //Parse the data as a GeoJSON Feature Collection.
-        FeatureCollection fc = FeatureCollection.fromJson(result);
-
-        //Add the feature collection to the data source.
-        source.add(fc);
-
-        //Optionally, update the maps camera to focus in on the data.
-
-        //Calculate the bounding box of all the data in the Feature Collection.
-        BoundingBox bbox = MapMath.fromData(fc);
-
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20));
-    });
 ```
 
 ::: zone-end
@@ -90,6 +74,11 @@ Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson")
+
+//Add data source to the map.
 map.sources.add(source)
 
 //Create a heat map layer.
@@ -101,27 +90,6 @@ val layer = HeatMapLayer(
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels")
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this
-) { result: String? ->
-    //Parse the data as a GeoJSON Feature Collection.
-    val fc = FeatureCollection.fromJson(result!!)
-
-    //Add the feature collection to the data source.
-    source.add(fc)
-
-    //Optionally, update the maps camera to focus in on the data.
-    //Calculate the bounding box of all the data in the Feature Collection.
-    val bbox = MapMath.fromData(fc)
-
-    //Update the maps camera so it is focused on the data.
-    map.setCamera(
-        bounds(bbox),
-        padding(20)
-    )
-}
 ```
 
 ::: zone-end
@@ -137,7 +105,7 @@ Dans l’exemple précédent, la carte thermique a été personnalisée à l’a
 - `heatmapRadius`: définit un rayon de pixels dans lequel restituer chaque point de données. Vous pouvez définir le rayon en tant que nombre fixe ou expression. Il est possible, avec une expression, d’adapter le rayon en fonction du niveau de zoom, pour représenter une zone spatiale cohérente sur la carte (par exemple, un rayon de 5 miles).
 - `heatmapColor`: spécifie la façon dont la carte thermique est colorisée. Un dégradé de couleur est une caractéristique courante des cartes thermiques. Vous pouvez obtenir l’effet grâce à une expression `interpolate`. Vous pouvez également utiliser une expression `step` pour coloriser la carte thermique décompose visuellement la densité en plages. Elle ressemble ainsi davantage à une carte de style de contours ou de radars. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité.
 
-  Vous spécifiez les valeurs de couleurs des cartes thermiques comme expressions de valeur `heatmapDensity`. La couleur de la zone dans laquelle aucune donnée n’existe est définie au niveau de l’index 0 de l’expression « Interpolation » ou par la couleur par défaut d’une expression « en étapes ». Vous pouvez utiliser cette valeur pour définir une couleur d’arrière-plan. Souvent, cette valeur est définie sur une couleur noire transparente ou semi-transparente. 
+  Vous spécifiez les valeurs de couleurs des cartes thermiques comme expressions de valeur `heatmapDensity`. La couleur de la zone dans laquelle aucune donnée n’existe est définie au niveau de l’index 0 de l’expression « Interpolation » ou par la couleur par défaut d’une expression « en étapes ». Vous pouvez utiliser cette valeur pour définir une couleur d’arrière-plan. Souvent, cette valeur est définie sur une couleur noire transparente ou semi-transparente.
 
   Voici des exemples d’expressions de couleurs :
 
@@ -290,6 +258,56 @@ val layer = HeatMapLayer(source,
 La vidéo suivante montre une carte exécutant le code ci-dessus, qui met à l’échelle le rayon pendant que la carte est en cours de zoom pour créer un rendu de carte thermique cohérent entre les niveaux de zoom.
 
 ![Animation montrant une carte avec une couche de carte thermique présentant une taille géospatiale cohérente](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
+
+L’expression `zoom` peut uniquement être utilisée dans les expressions `step` et `interpolate`. L’expression suivante peut être utilisée pour estimer un rayon en mètres. Cette expression utilise un espace réservé `radiusMeters` que vous devez remplacer par le rayon de votre choix. Cette expression calcule le rayon de pixel approximatif pour un niveau de zoom à l’Équateur pour les niveaux de zoom 0 et 24, et utilise une `exponential interpolation` expression pour mettre à l’échelle ces valeurs de la même façon que le système de mosaïques dans la carte.
+
+::: zone pivot="programming-language-java-android"
+
+```java
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> Lorsque vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Vous pouvez utiliser le nombre de points de chaque cluster comme expression d’épaisseur pour la carte thermique. Cela peut réduire de manière significative le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une propriété `point_count` de la fonctionnalité de point :
+>
+> ```java
+> HeatMapLayer layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> );
+> ```
+>
+> Si le rayon de clustering n’est constitué que de quelques pixels, la différence visuelle sera légère. Un plus grand rayon regroupe plus de points dans chaque cluster et améliore les performances de la carte thermique.
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> Lorsque vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Vous pouvez utiliser le nombre de points de chaque cluster comme expression d’épaisseur pour la carte thermique. Cela peut réduire de manière significative le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une propriété `point_count` de la fonctionnalité de point :
+>
+> ```kotlin
+> var layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> )
+> ```
+>
+> Si le rayon de clustering n’est constitué que de quelques pixels, la différence visuelle sera légère. Un plus grand rayon regroupe plus de points dans chaque cluster et améliore les performances de la carte thermique.
+
+::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 

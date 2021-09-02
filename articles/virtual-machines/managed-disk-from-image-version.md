@@ -1,6 +1,6 @@
 ---
-title: Créer un disque géré à partir d’une version d’image
-description: Créez un disque géré à partir d’une version d’image dans une galerie d’images partagées.
+title: Exporter une version d’image vers un disque managé
+description: Exporter une version d’image depuis une galerie d’images partagées vers un disque managé.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,16 +10,16 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb09c3332f41f5b4fe8f02e2e38940f4085b08fd
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d4a3d1e8b1eb1c3a959e9f48e0c46379d6162644
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672816"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653041"
 ---
-# <a name="create-a-managed-disk-from-an-image-version"></a>Créer un disque géré à partir d’une version d’image
+# <a name="export-an-image-version-to-a-managed-disk"></a>Exporter une version d’image vers un disque managé
 
-Si nécessaire, vous pouvez exporter le système d’exploitation ou un disque de données unique à partir d’une version d’image en tant que disque géré à partir d’une version d’image stockée dans une galerie d’images partagées.
+Vous pouvez exporter le système d’exploitation ou un disque de données unique à partir d’une version d’image en tant que disque managé depuis une version d’image stockée dans Shared Image Gallery.
 
 
 ## <a name="cli"></a>Interface de ligne de commande

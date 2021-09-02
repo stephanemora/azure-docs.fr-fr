@@ -1,27 +1,27 @@
 ---
 title: Tables de registre Azure SQL Database pouvant être mises à jour
 description: Cet article fournit des informations sur les tables de registre pouvant être mises à jour, sur le schéma du registre et sur les vues du registre dans Azure SQL Database.
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 688bcf79acd64006f35f7d5c6909088f5448d31d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4a84cb359a0840f593fd732339a4ef9f9f3588db
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080396"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665508"
 ---
 # <a name="azure-sql-database-updatable-ledger-tables"></a>Tables de registre Azure SQL Database pouvant être mises à jour
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans la région USA Centre-Ouest.
+> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
 
 Les tables de registre pouvant être mises à jour sont les tables versionnées par le système sur lesquelles les utilisateurs peuvent effectuer des mises à jour et des suppressions tout en fournissant également des fonctionnalités de preuve de falsification. Lorsque des mises à jour ou des suppressions se produisent, toutes les versions antérieures d’une ligne sont conservées dans une table secondaire, appelée table d’historique. La table d’historique reflète le schéma de la table de registre pouvant être mise à jour. Lorsqu’une ligne est mise à jour, la dernière version de la ligne reste dans la table de registre, tandis que sa version antérieure est insérée dans la table d’historique par le système, de manière transparente pour l’application. 
 

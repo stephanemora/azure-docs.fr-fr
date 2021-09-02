@@ -5,26 +5,29 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 08/31/2021
 ms.author: victorh
-ms.openlocfilehash: 50a46556e960070eaedcd03d356eeaa72f872ac7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6d4997253c1b6acfd66d4b126a9249956b18242f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058417"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305401"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door-service"></a>Qu’est-ce que le filtrage géographique sur un domaine Azure Front Door Service ?
 
-Par défaut, Azure Front Door Service répond aux demandes de l’utilisateur, quel que soit son emplacement. Toutefois, dans certains cas, vous devrez peut-être limiter l’accès à vos applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés.
+Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit l’emplacement d’origine de la demande. Dans certains scénarios, vous devrez peut-être limiter l’accès à votre applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés.
 
-Une stratégie WAF est généralement constituée d’un ensemble de règles personnalisées. Une règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans les conditions de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance.  En ce qui concerne la règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, la valeur correspond à l’indicatif à deux lettres du pays/région d’intérêt. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
+Une stratégie WAF contient un ensemble de règles personnalisées. La règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans une condition de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance. Pour une règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, et la valeur correspond à un indicatif à deux lettres du pays/région d’intérêt. Code pays « ZZ » ou pays « Inconnu » capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Vous pouvez ajouter ZZ à votre condition de correspondance pour éviter les faux positifs. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
 
-Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
+Vous pouvez configurer une stratégie de filtrage géographique pour votre porte d’entrée à l’aide d’[Azure PowerShell](../../frontdoor/front-door-tutorial-geo-filtering.md) ou de notre [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
+
+> [!IMPORTANT]
+> Insérez le code de pays **ZZ** chaque fois que vous utilisez le géofiltrage. Le code de pays **ZZ** (ou pays *Inconnu*) capture des adresses IP qui ne sont pas encore mappées à un pays dans notre jeu de données. Cela évite les faux positifs.
 
 ## <a name="countryregion-code-reference"></a>Référence du code pays ou région
 
-|Code pays ou région | Nom du pays ou de la région |
+|Code pays ou région | Nom du pays/de la région |
 | ----- | ----- |
 | AD | Andorre |
 | AE | Émirats Arabes Unis|
@@ -58,6 +61,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | BZ | Belize|
 | CA | Canada|
 | CD | République démocratique du Congo|
+| CG | République du Congo |
 | CF | République centrafricaine|
 | CH | Suisse|
 | CI | Côte d'Ivoire|

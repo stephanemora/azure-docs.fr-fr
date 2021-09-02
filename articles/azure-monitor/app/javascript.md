@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 61b7aa455cf9b782ca10d749344c26f5d15caa40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072511"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234570"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -186,7 +186,7 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | loggingLevelTelemetry | Envoie les erreurs **internes** d’Application Insights en tant que données de télémétrie. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) | numeric<br/> 1 |
 | diagnosticLogInterval | (interne) Intervalle d’interrogation (en ms) pour la file d’attente de journalisation interne | numeric<br/> 10000 |
 | samplingPercentage | Pourcentage d’événements qui seront envoyés. La valeur par défaut est 100, ce qui signifie que tous les événements sont envoyés. Définissez cette option si vous souhaitez conserver votre plafond de données pour les applications à grande échelle. | numeric<br/>100 |
-| autoTrackPageVisitTime | Si la valeur est true, sur une consultation de page, la durée d’affichage de la page instrumentée précédente fait l’objet d’un suivi et est envoyée en tant que données de télémétrie, et un nouveau minuteur est démarré pour la consultation de page en cours. | boolean<br/>false |
+| autoTrackPageVisitTime | Si la valeur est true, sur une consultation de page, la durée d’affichage de la page instrumentée _précédente_ fait l’objet d’un suivi et est envoyée en tant que données de télémétrie, et un nouveau minuteur est démarré pour la consultation de page en cours. Elle est envoyée sous la forme d’une mesure personnalisée nommée `PageVisitTime` dans `milliseconds` et est calculée via la fonction Date [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) (si elle est disponible) et se replie sur (new Date()).[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) si now() n’est pas disponible (IE8 ou moins). La valeur par défaut est false. | boolean<br/>false |
 | disableAjaxTracking | Si la valeur est true, les appels Ajax ne sont pas collectés automatiquement. | boolean<br/> false |
 | disableFetchTracking | Si la valeur est true, les demandes Fetch ne sont pas collectées automatiquement.|boolean<br/>true |
 | overridePageViewDuration | Si la valeur est true, le comportement par défaut de trackPageView est modifié pour enregistrer la fin de l’intervalle de durée de consultation de page lorsque trackPageView est appelé. Si la valeur est false et qu’aucune durée personnalisée n’est fournie à trackPageView, les performances d’affichage de la page sont calculées à l’aide de l’API de minutage de la navigation. |boolean<br/>
@@ -237,7 +237,7 @@ La gestion des cookies basée sur une instance remplace également les fonctions
 
 Configuration de cookie pour la gestion des cookies basée sur une instance ajoutée dans la version 2.6.0.
 
-| Nom | Description | Type et valeur par défaut |
+| Name | Description | Type et valeur par défaut |
 |------|-------------|------------------|
 | enabled | Une valeur booléenne indique si l’utilisation de cookies par le kit de développement logiciel (SDK) est activée par l’instance actuelle. Si la valeur est false, l’instance du kit de développement logiciel (SDK) initialisée par cette configuration ne stocke pas ou ne lit pas les données des cookies | boolean<br/> true |
 | domaine | Domaine de cookie personnalisé. Cela est utile si vous souhaitez partager des cookies Application Insights entre les sous-domaines. S’il n’est pas fourni, utilise la valeur de la valeur racine `cookieDomain`. | string<br/>null |

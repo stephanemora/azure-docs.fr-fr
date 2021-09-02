@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: duau
-ms.openlocfilehash: 80013ca5d4d20366672eda417862ff7bb1309b0c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: e902c8d3a1662f83328ab39a85a11009c58da24b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633156"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606576"
 ---
 # <a name="connect-azure-front-door-premium-to-an-internal-load-balancer-origin-with-private-link"></a>Connecter Azure Front Door Premium à une origine d’équilibreur de charge avec Private Link
 
@@ -51,7 +51,7 @@ Dans cette section, vous allez mapper le service Private Link à un point de ter
 
 1. Ensuite, sélectionnez **Ajouter**, puis **Mettre à jour** pour enregistrer votre configuration.
 
-## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>Approuver la connexion par point de terminaison privé pour le compte de stockage
+## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-private-link-service"></a>Approuver une connexion de point de terminaison privé Azure Front Door Premium à partir d’un service de liaison privée
 
 1. Accédez au Centre Private Link et sélectionnez **Services de liaison privée**. Sélectionnez ensuite le nom de votre liaison privée.
 

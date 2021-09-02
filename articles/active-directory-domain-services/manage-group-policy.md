@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67eeae96e7965db1eb92f34f23ca6d8745aaac3a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619383"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707990"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrer la stratégie de groupe dans un domaine géré par Azure Active Directory Domain Services
 
-Les paramètres des objets utilisateur et ordinateur dans Azure Active Directory Domain Services (Azure AD DS) sont souvent managés à l’aide d’objets de stratégie de groupe (GPO). Azure AD DS inclut des objets de stratégie de groupe intégrés pour les conteneurs *Utilisateurs AADDC* et *Ordinateurs AADDC*. Vous pouvez personnaliser ces objets de stratégie de groupe intégrés pour configurer la stratégie de groupe selon les besoins de votre environnement. Les membres du groupe *Administrateurs Azure AD DC* disposent de privilèges d’administration de stratégie de groupe pour le domaine managé Azure AD DS et peuvent également créer des objets de stratégie de groupe et des unités d’organisation (OU) personnalisés. Pour plus d’informations sur les stratégie de groupe et son fonctionnement, consultez la page [Vue d’ensemble de la stratégie de groupe][group-policy-overview].
+Les paramètres des objets utilisateur et ordinateur dans Azure Active Directory Domain Services (Azure AD DS) sont souvent managés à l’aide d’objets de stratégie de groupe (GPO). Azure AD DS inclut des objets de stratégie de groupe intégrés pour les conteneurs *Utilisateurs AADDC* et *Ordinateurs AADDC*. Vous pouvez personnaliser ces objets de stratégie de groupe intégrés pour configurer la stratégie de groupe selon les besoins de votre environnement. Les membres du groupe *Administrateurs Azure AD DC* disposent de privilèges d’administration de stratégie de groupe pour le domaine managé Azure AD DS et peuvent également créer des objets de stratégie de groupe et des unités d’organisation (OU) personnalisés. Pour plus d’informations sur la stratégie de groupe et son fonctionnement, consultez la page [Vue d’ensemble de la stratégie de groupe][group-policy-overview].
 
 Dans un environnement hybride, les stratégies de groupe configurées dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Pour définir les paramètres de configuration des utilisateurs ou des ordinateurs dans Azure AD DS, modifiez l’un des objets de stratégie de groupe par défaut ou créez un objet de stratégie de groupe personnalisé.
 
@@ -43,8 +43,6 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 > Vous pouvez utiliser des modèles d'administration de stratégies de groupe en copiant les nouveaux modèles sur la station de travail de gestion. Copiez les fichiers *.admx* sous `%SYSTEMROOT%\PolicyDefinitions` et copiez les fichiers *.adml* spécifiques à l'environnement local sous `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, sachant que `Language-CountryRegion` correspond à la langue et à la région des fichiers *.adml*.
 >
 > Par exemple, copiez la version Anglais (États-Unis) des fichiers *.adml* dans le dossier `\en-us`.
->
-> Vous pouvez également centraliser le stockage de votre modèle d'administration des stratégies de groupe sur les contrôleurs de domaine qui appartiennent au domaine managé. Pour plus d'informations, consultez [Créer et gérer le magasin central des modèles d'administration des stratégies de groupe sous Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Installez les outils de gestion de stratégie de groupe
 
