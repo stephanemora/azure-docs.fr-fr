@@ -6,16 +6,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: da7d617ab92ed0e9c7564813006e3a0c044a48b6
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 14ac7953654941de176bf74bd38787b33b9c864c
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525869"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225754"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js pour Azure App Service
 
-Les applications Node.js doivent être déployées avec toutes les dépendances NPM nécessaires. Le moteur de déploiement App Service exécute automatiquement `npm install --production` pour vous lorsque vous déployez un [référentiel Git](deploy-local-git.md) ou un [package zip](deploy-zip.md) [avec l’automatisation de la génération activée](deploy-zip.md#enable-build-automation). Si vous déployez vos fichiers à l’aide de [FTP/S](deploy-ftp.md), vous devez cependant télécharger les packages requis manuellement.
+Les applications Node.js doivent être déployées avec toutes les dépendances NPM nécessaires. Le moteur de déploiement App Service exécute automatiquement `npm install --production` pour vous lorsque vous déployez un [référentiel Git](deploy-local-git.md) ou un [package zip](deploy-zip.md) [avec l’automatisation de la génération activée](deploy-zip.md#enable-build-automation-for-zip-deploy). Si vous déployez vos fichiers à l’aide de [FTP/S](deploy-ftp.md), vous devez cependant télécharger les packages requis manuellement.
 
 Ce guide fournit les concepts et instructions clés aux développeurs Node.js qui déploient des applications sur App Service. Si vous n’avez jamais utilisé Azure App Service, suivez le [démarrage rapide Node.js](quickstart-nodejs.md) et le [tutoriel Node.js avec MongoDB](tutorial-nodejs-mongodb-app.md) au préalable.
 
@@ -119,7 +119,7 @@ app.listen(port, () => {
 
 ## <a name="customize-build-automation"></a>Personnaliser l’automatisation de la génération
 
-Si vous déployez votre application à l’aide de packages Git ou zip [avec activation de l’automatisation de la génération](deploy-zip.md#enable-build-automation), ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
+Si vous déployez votre application à l’aide de packages Git ou zip [avec activation de l’automatisation de la génération](deploy-zip.md#enable-build-automation-for-zip-deploy), ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
 
 1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
 1. Exécution de `npm install` sans aucun indicateur, qui comprend les scripts npm `preinstall` et `postinstall`, et installe également `devDependencies`.
@@ -241,7 +241,7 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Exécuter Grunt/Bower/Gulp
 
-Par défaut, l’automatisation de la génération App Service exécute `npm install --production` lorsqu’elle reconnaît qu’une application Node.js est déployée via Git ou un déploiement Zip [avec l’automatisation de la génération activée](deploy-zip.md#enable-build-automation). Si votre application requiert des outils d’automatisation populaires, tels que Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) pour l’exécution.
+Par défaut, l’automatisation de la génération App Service exécute `npm install --production` lorsqu’elle reconnaît qu’une application Node.js est déployée via Git ou un déploiement Zip [avec l’automatisation de la génération activée](deploy-zip.md#enable-build-automation-for-zip-deploy). Si votre application requiert des outils d’automatisation populaires, tels que Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) pour l’exécution.
 
 Pour permettre à votre référentiel d’exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json*. Par exemple :
 
@@ -387,3 +387,7 @@ Quand une application Node.js en fonctionnement se comporte différemment dans A
 > [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Ou bien, consultez les ressources supplémentaires :
+
+[Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

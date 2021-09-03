@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 75ee1ca92fb687975dabe0011ce8a95b8c03172b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62937a4240448f85cc7ab147d642b29bb0a2a9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562138"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226065"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurer une application Java pour Azure App Service
 
@@ -66,20 +66,20 @@ Sinon, votre méthode de déploiement dépend du type de votre archive :
 
 ### <a name="java-se"></a>Java SE
 
-Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#rest). 
+Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/publish/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
 >  Vous devez nommer votre application. jar `app.jar` pour qu’App Service puisse identifier et exécuter votre application. Le plug-in Maven (mentionné ci-dessus) renomme automatiquement votre application pendant le déploiement. Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre application .jar. Collez le chemin d’accès absolu à ce script dans la zone de texte [Fichier de démarrage](/azure/app-service/faq-app-service-linux#built-in-images), dans la section Configuration du portail. Le script de démarrage ne s’exécute pas dans le répertoire dans lequel il est placé. Par conséquent, utilisez toujours des chemins d’accès absolus pour référencer les fichiers dans votre script de démarrage (par exemple : `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
-Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-war-file).
+Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Pour déployer des fichiers .war sur JBoss, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-war-file).
+Pour déployer des fichiers .war sur JBoss, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 Pour déployer des fichiers .ear, [utilisez FTP](deploy-ftp.md). Votre application .ear sera déployée à la racine du contexte définie dans la configuration de votre application. Par exemple, si la racine du contexte de votre application est `<context-root>myapp</context-root>`, vous pouvez parcourir le site dans le chemin `/myapp` suivant : `http://my-app-name.azurewebsites.net/myapp`. Si vous souhaitez que l’application web soit servie dans le chemin racine, assurez-vous que votre application définit la racine du contexte sur le chemin racine : `<context-root>/</context-root>`. Pour plus d’informations, consultez le document [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 

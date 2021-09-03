@@ -3,18 +3,18 @@ title: Comment interroger des journaux à partir de Container Insights
 description: Container Insights collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: a8df32440cf5e45184c62e4e05567d500d7d5a32
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6b5e88e8de1f88a738fdfbb60678909d20e72863
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563113"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187196"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>Comment interroger des journaux à partir de Container Insights
 
 Container Insights collecte des métriques de performances, des données d’inventaire et des informations sur l’état d’intégrité à partir d’hôtes de conteneur et de conteneurs. Les données sont collectées toutes les trois minutes et transférées à l’espace de travail Log Analytics dans Azure Monitor où elles sont disponibles pour les [requêtes de journal](../logs/log-query-overview.md) à l’aide de [Log Analytics](../logs/log-analytics-overview.md) dans Azure Monitor Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande. Les journaux Azure Monitor peuvent vous aider à rechercher des tendances, à diagnostiquer les goulots d’étranglement, à effectuer des prévisions ou à mettre en corrélation des données afin de déterminer si la configuration de cluster actuelle garantit des performances optimales.
 
-Consultez [Utilisation des requêtes dans Azure Monitor Log Analytics](../logs/queries.md) pour des informations sur l’utilisation de ces requêtes et [Tutoriel Log Analytics](../logs/log-analytics-tutorial.md) pour un tutoriel complet sur l’utilisation de Log Analytics afin d’exécuter des requêtes et d’utiliser leurs résultats.
+Voir [Utilisation des requêtes dans Azure Monitor Log Analytics](../logs/queries.md) pour des informations sur l’utilisation de ces requêtes et [Tutoriel Log Analytics](../logs/log-analytics-tutorial.md) pour un tutoriel complet sur l’utilisation de Log Analytics pour exécuter des requêtes et travailler avec leurs résultats.
 
 ## <a name="open-log-analytics"></a>Ouvrir Log Analytics
 Il existe plusieurs options pour démarrer Log Analytics, chacune commençant par une [étendue](../logs/scope.md) différente. Pour accéder à toutes les données de l’espace de travail, sélectionnez **Journaux** dans le menu **Surveiller**. Pour limiter les données à un seul cluster Kubernetes, sélectionnez **Journaux** dans le menu de ce cluster. 
@@ -99,7 +99,6 @@ on ContainerID
 // at this point before the next pipe, columns from both tables are available to be "projected". Due to both
 // tables having a "Name" column, we assign an alias as PodName to one column which we actually want
 | project TimeGenerated, PodName, LogEntry, LogEntrySource
-| extend TimeGenerated = TimeGenerated - 21600s | order by TimeGenerated desc
 | summarize by TimeGenerated, LogEntry
 | order by TimeGenerated desc
 ```
