@@ -8,19 +8,19 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 529be70de61fe9adb025ee801bd417bc860ef5e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532016"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence AML dans un pipeline d’enrichissement Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le SDK .NET n’est actuellement pas pris en charge.
+> Cette fonctionnalité est en préversion publique et soumise à des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cette compétence.
 
-La compétence **AML** vous permet d’étendre l’enrichissement par IA à l’aide d’un modèle [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (AML) personnalisé. Une fois qu’un modèle AML est [formé et déployé](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), une compétence **AML** l’intègre dans l’enrichissement par IA.
+La compétence **AML** vous permet d’étendre l’enrichissement par IA à l’aide d’un modèle [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (AML) personnalisé. Une fois qu’un modèle AML est [formé et déployé](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), une compétence **AML** l’intègre dans l’enrichissement par IA.
 
 À l’instar des compétences intégrées, une compétence **AML** a des entrées et des sorties. Les entrées sont envoyées à votre service AML déployé sous la forme d’un objet JSON, qui génère une charge utile JSON en réponse avec un code d’état de réussite. La réponse est censée avoir les sorties spécifiées par votre compétence **AML**. Toute autre réponse est considérée comme une erreur et aucun enrichissement n’est effectué.
 

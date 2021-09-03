@@ -8,12 +8,12 @@ ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: reference
 ms.date: 07/25/2021
-ms.openlocfilehash: 3d17edf35b8da5a2d8b158fdbf1bd6e5d13e627b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 056538b5a6b52fcae646f5f03c6e39c8fce6429f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531780"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768075"
 ---
 # <a name="contrl-acknowledgments-and-error-codes-for-edifact-messages-in-azure-logic-apps"></a>Codes d’erreur et accusés de réception CONTRL pour les messages EDIFACT dans Azure Logic Apps
 
@@ -66,7 +66,7 @@ Le tableau suivant décrit les segments ACK technique CONTRL dans un échange et
 * O = obligatoire
 * F = facultatif
 
-| Name | Obligatoire ou facultatif | Description |
+| Nom | Obligatoire ou facultatif | Description |
 |------|-----------------------|-------------|
 | En-tête de message UNH | M | Le segment d’en-tête de message (UNH) identifie et spécifie le message. |
 | Réponse d’échange UCI | M | Identifie l’échange et indique la nature de la réception de l’échange. Le segment UCI a une occurrence maximale de `1` et, par conséquent, signale la première erreur trouvée dans un segment de contrôle. |
@@ -102,7 +102,7 @@ Le tableau suivant décrit les segments ACK fonctionnel CONTRL dans un échange 
 * O = obligatoire
 * F = facultatif
 
-| Name | Obligatoire ou facultatif | Description |
+| Nom | Obligatoire ou facultatif | Description |
 |------|-----------------------|-------------|
 | En-tête de message UNH | M | Le segment d’en-tête de message (UNH) identifie et spécifie le message. |
 | Segment UCI | M | Identifie l’échange, indique l’état de la réception de l’échange et contient des références aux segments UNA, UNB et UNZ dans l’échange reçu. Le segment UCI a une occurrence maximale de `1` et, par conséquent, signale la première erreur trouvée dans un segment de contrôle. |
@@ -138,7 +138,7 @@ La structure de l’ACK fonctionnel CONTRL diffère en fonction du nombre de gro
 
 En fonction de leur utilisation par défaut et industrielle, les boucles SG1/SG4 ne sont pas prévues dans les documents informatisés acceptés. Toutefois, pour prendre en charge la conformité aux normes, vous pouvez forcer la génération de boucles SG1/SG4 en procédant comme suit :
  
-1. Dans le [portail Azure](https://portal.azurecom), ouvrez votre compte d’intégration.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration.
 1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Accords**.
 1. Ouvrez votre accord EDIFACT et sélectionnez **Paramètres d’envoi**.
 1. Sous **Accusé de réception**, sélectionnez **Accusé de réception (CONTRL)** . Vous pouvez désormais sélectionner **Générer une boucle SG1/SG4 pour les documents informatisés acceptés**.
@@ -195,43 +195,43 @@ Le tableau suivant répertorie les codes d’erreur pris en charge, tels que dé
 | Code d'erreur | Condition | Cause | Pris en charge ? |
 |------------|-----------|-------|------------|
 | 2 | Version ou niveau de la syntaxe non pris en charge | Notification indiquant que la version et/ou le niveau de la syntaxe n’est pas pris en charge par le destinataire. | Non |
-| 7 | Le destinataire de l'échange n'est pas le destinataire réel | Notification indiquant que le destinataire de l’échange (S003) est différent du destinataire réel. | No |
+| 7 | Le destinataire de l'échange n'est pas le destinataire réel | Notification indiquant que le destinataire de l’échange (S003) est différent du destinataire réel. | Non |
 | 12 | Valeur non valide | Indique que la valeur d'un élément de données autonomes ou composites n'est pas conforme aux spécifications appropriées pour cette valeur. | Oui |
 | 13 | Manquant | Notification indiquant qu’un service, ou segment utilisateur, un élément de données, un élément de données composites, ou de composant, obligatoire, ou requis, est manquant. | Oui |
 | 14 | Valeur non prise en charge à cette position | Notification indiquant que le destinataire ne prend pas en charge l’utilisation de la valeur spécifique d’un élément de données autonomes ou composites (de composant) identifié dans la position où il est utilisé. La valeur peut être valide en fonction des spécifications appropriées et peut être prise en charge si elle est utilisée à un autre position. | Non |
 | 15 | Non pris en charge à cette position | Indique que le destinataire ne prend pas en charge l'utilisation du type de segment, ou du type d'élément de données autonomes ou composites à cette position. | Oui |
-| 16 | Trop de composants | Indique que le segment identifié contient trop d'éléments de données ou que l'élément de données composites identifié contient trop de composants. | Yes |
+| 16 | Trop de composants | Indique que le segment identifié contient trop d'éléments de données ou que l'élément de données composites identifié contient trop de composants. | Oui |
 | 17 | Aucun accord | Aucun accord n'existe pour autoriser la réception d'un échange, d'un groupe, d'un message ou d'un package avec la valeur de l'élément de données autonomes ou composites identifié. | Non |
 | 18 | Erreur non spécifiée | Indique qu'une erreur a été identifiée, mais que la nature de celle-ci n'est pas signalée. | Non |
 | 19 | Notation décimale non valide | Indique que le caractère indiqué en tant que notation décimale dans le segment UNA est non valide, ou que la notation décimale utilisée dans un élément de données n'est pas cohérente avec celle indiquée dans le segment UNA. | Non |
 | 20 | Caractère non valide en tant que caractère de service | Indique qu'un caractère détecté dans le segment UNA est non valide en tant que caractère de service. | Non |
-| 21 | Caractère(s) non valide(s) | Notification indiquant qu’un ou plusieurs caractères de l’échange sont considérés comme non valides par l’identificateur de syntaxe indiqué dans le segment UNB. Le caractère non valide fait partie du niveau référencé, ou est immédiatement suivi par la partie identifiée de l'échange. | Yes |
-| 22 | Caractère(s) de service non valide(s) | Notification indiquant que les caractères de service utilisés dans l’échange ne sont pas valides comme indiqué dans le segment UNA ou ne correspondent pas à ceux par défaut. Si le code est utilisé dans le segment UCS ou UCD, le caractère non valide est suivi immédiatement par une partie identifiée de l'échange. | No |
-| 23 | Expéditeur de l'échange inconnu | Indique que l'expéditeur de l'échange (S002) est inconnu. | No |
-| 24 | Trop ancien | Indique que l'échange ou le groupe reçu est antérieur à la limite spécifiée dans l'IA ou déterminée par le destinataire. | No |
-| 25 | L'indicateur Test n'est pas pris en charge | Indique que le traitement du test ne peut pas être effectué pour l'échange, le groupe, le message ou le package identifié. | No |
-| 26 | Doublon détecté | Indique qu'un éventuel doublon d'un échange, d'un groupe, d'un message ou d'un package précédemment reçu a été détecté. La transmission précédente peut avoir été rejetée. | Yes |
-| 27 | La fonction de sécurité n'est pas prise en charge | Indique qu'une fonction de sécurité associée au niveau référencé ou à l'élément de données n'est pas prise en charge. | No |
-| 28 | Les références ne correspondent pas | Indique que le contrôle de référence du segment UNB, UNG, UNH, UNO, USH ou USD ne correspond pas, respectivement, au contrôle de référence du segment UNZ, UNE, UNT, UNP, UST ou USU. | No |
-| 29 | Le nombre de contrôles ne correspond pas au nombre d'instances reçues | Notification indiquant le nombre de groupes, de messages ou de segments qui ne correspond pas au nombre donné dans le segment UNZ, UNE, UNT ou UST. Ou bien, la longueur d’un objet ou des données chiffrées n’est pas égale à la longueur indiquée dans le segment UNO, UNP, USD ou USU. | Yes |
-| 30 | Groupes et messages/packages mélangés | Notification indiquant que les groupes ont été mélangés avec les messages ou les packages hors des groupes de l’échange. | No |
-| 31 | Plusieurs types de messages dans le groupe | Indique que différents types de messages sont contenus dans un groupe fonctionnel. | Yes |
-| 32 | Niveau inférieur vide | Notification indiquant l’une des conditions suivantes : <p><p>- L’échange ne contient aucun message, package ou groupe. <br>- Un groupe ne contient aucun message ou package. | No |
-| 33 | Occurrence non valide hors du message, du package ou du groupe|Indique la présence d'un segment ou d'un élément de données non valide dans l'échange, entre les messages, les packages ou les groupes. Le rejet est signalé au niveau supérieur. | Yes |
-| 34 | Indicateur d'imbrication non autorisé | Notification indiquant que l’imbrication explicite a été utilisée dans un message dans lequel elle ne doit pas l’être. | No |
-| 35 | Trop d'éléments de données ou de répétitions de segments | Indique qu'un élément de données autonomes ou composites, ou un segment, est répété trop souvent. | Yes |
-| 36 | Trop de répétitions de groupes de segments | Indique qu'un groupe de segments est répété trop souvent. | Yes |
-| 37 | Type de caractère non valide | Notification indiquant l’une des conditions suivantes : <p><p>- Un ou plusieurs caractères numériques sont utilisés dans un élément de données alphabétiques (composant). <br>- Un ou plusieurs caractères alphabétiques sont utilisés dans un élément de données numériques (composant). | Yes |
-| 38 | Chiffre manquant devant le signe décimal | Indique qu'un signe décimal n'est pas précédé d'un ou plusieurs chiffres. | Yes |
-| 39 | Élément de données trop long | Indique que la longueur de l'élément de données reçu dépasse la longueur maximale spécifiée dans la description de l'élément de données. | Yes |
-| 40 | Élément de données trop court | Indique que la longueur de l'élément de données reçu est inférieure à la longueur minimale spécifiée dans la description de l'élément de données. | Yes |
-| 41 | Erreur permanente du réseau de communication | Indique qu'une erreur permanente a été signalée par le réseau de communication utilisé pour le transfert de l'échange. La retransmission d’un échange identique avec les mêmes paramètres au niveau du réseau va échouer. | No |
-| 42 | Erreur temporaire du réseau de communication | Indique qu'une erreur temporaire a été signalée par le réseau de communication utilisé pour le transfert de l'échange. La retransmission d’un échange identique peut réussir. | No |
-| 43 | Destinataire de l'échange inconnu | Indique que le destinataire de l'échange est inconnu du fournisseur réseau. | No |
-| 45 | Séparateur de fin | Notification indiquant l’une des conditions suivantes : <p><p>- Le dernier caractère avant le terminateur de segment est un séparateur d’éléments de données, un séparateur d’éléments de données de composant ou un séparateur d’éléments de données répétées. <br>- Le dernier caractère avant un séparateur d’éléments de données est un séparateur d’éléments de données de composant ou répétées. | Yes |
-| 46 | Jeu de caractères non pris en charge | Notification indiquant l’une des conditions suivantes : <p><p>- Un ou plusieurs caractères utilisés ne sont pas présents dans le jeu de caractères défini par l’identificateur de syntaxe. <br>- Le jeu de caractères identifié par la séquence d’échappement pour la technique d’extension de code n’est pas pris en charge par le destinataire. | Yes |
-| 47 | La fonctionnalité d'enveloppe n'est pas prise en charge. | Indique que la structure d'enveloppe rencontrée n'est pas prise en charge par le destinataire. | Yes |
-| 48 | Condition des notes de dépendance violée | Indique qu'une violation de condition de dépendance a produit une condition d'erreur. | No |
+| 21 | Caractère(s) non valide(s) | Notification indiquant qu’un ou plusieurs caractères de l’échange sont considérés comme non valides par l’identificateur de syntaxe indiqué dans le segment UNB. Le caractère non valide fait partie du niveau référencé, ou est immédiatement suivi par la partie identifiée de l'échange. | Oui |
+| 22 | Caractère(s) de service non valide(s) | Notification indiquant que les caractères de service utilisés dans l’échange ne sont pas valides comme indiqué dans le segment UNA ou ne correspondent pas à ceux par défaut. Si le code est utilisé dans le segment UCS ou UCD, le caractère non valide est suivi immédiatement par une partie identifiée de l'échange. | Non |
+| 23 | Expéditeur de l'échange inconnu | Indique que l'expéditeur de l'échange (S002) est inconnu. | Non |
+| 24 | Trop ancien | Indique que l'échange ou le groupe reçu est antérieur à la limite spécifiée dans l'IA ou déterminée par le destinataire. | Non |
+| 25 | L'indicateur Test n'est pas pris en charge | Indique que le traitement du test ne peut pas être effectué pour l'échange, le groupe, le message ou le package identifié. | Non |
+| 26 | Doublon détecté | Indique qu'un éventuel doublon d'un échange, d'un groupe, d'un message ou d'un package précédemment reçu a été détecté. La transmission précédente peut avoir été rejetée. | Oui |
+| 27 | La fonction de sécurité n'est pas prise en charge | Indique qu'une fonction de sécurité associée au niveau référencé ou à l'élément de données n'est pas prise en charge. | Non |
+| 28 | Les références ne correspondent pas | Indique que le contrôle de référence du segment UNB, UNG, UNH, UNO, USH ou USD ne correspond pas, respectivement, au contrôle de référence du segment UNZ, UNE, UNT, UNP, UST ou USU. | Non |
+| 29 | Le nombre de contrôles ne correspond pas au nombre d'instances reçues | Notification indiquant le nombre de groupes, de messages ou de segments qui ne correspond pas au nombre donné dans le segment UNZ, UNE, UNT ou UST. Ou bien, la longueur d’un objet ou des données chiffrées n’est pas égale à la longueur indiquée dans le segment UNO, UNP, USD ou USU. | Oui |
+| 30 | Groupes et messages/packages mélangés | Notification indiquant que les groupes ont été mélangés avec les messages ou les packages hors des groupes de l’échange. | Non |
+| 31 | Plusieurs types de messages dans le groupe | Indique que différents types de messages sont contenus dans un groupe fonctionnel. | Oui |
+| 32 | Niveau inférieur vide | Notification indiquant l’une des conditions suivantes : <p><p>- L’échange ne contient aucun message, package ou groupe. <br>- Un groupe ne contient aucun message ou package. | Non |
+| 33 | Occurrence non valide hors du message, du package ou du groupe|Indique la présence d'un segment ou d'un élément de données non valide dans l'échange, entre les messages, les packages ou les groupes. Le rejet est signalé au niveau supérieur. | Oui |
+| 34 | Indicateur d'imbrication non autorisé | Notification indiquant que l’imbrication explicite a été utilisée dans un message dans lequel elle ne doit pas l’être. | Non |
+| 35 | Trop d'éléments de données ou de répétitions de segments | Indique qu'un élément de données autonomes ou composites, ou un segment, est répété trop souvent. | Oui |
+| 36 | Trop de répétitions de groupes de segments | Indique qu'un groupe de segments est répété trop souvent. | Oui |
+| 37 | Type de caractère non valide | Notification indiquant l’une des conditions suivantes : <p><p>- Un ou plusieurs caractères numériques sont utilisés dans un élément de données alphabétiques (composant). <br>- Un ou plusieurs caractères alphabétiques sont utilisés dans un élément de données numériques (composant). | Oui |
+| 38 | Chiffre manquant devant le signe décimal | Indique qu'un signe décimal n'est pas précédé d'un ou plusieurs chiffres. | Oui |
+| 39 | Élément de données trop long | Indique que la longueur de l'élément de données reçu dépasse la longueur maximale spécifiée dans la description de l'élément de données. | Oui |
+| 40 | Élément de données trop court | Indique que la longueur de l'élément de données reçu est inférieure à la longueur minimale spécifiée dans la description de l'élément de données. | Oui |
+| 41 | Erreur permanente du réseau de communication | Indique qu'une erreur permanente a été signalée par le réseau de communication utilisé pour le transfert de l'échange. La retransmission d’un échange identique avec les mêmes paramètres au niveau du réseau va échouer. | Non |
+| 42 | Erreur temporaire du réseau de communication | Indique qu'une erreur temporaire a été signalée par le réseau de communication utilisé pour le transfert de l'échange. La retransmission d’un échange identique peut réussir. | Non |
+| 43 | Destinataire de l'échange inconnu | Indique que le destinataire de l'échange est inconnu du fournisseur réseau. | Non |
+| 45 | Séparateur de fin | Notification indiquant l’une des conditions suivantes : <p><p>- Le dernier caractère avant le terminateur de segment est un séparateur d’éléments de données, un séparateur d’éléments de données de composant ou un séparateur d’éléments de données répétées. <br>- Le dernier caractère avant un séparateur d’éléments de données est un séparateur d’éléments de données de composant ou répétées. | Oui |
+| 46 | Jeu de caractères non pris en charge | Notification indiquant l’une des conditions suivantes : <p><p>- Un ou plusieurs caractères utilisés ne sont pas présents dans le jeu de caractères défini par l’identificateur de syntaxe. <br>- Le jeu de caractères identifié par la séquence d’échappement pour la technique d’extension de code n’est pas pris en charge par le destinataire. | Oui |
+| 47 | La fonctionnalité d'enveloppe n'est pas prise en charge. | Indique que la structure d'enveloppe rencontrée n'est pas prise en charge par le destinataire. | Oui |
+| 48 | Condition des notes de dépendance violée | Indique qu'une violation de condition de dépendance a produit une condition d'erreur. | Non |
 |||||
 
 ### <a name="azure-logic-apps-contrl-ack-error-codes"></a>Codes d’erreur de l’ACK CONTRL d’Azure Logic Apps

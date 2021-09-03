@@ -4,20 +4,19 @@ description: Vue d’ensemble de l’environnement App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 08/05/2021
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: references_regions
+ms.openlocfilehash: 848b7ce830c91cffaaaa39ed2102255f0adc3b7f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735095"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535265"
 ---
 # <a name="app-service-environment-overview"></a>Vue d’ensemble d’App Service Environment 
-
 > [!NOTE]
-> Cet article traite d’App Service Environment v3 (préversion)
+> Cet article concerne la fonctionnalité App Service Environment v3 qui est utilisée avec les plans App Service v2 Isolé
 > 
 
 L’environnement Azure App Service est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Cette fonctionnalité peut héberger vos :
@@ -32,13 +31,9 @@ Les environnements App Service (ASE) conviennent aux charges de travail d’app
 - Scalabilité élevée.
 - Une isolation et un accès réseau sécurisé.
 - Une utilisation élevée de la mémoire.
-- Nombre élevé de demandes par seconde (RPS). Vous pouvez créer plusieurs environnements ASE au sein d’une même région Azure ou dans plusieurs régions Azure. Grâce à cette souplesse, les environnements ASE sont parfaits pour la scalabilité horizontale des applications sans état avec des exigences RPS élevées.
+- Nombre élevé de demandes par seconde (RPS). Vous pouvez créer plusieurs environnements ASE au sein d’une même région Azure ou dans plusieurs régions Azure. Grâce à cette souplesse, un environnement ASE est parfait pour la scalabilité horizontale des applications sans état avec des exigences RPS élevées.
 
 L’environnement ASE héberge des applications d’un seul client, et le fait sur l’un de ses réseaux virtuels. Les clients peuvent contrôler précisément le trafic réseau entrant et sortant des applications. Les applications peuvent établir des connexions sécurisées à haute vitesse aux ressources d’entreprise locales par le biais de réseaux privés virtuels.
-
-ASEv3 est fourni avec son propre niveau tarifaire, Isolé V2.
-Les environnements App Service Environment v3 fournissent un cadre qui protège vos applications dans un sous-réseau de votre réseau, et assurent votre propre déploiement privé d’Azure App Service.
-Vous pouvez utiliser plusieurs environnements App Service pour une mise à l’échelle horizontale. L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Pour plus d’informations, consultez l’article Pare-feu d’applications web (WAF).
 
 ## <a name="usage-scenarios"></a>Scénarios d’usage
 
@@ -50,43 +45,85 @@ L’environnement App Service Environment peut être utilisé dans de nombreux c
 - Hébergement d’application isolée du réseau
 - Applications multicouches
 
-Il existe un certain nombre de fonctionnalités de mise en réseau qui permettent aux applications dans l’instance App Service multilocataire d’atteindre des ressources isolées du réseau ou d’être isolées du réseau elles-mêmes. Ces fonctionnalités sont activées au niveau de l’application.  Avec un environnement ASE, aucune configuration supplémentaire sur les applications n’est nécessaire pour les inclure dans le réseau virtuel. Les applications sont déployées dans un environnement isolé du réseau qui se trouve déjà dans un réseau virtuel. Non seulement l’environnement ASE héberge des applications isolées du réseau, mais il s’agit également d’un système monolocataire. Aucun autre client n’utilise l’environnement ASE. Si vous avez vraiment besoin d’un scénario d’isolation complet, vous pouvez également déployer votre environnement ASE sur du matériel dédié. Entre l’hébergement d’applications isolées du réseau, la caractéristique monolocataire et la capacité 
+Il existe de nombreuses fonctionnalités de mise en réseau qui permettent aux applications dans l’instance App Service multilocataire d’atteindre des ressources isolées du réseau ou d’être isolées du réseau elles-mêmes. Ces fonctionnalités sont activées au niveau de l’application.  Avec un environnement ASE, aucune configuration supplémentaire n’est nécessaire pour que les applications soient incluses dans le réseau virtuel. Les applications sont déployées dans un environnement isolé du réseau qui se trouve déjà dans un réseau virtuel. Non seulement l’environnement ASE héberge des applications isolées du réseau, mais il s’agit également d’un système monolocataire. Aucun autre client n’utilise l’environnement ASE. Si vous avez vraiment besoin d’un scénario d’isolation complet, vous pouvez également déployer votre environnement ASE sur du matériel dédié. 
 
 ## <a name="dedicated-environment"></a>Environnement dédié
-Un environnement ASE est dédié exclusivement à un seul abonnement et peut héberger jusqu’à 200 instances de plan App Service dans plusieurs plans App Service. Le mot « instance » fait référence à une mise à l’échelle horizontale de plan App Service. Chaque instance est l’équivalent d’un rôle de travail. Si un environnement ASE peut totaliser 200 instances, un plan App Service v2 isolé peut contenir 100 instances. L’environnement ASE peut contenir deux plans App Service de 100 instances chacun, 200 plans App Service à instance unique, ou tout nombre d’instances compris entre les deux.
 
-Un environnement App Service est composé de frontends et de workers. Les frontends sont responsables de la terminaison du protocole HTTP/HTTPS et de l’équilibrage de charge automatique des demandes d’application dans un environnement App Service. Ils sont ajoutés automatiquement à mesure que les plans App Service dans l’environnement App Service augmentent leur échelle.
+L’environnement ASE est un déploiement monolocataire d’Azure App Service, qui s’exécute dans votre réseau virtuel. 
 
-Les workers sont des rôles qui hébergent des applications clientes. Ils sont disponibles dans trois tailles fixes :
-
-- Deux processeurs virtuels/8 Go de RAM
-- Quatre processeurs virtuels/16 Go de RAM
-- Huit processeurs virtuels/32 Go de RAM
-
-Les clients n’ont pas besoin de gérer les front-ends et les workers. Toute l’infrastructure est automatique. À mesure que des plans App Service sont créés ou mis à l’échelle dans un environnement App Service, l’infrastructure requise est ajoutée ou supprimée en conséquence.
-
-Les instances de plan App Service Isolé v2 sont sujettes à des frais. Si vous n’avez pas de plan App Service dans votre environnement ASE, vous êtes facturé comme si vous aviez un plan App Service avec une instance des deux principaux workers.
+Les applications sont hébergées dans des plans App Service, qui sont créés dans un environnement ASE (App Service Environment). Le plan App Service est essentiellement un profil de provisionnement pour un hôte d’application. Lorsque vous mettez à l’échelle votre plan App Service, vous créez davantage d’hôtes d’application avec toutes les applications de ce plan App Service sur chaque ordinateur hôte. Un ASEv3 unique peut avoir jusqu’à un total de 200 instances de plan App Service sur l’ensemble des plans App Service combinés. Un plan App Service v2 isolé unique peut avoir jusqu’à 100 instances. 
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
-La fonctionnalité ASE est un déploiement d’Azure App Service effectué directement dans le réseau virtuel Azure Resource Manager d’un client. Un environnement ASE existe toujours dans un sous-réseau d’un réseau virtuel. Vous pouvez utiliser les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes de vos applications.
 
-Les groupes de sécurité réseau limitent les communications réseau entrantes vers le sous-réseau sur lequel réside l’environnement App Service. Vous pouvez utiliser des groupes de sécurité réseau pour exécuter des applications derrière des appareils et services en amont tels que des pare-feu d’applications web et des fournisseurs SaaS réseau.
+La fonctionnalité ASE est un déploiement d’Azure App Service dans le sous-réseau d’un réseau virtuel (VNet) Azure Resource Manager d’un client. Lorsque vous déployez une application dans un environnement ASE, l’application est exposée sur l’adresse entrante assignée à l’ASE. Si votre environnement ASE est déployé avec une adresse IP virtuelle interne, l’adresse entrante de toutes les applications sera une adresse dans le sous-réseau de l’environnement ASE. Si votre environnement ASE est déployé avec une adresse IP virtuelle externe, l’adresse entrante est une adresse Internet adressable et vos applications se trouvent dans le DNS public. 
 
-Les applications doivent souvent accéder à des ressources d'entreprise telles que des bases de données internes et des services web. Si vous déployez l’environnement App Service sur un réseau virtuel qui a une connexion VPN au réseau local, les applications de l’environnement App Service peuvent accéder aux ressources locales. Cela est vrai, que le réseau privé virtuel soit un VPN de site à site ou un VPN Azure ExpressRoute.
+Le nombre d’adresses utilisées par un ASEv3 dans son sous-réseau varie selon le nombre d’instances dont vous disposez avec la quantité de trafic. Il existe des rôles d’infrastructure qui sont mis à l’échelle automatiquement en fonction du nombre de plans App Service et de la charge. La taille recommandée pour votre sous-réseau ASEv3 est un bloc CIDR/24 avec 256 adresses dans celui-ci, car il peut héberger un ASEv3 mis à l’échelle en fonction de sa limite.
 
-## <a name="preview"></a>Préversion
-App Service Environment v3 est en préversion publique.  Certaines fonctionnalités sont ajoutées à mesure de l’évolution de la préversion. Les limites actuelles d’ASEv3 incluent :
+Les applications d’un environnement ASE n’ont pas besoin de fonctionnalités activées pour accéder aux ressources dans le même réseau virtuel que l’ASE. Si le réseau virtuel de l’ASE est connecté à un autre réseau, les applications de l’ASE peuvent accéder aux ressources de ces réseaux étendus. Le trafic peut être bloqué par la configuration de l’utilisateur sur le réseau. 
 
-- Impossibilité à mettre à l’échelle un plan App Service au-delà de 50 instances
-- Impossibilité d’obtenir un conteneur à partir d’un registre privé
-- Impossibilité des fonctionnalités App Service actuellement non prises en charge de passer par le réseau virtuel client
-- Aucun modèle de déploiement externe avec un point de terminaison accessible sur Internet
-- Pas de prise en charge de la ligne de commande (AZ CLI et PowerShell)
-- Aucune possibilité de mise à niveau d’ASEv2 vers ASEv3
-- Pas de prise en charge FTP
-- Pas de prise en charge du passage de certaines fonctionnalités App Service vers le réseau virtuel client. La sauvegarde/restauration, les références Key Vault dans les paramètres d’application, l’utilisation d’un registre de conteneurs privé et la journalisation des diagnostics dans le stockage ne fonctionnent pas avec les points de terminaison de service ou les points de terminaison privés
-    
-### <a name="asev3-preview-architecture"></a>Architecture de la préversion d’ASEv3
-Dans la préversion d’ASEv3, l’environnement ASE utilise des points de terminaison privés pour prendre en charge le trafic entrant. Le point de terminaison privé sera remplacé par des équilibreurs de charge dans la version en disponibilité générale. En préversion, l’environnement ASE n’offre pas de prise en charge intégrée pour un point de terminaison accessible via Internet. Pour ce faire, vous pouvez ajouter une passerelle Application Gateway. L’environnement ASE nécessite d’avoir des ressources dans deux sous-réseaux.  Le trafic entrant est transmis via un point de terminaison privé. Le point de terminaison privé peut être placé dans n’importe quel sous-réseau, à condition qu’il dispose d’une adresse disponible pouvant être utilisée par les points de terminaison privés.  Le sous-réseau sortant doit être vide et délégué à Microsoft.Web/hostingEnvironments. Lorsqu’il est utilisé par l’environnement ASE, le sous-réseau sortant ne peut pas être utilisé pour autre chose.
+La version multi-locataire de Azure App Service contient de nombreuses fonctionnalités permettant à vos applications de se connecter à vos différents réseaux. Ces fonctionnalités de mise en réseau permettent à vos applications d’agir comme si elles étaient déployées dans un réseau virtuel. Les applications d’un ASEv3 n’ont pas besoin d’être configurées dans le réseau virtuel. L’un des avantages de l’utilisation d’un environnement ASE par rapport au service multi-locataire réside dans le fait que tout contrôle d’accès réseau aux applications hébergées par l’ASE est externe à la configuration de l’application. Avec les applications du service multi-locataire, vous devez activer les fonctionnalités sur une application par application et utiliser RBAC ou la stratégie pour empêcher toute modification de la configuration. 
 
-Avec ASEv3, il n’existe aucune exigence de mise en réseau du trafic entrant ou sortant sur le sous-réseau ASE. Vous pouvez contrôler le trafic avec des groupes de sécurité réseau et des tables de routage, et cela affecte uniquement le trafic de votre application. Ne supprimez pas le point de terminaison privé associé à votre environnement ASE, car cette action ne peut pas être annulée. Le point de terminaison privé utilisé pour l’environnement ASE est utilisé pour toutes les applications dans celui-ci. 
+## <a name="feature-differences"></a>Différences de fonctionnalités
+
+Par rapport aux versions antérieures de l’environnement ASE, il existe quelques différences avec ASEv3. Avec ASEv3 :
+
+- Il n’existe aucune dépendance de mise en réseau dans le réseau virtuel client. Vous pouvez sécuriser toutes les transactions entrantes et sortantes en fonction de vos besoins. Le trafic sortant peut également être routé comme vous le souhaitez. 
+- Vous pouvez le déployer pour la redondance de zone. La redondance de zone peut uniquement être définie lors de la création de ASEv3 et uniquement dans les régions où toutes les dépendances ASEv3 sont redondantes dans une zone. 
+- Vous pouvez effectuer le déploiement sur un groupe hôte dédié. Les déploiements de groupe hôte ne sont pas redondants dans une zone. 
+- La mise à l’échelle est beaucoup plus rapide qu’avec ASEv2. Même si la mise à l’échelle n’est pas immédiate comme dans le service multi-locataire, elle est beaucoup plus rapide.
+- Les réglages de mise à l’échelle du serveur frontal ne sont plus nécessaires. Les serveurs frontaux ASEv3 sont automatiquement mis à l’échelle pour répondre aux besoins et sont déployés sur de meilleurs hôtes. 
+- La mise à l’échelle ne bloque plus les autres opérations de mise à l’échelle au sein de l’instance ASEv3. Une seule opération de mise à l’échelle peut être appliquée pour une combinaison de système d’exploitation et de taille. Par exemple, si votre plan App Service Windows Small a été mis à l’échelle, vous pouvez lancer une opération de mise à l’échelle pour qu’elle s’exécute en même temps sur un support Windows ou autre chose que Windows Small. 
+- Les applications d’un ASEV3 d’adresse IP virtuelle interne peuvent être atteintes sur le peering mondial. L’accès via le peering mondial n’était pas possible avec ASEv2. 
+
+Certaines fonctionnalités ne sont pas disponibles dans ASEv3 alors qu’elles l’étaient dans les versions antérieures d’ASE. Dans ASEv3, vous ne pouvez pas :
+
+- envoyer de trafic SMTP Vous pouvez toujours bénéficier des alertes déclenchées par e-mail, mais votre application ne peut pas envoyer de trafic sortant sur le port 25
+- déployer vos applications avec FTP
+- utiliser le débogage à distance avec vos applications
+- effectuer la mise à niveau à partir d’ASEv2
+- surveiller votre trafic avec Network Watcher ou NSG Flow
+- configurer une liaison TLS/SSL basée sur IP avec vos applications
+
+## <a name="pricing"></a>Tarifs 
+
+Avec ASEv3, il existe un modèle de tarification différent selon le type de déploiement d’ASE. Les trois modèles de tarification sont les suivants : 
+
+- **ASEv3** : si l’environnement ASE est vide, les coûts correspondent à un ASP avec une instance de Windows I1v2. La facturation d’une instance n’est pas un coût supplémentaire, mais elle est appliquée uniquement si ASE est vide.
+- **Zone de disponibilité ASEv3** : il existe des frais minimum pour neuf instances Windows I1v2. Aucun frais n’est facturé pour la prise en charge des zones de disponibilité si vous disposez d’au moins neuf instances de plan App Service. Tous les plans App Service dans un AZ ASEv3 ont également un nombre d’instances minimal de 3 pour s’assurer qu’il existe une instance dans chaque zone de disponibilité. À mesure du scale-out des plans, ceux-ci sont répartis entre les zones de disponibilité. 
+- **Hôte dédié ASEv3** : avec un déploiement d’hôte dédié, deux hôtes dédiés vous sont facturés, conformément à notre tarification à la création de ASEv3, puis un petit pourcentage du tarif Isolé v2 par cœur est facturé quand vous effectuez la mise à l’échelle.
+
+La tarification des instances réservées Isolé v2 est disponible et est décrite dans [Comment les remises de réservation s’appliquent à Azure App Service][reservedinstances]. Des informations sur la tarification, notamment sur la tarification des instances réservées, sont disponibles sous [Tarification d’App Service][pricing] sous **Plan Isolé v2**. 
+
+## <a name="regions"></a>Régions
+
+ASEv3 est disponible dans les régions suivantes. 
+
+|Régions ASEv3 d’hôte normales et dédiées|   Régions ASEv3 de zones de disponibilité|
+|---------------------------------------|------------------|
+|Australie Est|    Australie Est|
+|Sud-Australie Est|Brésil Sud|
+|Brésil Sud   |Centre du Canada|
+|Centre du Canada|USA Centre|
+|Inde centrale  |USA Est|
+|USA Centre |USA Est 2|
+|Asie Est  | France Centre|
+|USA Est    | Allemagne Centre-Ouest|
+|USA Est 2| Europe Nord|
+|France Centre | États-Unis - partie centrale méridionale|
+|Allemagne Centre-Ouest   |   Asie Sud-Est|
+|Centre de la Corée  | Sud du Royaume-Uni|
+|Europe Nord   | Europe Ouest|
+|Norvège Est    | USA Ouest 2 |
+|États-Unis - partie centrale méridionale   | |
+|Asie Sud-Est| |
+|Suisse Nord  | | 
+|Sud du Royaume-Uni| |    
+|Ouest du Royaume-Uni| |
+|Centre-USA Ouest    | | 
+|Europe Ouest    | |
+|USA Ouest    | | 
+|USA Ouest 2| |
+
+<!--Links-->
+[reservedinstances]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances
+[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
