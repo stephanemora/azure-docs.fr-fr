@@ -6,15 +6,15 @@ author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 314c52384910728c0250101e72501de0ae0b89a1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 46a94faaf3159f93cce34f2d6816185af62f286f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554999"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966893"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Intégration de données dans Azure Synapse Analytics par rapport à Azure Data Factory
 
@@ -37,7 +37,6 @@ Vérifiez la disponibilité des fonctionnalités dans le tableau ci-dessous :
 | **Intégration du dépôt GIT** | Intégration de GIT | ✓ | ✓ |
 | **Surveillance**           | Surveillance des travaux Spark pour Data Flow | ✗ | ✓<br><small>*Tirer parti des pools Synapse Spark* |
 |                          | Intégration avec Azure Monitor | ✓ | ✗ |
-| **Traçabilité** | Prend en charge la publication de données de lignage de pipeline dans Purview  | ✓ | ✗ |  
 
 > [!Note]
 > La **Durée de vie** est un paramètre d’Azure Integration Runtime qui permet au cluster Spark de *rester chaud* pendant un certain temps après l’exécution d’un flux de données.

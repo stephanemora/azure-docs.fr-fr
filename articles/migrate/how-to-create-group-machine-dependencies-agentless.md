@@ -6,21 +6,19 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 7f4066f466b6dd9e8cb41bf68592aa88c192c44d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786581"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532401"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Analyser les dépendances de serveur (sans agent)
 
 Cet article explique comment configurer une analyse des dépendances sans agent à l’aide de l’outil Azure Migrate : découverte et évaluation. L’[analyse des dépendances](concepts-dependency-visualization.md) vous aide à identifier et à comprendre les dépendances des serveurs à des fins l’évaluation et de migration vers Azure.
 
 > [!IMPORTANT]
-> L’analyse des dépendances sans agent est actuellement en préversion pour les serveurs s’exécutant dans votre environnement VMware, découverts avec l’outil Azure Migrate : découverte et évaluation.
-> Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>L’analyse des dépendances sans agent est actuellement disponible uniquement pour les serveurs s’exécutant dans votre environnement VMware, découverts avec l’outil Azure Migrate : découverte et évaluation.
 
 ## <a name="current-limitations"></a>Limites actuelles
 

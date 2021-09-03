@@ -15,12 +15,12 @@ ms.date: 5/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf1bd295528792ebc181027af7d5dfb21583bd4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3b4426f10ced8d8cda294c3a80923712f59e8466
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410204"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122563667"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -127,7 +127,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 15. Dans la section **Paramètres avancés**, vous pouvez choisir les options suivantes :
     - Définissez **Justification obligatoire** sur **Activer** afin d’exiger que le réviseur indique un motif d’approbation.
     - Définissez **Notifications par e-mail** sur **Activer** pour qu’Azure AD envoie des notifications par e-mail aux réviseurs quand une révision d’accès commence et aux administrateurs quand une révision est terminée.
-    - Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision. Ces rappels sont automatiquement envoyés à mi-parcours de la révision.
+    - Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours à tous les réviseurs. Les réviseurs recevront les rappels à mi-parcours, qu’ils aient ou non terminé la révision.
     - Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans la section **Contenu supplémentaire pour l’e-mail du réviseur**. Les informations que vous entrez sont incluses dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. La section mise en surbrillance dans l’image ci-dessous indique où ces informations sont affichées.
 
       ![Contenu supplémentaire pour le réviseur](./media/create-access-review/additional-content-reviewer.png)
@@ -183,7 +183,7 @@ Si vous avez attribué le rôle de réviseur à des clients invités, mais que c
 ## <a name="create-reviews-via-apis"></a>Créer des révisions via des API
 
 Vous pouvez également créer des révisions d’accès avec des API. Ce que vous faites pour gérer les révisions d’accès des groupes et des utilisateurs d’applications dans le portail Azure peut également être effectué avec les API Microsoft Graph. 
-+ Pour en savoir plus, voir [Informations de référence sur les API des révisions d’accès d’Azure AD](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true).
++ Pour en savoir plus, voir [Informations de référence sur les API des révisions d’accès d’Azure AD](/graph/api/resources/accessreviewsv2-root).
 + Pour obtenir un didacticiel, consultez [Utiliser l’API de révisions d’accès pour passer en revue l’accès invité à vos groupes de Microsoft 365](/graph/tutorial-accessreviews-m365group).
 + Pour obtenir un exemple de code, voir [Exemple de récupération de révisions d’accès Azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 

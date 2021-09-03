@@ -2,14 +2,15 @@
 metadata:
   title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
   description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
-  ms.topic: conceptual
-  ms.date: 11/7/2019
-  ms.openlocfilehash: 4a0212e204278214273f49e64b5db1da29da9fad
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.topic: article
+  ms.service: backup
+  ms.date: 06/23/2021
+  ms.openlocfilehash: 5983508897520ad6fe5b91df3bd6abf26244d09f
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "111907013"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122534864"
 title: Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 summary: Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 sections:
@@ -18,15 +19,24 @@ sections:
   - question: >
       Combien de sauvegardes complètes sont-elles prises en charge par jour ?
     answer: >
-      Nous prenons en charge une seule sauvegarde complète par jour. Les sauvegardes différentielles et complètes ne peuvent pas être déclenchées le même jour.
+      Vous pouvez disposer d’une sauvegarde complète planifiée et de plusieurs sauvegardes à la demande par jour.
+
+
+      | Types de sauvegarde | Sauvegarde planifiée | Sauvegardes à la demande |
+
+      | --- | --- | --- |
+
+      | Complète | Une seule prise en charge par jour. | Plusieurs fois par jour pris en charge. |
+
+      | Delta (différentielle/incrémentielle) | Une seule prise en charge par jour. <br><br> **Remarque** <br> Les sauvegardes différentielles peuvent être planifiées uniquement quand aucune sauvegarde complète n’est planifiée pour un jour donné. En outre, un seul type de sauvegarde Delta (différentielle/incrémentielle) peut être planifié dans une stratégie de sauvegarde. | Plusieurs fois par jour pris en charge. |
   - question: >
-      La réussite des travaux de sauvegarde génère-t-elle des alertes ?
+      Où puis-je trouver des alertes liées à la sauvegarde ?
     answer: >
-      Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](./backup-azure-monitoring-built-in-monitor.md). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+      Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. [Découvrez comment](backup-azure-monitoring-built-in-monitor.md) utiliser le portail Azure pour afficher les alertes de sauvegarde.
   - question: >
       Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
     answer: >
-      Le menu Travail de sauvegarde affiche uniquement les travaux de sauvegarde à la demande. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+      Le menu Tâche de sauvegarde affiche uniquement les tâches de sauvegarde à la demande en cours, ayant réussi ou échoué. Pour les tâches planifiées, utilisez [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
   - question: >
       Les bases de données futures sont-elles automatiquement ajoutées pour la sauvegarde ?
     answer: >
@@ -42,25 +52,25 @@ sections:
     answer: >
       Une base de données renommée est traitée en tant que nouvelle base de données. Par conséquent, le service gère cette situation comme si la base de données était introuvable et les sauvegardes échouent. La base de données renommée s’affiche sous la forme d’une nouvelle base de données et doit être configurée pour la protection.
   - question: >
-      Quelles sont les conditions préalables à la sauvegarde des bases de données SAP HANA sur une machine virtuelle Azure ?
+      Comment commencer à sauvegarder mes bases de données SAP HANA à l’aide d’Azure Backup ?
     answer: >
-      Reportez-vous aux sections [Prérequis](tutorial-backup-sap-hana-db.md#prerequisites) et [Ce que fait le script de préinscription](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+      Reportez-vous au [didacticiel](./tutorial-backup-sap-hana-db.md) pour obtenir un guide étape par étape pour démarrer avec Azure Backup pour les bases de données SAP HANA. Vous pouvez également utiliser [CLI](./tutorial-sap-hana-backup-cli.md) pour configurer et gérer les sauvegardes.
   - question: >
-      Quelles autorisations doivent être définies pour qu’Azure puisse sauvegarder les bases de données SAP HANA ?
+      Existe-t-il des conditions préalables à la sauvegarde des bases de données SAP HANA à l’aide d’Azure Backup ?
     answer: >
-      L’exécution du script de pré-inscription définit les autorisations requises pour permettre à Azure de sauvegarder des bases de données SAP HANA. Pour plus d’informations sur ce qu’un script de préinscription permet de faire, [cliquez ici](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+      Consultez les [conditions préalables](./tutorial-backup-sap-hana-db.md#prerequisites) pour l’utilisation de Sauvegarde Azure avec SAP HANA.
   - question: >
       Les sauvegardes seront-elles opérationnelles après la migration SAP HANA de SDC vers MDC ?
     answer: >
       Reportez-vous à [cette section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) du Guide de résolution des problèmes.
   - question: >
-      Que dois-je faire lors d’une mise à niveau dans la même version ?
+      Comment faire vous assurer que les sauvegardes continuent après la mise à niveau de mon instance HANA dans la même version de HANA ?
     answer: >
       Reportez-vous à [cette section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) du Guide de résolution des problèmes.
   - question: >
       La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
     answer: >
-      Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtuelle seule pour le moment. Une machine virtuelle est nécessaire pour exécuter la solution.
+      Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtuelle ou un proxy pour le moment. Une machine virtuelle est nécessaire pour exécuter la solution.
   - question: >
       Comment puis-je déplacer une sauvegarde à la demande vers le système de fichiers local au lieu du coffre Azure ?
     answer: >

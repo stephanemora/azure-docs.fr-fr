@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1151981eb96862493eb6a1740e46845c98f7e2ea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789193"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563319"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box
 
@@ -273,6 +273,11 @@ Une fois la préparation de l’appareil terminée, la copie des données démar
 Data Box copie les données du ou des comptes de stockage source(s). Une fois la copie des données terminée, Data Box est verrouillé et le portail affiche la commande avec l’état **Copie terminée**.
 
 ![Commande d’exportation Data Box, copie des données terminée](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
+
+L’exportation de données à partir de stockage Azure vers votre Data Box peut parfois échouer. Vérifiez que les objets blob ne sont pas des objets blob d’archive, car l’exportation de ces objets blob n’est pas prise en charge. 
+
+> [!NOTE]
+> Pour les objets blob d’archive, vous devez réalimenter ces objets blob avant qu’ils ne puissent être exportés à partir d’un compte stockage Azure vers votre Data Box. Pour plus d’informations, consultez [Réalimentation d’un objet blob archivé]( ../storage/blobs/storage-blob-rehydration.md).
 
 Si l’appareil n’est pas disponible, vous recevez une notification. Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. Pendant la préparation de l’appareil, les actions suivantes se produisent :
 

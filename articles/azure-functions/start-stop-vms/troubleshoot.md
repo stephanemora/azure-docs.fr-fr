@@ -3,14 +3,14 @@ title: Résoudre les problèmes de démarrage/d’arrêt des machines virtuelles
 description: Cet article explique comment résoudre les problèmes rencontrés avec la fonctionnalité de démarrage/d’arrêt des machines virtuelles Azure (préversion).
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/31/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 587dddfde930bb64aa21f2e24c26d815e60ab9b0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2908f9a8383897ae0bda162e6f980e02d6c81bc1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791687"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966986"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>Résoudre les problèmes courants de démarrage/d’arrêt des machines virtuelles (préversion)
 
@@ -65,3 +65,5 @@ Découvrez plus en détail la supervision d’Azure Functions et des application
 * [Guide pratique pour configurer la supervision d’Azure Functions](../../azure-functions/configure-monitoring.md).
 
 * [Superviser les applications logiques](../../logic-apps/monitor-logic-apps.md).
+
+* Si vous rencontrez des problèmes lors du déploiement ou lors de l'utilisation de Start/Stop VMs v2 (préversion), ou si vous avez une question connexe, vous pouvez soumettre un problème sur [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Le signalement d'un incident au support Azure à partir du [site de support Azure](https://azure.microsoft.com/support/options/) n'est pas disponible pour cette préversion. 

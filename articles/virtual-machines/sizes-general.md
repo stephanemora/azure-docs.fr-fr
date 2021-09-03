@@ -9,14 +9,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 46a9b7e630001161fbf2790cfb9be474379864b6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9910995632cb1e6e32e228a6e68be625117951c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557622"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525978"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tailles de machine virtuelle à usage général
+
+> [!TIP]
+> Essayez l’ **[outil de sélection des machines virtuelles](https://aka.ms/vm-selector)** pour trouver d’autres tailles mieux adaptées à votre charge de travail.
 
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article fournit des informations sur les produits informatiques à usage général.
 

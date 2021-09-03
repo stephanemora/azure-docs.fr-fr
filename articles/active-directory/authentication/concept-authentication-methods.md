@@ -5,26 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5adc3bd8ef03b2613198518fc22284686c2bfee9
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764408"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730748"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
-Dans le cadre de l’expérience de connexion pour les comptes Microsoft Azure Active Directory (Azure AD), un utilisateur peut s’authentifier de différentes manières. Un nom d’utilisateur et un mot de passe sont les moyens les plus courant pour qu’un utilisateur fournisse des informations d’identification. Grâce aux fonctionnalités d’authentification et de sécurité modernes d’Azure AD, ce mot de passe de base peut être complété ou remplacé par des méthodes d’authentification plus sécurisées.
+Microsoft recommande les méthodes d’authentification sans mot de passe telles que Windows Hello, les clés de sécurité FIDO2 et l’application Microsoft Authenticator car elles fournissent l’expérience de connexion la plus sécurisée. Bien qu’un utilisateur puisse se connecter à l’aide d’autres méthodes courantes comme un nom d’utilisateur et un mot de passe, les mots de passe doivent être remplacés par des méthodes d’authentification plus sécurisées.
 
 ![Tableau des avantages et des méthodes d’authentification préférées dans Azure AD](media/concept-authentication-methods/authentication-methods.png)
-
-Les méthodes d’authentification sans mot de passe telles que Windows Hello, les clés de sécurité FIDO2 et l’application Microsoft Authenticator permettent les événements de connexion les plus sécurisés.
 
 Azure AD Multi-Factor Authentication (MFA) renforce la sécurité par rapport à l’utilisation d’un simple mot de passe lors de la connexion. L’utilisateur peut être invité à fournir des formes d’authentification supplémentaires, par exemple répondre à une notification push, entrer un code à partir d’un jeton logiciel ou matériel, ou répondre à un SMS ou à un appel téléphonique.
 
@@ -68,8 +66,8 @@ Le tableau suivant décrit quand une méthode d’authentification peut être ut
 | Windows Hello Entreprise     | Oui                    | MFA                       |
 | Application Microsoft Authenticator    | Oui                    | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Clé de sécurité FIDO2             | Oui                    | MFA                       |
-| Jetons matériels OATH (version préliminaire) | Non                     | MFA                       |
-| Jetons logiciels OATH           | Non                     | MFA                       |
+| Jetons matériels OATH (version préliminaire) | Non                     | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
+| Jetons logiciels OATH           | Non                     | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | SMS                            | Oui                    | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Appel vocal                     | Non                     | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Mot de passe                       | Oui                    |                           |
@@ -89,9 +87,6 @@ Pour en savoir plus sur le fonctionnement de chaque méthode d’authentificatio
 
 > [!NOTE]
 > Dans Azure AD, un mot de passe constitue souvent l’une des méthodes d’authentification principales. Vous ne pouvez pas désactiver la méthode d’authentification par mot de passe. Si vous utilisez un mot de passe en tant que facteur d'authentification principal, renforcez la sécurité des événements de connexion à l'aide d'Azure AD Multi-Factor Authentication.
-
-> [!IMPORTANT]
-> Bien que FIDO2 remplisse les conditions requises pour servir d’authentification multifacteur, FIDO2 ne peut être utilisé que sous forme d’authentification sans mot de passe.
 
 Les méthodes de vérification supplémentaires suivantes peuvent être utilisées dans certains scénarios :
 

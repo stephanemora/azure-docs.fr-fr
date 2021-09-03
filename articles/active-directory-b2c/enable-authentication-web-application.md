@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 2804baf91b83fcacd9b27d8a38d6e671a5e33a03
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2a89f2c5179e9280e09741d8fc524406698c31e0
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482137"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071530"
 ---
 # <a name="enable-authentication-in-your-own-web-application-using-azure-active-directory-b2c"></a>Activer l’authentification dans votre propre application web à l’aide d’Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ dotnet add package Microsoft.Identity.Web.UI
 
 ```dotnetcli
 Install-Package Microsoft.Identity.Web
-Install-Package Microsoft.Identity.Web 
+Install-Package Microsoft.Identity.Web.UI 
 ```
 
 ---
@@ -75,7 +75,7 @@ using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 ```
 
-Étant donné que Microsoft Identity Web utilise l’authentification basée sur les cookies pour protéger votre application Web, le code suivant définit les paramètres de cookie *SameSite*. Il lit ensuite les paramètres d’application `AzureAdB2C` et lance le contrôleur d’intergiciel avec sa vue. 
+Étant donné que Microsoft Identity Web utilise l’authentification basée sur les cookies pour protéger votre application Web, le code suivant définit les paramètres de cookie *SameSite*. Il lit ensuite les paramètres d’application `AzureAdB2C` et lance le contrôleur d’intergiciel avec son affichage. 
 
 Remplacez la fonction `ConfigureServices(IServiceCollection services)` par le code suivant. 
 
@@ -147,7 +147,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 Pour ajouter des éléments d’interface utilisateur, utilisez un affichage partiel qui contient la logique permettant de vérifier si un utilisateur est connecté ou non. Si l’utilisateur n’est pas connecté, l’affichage partiel affiche le bouton de connexion. Si l’utilisateur est connecté, cela affiche son nom d’affichage et le bouton de déconnexion.
   
-Créez un nouveau fichier `_LoginPartial.cshtml` à l'intérieur du dossier `Views/Shared` avec l’extrait de code suivant :
+Créez un nouveau fichier `_LoginPartial.cshtml` à l’intérieur du dossier `Views/Shared` avec l’extrait de code suivant :
 
 ```razor
 @using System.Security.Principal
@@ -186,7 +186,7 @@ Modifiez votre `Views\Shared\_Layout.cshtml` pour inclure le fichier *_LoginPart
 > [!NOTE]
 > Selon la version de .NET Core et selon si vous ajoutez la connexion à une application existante, les éléments de l’interface utilisateur peuvent paraître différents. Dans ce cas, veillez à inclure *_LoginPartial* à l’emplacement approprié dans la mise en page.
 
-Ouvrez */Views/Shared/_Layout.cshtml* et ajoutez l'élément `div` suivant.
+Ouvrez */Views/Shared/_Layout.cshtml* et ajoutez l’élément `div` suivant.
 
 ```razor
 <div class="navbar-collapse collapse">
@@ -236,7 +236,7 @@ Pour afficher les revendications de jeton d’ID sous le dossier `Views/Home`, a
 </table>
 ```
 
-Au cours de cette étape, vous allez ajouter l'action `Claims` qui lie l’affichage *claims.cshtml* au contrôleur *d'hébergement*. Elle utilise l'attribut `[Authorize]`, qui limite l’accès à l’action de revendications aux utilisateurs authentifiés.  
+Au cours de cette étape, vous allez ajouter l’action `Claims` qui lie l’affichage *claims.cshtml* au contrôleur *d’hébergement*. Elle utilise l’attribut `[Authorize]`, qui limite l’accès à l’action de revendications aux utilisateurs authentifiés.  
 
 Dans le contrôleur `/Controllers/HomeController.cs`, ajoutez l’action suivante.
 
@@ -246,6 +246,12 @@ public IActionResult Claims()
 {
     return View();
 }
+```
+
+Ajoutez la `using` déclaration suivante au début de la classe :
+
+```csharp
+using Microsoft.AspNetCore.Authorization;
 ```
 
 ## <a name="add-the-app-settings"></a>Ajouter les paramètres de l’application
@@ -264,8 +270,8 @@ Les paramètres du fournisseur d'identité Azure AD B2C sont stockés dans le fi
 
 Les informations requises sont décrites dans l’article [Configurer l’authentification dans un exemple d’application Web](configure-authentication-sample-web-app.md). Utilisez les paramètres suivants :
 
-* **Instance** : Remplacez `<your-tenant-name>` par le nom de votre locataire. Par exemple : `https://contoso.b2clogin.com`.
-* **Domain** : Remplacez `<your-b2c-domain>` par votre nom de domaine complet Azure AD B2C. Par exemple : `contoso.onmicrosoft.com`.
+* **Instance** : Remplacez `<your-tenant-name>` par la première partie du [nom de votre locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C. Par exemple : `https://contoso.b2clogin.com`.
+* **Domain** : Remplacez `<your-b2c-domain>` par le [nom complet de votre locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C. Par exemple : `contoso.onmicrosoft.com`.
 * **Client ID** : Remplacez `<web-app-application-id>` par l’ID de l’application de [l'étape 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
 * **Policy name** : Remplacez `<your-sign-up-in-policy>` par les flux d’utilisateur que vous avez créés lors de [l'étape 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
 

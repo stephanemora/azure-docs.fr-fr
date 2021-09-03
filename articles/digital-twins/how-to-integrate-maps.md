@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 69a02db3eafa9c75808eece69ce8ed676adf0ab2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: dd161468cda08a0046f2f46a79a973e4bbf8b49a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615812"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562623"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
@@ -27,9 +27,9 @@ Cette procédure couvre les sujets suivants :
 
 ### <a name="prerequisites"></a>Prérequis
 
-* Suivez le [Didacticiel Azure Digital Twins : Connecter une solution de bout en bout](./tutorial-end-to-end.md).
+* Suivez Azure Digital Twins dans [Connecter une solution de bout en bout](./tutorial-end-to-end.md).
     * Vous allez étendre ce jumeaux avec un point de terminaison et un itinéraire supplémentaires. Vous allez également ajouter une autre fonction à votre application de fonction à partir de ce didacticiel. 
-* Suivez le [Didacticiel Azure Maps : Utiliser Azure Maps Creator pour créer des plans intérieurs](../azure-maps/tutorial-creator-indoor-maps.md) afin de créer un plan intérieur Azure Maps avec un *ensemble d’états des fonctionnalités*.
+* Suivez Azure Maps dans [Utiliser Azure Maps Creator pour créer des cartes d’intérieur](../azure-maps/tutorial-creator-indoor-maps.md) afin de créer une carte d’intérieur Azure Maps avec un *ensemble d’états des fonctionnalités*.
     * Les [ensembles d’états des fonctionnalités](../azure-maps/creator-indoor-maps.md#feature-statesets) sont une collections de propriétés dynamiques (états) affectées à des fonctionnalités de jeu de données, telles que des salles ou des équipements. Dans le didacticiel Azure Maps ci-dessus, l’ensemble d’états des fonctionnalités stocke l’état de la salle que vous allez afficher sur une carte.
     * Vous avez besoin de l’*ID de votre ensemble des états* des fonctionnalités et de la *clé d’abonnement* Azure Maps.
 
@@ -45,7 +45,7 @@ Tout d’abord, vous allez créer un itinéraire dans Azure Digital Twins pour t
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Créer un itinéraire et un filtre pour les notifications de mise à jour des jumeaux
 
-Les instances Azure Digital Twins peuvent émettre des événements de mise à jour des jumeaux chaque fois que l’état d’un jumeau est mis à jour. Le [Didacticiel Azure Digital Twins : Connecter une solution de bout en bout](./tutorial-end-to-end.md) référencé ci-dessus présente un scénario dans lequel un thermomètre est utilisé pour mettre à jour un attribut de température associé au jumeau d’une pièce. Vous allez étendre cette solution en vous abonnant aux notifications de mise à jour pour les jumeaux et en utilisant ces informations pour mettre à jour vos cartes.
+Les instances Azure Digital Twins peuvent émettre des événements de mise à jour des jumeaux chaque fois que l’état d’un jumeau est mis à jour. Le didacticiel Azure Digital Twins [Connecter une solution de bout en bout](./tutorial-end-to-end.md) référencé ci-dessus présente un scénario dans lequel un thermomètre est utilisé pour mettre à jour un attribut de température associé au jumeau d’une pièce. Vous allez étendre cette solution en vous abonnant aux notifications de mise à jour pour les jumeaux et en utilisant ces informations pour mettre à jour vos cartes.
 
 Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’appareil IoT, ce qui vous donne la possibilité de modifier la source de données sous-jacente pour la température sans devoir mettre à jour votre logique de mappage. Par exemple, vous pouvez ajouter plusieurs thermomètres ou définir cette pièce de manière à partager un thermomètre avec une autre pièce, tout cela sans devoir mettre à jour votre logique de mappage.
 
@@ -72,7 +72,7 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
 
 ## <a name="create-a-function-to-update-maps"></a>Créer une fonction pour mettre les cartes à jour
 
-Vous allez créer une **fonction déclenchée par Event Grid** à l’intérieur de votre application de fonction en suivant le tutoriel de bout en bout ([Tutoriel : Connecter une solution de bout en bout](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce.
+Vous allez créer une **fonction déclenchée par Event Grid** à l’intérieur de votre application de fonction à partir du didacticiel de bout en bout ([Didacticiel : Connecter une solution de bout en bout](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce.
 
 Consultez le document suivant pour obtenir des informations de référence : [Déclencheur Azure Event Grid pour Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,15 +83,15 @@ Remplacez le code de fonction par le code suivant. Vous appliquez ainsi un filtr
 Vous allez devoir définir deux variables d’environnement dans votre application de fonction. L’une est votre [clé d’abonnement principal Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) et l’autre est votre [ID d’ensemble d’états Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <your-App-Service-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-App-Service-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Afficher les mises à jour en direct sur votre carte
 
 Pour afficher la température mise à jour en direct, procédez comme suit :
 
-1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du [Didacticiel Azure Digital Twins : Connecter une solution de bout en bout](tutorial-end-to-end.md). Les instructions correspondantes se trouvent dans la section [Configurer et exécuter la simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation).
+1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du Didacticiel Azure Digital Twins : [Connecter une solution de bout en bout](tutorial-end-to-end.md). Les instructions correspondantes se trouvent dans la section [Configurer et exécuter la simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Utilisez le [module Plans intérieurs Azure](../azure-maps/how-to-use-indoor-module.md) pour afficher des plans intérieurs créés dans Azure Maps Creator.
     1. Copiez le code HTML de la section [Exemple : Utiliser le module Indoor Maps](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) du [Didacticiel : Utiliser le module Indoor Maps d’Azure Maps](../azure-maps/how-to-use-indoor-module.md) des cartes d’intérieur dans un fichier local.
     1. Remplacez la *clé d’abonnement*, *tilesetId* et *statesetID* dans le fichier HTML local par vos valeurs.
@@ -113,5 +113,5 @@ Selon la configuration de votre topologie, vous pourrez stocker ces trois attrib
 
 Pour en savoir plus sur la gestion, la mise à niveau et la récupération d’informations à partir du graphique de jumeaux, consultez les références suivantes :
 
-* [Guide pratique pour gérer des jumeaux numériques](./how-to-manage-twin.md)
-* [Guide pratique pour interroger le graphique de jumeaux](./how-to-query-graph.md)
+* [Gérer des jumeaux numériques](./how-to-manage-twin.md)
+* [Interroger le graphe de jumeaux](./how-to-query-graph.md)

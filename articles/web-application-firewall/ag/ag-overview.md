@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: babd628280ebaee408d44dfacfaf6a5e14f57019
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ea3bc751d91e72c68bd9900f07c3c2e8aae38212
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481819"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524319"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -41,7 +41,7 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 
 * Créer des stratégies WAF personnalisées pour différents sites derrière le même pare-feu d’applications web 
 
-* Protéger vos applications web contre des bots malveillants avec l’ensemble de règles de réputation d’adresse IP (préversion)
+* Protéger vos applications web contre des bots malveillants avec l’ensemble de règles de réputation IP
 
 ### <a name="monitoring"></a>Surveillance
 
@@ -69,8 +69,8 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 - Limites de taille de demande configurables avec seuils inférieur et supérieur.
 - Des listes d’exclusion vous permettent d’omettre certains attributs de demande d’une évaluation de pare-feu d’applications web. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe.
 - Créez des règles personnalisées pour répondre aux besoins spécifiques de votre application.
-- Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays/régions à vos applications. (préversion)
-- Protégez vos applications des bots avec l’ensemble de règles d’atténuation des risques des bots. (préversion)
+- Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays/régions à vos applications.
+- Protégez vos applications des bots avec l’ensemble de règles d’atténuation des risques des bots.
 - Inspecter JSON et XML dans le corps de la requête
 
 ## <a name="waf-policy-and-rules"></a>Stratégie et règles WAF
@@ -99,19 +99,13 @@ Pour plus d’informations, voir [Règles et groupes de règles CRS de pare-feu 
 
 Application Gateway prend également en charge des règles personnalisées. Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête passant par WAF. Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Si un ensemble de conditions sont remplies, une action est entreprise pour autoriser ou bloquer. 
 
-L’opérateur de géocorrespondance est désormais disponible en préversion publique pour les règles personnalisées. Pour plus d’informations, consultez [Règles personnalisées de géocorrespondance](custom-waf-rules-overview.md#geomatch-custom-rules-preview).
-
-> [!NOTE]
-> L’opérateur de géocorrespondance pour les règles personnalisées est actuellement disponible en préversion publique et il est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+L’opérateur de géocorrespondance est désormais disponible pour les règles personnalisées. Pour plus d’informations, consultez [Règles personnalisées de géocorrespondance](custom-waf-rules-overview.md#geomatch-custom-rules).
 
 Pour plus d’informations sur les règles personnalisées, consultez [Règles personnalisées pour Application Gateway](custom-waf-rules-overview.md).
 
-### <a name="bot-mitigation-preview"></a>Atténuation de robot (préversion)
+### <a name="bot-mitigation"></a>Atténuation de robot
 
 Un ensemble de règles de protection de bot managées peut être activé pour votre WAF afin de bloquer ou de journaliser des demandes provenant d’adresses IP malveillantes, à côté de l’ensemble de règles managé. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. Intelligent Security Graph alimente l’intelligence des menaces Microsoft et est utilisé par de nombreux services, dont Azure Security Center.
-
-> [!NOTE]
-> Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si la protection bot est activée, les demandes entrantes qui correspondent à des adresses IP clientes de bots malveillants sont consignées dans le journal du pare-feu. Vous trouverez des informations supplémentaires ci-dessous. Vous pouvez accéder aux journaux WAF à partir du compte de stockage, du hub d’événements ou de l’analytique des journaux d’activité. 
 

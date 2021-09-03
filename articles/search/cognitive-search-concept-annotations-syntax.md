@@ -2,24 +2,23 @@
 title: Référencer des entrées et des sorties dans les ensembles de compétences
 titleSuffix: Azure Cognitive Search
 description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline d’enrichissement de l’IA dans Recherche cognitive Azure.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26f8f5a4688eb5ccd472d7f402e6a543e318a7e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 6eb82e509d2e8c521438aedefd89977033967abf
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559848"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122525871"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences Recherche cognitive Azure
+# <a name="reference-annotations-in-an-azure-cognitive-search-skillset"></a>Référencer des annotations dans un jeu de compétences Recherche cognitive Azure
 
 Cet article vous permet de découvrir comment référencer des annotations dans des définitions de compétences, en utilisant des exemples pour illustrer différents scénarios. À mesure que le contenu d’un document traverse un jeu de compétences, il s’enrichit d’annotations. Ces annotations peuvent être utilisées comme entrées pour un enrichissement supplémentaire en aval, ou mappées à un champ de sortie dans un index. 
  
-Les exemples présentés dans cet article sont basés sur le champ de *contenu* généré automatiquement par les [indexeurs d’objets blob Azure](search-howto-indexing-azure-blob-storage.md) durant la phase de décodage du document. Lorsque vous faites référence à des documents à partir d’un conteneur d’objets blob, utilisez un format tel que `"/document/content"`, où le champ de *contenu* fait partie du *document*. 
+Les exemples présentés dans cet article sont basés sur le champ de *contenu* généré automatiquement par les [indexeurs d’objets blob Azure](search-howto-indexing-azure-blob-storage.md) durant la phase de [décodage du document](search-indexer-overview.md#document-cracking). Lorsque vous faites référence à des documents à partir d’un conteneur d’objets blob, utilisez un format tel que `"/document/content"`, où le champ de *contenu* fait partie du *document*. 
 
 ## <a name="background-concepts"></a>Concepts de base
 
@@ -39,7 +38,7 @@ Le contexte par défaut étant `"/document"`, la liste de personnes peut désorm
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b10e1d1c903f306668e051633467ba15079dcaca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 448a646b4fd615967e63c6d13b16940441478971
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664322"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532169"
 ---
 # <a name="monitoring-azure-table-storage"></a>Supervision du stockage Table Azure
 
@@ -64,7 +64,7 @@ Pour collecter des journaux de ressources, vous devez créer un paramètre de di
 
 ## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
 
-Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager. 
+Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager, ou Azure Policy. 
 
 Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -261,6 +261,10 @@ Voici un exemple :
 ### <a name="template"></a>[Modèle](#tab/template)
 
 Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagnostic, consultez [Paramètre de diagnostic pour Stockage Azure](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+Vous pouvez créer un paramètre de diagnostic à l’aide d’une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Voir [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
 
 ---
 
@@ -474,6 +478,10 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 ```
 
 ### <a name="template"></a>[Modèle](#tab/template)
+
+N/A.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 N/A.
 

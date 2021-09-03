@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 07/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 53242402d8de9e7e552a4aabdaaf23c0261329f0
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 1a536dde331e504ba79ee7529f9731444e0962c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813205"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524323"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de l’interface de ligne de commande
 
-Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :<br>
+Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md). Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :<br>
 
 > [!div class="op_single_selector"]
 > * [Azure portal](./tutorial-site-to-site-portal.md)
@@ -133,7 +133,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 
 ## <a name="7-create-the-vpn-gateway"></a><a name="CreateGateway"></a>7. Créer la passerelle VPN
 
-Créez la passerelle VPN de réseau virtuel. La création d’une passerelle VPN peut prendre 45 minutes ou plus.
+Créez la passerelle VPN de réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
 Utilisez les valeurs suivantes :
 
@@ -141,7 +141,7 @@ Utilisez les valeurs suivantes :
 * Le paramètre *--vpn-type* peut avoir pour valeur *RouteBased* (appelé passerelle dynamique dans certaines documentations) ou *PolicyBased* (appelé passerelle statique dans certaines documentations). Le paramètre est spécifique aux exigences du périphérique auquel vous vous connectez. Pour plus d’informations sur les types de passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Sélectionnez la référence SKU de la passerelle que vous souhaitez utiliser. Des limites de configuration s’appliquent à certaines références (SKU). Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/network/vnet-gateway). Si vous exécutez cette commande à l’aide du paramètre « --no-wait », vous ne voyez aucun commentaire ni sortie. Ce paramètre permet à la passerelle d’être créée en arrière-plan. La création d’une passerelle prend environ 45 minutes.
+Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/network/vnet-gateway). Si vous exécutez cette commande à l’aide du paramètre « --no-wait », vous ne voyez aucun commentaire ni sortie. Ce paramètre permet à la passerelle d’être créée en arrière-plan. La création d’une passerelle nécessite au moins 45 minutes.
 
 ```azurecli-interactive
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 

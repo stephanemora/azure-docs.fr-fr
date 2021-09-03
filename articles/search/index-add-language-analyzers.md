@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: ac11b7bc7e53c214f872d400565d50009479afcb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3a8a235e204826c26f20cc146003e9290331fe07
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604421"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091534"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs de langue à des champs de chaîne dans l’index de Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ Une meilleure expérience consiste à rechercher des mots individuels : 明る�
 
 Recherche cognitive Azure prend en charge 35 analyseurs linguistiques qui s’appuient sur Lucene et 50 analyseurs linguistiques exploitant la technologie propriétaire Microsoft de traitement du langage naturel utilisée dans Office et Bing.
 
-Certains développeurs peuvent préférer la solution open source, plus familière et simple de Lucene. Les analyseurs linguistiques Lucene sont plus rapides, mais les analyseurs Microsoft proposent des fonctionnalités avancées, comme la lemmatisation, la décomposition en mots (dans les langues comme l’allemand, le danois, le néerlandais, le suédois, le norvégien, l’estonien, le finnois, le hongrois et le slovaque) et la reconnaissance d’entités (URL, adresses e-mail, dates, numéros). Si possible, vous devez comparer les analyseurs Microsoft et Lucene pour savoir lequel vous convient le mieux. 
+Certains développeurs peuvent préférer la solution open source, plus familière et simple de Lucene. Les analyseurs linguistiques Lucene sont plus rapides, mais les analyseurs Microsoft proposent des fonctionnalités avancées, comme la lemmatisation, la décomposition en mots (dans les langues comme l’allemand, le danois, le néerlandais, le suédois, le norvégien, l’estonien, le finnois, le hongrois et le slovaque) et la reconnaissance d’entités (URL, adresses e-mail, dates, numéros). Si possible, vous devez comparer les analyseurs Microsoft et Lucene pour savoir lequel vous convient le mieux. Vous pouvez utiliser l'[API Analyser](/rest/api/searchservice/test-analyzer) pour voir les jetons générés à partir d'un texte donné à l'aide d'un analyseur spécifique.
 
 L’indexation avec les analyseurs Microsoft est en moyenne trois fois plus lente qu’avec leurs équivalents Lucene, en fonction de la langue. Les performances de recherche ne doivent pas être trop affectées pour les requêtes de taille moyenne. 
 

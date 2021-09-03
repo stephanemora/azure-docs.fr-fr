@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a605046c8cf76a425f7df5b1cdf637f7dc4bfc90
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a0dd00dffaa5112ce04723a12e8b8634f6149690
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108747248"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588036"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilisation des propriétés dans une solution Azure IoT Central
 
@@ -34,7 +34,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 | Champ           | Description                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom complet    | Nom complet de la valeur de propriété utilisée sur les tableaux de bord et les formulaires.                                                                                                                                                              |
+| Nom complet    | Nom complet de la valeur de propriété utilisée sur les vignettes de tableau de bord et les formulaires d'appareil.                                                                                                                                                              |
 | Nom            | Nom de la propriété. Azure IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique.  Le code de l’appareil utilise cette valeur **Nom**.           |
 | Type de fonctionnalité | Propriété.                                                                                                                                                                                                                          |
 | Type sémantique   | Type sémantique de la propriété, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible.                                                                       |
@@ -43,7 +43,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | severity        | Disponible uniquement pour le type sémantique d’événement. Les gravités sont **Erreur**, **Information** ou **Avertissement**.                                                                                                                         |
 | Valeurs d’état    | Disponible uniquement pour le type sémantique d’état. Définissez les valeurs d’état possibles, chacune ayant un nom d’affichage, un nom, un type d’énumération et une valeur.                                                                                   |
 | Unité            | Unité pour la valeur des propriétés, telles que **mph**, **%** ou **&deg;C**.                                                                                                                                                              |
-| Unité d'affichage    | Unité d’affichage à utiliser sur les tableaux de bord et les formulaires.                                                                                                                                                                                    |
+| Unité d'affichage    | Unité d'affichage à utiliser sur les vignettes de tableau de bord et les formulaires d'appareil.                                                                                                                                                                                    |
 | Commentaire         | Commentaires sur la fonctionnalité de propriété.                                                                                                                                                                                        |
 | Description     | Description de la fonctionnalité de propriété.                                                                                                                                                                                          |
 

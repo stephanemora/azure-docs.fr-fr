@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 8120bcb030f5a1ff6948757d8f65e3a21d31898f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bd0e89e1967842e8167c3da1fc3d2a716a5f7bd6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955390"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633776"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planifier une offre Azure Application pour la Place de marché commerciale
 
@@ -35,7 +35,7 @@ Lors de la planification de votre offre Azure Application pour la Place de march
 
 - [Comprendre les modèles Azure Resource Manager](../azure-resource-manager/templates/syntax.md)
 - Guides de démarrage rapide :
-    - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/)
+    - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/)
     - [Guide des meilleures pratiques pour les modèles Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     - [Publier une définition d’application](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
     - [Déployer une application de catalogue de services](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
@@ -95,7 +95,7 @@ Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou apr�
 
 ## <a name="categories-and-subcategories"></a>Catégories et sous-catégories
 
-Vous pouvez choisir une ou deux catégories pour grouper votre offre dans les zones de recherche commerciales appropriées de la place de marché. Vous pouvez choisir jusqu’à deux sous-catégories pour chaque catégorie principale et secondaire. Pour obtenir une liste complète des catégories et sous-catégories, consultez [Bonnes pratiques pour le référencement des offres](gtm-offer-listing-best-practices.md#categories).
+Vous pouvez choisir une ou deux catégories pour grouper votre offre dans les zones de recherche commerciales appropriées de la place de marché. Vous pouvez choisir jusqu’à deux sous-catégories pour chaque catégorie principale et secondaire. Pour obtenir une liste complète des catégories et sous-catégories, consultez [Bonnes pratiques pour le référencement des offres](marketplace-categories-industries.md#categories).
 
 ## <a name="legal-contracts"></a>Contrats juridiques
 
@@ -148,7 +148,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
     Cette zone de texte contient des contrôles d’éditeur de texte riches, que vous pouvez utiliser pour rendre votre description plus attrayante. Vous pouvez également utiliser des balises HTML pour mettre en forme votre description. Vous pouvez entrer dans cette zone de texte jusqu’à 3 000 caractères, balisage HTML et espaces compris. Pour obtenir d’autres conseils, consultez [Rédiger une bonne description d’application](/windows/uwp/publish/write-a-great-app-description) et [Balises HTML prises en charge dans les descriptions d’offre de la place de marché commerciale](supported-html-tags.md).
 
 - **Mots clés de recherche** (facultatif) : Entrez jusqu’à trois mots clés que les clients pourront utiliser pour rechercher votre offre dans le magasin en ligne. Pour obtenir des résultats optimaux, utilisez également ces mots clés dans votre description. Vous n’avez pas besoin d’inclure le **nom** et la **description** de l’offre. Ce texte est inclus automatiquement dans la recherche.
-- **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre société. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
+- **Lien vers la politique de confidentialité** : URL de la politique de confidentialité de votre entreprise. Vous devez renseigner une politique de confidentialité conforme et veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité.
 - **Liens utiles** (facultatif) : vous pouvez fournir des liens vers diverses ressources destinées aux utilisateurs de votre offre. Par exemple, forums, FAQ et notes de publication.
 - **Informations de contact** : vous devez désigner les contacts suivants de votre organisation :
   - **Contact de support** : indiquez le nom, le numéro de téléphone et l’adresse e-mail des partenaires Microsoft à utiliser quand vos clients ouvrent des tickets. Vous devez également inclure l’URL de votre site web de support.

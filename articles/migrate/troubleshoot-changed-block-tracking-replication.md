@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5b17df9e074375b8cdbe769c840aaf030eaff8af
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d1654a195f694b9ef8ab8150380939c0e647bcd1
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317430"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580671"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Résolution des problèmes de réplication dans la migration de machines virtuelles VMware sans agent
 
@@ -297,6 +297,18 @@ Il s’agit d’un problème VMware connu dans lequel la taille du disque indiqu
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Message d’erreur : Une erreur interne s’est produite. [L’allocation de mémoire a échoué. Mémoire insuffisante.]
 
 Cela se produit lorsque la mémoire tampon de l’hôte NFC est insuffisante. Pour résoudre ce problème, vous devez déplacer la machine virtuelle (compute vMotion) vers un autre hôte, dont les ressources sont disponibles.
+
+### <a name="error-message-an-internal-error-occurred-file-is-larger-than-maximum-file-size-supported-1012384"></a>Message d’erreur : Une erreur interne s’est produite. [La taille du fichier est supérieure à la taille maximale prise en charge (1012384)]
+Cela se produit lorsque la taille du fichier est supérieure à la taille maximale prise en charge lors de la création de l'instantané. Suivez la résolution indiquée dans la [base de connaissances VMware](https://kb.vmware.com/s/article/1012384).
+
+### <a name="error-message-an-internal-error-occurred-cannot-connect-to-the-host-1004109"></a>Message d’erreur : Une erreur interne s’est produite. [Impossible de se connecter à l'hôte (1004109)]
+Cela se produit lorsque les hôtes ESXi ne peuvent pas se connecter au réseau. Suivez la résolution indiquée dans la [base de connaissances VMware](https://kb.vmware.com/s/article/1004109).
+
+### <a name="error-message-an-error-occurred-while-saving-the-snapshot-invalid-change-tracker-error-code"></a>Message d'erreur : Une erreur s'est produite lors de l'enregistrement de l'instantané : code d'erreur de suivi des modifications non valide
+Cette erreur se produit en cas de problème avec le magasin de données sous-jacent sur lequel l'instantané est stocké. Suivez la résolution indiquée dans la [base de connaissances VMware](https://kb.vmware.com/s/article/2042742).
+
+### <a name="error-message-an-error-occurred-while-taking-a-snapshot-unable-to-open-the-snapshot-file"></a>Message d'erreur : Une erreur s'est produite lors de la création d'un instantané : impossible d'ouvrir le fichier d'instantané.
+Cette erreur se produit lorsque la taille du fichier d'instantané créé est supérieure à l'espace disponible dans le magasin de données où se trouve la machine virtuelle. Suivez la résolution indiquée dans ce [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
 ## <a name="replication-cycle-failed"></a>Échec du cycle de réplication
 

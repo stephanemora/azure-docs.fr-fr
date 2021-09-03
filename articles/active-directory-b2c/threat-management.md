@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/15/2021
+ms.date: 07/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 183abae52d8b8dc4b78f48118866d6d667aaeaed
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061621"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602843"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Atténuer les attaques d’informations d’identification dans Azure AD B2C
 
@@ -59,6 +59,9 @@ La fonctionnalité de verrouillage intelligent utilise de nombreux facteurs pour
 Lorsque vous testez la fonctionnalité de verrouillage intelligent, utilisez un modèle distinctif pour chaque mot de passe que vous entrez. Vous pouvez utiliser des applications Web de génération de mots de passe, comme [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
 Lorsque le seuil de verrouillage intelligent est atteint, le message suivant s’affiche lorsque le compte est verrouillé : **Votre compte est temporairement verrouillé pour éviter toute utilisation non autorisée. Réessayez plus tard**. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+> [!NOTE]
+> Lorsque vous testez le verrouillage intelligent, vos demandes de connexion peuvent être traitées par différents centres de données en raison de la nature géodistribuée et équilibrée en charge du service d’authentification d’Azure AD. Dans ce scénario, étant donné que chaque centre de données Azure AD effectue le suivi du verrouillage de façon indépendante, il se peut qu’il faille davantage de tentatives que le seuil de verrouillage défini pour provoquer un verrouillage. Un utilisateur a un nombre maximal (threshold_limit * datacenter_count) de tentatives incorrectes avant d’être complètement verrouillé.
 
 ## <a name="viewing-locked-out-accounts"></a>Affichage des comptes verrouillés
 

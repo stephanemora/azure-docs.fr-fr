@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/20/2021
+ms.date: 07/17/2021
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d1f997ff34703e95c498a0f3c1646bf3acb0129e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8a9ef41dcb85ddd8478078a927759190a6475840
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469988"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652099"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur la manière d’ajouter un utilisateur invité à
 
 Les utilisateurs invités qui ont été affectés au rôle de coadministrateur peuvent constater des différences par rapport aux utilisateurs membres avec le rôle coadministrateur. Examinez le cas suivant :
 
-- L’utilisateur A avec un compte professionnel ou scolaire Azure AD est administrateur de service pour un abonnement Azure.
+- L’utilisateur A avec un compte professionnel ou scolaire Azure AD est l’administrateur de service pour un abonnement Azure.
 - L’utilisateur B dispose d’un compte Microsoft.
 - L’utilisateur A attribue le rôle de coadministrateur à l’utilisateur B.
 - L’utilisateur B peut presque tout faire, mais il ne peut pas inscrire d’applications ni rechercher des utilisateurs dans l’annuaire Azure AD.
@@ -133,6 +133,26 @@ Il ne peut y avoir qu’un seul administrateur de service par abonnement Azure. 
 Si l’administrateur de compte est un compte Azure AD, vous pouvez modifier l’administrateur de service en un compte Azure AD dans le même annuaire, mais pas dans un autre. Par exemple, abby@contoso.com peut modifier l’administrateur de service en bob@contoso.com, mais ne pas en john@notcontoso.com, sauf si john@notcontoso.com a une présence dans l’annuaire contoso.com.
 
 Pour plus d’informations sur les comptes Microsoft et Azure AD, voir [Qu’est-ce qu’Azure Active Directory ?](../active-directory/fundamentals/active-directory-whatis.md).
+
+## <a name="remove-the-service-administrator"></a>Retirer l’administrateur du service
+
+Vous souhaiterez peut-être supprimer l’administrateur de service, par exemple, s’il n’est plus associé à la société. Si vous supprimez l’administrateur de service, vous devez disposer d’un utilisateur auquel le rôle de [propriétaire](built-in-roles.md#owner) est attribué au niveau de l’étendue d’abonnement pour éviter un abonnement orphelin. Un propriétaire d’abonnement a le même accès que l’administrateur de service.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant que propriétaire d’abonnements ou un coadministrateur.
+
+1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
+
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+
+1. Cliquez sur l’onglet **Administrateurs classiques**.
+
+1. Ajoutez une coche à côté de l’administrateur de service.
+
+1. Cliquez sur **Supprimer**.
+
+1. Dans la boîte de message qui s’affiche, cliquez sur **Oui**.
+
+    ![Capture d’écran de suppression de l’administrateur de services.](./media/classic-administrators/service-admin-remove.png)
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 

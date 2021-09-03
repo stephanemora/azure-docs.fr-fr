@@ -4,13 +4,13 @@ description: Décrit comment définir et consommer un module et comment utiliser
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 85f345cfd7085f34f28e4b219c4f379abff74bff
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 07/15/2021
+ms.openlocfilehash: 5e092a0b7f27379cf9fdc488c7a56a295ce17d25
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525365"
 ---
 # <a name="use-bicep-modules"></a>Utiliser des modules Bicep
 
@@ -102,8 +102,21 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     ]
     ...
     ```
+- La propriété **_params_** contient tous les paramètres à transmettre au fichier module. Ces paramètres correspondent aux paramètres définis dans le fichier bicep.
+
+À l’instar des ressources, les modules sont déployés en parallèle, sauf s’ils dépendent d’autres modules ou déploiements de ressources. Pour en savoir plus sur les dépendances, consultez [Définir des dépendances de ressources](resource-declaration.md#set-resource-dependencies).
 
 Pour obtenir une valeur de sortie à partir d’un module, récupérez la valeur de la propriété avec la syntaxe suivante : `stgModule.outputs.storageEndpoint` où `stgModule` est l’identificateur du module.
+
+Vous pouvez déployer un module de manière conditionnelle. Utilisez la même syntaxe **if** que celle que vous utiliseriez lors du [déploiement conditionnel d'une ressource](conditional-resource-deployment.md).
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
 
 ## <a name="configure-module-scopes"></a>Configurer les étendues du module
 

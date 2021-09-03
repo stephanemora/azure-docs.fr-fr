@@ -7,21 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 01/27/2021
+ms.openlocfilehash: 5643f9a8bb1caec8d264ba5dfba9913d5d13b2ec
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581609"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414842"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
 Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure, et sont utiles pour superviser les processus et l’intégrité des services. En interne, Microsoft conserve les informations système sur le back-end pendant une courte période (environ 30 jours), suffisante pour l’investigation et l’analyse si vous créez un ticket de support. Toutefois, si vous voulez être propriétaire des données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
 
-La journalisation des diagnostics est activée via l’intégration à [Azure Monitor](../azure-monitor/index.yml). 
-
-Quand vous configurez la journalisation des diagnostics, vous êtes invité à spécifier un mécanisme de stockage. Le tableau suivant énumère les options de collecte et de persistance des données.
+La journalisation des diagnostics est activée via l'intégration back-end à [Azure Monitor](../azure-monitor/index.yml). Lorsque vous configurez la journalisation des diagnostics, vous êtes invité à spécifier une option de stockage pour conserver le journal. Le tableau ci-dessous énumère les options disponibles.
 
 | Ressource | Utilisé pour |
 |----------|----------|
@@ -55,9 +53,9 @@ Les paramètres de diagnostic spécifient la façon dont les événements et les
 
 1. Enregistrez le paramètre.
 
-1. Une fois la journalisation activée, utilisez votre service de recherche pour commencer à générer des journaux d’activité et des mesures. Cela prendra du temps avant que les mesures et les événements journalisés ne deviennent disponibles.
+1. Une fois la journalisation activée, votre service de recherche commence à générer des journaux et des métriques. Il peut s'écouler un certain temps avant que les événements et les métriques consignés ne soient disponibles.
 
-Pour Log Analytics, il faudra plusieurs minutes avant que les données ne soient disponibles, après quoi vous pourrez exécuter des requêtes Kusto pour retourner des données. Pour plus d’informations, consultez [Surveiller les demandes de requête](search-monitor-logs.md).
+Pour Log Analytics, vous devrez probablement patienter quelques minutes avant que les données ne soient disponibles, après quoi vous pourrez exécuter des requêtes Kusto pour renvoyer des données. Pour plus d’informations, consultez [Surveiller les demandes de requête](search-monitor-logs.md).
 
 Pour le Stockage Blob, une heure est nécessaire pour que les conteneurs s’y affichent. Il y a un seul objet blob par heure et par conteneur. Les conteneurs sont créés uniquement quand il existe une activité à journaliser ou à mesurer. Quand les données sont copiées dans un compte de stockage, les données sont au format JSON et sont placées dans deux conteneurs :
 
@@ -70,7 +68,9 @@ Deux tables contiennent des journaux d’activité et des mesures pour Recherche
 
 1. Sous **Supervision**, sélectionnez **Journaux d’activité**.
 
-1. Entrez **AzureMetrics** dans la fenêtre de requête. Exécutez cette requête simple pour vous familiariser avec les données collectées dans cette table. Faites défiler la table pour afficher les mesures et les valeurs. Notez le nombre d’enregistrements indiqué en haut et, si votre service a collecté des mesures pendant un certain temps, vous souhaiterez peut-être ajuster l’intervalle de temps pour obtenir un jeu de données gérable.
+1. Dans la fenêtre de requête, entrez **AzureMetrics**, vérifiez l'étendue (votre service de recherche) et l'intervalle de temps, puis cliquez sur **Exécuter** pour vous familiariser avec les données collectées dans ce tableau.
+
+   Faites défiler la table pour afficher les mesures et les valeurs. Notez le nombre d'enregistrements indiqué en haut. Si votre service collecte des métriques depuis un certain temps, vous pouvez ajuster l'intervalle de temps pour obtenir un jeu de données gérable.
 
    ![Table AzureMetrics](./media/search-monitor-usage/azuremetrics-table.png "Table AzureMetrics")
 
@@ -112,7 +112,7 @@ Associez une demande de requête à des opérations d’indexation et restituez 
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
 | render timechart
 ```
 

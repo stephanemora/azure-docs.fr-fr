@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: a4db444fa7f0f03e2d8ffe94d8337b8d0f76a0e5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/24/2021
+ms.openlocfilehash: 6f17f89feb3bb5e563f662160598be14528a9240
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747764"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963525"
 ---
 # <a name="partner-spotlight"></a>Présentation des partenaires
 
-Obtenez l’aide des experts des partenaires Microsoft qui créent des solutions de bout en bout incluant la Recherche cognitive Azure. Les partenaires suivants ont une vaste expérience en matière d’utilisation de la recherche en texte intégral et de l’enrichissement par IA dans un large éventail de scénarios commerciaux et techniques.
+Obtenez l'aide des experts des partenaires Microsoft qui créent des solutions complètes incluant la Recherche cognitive Azure. Les partenaires suivants disposent d'une grande expérience en matière d'intégration de la recherche en texte intégral et de l'enrichissement par IA dans un large éventail de scénarios commerciaux et techniques.
 
 | Partenaire | Description | Lien vers le produit |
 |---------|-------------|----------------------|
@@ -28,4 +28,4 @@ Obtenez l’aide des experts des partenaires Microsoft qui créent des solutions
 | ![Neudesic](media/resource-partners/neudesic-logo.png "Logo de la société Neudesic") | [**Neudesic**](https://www.neudesic.com/) est le partenaire technologique de confiance en matière d’innovation. Il fournit des résultats percutants aux clients au travers d’une modernisation et d’une évolution numériques. Nos consultants réunissent des compétences commerciales et technologiques, offrant un vaste éventail de solutions cloud et pilotées par les données, dont le développement d’applications personnalisées, des données et de l’intelligence artificielle, des services gérés complets et des produits logiciels métier. Fondée en 2002, Neudesic est une société privée dont le siège central est établi à Irvine, en Californie. | [Page du produit](https://www.neudesic.com/services/modern-workplace/document-intelligence-platform-schedule-demo/)|
 | ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "Logo de la société OrangeNXT") | [**OrangeNXT**](https://orangenxt.com/) propose son expertise dans la consolidation de données, la modélisation de données et la création d’ensembles de compétences qui incluent une logique personnalisée développée pour des cas d’usage spécifiques.</br></br>digitalNXT Search est une solution OrangeNXT qui allie intelligence artificielle, reconnaissance optique de caractères (OCR) et traitement en langage naturel dans le pipeline Recherche cognitive Azure, pour vous aider à extraire les résultats de recherche de plusieurs sources de données structurées et non structurées. L’intégrale de digitalNXT Search regroupe des compétences cognitives personnalisées avancées pour interpréter et mettre en corrélation les données sélectionnées.</br></br>| [Page du produit](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 | ![Concepts simples](media/resource-partners/plain-concepts-logo.png "Logo de l’entreprise Plain Concepts") | [**Plain Concepts**](https://www.plainconcepts.com/contact/) est un partenaire Microsoft avec plus de 15 ans de compétences en matière de cloud, de données et d’IA sur Azure, ainsi qu’avec plus de 12 récompenses MVP Microsoft. Nous nous spécialisons dans la création de nouvelles relations de données entre des sources d’informations hétérogènes, qui sont associées à notre expérience de l’intelligence artificielle, de l’apprentissage automatique et des services cognitifs, ce qui augmente de façon exponentielle la productivité des ordinateurs et des équipes humaines. Nous aidons les clients à faire face à la révolution numérique avec les solutions d’intelligence artificielle les mieux adaptées aux besoins de leur entreprise.| [Page du produit](https://www.plainconcepts.com/artificial-intelligence/) |
-
+| ![Raytion](media/resource-partners/raytion-logo-blue.png "Logo de la société Raytion") | [**Raytion**](https://www.raytion.com/) est un cabinet de conseil en informatique d'entreprise opérant à l'échelle internationale et axé sur la collaboration, la recherche et le cloud. Raytion propose des solutions de recherche intelligentes et complètes basées sur la Recherche cognitive Microsoft Azure et la suite de produits Raytion. Les solutions de Raytion permettent d'indexer facilement un large éventail de systèmes de contenu d'entreprise et offrent une expérience de recherche sophistiquée, qui peut être adaptée aux besoins individuels. Elles constituent la base de la recherche d'entreprise, des recherches de connaissances, du support des agents du service d'assistance et de nombreuses autres applications. | [Page du produit](https://www.raytion.com/connectors) |

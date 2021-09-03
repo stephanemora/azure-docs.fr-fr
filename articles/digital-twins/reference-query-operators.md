@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/22/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 924f7248733ee573cc68b137fccb829b2a79af31
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 06945efc6be8700955b1a475d00d21951102c214
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296371"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492790"
 ---
 # <a name="azure-digital-twins-query-language-reference-operators"></a>Informations de référence sur le langage de requête Azure Digital Twins : opérateurs
 
@@ -28,15 +28,15 @@ Les opérateurs suivants de la famille « comparaison » sont pris en charge.
 
 ### <a name="example"></a>Exemple
 
-Voici un exemple d’utilisation de l’opérateur `=`. La requête suivante retourne les jumeaux dont la valeur Temperature est égale à 80.
+Voici un exemple utilisant `=`. La requête suivante retourne les jumeaux dont la valeur Temperature est égale à 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EqualityExample":::
 
-Voici un exemple d’utilisation de l’opérateur `<`. La requête suivante retourne les jumeaux dont la valeur Temperature est inférieure à 80.
+Voici un exemple utilisant `<`. La requête suivante retourne les jumeaux dont la valeur Temperature est inférieure à 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="ComparisonExample":::
 
-Voici un exemple d’utilisation de l’opérateur `<=`. La requête suivante retourne les jumeaux dont la valeur Temperature est inférieure ou égale à 80.
+Voici un exemple utilisant `<=`. La requête suivante retourne les jumeaux dont la valeur Temperature est inférieure ou égale à 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrderedComparisonExample":::
 
@@ -45,11 +45,11 @@ Voici un exemple d’utilisation de l’opérateur `<=`. La requête suivante re
 Les opérateurs suivants de la famille « contient » sont pris en charge.
 
 * `IN` : prend la valeur true si une valeur donnée est comprise dans un ensemble de valeurs.
-* `NIN` : prend la valeur true si une valeur donnée n’est pas comprise dans un ensemble de valeurs.
+* `NIN` : prend la valeur true si une valeur donnée n’est comprise pas dans un ensemble de valeurs.
 
 ### <a name="example"></a>Exemple
 
-Voici un exemple d’utilisation de l’opérateur `IN`. La requête suivante retourne les jumeaux dont la propriété `owner` correspond à l’une des options d’une liste.
+Voici un exemple utilisant `IN`. La requête suivante retourne les jumeaux dont la propriété `owner` correspond à l’une des options d’une liste.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="InExample":::
 
@@ -58,19 +58,19 @@ Voici un exemple d’utilisation de l’opérateur `IN`. La requête suivante re
 Les opérateurs suivants de la famille « logique » sont pris en charge :
 * `AND` : utilisé pour connecter deux expressions ; prend la valeur true si elles sont toutes les deux vraies.
 * `OR` : utilisé pour connecter deux expressions ; prend la valeur true si au moins l’une d’elles est vraie.
-* `NOT` : Utilisé pour nier une expression ; prend la valeur true si la condition de l’expression n’est pas remplie.
+* `NOT` : utilisé pour nier une expression ; prend la valeur true si la condition de l’expression n’est pas remplie.
 
 ### <a name="example"></a>Exemple
 
-Voici un exemple d’utilisation de l’opérateur `AND`. La requête suivante retourne les jumeaux qui remplissent les deux conditions suivantes : valeur Temperature inférieure à 80 et valeur Humidity inférieure à 50.
+Voici un exemple utilisant `AND`. La requête suivante retourne les jumeaux qui remplissent les deux conditions suivantes : valeur Temperature inférieure à 80 et valeur Humidity inférieure à 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="AndExample":::
 
-Voici un exemple d’utilisation de l’opérateur `OR`. La requête suivante retourne les jumeaux qui remplissent au moins une des conditions suivantes : valeur Temperature inférieure à 80 et valeur Humidity inférieure à 50.
+Voici un exemple utilisant `OR`. La requête suivante retourne les jumeaux qui remplissent au moins une des conditions suivantes : valeur Temperature inférieure à 80 et valeur Humidity inférieure à 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrExample":::
 
-Voici un exemple d’utilisation de l’opérateur `NOT`. La requête suivante retourne les jumeaux qui ne remplissent pas la condition selon laquelle la valeur Temperature doit être inférieure à 80.
+Voici un exemple utilisant `NOT`. La requête suivante retourne les jumeaux qui ne remplissent pas la condition selon laquelle la valeur Temperature doit être inférieure à 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NotExample":::
 

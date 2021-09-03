@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: e479a743a54e0cf3d7350fa87c3cc5ad8bf332be
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 37955c748135768701fd3429c2e4182f5d18e70c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562136"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache pour Redis avec Azure Private Link
 
@@ -24,7 +24,7 @@ Un point de terminaison privé Azure est une interface réseau qui vous connecte
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Actuellement, la redondance de zone, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
+> Actuellement, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
 >
 >
 
@@ -212,7 +212,7 @@ Si votre cache est déjà un cache injecté sur un réseau virtuel, les points d
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>Quelles sont les fonctionnalités non prises en charge avec les points de terminaison privés ?
 
-Actuellement, la redondance de zone, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
+Actuellement, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Comment puis-je modifier mon point de terminaison privé pour qu’il soit désactivé ou activé à partir de l’accès au réseau public ?
 
@@ -238,6 +238,10 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache"></a>Comment migrer mon cache injecté sur un réseau virtuel vers un cache Private Link ?
+
+Reportez-vous à notre [Guide de migration](cache-vnet-migration.md) pour connaître les différentes approches de migration de vos caches de réseau virtuel injectés vers des caches Azure Private Link. 
+
 ### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>Comment puis-je avoir plusieurs points de terminaison dans différents réseaux virtuels ?
 
 Pour avoir plusieurs points de terminaison privés dans différents réseaux virtuels, la zone DNS privée doit être configurée manuellement sur les différents réseaux virtuels _avant_ de créer le point de terminaison privé. Pour plus d’informations, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md). 
@@ -256,9 +260,6 @@ Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour
 
 Elle est uniquement liée à votre réseau virtuel. Comme elle ne se trouve pas dans votre réseau virtuel, il n’est pas nécessaire de modifier les règles NSG pour les points de terminaison dépendants.
 
-### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Comment migrer mon cache injecté sur un réseau virtuel vers un cache de point de terminaison privé ?
-
-Supprimez votre cache injecté sur un réseau virtuel et créer une nouvelle instance de cache avec un point de terminaison privé. Pour plus d’informations, consultez [Migrer vers Azure Cache pour Redis](cache-migration-guide.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,13 +2,13 @@
 title: Gérer les points de récupération
 description: Découvrez comment le service Sauvegarde Azure gère les points de récupération pour les machines virtuelles
 ms.topic: conceptual
-ms.date: 11/08/2020
-ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/17/2021
+ms.openlocfilehash: 2dd33b430d5aa117f35f74ff92bb3655a9002803
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94428474"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300666"
 ---
 # <a name="manage-recovery-points"></a>Gérer les points de récupération
 
@@ -121,6 +121,12 @@ Pour comprendre la façon dont l’activité affecte les performances de sauvega
 |Activité des données de sauvegarde    |   A1- 4 To      | B1-1 To ; B2-1 To <br> B3-1 To ; B4-1 To  |   C1-2 To ; C4-2 To      |
 
 Les performances de sauvegarde seront dans l’ordre suivant : VM2 > VM3 > VM1. Cela est dû au fait que les données hautement évolutives sont réparties entre les différents disques. Étant donné que la sauvegarde des disques s’effectue en parallèle, VM2 affiche les meilleures performances.
+
+## <a name="frequently-asked-question"></a>Questions fréquentes (FAQ)
+
+### <a name="how-can-i-find-the-retention-period-of-an-on-demand-backup"></a>Comment connaître la durée de rétention d'une sauvegarde à la demande ?
+
+Le champ **Heure d'expiration du point de récupération (UTC)** figurant dans les tâches de sauvegarde associées aux sauvegardes à la demande affiche la durée de rétention du point de récupération. Pour plus d'informations, consultez [Exécuter une sauvegarde à la demande](backup-azure-manage-vms.md#run-an-on-demand-backup). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

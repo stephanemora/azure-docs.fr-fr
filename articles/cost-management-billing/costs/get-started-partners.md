@@ -3,18 +3,18 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790367"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532884"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -22,7 +22,7 @@ Azure Cost Management est disponible de façon native pour les partenaires direc
 
 Pour les partenaires directs et les fournisseurs indirects, l’administrateur général et les agents d’administration peuvent accéder à Cost Management dans le locataire du partenaire et gérer les coûts aux prix facturés.
 
-Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts de consommation pour les abonnements, où les coûts sont calculés et indiqués aux tarifs au détail. Ils doivent cependant disposer d’un accès Azure RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
+Les revendeurs et les clients peuvent accéder à Cost Management dans le locataire du client et voir les coûts de consommation pour les abonnements de chaque personne, où les coûts sont calculés et indiqués aux tarifs au détail. Ils doivent cependant disposer d’un accès Azure RBAC à l’abonnement dans le locataire du client pour voir les coûts. La stratégie de visibilité des coûts pour le locataire du client doit être activée par le fournisseur.
 
 Les clients peuvent utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP.
 
@@ -167,7 +167,7 @@ Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mê
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analyser les coûts dans la vue d’analyse des coûts
 
-Les partenaires ayant accès aux étendues de facturation du locataire partenaire peuvent explorer et analyser les coûts facturés dans la vue d’analyse des coûts pour l’ensemble des clients, pour un client spécifique ou pour une facture. Dans la vue d’[analyse des coûts](quick-acm-cost-analysis.md), vous pouvez également [enregistrer des vues](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) et exporter des données dans des fichiers [CSV et PNG](quick-acm-cost-analysis.md#download-usage-data).
+Les partenaires ayant accès aux étendues de facturation du locataire partenaire peuvent explorer et analyser les coûts facturés dans la vue d’analyse des coûts pour l’ensemble des clients, pour un client spécifique ou pour une facture. Dans la vue [Analyse des coûts](quick-acm-cost-analysis.md), vous pouvez également [enregistrer des vues](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
 
 Les utilisateurs Azure RBAC disposant d’un accès à l’abonnement dans le locataire client peuvent également analyser les coûts de vente au détail des abonnements dans le locataire client, enregistrer des vues et exporter des données vers des fichiers CSV et PNG.
 
