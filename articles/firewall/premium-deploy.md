@@ -1,26 +1,23 @@
 ---
-title: Déployer et configurer le Pare-feu Azure Premium - Préversion
+title: Déployer et configurer le Pare-feu Azure Premium
 description: Apprenez à déployer et configurer le Pare-feu Azure Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 7984cff6b6cf0f70fc50493fd680d7203e09a81b
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 9358852dd8b16f495d5123b59ea3ae0f4c29b00f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585851"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441145"
 ---
-# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Déployer et configurer le Pare-feu Azure Premium - Préversion
+# <a name="deploy-and-configure-azure-firewall-premium"></a>Déployer et configurer le Pare-feu Azure Premium
 
-> [!IMPORTANT]
-> Pare-feu Azure Premium est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- Le Pare-feu Azure Premium - Préversion est un pare-feu de nouvelle génération avec des fonctionnalités qui sont nécessaires pour les environnements hautement sensibles et réglementés. Microsoft System Center ASP.NET 2.0 2007 offre les fonctionnalités suivantes :
+ Pare-feu Azure Premium est un pare-feu de nouvelle génération dont les capacités sont requises pour les environnements hautement sensibles et réglementés. Microsoft System Center ASP.NET 2.0 2007 offre les fonctionnalités suivantes :
 
 - **Inspection TLS** : déchiffre le trafic sortant, traite les données, puis les chiffre et les transmet à la destination.
 - **IDPS** : un système IDPS (Intrusion Detection and Prevention System) vous permet de surveiller les activités malveillantes, de consigner des informations sur ces activités, de les signaler, voire de les bloquer.
@@ -75,7 +72,7 @@ Pour collecter les journaux du pare-feu, vous devez ajouter des paramètres de d
 
 ### <a name="idps-tests"></a>Tests IDPS
 
-Pour tester le système IDPS, vous devez déployer votre propre serveur web interne avec un certificat de serveur approprié. Pour plus d’informations sur les conditions requises pour les certificats du Pare-feu Azure Premium - Préversion, consultez [Certificats du Pare-feu Azure Premium - Préversion](premium-certificates.md).
+Pour tester le système IDPS, vous devez déployer votre propre serveur web interne avec un certificat de serveur approprié. Pour plus d’informations sur les exigences pour les certificats du Pare-feu Azure Premium, consultez [Certificats du Pare-feu Azure Premium](premium-certificates.md).
 
 Vous pouvez utiliser `curl` pour contrôler différents en-têtes HTTP et simuler le trafic malveillant.
 
@@ -94,7 +91,7 @@ Vous pouvez utiliser `curl` pour contrôler différents en-têtes HTTP et simule
    > L’affichage des données dans les journaux peut prendre un certain temps. Comptez au moins 20 minutes pour que les journaux commencent à afficher les données.
 5. Ajouter une règle de signature pour la signature 2008983 :
 
-   1. Sélectionnez **DemoFirewallPolicy** et sous **Paramètres**, sélectionnez **IDPS (préversion)** .
+   1. Sélectionnez **DemoFirewallPolicy** et sous **Paramètres**, sélectionnez **IDPS**.
    1. Sélectionnez l’onglet **Règles de signature**.
    1. Sous **ID de signature**, dans la zone de texte, entrez *2008983*.
    1. Sous **Mode**, sélectionnez **Refuser**.
@@ -131,7 +128,7 @@ Vous devez voir les mêmes résultats que ceux des tests HTTP.
 
 Pour tester l’inspection TLS avec le filtrage d’URL, procédez comme suit.
 
-1. Modifiez les règles d’application de la stratégie de pare-feu et ajoutez une nouvelle règle appelée `AllowURL` à la collection de règles `AllowWeb`. Configurez l’URL cible `www.nytimes.com/section/world`, l’adresse IP source **\* *_, le type de destination _* URL (préversion)** , sélectionnez **Inspection TLS (préversion)** et les protocoles **http, https**.
+1. Modifiez les règles d’application de la stratégie de pare-feu et ajoutez une nouvelle règle appelée `AllowURL` à la collection de règles `AllowWeb`. Configurez l’URL cible `www.nytimes.com/section/world`, l’adresse IP source **\* *_, le type de destination _* URL**, sélectionnez **Inspection TLS** et les protocoles **http, https**.
 
 3. Une fois le déploiement terminé, ouvrez un navigateur sur WorkerVM et accédez à `https://www.nytimes.com/section/world`, puis vérifiez que la réponse HTML s’affiche comme prévu dans le navigateur.
 4. Dans le portail Azure, vous pouvez afficher l’URL complète dans les journaux de surveillance des règles d’application :
@@ -153,7 +150,7 @@ Nous allons créer une règle d’application pour autoriser l’accès aux site
 1. À partir du portail, ouvrez votre groupe de ressources et sélectionnez **DemoFirewallPolicy**.
 2. Sélectionnez **Règles d’application**, puis **Ajouter une collection de règles**.
 3. Pour **Nom**, entrez *GeneralWeb*, **Priorité** *103*, **Groupe de collection de règles**, sélectionnez **DefaultApplicationRuleCollectionGroup**.
-4. Sous **Règles** pour **Nom**, entrez *AllowSports*, **Source** *\** , **Protocole** *http, https*, sélectionnez **Inspection TLS**, **Type de destination** sélectionnez *Catégories web (préversion)* , **Destination** sélectionnez *Sports*.
+4. Sous **Règles** pour **Nom**, entrez *AllowSports*, **Source** *\** , **Protocole** *http, https*, sélectionnez **Inspection TLS**, **Type de destination** sélectionnez *Catégories web*, **Destination** sélectionnez *Sports*.
 5. Sélectionnez **Ajouter**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Catégorie web Sports":::
@@ -163,4 +160,4 @@ Nous allons créer une règle d’application pour autoriser l’accès aux site
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Pare-feu Azure Premium - Préversion dans le portail Azure](premium-portal.md)
+- [Pare-feu Azure Premium dans le Portail Azure](premium-portal.md)

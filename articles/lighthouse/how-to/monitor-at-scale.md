@@ -1,14 +1,14 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Azure Lighthouse vous permet d’utiliser les journaux Azure Monitor de manière évolutive sur les locataires clients.
-ms.date: 05/10/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 29f78eb677b17193876ec45250e639cb9086cf6b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082304"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563930"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -31,7 +31,7 @@ Nous vous recommandons de créer ces espaces de travail directement dans les loc
 Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Azure](../../azure-monitor/logs/quick-create-workspace.md), d’[Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md) ou d’[Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
-> Même si tous les espaces de travail sont créés dans le locataire client, le fournisseur de ressources Microsoft.Insights doit également être inscrit sur un abonnement dans le locataire gestionnaire. Si votre locataire gestionnaire ne dispose pas d’un abonnement Azure existant, vous pouvez inscrire le fournisseur de ressources manuellement à l’aide des commandes PowerShell suivantes :
+> Si tous les espaces de travail sont créés dans les abonnés clients, les fournisseurs de ressources Microsoft.Insights doivent également être [inscrits](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) sur un abonnement dans l’abonné gestionnaire. Si votre locataire gestionnaire ne dispose pas d’un abonnement Azure existant, vous pouvez inscrire le fournisseur de ressources manuellement à l’aide des commandes PowerShell suivantes :
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
@@ -43,7 +43,6 @@ Vous pouvez créer un espace de travail Log Analytics à l’aide du [portail Az
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## <a name="deploy-policies-that-log-data"></a>Déployer des stratégies qui journalisent les données
 
@@ -56,6 +55,24 @@ Une fois que vous avez déterminé les stratégies à déployer, vous pouvez [le
 ## <a name="analyze-the-gathered-data"></a>Analyser les données collectées
 
 Une fois que vous avez déployé vos stratégies, les données sont journalisées dans les espaces de travail Log Analytics que vous avez créés dans chaque locataire de client. Pour obtenir des insights sur tous les clients managés, vous pouvez utiliser des outils tels que les [classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) afin de collecter et d’analyser des informations provenant de plusieurs sources de données.
+
+## <a name="query-data-across-customer-workspaces"></a>Interroger des données dans des espaces de travail clients
+
+Vous pouvez exécuter des [requêtes de journal](../../azure-monitor/logs/log-query-overview.md) pour récupérer des données entre les espaces de travail Log Analytics dans différents abonnés clients en créant une union qui comprend plusieurs espaces de travail. En incluant la colonne TenantID, vous pouvez voir quels sont les résultats qui appartiennent aux abonnés.
+
+L’exemple de requête suivant crée une union sur la table AzureDiagnostics parmi les espaces de travail de deux abonnés clients distincts. Les résultats affichent les colonnes Catégorie, Groupe de ressources et TenantID.
+
+``` Kusto
+union AzureDiagnostics,
+workspace("WS-customer-tenant-1").AzureDiagnostics,
+workspace("WS-customer-tenant-2").AzureDiagnostics
+| project Category, ResourceGroup, TenantId
+```
+
+Pour obtenir plus d’exemples de requêtes sur plusieurs espaces de travail de Log Analytics, consultez [Interroger des ressources à l’aide d’Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
+
+> [!IMPORTANT]
+> Si vous utilisez un compte d’automatisation utilisé pour accéder aux données d’un espace de travail Log Analytics, celui-ci doit être créé dans le même abonné que l’espace de travail.
 
 ## <a name="view-alerts-across-customers"></a>Afficher les alertes entre les clients
 
@@ -78,5 +95,5 @@ alertsmanagementresources
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Essayez le classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sur GitHub.
-- Explorez cet [exemple de classeur créé par MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), qui assure le suivi des rapports de conformité des correctifs en [interrogeant les journaux Update Management](../../automation/update-management/query-logs.md) dans plusieurs espaces de travail Log Analytics. 
+- Explorez cet [exemple de classeur créé par MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), qui assure le suivi des rapports de conformité des correctifs en [interrogeant les journaux Update Management](../../automation/update-management/query-logs.md) dans plusieurs espaces de travail Log Analytics.
 - Découvrez d’autres [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).

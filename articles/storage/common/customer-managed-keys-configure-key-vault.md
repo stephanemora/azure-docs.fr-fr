@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 77a01a270f47ddacb71962188e7fedd0a0a9f6d0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7377f0e296f571640aba35639972e66a60c6dd0f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790434"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444646"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault
 
-Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour un contrôle supplémentaire des clés de chiffrement, vous pouvez gérer vos propres clés. Les clés gérées par le client doivent être stockées dans Azure Key Vault ou dans un module de sécurité matériel (HSM) géré par Azure Key Vault (préversion).
+Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour un contrôle supplémentaire des clés de chiffrement, vous pouvez gérer vos propres clés. Les clés gérées par le client doivent être stockées dans Azure Key Vault ou dans un modèle de sécurité matérielle géré par Key Vault (HSM).
 
-Cet article explique comment configurer le chiffrement avec des clés gérées par le client stockées dans un coffre de clés à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour savoir comment configurer le chiffrement avec des clés gérées par le client stockées dans un HSM géré, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans un HSM géré par Azure Key Vault (préversion)](customer-managed-keys-configure-key-vault-hsm.md).
+Cet article explique comment configurer le chiffrement avec des clés gérées par le client stockées dans un coffre de clés à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour savoir comment configurer le chiffrement avec des clés gérées par le client stockées dans un HSM managé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans un HSM managé par Azure Key Vault](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!NOTE]
 > Azure Key Vault et le HSM géré par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
@@ -389,5 +389,5 @@ az storage account update
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Clés gérées par le client pour le chiffrement du service Stockage Azure](customer-managed-keys-overview.md)
-- [Configurer le chiffrement avec les clés gérées par le client stockées dans le HSM géré par Azure Key Vault (préversion)](customer-managed-keys-configure-key-vault-hsm.md)
+- [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)
+- [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/10/2021
-ms.openlocfilehash: e3e468b774503b42fd46e66492f09982e8d1d9a6
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/30/2021
+ms.openlocfilehash: e23eaead0d9c8dd162d73176330f620a9ee8e737
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982265"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532491"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Réplication logique et décodage logique dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -21,7 +21,7 @@ ms.locfileid: "111982265"
 Azure Database pour PostgreSQL - Serveur flexible prend en charge les méthodologies d’extraction et de réplication logiques des données suivantes :
 1. **Réplication logique**
    1. Utilisation de la [réplication logique native](https://www.postgresql.org/docs/12/logical-replication.html) de PostgreSQL pour répliquer des objets de données. La réplication logique permet un contrôle affiné de la réplication des données, notamment la réplication des données au niveau de la table.
-   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
+   2. Utilisation de l’extension [pglogical](https://github.com/2ndQuadrant/pglogical) qui fournit une réplication logique en continu et des capacités supplémentaires telles que la copie du schéma initial de la base de données, la prise en charge de TRUNCATE, la possibilité de répliquer le langage de définition de données (DDL), etc. 
 2. **Décodage logique** implémenté par le [décodage](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) du contenu du journal WAL (write-ahead log). 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparaison de la réplication logique et du décodage logique
@@ -41,18 +41,22 @@ Décodage logique
 * extrait des modifications dans toutes les tables d’une base de données ; 
 * ne peut pas envoyer directement des données entre des instances PostgreSQL.
 
+>[!NOTE]
+> À ce stade, le serveur flexible ne prend pas en charge les réplicas de lecture inter-régions. Selon le type de charge de travail, vous pouvez choisir d’utiliser la fonctionnalité de réplication logique pour l’utilisation de la récupération d’urgence entre les régions.
+
 ## <a name="pre-requisites-for-logical-replication-and-logical-decoding"></a>Conditions préalables pour la réplication logique et le décodage logique
 
 1. Accédez à la page Paramètres du serveur sur le portail.
 2. Définissez le paramètre du serveur `wal_level` sur `logical`.
-<!---
-3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
-3. Enregistrez les modifications et redémarrez le serveur pour appliquer la modification `wal_level`.
-4. Vérifiez que votre instance PostgreSQL autorise le trafic réseau à partir de votre ressource de connexion.
-5. Accordez les autorisations de réplication de l’utilisateur administrateur.
+3. Si vous souhaitez utiliser l’extension pglogical, recherchez le paramètre `shared_preload_libaries` et sélectionnez `pglogical` dans la liste déroulante.
+4. Changez la valeur de paramètre `max_worker_processes` et remplacez la par au moins 16. Sinon, vous risquez de rencontrer des problèmes tels que `WARNING: out of background worker slots`.
+5. Enregistrez les modifications et redémarrez le serveur pour appliquer la modification `wal_level`.
+6. Vérifiez que votre instance PostgreSQL autorise le trafic réseau à partir de votre ressource de connexion.
+7. Accordez les autorisations de réplication de l’utilisateur administrateur.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
+8. Assurez-vous que le rôle que vous utilisez dispose de [privilèges](https://www.postgresql.org/docs/current/sql-grant.html) sur le schéma que vous répliquez. Sinon, vous risquez de rencontrer des erreurs telles que `Permission denied for schema`. 
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Utilisation de la réplication logique et du décodage logique
 
@@ -99,52 +103,51 @@ Voici quelques exemples de code que vous pouvez utiliser pour tester la réplica
 
 Consultez la documentation PostgreSQL pour en savoir plus sur la [réplication logique](https://www.postgresql.org/docs/current/logical-replication.html).
 
-<!---
-### pglogical extension
+### <a name="pglogical-extension"></a>Extension pglogical
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
+Voici un exemple de configuration de pglogical au niveau du serveur de base de données du fournisseur et de l’abonné. Pour plus d’informations, reportez-vous à la documentation de l’extension pglogical. Assurez-vous également que vous avez effectué les tâches préalables ci-dessus.
 
-1. Install pglogical extension in the database in both the provider and the subscriber database servers.
+1. Installez l’extension pglogical sur les serveurs de bases de données du fournisseur et de l’abonné.
     ```SQL
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. At the **provider** (source/publisher) database server, create the provider node.
+2. Sur le serveur de base de données du **fournisseur** (source/éditeur), créez le nœud du fournisseur.
    ```SQL
    select pglogical.create_node( node_name := 'provider1', 
    dsn := ' host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
-3. Create a replication set.
+3. Créez un jeu de réplication.
    ```SQL
    select pglogical.create_replication_set('myreplicationset');
    ```
-4. Add all tables in the database to the replication set.
+4. Ajoutez toutes les tables de la base de données au jeu de réplication.
    ```SQL
    SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
    ```
 
-   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   Vous pouvez aussi ajouter les tables d’un schéma particulier (par exemple, testUser) à un jeu de réplication par défaut.
    ```SQL
    SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
    ```
 
-5. At the **subscriber** database server, create a subscriber node.
+5. Sur le serveur de base de données de l’**abonné**, créez un nœud d’abonné.
    ```SQL
    select pglogical.create_node( node_name := 'subscriber1', 
    dsn := ' host=mySubscriberServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPasword' );
    ```
-6. Create a subscription to start the synchronization and the replication process.
+6. Créez un abonnement pour démarrer le processus de synchronisation et de réplication.
     ```SQL
    select pglogical.create_subscription (
    subscription_name := 'subscription1',
    replication_sets := array['myreplicationset'],
    provider_dsn := 'host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
    ```
-7. You can then verify the subscription status.
+7. Vous pouvez ensuite vérifier l’état de l’abonnement.
    ```SQL
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
--->
+
 ### <a name="logical-decoding"></a>Décodage logique
 Le décodage logique peut être utilisé via le protocole de diffusion en continu ou une interface SQL. 
 
@@ -227,7 +230,6 @@ La colonne « active » de l’affichage pg_replication_slots indique si un co
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
-
 [Définissez les alertes](howto-alert-on-metrics.md) sur le **nombre maximal d’ID de transactions utilisés** et le **stockage utilisé** des métriques de serveur flexible pour vous avertir lorsque les valeurs augmentent au-delà des seuils normaux. 
 
 ## <a name="limitations"></a>Limites

@@ -11,18 +11,18 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: b3f313000bf66162cd4abffa18fd2b7bfbfb0693
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 06d86c330e8d8d83688bc1120ebfbf42cadf178a
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458566"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866444"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
 Dans cet article, vous allez apprendre à créer et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/intro). Les **pipelines ML** vous permettent de créer un workflow qui associe plusieurs phases ML. Publiez ensuite ce pipeline pour y accéder ou le partager par la suite avec d’autres utilisateurs. Suivez les pipelines ML pour voir comment votre modèle s’exécute dans la réalité et pour détecter une dérive de données. Les pipelines ML sont idéaux pour les scénarios de scoring par lots car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres.
 
-Cet article n’est pas un didacticiel. Pour obtenir de l’aide sur la création de votre premier pipeline, consultez [Didacticiel : Créer un pipeline Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md) ou [Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python](how-to-use-automlstep-in-pipelines.md). 
+Cet article n’est pas un tutoriel. Pour obtenir de l’aide sur la création de votre premier pipeline, consultez [Didacticiel : Créer un pipeline Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md) ou [Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python](how-to-use-automlstep-in-pipelines.md). 
 
 Vous pouvez utiliser un autre type de pipeline appelé [pipeline Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&tabs=yaml) pour l’automatisation CI/CD des tâches de ML, mais ce type de pipeline n’est pas stocké dans votre espace de travail. [Comparez ces différents pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
@@ -30,7 +30,7 @@ Les pipelines ML que vous créez sont visibles par les membres de votre [espace 
 
 Les pipelines ML s’exécutent sur des cibles de calcul (consultez [Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?](./concept-compute-target.md)). Les pipelines peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](../storage/index.yml) pris en charge.
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -111,7 +111,7 @@ output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_
 ## <a name="set-up-a-compute-target"></a>Configurer une cible de calcul
 
 
-Dans Azure Machine Learning, le __calcul__ (ou la __cible de calcul__) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning.   Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](concept-compute-target.md#train) pour obtenir la liste complète des cibles de calcul et [Créer des cibles de calcul](how-to-create-attach-compute-studio.md) pour savoir comment les créer et les joindre à votre espace de travail.   Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
+Dans Azure Machine Learning, le __calcul__ des termes (ou la __cible de calcul__) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning.   Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](concept-compute-target.md#train) pour obtenir la liste complète des cibles de calcul et [Créer des cibles de calcul](how-to-create-attach-compute-studio.md) pour savoir comment les créer et les joindre à votre espace de travail.   Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
 
 > [!IMPORTANT]
 > L’exécution d’opérations de gestion sur les cibles de calcul n’est pas prise en charge au sein des travaux distants. Les pipelines de Machine Learning étant envoyés sous forme de travail distant, n’effectuez pas d’opérations de gestion sur les cibles de calcul au sein du pipeline.
@@ -170,7 +170,7 @@ else:
     # Add some packages relied on by data prep step
     aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
         conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pip_packages=['azureml-sdk', 'azureml-dataset-runtime[fuse,pandas]'], 
         pin_sdk_version=False)
 ```
 
@@ -284,11 +284,11 @@ Pour plus d’informations, notamment sur les autres façons de transmettre et d
 
 ## <a name="caching--reuse"></a>Mise en cache et réutilisation  
 
-Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et de la réutilisation. Par exemple, vous pouvez choisir :
+Pour optimiser et personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et de la réutilisation. Par exemple, vous pouvez choisir :
 + De **désactiver la réutilisation par défaut de la sortie d’exécution de l’étape** en définissant `allow_reuse=False` pendant la [définition de l’étape](/python/api/azureml-pipeline-steps/). La réutilisation est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les exécutions inutiles et ainsi d’offrir une grande souplesse. Toutefois, vous pouvez refuser la réutilisation.
 + De **forcer la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
-Par défaut, `allow_reuse` pour les étapes est activé et le `source_directory` spécifié dans la définition de l’étape est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et paramètres) et que rien d’autre n’a changé dans le ` source_directory`, la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles pour l’étape suivante à la place.
+Par défaut, `allow_reuse` pour les étapes est activé et le `source_directory` spécifié dans la définition de l’étape est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et les paramètres) et que rien d’autre n’a changé dans le ` source_directory`, la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles pour l’étape suivante à la place.
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -298,6 +298,9 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
+
+> [!Note]
+> Si les noms des entrées de données sont modifiés, l’étape est réexécutée, _même si_ les données soulignées n’ont pas changées. Vous devez explicitement définir le champ `name` des données d’entrée (`data.as_input(name=...)`). Si vous ne définissez pas explicitement cette valeur, le champ `name` est défini sur un guid aléatoire et les résultats de l’étape ne sont pas réutilisés.
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
@@ -321,7 +324,7 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 * Télécharge l’instantané du projet sur la cible de calcul à partir du stockage d’objets Blob associé à l’espace de travail.
 * Génère une image docker correspondant à chaque étape du pipeline.
 * Télécharge l’image Docker de chaque étape sur la cible de calcul à partir du registre de conteneurs.
-* Configure l’accès aux objets `Dataset` et `OutputFileDatasetConfig`. Pour le mode d’accès `as_mount()`, FUSE est utilisé pour fournir un accès virtuel. Si le montage n’est pas pris en charge ou si l’utilisateur spécifié y accède en tant que `as_upload()`, alors les données sont copiées sur la cible de calcul.
+* Configure l’accès aux objets `Dataset` et `OutputFileDatasetConfig`. Pour le mode d’accès `as_mount()`, FUSE est utilisé pour fournir un accès virtuel. Si le montage n’est pas pris en charge ou si l’utilisateur spécifié y accède en tant que `as_upload()`, les données sont alors copiées sur la cible de calcul.
 
 * Exécute l’étape dans la cible de calcul spécifiée dans la définition de l’étape. 
 * Crée les artefacts tels que les journaux d’activité, stdout et stderr,les métriques mesures et la sortie spécifiée par l’étape. Ces artefacts sont ensuite téléchargés et conservés dans le magasin de données par défaut de l’utilisateur.
@@ -332,7 +335,7 @@ Pour plus d’informations, consultez la référence [Experiment class](/python/
 
 ## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Utiliser les paramètres de pipeline pour les arguments qui changent au temps de l’inférence
 
-Parfois, les arguments des étapes individuelles au sein d’un pipeline se rapportent à la période de développement et d’apprentissage : par exemples les taux d’apprentissage et d’inertie ou les chemins d’accès aux fichiers de données ou de configuration. Toutefois, quand un modèle est déployé, vous souhaitez transmettre dynamiquement les arguments sur lesquels vous inférez (c’est-à-dire la requête que vous avez générée pour que le modèle réponde). Vous devez définir ces types de paramètres de pipeline d’arguments. Pour effectuer cette opération dans Python, utilisez la classe `azureml.pipeline.core.PipelineParameter`, comme indiqué dans l’extrait de code suivant :
+Parfois, les arguments des étapes individuelles au sein d’un pipeline se rapportent à la période de développement et d’apprentissage : par exemples les taux d’apprentissage et d’inertie ou les chemins d’accès aux fichiers de données ou de configuration. Toutefois, quand un modèle est déployé, vous souhaitez transmettre dynamiquement les arguments sur lesquels vous inférez (c’est-à-dire la requête que vous avez générée pour que le modèle réponde !). Vous devez définir ces types de paramètres de pipeline d’arguments. Pour effectuer cette opération dans Python, utilisez la classe `azureml.pipeline.core.PipelineParameter`, comme indiqué dans l’extrait de code suivant :
 
 ```python
 from azureml.pipeline.core import PipelineParameter
@@ -354,7 +357,7 @@ aml_run_config.environment.name = 'MyEnvironment'
 aml_run_config.environment.version = '1.0'
 ```
 
-Toutefois, si vous choisissez d’utiliser des objets `PipelineParameter` pour définir dynamiquement des variables au moment de l’exécution pour vos étapes de pipeline, vous ne pouvez pas utiliser cette technique pour faire référence à un(e) `Environment`existant(e). Au lieu de cela, si vous souhaitez utiliser des objets `PipelineParameter`, vous devez définir le champ `environment` du/de la `RunConfiguration` sur un objet `Environment`. Il vous incombe de vous assurer que ce/cette `Environment` a ses dépendances sur les packages Python externes correctement définis.
+Toutefois, si vous choisissez d’utiliser des objets `PipelineParameter` pour définir dynamiquement des variables au moment de l’exécution pour vos étapes de pipeline, vous ne pouvez pas utiliser cette technique pour faire référence à un(e) `Environment` existant(e). Au lieu de cela, si vous souhaitez utiliser des objets `PipelineParameter`, vous devez définir le champ `environment` du/de la `RunConfiguration` sur un objet `Environment`. Il vous incombe de vous assurer que ce/cette `Environment` a ses dépendances sur les packages Python externes correctement définis.
 
 
 ## <a name="view-results-of-a-pipeline"></a>Afficher les résultats d’un pipeline

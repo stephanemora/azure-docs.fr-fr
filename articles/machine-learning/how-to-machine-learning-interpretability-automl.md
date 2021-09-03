@@ -10,12 +10,12 @@ ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 343d6dd27167001ecf98435596837eaab5f50da5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884801"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524736"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interprétabilité : explications des modèles en machine learning automatisé (version préliminaire)
 
@@ -41,15 +41,7 @@ Dans cet article, vous apprendrez comment :
 Récupérez l’explication à partir de `best_run`, qui inclut des explications pour les caractéristiques traitées et brutes.
 
 > [!NOTE]
-> L’interprétation, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision de ML automatique, qui recommandent les algorithmes suivants comme meilleur modèle : 
-> * TCNForecaster
-> * AutoArima
-> * ExponentialSmoothing
-> * Prophet
-> * Moyenne 
-> * Naive
-> * Moyenne saisonnière 
-> * Naive saisonnière
+> L’interprétation, l’explication du modèle, n’est pas disponible pour le modèle TCNForecaster recommandé par la ML les expériences de prévision.
 
 ### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Télécharger l’importance des caractéristiques traitées à partir de la meilleure exécution
 
@@ -134,7 +126,7 @@ Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples d
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
-Pour les modèles formés avec Machine Learning automatisé, vous pouvez obtenir le meilleur modèle en utilisant la méthode `get_output()` et des explications de calcul localement.  Vous pouvez visualiser les résultats des explications avec `ExplanationDashboard` du package `interpret-community`.
+Pour les modèles formés avec Machine Learning automatisé, vous pouvez obtenir le meilleur modèle en utilisant la méthode `get_output()` et des explications de calcul localement.  Vous pouvez visualiser les résultats des explications avec `ExplanationDashboard` du package `raiwidgets`.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -157,7 +149,7 @@ pip install interpret-community[visualization]
 
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, datasetX=automl_explainer_setup_obj.X_test_transform)
 
  
@@ -166,7 +158,7 @@ raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
                                      raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
                                      eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(raw_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
 ```
 

@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 696d8c1a775f67271a7c7b4fa81789e7b0775bb1
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: a7b43f52fee66579beb0c91f0b76d313cd4bcdaa
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110654259"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112522206"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB offre trois moyens de contrôler l’accès à vos données.
 | Type de contrôle d’accès | Caractéristiques |
 |---|---|
 | [Clés primaires](#primary-keys) | Secret partagé autorisant toutes les opérations de gestion ou de données. Il offre des variantes en lecture-écriture et en lecture seule. |
-| [Contrôle d’accès en fonction du rôle](#rbac) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
+| [Contrôle d’accès basé sur les rôles](#rbac) | Modèle d’autorisation précis basé sur les rôles, utilisant les identités Azure Active Directory (AAD) pour l’authentification. |
 | [Jetons de ressource](#resource-tokens)| Modèle d’autorisation précis basé sur les autorisations et les utilisateurs natifs d’Azure Cosmos DB. |
 
 ## <a name="primary-keys"></a><a id="primary-keys"></a> Clés principales
@@ -128,7 +128,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### <a name="permissions"></a>Autorisations<a id="permissions"></a>
 
-Une ressource d’autorisation est associée à un utilisateur et attribuée au conteneur ainsi qu’au niveau de la clé de partition. Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations. Une ressource d’autorisation donne accès à un jeton de sécurité dont l’utilisateur a besoin lorsqu’il tente d’accéder à un conteneur ou à des données spécifiques dans une clé de partition spécifique. Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
+Une ressource d’autorisation est associée à un utilisateur et affectée à une ressource spécifique. Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations. Une ressource d’autorisation donne accès à un jeton de sécurité dont l’utilisateur a besoin lorsqu’il tente d’accéder à un conteneur ou à des données spécifiques dans une clé de partition spécifique. Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
 - Tout : l’utilisateur dispose de toutes les autorisations sur la ressource.
 - Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
@@ -153,7 +153,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

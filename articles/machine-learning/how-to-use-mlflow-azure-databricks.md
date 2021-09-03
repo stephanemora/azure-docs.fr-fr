@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: f541985b7e8210084ae11a9f48e18f735e6e4335
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 62fd9820d1ec743d7424679753828b0cb7837fbc
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479868"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031046"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Assurer le suivi des expériences de Machine Learning Azure Databricks avec MLflow et Azure Machine Learning
 
@@ -24,9 +24,9 @@ Cet article explique comment activer l'URI de suivi et l'API de journalisation d
 
 [MLflow](https://www.mlflow.org) est une bibliothèque open source permettant de gérer le cycle de vie de vos expériences de Machine Learning. MLFlow Tracking est un composant de MLflow qui consigne et assure le suivi de vos métriques d'exécution d'apprentissage et de vos artefacts de modèle. Découvrez-en plus sur [Azure Databricks et MLflow](/azure/databricks/applications/mlflow/). 
 
-Consultez [Assurer le suivi des exécutions d'expériences avec MLflow et Azure Machine Learning](how-to-use-mlflow.md) pour bénéficier d'intégrations supplémentaires de fonctionnalités MLflow et Azure Machine Learning.
+Consultez [MLflow et Azure Machine Learning](concept-mlflow.md) pour bénéficier d’intégrations supplémentaires de fonctionnalités MLflow et Azure Machine Learning.
 
-Si vous avez un projet MLflow à entraîner avec Azure Machine Learning, consultez [Entraîner des modèles ML avec des projets MLflow et Azure Machine Learning (préversion)](how-to-train-mlflow-projects.md).
+Si vous devez effectuer l’apprentissage d’un projet MLflow avec Azure Machine Learning, consultez [Effectuer l'apprentissage des modèles ML avec des projets MLflow et Azure Machine Learning](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > Les informations contenues dans ce document sont principalement destinées aux scientifiques des données et aux développeurs qui veulent superviser le processus d’entraînement du modèle. Si vous êtes un administrateur intéressé par la supervision de l’utilisation de ressources et d’événements d’Azure Machine Learning, comme des quotas, des cycles de formation accomplis ou des déploiements de modèles effectués, voir [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).

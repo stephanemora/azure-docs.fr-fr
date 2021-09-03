@@ -9,12 +9,12 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: b77702ea78d9b44da7843d08b2f32adeecfb9383
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 23623d6ddd337c42b56d0c3c26aa7c3a720369d4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440607"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524851"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -24,7 +24,7 @@ Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une
 
 Pour créer une image managée, vous devez supprimer les informations personnelles du compte. Les étapes suivantes vous permettent de déprovisionner une machine virtuelle existante, de la désallouer et de créer une image. Vous pouvez utiliser cette image pour créer des machines virtuelles dans n’importe quel groupe de ressources de votre abonnement.
 
-Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux spécialisé à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée](upload-vhd.md).  
+Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé](upload-vhd.md).  
 
 Pour générer votre image personnalisée, vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure**. À cette fin, vous n’avez pas besoin d’apprendre à utiliser des outils ou de configurer des pipelines de build. Vous fournissez une configuration d’image et le Générateur crée l’image. Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](../image-builder-overview.md).
 

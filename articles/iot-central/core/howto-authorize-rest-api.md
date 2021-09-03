@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 73ef942b42858a3219502fe09c3b9281be81f964
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 540137495e06bb05fbf5e96e3b930e0c8cda4b10
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776379"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461227"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>Comment authentifier et autoriser les appels d’API REST IoT Central
 
@@ -24,9 +24,11 @@ Cet article décrit les types de jetons que vous pouvez utiliser dans l’en-tê
 
 ## <a name="token-types"></a>Types de jetons
 
+Vous pouvez utiliser le jeton du porteur de l’utilisateur lorsque vous effectuez des appels d’automatisation/test/API vous-même. Vous pouvez utiliser le jeton du porteur du SPN lors de l’automatisation/création de scripts pour votre environnement de développement (par ex. devops). Le jeton d’API peut être utilisé dans les deux cas, mais il risque d’arriver à expiration et à fuire, donc nous vous recommandons d’utiliser le porteur chaque fois que cela est possible. Cela a-t-il un sens ? 
+
 Pour accéder à une application IoT Central à l’aide de l’API REST, vous pouvez utiliser :
 
-- _Un jeton du porteur Azure Active Directory_. Un jeton du porteur est associé à un compte d’utilisateur Azure Active Directory. Le jeton accorde à l’appelant les mêmes autorisations que celles dont l’utilisateur dispose dans l’application IoT Central.
+- _Un jeton du porteur Azure Active Directory_. Un jeton du porteur est associé à un compte d’utilisateur Azure Active Directory ou un principal de service. Le jeton accorde à l’appelant les mêmes autorisations que celles dont l’utilisateur ou le principal de service dispose dans l’application IoT Central.
 - Un jeton d’API IoT Central. Un jeton d’API est associé à un rôle dans votre application IoT Central.
 
 Pour plus d’informations sur les utilisateurs et les rôles dans IoT Central, consultez [Gérer les utilisateurs et rôles dans votre application IOT Central](howto-manage-users-roles.md).
@@ -56,6 +58,8 @@ La sortie JSON de la commande précédente ressemble à l’exemple suivant :
 ```
 
 Le jeton du porteur est valide pendant environ une heure. Après quoi, vous devez en créer un nouveau.
+
+Pour obtenir un jeton du porteur pour un principal du service, consultez [Authentification du principal du service](/rest/api/iotcentral/authentication#service-principal-authentication).
 
 ## <a name="get-an-api-token"></a>Obtenir un jeton d’API
 

@@ -3,12 +3,12 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34b0cac710833e1d1b29060aa37425d2e57ae828
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92171522"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303728"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 
@@ -26,17 +26,15 @@ Pour simplifier la création de paramètres de diagnostic à grande échelle (av
 
 * L’étendue du groupe d’administration n’est pas prise en charge pour le moment.
 
-* La stratégie intégrée n’est actuellement pas disponible dans les clouds nationaux.
-
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Attribution de la stratégie intégrée à une étendue
 
 Pour attribuer la stratégie aux coffres dans l’étendue requise, suivez les étapes ci-dessous :
 
-1. Connectez-vous au Portail Azure et accédez au tableau de bord **Stratégie**.
-2. Sélectionnez **Définitions** dans le menu de gauche pour obtenir la liste de toutes les stratégies intégrées dans les ressources Azure.
-3. Filtrez la liste sur **Catégorie=Sauvegarde**. Recherchez la stratégie nommée **[Preview]: Déployer les paramètres de diagnostic du coffre Recovery Services sur l’espace de travail Log Analytics pour les catégories propres à la ressource**.
+1. Connectez-vous au Portail Azure et accédez au tableau de bord **Centre de sauvegarde**.
+2. Sélectionnez **Stratégies Azure pour la sauvegarde** dans le menu de gauche pour obtenir la liste de toutes les stratégies intégrées dans les ressources Azure.
+3. Recherchez la stratégie nommée **Déployer les paramètres de diagnostic du coffre Recovery Services sur l’espace de travail Log Analytics pour les catégories propres à la ressource**.
 
     ![Volet Définition de stratégie](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03ed6d53908b1daf8e027ee0143cc06d803a24cd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2efd5fdc49f5ae6724b9d1dc3b45d54329f17a61
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257821"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223947"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Intégrer Trusona à Azure Active Directory B2C
 
@@ -148,15 +148,17 @@ Vous devez maintenant voir Trusona listé comme **nouveau fournisseur d’identi
 
 ### <a name="test-the-policy"></a>Tester la stratégie
 
-1. Sélectionnez votre nouvelle stratégie.
+1. Sélectionnez la stratégie créée.
 
-2. Sélectionnez **Exécuter le flux utilisateur**.
+1. Sélectionnez **Exécuter le flux d’utilisateurs**, puis sélectionnez les paramètres :
 
-3. Dans le formulaire, entrez l’URL de réponse.
+   1. **Application** : sélectionnez l’application enregistrée.
+ 
+   1. **URL de réponse** : sélectionnez l’URL de redirection.
+   
+1. Sélectionnez **Exécuter le flux utilisateur**. Vous êtes normalement redirigé vers la passerelle OIDC Trusona. Sur la passerelle Trusona, analysez le code QR sécurisé affiché avec l’application Trusona ou avec une application personnalisée basée sur le SDK Mobile Trusona.
 
-4. Sélectionnez **Exécuter le flux utilisateur**. Vous êtes normalement redirigé vers la passerelle OIDC Trusona. Sur la passerelle Trusona, analysez le code QR sécurisé affiché avec l’application Trusona ou avec une application personnalisée basée sur le SDK Mobile Trusona.
-
-5. Une fois l’analyse du code QR sécurisé terminée, vous êtes redirigé vers l’URL de réponse que vous avez définie à l’étape 3.
+1. Une fois l’analyse du code QR sécurisé terminée, vous êtes redirigé vers l’URL de réponse que vous avez définie.
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

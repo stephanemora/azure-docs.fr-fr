@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.openlocfilehash: b6483ef0e034f695da1e03475ca2a4b716773684
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104654371"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532739"
 ---
 # <a name="about-expressroute-fastpath"></a>À propos d’ExpressRoute FastPath
 
@@ -44,11 +45,19 @@ Bien que FastPath prenne en charge la plupart des configurations, il ne prend pa
 
 * Routage défini par l’utilisateur sur le sous-réseau de la passerelle : Ce routage défini par l’utilisateur (UDR) n’a aucun impact sur le trafic que FastPath envoie directement de votre réseau local aux machines virtuelles dans le réseau virtuel Azure. 
 
-* VNet Peering : si vous avez d’autres réseaux virtuels appairés avec celui qui est connecté à ExpressRoute, le trafic réseau de votre réseau local vers les autres réseaux virtuels (c’est-à-dire les réseaux virtuels ou VNets dits « en rayon ») sera toujours envoyé vers la passerelle réseau virtuelle. La solution de contournement consiste à connecter tous les réseaux virtuels directement au circuit ExpressRoute.
-
 * Équilibreur de charge de base : si vous déployez un équilibreur de charge interne de base dans votre réseau virtuel ou si le service Azure PaaS que vous déployez dans votre réseau virtuel utilise un équilibreur de charge interne de base, le trafic réseau de votre réseau local vers les adresses IP virtuelles hébergées sur l’équilibreur de charge de base sera envoyé à la passerelle de réseau virtuel. La solution consiste à mettre à niveau l’équilibreur de charge de base vers un [équilibreur de charge standard](../load-balancer/load-balancer-overview.md).
 
 * Private Link : si vous vous connectez à un [point de terminaison privé](../private-link/private-link-overview.md) dans votre réseau virtuel à partir de votre réseau local, la connexion passe par la passerelle de réseau virtuel.
+
+## <a name="public-preview"></a>Préversion publique
+
+Les fonctionnalités suivantes de FastPath sont disponibles en préversion publique :
+
+**VNet peering** : FastPath envoie le trafic directement vers les machines virtuelles déployées dans un réseau virtuel homologué à celui connecté à ExpressRoute, en ignorant la passerelle de réseau virtuel ExpressRoute.
+
+Consultez [Comment s’inscrire dans les fonctionnalités de ExpressRoute FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
+
+Disponible dans toutes les régions.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

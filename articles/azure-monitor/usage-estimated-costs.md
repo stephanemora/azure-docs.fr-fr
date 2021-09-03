@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lagayhar
 ms.reviewer: Dale.Koetke
-ms.openlocfilehash: c4aded73334e38539e1c671831fe812a9525698c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 540bed61d26b2387399230324db4373172a233a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531940"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor
 
@@ -25,7 +25,7 @@ ms.locfileid: "102048673"
 
 Le modèle de facturation de base d’Azure Monitor est un tarif adapté au cloud et basé sur la consommation (« paiement à l’utilisation »). Vous ne payez que ce que vous utilisez. Les détails de tarification sont disponibles pour les [alertes, mesures, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) et [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-En plus du modèle Paiement à l’utilisation pour les données de journal, Log Analytics possède des niveaux de réservation de capacité qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur la tarification de la réservation de capacité.
+Outre le modèle de paiement à l’utilisation pour les données de journal, Azure Monitor Log Analytics a des niveaux d’engagement. Ceux-ci vous permettent d’économiser jusqu’à 30 % par rapport au tarif du paiement à l’utilisation. Les niveaux d’engagement commencent à 100 Go/jour seulement. Toute utilisation au-dessus du niveau d’engagement sera facturée au même prix par Go que le niveau d’engagement. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur le tarif des niveaux d’engagement.
 
 Certains clients auront accès aux [niveaux tarifaires hérités de Log Analytics](logs/manage-cost-storage.md#legacy-pricing-tiers) et au [niveau tarifaire d’entreprise hérité d’Application Insights](app/pricing.md#legacy-enterprise-per-node-pricing-tier). 
 
@@ -66,7 +66,7 @@ Cela génère une vue telle que :
 
 De là, vous pouvez explorer ce récapitulatif des coûts accumulés pour obtenir des détails plus précis dans la vue « Coût par ressource ». Dans les niveaux tarifaires actuels, les données des journaux Azure sont facturées sur le même ensemble de compteurs, qu’elles proviennent de Log Analytics ou d’Application Insights. Pour séparer les coûts de Log Analytics et d’Application Insights, vous pouvez ajouter un filtre sur **Type de ressource**. Pour afficher tous les coûts d’Application Insights, filtrez le type de ressource avec « Microsoft.insights/components », et pour les coûts de Log Analytics, filtrez le type de ressource avec « Microsoft.operationalinsights/workspaces ». 
 
-Vous trouverez plus de détails sur votre utilisation en [téléchargeant votre utilisation à partir du portail Azure](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure par jour. Dans cette feuille de calcul Excel, vous pouvez trouver l’utilisation de vos ressources Application Insights en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Application Insights » et « Log Analytics », puis en ajoutant le filtre « contient microsoft.insights/components » sur la colonne « ID d’instance ».  La plus grande part de l’utilisation d’Application Insights est signalée sur des compteurs avec la catégorie du compteur de Log Analytics, car il existe un seul backend de journaux pour tous les composants Azure Monitor.  Seules les ressources Application Insights sur les niveaux tarifaires hérités et les tests web à plusieurs étapes sont signalées avec une catégorie de compteur d’Application Insights.  L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ».  Plus de détails sont disponibles pour vous aider à [comprendre votre facture Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md). 
+Vous trouverez plus de détails sur votre utilisation en [téléchargeant votre utilisation à partir du portail Azure](../cost-management-billing/understand/download-azure-daily-usage.md). Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure par jour. Dans cette feuille de calcul Excel, vous pouvez trouver l’utilisation de vos ressources Application Insights en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Application Insights » et « Log Analytics », puis en ajoutant le filtre « contient microsoft.insights/components » sur la colonne « ID d’instance ».  La plus grande part de l’utilisation d’Application Insights est signalée sur des compteurs avec la catégorie du compteur de Log Analytics, car il existe un seul backend de journaux pour tous les composants Azure Monitor.  Seules les ressources Application Insights sur les niveaux tarifaires hérités et les tests web à plusieurs étapes sont signalées avec une catégorie de compteur d’Application Insights.  L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ».  Plus de détails sont disponibles pour vous aider à [comprendre votre facture Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
 > L’utilisation de **Cost Management** dans le hub **Azure Cost Management + Facturation** est l’approche à privilégier pour comprendre les coûts d’analyse.  Les expériences **Utilisation et estimation des coûts** pour [Log Analytics](logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs) et [Application Insights](app/pricing.md#understand-your-usage-and-estimate-costs) fournissent des informations plus approfondies pour chacune de ces parties d’Azure Monitor.

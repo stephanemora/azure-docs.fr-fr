@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aedc6e92b02cf81003ecf4b40a5096bf80c7448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91445480"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441043"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Réécriture d’URL (chemin de transfert personnalisé)
 Azure Front Door prend en charge la réécriture d'URL en configurant un **chemin de transfert personnalisé** facultatif à utiliser lors de la construction d'une requête à transférer au back-end. Par défaut, si aucun chemin de transfert personnalisé n'est fourni, Front Door copie le chemin de l'URL entrante dans l'URL utilisée dans la requête transférée. L’en-tête d’hôte utilisé dans la requête transférée est tel que configuré pour le backend sélectionné. Pour découvrir ce qu’il fait et comment vous pouvez le configurer, consultez [En-tête d’hôte backend](front-door-backend-pool.md#hostheader).
@@ -48,6 +48,10 @@ Par exemple, la deuxième ligne indique que pour la requête entrante `www.conto
 | www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+
+> [!NOTE]
+> Azure Front Door prend uniquement en charge la réécriture d’URL à partir d’un chemin statique vers un autre chemin statique. La conservation du chemin d’accès sans correspondance est prise en charge avec la référence SKU Standard/Premium Azure Front Door Consultez [conserver le chemin d'accès sans correspondance](standard-premium/concept-rule-set-url-redirect-and-rewrite.md#preserve-unmatched-path) pour obtenir plus de détails.
+> 
 
 ## <a name="optional-settings"></a>Paramètres facultatifs
 Vous pouvez également spécifier certains paramètres facultatifs supplémentaires pour tout paramètre de règle de routage donné :

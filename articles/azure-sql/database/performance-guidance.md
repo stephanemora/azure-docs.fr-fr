@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mathoma
+ms.date: 07/26/2021
+ms.openlocfilehash: 6446470baf321fa46eab4a68a13cc6e09fdd2e59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490599"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562852"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Paramétrer les applications et les bases de données dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -264,6 +264,12 @@ Certaines applications sont gourmandes en écriture. Il est parfois possible de 
 ### <a name="application-tier-caching"></a>Mise en cache de la couche Application
 
 Certaines applications de base de données contiennent des charges de travail à lecture intensive. Les couches de mise en cache peuvent contribuer à réduire la charge sur la base de données et éventuellement la taille de calcul requise pour la prise en charge d’une base de données à l’aide d’Azure SQL Database et d’Azure SQL Managed Instance. Avec [Azure Cache pour Redis](https://azure.microsoft.com/services/cache/), si vous possédez une charge de travail à lecture intensive, vous pouvez lire les données une fois (ou peut-être une fois par machine de la couche Application, selon sa configuration) et stocker ces données en dehors de votre base de données. Cela permet de réduire la charge de la base de données (UC et E/S de lecture). Toutefois, cela a un impact sur la cohérence transactionnelle, puisque les données lues à partir du cache peuvent ne pas être synchronisées avec les données de la base de données. Si un certain niveau d’incohérence est acceptable dans de nombreuses applications, cela ne se vérifie pas pour l’ensemble des charges de travail. Assurez-vous de comprendre pleinement les exigences d’une application avant d’utiliser une stratégie de mise en cache de couche Application.
+
+## <a name="get-configuration-and-design-tips"></a>Obtenir des conseils de configuration et de conception
+
+Si vous utilisez Azure SQL Database, vous pouvez exécuter un [script](https://aka.ms/sqldbtips) T-SQL open source pour analyser votre base de données à la demande et fournir des conseils pour améliorer le niveau de performance et l’intégrité de la base de données. Certains conseils suggèrent des modifications de configuration et opérationnelles basées sur les meilleures pratiques, tandis que d’autres conseils recommandent des modifications de conception adaptées à votre charge de travail, telles que l’activation des fonctionnalités avancées du moteur de base de données.
+
+Pour en savoir plus sur le script et bien démarrer, visitez la page [wiki](https://aka.ms/sqldbtipswiki).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

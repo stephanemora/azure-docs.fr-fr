@@ -1,6 +1,6 @@
 ---
 title: Mise à niveau du système d’exploitation pour SAP HANA sur Azure (grandes instances) | Microsoft Docs
-description: Effectuer la mise à niveau du système d’exploitation pour SAP HANA sur Azure (grandes instances)
+description: Apprenez à effectuer la mise à niveau du système d’exploitation pour SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: Ajayan1008
@@ -11,26 +11,24 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/04/2019
+ms.date: 06/24/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7be86ca3895d7ed98d676a5c9fc19c873da6d5e
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 3a7f066a350eae18b9c847d206310cfc3ab8bd57
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577221"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913380"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
-Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
+Cet article décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA (HLI), également appelées infrastructure complète (BareMetal).
 
 >[!NOTE]
->La mise à niveau du système d’exploitation relève de la responsabilité du client. Le support des opérations Microsoft peut vous indiquer les éléments clés à surveiller pendant la mise à niveau. Consultez également le fournisseur de votre système d’exploitation avant de planifier une mise à niveau.
+>La mise à niveau du système d’exploitation est sous votre responsabilité. Le support des opérations Microsoft peut vous guider dans les domaines clés de la mise à niveau, mais consultez également votre fournisseur de système d’exploitation lorsque vous planifiez une mise à niveau.
 
-Pendant le provisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
-Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.
-
-Avant d’apporter des modifications majeures au système d’exploitation (par exemple, une mise à niveau de SP1 vers SP2), vous devez contacter l’équipe des opérations de Microsoft en ouvrant un ticket de support.
+Pendant l’approvisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
+Vous devez mettre à jour le système d’exploitation. Par exemple, vous devez effectuer la mise à jour corrective, le réglage, la mise à niveau, etc., sur le HLI. Avant d’apporter des modifications majeures au système d’exploitation, par exemple, une mise à niveau de SP1 vers SP2, contactez l’équipe des opérations de Microsoft en ouvrant un ticket de support. Ils peuvent ensuite vous consulter. Nous vous recommandons d’ouvrir ce ticket au moins une semaine avant la mise à niveau. 
 
 Veuillez inclure dans votre ticket :
 
@@ -39,22 +37,20 @@ Veuillez inclure dans votre ticket :
 * Le niveau de correctif que vous envisagez d'appliquer.
 * La date à laquelle vous envisagez cette modification. 
 
-Nous vous conseillons d’ouvrir ce ticket au moins une semaine avant la mise à niveau recommandée, ce qui permettra à l’équipe des opérations d’en savoir plus sur la version souhaitée du microprogramme.
-
 Pour consulter la matrice de prise en charge des différentes versions SAP HANA avec les différentes versions Linux, reportez-vous à [Remarque SAP n° 2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 ## <a name="known-issues"></a>Problèmes connus
 
-Voici quelques problèmes affectant couramment la mise à niveau :
-- Dans la référence SKU de classe de type II, le logiciel SFS est supprimé après la mise à niveau du système d’exploitation. Vous devez réinstaller le logiciel SFS compatible après la mise à niveau du système d’exploitation.
-- Une version antérieure des pilotes de cartes Ethernet (ENIC et FNIC) est restaurée. Vous devez réinstaller la version compatible des pilotes après la mise à niveau.
+Il existe quelques problèmes connus avec la mise à niveau :
+- Dans la référence SKU de classe II du type de référence SKU, le logiciel SFS est supprimé pendant la mise à niveau du système d’exploitation. Vous devrez réinstaller le logiciel SFS compatible une fois la mise à niveau du système d’exploitation terminée.
+- Des pilotes de cartes Ethernet (ENIC et FNIC) sont restaurés vers une version plus ancienne. Vous devez réinstaller la version compatible des pilotes après la mise à niveau.
 
 ## <a name="sap-hana-large-instance-type-i-recommended-configuration"></a>Configuration recommandée pour les grandes instances SAP HANA (type I)
 
-Au fil du temps, la configuration du système d’exploitation peut s’écarter des paramètres recommandés en raison des mises à jour correctives, des mises à niveau du système et des modifications apportées par les clients. De plus, Microsoft identifie les mises à jour nécessaires pour que les systèmes existants soient configurés de manière optimale pour offrir les meilleurs niveaux de performance et de résilience possibles. Les instructions suivantes décrivent les suggestions relatives au niveau de performance réseau, à la stabilité du système et au niveau de performance optimal de HANA.
+La configuration du système d’exploitation peut dériver des paramètres recommandés au fil du temps. Cette dérive peut être due à des mises à jour correctives, des mises à niveau du système et d’autres modifications que vous pouvez apporter. Microsoft identifie les mises à jour nécessaires pour garantir que les grandes instances HANA sont configurés de manière optimale pour offrir les meilleurs niveaux de performance et de résilience possibles. Les instructions suivantes décrivent les suggestions relatives au niveau de performance réseau, à la stabilité du système et au niveau de performance optimal de HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Versions compatibles des pilotes eNIC/fNIC
-  Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la tableau de compatibilité suivant. Les serveurs sont fournis aux clients avec des versions compatibles. Dans certains cas,la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Vérifiez que les pilotes s’exécutant après les opérations de mise à jour corrective du système d’exploitation et/ou du noyau correspondent aux bonnes versions.
+  Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la table de compatibilité suivante. Les serveurs sont fournis aux clients avec des versions compatibles. Toutefois, les pilotes peuvent être restaurés vers les versions par défaut lors de la mise à jour corrective du système d’exploitation/noyau. Vérifiez que la version du pilote appropriée exécute des opérations de mise à jour corrective post système d’exploitation/noyau.
        
       
   |  Fournisseur du système d’exploitation    |  Version du package du système d’exploitation     |  Version du microprogramme  |  Pilote eNIC |  Pilote fNIC | 
@@ -83,12 +79,12 @@ rpm -qa | grep enic/fnic
 ```
 rpm -e <old-rpm-package>
 ```
-#### <a name="install-the-recommended-enicfnic-driver-packages"></a>Installer les packages de pilotes eNIC/fNIC recommandés
+#### <a name="install-recommended-enicfnic-driver-packages"></a>Installer les packages de pilotes eNIC/fNIC recommandés
 ```
 rpm -ivh <enic/fnic.rpm> 
 ```
 
-#### <a name="commands-to-confirm-the-installation"></a>Commandes pour confirmer l’installation
+#### <a name="commands-to-confirm-installation"></a>Commandes pour confirmer l’installation
 ```
 modinfo enic
 modinfo fnic
@@ -105,34 +101,36 @@ modinfo fnic
 
 ### <a name="suse-hlis-grub-update-failure"></a>Échec de la mise à jour de GRUB pour les HLI SuSE
 Les grandes instances SAP HANA sur Azure (type I) peuvent être dans un état qui les empêchent de démarrer après une mise à niveau. La procédure ci-dessous corrige ce problème.
+
 #### <a name="execution-steps"></a>Étapes d’exécution
 
+-   Exécutez la commande `multipath -ll`.
+-   Récupérez l’ID du numéro d’unité logique (LUN) ou utilisez la commande : `fdisk -l | grep mapper`
+-   Mettez à jour le fichier `/etc/default/grub_installdevice` avec la ligne `/dev/mapper/<LUN ID>`. Exemple :/dev/mapper/3600a09803830372f483f495242534a56
 
-*   Exécutez la commande `multipath -ll`.
-*   Obtenez l’ID du numéro d’unité logique (« LUN ID ») dont la taille avoisine 50G ou utilisez la commande `fdisk -l | grep mapper`
-*   Mettez à jour le fichier `/etc/default/grub_installdevice` avec la ligne `/dev/mapper/<LUN ID>`. Exemple :/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >L’ID du numéro d’unité logique varie d’un serveur à l’autre.
 
 
-### <a name="disable-edac"></a>Désactiver EDAC 
-   Le module EDAC (Error Detection And Correction) vise à détecter et corriger les erreurs de mémoire. Or, le matériel sous-jacent pour les grandes instances SAP HANA sur Azure (type I) assure déjà la même fonction. Le fait que la même fonctionnalité soit activée au niveau du matériel et du système d’exploitation peut occasionner des conflits et entraîner l’arrêt occasionnel et inopiné du serveur. Par conséquent, il est recommandé de désactiver le module du système d’exploitation.
+### <a name="disable-error-detection-and-correction"></a>Désactiver la détection et la correction des erreurs 
+   Les modules EDAC (détection et correction des erreurs) aident à détecter et à corriger les erreurs de mémoire. Toutefois, le matériel de type I HLI sous-jacent détecte et corrige déjà les erreurs de mémoire. Le fait que la même fonctionnalité soit activée au niveau du matériel et du système d’exploitation peut occasionner des conflits et entraîner des arrêts non planifiés du serveur. Nous vous recommandons de désactiver les modules EDAC à partir du système d’exploitation.
 
 #### <a name="execution-steps"></a>Étapes d’exécution
 
-* Vérifiez si le module EDAC est activé. Si une sortie est retournée par la commande ci-dessous, cela signifie que le module est activé. 
+- Vérifiez si les modules EDAC sont activés. Si une sortie est retournée à partir de la commande suivante, les modules sont activés.
+
 ```
 lsmod | grep -i edac 
 ```
-* Désactivez les modules en ajoutant les lignes suivantes au fichier `/etc/modprobe.d/blacklist.conf`
+- Désactivez les modules en ajoutant les lignes suivantes au fichier `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
 ```
-Un redémarrage est nécessaire pour que les modifications soient prises en compte. Exécutez la commande `lsmod` et vérifiez que le module n’est pas présent dans la sortie.
+Un redémarrage est nécessaire pour que les modifications prennent effet. Après le redémarrage, réexécutez la commande `lsmod` et vérifiez que les modules ne sont pas activés.
 
 ### <a name="kernel-parameters"></a>Paramètres de noyau
-   Vérifiez que les paramètres `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` et `intel_idle.max_cstate` sont correctement définis.
+Vérifiez que les paramètres pour `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` et `intel_idle.max_cstate` sont correctement appliqués.
 
 * intel_idle.max_cstate=1
 * processor.max_cstate=1
@@ -142,17 +140,20 @@ Un redémarrage est nécessaire pour que les modifications soient prises en comp
 
 #### <a name="execution-steps"></a>Étapes d’exécution
 
-* Ajoutez ces paramètres à la ligne `GRB_CMDLINE_LINUX` du fichier `/etc/default/grub`
+- Ajoutez ces paramètres à la ligne `GRB_CMDLINE_LINUX` du fichier `/etc/default/grub` :
+
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```
-* Créez un nouveau fichier grub.
+- Créez un nouveau fichier grub.
 ```
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
-* Relancez le système.
-
+- Redémarrer votre système.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour la classe de références SKU de type I de sauvegarde du système d’exploitation, consultez [Sauvegarde et restauration](hana-overview-high-availability-disaster-recovery.md).
-- Consultez [Sauvegarde du système d’exploitation](./large-instance-os-backup.md) pour HLI.
+
+Découvrez comment configurer le serveur SMT pour SUSE Linux.
+
+> [!div class="nextstepaction"]
+> [Configuration de serveur SMT pour SUSE Linux](hana-setup-smt.md)

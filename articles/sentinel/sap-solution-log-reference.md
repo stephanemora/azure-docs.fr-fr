@@ -6,14 +6,14 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 42cd84387d1b5b67a09afcc072c897d6980b3d49
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532485"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Informations de référence sur les journaux de la solution SAP Azure Sentinel (préversion publique)
 
@@ -38,7 +38,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : enregistre la progression de l’exécution d’une application afin que vous puissiez la reconstruire ultérieurement si nécessaire.
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard de l’interface XBP.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard de l’interface XBP. Ce journal est généré par client.
 
 
 ### <a name="abapapplog_cl-log-schema"></a>Schéma du journal ABAPAppLog_CL
@@ -90,9 +90,9 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
     - D’autres entités dans le système SAP, comme les données utilisateur, les rôles, les adresses.
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard. Ce journal est généré par client.
 
-### <a name="abapauditlog_cl-log-schema"></a>Schéma du journal ABAPAuditLog_CL
+### <a name="abapchangedocslog_cl-log-schema"></a>Schéma de journal ABAPChangeDocsLog_CL
 
 
 | Champ                    | Description                 |
@@ -134,7 +134,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : inclut les journaux du système de modification et de transport (CTS), y compris les objets d’annuaire et les personnalisations où des modifications ont été apportées.
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard et les services standard.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard et les services standard. Ce journal est généré avec des données de tous les clients.
 
 > [!NOTE]
 > En plus de la journalisation des applications, des documents de modification et de l’enregistrement des tables, toutes les modifications apportées à votre système de production à l’aide du système modification et de transport sont documentées dans les journaux CTS et TMS.
@@ -170,7 +170,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : fournit la journalisation pour les tables qui sont critiques ou sensibles aux audits.
 
-    Disponible en utilisant RFC avec un service personnalisé.
+    Disponible en utilisant RFC avec un service personnalisé. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="abaptabledatalog_cl-log-schema"></a>Schéma du journal ABAPTableDataLog_CL
 
@@ -196,13 +196,13 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 ## <a name="abap-gateway-log"></a>Journal de passerelle ABAP
 
-- **Nom dans Azure Sentinel** : `GW_CL`
+- **Nom dans Azure Sentinel** : `ABAPOS_GW_CL`
 
 - **Documentation SAP associée** : [Portail d’aide SAP](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
-- **Objectif du journal** : supervise les activités de la passerelle. Disponible par le service web de contrôle SAP.
+- **Objectif du journal** : supervise les activités de la passerelle. Disponible par le service web de contrôle SAP. Ce journal est généré avec des données de tous les clients.
 
-### <a name="gw_cl-log-schema"></a>Schéma du journal GW_CL
+### <a name="abapos_gw_cl-log-schema"></a>Schéma du journal ABAPOS_GW_CL
 
 | Champ        | Description      |
 | ------------ | ---------------- |
@@ -216,15 +216,15 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 ## <a name="abap-icm-log"></a>Journal ABAP ICM
 
-- **Nom dans Azure Sentinel** : `ICM_CL`
+- **Nom dans Azure Sentinel** : `ABAPOS_ICM_CL`
 
 - **Documentation SAP associée** : [Portail d’aide SAP](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
 - **Objectif du journal** : enregistre les demandes entrantes et sortantes et compile les statistiques des requêtes http.
 
-    Disponible par le service web de contrôle SAP.
+    Disponible par le service web de contrôle SAP. Ce journal est généré avec des données de tous les clients.
 
-### <a name="icm_cl-log-schema"></a>Schéma du journal ICM_CL
+### <a name="abapos_icm_cl-log-schema"></a>Schéma du journal ABAPOS_ICM_CL
 
 | Champ        | Description      |
 | ------------ | ---------------- |
@@ -244,7 +244,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : combine tous les journaux des travaux de traitement en arrière-plan (SM37).
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard des interfaces XBP.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les services standard des interfaces XBP. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="abapjoblog_cl-log-schema"></a>Schéma du journal ABAPJobLog_CL
 
@@ -292,7 +292,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
     - Informations qui fournissent un niveau de données plus élevé, comme les tentatives de connexion réussies et infructueuses
     - Informations qui permettent de reconstruire une série d’événements, comme les démarrages de transaction réussis ou ayant échoué
 
-    Disponible à l’aide des interfaces RFC XAL/SAL. SAL est disponible à partir de la version Basis 7.50.
+    Disponible à l’aide des interfaces RFC XAL/SAL. SAL est disponible à partir de la version Basis 7.50. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="abapauditlog_cl-log-schema"></a>Schéma du journal ABAPAuditLog_CL
 
@@ -338,7 +338,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : sert de journal principal pour l’impression SAP avec l’historique des demandes de spool. (SP01).
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="abapspoollog_cl-log-schema"></a>Schéma du journal ABAPSpoolLog_CL
 
@@ -397,7 +397,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : sert de journal principal pour l’impression SAP avec l’historique des demandes de sortie de spool. (SP02).
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="abapspooloutputlog_cl-log-schema"></a>Schéma du journal ABAPSpoolOutputLog_CL
 
@@ -442,15 +442,15 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 ## <a name="abap-syslog"></a>ABAP SysLog
 
-- **Nom dans Azure Sentinel** : `SysLog_CL`
+- **Nom dans Azure Sentinel** : `ABAPOS_Syslog_CL`
 
 - **Documentation SAP associée** : [Portail d’aide SAP](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
 - **Objectif du journal** : enregistre l’ensemble des erreurs système, des avertissements, des verrous utilisateur ABAP SAP NetWeaver AS en raison des échecs de connexion des utilisateurs connus et de traitement des messages.
 
-    Disponible par le service web de contrôle SAP.
+    Disponible par le service web de contrôle SAP. Ce journal est généré avec des données de tous les clients.
 
-### <a name="syslog_cl-log-schema"></a>Schéma du journal SysLog_CL
+### <a name="abapos_syslog_cl-log-schema"></a>Schéma du journal ABAPOS_Syslog_CL
 
 
 | Champ            | Description            |
@@ -479,7 +479,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
     Par exemple, les processus métier non mappés peuvent être des procédures de publication ou d’approbation simples, ou des processus métier plus complexes, comme la création de documents de base, puis la coordination des services associés.
 
-    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard et les services standard.
+    Disponible en utilisant RFC avec un service personnalisé basé sur les tables standard et les services standard. Ce journal est généré par client.
 
 ### <a name="abapworkflowlog_cl-log-schema"></a>Schéma du journal ABAPWorkflowLog_CL
 
@@ -526,15 +526,15 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 ## <a name="abap-workprocess-log"></a>Journal ABAP WorkProcess
 
-- **Nom dans Azure Sentinel** : `WP_CL`
+- **Nom dans Azure Sentinel** : `ABAPOS_WP_CL`
 
 - **Documentation SAP associée** : [Portail d’aide SAP](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
 - **Objectif du journal** : combine tous les journaux des processus de travail. (valeur par défaut : `dev_*`).
 
-    Disponible par le service web de contrôle SAP.
+    Disponible par le service web de contrôle SAP. Ce journal est généré avec des données de tous les clients.
 
-### <a name="wp_cl-log-schema"></a>Schéma du journal WP_CL
+### <a name="abapos_wp_cl-log-schema"></a>Schéma du journal ABAPOS_WP_CL
 
 
 | Champ        | Description         |
@@ -557,7 +557,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : enregistre les actions ou les tentatives d’actions des utilisateurs dans la base de données SAP HANA. Par exemple, vous permet d’enregistrer et de superviser l’accès en lecture aux données sensibles.
 
-    Disponible par l’agent Sentinel Linux pour Syslog.
+    Disponible par l’agent Sentinel Linux pour Syslog. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="syslog-log-schema"></a>Schéma du journal Syslog
 
@@ -581,7 +581,7 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 - **Objectif du journal** : combine tous les journaux basés sur des fichiers Java, y compris le journal d’audit de sécurité et les journaux Système (processus de cluster et de serveur), Performances et Passerelle. Inclut également les journaux Traces Développeur et Trace par défaut.
 
-    Disponible par le service web de contrôle SAP.
+    Disponible par le service web de contrôle SAP. Ce journal est généré avec des données de tous les clients.
 
 ### <a name="javafileslogscl-log-schema"></a>Schéma du journal JavaFilesLogsCL
 
@@ -618,7 +618,8 @@ Cet article s’adresse aux utilisateurs SAP avancés.
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Tutoriel : Déployer la solution Azure Sentinel pour SAP](sap-deploy-solution.md)
+- [Déployer la solution Azure Sentinel pour SAP](sap-deploy-solution.md)
 - [Exigences de SAP détaillées pour la solution SAP Azure Sentinel](sap-solution-detailed-requirements.md)
-- [Déployer le connecteur de données SAP Azure Sentinel localement](sap-solution-deploy-alternate.md)
+- [Options de configuration d’experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Solution SAP Azure Sentinel : contenu de sécurité intégré](sap-solution-security-content.md)
+- [Résolution des problèmes liés à votre déploiement de solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)

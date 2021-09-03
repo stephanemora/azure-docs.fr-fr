@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 47a6649c154ed3fed5ba444a58bae93ac0398bbc
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867251"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676831"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Résolution des problèmes : déconnexion intermittente du VPN de site à site Azure
 
@@ -56,7 +56,7 @@ La passerelle de réseau virtuel basée sur une stratégie est limitée à 200 
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Étape 6 : Vérifier l’adresse d’interface externe de l’appareil VPN local
 
-Si l’adresse IP accessible sur Internet de l’appareil VPN est incluse dans la définition de la **passerelle de réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
+Si l’adresse IP accessible sur Internet de l’appareil VPN est incluse dans la définition **Espace de l’adresse de la passerelle de réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Étape 7 : Vérifier l’activation de la fonctionnalité PFS (Perfect Forward Secrecy) sur l’appareil VPN local
 

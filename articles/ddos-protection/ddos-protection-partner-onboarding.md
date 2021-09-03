@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 625f77a6d9dbeaf612df884434ab39b943587791
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7f8031f74845e957468ac8f47b7d4661c0f7ce23
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103196"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108078"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partenariat avec Azure DDoS Protection Standard
 Cet article décrit les opportunités de partenariat offertes par Azure DDoS Protection Standard. Il est conçu pour aider les chefs de produits et les personnes en charge du développement commercial à comprendre les parcours d’investissement et à fournir des insights sur les propositions de valeur de partenariat.
@@ -68,7 +68,7 @@ La configuration de l’intégration avec Azure DDoS Protection Standard par les
    > [!NOTE]
    > Un seul plan de protection DDoS doit être créé pour un locataire donné. 
 2. Déployez un service avec un point de terminaison public dans vos abonnements (partenaires), par exemple équilibreur de charge, pare-feu et pare-feu d’applications web. 
-3. Activez Azure DDoS Protection Standard sur le réseau virtuel du service qui a des points de terminaison publics à l’aide du plan de protection DDoS créé à la première étape. Pour obtenir des instructions pas à pas, consultez [Activer un plan de protection DDoS Standard](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network).
+3. Activez Azure DDoS Protection Standard sur le réseau virtuel du service qui a des points de terminaison publics à l’aide du plan de protection DDoS créé à la première étape. Pour obtenir des instructions pas à pas, consultez [Activer un plan de protection DDoS Standard](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > Une fois qu’Azure DDoS Protection Standard est activé sur un réseau virtuel, toutes les adresses IP publiques de ce réseau virtuel sont protégées automatiquement. L’origine de ces adresses IP publiques peut être dans Azure (abonnement client) ou en dehors d’Azure. 
 4. Si vous le souhaitez, vous pouvez intégrer l’analytique des attaques et la télémétrie Azure DDoS Protection Standard dans votre tableau de bord client propre à l’application. Pour plus d’informations sur l’utilisation de la télémétrie, reportez-vous à [Consulter et configurer la télémétrie de la protection DDoS](telemetry.md). 

@@ -1,26 +1,26 @@
 ---
-title: Planifier et gérer les coûts du stockage Blob Azure
-description: Découvrez comment planifier et gérer les coûts du stockage Blob Azure avec l’analyse du coût dans le portail Azure.
+title: Planifier et gérer les coûts du Stockage Blob Azure
+description: Découvrez comment planifier et gérer les coûts du Stockage Blob Azure avec l’analyse du coût dans le Portail Azure.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0497f35b1b0d1df05c1e64f092ff45ebb9678390
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98601312"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594568"
 ---
-# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du stockage Blob Azure
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du Stockage Blob Azure
 
-Cet article explique comment planifier et gérer les coûts du stockage Blob Azure. Tout d’abord, utilisez la calculatrice de prix Azure pour estimer les coûts. Après avoir créé votre compte de stockage, optimisez le compte afin de payer uniquement ce dont vous avez besoin. Utilisez les fonctionnalités de gestion des coûts pour définir des budgets et surveiller les coûts. Vous pouvez également passer en revue les coûts prévus et surveiller les tendances des dépenses pour identifier les domaines où vous pourriez agir.
+Cet article explique comment planifier et gérer les coûts du Stockage Blob Azure. Tout d’abord, utilisez la calculatrice de prix Azure pour estimer les coûts. Après avoir créé votre compte de stockage, optimisez le compte afin de payer uniquement ce dont vous avez besoin. Utilisez les fonctionnalités de gestion des coûts pour définir des budgets et surveiller les coûts. Vous pouvez également passer en revue les coûts prévus et surveiller les tendances des dépenses pour identifier les domaines où vous pourriez agir.
 
-Gardez à l’esprit que les coûts du stockage Blob ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment estimer et gérer les coûts du stockage Blob. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers. Quand vous êtes familiarisé avec la gestion des coûts du stockage Blob, vous pouvez appliquer des méthodes similaires pour gérer les coûts de tous les services Azure utilisés dans votre abonnement.
+Gardez à l’esprit que les coûts du Stockage Blob ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment estimer et gérer les coûts du Stockage Blob. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers. Quand vous êtes familiarisé avec la gestion des coûts du Stockage Blob, vous pouvez appliquer des méthodes similaires pour gérer les coûts de tous les services Azure utilisés dans votre abonnement.
 
 ## <a name="estimate-costs"></a>Estimer les coûts
 
@@ -40,8 +40,61 @@ Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/cal
 
 4. Modifiez les options restantes pour voir leur impact sur votre estimation.
 
-   > [!NOTE]
-   > Vous pouvez payer les frais Stockage Blob Azure avec votre crédit Paiement anticipé Azure (anciennement appelé « engagement financier »). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de Place de marché Azure.
+## <a name="understand-the-full-billing-model-for-azure-blob-storage"></a>Comprendre le modèle de facturation complet pour le Stockage Blob Azure
+
+Le Stockage Blob Azure s’exécute sur l’infrastructure Azure, qui génère des frais lorsque vous déployez de nouvelles ressources. Il est important de comprendre qu’il peut y avoir d’autres coûts d’infrastructure supplémentaires susceptibles de s’accumuler.
+
+### <a name="how-youre-charged-for-azure-blob-storage"></a>Modèle de facturation du Stockage Blob Azure
+
+lorsque vous créez ou utilisez des ressources de Stockage Blob, vous êtes facturé pour les compteurs suivants : 
+
+| Compteur | Unité | 
+|---|---|
+| Stockage des données | par Go / par mois|
+| Operations | par transaction |
+| Transfert de données | Par Go |
+| Métadonnées | par Go / par mois<sup>1 |
+| Étiquettes d’index d’objet blob | Par étiquette<sup>2  |
+| Modifier le flux | Par modification consignée<sup>2 |
+| Étendues de chiffrement | Par mois<sup>2 |
+| Accélération des requêtes | Par Go numérisé et par Go retourné |
+
+<sup>1</sup> s’applique uniquement aux comptes qui ont un espace de noms hiérarchique.<br />
+<sup>2</sup> s’applique uniquement si vous activez la fonctionnalité.<br />
+
+Le trafic de données peut également entraîner des coûts de mise en réseau. Consultez [Tarification de la bande passante](https://azure.microsoft.com/pricing/details/data-transfers/).
+
+À la fin de votre cycle de facturation, les frais associés à chaque compteur sont additionnés. Votre facture contient une section pour tous les coûts de Stockage Blob Azure. Chaque compteur est représenté par un élément de ligne distinct.
+
+Le stockage de données et les métadonnées sont facturés par Go sur une base mensuelle. Pour les données et métadonnées stockées pendant moins d’un mois, vous pouvez estimer l’impact sur votre facture mensuelle en calculant le coût de chaque Go par jour. Vous pouvez utiliser une approche similaire pour estimer le coût des étendues de chiffrement en cours d’utilisation pendant moins d’un mois. Le nombre de jours d’un mois donné varie. Par conséquent, pour obtenir la meilleure approximation de vos coûts pour un mois donné, veillez à diviser le coût mensuel par le nombre de jours qui se produisent dans le mois en question. 
+
+### <a name="finding-the-unit-price-for-each-meter"></a>Recherche du prix unitaire pour chaque compteur
+
+Pour trouver des prix unitaires, ouvrez la page de tarification appropriée. Si vous avez activé la fonctionnalité d’espace de noms hiérarchique sur votre compte, consultez la page [Tarification Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/). Si vous n’avez pas activé cette fonctionnalité, consultez la page [Tarification de l’objet blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+Sur la page de tarification, appliquez les filtres de redondance, de région et de devise appropriés. Les prix de chaque compteur s’affichent dans une table. Les prix varient en fonction des autres paramètres de votre compte, tels que les options de redondance des données, le niveau d’accès et le niveau de performance. 
+
+### <a name="flat-namespace-accounts-and-transaction-pricing"></a>Comptes d’espace de noms plat et tarification des transactions
+
+Les clients peuvent effectuer une requête en utilisant soit le point de terminaison de Stockage Blob soit le point de terminaison de Data Lake Storage de votre compte. Pour plus d’informations sur les points de terminaison du compte de stockage, consultez [Points de terminaison du compte de stockage](storage-account-overview.md#storage-account-endpoints).
+
+Les prix des transactions qui s’affichent dans la page [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) s’appliquent uniquement aux requêtes qui utilisent le point de terminaison du Stockage Blob (par exemple : `https://<storage-account>.blob.core.windows.net`). Les prix indiqués ne s’appliquent pas aux requêtes qui utilisent le point de terminaison Data Lake Storage Gen2 (par exemple : `https://<storage-account>.dfs.core.windows.net`). Pour obtenir le prix de transaction de ces requêtes, ouvrez la page [Tarification Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) et sélectionnez l’option **Espace de noms plat**. 
+
+> [!div class="mx-imgBorder"]
+> ![option espace de noms plat](media/storage-plan-manage-costs/select-flat-namespace.png)
+
+Les requêtes adressées au point de terminaison Data Lake Storage Gen2 peuvent provenir de l’une des sources suivantes :
+
+- Les charges de travail qui utilisent le pilote Azure Blob File System ou [pilote ABFS](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+
+- REST appelle cette utilisation l’[API REST Azure Data Lake Store](/rest/api/storageservices/data-lake-storage-gen2)
+
+- Les applications qui utilisent des API Data Lake Storage Gen2 à partir d’une bibliothèque cliente de stockage Azure.  
+
+
+### <a name="using-azure-prepayment-with-azure-blob-storage"></a>Utilisation de prépaiement Azure avec le Stockage Blob Azure
+
+Vous pouvez payer les frais de Stockage Blob Azure avec votre crédit de prépaiement Azure (anciennement appelé « engagement financier »). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de Place de marché Azure.
 
 ## <a name="optimize-costs"></a>Optimiser les coûts
 
@@ -59,7 +112,7 @@ Cette section décrit chaque option plus en détail.
 
 Vous pouvez réaliser des économies sur les coûts de stockage pour les données blob grâce à une capacité de réserve Stockage Azure. La capacité de réserve Stockage Azure offre une remise sur la capacité pour les objets blob de blocs et les données Azure Data Lake Storage Gen2 dans les comptes de stockage standard lorsque vous vous engagez à une réservation pour un an ou trois ans. Une réservation offre une quantité fixe de capacité de stockage pour la durée de la réservation. La capacité de réserve Stockage Azure peut réduire de manière significative les coûts de capacité pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. 
 
-Pour en savoir plus, consultez [Optimiser les coûts de stockage d’objets blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md).
+Pour en savoir plus, consultez [Optimiser les coûts de Stockage Blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md).
 
 #### <a name="organize-data-into-access-tiers"></a>Organiser les données en niveaux d’accès
 
@@ -71,7 +124,7 @@ Pour en savoir plus, consultez [Stockage Blob Azure : niveaux d’accès chaud,
 
 Utilisez les stratégies de gestion du cycle de vie pour déplacer périodiquement les données entre les niveaux afin d’effectuer le plus d’économies possible. Ces stratégies peuvent déplacer des données vers à l’aide des règles que vous indiquez. Par exemple, vous pouvez créer une règle qui déplace les objets blob vers le niveau Archive si cet objet blob n’a pas été modifié dans les 90 jours. En créant des stratégies qui ajustent le niveau d’accès de vos données, vous pouvez concevoir les options de stockage les moins onéreuses pour vos besoins.
 
-Pour plus d’informations, consultez [Gérer le cycle de vie du service Stockage Blob Azure](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
+Pour plus d’informations, consultez [Gérer le cycle de vie du Stockage Blob Azure](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Créer des budgets
 
@@ -106,10 +159,17 @@ Dans l’exemple précédent, vous avez pu voir le coût actuel du service. Les 
 
 Vous pouvez également [exporter vos données de coûts](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer des analyses supplémentaires des données concernant les coûts. Par exemple, une équipe Finance peut analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
 
+## <a name="faq"></a>Forum aux questions
+
+**Si j’utilise le stockage Azure pendant quelques jours seulement par mois, est-ce que le prorata est appliqué ?**
+
+La capacité de stockage est facturée en unités de la quantité quotidienne moyenne de données stockées, exprimée en gigaoctets (Go) sur une période d’un mois. Par exemple, si vous avez utilisé 10 Go de stockage en continue au cours de la première moitié du mois et rien lors de la seconde moitié, vous êtes facturé pour votre utilisation moyenne de 5 Go de stockage.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez plus en détail comment fonctionnent les tarifs avec Stockage Azure. Consultez [Vue d’ensemble de la tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
-- [Optimisez les coûts pour Stockage Blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md).
+- [Optimisez les coûts de Stockage Blob avec une capacité réservée](../blobs/storage-blob-reserved-capacity.md).
 - Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Apprenez-en davantage sur la gestion des coûts avec l’[analyse du coût](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Découvrez comment [éviter des coûts imprévus](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 71cfe08da42b8eec9ddbd0e4246ba1b72f895414
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d36d3dca584499e5bc9508c99485507b198159c6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199597"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123036425"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD
+# <a name="restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD
 
 Les applications inscrites dans un locataire Azure Active Directory (Azure AD) sont, par défaut, disponibles pour tous les utilisateurs du locataire qui parviennent à s’authentifier.
 
@@ -41,37 +41,25 @@ La possibilité de limiter une application à un ensemble spécifique d’utilis
      > [!NOTE]
      > Cette fonctionnalité est disponible pour les applications professionnelles et API web/applications web uniquement. Les applications qui sont inscrites en tant qu’applications [natives](./quickstart-register-app.md) ne peuvent pas être limitées à un ensemble d’utilisateurs ou de groupes de sécurité dans le locataire.
 
-## <a name="update-the-app-to-enable-user-assignment"></a>Mettre à jour l’application pour permettre l’affectation d’utilisateurs
+## <a name="update-the-app-to-require-user-assignment"></a>Mettre à jour l'application pour exiger une affectation d'utilisateurs
 
-Il existe deux façons de créer une application avec l’affectation d’utilisateurs activée. L’une requiert le rôle d’**administrateur général**, mais pas le second.
-
-### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applications d’entreprise (nécessite le rôle d’administrateur général)
-
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a> en tant qu’**Administrateur général**.
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
-1. Recherchez et sélectionnez **Azure Active Directory**.
-1. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
-1. Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez attribuer un utilisateur ou un groupe de sécurité. 
-    Utilisez les filtres en haut de la fenêtre pour rechercher une application spécifique.
-1. Dans la page **Vue d’ensemble** de l’application, sous **Gérer**, sélectionnez **Propriétés**.
-1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Lorsque cette option a la valeur **Oui**, les utilisateurs du locataire doivent d’abord être affectés à cette application, sans quoi ils ne pourront pas se connecter à cette application.
-1. Sélectionnez **Enregistrer**.
-
-### <a name="app-registration"></a>Inscriptions des applications
+Pour mettre à jour une application afin d'exiger une affectation d'utilisateurs, vous devez être le propriétaire de cette application sous Applications d'entreprise, ou disposer d'un des rôles d'annuaire suivants : **Administrateur général**, **Administrateur d'application** ou **Administrateur d'application cloud**.
 
 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
-1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
-1. Créez ou sélectionnez l’application que vous souhaitez gérer. Vous devez être **propriétaire** de cette application.
-1. Dans la page **Vue d’ensemble** de l’application, sélectionnez le lien **Application gérée dans le répertoire local** dans la section **Informations de base**.
-1. Sous **Gérer**, sélectionnez **Propriétés**.
-1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Lorsque cette option a la valeur **Oui**, les utilisateurs du locataire doivent d’abord être affectés à cette application, sans quoi ils ne pourront pas se connecter à cette application.
+1. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+1. Sélectionnez l'application que vous souhaitez configurer pour exiger une affectation. Utilisez les filtres en haut de la fenêtre pour rechercher une application spécifique.
+1. Dans la page **Vue d’ensemble** de l’application, sous **Gérer**, sélectionnez **Propriétés**.
+1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Lorsque cette option est définie sur **Oui**, les utilisateurs et les services qui tentent d'accéder à l'application ou aux services doivent d'abord y être affectés pour pouvoir se connecter ou obtenir un jeton d'accès.
 1. Sélectionnez **Enregistrer**.
 
-## <a name="assign-users-and-groups-to-the-app"></a>Affecter des utilisateurs et des groupes à l’application
+> [!NOTE]
+> Lorsqu'une application exige une affectation, le consentement de l'utilisateur n'est pas autorisé pour cette application. Cela est vrai même si ce consentement aurait autrement été autorisé pour l'application en question. Veillez à [accorder le consentement administrateur à l'échelle du locataire](../manage-apps/grant-admin-consent.md) aux applications qui exigent une affectation. 
 
-Une fois que vous avez configuré votre application pour activer l’affectation d’utilisateurs, vous pouvez poursuivre et affecter des utilisateurs et des groupes à l’application.
+## <a name="assign-the-app-to-users-and-groups"></a>Affecter l'application à des utilisateurs et à des groupes
+
+Une fois que vous avez configuré votre application de manière à activer une affectation d'utilisateurs, vous pouvez poursuivre et affecter l'application à des utilisateurs et à des groupes.
 
 1. Sous **Gérer**, sélectionnez **Utilisateurs et groupes** > **Ajouter un utilisateur/groupe**.
 1. Sélectionnez le sélecteur **Utilisateurs**. 
@@ -79,8 +67,8 @@ Une fois que vous avez configuré votre application pour activer l’affectation
      Une liste des utilisateurs et des groupes de sécurité s’affiche, ainsi qu’une zone de texte pour rechercher et localiser un utilisateur ou un groupe spécifique. Cet écran vous permet de sélectionner plusieurs utilisateurs et groupes d’un coup.
 
 1. Une fois que vous avez fini de sélectionner les utilisateurs et les groupes, cliquez sur **Sélectionner**.
-1. (Facultatif) Si vous avez défini des rôles d’application dans votre application, vous pouvez utiliser l’option **Sélectionner un rôle** pour affecter les utilisateurs et groupes sélectionnés à un des rôles de l’application. 
-1. Sélectionnez **Attribuer** pour terminer les attributions d’utilisateurs et de groupes à l’application. 
+1. (Facultatif) Si vous avez défini des rôles d'application dans votre application, vous pouvez utiliser l'option **Sélectionner un rôle** pour affecter le rôle d'application aux utilisateurs et groupes sélectionnés. 
+1. Sélectionnez **Affecter** pour finaliser l'affectation de l'application aux utilisateurs et groupes. 
 1. Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **Utilisateurs et groupes** mise à jour.
 
 ## <a name="more-information"></a>Informations complémentaires

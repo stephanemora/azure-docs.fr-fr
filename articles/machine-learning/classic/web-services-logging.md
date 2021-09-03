@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1042b33dd0e753b8706bed8ab77a57d65c63fb4b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518281"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583335"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
+# <a name="enable-logging-for-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
 
 **S’APPLIQUE À :**  ![S’applique à ](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![Ne s’applique pas à ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -25,9 +25,9 @@ Ce document fournit des informations sur la capacité de journalisation des serv
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Comment activer la journalisation pour un service web
 
-Vous activez la journalisation à partir du portail des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net). 
+Vous activez la journalisation à partir du portail [Services web Machine Learning Studio (classique)](https://services.azureml.net). 
 
-1. Connectez-vous au portail des services web Azure Machine Learning Studio (classique) sur [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning Studio (classique) dans Studio (classique).
+1. Connectez-vous au portail des services web Machine Learning Studio (classique) sur [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning Studio (classique) dans Studio (classique).
 
    ![Lien Nouvelle expérience de services web](./media/web-services-logging/new-web-services-experience-link.png)
 

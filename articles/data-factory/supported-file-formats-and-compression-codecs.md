@@ -1,19 +1,22 @@
 ---
 title: Formats de fichier pris en charge par l’activité de copie dans Azure Data Factory
-description: Cette rubrique décrit les formats de fichier et les codes de compression pris en charge par l’activité de copie dans Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Cette rubrique décrit les formats de fichier et les codes de compression pris en charge par l’activité de copie dans Azure Data Factory et Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jianleishen
-ms.openlocfilehash: 7e468b44636662a0654e1ca7770e9df3094da0f6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7d5a18d230fb4034a06ed8de4c9bc4b1928f6b12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086461"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641546"
 ---
-# <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge par l’activité de copie dans Azure Data Factory
+# <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory-and-azure-synapse-pipelines"></a>Formats de fichier et codecs de compression pris en charge par l’activité de copie dans les pipelines Azure Data Factory et Azure Synapse
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Cet article s’applique aux connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Stockage compatible Amazon S3](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) et [SFTP](connector-sftp.md).*

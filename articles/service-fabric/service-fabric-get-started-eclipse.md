@@ -1,17 +1,15 @@
 ---
 title: Plug-in Azure Service Fabric pour Eclipse
 description: En savoir plus sur la prise en main d’Azure Service Fabric dans Java à l’aide d’Eclipse et du plug-in Service Fabric fourni.
-author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.author: rapatchi
-ms.custom: devx-track-java
-ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: devx-track-java, contperf-fy21q4
+ms.openlocfilehash: 19aba75dc314f9804931675702f1420aff0415e6
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97656918"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214296"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric pour le développement d’applications Java sous Eclipse
 Eclipse est l’un des environnements de développement intégrés (IDE) les plus largement utilisés par les développeurs Java. Dans cet article, nous décrivons comment configurer votre environnement de développement Eclipse pour utiliser Azure Service Fabric. Découvrez comment installer le plug-in Service Fabric, créer une application Service Fabric et déployer votre application Service Fabric dans un cluster Service Fabric local ou distant sur Eclipse. 
@@ -36,7 +34,7 @@ Installez Eclipse Neon ou ultérieur à partir du [site d’Eclipse](https://www
 -   Pour vérifier et installer les mises à jour pour Eclipse, accédez à **Aide** > **Rechercher les mises à jour**.
 
 Installez le plug-in Service Fabric : dans Eclipse, accédez à **Aide** > **Installer un nouveau logiciel**.
-1. Dans la zone **Work with** (Utiliser avec), entrez https:\//dl.microsoft.com/eclipse.
+1. Dans le champ **Work with** (Utiliser), tapez `https://servicefabricdownloads.blob.core.windows.net/eclipse/`.
 2. Cliquez sur **Add**.
 
    ![Plug-in Service Fabric pour Eclipse][sf-eclipse-plugin-install]
@@ -49,7 +47,7 @@ Si le plug-in Service Fabric est déjà installé, installez la dernière versio
 3. Lorsque vous mettez à jour le plug-in Service Fabric, actualisez également le projet Gradle.  Cliquez avec le bouton droit sur **build.gradle**, puis sélectionnez **Actualiser**.
 
 > [!NOTE]
-> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites, sauf pour celui qui pointe vers l’emplacement du plug-in Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
+> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites, sauf pour celui qui pointe vers l’emplacement du plug-in Service Fabric (« https://servicefabricdownloads.blob.core.windows.net/eclipse/  »).
 
 > [!NOTE]
 >Si Eclipse ne fonctionne pas comme prévu sur votre Mac ou exige vous soyez un super utilisateur pour l’exécuter, accédez au dossier **ECLIPSE_INSTALLATION_PATH**, puis au sous-dossier **Eclipse.app/Contents/MacOS**. Démarrez Eclipse en exécutant `./eclipse`.

@@ -2,17 +2,19 @@
 title: Solutions de stockage Azure pour ML Services sur HDInsight – Azure
 description: Découvrez les différentes options de stockage disponibles avec ML Services sur HDInsight.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2ed4e27fb680c14ed5bbae0585d89152c1999b97
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943900"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295864"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Solutions de stockage Azure pour ML Services sur Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 ML Services sur HDInsight peut utiliser différentes solutions de stockage pour conserver les données, le code ou les objets qui contiennent des résultats d’analyse. Ces solutions incluent les options suivantes :
 
@@ -95,7 +97,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-Toutes les références de fichier et de répertoire pointent désormais vers le compte de stockage `wasbs://container2@storage2.blob.core.windows.net`. Il s’agit du **nom de nœud** que vous avez spécifié.
+Toutes les références de fichier et de répertoire pointent désormais vers le compte de stockage `wasbs://container2@storage2.blob.core.windows.net`. Il s’agit du **Nom de nœud** que vous avez spécifié.
 
 Configurez le répertoire `/user/RevoShare/<SSH username>` sur **storage2** comme suit :
 

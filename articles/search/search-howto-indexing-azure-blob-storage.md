@@ -1,7 +1,7 @@
 ---
-title: Configurer un indexeur d’objets blob
+title: Indexer des données à partir du Stockage Blob Azure
 titleSuffix: Azure Cognitive Search
-description: Configurez un indexeur de blobs Azure pour automatiser l’indexation du contenu de blobs pour les opérations de recherche en texte intégral dans le service Recherche cognitive Azure.
+description: Configurez un indexeur de blobs Azure pour automatiser l’indexation du contenu blob pour les opérations de recherche en texte intégral et l’exploration de connaissances dans la Recherche cognitive.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
@@ -9,18 +9,26 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 848ffc1d4352d464a9afb1c65a0a8c60eb3cffa3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5c19cfd69352d898c6f47c7256b8433164cd7eb9
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558887"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982993"
 ---
-# <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Comment configurer l’indexation de blobs dans Recherche cognitive
+# <a name="index-data-from-azure-blob-storage"></a>Indexer des données à partir du Stockage Blob Azure
 
-Un indexeur d’objets blob est utilisé pour ingérer du contenu à partir du service Stockage Blob Azure dans un index de Recherche cognitive. Des indexeurs de blob sont souvent utilisés dans un [enrichissement par IA](cognitive-search-concept-intro.md), où un [enrichissement par IA](cognitive-search-working-with-skillsets.md) attaché ajoute un traitement d’image et de langage naturel pour créer du contenu pouvant faire l’objet d’une recherche. Toutefois, vous pouvez également utiliser des indexeurs de blob sans enrichissement par IA afin d’ingérer du contenu de documents texte, tels que des fichiers PDF, des documents Microsoft Office et des formats de fichier.
+Cet article vous montre comment configurer l’indexeur Azure blob pour extraire le contenu et le rendre détectable dans la Recherche cognitive. Ce workflow crée un index de recherche sur la Recherche cognitive et le charge avec le contenu existant et les métadonnées extraites du Stockage Blob Azure.
 
-Cet article explique comment configurer un indexeur de blobs pour chaque scénario. Si vous n’êtes pas familiarisé avec les concepts de l’indexeur, commencez par [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md) et [Créer un indexeur de recherche](search-howto-create-indexers.md) avant de vous lancer dans l’indexation de blobs.
+Des indexeurs blob sont souvent utilisés dans un [enrichissement par IA](cognitive-search-concept-intro.md), où un [ensemble de compétences](cognitive-search-working-with-skillsets.md) attaché ajoute un traitement d’image et du langage naturel pour créer du contenu pouvant faire l’objet d’une recherche des types de contenu sans possibilité de recherche dans des conteneurs blobs.
+
+Cet article explique comment configurer un indexeur blob Azure pour l’indexation centrée sur le texte. Vous pouvez configurer un indexeur de Stockage Blob Azure à l’aide de l’un des clients suivants :
+
+* [Azure portal](https://ms.portal.azure.com)
+* [API REST](/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) de Recherche cognitive Azure
+
+Cet article utilise les API REST. 
 
 ## <a name="supported-access-tiers"></a>Niveaux d’accès pris en charge
 
@@ -63,7 +71,7 @@ Cette chaîne de connexion ne nécessite pas de clé de compte, mais vous devez 
 
 **Chaîne de connexion au compte de stockage avec accès complet** : `{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
 
-Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou en sélectionnant Paramètres > Clés d’accès (pour les comptes de stockage ARM).
+Vous pouvez obtenir la chaîne de connexion sur le Portail Azure en sélectionnant vers le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou Sécurité + mise en réseau > Clés d’accès (pour les comptes de stockage Azure Resource Manager).
 
 Chaîne de connexion de la **signature d’accès partagé (SAP) au compte de stockage** : `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }`
 
@@ -299,7 +307,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 Les erreurs qui se produisent généralement pendant l’indexation incluent les types de contenu non pris en charge, le contenu manquant ou les blobs surdimensionnés.
 
-Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous pourriez vouloir procéder à l’indexation même si des erreurs se produisent, puis déboguer les documents individuels plus tard. Pour plus d’informations sur les erreurs d’indexeur, consultez [Résoudre les problèmes courants d’indexeurs](search-indexer-troubleshooting.md) et [Erreurs et avertissements de l’indexeur](cognitive-search-common-errors-warnings.md).
+Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous pourriez vouloir procéder à l’indexation même si des erreurs se produisent, puis déboguer les documents individuels plus tard. Pour plus d’informations sur les erreurs de l’indexeur, consultez [Guide de résolution des problèmes de l’indexeur](search-indexer-troubleshooting.md) et [Erreurs et avertissements de l’indexeur](cognitive-search-common-errors-warnings.md).
 
 ### <a name="respond-to-errors"></a>Répondre aux erreurs
 

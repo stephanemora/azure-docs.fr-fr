@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c52cd013d1a5d2cbde0ab88eac24d2fd3ef77d46
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613524"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468692"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configurer une instance Azure Digital Twins et l’authentification (PowerShell)
 
@@ -23,8 +23,8 @@ Cet article explique comment **configurer une nouvelle instance Azure Digital Tw
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide d’[Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* Pour suivre ces étapes manuellement à l’aide du portail Azure, consultez la version de cet article relative au portail : [Guide pratique : Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md) .
-* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Guide pratique : Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md) .
+* Pour suivre ces étapes manuellement dans le Portail Azure, consultez la version du portail de cet article dans [Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md).
+* Pour effectuer une configuration automatique à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article dans [Configurer une instance et authentification (avec script)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -145,4 +145,4 @@ Vous disposez maintenant d’une instance Azure Digital Twins prête à l’empl
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment connecter une application cliente à votre instance avec un code d’authentification :
-* [Guide pratique : Écrire le code d’authentification de l’application](how-to-authenticate-client.md)
+* [Écrire le code d’authentification de l’application](how-to-authenticate-client.md)

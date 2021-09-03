@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aa2a22f6e7bfef4a04eb65ac6063c81077b6153
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104949836"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562819"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Meilleures pratiques de déploiement d’Azure Purview
 
@@ -112,7 +112,7 @@ Les scénarios doivent être spécifiques, actionnables et exécutables avec des
 
 |Scénario|Détail|Utilisateur|
 |---------|---------|---------|
-|Cataloguer les ressources vitales pour l’entreprise|J’ai besoin d’informations sur les différents jeux de données afin de bien comprendre leur contenu. Ce scénario inclut des métadonnées métier et techniques sur le jeu de données dans le catalogue. Les sources de données sont Azure Data Lake Storage Gen2, Azure Synapse DW et/ou Power BI. Ce scénario inclut également une ressource locale telle que SQL Server.|Analyste métier, scientifique Données, ingénieur Données|
+|Cataloguer les ressources vitales pour l’entreprise|J’ai besoin d’informations sur les différents jeux de données afin de bien comprendre leur contenu. Ce scénario inclut des métadonnées métier et techniques sur le jeu de données dans le catalogue. Les sources de données sont Azure Data Lake Storage Gen2, Azure Synapse DW et/ou Power BI. Ce scénario inclut également des ressources locales telles que SQL Server.|Analyste métier, scientifique Données, ingénieur Données|
 |Découvrir les ressources vitales pour l’entreprise|J’ai besoin d’un moteur de recherche capable d’effectuer des recherches dans toutes les métadonnées du catalogue. Je dois pouvoir utiliser des termes techniques et des termes métier pour effectuer des recherches simples ou complexes à l’aide de caractères génériques.|Analyste métier, scientifique Données, ingénieur Données, administrateur des données|
 |Suivre des données pour comprendre leur origine et résoudre les problèmes liés à celles-ci|J’ai besoin d’une traçabilité des données de rapports, de prévisions ou de modèles jusqu’à leur source d’origine, ainsi que de comprendre leurs modifications et emplacements tout au long de leur cycle de vie. Ce scénario doit prendre en charge les pipelines de données hiérarchisés Azure Data Factory et Databricks.|Ingénieur Données, scientifique Données|
 |Enrichir les métadonnées de ressources de données critiques|J’ai besoin d’enrichir le jeu de données dans le catalogue avec des métadonnées techniques générées automatiquement, par exemple, à des fins de classification et d’étiquetage.|Ingénieur Données, propriétaire de domaine ou d’entreprise|
@@ -201,7 +201,7 @@ Une fois que vous disposez des exigences convenues et des unités commerciales p
 |Ajouter des contacts aux ressources|Pour les ressources principales, vous pouvez établir un processus pour permettre à d’autres personnages d’attribuer des contacts ou d’importer via des API REST.|1 semaine|
 |Ajouter des étiquettes sensibles et une analyse|Cela peut être facultatif pour certaines organisations, en fonction de l’utilisation de l’étiquetage à partir de M365.|1 à 2 semaines|
 |Obtenir une classification et des insights sensibles|Pour créer des rapports et insights dans Purview, vous pouvez accéder à cette fonctionnalité afin d’obtenir divers rapports et de fournir une présentation à la direction.|1 jour|
-|Intégrer des utilisateurs supplémentaires avec des utilisateurs gérés par Purview|Cette étape nécessite que l’administrateur Purview collabore avec l’administrateur Azure Active Directory pour établir de nouveaux groupes de sécurité afin d’accorder l’accès à Purview.|1 semaine|
+|Intégrer des utilisateurs supplémentaires avec des utilisateurs managés par Purview|Cette étape nécessite que l’administrateur Purview collabore avec l’administrateur Azure Active Directory pour établir de nouveaux groupes de sécurité afin d’accorder l’accès à Purview.|1 semaine|
 
 ### <a name="acceptance-criteria"></a>Critères d'acceptation
 
@@ -213,7 +213,7 @@ Une fois que vous disposez des exigences convenues et des unités commerciales p
 
 ## <a name="phase-3-pre-production"></a>Phase 3 : Préproduction
 
-Une fois la phase Produit minimum viable passée, il est temps de planifier une étape majeure de préproduction. Votre organisation peut décider d’avoir une instance distincte de Purview pour la pré-production et la production, ou de conserver la même instance, mais limiter l’accès. Toujours au cours de cette phase, vous pouvez inclure l’analyse de sources de données locales telles que SQL Server. S’il existe un écart dans les sources de données non prises en charge par Purview, il est temps d’explorer l’API Atlas pour comprendre les options supplémentaires.
+Une fois la phase Produit minimum viable passée, il est temps de planifier une étape majeure de préproduction. Votre organisation peut décider d’avoir une instance distincte de Purview pour la pré-production et la production, ou de conserver la même instance, mais limiter l’accès. Toujours dans cette phase, vous pouvez inclure l’analyse de sources de données locales telles que SQL Server. S’il existe un écart dans les sources de données non prises en charge par Purview, il est temps d’explorer l’API Atlas pour comprendre les options supplémentaires.
 
 ### <a name="tasks-to-complete"></a>Tâches à effectuer
 
@@ -223,7 +223,7 @@ Une fois la phase Produit minimum viable passée, il est temps de planifier une 
 |Évaluer la disponibilité des régions pour l’analyse|Selon la région des sources de données et les exigences organisationnelles en matière de conformité et de sécurité, vous souhaiterez peut-être prendre en compte les régions qui doivent être disponibles pour l’analyse.|1 jour|
 |Comprendre le concept de pare-feu lors de l’analyse|Cette étape nécessite une certaine exploration de la façon dont l’organisation configure son pare-feu et dont Purview peut s’authentifier pour accéder aux sources de données à des fins d’analyse.|1 jour|
 |Comprendre le concept de liaison privée lors de l’analyse|Si votre organisation utilise le service Private Link, vous devez établir le fondement de la sécurité réseau pour inclure une liaison privée dans les exigences.|1 jour|
-|[Analyser le SQL Server local](register-scan-on-premises-sql-server.md)|Cette option est facultative si vous disposez d’un SQL Server local. L’analyse nécessite la configuration d’un [runtime d’intégration auto-hébergé](manage-integration-runtimes.md) et l’ajout de SQL Server en tant que source de données.|1 à 2 semaines|
+|[Analyser SQL Server local](register-scan-on-premises-sql-server.md)|Cette option est facultative si vous disposez d’un SQL Server local. L’analyse nécessite la configuration d’un [runtime d’intégration auto-hébergé](manage-integration-runtimes.md) et l’ajout de SQL Server en tant que source de données.|1 à 2 semaines|
 |Utiliser l’API REST Purview pour les scénarios d’intégration|Si vous avez des exigences pour intégrer Purview avec d’autres technologies tierces telles qu’un système d’orchestration ou de création de tickets, vous pouvez explorer la zone de l’API REST.|1 à 4 semaines|
 |Comprendre la tarification de Purview|Cette étape fournit à l’organisation des informations financières importantes pour la prise de décision.|1 à 5 jours|
 

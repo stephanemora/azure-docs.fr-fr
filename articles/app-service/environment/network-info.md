@@ -7,14 +7,18 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0931d5668835229be858a8725fd1a2d90c81081d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997339"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432947"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
+
+> [!NOTE]
+> Cet article concerne la fonctionnalité App Service Environment v2 qui est utilisée avec les plans App Service Isolé.
+> 
 
 ## <a name="overview"></a>Vue d’ensemble ##
 
@@ -127,7 +131,7 @@ Un ASE présente quelques adresses IP qu’il est important de connaître. Il s'
 - **Adresse IP entrante publique** : utilisée pour le trafic d’applications dans un ASE externe et pour le trafic de gestion aussi bien dans un ASE externe que dans un ASE ILB.
 - **Adresse IP publique sortante**  : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
 - **Adresse IP de l’ILB** : L’adresse IP de l’ILB existe uniquement dans un ASE ILB.
-- **Adresse SSL basée sur IP attribuée par l’application** : uniquement possibles avec un ASE externe et lorsque le mode SSL basé sur IP est configuré.
+- **Adresses TLS/SSL basées sur IP attribuée par l'application** : uniquement possibles avec un environnement ASE externe et lorsque la liaison TLS/SSL basée sur une adresse IP est configurée.
 
 Toutes ces adresses IP sont visibles dans le portail Microsoft Azure, à partir de l’interface utilisateur ASE. Si vous possédez un ASE ILB, l’adresse IP de l’ILB est répertoriée.
 

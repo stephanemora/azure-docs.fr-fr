@@ -1,19 +1,19 @@
 ---
 title: Comment examiner les attributions de rôles RBAC Synapse dans Synapse Studio
 description: Cet article explique comment examiner les attributions de rôles RBAC Synapse à l’aide de Synapse Studio
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: acc1ed8cece087628f6f8deb41696acefe124874
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 11e5ed746215df4518e9bd6af2c0c92539067e47
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784026"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525095"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Guide pratique pour passer en revue les attributions de rôles RBAC Synapse
 
@@ -28,7 +28,7 @@ Avec un rôle RBAC Synapse, vous pouvez répertorier les attributions de rôles 
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio  
 
-Pour passer en revue les attributions de rôles, commencez par [ouvrir le Synapse Studio](https://web.azuresynapse.net/), puis sélectionnez votre espace de travail. 
+Pour passer en revue les attributions de rôles, commencez par [ouvrir le Synapse Studio](https://web.azuresynapse.net/), puis sélectionnez votre espace de travail. Pour vous connecter à votre espace de travail, il existe deux **méthodes de sélection de compte**. L’un est de l'**abonnement Azure**, l’autre est l'**entrée manuelle**. Si vous avez le rôle de Synapse Azure ou les rôles Azure de niveau supérieur, vous pouvez utiliser les deux méthodes pour vous connecter à l’espace de travail. Si vous n’avez pas les rôles Azure associés et que vous avez été accordé en tant que rôle de contrôle de la connexion au sein de l’espace de travail, **Entrer manuellement** est le seul moyen de vous connecter à l’espace de travail.
 
 ![Se connecter à l’espace de travail](./media/common/login-workspace.png) 
  

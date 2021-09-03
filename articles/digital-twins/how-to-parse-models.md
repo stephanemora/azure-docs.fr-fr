@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser la bibliothèque de l’analyseur pour analyser des modèles DTDL.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 12916b06dd965d7eed717df2fe71f935b8319bc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 584d4ba9de922cd035a70850f723550b02863e16
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772708"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606594"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analyser et valider des modèles avec la bibliothèque de l’analyseur DTDL
 
@@ -70,7 +70,7 @@ Les fonctionnalités de l’analyseur sont les suivantes :
 * Déterminer si un modèle peut être assigné à partir d’un autre.
 
 > [!NOTE]
-> Les appareils [IoT Plug-and-Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) utilisent une petite variante de syntaxe pour décrire leur fonctionnalité. Cette variante de syntaxe est un sous-ensemble sémantiquement compatible du langage DTDL utilisé dans Azure Digital Twins. Lorsque vous utilisez la bibliothèque de l’analyseur, vous n’avez pas besoin de savoir quelle variante de syntaxe a été utilisée pour créer le DTDL pour votre jumeau numérique. Par défaut, l’analyseur retourne toujours le même modèle pour la syntaxe PnP et Azure Digital Twins.
+> Les appareils [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md) utilisent une petite variante de syntaxe pour décrire leur fonctionnalité. Cette variante de syntaxe est un sous-ensemble sémantiquement compatible du langage DTDL utilisé dans Azure Digital Twins. Lorsque vous utilisez la bibliothèque de l’analyseur, vous n’avez pas besoin de savoir quelle variante de syntaxe a été utilisée pour créer le DTDL pour votre jumeau numérique. Par défaut, l’analyseur retourne toujours le même modèle pour la syntaxe IoT Plug-and-Play et Azure Digital Twins.
 
 ### <a name="code-with-the-parser-library"></a>Coder avec la bibliothèque de l’analyseur
 
@@ -87,4 +87,4 @@ Le code suivant montre un exemple d’utilisation de la bibliothèque de l’ana
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez fini d’écrire vos modèles, découvrez comment les télécharger (et effectuer d’autres opérations de gestion) avec les API DigitalTwinsModels :
-* [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md)
+* [Gérer des modèles DTDL](how-to-manage-model.md)

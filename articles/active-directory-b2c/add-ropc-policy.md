@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 06/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a7c93bb0e0dcc51e35bc27fa0799d8410e66df6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c4d31d7a1d9e67b1c246de50887d65206a12d57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581879"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284614"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C
 
@@ -365,6 +365,14 @@ Une réponse correcte ressemble à l’exemple suivant :
     "refresh_token_expires_in": 1209600
 }
 ```
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+### <a name="the-provided-application-is-not-configured-to-allow-the-oauth-implicit-flow"></a>L’application fournie n’est pas configurée pour autoriser le flux « OAuth » implicite
+
+* **Symptôme** : vous exécutez le flux ROPC et vous recevez le message suivant : *AADB2C90057 : l’application fournie n’est pas configurée pour autoriser le flux implicite « OAuth »* .
+* **Causes possibles** : le flux implicite n’est pas autorisé pour votre application.
+* **Résolution** : lors de la création de votre [inscription d’application](#register-an-application) dans Azure AD B2C, vous devez modifier manuellement le manifeste de l'application et définir la valeur de la propriété `oauth2AllowImplicitFlow` sur `true`. Une fois la propriété `oauth2AllowImplicitFlow` configurée, il faut quelques minutes (généralement pas plus de 5 min) pour que la modification prenne effet. 
 
 ## <a name="use-a-native-sdk-or-app-auth"></a>Utiliser un kit de développement logiciel ou une authentification de l’application natifs
 

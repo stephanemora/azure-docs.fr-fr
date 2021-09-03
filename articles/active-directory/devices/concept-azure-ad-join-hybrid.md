@@ -5,29 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 083dcc0dc5d6ffdf25f6d6f631a8e6f5788ce8b1
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85554913"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303037"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Appareils joints Azure AD hybrides
 
-Pendant plus de dix ans, de nombreuses organisations ont utilisé la jonction de domaine dans leur répertoire Active Directory local pour permettre :
+Les organisations avec des implémentations Active Directory existantes peuvent tirer parti de certaines des fonctionnalités fournies par Azure Active Directory (Azure AD) en implémentant des appareils à jointure hybride Azure AD. Ces appareils sont joints à votre Active Directory local et inscrits auprès d’Azure Active Directory.
 
-- Aux services informatiques de gérer les appareils professionnels à partir d’un emplacement central.
-- Aux utilisateurs de se connecter à leurs appareils à partir de leurs comptes Active Directory professionnels ou scolaires.
-
-En règle générale, les organisations disposant d’empreintes locales s’appuient sur des méthodes de création d’images pour approvisionner les appareils. Ils utilisent souvent **Configuration Manager** ou les **stratégies de groupe** pour les gérer.
-
-Si votre environnement comporte une empreinte locale AD et vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter les appareils joints Azure AD hybrides. Il s’agit d’appareils joints à votre service Active Directory local et inscrits auprès d’Azure Active Directory.
+Les appareils à jointure hybride Azure AD doivent avoir périodiquement une visibilité réseau directe vers vos contrôleurs de domaine locaux. Sans cette connexion, les appareils deviennent inutilisables. Si cette condition pose un problème, pensez [associer Azure AD](concept-azure-ad-join.md) à vos appareils.
 
 | Jonction Azure AD Hybride | Description |
 | --- | --- |
@@ -57,10 +52,10 @@ Si votre environnement comporte une empreinte locale AD et vous souhaitez égale
 
 Utilisez des appareils joints Azure AD hybrides si :
 
-- Des applications Win32 sont déployées sur ces appareils qui s’appuient sur l’authentification d’ordinateur Active Directory.
+- Vous prenez en charge des appareils de bas niveau exécutant Windows 7 et 8.1.
 - Vous souhaitez continuer à utiliser la stratégie de groupe pour gérer la configuration de l’appareil.
 - Vous souhaitez continuer à utiliser des solutions de création d’images existantes pour déployer et configurer des appareils.
-- Vous devez prendre en charge les appareils Windows 7 et 8.1 de bas niveau, en plus des appareils Windows 10
+- Des applications Win32 sont déployées sur ces appareils qui s’appuient sur l’authentification d’ordinateur Active Directory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

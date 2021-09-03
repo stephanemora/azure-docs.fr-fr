@@ -6,14 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 06/10/2021
 ms.author: amsriva
-ms.openlocfilehash: 5b14ac194d3cf08a11edc47a84825f447be79e34
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ea6361f22ad90c0bc5f7a7f93be4a155206d930c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516593"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606585"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configurer le protocole HTTPS sur un domaine personnalisé de SKU Standard/Premium (préversion) à l’aide du portail Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "109516593"
 
 Azure Front Door Standard/Premium permet un chiffrement TLS sécurisé par défaut à vos applications lorsqu’un domaine personnalisé est ajouté. En utilisant le protocole HTTPS sur votre domaine personnalisé, vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
-Azure Front Door Standard/Premium prend en charge le certificat géré par Azure et les certificats gérés par le client. Par défaut, Azure Front Door active automatiquement le protocole HTTPS sur tous vos domaines personnalisés à l’aide de certificats gérés par Azure. Aucune étape supplémentaire n’est requise pour l’obtention d’un certificat géré par Azure. Un certificat est créé au cours du processus de validation du domaine. Vous pouvez également utiliser votre propre certificat en intégrant Azure Front Door Standard/Premium avec Key Vault.
+Azure Front Door Standard/Premium prend en charge le certificat géré par Azure et les certificats gérés par le client. Par défaut, Azure Front Door active automatiquement le protocole HTTPS sur tous vos domaines personnalisés à l’aide de certificats gérés par Azure. Aucune étape supplémentaire n’est requise pour l’obtention d’un certificat managé par Azure. Un certificat est créé au cours du processus de validation du domaine. Vous pouvez également utiliser votre propre certificat en intégrant Azure Front Door Standard/Premium avec Key Vault.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (préversion) est actuellement disponible en préversion publique.
@@ -49,11 +49,11 @@ Azure Front Door Standard/Premium prend en charge le certificat géré par Azure
 
 1. Validez le domaine personnalisé et associez-le à un point de terminaison en suivant les étapes de la section activation d’un [domaine personnalisé](how-to-add-custom-domain.md).
 
-1. Une fois que le domaine personnalisé a été associé au point de terminaison, un certificat managé par Azure est déployé sur Front Door. Ce processus peut prendre plusieurs minutes.
+1. Une fois que le domaine personnalisé a été associé au point de terminaison, un certificat managé par Azure est déployé sur Front Door. Ce processus peut prendre entre quelques minutes et une heure.
 
 ## <a name="using-your-own-certificate"></a>Utiliser votre propre certificat
 
-Vous pouvez également choisir d’utiliser votre propre certificat TLS. Ce certificat doit être importé dans un Azure Key Vault avant de pouvoir être utilisé avec Azure Front Door Standard/Premium. Consultez [Importer un certificat](../../key-vault/certificates/tutorial-import-certificate.md) dans Azure Key Vault. 
+Vous pouvez également choisir d’utiliser votre propre certificat TLS.  Quand vous créez votre certificat TLS/SSL, vous devez créer une chaîne de certificats complète avec une autorité de certification (AC) autorisée figurant dans la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée.  Le certificat doit avoir une chaîne de certificats complète avec des certificats feuille et intermédiaires, et l’autorité de certification racine doit faire partie de la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Lorsqu’un certificat sans chaîne complète est présenté, le bon fonctionnement des requêtes l’impliquant n’est pas garanti. Ce certificat doit être importé dans un Azure Key Vault avant de pouvoir être utilisé avec Azure Front Door Standard/Premium. Consultez [Importer un certificat](../../key-vault/certificates/tutorial-import-certificate.md) dans Azure Key Vault.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Préparer votre compte et votre certificat Azure Key Vault
  
@@ -65,7 +65,7 @@ Vous pouvez également choisir d’utiliser votre propre certificat TLS. Ce cert
 1. Si vous avez déjà un certificat, chargez-le directement sur votre compte Azure Key Vault. Dans le cas contraire, créez un certificat directement par le biais d’Azure Key Vault à partir de l’une des autorités de certification du partenaire qu’Azure Key Vault intègre. Chargez votre certificat en tant qu’objet de **certificat** et non en tant que **secret**.
 
     > [!NOTE]
-    > Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC.
+    > Pour votre propre certificat TLS/SSL, Front Door ne prend pas en charge les certificats avec des algorithmes de chiffrement EC. Le certificat doit avoir une chaîne de certificats complète avec des certificats feuille et intermédiaires, et l’autorité de certification racine doit faire partie de la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
 
 #### <a name="register-azure-front-door"></a>Inscrire Azure Front Door
 
@@ -78,7 +78,7 @@ Inscrivez le principal du service pour Azure Front Door en tant qu’application
 
 1. Dans PowerShell, exécutez la commande suivante :
 
-     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Accorder à Azure Front Door l’accès à votre coffre de clés
  
@@ -86,7 +86,7 @@ Accordez à Azure Front Door l’autorisation d’accéder aux certificats de vo
 
 1. Dans votre compte Key Vault, sous PARAMÈTRES, sélectionnez **Stratégies d’accès**. Sélectionnez ensuite **Ajouter** pour créer une nouvelle stratégie.
 
-1. Dans **Sélectionner principal**, recherchez **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** et choisissez **Microsoft.AzureFrontDoor-Cdn**. Cliquez sur **Sélectionner**.
+1. Dans **Sélectionner le principal**, recherchez **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, puis choisissez ** Microsoft.Azure.Frontdoor-Cdn**. Cliquez sur **Sélectionner**.
 
 1. Sous **Autorisations du secret**, sélectionnez **Obtenir** pour permettre à Front Door de récupérer le certificat.
 

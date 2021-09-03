@@ -2,33 +2,61 @@
 title: Stocker des charts Helm
 description: Découvrez comment stocker des graphiques Helm pour vos applications Kubernetes en utilisant des référentiels dans Azure Container Registry
 ms.topic: article
-ms.date: 04/15/2021
-ms.openlocfilehash: c7dcdf222e9628daedb7e1c3617efb0b9c7af185
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/19/2021
+ms.openlocfilehash: cdc4b0c6fb5aabdb96597cfbbe151598b16a2cc0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772376"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438905"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure
 
 Pour gérer et déployer rapidement des applications pour Kubernetes, vous pouvez utiliser le [Gestionnaire de package Helm open source][helm]. Avec Helm, les packages d’applications sont définis en tant que [graphiques](https://helm.sh/docs/topics/charts/), lesquels sont collectés et stockés dans un [référentiel de graphiques Helm](https://helm.sh/docs/topics/chart_repository/).
 
-Cet article vous montre la procédure à suivre pour stocker des référentiels de graphiques Helm dans le registre de conteneurs Azure, et ce, en utilisant les commandes Helm 3. Dans beaucoup de scénarios, vous devez générer et charger vos propres graphiques pour les applications que vous développez. Pour plus d’informations sur la génération de vos propres graphiques Helm, consultez le [Guide pour les développeurs de graphiques Helm][develop-helm-charts]. Vous pouvez également stocker un graphique Helm existant à partir d’un autre dépôt Helm.
+Cet article vous montre la procédure à suivre pour stocker des référentiels de graphiques Helm hébergés dans le registre de conteneurs Azure, en utilisant les 3 commandes Helm et les graphiques de stockage en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). Dans beaucoup de scénarios, vous devez générer et charger vos propres graphiques pour les applications que vous développez. Pour plus d’informations sur la génération de vos propres graphiques Helm, consultez le [Guide pour les développeurs de graphiques Helm][develop-helm-charts]. Vous pouvez également stocker un graphique Helm existant à partir d’un autre dépôt Helm.
 
 ## <a name="helm-3-or-helm-2"></a>Helm 3 ou Helm 2 ?
 
-Pour stocker, gérer et installer des graphiques Helm, vous utilisez un client Helm et la CLI Helm. Les versions majeures du client Helm incluent Helm 3 et Helm 2. Pour plus d’informations sur les différences entre les versions, consultez la [FAQ sur les versions](https://helm.sh/docs/faq/). 
+Pour stocker, gérer et installer des graphiques Helm, vous utilisez des commandes dans l’interface CLI Helm. Les principales versions Helm incluent Helm 3 et Helm 2. Pour plus d’informations sur les différences entre les versions, consultez la [FAQ sur les versions](https://helm.sh/docs/faq/). 
 
 Helm 3 doit être utilisé pour le stockage des graphiques Helm dans Azure Container Registry. Avec Helm 3, vous pouvez :
 
-* Créer un ou plusieurs référentiels Helm dans un registre de conteneurs Azure.
-* Stocker les graphiques Helm 3 dans un registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). Azure Container Registry assure la prise en charge de la disponibilité générale pour les [artefacts OCI](container-registry-oci-artifacts.md), y compris les graphiques Helm.
-* Authentifiez-vous auprès du registre à l’aide de la commande `helm registry login`.
-* Utilisez les commandes `helm chart` dans la CLI Helm pour envoyer (push), tirer (pull) et gérer des graphiques Helm dans un registre.
+* stocker et gérer des graphiques Helm dans des référentiels dans le registre de conteneurs Azure
+* stocker les graphiques Helm dans un registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). Azure Container Registry assure la prise en charge de la disponibilité générale pour les artefacts OCI, y compris les graphiques Helm.
+* Authentifiez-vous auprès du registre à l’aide de la commande `helm registry login` ou `az acr login`.
+* Utilisez les commandes `helm chart` pour envoyer (push), tirer (pull) et gérer des graphiques Helm dans un registre
 * Utiliser `helm install` pour installer des graphiques sur un cluster Kubernetes à partir d’un cache de référentiel local.
+
+### <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Azure Container Registry prend en charge des fonctionnalités de gestion de graphiques Helm spécifiques selon que vous utilisez Helm 3 (actuel) ou Helm 2 (déconseillé).
+
+| Fonctionnalité | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| Gérer des graphiques à l’aide des commandes `az acr helm` | :heavy_check_mark: | |
+| Stocker des graphiques en tant qu’artefacts OCI | | :heavy_check_mark:  |
+| Gérer des graphiques à l’aide des commandes `az acr repository` et du panneau **Référentiels** dans le Portail Azure| | :heavy_check_mark:  |
+
+
 > [!NOTE]
-> Tout comme pour Helm 3, l’utilisation des commandes [az acr helm][az-acr-helm] avec le client Helm 2 est déconseillée. Un préavis d’au moins 3 mois sera envoyé avant la suppression de la commande. Si vous avez déjà déployé des graphiques Helm 2, consultez cette page sur la [migration de Helm 2 vers Helm 3](https://helm.sh/docs/topics/v2_v3_migration/).
+> Tout comme pour Helm 3, l’utilisation des commandes [az acr helm][az-acr-helm] avec le client Helm 2 est déconseillée. Un préavis d’au moins 3 mois sera envoyé avant la suppression de la commande.
+
+### <a name="chart-version-compatibility"></a>Compatibilité des versions de graphiques
+
+Les [versions de graphiques](https://helm.sh/docs/topics/charts/#the-apiversion-field) Helm suivantes peuvent être stockées dans Azure Container Registry et peuvent être installées par les clients Helm 2 et Helm 3. 
+
+| Version | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| apiVersion v1 | :heavy_check_mark: | :heavy_check_mark: |
+| apiVersion v2 | | :heavy_check_mark: |
+
+### <a name="migrate-from-helm-2-to-helm-3"></a>Migrer de Helm 2 à Helm 3
+
+Si vous avez déjà stocké et déployé des graphiques à l’aide de Helm 2 et Azure Container Registry, nous vous recommandons de migrer vers Helm 3. Consultez l'article :
+
+* [Migration de Helm 2 vers 3](https://helm.sh/docs/topics/v2_v3_migration/) dans la documentation de Helm.
+* [Migrer votre registre pour stocker les artefacts Helm OCI](#migrate-your-registry-to-store-helm-oci-artifacts), plus loin dans cet article
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -47,7 +75,7 @@ Utiliser la commande `helm version` pour vérifier que vous avez installé Helm�
 helm version
 ```
 
-Définissez la variable d’environnement suivante pour activer la prise en charge d’OCI dans le client Helm 3. Actuellement, cette prise en charge est expérimentale. 
+Définissez la variable d’environnement suivante pour activer la prise en charge d’OCI dans le client Helm 3. Actuellement, cette prise en charge est expérimentale et sujette à modification. 
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1
@@ -90,25 +118,25 @@ Pour plus d’informations sur la création et l’exécution de cet exemple, co
 
 Accédez au sous-répertoire `hello-world`. Ensuite, exécutez `helm chart save` pour enregistrer une copie du graphique localement et pour créer un alias composé du nom complet du registre (tout en minuscules), du dépôt cible et de l’étiquette cible. 
 
-Dans l’exemple suivant, le nom du registre est *mycontainerregistry*, le dépôt cible est *hello-world* et l’étiquette du graphique cible est *v1*. Remplacez ces valeurs par les valeurs appropriées à votre environnement :
+Dans l’exemple suivant, le nom du registre est *mycontainerregistry*, le référentiel cible est *helm/hello-world* et l’étiquette du graphique cible est *0.1.0*. Pour que l’extraction des dépendances réussisse, le nom et l’étiquette de l’image du graphique cible doivent correspondre au nom et à la version figurant dans `Chart.yaml`.
 
 ```console
 cd ..
-helm chart save . hello-world:v1
-helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart save . hello-world:0.1.0
+helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 Exécutez `helm chart list` pour vérifier que les graphiques ont bien été enregistrés dans le cache de registre local. Le résultat se présente ainsi :
 
 ```console
 REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
-hello-world:v1                                           hello-world       0.1.0   5899db0 3.2 KiB        2 minutes 
-mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0   5899db0 3.2 KiB        2 minutes
+hello-world:0.1.0                                        hello-world      0.1.0   5899db0 3.2 KiB        2 minutes 
+mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world      0.1.0   5899db0 3.2 KiB        2 minutes
 ```
 
 ## <a name="authenticate-with-the-registry"></a>S’authentifier auprès du registre
 
-Exécutez la commande `helm registry login` dans l’interface CLI Helm 3 pour [vous authentifier auprès du registre](container-registry-authentication.md) à l’aide des informations d’identification appropriées pour votre scénario.
+Exécuter `helm registry login` pour s’authentifier auprès du registre. Vous pouvez transmettre les [informations d’identification de Registre](container-registry-authentication.md) appropriées pour votre scénario, telles que les informations d’identification du principal de service ou un jeton d’étendue de référentiel.
 
 Par exemple, créez un [principal de service Azure Active Directory avec des autorisations d’extraction et de transmission](container-registry-auth-service-principal.md#create-a-service-principal) (rôle AcrPush) dans le registre. Fournissez ensuite les informations d’identification du principal de service à `helm registry login`. L’exemple suivant fournit le mot de passe à l’aide d’une variable d’environnement :
 
@@ -118,19 +146,22 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
   --password-stdin
 ```
 
+> [!TIP]
+> Vous pouvez aussi vous connecter au registre avec votre [identité Azure AD individuelle](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) pour envoyer (push) et tirer (pull) les graphiques Helm.
+
 ## <a name="push-chart-to-registry"></a>Envoyer le graphique dans le registre
 
 Exécutez la commande `helm chart push` dans l’interface CLI Helm 3 pour envoyer (push) le graphique vers le dépôt cible (spécifié avec son nom complet) :
 
 ```console
-helm chart push mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart push mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 Après une opération push réussie, la sortie ressemble à ceci :
 
 ```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/hello-world]
-ref:     mycontainerregistry.azurecr.io/helm/hello-world:v1
+ref:     mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 size:    3.2 KiB
 name:    hello-world
@@ -189,22 +220,22 @@ La sortie, abrégée dans cet exemple, montre le paramètre `configMediaType` d�
     "lastUpdateTime": "2020-03-20T18:11:37.7167893Z",
     "mediaType": "application/vnd.oci.image.manifest.v1+json",
     "tags": [
-      "v1"
+      "0.1.0"
     ]
 ```
 
 ## <a name="pull-chart-to-local-cache"></a>Tirer (pull) le graphique vers le cache local
 
-Pour installer un graphique Helm sur Kubernetes, le graphique doit se trouver dans le cache local. Dans cet exemple, commencez par exécuter `helm chart remove` pour supprimer le graphique local existant nommé `mycontainerregistry.azurecr.io/helm/hello-world:v1` :
+Pour installer un graphique Helm sur Kubernetes, le graphique doit se trouver dans le cache local. Dans cet exemple, commencez par exécuter `helm chart remove` pour supprimer le graphique local existant nommé `mycontainerregistry.azurecr.io/helm/hello-world:0.1.0` :
 
 ```console
-helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 Exécutez `helm chart pull` pour télécharger le graphique du registre de conteneurs Azure dans votre cache local :
 
 ```console
-helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 ## <a name="export-helm-chart"></a>Exporter le graphique Helm
@@ -212,7 +243,7 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 Pour pouvoir travailler plus en détail sur le graphique, exportez-le dans un répertoire local à l’aide de la commande `helm chart export`. Par exemple, exportez le graphique que vous avez tiré dans le répertoire `install` :
 
 ```console
-helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
+helm chart export mycontainerregistry.azurecr.io/helm/hello-world:0.1.0 \
   --destination ./install
 ```
 
@@ -272,7 +303,82 @@ helm uninstall myhelmtest
 Pour supprimer un graphique du registre de conteneurs, utilisez la commande [az acr repository delete][az-acr-repository-delete]. Exécutez la commande suivante, puis confirmez l’opération lorsque vous y êtes invité :
 
 ```azurecli
-az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
+az acr repository delete --name mycontainerregistry --image helm/hello-world:0.1.0
+```
+
+## <a name="migrate-your-registry-to-store-helm-oci-artifacts"></a>Migrer votre registre pour stocker les artefacts Helm OCI
+
+Si vous configurez préalablement votre registre de conteneurs Azure en tant que référentiel de graphiques à l’aide de Helm 2 et des commandes `az acr helm`, nous vous recommandons de [mettre à niveau][helm-install] vers le client Helm 3. Ensuite, procédez comme suit pour stocker les graphiques en tant qu’artefacts OCI dans votre registre. 
+
+> [!IMPORTANT]
+> * Une fois que vous avez terminé la migration à partir d’un référentiel de graphiques de style Helm 2 (basé sur index.yaml) vers des référentiels d’artefacts OCI, utilisez l’interface de ligne de commande Helm et les commandes `az acr repository` pour gérer les graphiques. Consultez les sections précédentes de cet article. 
+> * Les référentiels d’artefacts OCI Helm ne sont pas détectables à l’aide des commandes Helm telles que `helm search` et `helm repo list`. Pour plus d’informations sur les commandes Helm utilisées pour stocker des graphiques en tant qu’artefacts OCI, consultez la [documentation Helm](https://helm.sh/docs/topics/registries/).
+
+### <a name="enable-oci-support"></a>Activer la prise en charge d’OCI
+
+Vérifiez que vous utilisez le client Helm 3 :
+
+```console
+helm version
+```
+
+Activez le support OCI dans le client Helm 3. Actuellement, cette prise en charge est expérimentale et sujette à modification.
+
+```console
+export HELM_EXPERIMENTAL_OCI=1
+```
+
+### <a name="list-current-charts"></a>Répertorier les graphiques actuels
+
+Répertoriez les graphiques actuellement stockés dans le registre, ici nommé *myregistry* :
+
+```console
+helm search repo myregistry
+```
+
+La sortie affiche les graphiques et les versions de graphiques :
+
+```
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+myregistry/ingress-nginx        3.20.1          0.43.0          Ingress controller for Kubernetes...
+myregistry/wordpress            9.0.3           5.3.2           Web publishing platform for building...
+[...]
+```
+
+### <a name="save-charts-as-oci-artifacts"></a>Enregistrer des graphiques en tant qu’artefacts OCI
+
+Pour chaque graphique du référentiel, extrayez le graphique localement, puis enregistrez-le en tant qu’artefact OCI. Exemple :
+
+```console 
+helm pull myregisry/ingress-nginx --untar
+cd ingress-nginx
+helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
+```
+
+### <a name="push-charts-to-registry"></a>Envoyer des graphiques dans le registre
+
+Se connecter au registre :
+
+```azurecli
+az acr login --name myregistry
+```
+
+Envoyer (push) chaque graphique au registre :
+
+```console
+helm chart push myregistry.azurecr.io/ingress-nginx:3.20.1
+```
+
+Après avoir envoyé un graphique, confirmez qu’il est stocké dans le registre :
+
+```azurecli
+az acr repository list --name myregistry
+```
+
+Après avoir envoyé tous les graphiques, supprimez éventuellement le référentiel de graphiques de type Helm 2 du registre. Cela réduit le stockage dans votre registre :
+
+```console
+helm repo remove myregistry
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -285,18 +391,15 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 [helm]: https://helm.sh/
 [helm-install]: https://helm.sh/docs/intro/install/
 [develop-helm-charts]: https://helm.sh/docs/chart_template_guide/
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az_configure
 [az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md

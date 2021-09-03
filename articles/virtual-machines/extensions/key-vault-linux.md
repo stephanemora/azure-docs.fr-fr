@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 795bed84103170a695e9105c978b110ceb6475cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 56feecac6edae1c25c8706891ed7c2697a2508e1
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673258"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221193"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -264,13 +264,8 @@ Tenez compte des restrictions et conditions suivantes :
   - Doit exister au moment du déploiement 
   - La stratégie d’accès Key Vault doit être définie pour l’identité VM/VMSS à l’aide d’une identité managée. Consultez [Comment s’authentifier auprès de Key Vault](../../key-vault/general/authentication.md) et [Attribuer une stratégie d’accès Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
-### <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
-* Le nombre de observedCertificates que vous pouvez configurer est-il limité ?
-  Non, l'extension de machine virtuelle Key Vault ne limite pas le nombre de observedCertificates.
-
-
-### <a name="troubleshoot"></a>Dépanner
+## <a name="troubleshoot-and-support"></a>Dépannage et support
 
 Vous pouvez récupérer des données sur l’état des déploiements des extensions à partir du portail Azure et par le biais d’Azure PowerShell. Pour voir l’état de déploiement des extensions d’une machine virtuelle donnée, exécutez la commande suivante à l’aide d’Azure PowerShell.
 
@@ -283,13 +278,17 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-#### <a name="logs-and-configuration"></a>Journaux et configuration
+### <a name="logs-and-configuration"></a>Journaux et configuration
 
-```
-/var/log/waagent.log
-/var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
-/var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
-```
+Les journaux d’extension de machines virtuelles Key Vault existent uniquement localement sur la machine virtuelle et sont plus instructifs lorsqu’il s’agit de résoudre des problèmes.
+
+|Emplacement|Description|
+|--|--|
+| /var/log/waagent.log  | Indique quand une mise à jour de l’extension s’est produite. |
+| /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*    | Examinez les journaux du service d’extension de machines virtuelles Key Vault pour déterminer l’état du service akvvm_service et du télécharger du certificat. L’emplacement de téléchargement des fichiers PEM se trouve également dans ces fichiers avec une entrée appelée nom du fichier de certificat. Si certificateStoreLocation n’est pas spécifié, sa valeur par défaut est /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/* | La configuration et fichiers binaires pour le service d’extension de machines virtuelles Key Vault. |
+|||
+  
 ### <a name="using-symlink"></a>Liens symboliques
 
 Les liens symboliques (« symkink ») sont en quelque sorte des raccourcis avancés. Vous pouvez utiliser ce lien symbolique `([VaultName].[CertificateName])` pour récupérer automatiquement la dernière version du certificat sur Linux sans avoir à analyser le dossier.
@@ -298,6 +297,7 @@ Les liens symboliques (« symkink ») sont en quelque sorte des raccourcis avanc
 
 * Le nombre de observedCertificates que vous pouvez configurer est-il limité ?
   Non, l'extension de machine virtuelle Key Vault ne limite pas le nombre de observedCertificates.
+  
 
 ### <a name="support"></a>Support
 

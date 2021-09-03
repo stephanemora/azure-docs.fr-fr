@@ -1,23 +1,22 @@
 ---
 title: Créer une application et un principal de service Azure AD dans le portail
 titleSuffix: Microsoft identity platform
-description: Créez une application et un principal de service Azure Active Directory pour gérer l’accès aux ressources avec un contrôle d’accès en fonction du rôle dans Azure Resource Manager.
+description: Créez une nouvelle application et un principal de service Azure Active Directory pour gérer l’accès aux ressources avec un contrôle d’accès en fonction du rôle dans Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
+ms.openlocfilehash: b4589f451894e328a27b67ac19be4ea91374bee5
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951948"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579951"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -29,6 +28,7 @@ Cet article explique comment créer le principal de service dans le portail Azur
 > Au lieu de créer un principal du service, envisagez d’utiliser des identités managées pour les ressources Azure en ce qui concerne l’identité de votre application. Si votre code s’exécute sur un service qui prend en charge les identités managées et accède aux ressources qui prennent en charge l’authentification Azure AD, les identités managées correspondent bien à vos besoins. Pour en savoir plus sur les identités gérées pour les ressources Azure, y compris les services qui les prennent actuellement en charge, consultez la rubrique [Que sont les identités gérées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Inscription d’applications, objets d’application et principaux de service
+
 Il n’existe aucun moyen de créer directement un principal de service à l’aide du portail Azure.  Lorsque vous inscrivez une application par le biais du portail Azure, un objet d’application et un principal de service sont automatiquement créés dans votre répertoire de base ou votre locataire.  Pour plus d’informations sur la relation existant entre l’inscription d’applications, les objets d’application et les principaux de service, consultez [Objets application et principal de service dans Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Autorisations requises pour l’inscription d’une application
@@ -105,12 +105,10 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
    Si vous ne voyez pas l’abonnement recherché, sélectionnez le **filtre des abonnements généraux**. Assurez-vous que l’abonnement souhaité est sélectionné dans le portail.
 
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Sélectionnez le rôle que vous souhaitez affecter à l’application. Par exemple, pour autoriser l’application à exécuter des actions telles que **redémarrer**, **démarrer** et **arrêter** des instances, sélectionnez le rôle **Contributeur**.  En savoir plus sur les [rôles disponibles](../../role-based-access-control/built-in-roles.md). Par défaut, les applications Azure AD ne figurent pas dans les options disponibles. Pour trouver votre application, recherchez-la par son nom et sélectionnez-la.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page **Ajouter une attribution de rôle**.
+1. Sélectionnez le rôle que vous souhaitez affecter à l’application. Par exemple, pour autoriser l’application à exécuter des actions telles que **redémarrer**, **démarrer** et **arrêter** des instances, sélectionnez le rôle **Contributeur**.  En savoir plus sur les [rôles disponibles](../../role-based-access-control/built-in-roles.md). Par défaut, les applications Azure AD ne figurent pas dans les options disponibles. Pour trouver votre application, recherchez-la par son nom et sélectionnez-la. 
 
-   ![Sélectionnez le rôle à assigner à l’application](./media/howto-create-service-principal-portal/select-role.png)
-
-1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle. Votre application apparaît dans la liste des utilisateurs avec un rôle pour cette étendue.
+    Attribuer un rôle Contributeur à l’application pour l'étendue de l’abonnement. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Votre principal de service est créé. Vous pouvez commencer à l’utiliser pour exécuter vos scripts ou applications. Pour gérer votre principal de service (autorisations, autorisations accordées par l’utilisateur, voir quels utilisateurs ont donné leur consentement, examiner les autorisations, voir les informations de connexion, etc.), accédez à **Applications d’entreprise**.
 

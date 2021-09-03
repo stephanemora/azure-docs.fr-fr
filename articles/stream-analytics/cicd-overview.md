@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 940813f12d542715db47781731144a75e854a98e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aede2f01b7a38637767c6278e913b9bb2cf1a950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019565"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586128"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Intégration et déploiement continus (CI/CD) sur Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Suivez les étapes de ce guide pour créer un pipeline CI/CD pour Stream Analyti
 
 2. Validez vos projets Azure Stream Analytics dans votre système de contrôle de code source, de la même manière qu’un référentiel Git.
 
-3. Utilisez les [outils CI/CD Azure Stream Analytics](cicd-tools.md) pour compiler vos projets et générer des modèles de gestion des ressources Azure à des fins de déploiement.
+3. Utilisez les [outils CI/CD Azure Stream Analytics](cicd-tools.md) pour générer les projets et créer des modèles Azure Resource Manager à des fins de déploiement.
 
 4. Exécutez des [tests de script automatisé](cicd-tools.md#automated-test) pour la régression de qualité.
 

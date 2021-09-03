@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: aebadcbb37a91b1a908054738fc901c6e7e54ac1
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 07/09/2021
+ms.openlocfilehash: d36d7e91afc4b0bade9f3da08d1324aa7f56cba9
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004472"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594136"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Créer un cluster de calcul Azure Machine Learning
 
@@ -46,7 +46,7 @@ Dans cet article, découvrez comment :
 
 ## <a name="what-is-a-compute-cluster"></a>Qu’est-ce qu’un cluster de calcul ?
 
-Le cluster de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds. La capacité de calcul est créée dans la région de votre espace de travail sous forme de ressource qui peut être partagée avec d’autres utilisateurs dans votre espace de travail. La cible de calcul monte en puissance automatiquement quand un travail est soumis, et peut être placée dans un réseau virtuel Azure. La cible de calcul s’exécute dans un environnement conteneurisé et empaquète les dépendances de votre modèle dans un [conteneur Docker](https://www.docker.com/why-docker).
+Le cluster de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds. Le cluster de calcul est une ressource qui peut être partagée avec d’autres utilisateurs dans votre espace de travail. La cible de calcul monte en puissance automatiquement quand un travail est soumis, et peut être placée dans un réseau virtuel Azure. La cible de calcul s’exécute dans un environnement conteneurisé et empaquète les dépendances de votre modèle dans un [conteneur Docker](https://www.docker.com/why-docker).
 
 Les clusters de calcul peuvent exécuter des travaux de manière sécurisée dans un [environnement de réseau virtuel](how-to-secure-training-vnet.md), sans qu’il soit nécessaire pour les entreprises d’ouvrir des ports SSH. Le travail s’exécute dans un environnement conteneurisé et empaquette les dépendances de votre modèle dans un conteneur Docker. 
 
@@ -54,7 +54,12 @@ Les clusters de calcul peuvent exécuter des travaux de manière sécurisée dan
 
 * Certains des scénarios présentés dans ce document présentent la mention __préversion__. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Nous prenons actuellement en charge uniquement la création (et non la mise à jour) de clusters via des modèles ARM [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Pour mettre à jour le calcul, nous vous recommandons d’utiliser le Kit de développement logiciel (SDK), l’interface CLI ou l’expérience utilisateur pour le moment.
+* Les clusters de calcul peuvent être créés dans une région différente de celle de votre espace de travail. Cette fonctionnalité est en __préversion__ et n’est disponible que pour les __clusters de calcul__ et pas les instances de calcul. Cette préversion n’est pas disponible si vous utilisez un espace de travail prenant en charge les points de terminaison privés. 
+
+    > [!WARNING]
+    > Lorsque vous utilisez un cluster de calcul dans une région différente de celle de votre espace de travail ou de vos magasins de données, vous pouvez constater des coûts accrus de latence du réseau et de transfert de données. La latence et les coûts peuvent survenir lors de la création du cluster et lors de l’exécution de travaux sur celui-ci.
+
+* Nous prenons actuellement en charge uniquement la création (et non la mise à jour) de clusters via des [modèles ARM](/azure/templates/microsoft.machinelearningservices/workspaces/computes). Pour mettre à jour le calcul, nous vous recommandons d’utiliser le Kit de développement logiciel (SDK), Azure CLI ou UX pour le moment.
 
 * Capacité de calcul Azure Machine Learning comporte des limites par défaut, par exemple le nombre de cœurs qui peuvent être alloués. Pour plus d’informations, consultez [Gérer et demander des quotas pour les ressources Azure](how-to-manage-quotas.md).
 
@@ -88,15 +93,20 @@ Pour créer une ressource de capacité de calcul Azure Machine Learning persista
 
 Vous pouvez aussi configurer plusieurs propriétés avancées lors de la création d’une capacité de calcul Azure Machine Learning. Ces propriétés vous permettent de créer un cluster persistant de taille fixe, ou au sein d’un réseau virtuel Azure existant dans votre abonnement.  Pour plus de détails, voir la [classe AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute).
 
+> [!WARNING]
+> Lorsque vous définissez le paramètre `location`, s’il s’agit d’une région différente de celle de votre espace de travail ou de vos magasins de données, vous pouvez constater des coûts accrus de latence du réseau et de transfert de données. La latence et les coûts peuvent survenir lors de la création du cluster et lors de l’exécution de travaux sur celui-ci.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 
 ```azurecli-interactive
-az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
+az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2 --location westus2
 ```
 
-Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
+> [!WARNING]
+> Lorsque vous utilisez un cluster de calcul dans une région différente de celle de votre espace de travail ou de vos magasins de données, vous pouvez constater des coûts accrus de latence du réseau et de transfert de données. La latence et les coûts peuvent survenir lors de la création du cluster et lors de l’exécution de travaux sur celui-ci.
+
+Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 

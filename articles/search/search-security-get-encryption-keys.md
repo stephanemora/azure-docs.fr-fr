@@ -7,34 +7,50 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 06/21/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 22eefcde250057fae142142ed91c6e339849b0ba
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2f34d653a698a7ef2ee3dee21d46345ed9a7301a
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689260"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003815"
 ---
-# <a name="get-customer-managed-key-information-from-indexes-and-synonym-maps"></a>Obtenir des informations de clé gérée par le client à partir d’index et de synonym maps (cartes de synonymes)
+# <a name="find-encrypted-objects-and-information"></a>Rechercher des objets et des informations chiffrés
 
-Dans Azure Cognitive Search, les clés de chiffrement gérées par le client sont créées, stockées et gérées dans Azure Key Vault. Si vous avez besoin de déterminer si un objet est chiffré ou si le nom ou la version de la clé a été utilisée, utilisez l’API REST ou un kit de développement logiciel (SDK) pour récupérer la propriété **encryptionKey** à partir d’un index ou d’une définition de synonym map. 
+Dans Azure Cognitive Search, les clés de chiffrement gérées par le client sont créées, stockées et gérées dans Azure Key Vault. Si vous avez besoin de déterminer si un objet est chiffré ou si le nom ou la version de la clé a été utilisée dans Azure Key Vault, utilisez l’API REST ou un kit de développement logiciel (SDK) Azure pour récupérer la propriété **encryptionKey** à partir d’une définition d’objet dans votre service de recherche.
 
-Nous vous recommandons d’[activer la journalisation](../key-vault/general/logging.md) sur Key Vault afin de pouvoir surveiller l’utilisation de clé.
+Les objets qui ne sont pas chiffrés avec une clé gérée par le client auront une propriété **encryptionkey** vide. Dans le cas contraire, vous pouvez voir une définition similaire à l’exemple suivant.
+
+```json
+"encryptionKey": {
+"keyVaultUri": "https://demokeyvault.vault.azure.net",
+"keyVaultKeyName": "myEncryptionKey",
+"keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+"accessCredentials": {
+    "applicationId": "00000000-0000-0000-0000-000000000000",
+    "applicationSecret": "myApplicationSecret"
+    }
+}
+```
+
+La construction **encryptionkey** est la même pour tous les objets chiffrés. Il s’agit d’une propriété de premier niveau, sur le même niveau que le nom et la description de l’objet.
 
 ## <a name="get-the-admin-api-key"></a>Obtient la clé de l’API administrateur
 
-Pour obtenir des définitions d’objet à partir d’un service de recherche, vous devez vous authentifier avec des droits d’administrateur. Le moyen le plus simple d’accéder à la clé d’API d’administration se fait via le portail.
+Avant de pouvoir récupérer des définitions d’objets à partir d’un service de recherche, vous devez fournir une clé d’API administrateur. Des clés d’API administrateur sont requises sur les requêtes qui interrogent les définitions d’objets et les métadonnées. Le moyen le plus simple d’accéder à la clé d’API d’administration se fait via le portail.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez la page de présentation de votre service de recherche.
 
 1. Sur le côté gauche, cliquez sur **Clés** et copiez une API d’administration. Une clé d’administrateur est requise pour l’index et la récupération de carte des synonymes.
 
-Pour les étapes restantes, basculez vers PowerShell et l’API REST. Le portail n’affiche pas les cartes de synonymes, ni les propriétés de clé de chiffrement des index.
+Pour les étapes restantes, basculez vers PowerShell et l’API REST. Le portail n’affiche pas d’informations de clé de chiffrement pour un objet.
 
-## <a name="use-powershell-and-rest"></a>Utilisez PowerShell Core
+## <a name="retrieve-object-properties"></a>Récupérer les propriétés de l'objet
 
-Exécutez les commandes suivantes pour configurer les variables et récupérer les définitions d’objet.
+Utilisez PowerShell et REST pour exécuter les commandes suivantes afin de configurer les variables et récupérer les définitions d’objets. 
+
+Sinon, vous pouvez également utiliser les kits de développement logiciel (SDK) Azure pour [.NET](/dotnet/api/azure.search.documents.indexes.searchindexclient.getindexes), [Python](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient), [JavaScript](/javascript/api/@azure/search-documents/searchindexclient) et [Java](/java/api/com.azure.search.documents.indexes.searchindexclient.getindex).
 
 ```powershell
 <# Connect to Azure #>
@@ -65,7 +81,9 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez la clé de chiffrement et la version utilisées, vous pouvez gérer la clé dans Azure Key Vault ou vérifier d’autres paramètres de configuration.
+Nous vous recommandons d’[activer la journalisation](../key-vault/general/logging.md) sur Azure Key Vault afin de pouvoir analyser l’utilisation de la clé.
+
+Pour plus d’informations sur l’utilisation de la clé Azure ou sur la configuration du chiffrement managé par le client :
 
 + [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide de PowerShell](../key-vault/secrets/quick-create-powershell.md)
 

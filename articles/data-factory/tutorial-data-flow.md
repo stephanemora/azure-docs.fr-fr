@@ -5,15 +5,16 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
-ms.openlocfilehash: 2e732cf11627c9bf9be2610d32dc324f548b82ed
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 06/04/2021
+ms.openlocfilehash: b5d28b5e625bc7822469511ae83d5dabd5824fa0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641544"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformer des données avec des flux de données de mappage
 
@@ -73,9 +74,9 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
 Au cours de cette étape, vous allez créer un pipeline qui contient une activité de flux de données.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil Azure Data Factory, sélectionnez **Orchestrer**.
 
-   ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 
 1. Sous l’onglet **Général** du pipeline, entrez **TransformMovies** comme **Nom** du pipeline.
 1. Dans le volet **Activités**, développez la section **Déplacer et transformer**. Faites glisser et déposez l’activité **Flux de données** à partir du volet vers le canevas du pipeline.

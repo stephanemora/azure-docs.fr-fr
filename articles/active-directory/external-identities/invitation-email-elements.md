@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc80c208b5a48a45b8c47d640dc381f5559c3d4d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 324b37931fff91779b8d25c744ae63671bae315c
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304764"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113224307"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -40,7 +40,8 @@ L’objet de l’e-mail suit ce modèle :
 Nous utilisons un modèle similaire à LinkedIn pour l’adresse De. Ce modèle doit préciser que, même si l’e-mail est envoyé par invites@microsoft.com, l’invitation provient d’une autre organisation. Le format est le suivant : Microsoft Invitations <invites@microsoft.com> ou Invitations Microsoft pour le compte de &lt;nom_locataire&gt; <invites@microsoft.com>. 
 
 > [!NOTE]
-> Pour le service Azure géré par 21Vianet en Chine, l’adresse de l’expéditeur est Invites@oe.21vianet.com.
+> Pour le service Azure géré par 21Vianet en Chine, l’adresse de l’expéditeur est Invites@oe.21vianet.com.  
+> Pour le Azure AD Government, l’adresse de l’expéditeur est invites@azuread.us.
 
 ### <a name="reply-to"></a>Adresse de réponse
 

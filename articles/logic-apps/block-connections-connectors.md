@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f13ffe10ed9ade4e6fe8767ef61b6709747b7d2a
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310037"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606247"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocage des connexions créées par les connecteurs dans Azure Logic Apps
 
@@ -222,7 +222,7 @@ Pour bloquer complètement la création d’une connexion dans une application l
 
 Pour plus d’informations sur les définitions de stratégies Azure, consultez ces rubriques :
 
-* [Définition d’une structure de stratégie](../governance/policy/concepts/definition-structure.md)
+* [Structure de définition Azure Policy](../governance/policy/concepts/definition-structure.md)
 * [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 * [Définitions de stratégies intégrées Azure Policy pour Azure Logic Apps](./policy-reference.md)
 
@@ -309,7 +309,7 @@ Une connexion créée à l’intérieur d’une application logique existe en ta
 
 Pour plus d’informations sur les définitions de stratégies Azure, consultez ces rubriques :
 
-* [Définition d’une structure de stratégie](../governance/policy/concepts/definition-structure.md)
+* [Structure de définition Azure Policy](../governance/policy/concepts/definition-structure.md)
 * [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 * [Définitions de stratégies intégrées Azure Policy pour Azure Logic Apps](./policy-reference.md)
 

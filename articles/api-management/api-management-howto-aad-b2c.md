@@ -1,128 +1,135 @@
 ---
 title: Autoriser des comptes de développeurs avec Azure Active Directory B2C
 titleSuffix: Azure API Management
-description: Découvrez comment autoriser des utilisateurs avec Azure Active Directory B2C dans Gestion des API.
+description: Découvrez comment autoriser les utilisateurs du portail des développeurs dans gestion des API Azure à l’aide d’Azure Active Directory B2C
 services: api-management
-documentationcenter: API Management
 author: miaojiang
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 07/07/2021
 ms.author: apimpm
-ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6385f87eec00820d535845df21a44965e1708a55
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96013540"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113568152"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
-## <a name="overview"></a>Vue d’ensemble
 
-Azure Active Directory B2C est une solution de gestion des identités de cloud pour applications web et mobiles grand public. Vous pouvez l’utiliser pour gérer l’accès au portail des développeurs. Ce guide explique comment configurer votre service Gestion des API requis pour l’intégration avec Azure Active Directory B2C. Pour plus d’informations sur l’activation de l’accès au portail des développeurs à l’aide d’Active Directory Azure classique, consultez [Comment autoriser des comptes de développeurs avec Azure Active Directory].
+Azure Active Directory B2C est une solution de gestion des identités de cloud pour applications web et mobiles grand public. Vous pouvez l’utiliser pour gérer l’accès au portail des développeurs API Management. 
 
-> [!NOTE]
-> Pour effectuer les étapes de ce guide, vous devez disposer d’un client Azure Active Directory B2C dans lequel vous souhaitez créer une application. Vous devez également disposer de stratégies d’inscription et de connexion. Pour plus d’informations, consultez la [Vue d’ensemble d’Azure Active Directory B2C].
+Ce guide explique comment configurer votre service Gestion des API requis pour l’intégration avec Azure Active Directory B2C. Si vous utilisez le portail des développeurs hérité déconseillé, certaines étapes diffèrent, comme indiqué dans cet article.
+
+Pour plus d’informations sur l’activation de l’accès au portail des développeurs à l’aide d’Active Directory Azure classique, consultez [Comment autoriser des comptes de développeurs avec Azure Active Directory](api-management-howto-aad.md).
+
+## <a name="prerequisites"></a>Configuration requise
+
+* Un abonné Azure Active Directory B2C pour y créer une application. Pour plus d’informations, consultez la [Vue d’ensemble d’Azure Active Directory B2C](../active-directory-b2c/overview.md).
+* Si vous ne disposez pas déjà d’un service API Management, effectuez le démarrage rapide suivant : [Créer une instance Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
-## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autoriser des comptes de développeurs avec Azure Active Directory B2C
+## <a name="configure-sign-up-and-sign-in-user-flow"></a>Configurer le flux d’utilisateur Inscription et connexion
 
-1. Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com) et recherchez votre instance Gestion des API.
+Dans cette section, créez un flux d’utilisateur dans votre abonné Azure Active Directory B2C contenant les stratégies d’inscription et de connexion. Pour obtenir des instructions détaillées, consultez [Créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
 
-   > [!NOTE]
-   > Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel [Prise en main de Gestion des API Azure][Get started with Azure API Management].
+1. Dans le [Portail Azure](https://portal.azure.com), accédez à votre abonné Azure Active Directory B2C.
+1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs** >  **+ Nouveau flux d’utilisateurs**.
+1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**.
+1. Fournissez les informations suivantes :
+    1. Entrez un nom unique pour le flux d’utilisateurs.
+    1. Dans **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
+    1. Dans **Attributs utilisateur et revendications de jeton**, sélectionnez les attributs et les revendications nécessaires pour le portail des développeurs API Management (inutile pour le portail des développeurs hérités).
+         ![Revendications de l’application](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
+        * **Attributs** : nom donné, nom de famille
+        * **Revendications** : adresses e-mail, nom donné, nom de famille, ID objet de l’utilisateur
+1. Sélectionnez **Create** (Créer).
 
-1. Sous **Identités**. Cliquez sur **+Ajouter** dans la partie supérieure.
+## <a name="configure-identity-provider-for-developer-portal"></a>Configurer le fournisseur d’identité pour le portail des développeurs
 
-   Le volet **Ajouter le fournisseur d’identité** s’affiche à droite. Choisissez **Azure Active Directory B2C**.
-    
-   ![Ajouter AAD B2C en tant que fournisseur d’identité][api-management-howto-add-b2c-identity-provider]
+1. Dans un onglet [Portail Azure](https://portal.azure.com) séparé, accédez à votre instance API Management.
+1. Sous **Portail des développeurs**, sélectionnez **Identités** >  **+ Ajouter**.
+1. Dans la page **Ajouter le fournisseur d’identité**, sélectionnez **Azure Active Directory B2C**.
+1. Dans la fenêtre **Ajouter le fournisseur d’identité**, copiez l’**URL de redirection**.
 
-1. Copiez l’ **URL de redirection**.
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-identity-provider-redirect-url.png" alt-text="Copier l’URL de redirection":::    
 
-   ![URL de redirection du fournisseur d’identité AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
+1. Revenez à l’onglet du navigateur pour votre abonné Azure Active Directory B2C dans le Portail Azure. Sélectionnez **Inscriptions d'applications** >   **+ Nouvelle inscription**.
+1. Dans la page **Inscrire une application**, entrez les informations d’inscription de votre application.
+    * Dans la section **Nom**, entrez un nom d’application de votre choix.
+    * Dans la section **Types de compte pris en charge**, choisissez le type de comptes appropriés pour votre scénario. Pour cibler un grand nombre de clients, sélectionnez **Comptes dans un fournisseur d’identité ou un répertoire organisationnel (pour authentifier les utilisateurs avec des flux d’utilisateurs)** . Pour plus d’informations, consultez [Inscrire une application](../active-directory/develop/quickstart-register-app.md#register-an-application).
+    * Dans **URI de redirection**, entrez l’URL de redirection copiée de votre instance API Management.
+    * Dans **Autorisations**, sélectionnez **Accorder le consentement administrateur aux autorisations openid et offline_access.**
+    * Sélectionnez **Inscrire** pour créer l’application.
 
-1. Dans un nouvel onglet, accédez à votre locataire Azure Active Directory B2C dans le portail Azure et ouvrez le panneau **Applications**.
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-app-registration.png" alt-text="Inscrire une nouvelle application":::
 
-   ![Inscrire une nouvelle application 1][api-management-howto-aad-b2c-portal-menu]
+1. Dans la page de **Présentation** de l’application, recherchez la valeur **ID d’application (client)** et copiez la valeur dans le presse-papiers.
 
-1. Cliquez sur le bouton **Ajouter** pour créer une nouvelle application Azure Active Directory B2C.
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-app-id.png" alt-text="ID de l’application":::
+1. Revenez à la page **Ajouter un fournisseur d’identité** dans API Management et collez l’ID dans la zone de texte **ID client**.
+1. Revenez à l’inscription de l’application B2C. Sélectionnez **Certificats et secrets** >  **+ Nouveau secret client**. 
+    :::image type="content" source="media/api-management-howto-aad-b2c/generate-app-key.png" alt-text="Créer un secret client"::: 
+   * Dans la page **Ajouter un secret client**, entrez une **Description** et sélectionnez **Ajouter**.
+   * Enregistrez la clé dans un endroit sûr. Cette valeur secrète ne sera plus jamais affichée lorsque vous aurez quitté cette page.
+1. Revenez à la page **Ajouter un fournisseur d’identité** dans API Management et collez la clé dans la zone de texte **Secret client**.
+1. Revenez à l’inscription de l’application B2C. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
+    * Sous **Octroi implicite**, cochez la case **Jetons d’accès**.
+    * Sélectionnez **Enregistrer**.
+1. Revenez à la page **Ajouter un fournisseur d’identité** API Management.
+    * Dans **Abonné de connexion**, spécifiez le nom de domaine de l’abonné Azure Active Directory B2C.
+    * Le champ **Autorité** vous permet de contrôler l’URL de connexion à Azure AD B2C à utiliser. Définissez la valeur sur **< votre nom_de_locataire_b2c>.b2clogin.com**.
+    * Spécifiez la **stratégie d’inscription** et la **stratégie de connexion** à partir des stratégies de l’abonné B2C.
+    * Si vous le souhaitez, fournissez la **Stratégie de modification du profil** et la **Stratégie de réinitialisation du mot de passe**.
 
-   ![Inscrire une nouvelle application 2][api-management-howto-aad-b2c-add-button]
+         :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Configuration du fournisseur d’identité Active Directory B2C":::
+1. Après avoir spécifié la configuration souhaitée, sélectionnez **Ajouter**.
 
-1. Dans le panneau **Nouvelle application**, entrez un nom pour l’application. Choisissez **Oui** sous **Application web/API web**, puis choisissez **Oui** sous **Autoriser un flux implicite**. Puis collez **l’URL de redirection** copiée à l’étape 3 dans la zone de texte **URL de réponse**.
-
-   ![Inscrire une nouvelle application 3][api-management-howto-aad-b2c-app-details]
-
-1. Si vous utilisez le nouveau portail des développeurs (et non le portail des développeurs hérité), incluez le **prénom**, le **nom** et l’**ID d’objet de l’utilisateur** dans les revendications d’application.
-
-    ![Revendications d’application](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
-
-1. Cliquez sur le bouton **Créer**. Lorsque l’application est créée, elle apparaît dans le panneau **Applications**. Cliquez sur le nom de l’application pour afficher les informations la concernant.
-
-   ![Inscrire une nouvelle application 4][api-management-howto-aad-b2c-app-created]
-
-1. À partir du panneau **Propriétés**, copiez **l’ID de l’application** dans le Presse-papiers.
-
-   ![ID d’application 1][api-management-howto-aad-b2c-app-id]
-
-1. Revenez au volet **Ajouter un fournisseur d’identité** dans Gestion des API et collez l’ID dans la zone de texte **ID client**.
-    
-1.  Revenez dans l’inscription d’application B2C, cliquez sur le bouton **Clés**, puis sur **Générer une clé**. Cliquez sur **Enregistrer** pour enregistrer la configuration et afficher la **clé d’application**. Copiez la clé dans le Presse-papiers.
-
-    ![Clé d’application 1][api-management-howto-aad-b2c-app-key]
-
-1.  Revenez au volet **Ajouter un fournisseur d’identité** dans Gestion des API et collez la clé dans la zone de texte **Secret client**.
-    
-1.  Spécifiez le nom de domaine du client Azure Active Directory B2C dans **Locataire de connexion**.
-
-1.  Le champ **Autorité** vous permet de contrôler l’URL de connexion à Azure AD B2C à utiliser. Définissez la valeur sur **< votre nom_de_locataire_b2c>.b2clogin.com**.
-
-1. Spécifiez la **stratégie d’inscription** et la **stratégie de connexion** à partir des stratégies du locataire B2C. Si vous le souhaitez, vous pouvez également fournir la **Stratégie de modification du profil** et la **Stratégie de réinitialisation du mot de passe**.
-
-1. Après avoir spécifié la configuration souhaitée, cliquez sur **Enregistrer**.
-
-    Après avoir enregistré les modifications, les développeurs pourront créer de nouveaux comptes et se connecter au portail des développeurs à l’aide d’Azure Active Directory B2C.
+Après avoir enregistré les modifications, les développeurs pourront créer de nouveaux comptes et se connecter au portail des développeurs à l’aide d’Azure Active Directory B2C.
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portail des développeurs : ajouter l’authentification de compte Azure AD B2C
 
-Dans le portail des développeurs, il est possible de se connecter avec AAD B2C à l’aide du widget **Bouton de connexion : OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
+> [!IMPORTANT]
+> Vous devez [republier le portail des développeurs](api-management-howto-developer-portal-customize.md#publish) lorsque vous créez ou mettez à jour des paramètres de configuration Azure Active Directory B2C pour que les modifications prennent effet.
 
-Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD B2C, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+Dans le portail des développeurs, il est possible de se connecter avec Azure AD B2C à l’aide du widget **Bouton de connexion : OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
+
+1. Pour s’inscrire en utilisant Azure Active Directory B2C, ouvrez une nouvelle fenêtre de navigateur et accédez au portail des développeurs. Sélectionnez **Connexion**.
+
+1. Dans la page **Se connecter**, sélectionnez **Azure Active Directory B2C**.
+
+    :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Se connecter au portail des développeurs":::
+1. Vous êtes redirigé vers la stratégie d’inscription que vous avez configurée dans la section précédente. Choisissez de vous inscrire à l’aide de votre adresse de messagerie dans l’abonné Active Directory B2C
+
+Une fois l’inscription terminée, vous êtes redirigé vers le portail des développeurs. Vous êtes maintenant inscrit sur le portail des développeurs pour votre instance de service Gestion des API.
+
+:::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Se connecter au portail des développeurs complet":::
+
+Bien qu’un compte soit automatiquement créé chaque fois qu’un nouvel utilisateur se connecte avec Azure AD B2C, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
 
 Le widget **Formulaire d’inscription : OAuth** représente un formulaire utilisé pour s’inscrire à l’aide d’OAuth.
-
-> [!IMPORTANT]
-> Vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications apportées à AAD prennent effet.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portail des développeurs hérité : comment s’inscrire avec Azure AD B2C
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-1. Pour inscrire un compte de développeur avec Azure Active Directory B2C, ouvrez une nouvelle fenêtre de navigateur et accédez au portail des développeurs. Cliquez sur le bouton **S’inscrire**.
+1. Pour inscrire un compte de développeur avec Azure AD B2C, ouvrez une nouvelle fenêtre de navigateur et accédez au portail des développeurs hérité. Cliquez sur le bouton **S’inscrire**.
 
-   ![Portail des développeurs 1][api-management-howto-aad-b2c-dev-portal]
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="S’inscrire dans le portail des développeurs hérité":::
+1. Choisissez de vous inscrire avec **Azure Active Directory B2C**.
 
-2. Choisissez de vous inscrire avec **Azure Active Directory B2C**.
-
-   ![Portail des développeurs 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="S'inscrire avec Azure Active Directory B2C":::
 
 3. Vous êtes redirigé vers la stratégie d’inscription que vous avez configurée dans la section précédente. Choisissez de vous inscrire avec votre adresse de messagerie ou l’un de vos comptes sociaux existants.
 
    > [!NOTE]
    > Si Azure Active Directory B2C est la seule option activée dans l’onglet **Identités** sur le portail des éditeurs, vous êtes redirigé directement vers la stratégie d’inscription.
 
-   ![Portail des développeurs][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="S’inscrire aux options dans le portail des développeurs hérité":::
 
    Une fois l’inscription terminée, vous êtes redirigé vers le portail des développeurs. Vous êtes maintenant inscrit sur le portail des développeurs pour votre instance de service Gestion des API.
-
-    ![Référencement terminé][api-management-registration-complete]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -133,54 +140,6 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 *  [Utiliser un compte LinkedIn comme fournisseur d’identité dans Azure Active Directory B2C]
 *  [Utiliser un compte Facebook comme fournisseur d’identité dans Azure Active Directory B2C]
 
-
-
-[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
-[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.PNG
-[api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
-[api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
-[api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG
-[api-management-howto-aad-b2c-app-created]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-created.PNG
-[api-management-howto-aad-b2c-app-id]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-id.PNG
-[api-management-howto-aad-b2c-client-id]: ./media/api-management-howto-aad-b2c/api-management-b2c-client-id.PNG
-[api-management-howto-aad-b2c-app-key]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-key.PNG
-[api-management-howto-aad-b2c-app-key-saved]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-key-saved.PNG
-[api-management-howto-aad-b2c-client-secret]: ./media/api-management-howto-aad-b2c/api-management-b2c-client-secret.PNG
-[api-management-howto-aad-b2c-allowed-tenant]: ./media/api-management-howto-aad-b2c/api-management-b2c-allowed-tenant.PNG
-[api-management-howto-aad-b2c-policies]: ./media/api-management-howto-aad-b2c/api-management-b2c-policies.PNG
-[api-management-howto-aad-b2c-dev-portal]: ./media/api-management-howto-aad-b2c/api-management-b2c-dev-portal.PNG
-[api-management-howto-aad-b2c-dev-portal-b2c-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-button.PNG
-[api-management-howto-aad-b2c-dev-portal-b2c-options]: ./media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-options.PNG
-[api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
-[api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
-[api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
 [How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
@@ -195,7 +154,7 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Vue d’ensemble d’Azure Active Directory B2C]: ../active-directory-b2c/overview.md
-[Comment autoriser des comptes de développeurs avec Azure Active Directory]: ./api-management-howto-aad.md
+[How to authorize developer accounts using Azure Active Directory]: ./api-management-howto-aad.md
 [Azure Active Directory B2C : infrastructure de stratégie extensible]: ../active-directory-b2c/user-flow-overview.md
 [Utiliser un compte Microsoft comme fournisseur d’identité dans Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
 [Utiliser un compte Google comme fournisseur d’identité dans Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-google.md

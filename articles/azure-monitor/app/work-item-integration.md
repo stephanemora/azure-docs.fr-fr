@@ -2,17 +2,27 @@
 title: Intégration d’éléments de travail – Application Insights
 description: Découvrez comment créer des éléments de travail dans GitHub ou Azure DevOps avec des données Application Insights incorporées.
 ms.topic: conceptual
-ms.date: 04/22/2021
-ms.openlocfilehash: 57eae6b0cda7a0f77a83ecbe453aca56eaf2504b
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.date: 06/27/2021
+ms.openlocfilehash: 02fbb15f417d01d1f9c5b572fdb5553ad1127037
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930393"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989131"
 ---
 # <a name="work-item-integration"></a>Intégration d’éléments de travail 
 
 La fonctionnalité d’intégration d’éléments de travail vous permet de créer facilement des éléments de travail dans GitHub ou Azure DevOps, contenant des données Application Insights incorporées.
+
+
+La nouvelle intégration d’éléments de travail offre les fonctionnalités suivantes par rapport à la version [classique](#classic-work-item-integration) :
+- Champs avancés tels que destinataire, projets ou jalons.
+- Icônes du référentiel pour vous permettre de faire la différence entre les classeurs GitHub et Azure DevOps.
+- Configurations multiples pour un nombre quelconque de référentiels ou d’éléments de travail.
+- Déploiement par le biais de modèles Azure Resource Manager.
+- Requêtes KQL (Keyword Query Language) pré-générées et personnalisables pour ajouter des données Application Insights à vos éléments de travail.
+- Modèles de classeur personnalisables.
+
 
 ## <a name="create-and-configure-a-work-item-template"></a>Créer et configurer un modèle d’élément de travail
 
@@ -55,3 +65,24 @@ Sélectionnez Modifier ![icône de modification](./media/work-item-integration/e
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Capture d’écran du modèle de classeur d’élément de travail en mode d’édition." lightbox="./media/work-item-integration/edit-workbook.png":::
 
 Vous pouvez créer plusieurs configurations d’élément de travail et disposer d’un classeur personnalisé pour répondre à chaque scénario. Les classeurs peuvent également être déployés par Azure Resource Manager afin de garantir des implémentations standard dans tous vos environnements.
+
+## <a name="classic-work-item-integration"></a>Intégration des éléments de travail classiques 
+
+1. Dans votre ressource Application Insights, sous *Configurer*, sélectionnez **Éléments de travail**.
+1. Sélectionnez **Basculer vers classique**, renseignez les champs avec vos informations et autorisez. 
+
+    :::image type="content" source="./media/work-item-integration/classic.png" alt-text=" Capture d’écran de la configuration des éléments de travail classiques." lightbox="./media/work-item-integration/classic.png":::
+
+1. Créer un élément de travail en accédant aux détails de la transaction de bout en bout, sélectionnez un événement, choisissez **Créer un élément de travail (classique)** . 
+
+
+### <a name="migrate-to-new-work-item-integration"></a>Migrer vers une nouvelle intégration d’éléments de travail
+
+Pour migrer, supprimez votre configuration d’éléments de travail classique, puis [créez et configurez un modèle d’élément de travail](#create-and-configure-a-work-item-template) pour recréer votre intégration.
+
+Pour supprimer, accédez à votre ressource Application Insights sous *Configurer* sélectionnez **Éléments de travail** puis sélectionnez **Basculer vers classique** et **Supprimer* en haut.
+
+
+## <a name="next-steps"></a>Étapes suivantes
+[Test de disponibilité](availability-overview.md)
+

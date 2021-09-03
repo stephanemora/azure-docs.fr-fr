@@ -3,12 +3,12 @@ title: Utiliser des points de terminaison privés pour intégrer Azure Functions
 description: Ce tutoriel pas à pas vous montre comment connecter une fonction à un réseau virtuel Azure et le verrouiller avec des points de terminaison privés.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 0f18712e9881c60754d5729751609f6458104daf
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a410d6717a73df2c7e947fd15c6c89040f08846c
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715481"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204738"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutoriel : intégrer des Azure Functions à un réseau virtuel Azure à l’aide de points de terminaison privés
 
@@ -147,7 +147,7 @@ Créez le réseau virtuel dans lequel s’intègre l’application de fonction 
 
 Les points de terminaison privés Azure sont utilisés pour se connecter à des ressources Azure spécifiques à l’aide d’une adresse IP privée. Cette connexion garantit que le trafic réseau reste dans le réseau virtuel choisi et que l’accès n’est disponible que pour des ressources spécifiques. 
 
-Créez les points de terminaison privés pour le stockage Azure Files et le stockage Blob Azure avec votre compte de stockage :
+Créez les points de terminaison privés pour les services Azure Stockage Fichier, Stockage Blob et Stockage Table en utilisant votre compte de stockage :
 
 1. Dans votre nouveau compte de stockage, sélectionnez **Mise en réseau** dans le menu sur la gauche.
 
@@ -186,6 +186,15 @@ Créez les points de terminaison privés pour le stockage Azure Files et le stoc
     | **Nom** | blob-endpoint | Nom du point de terminaison privé pour les objets blob de votre compte de stockage. |
     | **Ressource** | mysecurestorage | Le compte de stockage que vous avez créé. |
     | **Sous-ressource cible** | objet BLOB | Ce point de terminaison privé sera utilisé pour les fichiers blob du compte de stockage. |
+1. Créez un autre point de terminaison privé pour les tables. Dans l’onglet **Ressources**, utilisez les paramètres indiqués dans le tableau suivant. Pour tous les autres paramètres, utilisez les mêmes valeurs que celles utilisées pour créer le point de terminaison privé pour les fichiers.
+
+    | Paramètre      | Valeur suggérée  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. | 
+    | **Type de ressource**  | Microsoft.Storage/storageAccounts | Le type de ressource pour les comptes de stockage. |
+    | **Nom** | table-endpoint | Nom du point de terminaison privé pour les objets blob de votre compte de stockage. |
+    | **Ressource** | mysecurestorage | Le compte de stockage que vous avez créé. |
+    | **Sous-ressource cible** | table | Ce point de terminaison privé sera utilisé pour les tables du compte de stockage. |
 1. Une fois les points de terminaison privés créés, revenez à la section **Pare-feu et réseaux virtuels** de votre compte de stockage.  
 1. Vérifiez que l’option **Réseaux sélectionnés** est sélectionnée.  Il n’est pas nécessaire d’ajouter un réseau virtuel existant.
 

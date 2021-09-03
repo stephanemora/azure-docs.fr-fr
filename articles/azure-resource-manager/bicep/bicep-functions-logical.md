@@ -4,17 +4,19 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour déter
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: e2b0f79b2d8e0bf1f00e4db108b7a5f33a1be9a7
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/29/2021
+ms.openlocfilehash: 8fe09057ea293300754fc35614c00a9b808da247
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026367"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524998"
 ---
 # <a name="logical-functions-for-bicep"></a>Fonctions logiques pour Bicep
 
-Resource Manager fournit une fonction `bool` pour Bicep. Certaines des fonctions logiques JSON Azure Resource Manager sont remplacées par des [opérateurs logiques Bicep](./operators-logical.md).
+Resource Manager fournit une fonction `bool` pour Bicep. 
+
+La plupart des fonctions logiques dans des modèles Azure Resource Manager sont remplacées par des [opérateurs logiques](./operators-logical.md) dans Bicep.
 
 ## <a name="bool"></a>bool
 
@@ -54,4 +56,5 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour la plupart des opérations logiques, consultez [Opérateurs logiques Bicep](./operators-logical.md).
 * Pour obtenir une description des sections d’un fichier Bicep, consultez [comprendre la structure et la syntaxe des fichiers Bicep](./file.md).

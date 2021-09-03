@@ -1,5 +1,5 @@
 ---
-title: Connexion d’une machine virtuelle SQL Azure pour l’indexation de recherche
+title: Connexion de l’indexeur à SQL Server sur les machines virtuelles Azure
 titleSuffix: Azure Cognitive Search
 description: Activer les connexions chiffrées et configurer le pare-feu pour autoriser les connexions à SQL Server sur une machine virtuelle Azure à partir d’un indexeur sur la Recherche cognitive Azure.
 author: markheff
@@ -7,14 +7,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 23c5d138463a52f4ff4c52b4a919b71a87b7fd6d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 4aa60a5433f13ca6b942204bbdb8eb4425d0ddf7
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802877"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983209"
 ---
-# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure
+# <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Connexions de l’indexeur à SQL Server sur une machine virtuelle Azure
 
 Lorsque vous configurez un [indexeur Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) pour extraire du contenu d’une base de données sur une machine virtuelle Azure, des étapes supplémentaires sont requises pour des connexions de sécurité. 
 

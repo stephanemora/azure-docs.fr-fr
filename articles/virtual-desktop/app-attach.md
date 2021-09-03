@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6b54afdb77bd1fc3a958b959dad4fcb030e1fe2f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745436"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534749"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Créer des scripts PowerShell pour l’attachement d’application MSIX
 
@@ -200,6 +200,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
+>[!NOTE]
+>Vous pouvez arrêter l’appareil même si le point **$volumeGuid** reste après l’exécution du script de retrait.
+
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Configurer des scripts de simulation pour l’agent d’attachement de l’application MSIX
 
 Une fois que vous avez créé les scripts, les utilisateurs peuvent les exécuter manuellement ou les configurer pour qu’ils s’exécutent automatiquement comme des scripts de démarrage, d’ouverture de session, de fermeture de session et d’arrêt. Pour en savoir plus sur ces types de scripts, consultez [Utiliser des scripts de démarrage, d’arrêt, d’ouverture de session et de fermeture de session dans une stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
@@ -210,6 +213,9 @@ Chacun de ces scripts automatiques exécute une phase des scripts d’attachemen
 - Le script d’ouverture de session exécute le script d’inscription.
 - Le script de fermeture de session exécute le script de désinscription.
 - Le script d’arrêt exécute le script de retrait.
+
+>[!NOTE]
+>Vous pouvez exécuter le planificateur de tâches avec le script de stockage. Pour exécuter le script, définissez le déclencheur de la tâche sur **Quand l’ordinateur démarre**, puis activez **Exécuter avec le plus haut niveau de privilèges**.
 
 ## <a name="use-packages-offline"></a>Utiliser des packages hors connexion
 

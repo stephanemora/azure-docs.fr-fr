@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 05/16/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c857de5c9182d49e2527c9cbf416d7012c46370
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3bd7a7908b94794c60f351297a34309e94d21137
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713951"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964029"
 ---
-# <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres d'approbation et d'informations sur le demandeur (préversion) d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
+# <a name="change-approval-and-requestor-information-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres d'approbation et d'informations relatives au demandeur d'un package d'accès dans la gestion des droits d'utilisation Azure AD
 
 En tant que gestionnaire de packages d'accès, vous pouvez à tout moment modifier les paramètres d'approbation et d'informations sur le demandeur d'un package d'accès en modifiant une stratégie existante ou en ajoutant une nouvelle stratégie.
 
@@ -34,10 +34,9 @@ Cet article explique comment modifier les paramètres d'approbation et d'informa
 Dans la section Approbation, vous spécifiez si une approbation est nécessaire quand les utilisateurs demandent ce package d’accès. Les paramètres d’approbation fonctionnent de la façon suivante :
 
 - La demande n’a besoin d’être approuvée que par un seul des approbateurs sélectionnés ou approbateurs de secours pour une approbation en une étape. 
-- Seul l’un des approbateurs sélectionnés de chaque étape doit approuver une demande d’approbation en 2 étapes.
-- L’approbateur peut être un gestionnaire, un sponsor interne ou un sponsor externe, en fonction de la personne dont la stratégie régit l’accès.
-- L’approbation de chaque approbateur sélectionné n’est pas nécessaire pour une approbation en une ou 2 étapes.
-- La décision d’approbation repose sur le premier approbateur à consulter la demande.
+- Seul l’un des approbateurs sélectionnés de chaque étape doit approuver une requête d’approbation en plusieurs étapes pour que la requête passe à l’étape suivante.
+- Si l’un des approuvés sélectionnés dans une étape refuse une requête avant qu’un autre approbateur de cette phase l’approuve, ou si aucun n’approuve, la requête se termine et l’utilisateur ne reçoit pas d’accès.
+- L’approbateur peut être un utilisateur ou un membre spécifique d’un groupe, le manager du demandeur, le commanditaire interne ou le commanditaire externe en fonction de la personne qui régit l’accès à la stratégie.
 
 Pour une démonstration de l’ajout d’approbateurs à une stratégie de demande, regardez la vidéo suivante :
 
@@ -68,7 +67,7 @@ Pour spécifier les paramètres d’approbation pour les demandes de package d�
 
 1. Pour exiger des utilisateurs une justification pour demander le package d’accès, affectez la valeur **Oui** à **Exiger la justification du demandeur**.
     
-1. À présent, déterminez si les demandes nécessitent une approbation en une ou 2 étapes. Définissez **Nombre d’étapes** sur **1** pour l’approbation en une étape, ou sur **2** pour l’approbation en 2 étapes.
+1. À présent, déterminez si les requêtes nécessitent une approbation en une ou plusieurs étapes. Définissez l’option **Combien d’étapes** sur le nombre d’étapes d’approbation nécessaires.
 
     ![Package d’accès - Demandes - Paramètres d’approbation](./media/entitlement-management-access-package-approval-policy/approval.png)
 
@@ -101,9 +100,9 @@ Suivez les étapes ci-dessous pour ajouter des approbateurs après avoir sélect
 
     La justification est visible par les autres approbateurs et le demandeur.
 
-### <a name="2-stage-approval"></a>Approbation en deux phases
+### <a name="multi-stage-approval"></a>Approbation en plusieurs étapes
 
-Si vous avez sélectionné l’approbation en 2 étapes, vous devez ajouter un deuxième approbateur.
+Si vous avez sélectionné une approbation en plusieurs étapes, vous devez ajouter un approbateur pour chaque étape supplémentaire.
 
 1. Ajoutez le **Deuxième approbateur** : 
     
@@ -121,16 +120,16 @@ Si vous avez sélectionné l’approbation en 2 étapes, vous devez ajouter un d
 
 ### <a name="alternate-approvers"></a>Approbateurs de substitution
 
-Vous pouvez spécifier des approbateurs substitution, comme vous avez spécifié les premier et deuxième approbateurs qui peuvent approuver les demandes. Le fait de disposer d’approbateurs de substitution garantit que les demandes sont approuvées ou refusées avant leur expiration (délai d’expiration). Vous pouvez répertorier des approbateurs de substitution, le premier approbateur et le deuxième approbateur pour l’approbation en 2 étapes. 
+Vous pouvez spécifier d’autres approbateurs, comme vous spécifiez les approbateurs principaux autorisés à approuver des requêtes à chaque étape. Le fait de disposer d’approbateurs de substitution garantit que les demandes sont approuvées ou refusées avant leur expiration (délai d’expiration). Vous pouvez répertorier d’autres approbateurs en même temps que l’approbateur principal à chaque étape.
 
-En spécifiant des approbateurs de substitution, si les premier et deuxième approbateurs n’ont pas été en mesure d’approuver ou de refuser la demande, la demande en attente est transférée aux approbateurs de substitution, conformément à la planification de transfert que vous avez spécifiée lors de la configuration de la stratégie. Ils reçoivent un e-mail pour approuver ou refuser la demande en attente.
+En spécifiant d’autres approbateurs pour une étape, si les principaux approbateurs n’ont pas été en mesure d’approuver ou de refuser la requête, la requête en attente est transférée aux autres approbateurs, conformément à la planification de transfert que vous avez spécifiée lors de la configuration de la stratégie. Ils reçoivent un e-mail pour approuver ou refuser la demande en attente.
 
-Une fois la demande transférée aux approbateurs de substitution, les premier et deuxième approbateurs peuvent toujours l’approuver ou la refuser. Pour approuver ou refuser la demande en attente, les approbateurs de substitution utilisent le même site Mon Accès.
+Une fois la demande transférée aux approbateurs de substitution, les approbateurs principaux peuvent toujours l’approuver ou la refuser. Pour approuver ou refuser la demande en attente, les approbateurs de substitution utilisent le même site Mon Accès.
 
 Nous pouvons répertorier les personnes ou groupes de personnes qui doivent être approbateurs et approbateurs de substitution. Veillez à répertorier des groupes de personnes différents pour les premier et deuxième approbateurs ainsi que les approbateurs de substitution.
-Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième approbateurs, mentionnez Carol et Dave comme approbateurs de substitution. Pour ajouter des approbateurs de substitution à un package d’accès, procédez comme suit :
+Par exemple, si vous avez mentionné Alice et Bob comme approbateurs de la première étape, mentionnez Carol et Dave comme approbateurs de substitution. Pour ajouter des approbateurs de substitution à un package d’accès, procédez comme suit :
 
-1. Sous Premier approbateur, Deuxième approbateur, ou les deux, cliquez sur **Afficher les paramètres de demande avancés**.
+1. Sous l’approbateur d’une étape, cliquez sur **Afficher les paramètres de la requête avancée**.
 
     :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Package d’accès – Stratégie – Afficher les paramètres de demande avancés":::
 
@@ -158,7 +157,7 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 1. Cliquez sur **Suivant**.
 
-## <a name="collect-additional-requestor-information-for-approval-preview"></a>Collecter des informations supplémentaires sur le demandeur pour approbation (préversion)
+## <a name="collect-additional-requestor-information-for-approval"></a>Collecter des informations supplémentaires sur le demandeur pour approbation
 
 Pour veiller à ce que les utilisateurs aient accès aux packages d'accès appropriés, vous pouvez demander aux demandeurs de compléter un champ de texte personnalisé ou de répondre à des questions à choix multiples au moment de la demande. La limite est fixée à 20 questions par stratégie et à 25 réponses pour les questions à choix multiples. Les questions seront ensuite présentées aux approbateurs pour les aider à prendre une décision.
 
@@ -177,12 +176,15 @@ Pour veiller à ce que les utilisateurs aient accès aux packages d'accès appro
 
 1. Sélectionnez le **Format de la réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court*, *choix multiples* et *texte long*.
  
-    ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Package d'accès - Stratégie - Sélectionnez Modifier et localisez le format de réponse à choix multiples](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
-1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Afficher et modifier** pour configurer les options de réponse.
-    1. Une fois que vous avez sélectionné Afficher et modifier, le volet **Afficher/modifier la question** s’ouvre.
+1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Modifier et localiser** pour configurer les options de réponse.
+    1. Une fois que vous avez sélectionné Modifier et localiser, le volet **Afficher/modifier la question** s'ouvre.
     1. Tapez les options de réponse que vous souhaitez donner au demandeur lorsqu’il répond à la question dans les zones **Valeurs de réponse** .
-    1. Tapez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
+    1. Entrez le nombre de réponses dont vous avez besoin.
+    1. Si vous souhaitez ajouter votre propre localisation pour les différentes options de choix, sélectionnez le **Code de langage facultatif** pour le langage dans lequel vous souhaitez localiser une option spécifique.
+    1. Dans le langage que vous avez configuré, entrez la question dans la boîte Texte localisé.
+    1. Une fois que vous avez ajouté toutes les localisations nécessaires pour chaque option à choix multiple, cliquez sur **Enregistrer**.
     
     ![Package d’accès – Stratégie –Saisie des options de choix multiples](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
@@ -190,7 +192,7 @@ Pour veiller à ce que les utilisateurs aient accès aux packages d'accès appro
 
 1. Complétez les autres onglets (par exemple, Cycle de vie) en fonction de vos besoins.
 
-Après avoir configuré les informations relatives au demandeur dans votre stratégie d'accès, vous pouvez consulter les réponses de celui-ci. Pour obtenir des conseils sur l'affichage des informations relatives au demandeur, consultez la section [Afficher les réponses du demandeur (préversion)](entitlement-management-request-approve.md#view-requestors-answers-to-questions-preview).
+Après avoir configuré les informations relatives au demandeur dans votre stratégie d'accès, vous pouvez consulter les réponses de celui-ci. Pour obtenir des conseils sur l'affichage des informations relatives au demandeur, consultez la section [Afficher les réponses du demandeur aux questions](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Changer les paramètres de cycle de vie pour un package d’accès](entitlement-management-access-package-lifecycle-policy.md)

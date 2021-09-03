@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 5/3/2021
+ms.date: 07/07/2021
 ms.author: justinha
-author: justinha
+author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ed77dcad9e9e6568cc38fd3510d9b5a9a0624c11
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a4ad5d9aaa9bb851a651ddc77bd1acb773b6019
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963645"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113485704"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure AD avec un e-mail comme autre ID de connexion (préversion)
 
@@ -40,7 +40,8 @@ Voici ce que vous devez savoir sur l’utilisation d’un e-mail comme autre ID 
 
 * La fonctionnalité est disponible dans l’édition Azure Active Directory Free et éditions supérieures.
 * La fonctionnalité permet aux utilisateurs Azure AD authentifiés dans le cloud de se connecter à l’aide de l’attribut *ProxyAddresses* du domaine vérifié.
-* Quand un utilisateur se connecte avec un e-mail non-UPN, les revendications `unique_name` et `preferred_username` (le cas échéant) dans le [jeton d’ID](../develop/id-tokens.md) prennent la valeur de l’e-mail non UPN.
+* Lorsqu’un utilisateur se connecte avec un e-mail non UPN, les revendications `unique_name` et `preferred_username` (le cas échéant) dans le [jeton d’ID](../develop/id-tokens.md) renvoient l’e-mail non UPN.
+* La fonctionnalité prend en charge l’authentification managée avec la synchronisation de la synthèse du mot de passe (PHS) ou l’authentification directe (PTA).
 * Il y a deux options possibles pour configurer la fonctionnalité :
     * [Stratégie de découverte du domaine d’accueil (HRD)](#enable-user-sign-in-with-an-email-address) : utilisez cette option pour activer la fonctionnalité sur l’ensemble du locataire. Des privilèges d’administrateur général sont requis.
     * [Stratégie de déploiement par étapes](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) : utilisez cette option pour tester la fonctionnalité avec des groupes Azure AD spécifiques. Des privilèges d’administrateur général sont requis.
@@ -49,31 +50,42 @@ Voici ce que vous devez savoir sur l’utilisation d’un e-mail comme autre ID 
 
 Dans la préversion actuelle, les limitations suivantes s’appliquent à l’utilisation d’un e-mail comme autre ID de connexion :
 
-* Les utilisateurs peuvent voir leur UPN, même quand ils sont connectés avec leur e-mail non-UPN. L’exemple de comportement suivant peut être observé :
+* **Expérience utilisateur** : les utilisateurs peuvent voir leur UPN, même quand ils sont connectés avec leur e-mail non-UPN. L’exemple de comportement suivant peut être observé :
     * L’utilisateur est invité à se connecter avec l’UPN lorsqu’il est dirigé vers la connexion Azure AD avec `login_hint=<non-UPN email>`.
     * Quand un utilisateur se connecte avec un e-mail non-UPN et qu’il entre un mot de passe incorrect, la page *Entrez votre mot de passe* change pour afficher l’UPN.
-    * Sur certains sites et applications Microsoft, tels que Microsoft Office, le contrôle du **gestionnaire de comptes**, qui apparaît généralement en haut à droite, peut afficher l’UPN de l’utilisateur au lieu de l’e-mail non-UPN utilisé pour la connexion.
+    * Sur certains sites et applications Microsoft, tels que Microsoft Office, le contrôle du *gestionnaire de comptes*, qui apparaît généralement en haut à droite, peut afficher l’UPN de l’utilisateur au lieu de l’e-mail non-UPN utilisé pour la connexion.
 
-* Certains flux ne sont actuellement pas compatibles avec les e-mails non-UPN, notamment :
+* **Flux non pris en charge** : certains flux ne sont actuellement pas compatibles avec les e-mails non-UPN, notamment :
     * Identity Protection ne fait pas correspondre les e-mails non-UPN avec la détection du risque *Informations d’identification fuitées*. Cette détection de risque utilise l’UPN pour faire correspondre les informations d’identification qui ont été divulguées. Pour plus d’informations, consultez [Détection et correction des riques Azure AD Identity Protection][identity-protection].
     * Les invitations B2B envoyées à un e-mail non-UPN ne sont pas entièrement prises en charge. Après qu’une invitation envoyée à un e-mail non-UPN a été acceptée, la connexion avec l’e-mail non-UPN peut ne pas fonctionner pour l’utilisateur invité sur le point de terminaison du locataire de ressource.
     * Quand un utilisateur s’est connecté avec un e-mail non-UPN, il ne peut pas changer son mot de passe. La réinitialisation de mot de passe en libre-service (SSPR) fonctionne en principe comme prévu. Pendant le processus SSPR, l’utilisateur peut voir son UPN s’il vérifie son identité avec un autre e-mail alternatif.
 
-* Les scénarios ci-dessous ne sont pas pris en charge. Connexion avec un e-mail non UPN à ces ressources :
-    * Appareils joints Azure AD hybrides
-    * Appareils joints Azure AD
+* **Scénarios non pris en charge** : les scénarios suivants ne sont pas pris en charge. Connexion avec un e-mail non UPN à :
+    * [Appareils joints Azure AD hybrides](../devices/concept-azure-ad-join-hybrid.md)
+    * [Appareils joints Azure AD](../devices/concept-azure-ad-join.md)
+    * [Appareils inscrits sur Azure AD](../devices/concept-azure-ad-register.md)
+    * [Authentification unique fluide](../hybrid/how-to-connect-sso.md)
+    * [Applications à l’aide des informations d’identification de mot de passe du propriétaire de la ressource (ROPC)](../develop/v2-oauth-ropc.md)
+    * Applications à l’aide de l’authentification héritée telle que POP3 et SMTP
     * Skype Entreprise
     * Microsoft Office sur macOS
-    * OneDrive (quand le flux de connexion n’implique pas l’authentification multifacteur)
     * Microsoft Teams sur le web
-    * Flux d’informations d’identification de mot de passe du propriétaire de ressource (ROPC)
+    * OneDrive, quand le flux de connexion n’implique pas l’authentification multifacteur
 
-* Les changements apportés à la configuration de la fonctionnalité dans la stratégie de découverte du domaine d’accueil ne sont pas explicitement indiqués dans les journaux d’audit.
-* La stratégie de déploiement par étapes ne fonctionne pas comme prévu pour les utilisateurs qui sont inclus dans plusieurs stratégies de déploiement par étapes.
-* Au sein d’un locataire, l’UPN d’un utilisateur du cloud uniquement peut avoir la même valeur que l’adresse proxy d’un autre utilisateur, synchronisée à partir de l’annuaire local. Dans ce scénario, si la fonctionnalité est activée, l’utilisateur du cloud uniquement ne pourra pas se connecter au moyen de son UPN. Pour plus d’informations sur ce problème, consultez la section [Dépanner](#troubleshoot).
+* **Applications non prises en charge** : certaines applications tierces peuvent ne pas fonctionner comme prévu si elles partent du principe que les revendications `unique_name` ou `preferred_username` sont immuables ou correspondent toujours à un attribut utilisateur spécifique, tel que UPN.
+
+* **Enregistrement** : les modifications apportées à la configuration de la fonctionnalité dans la stratégie de découverte du domaine d’accueil ne sont pas explicitement indiquées dans les journaux d’audit. En outre, le champ *Type d’identificateur de connexion* dans les journaux de connexion peut ne pas être toujours précis et ne doit pas être utilisé pour déterminer si la fonctionnalité a été utilisée pour la connexion.
+
+* **Stratégie de déploiement par étapes** : les limitations suivantes s’appliquent uniquement lorsque la fonctionnalité est activée à l’aide de la stratégie de déploiement par étapes :
+    * La fonctionnalité ne fonctionne pas comme prévu pour les utilisateurs qui sont inclus dans plusieurs stratégies de déploiement par étapes.
+    * La stratégie de déploiement par étapes prend en charge un maximum de 10 groupes par fonctionnalité.
+    * La stratégie de déploiement par étapes ne prend pas en charge les groupes imbriqués.
+    * La stratégie de déploiement par étapes ne prend pas en charge les groupes dynamiques.
+    * Le contact d’objets à l’intérieur du groupe bloque l’ajout du groupe à une stratégie de déploiement par étapes.
+
+* **Valeurs dupliquées** : au sein d’un abonné, un UPN d’utilisateur du cloud uniquement peut avoir la même valeur que l’adresse proxy d’un autre utilisateur, synchronisée à partir du répertoire local. Dans ce scénario, si la fonctionnalité est activée, l’utilisateur du cloud uniquement ne pourra pas se connecter au moyen de son UPN. Pour plus d’informations sur ce problème, consultez la section [Dépanner](#troubleshoot).
 
 ## <a name="overview-of-alternate-login-id-options"></a>Vue d’ensemble des options pour l’ID de connexion alternatif
-
 Pour se connecter à Azure AD, les utilisateurs entrent une valeur qui identifie leur compte de manière unique. Historiquement, vous pouviez uniquement utiliser l’UPN Azure AD en tant qu’identifiant de connexion.
 
 Pour les organisations dont l’UPN local correspond à l’adresse e-mail de connexion préférée de l’utilisateur, cette approche est intéressante. Ces organisations définissent l’UPN Azure AD sur la même valeur que l’UPN local, et les utilisateurs bénéficient d’une expérience de connexion cohérente.
@@ -101,7 +113,7 @@ Une autre approche consiste à synchroniser les UPN Azure AD et locaux avec la m
 
 L’authentification traditionnelle d’Active Directory Domain Services (AD DS) ou des services de fédération Active Directory (AD FS) s’effectue directement sur votre réseau et est gérée par votre infrastructure AD DS. Avec une authentification hybride, les utilisateurs peuvent se connecter directement à Azure AD.
 
-Pour permettre cette approche d’authentification hybride, vous synchronisez votre environnement AD DS local sur Azure AD à l’aide d’[Azure AD Connect][azure-ad-connect], et le configurez pour utiliser la synchronisation du hachage de mot de passe ou l’authentification directe (PTA). Pour plus d’informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure AD][hybrid-auth-methods].
+Pour prendre en charge cette approche d’authentification hybride, vous synchronisez votre environnement AD DS local sur Azure AD à l’aide d’[Azure AD Connect][azure-ad-connect] et le configurez pour utiliser PHS ou PTA. Pour plus d’informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure AD][hybrid-auth-methods].
 
 Dans les deux options de configuration, l’utilisateur envoie son nom d’utilisateur et son mot de passe à Azure AD qui valide les informations d’identification et émet un ticket. Lorsque les utilisateurs se connectent à Azure AD, cela évite à votre organisation de devoir héberger et gérer une infrastructure AD FS.
 

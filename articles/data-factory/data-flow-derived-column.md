@@ -1,18 +1,20 @@
 ---
-title: Transformation de colonne dérivée dans le mappage Data Flow
-description: Découvrez comment transformer des données à l’échelle dans Azure Data Factory avec la transformation de colonne dérivée du mappage Data Flow.
+title: Transformation de la colonne dérivée dans le flux de données de mappage
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Découvrez comment transformer des données à l’échelle dans Azure Data Factory et Azure Synapse Analytics avec la transformation de colonne dérivée du flux de données de mappage.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89c6297961c1c8c9a1c1582f51cf08f83c72f7d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90532023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641418"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformation de colonne dérivée dans le mappage Data Flow
 
@@ -85,7 +87,7 @@ Pour faire référence à une locale dans une colonne dérivée, cliquez sur le 
 
 L’exemple ci-dessous est une colonne dérivée nommée `CleanData` qui prend un flux entrant `MoviesYear` et crée deux colonnes dérivées. La première colonne dérivée remplace la colonne `Rating` par la valeur de l’évaluation en tant que type entier. La deuxième colonne dérivée est un modèle qui correspond à chaque colonne dont le nom commence par « movies ». Pour chaque colonne correspondante, il crée une colonne `movie` qui est égale à la valeur de la colonne correspondante avec le préfixe « movie_ ». 
 
-Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
+Dans l’interface utilisateur, cette transformation se présente comme sur l’image ci-dessous :
 
 ![Exemple de dérivation](media/data-flow/derive-script.png "Exemple de dérivation")
 

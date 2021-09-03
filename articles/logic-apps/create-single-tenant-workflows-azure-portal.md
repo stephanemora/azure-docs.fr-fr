@@ -1,28 +1,28 @@
 ---
-title: Créer des flux de travail dans Azure Logic Apps monolocataire à l’aide du portail Azure
-description: Créez des flux de travail automatisés qui intègrent des applications, des données, des services et des systèmes à l’aide d’Azure Logic Apps monolocataire et du portail Azure.
+title: Créer des workflows avec Azure Logic Apps monolocataire (standard) dans le Portail Azure
+description: Créez des workflows automatisés pour intégrer des applications, des données, des services et des systèmes avec le service Azure Logic Apps monolocataire (standard) dans le Portail Azure.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2178b3d4ea9c1cc650685b90fa5dc2cdf6551191
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110497093"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116613"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>Créer un workflow d’intégration avec Azure Logic Apps monolocataire et le portail Azure
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Créer un workflow d’intégration avec Azure Logic Apps monolocataire (Standard) dans le Portail Azure
 
-Cet article explique comment créer un exemple de flux de travail d’intégration automatisé qui s’exécute dans l’*environnement Azure Logic Apps monolocataire* à l’aide du type de ressource **Application logique (Standard)** . Si vous débutez avec le nouveau modèle monolocataire et le type de ressource d’application logique, consultez [Architecture monolocataire ou multilocataire et environnement de service d’intégration](single-tenant-overview-compare.md).
+Cet article explique comment créer un exemple de workflows d’intégration automatisé qui s’exécute dans l’environnement Azure Logic Apps *monolocataire* à l’aide du type de ressource **Logic App (Standard)** et du Portail Azure. Ce type de ressource peut héberger plusieurs [flux de travail avec état et sans état](single-tenant-overview-compare.md#stateful-stateless). En outre, les workflows dans la même application logique et le même abonné s’exécutent dans le même processus que le runtime Azure Logic Apps reconçu, de sorte qu’ils partagent les mêmes ressources et offrent un meilleur niveau de performance. Pour plus d’informations sur l’offre d’Azure Logic Apps monolocataire, consultez l’[environnement monolocataire contre le multilocataire et les services d’intégration](single-tenant-overview-compare.md).
 
 Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte que deux étapes, vous pouvez créer des flux de travail à partir de centaines d’opérations qui peuvent connecter un vaste éventail d’applications, de données, de services et de systèmes dans des environnements cloud, locaux et hybrides. L’exemple de flux de travail démarre avec le déclencheur de demande intégré et suit une action Office 365 Outlook. Le déclencheur crée un point de terminaison pouvant être appelé pour le flux de travail, et attend une demande HTTPS entrante en provenance d’un appelant quelconque. Lorsque le déclencheur reçoit une demande et se déclenche, l’action suivante s’exécute en envoyant un e-mail à l’adresse e-mail spécifiée avec des sorties sélectionnées à partir du déclencheur.
 
 > [!TIP]
 > Si vous n’avez pas de compte Office 365, vous pouvez utiliser toute autre action disponible pouvant envoyer des messages à partir de votre compte e-mail, par exemple, Outlook.com.
-> 
-> Pour créer cet exemple de flux de travail en utilisant plutôt Visual Studio Code, suivez les étapes décrites dans [Créer des flux de travail d’intégration à l’aide d’Azure Logic Apps monolocataire et de Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+>
+> Pour créer cet exemple de flux de travail en utilisant plutôt Visual Studio Code, suivez les étapes décrites dans [Créer des workflows d’intégration à l’aide d’Azure Logic Apps monolocataire et de Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
 > Les deux options permettent de développer, d’exécuter et de déployer des flux de travail d’application logique dans les mêmes genres d’environnements. 
 > Toutefois, avec Visual Studio Code, vous pouvez développer, tester et exécuter *localement* des flux de travail dans votre environnement de développement.
 
@@ -247,7 +247,7 @@ Pour trouver les noms de domaine complets (FQDN) de ces connexions, procédez co
 
    ![Capture d’écran montrant le portail Azure et le volet Connexion d’Api avec «Vue JSON» sélectionnée.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. Recherchez, copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr pour configurer votre pare-feu à l’aide de ces informations.
+1. Copiez et enregistrez la valeur de la propriété `connectionRuntimeUrl` dans un lieu sûr pour configurer votre pare-feu à l’aide de ces informations.
 
    ![Capture d’écran montrant la valeur de la propriété « connectionRuntimeUrl » sélectionnée.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -294,7 +294,7 @@ Dans cet exemple, le workflow s’exécute lorsque le déclencheur Requête reç
 
    1. Sous **Toutes les collections**, fournissez un nom pour la collection à créer afin d’organiser vos demandes, appuyez sur Entrée, puis sélectionnez **Enregistrer dans <*nom-collection*>** . Cet exemple utilise `Logic Apps requests` comme nom de collection.
 
-      Le volet de demande de Postman s’ouvre pour que vous puissiez envoyer une demande à l’URL du point de terminaison du déclencheur Requête.
+      Dans l’application Postman, la volet de la requête s’ouvre pour que vous puissiez envoyer une requête à l’URL du point de terminaison du déclencheur de Requête.
 
       ![Capture d’écran montrant Postman avec le volet de demande ouvert](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -412,7 +412,7 @@ Après l’ouverture d’Application Insights, vous pouvez passer en revue les d
 
 Pour déboguer plus facilement un workflow sans état, vous pouvez activer l’historique des exécutions du workflow en question, puis le désactiver lorsque vous avez terminé. Procédez comme suit pour le portail Azure ou, si vous travaillez dans Visual Studio Code, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre ressource **Application logique (préversion)** .
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre ressource **Application logique (standard)** .
 
 1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Configuration**.
 
@@ -472,7 +472,7 @@ L’arrêt d’une application logique affecte les instances de workflow de diff
 
   Pour arrêter le déclenchement de chaque workflow pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de redémarrer l’application logique en procédant comme suit :
 
-  1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+  1. Dans le Portail Azure, ouvrez votre application logique.
   1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**.
   1. Ouvrez un workflow, puis modifiez une partie du déclencheur de ce workflow.
   1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel du déclencheur.
@@ -483,7 +483,7 @@ L’arrêt d’une application logique affecte les instances de workflow de diff
 
 ### <a name="restart-stop-or-start-a-single-logic-app"></a>Redémarrer, arrêter ou démarrer une application logique spécifique
 
-1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+1. Dans le Portail Azure, ouvrez votre application logique.
 
 1. Dans le menu de l’application logique, sélectionnez **Vue d’ensemble**.
 
@@ -585,9 +585,9 @@ Voici de quelles manières la suppression d’un workflow affecte les instances 
 
 * Le service Azure Logic Apps ne crée ni n’exécute pas de nouvelles instances de flux de travail.
 
-* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et aux workflows qui appellent des fonctions Azure.
+* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Pour actualiser les métadonnées, vous devez enregistrer de nouveau les workflows qui appelaient le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et aux workflows qui appellent des fonctions Azure.
 
-1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+1. Dans le Portail Azure, ouvrez votre application logique.
 
 1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**. Dans la colonne des cases à cocher, sélectionnez un ou plusieurs workflows à supprimer.
 

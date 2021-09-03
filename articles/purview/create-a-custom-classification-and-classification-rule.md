@@ -1,30 +1,33 @@
 ---
 title: Création d’une classification et d’une règle de classification personnalisées (préversion)
 description: Découvrez comment créer des classifications personnalisées pour définir des types de données propres à votre organisation dans Azure Purview.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/24/2021
-ms.openlocfilehash: e54535449ddf9605bc483b9a309a717b22d8398d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071494"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532677"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classifications personnalisées dans Azure Purview
 
 Cet article vous explique comment créer des classifications personnalisées pour définir des types de données propres à votre organisation dans votre patrimoine de données. Il décrit également la création de règles de classification personnalisées permettant de trouver les données spécifiées dans l’ensemble du patrimoine de données.
 
-## <a name="default-classifications"></a>Classifications par défaut
+## <a name="default-system-classifications"></a>Classifications système par défaut
 
-Le catalogue de données Azure Purview propose un grand nombre de classifications par défaut qui représentent des types de données personnelles typiques, que vous possédez peut-être dans votre patrimoine de données.
+Le catalogue de données Azure Purview propose un grand nombre de classifications système par défaut qui représentent des types de données personnelles typiques, que vous possédez peut-être dans votre patrimoine de données. Pour obtenir la liste complète des classifications système disponibles, consultez [classifications prises en charge dans Azure Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="Sélection de Classifications" border="true":::
 
 Vous avez également la possibilité de créer des classifications personnalisées, si aucune des classifications par défaut ne répond à vos besoins.
+
+> [!Note]
+> Nos [règles d'échantillonnage de données](sources-and-scans.md#sampling-within-a-file) sont appliquées à la fois aux classifications système et personnalisées.  
 
 ## <a name="steps-to-create-a-custom-classification"></a>Procédure de création d’une classification personnalisée
 
@@ -118,16 +121,12 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
    |Modèle de données    |facultatif. Expression régulière représentant les données stockées dans le champ de données. La limite est très élevée. Dans l’exemple précédent, les modèles de données testent un ID d’employé correspondant littéralement au mot `Employee{GUID}`.  |
    |Modèle de colonne    |facultatif. Expression régulière représentant les noms de colonnes à faire correspondre. La limite est très élevée. |
 
-1. Sous **Modèle de données**, vous pouvez définir deux seuils :
+1. Sous **Modèle de données**, vous pouvez utiliser le **Seuil de correspondances minimales** pour définir le pourcentage minimal de correspondances de valeurs de données distinctes dans une colonne qui doivent être trouvées par l’analyseur pour que la classification soit appliquée. La valeur suggérée est 60 %. Si vous spécifiez plusieurs modèles de données, ce paramètre est désactivé et la valeur fixée à 60 %.
 
-   - **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. La valeur suggérée est 8. Elle peut être ajustée manuellement dans une plage comprise entre 2 et 32. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
-
-   - **Seuil de correspondances minimales** : paramètre permettant de définir le pourcentage minimal de correspondances de valeurs de données distinctes dans une colonne qui doivent être trouvées par l’analyseur pour que la classification soit appliquée. La valeur suggérée est 60 %. Vous devez faire attention à ce paramètre. Si vous réduisez le niveau au-dessous de 60 %, vous risquez d’introduire des classifications faussement positives dans votre catalogue. Si vous spécifiez plusieurs modèles de données, ce paramètre est désactivé et la valeur fixée à 60 %.
+   > [!Note]
+   > Le seuil de correspondance minimal doit être au moins égal à 1%.
 
 1. Vous pouvez maintenant vérifier votre règle et la **créer**.
-
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Vérifier la règle avant de la créer" border="true":::
-
 1. Testez la règle de classification avant de terminer le processus de création pour vérifier qu’elle appliquera des balises à vos ressources. Les classifications de la règle seront appliquées aux exemples de données chargées de la même façon que dans une analyse. Ainsi, toutes les classifications système et votre classification personnalisée seront mises en correspondance avec les données de votre fichier.
 
    Les fichiers d’entrée peuvent inclure des fichiers délimités (CSV, PSV, SSV, TSV), JSON ou du contenu XML. Le contenu sera analysé en fonction de l’extension du fichier d’entrée. Les données délimitées peuvent porter une extension de fichier correspondant à l’un des types mentionnés. Par exemple, un fichier nommé MySampleData.csv peut contenir des données TSV. Le contenu délimité doit également présenter un minimum de 3 colonnes.
@@ -142,9 +141,7 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Créer une règle de dictionnaire" border="true":::
 
-1. Une fois le dictionnaire généré, vous pouvez ajuster les seuils de correspondance distincte et minimale, puis soumettre la règle.
-
-- **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. Le seuil de correspondances distinctes n’a rien à voir avec les critères spéciaux, mais il s’agit d’une condition préalable pour les critères spéciaux. La valeur suggérée est 8. Elle peut être ajustée manuellement dans une plage comprise entre 2 et 32. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
+1. Une fois le dictionnaire généré, vous pouvez ajuster le seuil de correspondance minimal, puis soumettre la règle.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Créer une règle de dictionnaire, avec la coche de dictionnaire généré." border="true":::
 

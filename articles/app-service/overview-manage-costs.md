@@ -4,13 +4,13 @@ description: Découvrez comment planifier et gérer les coûts pour Azure App Se
 ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
-ms.date: 01/01/2021
-ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 3f2ae25c3f2e1076cf714aa56f7ecdf867d6dd8f
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593982"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554186"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planifier et gérer les coûts pour Azure App Service
 
@@ -27,25 +27,33 @@ ms.locfileid: "100593982"
 
 Cet article explique comment planifier et gérer les coûts pour Azure App Service. Vous devez commencer par utiliser la calculatrice de prix Azure pour planifier les coûts d’Azure App Service avant d’ajouter des ressources pour le service aux coûts estimés. Ensuite, lorsque vous ajoutez les ressources Azure, passez en revue les coûts estimés. Une fois que vous avez commencé à utiliser des ressources App Service, utilisez les fonctionnalités de [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pour définir des budgets et superviser les coûts. Vous pouvez également passer en revue les coûts prévus et déterminer les tendances des dépenses pour identifier les domaines où vous pourriez agir. Les coûts pour Azure App Service ne représentent qu’une partie des coûts mensuels sur votre facture Azure. Cet article explique comment planifier et gérer les coûts d’App Service. Cependant, vous êtes facturé pour tous les services et ressources Azure utilisés pour votre abonnement Azure, y compris les services tiers.
 
-## <a name="relevant-costs-for-app-service"></a>Coûts appropriés pour App Service
+## <a name="understand-the-full-billing-model-for-azure-app-service"></a>Comprendre le modèle de facturation complet pour Azure App Service
 
-App Service s’exécute sur une infrastructure Azure qui occasionne des coûts. Il est important de comprendre qu’une infrastructure supplémentaire peut accumuler des frais. Vous devez gérer ce coût lorsque vous apportez des modifications aux ressources déployées.
+Azure App Service s’exécute sur l’infrastructure Azure qui cumule les coûts lorsque vous déployez de nouvelles ressources. Il est important de comprendre qu’il peut y avoir d’autres coûts d’infrastructure supplémentaires susceptibles de s’accumuler.
 
-### <a name="costs-that-accrue-with-azure-app-service"></a>Coûts occasionnés avec Azure App Service
+### <a name="how-youre-charged-for-azure-app-service"></a>Comment vous êtes facturé pour Azure App Service
 
-Selon la fonctionnalité que vous utilisez dans App Service, vous pouvez créer les ressources occasionnant des coûts suivantes :
+Lorsque vous créez ou utilisez des ressources App Service, vous pouvez être facturé pour les compteurs suivants :
 
-- **Plan App Service**  Requis pour héberger une application App Service.
-- **Niveau isolé**  Un [réseau virtuel](../virtual-network/index.yml) est requis pour un environnement App Service.
-- **Sauvegarde**  Un [Compte de stockage](../storage/index.yml) est requis pour effectuer des sauvegardes.
-- **Journaux de diagnostic**  Vous pouvez sélectionner [Compte de stockage](../storage/index.yml) comme option de journalisation ou opérer une intégration avec [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
-- **Certificats App Service**  Les certificats que vous achetez dans Azure doivent être conservés dans [Azure Key Vault](../key-vault/index.yml).
+- Vous êtes facturé à un tarif horaire basé sur le niveau tarifaire de votre plan App Service, au prorata du second.
+- Les frais sont appliqués à chaque instance de scale-out dans votre plan, en fonction de la durée d’allocation de l’instance de machine virtuelle. 
 
 Les autres ressources coûteuses pour App Service sont (voir [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) pour plus d’informations).
 
 - [Domaines App Service](manage-custom-dns-buy-domain.md)  Votre abonnement est facturé annuellement pour l’inscription du domaine si vous activez le renouvellement automatique.
 - [Certificats App Service](configure-ssl-certificate.md#import-an-app-service-certificate)  Frais uniques au moment de l’achat. Si vous avez plusieurs sous-domaines à sécuriser, vous pouvez réduire les coûts en achetant un certificat générique au lieu de plusieurs certificats standard.
 - [Liaisons de certificat basées sur IP](configure-ssl-bindings.md#create-binding)  La liaison est configurée sur un certificat au niveau de l’application. Des coûts sont exposés pour chaque liaison. Pour les niveaux **Standard** et supérieurs, la première liaison basée sur IP n’est pas facturée.
+
+À la fin de votre cycle de facturation, les frais associés à chaque instance de machine virtuelle. Votre facture affiche une section pour tous les coûts de App Service. Chaque compteur est représenté par un élément de ligne distinct.
+
+### <a name="other-costs-that-might-accrue-with-azure-app-service"></a>Autres coûts pouvant s’accumuler avec Azure App Service
+
+Selon la fonctionnalité que vous utilisez dans App Service, vous pouvez créer les ressources occasionnant des coûts suivantes :
+
+- **Niveau isolé** A [Réseau virtuel](../virtual-network/index.yml) est requis pour un environnement App Service et est facturé séparément.
+- **Sauvegarde** A [Compte de stockage](../storage/index.yml) est requis pour effectuer des sauvegardes et est facturé séparément.
+- **Journaux de diagnostic**  Vous pouvez sélectionner [Compte de stockage](../storage/index.yml) comme option de journalisation ou opérer une intégration avec [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). Ces services sont facturés séparément.
+- **Certificats App Service**  les certificats que vous achetez dans Azure doivent être conservés dans [Azure Key Vault](../key-vault/index.yml), qui est facturé séparément.
 
 ### <a name="costs-that-might-accrue-after-resource-deletion"></a>Coûts qui peuvent s’additionner après la suppression des ressources
 
@@ -59,9 +67,9 @@ Après suppression de ressources Azure App Service, il se peut que des ressource
 - espaces de noms Log Analytics que vous avez créés pour expédier les journaux de diagnostic ;
 - [réservations d’instance ou d’horodatage](#azure-reservations) pour App Service qui n’ont pas encore expiré.
 
-### <a name="using-monetary-credit-with-azure-app-service"></a>Utilisation de Crédit monétaire avec Azure App Service
+### <a name="using-azure-prepayment-with-azure-app-service"></a>Utilisation du prépaiement Azure avec Azure App Service
 
-Vous pouvez payer les frais Azure App Service avec votre crédit Paiement anticipé Azure (anciennement appelé « engagement financier »). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour régler des frais liés à des produits et services tiers, y compris ceux de la Place de marché Azure.
+Vous pouvez payer les frais Azure App Service avec votre crédit de prépaiement Azure. Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour régler des frais liés à des produits et services tiers, y compris ceux de la Place de marché Azure.
 
 ## <a name="estimate-costs"></a>Estimer les coûts
 

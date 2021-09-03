@@ -2,24 +2,24 @@
 title: Vue d’ensemble de la similarité et du scoring
 titleSuffix: Azure Cognitive Search
 description: Explique les concepts de similarité et de scoring, et ce qu’un développeur peut faire pour personnaliser le résultat du scoring.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cacf6097234a5a2c7ec5261623fe653e509b8d9f
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676328"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981427"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similarité et scoring dans Recherche cognitive Azure
 
-Cet article décrit les deux algorithmes de classement de similarité dans la Recherche cognitive Azure. Il présente également deux fonctionnalités associées : les *profils de score* (critères pour affiner un score de recherche) et le paramètre *featuresMode* (qui décompresse un score de recherche pour afficher plus de détails). 
+Cet article décrit les deux algorithmes de classement de similarité utilisés par la recherche cognitive Azure pour déterminer les documents correspondants les plus pertinents pour la requête. Cet article présente également deux fonctionnalités associées : les *profils de score* (critères pour affiner un score de recherche) et le paramètre *featuresMode* (qui décompresse un score de recherche pour afficher plus de détails).
 
-Un troisième algorithme de reclassification sémantique est actuellement disponible en préversion publique. Pour plus d’informations, commencez par la [Vue d’ensemble de la recherche sémantique](semantic-search-overview.md).
+> [!NOTE]
+> Un troisième [algorithme de reclassification sémantique](semantic-ranking.md) est actuellement disponible en préversion publique. Pour plus d’informations, commencez par la [Vue d’ensemble de la recherche sémantique](semantic-search-overview.md).
 
 ## <a name="similarity-ranking-algorithms"></a>Algorithmes de classement de similarité
 

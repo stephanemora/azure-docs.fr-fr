@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 740b228855a11623600d8724eeff7ad865538e74
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 6b8ce0014524a407d6d35b85fed3bf5f41b556cf
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004184"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563453"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Dépanner Azure Bastion
 
@@ -68,6 +68,13 @@ The key's randomart image is:
 **Q :** Je ne parviens pas à me connecter à ma machine virtuelle Windows jointe à un domaine.
 
 **R :** Azure Bastion ne prend en charge la connexion de machines virtuelles jointes à un domaine que pour la connexion au domaine par nom d’utilisateur/mot de passe. Lorsque vous spécifiez les informations d’identification du domaine dans le portail Azure, utilisez le format UPN (username@domain) au lieu du format *domaine\nom d’utilisateur* pour vous connecter. Cela est pris en charge pour les machines virtuelles jointes à un domaine ou hybrides (à la fois jointes à un domaine et jointes à Azure AD). Cela n’est pas pris en charge pour les machines virtuelles jointes à Azure AD uniquement.
+
+## <a name="unable-to-connect-to-virtual-machine"></a><a name="connectivity"></a> Impossible de se connecter à la machine virtuelle
+
+**Q :** je ne parviens pas à me connecter à ma machine virtuelle (et je ne rencontre pas les problèmes ci-dessus).
+
+**R :** vous pouvez résoudre des problèmes de connectivité en navigant vers l’onglet **Résolution des problèmes de connexion** (dans la section **Analyse**) de votre ressource Azure Bastion dans le Portail Azure. La résolution des problèmes de connexion Network Watcher permet de vérifier la connexion TCP directe entre deux machines virtuelles, le nom de domaine complet (FQDN), l’URI ou l’adresse IPv4. Pour commencer, choisissez une source à partir de laquelle démarrer la connexion, ainsi que la destination à laquelle vous souhaitez vous connecter, puis sélectionnez « Vérifier ». [Plus d’informations](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview)
+
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problèmes de transfert de fichiers
 

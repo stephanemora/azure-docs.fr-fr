@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb40946bc01b6bd241f542b3987e8a2e7d570794
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331661"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609542"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -162,7 +162,7 @@ Les étiquettes représentent une manière pratique de comprendre les coûts ré
 
 De même, il est possible que vous ayez des environnements ou applications web, par exemple de test ou de production, qui utilisent des ressources de plusieurs abonnements en possession de différentes équipes. Pour mieux comprendre le coût total des charges de travail, identifiez les ressources qu’elles utilisent. Lorsque les étiquettes sont correctement appliquées, elles peuvent servir à filtrer l’analyse des coûts pour mieux comprendre les tendances.
 
-Une fois l’identification des ressources planifiée, vous pouvez configurer une stratégie Azure pour appliquer l’identification des ressources. Regardez la vidéo [Comment examiner les stratégies d’identification avec Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour comprendre les outils dont vous disposez pour appliquer une identification des ressources évolutive. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Une fois le balisage des ressources planifiée, vous pouvez configurer Azure Policy pour appliquer le balisage des ressources. Regardez la vidéo [Comment examiner les stratégies d’identification avec Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour comprendre les outils dont vous disposez pour appliquer une identification des ressources évolutive. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a884edd23fa1538fcc2b00c80190eab6699e1e47
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204996"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414482"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -25,9 +25,21 @@ Les adresses IP sont associées à des applications de fonction, et non à des f
 
 Chaque application de fonction a une seule adresse IP entrante. Pour la trouver :
 
+# <a name="azure-portal"></a>[Portail Azure](#tab/portal)
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à l’application de fonction.
 3. Sous **Paramètres**, sélectionnez **Propriétés**. L’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+Utilisez l’utilitaire `nslookup` de votre ordinateur client local :
+
+```command
+nslookup <APP_NAME>.azurewebsites.net
+```
+
+---
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
 
@@ -35,22 +47,25 @@ Chaque application de fonction a différentes adresses IP sortantes disponibles.
 
 Pour trouver les adresses IP sortantes disponibles pour une application de fonction :
 
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
 1. Connectez-vous à [Azure Resource Explorer](https://resources.azure.com).
 2. Sélectionnez **Abonnements > {votre abonnement} > Fournisseurs > Microsoft.Web > Sites**.
 3. Dans le volet JSON, recherchez le site dont la propriété `id` se termine par le nom de votre application de fonction.
 4. Localisez `outboundIpAddresses` et `possibleOutboundIpAddresses`. 
 
-L’ensemble de `outboundIpAddresses` est actuellement accessible à l’application de fonction. L’ensemble de `possibleOutboundIpAddresses` comporte les adresses IP qui ne seront disponibles que si l’application de fonction [passe à d’autres niveaux tarifaires](#outbound-ip-address-changes).
-
-Il existe un autre moyen de trouver les adresses IP sortantes, avec [Cloud Shell](../cloud-shell/quickstart.md) :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
-az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+---
+
+L’ensemble de `outboundIpAddresses` est actuellement accessible à l’application de fonction. L’ensemble de `possibleOutboundIpAddresses` comporte les adresses IP qui ne seront disponibles que si l’application de fonction [passe à d’autres niveaux tarifaires](#outbound-ip-address-changes).
 
 > [!NOTE]
-> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](consumption-plan.md) ou le [plan Premium](functions-premium-plan.md) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d'exécution sur l'un de ces plans, il se peut que vous ayez besoin d'ajouter l'ensemble du centre de données à une liste d'autorisation.
+> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](consumption-plan.md) ou le [plan Premium](functions-premium-plan.md) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d’exécution sur l’un de ces plans, vous ne pouvez pas compter sur les adresses IP sortantes signalées pour créer une liste d'autorisation définitive. Pour pouvoir inclure toutes les adresses sortantes potentielles utilisées pendant la mise à l’échelle dynamique, vous devez ajouter l’ensemble du centre de données à votre liste d'autorisation.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Adresses IP sortantes du centre de données
 
@@ -98,7 +113,7 @@ La stabilité relative de l'adresse IP sortante dépend du plan d'hébergement.
 
 En raison des comportements de mise à l'échelle automatique, l'adresse IP sortante peut changer à tout moment en cas d'exécution sur un [plan de consommation](consumption-plan.md) ou un [plan Premium](functions-premium-plan.md). 
 
-Si vous devez contrôler l'adresse IP sortante de votre application de fonction, par exemple pour l'ajouter à une liste d'autorisation, envisagez d'implémenter une [passerelle NAT de réseau virtuel](#virtual-network-nat-gateway-for-outbound-static-ip) dans votre plan Premium.
+Si vous devez contrôler l'adresse IP sortante de votre application de fonction, par exemple pour l'ajouter à une liste d'autorisation, envisagez d'implémenter une [passerelle NAT de réseau virtuel](#virtual-network-nat-gateway-for-outbound-static-ip) lors de son exécution dans votre plan d'hébergement Premium. Vous pouvez également effectuer cette opération en l’exécutant dans un plan dédié (App Service).
 
 ### <a name="dedicated-plans"></a>Plans dédiés
 
@@ -127,7 +142,7 @@ Il existe plusieurs stratégies à explorer lorsque votre application de fonctio
 
 ### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>Passerelle NAT de réseau virtuel pour les adresses IP statiques sortantes
 
-Vous pouvez contrôler l’adresse IP du trafic sortant à partir de vos fonctions en utilisant une passerelle NAT de réseau virtuel pour diriger le trafic vers une IP publique statique. Vous pouvez utiliser cette topologie lors de l’exécution dans un [plan Premium](functions-premium-plan.md). Poiur en savoir plus, consultez [Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure](functions-how-to-use-nat-gateway.md).
+Vous pouvez contrôler l’adresse IP du trafic sortant à partir de vos fonctions en utilisant une passerelle NAT de réseau virtuel pour diriger le trafic vers une IP publique statique. Vous pouvez utiliser cette topologie lors de l’exécution dans un [plan Premium](functions-premium-plan.md) ou un [plan dédié (App Service)](dedicated-plan.md). Poiur en savoir plus, consultez [Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure](functions-how-to-use-nat-gateway.md).
 
 ### <a name="app-service-environments"></a>Environnements App Service
 
@@ -135,16 +150,20 @@ Pour un contrôle total sur les adresses IP, entrantes et sortantes, nous recom
 
 Pour savoir si votre application de fonction s’exécute dans un environnement App Service :
 
+# <a name="azure-porta"></a>[Portail Azure](#tab/portal)
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à l’application de fonction.
 3. Sélectionnez l’onglet **Vue d’ensemble**.
 4. Le niveau du plan App Service apparaît sous **Niveau tarifaire/plan App Service**. Le niveau tarifaire de l’environnement App Service est **Isolé**.
- 
-Vous pouvez également utiliser [Cloud Shell](../cloud-shell/quickstart.md) :
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
+
+---
 
 L’environnement App Service `sku` est `Isolated`.
 

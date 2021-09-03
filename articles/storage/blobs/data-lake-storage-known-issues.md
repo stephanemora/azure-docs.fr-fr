@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2d474033bbcc3fbc5852cd95da31eaebd33c25ad
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6fc966fc61893fb05185a15e7149e8a132aecb04
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095281"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125885"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -54,6 +54,7 @@ Ces API REST BLOB ne sont pas prises en charge :
 * [Obtenir les portées de page](/rest/api/storageservices/get-page-ranges)
 * [Copie incrémentielle BLOB](/rest/api/storageservices/incremental-copy-blob)
 * [Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
 
@@ -61,7 +62,7 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Prise en charge de la définition de listes de contrôle d’accès (ACL) de manière récursive
 
-La possibilité d’appliquer les modifications aux listes ACL de manière récursive du répertoire parent vers les éléments enfants est mise à la disposition générale. Dans la version actuelle de cette fonctionnalité, vous pouvez appliquer des modifications aux listes ACL à l’aide de PowerShell, d’Azure CLI, et du Kit de développement logiciel (SDK) .NET, Java et Python. La prise en charge n’est pas encore disponible pour le portail Azure ou l’Explorateur Stockage Azure.
+La possibilité d’appliquer les modifications aux listes ACL de manière récursive du répertoire parent vers les éléments enfants est mise à la disposition générale. Dans la version actuelle de cette fonctionnalité, vous pouvez appliquer des modifications à la liste de contrôle d'accès à l’aide de l’Explorateur Stockage Azure, PowerShell, Azure CLI, et du Kit de développement logiciel (SDK) .NET, Java et Python. Le support n’est pas encore disponible pour le Portail Azure.
 
 <a id="known-issues-tools"></a>
 
@@ -105,3 +106,7 @@ Il n’est pas possible de déplacer des données stockées dans le niveau Premi
 Actuellement, le pilote WASB, qui a été conçu pour fonctionner avec l’API Blob uniquement, rencontre des problèmes dans quelques scénarios courants. C’est le cas en particulier quand il s’agit d’un client pour un compte de stockage prenant en charge un espace de noms hiérarchique. L’accès multiprotocole sur Data Lake Storage n’atténue pas ces problèmes. 
 
 Pour le moment (et probablement pour très longtemps), nous ne prenons pas en charge les utilisateurs qui utilisent le pilote WASB en tant que client pour un compte de stockage prenant en charge un espace de noms hiérarchique. Nous vous recommandons plutôt d’utiliser le pilote [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) dans votre environnement Hadoop. Si vous tentez d’effectuer une migration à partir d’un environnement Hadoop local avec une version antérieure à Hadoop Branch-3, ouvrez un ticket de support Azure pour que nous puissions vous contacter et vous indiquer la bonne direction pour vous et votre organisation.
+
+## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Suppression conditionnelle pour la fonctionnalité des blobs (actuellement en préversion)
+
+Si les répertoires parents des fichiers ou répertoires supprimés de manière conditionnelle sont renommés, les éléments supprimés de manière conditionnelle peuvent ne pas s’afficher correctement dans le Portail Azure. Dans ce cas, vous pouvez utiliser [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) ou [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) pour restaurer les éléments supprimés de manière conditionnelle. 

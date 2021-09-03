@@ -10,23 +10,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2021
+ms.date: 08/09/2021
 ms.author: yelevin
-ms.openlocfilehash: fb947b6f5930e3a0d81d53a1660885ebf1c51cca
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: b68d2a8219e7aa23aac3187333160dfd4276e7b8
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810495"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563619"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
 > [!IMPORTANT]
 > Certaines détections de Fusion (voir celles indiquées ci-dessous) sont actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 La technologie Fusion basée sur l’apprentissage automatique permet à Azure Sentinel de détecter automatiquement les attaques multiphases en identifiant des combinaisons de comportements anormaux et d’activités suspectes observés à différentes phases de la chaîne de destruction. Sur la base de ces découvertes, Azure Sentinel génère des incidents qui seraient autrement difficiles à intercepter. Ces incidents comprennent au moins deux alertes ou activités. Le système est conçu de façon à ce que ces incidents soient peu volumineux, soient détectés avec une haute fidélité, et présentent un niveau de gravité élevé.
 
 Personnalisée pour votre environnement, cette technologie de détection, en plus de réduire la fréquence de [faux positifs](false-positives.md), peut détecter des attaques même si les informations sont limitées ou si certaines informations sont manquantes.
+
+
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuration de la détection avancée des attaques multiphases
 
@@ -49,7 +53,7 @@ Cette détection est activée par défaut dans Azure Sentinel. Pour vérifier l�
  Étant donné que le type de règle **Fusion** ne contient qu’une seule règle qui ne peut pas être modifiée, les modèles de règles ne s’appliquent pas pour ce type de règle.
 
 > [!NOTE]
-> Azure Sentinel utilise actuellement 30 jours de données historiques pour former les systèmes de Machine Learning. Ces données sont toujours chiffrées à l’aide des clés de Microsoft à mesure qu’elles passent par le pipeline de Machine Learning. Cependant, les données d’apprentissage ne sont pas chiffrées à l’aide de [clés gérées par le client (CMK)](customer-managed-keys.md) si vous avez activé CMK dans votre espace de travail Azure Sentinel. Pour désactiver la technologie Fusion, accédez à **Azure Sentinel** \> **Configuration** \> **Analytics \> Règles actives \>Détection avancée des attaques multiphases**, puis, dans la colonne **État**, sélectionnez **Désactiver**.
+> Azure Sentinel utilise actuellement 30 jours de données historiques pour former les systèmes de Machine Learning. Ces données sont toujours chiffrées à l’aide des clés de Microsoft à mesure qu’elles passent par le pipeline de Machine Learning. Cependant, les données de formation ne sont pas chiffrées à l’aide de [clés gérées par le client (CMK)](customer-managed-keys.md) si vous avez activé CMK dans votre espace de travail Azure Sentinel. Pour désactiver la technologie Fusion, accédez à **Azure Sentinel** \> **Configuration** \> **Analytics \> Règles actives \>Détection avancée des attaques multiphases**, puis, dans la colonne **État**, sélectionnez **Désactiver**.
 
 ### <a name="configure-scheduled-analytics-rules-for-fusion-detections"></a>Configurer des règles analytiques planifiées pour les détections Fusion
 
@@ -57,7 +61,7 @@ Cette détection est activée par défaut dans Azure Sentinel. Pour vérifier l�
 >
 > - La détection basée sur Fusion à l’aide d’alertes de règles analytiques est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
-**Fusion** permet de détecter les attaques multiphases à l’aide d’alertes générées par un ensemble de [règles analytiques planifiées](tutorial-detect-threats-custom.md). Nous vous recommandons de suivre les étapes ci-dessous pour configurer et activer ces règles, afin de tirer le meilleur parti des fonctionnalités de fusion d’Azure Sentinel.
+**Fusion** permet de détecter les attaques multiphases à l’aide d’alertes générées par un ensemble de [règles analytiques planifiées](detect-threats-custom.md). Nous vous recommandons de suivre les étapes ci-dessous pour configurer et activer ces règles, afin de tirer le meilleur parti des fonctionnalités de fusion d’Azure Sentinel.
 
 1. Utilisez les **modèles de règles analytiques planifiées** suivants, qui se trouvent sous l’onglet **Modèles de règle** du panneau **Analytique**, pour créer de nouvelles règles. Cliquez sur le nom de la règle dans la galerie de modèles, puis cliquez sur **Créer une règle** dans le volet de visualisation :
 
@@ -737,6 +741,26 @@ Ce scénario est actuellement en **PRÉVERSION**.
 
 - **Événement de connexion d’un utilisateur avec des informations d’identification fuitées, à l’origine du déploiement d’un rançongiciel dans une application cloud**
 
+### <a name="multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview"></a>Plusieurs alertes pouvant être liées à une activité de ransomware détectées (préversion publique)
+
+Azure Sentinel génère un incident quand plusieurs alertes de types différents sont détectées à partir des sources de données suivantes et peuvent être liées à une activité de ransomware :
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender pour Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Règles d’analyse planifiée d’Azure Sentinel](detect-threats-built-in.md#scheduled). Fusion prend uniquement en compte les règles d’analyse planifiées avec des informations de tactiques.
+
+De tels incidents Fusion sont nommés **Alertes multiples possiblement liées à l’activité Ransomware détectée** et sont générés lorsque des alertes connexes sont détectées pendant un délai d’exécution spécifique et sont associées aux étapes **Exécution** et **Évasion défense** sur une attaque.
+
+Par exemple, Azure Sentinel génère un incident pour les éventuelles activités de Ransomware si les alertes suivantes sont déclenchées sur le même hôte dans un délai d’exécution spécifique :
+
+- Alertes planifiées Azure Sentinel (informations) : **événements d’erreur et d’avertissement Windows**
+- Azure Defender (moyen) : **le ransomware « GandCrab » a été évité**
+- Microsoft Defender pour point de terminaison (information) : **un programme malveillant « Emotet » a été détecté**
+- Azure Defender (faible) : **une porte dérobée « Tofsee » a été détectée**
+- Microsoft Defender pour point de terminaison (information) : **un programme malveillant « Parite » a été détecté**
+
 ## <a name="remote-exploitation"></a>Exploitation à distance
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utilisation présumée d’infrastructure d’attaque, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
@@ -779,6 +803,6 @@ Les permutations d’alertes de connexion Azure AD suspectes avec le déploieme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous en savez plus sur la détection avancée des attaques multiphases, il peut vous être utile de suivre le guide de démarrage suivant pour savoir comment bénéficier d’une visibilité sur vos données et sur les menaces potentielles : [Bien démarrer avec Azure Sentinel](quickstart-get-visibility.md).
+Maintenant que vous en savez plus sur la détection avancée des attaques multiphases, il peut vous être utile de suivre le guide de démarrage suivant pour savoir comment bénéficier d’une visibilité sur vos données et sur les menaces potentielles : [Bien démarrer avec Azure Sentinel](get-visibility.md).
 
-Si vous êtes prêt à examiner les incidents créés pour vous, consultez le tutoriel suivant : [Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md).
+Si vous êtes prêt à examiner les incidents créés pour vous, consultez le tutoriel suivant : [Examiner les incidents avec Azure Sentinel](investigate-cases.md).

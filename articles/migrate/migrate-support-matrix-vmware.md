@@ -1,19 +1,19 @@
 ---
-title: Prise en charge de l’évaluation du serveur VMware dans Azure Migrate
+title: Support de la détection du serveur VMware dans Azure Migrate
 description: En savoir plus sur la prise en charge par Azure Migrate de l’évaluation et de la détection de serveurs dans un environnement VMware.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: de4d66f3ef8195e13ff8b67538901d1ebc7d88aa
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dedb05df1713238a6271af4dfd7b9cf1695d0bc7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971061"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122563621"
 ---
-# <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
+# <a name="support-matrix-for-vmware-discovery"></a>Matrice de support pour la détection VMware 
 
 Cet article récapitule les prérequis et les conditions de prise en charge de l’utilisation de l’outil [Azure Migrate : découverte et évaluation](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) pour découvrir et évaluer des serveurs dans un environnement VMware pour la migration vers Azure.
 
@@ -35,7 +35,7 @@ En savoir plus sur les [évaluations](concepts-assessment-calculation.md).
 
 VMware | Détails
 --- | ---
-**vCenter Server** | Les serveurs que vous souhaitez découvrir et évaluer doivent être gérés par vCenter Server version 7.0, 6.7, 6.5, 6.0 ou 5.5.<br /><br /> La découverte des serveurs via la fourniture des détails de l’hôte ESXi dans l’appliance n’est pas prise en charge actuellement.
+**vCenter Server** | Les serveurs que vous souhaitez découvrir et évaluer doivent être gérés par vCenter Server version 7.0, 6.7, 6.5, 6.0 ou 5.5.<br /><br /> La découverte des serveurs via la fourniture des détails de l’hôte ESXi dans l’appliance n’est pas prise en charge actuellement. <br /><br /> Les adresses IPv6 ne sont pas prises en charge pour les vCenter Server (pour la découverte et l’évaluation des serveurs) et les hôtes ESXi (pour la réplication de serveurs).
 **autorisations** | L’outil Azure Migrate : découverte et évaluation nécessite un compte vCenter Server en lecture seule.<br /><br /> Si vous souhaitez utiliser l’outil pour l’inventaire logiciel et l’analyse des dépendances sans agent, le compte doit disposer de privilèges pour les opérations d’invité sur les machines virtuelles VMware.
 
 ## <a name="server-requirements"></a>Configuration requise au niveau du serveur
@@ -62,23 +62,25 @@ Appareil | Connexion
 **vCenter Server** | Connexions entrantes sur le port TCP 443 pour permettre à l’appliance de collecter les métadonnées de configuration et de performances pour les évaluations. <br /><br /> L’appliance se connecte à vCenter sur le port 443 par défaut. Si vCenter Server écoute sur un autre port, vous pouvez modifier le port lors de la configuration de la découverte.
 **Hôtes ESXi** | Pour effectuer une [découverte de l’inventaire des logiciels](how-to-discover-applications.md) ou une [analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis), l’appliance se connecte aux hôtes ESXi sur le port TCP 443 pour découvrir l’inventaire des logiciels et les dépendances sur les serveurs.
 
-## <a name="application-discovery-requirements"></a>Conditions relatives à la découverte d’application
+## <a name="software-inventory-requirements"></a>Exigences pour l’inventaire des logiciels
 
-Outre la découverte de serveurs, Azure Migrate : découverte et évaluation peut effectuer un inventaire des logiciels exécutés sur les serveurs. La découverte d’application vous permet d’identifier et de planifier un chemin de migration adapté à vos charges de travail locales.
+Outre la découverte des serveurs, Azure Migrate : découverte et évaluation peuvent exécuter l’inventaire des logiciels sur les serveurs. L’inventaire de logiciels vous permet d’identifier et de planifier un chemin de migration adapté à vos charges de travail locales.
 
 Support | Détails
 --- | ---
-**Serveurs pris en charge** | Actuellement prise en charge uniquement pour des serveurs se trouvant dans votre environnement VMware. Vous pouvez effectuer une découverte d’applications sur un maximum de 10 000 serveurs à partir de chaque appliance Azure Migrate.
+**Serveurs pris en charge** | Actuellement prise en charge uniquement pour des serveurs se trouvant dans votre environnement VMware. Vous pouvez effectuer un inventaire de logiciels sur jusqu’à 10 000 serveurs à partir de chaque appliance Azure Migrate.
 **Systèmes d’exploitation** | Les serveurs exécutant toutes les versions de Windows et Linux sont pris en charge.
-**Configuration requise pour les machines virtuelles** | Pour effectuer une découverte de l’inventaire des logiciels, les outils VMware doivent être installés et en cours d’exécution sur vos serveurs. <br /><br /> La version des outils VMware doit être la version 10.2.1 ou une version ultérieure.<br /><br /> PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.
-**Découverte** | La découverte d’applications sur des serveurs s’effectue à partir de vCenter Server à l’aide d’outils VMware installés sur les serveurs. L’appliance recueille les informations sur l’inventaire des logiciels à partir du serveur exécutant vCenter Server par l’intermédiaire d’API vSphere. La découverte d’application opère sans agent. Aucun agent n’est installé sur le serveur et l’appliance ne se connecte pas directement aux serveurs. WMI et SSH doivent être activés et disponibles respectivement sur les serveurs Windows et Linux.
-**Compte d’utilisateur de vCenter Server** | Pour interagir avec les serveurs en vue de la découverte d’applications, le compte vCenter Server en lecture seule utilisé pour l’évaluation doit disposer de privilèges pour les opérations d’invité sur les machines virtuelles VMware.
-**Accès au serveur** | Vous pouvez ajouter plusieurs informations d’identification de domaine et hors domaine (Windows/Linux) au gestionnaire de configuration de l’appliance pour la découverte d’applications.<br /><br /> Vous devez disposer d’un compte d’utilisateur invité pour les serveurs Windows et d’un compte d’utilisateur standard (accès non `sudo`) pour tous les serveurs Linux.
-**Accès au port** | L’appliance Azure Migrate doit être en mesure de se connecter au port TCP 443 sur les hôtes ESXi exécutant les serveurs sur lesquels vous souhaitez effectuer une découverte d’application. Le serveur exécutant vCenter Server retourne une connexion d’hôte ESXi pour télécharger le fichier contenant les détails de l’inventaire des logiciels.
+**Configuration requise pour les machines virtuelles** | Pour effectuer un inventaire de logiciels, les outils VMware doivent être installés et en cours d’exécution sur vos serveurs. <br /><br /> La version des outils VMware doit être la version 10.2.1 ou une version ultérieure.<br /><br /> PowerShell version 2.0 ou ultérieure doit être installé sur les serveurs Windows.
+**Découverte** | L’inventaire de logiciels s’exécute à partir de vCenter Server à l’aide d’outils VMware installés sur les serveurs. L’appliance recueille les informations sur l’inventaire des logiciels à partir du serveur exécutant vCenter Server par l’intermédiaire d’API vSphere. L’inventaire de logiciels est sans agent. Aucun agent n’est installé sur le serveur et l’appliance ne se connecte pas directement aux serveurs. WMI doit être activé et disponible sur les serveurs Windows pour recueillir les détails des rôles et fonctionnalités installés sur les serveurs.
+**Compte d’utilisateur de vCenter Server** | Pour interagir avec les serveurs en vue de l’inventaire de logiciels, le compte vCenter Server en lecture seule utilisé pour l’évaluation doit disposer de privilèges pour les opérations d’invités sur les machines virtuelles VMware.
+**Accès au serveur** | Vous pouvez ajouter plusieurs informations d’identification de domaine et hors domaine (Windows/Linux) au gestionnaire de configuration de l’appliance pour l’inventaire de logiciels.<br /><br /> Vous devez disposer d’un compte d’utilisateur invité pour les serveurs Windows et d’un compte d’utilisateur standard (accès non `sudo`) pour tous les serveurs Linux.
+**Accès au port** | L’appliance Azure Migrate doit être en mesure de se connecter au port TCP 443 sur les hôtes ESXi exécutant les serveurs sur lesquels vous souhaitez effectuer un inventaire de logiciels. Le serveur exécutant vCenter Server retourne une connexion d’hôte ESXi pour télécharger le fichier contenant les détails de l’inventaire des logiciels.
 
 ## <a name="sql-server-instance-and-database-discovery-requirements"></a>Exigences en matière de découverte de base de données et d’instance SQL Server
 
-La [découverte d’applications](how-to-discover-applications.md) identifie des instances SQL Server. À l’aide de ces informations, l’appliance tente de se connecter aux diverses instances SQL Server grâce aux informations d’identification pour l’authentification Windows ou SQL Server fournies dans le gestionnaire de configuration de l’appliance. Une fois connectée, l’appliance recueille les données de configuration et de performances pour les instances et bases de données SQL Server. Les données de configuration de SQL Server sont mises à jour une fois par jour. Les données de performances sont capturées toutes les 30 secondes.
+L’[inventaire de logiciels](how-to-discover-applications.md) identifie des instances SQL Server. À l’aide de ces informations, l’appliance tente de se connecter aux diverses instances SQL Server grâce aux informations d’identification pour l’authentification Windows ou SQL Server fournies dans le gestionnaire de configuration de l’appliance. L’appliance ne peut se connecter qu’aux instances SQL auxquelles elle est reliée par une ligne de mire réseau, alors que l’inventaire logiciel en lui-même n’a pas nécessairement besoin d’une ligne de mire réseau.
+
+Une fois connectée, l’appliance recueille les données de configuration et de performances pour les instances et bases de données SQL Server. Les données de configuration de SQL Server sont mises à jour une fois par jour. Les données de performances sont capturées toutes les 30 secondes.
 
 Support | Détails
 --- | ---
@@ -93,22 +95,38 @@ Support | Détails
 **Services SQL pris en charge** | Seul le moteur de base de données SQL Server est pris en charge. <br /><br /> La découverte de SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) et SQL Server Analysis Services (SSAS) n’est pas prise en charge.
 
 > [!NOTE]
-> Azure Migrate chiffre les communications entre l’appliance Azure Migrate et les instances SQL Server sources lorsque la propriété [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) est définie sur `true`. La couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. 
 >
-> Si aucun certificat n’a été provisionné sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
->
+> Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) sur ce que vous devez choisir.
+
+## <a name="aspnet-web-apps-discovery-requirements"></a>Exigences pour la découverte d’applications web ASP.NET
+
+L’[inventaire de logiciels](how-to-discover-applications.md) identifie le rôle de serveur web existant sur les serveurs découverts. Si le rôle de serveur web est activé pour un serveur, Azure Migrate procède à la découverte d’applications web sur le serveur.
+L’utilisateur peut ajouter des informations d’identification de domaine et de non-domaine sur l’appliance. Assurez-vous que le compte utilisé dispose de privilèges d’administrateur local sur les serveurs sources. Azure Migrate mappe automatiquement les informations d’identification sur les serveurs respectifs, il n’est donc pas nécessaire de les mapper manuellement. Plus important encore, ces informations d’identification ne sont jamais envoyées à Microsoft et restent sur l’appliance s’exécutant dans l’environnement source.
+Une fois que l’appareil est connecté, il recueille les données de configuration pour le serveur web IIS et les applications web ASP.NET. Les données de configuration des applications web sont mises à jour toutes les 24 heures.
+
+Support | Détails
+--- | ---
+**Serveurs pris en charge** | Actuellement pris en charge uniquement pour des serveurs Windows exécutant IIS dans votre environnement VMware.
+**Serveurs Windows** | Windows Server 2008 R2 et les versions ultérieures sont pris en charge.
+**Serveurs Linux** | Non pris en charge actuellement.
+**Accès IIS** | La découverte des applications web requiert un compte d’utilisateur administrateur local.
+**Versions IIS** | IIS 7.5 et les versions ultérieures sont pris en charge.
+
+> [!NOTE]
+> Les données sont toujours chiffrées au repos et pendant le transit.
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Conditions relatives à l’analyse des dépendances (sans agent)
 
 L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier les dépendances entre les serveurs locaux que vous souhaitez évaluer et migrer vers Azure. Le tableau suivant récapitule les conditions requises pour la configuration de l’analyse des dépendances sans agent :
 
 Support | Détails
---- | --- 
+--- | ---
 **Serveurs pris en charge** | Actuellement prise en charge uniquement pour des serveurs se trouvant dans votre environnement VMware.
-**Serveurs Windows** | Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64 bits)<br />Microsoft Windows Server 2008 (32 bits)
+**Serveurs Windows** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64 bits)<br />Microsoft Windows Server 2008 (32 bits)
 **Serveurs Linux** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 et versions ultérieures
 **Configuration requise au niveau du serveur** | Les outils VMware (10.2.1 et versions ultérieures) doivent être installés et en cours d’exécution sur les serveurs que vous voulez analyser.<br /><br /> PowerShell, versions 2.0 ou ultérieures, doit être installé sur les serveurs.
-**Méthode de détection** |  Les informations de dépendance entre serveurs sont collectées à partir des outils VMware sur le serveur exécutant vCenter Server. L’appliance recueille les informations à partir du serveur à l’aide d’API vSphere. Aucun agent n’est installé sur le serveur, et l’appliance ne se connecte pas directement aux serveurs. WMI et SSH doivent être activés et disponibles respectivement sur les serveurs Windows et Linux.
+**Méthode de détection** |  Les informations de dépendance entre serveurs sont collectées à partir des outils VMware sur le serveur exécutant vCenter Server. L’appliance recueille les informations à partir du serveur à l’aide d’API vSphere. Aucun agent n’est installé sur le serveur, et l’appliance ne se connecte pas directement aux serveurs. WMI doit être activé et disponible sur les serveurs Windows.
 **Compte vCenter** | Le compte en lecture seule utilisé par Azure Migrate pour l’évaluation doit disposer de privilèges pour les opérations d’invité sur des machines virtuelles VMware.
 **Autorisations de serveur Windows** |  Un compte d’utilisateur (local ou de domaine) avec des autorisations d’administrateur sur les serveurs.
 **Compte Linux** | Un compte d’utilisateur racine ou un compte disposant de ces autorisations sur les fichiers /bin/netstat et /bin/ls : <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Définissez ces fonctionnalités à l’aide des commandes suivantes :<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: 436ad1da3e1b212e03113132d4aff9f48a3d80da
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384891"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914244"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Passerelle dédiée Azure Cosmos DB - vue d’ensemble (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,6 +26,9 @@ Vous pouvez approvisionner une passerelle dédiée pour améliorer les performan
 La passerelle dédiée est intégrée à Azure Cosmos DB. Lorsque vous [approvisionnez une passerelle dédiée](how-to-configure-integrated-cache.md), vous disposez d’un nœud entièrement géré qui achemine les requêtes vers les partitions principales. La connexion à Azure Cosmos DB avec la passerelle dédiée offre une latence plus faible et plus prévisible que la connexion à Azure Cosmos DB avec la passerelle standard. Même les échecs du cache verront une amélioration de la latence en comparant la passerelle dédiée et la passerelle standard.
 
 Votre application utilise une passerelle dédiée moyennant des modifications de code minimales. Les comptes Azure Cosmos DB nouveaux et existants peuvent approvisionner une passerelle dédiée pour améliorer les performances de lecture.
+
+> [!NOTE]
+> Avez-vous des commentaires sur la passerelle dédiée ? Nous attendons vos remarques ! N’hésitez pas à partager vos commentaires directement avec l’équipe d’ingénierie Azure Cosmos DB :cosmoscachefeedback@microsoft.com
 
 ## <a name="connection-modes"></a>Modes de connexion
 

@@ -9,35 +9,19 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: d86e8a6e16fdaa48678ae1af89eb236f6e00b01b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: f83e84e3aa747c41d0e45a5650c704c796c62447
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005138"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112968264"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Synapse Studio pour surveiller vos applications Apache Spark
 
 Azure Synapse Analytics vous permet d’utiliser Apache Spark pour exécuter des blocs-notes, des travaux et d’autres types d’applications sur vos pools Apache Spark dans votre espace de travail.
 
 Cet article explique comment surveiller vos applications Apache Spark, et ainsi garder un œil sur leur état, leurs problèmes et leur progression.
-
-Ce tutoriel décrit les tâches suivantes :
-
-* Superviser l’exécution des applications Apache Spark
-* Afficher les applications Apache Spark terminées
-* Afficher les applications Apache Spark annulées
-* Déboguer les applications Apache Spark ayant échoué
-* Afficher les données d’entrée et de sortie pour les applications Apache Spark
-* Comparer des applications Apache Spark
-
-## <a name="prerequisites"></a>Prérequis
-
-Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
-
-- Un espace de travail Synapse Studio. Pour obtenir des instructions, consultez [Créer un espace de travail Synapse Studio](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
-
-- Un pool Apache Spark.
 
 ## <a name="view-apache-spark-applications"></a>Afficher les applications Apache Spark 
 Vous pouvez afficher toutes les applications Apache Spark à partir de **Superviser** -> **Applications Apache Spark**.
@@ -204,7 +188,7 @@ Sélectionnez une application Apache Spark, puis cliquez sur l’onglet **Donn�
 
 Il existe deux façons de comparer des applications. Vous pouvez comparer en choisissant de **comparer une application** ou en cliquant sur le bouton **Comparer dans le bloc-notes** pour afficher la comparaison dans le bloc-notes.
 
-### <a name="compare-by-choose-an-application"></a>Comparer par choix d’une application
+### <a name="compare-by-choosing-an-application"></a>Comparer par choix d’une application
 
 Cliquez sur le bouton **Comparer des applications** et choisissez une application dont comparer les performances. Vous pouveze voir intuitivement la différence entre les deux applications.
 

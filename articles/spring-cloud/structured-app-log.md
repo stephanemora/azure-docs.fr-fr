@@ -1,18 +1,18 @@
 ---
 title: Journal des applications structuré pour Azure Spring Cloud | Microsoft Docs
 description: Cet article explique comment générer et collecter des données de journal structuré des applications dans Azure Spring Cloud.
-author: MikeDodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: ef51fc0c67c938a2d0933b6032072acc24e42dd3
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 8d84462d38c00e3788e424bd7cac6742d8b0e408
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494626"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122533030"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Journal des applications structuré pour Azure Spring Cloud
 
@@ -43,11 +43,11 @@ Afin d’améliorer l’expérience d’interrogation des journaux, un journal d
 
 * Le champ « timestamp » est obligatoire et doit être au format UTC, tous les autres champs sont facultatifs.
 * « traceId » et « spanId » dans le champ « mdc » sont utilisés à des fins de suivi.
-* Consignez chaque enregistrement JSON sur une seule ligne. 
+* Consignez chaque enregistrement JSON sur une seule ligne.
 
-**Exemple d’enregistrement de journal** 
+**Exemple d’enregistrement de journal**
 
- ```
+```log
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
@@ -57,17 +57,17 @@ Chaque ligne des journaux JSON peut avoir au maximum **16 000 octets**. Si la
 
 En général, cela se produit lors de la journalisation des exceptions avec le StackTrace profond, en particulier lorsque l’[agent AppInsights In-Process](./how-to-application-insights.md) est activé.  Appliquez les paramètres de limite à la sortie du StackTrace (voir les exemples de configuration ci-dessous) pour vous assurer que la sortie finale est correctement analysée.
 
-## <a name="generate-schema-compliant-json-log"></a>Générer un journal JSON conforme au schéma  
+## <a name="generate-schema-compliant-json-log"></a>Générer un journal JSON conforme au schéma
 
-Pour les applications Spring, vous pouvez générer le format de journal JSON attendu en utilisant des [frameworks de journalisation courants](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), tels que [logback](http://logback.qos.ch/) et [log4j2](https://logging.apache.org/log4j/2.x/). 
+Pour les applications Spring, vous pouvez générer le format de journal JSON attendu en utilisant des [frameworks de journalisation courants](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), tels que [logback](http://logback.qos.ch/) et [log4j2](https://logging.apache.org/log4j/2.x/).
 
-### <a name="log-with-logback"></a>Consigner avec logback 
+### <a name="log-with-logback"></a>Consigner avec logback
 
-Lorsque vous utilisez des démarreurs Spring Boot, logback est utilisé par défaut. Pour les applications logback, utilisez [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) pour générer un journal au format JSON. Cette méthode est prise en charge dans Spring Boot version 2.1+. 
+Lorsque vous utilisez des démarreurs Spring Boot, logback est utilisé par défaut. Pour les applications logback, utilisez [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) pour générer un journal au format JSON. Cette méthode est prise en charge dans Spring Boot version 2.1+.
 
 La procédure :
 
-1. Ajoutez la dépendance logstash dans votre fichier `pom.xml`. 
+1. Ajoutez la dépendance logstash dans votre fichier `pom.xml`.
 
     ```xml
     <dependency>
@@ -76,7 +76,9 @@ La procédure :
         <version>6.5</version>
     </dependency>
     ```
+
 1. Mettez à jour votre fichier config `logback-spring.xml` pour définir le format JSON.
+
     ```xml
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -122,6 +124,7 @@ La procédure :
         </root>
     </configuration>
     ```
+
 1. Lorsque vous utilisez le fichier config de la journalisation avec un suffixe `-spring` tel que `logback-spring.xml`, vous pouvez définir la configuration de la journalisation en fonction du profil actif de Spring.
 
     ```xml
@@ -141,10 +144,10 @@ La procédure :
         </springProfile>
     </configuration>
     ```
-    
+
     Pour le développement local, exécutez l’application Spring Cloud avec l’argument JVM `-Dspring.profiles.active=dev`. Vous pourrez alors voir des journaux lisibles plutôt que des lignes au format JSON.
 
-### <a name="log-with-log4j2"></a>Consigner avec log4j2 
+### <a name="log-with-log4j2"></a>Consigner avec log4j2
 
 Pour les applications log4j2, utilisez [json-template-layout](https://logging.apache.org/log4j/2.x/manual/json-template-layout.html) pour générer un journal au format JSON. Cette méthode est prise en charge dans Spring Boot version 2.1+.
 
@@ -216,7 +219,7 @@ La procédure :
     }
     ```
 
-3. Utilisez ce modèle de layout JSON dans votre fichier config `log4j2-spring.xml`. 
+3. Utilisez ce modèle de layout JSON dans votre fichier config `log4j2-spring.xml`.
 
     ```xml
     <configuration>
@@ -243,10 +246,10 @@ Une fois que votre application est correctement configurée, le journal de votre
 Procédez comme suit :
 
 1. Accédez à la page de la vue d’ensemble du service de votre instance de service.
-2. Cliquez sur l’entrée `Logs` sous la section `Monitoring`.
+2. Sélectionnez l’entrée **Journaux** de la section **Surveillance**.
 3. Exécutez cette requête.
 
-   ```
+   ```query
    AppPlatformLogsforSpring
    | where TimeGenerated > ago(1h)
    | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
@@ -256,29 +259,28 @@ Procédez comme suit :
 
    ![Illustration du journal au format JSON](media/spring-cloud-structured-app-log/json-log-query.png)
 
-
 ### <a name="show-log-entries-containing-errors"></a>Afficher les entrées de journal contenant des erreurs
 
 Pour consulter les entrées de journal qui contiennent une erreur, exécutez la requête suivante :
 
-```
+```query
 AppPlatformLogsforSpring
-| where TimeGenerated > ago(1h) and CustomLevel == "ERROR" 
-| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName 
+| where TimeGenerated > ago(1h) and CustomLevel == "ERROR"
+| project AppTimestamp, Logger, ExceptionClass, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 
-Utilisez cette requête pour rechercher des erreurs ou modifiez les termes de la requête pour rechercher une classe d’exception ou un code d’erreur spécifique. 
+Utilisez cette requête pour rechercher des erreurs ou modifiez les termes de la requête pour rechercher une classe d’exception ou un code d’erreur spécifique.
 
 ### <a name="show-log-entries-for-a-specific-traceid"></a>Afficher les entrées de journal pour un traceId spécifique
 
 Pour consulter les entrées de journal d’un ID de suivi « trace_id » spécifique, exécutez la requête suivante :
 
-```
+```query
 AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h)
-| where TraceId == "trace_id" 
-| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName 
+| where TraceId == "trace_id"
+| project AppTimestamp, Logger, TraceId, SpanId, StackTrace, Message, AppName
 | sort by AppTimestamp
 ```
 

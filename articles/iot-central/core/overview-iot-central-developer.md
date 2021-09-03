@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 90e1b951cd3990df3615cdcf33a4d659f693b5ee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6aab9cbb91f2a419b9c6be5378bd8238b0d841d8
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064879"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609274"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
 
@@ -27,7 +27,7 @@ Les appareils interagissent avec une application IoT Central à l’aide des pri
 - Les _propriétés_ représentent des valeurs d’état qu’un appareil transmet à IoT Central. Par exemple, la version actuelle du microprogramme installé sur l’appareil. Vous pouvez également utiliser des propriétés accessibles en écriture qu’IoT Central peut mettre à jour sur l’appareil telles qu’une température cible.
 - Les _commandes_ sont appelées à partir d’IoT Central pour contrôler le comportement d’un appareil. Par exemple, votre application IoT Central peut appeler une commande pour redémarrer un appareil.
 
-Un générateur de solutions est responsable de la configuration des tableaux de bord et des vues dans l’interface utilisateur Web IoT Central pour visualiser les données de télémétrie, gérer les propriétés et appeler les commandes.
+Un générateur de solutions est responsable de la configuration des tableaux de bord et des affichages d’appareils dans l’interface utilisateur web IoT Central pour visualiser les données de télémétrie, gérer les propriétés et appeler des commandes.
 
 ## <a name="types-of-device"></a>Types d’appareils
 
@@ -85,7 +85,7 @@ Pour en découvrir plus sur les bonnes pratiques de modification d’un modèle,
 
 Chaque modèle de capacité a un _identificateur de modèle de capacité de jumeau d’appareil unique_ (DTMI), tel que `dtmi:com:example:Thermostat;1`. Lorsqu’un appareil se connecte à IoT Central, il envoie le DTMI du modèle de capacité qu’il implémente. IoT Central peut ensuite associer le modèle d’appareil approprié à l’appareil.
 
-[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) définit un ensemble de conventions qu’un appareil doit suivre lorsqu’il implémente un modèle DTDL.
+[IoT Plug-and-Play](../../iot-develop/overview-iot-plug-and-play.md) définit un ensemble de [conventions](../../iot-develop/concepts-convention.md) qu’un appareil doit suivre lorsqu’il implémente un modèle DTDL.
 
 Les kits [Azure IoT device SDK](#languages-and-sdks) incluent la prise en charge des conventions IoT Plug-and-Play.
 
@@ -100,10 +100,10 @@ Un modèle de capacité d’appareil est défini à l’aide du langage [DTDL](h
 
 Un modèle DTDL peut être un modèle _sans composant_ ou _à plusieurs composants_ :
 
-- Modèle sans composant : un modèle simple n’utilise pas de composants incorporés ou en cascade. Toutes les données de télémétrie, propriétés et commandes sont définies en tant que _composant par défaut_ unique. Pour obtenir un exemple, consultez le modèle [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
-- Modèle à plusieurs composants : modèle plus complexe qui inclut deux composants ou plus. Ces composants incluent un composant unique par défaut et un ou plusieurs composants imbriqués supplémentaires. Pour obtenir un exemple, consultez le modèle [Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+- Modèle sans composant : un modèle simple n’utilise pas de composants incorporés ou en cascade. Toutes les données de télémétrie, propriétés et commandes sont définies en tant que _composant racine_ unique. Pour obtenir un exemple, consultez le modèle [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
+- Modèle à plusieurs composants : modèle plus complexe qui inclut deux composants ou plus. Ces composants incluent un composant racine unique et un ou plusieurs composants imbriqués supplémentaires. Pour obtenir un exemple, consultez le modèle [Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-Pour en savoir plus, consultez [Repère de modélisation IoT Plug-and-Play](../../iot-pnp/concepts-modeling-guide.md)
+Pour en savoir plus, consultez [Repère de modélisation IoT Plug-and-Play](../../iot-develop/concepts-modeling-guide.md)
 
 ### <a name="conventions"></a>Conventions
 
@@ -119,7 +119,7 @@ Un appareil doit respecter les conventions IoT Plug-and-Play lorsqu’il échang
 
 Pour en savoir plus sur le format des messages JSON qu’un appareil échange avec IoT Central, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md).
 
-Pour en savoir plus sur les conventions IoT Plug-and-Play, consultez [Conventions IoT Plug-and-Play](../../iot-pnp/concepts-convention.md).
+Pour en savoir plus sur les conventions IoT Plug-and-Play, consultez [Conventions IoT Plug-and-Play](../../iot-develop/concepts-convention.md).
 
 ### <a name="device-sdks"></a>Kits de développement logiciel (SDK) d’appareil
 

@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: cddc7b931bf59412d4a7ec8e6b0eecfe148f3d5e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dcbbe63754bdcfc4ded249720b58940e0c219bf9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525410"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Intégrer Azure Key Vault à Azure Policy
 
@@ -35,7 +35,7 @@ Exemples de scénarios d’utilisation :
 
 ## <a name="available-built-in-policy-definitions"></a>Définitions de stratégie « prédéfinies » disponibles
 
-La solution Key Vault a créé un ensemble de stratégies qui peuvent être utilisées pour gérer les objets clés, certificats et secrets. Ces stratégies sont « prédéfinies », autrement dit elles peuvent être activées sans que vous n’ayez à écrire de code JSON personnalisé et elles sont prêtes à être attribuées dans le portail Azure. Vous pouvez cependant personnaliser certains paramètres pour répondre aux besoins de votre organisation.
+Key Vault a créé un ensemble de stratégies qui peuvent être utilisées pour gérer les coffres de clés et les objets de clés, de certificats et de secrets. Ces stratégies sont « prédéfinies », autrement dit elles peuvent être activées sans que vous n’ayez à écrire de code JSON personnalisé et elles sont prêtes à être attribuées dans le portail Azure. Vous pouvez cependant personnaliser certains paramètres pour répondre aux besoins de votre organisation.
 
 # <a name="certificate-policies"></a>[Stratégies du certificat](#tab/certificates)
 
@@ -58,7 +58,7 @@ Cette stratégie vous permet de gérer l’action de durée de vie spécifiée p
 
 ### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>Les certificats doivent être émis par l’autorité de certification intégrée spécifiée (préversion)
 
-Si vous utilisez une autorité de certification intégrée Key Vault (Digicert ou GlobalSign) et que vous voulez que les utilisateurs fassent appel à l’un de ces deux fournisseurs, vous pouvez utiliser cette stratégie pour mener un audit ou appliquer votre sélection. Cette stratégie peut également être utilisée pour auditer ou refuser la création de certificats auto-signés dans le coffre de clés.
+Si vous utilisez une autorité de certification intégrée Key Vault (Digicert ou GlobalSign) et que vous voulez que les utilisateurs fassent appel à l’un de ces deux fournisseurs, vous pouvez utiliser cette stratégie pour mener un audit ou appliquer votre sélection. Cette stratégie évalue l’autorité de certification sélectionnée dans la stratégie d’émission du certificat et le fournisseur de l’autorité de certification défini dans le coffre de clés. Cette stratégie peut également être utilisée pour auditer ou refuser la création de certificats auto-signés dans le coffre de clés.
 
 ### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>Les certificats doivent être émis par l’autorité de certification non intégrée spécifiée (préversion)
 
@@ -159,6 +159,20 @@ Si un secret a une durée de vie trop proche de l’expiration, un délai organi
 
 Gérez les exigences en matière de conformité de votre organisation en spécifiant le nombre maximal de jours pendant lesquels un secret peut être valide au sein de votre coffre de clés. Les secrets qui sont valides au-delà du seuil que vous définissez seront marqués comme non conformes. Vous pouvez également utiliser cette stratégie pour bloquer la création de secrets dont la date d’expiration est postérieure à la période de validité maximale que vous spécifiez.
 
+# <a name="key-vault-policies"></a>[Stratégies du coffre de clés](#tab/keyvault)
+
+### <a name="key-vault-should-use-a-virtual-network-service-endpoint"></a>Key Vault doit utiliser un point de terminaison de service de réseau virtuel
+
+Cette stratégie audite Key Vault s’il n’est pas configuré pour utiliser un point de terminaison de service de réseau virtuel.
+
+### <a name="resource-logs-in-key-vault-should-be-enabled"></a>Les journaux de ressources dans Key Vault doivent être activés
+
+Auditez l’activation des journaux de ressources. Permet de recréer les pistes d’activité à utiliser à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau
+
+### <a name="key-vaults-should-have-purge-protection-enabled"></a>La protection contre la suppression définitive doit être activée sur les coffres de clés
+
+La suppression malveillante d’un coffre de clés peut entraîner une perte définitive des données. Une personne malveillante interne à votre organisation peut potentiellement supprimer et vider des coffres de clés. La protection contre la suppression définitive vous protège des attaques internes en appliquant une période de conservation obligatoire pour les coffres de clés supprimés de manière réversible. Personne au sein de votre organisation ni chez Microsoft ne pourra supprimer définitivement vos coffres de clés pendant la période de conservation de la suppression réversible.
+
 ---
 
 ## <a name="example-scenario"></a>Exemple de scénario
@@ -240,3 +254,4 @@ Après avoir attribué une stratégie avec un effet « refuser », la prise d�
 
 - En savoir plus sur le [service Azure Policy](../../governance/policy/overview.md)
 - Consultez des exemples Key Vault : [Définitions de stratégies prédéfinies Key Vault](../../governance/policy/samples/built-in-policies.md#key-vault)
+- En savoir plus sur [Aide des points de référence de la sécurité Azure sur le coffre de clés](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

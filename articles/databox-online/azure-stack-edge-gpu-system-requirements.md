@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e9bf7d7d61ad05726ca8dcaad06d63902273f6f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d30ce268c7e117e5673af51ee32bea3b8923576b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085057"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532261"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Configuration système exigée pour Azure Stack Edge Pro avec GPU 
 
@@ -115,9 +115,9 @@ Ajoutez les modèles d’URL suivants pour Azure Monitor si vous utilisez la ver
 
 | Modèle d’URL | Port | Composant ou fonctionnalité |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com | 443 | Ingestion de données |
-| http://\*.oms.opinsights.azure.com | 443 | Intégration d’Operations Management Suite (OMS) |
-| http://\*.dc.services.visualstudio.com | 443 | Télémétrie de l’agent qui utilise Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.com | 443 | Ingestion de données |
+| https://\*.oms.opinsights.azure.com | 443 | Intégration d’Operations Management Suite (OMS) |
+| https://\*.dc.services.visualstudio.com | 443 | Télémétrie de l’agent qui utilise Azure Public Cloud Application Insights |
 
 Pour plus d’informations, consultez [Configuration requise du pare-feu réseau pour la surveillance des insights de conteneur](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
 
@@ -139,9 +139,9 @@ Ajoutez les modèles d’URL suivants pour Azure Monitor si vous utilisez la ver
 
 | Modèle d’URL | Port | Composant ou fonctionnalité |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.us | 443 | Ingestion de données |
-| http://\*.oms.opinsights.azure.us | 443 | Intégration d’Operations Management Suite (OMS) |
-| http://\*.dc.services.visualstudio.com | 443 | Télémétrie de l’agent qui utilise Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.us | 443 | Ingestion de données |
+| https://\*.oms.opinsights.azure.us | 443 | Intégration d’Operations Management Suite (OMS) |
+| https://\*.dc.services.visualstudio.com | 443 | Télémétrie de l’agent qui utilise Azure Public Cloud Application Insights |
 
 
 ## <a name="internet-bandwidth"></a>Bande passante Internet

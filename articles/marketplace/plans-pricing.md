@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: f222245af177380a59f4c2adc9987b144a1c9b6f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536530"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864667"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Plans et tarification pour les offres de la place de marché commerciale
 
@@ -42,7 +42,7 @@ Les plans ne sont pas pris en charge pour les types d’offres suivants :
 
 - Service de conseil
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement et PowerApps
+- Dynamics 365 Customer Engagement et Power Apps
 - Dynamics 365 for Operations
 - Application Power BI
 
@@ -68,7 +68,7 @@ Le nom et la description du plan s’affichent sur la page de référencement de
 Une fois vos plans créés, la page **Vue d’ensemble du plan** répertorie, pour chacun de vos plans, son nom, son ID, d’autres détails, son état de publication actuel et des actions disponibles. Selon l’état de publication du plan, les actions disponibles sont les suivantes :
 
 - Si le plan est dans l’état **Brouillon** : « Supprimer le brouillon ».
-- Si le plan est dans l’état **Publié** : « Arrêter la vente du plan » ou « Synchroniser le public privé ».
+- Si le plan est dans l'état **Publié** : « Arrêter la distribution du plan » ou « Synchroniser le public privé ».
 
 La capture d’écran suivante montre deux offres à l’état de brouillon.
 
@@ -146,7 +146,7 @@ Vous pouvez activer un essai gratuit sur des plans pour des offres SaaS et de ma
 > - Machine virtuelle Azure 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement et PowerApps
+> - Dynamics 365 pour Customer Engagement et Power Apps
 > - Dynamics 365 for Operations
 >
 > Pour plus d’informations sur les options de référencement, consultez [Déterminer votre option de publication](determine-your-listing-type.md).

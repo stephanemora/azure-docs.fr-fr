@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/31/2020
+ms.date: 07/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30d16b2042e2bfc8e11824fe64cf709413fd05d8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772074"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218382"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 
@@ -123,7 +123,7 @@ La section **Propriétés** inclut des informations importantes que vous obtenez
 
 ![partie supérieure des propriétés HLI dans le portail Azure](./media/hana-li-portal/portal-properties-top.png)
 
-Vous avez déjà vu les premiers éléments de données dans l’écran de vue d’ensemble. Mais une partie importante de données est constituée de l’ID de Circuit ExpressRoute, que vous avez obtenu lors de la remise des premières unités déployées. Vous pouvez être invité à fournir ces données dans certains cas de support. Une entrée de données importante est affichée en bas de la capture d’écran. Les données affichées sont l’adresse IP de l’en-tête de stockage NFS qui isole votre stockage de votre **locataire** dans la pile Grande instance HANA. Cette adresse IP est également nécessaire quand vous modifiez le [fichier de configuration pour les sauvegardes de captures instantanées de stockage](./hana-backup-restore.md#set-up-storage-snapshots). 
+Vous avez déjà vu les premiers éléments de données dans l’écran de vue d’ensemble. Mais une partie importante de données est constituée de l’ID de Circuit ExpressRoute, que vous avez obtenu lors de la remise des premières unités déployées. Vous pouvez être invité à fournir ces données dans certains cas de support. Une entrée de données importante est affichée en bas de la capture d’écran. Les données affichées sont l’adresse IP de l’en-tête de stockage NFS qui isole votre stockage de votre **locataire** dans la pile Grande instance HANA. Cette adresse IP est également nécessaire lorsque vous modifiez [Configurer l’outil de capture instantanée cohérente Azure application](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md). 
 
 Quand vous faites défiler le volet de propriétés vers le bas, des données supplémentaires s’affichent, comme un ID de ressource unique pour votre unité de Grande instance HANA ou l’ID d’abonnement qui a été affecté au déploiement.
 

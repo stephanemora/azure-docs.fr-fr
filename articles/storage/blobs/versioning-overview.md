@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1742679fbca38b878325bd56fa01fc2efebf4f82
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305053"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733697"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
@@ -182,7 +182,7 @@ Le diagramme suivant montre ce qui se passe lorsque vous créez un instantané d
 
 Vous pouvez autoriser l’accès aux versions de l’objet blob à l’aide de l’une des approches suivantes :
 
-- En utilisant le contrôle d’accès en fonction du rôle (Azure RBAC) Azure pour accorder des autorisations à un principal de sécurité Azure Active Directory (Azure AD). Microsoft recommande d’utiliser Azure AD pour une meilleure sécurité et une plus grande facilité d’utilisation. Pour plus d’informations sur l’utilisation d’Azure AD avec les opérations d’objet blob, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](../common/storage-auth-aad.md).
+- En utilisant le contrôle d’accès en fonction du rôle (Azure RBAC) Azure pour accorder des autorisations à un principal de sécurité Azure Active Directory (Azure AD). Microsoft recommande d’utiliser Azure AD pour une meilleure sécurité et une plus grande facilité d’utilisation. Pour plus d’informations sur l’utilisation d’Azure AD avec les opérations blob, consultez [Autoriser l’accès aux données dans le stockage Azure](../common/authorize-data-access.md).
 - En utilisant une signature d’accès partagé (SAP) pour déléguer l’accès aux versions de l’objet blob. Spécifiez l’ID de version pour le type de ressource signé `bv`, qui représente une version d’objet blob, pour créer un jeton SAP pour les opérations sur une version spécifique. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../common/storage-sas-overview.md).
 - En utilisant les clés d’accès au compte pour autoriser les opérations sur les versions de l’objet blob avec une clé partagée. Pour plus d’informations, consultez [Autoriser avec une clé partagée](/rest/api/storageservices/authorize-with-shared-key).
 

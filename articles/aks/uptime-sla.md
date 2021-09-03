@@ -5,20 +5,20 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 77bdfb4ed75b9287b911a6b0d2742c235b37e297
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166394"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122563929"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
-Le contrat SLA de durée de fonctionnement est une fonctionnalité facultative permettant de bénéficier d’un contrat SLA soutenu et élevé pour un cluster. Le contrat SLA de durée de fonctionnement garantit une disponibilité de 99,95 % du point de terminaison de serveur de l’API Kubernetes pour les clusters qui utilisent des [Zones de disponibilité][availability-zones] et 99,9 % de disponibilité pour les clusters qui n’utilisent pas de Zones de disponibilité. AKS utilise les réplicas de nœud principal entre les domaines de mise à jour et d’erreur pour garantir la satisfaction des exigences de contrat SLA.
+Le contrat de niveau de service de durée de fonctionnement est un moyen permettant d’activer un contrat de niveau de service soutenu financièrement et plus élevé pour un cluster AKS. Les clusters avec un contrat de niveau de service de durée de bon fonctionnement, également considéré comme un niveau payant dans les API REST AKS, sont livrés avec une plus grande quantité de ressources de plan de contrôle et sont automatiquement mis à l’échelle pour répondre à la charge de votre cluster. Le contrat SLA de durée de fonctionnement garantit une disponibilité de 99,95 % du point de terminaison de serveur de l’API Kubernetes pour les clusters qui utilisent des [Zones de disponibilité][availability-zones] et 99,9 % de disponibilité pour les clusters qui n’utilisent pas de Zones de disponibilité. AKS utilise les réplicas de nœud principal entre les domaines de mise à jour et d’erreur pour garantir la satisfaction des exigences de contrat SLA.
 
-Les clients ayant besoin d’un contrat SLA pour répondre aux exigences de conformité ou nécessitant l’extension d’un contrat SLA à leurs utilisateurs finaux doivent activer cette fonctionnalité. Les clients avec des charges de travail critiques qui bénéficieront d’un contrat SLA de durée de fonctionnement plus élevée peuvent également en bénéficier. L’utilisation de la fonctionnalité Contrat SLA de durée de fonctionnement avec les Zones de disponibilité permet d’obtenir une disponibilité plus élevée pour la durée de bon fonctionnement du serveur d’API Kubernetes.
+AKS recommande l’utilisation d’un contrat de niveau de service de durée de bon fonctionnement dans les charges de travail de production pour garantir la disponibilité des composants de plan de contrôle. En revanche, les clusters de niveau gratuit sont fournis avec moins de réplicas et des ressources limitées pour le plan de contrôle et ne conviennent pas aux charges de travail de production.
 
-Les clients peuvent toujours créer un nombre illimité de clusters gratuits avec un objectif de niveau de service (SLO) de 99,5 % et opter pour leur durée de bon fonctionnement SLO ou SLA préférée en fonction des besoins.
+Les clients peuvent toujours créer un nombre illimité de clusters gratuits avec un objectif de niveau de service (SLO) de 99,5 % et opter pour leur SLO préféré. 
 
 > [!IMPORTANT]
 > Pour les clusters avec verrouillage de sortie, consultez [limiter le trafic de sortie](limit-egress-traffic.md) pour ouvrir les ports appropriés.
@@ -30,7 +30,7 @@ Les clients peuvent toujours créer un nombre illimité de clusters gratuits ave
 
 ## <a name="sla-terms-and-conditions"></a>Conditions générales des contrats SLA
 
-Le contrat SLA de durée de fonctionnement est une fonctionnalité payante et activée par cluster. Le tarif du contrat SLA de durée de fonctionnement est déterminé par le nombre de clusters discrets, et non par la taille des clusters individuels. Consultez [Détails de la tarification du contrat SLA de durée de fonctionnement](https://azure.microsoft.com/pricing/details/kubernetes-service/) pour en savoir plus.
+Le contrat de niveau de service de durée de bon fonctionnement est une fonctionnalité payante activée par cluster. Le tarif du contrat SLA de durée de fonctionnement est déterminé par le nombre de clusters discrets, et non par la taille des clusters individuels. Consultez [Détails de la tarification du contrat SLA de durée de fonctionnement](https://azure.microsoft.com/pricing/details/kubernetes-service/) pour en savoir plus.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

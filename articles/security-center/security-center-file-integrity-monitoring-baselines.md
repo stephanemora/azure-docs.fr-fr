@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b5f4314afa17f245c36417916bc9af59aa7493a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634694"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237535"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparer des lignes de base avec le Monitoring d'intégrité de fichier (FIM)
 
@@ -36,7 +36,7 @@ En fait, de nombreuses normes de conformité réglementaires telles que PCI-DSS 
 
 Par défaut, la ruche du registre du Monitoring d'intégrité de fichier offre un moyen pratique de surveiller les modifications récursives dans des zones de sécurité courante.  Par exemple, un pirate peut configurer un script de manière à ce qu'il s'exécute dans le contexte LOCAL_SYSTEM en configurant une exécution au démarrage ou l'arrêt.  Pour surveiller ce type de modifications, activez la vérification intégrée.  
 
-![Registre](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
+![Registre.](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
 > Les vérifications récursives s’appliquent uniquement aux ruches de sécurité recommandées, et pas aux chemins d’accès personnalisés au registre.  
@@ -70,14 +70,14 @@ Pour configurer le Monitoring intégré de fichier pour surveiller les lignes de
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     ```
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Activer le Monitoring intégré de fichier sur un registre":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Activer FIM sur un registre.":::
 
 ## <a name="track-changes-to-windows-files"></a>Suivre les modifications apportées aux fichiers Windows
 
 1. Dans la fenêtre **Ajouter le fichier Windows pour Change Tracking**, dans la zone de texte **Entrer le chemin d'accès**, entrez le dossier contenant les fichiers que vous souhaitez suivre. Dans l’exemple de la figure suivante, **Contoso Web App** se trouve sous le lecteur D:\ dans la structure de dossiers **ContosWebApp**.  
 1. Créez une entrée de fichier Windows personnalisée en entrant un nom pour la classe de paramètres, en activant la récursion et en spécifiant le dossier supérieur avec un suffixe de caractère générique (*).
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Activer FIM sur un fichier":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Activer FIM sur un fichier.":::
 
 ## <a name="retrieve-change-data"></a>Récupérer les données modifiées
 
@@ -117,4 +117,4 @@ Dans l’exemple suivant, nous récupérons toutes les modifications apportées 
 
 Les rapports peuvent être exportés au format CSV à des fins d'archivage et/ou dirigés dans un rapport Power BI.  
 
-![Données FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+![Données FIM.](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

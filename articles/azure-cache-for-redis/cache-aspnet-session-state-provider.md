@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78610123c984196740d39cb209d1eff5ca380f06
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92544526"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284363"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fournisseur d’États de session ASP.NET pour le Cache Azure pour Redis
 
@@ -22,10 +22,9 @@ Dans une application cloud réelle, il n’est souvent pas pratique d’éviter 
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Stockage de l'état de session ASP.NET dans le cache
 
-Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, cliquez sur **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**.
+Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, sélectionnez **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**.
 
 Exécutez la commande suivante depuis la fenêtre `Package Manager Console`.
-    
 
 ```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
@@ -33,8 +32,8 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 
 > [!IMPORTANT]
 > Si vous utilisez la fonction de clustering du niveau Premium, vous devez utiliser [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) version 2.0.1 ou ultérieure, sans quoi une exception est levée. Passer à la version 2.0.1 ou ultérieure est une modification avec rupture. Pour plus d’informations, consultez [Détails de la modification avec rupture pour la version 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). Au moment de la mise à jour de cet article, la version actuelle de ce package est 2.2.3.
-> 
-> 
+>
+>
 
 Le package NuGet du fournisseur d’état de session Redis a une dépendance sur le package StackExchange.Redis.StrongName. Le package StackExchange.Redis.StrongName est automatiquement installé s’il ne figure pas déjà dans votre projet.
 
@@ -80,7 +79,7 @@ Le package NuGet télécharge et ajoute les références d’assembly nécessair
 
 La section commentée fournit un exemple d’attributs et de paramétrage pour chacun de ces attributs.
 
-Configurez les attributs avec les valeurs du panneau de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, voir [Configurer les paramètres du Cache Azure pour Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
+Configurez les attributs avec les valeurs sur la gauche de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, voir [Configurer les paramètres du Cache Azure pour Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** : spécifiez le point de terminaison de votre cache.
 * **port** : utilisez votre port non TLS/SSL ou votre port TLS/SSL, selon les paramètres TLS.
@@ -116,8 +115,8 @@ Une fois ces étapes effectuées, votre application est configurée pour utilise
 
 > [!IMPORTANT]
 > Les données stockées dans le cache doivent être sérialisables, contrairement aux données qui peuvent être stockées dans le fournisseur d’état de session en mémoire ASP.NET par défaut. Lorsque vous utilisez le fournisseur d’état de session pour Redis, assurez-vous que les types de données qui sont stockés dans l’état de session sont sérialisables.
-> 
-> 
+>
+>
 
 ## <a name="aspnet-session-state-options"></a>Options d’état de session ASP.NET
 
@@ -135,3 +134,4 @@ Pour plus d'informations sur l’état de session et obtenir d’autres meilleur
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez l’article [Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis](cache-aspnet-output-cache-provider.md).
+

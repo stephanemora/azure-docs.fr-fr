@@ -6,16 +6,16 @@ services: api-management
 documentationcenter: API Management
 author: mikebudzynski
 ms.service: api-management
-ms.topic: article
-ms.date: 04/15/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: afe41f7db56be5de56831d039a1161f1ee2c69f5
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285265"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563125"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>Portail des développeurs Gestion des API - Forum aux questions
 
@@ -149,6 +149,27 @@ L’échec de l’appel peut également être dû au fait qu’un certificat TLS
 
 Si votre version locale du portail des développeurs ne peut pas enregistrer ou récupérer des informations à partir du compte de stockage ou de l’instance Gestion des API, les jetons SAS peuvent avoir expiré. Vous pouvez résoudre ce problème en générant de nouveaux jetons. Pour obtenir des instructions, reportez-vous au didacticiel sur [Auto-hébergement du portail des développeurs](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
 
+## <a name="how-do-i-disable-sign-up-in-the-developer-portal"></a>Comment désactiver l’inscription dans le portail des développeurs ?
+
+Si vous n’avez pas besoin de la fonctionnalité d’inscription activée par défaut dans le portail des développeurs, vous pouvez la désactiver en procédant comme suit :
+
+1. Dans le portail Azure, accédez à votre instance APIM.
+1. Sous **Portail des développeurs** du menu, sélectionnez **Identités**.
+1. Supprimez chaque fournisseur d’identité qui apparaît dans la liste. Sélectionnez chaque fournisseur, sélectionnez le menu contextuel ( **...** ) et sélectionnez **Supprimer**.
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Supprimer les fournisseurs d'identité":::
+ 
+1. Accédez à l’interface d’administration du portail des développeurs.
+1. Supprimez les liens **S’inscrire** et les éléments de navigation dans le contenu du portail. Pour plus d’informations sur la personnalisation du contenu du portail, consultez [Tutoriel : accéder au portail des développeurs et le personnaliser](api-management-howto-developer-portal-customize.md).
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Supprimer l’élément de navigation":::
+ 
+1. Modifiez le contenu de la page **S’inscrire** pour supprimer les champs utilisés pour entrer les données d’identité, au cas où les utilisateurs y accéderont directement.
+   
+   Si vous le souhaites, supprimez la page **S’inscrire**. Actuellement, vous utilisez les API REST [contentltem](/rest/api/apimanagement/2021-01-01-preview/content-item) pour répertorier et supprimer cette page.
+ 
+1. Enregistrez vos modifications et [republiez le portail](api-management-howto-developer-portal-customize.md#publish).
+
 ## <a name="how-can-i-remove-the-developer-portal-content-provisioned-to-my-api-management-service"></a>Comment puis-je supprimer le contenu du portail des développeurs configuré dans mon service Gestion des API ?
 
 Fournissez les paramètres requis dans le script `scripts.v3/cleanup.bat` dans le [référentiel GitHub](https://github.com/Azure/api-management-developer-portal) du portail des développeurs, puis exécutez le script
@@ -167,10 +188,11 @@ Parmi d’autres méthodes d’authentification, le portail des développeurs pr
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### <a name="generate-user-tokens"></a>Générer des jetons d’utilisateur
-Vous pouvez générer des *jetons spécifiques à l’utilisateur* (y compris des jetons d’administration) à l’aide de l’opération [Obtenir un jeton d’accès partagé](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) de l’[API REST Gestion des API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+Vous pouvez générer des *jetons spécifiques à l’utilisateur* (y compris des jetons d’administration) à l’aide de l’opération [Obtenir un jeton d’accès partagé](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) de l’[API REST Gestion des API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > Le jeton doit être encodé en URL.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

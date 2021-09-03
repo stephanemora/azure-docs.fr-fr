@@ -3,15 +3,15 @@ title: Diagnostic des problèmes d’Azure Virtual Desktop – Azure
 description: Guide pratique pour utiliser la fonctionnalité de diagnostic d’Azure Virtual Desktop afin de diagnostiquer des problèmes.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/21/2020
+ms.date: 06/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: de140f83c4f00d92379b1ff0b70f627234480295
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0154bb61dcfbcf8024f09052d7a199ac63f71d8e
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757874"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112412538"
 ---
 # <a name="identify-and-diagnose-azure-virtual-desktop-issues"></a>Identification et diagnostic des problèmes d’Azure Virtual Desktop
 
@@ -34,18 +34,6 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 >[!NOTE]
 >Cette liste inclut les erreurs les plus courantes et est mise à jour régulièrement. Pour être sûr de disposer des informations les plus à jour, veillez à consulter cet article au moins une fois par mois.
 
-## <a name="management-errors"></a>Erreurs de gestion
-
-|Message d’erreur|Solution suggérée|
-|---|---|
-|La création de la clé d’inscription a échoué. |Impossible de créer le jeton d’inscription. Réessayez de le créer avec un délai d’expiration plus court (entre 1 heure et 1 mois). |
-|La suppression de la clé d’inscription a échoué.|Impossible de supprimer le jeton d’inscription. Réessayez de le supprimer. Si cela ne fonctionne toujours pas, utilisez PowerShell pour vérifier si le jeton est toujours présent. Si c’est le cas, supprimez-le avec PowerShell.|
-|Le changement du mode maintenance de l’hôte de session a échoué |Impossible de modifier le mode maintenance sur la machine virtuelle. Vérifiez l’état de la machine virtuelle. Si la machine virtuelle est indisponible, il n’est pas possible de modifier le mode maintenance.|
-|La déconnexion de sessions utilisateur a échoué |Impossible de déconnecter l’utilisateur de la machine virtuelle. Vérifiez l’état de la machine virtuelle. Si la machine virtuelle est indisponible, il n’est pas possible de déconnecter la session utilisateur. Si la machine virtuelle est disponible, vérifiez l’état de la session utilisateur pour voir si elle est déconnectée. |
-|La fermeture de session de tous les utilisateurs de l’hôte de session a échoué |Impossible de déconnecter les utilisateurs de la machine virtuelle. Vérifiez l’état de la machine virtuelle. S’il n’est pas disponible, il n’est pas possible de déconnecter les utilisateurs. Vérifiez l’état de la session utilisateur pour voir s’ils sont déconnectés. Vous pouvez forcer la déconnexion avec PowerShell. |
-|La dissociation de l’utilisateur du groupe d’applications a échoué|Impossible d’annuler la publication d’un groupe d’applications pour un utilisateur. Vérifiez si l’utilisateur est disponible sur Azure AD. Vérifiez si l’utilisateur fait partie d’un groupe d’utilisateurs sur lequel le groupe d’applications est publié. |
-|Une erreur s’est produite lors de la récupération des emplacements disponibles |Vérifiez l’emplacement de la machine virtuelle utilisée dans l’Assistant Création d’un pool d’hôtes. Si l’image n’est pas disponible dans cet emplacement, ajoutez une image à cet emplacement ou choisissez un autre emplacement de machine virtuelle. |
-
 ### <a name="connection-error-codes"></a>Codes d’erreur de connexion
 
 |Code numérique|Code d'erreur|Solution suggérée|
@@ -61,16 +49,8 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 |14|UnexpectedNetworkDisconnect|La connexion au réseau a été perdue. Demandez à l’utilisateur de se reconnecter.|
 |24|ReverseConnectFailed|La machine virtuelle hôte n’a aucune une ligne directe vers la passerelle Bureau à distance. Vérifiez que l’adresse IP de la passerelle peut être résolue.|
 
-## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Erreur : Impossible d’ajouter des affectations d’utilisateurs à un groupe d’applications
-
-Après l’affectation d’un utilisateur à un groupe d’applications, le portail Azure affiche un avertissement indiquant « Fin de session » ou « Problèmes d’authentification - Extension Microsoft_Azure_WVD ». La page d’affectation n’est alors pas chargée, et ensuite, les pages cessent de se charger dans le portail Azure (par exemple, Azure Monitor, Log Analytics, Service Health, etc.).
-
-**Cause :** Il y a un problème avec la stratégie d’accès conditionnel. Le portail Azure tente d’obtenir un jeton pour Microsoft Graph, qui dépend de SharePoint Online. Le client dispose d’une stratégie d’accès conditionnel appelée « Microsoft Office 365 Data Storage Terms of Use », qui oblige les utilisateurs à accepter les conditions d’utilisation pour accéder au stockage des données. Toutefois, les utilisateurs ne se sont pas encore connectés, donc le portail Azure ne peut pas récupérer le jeton.
-
-**Correctif :** Avant de se connecter au portail Azure, l’administrateur doit d’abord se connecter à SharePoint et accepter les conditions d’utilisation. Ensuite, il devrait être en mesure de se connecter au portail Azure normalement.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les rôles dans Azure Virtual Desktop, consultez [Environnement Azure Virtual Desktop](environment-setup.md).
+Pour en savoir plus sur les rôles dans Azure Virtual Desktop, consultez [Environnement Azure Virtual Desktop](environment-setup.md).
 
-Pour connaître la liste des cmdlets PowerShell disponibles pour Azure Virtual Desktop, consultez [Informations de référence sur PowerShell](/powershell/windows-virtual-desktop/overview).
+Pour obtenir une liste des cmdlets PowerShell disponibles pour Azure Virtual Desktop, consultez le document de [référence PowerShell](/powershell/windows-virtual-desktop/overview).

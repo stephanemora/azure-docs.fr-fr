@@ -4,12 +4,12 @@ description: Découvrez comment envoyer efficacement un très grand nombre de t�
 ms.topic: how-to
 ms.date: 12/30/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 08cf92507a4556afbf56c9cb7e2c9c1b3a6c9479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 825bee374ec006708b4b0b38e7d101554b3a9c25
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97831514"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525472"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
 
@@ -141,7 +141,7 @@ pip install azure-batch
 pip install azure-batch-extensions
 ```
 
-Configurez un `BatchExtensionsClient` qui utilise l’extension du SDK :
+Après l’importation du package à l’aide de `import azext.batch as batch`, configurez un `BatchExtensionsClient` qui utilise l’extension du kit de développement logiciel (SDK) :
 
 ```python
 

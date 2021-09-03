@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: 966b471efc7fcadbb4207fe94bb11e5333bfb0a0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: fccbd763818facfa429451ce0c53d74ee8f6b8a4
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095443"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609265"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -28,6 +28,11 @@ Pour un entraînement de modèle de niveau production, utilisez un [cluster de c
 
 Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms.
 
+> [!IMPORTANT]
+> Les éléments marqués (préversion) dans cet article sont actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?
 
 Une instance de calcul est une station de travail cloud complètement managée qui est optimisée pour votre environnement de développement Machine Learning. Elle vous permet de bénéficier des avantages suivants :
@@ -39,16 +44,12 @@ Une instance de calcul est une station de travail cloud complètement managée q
 |Préconfiguré&nbsp;pour&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
 
-Vous pouvez [créer une instance de calcul](how-to-create-manage-compute-instance.md?tabs=python#create) vous-même ou un administrateur peut **[créer une instance de calcul en votre nom](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
-
-Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour une méthode automatisée de personnalisation et de configuration de l’instance de calcul en fonction de vos besoins.
+* L’instance de calcul est également une cible de calcul de formation sécurisée similaire aux clusters de calcul, mais il s’agit d’un nœud unique.
+* Vous pouvez [créer une instance de calcul](how-to-create-manage-compute-instance.md?tabs=python#create) vous-même ou un administrateur peut **[créer une instance de calcul en votre nom](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
+* Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour une méthode automatisée de personnalisation et de configuration de l’instance de calcul en fonction de vos besoins.
+* Pour faire des économies, **[créer une planification (préversion)](how-to-create-manage-compute-instance.md#schedule)** pour démarrer et arrêter automatiquement l’instance de calcul.
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Outils et environnements
-
-> [!IMPORTANT]
-> Les éléments marqués (préversion) dans cet article sont actuellement en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L’instance de calcul Azure Machine Learning vous permet de créer, d’effectuer l’apprentissage et de déployer des modèles dans une expérience de notebook entièrement intégrée dans votre espace de travail.
 
@@ -73,7 +74,6 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |----|:----:|
 |Édition open source du serveur RStudio (préversion)||
 |Noyau R||
-|SDK Azure Machine Learning pour R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Exemples du Kit de développement logiciel (SDK)|
 
 |Outils et environnements **PYTHON**|Détails|
 |----|----|
@@ -85,7 +85,7 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Packages ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
-|Exemples de SDK Azure Machine Learning pour Python et R||
+|Échantillons Azure Machine Learning Python||
 
 Les packages Python sont tous installés dans l’environnement **Python 3.8 - AzureML**. L’instance de calcul dispose d’Ubuntu 18.04 comme système d’exploitation de base.
 
@@ -101,15 +101,7 @@ Vous pouvez également cloner les exemples les plus récents d’Azure Machine L
 
 L’écriture de petits fichiers peut être plus lente sur des lecteurs réseau que sur le disque local de l’instance de calcul.  Si vous écrivez de nombreux petits fichiers, essayez d’utiliser un répertoire directement sur l’instance de calcul, par exemple un répertoire `/tmp`. Notez que ces fichiers ne seront pas accessibles à partir d’autres instances de calcul.
 
-Ne stockez pas de données de formation sur le partage de fichiers de notebook. Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. Vous pouvez également stocker des données de formation temporaires sur un disque temporaire monté sur /mnt. La taille du disque temporaire peut être configurée en fonction de la taille de la machine virtuelle choisie, et peut stocker d’importantes quantités de données si une machine virtuelle de taille supérieure est sélectionnée. Vous pouvez également monter [des magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores).
-
-## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
-
-Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul**, puis sélectionnez **Instance de calcul** en haut.
-
-![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
-
-Pour plus d’informations sur la gestion de l’instance de calcul, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
+Ne stockez pas de données de formation sur le partage de fichiers de notebook. Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. Vous pouvez également stocker des données de formation temporaires sur un disque temporaire monté sur /mnt. La taille du disque temporaire peut être configurée en fonction de la taille de la machine virtuelle choisie, et peut stocker d’importantes quantités de données si une machine virtuelle de taille supérieure est sélectionnée. Vous pouvez également monter [des magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Tous les packages logiciels que vous installez sont enregistrés sur le disque du système d’exploitation de l’instance de calcul. Notez que le chiffrement à clé géré par le client n’est actuellement pas pris en charge pour le disque du système d’exploitation. Le disque de système d'exploitation de l'instance de calcul est chiffré à l'aide de clés gérées par Microsoft. 
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Créer une instance de calcul
 
@@ -117,7 +109,7 @@ En tant qu’administrateur, vous pouvez **[créer une instance de calcul pour d
 
 Vous pouvez également **[utiliser un script de configuration (préversion)](how-to-create-manage-compute-instance.md#setup-script)** pour personnaliser et configurer automatiquement l’instance de calcul.
 
-Pour créer votre instance de calcul, utilisez votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks.
+Pour créer votre instance de calcul, utilisez votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-manage-compute-instance.md?tabs=azure-studio#create) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks.
 
 Vous pouvez également créer une instance
 * Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-train-models-with-aml.md#azure)
@@ -139,7 +131,7 @@ Une instance de calcul :
 * a une file d’attente de travaux ;
 * exécute des travaux en toute sécurité dans un environnement de réseau virtuel, sans qu’il soit nécessaire d’ouvrir un port SSH. Le travail s’exécute dans un environnement conteneurisé et empaquette les dépendances de votre modèle dans un conteneur Docker.
 * peut exécuter plusieurs petits travaux en parallèle (préversion).  Deux travaux par cœur peuvent s’exécuter en parallèle, tandis que les autres travaux sont mis en file d’attente.
-* Prend en charge les travaux d’entraînement distribués sur un seul nœud équipé de plusieurs GPU
+* Prend en charge les travaux de [formation distribués](how-to-train-distributed-gpu.md) sur un seul nœud équipé de plusieurs GPU
 
 Vous pouvez utiliser une instance de calcul en tant que cible de déploiement d’inférence locale dans des scénarios de test ou de débogage.
 

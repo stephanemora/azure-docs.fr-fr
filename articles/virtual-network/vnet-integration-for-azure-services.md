@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 007424969672167d7ca81b2130cda8e0a5da8000
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 8630451fe4ff8b3468b5c31168a417a72e8769f3
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539401"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114386279"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Intégrer des services Azure à des réseaux virtuels pour l’isolement réseau
 
@@ -97,6 +97,9 @@ Pour plus d’informations sur les étiquettes de service et les services Azure 
 
 ## <a name="compare-private-endpoints-and-service-endpoints"></a>Comparer des points de terminaison privés et des points de terminaison de service
 
+>[!NOTE]
+> Microsoft recommande l’utilisation de Azure Private Link. Private Link offre de meilleures fonctionnalités en termes d’accès privé au PaaS à partir d’un site local, dans un service de protection et de mappage d’exfiltration des données intégré à une adresse IP privée dans votre propre réseau. Pour plus d’informations, consultez [Azure Private Link](../private-link/private-link-overview.md)
+
 Plutôt que d’examiner uniquement leurs différences, il convient de souligner que les points de terminaison de service et les points de terminaison privés ont des caractéristiques communes.
 
 Ces deux fonctionnalités sont utilisées pour un contrôle plus granulaire du pare-feu sur le service cible. Par exemple, pour limiter l’accès aux bases de données SQL Server ou aux comptes de stockage. Toutefois, l’opération est différente pour les deux, comme indiqué plus en détail dans les sections précédentes.
@@ -105,12 +108,17 @@ Les deux approches résolvent le problème d'[Insuffisance de ports SNAT (Networ
 
 Dans les deux cas, vous pouvez toujours vous assurer que le trafic dans le service cible traverse un pare-feu réseau ou appliance virtuelle réseau. Cette procédure est différente pour les deux approches. Lorsque vous utilisez des points de terminaison de service, vous devez configurer le point de terminaison de service sur le sous-réseau du **pare-feu**, plutôt que sur le sous-réseau où le service source est déployé. Lorsque vous utilisez des points de terminaison privés, vous placez un itinéraire défini par l’utilisateur (UDR) pour l’adresse IP du point de terminaison privé sur le sous-réseau **source**. Pas dans le sous-réseau du point de terminaison privé.
 
+Pour comparer les références SKU et comprendre leurs différences, consultez le tableau ci-dessous.
+
 | Considération                                                                                                                                    | Points de terminaison de service                                                                                                           | Points de terminaison privés                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Portée de la configuration                                                                                                   | Totalité du service (par exemple, _tous_ les serveurs SQL ou les comptes de stockage de _tous_ les clients)                                      | Instance individuelle (par exemple, une instance de SQL Server spécifique ou un compte de stockage que _vous_ possédez)                                                                    |
+| Portée du service à chaque niveau d’application de la configuration                                                                                                   | Totalité du service (par exemple, _tous_ les serveurs SQL ou les comptes de stockage de _tous_ les clients)                                      | Instance individuelle (par exemple, une instance de SQL Server spécifique ou un compte de stockage que _vous_ possédez)                                                                    |
+|Protection d’exfiltration de données intégrée : possibilité de déplacer/copier des données à partir d’une ressource PaaS protégée vers une autre ressource PaaS non protégée par un Insider malveillant| Non | Oui|
+|Accès privé à la ressource PaaS localement| Non| Oui|
+|Configuration du groupe de sécurité réseau requise pour l’accès au service| Oui (à l’aide d’étiquettes de service)| No|
+| Le service peut être atteint sans utiliser d’adresse IP publique                                                                                       | Non                                                                                                                          | Oui                                                                                                                                                               |
 | Le trafic Azure vers Azure reste sur le réseau principal Azure                                                                                       | Oui                                                                                                                         | Oui                                                                                                                                                               |
 | Le service peut désactiver son adresse IP publique                                                                                                        | Non                                                                                                                          | Oui                                                                                                                                                               |
-| Le service peut être atteint sans utiliser d’adresse IP publique                                                                                       | Non                                                                                                                          | Oui                                                                                                                                                               |
 | Vous pouvez facilement limiter le trafic provenant d’un réseau virtuel Azure                                                                             | Oui (autoriser l’accès à partir de sous-réseaux spécifiques et ou utiliser des groupes de sécurité réseau)                                                                   | Non*                                                                                                                                                               |
 | Vous pouvez facilement limiter le trafic de provenance locale (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | Non*                                                                                                                                                               |
 | Requiert des modifications DNS                                                                                                                             | Non                                                                                                                          | Oui (consultez [Configuration DNS](../private-link/private-endpoint-dns.md))                                                                 |
