@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbbb1ab30a9f49157951b95a7b33769c3cb2347e
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 4fe0354f3d8e4d2b3ac2938f1cd03baa2ca2ce4d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810263"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527728"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -149,8 +149,8 @@ Le fichier resolv.conf est généralement généré automatiquement et ne doit p
   1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**.
   2. Exécutez `netconfig update` pour effectuer la mise à jour.
 * **CentOS (utilise NetworkManager)** :
-  1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**.
-  2. Mettez à jour avec `service network restart`.
+  1. Ajoutez la ligne *RES_OPTIONS="options timeout:1 attempts:5"* au fichier **/etc/sysconfig/network-scripts/ifcfg-eth0**.
+  2. Mettez à jour avec `systemctl restart NetworkManager.service`.
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>Résolution de noms utilisant votre propre serveur DNS
 

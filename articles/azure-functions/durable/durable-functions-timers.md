@@ -4,25 +4,25 @@ description: Découvrez comment implémenter des minuteurs durables dans l’ext
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d96afbad061071bfc80a69764b577032fdcb95c0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: aac9e0b562f765a1b0e3d6b0f04bc609dc230492
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375738"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259715"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Minuteurs dans Fonctions durables (Azure Functions)
 
 [Fonctions durables](durable-functions-overview.md) fournit *des minuteurs durables* à utiliser dans les fonctions de l’orchestrateur pour implémenter des retards ou configurer des délais d’expiration sur des actions asynchrones. Des minuteurs durables doivent être utilisés dans les fonctions de l’orchestrateur à la place de `Thread.Sleep` et `Task.Delay` (C#), `setTimeout()` et `setInterval()` (JavaScript) ou `time.sleep()` (Python).
 
-Vous créez un minuteur durable en appelant la méthode `CreateTimer` (.NET) ou la méthode `createTimer` (JavaScript) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). La méthode retourne une tâche qui se termine à une date et une heure spécifiées.
+Vous créez un minuteur durable en appelant la méthode [`CreateTimer` (.NET)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.createtimer) ou la méthode [`createTimer` (JavaScript)](/javascript/api/durable-functions/durableorchestrationcontext#createTimer_Date_) ou la méthode [`create_timer`(Python)](/python/api/azure-functions-durable/azure.durable_functions.durableorchestrationcontext#create-timer-fire-at--datetime-datetime-----azure-durable-functions-models-task-task) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). La méthode retourne une tâche qui se termine à une date et une heure spécifiées.
 
 ## <a name="timer-limitations"></a>Limitations des minuteurs
 
 Lorsque vous créez un minuteur qui expire à 16:30, l’infrastructure des tâches durables sous-jacent empile un message qui devient uniquement visible à 16:30. Durant l’exécution dans le plan de consommation d’Azure Functions, le message de minuteur nouvellement visible garantit que l’application de fonction est activée sur une machine virtuelle appropriée.
 
 > [!NOTE]
-> * À partir de la [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) de l’extension durable, les minuteurs durables sont illimités. Dans les versions antérieures de l’extension, les minuteurs durables sont limités à sept jours. Lorsque vous utilisez une version antérieure et que vous avez besoin d’un délai de plus de sept jours, utilisez les API de minuteur dans une boucle `while` pour simuler ce délai.
+> * À partir de la [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) de l’extension durable, les minuteurs durables sont illimités pour les applications .NET. Pour les applications JavaScript, Python et PowerShell, ainsi que les applications .NET utilisant des versions antérieures de l’extension, les minuteurs durables sont limités à sept jours. Lorsque vous utilisez une version d’extension antérieure ou un Runtime de langage non-.NET et que vous avez besoin d’un délai de plus de sept jours, utilisez les API de minuteur dans une boucle `while` pour simuler un délai plus long.
 > * Utilisez toujours `CurrentUtcDateTime` au lieu de `DateTime.UtcNow` en .NET ou `currentUtcDateTime` au lieu de `Date.now` ou de `Date.UTC` en JavaScript lors du calcul de l’heure de déclenchement pour les minuteurs durables. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
 
 ## <a name="usage-for-delay"></a>Utilisation des retards
@@ -52,12 +52,12 @@ public static async Task Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
-        yield context.df.createTimer(deadline.toDate());
+        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ days: 1 });
+        yield context.df.createTimer(deadline.toJSDate());
         yield context.df.callActivity("SendBillingEvent");
     }
 });
@@ -136,13 +136,13 @@ public static async Task<bool> Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment");
+const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
 
     const activityTask = context.df.callActivity("GetQuote");
-    const timeoutTask = context.df.createTimer(deadline.toDate());
+    const timeoutTask = context.df.createTimer(deadline.toJSDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
     if (winner === activityTask) {
@@ -192,7 +192,7 @@ $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
 $winner = Wait-DurableTask -Task @($activityTask, $timerTask) -Any
 
 if ($winner -eq $activityTask) {
-    Stop-DurableTaskTimer -Task $timerTask
+    Stop-DurableTimerTask -Task $timerTask
     return $True
 }
 else {

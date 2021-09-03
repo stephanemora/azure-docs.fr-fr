@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe851cc39ab8856133a5ac24508bc9b6df53a8f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 00b0585e19a4a081502a6b93b79be7ed293a4b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782328"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563256"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -76,7 +76,7 @@ Un utilisateur peut être membre de plusieurs groupes avec des licences. Voici q
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistence de licences directes avec des licences de groupe
 
-Quand un utilisateur hérite d’une licence d’un groupe, vous ne pouvez pas supprimer ou modifier directement cette attribution de licence dans les propriétés de l’utilisateur. Vous pouvez modifier l’attribution de licence uniquement dans le groupe et les modifications sont ensuite propagées à tous les utilisateurs. Toutefois, il est possible d’attribuer la même licence de produit à l’utilisateur directement et par le biais de l’attribution de licence de groupe. De cette façon, vous pouvez activer des services supplémentaires à partir du produit pour un utilisateur individuel, sans affecter les autres utilisateurs.
+Quand un utilisateur hérite d’une licence d’un groupe, vous ne pouvez pas supprimer ou modifier directement cette attribution de licence dans les propriétés de l’utilisateur. Vous pouvez modifier l’attribution de licence uniquement dans le groupe et les modifications sont ensuite propagées à tous les utilisateurs. Si vous devez attribuer des fonctionnalités supplémentaires à un utilisateur dont la licence est issue d’une attribution de licence de groupe, vous devez créer un autre groupe pour attribuer les fonctionnalités supplémentaires à l’utilisateur.
 
 Des licences attribuées directement peuvent être supprimées sans que cela affecte les licences héritées d’un utilisateur. Prenons l’utilisateur qui hérite d’une licence Office 365 Entreprise E3 d’un groupe.
 

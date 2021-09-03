@@ -3,16 +3,16 @@ title: Échanger des messages avec Azure Service Bus
 description: Créer des tâches et des flux de travail automatisés pour envoyer et recevoir des messages en utilisant Azure Service Bus dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 08/18/2021
 tags: connectors
-ms.openlocfilehash: fb8e97dfd929be96d51c761ff91c91cc033d5127
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 43ea4bd0eea40e5e74b92f67241adbe7bee1dcc3
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847832"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122566167"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -25,25 +25,54 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur [
 * Renouvellement des verrous sur les messages et les sessions dans les files d’attente et les abonnements aux rubriques
 * Clôture des sessions dans les rubriques et les files d’attente
 
-Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
-
-[!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
+Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos workflows d’applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Azure Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Un espace de noms et une entité de messagerie Service Bus, telle une file d’attente. Si vous ne disposez pas de ces éléments, découvrez comment [créer votre espace de noms Service Bus et une file d’attente](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Des connaissances de base [en création de workflows d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L’application logique dans laquelle vous utilisez l’espace de noms Service Bus et l’entité de messagerie. Pour démarrer votre workflow avec un déclencheur Service Bus, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Service Bus dans votre workflow, démarrez votre application logique avec un autre déclencheur, par exemple, le [déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
+* Le workflow d’application logique dans lequel vous utilisez l’espace de noms Service Bus et l’entité de messagerie. Pour démarrer votre workflow avec un déclencheur Service Bus, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Service Bus dans votre workflow, démarrez votre workflow d’application logique avec un autre déclencheur, par exemple, le [déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
+
+## <a name="considerations-for-azure-service-bus-operations"></a>Considérations relatives aux opérations Azure Service Bus
+
+### <a name="infinite-loops"></a>Boucles infinies
+
+[!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
+
+### <a name="large-messages"></a>Messages volumineux
+
+La prise en charge des messages volumineux est disponible uniquement lorsque vous utilisez les opérations Service Bus intégrées avec des workflows [monolocataire Azure Logic Apps (Standard)](../logic-apps/single-tenant-overview-compare.md). Vous pouvez envoyer et recevoir des messages volumineux à l’aide des déclencheurs ou des actions dans la version intégrée.
+
+  Pour recevoir un message, vous pouvez augmenter le délai d’attente en [modifiant le paramètre suivant dans l’extension Azure Functions](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) :
+
+  ```json
+  {
+     "version": "2.0",
+     "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+        "version": "[1.*, 2.0.0)"
+     },
+     "extensions": {
+        "serviceBus": {
+           "batchOptions": {
+              "operationTimeout": "00:15:00"
+           }
+        }  
+     }
+  }
+  ```
+
+  Pour envoyer un message, vous pouvez augmenter le délai d’attente en [ajoutant le paramètre d’application `ServiceProviders.ServiceBus.MessageSenderOperationTimeout`](../logic-apps/edit-app-settings-host-settings.md).
 
 <a name="permissions-connection-string"></a>
 
-## <a name="check-permissions"></a>Vérifier les autorisations
+## <a name="check-permissions"></a>Vérifiez les autorisations
 
-Vérifiez que votre application logique dispose des autorisations pour accéder à l’espace de noms Service Bus.
+Vérifiez que votre ressource d’application logique dispose des autorisations pour accéder à l’espace de noms Service Bus.
 
 1. Sur le [portail Azure](https://portal.azure.com) connectez-vous avec votre compte Azure.
 
@@ -60,17 +89,17 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
       ![Copier la chaîne de connexion de l’espace de noms Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Pour vous assurer que votre chaîne de connexion est bien associée à votre espace de noms Service Bus ou à une entité de messagerie (une file d'attente par exemple), recherchez la chaîne de connexion pour le paramètre `EntityPath`. Si vous trouvez ce paramètre, la chaîne de connexion correspond à une entité spécifique. De fait, il ne s’agit pas de la chaîne appropriée à utiliser avec votre application logique.
+   > Pour vous assurer que votre chaîne de connexion est bien associée à votre espace de noms Service Bus ou à une entité de messagerie (une file d'attente par exemple), recherchez la chaîne de connexion pour le paramètre `EntityPath`. Si vous trouvez ce paramètre, la chaîne de connexion correspond à une entité spécifique. De fait, il ne s’agit pas de la chaîne appropriée à utiliser avec votre workflow d’application logique.
 
 ## <a name="add-service-bus-trigger"></a>Ajouter un déclencheur Service Bus
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique vide dans le concepteur d’application logique.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique vide dans le concepteur de workflow.
 
 1. Dans le champ de recherche du portail, entrez `azure service bus`. Dans la liste des déclencheurs qui apparaît, sélectionnez celui qui vous intéresse.
 
-   Par exemple, pour déclencher votre application logique quand un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez le déclencheur **Quand une file d’attente reçoit un message (saisie semi-automatique)** .
+   Par exemple, pour déclencher votre workflow d’application logique quand un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez le déclencheur **Quand une file d’attente reçoit un message (saisie semi-automatique)** .
 
    ![Sélectionner un déclencheur Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -81,11 +110,11 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
    * Certains déclencheurs (par exemple, **Quand un ou plusieurs messages arrivent dans une file d’attente (autocomplétion)** ) peuvent retourner un ou plusieurs messages. Quand ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifié par la propriété **Nombre maximal de messages** du déclencheur.
 
      > [!NOTE]
-     > Le déclencheur d’autocomplétion rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’appel suivant à Service Bus. Ce comportement peut affecter la conception de votre application logique. Par exemple, évitez de modifier la concurrence sur le déclencheur d’autocomplétion, car cette modification peut entraîner la duplication de messages si votre application logique entre dans un état limité. La modification du contrôle de la concurrence crée les conditions suivantes : les déclencheurs limités sont ignorés avec le code `WorkflowRunInProgress`, l’opération d’achèvement n’a pas lieu et l’exécution du déclencheur suivant se produit après l’intervalle d’interrogation. Vous devez définir la durée de verrouillage du bus de service sur une valeur supérieure à la fréquence d’interrogation. Toutefois, malgré ce réglage, le message peut ne pas être complet si votre application logique reste à un état limité à l’intervalle d’interrogation suivant.
+     > Le déclencheur d’autocomplétion rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’appel suivant à Service Bus. Ce comportement peut affecter la conception de votre application logique. Par exemple, évitez de modifier la concurrence sur le déclencheur d’autocomplétion, car cette modification peut entraîner la duplication de messages si votre workflow d’application logique entre dans un état limité. La modification du contrôle de la concurrence crée les conditions suivantes : les déclencheurs limités sont ignorés avec le code `WorkflowRunInProgress`, l’opération d’achèvement n’a pas lieu et l’exécution du déclencheur suivant se produit après l’intervalle d’interrogation. Vous devez définir la durée de verrouillage du bus de service sur une valeur supérieure à la fréquence d’interrogation. Toutefois, malgré ce réglage, le message peut ne pas être complet si votre workflow d’application logique reste à un état limité à l’intervalle d’interrogation suivant.
 
-   * Si vous [activez le paramètre de concurrence](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) pour un déclencheur Service Bus, la valeur par défaut de la propriété `maximumWaitingRuns` est 10. En fonction du paramètre de la durée de verrouillage de l'entité Service Bus et de la durée d'exécution de votre instance d'application logique, cette valeur par défaut peut être trop élevée et entraîner une exception de type « verrouillage perdu ». Afin de trouver la valeur optimale dans votre scénario, commencez par essayer une valeur de 1 ou 2 pour la propriété `maximumWaitingRuns`. Pour modifier la valeur maximale des exécutions en attente, consultez [Modifier la limite des exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
+   * Si vous [activez le paramètre de concurrence](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) pour un déclencheur Service Bus, la valeur par défaut de la propriété `maximumWaitingRuns` est 10. En fonction du paramètre de la durée de verrouillage de l’entité Service Bus et de la durée d’exécution de votre workflow d’application logique, cette valeur par défaut peut être trop élevée et entraîner une exception de type « verrouillage perdu ». Afin de trouver la valeur optimale dans votre scénario, commencez par essayer une valeur de 1 ou 2 pour la propriété `maximumWaitingRuns`. Pour modifier la valeur maximale des exécutions en attente, consultez [Modifier la limite des exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
-1. Si votre déclencheur se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
+1. Si votre déclencheur se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur de workflow vous invite à fournir vos informations de connexion.
 
    1. Fournissez un nom pour votre connexion, puis sélectionnez votre espace de noms Service Bus.
 
@@ -98,7 +127,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
       ![Capture d’écran montrant comment sélectionner une stratégie Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Sélectionnez l’entité de messagerie souhaitée, comme une file d’attente ou une rubrique. Pour cet exemple, sélectionnez votre file d’attente Service Bus.
-   
+
       ![Capture d’écran montrant comment sélectionner une file d’attente Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Fournissez les informations nécessaires pour le déclencheur sélectionné. Pour ajouter d’autres propriétés disponibles à l’action, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les propriétés souhaitées.
@@ -109,15 +138,15 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
    Pour plus d’informations sur les déclencheurs et les propriétés disponibles, consultez la page d’[informations de référence](/connectors/servicebus/) du connecteur.
 
-1. Poursuivez la création de votre application logique en ajoutant les actions de votre choix.
+1. Poursuivez la création de votre workflow d’application logique en ajoutant les actions de votre choix.
 
-   Par exemple, vous pouvez ajouter une action qui envoie un e-mail lorsqu’un nouveau message arrive. Lorsque votre déclencheur vérifie la file d’attente et trouve un nouveau message, l’application logique exécute les actions que vous avez sélectionnées pour le message trouvé.
+   Par exemple, vous pouvez ajouter une action qui envoie un e-mail lorsqu’un nouveau message arrive. Lorsque votre déclencheur vérifie la file d’attente et trouve un nouveau message, votre workflow d’application logique exécute les actions que vous avez sélectionnées pour le message trouvé.
 
 ## <a name="add-service-bus-action"></a>Ajouter une action Service Bus
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le concepteur de workflow.
 
 1. En dessous l’étape où vous voulez ajouter une action, sélectionnez **Nouvelle étape**.
 
@@ -129,7 +158,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
    ![Capture d’écran montrant l’action du Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
-1. Si votre action se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
+1. Si votre action se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur de workflow vous invite à fournir vos informations de connexion.
 
    1. Fournissez un nom pour votre connexion, puis sélectionnez votre espace de noms Service Bus.
 
@@ -153,7 +182,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
    Pour plus d’informations sur les actions disponibles et leurs propriétés, consultez la page d’[informations de référence](/connectors/servicebus/) du connecteur.
 
-1. Poursuivez la création de votre application logique en ajoutant éventuellement d’autres actions.
+1. Poursuivez la création de votre workflow d’application logique en ajoutant éventuellement d’autres actions.
 
    Par exemple, vous pouvez ajouter une action qui envoie un e-mail confirmant que votre message a bien été envoyé.
 
@@ -169,7 +198,7 @@ Lorsque vous créez une application logique, vous pouvez sélectionner le modèl
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retards dans l’entrée en vigueur des mises à jour de votre application logique
 
-Si l’intervalle d’interrogation d’un déclencheur Service Bus est faible, par exemple 10 secondes, les mises à jour de votre application logique peuvent ne pas prendre effet avant 10 minutes. Pour contourner ce problème, vous pouvez désactiver l'application logique, effectuer les modifications, puis réactiver l'application logique.
+Si l’intervalle d’interrogation d’un déclencheur Service Bus est faible, par exemple 10 secondes, les mises à jour de votre workflow d’application logique peuvent ne pas prendre effet avant 10 minutes. Pour contourner ce problème, vous pouvez désactiver l’application logique, effectuer les modifications, puis réactiver le workflow d’application logique.
 
 <a name="connector-reference"></a>
 
@@ -181,4 +210,4 @@ Pour obtenir d'autres détails techniques sur les déclencheurs, les actions et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
+* Découvrez d’autres [connecteurs Azure Logic Apps](../connectors/apis-list.md)

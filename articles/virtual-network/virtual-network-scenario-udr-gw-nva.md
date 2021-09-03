@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1d84a09ddd758f333ccb588ac341dce607509d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86231707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532722"
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
 Pour les clients Azure volumineux, il faut souvent fournir une application à deux niveaux exposée à Internet, tout en autorisant l’accès au niveau d’arrière-plan à partir d’un centre de données local. Ce document vous guide dans un scénario utilisant des itinéraires définis par l’utilisateur (UDR), une passerelle VPN et des appliances virtuelles de réseau pour déployer un environnement à deux niveaux conforme aux exigences suivantes :
@@ -144,8 +144,12 @@ AZF1 représente une appliance virtuelle Azure contenant les règles suivantes :
 ### <a name="azf2"></a>AZF2
 AZF2 représente une appliance virtuelle Azure contenant les règles suivantes :
 
-* **Itinéraire** : tout le trafic vers 10.0.0.0/16 (**onpremvnet**) doit être envoyé à l’adresse IP de la passerelle Azure (par exemple, 10.0.0.1) via **port1**.
 * **Stratégie** : autoriser tout le trafic bidirectionnel entre **port1** et **port2**.
+
+### <a name="azf3"></a>AZF3
+AZF3 représente une appliance virtuelle Azure contenant les règles suivantes :
+
+* **Itinéraire** : tout le trafic vers 192.168.0.0/16 (**onpremvnet**) doit être envoyé à l’adresse IP de la passerelle Azure (par exemple, 10.0.0.1) via **port1**.
 
 ## <a name="network-security-groups-nsgs"></a>Groupes de sécurité réseau (NSG)
 Dans ce scénario, les groupes de sécurité réseau ne sont pas utilisés. Toutefois, vous pouvez appliquer des groupes de sécurité réseau à chaque sous-réseau pour limiter les trafics entrant et sortant. Par exemple, vous pouvez appliquer les règles de groupe de sécurité réseau suivantes au sous-réseau FW externe.
@@ -167,4 +171,3 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 3. Approvisionnez les ressources qui font partie de **AZURERG**.
 4. Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
 5. Une fois toutes les ressources approvisionnées, connectez-vous sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
-

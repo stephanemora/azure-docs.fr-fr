@@ -1,25 +1,20 @@
 ---
-title: Préversion du stockage de table en colonnes - Hyperscale (Citus) - Azure Database pour PostgreSQL
-description: Compression de données à l’aide du stockage en colonnes (préversion)
+title: Stockage de table en colonnes - Hyperscale (Citus) - Azure Database pour PostgreSQL
+description: Compression de données à l’aide du stockage en colonnes
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/04/2021
-ms.openlocfilehash: c42cfcc35edf33cf30c4d69b4a1fb15d39dd4009
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/03/2021
+ms.openlocfilehash: 557fe7d2242b67f8fa53541aef25cfc44090e48b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773680"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532495"
 ---
-# <a name="columnar-table-storage-preview"></a>Stockage de tables en colonnes (préversion)
-
-> [!IMPORTANT]
-> Le stockage de tables en colonnes dans Hyperscale (Citus) est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans [Fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
+# <a name="columnar-table-storage"></a>Stockage de tables en colonnes
 
 Azure Database pour PostgreSQL - Hyperscale (Citus) prend en charge le stockage de tables en colonnes en ajout uniquement pour les charges de travail d’analyse et d’entreposage de données. Lorsque les colonnes (plutôt que les lignes) sont stockées de façon contiguë sur le disque, les données deviennent plus compressibles et les requêtes peuvent demander un sous-ensemble de colonnes plus rapidement.
 

@@ -7,16 +7,19 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 4ad0fbacdfe8b6205dd32ecd75e5291b504adcac
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: de908a8f29d85aea1954415ba5c9793349837c5f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407774"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524500"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Sauvegarde et restauration des groupes de serveurs PostgreSQL Hyperscale avec Azure Arc
+
+> [!IMPORTANT]
+> La sauvegarde et la restauration d’un serveur PostgreSQL Hyperscale avec Azure Arc ne sont pas prises en charge dans la préversion actuelle.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -35,7 +38,7 @@ Où :
 - __server-name__ indique un groupe de serveurs
 - __no-wait__ indique que la ligne de commande n’attendra pas que la sauvegarde se termine pour vous permettre de continuer à utiliser cette fenêtre de ligne de commande
 
-Cette commande coordonne une sauvegarde complète distribuée sur tous les nœuds qui constituent votre groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale. En d’autres termes, elle va sauvegarder toutes les données de vos nœuds Coordinateur et Worker.
+Cette commande coordonne une sauvegarde complète distribuée sur tous les nœuds qui constituent votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc. En d’autres termes, elle va sauvegarder toutes les données de vos nœuds Coordinateur et Worker.
 
 Exemple :
 
@@ -105,7 +108,7 @@ azdata arc postgres backup restore -sn <target server group name> [-ssn <source 
 
 Où :
 - __backup-id__ est l’ID de la sauvegarde indiqué dans la commande list backup indiquée ci-dessous.
-Celle-ci va coordonner une restauration complète distribuée sur tous les nœuds qui constituent votre groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale. En d’autres termes, elle va restaurer toutes les données de vos nœuds Coordinateur et Worker.
+Celle commande coordonne une restauration complète distribuée sur tous les nœuds qui constituent votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc. En d’autres termes, elle va restaurer toutes les données de vos nœuds Coordinateur et Worker.
 
 #### <a name="examples"></a>Exemples :
 

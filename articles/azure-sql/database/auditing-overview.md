@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/14/2021
+ms.date: 08/01/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 5a911b7855e74b241b2281c1e466f7f9236730af
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061557"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597256"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,13 +77,14 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
 - Les journaux d’audit sont au format .xel et peuvent être ouverts à l’aide de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- Pour configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies dans le Stockage Azure](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Assurez-vous que vous avez sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage d’objets blob immuables.
+- Pour configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies dans le Stockage Azure](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). Assurez-vous que vous avez sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage d’objets blob immuables.
 - Vous pouvez écrire des journaux d’audit dans un compte Stockage Azure derrière un réseau virtuel ou un pare-feu. Pour obtenir des instructions spécifiques, consultez [Écrire un audit dans un compte de stockage situé derrière un réseau virtuel ou un pare-feu](audit-write-storage-account-behind-vnet-firewall.md).
 - Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](./audit-log-format.md).
 - L’audit sur les [réplicas en lecture seule](read-scale-out.md) est activé automatiquement. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](audit-log-format.md).
 - Quand vous utilisez Azure AD Authentication, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory](../../active-directory/reports-monitoring/concept-sign-ins.md), qui affiche les détails de ces événements.
 - Les connexions sont acheminées par la passerelle vers l’instance spécifique où se trouve la base de données.  Dans le cas des connexions AAD, les informations d’identification sont vérifiées avant toute tentative d’utilisation de cet utilisateur pour se connecter à la base de données demandée.  En cas d’échec, la base de données demandée n’est jamais accessible, de sorte qu’aucun audit n’est effectué.  Dans le cas des connexions SQL, les informations d’identification sont vérifiées sur les données demandées, de sorte qu’elles peuvent être auditées.  Les connexions réussies, qui ont manifestement atteint la base de données, sont auditées dans les deux cas.
 - Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](threat-detection-overview.md).
+- Lorsqu’une base de données avec l’audit activé est copiée sur un autre serveur logique Azure SQL, vous pourriez recevoir un e-mail vous informant que l’audit a échoué. Il s’agit d’un problème connu et l’audit doit fonctionner comme prévu sur la base de données qui vient d’être copiée.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurer l’audit de votre serveur
 
@@ -118,10 +119,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
 L’audit des opérations de Support Microsoft pour Azure SQL Server vous permet d’auditer les opérations des ingénieurs du Support Microsoft quand ils ont besoin d’accéder à votre serveur au cours d’une demande de support. L’utilisation de cette fonctionnalité, ainsi que votre audit, permet une plus grande transparence pour votre personnel, ainsi que la détection des anomalies, la visualisation des tendances et la protection contre la perte de données.
 
-Pour activer l’audit des opérations de Support Microsoft, accédez à **Audit** sous l’en-tête Sécurité de votre volet **Serveur SQL Azure**, puis basculez **Audit des opérations de Support Microsoft** sur **Actif**.
-
-  > [!IMPORTANT]
-  > L’audit des opérations de Support Microsoft ne prend pas en charge la destination du compte de stockage. Pour activer cette capacité, vous devez configurer un espace de travail Log Analytics ou une destination Event Hub.
+Pour activer l’audit des opérations de Support Microsoft, accédez à **Audit** sous l’en-tête Sécurité de votre volet **Serveur SQL** Azure, puis basculez **Activer l’audit des opérations de Support Microsoft** sur **Activé**.
 
 ![Capture d’écran des opérations de Support Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -131,6 +129,10 @@ Pour passer en revue les journaux d’audit des opérations de Support Microsoft
 AzureDiagnostics
 | where Category == "DevOpsOperationsAudit"
 ```
+
+Vous avez la possibilité de choisir une autre destination de stockage pour ce journal d’audit ou d’utiliser la même configuration d’audit pour votre serveur.
+
+:::image type="content" source="media/auditing-overview/auditing-support-operation-log-destination.png" alt-text="Capture d’écran de la configuration de l’audit pour l’audit des opérations de support":::
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Écriture des journaux d’audit dans un compte de stockage
 
@@ -269,10 +271,10 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
 
 **API REST** :
 
-- [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Create or Update Database Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Get Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/get)
-- [Get Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+- [Get Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get) 
 
 Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage supplémentaire :
 
@@ -296,3 +298,9 @@ Vous pouvez gérer l’audit Azure SQL Database à l’aide de modèles [Azure R
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.
+
+## <a name="see-also"></a>Voir aussi
+
+- Données exposées, épisode [Nouveautés de l’audit SQL Azure](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) sur Channel 9.
+- [Audit pour SQL Managed Instance](../managed-instance/auditing-configure.md)
+- [Audit pour SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

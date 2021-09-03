@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ac1e77d99707cdaa34ef42eb9b327a62f4e864c0
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ec09ac444999be23fa0caed741e1e1534117fa0c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365363"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105616"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,8 +49,8 @@ Azure Cosmos DB fournit des contrats de niveau de service (SLA) complets englo
 
 |Type d'opération  | Région unique |Multirégion (écritures dans une seule région)|Multirégion (écritures dans une plusieurs régions) |
 |---------|---------|---------|-------|
-|Écritures    | 99,99    |99,99   |99,999|
-|Lectures     | 99,99    |99,999  |99,999|
+|Écritures   | 99,99   |99,99   |99,999|
+|Lectures    | 99,99   |99,999  |99,999|
 
 > [!NOTE]
 > Dans la pratique, la disponibilité d’écriture réelle pour l’obsolescence limitée, la session, les modèles de cohérence éventuelle et à préfixe cohérent, est beaucoup plus importante que les contrats SLA publiés. La disponibilité réelle de lecture pour tous les niveaux de cohérence est beaucoup plus importante que les contrats SLA publiés.
@@ -109,15 +109,15 @@ Lorsque vous configurez des écritures multirégions pour votre compte Azure Cos
 
 Le tableau suivant récapitule la fonctionnalité de haute disponibilité des différentes configurations de compte :
 
-|KPI|Région unique sans zone de disponibilité|Région unique avec zones de disponibilité|Multirégion, écritures dans une seule région avec zones de disponibilité|Multirégion, écritures dans plusieurs régions avec zones de disponibilité|
-|---------|---------|---------|---------|---------|
-|Contrat SLA de disponibilité en écriture | 99,99 % | 99,995 % | 99,995 % | 99, 999 % |
-|Contrat SLA de disponibilité en lecture  | 99,99 % | 99,995 % | 99,995 % | 99, 999 % |
-|Défaillances de zone - Perte de données | Perte de données | Aucune perte de données | Aucune perte de données | Aucune perte de données |
-|Défaillances de zone – Disponibilité | Perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité |
-|Panne régionale - Perte de données | Perte de données |  Perte de données | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md).
-|Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité pour échec dans la région de lecture, temporaire pour échec dans la région d’écriture | Aucune perte de disponibilité |
-|Prix (***1** _) | N/A | Unités de requête approvisionnées x taux de 1,25 | Unités de requête approvisionnées x taux de 1,25 (_*_2_**) | Taux d’écriture multirégion |
+|KPI|Région unique sans zone de disponibilité|Région unique avec zones de disponibilité|Multirégion, écritures dans une seule région sans zones de disponibilité|Multirégion, écritures dans une seule région avec zones de disponibilité|Multirégion, écritures dans une plusieurs régions avec ou sans zones de disponibilité|
+|---------|---------|---------|---------|---------|---------|
+|Contrat SLA de disponibilité en écriture | 99,99 % | 99,995 % | 99,99 % | 99,995 % | 99, 999 % |
+|Contrat SLA de disponibilité en lecture  | 99,99 % | 99,995 % | 99, 999 % | 99, 999 % | 99, 999 % |
+|Défaillances de zone - Perte de données | Perte de données | Aucune perte de données | Aucune perte de données | Aucune perte de données | Aucune perte de données |
+|Défaillances de zone – Disponibilité | Perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité |
+|Panne régionale - Perte de données | Perte de données |  Perte de données | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](./consistency-levels.md).
+|Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité pour échec dans la région de lecture, temporaire pour échec dans la région d’écriture | Aucune perte de disponibilité pour échec dans la région de lecture, temporaire pour échec dans la région d’écriture | Aucune perte de disponibilité |
+|Prix (***1** _) | N/A | Unités de requête approvisionnées x taux de 1,25 | RU provisionnées/s x n régions | RU provisionnées/s x taux 1,25 x n régions (_*_2_**) | Taux d’écriture multirégion x n régions |
 
 ***1*** Les unités de requête (RU) de comptes serverless sont multipliées par un facteur de 1,25.
 
@@ -129,7 +129,7 @@ La fonctionnalité Zones de disponibilité peut être activée via :
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
-* [Azure CLI](manage-with-cli.md#add-or-remove-regions)
+* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 * [Modèles Microsoft Azure Resource Manager](./manage-with-templates.md)
 

@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 08/18/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rateller
+ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 284a1c9d8b79a0d4e9c479afea9713a09c8c0fa4
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982701"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527884"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurer l’authentification utilisateur par SMS via Azure Active Directory 
 
 Pour simplifier et sécuriser la connexion à des applications et des services, Azure Active Directory (Azure AD) fournit plusieurs options d’authentification. L’authentification par SMS permet aux utilisateurs de se connecter sans fournir ni même connaître leur nom d’utilisateur et leur mot de passe. Une fois qu’un administrateur d’identité a créé son compte, il peut entrer son numéro de téléphone à l’invite de connexion. Ils reçoivent un code d’authentification par SMS, qu’ils peuvent fournir pour terminer la connexion. Cette méthode d’authentification simplifie l’accès aux applications et aux services, en particulier pour les travailleurs qui sont en première ligne.
 
-Cet article vous montre comment activer l’authentification par SMS pour certains utilisateurs ou groupes dans Azure AD.
+Cet article vous montre comment activer l’authentification par SMS pour certains utilisateurs ou groupes dans Azure AD. Pour obtenir la liste des applications qui prennent en charge l’utilisation de la connexion basée sur SMS, consultez [Prise en charge des applications pour l’authentification SMS](how-to-authentication-sms-supported-apps.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -34,8 +34,9 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Vous devez disposer de privilèges d’*administrateur général* dans votre locataire Azure AD pour activer l’authentification par SMS.
 * Chaque utilisateur activé dans la stratégie de méthode d’authentification par SMS doit disposer d’une licence, même s’il ne l’utilise pas. Chaque utilisateur activé doit avoir l’une des licences Azure AD, EMS ou Microsoft 365 suivantes :
-    * [Microsoft 365 (M365) F1 ou F3][m365-firstline-workers-licensing]
-    * [Enterprise Mobility + Security (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 (M365) E3 ou E5][m365-licensing]
+    * [Microsoft 365 F1 ou F3][m365-firstline-workers-licensing]
+    * [Azure Active Directory Premium P1 ou P2][azure-ad-pricing]
+    * [Enterprise Mobility + Security (EMS) E3 ou E5][ems-licensing] ou [Microsoft 365 E3 ou E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -124,9 +125,11 @@ Si vous souhaitez tester le compte d’utilisateur pour lequel la connexion par 
 
 1. L’utilisateur est désormais connecté sans avoir à fournir un nom d’utilisateur ou un mot de passe.
 
+
 ## <a name="troubleshoot-sms-based-sign-in"></a>Résoudre les problèmes de connexion par SMS
 
-Vous pouvez utiliser les scénarios et étapes de résolution des problèmes suivants si vous rencontrez des difficultés pour activer et utiliser la connexion par SMS.
+Vous pouvez utiliser les scénarios et étapes de résolution des problèmes suivants si vous rencontrez des difficultés pour activer et utiliser la connexion par SMS. Pour obtenir la liste des applications qui prennent en charge l’utilisation de la connexion basée sur SMS, consultez [Prise en charge des applications pour l’authentification SMS](how-to-authentication-sms-supported-apps.md).
+
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Numéro de téléphone déjà défini pour un compte d’utilisateur
 
@@ -148,9 +151,10 @@ Si vous recevez une erreur quand vous essayez de définir un numéro de téléph
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour connaître d’autres façons de se connecter à Azure AD sans mot de passe, par exemple à l’aide de l’application Microsoft Authenticator ou des clés de sécurité FIDO2, consultez [Options d’authentification sans mot de passe pour Azure AD][concepts-passwordless].
+- Pour obtenir la liste des applications qui prennent en charge l’utilisation de la connexion basée sur SMS, consultez [Prise en charge des applications pour l’authentification SMS](how-to-authentication-sms-supported-apps.md).
+- Pour connaître d’autres façons de se connecter à Azure AD sans mot de passe, par exemple à l’aide de l’application Microsoft Authenticator ou des clés de sécurité FIDO2, consultez [Options d’authentification sans mot de passe pour Azure AD][concepts-passwordless].
+- Vous pouvez également utiliser l’API REST Microsoft Graph pour [activer][rest-enable] ou [désactiver][rest-disable] la connexion par SMS.
 
-Vous pouvez également utiliser l’API REST Microsoft Graph pour [activer][rest-enable] ou [désactiver][rest-disable] la connexion par SMS.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -170,3 +174,4 @@ Vous pouvez également utiliser l’API REST Microsoft Graph pour [activer][rest
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
 [o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
 [o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab
+[azure-ad-pricing]: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing

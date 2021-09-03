@@ -5,12 +5,12 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
-ms.openlocfilehash: 38bf9d41f81a76c4263952a94b5526984db0705f
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: a59760378eef7412a963f661e80debc6a7af56d5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580929"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486550"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -51,9 +51,8 @@ Lorsque vous activez la réplication pour une machine virtuelle, Site Recovery v
 
 Vous pouvez gérer les ressources cibles de la façon suivante :
 
-- Vous pouvez modifier les paramètres de la cible lorsque vous activez la réplication.
-- Vous pouvez modifier les paramètres de la cible lorsque la réplication est active. Notez que la référence SKU par défaut pour la machine virtuelle de la région cible est la même que la référence SKU de la machine virtuelle source (ou la meilleure référence SKU suivante par rapport à la référence SKU de la machine virtuelle source). Comme pour d’autres ressources comme le groupe de ressources cible, le nom cible, etc., la référence de machine virtuelle de la région cible peut également être mise à jour une fois la réplication en cours. Le type de disponibilité (instance unique, groupe ou zone) ne peut cependant pas être mis à jour. Pour modifier ce paramètre, vous devez désactiver la réplication, modifier le paramètre, puis la réactiver. 
-
+- Vous pouvez modifier les paramètres de la cible lorsque vous activez la réplication. Notez que la référence SKU par défaut pour la machine virtuelle de la région cible est la même que la référence SKU de la machine virtuelle source (ou la meilleure référence SKU suivante par rapport à la référence SKU de la machine virtuelle source). La liste déroulante affiche uniquement les références SKU pertinentes de la même famille que la machine virtuelle source (Gen 1 ou Gen 2).
+- Vous pouvez modifier les paramètres de la cible lorsque la réplication est active. Comme pour d’autres ressources comme le groupe de ressources cible, le nom cible, etc., la référence de machine virtuelle de la région cible peut également être mise à jour une fois la réplication en cours. Le type de disponibilité (instance unique, groupe ou zone) ne peut cependant pas être mis à jour. Pour modifier ce paramètre, vous devez désactiver la réplication, modifier le paramètre, puis la réactiver. 
 
 ## <a name="replication-policy"></a>Stratégie de réplication 
 

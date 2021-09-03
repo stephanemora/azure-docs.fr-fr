@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: d7dd4a3920e947469c85df0d9ab440d95ab7712d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: has-adal-ref
+ms.openlocfilehash: 453d42adca16593dfdc567d114b8dc7eb7e34143
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466922"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122527886"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et Python
 
@@ -49,7 +50,7 @@ Pour obtenir une explication détaillée du diagramme de workflow, consultez [D�
 
 Avant de commencer à créer et à gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure CLI et de Python, assurez-vous d’avoir effectué les étapes suivantes :
 
-1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer l’appareil Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Vous avez appliqué les paramètres réseau sur votre appareil Azure Stack Edge Pro comme décrit dans [Étape 1 : Configurer l’appareil Azure Stack Edge Pro](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
 
 2. Vous avez activé une interface réseau pour le calcul. Cette adresse IP d’interface réseau sert à créer un commutateur virtuel pour le déploiement de la machine virtuelle. Les étapes suivantes expliquent comment procéder :
 
@@ -355,7 +356,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
    $ENV:ARM_TENANT_ID = "c0257de7-538f-415c-993a-1b87a031879d"
    $ENV:ARM_CLIENT_ID = "cbd868c5-7207-431f-8d16-1cb144b50971"
    $ENV:ARM_CLIENT_SECRET - "<Your Azure Resource Manager password>"
-   $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
+   $ENV:ARM_SUBSCRIPTION_ID = "<Your subscription ID>"
    ```
 
    Votre ID de client Azure Resource Manager est codé en dur. Votre ID de locataire Azure Resource Manager et votre ID d’abonnement Azure Resource Manager sont présents dans la sortie de la commande `az login` que vous avez exécutée précédemment. La clé secrète client Azure Resource Manager est le mot de passe Azure Resource Manager que vous avez défini.
@@ -404,7 +405,7 @@ Un script Python est fourni afin que vous puissiez créer une machine virtuelle.
             ubuntu13.vhd
     
     VM image resource id:
-                /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
+                /subscriptions/.../resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
     
     Create Vnet
     Create Subnet

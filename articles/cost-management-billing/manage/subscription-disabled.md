@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/15/2021
 ms.author: banders
-ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 1e669a794abe848d326a6d08156621dcf3883ec5
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331733"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292239"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Réactivation d’un abonnement Azure désactivé
 
@@ -60,6 +60,10 @@ Pour les autres types d’abonnement, [contactez le support technique](https://p
 ## <a name="after-reactivation"></a>Après réactivation
 
 Une fois votre abonnement réactivé, il peut y avoir un retard dans la création ou la gestion des ressources. Si le délai dépasse 30 minutes, contactez le [support de facturation Azure](https://go.microsoft.com/fwlink/?linkid=2083458) pour obtenir de l’aide. La plupart des ressources Azure reprennent automatiquement et ne nécessitent aucune action. Toutefois, nous vous recommandons de vérifier vos ressources de service Azure et de redémarrer celles qui ne reprennent pas automatiquement.
+
+## <a name="upgrade-a-disabled-free-account"></a>Mettre à niveau un compte gratuit désactivé
+
+Si vous utilisez des ressources qui ne sont pas gratuites et que votre abonnement est désactivé en raison d’un manque de crédit, puis que vous mettez à niveau votre abonnement, les ressources sont activées après la mise à niveau. Dans ce cas, vous êtes facturé pour les ressources utilisées. Pour plus d’informations sur la mise à niveau d’un compte gratuit, consultez [Mettre à niveau votre compte Azure](upgrade-azure-subscription.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

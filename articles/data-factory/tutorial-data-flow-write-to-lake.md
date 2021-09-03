@@ -4,15 +4,16 @@ description: Ce tutoriel présente les meilleures pratiques en matière d'écrit
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/01/2021
-ms.openlocfilehash: 8010f3f95c9358714b659df5821a375bd8488ad8
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/04/2021
+ms.openlocfilehash: 91eb5d1072f1385c025d9d93b89466aaa9320ecd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122641230"
 ---
 # <a name="best-practices-for-writing-to-files-to-data-lake-with-data-flows"></a>Meilleures pratiques en matière d'écriture de fichiers dans un lac de données à l'aide de flux de données
 
@@ -52,9 +53,9 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
 Au cours de cette étape, vous allez créer un pipeline qui contient une activité de flux de données.
 
-1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
+1. Dans la page d’accueil Azure Data Factory, sélectionnez **Orchestrer**.
 
-   ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   ![Capture d’écran montrant la page d’accueil ADF.](./media/doc-common-process/get-started-page.png)
 
 1. Dans l’onglet **Général** du pipeline, entrez **DeltaLake** pour le **nom** du pipeline.
 1. Dans la barre supérieure de la fabrique, faites glisser le curseur **Débogage du flux de données**. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).

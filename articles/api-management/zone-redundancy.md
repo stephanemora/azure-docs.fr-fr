@@ -4,15 +4,15 @@ description: Découvrez comment améliorer la résilience de votre instance de s
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/11/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 6e8352a93575ec6222be463daea14aee28f08a7c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634812"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532906"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Prise en charge des zones de disponibilité pour la Gestion des API Azure 
 
@@ -29,19 +29,26 @@ La configuration de la Gestion des API pour la redondance de zone est actuelleme
 * Australie Est
 * Brésil Sud
 * Centre du Canada
-* Inde centrale
+* Inde Centre (*)
 * USA Centre
 * USA Est
 * USA Est 2
 * France Centre
+* Allemagne Centre-Ouest
 * Japon Est
+* Corée Centre (*)
 * Europe Nord
+* Norvège Est (*)
+* Afrique du Sud Nord (*)
 * États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Sud du Royaume-Uni
 * Europe Ouest
 * USA Ouest 2
 * USA Ouest 3
+
+> [!IMPORTANT]
+> Les régions avec le symbole * ont un accès restrictif dans un abonnement Azure pour activer la prise en charge des zones de disponibilité. Collaborez avec votre représentant commercial Microsoft ou client
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,6 +77,6 @@ Dans le portail, vous pouvez éventuellement activer la redondance de zone lorsq
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [déployer une instance de service Gestion des API Azure dans plusieurs régions Azure](api-management-howto-deploy-multi-region.md).
-* Vous pouvez également activer la redondance de zone à l’aide d’un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-api-management-simple-zones).
+* Vous pouvez également activer la redondance de zone à l’aide d’un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
 * Pour plus d’informations, consultez [Services Azure prenant en charge les zones de disponibilité](../availability-zones/az-region.md).
-* En savoir plus sur la construction de la [fiabilité](/azure/architecture/framework/resiliency/overview) dans Azure.
+* En savoir plus sur la construction de la [fiabilité](/azure/architecture/framework/resiliency/app-design) dans Azure.

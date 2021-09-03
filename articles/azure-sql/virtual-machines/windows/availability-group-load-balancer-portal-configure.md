@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8c914b2b6db65e6956db830e16351f13144ab5aa
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 4fe42db21a08a398f5518d794b897d7ce015fa66
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525412"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurer un équilibreur de charge SQL Server AlwaysOn sur des machines virtuelles Azure
 
@@ -97,7 +97,7 @@ Azure appelle *pool principal* ce pool d’adresses principal. En l’occurrence
 
 4. Dans **Ajouter un pool principal** sous **Nom**, entrez un nom pour le pool principal.
 
-5. Sous **Machines virtuelles**, sélectionnez **Ajouter une machine virtuelle**. 
+5. Sous **Machines virtuelles**, sélectionnez **Ajouter une machine virtuelle**. Ajoutez uniquement l’adresse IP principale de la machine virtuelle, n’ajoutez pas d’adresses IP secondaires. 
 
 6. Sous **Choisir des machines virtuelles**, sélectionnez **Choisir un groupe à haute disponibilité** puis spécifiez le groupe à haute disponibilité auquel les machines virtuelles SQL Server appartiennent.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 469adf1c0e5108f7a8c89a7c3a4bebba5d42b431
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d80ae76ed47366e56a3a1bf318219c6944fa3dbe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183962"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524740"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
 
@@ -148,7 +148,7 @@ Si vous envisagez d’utiliser des groupes de sécurité réseau pour contrôler
 
 ### <a name="error"></a>Error
 
-« L’identité gérée ne dispose pas d’autorisations sur le compte de stockage. Vérifiez que le rôle Propriétaire des données Blob du stockage est attribué à l’identité managée sur le compte de stockage. Stockage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Identité managée : /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> »
+« L’identité gérée ne dispose pas d’autorisations sur le compte de stockage. Vérifiez que le rôle Propriétaire des données Blob du stockage est attribué à l’identité managée sur le compte de stockage. Stockage: /subscriptions/ \<Subscription ID\> /resourceGroups/\<Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Identité managée : /subscriptions/ \<Subscription ID\> /resourceGroups/ /\<Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> »
 
 ### <a name="cause"></a>Cause
 
@@ -169,7 +169,7 @@ Pour plus d’informations, consultez [Définir les autorisations de l’identit
 
 ### <a name="error"></a>Error
 
-« Les règles de sécurité dans le groupe de sécurité réseau /subscriptions/\<SubscriptionID\>/resourceGroups/<Nom de groupe de ressources\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configuré avec le sous-réseau /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> n’autorisent pas les connectivités entrantes ou sortantes. Pour plus d’informations, consultez [Planifier un réseau virtuel pour Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) ou contactez le support. »
+« Les règles de sécurité dans le groupe de sécurité réseau /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> n’autorisent pas la connectivité entrante et/ou sortante requise. Pour plus d’informations, consultez [Planifier un réseau virtuel pour Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) ou contactez le support. »
 
 ### <a name="cause"></a>Cause
 
@@ -217,7 +217,7 @@ Si vous utilisez un groupe de sécurité réseau (NSG) de réseau virtuel person
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Code d’erreur : Échec des déploiements en raison d’une violation de stratégie : La ressource « <Resource URI> » a été rejetée par la stratégie. Identificateurs de stratégie : ’[{"policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>"},"policyDefinition": <Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Code d’erreur : Échec des déploiements en raison d’une violation de stratégie : La ressource « \<Resource URI\> » a été rejetée par la stratégie. Identificateurs de stratégie : ’[{"policyAssignment":{"name":"\<Policy Name\> ","id":"/providers/Microsoft.Management/managementGroups/\<Management Group Name\> providers/Microsoft.Authorization/policyAssignments/\<Policy Name\>"},"policyDefinition": \<Policy Definition\>
 
 ### <a name="cause"></a>Cause
 

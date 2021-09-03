@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/17/2021
+ms.date: 08/16/2021
 tags: azure-synapse
-ms.openlocfilehash: d6b51d32b691919e0f0947d3ddb58d184424b9ad
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534407"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534745"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 L’option Découverte et classification des données est conçue pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics. Elle offre des fonctionnalités de base pour la découverte, la classification, l’étiquetage et le signalement des données sensibles dans vos bases de données.
 
-Vos données les plus sensibles peuvent inclure des informations commerciales, financières, médicales ou personnelles. La découverte et la classification de ces données peuvent jouer un rôle pivot dans l’approche de protection des informations de votre organisation. Elles peuvent servir d’infrastructure pour :
+Vos données les plus sensibles peuvent inclure des informations commerciales, financières, médicales ou personnelles. Elles peuvent servir d’infrastructure pour :
 
 - Contribuer à respecter les normes en matière de confidentialité des données et d’exigences pour la conformité réglementaire.
 - Différents scénarios de sécurité, comme la supervision (audit) de l’accès à des données sensibles
@@ -36,11 +36,11 @@ Vos données les plus sensibles peuvent inclure des informations commerciales, f
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Présentation de Découverte et classification des données
 
-L’outil Découverte et classification des données constitue un nouveau paradigme de protection des informations pour SQL Database, SQL Managed Instance et Azure Synapse destiné à protéger les données, et pas seulement la base de données. Actuellement, il prend en charge les fonctionnalités suivantes :
+La fonction Découverte et classification des données prend actuellement en charge les fonctionnalités suivantes :
 
 - **Découverte et recommandations :** Le moteur de classification analyse votre base de données et identifie les colonnes contenant des données potentiellement sensibles. Il vous offre ensuite un moyen simple d’examiner et d’appliquer la classification recommandée via le portail Azure.
 
-- **Étiquetage :** Vous pouvez appliquer des étiquettes de classification de sensibilité de manière permanente aux colonnes à l’aide de nouveaux attributs de métadonnées qui ont été ajoutés au moteur de base de données SQL Server. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios d’audit et de protection basés sur la sensibilité.
+- **Étiquetage :** Vous pouvez appliquer des étiquettes de classification de sensibilité de manière permanente aux colonnes à l’aide de nouveaux attributs de métadonnées qui ont été ajoutés au moteur de base de données SQL Server. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios d’audit basés sur la sensibilité.
 
 - **Sensibilité du jeu de résultats de requête :** La sensibilité du jeu de résultats de requête est calculée en temps réel à des fins d’audit.
 
@@ -64,7 +64,7 @@ La fonctionnalité Découverte et classification des données comprend un ensemb
 
 Vous définissez et personnalisez votre taxonomie de classification dans un emplacement central pour l’ensemble de votre organisation Azure. Cet emplacement se trouve dans [Azure Security Center](../../security-center/security-center-introduction.md), dans la section relative à votre stratégie de sécurité. Seules les personnes disposant de droits d’administration pour le groupe d’administration racine de l’organisation peuvent effectuer cette tâche.
 
-Dans le cadre de la gestion des stratégies de protection des informations, vous pouvez définir des étiquettes personnalisées, les classer et les associer à un ensemble de types d’informations. Vous pouvez également ajouter vos propres types d’informations personnalisés et les configurer avec des modèles de chaîne. Les modèles sont ajoutés à la logique de détection pour identifier ce type de données dans vos bases de données.
+Dans le cadre de la gestion des stratégies, vous pouvez définir des étiquettes personnalisées, les classer et les associer à un ensemble de types d’informations. Vous pouvez également ajouter vos propres types d’informations personnalisés et les configurer avec des modèles de chaîne. Les modèles sont ajoutés à la logique de détection pour identifier ce type de données dans vos bases de données.
 
 Pour plus d'informations, consultez [Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)](../../security-center/security-center-info-protection-policy.md).
 
@@ -112,7 +112,7 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Audit de l’accès aux données sensibles
 
-Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles. [L’audit Azure SQL](../../azure-sql/database/auditing-overview.md) a été amélioré pour inclure un nouveau champ nommé `data_sensitivity_information` dans le journal d’audit. Ce champ enregistre les classifications (étiquettes) de sensibilité des données retournées par une requête. Voici un exemple :
+Un aspect important de la classification est la possibilité de superviser l’accès aux données sensibles. [L’audit Azure SQL](../../azure-sql/database/auditing-overview.md) a été amélioré pour inclure un nouveau champ nommé `data_sensitivity_information` dans le journal d’audit. Ce champ enregistre les classifications (étiquettes) de sensibilité des données retournées par une requête. Voici un exemple :
 
 ![Journal d’audit](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
