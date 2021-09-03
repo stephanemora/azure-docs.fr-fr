@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: a66b036bde5f25873e9d4a371faf249deadd69dc
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 4635848032d60c056b525d4ece0d50ad2eaf6039
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736895"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535064"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Créer, développer et gérer des notebooks Synapse dans Azure Synapse Analytics
 
@@ -150,9 +150,10 @@ Les fonctionnalités IntelliSense sont à des niveaux de maturité différents p
 |PySpark (Python)|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Spark (Scala)|Oui|Oui|Oui|Oui|-|-|-|Oui|
 |SparkSQL|Oui|Oui|-|-|-|-|-|-|
-|.NET pour Spark (C#)|Oui|-|-|-|-|-|-|-|
+|.NET pour Spark (C#)|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 
-
+>[!Note]
+> Une session Spark active est requise pour tirer parti de la saisie semi-automatique du code, de la saisie semi-automatique du code de fonction du système, de l’exécution du code de fonction de l’utilisateur pour .NET pour Spark (C#).
 
 ### <a name="code-snippets"></a>Extraits de code
 
@@ -337,13 +338,14 @@ Non pris en charge.
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-Vous pouvez utiliser la commande magic ```%run <notebook path>``` pour référencer un autre notebook dans le contexte du notebook actuel. Toutes les variables définies dans le notebook de référence sont disponibles dans le notebook actuel. La commande magic ```%run``` prend en charge les appels imbriqués, mais pas les appels récursifs. Vous recevrez une exception si la profondeur de l’instruction est supérieure à cinq. Actuellement, la commande ```%run``` permet seulement de transmettre un chemin d’accès de notebook comme paramètre. 
+Vous pouvez utiliser la commande magic ```%run <notebook path>``` pour référencer un autre notebook dans le contexte du notebook actuel. Toutes les variables définies dans le notebook de référence sont disponibles dans le notebook actuel. La commande magic ```%run``` prend en charge les appels imbriqués, mais pas les appels récursifs. Vous recevrez une exception si la profondeur de l’instruction est supérieure à cinq.  Actuellement, la commande ```%run``` permet seulement de transmettre un chemin d’accès de notebook comme paramètre. 
 
 Exemple : ``` %run /path/notebookA ```.
 
+La référence de notebook fonctionne en mode interactif et en pipeline Synapse.
+
 > [!NOTE]
-> La référence de notebook n’est pas prise en charge dans le pipeline Synapse.
->
+> Les notebooks référencés doivent être publiés. Vous devez publier les notebooks pour les référencer. Synapse Studio ne reconnaît pas les notebooks non publiés du référentiel Git. 
 >
 
 ---
@@ -388,10 +390,10 @@ Vous pouvez spécifier le délai d’expiration, le nombre et la taille des exé
 #### <a name="spark-session-config-magic-command"></a>Commande magic de configuration de session Spark
 Vous pouvez également spécifier des paramètres de session Spark via une commande magic **%%configure**. La session Spark doit redémarrer pour que les paramètres s’appliquent. Nous vous recommandons d’exécuter la fonctionnalité **%%configure** au début de votre notebook. En voici un exemple. Reportez-vous à https://github.com/cloudera/livy#request-body pour obtenir la liste complète des paramètres valides. 
 
-```
-%%configure -f
+```json
+%%configure
 {
-    to config the session.
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
     "driverMemory":"2g",
     "driverCores":3,
     "executorMemory":"2g",
@@ -403,8 +405,8 @@ Vous pouvez également spécifier des paramètres de session Spark via une comma
 }
 ```
 > [!NOTE]
-> La commande magic de configuration de session Spark n’est pas prise en charge dans le pipeline Synapse.
->
+> - Vous pouvez utiliser la commande magic de configuration de session Spark dans les pipelines Synapse. Elle prend uniquement effet lorsqu’elle est appelée dans le niveau supérieur. La configuration%% utilisée dans le notebook référencé va être ignorée.
+> - Les propriétés de configuration Spark doivent être utilisées dans le corps « conf ». Nous ne prenons pas en charge la référence de niveau supérieur pour les propriétés de configuration Spark.
 >
 
 ## <a name="bring-data-to-a-notebook"></a>Importer des données dans un bloc-notes
@@ -459,6 +461,83 @@ df = spark.read.option("header", "true") \
 Vous pouvez accéder aux données directement dans le compte de stockage principal. Il n’est pas nécessaire de fournir les clés secrètes. Dans l’Explorateur de données, cliquez avec le bouton droit sur un fichier, puis sélectionnez **Nouveau bloc-notes** pour afficher un nouveau bloc-notes avec l’extracteur de données généré automatiquement.
 
 ![données-à-cellule](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+
+## <a name="ipython-widgets"></a>Widgets IPython
+
+
+# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
+
+Non pris en charge.
+
+# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
+
+Les widgets sont des objets Python avec événement qui ont une représentation dans le navigateur, souvent sous forme de contrôle tel qu’un curseur, une zone de texte, etc. Les widgets IPython fonctionnent uniquement dans un environnement Python ; ils ne sont pas pris en charge dans d’autres langages (par exemple, Scala, SQL, C#). 
+
+### <a name="to-use-ipython-widget"></a>Pour utiliser un widget IPython
+1. Vous devez d'abord importer le module `ipywidgets` pour utiliser l’infrastructure de widgets Jupyter.
+   ```python
+   import ipywidgets as widgets
+   ```
+2. Vous pouvez utiliser la `display` fonction de niveau supérieur pour afficher un widget ou conserver une expression de type **widget** au niveau de la dernière ligne de la cellule de code.
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   ```
+
+   ```python
+   slider = widgets.IntSlider()
+   slider
+   ```
+   
+3. Exécutez la cellule. Le widget s’affichera dans la zone de sortie.
+
+   ![Curseur des widgets IPython](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+
+4. Vous pouvez utiliser plusieurs appels `display()` pour restituer la même instance de widget plusieurs fois, mais ils restent synchronisés les uns avec les autres.
+
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   display(slider)
+   ```
+
+   ![Curseurs de widgets IPython](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
+
+5. Pour afficher deux widgets indépendamment l’un de l’autre, créez deux instances de widget :
+
+   ```python
+   slider1 = widgets.IntSlider()
+   slider2 = widgets.IntSlider()
+   display(slider1)
+   display(slider2)
+   ```
+
+
+### <a name="supported-widgets"></a>Widgets pris en charge
+
+|Type de widgets|Widgets|
+|--|--|
+|Widgets numériques|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|Widgets booléens|ToggleButton, Checkbox, Valid|
+|Widgets de sélection|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|Widgets de chaîne|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
+|Widgets de lecture (Animation)|Date picker, Color picker, Controller|
+|Widgets de conteneur/disposition|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+
+
+### <a name="know-issue"></a>Problème connu
+
+Les widgets suivants ne sont pas encore pris en charge. Vous pouvez suivre la solution de contournement comme indiqué ci-dessous :
+
+|Fonctionnalités|Solution de contournement|
+|--|--|
+|Widget `Output`|Vous pouvez utiliser la fonction `print()` pour écrire du texte dans stdout.|
+|`widgets.jslink()`|Vous pouvez utiliser la fonction `widgets.link()` pour lier deux widgets similaires.|
+|Widget `FileUpload`| Pas encore pris en charge.|
+
+
+---
+
 
 ## <a name="save-notebooks"></a>Enregistrer des blocs-notes
 
@@ -560,7 +639,7 @@ Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter pl
 |Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
 |Exécuter la cellule active et insérer en dessous | Alt + Entrée |
 |Sélectionner la cellule au-dessus| Haut |
-|Sélectionner la cellule en dessous| Bas |
+|Sélectionner la cellule en dessous| Descendre |
 |Insérer une cellule au-dessus| Un |
 |Insérer une cellule en dessous| B |
 |Étendre les cellules sélectionnées au-dessus| Maj + Haut |
@@ -596,7 +675,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 | Action |Raccourcis de notebook Synapse  |
 |--|--|
 |Déplacer le curseur vers le haut | Haut |
-|Déplacer le curseur vers le bas|Bas|
+|Déplacer le curseur vers le bas|Descendre|
 |Annuler|Ctrl + Z|
 |Rétablir|CTRL + Y|
 |Commenter/Supprimer un commentaire|Ctrl + /|

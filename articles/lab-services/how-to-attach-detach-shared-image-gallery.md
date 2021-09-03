@@ -3,12 +3,12 @@ title: Joindre ou détacher une galerie d’images partagées dans Azure Lab Ser
 description: Cet article explique comment joindre une galerie d'images partagées à un labo de classe dans Azure Lab Services.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 2a460e25d59d2c5fcde341212e7912882f5fe111
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 62020f30b000292bf3e6af4cab61364e99ce4b5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190691"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562757"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Joindre ou détacher une galerie d’images partagées dans Azure Lab Services
 Cet article vous montre comment joindre ou détacher une galerie d’images partagées pour un compte de laboratoire. 
@@ -89,6 +89,6 @@ Une seule galerie d’images partagées peut être jointe à un laboratoire. Si 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment enregistrer une image de laboratoire dans la galerie d’images partagées ou utiliser une image de cette galerie afin de créer une machine virtuelle, voir [How to use shared image gallery](how-to-use-shared-image-gallery.md) (Comment utiliser une galerie d’images partagées).
 
-Pour intégrer une image personnalisée Windows à Shared Image Gallery en dehors du contexte d’un lab, consultez [Intégrer une image personnalisée Windows à la Galerie d’images partagées](upload-custom-image-shared-image-gallery.md).
+Pour découvrir d’autres options d’intégration d’images personnalisées à la Galerie d’images partagées en dehors du contexte d’un labo, consultez [Approches recommandées pour la création d’images personnalisées](approaches-for-custom-image-creation.md).
 
 Pour plus d’informations sur les galeries d’images partagées en général, voir [Shared Image Gallery overview](../virtual-machines/shared-image-galleries.md) (Vue d’ensemble de la galerie d’images partagées).

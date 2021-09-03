@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 72ba07090e6ce67501761d97876aa136f146d61c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 22a66ca16d8d2cb7ade82cb665f50cc9aae4b27b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437925"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563100"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -45,7 +45,12 @@ Le diagramme suivant illustre l’implémentation de Kubernetes sur un appareil 
 
 Pour plus d’informations sur l’architecture de cluster Kubernetes, accédez à [Concepts de base de Kubernetes](https://kubernetes.io/docs/concepts/architecture/).
 
+Les nœuds Master et Worker sont des machines virtuelles qui consomment le processeur et la mémoire. Lors du déploiement de charges de travail Kubernetes, il est important de comprendre les exigences de calcul des machines virtuelles Master et Worker.
 
+|Type de machine virtuelle Kubernetes|Configuration requise en termes de mémoire et de processeur|
+|---------|---------|
+|Machine virtuelle Master|4 cœurs, 4 Go de RAM|
+|Machine virtuelle Worker|12 cœurs, 32 Go de RAM|
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
 - *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.

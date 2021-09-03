@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.openlocfilehash: c1c0ac3d95a005a55d3b334a1f68add072b75700
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8e53d67dacff8337d4a6832fc5febe3b83ec6126
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764762"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606825"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles TensorFlow à grande échelle avec Azure Machine Learning
 
@@ -265,82 +265,7 @@ Azure Machine Learning prend également en charge les tâches TensorFlow distrib
 
 Azure ML prend en charge l’exécution des tâches TensorFlow distribuées avec l’API d’entraînement distribuée intégrée de Horovod et TensorFlow.
 
-### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) est une infrastructure open source réduite pour la formation distribuée, développée par Uber. Elle offre un moyen facile d’écrire du code TensorFlow distribué pour l’entraînement.
-
-Votre code d’entraînement doit être instrumenté avec Horovod pour l’entraînement distribué. Pour plus d’informations sur l’utilisation de Horovod avec TensorFlow, consultez la documentation de Horovod :
-
-Pour plus d’informations sur l’utilisation de Horovod avec TensorFlow, consultez la documentation de Horovod :
-
-* [Horovod avec TensorFlow](https://github.com/horovod/horovod/blob/master/docs/tensorflow.rst)
-* [Horovod avec l’API Keras de TensorFlow](https://github.com/horovod/horovod/blob/master/docs/keras.rst)
-
-De plus, assurez-vous que votre environnement d’entraînement comprend le package **horovod**. Si vous utilisez un environnement organisé TensorFlow, horovod est déjà inclus en tant qu’une des dépendances. Si vous utilisez votre propre environnement, assurez-vous que la dépendance horovod est incluse, par exemple :
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - tensorflow-gpu==2.2.0
-  - horovod==0.19.5
-```
-
-Pour exécuter une tâche distribuée à l’aide de MPI/Horovod sur Azure ML, vous devez spécifier un [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) au paramètre `distributed_job_config` du constructeur ScriptRunConfig. Le code ci-dessous configure une tâche distribuée à 2 nœuds exécutant un processus par nœud. Si vous souhaitez également exécuter plusieurs processus par nœud (par exemple, si votre référence SKU de cluster contient plusieurs GPU), spécifiez en plus le paramètre `process_count_per_node` dans MpiConfiguration (la valeur par défaut est `1`).
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import MpiConfiguration
-
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='tf_horovod_word2vec.py',
-                      arguments=['--input_data', dataset.as_mount()],
-                      compute_target=compute_target,
-                      environment=tf_env,
-                      distributed_job_config=MpiConfiguration(node_count=2))
-```
-
-Pour un tutoriel complet sur l’exécution d’un entraînement TensorFlow distribué avec Horovod sur Azure ML, consultez [Entraînement TensorFlow distribué avec Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/distributed-tensorflow-with-horovod).
-
-### <a name="tfdistribute"></a>tf.distribute
-
-Si vous utilisez l’[entraînement TensorFlow distribué natif](https://www.tensorflow.org/guide/distributed_training) dans votre code d’entraînement, par exemple l’API `tf.distribute.Strategy` TensorFlow 2.x, vous pouvez également lancer la tâche distribuée par le biais d’Azure ML. 
-
-Pour ce faire, spécifiez un [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) au paramètre `distributed_job_config` du constructeur ScriptRunConfig. Si vous utilisez `tf.distribute.experimental.MultiWorkerMirroredStrategy`, spécifiez le `worker_count` dans le TensorflowConfiguration correspondant au nombre de nœuds de votre travail d’entraînement.
-
-```python
-import os
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import TensorflowConfiguration
-
-distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=0)
-
-model_path = os.path.join("./outputs", "keras-model")
-
-src = ScriptRunConfig(source_directory=source_dir,
-                      script='train.py',
-                      arguments=["--epochs", 30, "--model-dir", model_path],
-                      compute_target=compute_target,
-                      environment=tf_env,
-                      distributed_job_config=distr_config)
-```
-
-Dans TensorFlow, la variable d’environnement `TF_CONFIG` est requise pour l’entraînement sur plusieurs machines. Azure ML configure et définit la variable `TF_CONFIG` de manière appropriée pour chaque Worker avant d’exécuter votre script d’entraînement. Si nécessaire, vous pouvez accéder à `TF_CONFIG` à partir de votre script d’entraînement via `os.environ['TF_CONFIG']`.
-
-Exemple de structure de `TF_CONFIG` définie sur un nœud Worker principal :
-```JSON
-TF_CONFIG='{
-    "cluster": {
-        "worker": ["host0:2222", "host1:2222"]
-    },
-    "task": {"type": "worker", "index": 0},
-    "environment": "cloud"
-}'
-```
-
-Si votre script d’entraînement utilise la stratégie de serveur de paramètres pour l’entraînement distribué, par exemple, pour la version de TensorFlow 1.x héritée, vous devez également spécifier le nombre de serveurs de paramètres à utiliser dans la tâche, par exemple `distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=1)`.
+Pour plus d’informations sur l’entraînement distribué, consultez le [Guide de l’entraînement de GPU distribué](how-to-train-distributed-gpu.md).
 
 ## <a name="deploy-a-tensorflow-model"></a>Déployer un modèle TensorFlow
 

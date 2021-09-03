@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50c168bffad24646aad0badcdb849d9d3408725b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558183"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562293"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -135,6 +135,10 @@ Utilisez l’outil What-If (Scénarios) pour simuler une connexion de l’utilis
 ## <a name="policy-deployment"></a>Déploiement de stratégie
 
 Pour vous assurer que votre stratégie fonctionne comme prévu, la meilleure pratique recommandée consiste à la tester avant de la déployer en production. Dans l’idéal, utilisez un locataire de test pour vérifier si votre nouvelle stratégie fonctionne comme prévu. Pour plus d’informations, consultez l’article [Planifier un déploiement d’accès conditionnel](plan-conditional-access.md).
+
+## <a name="known-issues"></a>Problèmes connus
+- Si vous configurez la fréquence de connexion pour les appareils mobiles, l’authentification après chaque fréquence de connexion interne risque d’être lente (elle peut prendre 30 secondes en moyenne). En outre, cela peut se produire dans plusieurs applications en même temps. 
+- Sur les appareils iOS, si une application configure des certificats comme premier facteur d’authentification et que des stratégies de fréquence de connexion et de [gestion des applications mobiles Intune](/mem/intune/apps/app-lifecycle) sont appliquées à l’application, les utilisateurs finaux ne pourront pas se connecter à cette dernière lorsque la stratégie sera déclenchée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,23 +1,25 @@
 ---
 title: Autorisations pour afficher et gérer les réservations Azure
 description: Découvrez comment afficher et gérer les réservations Azure dans le portail Azure.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 08/11/2021
 ms.author: banders
-ms.openlocfilehash: fe2f36b08f98ceb2a5f6085510b589a712ff194d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7f0ac2f8813a38a017a901ad4fe793ed628a06d3
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780458"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608275"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Autorisations pour afficher et gérer les réservations Azure
 
-Cet article explique le fonctionnement des autorisations de réservation et comment les utilisateurs peuvent afficher et gérer les réservations Azure dans le portail Azure.
+Cet article explique le fonctionnement des autorisations de réservation et comment les utilisateurs peuvent afficher et gérer les réservations Azure dans le portail Azure et avec Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Qui peut gérer une réservation par défaut
 
@@ -26,12 +28,14 @@ Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations�
 - La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
 - Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
 - Les utilisateurs disposant d’un accès avec élévation de privilèges pour gérer tous les abonnements et groupes d’administration Azure.
+- Une administration de réservation pour les réservations dans le locataire (répertoire) Azure Active Directory (Azure AD)
+- Un lecteur de réservation dispose d’un accès en lecture seule aux réservations dans son Azure Active Directory locataire (répertoire)
 
 Le cycle de vie des réservations étant indépendant d’un abonnement Azure, la réservation n’est pas une ressource dans le cadre de l’abonnement Azure. Il s’agit plutôt d’une ressource au niveau du locataire avec sa propre autorisation Azure RBAC distincte des abonnements. Les réservations n’héritent pas des autorisations des abonnements après achat.
 
-## <a name="how-billing-administrators-can-view-or-manage-reservations"></a>Comment les administrateurs de facturation peuvent afficher et gérer les réservations
+## <a name="view-and-manage-reservations"></a>Afficher et gérer les réservations
 
-Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour afficher et gérer toutes les réservations et les transactions de réservation.
+Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour afficher et gérer toutes les réservations et les transactions de réservation dans le portail Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Cost Management and Billing**.
     - Si vous êtes un administrateur d’entreprise, dans le menu de gauche, sélectionnez **Étendues de facturation**, puis, dans la liste des étendues de facturation, sélectionnez-en une.
@@ -40,9 +44,9 @@ Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour 
 1. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
 1. Les administrateurs de facturation peuvent prendre possession d’une réservation en la sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
 
-### <a name="how-to-add-billing-administrators"></a>Comment ajouter des administrateurs de facturation
+### <a name="add-billing-administrators"></a>Ajouter des administrateurs de facturation
 
-Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft :
+Ajoutez un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft dans le portail Azure.
 
 - Pour un Contrat Entreprise, ajoutez des utilisateurs avec le rôle d’_Administrateur d’entreprise_ qui permet d’afficher et de gérer tous les ordres de réservation qui s’appliquent au Contrat Entreprise. Les administrateurs d’entreprise peuvent afficher et gérer les réservations dans **Gestion des coûts + facturation**.
     - Les utilisateurs dotés du rôle _Administrateur d’entreprise (lecture seule)_ peuvent uniquement afficher la réservation à partir de **Gestion des coûts + facturation**. 
@@ -52,12 +56,12 @@ Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat 
 
 ## <a name="view-reservations-with-azure-rbac-access"></a>Afficher les réservations avec l’accès Azure RBAC
 
-Si vous avez acheté la réservation ou si vous êtes ajouté à une réservation, suivez les étapes ci-dessous pour afficher et gérer les réservations.
+Si vous avez acheté la réservation ou si vous êtes ajouté à une réservation, suivez les étapes ci-dessous pour afficher et gérer les réservations dans le portail Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
+1. Sélectionnez **Tous les services** > **Réservations** pour afficher la liste des réservations auxquelles vous avez accès.
 
-## <a name="users-with-elevated-access-can-manage-all-azure-subscriptions-and-management-groups"></a>Les utilisateurs dotés d’un accès avec élévation de privilèges peuvent gérer tous les abonnements et groupes d’administration Azure
+## <a name="manage-subscriptions-and-management-groups-with-elevated-access"></a>Gérer les abonnements et les groupes d’administration dans le cadre d’un accès avec élévation de privilèges
 
 Vous pouvez élever l’[accès pour gérer tous les abonnements et groupes d’administration Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json) d’un utilisateur.
 
@@ -66,18 +70,129 @@ Après avoir élevé l’accès :
 1. Accédez à **Toutes les services** > **Réservation** pour afficher toutes les réservations qui se trouvent dans le locataire.
 1. Pour apporter des modifications à une réservation, ajoutez vous-même en tant que propriétaire de l’ordre de réservation à l’aide du contrôle d’accès (IAM).
 
-## <a name="give-users-azure-rbac-access-to-individual-reservations"></a>Accorder aux utilisateurs l’accès Azure RBAC à des réservations individuelles
+## <a name="grant-access-to-individual-reservations"></a>Accorder l’accès à des réservations individuelles
 
-Les utilisateurs qui disposent d’un accès propriétaire sur les réservations et les administrateurs de facturation peuvent déléguer la gestion des accès pour un ordre de réservation individuel.
+Les utilisateurs dotés d’un accès propriétaire sur les réservations et les administrateurs de facturation peuvent déléguer la gestion des accès pour un ordre de réservation individuel dans le portail Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
-1. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
-1. Dans Détails de la réservation, sélectionnez l’ordre de réservation.
-1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
-1. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
-1. Sélectionnez l’utilisateur, puis **Enregistrer**.
+Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
+
+- Déléguer la gestion de l’accès pour un ordre de réservation individuel en attribuant le rôle Propriétaire à un utilisateur au niveau de l’étendue des ressources de l’ordre de réservation. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.  
+     Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+
+- Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft :
+    - Pour un Contrat Entreprise, ajoutez des utilisateurs avec le rôle d’_Administrateur d’entreprise_ qui permet d’afficher et de gérer tous les ordres de réservation qui s’appliquent au Contrat Entreprise. Les utilisateurs détenant le rôle d’_Administrateur d’entreprise (lecture seule)_ peuvent uniquement afficher la réservation. Les administrateurs de service et les propriétaires de compte ne peuvent pas afficher les réservations _à moins_ d’être explicitement ajoutés à celles-ci à l’aide du contrôle d’accès (IAM). Pour plus d’informations, consultez [Gestion des rôles Azure Enterprise](../manage/understand-ea-roles.md).
+
+        _Les administrateurs d’entreprise peuvent prendre possession d’un ordre de réservation et peuvent ajouter d’autres utilisateurs à une réservation à l’aide du contrôle d’accès (IAM)._
+    - Pour un Contrat client Microsoft, les utilisateurs détenant le rôle de propriétaire du profil de facturation ou le rôle de contributeur du profil de facturation peuvent gérer l’ensemble des achats de réservation effectués à l’aide du profil de facturation. Les lecteurs de profil de facturation et les gestionnaires de facture peuvent voir toutes les réservations qui sont réglées avec le profil de facturation. Toutefois, ils ne peuvent apporter aucune modification aux réservations.
+    Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## <a name="grant-access-with-powershell"></a>Accorder l’accès avec PowerShell
+
+Les utilisateurs dotés d’un accès propriétaire pour les ordres de réservations, les utilisateurs dotés d’un accès avec élévation des privilèges et [les administrateurs d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) peuvent déléguer la gestion des accès pour tous les ordres de réservation auxquelles ils ont accès.
+
+## <a name="assign-the-owner-role-for-all-reservations"></a>Attribuer le rôle Propriétaire pour toutes les réservations
+
+Utilisez le script Azure PowerShell suivant pour permettre à un utilisateur Azure RBAC d’accéder à tous les ordres de réservations dans son Azure AD locataire (répertoire).
+
+```azurepowershell
+
+Import-Module Az.Accounts
+Import-Module Az.Resources
+ 
+Connect-AzAccount -Tenant <TenantId>
+ 
+$response = Invoke-AzRestMethod -Path /providers/Microsoft.Capacity/reservations?api-version=2020-06-01 -Method GET
+ 
+$responseJSON = $response.Content | ConvertFrom-JSON
+ 
+$reservationObjects = $responseJSON.value
+ 
+foreach ($reservation in $reservationObjects)
+{
+  $reservationOrderId = $reservation.id.substring(0, 84)
+  Write-Host "Assiging Owner role assignment to "$reservationOrderId
+  New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
+}
+```
+
+### <a name="parameters"></a>Paramètres
+
+**-ObjectId**  Azure AD ObjectId de l’utilisateur, du groupe ou du principal du service.
+- Tapez : String
+- Alias : ID, PrincipalId
+- Position : Nommée
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : True
+- Accepter les caractères génériques : False
+
+**-TenantId** Identificateur unique du locataire.
+- Tapez : String
+- Position : 5
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : False
+- Accepter les caractères génériques : False
+
+Les [administrateurs de l'accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) peuvent ajouter les utilisateurs aux rôles Administrateur de réservation et lecteur de réservation.
+
+## <a name="add-a-reservation-administrator-role-at-the-tenant-level"></a>Ajouter un rôle d’administrateur de réservation au niveau du locataire
+
+Utilisez le script de Azure PowerShell suivant pour ajouter un rôle d’administrateur de réservation au niveau du locataire avec PowerShell.
+
+```azurepowershell
+Import-Module Az.Accounts
+Import-Module Az.Resources
+Connect-AzAccount -Tenant <TenantId>
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Administrator"
+```
+
+### <a name="parameters"></a>Paramètres
+
+**-ObjectId** Azure AD ObjectId de l’utilisateur, du groupe ou du principal du service.
+- Tapez : String
+- Alias : ID, PrincipalId
+- Position : Nommée
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : True
+- Accepter les caractères génériques : False
+
+**-TenantId** Identificateur unique du locataire.
+- Tapez : String
+- Position : 5
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : False
+- Accepter les caractères génériques : False
+
+## <a name="assign-a-reservation-reader-role-at-the-tenant-level"></a>Attribuer un rôle Lecteur de réservation au niveau du locataire
+
+Utilisez le script Azure PowerShell suivant pour attribuer le rôle Lecteur de réservation au niveau du locataire avec PowerShell.
+
+```azurepowershell
+
+Import-Module Az.Accounts
+Import-Module Az.Resources
+
+Connect-AzAccount -Tenant <TenantId>
+
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Reader"
+```
+
+### <a name="parameters"></a>Paramètres
+
+**-ObjectId** Azure AD ObjectId de l’utilisateur, du groupe ou du principal du service.
+- Tapez : String
+- Alias : ID, PrincipalId
+- Position : Nommée
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : True
+- Accepter les caractères génériques : False
+
+**-TenantId** Identificateur unique du locataire.
+- Tapez : String
+- Position : 5
+- Valeur par défaut : Aucun
+- Accepter l’entrée de pipeline : False
+- Accepter les caractères génériques : False
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

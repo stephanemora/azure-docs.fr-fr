@@ -1,10 +1,10 @@
 ---
-title: Normalisation des données dans Azure Sentinel | Microsoft Docs
-description: Cet article explique comment Azure Sentinel normalise les données provenant de sources différentes et détaille le schéma de normalisation.
+title: Normalisation et modèle ASIM (Azure Sentinel Information Model) | Microsoft Docs
+description: Cet article explique comment Azure Sentinel normalise les données de nombreuses sources différentes à l’aide d’Azure Sentinel Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 ms.assetid: ''
 ms.service: azure-sentinel
@@ -13,145 +13,103 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.author: yelevin
-ms.openlocfilehash: 08f7f7998fce5c3361ec8d89a7ae4da4a43db832
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 06/15/2021
+ms.author: bagol
+ms.openlocfilehash: e03f343444aed0c3aafac28deccb0f38c35e2478
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466630"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122535404"
 ---
-# <a name="normalization-in-azure-sentinel"></a>Normalisation dans Azure Sentinel
+# <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>Normalisation et modèle ASIM (Azure Sentinel Information Model)(préversion publique)
 
-Cet article explique la normalisation des schémas de données dans Azure Sentinel, et en particulier le schéma des connexions et sessions réseau, vers lequel un lien est inclus.
+Azure Sentinel ingère les données de nombreuses sources. Pour travailler avec différents types de données et de tableaux, vous devez comprendre chacun d’eux, et écrire et utiliser des ensembles de données uniques pour les règles d’analytique, les classeurs et les requêtes de chasse pour chaque type ou schéma.
 
-## <a name="what-is-normalization"></a>Qu’est-ce que la normalisation
 
-L’utilisation conjointe de différents types de données et de tables présente des défis. Vous devez vous familiariser avec un grand nombre de types de données et de schémas, en devant écrire et utiliser un ensemble unique de règles d’analyse, de classeurs et de requêtes de chasse pour chacun d’entre eux, même pour ceux qui partagent des points communs (par exemple, concernant les périphériques de pare-feu). La corrélation entre les différents types de données, nécessaire à l’investigation et la chasse, est également difficile. Azure Sentinel offre une expérience transparente pour le traitement des données de diverses sources dans des affichages uniformes et normalisés.
+Parfois, vous aurez besoin de règles, de classeurs et de requêtes distincts, même lorsque les types de données partagent des éléments communs, comme les périphériques de pare-feu. La corrélation entre les différents types de données pendant une investigation et la chasse peut également être difficile.
 
-Le modèle Azure Sentinel **Common Information Model** se compose de trois aspects :
-
-- **Les schémas normalisés** couvrent les ensembles communs de types d’événements prévisibles (tables), faciles à utiliser et pour créer des fonctionnalités unifiées (par exemple, une table de mise en réseau). Le schéma comprend également une convention sur les colonnes normalisées, ainsi que des définitions pour la normalisation des valeurs et des formats (représentation cohérente standard des données telles que les adresses IP).
-
-- **Les analyseurs** mappent les données existantes de différents types au schéma normalisé. D’après le modèle, les données peuvent être analysées dans le schéma normalisé au moment de la requête (à l’aide de fonctions) ou au moment de l’ingestion. Pour l’instant, seule l’analyse au moment de la requête est prise en charge.
-
-- **Le contenu de chaque de schéma normalisé** comprend des règles d’analyse, des classeurs interactifs, des requêtes de chasse et du contenu supplémentaire.
-
-### <a name="current-release"></a>Version actuelle
-
-Avec cette version, le [schéma de sessions et de connexions réseau normalisées](./normalization-schema.md) (v 1.0.0) est disponible en préversion publique. Ce schéma décrit les connexions réseau ou les sessions telles que celles journalisées par les pare-feu, les données de transmission, le groupe de sécurité réseau, le réseau de distribution de contenu, les systèmes proxy et les passerelles de sécurité web.  Les analyseurs de requêtes et les règles d’analyse sélectionnés sont disponibles avec le schéma et en font usage.
-
-Le schéma est actuellement disponible uniquement via les analyseurs au moment de la requête (voir la section parseurs).
-
-Vous pouvez analyser les données dans d’autres représentations et utiliser le [modèle d’affectation de noms des entités OSSEM](https://ossemproject.com/cdm/entities/intro.html#) pour créer des colonnes qui seront cohérentes avec les tables normalisées, existantes ou futures.
-
-## <a name="normalized-schema-and-parsing"></a>Schéma normalisé et analyse
-
-### <a name="how-our-normalized-schemas-are-defined"></a>Comment nos schémas normalisés sont définis
-
-Azure Sentinel est aligné sur le modèle CIM de [métadonnées des événements de sécurité Open source (OSSEM)](https://ossemproject.com/intro.html), ce qui permet d’établir une corrélation entre les entités prévisibles et les tables normalisées. OSSEM est un projet de la communauté qui se concentre principalement sur la documentation et la normalisation des journaux d’événements de sécurité provenant de diverses sources de données et de divers systèmes d’exploitation. En outre, ce projet fournit un modèle CIM (Common Information Model) qui peut être utilisé par les ingénieurs de données lors des procédures de normalisation des données pour permettre aux analystes de sécurité d’interroger et d’analyser les données dans diverses sources de données.
-
-Le modèle [CIM OSSEM](https://ossemproject.com/cdm/intro.html) définit un ensemble d’entités (par exemple : fichier, hôte, IP, processus) et définit un ensemble d’attributs pour chaque entité de ce type. En outre, le CIM définit un ensemble de tables (par exemple, la table de [session réseau](https://ossemproject.com/cdm/tables/network_session.html)) qui utilisent les attributs pertinents de ces entités, ce qui permet une corrélation transparente et prévisible. Notez que les entités peuvent être imbriquées (par exemple, l’entité source peut contenir une entité de fichier qui aura un attribut de nom).
-
-Pour en savoir plus sur la structure d’entité OSSEM, consultez la [référence officielle OSSEM](https://ossemproject.com/cdm/guidelines/entity_structure.html).
-
-### <a name="how-the-normalized-schemas-are-implemented-in-azure-sentinel"></a>Comment les schémas normalisés sont implémentés dans Azure Sentinel
-
-Dans l’implémentation du CIM OSSEM dans Azure Sentinel, nous allons projeter la représentation OSSEM sur une représentation tabulaire Log Analytics, que cette représentation soit une table intégrée ou qu’elle ait été créée à l’aide d’analyseurs de requêtes ou de fonctions qui mappent les données existantes sur cette représentation. Pour la représentation tabulaire, nous concaténons les noms d’entité OSSEM et les noms d’attributs, et nous les mappons collectivement sur un nom de colonne unique. Par exemple, une entité source contenant une entité de fichier contenant une entité de hachage contenant un attribut md5 est implémentée comme colonne Log Analytics suivante : SrcFileHashMd5. (OSSEM utilise *snake_case* par défaut, tandis qu’Azure Sentinel et Log Analytics utilisent *PascalCase*. Dans OSSEM, cette colonne serait src_file_hash_md5.)
-
-Des champs personnalisés supplémentaires peuvent exister dans l’implémentation d’Azure Sentinel, en raison des exigences de la plateforme Log Analytics et des cas d’utilisation spécifiques aux clients Azure Sentinel.
-
-### <a name="schema-reference"></a>Informations de référence sur les schémas
-
-Pour en savoir plus, consultez le [document de référence sur le schéma](./normalization-schema.md), ainsi que la [documentation du projet OSSEM](https://ossemproject.com/cdm/intro.html) officielle.
-
-La référence de schéma comprend également la normalisation de la valeur et du format. Les champs sources, originaux ou analysés, peuvent ne pas être dans un format standard ou utiliser la liste de valeurs standard du schéma, et doivent donc être convertis en représentation standard du schéma afin d’être entièrement normalisés.
-
-## <a name="parsers"></a>Analyseurs
-
-- [Qu’est-ce que l’analyse ?](#what-is-parsing)
-- [Utilisation des analyseurs au moment de la requête](#using-query-time-parsers)
-
-### <a name="what-is-parsing"></a>Qu’est-ce que l’analyse ?
-
-Avec un ensemble de base de tables normalisées définies, vous devrez transformer (analyser/mapper) vos données dans ces tables. Autrement dit, vous allez extraire des données et les faire passer de leur forme brute vers des colonnes connues dans le schéma normalisé. L’analyse dans Azure Sentinel se produit au **moment de la requête**. Les parseurs sont créés en tant que fonction utilisateurs Log Analytics (à l’aide du langage de requête Kusto-KQL) qui transforment les données dans les tables existantes (telles que CommonSecurityLog, les tables de journaux personnalisées, syslog) dans le schéma des tables normalisées.
-
-L’autre type d’analyse, qui n’est pas encore prise en charge dans Azure Sentinel, est au **moment de l’ingestion**, ce qui permet de collecter des données directement dans la ou les tables normalisées lorsqu’elles sont ingérées à partir de ses sources de données. L’analyse au moment de l’ingestion améliore les performances, car le modèle de données est interrogé directement, sans qu’il soit nécessaire d’utiliser des fonctions.
-
-### <a name="using-query-time-parsers"></a>Utilisation des analyseurs au moment de la requête
-
-- [Installation d’un analyseur](#installing-a-parser)
-- [Utilisation des analyseurs](#using-the-parsers)
-- [Personnalisation des analyseurs](#customizing-parsers)
-
-#### <a name="installing-a-parser"></a>Installation d’un analyseur
-
-Les analyseurs disponibles au moment de la requête sont disponibles dans le [référentiel GitHub officiel](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/Normalized%20Schema%20-%20Networking%20(v1.0.0)) d’Azure Sentinel. Chaque analyseur est associé à une version pour permettre aux clients d’utiliser et de surveiller facilement les futures mises à jour. Pour installer un analyseur :
-
-1. Copiez le contenu de l’analyseur approprié à partir du fichier KQL approprié dans le lien GitHub ci-dessus
-
-1. Dans le portail Azure Sentinel, ouvrez la page des journaux, collez le contenu du fichier KQL dans l’écran des journaux, puis cliquez sur **Enregistrer**.
-
-    :::image type="content" source="./media/normalization/install-new-parser.png" alt-text="Installer un nouvel analyseur":::
-
-1. Dans la boîte de dialogue Enregistrer, renseignez les champs comme suit :
-    1. **Name** : Il est recommandé d’utiliser la même valeur que celle utilisée dans le champ **Function Alias** (dans l’exemple ci-dessus, *CheckPoint_Network_NormalizedParser*)
-    
-    1. **Enregistrer sous** : sélectionner **Function**
-
-    1. **Alias de fonction** : doit être nommé dans la Convention d’affectation de noms suivante : *PRODUCT_Network_NormalizedParser* (dans l’exemple ci-dessus, *CheckPoint_Network_NormalizedParser*).
-
-    1. **Catégorie** : vous pouvez sélectionner une catégorie existante ou créer une catégorie (par exemple, *NormalizedNetworkSessionsParsers*).
-    
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Enregistrer l’analyseur":::
-
-Pour utiliser correctement les analyseurs, vous devez également installer l’analyseur de schéma réseau vide (qui crée une vue tabulaire vide de tous les champs du schéma de sessions réseau) et l’analyseur de métadonnées de réseau (qui associe tous les analyseurs activés pour créer une vue unique des données à partir de différentes sources dans le schéma de mise en réseau). L’installation de ces deux analyseurs s’effectue de la même façon que pour les étapes mentionnées ci-dessus.
-
-Lors de l’enregistrement d’une fonction de requête, il peut être nécessaire de fermer l’explorateur de requêtes et de le rouvrir pour que la nouvelle fonction soit prise en compte.
-
-#### <a name="using-the-parsers"></a>Utilisation des analyseurs
-
-Une fois activé, vous pouvez utiliser l’analyseur de métadonnées pour interroger une vue unifiée sur tous les analyseurs actuellement activés. Pour ce faire, accédez à la page des journaux Azure Sentinel et interrogez l’analyseur de métadonnées :
-
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Interroger l’analyseur":::
- 
-Vous pouvez également accéder à l’analyseur de métadonnées ou à des analyseurs individuels à l’aide de l’explorateur de requêtes de la page des journaux en cliquant sur « Explorateur de requêtes » :
-
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorateur de requêtes":::
-
-Dans le volet de droite, développez la section « Requêtes enregistrées » et recherchez le dossier « NormalizedNetworkParsers » (ou le nom de la catégorie que vous avez choisi lors de la création des analyseurs) :
-
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Rechercher votre analyseur":::
-
-Vous pouvez cliquer sur chaque analyseur et voir la fonction sous-jacente qu’il utilise, puis l’exécuter (ou y accéder directement par son alias, comme décrit ci-dessus). Notez que certains analyseurs peuvent conserver les champs d’origine en parallèle des champs normalisés pour des raisons pratiques. Ceci peut être facilement modifié dans la requête de l’analyseur.
+Cet article fournit une vue d’ensemble du modèle ASIM (Azure Sentinel Information Model), qui fournit une solution pour relever les défis liés à la gestion de plusieurs types de données.
 
 > [!TIP]
-> Vous pouvez utiliser vos fonctions enregistrées à la place des tables Azure Sentinel dans toutes les requêtes, y compris les requêtes de chasse et de détection. Pour plus d'informations, consultez les pages suivantes :
+> Regardez également le [webinaire ASIM](https://www.youtube.com/watch?v=WoGD-JeC7ng) ou passez en revue les [diapositives du webinaire](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG). Pour plus d’informations, consultez [Étapes suivantes](#next-steps).
 >
-> - [Normalisation des données dans Azure Sentinel](normalization.md#parsers)
-> - [Analyser le texte dans les journaux d’activité Azure Monitor](../azure-monitor/logs/parse-text.md)
+
+> [!IMPORTANT]
+> ASIM n’est actuellement disponible qu’en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
 >
-#### <a name="customizing-parsers"></a>Personnalisation des analyseurs
 
-Vous pouvez répéter les étapes ci-dessus (recherche de l’analyseur dans l’explorateur de requêtes), cliquer sur l’analyseur approprié et voir son implémentation de la fonction.
-Par exemple, vous pouvez décider de modifier l’analyseur de métadonnées pour ajouter ou supprimer des analyseurs.
+## <a name="common-asim-usage"></a>Utilisation courante d’ASIM
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personnalisation de votre analyseur":::
- 
-Une fois la fonction modifiée, cliquez à nouveau sur Enregistrer et utilisez le même nom, le même alias et la même catégorie. Une boîte de dialogue de remplacement s’ouvre. Appuyez sur « OK » :
+Le modèle ASIM (Azure Sentinel Information Model) offre une expérience transparente pour gérer diverses sources dans des affichages uniformes et normalisés, en fournissant les fonctionnalités suivantes :
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Confirmez-vous cette action ?":::
+- **Détection de source croisée**. Les règles d’analytique normalisées fonctionnent dans les sources, localement et dans le Cloud, et elles détectent les attaques telles que la force brute ou le déplacement impossible entre systèmes, notamment Okta, AWS et Azure.
 
-#### <a name="additional-information"></a>Informations supplémentaires
+- **Contenu indépendant de la source**. La couverture du contenu intégré et personnalisé à l’aide d’ASIM s’étend automatiquement à toute source qui prend en charge ASIM, même si la source a été ajoutée après la création du contenu. Par exemple, l’analytique des événements de processus prend en charge toute source qu’un client peut utiliser pour apporter les données, comme Microsoft Defender for Endpoint, Windows Events et Sysmon.
 
-JSON, XML et CSV sont particulièrement pratiques pour l’analyse au moment de la requête. Azure Sentinel offre des fonctions d’analyse intégrées pour JSON, XML et CSV, ainsi qu’un outil d’analyse JSON.  Pour plus d’informations, consultez [Utilisation de champs JSON dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
+- **Prise en charge de vos sources personnalisées** dans l’analytique intégrée
 
-En savoir plus sur les [requêtes enregistrées](../azure-monitor/logs/queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
+- **Simplicité d’utilisation**. Une fois qu’un analyste a appris à utiliser ASIM, l’écriture des requêtes est beaucoup plus simple car les noms des champs sont toujours identiques.
 
+### <a name="asim-and-the-open-source-security-events-metadata"></a>ASIM et métadonnées des événements de sécurité Open source
+
+Azure Sentinel Information Model est aligné sur le modèle CIM de [métadonnées des événements de sécurité Open source (OSSEM)](https://ossemproject.com/intro.html), ce qui permet d’établir une corrélation entre les entités prévisibles et les tables normalisées.
+
+OSSEM est un projet de la communauté qui se concentre principalement sur la documentation et la normalisation des journaux d’événements de sécurité provenant de diverses sources de données et de divers systèmes d’exploitation. Ce projet fournit également un modèle CIM (Common Information Model) qui peut être utilisé par les ingénieurs de données lors des procédures de normalisation des données pour permettre aux analystes de sécurité d’interroger et d’analyser les données dans diverses sources de données.
+
+Pour plus d’informations, consultez la [documentation de référence OSSEM](https://ossemproject.com/cdm/guidelines/entity_structure.html).
+
+## <a name="asim-components"></a>Composants ASIM
+
+L’illustration suivante montre comment les données non normalisées peuvent être traduites en contenu normalisé et utilisées dans Azure Sentinel. Par exemple, vous pouvez commencer avec une table personnalisée, spécifique à un produit et non normalisée, et utiliser un analyseur et un schéma de normalisation pour convertir cette table en données normalisées. Utilisez vos données normalisées à la fois dans les analyses, les règles, les classeurs et les requêtes Microsoft et personnalisées.
+
+ :::image type="content" source="media/normalization/sentinel-information-model-components.png" alt-text="Utilisation et distribution des données non normalisées pour la conversion de données normalisée dans Azure Sentinel":::
+
+Le modèle d’informations Azure Sentinel comprend les composants suivants :
+
+|Composant  |Description  |
+|---------|---------|
+|**Schémas normalisés**     |   Couvre les ensembles standard de types d’événements prévisibles que vous pouvez utiliser lors de la création de fonctionnalités unifiées. <br><br>Chaque schéma définit les champs qui représentent un événement, une convention d’affectation de noms de colonne normalisée et un format standard pour les valeurs de champ. <br><br> ASIM définit actuellement les schémas suivants :<br> - [Session réseau](normalization-schema.md)<br> - [Activité DNS](dns-normalization-schema.md)<br> - [Événement Processus](process-events-normalization-schema.md)<br> - [Événement d’authentification](authentication-normalization-schema.md)<br> - [Événement du Registre](registry-event-normalization-schema.md)<br> - [Activité de fichier](file-event-normalization-schema.md)  <br><br>Pour plus d’informations, consultez [Schémas du modèle Azure Sentinel Information Model](normalization-about-schemas.md).  |
+|**Analyseurs**     |  Mappez les données existantes aux schémas normalisés à l’aide des [fonctions KQL](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Déployez les analyseurs de normalisation développés par Microsoft à partir du [dossier des analyseurs Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Les analyseurs normalisés se trouvent dans des sous-dossiers dont le nom commence par **ASim***.  <br><br>Pour plus d’informations, consultez [Analyseurs du modèle Azure Sentinel Information Model](normalization-about-parsers.md).     |
+|**Contenu pour chaque schéma normalisé**     |    Comprend des règles d’analytique, des classeurs, des requêtes de chasse et bien plus encore. Le contenu de chaque schéma normalisé fonctionne sur toutes les données normalisées sans qu’il soit nécessaire de créer du contenu propre à la source. <br><br>Pour plus d’informations, consultez [Contenu du modèle Azure Sentinel Information Model](normalization-content.md).   |
+| | |
+
+### <a name="asim-terminology"></a>Terminologie ASIM
+
+Le modèle ASIM (Azure Sentinel Information Model) utilise les termes suivants :
+
+|Terme  |Description  |
+|---------|---------|
+|**Périphérique de création de rapport**     |   Système envoyant les enregistrements à Azure Sentinel. Ce système peut ne pas être le système de sujet pour l’enregistrement qui est envoyé.      |
+|**Enregistrement**     |Unité de données envoyée à partir du périphérique de création de rapport. Cet enregistrement est souvent appelé `log`, `event` ou `alert`, mais peut également avoir d’autres types de données.         |
+|**Contenu** ou **Élément de contenu**     |Les différents artefacts, personnalisables ou créés par l’utilisateur, que vous pouvez utiliser avec Azure Sentinel. Ces artefacts incluent, par exemple, des règles Analytics, des requêtes de chasse et des classeurs. Un élément de contenu est l’un de ces artefacts.|
+| | |
+
+<br>
+
+## <a name="getting-started-with-asim"></a>Prise en main d’ASIM
+
+Pour commencer à utiliser ASIM :
+
+1. Déployez les analyseurs ASIM à partir du [référentiel Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers), à partir des dossiers commençant par `ASim*`.
+
+1. Activez les modèles de règle d’analytique qui utilisent ASIM. Pour plus d’informations, consultez [Liste de contenu du modèle ASIM (Azure Sentinel Information Model)](normalization-content.md#builtin).
+
+1. Utilisez ASIM dans votre espace de travail, à l’aide des méthodes suivantes :
+
+    - Utilisez les requêtes de chasse ASIM du référentiel GitHub Azure Sentinel, lors de l’interrogation des journaux dans KQL, dans la page **Journaux** d’Azure Sentinel. Pour plus d’informations, consultez [Liste de contenu du modèle ASIM (Azure Sentinel Information Model)](normalization-content.md#builtin).
+
+    - Écrivez vos propres règles d’analytique à l’aide de ASIM ou [convertissez des règles existantes](normalization-content.md#builtin).
+
+    - Permettez à vos données personnalisées d’utiliser des analyses intégrées en [écrivant des analyseurs](normalization-about-parsers.md) pour vos sources personnalisées et en les [ajoutant](normalization-about-parsers.md#include) à l’analyseur source agnostique approprié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez découvert le schéma de normalisation d’Azure Sentinel. Pour le schéma de référence lui-même, consultez [informations de référence sur le schéma de normalisation des données Azure Sentinel](./normalization-schema.md).
+Cet article fournit une vue d’ensemble de la normalisation dans Azure Sentinel et dans le modèle Azure Sentinel Information Model.
 
-* [Blog Azure Sentinel](https://aka.ms/azuresentinelblog) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+Pour plus d'informations, consultez les pages suivantes :
+
+- Regardez le [webinaire sur ASIM](https://www.youtube.com/watch?v=WoGD-JeC7ng) ou passez en revue les [diapositives](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Schémas du modèle Azure Sentinel Information Model](normalization-about-schemas.md)
+- [Analyseurs du modèle Azure Sentinel Information Model](normalization-about-parsers.md)
+- [Contenu du modèle Azure Sentinel Information Model](normalization-content.md)

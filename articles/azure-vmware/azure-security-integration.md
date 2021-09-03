@@ -3,12 +3,12 @@ title: Intégrer Azure Security Center avec Azure VMware Solution
 description: Découvrez comment protéger vos machines virtuelles Azure VMware Solution avec les outils de sécurité natifs d’Azure à partir du tableau de bord Azure Security Center.
 ms.topic: how-to
 ms.date: 06/14/2021
-ms.openlocfilehash: 6060be11ada028234b11e74f56de8c9741fc4cd4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9c7326fca3aeebf277b5f54a65729e2594933984
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754238"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122534737"
 ---
 # <a name="integrate-azure-security-center-with-azure-vmware-solution"></a>Intégrer Azure Security Center avec Azure VMware Solution 
 
@@ -25,6 +25,7 @@ Le diagramme illustre l’architecture de surveillance intégrée de la sécurit
  
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagramme de l’architecture de la sécurité intégrée Azure." border="false":::
 
+L’**agent Log Analytics** collecte les données de journal à partir d’Azure, d’Azure VMware Solution et de machines virtuelles locales. Les données de journal sont envoyées aux journaux Azure Monitor et stockées dans un **espace de travail Log Analytics**. Chaque espace de travail a son propre dépôt de données et sa propre configuration pour stocker des données.  Une fois que les journaux sont collectés, **Azure Security Center** évalue l’état des vulnérabilités des machines virtuelles Azure VMware Solution et déclenche une alerte pour toute vulnérabilité critique. Après évaluation, Azure Security Center transmet l’état de vulnérabilité à Azure Sentinel pour créer un incident et la mappe à d’autres menaces.  Azure Security Center est connecté à Azure Sentinel à l’aide d’un connecteur Azure Security Center. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +38,7 @@ Le diagramme illustre l’architecture de surveillance intégrée de la sécurit
 - [Activez Azure Security Center dans votre abonnement](../security-center/security-center-get-started.md). 
 
    >[!NOTE]
-   >Azure Security Center est un outil préconfiguré qui ne nécessite aucun déploiement, mais vous devez l’activer dans le portail Azure.
+   >Azure Security Center est un outil préconfiguré qui ne nécessite aucun déploiement, mais vous devez l’activer.
 
 - [Activez Azure Defender](../security-center/enable-azure-defender.md). 
 
@@ -76,23 +77,25 @@ Le diagramme illustre l’architecture de surveillance intégrée de la sécurit
 
 ## <a name="view-recommendations-and-passed-assessments"></a>Afficher les recommandations et les évaluations réussies
 
-Vous disposez ainsi des détails relatifs à l’intégrité de la sécurité de votre ressource. 
+Les recommandations et les évaluations vous fournissent des détails sur l’intégrité de la sécurité de votre ressource. 
 
 1. Dans Azure Security Center, sélectionnez **Stock** dans le volet gauche.
 
 2. Pour Type de ressource, sélectionnez **Serveurs - Azure Arc**.
  
-   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Capture d’écran de la page Stock d’Azure Security Center montrant l’option Serveurs - Azure Arc sélectionnée sous Type de ressource.":::
+   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Capture d’écran de la page Stock d’Azure Security Center avec Serveurs - Azure Arc sélectionné sous Type de ressource.":::
 
 3. Sélectionnez le nom de votre ressource. Une page s’ouvre et affiche les détails de l’intégrité de la sécurité de votre ressource.
 
 4. Sous **Liste de suggestions**, sélectionnez les onglets **Suggestions**, **Évaluations réussies** et **Évaluations non disponibles** pour afficher ces détails.
 
-   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Capture d’écran d’Azure Security Center montrant des suggestions de sécurité et les évaluations.":::
+   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Capture d’écran montrant des suggestions de sécurité et des évaluations Azure Security Center.":::
 
 ## <a name="deploy-an-azure-sentinel-workspace"></a>Déployer un espace de travail Azure Sentinel
 
-Azure Sentinel est basé sur un espace de travail Log Analytics et dès lors, il vous suffit de sélectionner l’espace de travail Log Analytics que vous souhaitez utiliser.
+Azure Sentinel fournit une analyse de la sécurité, une détection des alertes et une réponse automatisée aux menaces dans un environnement. Il s’agit d’une solution SIEM (Security Information and Event Management) cloud native qui repose sur un espace de travail Log Analytics.
+
+Étant donné qu’Azure Sentinel est basé sur un espace de travail Log Analytics, il vous suffit de sélectionner l’espace de travail que vous souhaitez utiliser.
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure Sentinel**.
 
@@ -112,6 +115,9 @@ Azure Sentinel est basé sur un espace de travail Log Analytics et dès lors, il
 
    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Capture d’écran de la page Événements de sécurité dans Azure Sentinel, où vous pouvez sélectionner les événements à diffuser.":::
 
+
+
+
 ## <a name="connect-azure-sentinel-with-azure-security-center"></a>Connecter Azure Sentinel à Azure Security Center  
 
 1. Sur la page Espace de travail Azure Sentinel, sélectionnez l’espace de travail configuré.
@@ -120,7 +126,7 @@ Azure Sentinel est basé sur un espace de travail Log Analytics et dès lors, il
 
 3. Sélectionnez **Azure Security Center** dans la liste, puis sélectionnez **Ouvrir la page du connecteur**.
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Capture d’écran de la page Connecteurs de données dans Azure Sentinel montrant la sélection qui permet de se connecter à Azure Security Center avec Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Capture d’écran de la page Connecteurs de données dans Azure Sentinel montrant la sélection qui permet de se connecter à Azure Security Center avec Azure Sentinel.":::
 
 4. Sélectionnez **Se connecter** pour vous connecter à Azure Security Center avec Azure Sentinel.
 
@@ -172,7 +178,7 @@ Après avoir connecté des sources de données à Azure Sentinel, vous pouvez cr
 
 6. Sous l’onglet **Paramètres d’incident**, activez **Créer des incidents à partir d’alertes déclenchées par cette règle analytique** et sélectionnez **Suivant : Réponse automatisée**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Capture d’écran de l’Assistant Règle analytique pour la création d’une règle dans Azure Sentinel. Affiche l’option Créer des incidents à partir d’alertes déclenchées par cette règle comme étant activée.":::
+    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Capture d’écran montrant l’Assistant Règle analytique pour la création d’une règle dans Azure Sentinel.":::
 
 7. Sélectionnez **Suivant : Vérification**).
 
@@ -203,9 +209,9 @@ Vous pouvez créer des requêtes ou utiliser la requête prédéfinie disponible
 1. Sur la page Vue d’ensemble d’Azure Sentinel, sous Gestion des menaces, sélectionnez **Chasse**. Une liste de requêtes prédéfinies s’affiche.
 
    >[!TIP]
-   >Vous pouvez également créer une requête en sélectionnant **+Nouvelle requête**. 
+   >Vous pouvez également créer une requête en sélectionnant **Nouvelle requête**. 
    >
-   >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Capture d’écran de la page Chasse Azure Sentinel avec l’option +Nouvelle requête en surbrillance.":::
+   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Capture d’écran de la page Chasse Azure Sentinel avec l’option +Nouvelle requête en surbrillance.":::
 
 3. Sélectionnez une requête, puis sélectionnez **Exécuter la requête**.
 

@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 2e02e49b781d19e115ca2c39eead3aa7c693aef7
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889482"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223037"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service
 
@@ -74,7 +74,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="customize-build-automation"></a>Personnaliser l’automatisation de la génération
 
-Si vous déployez votre application à l’aide de packages Git ou zip quand l’automatisation de la génération est activée, ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
+Si vous déployez votre application à l’aide de packages Git ou zip [avec activation de l’automatisation de la génération](deploy-zip.md#enable-build-automation-for-zip-deploy), ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
 
 1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
 1. Exécution de `dotnet restore` pour restaurer les dépendances NuGet.
@@ -136,7 +136,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="deploy-multi-project-solutions"></a>Déployer des solutions à projets multiples
 
-Quand une solution Visual Studio comprend plusieurs projets, le processus de publication de Visual Studio comprend déjà la sélection du projet à déployer. Lorsque vous effectuez un déploiement vers le moteur de déploiement App Service, comme c’est le cas avec Git ou Zip Deploy, avec l’automation de la génération activée, le moteur de déploiement App Service sélectionne le premier site web ou projet d’application web qu’il trouve en tant qu’application App Service. Vous pouvez spécifier le projet qu’App Service doit utiliser en spécifiant le paramètre d’application `PROJECT`. Par exemple, exécutez la commande suivante dans le service [Cloud Shell](https://shell.azure.com) :
+Quand une solution Visual Studio comprend plusieurs projets, le processus de publication de Visual Studio comprend déjà la sélection du projet à déployer. Lorsque vous effectuez un déploiement vers le moteur de déploiement App Service, comme c’est le cas avec Git ou Zip Deploy, [avec activation de l’automation de la génération](deploy-zip.md#enable-build-automation-for-zip-deploy), le moteur de déploiement App Service sélectionne le premier site web ou projet d’application web qu’il trouve en tant qu’application App Service. Vous pouvez spécifier le projet qu’App Service doit utiliser en spécifiant le paramètre d’application `PROJECT`. Par exemple, exécutez la commande suivante dans le service [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Détecter une session HTTPS
 
-Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit savoir si les demandes utilisateur sont chiffrées ou non, configurez l’intergiciel Forwarded Headers dans *Startup.cs* :
+Dans App Service, une [terminaison TLS/SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit savoir si les demandes utilisateur sont chiffrées ou non, configurez l’intergiciel Forwarded Headers dans *Startup.cs* :
 
 - Configurez l’intergiciel avec [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer les en-têtes `X-Forwarded-For` et `X-Forwarded-Proto` dans `Startup.ConfigureServices`.
 - Ajoutez des plages d’adresses IP privées aux réseaux connus afin que l’intergiciel puisse approuver l’équilibreur de charge d’App Service.
@@ -229,6 +229,10 @@ Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour 
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Ou bien, consultez les ressources supplémentaires :
+
+[Informations de référence sur les variables d’environnement et les paramètres d’application](reference-app-settings.md)

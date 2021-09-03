@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932fc71617846f2839767546a8fac00a3d16008c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2b34eafac248bc0fd06076550e784a061573a712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792252"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531951"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Attribuer des rôles dont l’étendue est délimitée à une unité administrative
 
@@ -52,7 +52,7 @@ Administrateur d'utilisateurs  |  Peut gérer tous les aspects des utilisateurs
 Les principaux de sécurité suivants peuvent être affectés à un rôle avec une étendue d’unité administrative :
 
 * Utilisateurs
-* Groupes cloud attribuables à un rôle (préversion)
+* Groupes Azure AD assignables par rôle
 * Nom de principal du service
 
 ## <a name="assign-a-scoped-role"></a>Attribuer un rôle dont l’étendue est délimitée
@@ -61,9 +61,9 @@ Vous pouvez attribuer un rôle étendu à l’aide du portail Azure, de PowerShe
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le portail Azure, accédez à **Azure AD**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 
-1. Sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative à laquelle vous souhaitez attribuer une étendue de rôle utilisateur. 
+1. Sélectionnez **Azure Active Directory** > **Unités administratives**, puis sélectionnez l’unité administrative à laquelle vous souhaitez attribuer une étendue de rôle utilisateur. 
 
 1. Dans le volet gauche, sélectionnez **Rôles et administrateurs** pour répertorier tous les rôles disponibles.
 
@@ -118,9 +118,9 @@ Vous pouvez afficher la liste des administrateurs étendus à l’aide du portai
 
 Vous pouvez afficher toutes les attributions de rôles créées avec une étendue d’unité administrative dans la [section Unités administratives d’Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. Dans le portail Azure, accédez à **Azure AD**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
 
-1. Dans le volet gauche, sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative pour la liste des attributions de rôles que vous souhaitez afficher. 
+1. Sélectionnez **Azure Active Directory** > **Unités administratives**, puis sélectionnez l’unité administrative pour la liste des attributions de rôles que vous souhaitez afficher. 
 
 1. Sélectionnez **Rôles et administrateurs**, puis ouvrez un rôle pour afficher les affectations dans l’unité administrative.
 
@@ -149,5 +149,5 @@ body
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser des groupes cloud pour gérer les attributions de rôles](groups-concept.md)
-- [Résoudre les problèmes de rôles attribués aux groupes cloud](groups-faq-troubleshooting.md)
+- [Utiliser des groupes Azure AD pour gérer les attributions de rôles](groups-concept.md)
+- [Résoudre les problèmes de rôles Azure AD attribués aux groupes](groups-faq-troubleshooting.yml)

@@ -1,25 +1,20 @@
 ---
 title: Adresses IP publiques dans Azure
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: En savoir plus sur les adresses IP publiques dans Azure.
 services: virtual-network
-documentationcenter: na
 author: asudbring
-manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/28/2020
+ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 121c22e3a25a95fa64f6f779ebc0827bb6c123c7
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 4497b58e40ccc280661d45932586c14bb8a21108
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015948"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122533220"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -29,22 +24,36 @@ Dans Azure Resource Manager, une [adresse IP publique](virtual-network-public-ip
 
 * Interfaces réseau de machine virtuelle
 * Équilibreurs de charge accessibles sur Internet
-* Passerelles VPN
+* Passerelles de réseau virtuel (VPN/ER)
+* Passerelles NAT
 * Passerelles d’application
 * Pare-feu Azure
+* Hôte Bastion
+
+Pour Virtual Machine Scale Sets, utilisez [Préfixes d’adresses IP publiques](public-ip-address-prefix.md).
+
+## <a name="at-a-glance"></a>Aperçu
+
+Le tableau ci-dessous présente la propriété avec laquelle une adresse IP publique peut être associée à une ressource, ainsi que les méthodes d’allocation. Notez que la prise en charge du protocole IPv6 public n’est actuellement pas disponible pour tous les types de ressources.
+
+| Ressources de niveau supérieur | Association d’adresse IP | IPv4 dynamique | IPv4 statique | IPv6 dynamique | IPv6 statique |
+| --- | --- | --- | --- | --- | --- |
+| Machine virtuelle |interface réseau |Oui | Oui | Oui | Oui |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui | Oui | Oui |Oui |
+| Passerelle de réseau virtuel (VPN) |Configuration IP de la passerelle |Oui (non-AZ uniquement) |Oui (AZ uniquement) | Non |Non |
+| Passerelle de réseau virtuel (ER) |Configuration IP de la passerelle |Oui | Non | Oui (préversion) |No |
+| Passerelle NAT |Configuration IP de la passerelle |Non |Oui | Non |Non |
+| passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) | Non | Non |
+| Pare-feu Azure | Configuration frontale | Non | Oui | Non | Non |
+| Hôte Bastion | Configuration IP publique | Non | Oui | Non | Non |
 
 ## <a name="ip-address-version"></a>Version de l’adresse IP
 
-Les adresses IP publiques sont créées avec une adresse IPv4 et IPv6. 
+Les adresses IP publiques peuvent être créées avec une adresse IPv4 et IPv6. Vous avez la possibilité de créer un déploiement à double pile avec une adresse IPv4 et IPv6.
 
 ## <a name="sku"></a>SKU
 
-Pour en savoir plus sur la mise à niveau du SKU, consultez [Mise à niveau de l’adresse IP publique](../virtual-network/virtual-network-public-ip-address-upgrade.md).
-
 Les adresses IP publiques sont créées avec l’une des références SKU suivantes :
-
->[!IMPORTANT]
-> Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.  De nouvelles conceptions doivent être envisagées à l’aide des ressources de référence SKU Standard.  Veuillez consulter [Load Balancer Standard](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
 
 ### <a name="standard"></a>Standard
 
@@ -53,8 +62,9 @@ Les adresses IP publiques de référence SKU standard :
 - Utilisent toujours la méthode d’allocation statique.
 - Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
 - Sont sécurisées par défaut et fermées au trafic entrant. Autorisez la liste du trafic entrant avec un [groupe de sécurité réseau](./network-security-groups-overview.md#network-security-groups).
-- Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard ou des passerelles d’application. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Peut être redondant interzone (provenant de l’ensemble des 3 zones), zonal (garanti dans une zone de disponibilité présélectionnée spécifique) ou sans zone (non associé à une zone de disponibilité présélectionnée spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Les IP redondantes dans une zone peuvent être créées seulement dans des [régions où 3 zones de disponibilité](../availability-zones/az-region.md) sont actives.** Les IP créées avant que les zones soient actives ne sont pas redondantes dans une zone.
+- Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard ou des passerelles d’application. Pour plus d’informations sur Azure Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Peut être redondant interzone (ce qui provient de l’ensemble des 3 zones), zonal (ce qui est garanti dans une zone de disponibilité présélectionnée spécifique) ou sans zone (ce qui n’est pas associé à une zone de disponibilité présélectionnée spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Les IP redondantes dans une zone peuvent être créées seulement dans des [régions où trois zones de disponibilité](../availability-zones/az-region.md) sont actives.** Les IP créées avant que les zones soient actives ne sont pas redondantes dans une zone.
+- Peuvent être utilisées avec la [préférence de routage](routing-preference-overview.md) pour permettre un contrôle plus granulaire de la façon dont le trafic est routé entre Azure et Internet.
 - Peuvent être utilisées comme adresses IP frontales anycast pour [les équilibreurs de charge interrégions](../load-balancer/cross-region-overview.md) (fonctionnalité d’évaluation).
  
 > [!NOTE]
@@ -68,38 +78,23 @@ Les adresses IP publiques de référence SKU standard :
 
 ### <a name="basic"></a>De base
 
-Toutes les adresses IP publiques créées avant l’introduction de références SKU sont des adresses IP publiques de référence SKU de base. 
-
-Depuis l’introduction des références SKU, spécifiez quelle référence SKU attribuer à l’adresse IP publique. 
-
 Les adresses de référence SKU de base :
 
-- Sont assignées à l’aide de la méthode d’allocation statique ou dynamique.
+- Pour IPv4 : peuvent être attribuées à l’aide de la méthode d’allocation dynamique ou statique.  Pour IPv6 : peuvent uniquement être attribuées à l’aide de la méthode d’allocation dynamique.
 - Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
 - Ouvertes par défaut.  Il est recommandé d’utiliser des groupes de sécurité réseau, mais cela est facultatif pour restreindre le trafic entrant ou sortant.
-- Affectées à n’importe quelle ressource Azure à laquelle une adresse IP publique peut être affectée, par exemple :
-    * Interfaces réseau
-    * Passerelles VPN
-    * Passerelles d’application
-    * Équilibreurs de charge publics
-- Ne gèrent pas les scénarios de zone de disponibilité. Utilisent l’adresse IP publique de la référence SKU Standard pour les scénarios de zone de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Ne gèrent pas les scénarios de zone de disponibilité. Utilisent l’adresse IP publique de la référence SKU Standard pour les scénarios de zone de disponibilité dans les régions applicables. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Ne prennent pas en charge la fonctionnalité de [préférence de routage](routing-preference-overview.md) ou d’[équilibreurs de charge entre les régions](../load-balancer/cross-region-overview.md).
 
-## <a name="allocation-method"></a>Méthode d’allocation
+> [!NOTE]
+> Les adresses IPv4 de la référence SKU de base peuvent être mises à niveau après la création d’une référence SKU standard.  Pour en savoir plus sur la mise à niveau du SKU, consultez [Mise à niveau de l’adresse IP publique](./public-ip-upgrade-portal.md).
 
-Les adresses IP publiques de base et standard prennent en charge l’attribution **statique**.  Une adresse IP est attribuée à la ressource au moment de sa création. L’adresse IP est libérée lorsque la ressource est supprimée.
+>[!IMPORTANT]
+> Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.  De nouvelles conceptions doivent être envisagées à l’aide des ressources de référence SKU Standard.  Veuillez consulter [Load Balancer Standard](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
 
-Les adresses IP publiques avec une référence de base prennent en charge une attribution **dynamique**. La méthode d’attribution par défaut est dynamique. Si vous sélectionnez la méthode dynamique, l’adresse IP **n’est pas** attribuée à la ressource au moment de sa création.
+## <a name="ip-address-assignment"></a>Affectation d’adresses IP
 
-L’adresse IP est attribuée lorsque vous associez la ressource d’adresse IP publique à l’élément suivant :
-
-* Machine virtuelle 
-* La première machine virtuelle est associée au pool principal d’un équilibreur de charge.
-
-L’adresse IP est libérée lorsque vous arrêtez (ou supprimez) la ressource.  
-
-Par exemple, une ressource IP publique est libérée à partir d’une ressource nommée **Ressource A**. **Ressource A** reçoit une adresse IP différente au démarrage si la ressource IP publique est réaffectée.
-
-L’adresse IP est libérée lorsque la méthode d’allocation passe de **statique** à **dynamique**. Pour vous assurer que l’adresse IP de la ressource associée ne change pas, définissez explicitement la méthode d’allocation sur **statique**. Une adresse IP statique est affectée immédiatement.
+ Les adresses IPv4 publiques standard, IPv4 de base et IPv6 standard prennent toutes en charge l’attribution **static**.  Une adresse IP est attribuée à la ressource au moment de sa création. L’adresse IP est libérée lorsque la ressource est supprimée.  
 
 > [!NOTE]
 > Même lorsque vous définissez la méthode d’allocation sur **statique**, vous ne pouvez pas spécifier l’adresse IP réelle affectée à la ressource IP publique. Azure assigne l’adresse IP à partir d’un pool d’adresses IP disponibles dans l’emplacement Azure dans lequel la ressource est créée.
@@ -112,13 +107,17 @@ Des adresses IP publiques statiques sont fréquemment utilisées dans les cas su
 * Vos ressources Azure communiquent avec d’autres applications ou services qui utilisent un modèle de sécurité basé sur une adresse IP.
 * Vous utilisez des certificats TLS/SSL liés à une adresse IP.
 
+Les adresses IPv4 et IPv6 publiques de base prennent en charge une attribution **dynamique**.  Si vous sélectionnez la méthode dynamique, l’adresse IP **n’est pas** attribuée à la ressource au moment de sa création.  L’adresse IP est attribuée lorsque vous associez la ressource d’adresse IP publique à une ressource. L’adresse IP est libérée lorsque vous arrêtez (ou supprimez) la ressource.   Par exemple, une ressource IP publique est libérée à partir d’une ressource nommée **Ressource A**. **Ressource A** reçoit une adresse IP différente au démarrage si la ressource IP publique est réaffectée. Une adresse IP associée est libérée si la méthode d’allocation passe de **statique** à **dynamique**. Définissez la méthode d’allocation **statique** pour vous assurer que l’adresse IP ne change pas.
+
 > [!NOTE]
 > Azure alloue des adresses IP publiques d’une plage unique à chaque région dans chaque Cloud Azure. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
 >
 
-## <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
+## <a name="dns-name-label"></a>Étiquette du nom DNS
 
-Sélectionnez l’option permettant de spécifier une étiquette de nom de domaine DNS pour une ressource d’adresse IP publique. 
+Sélectionnez cette option pour spécifier une étiquette DNS pour une ressource d’adresse IP publique. Cette fonctionnalité fonctionne pour les adresses IPv4 (enregistrements A 32 bits) et les adresses IPv6 (enregistrements AAAA de 128 bits).
+
+### <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
 
 Cette sélection crée un mappage pour **domainnamelabel**.**location**.cloudapp.azure.com sur l’adresse IP publique dans le DNS géré par Azure. 
 
@@ -131,81 +130,45 @@ Le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** correspon
 
 > [!IMPORTANT]
 > Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure.  
+
+### <a name="dns-recommendations"></a>Recommandations DNS
+
+Vous ne pouvez pas migrer le nom de domaine complet de votre adresse IP publique entre les régions. Utilisez le nom de domaine complet pour créer un enregistrement CNAME personnalisé qui pointe vers l’adresse IP publique. Si un déplacement vers une autre adresse IP publique est nécessaire, mettez à jour l’enregistrement CNAME.
+
+Vous pouvez utiliser [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou un fournisseur DNS externe pour votre enregistrement DNS.
+
+## <a name="other-public-ip-address-features"></a>Autres fonctionnalités d’adresse IP publique
+
+D’autres attributs peuvent être utilisés pour une adresse IP publique.  
+
+* Le **niveau** global permet l’utilisation d’une adresse IP publique avec des équilibreurs de charge entre les régions. 
+* L’option **Préférence de routage** Internet limite le temps que le trafic passe sur le réseau Microsoft, ce qui réduit le coût de transfert de données sortantes.
+
+> [!NOTE]
+> Actuellement, les fonctionnalités **Niveau** et **Préférence de routage** sont uniquement disponibles pour les adresses IPv4 de la référence SKU standard.  Elles ne peuvent pas non plus être utilisés simultanément sur la même adresse IP.
 >
 
-## <a name="dns-recommendations"></a>Recommandations DNS
-
-Si un déplacement de région est nécessaire, vous ne pouvez pas migrer le nom de domaine complet de votre adresse IP publique. Utilisez le nom de domaine complet pour créer un enregistrement CNAME personnalisé qui pointe vers l’adresse IP publique. 
-
-Si un déplacement vers une autre adresse IP publique est nécessaire, mettez à jour l’enregistrement CNAME au lieu de mettre à jour le nom de domaine complet.
-
-Vous pouvez utiliser [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou un fournisseur DNS externe pour votre enregistrement DNS. 
-
-## <a name="virtual-machines"></a>Machines virtuelles
-
-Vous pouvez associer une adresse IP publique à une machine virtuelle [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en l’affectant à son **interface réseau**. 
-
-Choisissez **dynamique** ou **statique** pour l’adresse IP publique. Apprenez-en davantage sur l’[assignation d’adresses IP à des interfaces réseau](virtual-network-network-interface-addresses.md).
-
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-## <a name="internet-facing-load-balancers"></a>Équilibreurs de charge accessibles sur Internet
+## <a name="limits"></a>limites 
 
-Vous pouvez associer une adresse IP publique créée avec l’une des deux [références SKU](#sku) à un [équilibreur de charge Azure](../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. 
-
-Vous pouvez affecter une adresse IP publique dynamique ou statique à un équilibreur de charge frontal. Vous pouvez affecter plusieurs adresses IP publiques à un équilibreur de charge frontal. Cette configuration permet des scénarios [à plusieurs adresses IP virtuelles](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) comme un environnement mutualisé avec des sites Web basés sur TLS. 
-
-Pour plus d’informations sur les références SKU de l’équilibreur de charge Azure, consultez [Référence SKU standard de l’équilibreur de charge Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
-
-## <a name="vpn-gateways"></a>Passerelles VPN
-
-La [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connecte un réseau virtuel Azure aux éléments suivants :
-
-* Réseaux virtuels Azure
-* Réseaux locaux. 
-
-Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. 
-
-* Affectez une adresse IP publique de base **dynamique** à une configuration frontale de SKU VPNGW 1-5.
-* Attribuez une IP publique **statique** standard à une configuration frontale de SKU VPNGwAZ 1 à 5.
-
-## <a name="application-gateways"></a>Passerelles d’application
-
-Vous pouvez associer une adresse IP publique à une [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)Azure en l’affectant à la configuration **frontale** de la passerelle. 
-
-* Affectez une adresse IP publique de base **dynamique** à une configuration frontale de passerelle d’application V1. 
-* Affectez une adresse IP publique **statique** standard à une configuration frontale V2.
-
-## <a name="azure-firewall"></a>Pare-feu Azure
-
-[Pare-feu Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vous permet de créer, d’appliquer et de consigner des stratégies de connectivité réseau et d’application entre les abonnements et les réseaux virtuels.
-
-Vous pouvez uniquement associer des IP publiques standard **statiques** à un pare-feu. Les pare-feu externes peuvent ainsi identifier le trafic provenant de votre réseau virtuel. 
-
-
-## <a name="at-a-glance"></a>Aperçu
-
-Le tableau ci-dessous présente la propriété par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles.
-
-| Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
-| --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Oui (VPNGwAZ uniquement) |
-| passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
-| Pare-feu Azure | Configuration frontale | Non | Oui|
-
-## <a name="limits"></a>limites
-
-Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. 
-
-Ces limites sont exprimées par région et par abonnement. [Contactez le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.
+Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. [Contactez le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut en fonction de vos besoins métier.
 
 ## <a name="pricing"></a>Tarifs
 
-Les adresses IP publiques peuvent avoir un coût nominal. Pour en savoir plus sur la tarification des adresses IP dans Azure, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
+Le coût des adresses IP publiques est modique. Pour en savoir plus sur la tarification des adresses IP dans Azure, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
+
+## <a name="limitations-for-ipv6"></a>Limitations pour IPv6
+
+* Les passerelles VPN ne peuvent pas être utilisés dans un réseau virtuel où le protocole IPv6 est activé, que ce soit directement ou appairé avec « UseRemoteGateway ».
+* Les adresses IPv6 publiques sont verrouillées sur un délai d’inactivité de 4 minutes.
+* Azure ne prend pas en charge la communication IPv6 pour les conteneurs.
+* L’utilisation de machines virtuelles ou de groupes identiques de machines virtuelles avec IPv6 uniquement n’est pas prise en charge. Chaque carte d’interface réseau doit inclure au moins une configuration IP IPv4 (double pile).
+* Lorsque vous ajoutez IPv6 à des déploiements IPv4 existants, les plages IPv6 ne peuvent pas être ajoutées à un réseau virtuel avec des liens de navigation vers les ressources qui existent déjà.
+* Le DNS direct pour IPv6 est actuellement pris en charge pour le DNS public Azure. Le DNS inversé n’est pas pris en charge.
+* La préférence de routage et l’équilibrage de charge entre les régions ne sont pas pris en charge.
+
+Pour plus d’informations sur IPv6 dans Azure, cliquez [ici](./ipv6-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrir les [adresses IP privées dans Azure](private-ip-addresses.md)

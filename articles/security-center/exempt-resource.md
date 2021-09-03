@@ -7,12 +7,12 @@ ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 01be1037b38e2991a2266c37dfd3ca026ca874ff
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: f69b7174ec37a38fd972f53daaaf09776a279cea
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846421"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122525007"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -36,7 +36,7 @@ Dans ce cas, vous pouvez créer une exemption pour une recommandation pour :
 | Prix :                        | Il s’agit d’une capacité premium d’Azure Policy proposée sans surcoût aux clients d’Azure Defender. Pour les autres utilisateurs, des frais pourront s’appliquer.                                                                                                                                                                 |
 | Rôles et autorisations obligatoires : | **Propriétaire** ou **Contributeur de stratégie de ressource** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction), ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
-| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)                                                                                                                                                                                         |
+| Clouds :                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Souverain (Azure Government, Azure China 21Vianet)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Définir une exemption
@@ -77,7 +77,7 @@ Pour créer une règle d’exemption :
     1. Si vous le souhaitez, entrez une description.
     1. Sélectionnez **Create** (Créer).
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Étapes de création d’une règle d’exemption pour exempter une recommandation de votre abonnement ou groupe d’administration":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Étapes de création d’une règle d’exemption pour exempter une recommandation de votre abonnement ou groupe d’administration.":::
 
     Lorsque l’exemption prend effet (cela peut prendre jusqu’à 30 minutes) :
     - La recommandation ou les ressources n’ont pas d’impact sur votre score sécurisé.
@@ -88,11 +88,11 @@ Pour créer une règle d’exemption :
 
     - La bande d’informations en haut de la page des détails de la recommandation met à jour le nombre de ressources exemptées :
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Nombre de ressources exemptées":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Nombre de ressources exemptées.":::
 
 1. Pour passer en revue vos ressources exemptées, ouvrez l’onglet **Non applicable** :
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modification d’une exemption":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modification d’une exemption.":::
 
     La raison de chaque exemption est spécifiée dans le tableau (1).
 

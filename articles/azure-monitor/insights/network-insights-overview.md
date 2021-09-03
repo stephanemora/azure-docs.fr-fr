@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: f401c143f1f5a9352b56b80f9e473bd7fa819245
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: a4b433ed7a2eb0a2a9367f921e63091a823df37d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968252"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563390"
 ---
 # <a name="azure-monitor-network-insights"></a>Azure Monitor Network Insights
 
@@ -108,9 +108,19 @@ La boîte à outils de diagnostic fournit un accès à toutes les fonctionnalit�
 
 ![Capture d’écran montrant l’onglet Boîte à outils de diagnostic.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## <a name="onboarded-resources"></a>Ressources intégrées 
+## <a name="availability-of-resources"></a>Disponibilité des ressources 
 
-Les ressources intégrées comportent des classeurs intégrés et des affichages de dépendance. Les ressources actuellement intégrées sont Virtual WAN, Application Gateway, Load Balancer et ExpressRoute.
+Par défaut, toutes les ressources réseau sont visibles dans Insights réseau. Les clients peuvent cliquer sur le type de ressource pour afficher l’intégrité et les métriques des ressources (le cas échéant), les détails d’abonnement, l’emplacement, etc. Un sous-ensemble de ressources réseau a été _intégré_. Pour les ressources intégrées, les clients ont accès à une vue topologique spécifique aux ressources et à un classeur de métriques intégré. Ces expériences prêtes à l’emploi facilitent l’exploration des métriques des ressources et la résolution des problèmes.  
+
+Les ressources intégrées sont les suivantes : 
+* WAN virtuel
+* Application Gateway
+* Load Balancer
+* ExpressRoute
+* Liaison privée
+* NAT Gateway
+* Adresse IP publique
+* Carte d’interface réseau
 
 ## <a name="troubleshooting"></a>Dépannage 
 Pour obtenir des conseils généraux sur la résolution des problèmes, consultez l’[article de résolution des problèmes](troubleshoot-workbooks.md) dédié aux insights basés sur des classeurs.

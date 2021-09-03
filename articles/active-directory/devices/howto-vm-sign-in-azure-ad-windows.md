@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/19/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834aa7643583683f7ee64abdbd1e18e0b76c6ada
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: ea5ad0ed61ac0d2b9603752efc6bbc998cf189a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538820"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608111"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory
 
@@ -173,16 +173,18 @@ Il existe plusieurs façons de configurer des attributions de rôles pour une ma
 
 Pour configurer les attributions de rôles pour vos machines virtuelles Windows Server 2019 Datacenter activées pour Azure AD :
 
-1. Accédez à la page de vue d’ensemble de la machine virtuelle spécifique
-1. Sélectionnez **Contrôle d’accès (IAM)** à partir des options de menu
-1. Sélectionnez **Ajouter**, **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
-1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, par exemple **Connexion de l’administrateur aux machines virtuelles** ou **Connexion de l’utilisateur aux machines virtuelles**.
-1. Dans le champ **Sélectionner**, sélectionnez un utilisateur, un groupe, un principal de service ou une identité managée. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
-1. Sélectionnez **Enregistrer** pour attribuer le rôle.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-Après quelques instants, le principal de sécurité est attribué au rôle dans l’étendue sélectionnée.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-![Attribuer des rôles aux utilisateurs qui accèdent à la machine virtuelle](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-access-control-assign-role.png)
+1. Attribuez le rôle suivant. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | **Connexion de l’administrateur aux machines virtuelles** ou **Connexion de l’utilisateur aux machines virtuelles** |
+    | Attribuer l’accès à | Utilisateur, groupe, principal de service ou identité managée |
+
+    ![Page Ajouter une attribution de rôle dans le portail Azure.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>À l’aide de l’expérience Azure Cloud Shell
 
@@ -209,13 +211,13 @@ Pour plus d’informations sur l’utilisation du contrôle d’accès en foncti
 
 ## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
 
-Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Windows dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Microsoft Azure » à partir de l’option d’affectation d’applications ou actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle pour l’octroi d’accès. 
+Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Windows dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « **Connexion à une machine virtuelle Microsoft Azure** » à partir de l’option d’affectation d’applications ou actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle pour l’octroi d’accès. 
 
 > [!NOTE]
 > Si vous utilisez « Exiger l’authentification multifacteur » comme contrôle pour l’octroi d’accès pour demander l’accès à l’application « Connexion à une machine virtuelle Microsoft Azure », vous devez fournir une revendication d’authentification multifacteur avec le client qui lance la session Bureau à distance (RDP) sur la machine virtuelle Windows cible dans Azure. La seule façon d’y parvenir sur un client Windows 10 est d’utiliser le code PIN Windows Hello Entreprise ou une authentification biométrique avec le client RDP. La prise en charge de l’authentification biométrique a été ajoutée au client RDP dans Windows 10 version 1809. Le Bureau à distance utilisant l’authentification Windows Hello Entreprise est disponible uniquement pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
 
 > [!WARNING]
-> Le service Azure AD Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.
+> L’authentification multifacteur Azure AD activée/appliquée par utilisateur n’est pas prise en charge pour la connexion à une machine virtuelle.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
@@ -238,7 +240,7 @@ Vous êtes à présent connecté à la machine virtuelle Azure Windows Server 2
 
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Utilisation d’Azure Policy pour garantir les normes et évaluer la conformité
 
-Utilisez Azure Policy pour vous assurer que la connexion Azure AD est activée pour vos machines virtuelles Windows nouvelles et existantes et évaluer la conformité de votre environnement à grande échelle sur votre tableau de bord de conformité Azure Policy. Grâce à cette capacité, vous pouvez utiliser plusieurs niveaux d’application : vous pouvez signaler les machines virtuelles Windows nouvelles et existantes de votre environnement pour lesquelles la connexion Azure AD n’est pas activée. Vous pouvez également utiliser Azure Policy pour déployer l’extension Azure AD sur de nouvelles machines virtuelles Windows sur lesquelles la connexion Azure AD n’est pas activée, ainsi que pour corriger les machines virtuelles Windows existantes afin qu’elles respectent la même norme. Outre ces capacités, vous pouvez également utiliser Policy pour détecter et signaler les machines virtuelles Windows sur lesquelles des comptes locaux non approuvés sont créés. Pour en savoir plus, consultez [Azure Policy](https://www.aka.ms/AzurePolicy).
+Utilisez Azure Policy pour vous assurer que la connexion Azure AD est activée pour vos machines virtuelles Windows nouvelles et existantes et évaluer la conformité de votre environnement à grande échelle sur votre tableau de bord de conformité Azure Policy. Grâce à cette capacité, vous pouvez utiliser plusieurs niveaux d’application : vous pouvez signaler les machines virtuelles Windows nouvelles et existantes de votre environnement pour lesquelles la connexion Azure AD n’est pas activée. Vous pouvez également utiliser Azure Policy pour déployer l’extension Azure AD sur de nouvelles machines virtuelles Windows pour lesquelles la connexion Azure AD n’est pas activée, ainsi que pour corriger les machines virtuelles Windows existantes afin qu’elles respectent la même norme. Outre ces capacités, vous pouvez également utiliser Azure Policy pour détecter et signaler les machines virtuelles Windows sur lesquelles des comptes locaux non approuvés sont créés. Pour en savoir plus, consultez [Azure Policy](../../governance/policy/overview.md).
 
 ## <a name="troubleshoot"></a>Dépanner
 
@@ -267,14 +269,13 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-
-   > [!NOTE]
-   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
 
+   > [!NOTE]
+   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure.<br/> `enterpriseregistration.windows.net` et `pas.windows.net` doivent retourner 404 Introuvable, ce qui correspond au comportement attendu.
+            
 1. L’état de l’appareil peut être affiché en exécutant `dsregcmd /status`. L’objectif est que l’état de l’appareil s’affiche comme `AzureAdJoined : YES`.
 
    > [!NOTE]
@@ -302,13 +303,12 @@ Ce code de sortie se traduit par `DSREG_AUTOJOIN_DISC_FAILED`, car l’extension
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   
-   > [!NOTE]
-   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure. Si vous devez trouver l’ID de locataire, vous pouvez pointer sur le nom de votre compte pour obtenir l’ID de locataire/répertoire ou sélectionner **Azure Active Directory > Propriétés > ID de répertoire** dans le portail Azure.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
+   
+   > [!NOTE]
+   > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure. Si vous devez trouver l’ID de locataire, vous pouvez pointer sur le nom de votre compte pour obtenir l’ID de locataire/répertoire ou sélectionner **Azure Active Directory > Propriétés > ID de répertoire** dans le portail Azure.<br/>`enterpriseregistration.windows.net` et `pas.windows.net` doivent retourner 404 Introuvable, ce qui correspond au comportement attendu.
 
 1. Si l’une des commandes échoue avec le message « Impossible de résoudre `<URL>` hôte », essayez d’exécuter cette commande pour déterminer le serveur DNS utilisé par la machine virtuelle.
    
@@ -377,7 +377,30 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 Si vous avez configuré une stratégie d’accès conditionnel qui requiert un authentification multifacteur (MFA) pour vous permettre d’accéder à la ressource, vous devez vous assurer que le PC Windows 10 qui établit la connexion Bureau à distance à votre machine virtuelle se connecte à l’aide d’une méthode d’authentification forte, telle que Windows Hello. Si vous n’utilisez pas une méthode d’authentification forte pour votre connexion Bureau à distance, l’erreur précédente s’affiche.
 
-Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « Connexion à une machine virtuelle Microsoft Azure » de la liste des applications cloud qui exigent une authentification MFA. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+- Vos informations d'identification n'ont pas fonctionné.
+
+![Vos informations d’identification n’ont pas fonctionné](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+> [!WARNING]
+> L’authentification multifacteur Azure AD activée/appliquée par utilisateur n’est pas prise en charge pour la connexion à une machine virtuelle. Ce paramètre entraîne l’échec de la connexion avec le message d’erreur « Vos informations d’identification ne fonctionnent pas ».
+
+Vous pouvez résoudre ce problème en supprimant le paramètre d’authentification multifacteur par l’utilisateur, en procédant comme suit :
+
+```
+
+# Get StrongAuthenticationRequirements configure on a user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+ 
+# Clear StrongAuthenticationRequirements from a user
+$mfa = @()
+Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequirements $mfa
+ 
+# Verify StrongAuthenticationRequirements are cleared from the user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+
+```
+
+Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « **Connexion à une machine virtuelle Microsoft Azure** » de la liste des applications cloud exigeant une authentification multifacteur. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.

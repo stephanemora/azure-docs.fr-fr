@@ -3,14 +3,15 @@ metadata:
   title: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
   description: Trouvez des réponses aux questions courantes sur la sauvegarde de bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure.
   ms.reviewer: vijayts
-  ms.topic: conceptual
-  ms.date: 05/07/2021
-  ms.openlocfilehash: 0c53b52f38103790ae5439e33d81c268756b5eec
-  ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+  ms.topic: article
+  ms.service: backup
+  ms.date: 08/20/2021
+  ms.openlocfilehash: d8c04eead12e3c0e96cf72e7492c52ccdb49686e
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/07/2021
-  ms.locfileid: "111907236"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123108914"
 title: Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 summary: >
   Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service [Sauvegarde Azure](backup-overview.md).
@@ -75,18 +76,6 @@ sections:
 
       > Dans l’expérience utilisateur, vous pouvez continuer et planifier autant de sauvegardes que vous le souhaitez à un moment donné. Toutefois, elles seront traitées dans une fenêtre glissante, par exemple de 5, conformément à l’exemple ci-dessus.
   - question: >
-      Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
-    answer: >
-      Conformément aux limites SQL, vous pouvez exécuter une sauvegarde de copie uniquement sur un réplica secondaire. En revanche, la sauvegarde complète n’est pas autorisée.
-  - question: >
-      Puis-je protéger des groupes de disponibilité en local ?
-    answer: >
-      Non. Sauvegarde Azure protège les bases de données SQL Server s'exécutant dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, l’AG peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Sauvegarde Azure protège uniquement les nœuds s'exécutant dans la même région Azure que le coffre Recovery Services.
-  - question: >
-      Puis-je protéger des groupes de disponibilité dans plusieurs régions ?
-    answer: >
-      Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre. Si votre groupe de disponibilité SQL Server Always On s’étend sur plusieurs régions Azure, configurez la sauvegarde à partir de la région où se trouve le nœud principal. La Sauvegarde Azure peut découvrir et protéger toutes les bases de données du groupe de disponibilité en fonction de votre préférence de sauvegarde. Si votre préférence de sauvegarde n’est pas satisfaite, les sauvegardes échouent et vous recevez l’alerte d’échec.
-  - question: >
       La réussite des travaux de sauvegarde génère-t-elle des alertes ?
     answer: >
       Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](backup-azure-monitoring-built-in-monitor.md). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser la [supervision à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
@@ -117,7 +106,7 @@ sections:
   - question: >
       Pourquoi ne puis-je pas voir une base de données ajoutée pour une instance protégée automatiquement ?
     answer: >
-      Une base de données que vous [ajoutez à une instance protégée automatiquement](backup-sql-server-database-azure-vms.md#enable-auto-protection) n’apparaît pas immédiatement sous les éléments protégés. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Cela étant, pour détecter et protéger les nouvelles bases de données immédiatement, vous pouvez exécuter manuellement une détection en sélectionnant **Redécouvrir les bases de données**, comme l’illustre l’image suivante :
+      Une base de données que vous [ajoutez à une instance protégée automatiquement](backup-sql-server-database-azure-vms.md#enable-auto-protection) n’apparaît pas immédiatement sous les éléments protégés. Cela est dû au fait que la découverte s’exécute généralement toutes les 8 heures et que la protection réelle du système peut prendre du temps, car elle dépend de la taille de la machine virtuelle. Cela étant, pour détecter les nouvelles bases de données immédiatement, vous pouvez exécuter manuellement une détection en sélectionnant **Redécouvrir les bases de données**, comme l’illustre l’image suivante :
 
         ![Détecter manuellement une base de données qui vient d'être ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
   - question: >

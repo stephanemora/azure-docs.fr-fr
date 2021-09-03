@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 2b5700498bd09e24adeb6d1a386e8bb8da6b92c7
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 8f953cf2bdacaa983061a04168345d1add1842f2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562354"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
-**Stockage redondant interzone (ZRS)** | Disponible dans les régions Royaume-Uni Sud (UKS) et Asie Sud-Est (SEA).
+**Stockage redondant interzone (ZRS)** | Prise en charge en préversion : Royaume-Uni Sud, Asie Sud-Est, Australie Est, Europe Nord, USA Centre et Japon Est.
 **Points de terminaison privés** | Consultez [cette section](./private-endpoints.md#before-you-start) afin de connaître la configuration requise pour créer des points de terminaison privés pour un coffre Recovery Services.  
 
 ## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales
@@ -155,6 +155,17 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 | SQL /SAP HANA | Disponible      | Disponible dans toutes les régions publiques et régions souveraines Azure, à l’exception de France Centre, US Gov Iowa et US Gov Virginie. |
 | Agent MARS/En local  | Non                                                           | N/A               |
 | AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |
+
+## <a name="resource-health"></a>Intégrité des ressources
+
+La vérification de l’intégrité des ressources fonctionne dans les conditions suivantes :
+
+|     |     |
+| --- | --- |
+| **Ressources prises en charge** | Coffre Recovery Services |
+| **Régions prises en charge** | USA Est 2, Asie Est et France Centre. |
+| **Pour les régions non prises en charge** | L’état d’intégrité des ressources indique « Inconnu ». |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

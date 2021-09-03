@@ -5,15 +5,15 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/14/2020
+ms.date: 07/30/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dcce15618159b9d6a06a513435f0e091e02a2b2c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ad73d319e5466bb541a99e3ef33b17cdc644dfe5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411249"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562365"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Règles personnalisées du pare-feu d’applications web v2 sur Azure Application Gateway
 
@@ -108,7 +108,7 @@ Actuellement, ce doit être **MatchRule**.
 
 Doit être l’une des variables suivantes :
 
-- Remaddr - Adresse IP/nom d’hôte de la connexion de l’ordinateur distant
+- RemoteAddr - Adresse IP/Portéede la connexion de l’ordinateur distant
 - RequestMethod - Méthode de requête HTTP (GET, POST, PUT, DELETE etc.)
 - Chaîne de requête - Variable de l’URI
 - PostArgs – Arguments envoyés dans le corps POST. Les règles personnalisées utilisant cette variable de correspondance ne sont appliquées que si l’en-tête « Content-Type » est défini sur « application/x-www-form-urlencoded » et « multipart/form-data ».
@@ -135,7 +135,7 @@ Il doit s’agir de l’un des opérateurs suivants :
 - BeginsWith
 - EndsWith
 - Expression régulière
-- Geomatch (préversion)
+- Geomatch
 
 ### <a name="negate-condition-optional"></a>Negate condition [facultatif]
 
@@ -162,9 +162,9 @@ Liste des valeurs selon lesquelles effectuer la mise en correspondance, ce qui p
 - Bloquer - Bloque la transaction selon *SecDefaultAction* (mode de détection/prévention). Tout comme l’action d’autorisation, une fois la requête évaluée et ajoutée à la liste rouge, l’évaluation est interrompue et la requête bloquée. Toute demande subséquente répondant aux mêmes conditions n’est pas évaluée, mais simplement bloquée. 
 - Journal - Autorise la règle à écrire dans le journal, mais autorise l’exécution du reste des règles pour évaluation. Les autres règles personnalisées consécutives sont évaluées par ordre de priorité, suivies des règles managées.
 
-## <a name="geomatch-custom-rules-preview"></a>Règles personnalisées Geomatch (préversion)
+## <a name="geomatch-custom-rules"></a>Règles personnalisées Geomatch
 
-Vous pouvez créer des règles personnalisées pour répondre aux besoins exacts de vos applications et stratégies de sécurité. Vous pouvez restreindre l’accès à vos applications web par pays/région. Pour plus d’informations, voir [Règles personnalisées de géocorrespondance (préversion)](geomatch-custom-rules.md).
+Vous pouvez créer des règles personnalisées pour répondre aux besoins exacts de vos applications et stratégies de sécurité. Vous pouvez restreindre l’accès à vos applications web par pays/région. Pour plus d’informations, voir [Règles personnalisées de géocorrespondance](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

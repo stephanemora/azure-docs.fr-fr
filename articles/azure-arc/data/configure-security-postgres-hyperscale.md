@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: b6f9570c04b9182e756560a23ffb6bbbdc079cd1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8841c3abae51de0cfcd1391940f9232c4585c02f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407738"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532470"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurer la sécurité pour votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc
 
@@ -156,8 +156,8 @@ Vous pouvez utiliser la méthode Postgres standard pour créer des utilisateurs 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>Modifier le mot de passe de l’utilisateur administratif _postgres_
 PostgreSQL Hyperscale avec Azure Arc est fourni avec l’utilisateur administratif Postgres standard, _postgres_, pour lequel vous définissez le mot de passe lors de la création de votre groupe de serveurs.
 Le format général de la commande pour modifier le mot de passe est le suivant :
-```console
-azdata arc postgres server edit --name <server group name> --admin-password
+```azurecli
+az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
 ```
 
 Où `--admin-password` est une valeur booléenne qui a trait à la présence d’une valeur dans la variable d’environnement de **session** AZDATA_PASSWORD.
@@ -169,12 +169,13 @@ Si la variable d’environnement de **session** AZDATA_PASSWORD existe mais n’
 
 1. Supprimer la variable d’environnement de **session** AZDATA_PASSWORD ou supprimer sa valeur
 2. Exécutez la commande suivante :
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    Par exemple
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    Vous serez invité à entrer le mot de passe, puis à le confirmer :
    ```console
@@ -191,12 +192,12 @@ Si la variable d’environnement de **session** AZDATA_PASSWORD existe mais n’
 #### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Modifier le mot de passe de l’utilisateur administratif postgres à l’aide de la variable d’environnement de **session** AZDATA_PASSWORD :
 1. Définissez la valeur de la variable d’environnement de **session** AZDATA_PASSWORD sur le mot de passe que vous souhaitez.
 2. Exécutez la commande :
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    Par exemple
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    
    Le mot de passe étant mis à jour, la sortie de la commande est la suivante :

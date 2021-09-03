@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5f6fbcb73b4139c0a80ea8352071d8683c401d6e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc13cd4eeaa1fba3d96a0f3ccbe439a2463bce99
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782943"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535057"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Environnements Compute pris en charge par Azure Data Factory version 1
 > [!NOTE]
@@ -26,7 +26,7 @@ Le tableau suivant fournit une liste d’environnements de calcul qui sont pris 
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster Azure HDInsight à la demande](#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning Studio (classique)](#azure-machine-learning-studio-classic-linked-service) | [Activités Studio (classique) : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |
+| [ML Studio (classique)](#ml-studio-classic-linked-service) | [Activités Studio (classique) : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |
 | [Service Analytique Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Activité de procédure stockée](data-factory-stored-proc-activity.md) |
 
@@ -45,7 +45,7 @@ Microsoft met à jour la liste des versions de HDInsight prises en charge avec l
 Après le 15 décembre 2017 :
 
 - Vous ne pouvez plus créer de clusters HDInsight version 3.3 basé sur Linux (ni des versions antérieures) à l’aide d’un service lié HDInsight à la demande dans Data Factory version 1. 
-- Si les propriétés [**osType** et **Version**](#azure-hdinsight-on-demand-linked-service) ne sont pas spécifiées explicitement dans la définition JSON d’un service lié HDInsight à la demande Data Factory version 1, la valeur par défaut **Version=3.1, osType=Windows** est remplacée par **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) , osType=Linux**.
+- Si les propriétés [**osType** et **Version**](#azure-hdinsight-on-demand-linked-service) ne sont pas spécifiées explicitement dans la définition JSON d’un service lié HDInsight à la demande Data Factory version 1, la valeur par défaut **Version=3.1, osType=Windows** est remplacée par **Version=\<latest HDI default version\>, osType=Linux**.
 
 Après le 31 juillet 2018 :
 
@@ -226,7 +226,7 @@ Ce type de configuration est pris en charge pour les environnements de calcul su
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning Studio (classique)
+* ML Studio (classique)
 * Service Analytique Azure Data Lake
 * Azure SQL Database, Azure Synapse Analytics, SQL Server
 
@@ -307,8 +307,8 @@ Une autre option consiste à fournir le point de terminaison **batchUri**. Par e
 | poolName          | Le nom du pool de machines virtuelles.    | Oui      |
 | linkedServiceName | Le nom du service lié de stockage qui est associé à ce service lié Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l’exécution de l’activité et pour stocker les journaux d’activité d’exécution de l’activité. | Oui      |
 
-## <a name="azure-machine-learning-studio-classic-linked-service"></a>Service lié Azure Machine Learning Studio (classique)
-Vous pouvez créer un service lié Azure Machine Learning Studio (classique) pour inscrire un point de terminaison de notation par lot Studio (classique) auprès d’une fabrique de données.
+## <a name="ml-studio-classic-linked-service"></a>Service lié ML Studio (classique)
+Vous pouvez créer un service lié ML Studio (classique) pour inscrire un point de terminaison de notation par lot Studio (classique) auprès d’une fabrique de données.
 
 ### <a name="example"></a>Exemple
 

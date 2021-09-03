@@ -1,20 +1,20 @@
 ---
-title: Résoudre les problèmes liés à Azure Percept DK
+title: Résoudre les problèmes relatifs aux appareils Azure Percept DK
 description: Obtenir des conseils de dépannage pour certains des problèmes les plus courants avec Azure Percept DK et IoT Edge
-author: mimcco
-ms.author: mimcco
+author: juniem
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: caea6bbd8ebcf3dbe2d6f8b45174326a5ba4f169
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: e644732a90652b1672dc77bfc6db86d7a6b7295a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533052"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221076"
 ---
-# <a name="azure-percept-dk-troubleshooting"></a>Résolution des problèmes liés à Azure Percept DK
+# <a name="troubleshoot-the-azure-percept-dk-device"></a>Résoudre les problèmes relatifs aux appareils Azure Percept DK
 
 L’objectif de cet article de résolution des problèmes est d’aider les utilisateurs Azure Percept DK à résoudre rapidement les problèmes courants liés à leurs kits de développement. Il fournit également des conseils sur la collecte des journaux lorsque vous avez besoin d’une prise en charge supplémentaire.
 
@@ -47,7 +47,6 @@ Dans cette section, vous allez obtenir des conseils sur les journaux à collecte
 |*OOBE logs* : enregistre des détails sur l’expérience de configuration.|Collecte lorsque vous rencontrez des problèmes lors de la configuration.|```sudo journalctl -u oobe -b```|
 |*edgeAgent logs* : enregistre les numéros de version de tous les modules en cours d’exécution sur votre appareil.|Collecte lorsqu’un ou plusieurs modules ne fonctionnent pas.|```sudo iotedge logs edgeAgent```|
 |*Module container logs* : enregistre des détails sur des conteneurs de modules IoT Edge spécifiques|Collecter lorsque vous rencontrez des problèmes avec un module|```sudo iotedge logs [container name]```|
-|*Journaux de point d’accès Wi-Fi* : enregistre des détails sur la connexion au point d’accès Wi-Fi du kit de développement.|Collecte lorsque vous rencontrez des problèmes lors de la connexion au point d’accès Wi-Fi du kit de développement.|```sudo journalctl -u hostapd.service```|
 |*Journaux réseau* : ensemble de journaux couvrant les services Wi-Fi et la pile réseau.|Collectez lorsque vous rencontrez des problèmes de Wi-Fi ou de réseau.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Exécutez les deux commandes. Chaque commande collecte plusieurs journaux et les place dans une seule sortie.|
 
 ## <a name="troubleshooting-commands"></a>Commandes de dépannage
@@ -55,9 +54,9 @@ Voici un ensemble de commandes qui peuvent être utilisées pour résoudre les p
 
 Pour plus d’informations sur les commandes Azure IoT Edge, consultez la [documentation sur la résolution des problèmes liés aux appareils Azure IoT Edge](../iot-edge/troubleshoot.md). 
 
-|Function         |Quand l’utiliser                    |Commande                 |
+|Fonction         |Quand l’utiliser                    |Commande                 |
 |------------------|----------------------------|---------------------------|
-|Vérifie la version du logiciel sur le kit de développement.|Utilisez chaque fois que vous avez besoin de vérifier la version du logiciel qui se trouve dans votre kit de développement.|```cat /etc/adu-version```|
+|Vérifie la version du logiciel sur le kit de développement.|Utilisez chaque fois que vous avez besoin de vérifier la version du logiciel qui se trouve dans votre kit de développement.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
 |Vérifie la température du kit de développement|Utilisez dans les cas où vous pensez que le kit de développement peut être à l’origine d’une surchauffe.|```cat /sys/class/thermal/thermal_zone0/temp```|
 |Vérifie l’ID de télémétrie du kit de développement|Utilisez dans les cas où vous devez connaître l’identificateur de télémétrie unique des kits de développement.|```sudo azure-device-health-id```|
 |Vérifie le statut d’IoT Edge|À utiliser en cas de problème avec les modules IoT Edge se connectant au cloud.|```sudo iotedge check```|

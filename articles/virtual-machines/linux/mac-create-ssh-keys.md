@@ -8,16 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c5e683e1f5af42a69fac45c20f52169834967649
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c618ae7f63c1191bf440b5629057660531dd3d7c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788130"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562105"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure
 
-Avec une paire de clés SSH (Secure Shell), vous pouvez créer des machines virtuelles dans Azure qui utilisent des clés SSH pour l’authentification. Cet article décrit comment générer et utiliser rapidement une paire de clés publique et privée SSH pour des machines virtuelles Linux. Vous pouvez effectuer ces étapes avec Azure Cloud Shell, un hôte Linux ou macOS. 
+Avec une paire de clés SSH (Secure Shell), vous pouvez créer des machines virtuelles dans Azure qui utilisent des clés SSH pour l’authentification. Cet article décrit comment générer et utiliser rapidement une paire de clés publique et privée SSH pour des machines virtuelles Linux. Vous pouvez effectuer ces étapes avec Azure Cloud Shell, un macOS ou un hôte Linux. 
+
+Pour obtenir de l’aide pour la résolution des problèmes avec SSH, consultez [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 > [!NOTE]
 > Les machines virtuelles créées à l’aide de clés SSH sont par défaut configurées avec les mots de passe désactivés, ce qui accroît grandement la difficulté des attaques par force brute visant à deviner les mots de passe. 
@@ -89,7 +91,13 @@ Une fois la clé publique déployée sur votre machine virtuelle Azure et la cl�
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Si vous avez spécifié une phrase secrète quand vous avez créé votre paire de clés, entrez-la quand vous y êtes invité pendant le processus de connexion. La machine virtuelle est ajoutée à votre fichier ~/.ssh/known_hosts et vous n’avez pas à vous connecter à nouveau tant que la clé publique sur votre machine virtuelle Azure n’est pas modifiée ou que le nom de serveur n’est pas supprimé du fichier ~/.ssh/known_hosts.
+Vous êtes invité à vérifier l’empreinte digitale de l’hôte lors de votre première connexion sur cette machine virtuelle. Il est tentant de simplement accepter l’empreinte digitale présentée, mais cette approche vous expose à une possible attaque de l’homme du milieu. Vous devez toujours valider l’empreinte digitale de l’hôte. Vous ne devez effectuer cette opération que lors de la première connexion d’un client. Pour obtenir l’empreinte digitale de l’hôte via le portail, utilisez la fonctionnalité Run Command pour exécuter la commande `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Capture d’écran montrant l’utilisation de Run Command pour valider l’empreinte digitale de l’hôte.":::
+
+Pour exécuter la commande à l’aide de l’interface CLI, utilisez [`az vm run-command invoke`](/cli/azure/vm/run-command).
+
+Si vous avez spécifié une phrase secrète lors de la création de votre paire de clés, entrez-la quand vous y êtes invité pendant le processus de connexion. La machine virtuelle est ajoutée à votre fichier ~/.ssh/known_hosts et vous n’avez pas à vous connecter à nouveau tant que la clé publique sur votre machine virtuelle Azure n’est pas modifiée ou que le nom de serveur n’est pas supprimé du fichier ~/.ssh/known_hosts.
 
 Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demander à y accéder avant de pouvoir vous connecter à cette machine virtuelle. Pour plus d’informations sur la stratégie juste-à-temps, consultez [Gérer l’accès à la machine virtuelle à l’aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 

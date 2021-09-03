@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b507fec6c3f9cd53dd5b775dff2ca43c4dcfd1f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e2d65f256a69b397486675dc71efb71ce3e4263d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965487"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605032"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -184,7 +184,7 @@ La sauvegarde de machines virtuelles Azure nécessite un déplacement de donnée
 
 Azure [Private Endpoint](../private-link/private-endpoint-overview.md) est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le service Sauvegarde Azure vous permet de sauvegarder vos données dans vos coffres Recovery Services pour les restaurer ultérieurement en toute sécurité en utilisant des points de terminaison privés.
 
-* Même si des points de terminaison privés sont activés dans un coffre, ils sont uniquement utilisés pour la sauvegarde et la restauration des charges de travail SQL et SAP HANA en cas de sauvegarde de machines virtuelles Azure et de sauvegarde à l’aide de l’agent MARS.  Vous pouvez également utiliser un coffre pour la sauvegarde d’autres charges de travail (cependant, cela ne nécessiterait pas de point de terminaison privé). En plus de la sauvegarde des charges de travail SQL et SAP HANA et de la sauvegarde à l’aide de l’agent MARS, les points de terminaison privés sont également utilisés pour récupérer des fichiers en cas de sauvegarde de machines virtuelles Azure. [En savoir plus ici](private-endpoints.md#recommended-and-supported-scenarios).
+* Même si des points de terminaison privés sont activés dans un coffre, ils sont uniquement utilisés pour la sauvegarde et la restauration des charges de travail SQL et SAP HANA en cas de sauvegarde de machines virtuelles Azure et de sauvegarde à l’aide de l’agent MARS.  Vous pouvez également utiliser un coffre pour la sauvegarde d’autres charges de travail (cependant, cela ne nécessiterait pas de point de terminaison privé). En plus de la sauvegarde des charges de travail SQL et SAP HANA et de la sauvegarde à l’aide de l’agent MARS, les points de terminaison privés sont également utilisés pour récupérer des fichiers en cas de sauvegarde de machines virtuelles Azure. [En savoir plus ici](private-endpoints-overview.md#recommended-and-supported-scenarios).
 
 * Azure Active Directory ne prend pas en charge les points de terminaison privés pour le moment. Par conséquent, les adresses IP et les noms de domaine complets requis pour le bon fonctionnement du service Azure Active Directory dans une région doivent bénéficier d’une autorisation d’accès sortant sur le réseau sécurisé lors de la sauvegarde de bases de données dans des machines virtuelles Azure et de la sauvegarde à l’aide de l’agent MARS. Vous pouvez aussi utiliser des balises de groupe de sécurité réseau (NSG) et des balises du service Pare-feu Azure pour autoriser l’accès à Azure AD, le cas échéant. En savoir plus sur les [prérequis ici](./private-endpoints.md#before-you-start).
 

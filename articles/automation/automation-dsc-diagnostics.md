@@ -1,25 +1,25 @@
 ---
-title: Intégration aux journaux Azure Monitor
+title: Intégrer Azure Automation State Configuration avec les journaux Azure Monitor
 description: Cet article explique comment envoyer des données de rapport DSC (Desired State Configuration) entre Azure Automation State Configuration et les journaux Azure Monitor.
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 8952ea87cfd9317225ecb9e313174f8d1fe8e519
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: fb968d527bea4b9daeed4e12f0fdea16158d90c4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834801"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122527697"
 ---
-# <a name="integrate-with-azure-monitor-logs"></a>Intégration aux journaux Azure Monitor
+# <a name="integrate-azure-automation-state-configuration-with-azure-monitor-logs"></a>Intégrer Azure Automation State Configuration avec les journaux Azure Monitor
 
-Azure Automation State Configuration conserve les données d’état des nœuds pendant 30 jours. Vous pouvez envoyer les données d’état des nœuds à votre espace de travail Log Analytics si vous préférez conserver ces données plus longtemps. L’état de conformité est visible dans le portail Azure, ou avec PowerShell, pour les nœuds et les ressources DSC individuelles dans les configurations de nœud. 
+Azure Automation State Configuration conserve les données d’état des nœuds pendant 30 jours. Vous pouvez envoyer les données d’état des nœuds aux [Journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) si vous préférez conserver ces données plus longtemps. L’état de conformité est visible dans le portail Azure, ou avec PowerShell, pour les nœuds et les ressources DSC individuelles dans les configurations de nœud.
 
 Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle sur vos données Automation State Configuration et peuvent vous aider à traiter les incidents plus rapidement. Avec les journaux Azure Monitor, vous pouvez :
 
@@ -35,91 +35,140 @@ Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle s
 
 Pour commencer à envoyer vos rapports Automation State Configuration vers les journaux Azure Monitor, vous devez disposer des éléments suivants :
 
-- Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](/powershell/azure/) (v2.3.0).
+* Le [module Az](/powershell/azure/new-azureps-module-az) PowerShell installé. Vérifiez que vous avez la version la plus récente. Si nécessaire, exécutez `Update-Module -Name Az`.
 - Un compte Azure Automation. Pour plus d’informations, consultez [Présentation d’Azure Automation](automation-intro.md).
-- Un espace de travail Log Analytics avec une offre de service Automation & Control. Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+- Un espace de travail Log Analytics. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Monitor](../azure-monitor/logs/data-platform-logs.md).
 - Au moins un nœud Azure Automation State Configuration. Pour plus d’informations, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
 - Module [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) , version 2.7.0.0 ou ultérieure. Pour les étapes d’installation, consultez [Résoudre les problèmes de Configuration d’état souhaité d’Azure Automation](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurer l’intégration aux journaux d’Azure Monitor
 
-Pour commencer l’importation de données d’Azure Automation State Configuration vers les journaux Azure Monitor, effectuez les étapes suivantes :
+Pour commencer l’importation de données d’Azure Automation State Configuration vers les journaux Azure Monitor, effectuez les étapes suivantes : Pour savoir comment utiliser le portail, consultez [Transférer des données de travaux Azure Automation aux journaux Azure Monitor](./automation-manage-send-joblogs-log-analytics.md).
 
-1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
-1. Récupérez l’ID de ressource de votre compte Automation en exécutant l’applet de commande PowerShell suivante. Si vous avez plusieurs comptes Automation, choisissez l’ID de ressource pour le compte que vous voulez configurer.
+1. Depuis votre machine, connectez-vous à votre abonnement Azure avec la cmdlet PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) et suivez les instructions qui s’affichent à l’écran.
+
+    ```powershell
+    # Sign in to your Azure subscription
+    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Connect-AzAccount
+    }
+    
+    # If you have multiple subscriptions, set the one to use
+    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+    ```
+
+1. Fournissez une valeur appropriée pour les variables `automationAccount` avec le nom réel de votre compte Automation et `workspaceName` avec le nom réel de votre espace de travail Log Analytics. Exécutez ensuite le script.
+
+    ```powershell
+    $automationAccount = "automationAccount"
+    $law = "workspaceName"
+    ```
+
+1. Récupérez l’ID de ressource de votre compte Automation en exécutant les commandes PowerShell suivantes.
 
    ```powershell
    # Find the ResourceId for the Automation account
-   Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   $AutomationResourceId = (Get-AzResource `
+      -ResourceType 'Microsoft.Automation/automationAccounts' | 
+      WHERE {$_.Name -eq $automationAccount}).ResourceId
    ```
 
-1. Obtenez l’ID de ressource de votre espace de travail Log Analytics en exécutant l’applet de commande PowerShell suivante. Si vous avez plusieurs espaces de travail, choisissez l’ID de ressource de l’espace de travail que vous voulez configurer.
+1. Obtenez l’ID de ressource de votre espace de travail Log Analytics en exécutant les commandes PowerShell suivantes.
 
    ```powershell
-   # Find the ResourceId for the Log Analytics workspace
-   Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+    # Find the ResourceId for the Log Analytics workspace
+    $WorkspaceResourceId = (Get-AzResource `
+        -ResourceType 'Microsoft.OperationalInsights/workspaces' | 
+        WHERE {$_.Name -eq $law}).ResourceId
    ```
 
-1. Exécutez la cmdlet PowerShell suivante, en remplaçant `<AutomationResourceId>` et `<WorkspaceResourceId>` par les valeurs `ResourceId` de chacune des étapes précédentes.
+1. Pour configurer les paramètres de diagnostic sur le compte Automation afin de transférer les données du journal d’état du nœud DSC vers les journaux Azure Monitor, la cmdlet PowerShell suivante crée un paramètre de diagnostic utilisant cette destination.
 
    ```powershell
-   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
+    Set-AzDiagnosticSetting `
+        -ResourceId $AutomationResourceId `
+        -WorkspaceId $WorkspaceResourceId `
+        -Enabled $true `
+        -Category 'DscNodeStatus'
    ```
 
-1. Si vous voulez arrêter l’importation de données d’Azure Automation State Configuration dans les journaux Azure Monitor, exécutez l’applet de commande PowerShell suivante.
+   Lorsque vous voulez arrêter le transfert de données Automation State Configuration vers les journaux Azure Monitor, exécutez la cmdlet PowerShell suivante.
 
    ```powershell
-   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
+    Set-AzDiagnosticSetting `
+        -ResourceId $AutomationResourceId `
+        -WorkspaceId $WorkspaceResourceId `
+        -Enabled $false `
+        -Category 'DscNodeStatus'
    ```
 
 ## <a name="view-the-state-configuration-logs"></a>Afficher les journaux d’activité State Configuration
 
-Après avoir configuré l’intégration aux journaux Azure Monitor pour vos données Automation State Configuration, vous pouvez les visualiser en sélectionnant **Journaux** dans la section **Supervision** dans le volet gauche de la page Configuration de l’état (DSC).
+Vous pouvez rechercher des opérations DSC dans les journaux State Configuration en recherchant dans les journaux Azure Monitor. Après avoir configuré l’intégration avec les journaux Azure Monitor pour vos données Automation State Configuration, accédez à votre compte Automation dans le [portail Azure](https://portal.azure.com/). Ensuite, sous **Supervision**, sélectionnez **Journaux d’activité**.
 
 ![Journaux d’activité](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-Le volet Recherche dans les journaux s’ouvre avec une région de requête étendue à votre ressource de compte Automation. Vous pouvez rechercher des opérations DSC dans les journaux State Configuration en recherchant dans les journaux d’Azure Monitor. Les enregistrements pour les opérations DSC sont stockés dans la table `AzureDiagnostics`. Par exemple, pour rechercher des nœuds qui ne sont pas conformes, tapez la requête suivante.
+Fermez la boîte de dialogue **Requêtes**. Le volet Recherche dans les journaux s’ouvre avec une région de requête étendue à votre ressource de compte Automation. Les enregistrements pour les opérations DSC sont stockés dans la table `AzureDiagnostics`. Pour rechercher des nœuds qui ne sont pas conformes, entrez la requête suivante.
 
-```AzureDiagnostics
-| where Category == 'DscNodeStatus' 
-| where OperationName contains 'DSCNodeStatusData'
-| where ResultType != 'Compliant'
+```Kusto
+AzureDiagnostics
+| where Category == "DscNodeStatus"
+| where OperationName contains "DSCNodeStatusData"
+| where ResultType != "Compliant"
 ```
 
 Détails du filtrage :
 
-* Filtrez sur `DscNodeStatusData` pour renvoyer les opérations pour chaque nœud State Configuration.
-* Filtrez sur `DscResourceStatusData` pour renvoyer les opérations pour chaque ressource DSC appelée dans la configuration de nœud appliquée à cette ressource. 
-* Filtrez sur `DscResourceStatusData` pour renvoyer les informations d’erreur pour les ressources DSC ayant échoué.
+- Filtrez sur `DscNodeStatusData` pour renvoyer les opérations pour chaque nœud State Configuration.
+- Filtrez sur `DscResourceStatusData` pour renvoyer les opérations pour chaque ressource DSC appelée dans la configuration de nœud appliquée à cette ressource.
+- Filtrez sur `DscResourceStatusData` pour renvoyer les informations d’erreur pour les ressources DSC ayant échoué.
 
 Pour plus d’informations sur la construction des requêtes de journal pour rechercher des données, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envoyer un e-mail si une vérification de la conformité State Configuration échoue
 
-L’une des demandes majeures de nos clients est de pouvoir envoyer un e-mail ou un message texte lorsqu’une erreur survient avec une configuration DSC.
+1. Revenez à la requête créée précédemment.
 
-Pour créer une règle d’alerte, commencez par créer une recherche dans les journaux pour les enregistrements de rapport State Configuration qui doivent appeler l’alerte. Cliquez sur le bouton **Nouvelle règle d’alerte** pour créer et configurer la règle d’alerte.
+1. Appuyez sur le bouton « + Nouvelle règle d’alerte » pour démarrer le flux de création d’alerte.
 
-1. Dans la page Vue d’ensemble de l’espace de travail Log Analytics, cliquez sur **Journaux**.
-1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Dans la requête ci-dessous, remplacez `NODENAME` par le nom réel du nœud géré, puis collez la requête modifiée dans la zone de texte **Requête de recherche** :
 
-   Si vous avez configuré des journaux d’activité dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Dérivez le nom du compte Automation du champ `Resource` dans la recherche des enregistrements `DscNodeStatusData`.
-1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **Nouvelle règle d’alerte** en haut de la page. 
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DscNodeStatus"
+    | where NodeName_s == "NODENAME"
+    | where OperationName == "DscNodeStatusData"
+    | where ResultType == "Failed"
+    ```
 
-Pour plus d’informations sur les options de configuration de l’alerte, consultez [Créer une règle d’alerte](../azure-monitor/alerts/alerts-metric.md).
+   Si vous avez configuré des journaux d’activité dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Dérivez le nom du compte Automation à partir de la propriété `Resource` dans les résultats de la recherche `DscNodeStatusData`.
+
+1. Consultez [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-metric.md) pour effectuer les étapes restantes.
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Rechercher les ressources DSC ayant échoué dans tous les nœuds
 
-Un des avantages de l’utilisation des journaux Azure Monitor est que vous pouvez rechercher les vérifications avortées dans les nœuds. Pour rechercher toutes les instances de ressources DSC qui ont échoué :
+Un des avantages de l’utilisation des journaux Azure Monitor est que vous pouvez rechercher les vérifications avortées dans les nœuds. Pour rechercher toutes les instances de ressources DSC qui ont échoué, utilisez la requête suivante :
 
-1. Dans la page Vue d’ensemble de l’espace de travail Log Analytics, cliquez sur **Journaux**.
-1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`.
+```kusto
+AzureDiagnostics 
+| where Category == "DscNodeStatus"
+| where OperationName == "DscResourceStatusData"
+| where ResultType == "Failed"
+```
 
 ### <a name="view-historical-dsc-node-status"></a>Afficher l’état de nœud DSC historique
 
 Pour visualiser l’historique de l’état de votre nœud DSC au fil du temps, vous pouvez utiliser cette requête :
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
+```kusto
+AzureDiagnostics 
+| where ResourceProvider == "MICROSOFT.AUTOMATION" 
+| where Category == "DscNodeStatus"
+| where ResultType != "started"
+| summarize count() by ResultType
+``````
 
 Cette requête affiche un graphique de l’état du nœud au fil du temps.
 
@@ -201,4 +250,4 @@ Les diagnostics d’Azure Automation créent deux catégories d’enregistrement
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Pour obtenir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, voir [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
 - Pour savoir comment construire différentes requêtes de recherche et examiner les journaux Automation State Configuration avec les journaux Azure Monitor, consultez [Recherches dans les journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md).
-- Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans les journaux Azure Monitor – Vue d’ensemble](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+- Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez [Vue d’ensemble de la collecte de données de stockage Azure dans les journaux Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).

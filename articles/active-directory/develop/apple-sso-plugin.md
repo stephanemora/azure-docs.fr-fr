@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev
-ms.openlocfilehash: eb9a6e1f3044492b09dac3fb3168a9bd26aeff0f
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: 5b490ff71253739779089da92c87532f7abbdbcc
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494609"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563973"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise Single Sign-On pour appareils Apple (préversion)
 
@@ -118,23 +118,91 @@ Votre organisation utilise probablement l’application Authenticator pour des s
 
 Utilisez les paramètres suivants pour configurer le plug-in Microsoft Enterprise SSO pour les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft.
 
-Pour fournir une liste d’applications spécifiques, utilisez les paramètres suivants :
+#### <a name="enable-sso-for-all-managed-apps"></a>Activer l’authentification unique pour toutes les applications managées
+
+- **Clé** : `Enable_SSO_On_All_ManagedApps`
+- **Type** : `Integer`
+- **Valeur** : 1 ou 0.
+
+Lorsque cet indicateur est activé (sa valeur est définie sur `1`), toute application gérée par GPM (Gestion des données de référence) n’étant pas définie sur `AppBlockList` peut participer à l’authentification unique.
+
+#### <a name="enable-sso-for-specific-apps"></a>Activer l’authentification unique pour des applications spécifiques
 
 - **Clé** : `AppAllowList`
 - **Type** : `String`
 - **Valeur** : liste délimitée par des virgules d’ID de bundles d’applications pour les applications autorisées à participer à l’authentification unique.
 - **Exemple** : `com.contoso.workapp, com.contoso.travelapp`
 
-Pour fournir une liste de préfixes, utilisez les paramètres suivants :
+>[!NOTE]
+> Safari et Safari View Service sont autorisés à utiliser l’authentification unique par défaut. Ils peuvent être configurés pour *ne pas* participer à l’authentification unique en ajoutant les ID d’offre groupée de Safari et Safari View Service dans AppBlockList. ID d’offre groupée iOS : [com.apple.mobilesafari, com.apple.SafariViewService] , macOS BundleID : com.apple.Safari
+
+#### <a name="enable-sso-for-all-apps-with-a-specific-bundle-id-prefix"></a>Activer l’authentification unique pour toutes les applications avec un préfixe d’ID d’offre groupée spécifique
 - **Clé** : `AppPrefixAllowList`
 - **Type** : `String`
 - **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Ce paramètre permet à toutes les applications qui commencent par un préfixe particulier de participer à l’authentification unique.
 - **Exemple** : `com.contoso., com.fabrikam.`
 
-[Les applications approuvées](./application-consent-experience.md) que l’administrateur MDM autorise à participer à l’authentification unique peuvent obtenir en mode silencieux un jeton pour l’utilisateur final. Par conséquent, n’ajoutez que des applications approuvées à liste d’autorisation. 
+#### <a name="disable-sso-for-specific-apps"></a>Désactiver l’authentification unique pour des applications spécifiques
 
->[!NOTE]
-> Vous n’avez pas besoin d’ajouter des applications qui utilisent MSAL ou ASWebAuthenticationSession à la liste des applications qui peuvent participer à l’authentification unique. Elles sont activées par défaut. 
+- **Clé** : `AppBlockList`
+- **Type** : `String`
+- **Valeur** : liste de valeurs séparées par des virgules des ID d’offre groupée d’application pour les applications qui peuvent ne pas participer à l’authentification unique.
+- **Exemple** : `com.contoso.studyapp, com.contoso.travelapp`
+
+Pour *désactiver* l’authentification unique pour Safari ou Safari View Service, vous devez explicitement ajouter leurs ID d’offre groupée à `AppBlockList` : 
+
+- iOS : `com.apple.mobilesafari`, `com.apple.SafariViewService`
+- MacOS : `com.apple.Safari`
+
+#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>Activer l’authentification unique via des cookies pour une application donnée
+
+Certaines applications disposant de paramètres réseau avancés peuvent rencontrer des problèmes inattendus lorsqu’elles sont activées pour l’authentification unique. Par exemple, une erreur indiquant que la requête réseau a été annulée ou interrompue peut s’afficher.
+
+Si vos utilisateurs rencontrent des problèmes pour se connecter à une application même après l’avoir activée via les autres paramètres, essayez de l’ajouter à `AppCookieSSOAllowList` pour résoudre les problèmes.
+
+- **Clé** : `AppCookieSSOAllowList`
+- **Type** : `String`
+- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Toutes les applications qui commencent par les préfixes répertoriés seront autorisées à participer à l’authentification unique.
+- **Exemple** : `com.contoso.myapp1, com.fabrikam.myapp2`
+
+**Autres exigences** : pour activer l’authentification unique à l’aide de `AppCookieSSOAllowList`, vous devez également ajouter leurs préfixes d’ID d’offre groupée`AppPrefixAllowList`.
+
+N’essayez cette configuration que pour les applications qui rencontrent des échecs de connexion inattendus. 
+
+#### <a name="summary-of-keys"></a>Résumé des clés
+
+| Clé | Type | Valeur |
+|--|--|--|
+| `Enable_SSO_On_All_ManagedApps` | Integer | `1` pour activer l’authentification unique pour toutes les applications managées, `0` pour désactiver l’authentification unique pour toutes les applications managées. |
+| `AppAllowList` | Chaîne<br/>*(liste de valeurs séparées par des virgules)* | ID d’offre groupée des applications autorisées à participer à l’authentification unique. |
+| `AppBlockList` | Chaîne<br/>*(liste de valeurs séparées par des virgules)* | ID d’offre groupée des applications non autorisées à participer à l’authentification unique. |
+| `AppPrefixAllowList` | Chaîne<br/>*(liste de valeurs séparées par des virgules)* | Préfixes d’ID d’offre groupée des applications autorisées à participer à l’authentification unique. |
+| `AppCookieSSOAllowList` | Chaîne<br/>*(liste de valeurs séparées par des virgules)* | Préfixes d’ID d’offre groupée des applications autorisées à participer à l’authentification unique, mais qui utilisent des paramètres réseau particuliers et qui ont des problèmes avec l’authentification unique en utilisant d’autres paramètres. Les applications que vous ajoutez à `AppCookieSSOAllowList` doivent aussi être ajoutées à `AppPrefixAllowList`. |
+
+#### <a name="settings-for-common-scenarios"></a>Paramètres pour les scénarios courants
+
+- *Scénario* : je souhaite activer l’authentification unique pour la plupart des applications managées, mais pas pour toutes.
+
+    | Clé | Valeur |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | Les ID d’offre groupée (liste de valeurs séparées par des virgules) des applications pour lesquelles vous souhaitez empêcher l’authentification unique. |
+
+- *Scénario* : je souhaite désactiver l’authentification unique pour Safari, qui est activée par défaut, mais activer l’authentification unique pour toutes les applications managées.
+
+    | Clé | Valeur |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | Les ID d’offre groupée (liste de valeurs séparées par des virgules) des applications Safari pour lesquelles vous souhaitez empêcher l’authentification unique.<br/><li>Pour iOS : `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>Pour macOS : `com.apple.Safari` |
+
+- *Scénario* : je souhaite activer l’authentification unique sur toutes les applications managées et sur quelques applications non managées, mais désactiver l’authentification unique pour d’autres applications.
+
+    | Clé | Valeur |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppAllowList` | Les ID d’offre groupée (liste de valeurs séparées par des virgules) des applications pour lesquelles vous souhaitez autoriser l’authentification unique. |
+    | `AppBlockList` | Les ID d’offre groupée (liste de valeurs séparées par des virgules) des applications pour lesquelles vous souhaitez empêcher l’authentification unique. |
+
 
 ##### <a name="find-app-bundle-identifiers-on-ios-devices"></a>Découvrir des identificateurs de bundles d’applications sur des appareils iOS
 
@@ -192,21 +260,6 @@ L’activation de l’indicateur `disable_explicit_app_prompt` restreint la capa
 - **Valeur** : 1 ou 0
 
 Nous vous recommandons d’activer cet indicateur pour bénéficier d’une expérience cohérente dans toutes les applications. Elle est désactivée par défaut. 
-
-#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>Activer l’authentification unique via des cookies pour une application donnée
-
-Quelques applications peuvent être incompatibles avec l’extension SSO. Spécifiquement, des applications qui ont des paramètres réseau avancés peuvent rencontrer des problèmes inattendus quand elles sont activées pour l’authentification unique. Par exemple, vous pouvez voir une erreur indiquant que la demande réseau a été annulée ou interrompue. 
-
-Si vous rencontrez des problèmes de connexion à l’aide de la méthode décrite dans la section [Applications n’utilisant pas la MSAL](#applications-that-dont-use-msal), essayez une autre configuration. Utilisez ces paramètres pour configurer le plug-in :
-
-- **Clé** : `AppCookieSSOAllowList`
-- **Type** : `String`
-- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Toutes les applications qui commencent par les préfixes répertoriés seront autorisées à participer à l’authentification unique.
-- **Exemple** : `com.contoso.myapp1, com.fabrikam.myapp2`
-
-Les applications activées pour l’authentification unique à l’aide de cette configuration doivent être ajoutées à `AppCookieSSOAllowList` et à `AppPrefixAllowList`.
-
-N’essayez cette configuration que pour les applications qui rencontrent des échecs de connexion inattendus. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>Utiliser Intune pour une configuration simplifiée
 

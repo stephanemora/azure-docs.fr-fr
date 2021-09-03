@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572368"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122563333"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurer un écouteur DNN pour un groupe de disponibilité
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -179,7 +179,7 @@ Pour tester la connectivité à votre écouteur DNN, procédez comme suit :
 
 ## <a name="port-considerations"></a>Considérations relatives au port
 
-Les écouteurs DNN sont conçus pour écouter toutes les adresses IP, mais sur un seul port spécifique. La résolution de l’entrée DNS du nom de l’écouteur doit correspondre aux adresses de tous les réplicas du groupe de disponibilité. Cela s’effectue automatiquement à l’aide du script PowerShell fourni dans la section [Créer un script](#create-script). Dans la mesure où les écouteurs DNN acceptent les connexions sur toutes les adresses IP, il est essentiel que le port d’écoute soit unique et qu’il ne soit utilisé par aucun autre réplica du groupe de disponibilité. Dans la mesure où SQL Server écoute toujours sur le port 1433, directement ou via le service SQL Browser, le port 1433 ne peut pas être utilisé pour un écouteur DNN.
+Les écouteurs DNN sont conçus pour écouter toutes les adresses IP, mais sur un seul port spécifique. La résolution de l’entrée DNS du nom de l’écouteur doit correspondre aux adresses de tous les réplicas du groupe de disponibilité. Cela s’effectue automatiquement à l’aide du script PowerShell fourni dans la section [Créer un script](#create-script). Dans la mesure où les écouteurs DNN acceptent les connexions sur toutes les adresses IP, il est essentiel que le port d’écoute soit unique et qu’il ne soit utilisé par aucun autre réplica du groupe de disponibilité. Dans la mesure où SQL Server écoute par défaut sur le port 1433, directement ou via le service SQL Browser, l’utilisation du port 1433 pour l’écouteur DNN est vivement déconseillée. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -191,4 +191,3 @@ Pour en savoir plus, consultez :
 - [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Groupes de disponibilité Always On avec SQL Server sur les machines virtuelles Azure](availability-group-overview.md)
 - [Vue d’ensemble des groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-

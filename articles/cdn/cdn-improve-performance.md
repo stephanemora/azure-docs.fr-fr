@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 11a2dbfc9c6da60e4dd96f65d2a20165a3663e8c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 545125877f8ef8e3b01aa24f6d65dbff6756c391
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601540"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122535251"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -121,11 +121,8 @@ Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
-- brotli 
 
-Si la requête prend en charge plusieurs types de compression, ces types de compression sont prioritaires sur la compression brotli.
-
-Lorsqu’une demande liée à un composant spécifie la compression brotli (en-tête HTTP `Accept-Encoding: br`) et que cette demande cause une absence dans le cache, le CDN Azure effectue une compression brotli du composant directement sur le serveur POP. Ensuite, le fichier compressé est servi à partir du cache.
+Azure CDN de Verizon ne prend pas en charge la compression brotli. Lorsque la requête HTTP comporte l’en-tête `Accept-Encoding: br`, le CDN répond avec une réponse non compressée.
 
 ### <a name="azure-cdn-standard-from-akamai-profiles"></a>Profils CDN Azure Standard fourni par Akamai
 

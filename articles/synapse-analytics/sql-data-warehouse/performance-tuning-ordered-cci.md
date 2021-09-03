@@ -11,12 +11,12 @@ ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab94a83a64ca9770f0c216ddf42145b262629c6d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 8a05599efd58acb71534bef41a881de9170811af
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598990"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122564032"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Réglage des performances avec un index columstore cluster ordonné  
 
@@ -59,7 +59,6 @@ Le gain de performance d’une requête d’un index columnstore cluster ordonn�
 Les requêtes avec tous ces modèles s’exécutent généralement plus rapidement avec des index columnstore cluster ordonnés.  
 1. Les requêtes ont des prédicats d’égalité, d’inégalité ou de plage
 1. Les colonnes de prédicat et les colonnes d’index columnstore cluster ordonné sont les mêmes.  
-1. Les colonnes de prédicat sont utilisées dans le même ordre que l’ordinal de colonne des colonnes d’index columnstore cluster ordonné.  
  
 Dans cet exemple, la table T1 a un index columnstore cluster ordonné dans la séquence Col_C, Col_B et Col_A.
 
@@ -70,7 +69,7 @@ ORDER (Col_C, Col_B, Col_A);
 
 ```
 
-Les performances de la requête 1 peuvent mieux tirer parti de l’index columnstore cluster ordonné que les trois autres requêtes. 
+Les performances de la requête 1 et de la requête 2 peuvent tirer le meilleur parti de l’ICC trié par rapport aux autres requêtes, car elles référencent toutes les colonnes ICC ordonnées. 
 
 ```sql
 -- Query #1: 

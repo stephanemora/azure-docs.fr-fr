@@ -7,12 +7,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 05717352936bed888e108277d0163e43bc5a37af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a4281d564b7061e831a66b35e768e6377a0115
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368759"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122563954"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -21,8 +21,8 @@ ms.locfileid: "100368759"
 > * [Activité MapReduce](data-factory-map-reduce.md)
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
-> * [Activité Exécution par lots Azure Machine Learning studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité Mettre à jour une ressource Azure Machine Learning studio (classique)](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité Batch Execution ML Studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité des ressources de mise à jour ML Studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
@@ -48,6 +48,7 @@ La procédure pas à pas suivante utilise l’activité de procédure stockée d
 
 ## <a name="walkthrough"></a>Procédure pas à pas
 ### <a name="sample-table-and-stored-procedure"></a>Exemple de table et de procédure stockée
+
 1. Créez la **table** suivante dans votre base de données Azure SQL à l’aide de SQL Server Management Studio ou d’un autre outil que vous maîtrisez. La colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré.
 
     ```SQL
@@ -61,11 +62,12 @@ La procédure pas à pas suivante utilise l’activité de procédure stockée d
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
     GO
     ```
-    La colonne ID affiche l’identifiant unique et la colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré.
+    `Id` correspond à l’identifiant unique et la colonne `datetimestamp` affiche la date et l’heure auxquelles l’ID correspondant est généré.
     
     ![Exemples de données](./media/data-factory-stored-proc-activity/sample-data.png)
 
     Dans cet exemple, la procédure stockée est dans Azure SQL Database. Si la procédure stockée est dans Azure Synapse Analytics et SQL Server Database, l’approche est similaire. Pour une base de données SQL Server, vous devez installer une [passerelle de gestion des données](data-factory-data-management-gateway.md).
+    
 2. Créez la **procédure stockée** suivante qui insère des données dans la table **sampletable**.
 
     ```SQL

@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 968377ed09996b9a717e0739a3de8355d1c8d88d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519cba1a0be8b0bac154c09f9376e752f14b644d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677147"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535160"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
 
 Les images Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG, paiement à l’utilisation) sont préconfigurées pour accéder à Azure RHUI. Aucune configuration supplémentaire n’est nécessaire. Pour obtenir les dernières mises à jour, exécutez `sudo yum update` lorsque votre instance RHEL est prête. Ce service est inclus dans le cadre des frais de logiciel RHEL PAYG.
 
-Des informations supplémentaires sur les images RHEL dans Azure, y compris les stratégies de publication et de conservation, sont disponibles [ici](./redhat-images.md).
+Des informations supplémentaires sur les images RHEL dans Azure, y compris les stratégies de publication et de rétention, sont disponibles dans [Vue d’ensemble des images Red Hat Enterprise Linux dans Azure](./redhat-images.md).
 
 Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
@@ -79,7 +79,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 Les référentiels EUS (Extended Update Support) sont proposés aux clients qui souhaitent verrouiller leurs machines virtuelles RHEL sur une certaine version mineure RHEL après provisionnement de la machine virtuelle. Vous pouvez verrouiller la version de votre machine virtuelle RHEL sur une version mineure spécifique en mettant à jour les dépôts pour qu’ils pointent vers les dépôts Extended Update Support. Vous pouvez également annuler l’opération de verrouillage de version EUS.
 
 >[!NOTE]
-> La technologie EUS n’est pas prise en charge par RHEL Extras. Cela signifie que vous ne pourrez pas, sur EUS, installer un package généralement disponible à partir du canal RHEL Extras. Le cycle de vie des produits Red Hat Extras est détaillé [ici](https://access.redhat.com/support/policy/updates/extras/).
+> La technologie EUS n’est pas prise en charge par RHEL Extras. Cela signifie que vous ne pourrez pas, sur EUS, installer un package généralement disponible à partir du canal RHEL Extras. Le cycle de vie des produits Red Hat Extras est détaillé dans la page [Cycle de vie des produits Red Hat Extras - Portail des clients Red Hat](https://access.redhat.com/support/policy/updates/extras/).
 
 Au moment de la rédaction de ce document, la prise en charge d’EUS est terminée pour RHEL 7.4 et les versions antérieures. Pour en savoir plus, consultez la section « Maintenance prolongée de Red Hat Enterprise Linux » de la [documentation Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 * La prise en charge de RHEL 7.4 EUS se terminera le 31 août 2019.
@@ -231,7 +231,7 @@ Si vous utilisez une configuration du réseau pour restreindre davantage l’acc
 >Les nouvelles images Azure US Government, à compter de janvier 2020, utiliseront une adresse IP publique mentionnée dans l’en-tête Azure Global ci-dessus.
 
 >[!NOTE]
->Notez également qu’Azure Allemagne est déconseillé en faveur des régions publiques d’Allemagne. Pour les clients Azure Allemagne, il est recommandé de commencer par pointer sur les RHUI publics à l’aide de [ces étapes](#manual-update-procedure-to-use-the-azure-rhui-servers).
+>Notez également qu’Azure Allemagne est déconseillé en faveur des régions publiques d’Allemagne. Pour les clients Azure Allemagne, il est recommandé de commencer par pointer sur les RHUI publics à l’aide des étapes de la page [Infrastructure de mise à jour Red Hat](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## <a name="azure-rhui-infrastructure"></a>Infrastructure Azure RHUI
 
@@ -287,16 +287,14 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
 - Pour RHEL 8 :
     1. Création d’un fichier config :
         ```bash
-        vi rhel8.config
-        ```
-    1. Ajoutez le contenu suivant au fichier config :
-        ```bash
+        cat <<EOF > rhel8.config
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
         baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
         enabled=1
         gpgcheck=1
         gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        EOF
         ```
     1. Enregistrez le fichier et exécutez la commande suivante :
         ```bash

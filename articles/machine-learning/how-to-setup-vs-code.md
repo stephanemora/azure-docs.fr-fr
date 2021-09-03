@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 80f6849bb4989692e8cd29a3288f9b104bf250bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 6e0975a61ff5b36eb5ffbe5737be614a70150796
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460083"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122535156"
 ---
 # <a name="set-up-the-visual-studio-code-azure-machine-learning-extension-preview"></a>Configurer l’extension Visual Studio Code d’Azure Machine Learning (préversion)
 
@@ -34,10 +35,10 @@ L’extension Azure Machine Learning pour VS Code fournit une interface utilisa
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree)
+- Abonnement Azure. Si vous n’en avez pas, inscrivez-vous ou essayez la [version gratuite ou payante d’Azure Machine Learning](https://azure.microsoft.com/free/)
 - Visual Studio Code. [Installez-le](https://code.visualstudio.com/docs/setup/setup-overview) si ce n’est déjà fait.
 - [Python](https://www.python.org/downloads/)
-- (Facultatif) Pour créer des ressources à l’aide de l’extension, vous devez installer l’interface CLI 2.0. Pour obtenir des instructions d’installation, consultez [Installer, configurer et utiliser l’interface CLI 2.0 (préversion)](how-to-configure-cli.md).
+- (Facultatif) Pour créer des ressources à l’aide de l’extension, vous devez installer l’interface CLI (v2). Pour obtenir des instructions d’installation, consultez [Installer, configurer et utiliser l’interface CLI (v2) (préversion)](how-to-configure-cli.md).
 
 ## <a name="install-the-extension"></a>Installer l’extension
 
@@ -55,7 +56,7 @@ L’extension Azure Machine Learning pour VS Code fournit une interface utilisa
 Les autres étapes de ce tutoriel ont été testées avec la version la plus récente de l’extension.
 
 > [!NOTE]
-> L’extension Azure Machine Learning pour VS Code utilise l’interface CLI 2.0 par défaut. Pour passer à la CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` de Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
+> L’extension Azure Machine Learning pour VS Code utilise l’interface CLI (v2) par défaut. Pour passer à l’interface CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` dans Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
 
 ## <a name="sign-in-to-your-azure-account"></a>Vous connecter à votre compte Azure
 
@@ -70,7 +71,7 @@ Vous pouvez aussi utiliser la palette de commandes :
 
 ## <a name="choose-your-default-workspace"></a>Choisir votre espace de travail par défaut
 
-Le choix d’un espace de travail Azure Machine Learning par défaut offre les possibilités suivantes pendant que vous créez les fichiers de spécifications YAML de l’interface CLI 2.0 :
+Le choix d’un espace de travail Azure Machine Learning par défaut offre les possibilités suivantes pendant que vous créez les fichiers de spécifications YAML de l’interface CLI (v2) :
 
 - Validation du schéma
 - Autocomplétion

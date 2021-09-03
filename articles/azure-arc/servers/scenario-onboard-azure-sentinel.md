@@ -1,14 +1,14 @@
 ---
 title: Intégrer un serveur activé pour Azure Arc à Azure Sentinel
-description: Découvrez comment ajouter vos serveurs activés pour Azure Arc à Azure Sentinel et comment superviser leur état de sécurité de manière proactive.
-ms.date: 11/16/2020
+description: Découvrez comment ajouter vos serveurs activés pour Azure Arc à Azure Sentinel et superviser leur état de sécurité de manière proactive.
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c0af2c48db12eca6453415767e611b0993554ee
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584733"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608266"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Intégrer des serveurs activés pour Azure Arc à Azure Sentinel
 
@@ -26,7 +26,7 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
 
 ## <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Intégrer des serveurs activés pour Azure Arc à Azure Sentinel
 
-Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, prêts à l’emploi et offrant une intégration en temps réel. Pour les machines physiques et virtuelles, vous pouvez installer l’agent Log Analytics qui collecte les journaux et les transfère à Azure Sentinel. Les serveurs activés pour Arc prennent en charge le déploiement de l’agent Log Analytics en utilisant les méthodes suivantes :
+Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, prêts à l’emploi et offrant une intégration en temps réel. Pour les machines physiques et virtuelles, vous pouvez installer l’agent Log Analytics qui collecte les journaux et les transfère à Azure Sentinel. Les serveurs activés pour Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
 
 - Utilisation de l’infrastructure des extensions de machine virtuelle.
 
@@ -43,8 +43,8 @@ Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsof
 
 Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en utilisant Azure Policy.
 
-Une fois que vos serveurs activés pour Arc sont connectés, le streaming de vos données commence dans Azure Sentinel et vous pouvez commencer à les utiliser. Vous pouvez afficher les journaux dans les [classeurs intégrés](../../sentinel/quickstart-get-visibility.md) et commencer à créer des requêtes dans Log Analytics pour [examiner les données](../../sentinel/tutorial-investigate-cases.md).
+Une fois vos serveurs activés pour Arc connectés, le streaming de vos données commence dans Azure Sentinel et vous pouvez commencer à les utiliser. Vous pouvez afficher les journaux dans les [classeurs intégrés](/azure/sentinel/get-visibility) et commencer à créer des requêtes dans Log Analytics pour [examiner les données](/azure/sentinel/investigate-cases).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Prise en main de la [détection des menaces avec Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md).
+Prise en main de la [détection des menaces avec Azure Sentinel](/azure/sentinel/detect-threats-built-in).

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78468c9528c4502ce691dec183c261b9636325f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 34a6a353593d733cf50325049cd88034fb16c9ca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562139"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gérer des unités administratives dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
 - Licences Azure AD gratuites pour les membres de l'unité administrative
 - Administrateur de rôle privilégié ou Administrateur général
 - Module AzureAD (avec PowerShell)
-- Consentement administrateur (avec l’Afficheur Graph pour l’API Microsoft Graph)
+- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
 
 Pour plus d’informations, consultez [Prérequis pour utiliser PowerShell ou de l’Afficheur Graph](prerequisites.md).
 
@@ -42,7 +42,9 @@ Vous pouvez ajouter une unité administrative à l’aide du portail Azure ou de
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le portail Azure, allez à Azure AD. Ensuite, dans le volet gauche, sélectionnez **Unités administratives**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Unités administratives**.
 
     ![Capture d’écran du lien « Unités administratives » dans Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -84,11 +86,15 @@ Dans Azure AD, vous pouvez supprimer une unité administrative dont vous n’ave
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le portail Azure, accédez à **Azure AD** puis, sélectionnez **Unités administratives**. 
-1. Sélectionnez l’unité administrative à supprimer, puis **Supprimer**. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure AD](https://aad.portal.azure.com).
+
+1. Sélectionnez **Azure Active Directory** > **Unités administratives**.
+ 
+1. Sélectionnez l’unité administrative à supprimer, puis **Supprimer**.
+
 1. Pour confirmer que vous souhaitez supprimer l’unité administrative, sélectionnez **Oui**. L’unité administrative est supprimée.
 
-![Capture d’écran du bouton Supprimer de l’unité administrative et de la fenêtre de confirmation.](./media/admin-units-manage/select-admin-unit-to-delete.png)
+    ![Capture d’écran du bouton Supprimer de l’unité administrative et de la fenêtre de confirmation.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 

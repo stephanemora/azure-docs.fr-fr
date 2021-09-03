@@ -3,8 +3,7 @@ title: FAQ sur les rapports Azure Active Directory | Microsoft Docs
 description: Forum aux questions (FAQ) sur les rapports Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
-manager: MarkusVi
+author: MarkusVi
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
@@ -12,22 +11,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4da0083a236900037b388798d825515e94613c20
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b64c33619eae16cb08b9ccdc1b4fd5265813d9ed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533714"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122532214"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
 Cet article répond aux questions fréquemment posées sur les rapports Azure Active Directory (Azure AD). Pour plus d’informations, consultez la page [Génération de rapports Azure Active Directory](overview-reports.md). 
 
 ## <a name="getting-started"></a>Prise en main 
+
+**Q : Comment fonctionnent les licences pour les rapports ?**
+
+**R :** Toutes les licences Azure AD vous permettent de consulter les journaux d’activité dans le portail Azure. 
+
+Si votre locataire dispose :
+
+- D’une licence Azure AD gratuite, vous pouvez voir jusqu’à sept jours de données des journaux d’activité dans le portail. 
+- D’une licence Azure AD Premium, vous pouvez voir jusqu’à 30 jours de données dans le portail Azure. 
+
+Vous pouvez également exporter ces données de journal vers Azure Monitor, Azure Event Hubs et Stockage Azure, ou interroger vos données d’activité via l’API Microsoft Graph. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Quelques jours seront nécessaires pour que les données s’affichent dans les journaux après la mise à niveau vers une licence premium s’il n’y a aucune activité de données avant la mise à niveau.
+
 
 **Q : J’utilise les API de point de terminaison `https://graph.windows.net/<tenant-name>/reports/` pour tirer (pull) par programmation les rapports d’audit Azure AD et les rapports d’utilisation des applications intégrées dans nos systèmes de création de rapports. Que dois-je utiliser à présent ?**
 

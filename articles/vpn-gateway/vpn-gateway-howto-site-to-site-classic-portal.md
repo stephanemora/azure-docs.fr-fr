@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f440ec76d3085e7a5ef7ec99f1a5a76c9c444ef9
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 71b365a2034e40831d4216f83d046c0b897bbe26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205338"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562377"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -34,7 +34,7 @@ Une connexion de passerelle VPN de site à site permet de connecter votre résea
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-* Assurez-vous de vouloir utiliser le modèle de déploiement classique. Si vous souhaitez utiliser le modèle de déploiement Resource Manager, voir [Create a Site-to-Site connection (Resource Manager) (Créer une connexion de site à site [Resource Manager])](./tutorial-site-to-site-portal.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager, car le modèle classique est hérité.
+* Assurez-vous de vouloir utiliser le modèle de déploiement classique. Si vous souhaitez utiliser le [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md), consultez [Créer une connexion de site à site (Resource Manager)](./tutorial-site-to-site-portal.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager, car le modèle classique est hérité.
 * Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
 * Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
