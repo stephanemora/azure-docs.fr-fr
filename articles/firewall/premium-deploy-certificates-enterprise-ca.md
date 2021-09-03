@@ -1,35 +1,31 @@
 ---
-title: Déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium - Préversion
-description: Découvrez comment déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium - Préversion.
+title: Déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium
+description: Découvrez comment déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 067daef5782697357d08edc0a6c09bea8af085f6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590464"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441065"
 ---
-# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium
-
-> [!IMPORTANT]
-> Pare-feu Azure Premium est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall"></a>Déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure
 
 
-La préversion du Pare-feu Azure Premium comprend une fonctionnalité d’inspection TLS qui nécessite une chaîne d’authentification par certificat. Pour les déploiements de production, vous devez utiliser une infrastructure à clé publique (PKI) d’entreprise pour générer les certificats que vous utilisez avec le Pare-feu Azure Premium. Utilisez cet article pour créer et gérer un certificat d’autorité de certification intermédiaire pour le Pare-feu Azure Premium.
+Le Pare-feu Azure Premium comprend une fonctionnalité d’inspection TLS qui nécessite une chaîne d’authentification par certificat. Pour les déploiements de production, vous devez utiliser une infrastructure à clé publique (PKI) d’entreprise pour générer les certificats que vous utilisez avec le Pare-feu Azure Premium. Utilisez cet article pour créer et gérer un certificat d’autorité de certification intermédiaire pour le Pare-feu Azure Premium.
 
-Pour plus d’informations sur les certificats utilisés par la préversion du Pare-feu Azure Premium, consultez [Certificats de la préversion du Pare-feu Azure Premium](premium-certificates.md).
+Pour plus d’informations sur les certificats utilisés par le Pare-feu Azure Premium, consultez [Certificats du Pare-feu Azure Premium](premium-certificates.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Pour générer un certificat à utiliser avec la préversion du Pare-feu Azure Premium à l’aide d’une autorité de certification d’entreprise, vous devez disposer des ressources suivantes : 
+Pour générer un certificat à utiliser avec le Pare-feu Azure Premium à l’aide d’une autorité de certification d’entreprise, vous devez disposer des ressources suivantes : 
 
 - Une forêt Active Directory 
 - Une autorité de certification racine des services de certification Active Directory avec l’inscription par le web activée 
@@ -57,7 +53,7 @@ Pour générer un certificat à utiliser avec la préversion du Pare-feu Azure P
 
 1. Dans le portail Azure, accédez à la page Certificats de votre coffre de clés et sélectionnez **Générer/importer**.
 1. Sélectionnez **Importer** comme méthode de création, nommez le certificat, sélectionnez le fichier .pfx exporté, entrez le mot de passe, puis sélectionnez **Créer**.
-1. Accédez à la page **Inspection TLS (préversion)** de votre stratégie de pare-feu, puis sélectionnez votre identité managée, coffre de clés et certificat. 
+1. Accédez à la page **Inspection TLS** de votre stratégie de pare-feu, puis sélectionnez votre identité managée, coffre de clés et certificat. 
 1. Sélectionnez **Enregistrer**.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection.png" alt-text="Inspection TLS":::
 
@@ -79,4 +75,4 @@ Pour générer un certificat à utiliser avec la préversion du Pare-feu Azure P
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Pare-feu Azure Premium - Préversion dans le portail Azure](premium-portal.md)
+[Pare-feu Azure Premium dans le Portail Azure](premium-portal.md)

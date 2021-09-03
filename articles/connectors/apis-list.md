@@ -1,31 +1,33 @@
 ---
-title: Connecteurs pour Azure Logic Apps
-description: Présentation de l’utilisation des connecteurs pour créer des workflows automatisés avec Azure Logic Apps. Découvrez le fonctionnement des différents déclencheurs, actions et connecteurs.
+title: Vue d’ensemble des connecteurs pour Azure Logic Apps
+description: Découvrez les connecteurs et comment ils vous aident à générer rapidement et facilement des workflows d’intégration automatisés à l’aide de Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e6841afabe36667070ca595810c423c61db03837
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377036"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218868"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
+# <a name="about-connectors-in-azure-logic-apps"></a>À propos des connecteurs dans Azure Logic Apps
 
-Dans Azure Logic Apps, les *connecteurs* vous aident à accéder rapidement aux données, événements et autres ressources d’autres applications, services, systèmes, protocoles et plateformes. Lorsque vous utilisez des connecteurs, vous pouvez créer des workflows d’application logique qui utilisent, traitent et intègrent des informations dans les environnements cloud, locaux et hybrides, souvent sans avoir à écrire de code.
+Lorsque vous générez des workflows à l’aide de Azure Logic Apps, vous pouvez utiliser des *connecteurs* pour accéder rapidement et facilement à des données, des événements et des ressources dans d’autres applications, services, systèmes, protocoles et plateformes, souvent sans écrire de code. Un connecteur fournit des opérations prédéfinies que vous pouvez utiliser comme étapes dans vos workflows. Azure Logic Apps fournit des centaines de connecteurs que vous pouvez utiliser. Si aucun connecteur n’est disponible pour la ressource à laquelle vous souhaitez accéder, vous pouvez utiliser l’opération HTTP générique pour communiquer avec le service ou vous pouvez [créer un connecteur personnalisé](#custom-apis-and-connectors).
 
-Vous pouvez choisir parmi des centaines de connecteurs à utiliser dans vos workflows. Par conséquent, cette documentation se concentre sur certains des connecteurs les plus populaires et les plus couramment utilisés pour Logic Apps. Pour obtenir des informations complètes sur les connecteurs Logic Apps, Microsoft Power Automate et Microsoft Power Apps, consultez [Documentation sur les connecteurs](/connectors). Pour plus d’informations sur les tarifs, consultez le [modèle de tarification pour Logic Apps](../logic-apps/logic-apps-pricing.md) et les [détails de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Cette vue d’ensemble propose une introduction aux connecteurs, leur fonctionnement général et les plus populaires ainsi que les plus couramment utilisés dans Azure Logic Apps. Pour plus d’informations, consultez la documentation suivante :
 
-> [!NOTE]
-> Pour intégrer votre workflow à un service ou à une API n’ayant pas de connecteur, vous pouvez appeler le service par le biais d’un protocole tel que HTTP, ou [créer un connecteur personnalisé](#custom-apis-and-connectors).
+* [Présentation des connecteurs pour Azure Logic Apps, Microsoft Power Automate et Microsoft Power Apps](/connectors)
+* [Référence des connecteurs pour Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Modèles de tarification et de facturation pour Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
+* [Informations sur les tarifs Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 ## <a name="what-are-connectors"></a>Qu’est-ce qu’un connecteur ?
 
-Les connecteurs fournissent des *déclencheurs* et des *actions* que vous utilisez pour effectuer des tâches dans le workflow de votre application logique. Chaque déclencheur et action a des propriétés que vous pouvez configurer. Certains déclencheurs et actions exigent que vous [créiez et configuriez des connexions](#connection-configuration) afin que votre workflow puisse accéder à un service ou à un système spécifique.
+Techniquement, un connecteur est un proxy ou un wrapper autour d’une API que le service sous-jacent utilise pour communiquer avec Azure Logic Apps. Ce connecteur fournit des opérations que vous utilisez dans vos workflows pour effectuer des tâches. Une opération est disponible dans un *déclencheur* ou une *action* avec des propriétés que vous pouvez configurer. Certains déclencheurs et actions nécessitent également la [création et la configuration d’une connexion](#connection-configuration) en premier lieu au service ou au système sous-jacent, par exemple, pour vous permettre d’authentifier l’accès à un compte d’utilisateur.
 
 ### <a name="triggers"></a>Déclencheurs
 
@@ -44,7 +46,7 @@ Une *action* est une opération qui suit le déclencheur et effectue un certain 
 
 ## <a name="connector-categories"></a>Catégories de connecteurs
 
-Dans Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé* . Un petit nombre de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [Azure Logic Apps monolocataire](../logic-apps/single-tenant-overview-compare.md).
+Dans Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé* . Peu de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [Azure Logic Apps monolocataire](../logic-apps/single-tenant-overview-compare.md).
 
 Les [déclencheurs et actions intégrés](built-in.md) s’exécutent en mode natif sur le runtime Logic Apps, ne nécessitent pas la création de connexions, et effectuent ces types de tâches :
 
@@ -119,7 +121,7 @@ Pour que votre workflow s’exécute à l’heure de début spécifiée et ne ma
 
 * Au moment du passage à l’heure d’été, ajustez la périodicité manuellement afin que votre workflow continue de s’exécuter à l’heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations et pour obtenir des exemples, consultez [Périodicité pour l’heure d’été et l’heure d’hiver](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
-* Si vous utilisez un déclencheur **Récurrence**, spécifiez un fuseau horaire, et une date et une heure de début. Configurez également les heures spécifiques d’exécution des périodicités suivantes dans les propriétés **Aux heures indiquées** et **Aux minutes indiquées**, qui sont disponibles uniquement pour les fréquences **Jour** et **Semaine**. Certaines fenêtres temporelles peuvent néanmoins poser des problèmes lorsque l'heure change.
+* Si vous utilisez un déclencheur **Périodicité**, spécifiez un fuseau horaire et une date et une heure de début. Configurez également les heures spécifiques d’exécution des périodicités suivantes dans les propriétés **Aux heures indiquées** et **Aux minutes indiquées**, qui sont disponibles uniquement pour les fréquences **Jour** et **Semaine**. Certaines fenêtres temporelles peuvent néanmoins poser des problèmes lorsque l'heure change.
 
 * Utilisez un [déclencheur **Fenêtre glissante**](connectors-native-sliding-window.md) au lieu d’un déclencheur **Récurrence** pour éviter les périodicités manquées.
 
@@ -184,4 +186,4 @@ Le tableau suivant répertorie les problèmes connus liés aux connecteurs Logic
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md)

@@ -11,21 +11,21 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/18/2021
+ms.date: 07/19/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dfe81348b300f6b1b407898684316f668791d32
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 9ebd38cbff7d28515a7f60554a2ef755bdf6d04a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577975"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467755"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Cet article décrit les scénarios pris en charge pour SAP HANA sur Azure (grandes instances) ainsi que les détails architecturaux correspondants.
 
 >[!NOTE]
->Si le scénario voulu n’est pas mentionné dans cet article, contactez l’équipe de management des services Microsoft pour évaluer vos besoins.
+>Si votre scénario n’est pas mentionné dans cet article, contactez l’équipe de management des services Microsoft pour évaluer vos besoins.
 Avant de configurer l’unité HLI, validez la conception avec SAP ou avec votre partenaire d’implémentation du service.
 
 ## <a name="terms-and-definitions"></a>Termes et définitions
@@ -58,7 +58,7 @@ Cet article détaille les deux composants dans chaque architecture prise en char
 Chaque serveur approvisionné est préconfiguré avec des jeux d’interfaces Ethernet. Les interfaces Ethernet configurées sur chaque unité HLI sont classées en quatre types :
 
 - **R** : Utilisé pour ou par l’accès client.
-- **B** : Utilisé pour la communication nœud à nœud. Cette interface est configurée sur tous les serveurs, quelle que soit la topologie demandée. Toutefois, elle est uniquement utilisée pour les scénarios de scale-out.
+- **B** : Utilisé pour la communication nœud à nœud. Cette interface est configurée sur tous les serveurs, quelle que soit la topologie que vous demandez. Toutefois, elle est uniquement utilisée pour les scénarios de scale-out.
 - **C** : Utilisé pour la connectivité de nœud à stockage.
 - **D** : Utilisé pour la connexion nœud à appareil ISCSI pour l’installation de STONITH. Cette interface est configurée uniquement lorsque une configuration HSR est demandée.  
 
@@ -78,19 +78,19 @@ Vous choisissez l’interface en fonction de la topologie configurée sur l’un
 Le cas échéant, vous pouvez définir vous-même d'autres cartes réseau. Toutefois, les configurations des cartes réseau existantes *ne peuvent pas* être modifiées.
 
 >[!NOTE]
->Vous pouvez trouver des interfaces supplémentaires qui sont des interfaces ou des liaisons physiques. Vous devez considérer uniquement les interfaces mentionnées précédemment correspondant à votre cas d’usage. Toutes les autres peuvent être ignorées.
+>Vous pouvez trouver des interfaces supplémentaires qui sont des interfaces ou des liaisons physiques. Considérez uniquement les interfaces mentionnées précédemment correspondant à votre cas d’usage. Ignorez les autres.
 
 Pour les unités auxquelles deux adresses IP ont été attribuées, distribution doit se présenter comme suit :
 
 - L’adresse IP attribuée à « Ethernet A » doit se trouver dans la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP doit être conservée dans le répertoire */etc/hosts* du système d'exploitation.
 
-- L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Cette adresse n’a *pas* besoin d’être conservée dans le répertoire *etc/hosts* pour autoriser un trafic interinstance au sein du locataire.
+- L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Cette adresse n’a *pas* besoin d’être conservée dans le répertoire *etc/hosts* pour autoriser un trafic interinstance au sein de l’abonné.
 
-Une configuration à deux adresses IP ne convient pas aux déploiements Scale-out HANA ni aux réplications de système HANA. Si vous n’avez que deux adresses IP attribuées et que vous souhaitez déployer une telle configuration, contactez SAP HANA sur Azure Service Management. SAP HANA peut vous attribuer une troisième adresse IP dans un troisième VLAN. Pour les unités de grande instance HANA avec trois adresses IP attribuées à trois ports de carte réseau, les règles d’utilisation suivantes s’appliquent :
+Une configuration à deux adresses IP ne convient pas aux déploiements Scale-out HANA ni aux réplications de système HANA. Si vous n’avez que deux adresses IP attribuées et que vous souhaitez déployer une telle configuration, contactez SAP HANA sur le management des services Azure. SAP HANA peut vous attribuer une troisième adresse IP dans un troisième VLAN. Pour les grandes instances HANA avec trois adresses IP attribuées à trois ports de carte réseau, les règles d’utilisation suivantes s’appliquent :
 
 - L’adresse IP attribuée à « Ethernet A » doit se trouver hors de la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée à Microsoft. Cette adresse IP ne doit pas être conservée dans le répertoire *etc/hosts* du système d'exploitation.
 
-- « Ethernet B » doit être conservé exclusivement dans le répertoire *etc/hosts* pour la communication entre les différentes instances. Il s’agit des adresses IP à conserver dans les configurations HANA Scale-out comme adresses IP utilisées par HANA pour la configuration inter-nœuds.
+- « Ethernet B » doit être conservé exclusivement dans le répertoire *etc/hosts* pour la communication entre les différentes instances. Conservez ces adresses IP dans des configurations HANA de scale-out comme adresses IP utilisées par HANA pour la configuration inter-nœuds.
 
 - L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Ce type d'adresse ne doit pas être conservé dans le répertoire *etc/hosts*.
 
@@ -200,7 +200,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Nœud unique avec reprise d’activité à l’aide de la réplication de stockage
  
-Cette topologie prend en charge un seul nœud dans une configuration de montée en charge à un ou plusieurs SID, avec la réplication basée sur le stockage vers le site de récupération d’urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes MCOS sont également pris en charge.
+Cette topologie prend en charge un seul nœud dans une configuration de scale-out avec plusieurs SID. La réplication basée sur stockage vers le site de récupération d’urgence est utilisée pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes MCOS sont également pris en charge.
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -241,7 +241,9 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="single-node-with-dr-multipurpose-using-storage-replication"></a>Nœud unique avec récupération d’urgence (polyvalente) à l’aide de la réplication de stockage
  
-Cette topologie prend en charge un seul nœud dans une configuration de montée en charge à un ou plusieurs SID, avec la réplication basée sur le stockage vers le site de récupération d’urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site de récupération d’urgence, l’unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
+Cette topologie prend en charge un seul nœud dans une configuration de scale-out avec plusieurs SID. La réplication basée sur stockage vers le site de récupération d’urgence est utilisée pour un SID principal. 
+
+Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site DR, l’unité HLI est utilisée pour l’instance d’assurance qualité. Les opérations de production s’exécutent à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -290,7 +292,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="hsr-with-stonith-for-high-availability"></a>HSR avec STONITH pour une haute disponibilité
  
-Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA. Cette configuration est prise en charge uniquement pour les instances HANA uniques sur un nœud. Cela signifie que les scénarios MCOS ne sont *pas* pris en charge.
+Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA. Cette configuration est prise en charge uniquement pour les instances HANA uniques sur un nœud. Les scénarios MCOS *ne sont pas* pris en charge.
 
 > [!NOTE]
 > Depuis décembre 2019, cette architecture est uniquement prise en charge pour le système d’exploitation SUSE.
@@ -340,9 +342,9 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="high-availability-with-hsr-and-dr-with-storage-replication"></a>Haute disponibilité avec HSR et reprise d’activité avec réplication de stockage
  
-Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA. Les deux possibilités de récupération d’urgence, normale et polyvalente, sont prises en charge. Ces configurations sont prises en charge uniquement pour les instances HANA uniques sur un nœud. Cela signifie que les scénarios MCOS ne sont *pas* pris en charge avec ces configurations.
+Cette topologie prend en charge deux nœuds pour la configuration de la réplication du système HANA. Les deux possibilités de récupération d’urgence, normale et polyvalente, sont prises en charge. Ces configurations sont prises en charge uniquement pour les instances HANA uniques sur un nœud. Les scénarios MCOS *ne sont pas* pris en charge avec ces configurations.
 
-Dans le diagramme, un scénario polyvalent est représenté sur le site de récupération d’urgence, où l’unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté. 
+Dans le diagramme, un scénario polyvalent est affiché au niveau du site DR, où l’unité HLMI est utilisée pour l’instance d’assurance qualité. Les opérations de production s’exécutent à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté. 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -426,7 +428,7 @@ Les points de montage suivants sont préconfigurés :
 
 | Point de montage | Cas d’utilisation | 
 | --- | --- |
-|**Sur le nœud principal et le nœud de secours**|
+|**Sur les nœuds principal et de secours**|
 |/hana/shared | Installation de HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
@@ -441,7 +443,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="scale-out-with-standby"></a>Scale-out avec nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés d’un rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut jamais exister qu'un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés d’un rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut exister qu'un seul nœud principal à un moment donné.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -467,7 +469,7 @@ Les points de montage suivants sont préconfigurés :
 
 | Point de montage | Cas d’utilisation | 
 | --- | --- |
-|**Sur le nœud principal, les nœuds de travail et les nœuds de secours**|
+|**Sur les nœuds principal, de travail et de secours**|
 |/hana/shared | Installation de HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
@@ -476,7 +478,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="scale-out-without-standby"></a>Scale-out sans nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés d’un rôle de travail. Toutefois, il ne peut jamais exister qu'un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés d’un rôle de travail. Toutefois, il ne peut exister qu'un seul nœud principal à un moment donné.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -503,7 +505,7 @@ Les points de montage suivants sont préconfigurés :
 
 | Point de montage | Cas d’utilisation | 
 | --- | --- |
-|**Sur le nœud principal et les nœuds de travail**|
+|**Sur les nœuds principal et de travail**|
 |/hana/shared | Installation de HANA pour SID de production | 
 |/hana/data/SID/mnt00001 | Installation des fichiers de données pour SID de production | 
 |/hana/log/SID/mnt00001 | Installation des fichiers journaux pour SID de production | 
@@ -515,7 +517,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="scale-out-with-dr-using-storage-replication"></a>Scale-out avec reprise d’activité à l’aide de la réplication de stockage
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out avec reprise d’activité après sinistre. Les deux possibilités de récupération d’urgence, normale et polyvalente, sont prises en charge. Dans le diagramme, seul le site de reprise après sinistre à objectif unique est décrit. Vous pouvez demander cette topologie avec ou sans nœud de secours.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out avec reprise d’activité après sinistre. Les deux possibilités de récupération d’urgence, normale et polyvalente, sont prises en charge. Dans le diagramme, seul la récupération d'urgence à objectif unique est affichée. Vous pouvez demander cette topologie avec ou sans nœud de secours.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
@@ -603,7 +605,7 @@ Les points de montage suivants sont préconfigurés sur les deux unités HLI (un
 
 ## <a name="single-node-hsr-to-dr-cost-optimized"></a>HSR à nœud unique vers site de récupération d’urgence (optimisation des coûts) 
  
- Cette topologie prend en charge un seul nœud dans une configuration de scale-up avec un seul SID, avec la réplication du système HANA vers le site de récupération d'urgence pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site de récupération d’urgence, une unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
+ Cette topologie prend en charge un seul nœud dans une configuration de montée en charge avec un SID. La réplication du système HANA vers le site de récupération d’urgence est utilisée pour un SID principal. Dans le diagramme, seul un système à SID unique est représenté sur le site principal, mais les systèmes multi-SID (MCOS) sont également pris en charge. Sur le site DR, une unité HLI est utilisée pour l’instance d’assurance qualité. Les opérations de production s’exécutent à partir du site principal. Durant le basculement de la récupération d’urgence (ou le test de basculement), l’instance AQ sur le site de récupération d’urgence est arrêté.
 
 ### <a name="architecture-diagram"></a>Diagramme de l'architecture  
 
@@ -795,7 +797,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous en saurez plus sur :
+En savoir plus sur le déploiement de grandes instances HANA.
 
-- [Infrastructure et connectivité](./hana-overview-infrastructure-connectivity.md) pour les grandes instances HANA
-- [Haute disponibilité et récupération d’urgence](./hana-overview-high-availability-disaster-recovery.md) pour les grandes instances HANA
+> [!div class="nextstepaction"]
+> [Déploiement de SAP HANA (grandes instances)](./hana-overview-infrastructure-connectivity.md)

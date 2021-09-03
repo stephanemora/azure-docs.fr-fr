@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122524728"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Activer le maintien de la connexion (KMSI)
 
-Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et natives qui ont des comptes locaux dans votre répertoire Azure AD B2C. Lorsque vous activez la fonctionnalité, les utilisateurs peuvent choisir de rester connectés afin que la session reste active après avoir fermé le navigateur. Ils peuvent ensuite rouvrir le navigateur sans avoir à entrer à nouveau leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
+Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et natives qui ont des comptes locaux dans votre répertoire Azure AD B2C. Lorsque vous activez la fonctionnalité, les utilisateurs peuvent choisir de rester connectés afin que la session reste active après avoir fermé le navigateur. La session est maintenue en définissant un [cookie persistant](cookie-definitions.md). Les utilisateurs qui sélectionnent KMSI peuvent ensuite rouvrir le navigateur sans avoir à entrer à nouveau leur nom d’utilisateur et leur mot de passe. Cet accès (cookie persistent) est révoqué lorsque l’utilisateur se déconnecte. 
 
 ![Exemple de page de connexion avec la case à cocher Maintenir la connexion](./media/session-behavior/keep-me-signed-in.png)
 
@@ -194,7 +194,7 @@ Pour ajouter la case à cocher Maintenir la connexion dans les pages d’inscrip
 
 ### <a name="configure-a-relying-party-file"></a>Configurer un fichier de partie de confiance
 
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé. Le paramètre keepAliveInDays vous permet de configurer la façon dont le cookie de session de maintien de la connexion (KMSI) doit persister. Par exemple, si vous définissez la valeur sur 30, le cookie de session KMSI sera conservé pendant 30 jours. La plage de la valeur est comprise entre 1 et 90 jours.
+Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé. Le paramètre keepAliveInDays vous permet de configurer la façon dont le cookie de session de maintien de la connexion (KMSI) doit persister. Par exemple, si vous définissez la valeur sur 30, le cookie de session KMSI sera conservé pendant 30 jours. La plage de la valeur est comprise entre 1 et 90 jours. Affecter la valeur 0 désactive la fonctionnalité KMSI.
 
 1. Ouvrez votre fichier de stratégie personnalisée. Par exemple *SignUpOrSignin.xml*.
 1. S’il n’existe pas déjà, ajoutez un nœud enfant `<UserJourneyBehaviors>` au nœud `<RelyingParty>`. Il doit être placé immédiatement après `<DefaultUserJourney ReferenceId="User journey Id" />`, par exemple : `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.

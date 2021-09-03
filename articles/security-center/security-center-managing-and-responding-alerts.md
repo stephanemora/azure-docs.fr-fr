@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: df8b4534c6da446bd4ceeb18acf70036cd63f83c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: dbed9883fbddc2efdaaa8ad252578afa928167bd
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061179"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237259"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -46,7 +46,7 @@ Pour obtenir une vue d’ensemble de la façon dont Security Center génère des
 
 1. Pour filtrer la liste des alertes, sélectionnez l’un des filtres appropriés. Vous pouvez éventuellement ajouter d’autres filtres à l’aide de l’option **Ajouter un filtre**.
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Ajout de filtres à l’affichage des alertes" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Ajout de filtres à l’affichage des alertes." lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
 
     La liste se met à jour en fonction des options de filtrage que vous avez sélectionnées. Le filtrage peut être très utile. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.
 
@@ -55,7 +55,7 @@ Pour obtenir une vue d’ensemble de la façon dont Security Center génère des
 
 1. Dans la liste **Alertes de sécurité**, sélectionnez une alerte. Un volet latéral s’ouvre, affichant une description de l’alerte et de toutes les ressources affectées. 
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Mini vue détaillée d’une alerte de sécurité":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Affichage minimal des détails d’une alerte de sécurité.":::
 
     > [!TIP]
     > Ce volet latéral ouvert vous permet d’examiner rapidement la liste d’alertes avec les flèches haut et le bas de votre clavier.
@@ -66,7 +66,7 @@ Pour obtenir une vue d’ensemble de la façon dont Security Center génère des
 
     Le volet droit comprend l’onglet **Détails de l’alerte** contenant des détails supplémentaires sur l’alerte pour vous aider à examiner le problème : adresses IP, fichiers, processus et bien plus encore.
      
-    ![Suggestions sur la façon de traiter les alertes de sécurité](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+    ![Suggestions sur la façon de traiter les alertes de sécurité.](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
     Dans le volet droit figure aussi l’onglet **Entreprendre une action**. Utilisez cet onglet pour prendre d’autres mesures concernant l’alerte de sécurité. Actions telles que :
     - *Atténuer la menace* : fournit des étapes de correction manuelle pour cette alerte de sécurité
@@ -74,7 +74,7 @@ Pour obtenir une vue d’ensemble de la façon dont Security Center génère des
     - *Déclencher une réponse automatisée* : permet de déclencher une application logique en guide de réponse à cette alerte de sécurité.
     - *Supprimer les alertes similaires* : permet de supprimer les alertes futures ayant des caractéristiques similaires si l’alerte n’est pas pertinente pour votre organisation.
 
-    ![Onglet Entreprendre une action](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
+    ![Onglet Entreprendre une action.](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
 
 

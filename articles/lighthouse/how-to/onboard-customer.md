@@ -1,15 +1,15 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci par les utilisateurs de votre locataire.
-ms.date: 05/25/2021
+ms.date: 08/16/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de0520f7ed8be24ac19b4738828890877456f734
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 533841e958d7873c4961814f7398ec539fd6a6fd
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078956"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122534836"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -31,8 +31,8 @@ Le processus d’intégration requiert d’exécuter des actions tant dans le lo
 
 Pour qu’il soit possible d’intégrer le locataire d’un client, celui-ci doit disposer d’un abonnement Azure actif. Vous devez disposer des informations suivantes :
 
-- L’ID de locataire du locataire du fournisseur de services (où vous allez gérer les ressources du client)
-- L’ID de locataire du locataire du client (dont les ressources seront gérées par le fournisseur de services)
+- L’ID de locataire du locataire du fournisseur de services (où vous allez gérer les ressources du client). Si vous [créez votre modèle dans le Portail Azure](#create-your-template-in-the-azure-portal), cette valeur est renseignée automatiquement.
+- L’ID de locataire du locataire du client (dont les ressources seront gérées par le fournisseur de services).
 - Les ID d’abonnement de chaque abonnement dans le locataire du client qui sera géré par le fournisseur de services (ou qui contient les groupes de ressources qui seront gérés par le fournisseur de services).
 
 Si vous ne disposez pas de ces valeurs d’ID, vous pouvez les récupérer de l’une des manières suivantes. Veillez à utiliser ces valeurs exactes dans votre déploiement.
@@ -121,21 +121,48 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
-Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](../../azure-resource-manager/index.yml) pour votre offre et y inclure les éléments suivants : Le client pourra voir les valeurs **mspOfferName** et **mspOfferDescription** dans la [page Fournisseurs de services](view-manage-service-providers.md) du Portail Azure.
+Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](../../azure-resource-manager/index.yml) pour votre offre et y inclure les éléments suivants : Le client pourra voir les valeurs **mspOfferName** et **mspOfferDescription** dans la [page Fournisseurs de services](view-manage-service-providers.md) du Portail Azure une fois que le modèle sera déployé dans le locataire du client.
 
 |Champ  |Définition  |
 |---------|---------|
 |**mspOfferName**     |Nom décrivant cette définition. Cette valeur est présentée au client comme titre de l'offre. Il doit s'agir d'une valeur unique.        |
-|**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »).      |
+|**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »). Ce champ est facultatif, mais recommandé pour que les clients comprennent bien votre offre.   |
 |**managedByTenantId**     |Votre ID de client.          |
 |**authorizations**     |Valeurs **principalId** pour les utilisateurs/groupes/noms de principal du service de votre locataire, chacune avec un **principalIdDisplayName** pour aider votre client à comprendre l’objectif de l’autorisation, et mappées à une valeur **roleDefinitionId** intégrée pour spécifier le niveau d’accès.      |
 
-Le processus d’intégration nécessite un modèle Azure Resource Manager (fourni dans nos [exemples de référentiel](https://github.com/Azure/Azure-Lighthouse-samples/)) et un fichier de paramètres correspondant que vous modifiez pour correspondre à votre configuration et pour définir vos autorisations.
+Vous pouvez créer ce modèle dans le Portail Azure ou en modifiant manuellement les modèles fournis dans nos [exemples de référentiels](https://github.com/Azure/Azure-Lighthouse-samples/). 
 
 > [!IMPORTANT]
 > Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement en cours d'intégration, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
 >
 > De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
+
+### <a name="create-your-template-in-the-azure-portal"></a>Créer votre modèle dans le Portail Azure
+
+Pour créer votre modèle dans le Portail Azure, accédez à **Mes clients**, puis sélectionnez **Créer un modèle ARM** à partir de la page de présentation.
+
+Sur la page **Créer une offre de modèle ARM**, indiquez votre **Nom** et éventuellement une **Description**. Ces valeurs seront utilisées pour les champs **mspOfferName** et **mspOfferDescription** de votre modèle. La valeur **managedByTenantId** sera renseignée automatiquement, sur la base du locataire Azure AD auquel vous êtes connecté.
+
+Ensuite, sélectionnez soit **Abonnement** soit **Groupe de ressources**, en fonction de l’étendue client que vous souhaitez intégrer. Si vous sélectionnez **Groupe de ressources**, vous devez renseigner le nom du groupe de ressources à intégrer. Vous pouvez sélectionner l'icône **+** pour ajouter des groupes de ressources supplémentaires en fonction des besoins. (Tous les groupes de ressources doivent se trouver dans le même abonnement client.)
+
+Enfin, créez vos autorisations en sélectionnant **+ Ajouter une autorisation**. Pour chacune de vos autorisations, fournissez les informations suivantes :
+
+1. Sélectionnez le **Type de principal** en fonction du type de compte que vous souhaitez inclure dans l’autorisation. Les options possibles sont **Utilisateur**, **Groupe** ou **Principal de service**. Dans cet exemple, nous allons choisir **Utilisateur**.
+1. Sélectionnez le lien **+ Sélectionner un utilisateur** pour ouvrir le volet de sélection. Vous pouvez utiliser le champ de recherche pour trouver l’utilisateur que vous souhaitez ajouter. Une fois que vous l’avez trouvé, cliquez sur **Sélectionner**. L’**ID de principal** de l’utilisateur sera automatiquement renseigné.
+1. Vérifiez le champ **Nom d’affichage**  (renseigné en fonction de l’utilisateur que vous avez sélectionné) et apportez les modifications souhaitées.
+1. Sélectionnez le **Rôle** à affecter à cet utilisateur.
+1. Pour le type d’**Accès**, sélectionnez **Permanent** ou **Éligible**. Si vous choisissez **Éligible**, vous devez spécifier des options pour la durée maximale, l’authentification multifacteur et la nécessité éventuelle d’une approbation. Pour plus d’informations concernant ces options, consultez [Créer des autorisations éligibles](create-eligible-authorizations.md). La fonctionnalité d’autorisations éligibles est actuellement en préversion publique et ne peut pas être utilisée avec les principaux de service.
+1. Sélectionnez **Ajouter** pour créer votre autorisation.
+
+:::image type="content" source="../media/add-authorization.png" alt-text="Capture d’écran de la section Ajouter une autorisation dans le Portail Azure.":::
+
+Après avoir sélectionné **Ajouter**, vous retournerez à l’écran **Créer une offre de modèle ARM**. Vous pouvez sélectionner de nouveau **+ Ajouter une autorisation** pour ajouter autant d’autorisations que nécessaire.
+
+Une fois que vous avez ajouté toutes vos autorisations, sélectionnez **Afficher le modèle**. Sur cet écran, vous verrez un fichier .json qui correspond aux valeurs que vous avez entrées. Sélectionnez **Télécharger** pour enregistrer une copie de ce fichier .json. Ce modèle peut ensuite être [déployé dans le locataire du client](#deploy-the-azure-resource-manager-template). Vous pouvez également le modifier manuellement si vous devez apporter des modifications. Notez que le fichier n’est pas stocké dans le Portail Azure.
+
+### <a name="create-your-template-manually"></a>Créer votre modèle manuellement
+
+Vous pouvez créer votre modèle en utilisant un modèle Azure Resource Manager (fourni dans nos [exemples de référentiels](https://github.com/Azure/Azure-Lighthouse-samples/)) et un fichier de paramètres correspondant que vous modifiez pour correspondre à votre configuration et pour définir vos autorisations. Si vous préférez, vous pouvez inclure toutes les informations directement dans le modèle, plutôt que d’utiliser un fichier de paramètres distinct.
 
 Les modèles que vous choisissez dépendront de votre choix d’intégrer un abonnement entier, un groupe de ressources ou plusieurs groupes de ressources au sein d’un abonnement. Nous fournissons également un modèle qui peut être utilisé pour des clients qui ont acheté une offre de service managé que vous avez publiée sur la Place de marché Azure, si vous préférez intégrer leurs abonnements de cette façon.
 
@@ -146,8 +173,10 @@ Les modèles que vous choisissez dépendront de votre choix d’intégrer un abo
 |Plusieurs groupes de ressources au sein d’un abonnement   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
+Si vous voulez inclure des [autorisations éligibles](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates) (actuellement en préversion publique), sélectionnez le modèle correspondant dans la [section delegated-resource-management-eligible-authorizations de nos exemples de référentiels](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
+
 > [!TIP]
-> Bien que vous ne puissiez pas intégrer un groupe d’administration entier dans un déploiement, vous pouvez [déployer une stratégie au niveau du groupe d’administration](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La stratégie utilise l’[effet deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) pour vérifier si chaque abonnement du groupe d’administration a été délégué au locataire de gestion spécifié et, si ce n’est pas le cas, crée l’attribution en fonction des valeurs que vous fournissez. Vous aurez alors accès à tous les abonnements du groupe d’administration, mais vous devrez les utiliser en tant qu’abonnements individuels (plutôt que d’effectuer des actions sur le groupe d’administration dans son ensemble).
+> Bien que vous ne puissiez pas intégrer un groupe d’administration entier dans un déploiement, vous pouvez déployer une stratégie pour [intégrer chaque abonnement dans un groupe d’administration](onboard-management-group.md). Vous aurez alors accès à tous les abonnements du groupe d’administration, mais vous devrez les utiliser en tant qu’abonnements individuels (plutôt que d’effectuer des actions sur la ressource du groupe d’administration directement).
 
 L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.json** modifié qui peut être utilisé pour l’intégration d’un abonnement. Les fichiers de paramètres de groupe de ressources (situés dans le dossier [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) sont similaires, mais incluent en outre un paramètre **rgName** pour identifier les groupes de ressources à intégrer.
 
@@ -204,26 +233,38 @@ L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.j
 
 La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** avec le rôle Administrateur de l’accès utilisateur (18d7d88d-d35e-4fb5-A5C3-7773c20a72d9). Lorsque vous attribuez ce rôle, vous devez inclure la propriété **delegatedRoleDefinitionIds** et un ou plusieurs rôles intégrés Azure pris en charge. L’utilisateur créé dans cette autorisation pourra attribuer ces rôles aux [identités managées](../../active-directory/managed-identities-azure-resources/overview.md) dans le même locataire du client, ce qui est nécessaire au [déploiement de stratégies pouvant être corrigées](deploy-policy-remediation.md).  L’utilisateur peut également créer des incidents de support. Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’applique à ce **principalId**.
 
-## <a name="deploy-the-azure-resource-manager-templates"></a>Déployer les modèles Azure Resource Manager
+## <a name="deploy-the-azure-resource-manager-template"></a>Déployer le modèle Azure Resource Manager
 
-Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur du locataire du client doit déployer le modèle Azure Resource Manager au sein de son locataire. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
+Une fois que vous avez créé votre modèle, un utilisateur du locataire du client doit le déployer dans son locataire. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
 
 > [!IMPORTANT]
 > Ce déploiement doit être effectué par un compte non invité dans le locataire client disposant de l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
 > Si l’abonnement a été créé par le biais du [programme Fournisseur de solutions Cloud (CSP)](../concepts/cloud-solution-provider.md), tout utilisateur disposant du rôle [Agent d’administration](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) dans le locataire de votre fournisseur de services peut effectuer le déploiement.
 
-Le déploiement peut être effectué sur le portail Azure, à l'aide de PowerShell ou d'Azure CLI, comme indiqué ci-dessous.
-
-### <a name="azure-portal"></a>Portail Azure
-
-1. Dans notre [référentiel GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), sélectionnez le bouton **Déployer sur Azure** disponible en regard du modèle que vous souhaitez utiliser. Le modèle s’ouvre dans le portail Azure.
-1. Entrez vos valeurs dans les champs **Nom de l'offre MSP**, **Description de l'offre MSP**, **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
-1. Sélectionnez **Vérifier et créer**, puis **Créer**.
-
-Au bout de quelques minutes, une notification indique que le déploiement est terminé.
+Le déploiement peut être effectué à l'aide de PowerShell, d'Azure CLI ou dans le Portail Azure, comme indiqué ci-dessous.
 
 ### <a name="powershell"></a>PowerShell
+
+Pour déployer un seul modèle :
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Deploy Azure Resource Manager template using template and parameter file locally
+New-AzSubscriptionDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateFile <pathToTemplateFile> `
+                 -Verbose
+
+# Deploy Azure Resource Manager template that is located externally
+New-AzSubscriptionDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateUri <templateUri> `
+                 -Verbose
+```
+
+Pour déployer un modèle avec un fichier de paramètres distinct :
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -245,6 +286,26 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
+Pour déployer un seul modèle :
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Deploy Azure Resource Manager template using template and parameter file locally
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --verbose
+
+# Deploy external Azure Resource Manager template, with local parameter file
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --verbose
+```
+
+Pour déployer un modèle avec un fichier de paramètres distinct :
+
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
@@ -262,6 +323,16 @@ az deployment sub create --name <deploymentName> \
                          --parameters <parameterFile> \
                          --verbose
 ```
+
+### <a name="azure-portal"></a>Portail Azure
+
+Avec cette option, vous pouvez modifier votre modèle directement dans le Portail Azure puis le déployer. Cette opération doit être effectuée par un utilisateur dans le locataire client.
+
+1. Dans notre [référentiel GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), sélectionnez le bouton **Déployer sur Azure** disponible en regard du modèle que vous souhaitez utiliser. Le modèle s’ouvre dans le portail Azure.
+1. Entrez vos valeurs dans les champs **Nom de l'offre MSP**, **Description de l'offre MSP**, **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
+1. Sélectionnez **Vérifier et créer**, puis **Créer**.
+
+Au bout de quelques minutes, une notification indique que le déploiement est terminé.
 
 ## <a name="confirm-successful-onboarding"></a>Vérifier la réussite de l’intégration
 

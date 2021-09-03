@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 00dd677610924fba58f8b0c6c709b162dd2088bf
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: acb26e18fd208f73053505d6e3ab5cca0f33fd2e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794168"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963200"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
 
@@ -271,4 +271,4 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans votre application IoT Central, l’étape suivante suggérée est d’apprendre à [gérer votre facture](howto-view-bill.md).
+Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans votre application IoT Central, l'étape suivante suggérée est d'apprendre à [Personnaliser l'interface utilisateur de l'application](howto-customize-ui.md).

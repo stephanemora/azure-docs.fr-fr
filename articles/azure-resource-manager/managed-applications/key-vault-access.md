@@ -2,15 +2,16 @@
 title: Utiliser un coffre de clés lors du déploiement d’une application gérée
 description: Montre comment utiliser les secrets d’accès dans Azure Key Vault lors du déploiement d’applications managées
 author: tfitzmac
+ms.custom: subject-rbac-steps
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5a6dc1de2ee574a69b8dab746a24bcf82b44d64
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81458281"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122525948"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Accéder à un secret dans le coffre de clés lors du déploiement d’applications managées Azure
 
@@ -36,19 +37,9 @@ Cet article décrit comment configurer le coffre de clés pour l’utiliser avec
 
 ## <a name="add-service-as-contributor"></a>Ajouter un service en tant que contributeur
 
-1. Sélectionnez **Contrôle d’accès (IAM)** .
+Attribuez le rôle **Contributeur** à l'utilisateur du **fournisseur de ressources de l'appliance** au niveau de l'étendue du coffre de clés.
 
-   ![Sélection du contrôle d’accès](./media/key-vault-access/access-control.png)
-
-1. Sélectionnez **Ajouter une attribution de rôle**.
-
-   ![Sélection de l’option Ajouter](./media/key-vault-access/add-access-control.png)
-
-1. Sélectionnez **Contributeur** pour le rôle. Recherchez **Fournisseur de ressources d’appliance** et sélectionnez-le dans les options disponibles.
-
-   ![Recherche d’un fournisseur](./media/key-vault-access/search-provider.png)
-
-1. Sélectionnez **Enregistrer**.
+Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="reference-key-vault-secret"></a>Référencer un secret de coffre de clés
 

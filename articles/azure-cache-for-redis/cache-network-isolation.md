@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b47462a60e35200908592274a9e1c424eca5ab62
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 61865a38cfa96dae35a02b25a1f5025438e91816
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655364"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379741"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Options d’isolement réseau d’Azure Cache pour Redis
 
@@ -31,7 +31,7 @@ Azure Private Link fournit une connectivité privée entre un réseau virtuel et
 ### <a name="limitations"></a>Limites
 
 * Les groupes de sécurité réseau (NSG) sont désactivés pour les points de terminaison privés. Toutefois, s’il existe d’autres ressources sur le sous-réseau, l’application du NSG s’appliquera à ces ressources.
-* Pas encore pris en charge : géoréplication, règles de pare-feu, prise en charge de la console du portail, multiplicité des points de terminaison par cache en cluster, persistance au pare-feu et caches injectés sur le réseau virtuel.
+* Actuellement, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
 * Pour vous connecter à un cache en cluster, `publicNetworkAccess` doit être défini sur `Disabled`, et il ne peut y avoir qu’une seule connexion de point de terminaison privé.
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 1accce46358c360be83ebc3ea85f0f2257b567c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103383"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456538"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -37,7 +37,7 @@ Pour participer à ce programme, vous devez passer en revue et accepter les term
 > [!NOTE]
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à signer des contrats juridiques.
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Sélectionnez **Paramètres** (icône d’engrenage) > **Paramètres de compte**.
 1. Sélectionnez **Contrats**.
 1. Sélectionnez le lien de la version et affichez l'accord.
@@ -50,7 +50,7 @@ Définissez vos informations de facturation pour le programme Business Applicati
 > [!NOTE]
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à mettre à jour vos informations de facturation.
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
+1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. Sélectionnez **Paramètres** (icône d’engrenage) > **Paramètres de compte**.
 1. Sous **Profil de l’organisation**, sélectionnez **Profil de facturation**, puis l’onglet **Développeur**.
 1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique.
@@ -77,8 +77,7 @@ La dernière étape de l’inscription au programme Business Applications ISV Co
 
 Contactez votre responsable de compte ou le [support de partenaire Microsoft](https://aka.ms/marketplacepublishersupport) pour obtenir de l'aide concernant votre compte. Pour des informations générales sur le programme Business Applications ISV Connect, consultez :
 
-- [Business Applications pour les ISV](https://partner.microsoft.com/solutions/business-applications/isv-overview) (article en ligne)
-- [Vue d’ensemble du nouveau programme pour les ISV de Business Applications](https://aka.ms/BizAppsISVProgram) (PDF en anglais)
-- [FAQ sur le programme Business Applications ISV Connect](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf) (PDF)
-- [Programme à venir pour les ISV de Business Applications](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (billet de blog en anglais)
-- [Stratégies du programme ISV Connect](https://aka.ms/bizappsisvpolicies) (PDF en anglais)
+- [Informations du partenaire Business Applications](https://aka.ms/bizappsisvWeb) (site web)
+- [Guide du programme ISV Connect](https://aka.ms/bizappsisvProgram) (PDF)
+- [FAQ du partenaire du programme ISV Connect](https://powerplatformpartners.transform.microsoft.com/download?assetname=assets/ISV%20Connect%20Partner%20FAQ.pdf&download=1) (PDF)
+- [Modifications du programme ISV Connect](https://cloudblogs.microsoft.com/dynamics365/bdm/2021/07/14/innovate-and-grow-with-the-simplified-business-applications-isv-connect-program/) (billet de blog)

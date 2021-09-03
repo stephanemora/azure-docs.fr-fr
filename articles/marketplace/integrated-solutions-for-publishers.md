@@ -4,15 +4,15 @@ description: Découvrez les conditions requises et les étapes de publication de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
-ms.date: 04/16/2020
-ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.date: 06/22/2021
+ms.openlocfilehash: afdfce29840bbc88bdfc853e12e8109881f8366a
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880268"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002027"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
@@ -81,19 +81,13 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
     * API
     * Dépôt de données unifié
 
-    Utilisez ces ressources pour le processus de développement :
+2. Identifiez un chef de projet inter-partenaires qui appliquera le plan de projet et la chronologie que vous avez développés dans les ateliers commerciaux et techniques.
 
-    * [Guide de discussion sur l’atelier des décisions commerciales](https://aka.ms/AA5qicx)
-    * [Guide de discussion sur l’atelier des décisions techniques](https://aka.ms/AA5qid1)
-    * [Vidéo de démarrage rapide : ateliers Solutions intégrées](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
+3. Développez l’intégration technique complète de la solution.
 
-1. Identifiez un chef de projet inter-partenaires qui appliquera le plan de projet et la chronologie que vous avez développés dans les ateliers commerciaux et techniques.
+4. Déterminez les tarifs de la solution et un niveau de prix unique à afficher sur Microsoft AppSource ou la Place de marché Azure.
 
-1. Développez l’intégration technique complète de la solution.
-
-1. Déterminez les tarifs de la solution et un niveau de prix unique à afficher sur Microsoft AppSource ou la Place de marché Azure.
-
-1. Fournissez les supports marketing pour le référencement sur Microsoft AppSource ou la Place de marché Azure, avec notamment :
+5. Fournissez les supports marketing pour le référencement sur Microsoft AppSource ou la Place de marché Azure, avec notamment :
 
     * Un nom de solution combinée.
     * Une description du référencement de la solution intégrée. Suivez les [bonnes pratiques sur les référencements des offres](./gtm-offer-listing-best-practices.md).
@@ -103,7 +97,7 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
 ## <a name="publish-your-integrated-solution"></a>Publier votre solution intégrée
 
-Une fois que vous avez terminé l’intégration technique et fourni les supports marketing, reportez-vous au guide de l’éditeur pour les [Services de conseil dans Microsoft AppSource et la Place de marché Azure](./plan-consulting-service-offer.md). Utilisez cette ressource pour déterminer si votre solution sera publiée dans Microsoft AppSource ou la Place de marché Azure. Utilisez également le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
+Une fois que vous avez terminé l’intégration technique et le collatéral marketing, reportez-vous au guide de l’éditeur pour [Services de Conseil pour Microsoft AppSource et la Place de marché Azure](./plan-consulting-service-offer.md) pour déterminer si votre solution sera publiée dans Microsoft AppSource ou la Place de marché Azure. Nous vous recommandons d’utiliser le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
 
 Bien que cinq types de services existent pour les offres de services de conseil, les solutions intégrées doivent être soit une preuve de concept, soit une implémentation complète.
 

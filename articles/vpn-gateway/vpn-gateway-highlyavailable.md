@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 05/27/2021
 ms.author: yushwang
-ms.openlocfilehash: f00de78ba4e2b46595489f46155546157642fb12
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 82a1ad0968a80be1ff1780b1cf83ec928a016dbb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953852"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122531692"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connectivité hautement disponible entre différents locaux et de réseau virtuel à réseau virtuel
 
@@ -83,5 +83,5 @@ La même configuration actif-actif peut également s’appliquer aux connexions 
 Ainsi, il existe toujours une paire de tunnels entre les deux réseaux virtuels pour tout événement de maintenance planifiée, ce qui garantit une meilleure disponibilité. Bien que la même topologie requiert deux connexions pour permettre une connectivité entre les réseaux locaux, la topologie entre deux réseaux virtuels décrite ci-dessus ne nécessite qu’une seule connexion pour chaque passerelle. En outre, l’utilisation du protocole BGP n’est nécessaire que si le transit doit être routé via la connexion entre les deux réseaux virtuels.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour connaître les étapes de configuration des connexions en mode actif-actif entre des réseaux locaux ou entre deux réseaux virtuels, consultez la page [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md) (Configuration des passerelles VPN actif-actif pour des connexions entre des réseaux locaux et entre deux réseaux virtuels).
+Consultez [Configurer les passerelles active-active](active-active-portal.md) à l’aide du [Portail Azure](active-active-portal.md) ou [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
 

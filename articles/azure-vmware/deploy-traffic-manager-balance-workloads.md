@@ -3,12 +3,12 @@ title: Déployer Traffic Manager pour équilibrer les charges de travail Azure V
 description: Découvrez comment intégrer Traffic Manager avec Azure VMware Solution pour équilibrer les charges de travail d’application sur plusieurs points de terminaison dans différentes régions.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: d00f699c094995dad15d4ab5558fcd838ed33128
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ac8f402eadcced4e8592a68f13abd6d2693b8b0c
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087001"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601987"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Déployer Traffic Manager pour équilibrer les charges de travail Azure VMware Solution
 
@@ -18,7 +18,7 @@ Les passerelles disposent de machines virtuelles Azure VMware Solution configur�
 
 Le diagramme montre comment Traffic Manager fournit un équilibrage de charge pour les applications au niveau du DNS entre les points de terminaison régionaux. Les passerelles ont des membres du pool principal configurés en tant que serveurs IIS et référencés en tant que points de terminaison externes Azure VMware Solution. La connexion sur le réseau virtuel entre deux régions de cloud privé utilise une passerelle ExpressRoute.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagramme de l’architecture de l’intégration de Traffic Manager à Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagramme de l’intégration de Traffic Manager à Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
 Avant toute chose, examinez les [prérequis](#prerequisites). Ensuite, nous allons parcourir les procédures pour :
 
@@ -56,7 +56,7 @@ Les étapes suivantes permettent de vérifier la configuration de vos passerelle
 
    Une fenêtre s’ouvre, qui affiche diverses informations sur la passerelle applicative. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Capture d’écran de la page de passerelle applicative montrant les détails de la passerelle applicative sélectionnée." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-configuration.png" alt-text="Capture d’écran de la page de passerelle applicative montrant les détails de la passerelle applicative sélectionnée." lightbox="media/traffic-manager/backend-pool-configuration.png":::
 
 1. Sélectionnez **Pools principaux** pour vérifier la configuration de l’un des pools principaux. Vous voyez un membre du pool principal de machines virtuelles configuré en tant que serveur web avec l’adresse IP 172.29.1.10.
  
@@ -70,7 +70,7 @@ Les étapes suivantes permettent de vérifier la configuration du segment NSX-T 
 
 1. Sélectionnez **Segments** pour afficher vos segments configurés.  Vous voyez le segment Contoso-segment1 connecté à la passerelle Contoso-T01, un routeur flexible de niveau 1.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Capture d’écran montrant des profils de segment dans NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Capture d’écran montrant des profils de segment dans NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. Sélectionnez **Passerelles de niveau 1** pour afficher la liste des vos passerelles de niveau 1 avec le nombre de segments liés. 
 

@@ -1,21 +1,18 @@
 ---
-title: Voir l’activité des fournisseurs de services
-description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais d’Azure Lighthouse.
-ms.date: 05/11/2021
+title: Surveiller l’activité des fournisseurs de services
+description: Les clients peuvent analyser l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais d’Azure Lighthouse.
+ms.date: 07/16/2021
 ms.topic: how-to
-ms.openlocfilehash: ef9f8e76c9b6c2ab23c4075b81874816ff784f67
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9f24126bc8d3252de3926e72aea2915092206e38
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785953"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389149"
 ---
-# <a name="view-service-provider-activity"></a>Voir l’activité des fournisseurs de services
+# <a name="monitor-service-provider-activity"></a>Surveiller l’activité des fournisseurs de services
 
-Les clients disposant d’abonnements délégués pour [Azure Lighthouse](../overview.md) peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) pour voir toutes les actions entreprises. Ils bénéficient ainsi d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la [gestion des ressources déléguées Azure](../concepts/architecture.md), ainsi que par les utilisateurs dans le locataire Azure Active Directory (Azure AD) du client.
-
-> [!TIP]
-> Nous fournissons également des définitions de stratégie intégrée Azure Policy pour [restreindre la délégation à des locataires gestionnaires spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) et [auditer la délégation d’étendues sur un locataire gestionnaire](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Pour plus d’informations, consultez [Auditer des délégations dans votre environnement](view-manage-service-providers.md#audit-delegations-in-your-environment).
+Les clients disposant d’abonnements délégués pour [Azure Lighthouse](../overview.md) peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) pour voir toutes les actions entreprises. Ils bénéficient ainsi d’une visibilité complète sur les opérations effectuées par les fournisseurs de services, ainsi que par les utilisateurs dans le locataire Azure Active Directory (Azure AD) du client.
 
 ## <a name="view-activity-log-data"></a>Voir les données du journal d’activité
 
@@ -39,17 +36,18 @@ Pour plus d’informations, consultez [Créer et gérer les alertes de journal d
 
 ## <a name="create-log-queries"></a>Créer des requêtes de journal
 
-Vous pouvez créer des requêtes pour analyser votre activité journalisée ou vous concentrer sur des éléments spécifiques. Par exemple, il est possible qu’un audit vous oblige à signaler toutes les actions de niveau administratif effectuées sur un abonnement. Vous pouvez créer une requête pour filtrer uniquement ces actions et trier les résultats selon l’utilisateur, la date ou une autre valeur.
+Les requêtes de journaux peuvent vous aider à analyser votre activité journalisée ou vous concentrer sur des éléments spécifiques. Par exemple, il est possible qu’un audit vous oblige à signaler toutes les actions de niveau administratif effectuées sur un abonnement. Vous pouvez créer une requête pour filtrer uniquement ces actions et trier les résultats selon l’utilisateur, la date ou une autre valeur.
 
 Pour plus d’informations, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="view-user-activity-across-domains"></a>Afficher l’activité des utilisateurs dans les domaines
 
-Vous pouvez afficher l’activité d’utilisateurs individuels dans plusieurs domaines à l’aide de l’exemple de classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain).
+Pour afficher l’activité d’utilisateurs individuels dans plusieurs domaines, utilisez l’exemple de classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain).
 
 Les résultats peuvent être filtrés par nom de domaine. Vous pouvez également appliquer des filtres supplémentaires tels qu’une catégorie, un niveau ou des groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrir les [délégations d’audit et restreintes](view-manage-service-providers.md#audit-and-restrict-delegations-in-your-environment).
 - En savoir plus sur [Azure Monitor](../../azure-monitor/index.yml).
 - Découvrez comment [afficher et gérer les offres du fournisseur de services](view-manage-service-providers.md) dans le portail Azure.

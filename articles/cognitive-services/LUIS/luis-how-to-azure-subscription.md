@@ -9,13 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2021
-ms.openlocfilehash: 60e5d37f57d6a87d9190650f044a1ffc991e60fb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/12/2021
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: 4fe1e8cd4c78d4411a7cb9058648fc0e782cb0ee
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096016"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666300"
 ---
 # <a name="how-to-create-and-manage-luis-resources"></a>Guide pratique pour créer et gérer des ressources LUIS
 
@@ -69,9 +70,9 @@ Pour créer des ressources LUIS, vous pouvez utiliser le portail LUIS, le [porta
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[Sans le portail LUIS](#tab/without-portal)
 
-### <a name="create-luis-resources-in-the-azure-cli"></a>Créer des ressources LUIS dans l’interface Azure CLI
+### <a name="create-luis-resources-without-using-the-luis-portal"></a>Créer des ressources LUIS sans utiliser le portail LUIS
 
 Utilisez [Azure CLI](/cli/azure/install-azure-cli) pour créer chaque ressource individuellement.
 
@@ -130,9 +131,9 @@ La procédure suivante affecte une ressource à une application spécifique.
 1. Sous l’onglet **Ressource de prédiction** ou **Ressource de création**, sélectionnez le bouton **Ajouter une ressource de prédiction** ou **Ajouter une ressource de création**.
 1. Utilisez les champs du formulaire pour trouver la ressource appropriée, puis sélectionnez **Enregistrer**.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[Sans le portail LUIS](#tab/without-portal)
 
-## <a name="assign-prediction-resource-programmatically"></a>Affecter une ressource de prédiction programmatiquement 
+## <a name="assign-prediction-resource-without-using-the-luis-portal"></a>Attribuer une ressource de prédiction sans utiliser le portail LUIS
 
 Pour les processus automatisés comme les pipelines CI/CD, vous pouvez automatiser l’affectation d’une ressource LUIS à une application LUIS en effectuant les étapes suivantes :
 
@@ -181,9 +182,9 @@ Quand vous annulez l’affectation d’une ressource, elle n’est pas supprimé
 1. Accédez à **Gérer** > **Ressources Azure**.
 1. Sélectionnez le bouton **Annuler l’affectation de la ressource** pour la ressource.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[Sans le portail LUIS](#tab/without-portal)
 
-## <a name="unassign-prediction-resource-programmatically"></a>Annuler l’affectation d’une ressource de prédiction par programmation
+## <a name="unassign-prediction-resource-without-using-the-luis-portal"></a>Annuler l'attribution d'une ressource de prédiction sans utiliser le portail LUIS
 
 1. Obtenez un [jeton Azure Resource Manager](https://resources.azure.com/api/token?plaintext=true) qui est une chaîne alphanumérique de caractères. Ce jeton a un délai d’expiration. Veillez donc à l’utiliser immédiatement. Vous pouvez également utiliser la commande Azure CLI suivante.
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c96a70ff3a89c09f625f4c478f55690a3203f17c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b3e7df998d32317763c6a0de7c0e7c1cc2f2420b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414815"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122562533"
 ---
 # <a name="scale-out-and-in-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Effectuer un scale-out et un scale-in de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc en ajoutant plus de nœuds Worker
 Ce document explique comment effectuer un scale-out et un scale-in d’un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc. Pour ce faire, il vous guide dans un scénario. **Si vous ne souhaitez pas exécuter le scénario mais voulez simplement en savoir plus sur la manière d’effectuer un scale-out ou un scale-in, allez directement au paragraphe [Effectuer un scale-out](#scale-out)** ou [Effectuer un scale-in]().
@@ -26,8 +26,8 @@ Vous procédez à un scale-in lorsque vous supprimez des instances Postgres (nœ
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="get-started"></a>Prise en main
-Si vous êtes déjà familiarisé avec le modèle de mise à l’échelle de PostgreSQL Hyperscale activé par Azure Arc ou Azure Database pour PostgreSQL Hyperscale (Citus), vous pouvez ignorer ce paragraphe. Autrement, nous vous recommandons de commencer par lire ce modèle de mise à l’échelle dans la page de documentation d’Azure Database pour PostgreSQL Hyperscale (Citus). Azure Database pour PostgreSQL Hyperscale (Citus) est la même technologie que celle hébergée en tant que service dans Azure (plateforme en tant que service, ou Paas) au lieu d’être proposée dans le cadre des services de données compatibles Azure Arc :
+## <a name="get-started"></a>Bien démarrer
+Si vous êtes déjà familiarisé avec le modèle de mise à l’échelle de PostgreSQL Hyperscale activé par Azure Arc ou Azure Database pour PostgreSQL Hyperscale (Citus), vous pouvez ignorer ce paragraphe. Autrement, nous vous recommandons de commencer par lire ce modèle de mise à l’échelle dans la page de documentation d’Azure Database pour PostgreSQL Hyperscale (Citus). Azure Database pour PostgreSQL Hyperscale (Citus) est la même technologie que celle hébergée en tant que service dans Azure (plateforme en tant que service, ou Paas) au lieu d’être proposée dans le cadre de Data Services avec Azure Arc :
 - [Nœuds et tables](../../postgresql/concepts-hyperscale-nodes.md)
 - [Déterminer le type d’application](../../postgresql/concepts-hyperscale-app-type.md)
 - [Choisir une colonne de distribution](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
@@ -48,12 +48,12 @@ Le scénario utilise un exemple de données GitHub publiquement disponibles, dis
 
 ##### <a name="list-the-connection-information"></a>Afficher la liste des informations de connexion
 Connectez-vous à votre groupe de serveurs PostgreSQL Hyperscale activé par Azure Arc en obtenant d’abord les informations de connexion : Le format général de cette commande est le suivant
-```console
-azdata arc postgres endpoint list -n <server name>
+```azurecli
+az postgres arc-server endpoint list -n <server name>  --k8s-namespace <namespace> --use-k8s
 ```
 Exemple :
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01  --k8s-namespace <namespace> --use-k8s
 ```
 
 Exemple de sortie :
@@ -152,20 +152,20 @@ Prenez note de la durée d’exécution de la requête.
 
 ## <a name="scale-out"></a>Scale-out
 Le format général de la commande de scale-out est le suivant :
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 
 Dans cet exemple, nous augmentons le nombre de nœuds Worker de 2 à 4, en exécutant la commande suivante :
 
-```console
-azdata arc postgres server edit -n postgres01 -w 4
+```azurecli
+az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace <namespace> --use-k8s 
 ```
 
 Lors de l’ajout de nœuds, vous verrez un état en attente pour le groupe de serveurs. Exemple :
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 ```console
@@ -179,10 +179,12 @@ Une fois les nœuds disponibles, le rééquilibreur de partition Hyperscale s’
 ### <a name="verify-the-new-shape-of-the-server-group-optional"></a>Vérifier la nouvelle forme du groupe de serveurs (facultatif)
 Utilisez l’une des méthodes ci-dessous pour vérifier que le groupe de serveurs utilise à présent les nœuds Worker que vous avez ajoutés.
 
-#### <a name="with-azdata"></a>Avec azdata :
+#### <a name="with-azure-cli-az"></a>Avec Azure CLI (az) :
+
 Exécutez la commande suivante :
-```console
-azdata arc postgres server list
+
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 Elle retourne la liste des groupes de serveurs créés dans votre espace de noms, et indique le nombre de nœuds Worker. Exemple :
@@ -232,7 +234,7 @@ Notez la durée d’exécution.
 
 
 > [!NOTE]
-> En fonction de votre environnement, par exemple si vous avez déployé votre groupe de serveurs de test avec `kubeadm` sur une machine virtuelle à nœud unique, vous pouvez constater une légère amélioration de la durée d’exécution. Pour obtenir une meilleure idée du type d’amélioration des performances que vous pouvez atteindre avec PostgreSQL Hyperscale activé par Azure Arc, regardez les courtes vidéos suivantes :
+> En fonction de votre environnement, par exemple si vous avez déployé votre groupe de serveurs de test avec `kubeadm` sur une machine virtuelle à nœud unique, vous pouvez constater une légère amélioration de la durée d’exécution. Pour avoir une meilleure idée du type d’amélioration des performances que vous pouvez atteindre avec PostgreSQL Hyperscale activé par Azure Arc, regardez les courtes vidéos suivantes :
 >* [HTAP haute performance avec Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Création d’applications HTAP avec Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
@@ -240,8 +242,8 @@ Notez la durée d’exécution.
 Pour effectuer un scale-in (réduire le nombre de nœuds Worker dans votre groupe de serveurs), vous utilisez la même commande que pour effectuer un scale-out, mais vous indiquez un plus petit nombre de nœuds Worker. Les nœuds Worker qui sont supprimés sont ceux qui ont été ajoutés en dernier au groupe de serveurs. Lorsque vous exécutez cette commande, le système déplace les données hors des nœuds qui sont supprimés et les redistribue (rééquilibre) automatiquement sur les nœuds restants. 
 
 Le format général de la commande de scale-in est le suivant :
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 

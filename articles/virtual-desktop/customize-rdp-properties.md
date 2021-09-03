@@ -7,19 +7,19 @@ ms.date: 10/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 545d748d521d623bdbaa21ccafd8c52c6508bf03
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 481b81edb0ee5709e712f213036fa8df53aca7c4
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750260"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287921"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personnaliser les propriétés de Remote Desktop Protocol (RDP) pour un pool d’hôtes
 
 >[!IMPORTANT]
 >Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop pour Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 
-La personnalisation des propriétés du protocole RDP (Remote Desktop Protocol) d’un pool d’hôtes, comme l’utilisation de plusieurs écrans et la redirection audio, vous permet d’offrir une expérience optimale pour vos utilisateurs en fonction de leurs besoins. Vous pouvez personnaliser les propriétés RDP dans Azure Virtual Desktop en utilisant le portail Azure ou le paramètre *-CustomRdpProperty* dans la cmdlet **Update-AzWvdHostPool**.
+La personnalisation des propriétés du protocole RDP (Remote Desktop Protocol) d’un pool d’hôtes, comme l’utilisation de plusieurs écrans et la redirection audio, vous permet d’offrir une expérience optimale pour vos utilisateurs en fonction de leurs besoins. Si vous souhaitez modifier les propriétés du fichier RDP par défaut, vous pouvez personnaliser les propriétés RDP dans Azure Virtual Desktop en utilisant le Portail Azure ou le paramètre *-CustomRdpProperty* dans la cmdlet **Update-AzWvdHostPool**.
 
 Pour obtenir la liste complète des propriétés prises en charge et leur valeur par défaut, consultez [Paramètres de fichier RDP pris en charge](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
@@ -29,14 +29,15 @@ Les fichiers RDP ont les propriétés suivantes par défaut :
 
 |Propriété RDP|Pour les applications de bureau et RemoteApp|
 |---|---|
-|Mode à plusieurs écrans|Désactivé|
+|Mode à plusieurs écrans|activé|
 |Redirections de lecteur activées|Lecteurs, Presse-papiers, imprimantes, ports COM, cartes à puce, appareils et usbdevicestore|
 |Mode audio distant|Lire localement|
 |VideoPlayback|activé|
 |EnableCredssp|activé|
 
 >[!NOTE]
->Le mode multimoniteur ne s’applique qu’aux groupes d’applications de bureau. Il est ignoré pour les groupes d’applications RemoteApp.
+>- Le mode multimoniteur ne s’applique qu’aux groupes d’applications de bureau. Il est ignoré pour les groupes d’applications RemoteApp.
+>- Toutes les propriétés de fichier RDP par défaut sont exposées dans le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -132,8 +133,8 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Maintenant que vous avez personnalisé les propriétés RDP pour un pool d’hôtes donné, connectez-vous à un client Azure Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Les guides pratiques suivants indiquent comment se connecter à une session à l’aide du client choisi :
 
-- [Se connecter avec le client Windows Desktop](connect-windows-7-10.md)
-- [Se connecter avec le client web](connect-web.md)
-- [Se connecter avec le client Android](connect-android.md)
-- [Se connecter avec le client macOS](connect-macos.md)
-- [Se connecter avec le client iOS](connect-ios.md)
+- [Se connecter avec le client Windows Desktop](./user-documentation/connect-windows-7-10.md)
+- [Se connecter avec le client web](./user-documentation/connect-web.md)
+- [Se connecter avec le client Android](./user-documentation/connect-android.md)
+- [Se connecter avec le client macOS](./user-documentation/connect-macos.md)
+- [Se connecter avec le client iOS](./user-documentation/connect-ios.md)

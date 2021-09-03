@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797667"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667652"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Comment configurer le cache intégré Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,6 +59,11 @@ Cet article explique comment approvisionner une passerelle dédiée, configurer 
 
 3. Si vous utilisez le Kit de développement logiciel (SDK) .NET ou Java, définissez le mode de connexion sur [mode passerelle](sql-sdk-connection-modes.md#available-connectivity-modes). Cette étape n’est pas nécessaire pour les kits de développement logiciel (SDK) Python et Node.js, car ils n’ont pas d’options de connexion autres que le mode passerelle.
 
+> [!NOTE]
+> Si vous utilisez la dernière version du kit de développement logiciel (SDK) .NET ou Java, le mode de connexion par défaut est le mode direct. Pour pouvoir utiliser le cache intégré, vous devez remplacer cette valeur par défaut.
+
+Si vous utilisez le kit de développement logiciel (SDK) Java, vous devez également définir manuellement [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) sur `true` dans le `CosmosClientBuilder`. Si vous utilisez un autre kit de développement logiciel (SDK), cette valeur est déjà définie par défaut sur `true`. Vous n’avez donc pas besoin d’apporter des modifications.
+
 ## <a name="adjust-request-consistency"></a>Ajuster la cohérence des demandes
 
 Vous devez ajuster la cohérence des demandes en optant pour une cohérence éventuelle. Si ce n’est pas le cas, la demande contourne toujours le cache intégré. Le moyen le plus simple de configurer une cohérence éventuelle pour toutes les opérations de lecture est de [la définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Vous pouvez également configurer la cohérence au [niveau de la demande](how-to-manage-consistency.md#override-the-default-consistency-level), ce qui est recommandé si vous souhaitez uniquement qu’un sous-ensemble de vos lectures utilise le cache intégré.
@@ -85,7 +90,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> Actuellement, vous pouvez uniquement ajuster MaxIntegratedCacheStaleness à l’aide de la dernière préversion du kit de développement logiciel .NET et de Java.
+> Actuellement, vous pouvez uniquement ajuster MaxIntegratedCacheStaleness à l’aide de la dernière préversion [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) et [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) du kit de développement logiciel (SDK).
 
 ## <a name="verify-cache-hits"></a>Vérifier les correspondances dans le cache
 
@@ -96,6 +101,10 @@ Pour qu’une demande de lecture (lecture ou interrogation de point) utilise le 
 -   Votre client se connecte au point de terminaison de passerelle dédiée
 -  Votre client utilise le mode passerelle (Les kits de développement logiciel (SDK) Python et Node.js utilisent toujours le mode passerelle)
 -   La cohérence de la demande doit être définie sur éventuelle.
+
+> [!NOTE]
+> Avez-vous des commentaires sur le cache intégré ? Nous attendons vos remarques ! N’hésitez pas à partager vos commentaires directement avec l’équipe d’ingénierie Azure Cosmos DB :cosmoscachefeedback@microsoft.com
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
