@@ -1,19 +1,19 @@
 ---
 title: Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 description: Cet article décrit le(s) rôle(s) RBAC Synapse intégré(s) requis pour accomplir des tâches spécifiques
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87156914769c2cb76b7509b74ebfeb13b15af95e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2d913d0312b75542fa52e73e68170e9a3b91cf5d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110784192"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823343"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 
@@ -76,7 +76,7 @@ Gérer (suspendre, mettre à l’échelle ou supprimer) un pool SQL dédié|Prop
 Créer un script SQL</br>|Utilisateur Synapse, ou </br>Propriétaire ou Contributeur Azure sur l’espace de travail, </br>*Des autorisations SQL supplémentaires sont requises pour exécuter un script SQL ou pour publier ou valider des modifications*|
 Répertorier et ouvrir tout script SQL publié| Utilisateur d'artefact Synapse, Éditeur d’artefacts, Contributor Synapse|artifacts/read
 Exécuter un script SQL sur un pool SQL serverless|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
-Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool|aucun
+Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
 Publier un script SQL nouveau, mis à jour ou supprimé|Éditeur d’artefacts Synapse, Contributor Synapse|sqlScripts/write, delete
 Valider les modifications apportées à un script SQL dans le référentiel Git|Nécessite des autorisations Git sur le référentiel|
 Attribuer des droits Administrateur Active Directory sur l’espace de travail (via les propriétés de l’espace de travail dans le portail Azure)|Propriétaire ou Contributeur Azure sur l’espace de travail |
@@ -92,7 +92,7 @@ Publier ou supprimer une définition de notebook ou de travail (y compris la sor
 Valider les modifications apportées à une définition de notebook ou de tâche dans le référentiel Git|Autorisations Git|aucun
 PIPELINES, RUNTIMES D’INTÉGRATION, DATAFLOWS, JEUX DE DONNÉES ET DÉCLENCHEURS|
 Créer, mettre à jour ou supprimer un runtime d’intégration|Propriétaire ou Contributeur Azure sur l’espace de travail|
-Superviser l’état du runtime d’intégration|Utilisateur Synapse|read, pipelines/viewOutputs
+Superviser l’état du runtime d’intégration|Opérateur de capacité de calcul Synapse|read, integrationRuntimes/viewLogs
 Passer en revue les exécutions de pipeline|Éditeur d’artefacts Synapse/Contributor Synapse|read, pipelines/viewOutputs 
 Créer un pipeline |Utilisateur Synapse</br>*Des autorisations Synapse supplémentaires sont requises pour déboguer, ajouter des déclencheurs ou publier ou valider des modifications*|lire
 Créer un dataflow ou un jeu de données |Utilisateur Synapse</br>*Des autorisations Synapse supplémentaires sont requises pour publier ou valider des modifications*|lire

@@ -1,98 +1,132 @@
 ---
-title: Déployer Azure Monitor pour les solutions SAP avec le portail Azure
-description: Déployer Azure Monitor pour les solutions SAP avec le portail Azure
+title: Déploiement d’Azure Monitor pour SAP Solutions avec le Portail Azure
+description: Découvrez comment utiliser une méthode par navigateur pour déployer Azure Monitor pour SAP Solutions.
 author: sameeksha91
 ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.date: 08/17/2020
-ms.openlocfilehash: a9208101777cd88f0237e661a414550759a069b0
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.subservice: baremetal-sap
+ms.date: 07/08/2021
+ms.openlocfilehash: 3acbef6c8521022ae847925e48d3cd42e13dc56e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007378"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965396"
 ---
-# <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Déployer Azure Monitor pour les solutions SAP avec le portail Azure
+# <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Déploiement d’Azure Monitor pour SAP Solutions avec le Portail Azure
 
-Les ressources de Azure Monitor pour les solutions SAP peuvent être créées via le [portail Azure](https://azure.microsoft.com/features/azure-portal). Cette méthode fournit une interface utilisateur basée sur un navigateur pour déployer Azure Monitor pour les solutions SAP et configurer des fournisseurs.
+Dans cet article, nous allons voir comment déployer Azure Monitor pour SAP Solutions sur le [Portail Azure](https://azure.microsoft.com/features/azure-portal). À l’aide de l’interface basée sur le navigateur du portail, nous allons déployer Azure Monitor pour SAP Solutions et configurer des fournisseurs.
 
-## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
+## <a name="sign-in-to-the-portal"></a>Se connecter au portail
 
-Connectez-vous au portail Azure sur https://portal.azure.com
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="create-monitoring-resource"></a>Créer des ressources de surveillance
+## <a name="create-a-monitoring-resource"></a>Création d’une ressource de monitoring
 
-1. Sélectionnez **Solutions Azure Monitor pour solutions SAP** dans la **place de marché Azure**.
+1. Sous **Place de marché**, sélectionnez **Azure Monitor pour SAP Solutions**.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="L’image montre l’offre de sélection Azure Monitor pour l’offre de solutions SAP à partir de la place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Capture d’écran montrant la sélection de l’offre Azure Monitor pour SAP Solutions sur la Place de marché Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
-2. Sous l’onglet **De base**, indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
+2. Dans l’onglet **De base**, indiquez les valeurs requises. Le cas échéant, vous pouvez utiliser un espace de travail Log Analytics existant.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Affichage des options de configuration du portail Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Capture d’écran montrant les options de configuration de l’onglet De base." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
-3. Lorsque vous sélectionnez un réseau virtuel, assurez-vous que les systèmes que vous souhaitez surveiller sont accessibles à partir de ce réseau virtuel. 
+   Lorsque vous sélectionnez un réseau virtuel, assurez-vous que les systèmes dont vous souhaitez effectuer le monitoring y sont accessibles. 
 
    > [!IMPORTANT]
-   > Si vous sélectionnez **Partager** pour le partage de données avec Microsoft, nos équipes de support technique peuvent fournir un support supplémentaire.
+   > Si vous sélectionnez **Partager** pour **Partager des données avec le Support Microsoft**, nos équipes de support pourront vous aider à résoudre les problèmes.
 
 ## <a name="configure-providers"></a>Configurer des fournisseurs
 
 ### <a name="sap-netweaver-provider"></a>Fournisseur SAP NetWeaver
 
-#### <a name="prerequisites-for-adding-netweaver-provider"></a>Conditions préalables pour l’ajout du fournisseur NetWeaver
+Le service de démarrage SAP propose différents services, notamment le monitoring du système SAP. Nous utilisons SAPControl, une interface de services web SOAP qui expose ces fonctionnalités. Elle fait la distinction entre les méthodes de services web [protégées et non protégées](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). 
 
-Le « Service de démarrage SAP » fournit une série de services, notamment la surveillance du système SAP. Nous utilisons « SAPControl », qui est une interface de service web SOAP qui expose ces fonctionnalités. Cette interface de service web SAPControl fait la distinction entre les méthodes [protégées et non protégées](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). Pour pouvoir extraire des métriques spécifiques, vous devez ôter la protection de certaines méthodes. Pour ôter la protection des méthodes requises pour la version actuelle, veuillez suivre les étapes ci-dessous pour chaque système SAP :
+Pour extraire des métriques spécifiques, vous devez ôter la protection de certaines méthodes pour la version actuelle. Suivez ces étapes pour chaque système SAP :
 
-1. Ouvrez une connexion à l’interface graphique SAP sur le serveur SAP
-2. Connectez-vous à l’aide d’un compte d’administrateur
-3. Exécutez la transaction RZ10
-4. Sélectionnez le profil approprié (DEFAULT.PFL)
-5. Sélectionnez « Maintenance étendue », puis cliquez sur Modifier 
-6. Modifiez la valeur du paramètre affecté « service/protectedwebmethods » en « SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList » sur le paramètre recommandé, puis cliquez sur Copier
-7. Revenez et sélectionnez Profil->Enregistrer
-8. Redémarrez le système pour que le paramètre prenne effet
+1. Ouvrez une connexion GUI SAP au serveur SAP.
+2. Connectez-vous avec un compte d’administration.
+3. Exécutez la transaction RZ10.
+4. Sélectionnez le profil approprié (*DEFAULT.PFL*).
+5. Sélectionnez **Maintenance étendue** > **Modifier**. 
+6. Sélectionnez le paramètre de profil « service/protectedwebmethods », modifiez-le pour qu’il ait la valeur suivante, puis cliquez sur Copier :  
+ 
+SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList 
 
+7. Revenez et sélectionnez **Profil** > **Enregistrer**.
+8. Après avoir enregistré les modifications apportées à ce paramètre, redémarrez le service SAPStartSRV sur chacune des instances du système SAP. En redémarrant les services, vous ne redémarrez pas le système SAP, mais seulement le service SAPStartSRV (sur Windows) ou le processus démon (sur Unix/Linux).
+   8a. Sur les systèmes Windows, cette opération peut être effectuée dans une seule fenêtre avec la console MMC (Microsoft Management Console) ou la console MC (Management Console) SAP.  Cliquez avec le bouton droit sur chaque instance et choisissez Toutes les tâches > Redémarrer le service.
+![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png) 8b. Sur les systèmes Linux, utilisez la commande sapcontrol -nr <NN> -function RestartService, où NN correspond au numéro de l’instance SAP dans lequel l’hôte connecté doit être redémarré.
+9. Une fois le service SAP redémarré, vérifiez que les règles mises à jour d’exclusion de protection de la méthode web ont été appliquées pour chaque instance en exécutant la commande sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user “<adminUser>” “<adminPassword>”. La sortie se présente ainsi : ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png).
+10. Pour conclure et valider la connexion, une requête de test peut être envoyée sur les méthodes web. Elle se connecte à chaque instance et exécute les commandes suivantes :
+Pour toutes les instances : sapcontrol -nr <NN> -function GetProcessList
+Pour l’instance ENQUE : sapcontrol -nr <NN> -function EnqGetStatistic
+Pour les instances ABAP : sapcontrol -nr <NN> -function ABAPGetWPTable
+Pour les instances ABAP/J2EE/JEE : sapcontrol -nr <NN> -function GetQueueStatistic
+
+>[!Important] 
+>Il est essentiel que le service sapstartsrv soit redémarré sur chacune des instances du système SAP pour ôter la protection des méthodes web SAPControl.  Ces API SOAP en lecture seule sont requises pour que le fournisseur NetWeaver extraie les données de métriques du système SAP. Si la protection de ces méthodes n’est pas ôtée, le classeur métrique NetWeaver risque de présenter des visualisations vides ou manquantes.
+   
 >[!Tip]
-> Utilisez une liste de contrôle d’accès (ACL) pour filtrer l’accès à un port du serveur. Consultez sa [note SAP](https://launchpad.support.sap.com/#/notes/1495075)
+> Utilisez une liste de contrôle d’accès (ACL, Access Control List) pour filtrer l’accès à un port de serveur. Pour plus d’informations, consultez [cette note SAP](https://launchpad.support.sap.com/#/notes/1495075).
 
-#### <a name="installing-netweaver-provider-on-the-azure-portal"></a>Installation du fournisseur NetWeaver sur le portail Azure
-1.  Assurez-vous que les étapes préalables ont été effectuées et que le serveur a été redémarré
-2.  Sur le portail Azure, sous AMS, sélectionnez Ajouter un fournisseur et choisissez SAP NetWeaver dans la liste déroulante
-3.  Entrez le nom d’hôte du système SAP et le sous-domaine (le cas échéant)
-4.  Entrez le numéro d’instance correspondant au nom d’hôte entré 
-5.  Entrez l’ID système (SID)
-6.  Lorsque vous avez terminé, sélectionnez Ajouter un fournisseur
-7.  Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez Passer en revue + créer pour terminer le déploiement
+Pour installer le fournisseur NetWeaver sur le Portail Azure, procédez comme suit :
 
-![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+1. Vous devez avoir suivi la procédure requise précédente et redémarré le serveur.
+1. Sur le Portail Azure, sélectionnez **Ajouter un fournisseur** sous **Azure Monitor pour SAP Solutions**. Ensuite, suivez les étapes ci-dessous :
 
+   1. Pour **Type**, sélectionnez **SAP NetWeaver**.
+
+   1. Pour **Nom d’hôte**, entrez le nom d’hôte du système SAP.
+
+   1. Pour **Sous-domaine**, entrez un sous-domaine, le cas échéant.
+
+   1. Pour **Numéro de l’instance**, entrez le numéro d’instance correspondant au nom d’hôte entré. 
+
+   1. Pour **SID**, entrez l’ID système.
+   
+   ![Capture d’écran montrant les options de configuration possibles pour ajouter un fournisseur SAP NetWeaver.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+
+1.  Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs si besoin, ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
+
+>[!Important]
+>Si les serveurs d’applications SAP (c’est-à-dire les machines virtuelles) font partie d’un domaine réseau (par exemple géré par Azure Active Directory), il est essentiel que le sous-domaine correspondant soit fourni dans la zone de texte Sous-domaine.  La machine virtuelle du collecteur Azure Monitor pour SAP Solutions qui existe dans le réseau virtuel n’est pas jointe au domaine. Par conséquent, elle ne peut pas résoudre le nom d’hôte des instances situées dans le système SAP, à moins que le nom d’hôte ne soit un nom de domaine complet.  Si vous ne le fournissez pas, le classeur NetWeaver risque de présenter des visualisations manquantes ou incomplètes.
+ 
+>Si, par exemple, le nom d’hôte du système SAP possède le nom de domaine complet « myhost.mycompany.global.corp », entrez le nom d’hôte « myhost » et spécifiez le sous-domaine « mycompany.global.corp ».  Lorsque le fournisseur NetWeaver appelle l’API GetSystemInstanceList sur le système SAP, SAP renvoie le nom d’hôte de toutes les instances du système.  La machine virtuelle du collecteur utilise cette liste pour effectuer des appels d’API supplémentaires visant à récupérer les métriques propres aux fonctionnalités de chaque instance (par exemple ABAP, J2EE, MESSAGESERVER, ENQUE et ENQREP). Elle se sert ensuite du sous-domaine « mycompany.global.corp », s’il est spécifié, pour créer le nom de domaine complet de chacune des instances du système SAP.  
+ 
+>Veuillez NE PAS spécifier d’adresse IP pour le champ Nom d’hôte si le système SAP fait partie d’un domaine réseau.
+
+   
 ### <a name="sap-hana-provider"></a>Fournisseur SAP HANA 
 
-1. Sélectionnez l’onglet **Fournisseur** pour ajouter les fournisseurs que vous souhaitez configurer. Vous pouvez ajouter plusieurs fournisseurs l’un après l’autre ou les ajouter après avoir déployé la ressource de surveillance. 
+1. Sélectionnez l’onglet **Fournisseurs** pour ajouter les fournisseurs que vous souhaitez configurer. Vous pouvez ajouter plusieurs fournisseurs successivement, ou les ajouter après avoir déployé la ressource de monitoring. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Affiche l’onglet Fournisseur pour ajouter des fournisseurs supplémentaires à votre Azure Monitor pour solutions SAP." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Capture d’écran montrant l’onglet permettant d’ajouter des fournisseurs." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
-2. Sélectionnez **Ajouter un fournisseur** et choisissez **SAP HANA** dans la liste déroulante. 
+1. Sélectionnez **Ajouter un fournisseur**, puis suivez les étapes ci-dessous :
 
-   > [!IMPORTANT]
-   > Assurez-vous qu’un fournisseur SAP HANA est configuré pour le nœud « master » SAP HANA.
+   1. Pour **Type**, sélectionnez **SAP HANA**. 
 
-3. Entrez l’adresse IP privée du serveur HANA.
+      > [!IMPORTANT]
+      > Vérifiez qu’un fournisseur SAP HANA est configuré pour le nœud SAP HANA `master`.
 
-4. Entrez le nom du locataire de la base de données que vous voulez utiliser. Vous pouvez choisir n’importe quel locataire. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB**, qui offre un ensemble plus vaste de zones de surveillance. 
+   1. Pour **Adresse IP**, entrez l’adresse IP privée du serveur HANA.
 
-5. Entrez le numéro de port SQL associé à votre base de données HANA. Le numéro de port doit être au format **[3]**  +  **[instance#]**  +  **[13]** . Par exemple, 30013. 
+   1. Pour **Locataire de la base de données**, entrez le nom du locataire à utiliser. Vous pouvez choisir n’importe lequel. Toutefois, nous vous recommandons d’utiliser **SYSTEMDB**, car il offre un plus large éventail de zones de monitoring. 
 
-6. Entrez le nom d'utilisateur de la base de données à utiliser. Assurez-vous que les rôles de **surveillance** et de **lecture de catalogue** sont attribués à l’utilisateur de la base de données. 
+   1. Pour **Port SQL**, entrez le numéro de port associé à votre base de données HANA. Il doit être au format *[3]*  +  *[numéro_instance]*  +  *[13]* , par exemple **30013**. 
 
-7. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
+   1. Pour **Nom d’utilisateur de la base de données**, entrez le nom d’utilisateur à utiliser. Les rôles de *monitoring* et de *lecture de catalogue* doivent être attribués à l’utilisateur de la base de données.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image des options de configuration lors de l’ajout d’informations sur le fournisseur." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Capture d’écran montrant les options de configuration possibles pour ajouter un fournisseur SAP HANA." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+
+1. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs si besoin, ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
+
    
 ### <a name="microsoft-sql-server-provider"></a>Fournisseur Microsoft SQL Server
 
-1. Avant d’ajouter le fournisseur Microsoft SQL Server, vous devez exécuter le script suivant dans SQL Server Management Studio pour créer un utilisateur avec les autorisations appropriées nécessaires à la configuration du fournisseur.
+1. Avant d’ajouter le fournisseur Microsoft SQL Server, exécutez le script suivant dans SQL Server Management Studio pour créer un utilisateur doté des autorisations nécessaires à la configuration du fournisseur.
 
    ```sql
    USE [<Database to monitor>]
@@ -119,52 +153,75 @@ Le « Service de démarrage SAP » fournit une série de services, notamment l
    GO
    ``` 
 
-2. Sélectionnez **Ajouter un fournisseur** et choisissez **Microsoft SQL Server** dans la liste déroulante. 
+1. Sélectionnez **Ajouter un fournisseur**, puis suivez les étapes ci-dessous :
 
-3. Renseignez les champs à l’aide des informations associées à votre Microsoft SQL Server. 
+   1. Pour **Type**, sélectionnez **Microsoft SQL Server**. 
 
-4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
+   1. Renseignez les champs restants à l’aide des informations associées à votre instance SQL Server. 
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="L’image montre des informations relatives à l’ajout du fournisseur Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Capture d’écran montrant les options de configuration possibles pour ajouter un fournisseur Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+
+1. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs si besoin, ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>Fournisseur de cluster à haute disponibilité (Pacemaker)
 
-1. Sélectionnez **Cluster à haute disponibilité (Pacemaker)** dans la liste déroulante. 
+Avant d’ajouter des fournisseurs pour les clusters haute disponibilité (Pacemaker), installez l’agent correspondant à votre environnement.
 
-   > [!IMPORTANT]
-   > Pour configurer le fournisseur de cluster à haute disponibilité (Pacemaker), assurez-vous que ha_cluster_provider est installé sur chaque nœud. Pour plus d’informations, consultez [Exportateur de cluster à haute disponibilité](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
-
-2. Entrez le point de terminaison Prometheus sous la forme http://IP:9664/metrics. 
+Pour les clusters **SUSE**, ha_cluster_provider doit être installé sur chaque nœud. Découvrez comment installer [l’exportateur de clusters haute disponibilité](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Versions de SUSE prises en charge : SLES pour SAP 12 SP3 et versions ultérieures.  
+   
+Pour les clusters **RHEL**, Performance Co-Pilot (PCP) et le sous-package pcp-pmda-hacluster doivent être installés sur chaque nœud. Découvrez comment installer [l’agent PCP HACLUSTER] (https://access.redhat.com/articles/6139852). Versions de RHEL prises en charge : 8.2, 8.4 et versions ultérieures.
  
-3. Entrez l’ID système (SID), le nom d'hôte et le nom du cluster.
+Une fois que vous avez effectué l’installation des composants requis, créez un fournisseur pour chaque nœud de cluster.
 
-4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
+1. Sélectionnez **Ajouter un fournisseur**, puis suivez les étapes ci-dessous :
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre les options relatives au fournisseur de stimulateur de cluster à haute disponibilité Pacemaker." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+1. Pour **Type**, sélectionnez **Cluster haute disponibilité (Pacemaker)** . 
+   
+1. Configurez les fournisseurs pour chaque nœud de cluster en entrant l’URL du point de terminaison dans **Point de terminaison de l’exportateur de clusters haute disponibilité**. Pour les clusters **SUSE**, entrez **http://<IP  address>:9664/metrics**. Pour les clusters **RHEL**, entrez **http://<IP address>:44322/metrics?names=ha_cluster**.
+ 
+1. Entrez l’ID système, le nom d’hôte et le nom de cluster dans les zones correspondantes.
+   
+   > [!IMPORTANT]
+   > Le nom d’hôte fait référence au nom d’hôte réel dans la machine virtuelle. Utilisez la commande « hostname -s » pour les clusters SUSE comme les clusters RHEL.  
+
+1. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs si besoin, ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
 ### <a name="os-linux-provider"></a>Fournisseur de système d’exploitation (Linux) 
 
-1. Sélectionnez Système d’exploitation (Linux) dans la liste déroulante. 
+1. Sélectionnez **Ajouter un fournisseur**, puis suivez les étapes ci-dessous :
 
-   >[!IMPORTANT]
-   > Pour configurer le fournisseur de système d’exploitation (Linux), assurez-vous que la dernière version de Node_Exporter est installée sur chaque hôte (BareMetal ou machine virtuelle) que vous souhaitez analyser. Installez la [version la plus récente de Node Exporter](https://prometheus.io/download/#node_exporter). Pour plus d’informations, [cliquez ici](https://github.com/prometheus/node_exporter).
+   1. Pour **Type**, sélectionnez **Système d’exploitation (Linux)** . 
 
-2. Entrez un nom, qui sera l’identificateur de l’instance BareMetal.
-3. Entrez le point de terminaison Node Exporter sous la forme http://IP:9100/metrics.
+      >[!IMPORTANT]
+      > Pour configurer un fournisseur de système d’exploitation (Linux), assurez-vous que la [dernière version de node_exporter](https://prometheus.io/download/#node_exporter) est installée sur chacun des hôtes (système nu ou machine virtuelle) à analyser. [Plus d’informations](https://github.com/prometheus/node_exporter)
 
-   >[!IMPORTANT]
-   >Utilisez l’adresse IP privée de l’hôte Linux. Vérifiez que les ressources hôte et AMS se trouvent dans le même réseau virtuel. 
+   1. Pour **Nom**, entrez un nom. Ce sera l’identificateur de l’instance système nu.
 
-   >[!Note]
-   > Le port du pare-feu « 9100 » doit être ouvert sur l’hôte Linux.
-   >Si vous utilisez firewall-cmd : firewall-cmd --permanent --add-port=9100/tcp firewall-cmd --reload Si vous utilisez ufw : ufw allow 9100/tcp ufw reload
+   1. Pour **Point de terminaison node_exporter**, entrez **http://IP:9100/metrics** .
 
-    >[!Tip]
-    > Si l’hôte Linux est une machine virtuelle Azure, vérifiez que tous les groupes applicables autorisent le trafic entrant sur le port 9100 à partir de « VirtualNetwork » en tant que source.
+      >[!IMPORTANT]
+      >Utilisez l’adresse IP privée de l’hôte Linux. L’hôte et la ressource Azure Monitor pour SAP Solutions doivent se trouver dans le même réseau virtuel. 
+      >
+      >Le port du pare-feu « 9100 » doit être ouvert sur l’hôte Linux. Si vous utilisez `firewall-cmd`, exécutez les commandes suivantes : 
+      >
+      >`firewall-cmd --permanent --add-port=9100/tcp`
+      >
+      >`firewall-cmd --reload`
+      >
+      >Si vous utilisez `ufw`, exécutez les commandes suivantes :
+      >
+      >`ufw allow 9100/tcp`
+      >
+      >`ufw reload`
+      >
+      > Si l’hôte Linux est une machine virtuelle Azure, assurez-vous que tous les groupes de sécurité réseau applicables autorisent le trafic entrant sur le port 9100 à partir de la source `VirtualNetwork`.
  
-5. Lorsque vous avez terminé, sélectionnez  **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez  **Vérifier + créer**  pour terminer le déploiement. 
+1. Lorsque vous avez terminé, sélectionnez  **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs si besoin, ou sélectionnez  **Vérifier + créer**  pour terminer le déploiement. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [Azure Monitor pour solutions SAP](azure-monitor-overview.md)
+Découvrez plus en détail Azure Monitor pour SAP Solutions.
+
+> [!div class="nextstepaction"]
+> [Superviser SAP sur Azure](monitor-sap-on-azure.md)

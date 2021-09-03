@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a588c2668fee342da074c911ce99fe29a7aa06a
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 81d4d17b4efdc1dd7d59cb566f8a9ef2e6742aac
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606178"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966764"
 ---
 # <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configuration du Machine Learning avec Azure Arc (préversion)
 
@@ -27,7 +27,7 @@ Le Machine Learning avec Azure Arc vous permet de configurer et d’utiliser des
 
 Le Machine Learning avec Azure Arc prend en charge les scénarios d’apprentissage suivants :
 
-* Apprentissage de modèles avec l’interface CLI (v2)
+* Entraîner des modèles avec CLI (v2)
   * Entraînement distribué
   * Balayage d’hyperparamètres
 * Apprentissage de modèles avec le kit SDK Python Azure Machine Learning
@@ -309,11 +309,11 @@ else:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprentissage de modèles avec l’interface CLI (v2)](how-to-train-cli.md)
+- [Entraîner des modèles avec CLI (v2)](how-to-train-cli.md)
 - [Configurer et soumettre des exécutions d’entraînement](how-to-set-up-training-targets.md)
 - [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 - [Apprentissage d’un modèle avec Scikit-learn](how-to-train-scikit-learn.md)
 - [Entraîner un modèle TensorFlow](how-to-train-tensorflow.md)
 - [Apprentissage d’un modèle PyTorch](how-to-train-pytorch.md)
 - [Apprentissage avec des pipelines Azure Machine Learning](how-to-create-machine-learning-pipelines.md)
-- [Apprentissage d’un modèle local avec un serveur proxy sortant](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
+- [Apprentissage d’un modèle local avec un serveur proxy sortant](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)
