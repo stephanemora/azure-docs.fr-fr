@@ -5,38 +5,95 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/01/2021
+ms.date: 06/07/2021
 ms.author: victorh
-ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 30ae9e7bf915e558a806d9297fbcc35700b64ce1
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741359"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111571078"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurer des règles de pare-feu Azure
-Vous pouvez configurer des règles NAT, des règles de réseau et des règles d'application sur Pare-feu Azure. Les collections de règles sont traitées en fonction du type de règle par ordre de priorité, des nombres inférieurs aux nombres supérieurs, compris entre 100 et 65 000. Un nom de règle de collection peut contenir uniquement des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. Il doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement. La longueur maximale du nom est limitée à 80 caractères.
+Vous pouvez configurer des règles NAT, des règles de réseau et des règles d’application sur le Pare-feu Azure à l’aide de règles classiques ou d’une stratégie de pare-feu. Le Pare-feu Azure refuse tout le trafic par défaut, jusqu’à ce que les règles soient configurées manuellement pour autoriser le trafic.
+
+## <a name="rule-processing-using-classic-rules"></a>Traitement des règles à l’aide des règles classiques
+
+Les collections de règles sont traitées en fonction du type de règle par ordre de priorité, des nombres inférieurs aux nombres supérieurs, compris entre 100 et 65 000. Un nom de règle de collection peut contenir uniquement des lettres, des chiffres, des traits de soulignement, des points ou des traits d’union. Il doit commencer par une lettre ou un chiffre et se terminer par une lettre, un chiffre ou un trait de soulignement. La longueur maximale du nom est limitée à 80 caractères.
 
 Le mieux est de commencer par espacer les numéros de priorité de la collection de règles par incréments de 100 (100, 200, 300, etc.). Vous avez ainsi de l’espace pour ajouter d’autres collections de règles si nécessaire.
 
+## <a name="rule-processing-using-firewall-policy"></a>Traitement des règles à l’aide d’une stratégie
+
+Dans une stratégie de pare-feu, les règles sont organisées dans des collections de règles et des groupes de collections de règles. Les groupes de collections de règles contiennent de zéro à plusieurs collections de règles. Les collections de règles sont organisées en types : NAT, Réseau ou Applications. Un groupe de règles peut contenir plusieurs types de collections de règles. Une collection de règles peut contenir entre zéro et plusieurs règles. Les règles d’une collection de règles doivent être du même type (NAT, Réseau ou Application).    
+
+Les règles sont traitées en fonction de la priorité du groupe de collections de règles et de la priorité de la collection des règles. La priorité est un nombre compris entre 100 (priorité la plus élevée) et 65 000 (priorité la plus basse). Les groupes de collections de règles dont la priorité est la plus élevée sont traités en premier. Au sein d’un groupe de collections de règles, les collections de règles avec la priorité la plus élevée (le plus petit nombre) sont traitées en premier.  
+
+Si une stratégie de pare-feu est héritée d’une stratégie parent, les groupes de collections de règles dans la stratégie parente sont toujours prioritaires, quelle que soit la priorité d’une stratégie enfant.  
+
 > [!NOTE]
-> Si vous activez le filtrage basé sur le renseignement sur les menaces (Threat Intelligence), ces règles sont prioritaires et sont toujours traitées en premier. Le filtrage basé sur le renseignement sur les menaces peut refuser le trafic avant que les règles configurées ne soient traitées. Pour plus d’informations, voir [Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure](threat-intel.md).
+> Les règles de type Application sont toujours traitées après les règles de type Réseau, qui sont traitées après les règles de type DNAT, quel que soient l’héritage de stratégie et la priorité du groupe de collections de règles par rapport aux collections de règles.
+
+Voici un exemple de stratégie :
+
+
+|Name  |Type  |Priority  |Règles  |Hérité de
+|---------|---------|---------|---------|-------|
+|BaseRCG1      |Groupe de collections de règles           |200         |8         |Stratégie parente|
+|DNATRc1     |Collection de règles DNAT         |  600       |   7      |Stratégie parente|
+|NetworkRc1     |Regroupement de règles de réseau  | 800        |    1     |Stratégie parente|
+|BaseRCG2  |Groupe de collections de règles         |300         | 3        |Stratégie parente|
+|AppRCG2     |Regroupement de règles d’application | 1200        |2         |Stratégie parente
+|NetworkRC2     |Regroupement de règles de réseau         |1 300         |    1     |Stratégie parente|
+|ChildRCG1  | Groupe de collections de règles        | 300        |5         |-|
+|ChAppRC1     |Regroupement de règles d’application         |  700       | 3        |-|
+|ChNetRC1       |   Regroupement de règles de réseau      |    900     |    2     |-|
+|ChildRCG2      |Groupe de collections de règles         | 650        |    9     |-|
+|ChNetRC2      |Regroupement de règles de réseau         |    1100     |  2       |-|
+|ChAppRC2      |     Regroupement de règles d’application    |2000         |7         |-|
+|ChDNATRC3     | Collection de règles DNAT        | 3000        |  2       |-|
+
+Voici l’ordre de traitement de la règle : DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2
+
+### <a name="threat-intelligence"></a>Informations sur les menaces
+
+Si vous activez le filtrage basé sur le renseignement sur les menaces, ces règles ont la priorité la plus élevée et sont donc toujours traitées en premier. Le filtrage basé sur le renseignement sur les menaces peut refuser le trafic avant que les règles configurées ne soient traitées. Pour plus d’informations, voir [Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure](threat-intel.md).
+
+### <a name="idps"></a>IDPS
+
+Lorsque IDPS est configuré en mode *Alerte*, le moteur IDPS fonctionne en parallèle à la logique de traitement de la règle et génère des alertes sur les signatures correspondantes pour les flux entrants et sortants.Lors d’une correspondance de signature IDPS, une alerte est enregistrée dans les journaux d’activité du pare-feu. Toutefois, étant donné que le moteur IDPS fonctionne en parallèle avec le moteur de traitement des règles, le trafic qui est refusé/autorisé par les règles d’application/réseau peut toujours générer une autre entrée de journal. 
+
+Lorsque IDPS est configuré en mode *Alert and Deny*  (« Alerte et refus »), le moteur IDPS est inclus et activé après le moteur de traitement des règles. Les deux moteurs génèrent donc des alertes et peuvent bloquer les flux correspondants.  
+
+Les annulations de session effectuées par IDPS bloquent le flux en mode silencieux. Par conséquent, aucun RST n’est envoyé au niveau TCP.Étant donné que IDPS inspecte le trafic toujours après que la règle Réseau/Application a été mise en correspondance (Autorisation/Refus) et marquée dans les journaux d’activité, un autre message *Annuler* peut être journalisé, où IDPS décide de refuser la session en raison d’une correspondance de signature. 
+
+Lorsque l’inspection TLS est activée, les trafics chiffrés et non chiffrés sont inspectés.  
 
 ## <a name="outbound-connectivity"></a>Connectivité sortante
 
 ### <a name="network-rules-and-applications-rules"></a>Règles de réseau et règles d’application
 
-Si vous configurez des règles de réseau et des règles d'application, les règles de réseau sont appliquées par ordre de priorité avant les règles d'application. Ce processus prend fin dès qu’une règle est exécutée. Ainsi, si une correspondance est trouvée dans une règle de réseau, aucune autre règle n'est traitée.  En l’absence de correspondance avec les règles de réseau, si le protocole est HTTP, HTTPS ou MSSQL, le paquet est évalué par les règles d’application, par ordre de priorité. Si aucune correspondance n’est trouvée, le paquet est évalué par rapport à la [collection de règles de l’infrastructure](infrastructure-fqdns.md). S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
+Si vous configurez des règles de réseau et des règles d'application, les règles de réseau sont appliquées par ordre de priorité avant les règles d'application. Ce processus prend fin dès qu’une règle est exécutée. Ainsi, si une correspondance est trouvée dans une règle de réseau, aucune autre règle n'est traitée. S’il est configuré, IDPS est effectué sur tout le trafic parcouru. En cas de correspondance de signature, IDPS peut alerter ou/et bloquer le trafic suspect.  
 
-#### <a name="network-rule-protocol"></a>Protocole de règle de réseau
+En l’absence de correspondance avec les règles de réseau, si le protocole est HTTP, HTTPS ou MSSQL, le paquet est évalué par les règles de type Application, par ordre de priorité.  
 
-Les règles de réseau peuvent être configurées pour le protocole **TCP**, **UDP**, **ICMP** ou n’importe quel protocole IP (**N’importe lequel**). La valeur de protocole IP « N’importe lequel » inclut tous les protocoles IP tels que définis dans le document sur les [numéros de protocole IANA (Internet Assigned Numbers Authority)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). Si un port de destination est configuré de manière explicite, la règle est traduite en règle TCP+UDP.
+Pour HTTP, le Pare-feu Azure recherche une correspondance de règle de type Application en fonction de l’en-tête de l’hôte. Pour HTTPs, le Pare-feu Azure recherche une correspondance de règle de type Application uniquement en fonction de l’indication du nom du serveur.  
 
-Avant le 9 novembre 2020 **N’importe lequel** signifiait **TCP**, **UDP** ou **ICMP**. Par conséquent, vous avez peut-être configuré une règle avant cette date avec Protocole = N’importe lequel et les ports de destination = ' * '. Si vous n’avez pas réellement l’intention d’autoriser n’importe quel protocole IP comme actuellement défini, modifiez la règle pour configurer explicitement le ou les protocoles souhaités (TCP, UDP ou ICMP).
+Dans les cas de HTTP et de HTTPS inspecté par TLS, le pare-feu ignore l’adresse IP de destination du paquet et utilise l’adresse IP résolue par DNS à partir de l’en-tête de l’hôte. Le pare-feu s’attend à recevoir le numéro de port dans l’en-tête de l’hôte. Dans le cas contraire, il part du principe que le port a la valeur standard 80. En cas d’incompatibilité de port entre le port TCP réel et le port dans l’en-tête de l’hôte, le trafic est abandonné.La résolution DNS est effectuée par Azure DNS ou par un DNS personnalisé s’il est configuré sur le pare-feu.  
+
+> [!NOTE]
+> Les protocoles HTTP et HTTPs (avec inspection TLS) sont toujours remplis par le Pare-feu Azure avec l’en-tête XFF (X-Forwarded-For) égal à l’adresse IP source d’origine.  
+
+Lorsqu’une règle de type Application contient l’inspection TLS, le moteur de règles du pare-feu traite l’indication du nom du serveur, l’en-tête de l’hôte et également l’URL correspondant à la règle. 
+
+Si aucune correspondance n’est trouvée dans les règles de type Application, le paquet est évalué par rapport à la collection de règles d’infrastructure. S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut. 
+
+> [!NOTE]
+> Les règles de type Réseau peuvent être configurées pour le protocole IP  *TCP*,  *UDP*,  *ICMP* ou  *N’importe lequel* . Par « N’importe lequel », on entend tous les protocoles IP tels que définis dans le document sur les numéros de protocole IANA (Internet Assigned Numbers Authority). Si un port de destination est configuré de manière explicite, la règle est traduite en règle TCP+UDP. Avant le 9 novembre 2020,  *N’importe lequel* signifiait TCP, UDP ou ICMP. Par conséquent, vous avez peut-être configuré une règle avant cette date avec **Protocole = N’importe lequel** et les **ports de destination = ' * '** . Si vous n’avez pas l’intention d’autoriser n’importe quel protocole IP comme actuellement défini, modifiez la règle pour configurer explicitement le ou les protocoles souhaités (TCP, UDP ou ICMP). 
 
 ## <a name="inbound-connectivity"></a>Connectivité entrante
 
-### <a name="nat-rules"></a>Règles NAT
+### <a name="dnat-rules-and-network-rules"></a>Règles de type DNAT et règles de type Réseau
 
 Vous pouvez activer la connectivité Internet entrante en configurant le mode DNAT (Destination Network Address Translation), comme décrit dans l’article [Tutoriel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure](tutorial-firewall-dnat.md). Les règles NAT sont appliquées en priorité par rapport aux règles de réseau. Si une correspondance est trouvée, une règle de réseau correspondante implicite autorisant le trafic traduit est ajoutée. Par souci de sécurité, l’approche recommandée consiste à ajouter une source Internet spécifique pour autoriser l’accès de DNAT au réseau et éviter d’utiliser des caractères génériques.
 
